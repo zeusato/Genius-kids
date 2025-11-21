@@ -36,6 +36,13 @@ import { generateG3Division } from './generators/grade3/division';
 import { generateG3Geometry } from './generators/grade3/geometry';
 import { generateG3Measurements } from './generators/grade3/measurements';
 import { generateG3WordProblems } from './generators/grade3/wordProblems';
+import { generateG5Numbers } from './generators/grade5/numbers';
+import { generateG5DecimalOps } from './generators/grade5/decimalOps';
+import { generateG5Ratios } from './generators/grade5/ratios';
+import { generateG5Fractions } from './generators/grade5/fractions';
+import { generateG5Geometry } from './generators/grade5/geometry';
+import { generateG5Measurements } from './generators/grade5/measurements';
+import { generateG5WordProblems } from './generators/grade5/wordProblems';
 
 // --- Utility Functions ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -113,7 +120,14 @@ export const TOPICS: Topic[] = [
   { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade4, description: 'Luyện gõ 10 ngón và chính tả' },
 
   // Grade 5
-  { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade5, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g5_numbers', title: 'Số tự nhiên & Số thập phân', grade: Grade.Grade5, description: 'Đọc, viết, so sánh số lớn và số thập phân' },
+  { id: 'g5_decimal_ops', title: 'Phép tính số thập phân', grade: Grade.Grade5, description: 'Cộng, trừ, nhân, chia số thập phân' },
+  { id: 'g5_ratios', title: 'Tỉ số - Tỉ lệ - Phần trăm', grade: Grade.Grade5, description: 'Tỉ số, tỉ lệ thuận, phần trăm, giảm giá' },
+  { id: 'g5_fractions', title: 'Phân số nâng cao', grade: Grade.Grade5, description: 'Quy đồng, phép tính, chuyển đổi' },
+  { id: 'g5_geometry', title: 'Hình học nâng cao', grade: Grade.Grade5, description: 'Hình bình hành, hình tròn, thể tích' },
+  { id: 'g5_measurements', title: 'Đo lường nâng cao', grade: Grade.Grade5, description: 'Đổi đơn vị, vận tốc, quãng đường' },
+  { id: 'g5_word_problems', title: 'Toán lời văn nâng cao', grade: Grade.Grade5, description: 'Tổng-hiệu-tỉ, chuyển động, năng suất' },
+  { id: 'g5_typing', title: 'Luyện gõ phím', grade: Grade.Grade5, description: 'Luyện gõ 10 ngón và chính tả' },
 ];
 
 // --- Generators ---
@@ -215,6 +229,16 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g3_measurements': generateG3Measurements,
   'g3_word_problems': generateG3WordProblems,
   'g3_typing': generateTypingGrade3,
+
+  // --- Grade 5 Generators ---
+  'g5_numbers': generateG5Numbers,
+  'g5_decimal_ops': generateG5DecimalOps,
+  'g5_ratios': generateG5Ratios,
+  'g5_fractions': generateG5Fractions,
+  'g5_geometry': generateG5Geometry,
+  'g5_measurements': generateG5Measurements,
+  'g5_word_problems': generateG5WordProblems,
+  'g5_typing': generateTypingGrade5,
 
   // --- Grade 4 Generators ---
   'g4_large_numbers': generateLargeNumbers,
