@@ -1,5 +1,41 @@
-
 import { Grade, Question, Topic, QuestionType } from '../types';
+import { generateG2Units } from './generators/grade2/units';
+import { generateG2Time } from './generators/grade2/time';
+import { generateG2Geometry } from './generators/grade2/geometry';
+import { generateG2Arithmetic } from './generators/grade2/arithmetic';
+import { generateTypingGrade2 } from './generators/grade2/typing';
+import { generateTypingGrade3 } from './generators/grade3/typing';
+import { generateTypingGrade4 } from './generators/grade4/typing';
+import { generateTypingGrade5 } from './generators/grade5/typing';
+import { generateNumbers5 } from './generators/grade1/numbers5';
+import { generateNumbers10 } from './generators/grade1/numbers10';
+import { generateAddition10 } from './generators/grade1/addition10';
+import { generateSubtraction10 } from './generators/grade1/subtraction10';
+import { generateNumbers20 } from './generators/grade1/numbers20';
+import { generateOperations20 } from './generators/grade1/operations20';
+import { generateNumbers100 } from './generators/grade1/numbers100';
+import { generateLength } from './generators/grade1/length';
+import { generateTime } from './generators/grade1/time';
+import { generateGeometry as generateG1Geometry } from './generators/grade1/geometry';
+import { generateWordProblems as generateG1WordProblems } from './generators/grade1/wordProblems';
+import { generateLargeNumbers } from './generators/grade4/largeNumbers';
+import { generateAddSub } from './generators/grade4/additions';
+import { generateMultiplication } from './generators/grade4/multiplications';
+import { generateDivision } from './generators/grade4/divisions';
+import { generateUnits } from './generators/grade4/units';
+import { generateAngles } from './generators/grade4/angles';
+import { generateLines } from './generators/grade4/lines';
+import { generateFractions } from './generators/grade4/fractions';
+import { generateStatistics } from './generators/grade4/statistics';
+import { generateWordProblems } from './generators/grade4/wordProblems';
+import { generateGeometryG4 } from './generators/grade4/geometry';
+import { generateG3Numbers } from './generators/grade3/numbers';
+import { generateG3Arithmetic } from './generators/grade3/arithmetic';
+import { generateG3Multiplication } from './generators/grade3/multiplication';
+import { generateG3Division } from './generators/grade3/division';
+import { generateG3Geometry } from './generators/grade3/geometry';
+import { generateG3Measurements } from './generators/grade3/measurements';
+import { generateG3WordProblems } from './generators/grade3/wordProblems';
 
 // --- Utility Functions ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -29,21 +65,53 @@ const generateWrongAnswers = (correct: number, count: number, range: number = 10
 // --- Topic Registry ---
 
 export const TOPICS: Topic[] = [
+  // Grade 1
+  { id: 'g1_numbers_5', title: 'Số phạm vi 5', grade: Grade.Grade1, description: 'Đếm, so sánh, sắp xếp 1-5' },
+  { id: 'g1_numbers_10', title: 'Số phạm vi 10', grade: Grade.Grade1, description: 'Đếm, so sánh, tách số 0-10' },
+  { id: 'g1_addition_10', title: 'Phép cộng phạm vi 10', grade: Grade.Grade1, description: 'Cộng bằng hình và số' },
+  { id: 'g1_subtraction_10', title: 'Phép trừ phạm vi 10', grade: Grade.Grade1, description: 'Trừ bằng hình và số' },
+  { id: 'g1_numbers_20', title: 'Số phạm vi 20', grade: Grade.Grade1, description: 'Đọc, viết, so sánh 11-20' },
+  { id: 'g1_operations_20', title: 'Cộng trừ phạm vi 20', grade: Grade.Grade1, description: 'Cộng trừ có nhớ đơn giản' },
+  { id: 'g1_numbers_100', title: 'Số phạm vi 100', grade: Grade.Grade1, description: 'Nhận biết số tròn chục' },
+  { id: 'g1_length', title: 'Độ dài (cm)', grade: Grade.Grade1, description: 'Nhận biết, đo, so sánh' },
+  { id: 'g1_time', title: 'Thời gian', grade: Grade.Grade1, description: 'Buổi trong ngày, ngày trong tuần' },
+  { id: 'g1_geometry', title: 'Hình học trực quan', grade: Grade.Grade1, description: 'Nhận dạng hình cơ bản' },
+  { id: 'g1_word_problems', title: 'Toán lời văn 1 bước', grade: Grade.Grade1, description: 'Thêm, bớt, tổng, còn lại' },
+
   // Grade 2
   { id: 'g2_add_sub_no_carry', title: 'Cộng trừ không nhớ (Phạm vi 100)', grade: Grade.Grade2, description: 'Phép tính đơn giản không cần nhớ' },
   { id: 'g2_add_sub_carry', title: 'Cộng trừ có nhớ (Phạm vi 100)', grade: Grade.Grade2, description: 'Phép tính cần mượn hoặc nhớ' },
-  { id: 'g2_units_mass_len', title: 'Đổi đơn vị (Kg, Dm, Cm)', grade: Grade.Grade2, description: 'Đổi đơn vị liền kề' },
-  
-  // Grade 3 (Adding typing here as well)
-  { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade3, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g2_arithmetic_advanced', title: 'Toán đố & Tư duy số học', grade: Grade.Grade2, description: 'Tìm ẩn số, so sánh, toán lời văn' },
+  { id: 'g2_units_measure', title: 'Đại lượng (Độ dài, Khối lượng, Dung tích)', grade: Grade.Grade2, description: 'Đổi đơn vị, xem cân, đo độ dài' },
+  { id: 'g2_time_calendar', title: 'Thời gian & Lịch', grade: Grade.Grade2, description: 'Xem đồng hồ, đọc lịch ngày tháng' },
+  { id: 'g2_geometry_basic', title: 'Hình học (Phẳng & Khối)', grade: Grade.Grade2, description: 'Nhận diện hình, đếm hình' },
+  { id: 'g2_typing', title: 'Luyện gõ phím', grade: Grade.Grade2, description: 'Luyện gõ 10 ngón và chính tả' },
+
+  // Grade 3
+  { id: 'g3_numbers', title: 'Số và phép tính (1000-10000)', grade: Grade.Grade3, description: 'Đọc, viết, so sánh số 4 chữ số' },
+  { id: 'g3_arithmetic', title: 'Cộng trừ (1000-10000)', grade: Grade.Grade3, description: 'Cộng trừ có nhớ, tính nhanh' },
+  { id: 'g3_multiplication', title: 'Nhân (2-3 chữ số)', grade: Grade.Grade3, description: 'Nhân số lớn, tính nhanh' },
+  { id: 'g3_division', title: 'Chia (2-3 chữ số)', grade: Grade.Grade3, description: 'Chia có dư, chia đều' },
+  { id: 'g3_geometry', title: 'Hình học cơ bản', grade: Grade.Grade3, description: 'Đoạn thẳng, góc vuông, chu vi' },
+  { id: 'g3_measurements', title: 'Đo lường', grade: Grade.Grade3, description: 'Độ dài, khối lượng, dung tích, thời gian' },
+  { id: 'g3_word_problems', title: 'Toán lời văn', grade: Grade.Grade3, description: 'Bài toán 1-2 bước' },
+  { id: 'g3_typing', title: 'Luyện gõ phím', grade: Grade.Grade3, description: 'Luyện gõ 10 ngón và chính tả' },
 
   // Grade 4
-  { id: 'g4_arithmetic_10000', title: 'Bốn phép tính (Phạm vi 10,000)', grade: Grade.Grade4, description: 'Cộng, Trừ, Nhân, Chia số lớn' },
+  { id: 'g4_large_numbers', title: 'Số lớn', grade: Grade.Grade4, description: 'Đọc, viết, so sánh, làm tròn số lớn' },
+  { id: 'g4_add_sub', title: 'Cộng trừ số lớn', grade: Grade.Grade4, description: 'Tính, tìm x, so sánh, toán lời văn' },
+  { id: 'g4_multiplication', title: 'Nhân số lớn', grade: Grade.Grade4, description: 'Nhân lớn, mẹo tính, tìm thừa số, toán lời văn' },
+  { id: 'g4_division', title: 'Chia số lớn', grade: Grade.Grade4, description: 'Chia lớn, chia có dư, tìm số, toán lời văn' },
+  { id: 'g4_units', title: 'Đơn vị đo đại lượng', grade: Grade.Grade4, description: 'Độ dài, Khối lượng, Thời gian, Diện tích' },
+  { id: 'g4_angles', title: 'Góc', grade: Grade.Grade4, description: 'Nhận dạng, đo góc, so sánh góc' },
+  { id: 'g4_lines', title: 'Đường thẳng', grade: Grade.Grade4, description: 'Song song, vuông góc' },
   { id: 'g4_geometry_2d', title: 'Hình học phẳng & Ghép hình', grade: Grade.Grade4, description: 'Chu vi, diện tích hình chữ nhật, hình vuông, hình ghép' },
-  { id: 'g4_units_complex', title: 'Quy đổi đơn vị tổng hợp', grade: Grade.Grade4, description: 'Độ dài, Khối lượng, Diện tích' },
+  { id: 'g4_fractions', title: 'Phân số cơ bản', grade: Grade.Grade4, description: 'Nhận biết, viết, so sánh phân số' },
+  { id: 'g4_statistics', title: 'Thống kê', grade: Grade.Grade4, description: 'Đọc biểu đồ, bảng số liệu' },
+  { id: 'g4_word_problems', title: 'Toán lời văn', grade: Grade.Grade4, description: 'Bài toán 2-3 bước' },
   { id: 'g4_patterns', title: 'Tìm quy luật dãy số', grade: Grade.Grade4, description: 'Điền số còn thiếu vào vị trí bất kỳ' },
   { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade4, description: 'Luyện gõ 10 ngón và chính tả' },
-  
+
   // Grade 5
   { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade5, description: 'Luyện gõ 10 ngón và chính tả' },
 ];
@@ -51,12 +119,25 @@ export const TOPICS: Topic[] = [
 // --- Generators ---
 
 const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
+  // --- Grade 1 Generators ---
+  'g1_numbers_5': generateNumbers5,
+  'g1_numbers_10': generateNumbers10,
+  'g1_addition_10': generateAddition10,
+  'g1_subtraction_10': generateSubtraction10,
+  'g1_numbers_20': generateNumbers20,
+  'g1_operations_20': generateOperations20,
+  'g1_numbers_100': generateNumbers100,
+  'g1_length': generateLength,
+  'g1_time': generateTime,
+  'g1_geometry': generateG1Geometry,
+  'g1_word_problems': generateG1WordProblems,
+
   // --- Grade 2 Generators ---
-  
+
   'g2_add_sub_no_carry': () => {
     const isAdd = Math.random() > 0.5;
     let a, b, ans;
-    
+
     if (isAdd) {
       // a + b < 100, unit digits sum < 10
       const a_units = randomInt(0, 8);
@@ -89,7 +170,7 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g2_add_sub_carry': () => {
     const isAdd = Math.random() > 0.5;
     let a, b, ans;
-    
+
     if (isAdd) {
       // a + b < 100, unit digits sum >= 10
       const a_units = randomInt(1, 9);
@@ -119,244 +200,46 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
     };
   },
 
-  'g2_units_mass_len': () => {
-    const types = [
-      { from: 'dm', to: 'cm', factor: 10, name: 'độ dài' },
-      { from: 'm', to: 'dm', factor: 10, name: 'độ dài' },
-      { from: 'cm', to: 'mm', factor: 10, name: 'độ dài' },
-    ];
-    const type = types[randomInt(0, types.length - 1)];
-    const isForward = Math.random() > 0.5; // dm -> cm or cm -> dm
+  'g2_units_measure': generateG2Units,
+  'g2_arithmetic_advanced': generateG2Arithmetic,
+  'g2_time_calendar': generateG2Time,
+  'g2_geometry_basic': generateG2Geometry,
+  'g2_typing': generateTypingGrade2,
 
-    let val, result, text;
-    if (isForward) {
-      val = randomInt(1, 20);
-      result = val * type.factor;
-      text = `${val} ${type.from} = ... ${type.to}`;
-    } else {
-      result = randomInt(1, 20);
-      val = result * type.factor;
-      text = `${val} ${type.to} = ... ${type.from}`;
-    }
-
-    return {
-      type: QuestionType.SingleChoice,
-      questionText: text,
-      correctAnswer: result.toString(),
-      options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 10)]),
-      explanation: `1 ${type.from} = ${type.factor} ${type.to}.`
-    };
-  },
+  // --- Grade 3 Generators ---
+  'g3_numbers': generateG3Numbers,
+  'g3_arithmetic': generateG3Arithmetic,
+  'g3_multiplication': generateG3Multiplication,
+  'g3_division': generateG3Division,
+  'g3_geometry': generateG3Geometry,
+  'g3_measurements': generateG3Measurements,
+  'g3_word_problems': generateG3WordProblems,
+  'g3_typing': generateTypingGrade3,
 
   // --- Grade 4 Generators ---
+  'g4_large_numbers': generateLargeNumbers,
+  'g4_add_sub': generateAddSub,
+  'g4_multiplication': generateMultiplication,
+  'g4_division': generateDivision,
+  'g4_units': generateUnits,
+  'g4_angles': generateAngles,
+  'g4_lines': generateLines,
+  'g4_fractions': generateFractions,
+  'g4_statistics': generateStatistics,
+  'g4_word_problems': generateWordProblems,
+  'g4_geometry_2d': generateGeometryG4,
 
-  'g4_arithmetic_10000': () => {
-    const op = randomInt(0, 3); // 0:+, 1:-, 2:*, 3:/
-    let a=0, b=0, ans=0, symbol='';
-
-    switch(op) {
-      case 0: // Add
-        a = randomInt(1000, 8000);
-        b = randomInt(100, 9999 - a);
-        ans = a + b;
-        symbol = '+';
-        break;
-      case 1: // Sub
-        a = randomInt(2000, 9999);
-        b = randomInt(100, a - 100);
-        ans = a - b;
-        symbol = '-';
-        break;
-      case 2: // Mul (Keep simple enough for 20 mins context, e.g., 2-3 digits x 1 digit)
-        a = randomInt(100, 999);
-        b = randomInt(2, 9);
-        ans = a * b;
-        symbol = 'x';
-        break;
-      case 3: // Div (No remainder for simplicity in basic test)
-        b = randomInt(2, 9);
-        ans = randomInt(100, 1000);
-        a = ans * b;
-        symbol = ':';
-        break;
-    }
-
-    return {
-      type: QuestionType.SingleChoice,
-      questionText: `Tính: ${a} ${symbol} ${b} = ?`,
-      correctAnswer: ans.toString(),
-      options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 50)]),
-      explanation: `Thực hiện tính toán cẩn thận từ phải sang trái (với cộng/trừ/nhân) hoặc trái sang phải (với chia).`
-    };
-  },
-
-  'g4_geometry_2d': () => {
-    // 40% chance for Composite Shape (L-shape, joined rects), 60% basic
-    const isComposite = Math.random() > 0.6;
-
-    // Fix: Increased SVG width and viewBox to prevent text clipping
-    // Fix: Shifted X coordinates to allow space for left-side labels
-
-    if (isComposite) {
-       // Generate two joined rectangles
-       const hA = randomInt(4, 8); // Height of left part
-       const wA = randomInt(3, 6); // Width of left part
-       
-       const hB = randomInt(2, hA - 1); // Height of right part (shorter)
-       const wB = randomInt(3, 6); // Width of right part
-
-       const isArea = Math.random() > 0.5;
-       const area = (hA * wA) + (hB * wB);
-       // Perimeter: 2*hA + 2*wA + 2*wB (Derived from bounding box logic)
-       const perimeter = (hA * 2) + (wA * 2) + (wB * 2);
-       const ans = isArea ? area : perimeter;
-
-       const scale = 15;
-       const startX = 50; // Shift right by 50px to fit left labels
-       const startY = 200;
-
-       // Path definition
-       const path = `
-         M ${startX} ${startY - (hA*scale)} 
-         L ${startX + wA*scale} ${startY - (hA*scale)} 
-         L ${startX + wA*scale} ${startY - (hB*scale)} 
-         L ${startX + (wA+wB)*scale} ${startY - (hB*scale)} 
-         L ${startX + (wA+wB)*scale} ${startY} 
-         L ${startX} ${startY} 
-         Z
-       `;
-       
-       // Labels
-       const labels = [
-         { x: startX - 35, y: startY - (hA*scale)/2, text: `${hA}cm` }, // Left height
-         { x: startX + (wA*scale)/2 - 10, y: startY - (hA*scale) - 5, text: `${wA}cm` }, // Top A width
-         { x: startX + wA*scale + (wB*scale)/2 - 10, y: startY - (hB*scale) - 5, text: `${wB}cm` }, // Top B width
-         { x: startX + (wA+wB)*scale + 5, y: startY - (hB*scale)/2, text: `${hB}cm` } // Right B height
-       ];
-
-       const svgContent = `
-         <svg width="300" height="220" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
-           <path d="${path}" fill="#e0f2fe" stroke="#0284c7" stroke-width="3" />
-           ${labels.map(l => `<text x="${l.x}" y="${l.y}" font-family="sans-serif" font-size="14" fill="#0f172a">${l.text}</text>`).join('')}
-         </svg>
-       `;
-
-       return {
-         type: QuestionType.SingleChoice,
-         questionText: `Hình vẽ bên dưới được tạo bởi hai hình chữ nhật ghép lại. Hình 1 cao ${hA}cm rộng ${wA}cm, hình 2 cao ${hB}cm rộng ${wB}cm. Tính ${isArea ? 'diện tích' : 'chu vi'} của toàn bộ hình?`,
-         visualSvg: svgContent,
-         correctAnswer: ans.toString(),
-         options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 15)]),
-         explanation: isArea 
-           ? `Diện tích = Diện tích hình lớn (${hA}x${wA}) + Diện tích hình nhỏ (${hB}x${wB}) = ${hA*wA} + ${hB*wB} = ${area} cm²`
-           : `Chu vi bao quanh hình = Tổng độ dài các cạnh bao quanh.`
-       };
-
-    } else {
-      // Standard logic
-      const isRect = Math.random() > 0.3;
-      if (isRect) {
-        const w = randomInt(5, 50);
-        const h = randomInt(5, 50);
-        const isArea = Math.random() > 0.5;
-        
-        const ans = isArea ? w * h : (w + h) * 2;
-        const wrong1 = isArea ? (w + h) * 2 : w * h; 
-        
-        // Generate Simple SVG (Shifted x=40)
-        const svgContent = `
-           <svg width="300" height="150" viewBox="0 0 300 150">
-             <rect x="40" y="20" width="180" height="100" fill="#fef3c7" stroke="#d97706" stroke-width="3" />
-             <text x="120" y="145" font-family="sans-serif" font-size="14">${Math.max(w,h)}m</text>
-             <text x="225" y="80" font-family="sans-serif" font-size="14">${Math.min(w,h)}m</text>
-           </svg>
-        `;
-
-        return {
-          type: QuestionType.SingleChoice,
-          questionText: `Một hình chữ nhật có chiều dài ${Math.max(w,h)}m và chiều rộng ${Math.min(w,h)}m. ${isArea ? 'Diện tích' : 'Chu vi'} hình đó là bao nhiêu?`,
-          visualSvg: svgContent,
-          correctAnswer: ans.toString(),
-          options: shuffleArray([
-            ans.toString(), 
-            wrong1.toString(), 
-            (ans + randomInt(1, 10)).toString(), 
-            (ans - randomInt(1, 10)).toString()
-          ]),
-          explanation: isArea ? `Diện tích = Dài x Rộng` : `Chu vi = (Dài + Rộng) x 2`
-        };
-      } else {
-        // Square
-        const side = randomInt(10, 100);
-        const isArea = Math.random() > 0.5;
-        const ans = isArea ? side * side : side * 4;
-        
-        const svgContent = `
-           <svg width="250" height="180" viewBox="0 0 250 180">
-             <rect x="40" y="25" width="100" height="100" fill="#dcfce7" stroke="#16a34a" stroke-width="3" />
-             <text x="80" y="145" font-family="sans-serif" font-size="14">${side}m</text>
-             <text x="145" y="80" font-family="sans-serif" font-size="14">${side}m</text>
-           </svg>
-        `;
-
-        return {
-          type: QuestionType.SingleChoice,
-          questionText: `Một hình vuông có cạnh ${side}m. ${isArea ? 'Diện tích' : 'Chu vi'} là?`,
-          visualSvg: svgContent,
-          correctAnswer: ans.toString(),
-          options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 20)]),
-          explanation: isArea ? `Diện tích HV = Cạnh x Cạnh` : `Chu vi HV = Cạnh x 4`
-        };
-      }
-    }
-  },
-
-  'g4_units_complex': () => {
-     // e.g. 5m 2cm = ... cm
-     const types = ['m', 'kg', 'm2'];
-     const type = types[randomInt(0, 2)];
-     
-     let question = '', ans = 0, exp = '';
-
-     if (type === 'm') {
-       const m = randomInt(1, 50);
-       const cm = randomInt(1, 99);
-       ans = m * 100 + cm;
-       question = `${m}m ${cm}cm = ... cm`;
-       exp = `1m = 100cm. Vậy ${m}m = ${m*100}cm. Cộng thêm ${cm}cm.`;
-     } else if (type === 'kg') {
-       const kg = randomInt(1, 20);
-       const g = randomInt(1, 999);
-       ans = kg * 1000 + g;
-       question = `${kg}kg ${g}g = ... g`;
-       exp = `1kg = 1000g.`;
-     } else { // m2
-       const m2 = randomInt(1, 10);
-       const dm2 = randomInt(1, 99);
-       ans = m2 * 100 + dm2;
-       question = `${m2}m² ${dm2}dm² = ... dm²`;
-       exp = `1m² = 100dm².`;
-     }
-
-     return {
-       type: QuestionType.SingleChoice,
-       questionText: question,
-       correctAnswer: ans.toString(),
-       options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 100)]),
-       explanation: exp
-     };
-  },
 
   'g4_patterns': () => {
     const start = randomInt(1, 50);
     const diff = randomInt(2, 15);
     const seq = [start, start + diff, start + diff * 2, start + diff * 3, start + diff * 4];
-    
+
     const hiddenIndex = randomInt(0, 4);
     const correctAnswer = seq[hiddenIndex];
-    
+
     const displaySeq = seq.map((val, idx) => idx === hiddenIndex ? '...' : val);
-    
+
     return {
       type: QuestionType.ManualInput,
       questionText: `Điền số còn thiếu vào dãy số: ${displaySeq.join(', ')}`,
@@ -364,6 +247,7 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
       explanation: `Dãy số tăng dần với khoảng cách là ${diff}.`
     };
   },
+
 
   'typing_practice': () => {
     const texts = [
@@ -376,11 +260,41 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
       "Lá lành đùm lá rách.",
       "Cái cò đi đón cơn mưa, tối tăm mù mịt ai đưa cò về.",
       "Trăm hay không bằng tay quen.",
-      "Đi một ngày đàng, học một sàng khôn."
+      "Đi một ngày đàng, học một sàng khôn.",
+      "Ăn quả nhớ kẻ trồng cây.",
+      "Uống nước nhớ nguồn.",
+      "Gần mực thì đen, gần đèn thì sáng.",
+      "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.",
+      "Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.",
+      "Chị ngã em nâng.",
+      "Máu chảy ruột mềm.",
+      "Anh em như thể tay chân.",
+      "Khôn ngoan đối đáp người ngoài, gà cùng một mẹ chớ hoài đá nhau.",
+      "Nhiễu điều phủ lấy giá gương, người trong một nước phải thương nhau cùng.",
+      "Thất bại là mẹ thành công.",
+      "Cái nết đánh chết cái đẹp.",
+      "Tốt gỗ hơn tốt nước sơn.",
+      "Đói cho sạch, rách cho thơm.",
+      "Giấy rách phải giữ lấy lề.",
+      "Thương người như thể thương thân.",
+      "Một con ngựa đau cả tàu bỏ cỏ.",
+      "Có chí thì nên.",
+      "Lửa thử vàng, gian nan thử sức.",
+      "Nước chảy đá mòn.",
+      "Kiến tha lâu cũng đầy tổ.",
+      "Học, học nữa, học mãi.",
+      "Tiên học lễ, hậu học văn.",
+      "Muốn biết phải hỏi, muốn giỏi phải học.",
+      "Dốt đến đâu học lâu cũng biết.",
+      "Không thầy đố mày làm nên.",
+      "Trọng thầy mới được làm thầy.",
+      "Nhất tự vi sư, bán tự vi sư.",
+      "Ăn vóc học hay.",
+      "Văn hay chữ tốt."
     ];
-    
+
     const text = texts[randomInt(0, texts.length - 1)];
-    
+
     return {
       type: QuestionType.Typing,
       questionText: "Hãy gõ lại chính xác đoạn văn bản dưới đây:",
@@ -393,17 +307,46 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
 export const generateQuestions = (topicIds: string[], count: number): Question[] => {
   const questions: Question[] = [];
   const questionsPerTopic = Math.ceil(count / topicIds.length);
+  const seenQuestions = new Set<string>(); // Track question text to avoid duplicates
 
   topicIds.forEach(tid => {
     const generator = generators[tid];
     if (generator) {
-      for (let i = 0; i < questionsPerTopic; i++) {
+      let added = 0;
+      let attempts = 0;
+      const maxAttempts = questionsPerTopic * 10; // Prevent infinite loop
+
+      while (added < questionsPerTopic && attempts < maxAttempts) {
+        attempts++;
         const baseQ = generator();
+
+        // Create unique key for question (questionText + correctAnswer)
+        const questionKey = `${baseQ.questionText}|${baseQ.correctAnswer}`;
+
+        // Skip if duplicate question
+        if (seenQuestions.has(questionKey)) {
+          continue;
+        }
+
+        // Ensure options are unique for SingleChoice questions
+        if (baseQ.type === QuestionType.SingleChoice && baseQ.options) {
+          const uniqueOptions = Array.from(new Set(baseQ.options));
+
+          // If we lost options due to duplicates, skip this question
+          if (uniqueOptions.length < 4) {
+            continue;
+          }
+
+          baseQ.options = uniqueOptions.slice(0, 4);
+        }
+
+        seenQuestions.add(questionKey);
         questions.push({
           id: Math.random().toString(36).substring(7),
           topicId: tid,
           ...baseQ
         });
+        added++;
       }
     }
   });

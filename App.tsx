@@ -3,8 +3,8 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Grade, StudentProfile, Topic, TestResult, Question, QuestionType } from './types';
 import { TOPICS, generateQuestions, getTopicsByGrade } from './services/mathEngine';
 import { exportTestToPDF } from './utils/pdfExport';
-import { 
-  User, Plus, BookOpen, Clock, CheckCircle, XCircle, 
+import {
+  User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
   CheckSquare, Type, Settings, Keyboard
 } from 'lucide-react';
@@ -22,10 +22,10 @@ const Button = ({ onClick, children, variant = 'primary', className = '', disabl
     outline: "border-2 border-brand-500 text-brand-500 hover:bg-brand-50",
     ghost: "bg-transparent hover:bg-gray-100 text-slate-500 border-transparent shadow-none px-3 py-2"
   };
-  
+
   return (
-    <button 
-      onClick={onClick} 
+    <button
+      onClick={onClick}
       disabled={disabled}
       className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
@@ -46,7 +46,7 @@ const Card = ({ children, className = '' }: any) => (
 const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfile) => void }) => {
   const [profiles, setProfiles] = useState<StudentProfile[]>([]);
   const [isCreating, setIsCreating] = useState(false);
-  const [newProfile, setNewProfile] = useState<{name: string, grade: Grade}>({ name: '', grade: Grade.Grade2 });
+  const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
 
   useEffect(() => {
     const saved = localStorage.getItem('math_profiles');
@@ -55,12 +55,30 @@ const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfil
 
   const handleCreate = () => {
     if (!newProfile.name) return;
+
+    // Get avatars already in use
+    const usedAvatarIds = profiles.map(p => p.avatarId);
+
+    // Find an available avatar (0-4)
+    let availableAvatarId = 0;
+    for (let i = 0; i < 5; i++) {
+      if (!usedAvatarIds.includes(i)) {
+        availableAvatarId = i;
+        break;
+      }
+    }
+
+    // If all avatars are used (5+ profiles), cycle through
+    if (usedAvatarIds.length >= 5) {
+      availableAvatarId = profiles.length % 5;
+    }
+
     const profile: StudentProfile = {
       id: Date.now().toString(),
       name: newProfile.name,
       age: newProfile.grade + 6, // Rough estimate
       grade: newProfile.grade,
-      avatarId: Math.floor(Math.random() * 5),
+      avatarId: availableAvatarId,
       history: []
     };
     const updated = [...profiles, profile];
@@ -89,7 +107,7 @@ const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfil
               </div>
             </button>
           ))}
-          
+
           <button onClick={() => setIsCreating(true)} className="flex flex-col items-center justify-center p-6 rounded-3xl border-4 border-dashed border-brand-200 text-brand-400 hover:bg-brand-50 hover:border-brand-400 hover:text-brand-600 transition-all h-full min-h-[140px]">
             <Plus size={40} />
             <span className="font-bold mt-2">Thêm học sinh mới</span>
@@ -101,10 +119,10 @@ const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfil
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-bold text-slate-600 mb-1">Tên của bé</label>
-              <input 
-                type="text" 
-                value={newProfile.name} 
-                onChange={e => setNewProfile({...newProfile, name: e.target.value})}
+              <input
+                type="text"
+                value={newProfile.name}
+                onChange={e => setNewProfile({ ...newProfile, name: e.target.value })}
                 className="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none text-lg"
                 placeholder="Ví dụ: Bi, Na..."
               />
@@ -112,10 +130,10 @@ const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfil
             <div>
               <label className="block text-sm font-bold text-slate-600 mb-1">Lớp</label>
               <div className="grid grid-cols-5 gap-2">
-                {[1,2,3,4,5].map(g => (
-                  <button 
+                {[1, 2, 3, 4, 5].map(g => (
+                  <button
                     key={g}
-                    onClick={() => setNewProfile({...newProfile, grade: g as Grade})}
+                    onClick={() => setNewProfile({ ...newProfile, grade: g as Grade })}
                     className={`p-2 rounded-lg font-bold border-2 ${newProfile.grade === g ? 'bg-brand-500 text-white border-brand-600' : 'bg-white border-gray-200 text-slate-500'}`}
                   >
                     {g}
@@ -141,7 +159,7 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
   const [isExporting, setIsExporting] = useState(false);
 
   const gradeTopics = useMemo(() => getTopicsByGrade(student.grade), [student.grade]);
-  
+
   const toggleTopic = (id: string) => {
     setSelectedTopics(prev => prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]);
   };
@@ -172,8 +190,8 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
 
   // Calculate stats
   const totalTests = student.history.length;
-  const avgScore = totalTests > 0 
-    ? Math.round(student.history.reduce((acc, test) => acc + ((test.score / test.totalQuestions) * 100), 0) / totalTests) 
+  const avgScore = totalTests > 0
+    ? Math.round(student.history.reduce((acc, test) => acc + ((test.score / test.totalQuestions) * 100), 0) / totalTests)
     : 0;
 
   return (
@@ -200,10 +218,10 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
               </h3>
               <button onClick={selectAll} className="text-sm text-brand-600 font-semibold hover:underline">Chọn tất cả</button>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {gradeTopics.map(topic => (
-                <div 
+                <div
                   key={topic.id}
                   onClick={() => toggleTopic(topic.id)}
                   className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${selectedTopics.includes(topic.id) ? 'border-brand-500 bg-brand-50 ring-2 ring-brand-200' : 'border-gray-100 bg-white hover:border-brand-200'}`}
@@ -229,7 +247,7 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
                   <div className="flex items-center gap-2 bg-slate-700 px-3 py-1 rounded-lg">
                     <Settings size={16} className="text-slate-300" />
                     <span className="text-sm text-slate-300 mr-2 whitespace-nowrap">Số câu:</span>
-                    <input 
+                    <input
                       type="number"
                       min="1"
                       max="100"
@@ -242,7 +260,7 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
                 </div>
 
                 <div className="flex flex-wrap gap-3 w-full md:w-auto justify-end">
-                   <Button variant="secondary" className="py-2 text-sm flex-1 md:flex-none whitespace-nowrap" onClick={handleExportClick} disabled={isExporting}>
+                  <Button variant="secondary" className="py-2 text-sm flex-1 md:flex-none whitespace-nowrap" onClick={handleExportClick} disabled={isExporting}>
                     <Printer size={18} className="mr-2" /> {isExporting ? 'Đang tạo...' : 'In đề'}
                   </Button>
                   <Button variant="success" className="py-2 flex-1 md:flex-none whitespace-nowrap min-w-[160px]" onClick={() => onStartTest(selectedTopics, questionCount)}>
@@ -272,20 +290,20 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
           </Card>
 
           <Card>
-             <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-4">
+            <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-4">
               <BarChart2 className="text-brand-500" /> Tiến độ gần đây
             </h3>
             <div className="h-48 w-full">
               {student.history.length > 0 ? (
-                 <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={student.history.slice(-5).map(h => ({
                     ...h,
                     percentageScore: Math.round((h.score / h.totalQuestions) * 100)
                   }))}>
                     <XAxis dataKey="date" hide />
                     <YAxis domain={[0, 100]} hide />
-                    <Tooltip 
-                      contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}} 
+                    <Tooltip
+                      contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                       labelFormatter={() => ''}
                       formatter={(value: number) => [`${value}%`, 'Điểm']}
                     />
@@ -308,11 +326,12 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
   const [timeLeft, setTimeLeft] = useState(durationMinutes * 60);
-  
+
   // State for Typing Game
   const [typingInput, setTypingInput] = useState('');
   const typingInputRef = useRef<HTMLInputElement>(null);
-  
+  const [showTelexGuide, setShowTelexGuide] = useState(false);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(t => {
@@ -340,7 +359,7 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 
   const handleAnswer = (val: string) => {
     const currentQ = questions[currentIndex];
-    
+
     if (currentQ.type === QuestionType.MultipleSelect) {
       setAnswers(prev => {
         const currentSelection = (prev[currentQ.id] as string[]) || [];
@@ -363,12 +382,12 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
   const handleTypingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     const target = questions[currentIndex].correctAnswer || '';
-    
+
     // Logic: Stop if wrong? The prompt says: "Nếu sai thì chuyển sang màu đỏ và không tiếp tục chuyển màu nữa".
     // This suggests we allow typing, but the highlighting stops or shows red.
     // However, typically "stop progression" implies blocking input. 
     // But standard typing games allow typing errors but mark them red.
-    
+
     setTypingInput(val);
     setAnswers(prev => ({ ...prev, [questions[currentIndex].id]: val }));
   };
@@ -376,9 +395,11 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
-    } else {
-      onFinish(answers, (durationMinutes * 60) - timeLeft);
     }
+  };
+
+  const handleSubmit = () => {
+    onFinish(answers, (durationMinutes * 60) - timeLeft);
   };
 
   const currentQ = questions[currentIndex];
@@ -397,9 +418,9 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
       return Array.isArray(currentAns) && currentAns.length > 0;
     }
     if (currentQ.type === QuestionType.Typing) {
-       // Must match completely to enable next? Or just non-empty?
-       // Usually strict typing requires full match.
-       return typingInput === currentQ.correctAnswer;
+      // Must match completely to enable next? Or just non-empty?
+      // Usually strict typing requires full match.
+      return typingInput === currentQ.correctAnswer;
     }
     return !!currentAns && currentAns.toString().trim().length > 0;
   };
@@ -408,51 +429,98 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
     const target = currentQ.correctAnswer || '';
     return (
       <div className="space-y-6">
-         {/* Visual Display */}
-         <div className="p-6 bg-white rounded-xl border-2 border-brand-100 shadow-inner text-2xl md:text-3xl leading-relaxed font-mono" onClick={() => typingInputRef.current?.focus()}>
-           {target.split('').map((char, idx) => {
-             let colorClass = 'text-slate-400'; // Not typed yet
-             if (idx < typingInput.length) {
-               if (typingInput[idx] === char) {
-                 colorClass = 'text-green-500'; // Correct
-               } else {
-                 colorClass = 'text-red-500 bg-red-50'; // Incorrect
-                 // If prompt implies "stop highlighting", it usually means subsequent correct chars after a wrong one 
-                 // shouldn't be green? But simple red/green per char is best for kids feedback.
-               }
-             }
-             return (
-               <span key={idx} className={`${colorClass} transition-colors duration-100 relative`}>
-                 {char}
-                 {/* Cursor */}
-                 {idx === typingInput.length && (
-                   <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-800 animate-pulse"></span>
-                 )}
-               </span>
-             );
-           })}
-           {typingInput.length >= target.length && <span className="ml-1 inline-block w-2 h-6 bg-transparent"></span>}
-         </div>
+        {/* Telex Guide Toggle */}
+        <div className="flex justify-end">
+          <button
+            onClick={() => setShowTelexGuide(!showTelexGuide)}
+            className="px-4 py-2 bg-brand-100 hover:bg-brand-200 text-brand-700 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
+          >
+            <Keyboard size={16} />
+            {showTelexGuide ? 'Ẩn hướng dẫn Telex' : 'Hướng dẫn gõ Telex'}
+          </button>
+        </div>
 
-         {/* Hidden Input */}
-         <div className="relative">
-            <input 
-              ref={typingInputRef}
-              type="text" 
-              className="w-full opacity-0 absolute inset-0 h-full cursor-text" 
-              value={typingInput}
-              onChange={handleTypingChange}
-              autoFocus
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck="false"
-            />
-            <div className="mt-4 text-center text-slate-400 text-sm">
-              <Keyboard className="inline-block mr-1" size={16} />
-              Hãy gõ chính xác đoạn văn trên. Chữ đỏ là gõ sai, hãy xóa và gõ lại!
+        {/* Telex Guide Table */}
+        {showTelexGuide && (
+          <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
+            <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
+              <Keyboard size={18} />
+              Hướng dẫn gõ dấu Telex
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+              {[
+                { char: 'â', method: 'aa', example: 'caan → cân' },
+                { char: 'ă', method: 'aw', example: 'awn → ăn' },
+                { char: 'ê', method: 'ee', example: 'een → ên' },
+                { char: 'ô', method: 'oo', example: 'oon → ôn' },
+                { char: 'ơ', method: 'ow', example: 'ow → ơ' },
+                { char: 'ư', method: 'uw', example: 'uw → ư' },
+                { char: 'đ', method: 'dd', example: 'ddi → đi' },
+                { char: 'á', method: 'as', example: 'as → á' },
+                { char: 'à', method: 'af', example: 'af → à' },
+                { char: 'ả', method: 'ar', example: 'ar → ả' },
+                { char: 'ã', method: 'ax', example: 'ax → ã' },
+                { char: 'ạ', method: 'aj', example: 'aj → ạ' },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white p-2 rounded border border-blue-200">
+                  <div className="font-bold text-lg text-blue-600">{item.char} = {item.method}</div>
+                  <div className="text-xs text-slate-500 mt-1">{item.example}</div>
+                </div>
+              ))}
             </div>
-         </div>
+          </div>
+        )}
+
+        {/* Visual Display */}
+        <div className="p-6 bg-white rounded-xl border-2 border-brand-100 shadow-inner text-2xl md:text-3xl leading-relaxed font-mono" onClick={() => typingInputRef.current?.focus()}>
+          {target.split('').map((char, idx) => {
+            let colorClass = 'text-slate-400'; // Not typed yet
+            if (idx < typingInput.length) {
+              if (typingInput[idx] === char) {
+                colorClass = 'text-green-500'; // Correct
+              } else {
+                colorClass = 'text-red-500 bg-red-50'; // Incorrect
+                // If prompt implies "stop highlighting", it usually means subsequent correct chars after a wrong one 
+                // shouldn't be green? But simple red/green per char is best for kids feedback.
+              }
+            }
+            return (
+              <span key={idx} className={`${colorClass} transition-colors duration-100 relative`}>
+                {char}
+                {/* Cursor */}
+                {idx === typingInput.length && (
+                  <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-800 animate-pulse"></span>
+                )}
+              </span>
+            );
+          })}
+          {typingInput.length >= target.length && <span className="ml-1 inline-block w-2 h-6 bg-transparent"></span>}
+        </div>
+
+        {/* Hidden Input */}
+        <div className="relative">
+          <input
+            ref={typingInputRef}
+            type="text"
+            className="w-full opacity-0 absolute inset-0 h-full cursor-text"
+            value={typingInput}
+            onChange={handleTypingChange}
+            autoFocus
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && typingInput === target) {
+                handleNext();
+              }
+            }}
+          />
+          <div className="mt-4 text-center text-slate-400 text-sm">
+            <Keyboard className="inline-block mr-1" size={16} />
+            Hãy gõ chính xác đoạn văn trên. Chữ đỏ là gõ sai, hãy xóa và gõ lại!
+          </div>
+        </div>
       </div>
     );
   }
@@ -484,21 +552,21 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
       <Card className="w-full max-w-3xl flex-1 flex flex-col min-h-[400px]">
         <div className="flex-1">
           <div className="mb-4">
-             {currentQ.type === QuestionType.MultipleSelect && (
-               <span className="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-bold mb-2">
-                 <CheckSquare size={14} className="mr-1" /> Chọn nhiều đáp án
-               </span>
-             )}
-             {currentQ.type === QuestionType.ManualInput && (
-               <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-2">
-                 <Type size={14} className="mr-1" /> Tự nhập đáp án
-               </span>
-             )}
-             {currentQ.type === QuestionType.Typing && (
-               <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-sm font-bold mb-2">
-                 <Keyboard size={14} className="mr-1" /> Tập gõ phím
-               </span>
-             )}
+            {currentQ.type === QuestionType.MultipleSelect && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-bold mb-2">
+                <CheckSquare size={14} className="mr-1" /> Chọn nhiều đáp án
+              </span>
+            )}
+            {currentQ.type === QuestionType.ManualInput && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-2">
+                <Type size={14} className="mr-1" /> Tự nhập đáp án
+              </span>
+            )}
+            {currentQ.type === QuestionType.Typing && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-sm font-bold mb-2">
+                <Keyboard size={14} className="mr-1" /> Tập gõ phím
+              </span>
+            )}
           </div>
 
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-relaxed mb-8">
@@ -507,7 +575,7 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 
           {/* Render SVG Visual if present */}
           {currentQ.visualSvg && (
-            <div 
+            <div
               className="mb-8 flex justify-center p-4 bg-white rounded-xl border-2 border-slate-100 overflow-x-auto"
               dangerouslySetInnerHTML={{ __html: currentQ.visualSvg }}
             />
@@ -531,22 +599,21 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {currentQ.options?.map((opt, idx) => {
-                const isSelected = currentQ.type === QuestionType.MultipleSelect 
+                const isSelected = currentQ.type === QuestionType.MultipleSelect
                   ? (currentAns as string[])?.includes(opt)
                   : currentAns === opt;
-                
+
                 return (
                   <button
                     key={idx}
                     onClick={() => handleAnswer(opt)}
-                    className={`p-6 text-xl font-bold rounded-xl border-2 text-left transition-all flex items-center ${
-                      isSelected
-                        ? 'border-brand-500 bg-brand-50 text-brand-700 ring-2 ring-brand-200' 
-                        : 'border-gray-200 hover:border-brand-300 hover:bg-gray-50 text-slate-700'
-                    }`}
+                    className={`p-6 text-xl font-bold rounded-xl border-2 text-left transition-all flex items-center ${isSelected
+                      ? 'border-brand-500 bg-brand-50 text-brand-700 ring-2 ring-brand-200'
+                      : 'border-gray-200 hover:border-brand-300 hover:bg-gray-50 text-slate-700'
+                      }`}
                   >
                     <span className={`flex items-center justify-center w-8 h-8 rounded-full border-2 mr-3 ${isSelected ? 'bg-brand-500 border-brand-500 text-white' : 'bg-white border-gray-300 opacity-50'}`}>
-                      {currentQ.type === QuestionType.MultipleSelect 
+                      {currentQ.type === QuestionType.MultipleSelect
                         ? (isSelected ? <CheckSquare size={16} /> : <span className="w-4 h-4 block" />)
                         : String.fromCharCode(65 + idx)
                       }
@@ -560,7 +627,10 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
         </div>
 
         <div className="mt-8 flex justify-end">
-          <Button onClick={handleNext} disabled={!isAnswered()}>
+          <Button
+            onClick={currentIndex === questions.length - 1 ? handleSubmit : handleNext}
+            disabled={!isAnswered()}
+          >
             {currentIndex === questions.length - 1 ? 'Nộp bài' : 'Câu tiếp theo'}
           </Button>
         </div>
@@ -573,7 +643,7 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => void }) => {
   const [showReview, setShowReview] = useState(false);
   const percentage = Math.round((result.score / result.totalQuestions) * 100);
-  
+
   const getMessage = () => {
     if (percentage === 100) return { text: "Xuất sắc! Bé là thiên tài!", color: "text-yellow-500" };
     if (percentage >= 80) return { text: "Làm tốt lắm! Cố gắng thêm chút nữa nhé!", color: "text-green-500" };
@@ -617,22 +687,22 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
             // Logic for determining correctness was already done in handleTestFinish and stored implicitly, 
             // but here we visually check again or trust the parent. 
             // Ideally we should store `isCorrect` on the Question in history, but let's re-evaluate for display.
-            
+
             // Note: TestResult generation in handleTestFinish does the scoring. 
             // Here we just need to know if it matches.
             // Since we stored userAnswer, we can check against correct answer again.
-            
+
             let isCorrect = false;
             if (q.type === QuestionType.MultipleSelect) {
-               const ua = Array.isArray(q.userAnswer) ? q.userAnswer.sort().toString() : "";
-               const ca = q.correctAnswers ? [...q.correctAnswers].sort().toString() : "";
-               isCorrect = ua === ca;
+              const ua = Array.isArray(q.userAnswer) ? q.userAnswer.sort().toString() : "";
+              const ca = q.correctAnswers ? [...q.correctAnswers].sort().toString() : "";
+              isCorrect = ua === ca;
             } else if (q.type === QuestionType.ManualInput) {
-               isCorrect = (q.userAnswer as string || "").toString().trim().toLowerCase() === (q.correctAnswer || "").toString().trim().toLowerCase();
+              isCorrect = (q.userAnswer as string || "").toString().trim().toLowerCase() === (q.correctAnswer || "").toString().trim().toLowerCase();
             } else if (q.type === QuestionType.Typing) {
-               isCorrect = q.userAnswer === q.correctAnswer;
+              isCorrect = q.userAnswer === q.correctAnswer;
             } else {
-               isCorrect = q.userAnswer === q.correctAnswer;
+              isCorrect = q.userAnswer === q.correctAnswer;
             }
 
             return (
@@ -643,32 +713,32 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-lg mb-2">
-                      Câu {idx + 1}: {q.questionText} 
+                      Câu {idx + 1}: {q.questionText}
                       {q.type === QuestionType.ManualInput && <span className="ml-2 text-xs text-slate-400 font-normal">(Tự nhập)</span>}
                       {q.type === QuestionType.MultipleSelect && <span className="ml-2 text-xs text-slate-400 font-normal">(Chọn nhiều)</span>}
                       {q.type === QuestionType.Typing && <span className="ml-2 text-xs text-slate-400 font-normal">(Gõ phím)</span>}
                     </h4>
-                    
+
                     {q.visualSvg && (
-                      <div 
+                      <div
                         className="mb-4 max-w-[200px] p-2 bg-slate-50 rounded border border-slate-200 overflow-x-auto"
                         dangerouslySetInnerHTML={{ __html: q.visualSvg }}
                       />
                     )}
 
                     <div className="grid grid-cols-1 gap-4 text-sm mb-3">
-                       {q.type === QuestionType.Typing ? (
-                          <div className={`p-3 rounded-lg border font-mono ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
-                             <div className="mb-1 text-xs text-slate-500">Bé gõ:</div>
-                             <div className={isCorrect ? 'text-green-700' : 'text-red-700'}>{q.userAnswer as string}</div>
-                             {!isCorrect && (
-                               <>
-                                <div className="mb-1 mt-2 text-xs text-slate-500">Văn bản đúng:</div>
-                                <div className="text-slate-700">{q.correctAnswer}</div>
-                               </>
-                             )}
-                          </div>
-                       ) : (
+                      {q.type === QuestionType.Typing ? (
+                        <div className={`p-3 rounded-lg border font-mono ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                          <div className="mb-1 text-xs text-slate-500">Bé gõ:</div>
+                          <div className={isCorrect ? 'text-green-700' : 'text-red-700'}>{q.userAnswer as string}</div>
+                          {!isCorrect && (
+                            <>
+                              <div className="mb-1 mt-2 text-xs text-slate-500">Văn bản đúng:</div>
+                              <div className="text-slate-700">{q.correctAnswer}</div>
+                            </>
+                          )}
+                        </div>
+                      ) : (
                         <>
                           <div className={`p-2 rounded-lg ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                             Bé chọn: <span className="font-bold">{renderAnswer(q.userAnswer)}</span>
@@ -681,7 +751,7 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
                             </div>
                           )}
                         </>
-                       )}
+                      )}
                     </div>
                     <p className="text-slate-500 text-sm italic bg-slate-50 p-3 rounded-lg border border-slate-100">
                       💡 <span className="font-bold">Giải thích:</span> {q.explanation}
@@ -766,28 +836,28 @@ export default function App() {
     const profiles = JSON.parse(localStorage.getItem('math_profiles') || '[]');
     const updatedProfiles = profiles.map((p: StudentProfile) => p.id === updatedStudent.id ? updatedStudent : p);
     localStorage.setItem('math_profiles', JSON.stringify(updatedProfiles));
-    
+
     setCurrentStudent(updatedStudent);
     setLastResult(result);
     setScreen('result');
   };
 
   const handleExportPDF = async (topicIds: string[], count: number) => {
-     const questions = generateQuestions(topicIds, count);
-     await exportTestToPDF(questions, `Bài tập ôn luyện - Lớp ${currentStudent?.grade}`);
+    const questions = generateQuestions(topicIds, count);
+    await exportTestToPDF(questions, `Bài tập ôn luyện - Lớp ${currentStudent?.grade}`);
   };
 
   return (
     <div className="min-h-screen font-sans">
       {screen === 'profile' && (
-        <ProfileScreen 
-          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }} 
+        <ProfileScreen
+          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }}
         />
       )}
-      
+
       {screen === 'dashboard' && currentStudent && (
-        <Dashboard 
-          student={currentStudent} 
+        <Dashboard
+          student={currentStudent}
           onStartTest={handleStartTest}
           onLogout={() => { setCurrentStudent(null); setScreen('profile'); }}
           onExport={handleExportPDF}
@@ -795,18 +865,18 @@ export default function App() {
       )}
 
       {screen === 'test' && (
-        <TestRunner 
-          questions={activeTestQuestions} 
-          durationMinutes={testDuration} 
+        <TestRunner
+          questions={activeTestQuestions}
+          durationMinutes={testDuration}
           onFinish={handleTestFinish}
           onExit={() => setScreen('dashboard')}
         />
       )}
 
       {screen === 'result' && lastResult && (
-        <ResultScreen 
-          result={lastResult} 
-          onHome={() => setScreen('dashboard')} 
+        <ResultScreen
+          result={lastResult}
+          onHome={() => setScreen('dashboard')}
         />
       )}
     </div>
