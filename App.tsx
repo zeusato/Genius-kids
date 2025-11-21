@@ -165,6 +165,7 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
   };
 
   const selectAll = () => setSelectedTopics(gradeTopics.map(t => t.id));
+  const deselectAll = () => setSelectedTopics([]);
 
   const handleExportClick = async () => {
     setIsExporting(true);
@@ -216,7 +217,11 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
               <h3 className="text-xl font-bold flex items-center gap-2">
                 <BookOpen className="text-brand-500" /> Chọn chủ đề ôn luyện
               </h3>
-              <button onClick={selectAll} className="text-sm text-brand-600 font-semibold hover:underline">Chọn tất cả</button>
+              {selectedTopics.length === gradeTopics.length ? (
+                <button onClick={deselectAll} className="text-sm text-red-600 font-semibold hover:underline">Bỏ chọn tất cả</button>
+              ) : (
+                <button onClick={selectAll} className="text-sm text-brand-600 font-semibold hover:underline">Chọn tất cả</button>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
