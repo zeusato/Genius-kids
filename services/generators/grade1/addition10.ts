@@ -26,65 +26,145 @@ const createAdditionSVG = (a: number, b: number) => {
 };
 
 export const generateAddition10 = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    // Random question type: 60% SingleChoice, 20% SelectWrong, 20% MultipleSelect
+    const questionTypeRand = Math.random();
 
-    if (type < 0.3) {
-        // Visual addition
-        const a = randomInt(1, 5);
-        const b = randomInt(1, 5);
-        const sum = a + b;
-        const wrongOptions = Array.from({ length: 10 }, (_, i) => (i + 1).toString()).filter(x => x !== sum.toString());
+    if (questionTypeRand < 0.2) {
+        // SelectWrong: Find the wrong sum
+        const target = randomInt(5, 10);
+        const correctExpressions: string[] = [];
+        const usedPairs = new Set<string>();
+
+        // Generate 3 correct expressions
+        let attempts = 0;
+        while (correctExpressions.length < 3 && attempts < 20) {
+            attempts++;
+            const a = randomInt(0, target);
+            const b = target - a;
+            const key = `${Math.min(a, b)}-${Math.max(a, b)}`;
+            if (!usedPairs.has(key) && a >= 0 && b >= 0) {
+                usedPairs.add(key);
+                correctExpressions.push(`${a} + ${b}`);
+            }
+        }
+
+        // Generate 1 wrong expression
+        let wrongExpression = '';
+        attempts = 0;
+        while (!wrongExpression && attempts < 20) {
+            attempts++;
+            const a = randomInt(0, 10);
+            const b = randomInt(0, 10 - a);
+            if (a + b !== target) {
+                wrongExpression = `${a} + ${b}`;
+            }
+        }
+
         return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính tổng:`,
-            visualSvg: createAdditionSVG(a, b),
-            correctAnswer: sum.toString(),
-            options: shuffleArray([sum.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-            explanation: `${a} + ${b} = ${sum}`
+            type: QuestionType.SelectWrong,
+            questionText: `Phép tính nào có kết quả KHÁC ${target}?`,
+            correctAnswer: wrongExpression,
+            options: shuffleArray([...correctExpressions, wrongExpression]),
+            explanation: `Các phép tính đúng đều có kết quả bằng ${target}.`
         };
-    } else if (type < 0.5) {
-        // Basic addition
-        const a = randomInt(0, 10);
-        const b = randomInt(0, 10 - a);
-        const sum = a + b;
-        const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== sum.toString());
+    } else if (questionTypeRand < 0.4) {
+        // MultipleSelect: Find all sums equal to target
+        const target = randomInt(5, 10);
+        const correctOps = new Set<string>();
+        const wrongOps = new Set<string>();
+
+        // Generate 2 correct answers
+        let attempts = 0;
+        while (correctOps.size < 2 && attempts < 20) {
+            attempts++;
+            const a = randomInt(0, target);
+            const b = target - a;
+            if (a >= 0 && b >= 0 && a <= 10 && b <= 10) {
+                correctOps.add(`${a} + ${b}`);
+            }
+        }
+
+        // Generate 2 wrong answers
+        attempts = 0;
+        while (wrongOps.size < 2 && attempts < 30) {
+            attempts++;
+            const a = randomInt(0, 10);
+            const b = randomInt(0, 10 - a);
+            const expr = `${a} + ${b}`;
+            if (a + b !== target && !correctOps.has(expr)) {
+                wrongOps.add(expr);
+            }
+        }
+
         return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${a} + ${b} = ?`,
-            correctAnswer: sum.toString(),
-            options: shuffleArray([sum.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-            explanation: `${a} + ${b} = ${sum}`
-        };
-    } else if (type < 0.7) {
-        // Fill missing: □ + 3 = 8
-        const sum = randomInt(3, 10);
-        const known = randomInt(1, sum - 1);
-        const missing = sum - known;
-        const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== missing.toString());
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Điền số còn thiếu: □ + ${known} = ${sum}`,
-            correctAnswer: missing.toString(),
-            options: shuffleArray([missing.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-            explanation: `${missing} + ${known} = ${sum}`
+            type: QuestionType.MultipleSelect,
+            questionText: `Chọn TẤT CẢ phép tính có kết quả bằng ${target}:`,
+            correctAnswers: Array.from(correctOps),
+            options: shuffleArray([...Array.from(correctOps), ...Array.from(wrongOps)]),
+            explanation: `Các phép tính đúng là những phép có tổng bằng ${target}.`
         };
     } else {
-        // Compare sums
-        const a1 = randomInt(1, 5);
-        const b1 = randomInt(1, 5);
-        const sum1 = a1 + b1;
-        const a2 = randomInt(1, 5);
-        const b2 = randomInt(1, 5);
-        const sum2 = a2 + b2;
-        let ans = '=';
-        if (sum1 > sum2) ans = '>';
-        if (sum1 < sum2) ans = '<';
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh: ${a1} + ${b1} ... ${a2} + ${b2}`,
-            correctAnswer: ans,
-            options: shuffleArray(['>', '<', '=']),
-            explanation: `${a1} + ${b1} = ${sum1}, ${a2} + ${b2} = ${sum2}. Vậy ${sum1} ${ans} ${sum2}`
-        };
+        // SingleChoice - existing variations
+        const type = Math.random();
+
+        if (type < 0.3) {
+            // Visual addition
+            const a = randomInt(1, 5);
+            const b = randomInt(1, 5);
+            const sum = a + b;
+            const wrongOptions = Array.from({ length: 10 }, (_, i) => (i + 1).toString()).filter(x => x !== sum.toString());
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `Tính tổng:`,
+                visualSvg: createAdditionSVG(a, b),
+                correctAnswer: sum.toString(),
+                options: shuffleArray([sum.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
+                explanation: `${a} + ${b} = ${sum}`
+            };
+        } else if (type < 0.5) {
+            // Basic addition
+            const a = randomInt(0, 10);
+            const b = randomInt(0, 10 - a);
+            const sum = a + b;
+            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== sum.toString());
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `Tính: ${a} + ${b} = ?`,
+                correctAnswer: sum.toString(),
+                options: shuffleArray([sum.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
+                explanation: `${a} + ${b} = ${sum}`
+            };
+        } else if (type < 0.7) {
+            // Fill missing: □ + 3 = 8
+            const sum = randomInt(3, 10);
+            const known = randomInt(1, sum - 1);
+            const missing = sum - known;
+            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== missing.toString());
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `Điền số còn thiếu: □ + ${known} = ${sum}`,
+                correctAnswer: missing.toString(),
+                options: shuffleArray([missing.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
+                explanation: `${missing} + ${known} = ${sum}`
+            };
+        } else {
+            // Compare sums
+            const a1 = randomInt(1, 5);
+            const b1 = randomInt(1, 5);
+            const sum1 = a1 + b1;
+            const a2 = randomInt(1, 5);
+            const b2 = randomInt(1, 5);
+            const sum2 = a2 + b2;
+            let ans = '=';
+            if (sum1 > sum2) ans = '>';
+            if (sum1 < sum2) ans = '<';
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `So sánh: ${a1} + ${b1} ... ${a2} + ${b2}`,
+                correctAnswer: ans,
+                options: shuffleArray(['>', '<', '=']),
+                explanation: `${a1} + ${b1} = ${sum1}, ${a2} + ${b2} = ${sum2}. Vậy ${sum1} ${ans} ${sum2}`
+            };
+        }
     }
 };
