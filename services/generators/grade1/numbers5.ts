@@ -129,19 +129,27 @@ export const generateNumbers5 = (): Omit<Question, 'id' | 'topicId'> => {
     else {
         const isAscending = Math.random() > 0.5;
         const nums = shuffleArray([1, 2, 3, 4, 5]).slice(0, 3);
-        const sorted = isAscending ? nums.sort((a, b) => a - b) : nums.sort((a, b) => b - a);
+        // Fix: Clone before sorting to preserve original order for question text
+        const sorted = [...nums].sort((a, b) => isAscending ? a - b : b - a);
         const answer = sorted.join(', ');
+
+        // Generate wrong options (permutations)
+        const wrong1 = shuffleArray([...nums]).join(', ');
+        const wrong2 = shuffleArray([...nums]).join(', ');
+        const wrong3 = shuffleArray([...nums]).join(', ');
+        
+        // Ensure unique options
+        const options = Array.from(new Set([answer, wrong1, wrong2, wrong3]));
+        // If not enough unique options, add some hardcoded ones (unlikely for 3 numbers but safe)
+        while (options.length < 4) {
+             options.push(shuffleArray([1, 2, 3, 4, 5]).slice(0, 3).join(', '));
+        }
 
         return {
             type: QuestionType.SingleChoice,
             questionText: `Sắp xếp các số ${isAscending ? 'từ nhỏ đến lớn' : 'từ lớn đến nhỏ'}: ${nums.join(', ')}`,
             correctAnswer: answer,
-            options: shuffleArray([
-                answer,
-                shuffleArray([...nums]).join(', '),
-                shuffleArray([...nums]).join(', '),
-                shuffleArray([...nums]).join(', ')
-            ]).slice(0, 4),
+            options: shuffleArray(options).slice(0, 4),
             explanation: `Sắp xếp ${isAscending ? 'tăng dần' : 'giảm dần'}: ${answer}`
         };
     }

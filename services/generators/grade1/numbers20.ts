@@ -32,16 +32,20 @@ export const generateNumbers20 = (): Omit<Question, 'id' | 'topicId'> => {
         const num = randomInt(11, 19);
         const tens = Math.floor(num / 10);
         const ones = num % 10;
+
+        const correctAnswer = `${tens} chục ${ones} đơn vị`;
+        const wrong1 = `${ones} chục ${tens} đơn vị`;
+        const wrong2 = `${tens + 1} chục ${ones - 1 < 0 ? 0 : ones - 1} đơn vị`;
+        const wrong3 = `${num} chục 0 đơn vị`;
+        const wrong4 = `${tens} chục ${ones + 1} đơn vị`;
+
+        const uniqueOptions = Array.from(new Set([correctAnswer, wrong1, wrong2, wrong3, wrong4]));
+
         return {
             type: QuestionType.SingleChoice,
             questionText: `Số ${num} có mấy chục mấy đơn vị?`,
-            correctAnswer: `${tens} chục ${ones} đơn vị`,
-            options: shuffleArray([
-                `${tens} chục ${ones} đơn vị`,
-                `${ones} chục ${tens} đơn vị`,
-                `${tens + 1} chục ${ones - 1} đơn vị`,
-                `${num} chục 0 đơn vị`
-            ]),
+            correctAnswer: correctAnswer,
+            options: shuffleArray(uniqueOptions).slice(0, 4),
             explanation: `${num} = ${tens} chục ${ones} đơn vị`
         };
     } else if (type < 0.75) {

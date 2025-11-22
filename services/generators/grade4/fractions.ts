@@ -26,7 +26,6 @@ const createFractionSVG = (numerator: number, denominator: number) => {
     return `
     <svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
       ${parts}
-      <text x="150" y="160" text-anchor="middle" font-size="24" font-weight="bold">${numerator}/${denominator}</text>
     </svg>
   `;
 };

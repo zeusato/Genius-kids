@@ -30,7 +30,6 @@ const createRatioSVG = (count1: number, count2: number, label1: string, label2: 
       ${[...Array(count2)].map((_, i) => `
         <circle cx="${80 + i * 25}" cy="75" r="10" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
       `).join('')}
-      <text x="175" y="130" text-anchor="middle" font-size="16">Tỉ số: ${count1}:${count2}</text>
     </svg>
   `;
 };

@@ -27,13 +27,11 @@ const createDecimalGridSVG = (value: number): string => {
 
     return `
     <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-      <text x="150" y="20" text-anchor="middle" font-size="16" font-weight="bold">${formatDecimal(value)}</text>
       ${[...Array(10)].map((_, i) => `
         <rect x="${30 + i * 24}" y="40" width="22" height="80" 
               fill="${i < tenths ? '#60a5fa' : '#e5e7eb'}" 
               stroke="#0f172a" stroke-width="2"/>
       `).join('')}
-      <text x="150" y="140" text-anchor="middle" font-size="14">${tenths}/10 = ${formatDecimal(decimal, 1)}</text>
     </svg>
   `;
 };
