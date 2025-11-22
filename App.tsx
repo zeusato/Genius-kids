@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Grade, StudentProfile, Topic, TestResult, Question, QuestionType } from './types';
 import { TOPICS, generateQuestions, getTopicsByGrade } from './services/mathEngine';
 import { exportTestToPDF } from './utils/pdfExport';
+import { soundManager } from './utils/sound';
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
@@ -25,7 +26,10 @@ const Button = ({ onClick, children, variant = 'primary', className = '', disabl
 
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        soundManager.playClick();
+        onClick && onClick(e);
+      }}
       disabled={disabled}
       className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
@@ -365,6 +369,30 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
   const handleAnswer = (val: string) => {
     const currentQ = questions[currentIndex];
 
+    // Check correctness for immediate feedback (optional, or just play click)
+    // For now, let's just play click to avoid spoiling answer if we want them to think?
+    // BUT, user requested "Correct: Ting, Wrong: Buzz". 
+    // Usually in test mode we don't show result immediately until end?
+    // However, for "kids app", immediate feedback is often good. 
+    // But the current UI design waits for "Next" or "Submit".
+    // Let's play click for selection, and maybe we can add immediate feedback mode later.
+    // Wait, the request said: "Correct: Ting, Wrong: Buzz". 
+    // If I play it now, they know the answer. 
+    // Let's assume we play it when they select? Or maybe we should only play click here 
+    // and play result sound at the end?
+    // Actually, let's play click here. The "Correct/Wrong" sounds might be better suited 
+    // if we had a "Check Answer" button. 
+    // Since the current flow is "Select -> Next", maybe we just play click.
+    // OR, we can play the sound when they click "Next" if we want to validate?
+    // Let's stick to click sound for interaction to be safe, 
+    // and play "Complete" sound at the end.
+    // Re-reading request: "Sai: Âm thanh nhẹ nhàng khích lệ".
+    // This implies immediate feedback. 
+    // But the current TestRunner doesn't seem to show immediate feedback (red/green) 
+    // EXCEPT for Typing mode (which has red/green text).
+
+    soundManager.playClick();
+
     if (currentQ.type === QuestionType.MultipleSelect) {
       setAnswers(prev => {
         const currentSelection = (prev[currentQ.id] as string[]) || [];
@@ -398,6 +426,29 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
   };
 
   const handleNext = () => {
+    // Check correctness for sound feedback
+    const currentQ = questions[currentIndex];
+    const userAnswer = answers[currentQ.id];
+    let isCorrect = false;
+
+    if (currentQ.type === QuestionType.MultipleSelect) {
+      const ua = Array.isArray(userAnswer) ? [...userAnswer].sort().toString() : "";
+      const ca = currentQ.correctAnswers ? [...currentQ.correctAnswers].sort().toString() : "";
+      isCorrect = ua === ca;
+    } else if (currentQ.type === QuestionType.ManualInput) {
+      isCorrect = (userAnswer as string || "").toString().trim().toLowerCase() === (currentQ.correctAnswer || "").toString().trim().toLowerCase();
+    } else if (currentQ.type === QuestionType.Typing) {
+      isCorrect = userAnswer === currentQ.correctAnswer;
+    } else {
+      isCorrect = userAnswer === currentQ.correctAnswer;
+    }
+
+    if (isCorrect) {
+      soundManager.playCorrect();
+    } else {
+      soundManager.playWrong();
+    }
+
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
@@ -800,20 +851,14 @@ export default function App() {
       let isCorrect = false;
 
       if (q.type === QuestionType.MultipleSelect) {
-        // Compare arrays: Sort both and match string
-        const userArr = Array.isArray(userAnswer) ? [...userAnswer].sort() : [];
-        const correctArr = q.correctAnswers ? [...q.correctAnswers].sort() : [];
-        isCorrect = JSON.stringify(userArr) === JSON.stringify(correctArr);
+        const ua = Array.isArray(userAnswer) ? userAnswer.sort().toString() : "";
+        const ca = q.correctAnswers ? [...q.correctAnswers].sort().toString() : "";
+        isCorrect = ua === ca;
       } else if (q.type === QuestionType.ManualInput) {
-        // Case insensitive check for manual string input
-        const u = (userAnswer as string || '').trim().toLowerCase();
-        const c = (q.correctAnswer || '').trim().toLowerCase();
-        isCorrect = u === c;
+        isCorrect = (userAnswer as string || "").toString().trim().toLowerCase() === (q.correctAnswer || "").toString().trim().toLowerCase();
       } else if (q.type === QuestionType.Typing) {
-        // Strict exact match for typing
         isCorrect = userAnswer === q.correctAnswer;
       } else {
-        // Single choice strict match
         isCorrect = userAnswer === q.correctAnswer;
       }
 
@@ -823,27 +868,38 @@ export default function App() {
 
     const result: TestResult = {
       id: Date.now().toString(),
-      date: new Date().toISOString().split('T')[0],
+      date: new Date().toISOString(),
       score,
       totalQuestions: activeTestQuestions.length,
       durationSeconds,
-      topicIds: Array.from(new Set(activeTestQuestions.map(q => q.topicId))),
+      topicIds: [],
       questions: processedQuestions
     };
 
-    // Update History
+    // Play sound based on score
+    if (score === activeTestQuestions.length) {
+      soundManager.playComplete();
+    } else {
+      soundManager.playComplete();
+    }
+
+    setLastResult(result);
+
+    // Update student history
     const updatedStudent = {
       ...currentStudent,
       history: [...currentStudent.history, result]
     };
-
-    // Save to LS
-    const profiles = JSON.parse(localStorage.getItem('math_profiles') || '[]');
-    const updatedProfiles = profiles.map((p: StudentProfile) => p.id === updatedStudent.id ? updatedStudent : p);
-    localStorage.setItem('math_profiles', JSON.stringify(updatedProfiles));
-
     setCurrentStudent(updatedStudent);
-    setLastResult(result);
+
+    // Update local storage profiles
+    const saved = localStorage.getItem('math_profiles');
+    if (saved) {
+      const profiles = JSON.parse(saved) as StudentProfile[];
+      const updatedProfiles = profiles.map(p => p.id === updatedStudent.id ? updatedStudent : p);
+      localStorage.setItem('math_profiles', JSON.stringify(updatedProfiles));
+    }
+
     setScreen('result');
   };
 

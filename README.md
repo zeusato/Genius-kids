@@ -2,7 +2,7 @@
 
 **MathGenius Kids** là ứng dụng web tương tác giúp trẻ em tiểu học (Lớp 1 - 5) học toán một cách vui vẻ và hiệu quả. Ứng dụng kết hợp các bài tập toán học với giao diện sinh động, hệ thống khen thưởng và theo dõi tiến độ.
 
-![MathGenius Kids Banner](https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6)
+![MathGenius Kids Banner](public/OG.png)
 
 ## ✨ Tính Năng Nổi Bật
 
