@@ -7,7 +7,7 @@ import { soundManager } from './utils/sound';
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
-  CheckSquare, Type, Settings, Keyboard
+  CheckSquare, Type, Settings, Keyboard, Download
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -47,7 +47,7 @@ const Card = ({ children, className = '' }: any) => (
 // --- Screens ---
 
 // 1. Profile Selection
-const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfile) => void }) => {
+const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall }: { onSelectProfile: (p: StudentProfile) => void, onInstallClick?: () => void, canInstall?: boolean }) => {
   const [profiles, setProfiles] = useState<StudentProfile[]>([]);
   const [isCreating, setIsCreating] = useState(false);
   const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
@@ -95,9 +95,23 @@ const ProfileScreen = ({ onSelectProfile }: { onSelectProfile: (p: StudentProfil
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-      <div className="text-center space-y-2">
+      <div className="text-center space-y-2 relative">
         <h1 className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm">MathGenius Kids</h1>
         <p className="text-xl text-slate-500">Học toán thật vui!</p>
+        {canInstall && (
+          <div className="absolute top-0 right-0 translate-x-[120%] hidden md:block">
+            <Button variant="outline" onClick={onInstallClick} className="animate-bounce shadow-xl border-brand-500 text-brand-600">
+              <Download size={20} /> Tải App
+            </Button>
+          </div>
+        )}
+        {canInstall && (
+          <div className="mt-4 md:hidden">
+            <Button variant="outline" onClick={onInstallClick} className="animate-bounce shadow-xl border-brand-500 text-brand-600">
+              <Download size={20} /> Tải App
+            </Button>
+          </div>
+        )}
       </div>
 
       {!isCreating ? (
@@ -831,6 +845,25 @@ export default function App() {
   const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
   const [testDuration, setTestDuration] = useState<number>(20);
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handler = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setDeferredPrompt(null);
+    }
+  };
 
   // Load last active student from session storage if refreshed? 
   // Keeping simple for this implementation.
@@ -913,6 +946,8 @@ export default function App() {
       {screen === 'profile' && (
         <ProfileScreen
           onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }}
+          onInstallClick={handleInstallClick}
+          canInstall={!!deferredPrompt}
         />
       )}
 
