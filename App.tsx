@@ -891,7 +891,8 @@ export default function App() {
     window.matchMedia('(display-mode: standalone)').addEventListener('change', checkStandalone);
 
     const handler = (e: any) => {
-      e.preventDefault();
+      // Do not prevent default to allow browser's native prompt/banner to show
+      // e.preventDefault(); 
       setDeferredPrompt(e);
     };
     window.addEventListener('beforeinstallprompt', handler);

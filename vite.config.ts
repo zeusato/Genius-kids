@@ -21,6 +21,9 @@ export default defineConfig(({ mode }) => {
           short_name: 'MathGenius',
           description: 'Ứng dụng học toán vui nhộn cho bé',
           theme_color: '#ffffff',
+          start_url: './',
+          display: 'standalone',
+          background_color: '#ffffff',
           icons: [
             {
               src: 'Logo.png',
