@@ -19,6 +19,7 @@ export interface StudentProfile {
 export enum QuestionType {
   SingleChoice = 'single',
   MultipleSelect = 'multi',
+  SelectWrong = 'wrong', // Select the wrong answer
   ManualInput = 'input',
   Typing = 'typing'
 }
@@ -30,7 +31,7 @@ export interface Question {
   questionText: string;
   visualSvg?: string; // XML string for SVG rendering
   options?: string[]; // For multiple choice / select
-  correctAnswer?: string; // For single choice / manual
+  correctAnswer?: string; // For single choice / manual / select wrong
   correctAnswers?: string[]; // For multiple select
   userAnswer?: string | string[];
   explanation: string;

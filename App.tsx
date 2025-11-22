@@ -659,6 +659,11 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
                 <CheckSquare size={14} className="mr-1" /> Chọn nhiều đáp án
               </span>
             )}
+            {currentQ.type === QuestionType.SelectWrong && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold mb-2">
+                <XCircle size={14} className="mr-1" /> Chọn đáp án SAI
+              </span>
+            )}
             {currentQ.type === QuestionType.ManualInput && (
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-2">
                 <Type size={14} className="mr-1" /> Tự nhập đáp án
@@ -891,8 +896,7 @@ export default function App() {
     window.matchMedia('(display-mode: standalone)').addEventListener('change', checkStandalone);
 
     const handler = (e: any) => {
-      // Do not prevent default to allow browser's native prompt/banner to show
-      // e.preventDefault(); 
+      e.preventDefault(); // Prevent default to capture the event
       setDeferredPrompt(e);
     };
     window.addEventListener('beforeinstallprompt', handler);

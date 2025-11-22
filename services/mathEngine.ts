@@ -69,6 +69,40 @@ const generateWrongAnswers = (correct: number, count: number, range: number = 10
   return Array.from(wrongs).map(String);
 };
 
+// Helper to create a "select wrong answer" question
+// Takes 3 correct expressions/values and 1 wrong one
+export const createSelectWrongQuestion = (
+  correctAnswers: string[],  // 3 correct choices
+  wrongAnswer: string,        // 1 wrong choice to select
+  questionText: string,
+  explanation: string
+): Omit<Question, 'id' | 'topicId'> => {
+  return {
+    type: QuestionType.SelectWrong,
+    questionText: `Chọn đáp án SAI: ${questionText}`,
+    correctAnswer: wrongAnswer, // The "correct" choice is the wrong answer
+    options: shuffleArray([...correctAnswers, wrongAnswer]),
+    explanation
+  };
+};
+
+// Helper to create a multiple select question
+export const createMultipleSelectQuestion = (
+  correctAnswers: string[],
+  wrongAnswers: string[],
+  questionText: string,
+  explanation: string
+): Omit<Question, 'id' | 'topicId'> => {
+  const allOptions = shuffleArray([...correctAnswers, ...wrongAnswers]);
+  return {
+    type: QuestionType.MultipleSelect,
+    questionText,
+    correctAnswers,
+    options: allOptions,
+    explanation
+  };
+};
+
 // --- Topic Registry ---
 
 export const TOPICS: Topic[] = [
@@ -84,6 +118,8 @@ export const TOPICS: Topic[] = [
   { id: 'g1_time', title: 'Thời gian', grade: Grade.Grade1, description: 'Buổi trong ngày, ngày trong tuần' },
   { id: 'g1_geometry', title: 'Hình học trực quan', grade: Grade.Grade1, description: 'Nhận dạng hình cơ bản' },
   { id: 'g1_word_problems', title: 'Toán lời văn 1 bước', grade: Grade.Grade1, description: 'Thêm, bớt, tổng, còn lại' },
+  { id: 'g1_select_wrong', title: 'Chọn đáp án SAI', grade: Grade.Grade1, description: 'Tìm câu trả lời không đúng' },
+  { id: 'g1_multi_select', title: 'Chọn nhiều đáp án', grade: Grade.Grade1, description: 'Chọn tất cả đáp án đúng' },
 
   // Grade 2
   { id: 'g2_add_sub_no_carry', title: 'Cộng trừ không nhớ (Phạm vi 100)', grade: Grade.Grade2, description: 'Phép tính đơn giản không cần nhớ' },
@@ -93,6 +129,8 @@ export const TOPICS: Topic[] = [
   { id: 'g2_time_calendar', title: 'Thời gian & Lịch', grade: Grade.Grade2, description: 'Xem đồng hồ, đọc lịch ngày tháng' },
   { id: 'g2_geometry_basic', title: 'Hình học (Phẳng & Khối)', grade: Grade.Grade2, description: 'Nhận diện hình, đếm hình' },
   { id: 'g2_typing', title: 'Luyện gõ phím', grade: Grade.Grade2, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g2_select_wrong', title: 'Chọn đáp án SAI', grade: Grade.Grade2, description: 'Tìm câu trả lời không đúng' },
+  { id: 'g2_multi_select', title: 'Chọn nhiều đáp án', grade: Grade.Grade2, description: 'Chọn tất cả đáp án đúng' },
 
   // Grade 3
   { id: 'g3_numbers', title: 'Số và phép tính (1000-10000)', grade: Grade.Grade3, description: 'Đọc, viết, so sánh số 4 chữ số' },
@@ -103,6 +141,8 @@ export const TOPICS: Topic[] = [
   { id: 'g3_measurements', title: 'Đo lường', grade: Grade.Grade3, description: 'Độ dài, khối lượng, dung tích, thời gian' },
   { id: 'g3_word_problems', title: 'Toán lời văn', grade: Grade.Grade3, description: 'Bài toán 1-2 bước' },
   { id: 'g3_typing', title: 'Luyện gõ phím', grade: Grade.Grade3, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g3_select_wrong', title: 'Chọn đáp án SAI', grade: Grade.Grade3, description: 'Tìm câu trả lời không đúng' },
+  { id: 'g3_multi_select', title: 'Chọn nhiều đáp án', grade: Grade.Grade3, description: 'Chọn tất cả đáp án đúng' },
 
   // Grade 4
   { id: 'g4_large_numbers', title: 'Số lớn', grade: Grade.Grade4, description: 'Đọc, viết, so sánh, làm tròn số lớn' },
@@ -118,6 +158,8 @@ export const TOPICS: Topic[] = [
   { id: 'g4_word_problems', title: 'Toán lời văn', grade: Grade.Grade4, description: 'Bài toán 2-3 bước' },
   { id: 'g4_patterns', title: 'Tìm quy luật dãy số', grade: Grade.Grade4, description: 'Điền số còn thiếu vào vị trí bất kỳ' },
   { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade4, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g4_select_wrong', title: 'Chọn đáp án SAI', grade: Grade.Grade4, description: 'Tìm câu trả lời không đúng' },
+  { id: 'g4_multi_select', title: 'Chọn nhiều đáp án', grade: Grade.Grade4, description: 'Chọn tất cả đáp án đúng' },
 
   // Grade 5
   { id: 'g5_numbers', title: 'Số tự nhiên & Số thập phân', grade: Grade.Grade5, description: 'Đọc, viết, so sánh số lớn và số thập phân' },
@@ -128,6 +170,8 @@ export const TOPICS: Topic[] = [
   { id: 'g5_measurements', title: 'Đo lường nâng cao', grade: Grade.Grade5, description: 'Đổi đơn vị, vận tốc, quãng đường' },
   { id: 'g5_word_problems', title: 'Toán lời văn nâng cao', grade: Grade.Grade5, description: 'Tổng-hiệu-tỉ, chuyển động, năng suất' },
   { id: 'g5_typing', title: 'Luyện gõ phím', grade: Grade.Grade5, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g5_select_wrong', title: 'Chọn đáp án SAI', grade: Grade.Grade5, description: 'Tìm câu trả lời không đúng' },
+  { id: 'g5_multi_select', title: 'Chọn nhiều đáp án', grade: Grade.Grade5, description: 'Chọn tất cả đáp án đúng' },
 ];
 
 // --- Generators ---
@@ -325,6 +369,338 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
       correctAnswer: text,
       explanation: `Luyện tập thường xuyên để gõ nhanh hơn nhé!`
     };
+  },
+
+  // --- Select Wrong Generators (All Grades) ---
+  'g1_select_wrong': () => {
+    const target = randomInt(5, 10);
+
+    // Generate 3 correct expressions that equal target
+    const correctAnswers: string[] = [];
+    const usedPairs = new Set<string>();
+
+    let attempts = 0;
+    while (correctAnswers.length < 3 && attempts < 30) {
+      attempts++;
+      const a = randomInt(1, target - 1);
+      const b = target - a;
+      const key = `${Math.min(a, b)}-${Math.max(a, b)}`;
+      if (!usedPairs.has(key)) {
+        usedPairs.add(key);
+        correctAnswers.push(`${a} + ${b}`);
+      }
+    }
+
+    // Generate 1 wrong expression
+    let wrongAnswer = '';
+    attempts = 0;
+    while (!wrongAnswer && attempts < 20) {
+      attempts++;
+      const a = randomInt(1, 9);
+      const b = randomInt(1, 9);
+      if (a + b !== target) {
+        wrongAnswer = `${a} + ${b}`;
+      }
+    }
+
+    return createSelectWrongQuestion(
+      correctAnswers,
+      wrongAnswer,
+      `Phép tính nào có kết quả KHÁC ${target}?`,
+      `Các phép tính đúng đều có kết quả bằng ${target}.`
+    );
+  },
+
+  'g2_select_wrong': () => {
+    const target = randomInt(30, 100);
+
+    // Generate 3 correct expressions
+    const correctAnswers: string[] = [];
+    const usedPairs = new Set<string>();
+
+    let attempts = 0;
+    while (correctAnswers.length < 3 && attempts < 30) {
+      attempts++;
+      const a = randomInt(10, target - 10);
+      const b = target - a;
+      const key = `${Math.min(a, b)}-${Math.max(a, b)}`;
+      if (!usedPairs.has(key)) {
+        usedPairs.add(key);
+        correctAnswers.push(`${a} + ${b}`);
+      }
+    }
+
+    // Generate 1 wrong expression
+    let wrongAnswer = '';
+    attempts = 0;
+    while (!wrongAnswer && attempts < 20) {
+      attempts++;
+      const a = randomInt(10, 50);
+      const b = randomInt(10, 50);
+      if (a + b !== target && a + b < 100) {
+        wrongAnswer = `${a} + ${b}`;
+      }
+    }
+
+    return createSelectWrongQuestion(
+      correctAnswers,
+      wrongAnswer,
+      `Phép tính nào có kết quả KHÁC ${target}?`,
+      `Các phép tính đúng đều có kết quả bằng ${target}.`
+    );
+  },
+
+  'g3_select_wrong': () => {
+    const target = randomInt(20, 100);
+
+    // Generate 3 correct multiplication expressions
+    const correctAnswers: string[] = [];
+    const factors = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    for (const factor of factors) {
+      if (target % factor === 0 && correctAnswers.length < 3) {
+        correctAnswers.push(`${target / factor} × ${factor}`);
+      }
+    }
+
+    // If not enough factors, add some addition
+    if (correctAnswers.length < 3) {
+      const a = randomInt(10, target - 10);
+      correctAnswers.push(`${a} + ${target - a}`);
+    }
+
+    // Generate 1 wrong expression
+    let wrongAnswer = '';
+    let attempts = 0;
+    while (!wrongAnswer && attempts < 20) {
+      attempts++;
+      const a = randomInt(5, 20);
+      const b = randomInt(2, 10);
+      if (a * b !== target) {
+        wrongAnswer = `${a} × ${b}`;
+        break;
+      }
+    }
+
+    return createSelectWrongQuestion(
+      correctAnswers.slice(0, 3),
+      wrongAnswer,
+      `Phép tính nào có kết quả KHÁC ${target}?`,
+      `Các phép tính đúng đều có kết quả bằng ${target}.`
+    );
+  },
+
+  'g4_select_wrong': () => {
+    const target = randomInt(100, 500);
+
+    // Generate 3 correct expressions (mix of operations)
+    const correctAnswers: string[] = [];
+
+    // Try multiplication
+    for (let i = 2; i <= 20 && correctAnswers.length < 2; i++) {
+      if (target % i === 0) {
+        correctAnswers.push(`${target / i} × ${i}`);
+      }
+    }
+
+    // Add addition
+    if (correctAnswers.length < 3) {
+      const a = randomInt(50, target - 50);
+      correctAnswers.push(`${a} + ${target - a}`);
+    }
+
+    // Generate 1 wrong expression
+    const a = randomInt(50, 200);
+    const b = randomInt(2, 10);
+    const wrongResult = a * b;
+    const wrongAnswer = wrongResult !== target ? `${a} × ${b}` : `${a} + ${b}`;
+
+    return createSelectWrongQuestion(
+      correctAnswers.slice(0, 3),
+      wrongAnswer,
+      `Phép tính nào có kết quả KHÁC ${target}?`,
+      `Các phép tính đúng đều có kết quả bằng ${target}.`
+    );
+  },
+
+  'g5_select_wrong': () => {
+    const target = (randomInt(20, 99) / 10);
+
+    // Generate 3 correct expressions
+    const correctAnswers: string[] = [];
+
+    const a1 = (randomInt(5, 50) / 10);
+    const b1 = Math.round((target - a1) * 10) / 10;
+    correctAnswers.push(`${a1.toFixed(1)} + ${b1.toFixed(1)}`);
+
+    const a2 = (randomInt(5, 50) / 10);
+    const b2 = Math.round((target - a2) * 10) / 10;
+    if (a2 !== a1) {
+      correctAnswers.push(`${a2.toFixed(1)} + ${b2.toFixed(1)}`);
+    }
+
+    correctAnswers.push(`${(target * 10).toFixed(0)} ÷ 10`);
+
+    // Generate 1 wrong expression
+    const wa = (randomInt(10, 50) / 10);
+    const wb = (randomInt(10, 50) / 10);
+    const wrongResult = Math.round((wa + wb) * 10) / 10;
+    const wrongAnswer = wrongResult !== target ? `${wa.toFixed(1)} + ${wb.toFixed(1)}` : `${wa.toFixed(1)} - ${wb.toFixed(1)}`;
+
+    return createSelectWrongQuestion(
+      correctAnswers.slice(0, 3),
+      wrongAnswer,
+      `Phép tính nào có kết quả KHÁC ${target.toFixed(1)}?`,
+      `Các phép tính đúng đều có kết quả bằng ${target.toFixed(1)}.`
+    );
+  },
+
+  // --- Multiple Select Generators (All Grades) ---
+  'g1_multi_select': () => {
+    const target = randomInt(5, 10);
+    const correctOps = new Set<string>();
+    const wrongOps = new Set<string>();
+
+    // Generate 2 correct answers
+    let attempts = 0;
+    while (correctOps.size < 2 && attempts < 20) {
+      attempts++;
+      const a = randomInt(1, target - 1);
+      const b = target - a;
+      correctOps.add(`${a} + ${b}`);
+    }
+
+    // Generate 2 wrong answers
+    attempts = 0;
+    while (wrongOps.size < 2 && attempts < 50) {
+      attempts++;
+      const a = randomInt(1, 9);
+      const b = randomInt(1, 9);
+      const result = `${a} + ${b}`;
+      if (a + b !== target && !correctOps.has(result)) {
+        wrongOps.add(result);
+      }
+    }
+
+    return createMultipleSelectQuestion(
+      Array.from(correctOps),
+      Array.from(wrongOps),
+      `Chọn TẤT CẢ các phép tính có kết quả bằng ${target}:`,
+      `Các phép tính đúng là những phép có tổng bằng ${target}.`
+    );
+  },
+
+  'g2_multi_select': () => {
+    const target = randomInt(30, 100);
+    const correctOps = new Set<string>();
+    const wrongOps = new Set<string>();
+
+    // Generate 2 correct answers
+    let attempts = 0;
+    while (correctOps.size < 2 && attempts < 20) {
+      attempts++;
+      const a = randomInt(10, target - 10);
+      const b = target - a;
+      correctOps.add(`${a} + ${b}`);
+    }
+
+    // Generate 2 wrong answers
+    attempts = 0;
+    while (wrongOps.size < 2 && attempts < 50) {
+      attempts++;
+      const a = randomInt(10, 50);
+      const b = randomInt(10, 50);
+      const result = `${a} + ${b}`;
+      if (a + b !== target && !correctOps.has(result)) {
+        wrongOps.add(result);
+      }
+    }
+
+    return createMultipleSelectQuestion(
+      Array.from(correctOps),
+      Array.from(wrongOps),
+      `Chọn TẤT CẢ các phép tính có kết quả bằng ${target}:`,
+      `Các phép tính đúng là những phép có tổng bằng ${target}.`
+    );
+  },
+
+  'g3_multi_select': () => {
+    const target = randomInt(20, 100);
+    const correctOps = new Set<string>();
+    const wrongOps = new Set<string>();
+
+    // Generate 2 correct multiplication expressions
+    let attempts = 0;
+    const factors = [2, 3, 4, 5];
+    while (correctOps.size < 2 && attempts < 20) {
+      attempts++;
+      const factor = factors[randomInt(0, factors.length - 1)];
+      if (target % factor === 0) {
+        correctOps.add(`${target / factor} × ${factor}`);
+      }
+    }
+
+    // Generate 2 wrong answers
+    attempts = 0;
+    while (wrongOps.size < 2 && attempts < 50) {
+      attempts++;
+      const a = randomInt(10, 50);
+      const b = randomInt(2, 10);
+      const result = `${a} × ${b}`;
+      if (a * b !== target && !correctOps.has(result)) {
+        wrongOps.add(result);
+      }
+    }
+
+    return createMultipleSelectQuestion(
+      Array.from(correctOps),
+      Array.from(wrongOps),
+      `Chọn TẤT CẢ các phép tính có kết quả bằng ${target}:`,
+      `Kiểm tra kết quả của từng phép nhân.`
+    );
+  },
+
+  'g4_multi_select': () => {
+    const num = randomInt(1000, 9999);
+    const correct = new Set<string>();
+    const wrong = new Set<string>();
+
+    // Correct statements about numbers
+    correct.add(`Số ${num} có ${num.toString().length} chữ số`);
+    correct.add(`${num} > ${num - 100}`);
+
+    // Wrong statements
+    const isOdd = num % 2 === 1;
+    wrong.add(`Số ${num} là số ${isOdd ? 'chẵn' : 'lẻ'}`);
+    wrong.add(`${num} < ${num - 100}`);
+
+    return createMultipleSelectQuestion(
+      Array.from(correct),
+      Array.from(wrong),
+      `Chọn TẤT CẢ các phát biểu ĐÚNG:`,
+      `Đọc kỹ từng phát biểu và kiểm tra tính đúng sai.`
+    );
+  },
+
+  'g5_multi_select': () => {
+    const a = (randomInt(10, 99) / 10);
+    const correct = new Set<string>();
+    const wrong = new Set<string>();
+
+    // Correct statements
+    correct.add(`${a.toFixed(1)} = ${(a * 10).toFixed(0)}/10`);
+    correct.add(`${a.toFixed(1)} > ${(a - 1).toFixed(1)}`);
+
+    // Wrong statements
+    wrong.add(`${a.toFixed(1)} < ${(a - 1).toFixed(1)}`);
+    wrong.add(`${a.toFixed(1)} = ${(a * 10 + 1).toFixed(0)}/10`);
+
+    return createMultipleSelectQuestion(
+      Array.from(correct),
+      Array.from(wrong),
+      `Chọn TẤT CẢ các phát biểu ĐÚNG về số ${a.toFixed(1)}:`,
+      `Kiểm tra từng phát biểu về số thập phân.`
+    );
   }
 };
 
@@ -362,6 +738,32 @@ export const generateQuestions = (topicIds: string[], count: number): Question[]
           }
 
           baseQ.options = uniqueOptions.slice(0, 4);
+        }
+
+        // Ensure options are unique for SelectWrong questions
+        if (baseQ.type === QuestionType.SelectWrong && baseQ.options) {
+          const uniqueOptions = Array.from(new Set(baseQ.options));
+
+          // If we lost options due to duplicates, skip this question
+          if (uniqueOptions.length < 4) {
+            continue;
+          }
+
+          baseQ.options = uniqueOptions.slice(0, 4);
+        }
+
+        // Ensure options are unique for MultipleSelect questions
+        if (baseQ.type === QuestionType.MultipleSelect && baseQ.options) {
+          const uniqueOptions = Array.from(new Set(baseQ.options));
+
+          // If we lost options due to duplicates, skip this question
+          // Need at least sum of correct + wrong answers
+          const minRequired = (baseQ.correctAnswers?.length || 0) + 2;
+          if (uniqueOptions.length < minRequired) {
+            continue;
+          }
+
+          baseQ.options = uniqueOptions;
         }
 
         seenQuestions.add(questionKey);
