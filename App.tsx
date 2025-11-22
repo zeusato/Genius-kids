@@ -7,7 +7,7 @@ import { soundManager } from './utils/sound';
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
-  CheckSquare, Type, Settings, Keyboard, Download
+  CheckSquare, Type, Settings, Keyboard, Download, Share, MoreVertical
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -45,6 +45,38 @@ const Card = ({ children, className = '' }: any) => (
 );
 
 // --- Screens ---
+
+const InstallInstructions = ({ onClose }: { onClose: () => void }) => (
+  <div className="fixed inset-0 bg-black/50 z-[60] flex items-center justify-center p-4 animate-in fade-in">
+    <Card className="w-full max-w-md relative">
+      <button onClick={onClose} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+        <X size={24} />
+      </button>
+      <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <Download className="text-brand-500" /> Cài đặt ứng dụng
+      </h3>
+      <div className="space-y-4 text-slate-600">
+        <p>Để cài đặt ứng dụng MathGenius Kids, hãy làm theo hướng dẫn sau:</p>
+
+        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+            <span className="bg-brand-100 text-brand-600 w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+            Trên trình duyệt (Chrome/Safari)
+          </h4>
+          <p className="mb-2">Nhấn vào nút <strong>Chia sẻ</strong> <Share size={16} className="inline" /> hoặc <strong>Menu</strong> <MoreVertical size={16} className="inline" /></p>
+          <p>Chọn <strong>"Thêm vào màn hình chính"</strong> hoặc <strong>"Install App"</strong></p>
+        </div>
+
+        <div className="text-sm text-slate-500 italic text-center">
+          Sau khi cài đặt, bé có thể học toán mọi lúc ngay trên màn hình chính!
+        </div>
+      </div>
+      <div className="mt-6">
+        <Button className="w-full" onClick={onClose}>Đã hiểu</Button>
+      </div>
+    </Card>
+  </div>
+);
 
 // 1. Profile Selection
 const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall }: { onSelectProfile: (p: StudentProfile) => void, onInstallClick?: () => void, canInstall?: boolean }) => {
@@ -846,18 +878,34 @@ export default function App() {
   const [testDuration, setTestDuration] = useState<number>(20);
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [showInstallInstructions, setShowInstallInstructions] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
+    // Check if standalone
+    const checkStandalone = () => {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
+      setIsStandalone(!!isStandalone);
+    };
+    checkStandalone();
+    window.matchMedia('(display-mode: standalone)').addEventListener('change', checkStandalone);
+
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
     window.addEventListener('beforeinstallprompt', handler);
-    return () => window.removeEventListener('beforeinstallprompt', handler);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler);
+      window.matchMedia('(display-mode: standalone)').removeEventListener('change', checkStandalone);
+    };
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+      setShowInstallInstructions(true);
+      return;
+    }
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') {
@@ -947,8 +995,12 @@ export default function App() {
         <ProfileScreen
           onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }}
           onInstallClick={handleInstallClick}
-          canInstall={!!deferredPrompt}
+          canInstall={!isStandalone}
         />
+      )}
+
+      {showInstallInstructions && (
+        <InstallInstructions onClose={() => setShowInstallInstructions(false)} />
       )}
 
       {screen === 'dashboard' && currentStudent && (
