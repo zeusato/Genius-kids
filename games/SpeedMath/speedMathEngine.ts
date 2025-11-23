@@ -101,25 +101,20 @@ const generateMathQuestion = (level: SpeedDifficulty): SpeedQuestion => {
         }
     }
 
-    // Format: "A + B = ?" or "A + ? = C" (Medium/Hard only)
-    const type = (level !== 'easy' && Math.random() > 0.7) ? 'missing' : 'normal';
+    // Format: "A + B = ?" or "A + ? = C" (Medium/Hard only, but ONLY for + and ×)
+    // Missing operand for - and / can create negative/complex results
+    const canUseMissing = (op === '+' || op === 'x');
+    const type = (level !== 'easy' && canUseMissing && Math.random() > 0.7) ? 'missing' : 'normal';
 
     if (type === 'normal') {
         content = `${a} ${op === 'x' ? '×' : op === '/' ? '÷' : op} ${b} = ?`;
     } else {
-        // Missing operand
-        content = `${a} ${op === 'x' ? '×' : op === '/' ? '÷' : op} ? = ${ans}`;
-        // Swap logic for subtraction/division to make sense? 
-        // A - ? = Ans => ? = A - Ans. 
-        // A / ? = Ans => ? = A / Ans.
-        // Actually let's keep it simple: ? + B = Ans
+        // Missing operand (only for + and ×)
         if (Math.random() > 0.5) {
-            content = `? ${op === 'x' ? '×' : op === '/' ? '÷' : op} ${b} = ${ans}`;
-            // Correct answer is 'a'
+            content = `? ${op === 'x' ? '×' : '+'} ${b} = ${ans}`;
             ans = a;
         } else {
-            content = `${a} ${op === 'x' ? '×' : op === '/' ? '÷' : op} ? = ${ans}`;
-            // Correct answer is 'b'
+            content = `${a} ${op === 'x' ? '×' : '+'} ? = ${ans}`;
             ans = b;
         }
     }
@@ -130,7 +125,8 @@ const generateMathQuestion = (level: SpeedDifficulty): SpeedQuestion => {
     while (options.size < 4) {
         let offset = Math.floor(Math.random() * 10) - 5;
         if (offset === 0) offset = 1;
-        options.add((ans + offset).toString());
+        const optionValue = Math.max(0, ans + offset); // Prevent negative options
+        options.add(optionValue.toString());
     }
 
     return {

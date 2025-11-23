@@ -1,8 +1,8 @@
-import React from 'react';
-import { StudentProfile, Rarity } from '../../types';
+import React, { useState } from 'react';
+import { StudentProfile, Rarity, AlbumImage } from '../../types';
 import { getAllCollections } from '../../services/albumService';
 import { getRarityColor, getRarityName } from '../../services/albumService';
-import { ArrowLeft, Lock } from 'lucide-react';
+import { ArrowLeft, Lock, X } from 'lucide-react';
 
 interface AlbumScreenProps {
     student: StudentProfile;
@@ -14,6 +14,7 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
     onBack,
 }) => {
     const collections = getAllCollections();
+    const [selectedImage, setSelectedImage] = useState<AlbumImage | null>(null);
 
     return (
         <div className="min-h-screen p-4 pb-20 max-w-6xl mx-auto">
@@ -74,9 +75,10 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
                                     return (
                                         <div
                                             key={image.id}
-                                            className={`relative aspect-square rounded-xl overflow-hidden transition-all border-4 ${owned ? 'shadow-md hover:scale-105' : 'bg-gray-100'
+                                            className={`relative aspect-square rounded-xl overflow-hidden transition-all border-4 ${owned ? 'shadow-md hover:scale-105 cursor-pointer' : 'bg-gray-100'
                                                 }`}
                                             style={{ borderColor: rarityColor }}
+                                            onClick={() => owned && setSelectedImage(image)}
                                         >
                                             {owned ? (
                                                 <>
@@ -135,6 +137,63 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
             {collections.length === 0 && (
                 <div className="text-center py-20">
                     <p className="text-2xl text-gray-400">Chưa có bộ sưu tập nào</p>
+                </div>
+            )}
+
+            {/* Image Viewer Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div
+                        className="relative max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col animate-in zoom-in-95 fade-in duration-300 border-8"
+                        style={{ borderColor: getRarityColor(selectedImage.rarity) }}
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 z-10 p-3 bg-white/90 hover:bg-white text-gray-800 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        {/* Image Container with Gradient Border */}
+                        <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+                            <img
+                                src={selectedImage.imagePath}
+                                alt={selectedImage.name}
+                                className="w-full object-contain max-h-[65vh] rounded-xl shadow-lg"
+                            />
+                        </div>
+
+                        {/* Image Info - Premium Style */}
+                        <div
+                            className="p-8 bg-gradient-to-br from-white via-gray-50 to-gray-100"
+                        >
+                            {/* Rarity Badge */}
+                            <div className="flex items-center gap-3 mb-4">
+                                <div
+                                    className="px-4 py-2 rounded-full font-bold text-white shadow-lg flex items-center gap-2"
+                                    style={{ backgroundColor: getRarityColor(selectedImage.rarity) }}
+                                >
+                                    <span className="text-lg">✨</span>
+                                    <span className="text-sm uppercase tracking-wider">{getRarityName(selectedImage.rarity)}</span>
+                                </div>
+                            </div>
+
+                            {/* Image Name */}
+                            <h3 className="text-3xl font-extrabold text-gray-900 mb-2 drop-shadow-sm">
+                                {selectedImage.name}
+                            </h3>
+
+                            {/* Collection Info */}
+                            <p className="text-gray-600 font-medium">
+                                Bộ sưu tập: <span className="text-brand-600 font-semibold">Thế Giới Động Vật</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

@@ -3,7 +3,7 @@ import { StudentProfile } from '../../types';
 import { getAllAvatars, getAvatarById } from '../../services/avatarService';
 import { getAllThemes, getThemeById, applyTheme } from '../../services/themeService';
 import { getProfileStats, getDailyStarsEarned } from '../../services/profileService';
-import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info } from 'lucide-react';
 
 interface UserProfileScreenProps {
     student: StudentProfile;
@@ -169,7 +169,19 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 {/* Stars */}
                 <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl shadow-lg p-6">
-                    <h2 className="text-xl font-bold text-yellow-800 mb-4">Số sao sở hữu</h2>
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold text-yellow-800">Số sao sở hữu</h2>
+                        <div className="group relative">
+                            <Info size={20} className="text-yellow-700 cursor-help" />
+                            <div className="absolute right-0 top-8 w-64 bg-gradient-to-br from-yellow-400 to-orange-400 text-gray-900 text-xs rounded-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl border-2 border-yellow-500">
+                                <p className="font-bold mb-1">💡 Cách kiếm sao:</p>
+                                <p>• Hoàn thành bài test/game</p>
+                                <p>• Nhận huy chương (🥉🥈🥇)</p>
+                                <p>• Bronze = 1⭐, Silver = 2⭐, Gold = 3⭐</p>
+                                <p>• Nhận 10⭐ khi kiếm được ảnh trùng lặp</p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="flex items-center gap-3">
                         <span className="text-6xl">⭐</span>
                         <span className="text-5xl font-black text-yellow-600">{student.stars}</span>
@@ -179,7 +191,19 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
 
                 {/* Album */}
                 <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl shadow-lg p-6">
-                    <h2 className="text-xl font-bold text-purple-800 mb-4">Album sưu tập</h2>
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold text-purple-800">Album sưu tập</h2>
+                        <div className="group relative">
+                            <Info size={20} className="text-purple-700 cursor-help" />
+                            <div className="absolute right-0 top-8 w-64 bg-gradient-to-br from-purple-400 to-pink-400 text-gray-900 text-xs rounded-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl border-2 border-purple-500">
+                                <p className="font-bold mb-1">🎁 Cách nhận ảnh:</p>
+                                <p>• Kiếm được sao từ test/game</p>
+                                <p>• Có 30% cơ hội nhận ảnh ngẫu nhiên</p>
+                                <p>• Độ hiếm: Phổ thông → Huyền thoại</p>
+                                <p>• Một số có thể mua tại cửa hàng</p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-3xl font-bold text-purple-600">{stats.totalImagesCollected}</p>
