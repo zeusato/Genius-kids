@@ -11,7 +11,8 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "node"
+      "node",
+      "styled-jsx"
     ],
     "moduleResolution": "bundler",
     "isolatedModules": true,

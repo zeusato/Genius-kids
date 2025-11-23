@@ -33,6 +33,10 @@ class SoundManager {
         return this.isMuted;
     }
 
+    public playNote(freq: number, duration: number = 0.3) {
+        this.playTone(freq, 'sine', duration, 0);
+    }
+
     // Play a tone
     private playTone(freq: number, type: OscillatorType, duration: number, startTime: number = 0) {
         const ctx = this.getContext();

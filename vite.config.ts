@@ -12,7 +12,11 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
     },
     plugins: [
-      react(),
+      react({
+        babel: {
+          plugins: ['styled-jsx/babel']
+        }
+      }),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['Logo.png', 'OG.png'],

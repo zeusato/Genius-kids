@@ -1,0 +1,102 @@
+import React from 'react';
+import { BookOpen, Gamepad2, LogOut } from 'lucide-react';
+
+interface CategorySelectorProps {
+    onSelectCategory: (category: 'practice' | 'games') => void;
+    onExit: () => void;
+}
+
+export const CategorySelector: React.FC<CategorySelectorProps> = ({ onSelectCategory, onExit }) => {
+    return (
+        <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-brand-50 via-purple-50 to-fun-yellow/20 relative">
+            <button
+                onClick={onExit}
+                className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-white/80 hover:bg-white text-slate-600 hover:text-red-500 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold"
+            >
+                <LogOut size={20} />
+                <span className="hidden sm:inline">Thoát</span>
+            </button>
+
+            <div className="text-center mb-12 animate-in fade-in slide-in-from-top duration-700">
+                <h1 className="text-5xl md:text-6xl font-extrabold text-brand-600 mb-4 drop-shadow-sm">
+                    MathGenius Kids
+                </h1>
+                <p className="text-xl text-slate-600">Chọn chế độ học tập</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+                {/* Practice Category */}
+                <button
+                    onClick={() => onSelectCategory('practice')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-brand-400 hover:scale-105 animate-in fade-in slide-in-from-left duration-500"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-100 to-brand-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="relative z-10">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-brand-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <BookOpen size={48} className="text-white" />
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-brand-600 transition-colors">
+                            Ôn Luyện
+                        </h2>
+
+                        <p className="text-slate-600 text-lg">
+                            Làm bài tập toán theo chủ đề và lớp học
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                            <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
+                                Kiểm tra
+                            </span>
+                            <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
+                                Luyện tập
+                            </span>
+                            <span className="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
+                                Xuất PDF
+                            </span>
+                        </div>
+                    </div>
+                </button>
+
+                {/* Games Category */}
+                <button
+                    onClick={() => onSelectCategory('games')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-fun-purple hover:scale-105 animate-in fade-in slide-in-from-right duration-500"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-pink-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="relative z-10">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-fun-purple to-pink-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Gamepad2 size={48} className="text-white" />
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-fun-purple transition-colors">
+                            Games
+                        </h2>
+
+                        <p className="text-slate-600 text-lg">
+                            Học toán qua các trò chơi vui nhộn
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                                Ghép thẻ
+                            </span>
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                                Tìm quy luật
+                            </span>
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                                Thử thách
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <div className="mt-12 text-center text-slate-500 animate-in fade-in duration-1000 delay-300">
+                <p className="text-sm">🎯 Chọn chế độ phù hợp để bắt đầu học toán!</p>
+            </div>
+        </div>
+    );
+};

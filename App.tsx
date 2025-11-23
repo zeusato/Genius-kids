@@ -6,10 +6,12 @@ import { exportTestToPDF } from './utils/pdfExport';
 import { soundManager } from './utils/sound';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from './services/updateService';
 import { UpdateNotification } from './src/components/UpdateNotification';
+import { CategorySelector } from './src/components/CategorySelector';
+import { GamesMenu } from './games/GamesMenu';
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
-  CheckSquare, Type, Settings, Keyboard, Download, Share, MoreVertical
+  CheckSquare, Type, Settings, Keyboard, Download, Share, MoreVertical, ArrowLeft
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -216,7 +218,7 @@ const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall, showVersio
 };
 
 // 2. Dashboard & Topic Selection
-const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: StudentProfile, onStartTest: (topics: string[], count: number) => void, onLogout: () => void, onExport: (topics: string[], count: number) => Promise<void> }) => {
+const Dashboard = ({ student, onStartTest, onBack, onExport }: { student: StudentProfile, onStartTest: (topics: string[], count: number) => void, onBack: () => void, onExport: (topics: string[], count: number) => Promise<void> }) => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [questionCount, setQuestionCount] = useState<number>(20);
   const [isExporting, setIsExporting] = useState(false);
@@ -268,8 +270,8 @@ const Dashboard = ({ student, onStartTest, onLogout, onExport }: { student: Stud
             <p className="text-slate-500">Học sinh lớp {student.grade}</p>
           </div>
         </div>
-        <Button variant="outline" onClick={onLogout} className="text-sm px-4 py-2">
-          <LogOut size={16} className="mr-2" /> Thoát
+        <Button variant="outline" onClick={onBack} className="text-sm px-4 py-2">
+          <ArrowLeft size={16} className="mr-2" /> Quay lại
         </Button>
       </header>
 
@@ -891,7 +893,8 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
 
 export default function App() {
   const [currentStudent, setCurrentStudent] = useState<StudentProfile | null>(null);
-  const [screen, setScreen] = useState<'profile' | 'dashboard' | 'test' | 'result'>('profile');
+  const [screen, setScreen] = useState<'profile' | 'category' | 'dashboard' | 'test' | 'result' | 'games-menu'>('profile');
+  const [currentCategory, setCurrentCategory] = useState<'practice' | 'games' | null>(null);
   const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
   const [testDuration, setTestDuration] = useState<number>(20);
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
@@ -1033,10 +1036,24 @@ export default function App() {
     <div className="min-h-screen font-sans">
       {screen === 'profile' && (
         <ProfileScreen
-          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }}
+          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('category'); }}
           onInstallClick={handleInstallClick}
           canInstall={!isStandalone}
           showVersionCheck={versionCheckComplete}
+        />
+      )}
+
+      {screen === 'category' && currentStudent && (
+        <CategorySelector
+          onSelectCategory={(cat) => {
+            setCurrentCategory(cat);
+            if (cat === 'practice') {
+              setScreen('dashboard');
+            } else {
+              setScreen('games-menu');
+            }
+          }}
+          onExit={() => { setCurrentStudent(null); setScreen('profile'); }}
         />
       )}
 
@@ -1044,11 +1061,15 @@ export default function App() {
         <InstallInstructions onClose={() => setShowInstallInstructions(false)} />
       )}
 
+      {screen === 'games-menu' && (
+        <GamesMenu onBack={() => setScreen('category')} />
+      )}
+
       {screen === 'dashboard' && currentStudent && (
         <Dashboard
           student={currentStudent}
           onStartTest={handleStartTest}
-          onLogout={() => { setCurrentStudent(null); setScreen('profile'); }}
+          onBack={() => setScreen('category')}
           onExport={handleExportPDF}
         />
       )}
