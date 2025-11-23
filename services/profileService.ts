@@ -1,5 +1,5 @@
 import { StudentProfile, Grade, GameResult, TestResult } from '../types';
-import { getDefaultAvatarId } from './avatarService';
+import { getDefaultAvatarId, getRandomUnusedAvatar } from './avatarService';
 import { getDefaultThemeId } from './themeService';
 import { initializeShopDailyPhotos } from './shopService';
 
@@ -26,7 +26,12 @@ export const saveProfiles = (profiles: StudentProfile[]): void => {
 
 // Create new profile with defaults
 export const createProfile = (name: string, grade: Grade): StudentProfile => {
-    const defaultAvatarId = 'avatar_01'; // Default to puppy
+    // Get all existing profiles to avoid avatar collisions
+    const existingProfiles = getAllProfiles();
+    const usedAvatarIds = existingProfiles.map(p => p.currentAvatarId);
+
+    // Random unused avatar, or any random if all are used
+    const defaultAvatarId = getRandomUnusedAvatar(usedAvatarIds);
     const defaultThemeId = getDefaultThemeId();
 
     return {

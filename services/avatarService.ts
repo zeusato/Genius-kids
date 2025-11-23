@@ -53,3 +53,17 @@ export const getDefaultAvatarId = (): string => {
 export const getAvailableAvatars = (ownedIds: string[]): Avatar[] => {
     return AVATARS.filter(a => !ownedIds.includes(a.id));
 };
+
+// Get random avatar not used by existing profiles
+export const getRandomUnusedAvatar = (usedAvatarIds: string[]): string => {
+    // Filter avatars not already used
+    const unusedAvatars = AVATARS.filter(a => !usedAvatarIds.includes(a.id));
+
+    // If all avatars are used, return random from all
+    const pool = unusedAvatars.length > 0 ? unusedAvatars : AVATARS;
+
+    // Random select
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    return pool[randomIndex].id;
+};
+

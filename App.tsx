@@ -13,6 +13,7 @@ import { AlbumScreen } from './src/components/AlbumScreen';
 import { ModeSelectionScreen } from './src/components/ModeSelectionScreen';
 import { UserProfileScreen } from './src/components/UserProfileScreen';
 import { getAllProfiles, saveProfiles, createProfile, updateProfile, deleteProfile } from './services/profileService';
+import { getAvatarById } from './services/avatarService';
 import { initializeTheme } from './services/themeService';
 import { GachaModal } from './src/components/GachaModal';
 import { gachaImage } from './services/albumService';
@@ -151,15 +152,24 @@ const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall, showVersio
 
       {!isCreating ? (
         <div className="w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-6">
-          {profiles.map(p => (
-            <button key={p.id} onClick={() => onSelectProfile(p)} className="group relative bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-2 border-transparent hover:border-brand-400 text-left flex items-center space-x-4">
-              <div className="text-5xl bg-brand-50 p-3 rounded-2xl group-hover:scale-110 transition-transform">{avatars[p.avatarId % 5]}</div>
-              <div>
-                <h3 className="text-2xl font-bold text-slate-800 group-hover:text-brand-600">{p.name}</h3>
-                <p className="text-slate-500 font-medium">Lớp {p.grade}</p>
-              </div>
-            </button>
-          ))}
+          {profiles.map(p => {
+            const avatar = getAvatarById(p.currentAvatarId);
+            return (
+              <button key={p.id} onClick={() => onSelectProfile(p)} className="group relative bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-2 border-transparent hover:border-brand-400 text-left flex items-center space-x-4">
+                <div className="bg-brand-50 p-3 rounded-2xl group-hover:scale-110 transition-transform">
+                  {avatar?.isEmoji ? (
+                    <span className="text-5xl">{avatar.imagePath}</span>
+                  ) : (
+                    <img src={avatar?.imagePath} alt={avatar?.name} className="w-16 h-16 rounded-full object-cover" />
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 group-hover:text-brand-600">{p.name}</h3>
+                  <p className="text-slate-500 font-medium">Lớp {p.grade}</p>
+                </div>
+              </button>
+            );
+          })}
 
           <button onClick={() => setIsCreating(true)} className="flex flex-col items-center justify-center p-6 rounded-3xl border-4 border-dashed border-brand-200 text-brand-400 hover:bg-brand-50 hover:border-brand-400 hover:text-brand-600 transition-all h-full min-h-[140px]">
             <Plus size={40} />
