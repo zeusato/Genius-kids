@@ -153,26 +153,22 @@ export function checkMatch(card1: MemoryCard, card2: MemoryCard): boolean {
  * Get medal based on performance
  */
 export function getMedal(moves: number, totalPairs: number, timeSeconds: number): {
-    type: 'gold' | 'silver' | 'bronze' | 'none';
+    type: 'gold' | 'silver' | 'bronze' | null;
     message: string;
 } {
-    const perfectMoves = totalPairs;
-    const timePerPair = timeSeconds / totalPairs;
+    // Medal calculation based ONLY on moves efficiency
+    // Gold: moves <= totalPairs * 1.2
+    // Silver: moves <= totalPairs * 1.5
+    // Bronze: moves > totalPairs * 1.5
 
-    // Gold: < 1.5x perfect moves and < 5 seconds per pair
-    if (moves < perfectMoves * 1.5 && timePerPair < 5) {
+    if (moves <= totalPairs * 1.2) {
         return { type: 'gold', message: 'Xuất sắc! Trí nhớ siêu đẳng!' };
     }
 
-    // Silver: < 2x perfect moves and < 8 seconds per pair
-    if (moves < perfectMoves * 2 && timePerPair < 8) {
+    if (moves <= totalPairs * 1.5) {
         return { type: 'silver', message: 'Tuyệt vời! Rất tốt!' };
     }
 
-    // Bronze: < 2.5x perfect moves
-    if (moves < perfectMoves * 2.5) {
-        return { type: 'bronze', message: 'Giỏi lắm! Tiếp tục cố gắng!' };
-    }
-
-    return { type: 'none', message: 'Hoàn thành! Luyện tập thêm nhé!' };
+    return { type: 'bronze', message: 'Giỏi lắm! Tiếp tục cố gắng!' };
 }
+

@@ -7,9 +7,10 @@ import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
 
 interface GamesMenuProps {
     onBack: () => void;
+    onGameComplete: (gameId: string, score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
-export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack }) => {
+export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
     const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
@@ -18,8 +19,8 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack }) => {
             <MemoryMatchGame
                 difficulty={difficulty}
                 onExit={() => setActiveGame(null)}
-                onComplete={(score, time, moves) => {
-                    console.log('Game completed:', { score, time, moves });
+                onComplete={(score, maxScore, medal) => {
+                    onGameComplete('memory', score, maxScore, medal);
                     setActiveGame(null);
                 }}
             />
@@ -40,8 +41,8 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack }) => {
             <SoundMemoryGame
                 difficulty={getSoundDifficulty(difficulty)}
                 onExit={() => setActiveGame(null)}
-                onComplete={(score) => {
-                    console.log('Sound Game completed:', score);
+                onComplete={(score, maxScore, medal) => {
+                    onGameComplete('sound-memory', score, maxScore, medal);
                     setActiveGame(null);
                 }}
             />
@@ -53,6 +54,10 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack }) => {
             <SpeedMathGame
                 difficulty={getSoundDifficulty(difficulty)}
                 onBack={() => setActiveGame(null)}
+                onComplete={(score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
+                    onGameComplete('speed-math', score, maxScore, medal);
+                    setActiveGame(null);
+                }}
             />
         );
     }

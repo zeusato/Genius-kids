@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Trophy, Clock, Target } from 'lucide-react';
 import { Card } from './Card';
+import { soundManager } from '../../utils/sound';
 import {
     MemoryCard,
     Difficulty,
@@ -8,19 +9,14 @@ import {
     checkMatch,
     getMedal
 } from '../memoryMatchEngine';
-import { soundManager } from '../../utils/sound';
 
 interface MemoryMatchGameProps {
     difficulty: Difficulty;
     onExit: () => void;
-    onComplete: (score: number, time: number, moves: number) => void;
+    onComplete: (score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
-export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({
-    difficulty,
-    onExit,
-    onComplete
-}) => {
+export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({ difficulty, onExit, onComplete }) => {
     const [cards, setCards] = useState<MemoryCard[]>([]);
     const [flippedCards, setFlippedCards] = useState<string[]>([]);
     const [matchedCount, setMatchedCount] = useState(0);
@@ -32,16 +28,18 @@ export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({
     // Initialize game
     useEffect(() => {
         setCards(generateMemoryCards(difficulty));
+        setFlippedCards([]);
+        setMatchedCount(0);
+        setMoves(0);
+        setTime(0);
+        setIsChecking(false);
+        setGameComplete(false);
     }, [difficulty]);
 
     // Timer
     useEffect(() => {
         if (gameComplete) return;
-
-        const timer = setInterval(() => {
-            setTime(t => t + 1);
-        }, 1000);
-
+        const timer = setInterval(() => setTime(t => t + 1), 1000);
         return () => clearInterval(timer);
     }, [gameComplete]);
 
@@ -180,12 +178,25 @@ export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({
                                 {medal.type === 'gold' && '🥇'}
                                 {medal.type === 'silver' && '🥈'}
                                 {medal.type === 'bronze' && '🥉'}
-                                {medal.type === 'none' && '⭐'}
+                                {!medal.type && '⭐'}
                             </div>
 
                             <h2 className="text-3xl font-bold text-slate-800 mb-2">
                                 {medal.message}
                             </h2>
+
+                            {/* Stars Earned */}
+                            <div className="flex items-center justify-center gap-2 my-4 bg-yellow-50 px-6 py-3 rounded-full">
+                                <span className="text-lg font-semibold text-slate-700">Nhận được:</span>
+                                <div className="flex">
+                                    {[...Array(medal.type === 'gold' ? 3 : medal.type === 'silver' ? 2 : medal.type === 'bronze' ? 1 : 0)].map((_, i) => (
+                                        <span key={i} className="text-2xl">⭐</span>
+                                    ))}
+                                </div>
+                                <span className="text-lg font-bold text-yellow-600">
+                                    +{medal.type === 'gold' ? 3 : medal.type === 'silver' ? 2 : medal.type === 'bronze' ? 1 : 0} sao
+                                </span>
+                            </div>
 
                             <div className="space-y-3 my-6">
                                 <div className="flex justify-between text-lg">
@@ -203,7 +214,11 @@ export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({
                             </div>
 
                             <button
-                                onClick={() => onComplete(1000 - moves * 10, time, moves)}
+                                onClick={() => {
+                                    const maxScore = 1000;
+                                    const score = Math.max(0, maxScore - moves * 10);
+                                    onComplete(score, maxScore, medal.type);
+                                }}
                                 className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all"
                             >
                                 Hoàn thành

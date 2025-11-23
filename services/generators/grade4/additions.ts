@@ -60,7 +60,8 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
         const xType = randomInt(0, 2);
 
         if (xType === 0) {
-            // x + a = bconst a = randomInt(10000, 500000);
+            // x + a = b
+            const a = randomInt(10000, 500000);
             const b = randomInt(a + 1000, 999999);
             const x = b - a;
             return {

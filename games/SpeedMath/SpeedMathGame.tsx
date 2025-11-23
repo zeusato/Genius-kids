@@ -6,9 +6,10 @@ import { SpeedDifficulty, SpeedQuestion, generateSpeedQuestion } from './speedMa
 interface SpeedMathGameProps {
     difficulty: string; // 'easy' | 'medium' | 'hard'
     onBack: () => void;
+    onComplete: (score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
-export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack }) => {
+export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack, onComplete }) => {
     // Game State
     const [gameState, setGameState] = useState<'intro' | 'playing' | 'gameover'>('intro');
     const [score, setScore] = useState(0);
@@ -18,6 +19,7 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
     const [timeLeft, setTimeLeft] = useState(0);
     const [totalTime, setTotalTime] = useState(0);
     const [gameOverReason, setGameOverReason] = useState<'lives' | 'timeout' | 'completed'>('lives');
+    const [completionMedal, setCompletionMedal] = useState<'gold' | 'silver' | 'bronze' | null>(null);
 
     // Typing State
     const [typingInput, setTypingInput] = useState('');
@@ -33,6 +35,7 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
         setScore(0);
         setLives(3);
         setQuestionCount(0);
+        setCompletionMedal(null);
         nextQuestion();
     };
 
@@ -77,8 +80,6 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
     const handleLifeLost = (reason: 'lives' | 'timeout' = 'lives') => {
         if (lives > 1) {
             setLives(l => l - 1);
-            // Show "Wrong" feedback briefly? Or just next?
-            // For speed game, immediate next is better but maybe a shake effect
             nextQuestion();
         } else {
             setLives(0);
@@ -90,7 +91,18 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
         setGameOverReason(reason);
         setGameState('gameover');
         if (timerRef.current) clearInterval(timerRef.current);
+
+        // Calculate medal based on lives remaining (only if completed)
+        let medal: 'gold' | 'silver' | 'bronze' | null = null;
+        if (reason === 'completed') {
+            if (lives === 3) medal = 'gold';
+            else if (lives === 2) medal = 'silver';
+            else if (lives === 1) medal = 'bronze';
+        }
+        setCompletionMedal(medal);
+
         soundManager.playComplete();
+        // DON'T call onComplete here - will be called when user clicks Exit button
     };
 
     const handleAnswer = (ans: string) => {
@@ -247,10 +259,25 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
                             gameOverReason === 'timeout' ? 'Hết giờ!' : 'Hết mạng!'}
                     </h2>
 
-                    <p className="text-slate-500 mb-6 text-lg">
+                    <p className="text-slate-500 mb-4 text-lg">
                         {gameOverReason === 'completed' ? 'Bạn đã hoàn thành tất cả câu hỏi.' :
                             gameOverReason === 'timeout' ? 'Bạn đã để thời gian trôi qua quá nhiều.' : 'Bạn đã chọn sai quá 3 lần.'}
                     </p>
+
+                    {/* Stars Earned - only show if completed with medal */}
+                    {gameOverReason === 'completed' && completionMedal && (
+                        <div className="flex items-center justify-center gap-2 my-4 bg-yellow-50 px-6 py-3 rounded-full">
+                            <span className="text-lg font-semibold text-slate-700">Nhận được:</span>
+                            <div className="flex">
+                                {[...Array(completionMedal === 'gold' ? 3 : completionMedal === 'silver' ? 2 : 1)].map((_, i) => (
+                                    <span key={i} className="text-2xl">⭐</span>
+                                ))}
+                            </div>
+                            <span className="text-lg font-bold text-yellow-600">
+                                +{completionMedal === 'gold' ? 3 : completionMedal === 'silver' ? 2 : 1} sao
+                            </span>
+                        </div>
+                    )}
 
                     <div className="bg-slate-50 rounded-xl p-4 mb-8">
                         <div className="text-sm text-slate-500 mb-1">Tổng điểm</div>
@@ -260,7 +287,14 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
                     </div>
 
                     <div className="flex gap-4">
-                        <button onClick={onBack} className="flex-1 py-3 font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors">
+                        <button
+                            onClick={() => {
+                                // Call onComplete to notify parent, THEN go back
+                                onComplete(score, 200, completionMedal);
+                                onBack();
+                            }}
+                            className="flex-1 py-3 font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors"
+                        >
                             Thoát
                         </button>
                         <button onClick={startGame} className="flex-[2] py-3 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105">
@@ -301,7 +335,7 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
             <div className="w-full h-2 bg-slate-200">
                 <div
                     className={`h-full transition-all duration-100 ease-linear ${timeLeft / totalTime < 0.3 ? 'bg-red-500' :
-                            timeLeft / totalTime < 0.6 ? 'bg-yellow-500' : 'bg-green-500'
+                        timeLeft / totalTime < 0.6 ? 'bg-yellow-500' : 'bg-green-500'
                         }`}
                     style={{ width: `${(timeLeft / totalTime) * 100}%` }}
                 />

@@ -13,7 +13,7 @@ import { soundManager } from '../../utils/sound';
 interface SoundMemoryGameProps {
     difficulty: Difficulty;
     onExit: () => void;
-    onComplete: (score: number) => void;
+    onComplete: (score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
 type GameState = 'idle' | 'ready' | 'demo' | 'input' | 'success' | 'fail' | 'complete';
@@ -30,7 +30,9 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
     const [userSequence, setUserSequence] = useState<number[]>([]);
     const [activeButton, setActiveButton] = useState<number | null>(null);
     const [questionCount, setQuestionCount] = useState(0);
+    const [correctCount, setCorrectCount] = useState(0); // Track correct answers
     const [score, setScore] = useState(0);
+    const [completionMedal, setCompletionMedal] = useState<'gold' | 'silver' | 'bronze' | null>(null);
     const [message, setMessage] = useState('Sẵn sàng thử thách trí nhớ?');
 
     const sequenceRef = useRef<number[]>([]);
@@ -135,13 +137,39 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
     };
 
     const handleSuccess = () => {
+        // Calculate new values immediately
+        const newScore = score + 100;
+        const newCorrectCount = correctCount + 1;
+
+        setScore(newScore);
+        setCorrectCount(newCorrectCount);
         setGameState('success');
         setMessage('Chính xác! 🎉');
-        setScore(s => s + 100);
         soundManager.playCorrect();
 
         const t = setTimeout(() => {
-            prepareQuestion();
+            // Check if this was the last question using actual values
+            if (questionCount >= config.totalQuestions) {
+                // GAME COMPLETE!
+                const percentage = (newCorrectCount / config.totalQuestions) * 100;
+                let medal: 'bronze' | 'silver' | 'gold' | null = null;
+
+                if (percentage === 100) medal = 'gold';
+                else if (percentage >= 80) medal = 'silver';
+                else if (percentage >= 50) medal = 'bronze';
+
+                setCompletionMedal(medal);
+                setGameState('complete');
+                console.log('🎯 GAME COMPLETED - State:', 'complete', 'Medal:', medal, 'Score:', newScore);
+                soundManager.playComplete();
+
+                // DON'T call onComplete here! It causes parent to unmount component
+                // Modal wouldn't have time to render
+                // Instead, we'll call it when user clicks Thoát
+            } else {
+                // More questions to go
+                prepareQuestion();
+            }
         }, 1500);
         timeoutsRef.current.push(t);
     };
@@ -197,8 +225,8 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
                 {/* Message Area */}
                 <div className="h-16 mb-8 flex items-center justify-center">
                     <div className={`text-2xl font-bold transition-all duration-300 ${gameState === 'success' ? 'text-green-600 scale-110' :
-                            gameState === 'fail' ? 'text-red-500 scale-110' :
-                                'text-slate-700'
+                        gameState === 'fail' ? 'text-red-500 scale-110' :
+                            'text-slate-700'
                         }`}>
                         {message}
                     </div>
@@ -245,7 +273,22 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
                         <div className="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl animate-in zoom-in duration-500 text-center">
                             <div className="text-6xl mb-4 animate-bounce">🏆</div>
                             <h2 className="text-3xl font-bold text-slate-800 mb-2">Hoàn thành!</h2>
-                            <p className="text-slate-600 mb-6">Bạn đã hoàn thành xuất sắc phần chơi.</p>
+                            <p className="text-slate-600 mb-4">Bạn đã hoàn thành xuất sắc phần chơi.</p>
+
+                            {/* Stars Earned */}
+                            {completionMedal && (
+                                <div className="flex items-center justify-center gap-2 my-4 bg-yellow-50 px-6 py-3 rounded-full">
+                                    <span className="text-lg font-semibold text-slate-700">Nhận được:</span>
+                                    <div className="flex">
+                                        {[...Array(completionMedal === 'gold' ? 3 : completionMedal === 'silver' ? 2 : 1)].map((_, i) => (
+                                            <span key={i} className="text-2xl">⭐</span>
+                                        ))}
+                                    </div>
+                                    <span className="text-lg font-bold text-yellow-600">
+                                        +{completionMedal === 'gold' ? 3 : completionMedal === 'silver' ? 2 : 1} sao
+                                    </span>
+                                </div>
+                            )}
 
                             <div className="text-4xl font-bold text-yellow-500 mb-8">
                                 {score} điểm
@@ -253,7 +296,12 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
 
                             <div className="flex gap-4">
                                 <button
-                                    onClick={onExit}
+                                    onClick={() => {
+                                        // Call onComplete to notify parent, THEN exit
+                                        const maxScore = config.totalQuestions * 100;
+                                        onComplete(score, maxScore, completionMedal);
+                                        onExit();
+                                    }}
                                     className="flex-1 py-3 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors"
                                 >
                                     Thoát
@@ -262,7 +310,9 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
                                     onClick={() => {
                                         setGameState('idle');
                                         setQuestionCount(0);
+                                        setCorrectCount(0);
                                         setScore(0);
+                                        setCompletionMedal(null);
                                         setMessage('Sẵn sàng thử thách trí nhớ?');
                                     }}
                                     className="flex-1 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"

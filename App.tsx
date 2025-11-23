@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Grade, StudentProfile, Topic, TestResult, Question, QuestionType } from './types';
+import { Grade, StudentProfile, Topic, TestResult, Question, QuestionType, GameResult } from './types';
 import { TOPICS, generateQuestions, getTopicsByGrade } from './services/mathEngine';
 import { exportTestToPDF } from './utils/pdfExport';
 import { soundManager } from './utils/sound';
@@ -8,6 +8,17 @@ import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from './services/
 import { UpdateNotification } from './src/components/UpdateNotification';
 import { CategorySelector } from './src/components/CategorySelector';
 import { GamesMenu } from './games/GamesMenu';
+import { ShopScreen } from './src/components/ShopScreen';
+import { AlbumScreen } from './src/components/AlbumScreen';
+import { ModeSelectionScreen } from './src/components/ModeSelectionScreen';
+import { UserProfileScreen } from './src/components/UserProfileScreen';
+import { getAllProfiles, saveProfiles, createProfile, updateProfile, deleteProfile } from './services/profileService';
+import { initializeTheme } from './services/themeService';
+import { GachaModal } from './src/components/GachaModal';
+import { gachaImage } from './services/albumService';
+import { AlbumImage } from './types';
+import { processGameReward, processTestReward } from './services/rewardService';
+
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
@@ -89,41 +100,18 @@ const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall, showVersio
   const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
 
   useEffect(() => {
-    const saved = localStorage.getItem('math_profiles');
-    if (saved) setProfiles(JSON.parse(saved));
+    const loadedProfiles = getAllProfiles();
+    setProfiles(loadedProfiles);
+    initializeTheme();
   }, []);
 
   const handleCreate = () => {
     if (!newProfile.name) return;
 
-    // Get avatars already in use
-    const usedAvatarIds = profiles.map(p => p.avatarId);
-
-    // Find an available avatar (0-4)
-    let availableAvatarId = 0;
-    for (let i = 0; i < 5; i++) {
-      if (!usedAvatarIds.includes(i)) {
-        availableAvatarId = i;
-        break;
-      }
-    }
-
-    // If all avatars are used (5+ profiles), cycle through
-    if (usedAvatarIds.length >= 5) {
-      availableAvatarId = profiles.length % 5;
-    }
-
-    const profile: StudentProfile = {
-      id: Date.now().toString(),
-      name: newProfile.name,
-      age: newProfile.grade + 6, // Rough estimate
-      grade: newProfile.grade,
-      avatarId: availableAvatarId,
-      history: []
-    };
+    const profile = createProfile(newProfile.name, newProfile.grade);
     const updated = [...profiles, profile];
     setProfiles(updated);
-    localStorage.setItem('math_profiles', JSON.stringify(updated));
+    saveProfiles(updated);
     setIsCreating(false);
   };
 
@@ -429,29 +417,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 
   const handleAnswer = (val: string) => {
     const currentQ = questions[currentIndex];
-
-    // Check correctness for immediate feedback (optional, or just play click)
-    // For now, let's just play click to avoid spoiling answer if we want them to think?
-    // BUT, user requested "Correct: Ting, Wrong: Buzz". 
-    // Usually in test mode we don't show result immediately until end?
-    // However, for "kids app", immediate feedback is often good. 
-    // But the current UI design waits for "Next" or "Submit".
-    // Let's play click for selection, and maybe we can add immediate feedback mode later.
-    // Wait, the request said: "Correct: Ting, Wrong: Buzz". 
-    // If I play it now, they know the answer. 
-    // Let's assume we play it when they select? Or maybe we should only play click here 
-    // and play result sound at the end?
-    // Actually, let's play click here. The "Correct/Wrong" sounds might be better suited 
-    // if we had a "Check Answer" button. 
-    // Since the current flow is "Select -> Next", maybe we just play click.
-    // OR, we can play the sound when they click "Next" if we want to validate?
-    // Let's stick to click sound for interaction to be safe, 
-    // and play "Complete" sound at the end.
-    // Re-reading request: "Sai: Âm thanh nhẹ nhàng khích lệ".
-    // This implies immediate feedback. 
-    // But the current TestRunner doesn't seem to show immediate feedback (red/green) 
-    // EXCEPT for Typing mode (which has red/green text).
-
     soundManager.playClick();
 
     if (currentQ.type === QuestionType.MultipleSelect) {
@@ -464,7 +429,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
         }
       });
     } else {
-      // Single choice or Manual Input (though manual input uses handleInputChange)
       setAnswers(prev => ({ ...prev, [currentQ.id]: val }));
     }
   };
@@ -475,19 +439,11 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 
   const handleTypingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
-    const target = questions[currentIndex].correctAnswer || '';
-
-    // Logic: Stop if wrong? The prompt says: "Nếu sai thì chuyển sang màu đỏ và không tiếp tục chuyển màu nữa".
-    // This suggests we allow typing, but the highlighting stops or shows red.
-    // However, typically "stop progression" implies blocking input. 
-    // But standard typing games allow typing errors but mark them red.
-
     setTypingInput(val);
     setAnswers(prev => ({ ...prev, [questions[currentIndex].id]: val }));
   };
 
   const handleNext = () => {
-    // Check correctness for sound feedback
     const currentQ = questions[currentIndex];
     const userAnswer = answers[currentQ.id];
     let isCorrect = false;
@@ -529,14 +485,11 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
     return `${m}:${sec < 10 ? '0' : ''}${sec}`;
   };
 
-  // Validate if current question is answered "enough" to move on
   const isAnswered = () => {
     if (currentQ.type === QuestionType.MultipleSelect) {
       return Array.isArray(currentAns) && currentAns.length > 0;
     }
     if (currentQ.type === QuestionType.Typing) {
-      // Must match completely to enable next? Or just non-empty?
-      // Usually strict typing requires full match.
       return typingInput === currentQ.correctAnswer;
     }
     return !!currentAns && currentAns.toString().trim().length > 0;
@@ -546,7 +499,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
     const target = currentQ.correctAnswer || '';
     return (
       <div className="space-y-6">
-        {/* Telex Guide Toggle */}
         <div className="flex justify-end">
           <button
             onClick={() => setShowTelexGuide(!showTelexGuide)}
@@ -557,7 +509,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
           </button>
         </div>
 
-        {/* Telex Guide Table */}
         {showTelexGuide && (
           <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
             <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
@@ -588,23 +539,19 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
           </div>
         )}
 
-        {/* Visual Display */}
         <div className="p-6 bg-white rounded-xl border-2 border-brand-100 shadow-inner text-2xl md:text-3xl leading-relaxed font-mono" onClick={() => typingInputRef.current?.focus()}>
           {target.split('').map((char, idx) => {
-            let colorClass = 'text-slate-400'; // Not typed yet
+            let colorClass = 'text-slate-400';
             if (idx < typingInput.length) {
               if (typingInput[idx] === char) {
-                colorClass = 'text-green-500'; // Correct
+                colorClass = 'text-green-500';
               } else {
-                colorClass = 'text-red-500 bg-red-50'; // Incorrect
-                // If prompt implies "stop highlighting", it usually means subsequent correct chars after a wrong one 
-                // shouldn't be green? But simple red/green per char is best for kids feedback.
+                colorClass = 'text-red-500 bg-red-50';
               }
             }
             return (
               <span key={idx} className={`${colorClass} transition-colors duration-100 relative`}>
                 {char}
-                {/* Cursor */}
                 {idx === typingInput.length && (
                   <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-800 animate-pulse"></span>
                 )}
@@ -614,7 +561,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
           {typingInput.length >= target.length && <span className="ml-1 inline-block w-2 h-6 bg-transparent"></span>}
         </div>
 
-        {/* Hidden Input */}
         <div className="relative">
           <input
             ref={typingInputRef}
@@ -644,7 +590,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
 
   return (
     <div className="min-h-screen bg-brand-50 flex flex-col items-center p-4">
-      {/* Header with Timer and Exit */}
       <div className="w-full max-w-3xl mb-6 flex justify-between items-center">
         <Button variant="ghost" onClick={onExit} className="text-red-500 hover:bg-red-50 hover:text-red-600">
           <X size={24} className="mr-1" /> Thoát
@@ -674,11 +619,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
                 <CheckSquare size={14} className="mr-1" /> Chọn nhiều đáp án
               </span>
             )}
-            {currentQ.type === QuestionType.SelectWrong && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold mb-2">
-                <XCircle size={14} className="mr-1" /> Chọn đáp án SAI
-              </span>
-            )}
             {currentQ.type === QuestionType.ManualInput && (
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-2">
                 <Type size={14} className="mr-1" /> Tự nhập đáp án
@@ -695,7 +635,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
             {currentQ.questionText}
           </h2>
 
-          {/* Render SVG Visual if present */}
           {currentQ.visualSvg && (
             <div
               className="mb-8 flex justify-center p-4 bg-white rounded-xl border-2 border-slate-100 overflow-x-auto"
@@ -703,7 +642,6 @@ const TestRunner = ({ questions, durationMinutes, onFinish, onExit }: { question
             />
           )}
 
-          {/* Render Logic Based on Type */}
           {currentQ.type === QuestionType.Typing ? (
             renderTypingVisual()
           ) : currentQ.type === QuestionType.ManualInput ? (
@@ -791,9 +729,21 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
           </div>
         </div>
         <h1 className={`text-4xl font-black mb-2 ${msg.color}`}>{msg.text}</h1>
-        <p className="text-xl text-slate-600">
+        <p className="text-xl text-slate-600 mb-4">
           Đúng {result.score}/{result.totalQuestions} câu trong {Math.floor(result.durationSeconds / 60)} phút.
         </p>
+
+        {result.starsEarned > 0 && (
+          <div className="flex items-center justify-center gap-2 text-yellow-500 bg-yellow-50 px-6 py-3 rounded-full animate-bounce">
+            <span className="text-xl font-bold">Nhận được:</span>
+            <div className="flex">
+              {[...Array(result.starsEarned)].map((_, i) => (
+                <Star key={i} size={24} fill="currentColor" />
+              ))}
+            </div>
+            <span className="text-xl font-bold">+{result.starsEarned} sao</span>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-4 mb-8">
@@ -806,14 +756,6 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
       {showReview && (
         <div className="w-full max-w-3xl space-y-4 animate-in fade-in">
           {result.questions.map((q, idx) => {
-            // Logic for determining correctness was already done in handleTestFinish and stored implicitly, 
-            // but here we visually check again or trust the parent. 
-            // Ideally we should store `isCorrect` on the Question in history, but let's re-evaluate for display.
-
-            // Note: TestResult generation in handleTestFinish does the scoring. 
-            // Here we just need to know if it matches.
-            // Since we stored userAnswer, we can check against correct answer again.
-
             let isCorrect = false;
             if (q.type === QuestionType.MultipleSelect) {
               const ua = Array.isArray(q.userAnswer) ? q.userAnswer.sort().toString() : "";
@@ -889,11 +831,13 @@ const ResultScreen = ({ result, onHome }: { result: TestResult, onHome: () => vo
   );
 };
 
+
+
 // --- Main App Component ---
 
 export default function App() {
   const [currentStudent, setCurrentStudent] = useState<StudentProfile | null>(null);
-  const [screen, setScreen] = useState<'profile' | 'category' | 'dashboard' | 'test' | 'result' | 'games-menu'>('profile');
+  const [screen, setScreen] = useState<'profile' | 'mode-select' | 'user-profile' | 'category' | 'dashboard' | 'test' | 'result' | 'games-menu' | 'shop' | 'album'>('profile');
   const [currentCategory, setCurrentCategory] = useState<'practice' | 'games' | null>(null);
   const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
   const [testDuration, setTestDuration] = useState<number>(20);
@@ -903,6 +847,7 @@ export default function App() {
   const [isStandalone, setIsStandalone] = useState(false);
   const [showUpdateNotification, setShowUpdateNotification] = useState(false);
   const [versionCheckComplete, setVersionCheckComplete] = useState(false);
+  const [gachaResult, setGachaResult] = useState<{ image: AlbumImage, isNew: boolean } | null>(null);
 
   useEffect(() => {
     // Check if standalone
@@ -912,6 +857,9 @@ export default function App() {
     };
     checkStandalone();
     window.matchMedia('(display-mode: standalone)').addEventListener('change', checkStandalone);
+
+    // Initialize theme
+    initializeTheme();
 
     const handler = (e: any) => {
       e.preventDefault(); // Prevent default to capture the event
@@ -956,14 +904,17 @@ export default function App() {
     }
   };
 
-  // Load last active student from session storage if refreshed? 
-  // Keeping simple for this implementation.
-
   const handleStartTest = (topicIds: string[], count: number) => {
     const questions = generateQuestions(topicIds, count);
     setActiveTestQuestions(questions);
     setTestDuration(count); // 1 minute per question
     setScreen('test');
+  };
+
+  const handleExportPDF = async (topics: string[], count: number) => {
+    if (!currentStudent) return;
+    const questions = generateQuestions(topics, count);
+    await exportTestToPDF(questions, `Bài tập toán - ${currentStudent.name}`);
   };
 
   const handleTestFinish = (answers: Record<string, string | string[]>, durationSeconds: number) => {
@@ -990,6 +941,13 @@ export default function App() {
       return { ...q, userAnswer };
     });
 
+    // Process rewards using reward service
+    const { updatedProfile, reward } = processTestReward(
+      currentStudent,
+      score,
+      activeTestQuestions.length
+    );
+
     const result: TestResult = {
       id: Date.now().toString(),
       date: new Date().toISOString(),
@@ -997,7 +955,8 @@ export default function App() {
       totalQuestions: activeTestQuestions.length,
       durationSeconds,
       topicIds: [],
-      questions: processedQuestions
+      questions: processedQuestions,
+      starsEarned: reward.stars
     };
 
     // Play sound based on score
@@ -1009,39 +968,130 @@ export default function App() {
 
     setLastResult(result);
 
-    // Update student history
-    const updatedStudent = {
-      ...currentStudent,
-      history: [...currentStudent.history, result]
+    // Add result to history
+    let finalProfile = {
+      ...updatedProfile,
+      history: [...updatedProfile.history, result]
     };
-    setCurrentStudent(updatedStudent);
 
-    // Update local storage profiles
-    const saved = localStorage.getItem('math_profiles');
-    if (saved) {
-      const profiles = JSON.parse(saved) as StudentProfile[];
-      const updatedProfiles = profiles.map(p => p.id === updatedStudent.id ? updatedStudent : p);
-      localStorage.setItem('math_profiles', JSON.stringify(updatedProfiles));
+    // Handle gacha result
+    if (reward.image) {
+      const isNew = !currentStudent.ownedImageIds.includes(reward.image.id);
+      setGachaResult({
+        image: reward.image as AlbumImage,
+        isNew
+      });
+
+      // Duplicate reward: +10 bonus stars
+      if (!isNew) {
+        finalProfile = {
+          ...finalProfile,
+          stars: finalProfile.stars + 10
+        };
+      }
     }
+
+    setCurrentStudent(finalProfile);
+    updateProfile(finalProfile);
 
     setScreen('result');
   };
 
-  const handleExportPDF = async (topicIds: string[], count: number) => {
-    const questions = generateQuestions(topicIds, count);
-    await exportTestToPDF(questions, `Bài tập ôn luyện - Lớp ${currentStudent?.grade}`);
+  const handleGameComplete = (gameId: string, score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
+    if (!currentStudent) return;
+
+    const { updatedProfile, reward } = processGameReward(currentStudent, medal);
+
+    // Create game result entry
+    const gameResult: GameResult = {
+      id: Date.now().toString(),
+      date: new Date().toISOString(),
+      gameType: gameId,
+      score,
+      maxScore,
+      starsEarned: reward.stars,
+      durationSeconds: 0 // Games don't track time
+    };
+
+    // Add to gameHistory
+    const profileWithHistory = {
+      ...updatedProfile,
+      gameHistory: [...updatedProfile.gameHistory, gameResult]
+    };
+
+    if (reward.image) {
+      const isNew = !currentStudent.ownedImageIds.includes(reward.image.id);
+      setGachaResult({ image: reward.image as AlbumImage, isNew });
+    }
+
+    setCurrentStudent(profileWithHistory);
+    updateProfile(profileWithHistory);
   };
 
   return (
     <div className="min-h-screen font-sans">
       {screen === 'profile' && (
         <ProfileScreen
-          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('category'); }}
+          onSelectProfile={(p) => { setCurrentStudent(p); setScreen('mode-select'); }}
           onInstallClick={handleInstallClick}
           canInstall={!isStandalone}
           showVersionCheck={versionCheckComplete}
         />
       )}
+
+      {screen === 'mode-select' && currentStudent && (
+        <ModeSelectionScreen
+          student={currentStudent}
+          onSelectMode={(mode) => {
+            if (mode === 'study') setScreen('dashboard');
+            else if (mode === 'game') setScreen('games-menu');
+            else if (mode === 'profile') setScreen('user-profile');
+            else if (mode === 'shop') setScreen('shop');
+          }}
+          onLogout={() => {
+            setCurrentStudent(null);
+            setScreen('profile');
+          }}
+        />
+      )}
+
+      {screen === 'user-profile' && currentStudent && (
+        <UserProfileScreen
+          student={currentStudent}
+          onUpdateProfile={(updated) => {
+            setCurrentStudent(updated);
+            updateProfile(updated);
+          }}
+          onBack={() => setScreen('mode-select')}
+          onOpenAlbum={() => setScreen('album')}
+          onDelete={() => {
+            if (currentStudent) {
+              deleteProfile(currentStudent.id);
+              setCurrentStudent(null);
+              setScreen('profile');
+            }
+          }}
+        />
+      )}
+
+      {screen === 'shop' && currentStudent && (
+        <ShopScreen
+          student={currentStudent}
+          onUpdateProfile={(updated) => {
+            setCurrentStudent(updated);
+            updateProfile(updated);
+          }}
+          onBack={() => setScreen('mode-select')}
+        />
+      )}
+
+      {screen === 'album' && currentStudent && (
+        <AlbumScreen
+          student={currentStudent}
+          onBack={() => setScreen('user-profile')}
+        />
+      )}
+
 
       {screen === 'category' && currentStudent && (
         <CategorySelector
@@ -1062,14 +1112,17 @@ export default function App() {
       )}
 
       {screen === 'games-menu' && (
-        <GamesMenu onBack={() => setScreen('category')} />
+        <GamesMenu
+          onBack={() => setScreen('mode-select')}
+          onGameComplete={handleGameComplete}
+        />
       )}
 
       {screen === 'dashboard' && currentStudent && (
         <Dashboard
           student={currentStudent}
           onStartTest={handleStartTest}
-          onBack={() => setScreen('category')}
+          onBack={() => setScreen('mode-select')}
           onExport={handleExportPDF}
         />
       )}
@@ -1093,6 +1146,15 @@ export default function App() {
       {showUpdateNotification && (
         <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
       )}
+
+      {gachaResult && (
+        <GachaModal
+          image={gachaResult.image}
+          isNew={gachaResult.isNew}
+          onClose={() => setGachaResult(null)}
+        />
+      )}
     </div>
   );
 }
+
