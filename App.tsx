@@ -4,6 +4,8 @@ import { Grade, StudentProfile, Topic, TestResult, Question, QuestionType } from
 import { TOPICS, generateQuestions, getTopicsByGrade } from './services/mathEngine';
 import { exportTestToPDF } from './utils/pdfExport';
 import { soundManager } from './utils/sound';
+import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from './services/updateService';
+import { UpdateNotification } from './src/components/UpdateNotification';
 import {
   User, Plus, BookOpen, Clock, CheckCircle, XCircle,
   Trophy, BarChart2, ChevronRight, LogOut, Printer, Star, Brain, X,
@@ -79,7 +81,7 @@ const InstallInstructions = ({ onClose }: { onClose: () => void }) => (
 );
 
 // 1. Profile Selection
-const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall }: { onSelectProfile: (p: StudentProfile) => void, onInstallClick?: () => void, canInstall?: boolean }) => {
+const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall, showVersionCheck }: { onSelectProfile: (p: StudentProfile) => void, onInstallClick?: () => void, canInstall?: boolean, showVersionCheck?: boolean }) => {
   const [profiles, setProfiles] = useState<StudentProfile[]>([]);
   const [isCreating, setIsCreating] = useState(false);
   const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
@@ -127,23 +129,34 @@ const ProfileScreen = ({ onSelectProfile, onInstallClick, canInstall }: { onSele
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-      <div className="text-center space-y-2 relative">
+      {/* Top Header Bar - Fixed */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 pointer-events-none">
+        {/* Version Check Indicator - Left */}
+        {showVersionCheck && (
+          <div className="pointer-events-auto flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2.5 rounded-lg shadow-md border border-green-200 animate-in fade-in slide-in-from-top duration-500 h-[44px]">
+            <CheckCircle size={18} className="flex-shrink-0" />
+            <span className="text-sm font-semibold whitespace-nowrap">Newest Version</span>
+          </div>
+        )}
+
+        {/* Spacer when version check not shown */}
+        {!showVersionCheck && <div />}
+
+        {/* Install Button - Right */}
+        {canInstall && (
+          <button
+            onClick={onInstallClick}
+            className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 bg-white border border-brand-500 text-brand-600 rounded-lg shadow-md hover:bg-brand-50 hover:shadow-lg transition-all font-semibold h-[44px] animate-bounce"
+          >
+            <Download size={18} className="flex-shrink-0" />
+            <span className="hidden sm:inline whitespace-nowrap">Tải App</span>
+          </button>
+        )}
+      </div>
+
+      <div className="text-center space-y-2">
         <h1 className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm">MathGenius Kids</h1>
         <p className="text-xl text-slate-500">Học toán thật vui!</p>
-        {canInstall && (
-          <div className="absolute top-0 right-0 translate-x-[120%] hidden md:block">
-            <Button variant="outline" onClick={onInstallClick} className="animate-bounce shadow-xl border-brand-500 text-brand-600">
-              <Download size={20} /> Tải App
-            </Button>
-          </div>
-        )}
-        {canInstall && (
-          <div className="mt-4 md:hidden">
-            <Button variant="outline" onClick={onInstallClick} className="animate-bounce shadow-xl border-brand-500 text-brand-600">
-              <Download size={20} /> Tải App
-            </Button>
-          </div>
-        )}
       </div>
 
       {!isCreating ? (
@@ -885,6 +898,8 @@ export default function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showInstallInstructions, setShowInstallInstructions] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
+  const [showUpdateNotification, setShowUpdateNotification] = useState(false);
+  const [versionCheckComplete, setVersionCheckComplete] = useState(false);
 
   useEffect(() => {
     // Check if standalone
@@ -900,9 +915,29 @@ export default function App() {
       setDeferredPrompt(e);
     };
     window.addEventListener('beforeinstallprompt', handler);
+
+    // Initialize update service
+    import('./services/updateService').then(({ initUpdateService }) => {
+      initUpdateService().catch(err => console.error('Failed to init update service:', err));
+    });
+
+    // Listen for update available event
+    const handleUpdateAvailable = () => {
+      setShowUpdateNotification(true);
+    };
+    window.addEventListener(UPDATE_AVAILABLE_EVENT, handleUpdateAvailable);
+
+    // Listen for update check complete event
+    const handleUpdateCheckComplete = () => {
+      setVersionCheckComplete(true);
+    };
+    window.addEventListener(UPDATE_CHECK_COMPLETE_EVENT, handleUpdateCheckComplete);
+
     return () => {
       window.removeEventListener('beforeinstallprompt', handler);
       window.matchMedia('(display-mode: standalone)').removeEventListener('change', checkStandalone);
+      window.removeEventListener(UPDATE_AVAILABLE_EVENT, handleUpdateAvailable);
+      window.removeEventListener(UPDATE_CHECK_COMPLETE_EVENT, handleUpdateCheckComplete);
     };
   }, []);
 
@@ -1001,6 +1036,7 @@ export default function App() {
           onSelectProfile={(p) => { setCurrentStudent(p); setScreen('dashboard'); }}
           onInstallClick={handleInstallClick}
           canInstall={!isStandalone}
+          showVersionCheck={versionCheckComplete}
         />
       )}
 
@@ -1031,6 +1067,10 @@ export default function App() {
           result={lastResult}
           onHome={() => setScreen('dashboard')}
         />
+      )}
+
+      {showUpdateNotification && (
+        <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
       )}
     </div>
   );

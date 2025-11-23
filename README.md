@@ -7,6 +7,13 @@
 ## ✨ Tính Năng Nổi Bật
 
 *   **👤 Hồ Sơ Học Sinh:** Tạo và quản lý hồ sơ cho nhiều bé, mỗi bé có avatar và lịch sử học tập riêng.
+*   **📱 Progressive Web App (PWA):** 
+    *   Cài đặt như ứng dụng native trên điện thoại/máy tính.
+    *   Hoạt động offline sau khi tải lần đầu.
+    *   Tự động kiểm tra và thông báo khi có phiên bản mới.
+    *   Splash screen đẹp mắt khi khởi động.
+*   **🔄 Auto-Update:** Hệ thống tự động kiểm tra phiên bản mới mỗi 4 phút và thông báo người dùng cập nhật.
+*   **✅ Version Status:** Hiển thị trạng thái "Newest Version" sau khi kiểm tra phiên bản thành công.
 *   **📚 Đa Dạng Chủ Đề:** Bài tập được phân loại theo lớp (1-5) và chủ đề (Cộng, Trừ, Nhân, Chia, Hình học, v.v.).
 *   **📝 Nhiều Dạng Câu Hỏi:**
     *   Trắc nghiệm (Chọn 1 đáp án).
@@ -14,6 +21,7 @@
     *   Tự nhập kết quả.
     *   Luyện gõ phím (kết hợp học toán và tin học).
 *   **⌨️ Hỗ Trợ Gõ Tiếng Việt:** Tích hợp hướng dẫn và luyện gõ Telex.
+*   **🔊 Âm Thanh Tương Tác:** Phản hồi âm thanh cho mỗi hành động (đúng/sai/hoàn thành).
 *   **🏆 Hệ Thống Khen Thưởng:** Huy hiệu, điểm số và lời khen ngợi động viên bé sau mỗi bài kiểm tra.
 *   **📊 Theo Dõi Tiến Độ:** Biểu đồ thống kê kết quả học tập giúp phụ huynh nắm bắt sự tiến bộ của trẻ.
 *   **🖨️ Xuất PDF:** Tính năng tạo và in đề thi ra giấy để bé làm bài offline.
@@ -22,10 +30,12 @@
 
 *   **Frontend:** [React](https://react.dev/) (v19), [TypeScript](https://www.typescriptlang.org/)
 *   **Build Tool:** [Vite](https://vitejs.dev/)
+*   **PWA:** [Vite PWA Plugin](https://vite-pwa-org.netlify.app/) với Workbox
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 *   **Icons:** [Lucide React](https://lucide.dev/)
 *   **Charts:** [Recharts](https://recharts.org/)
 *   **PDF Generation:** [jsPDF](https://github.com/parallax/jsPDF)
+*   **Sound:** Web Audio API (synthesized sounds)
 
 ## 🚀 Cài Đặt và Chạy Local
 
@@ -55,10 +65,17 @@
 
 ## 📂 Cấu Trúc Dự Án
 
-*   `src/App.tsx`: Component chính chứa logic điều hướng và các màn hình.
-*   `src/types.ts`: Định nghĩa các kiểu dữ liệu (TypeScript interfaces).
-*   `src/services/mathEngine.ts`: Logic sinh câu hỏi toán học.
-*   `src/utils/`: Các tiện ích hỗ trợ (xuất PDF, v.v.).
+*   `App.tsx`: Component chính chứa logic điều hướng và các màn hình.
+*   `types.ts`: Định nghĩa các kiểu dữ liệu (TypeScript interfaces).
+*   `services/`: 
+    *   `mathEngine.ts`: Logic sinh câu hỏi toán học.
+    *   `updateService.ts`: Service quản lý auto-update PWA.
+    *   `generators/`: Các generator câu hỏi theo từng lớp và chủ đề.
+*   `src/components/`: Các React components (UpdateNotification, v.v.).
+*   `utils/`: 
+    *   `pdfExport.ts`: Xuất đề thi ra PDF.
+    *   `sound.ts`: Quản lý âm thanh tương tác.
+*   `vite.config.ts`: Cấu hình Vite và PWA.
 
 ## 🤝 Đóng Góp
 

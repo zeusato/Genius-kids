@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
           start_url: './',
           scope: './',
           display: 'standalone',
-          background_color: '#ffffff',
+          background_color: '#000000',
           icons: [
             {
               src: 'Logo.png',
