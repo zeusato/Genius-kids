@@ -219,6 +219,14 @@ export const purchaseGachaSpin = (profile: StudentProfile): {
     }
 };
 
+// Preview gacha spin (free, doesn't update profile)
+export const previewGachaSpin = (): { image: AlbumImage; isNew: boolean } | null => {
+    // Just call gachaImage with empty owned list to get a random card
+    // We don't check ownership since it's just a preview
+    const result = gachaImage([]);
+    return result;
+};
+
 export const canPurchase = (profile: StudentProfile, cost: number): boolean => {
     return profile.stars >= cost;
 };

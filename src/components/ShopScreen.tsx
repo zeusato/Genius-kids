@@ -4,7 +4,7 @@ import { getShopAvatars } from '../../services/shopService';
 import { getShopThemes } from '../../services/shopService';
 import {
     getDailyPhotos, getPhotoPrice, purchaseAvatar, purchaseTheme, purchasePhoto,
-    purchaseGachaSpin, refreshDailyPhotosIfNeeded
+    purchaseGachaSpin, refreshDailyPhotosIfNeeded, previewGachaSpin
 } from '../../services/shopService';
 import { getAvatarById } from '../../services/avatarService';
 import { getThemeById } from '../../services/themeService';
@@ -13,7 +13,7 @@ import { getRarityColor, getRarityName } from '../../services/albumService';
 import { ArrowLeft, ShoppingBag, Star, CheckCircle } from 'lucide-react';
 import { Sparkles } from 'lucide-react';
 import { useStudentActions } from '@/src/contexts/StudentContext';
-
+import { GachaPreviewModal } from './GachaPreviewModal';
 
 interface ShopScreenProps {
     student: StudentProfile;
@@ -26,6 +26,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
     onUpdateProfile,
     onBack,
 }) => {
+    const [previewResult, setPreviewResult] = useState<{ image: any; isNew: boolean } | null>(null);
+    const [showPreviewModal, setShowPreviewModal] = useState(false);
     const [activeTab, setActiveTab] = useState<'avatars' | 'themes' | 'photos' | 'gacha'>('avatars');
     const { setGachaResult } = useStudentActions();
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
@@ -100,7 +102,13 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
             showMessage('Không đủ sao! Cần 50 ⭐ để quay gacha', 'error');
         }
     };
-
+    const handlePreviewGacha = () => {
+        const result = previewGachaSpin();
+        if (result) {
+            setPreviewResult(result);
+            setShowPreviewModal(true); // Mở modal thay vì show inline
+        }
+    };
     const showMessage = (text: string, type: 'success' | 'error') => {
         setMessage({ text, type });
         setTimeout(() => setMessage(null), 3000);
@@ -431,12 +439,26 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                                 <Sparkles size={24} className={student.stars >= 50 ? 'animate-pulse' : ''} />
                                 {student.stars >= 50 ? 'Quay Gacha (50 ⭐)' : 'Không đủ sao'}
                             </button>
+                            {/* Preview Button */}
+                            <button
+                                onClick={handlePreviewGacha}
+                                className="w-full py-3 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all bg-gradient-to-r from-blue-400 to-cyan-400 text-white shadow-md hover:shadow-lg hover:scale-105 mt-3"
+                            >
+                                🎲 Quay Thử (Miễn Phí)
+                            </button>
+
                             {student.stars < 50 && (
                                 <p className="text-center text-sm text-gray-500 mt-4">
                                     Bạn cần thêm {50 - student.stars} ⭐ để quay gacha
                                 </p>
                             )}
                         </div>
+                        {/* Gacha Preview Modal */}
+                        <GachaPreviewModal
+                            isOpen={showPreviewModal}
+                            result={previewResult}
+                            onClose={() => setShowPreviewModal(false)}
+                        />
                     </div>
                 )}
             </div>
