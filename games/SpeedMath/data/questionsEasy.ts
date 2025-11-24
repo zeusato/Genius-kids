@@ -104,4 +104,111 @@ export const EASY_QUESTIONS: GeneralKnowledgeQuestion[] = [
     { id: 'e_j_8', level: 'easy', question: 'Ai bán hàng?', options: ['Người bán hàng', 'Bác sĩ', 'Cô giáo', 'Công an'], answer: 'Người bán hàng', category: 'Jobs' },
     { id: 'e_j_9', level: 'easy', question: 'Ai hát?', options: ['Ca sĩ', 'Bác sĩ', 'Cô giáo', 'Công an'], answer: 'Ca sĩ', category: 'Jobs' },
     { id: 'e_j_10', level: 'easy', question: 'Ai vẽ tranh?', options: ['Họa sĩ', 'Bác sĩ', 'Cô giáo', 'Công an'], answer: 'Họa sĩ', category: 'Jobs' },
+
+    // --- Numbers & Math (Basic) ---
+
+    { id: 'e_num_1', level: 'easy', question: 'Số nào lớn nhất?', options: ['10', '5', '3', '1'], answer: '10', category: 'Math' },
+    { id: 'e_num_2', level: 'easy', question: 'Số nào nhỏ nhất?', options: ['1', '5', '10', '3'], answer: '1', category: 'Math' },
+    { id: 'e_num_3', level: 'easy', question: 'Một nửa của 10 là bao nhiêu?', options: ['5', '10', '2', '20'], answer: '5', category: 'Math' },
+
+    // --- Shapes & Colors ---
+    { id: 'e_sh_1', level: 'easy', question: 'Hình tròn có mấy góc?', options: ['0', '3', '4', '5'], answer: '0', category: 'Shapes' },
+    { id: 'e_sh_2', level: 'easy', question: 'Hình vuông có mấy cạnh?', options: ['4', '3', '5', '6'], answer: '4', category: 'Shapes' },
+    { id: 'e_sh_3', level: 'easy', question: 'Hình tam giác có mấy góc?', options: ['3', '4', '5', '2'], answer: '3', category: 'Shapes' },
+    { id: 'e_sh_4', level: 'easy', question: 'Màu gì tạo thành từ đỏ + vàng?', options: ['Cam', 'Xanh', 'Tím', 'Nâu'], answer: 'Cam', category: 'Colors' },
+    { id: 'e_sh_5', level: 'easy', question: 'Màu gì tạo thành từ xanh + vàng?', options: ['Xanh lá', 'Cam', 'Tím', 'Đỏ'], answer: 'Xanh lá', category: 'Colors' },
+    { id: 'e_sh_6', level: 'easy', question: 'Màu cờ Việt Nam là gì?', options: ['Đỏ sao vàng', 'Xanh trắng', 'Đỏ trắng', 'Vàng xanh'], answer: 'Đỏ sao vàng', category: 'Colors' },
+    { id: 'e_sh_7', level: 'easy', question: 'Hình chữ nhật có mấy cạnh?', options: ['4', '3', '5', '6'], answer: '4', category: 'Shapes' },
+    { id: 'e_sh_8', level: 'easy', question: 'Hình ngôi sao thường có mấy cánh?', options: ['5', '4', '6', '3'], answer: '5', category: 'Shapes' },
+
+    // --- Time & Days ---
+    { id: 'e_time_1', level: 'easy', question: 'Một ngày có bao nhiêu giờ?', options: ['24', '12', '48', '60'], answer: '24', category: 'Time' },
+    { id: 'e_time_2', level: 'easy', question: 'Một giờ có bao nhiêu phút?', options: ['60', '24', '100', '30'], answer: '60', category: 'Time' },
+    { id: 'e_time_3', level: 'easy', question: 'Buổi sáng là lúc nào?', options: ['6h-12h', '12h-18h', '18h-24h', '0h-6h'], answer: '6h-12h', category: 'Time' },
+    { id: 'e_time_4', level: 'easy', question: 'Buổi tối là lúc nào?', options: ['18h-22h', '6h-12h', '12h-15h', '0h-6h'], answer: '18h-22h', category: 'Time' },
+    { id: 'e_time_5', level: 'easy', question: 'Ngày đầu tuần là thứ mấy?', options: ['Thứ 2', 'Chủ nhật', 'Thứ 7', 'Thứ 3'], answer: 'Thứ 2', category: 'Time' },
+    { id: 'e_time_6', level: 'easy', question: 'Cuối tuần là những ngày nào?', options: ['Thứ 7 & CN', 'Thứ 2 & 3', 'Thứ 4 & 5', 'Tất cả'], answer: 'Thứ 7 & CN', category: 'Time' },
+
+    // --- Weather ---
+    { id: 'e_w_1', level: 'easy', question: 'Khi trời mưa cần mang gì?', options: ['Ô', 'Quạt', 'Khăn', 'Mũ'], answer: 'Ô', category: 'Weather' },
+    { id: 'e_w_2', level: 'easy', question: 'Khi trời nắng nóng cần gì?', options: ['Nón', 'Áo khoác', 'Găng tay', 'Khăn quàng'], answer: 'Nón', category: 'Weather' },
+    { id: 'e_w_3', level: 'easy', question: 'Khi trời lạnh cần mặc gì?', options: ['Áo ấm', 'Áo ba lỗ', 'Quần đùi', 'Dép'], answer: 'Áo ấm', category: 'Weather' },
+    { id: 'e_w_4', level: 'easy', question: 'Tuyết rơi khi trời...', options: ['Lạnh', 'Nóng', 'Ấm', 'Mát'], answer: 'Lạnh', category: 'Weather' },
+    { id: 'e_w_5', level: 'easy', question: 'Mưa rơi từ đâu xuống?', options: ['Trên trời', 'Dưới đất', 'Trong biển', 'Trên cây'], answer: 'Trên trời', category: 'Weather' },
+
+    // --- Food & Drinks ---
+    { id: 'e_fd_1', level: 'easy', question: 'Sữa có màu gì?', options: ['Trắng', 'Đen', 'Đỏ', 'Xanh'], answer: 'Trắng', category: 'Food' },
+    { id: 'e_fd_2', level: 'easy', question: 'Bánh mì làm từ gì?', options: ['Bột mì', 'Gạo', 'Thịt', 'Cá'], answer: 'Bột mì', category: 'Food' },
+    { id: 'e_fd_3', level: 'easy', question: 'Cơm nấu từ gì?', options: ['Gạo', 'Bột', 'Lúa', 'Ngô'], answer: 'Gạo', category: 'Food' },
+    { id: 'e_fd_4', level: 'easy', question: 'Nước cam vắt từ quả gì?', options: ['Cam', 'Táo', 'Chuối', 'Nho'], answer: 'Cam', category: 'Food' },
+    { id: 'e_fd_5', level: 'easy', question: 'Trứng gà có màu gì?', options: ['Trắng/Nâu', 'Đỏ', 'Xanh', 'Tím'], answer: 'Trắng/Nâu', category: 'Food' },
+    { id: 'e_fd_6', level: 'easy', question: 'Mật ong do con gì làm ra?', options: ['Ong', 'Kiến', 'Bướm', 'Ruồi'], answer: 'Ong', category: 'Food' },
+    { id: 'e_fd_7', level: 'easy', question: 'Khoai tây mọc ở đâu?', options: ['Dưới đất', 'Trên cây', 'Dưới nước', 'Trong hang'], answer: 'Dưới đất', category: 'Food' },
+
+    // --- Vehicles ---
+    { id: 'e_v_1', level: 'easy', question: 'Xe nào chạy trên ray?', options: ['Tàu hỏa', 'Ô tô', 'Xe máy', 'Xe đạp'], answer: 'Tàu hỏa', category: 'Vehicles' },
+    { id: 'e_v_2', level: 'easy', question: 'Xe nào bay trên trời?', options: ['Máy bay', 'Ô tô', 'Tàu hỏa', 'Xe buýt'], answer: 'Máy bay', category: 'Vehicles' },
+    { id: 'e_v_3', level: 'easy', question: 'Xe nào chạy dưới nước?', options: ['Tàu ngầm', 'Máy bay', 'Xe buýt', 'Xe đạp'], answer: 'Tàu ngầm', category: 'Vehicles' },
+    { id: 'e_v_4', level: 'easy', question: 'Xe cứu thương màu gì?', options: ['Trắng', 'Đỏ', 'Xanh', 'Vàng'], answer: 'Trắng', category: 'Vehicles' },
+    { id: 'e_v_5', level: 'easy', question: 'Xe cứu hỏa màu gì?', options: ['Đỏ', 'Trắng', 'Xanh', 'Vàng'], answer: 'Đỏ', category: 'Vehicles' },
+
+    // --- Round 2: Opposites (Trái nghĩa) ---
+    { id: 'e_op_1', level: 'easy', question: 'Trái nghĩa với "To" là gì?', options: ['Nhỏ', 'Cao', 'Dài', 'Rộng'], answer: 'Nhỏ', category: 'Logic' },
+    { id: 'e_op_2', level: 'easy', question: 'Trái nghĩa với "Dài" là gì?', options: ['Ngắn', 'Thấp', 'Béo', 'Gầy'], answer: 'Ngắn', category: 'Logic' },
+    { id: 'e_op_3', level: 'easy', question: 'Trái nghĩa với "Nóng" là gì?', options: ['Lạnh', 'Ấm', 'Mát', 'Sôi'], answer: 'Lạnh', category: 'Logic' },
+    { id: 'e_op_4', level: 'easy', question: 'Trái nghĩa với "Đen" là gì?', options: ['Trắng', 'Đỏ', 'Xanh', 'Vàng'], answer: 'Trắng', category: 'Logic' },
+    { id: 'e_op_5', level: 'easy', question: 'Trái nghĩa với "Vui" là gì?', options: ['Buồn', 'Khóc', 'Cười', 'Giận'], answer: 'Buồn', category: 'Logic' },
+    { id: 'e_op_6', level: 'easy', question: 'Trái nghĩa với "Nhanh" là gì?', options: ['Chậm', 'Vội', 'Gấp', 'Lâu'], answer: 'Chậm', category: 'Logic' },
+    { id: 'e_op_7', level: 'easy', question: 'Trái nghĩa với "Cao" là gì?', options: ['Thấp', 'Ngắn', 'Béo', 'Gầy'], answer: 'Thấp', category: 'Logic' },
+    { id: 'e_op_8', level: 'easy', question: 'Trái nghĩa với "Sáng" là gì?', options: ['Tối', 'Đêm', 'Mờ', 'Đục'], answer: 'Tối', category: 'Logic' },
+    { id: 'e_op_9', level: 'easy', question: 'Trái nghĩa với "Cứng" là gì?', options: ['Mềm', 'Dẻo', 'Lỏng', 'Tan'], answer: 'Mềm', category: 'Logic' },
+    { id: 'e_op_10', level: 'easy', question: 'Trái nghĩa với "Ướt" là gì?', options: ['Khô', 'Ráo', 'Nóng', 'Lạnh'], answer: 'Khô', category: 'Logic' },
+
+    // --- Round 2: School & Classroom ---
+    { id: 'e_sch_1', level: 'easy', question: 'Cái gì dùng để đựng sách vở?', options: ['Cặp sách', 'Túi nilon', 'Hộp bút', 'Giỏ'], answer: 'Cặp sách', category: 'School' },
+    { id: 'e_sch_2', level: 'easy', question: 'Cái gì dùng để viết bảng?', options: ['Phấn', 'Bút chì', 'Bút bi', 'Tẩy'], answer: 'Phấn', category: 'School' },
+    { id: 'e_sch_3', level: 'easy', question: 'Khi cô giáo vào lớp, chúng ta phải làm gì?', options: ['Đứng dậy chào', 'Ngồi im', 'Chạy ra ngoài', 'Nói chuyện'], answer: 'Đứng dậy chào', category: 'School' },
+    { id: 'e_sch_4', level: 'easy', question: 'Giờ ra chơi chúng ta làm gì?', options: ['Vui chơi', 'Ngủ', 'Học bài', 'Khóc'], answer: 'Vui chơi', category: 'School' },
+    { id: 'e_sch_5', level: 'easy', question: 'Cái gì dùng để kẻ thẳng?', options: ['Thước kẻ', 'Bút chì', 'Tẩy', 'Phấn'], answer: 'Thước kẻ', category: 'School' },
+    { id: 'e_sch_6', level: 'easy', question: 'Cái gì dùng để gọt bút chì?', options: ['Gọt bút chì', 'Dao', 'Kéo', 'Thước'], answer: 'Gọt bút chì', category: 'School' },
+    { id: 'e_sch_7', level: 'easy', question: 'Quyển vở dùng để làm gì?', options: ['Viết bài', 'Gấp máy bay', 'Xé', 'Lót nồi'], answer: 'Viết bài', category: 'School' },
+    { id: 'e_sch_8', level: 'easy', question: 'Ai là người quản lý lớp học?', options: ['Cô giáo chủ nhiệm', 'Bác bảo vệ', 'Cô lao công', 'Bạn lớp trưởng'], answer: 'Cô giáo chủ nhiệm', category: 'School' },
+    { id: 'e_sch_9', level: 'easy', question: 'Khi muốn phát biểu phải làm gì?', options: ['Giơ tay', 'Nói leo', 'Đứng dậy', 'Hét to'], answer: 'Giơ tay', category: 'School' },
+    { id: 'e_sch_10', level: 'easy', question: 'Ngày 20/11 là ngày gì?', options: ['Nhà giáo Việt Nam', 'Quốc tế Phụ nữ', 'Quốc tế Thiếu nhi', 'Tết'], answer: 'Nhà giáo Việt Nam', category: 'School' },
+
+    // --- Round 2: More Animals ---
+    { id: 'e_an2_1', level: 'easy', question: 'Con gì có cái vòi dài?', options: ['Voi', 'Hổ', 'Khỉ', 'Sóc'], answer: 'Voi', category: 'Animals' },
+    { id: 'e_an2_2', level: 'easy', question: 'Con gì thích ăn cà rốt?', options: ['Thỏ', 'Mèo', 'Chó', 'Gà'], answer: 'Thỏ', category: 'Animals' },
+    { id: 'e_an2_3', level: 'easy', question: 'Con gì có cái túi trước bụng?', options: ['Chuột túi', 'Gấu', 'Hổ', 'Sư tử'], answer: 'Chuột túi', category: 'Animals' },
+    { id: 'e_an2_4', level: 'easy', question: 'Con gì cổ rất dài?', options: ['Hươu cao cổ', 'Voi', 'Ngựa', 'Trâu'], answer: 'Hươu cao cổ', category: 'Animals' },
+    { id: 'e_an2_5', level: 'easy', question: 'Con gì sống dưới nước mà to nhất?', options: ['Cá voi', 'Cá mập', 'Cá heo', 'Tôm'], answer: 'Cá voi', category: 'Animals' },
+    { id: 'e_an2_6', level: 'easy', question: 'Con gì hay bắt chuột?', options: ['Mèo', 'Chó', 'Gà', 'Lợn'], answer: 'Mèo', category: 'Animals' },
+    { id: 'e_an2_7', level: 'easy', question: 'Con gì gáy ò ó o?', options: ['Gà trống', 'Gà mái', 'Vịt', 'Ngan'], answer: 'Gà trống', category: 'Animals' },
+    { id: 'e_an2_8', level: 'easy', question: 'Con gì đẻ ra nòng nọc?', options: ['Ếch', 'Cá', 'Tôm', 'Cua'], answer: 'Ếch', category: 'Animals' },
+    { id: 'e_an2_9', level: 'easy', question: 'Con gì bò ngang?', options: ['Cua', 'Tôm', 'Cá', 'Ốc'], answer: 'Cua', category: 'Animals' },
+    { id: 'e_an2_10', level: 'easy', question: 'Con gì nhả tơ dệt lưới?', options: ['Nhện', 'Tằm', 'Ong', 'Kiến'], answer: 'Nhện', category: 'Animals' },
+
+    // --- Round 2: Hygiene & Safety ---
+    { id: 'e_safe_1', level: 'easy', question: 'Trước khi ăn phải làm gì?', options: ['Rửa tay', 'Đi ngủ', 'Chơi', 'Xem TV'], answer: 'Rửa tay', category: 'Safety' },
+    { id: 'e_safe_2', level: 'easy', question: 'Đánh răng vào lúc nào?', options: ['Sáng & Tối', 'Chỉ buổi sáng', 'Chỉ buổi tối', 'Buổi trưa'], answer: 'Sáng & Tối', category: 'Safety' },
+    { id: 'e_safe_3', level: 'easy', question: 'Tắm để làm gì?', options: ['Sạch sẽ', 'Nghịch nước', 'Cho mát', 'Đỡ buồn'], answer: 'Sạch sẽ', category: 'Safety' },
+    { id: 'e_safe_4', level: 'easy', question: 'Móng tay dài thì phải làm gì?', options: ['Cắt', 'Để nguyên', 'Sơn', 'Cắn'], answer: 'Cắt', category: 'Safety' },
+    { id: 'e_safe_5', level: 'easy', question: 'Quần áo bẩn thì phải làm gì?', options: ['Giặt', 'Vứt đi', 'Mặc tiếp', 'Cất đi'], answer: 'Giặt', category: 'Safety' },
+    { id: 'e_safe_6', level: 'easy', question: 'Không được chơi với cái gì?', options: ['Dao kéo', 'Búp bê', 'Ô tô', 'Bóng'], answer: 'Dao kéo', category: 'Safety' },
+    { id: 'e_safe_7', level: 'easy', question: 'Không được sờ vào đâu?', options: ['Ổ điện', 'Tường', 'Bàn ghế', 'Sách vở'], answer: 'Ổ điện', category: 'Safety' },
+    { id: 'e_safe_8', level: 'easy', question: 'Đi ra nắng phải đội gì?', options: ['Mũ', 'Khăn', 'Túi', 'Giày'], answer: 'Mũ', category: 'Safety' },
+    { id: 'e_safe_9', level: 'easy', question: 'Khi bị ốm phải làm gì?', options: ['Uống thuốc', 'Ăn kem', 'Tắm mưa', 'Chạy bộ'], answer: 'Uống thuốc', category: 'Safety' },
+    { id: 'e_safe_10', level: 'easy', question: 'Vứt rác ở đâu?', options: ['Thùng rác', 'Sàn nhà', 'Ngoài đường', 'Ngăn bàn'], answer: 'Thùng rác', category: 'Safety' },
+
+    // --- Round 2: General Knowledge ---
+    { id: 'e_gen2_1', level: 'easy', question: 'Bánh chưng hình gì?', options: ['Vuông', 'Tròn', 'Tam giác', 'Dài'], answer: 'Vuông', category: 'General' },
+    { id: 'e_gen2_2', level: 'easy', question: 'Bánh dày hình gì?', options: ['Tròn', 'Vuông', 'Tam giác', 'Dài'], answer: 'Tròn', category: 'General' },
+    { id: 'e_gen2_3', level: 'easy', question: 'Lá cờ Việt Nam màu gì?', options: ['Đỏ sao vàng', 'Xanh', 'Trắng', 'Tím'], answer: 'Đỏ sao vàng', category: 'General' },
+    { id: 'e_gen2_4', level: 'easy', question: 'Bác Hồ tên thật là gì?', options: ['Nguyễn Sinh Cung', 'Nguyễn Du', 'Trần Hưng Đạo', 'Lê Lợi'], answer: 'Nguyễn Sinh Cung', category: 'General' },
+    { id: 'e_gen2_5', level: 'easy', question: 'Thủ đô của Việt Nam là gì?', options: ['Hà Nội', 'Huế', 'Đà Nẵng', 'Sài Gòn'], answer: 'Hà Nội', category: 'General' },
+    { id: 'e_gen2_6', level: 'easy', question: 'Xe đạp có mấy bánh?', options: ['2', '3', '4', '1'], answer: '2', category: 'General' },
+    { id: 'e_gen2_7', level: 'easy', question: 'Con người có mấy mắt?', options: ['2', '1', '3', '4'], answer: '2', category: 'General' },
+    { id: 'e_gen2_8', level: 'easy', question: 'Con người có mấy tay?', options: ['2', '1', '3', '4'], answer: '2', category: 'General' },
+    { id: 'e_gen2_9', level: 'easy', question: 'Cầu vồng có mấy màu?', options: ['7', '5', '6', '8'], answer: '7', category: 'General' },
+    { id: 'e_gen2_10', level: 'easy', question: 'Một tuần có mấy ngày?', options: ['7', '6', '5', '8'], answer: '7', category: 'General' },
 ];

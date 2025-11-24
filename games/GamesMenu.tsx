@@ -4,6 +4,7 @@ import { Difficulty } from './memoryMatchEngine';
 import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
 import { SoundMemoryGame } from './SoundMemory/SoundMemoryGame';
 import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
+import { DragonQuestGame } from './DragonQuest/DragonQuestGame';
 
 interface GamesMenuProps {
     onBack: () => void;
@@ -11,7 +12,7 @@ interface GamesMenuProps {
 }
 
 export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
-    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | null>(null);
+    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
     if (activeGame === 'memory') {
@@ -56,6 +57,19 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                 onBack={() => setActiveGame(null)}
                 onComplete={(score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
                     onGameComplete('speed-math', score, maxScore, medal);
+                    setActiveGame(null);
+                }}
+            />
+        );
+    }
+
+    if (activeGame === 'dragon-quest') {
+        return (
+            <DragonQuestGame
+                difficulty={getSoundDifficulty(difficulty)}
+                onBack={() => setActiveGame(null)}
+                onComplete={(score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
+                    onGameComplete('dragon-quest', score, maxScore, medal);
                     setActiveGame(null);
                 }}
             />
@@ -201,15 +215,30 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                     </div>
                 </div>
 
-                {/* Coming Soon */}
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {['Mê Cung Số'].map((game, idx) => (
-                        <div key={idx} className="bg-white/50 rounded-2xl p-6 text-center opacity-50">
-                            <div className="text-4xl mb-2">🔒</div>
-                            <div className="font-bold text-slate-700">{game}</div>
-                            <div className="text-sm text-slate-500">Sắp ra mắt</div>
+
+                {/* Dragon Quest Card */}
+                <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow mt-8">
+                    <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="w-32 h-32 bg-gradient-to-br from-red-600 to-orange-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform">
+                            <span className="text-6xl">🐉</span>
                         </div>
-                    ))}
+
+                        <div className="flex-1 text-center md:text-left">
+                            <h3 className="text-3xl font-bold text-slate-800 mb-3">
+                                Đại Chiến Rồng Thần
+                            </h3>
+                            <p className="text-slate-600 text-lg mb-6">
+                                Phiêu lưu trên bản đồ, thu thập buff và đánh bại rồng thần!
+                            </p>
+
+                            <button
+                                onClick={() => setActiveGame('dragon-quest')}
+                                className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                            >
+                                🐉 Chơi ngay!
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

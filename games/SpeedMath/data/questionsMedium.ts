@@ -115,4 +115,105 @@ export const MEDIUM_QUESTIONS: GeneralKnowledgeQuestion[] = [
     { id: 'm_gp_8', level: 'medium', question: 'Chợ nổi Cái Răng ở đâu?', options: ['Cần Thơ', 'Cà Mau', 'An Giang', 'Tiền Giang'], answer: 'Cần Thơ', category: 'Geography' },
     { id: 'm_gp_9', level: 'medium', question: 'Vườn thú lớn nhất Việt Nam (Safari) ở đâu?', options: ['Phú Quốc', 'Hà Nội', 'Sài Gòn', 'Đà Nẵng'], answer: 'Phú Quốc', category: 'Geography' },
     { id: 'm_gp_10', level: 'medium', question: 'Cầu Vàng (Cầu bàn tay) ở đâu?', options: ['Đà Nẵng', 'Huế', 'Hội An', 'Nha Trang'], answer: 'Đà Nẵng', category: 'Geography' },
+
+    // --- Vietnamese Culture & Festivals ---
+    { id: 'm_cul_1', level: 'medium', question: 'Tết Nguyên Đán là ngày nào?', options: ['1/1 Âm lịch', '1/1 Dương lịch', '2/9', '30/4'], answer: '1/1 Âm lịch', category: 'Culture' },
+    { id: 'm_cul_2', level: 'medium', question: 'Tết Trung Thu rơi vào ngày nào?', options: ['15/8 Âm lịch', '15/1 Âm lịch', '1/1 Âm lịch', '10/3 Âm lịch'], answer: '15/8 Âm lịch', category: 'Culture' },
+    { id: 'm_cul_3', level: 'medium', question: 'Bánh chưng hình gì?', options: ['Vuông', 'Tròn', 'Tam giác', 'Chữ nhật'], answer: 'Vuông', category: 'Culture' },
+    { id: 'm_cul_4', level: 'medium', question: 'Bánh dày hình gì?', options: ['Tròn', 'Vuông', 'Tam giác', 'Dài'], answer: 'Tròn', category: 'Culture' },
+    { id: 'm_cul_5', level: 'medium', question: 'Áo dài truyền thống của nước nào?', options: ['Việt Nam', 'Trung Quốc', 'Nhật Bản', 'Hàn Quốc'], answer: 'Việt Nam', category: 'Culture' },
+    { id: 'm_cul_6', level: 'medium', question: 'Nón lá là biểu tượng của nước nào?', options: ['Việt Nam', 'Thái Lan', 'Lào', 'Campuchia'], answer: 'Việt Nam', category: 'Culture' },
+    { id: 'm_cul_7', level: 'medium', question: 'Phở là món ăn của nước nào?', options: ['Việt Nam', 'Thái Lan', 'Nhật Bản', 'Hàn Quốc'], answer: 'Việt Nam', category: 'Culture' },
+    { id: 'm_cul_8', level: 'medium', question: 'Múa rối nước xuất hiện ở đâu?', options: ['Việt Nam', 'Trung Quốc', 'Nhật Bản', 'Ấn Độ'], answer: 'Việt Nam', category: 'Culture' },
+    { id: 'm_cul_9', level: 'medium', question: 'Làng gốm Bát Tràng nằm ở đâu?', options: ['Hà Nội', 'Huế', 'Đà Nẵng', 'Sài Gòn'], answer: 'Hà Nội', category: 'Culture' },
+    { id: 'm_cul_10', level: 'medium', question: 'Lễ hội Hoa Ban là của dân tộc nào?', options: ['Thái', 'Kinh', 'Mường', 'Hmông'], answer: 'Thái', category: 'Culture' },
+
+    // --- Sports ---
+    { id: 'm_sp_1', level: 'medium', question: 'Môn bóng đá có mấy cầu thủ mỗi đội?', options: ['11', '10', '9', '12'], answer: '11', category: 'Sports' },
+    { id: 'm_sp_2', level: 'medium', question: 'Môn bóng rổ ném bóng vào đâu?', options: ['Rổ', 'Lưới', 'Gôn', 'Cột'], answer: 'Rổ', category: 'Sports' },
+    { id: 'm_sp_3', level: 'medium', question: 'Cầu lông dùng gì đánh?', options: ['Vợt', 'Gậy', 'Tay', 'Chân'], answer: 'Vợt', category: 'Sports' },
+    { id: 'm_sp_4', level: 'medium', question: 'Bơi lội thi đấu ở đâu?', options: ['Bể bơi', 'Sân cỏ', 'Nhà thi đấu', 'Đường đua'], answer: 'Bể bơi', category: 'Sports' },
+    { id: 'm_sp_5', level: 'medium', question: 'Võ thuật Vovinam của nước nào?', options: ['Việt Nam', 'Thái Lan', 'Nhật Bản', 'Hàn Quốc'], answer: 'Việt Nam', category: 'Sports' },
+    { id: 'm_sp_6', level: 'medium', question: 'Olympic tổ chức mấy năm một lần?', options: ['4 năm', '2 năm', '1 năm', '5 năm'], answer: '4 năm', category: 'Sports' },
+    { id: 'm_sp_7', level: 'medium', question: 'Huy chương vàng là hạng mấy?', options: ['Nhất', 'Nhì', 'Ba', 'Tư'], answer: 'Nhất', category: 'Sports' },
+    { id: 'm_sp_8', level: 'medium', question: 'SEA Games là gì?', options: ['Thể thao Đông Nam Á', 'Thể thao Châu Á', 'Thể thao Thế giới', 'Thể thao Châu Âu'], answer: 'Thể thao Đông Nam Á', category: 'Sports' },
+
+    // --- Technology & Modern Life ---
+    { id: 'm_tech_1', level: 'medium', question: 'Máy tính dùng để làm gì?', options: ['Học tập & làm việc', 'Chỉ chơi game', 'Chỉ xem phim', 'Nấu ăn'], answer: 'Học tập & làm việc', category: 'Technology' },
+    { id: 'm_tech_2', level: 'medium', question: 'Internet giúp ta làm gì?', options: ['Tìm kiếm thông tin', 'Nấu ăn', 'Ngủ', 'Chạy'], answer: 'Tìm kiếm thông tin', category: 'Technology' },
+    { id: 'm_tech_3', level: 'medium', question: 'Điện thoại thông minh có thể làm gì?', options: ['Gọi, nhắn tin, học tập', 'Chỉ gọi điện', 'Chỉ nhắn tin', 'Không làm gì'], answer: 'Gọi, nhắn tin, học tập', category: 'Technology' },
+    { id: 'm_tech_4', level: 'medium', question: 'Robot có thể làm gì?', options: ['Giúp đỡ con người', 'Thay thế con người hoàn toàn', 'Chỉ đứng yên', 'Không làm gì'], answer: 'Giúp đỡ con người', category: 'Technology' },
+    { id: 'm_tech_5', level: 'medium', question: 'Email dùng để làm gì?', options: ['Gửi thư điện tử', 'Gọi điện', 'Xem TV', 'Chơi game'], answer: 'Gửi thư điện tử', category: 'Technology' },
+
+    // --- Health & Hygiene ---
+    { id: 'm_hlth_1', level: 'medium', question: 'Vitamin C nhiều trong loại quả nào?', options: ['Cam, chanh', 'Chuối', 'Táo', 'Nho'], answer: 'Cam, chanh', category: 'Health' },
+    { id: 'm_hlth_2', level: 'medium', question: 'Sữa giúp gì cho cơ thể?', options: ['Xương chắc khỏe', 'Chạy nhanh', 'Cao to', 'Thông minh'], answer: 'Xương chắc khỏe', category: 'Health' },
+    { id: 'm_hlth_3', level: 'medium', question: 'Nên uống bao nhiêu cốc nước mỗi ngày?', options: ['6-8 cốc', '1-2 cốc', '10-15 cốc', 'Không cần'], answer: '6-8 cốc', category: 'Health' },
+    { id: 'm_hlth_4', level: 'medium', question: 'Tập thể dục giúp gì?', options: ['Khỏe mạnh', 'Yếu đi', 'Béo lên', 'Buồn ngủ'], answer: 'Khỏe mạnh', category: 'Health' },
+    { id: 'm_hlth_5', level: 'medium', question: 'Ngủ đủ giấc giúp gì?', options: ['Tăng trưởng tốt', 'Lùn đi', 'Ngu đi', 'Yếu đi'], answer: 'Tăng trưởng tốt', category: 'Health' },
+    { id: 'm_hlth_6', level: 'medium', question: 'Rửa tay bằng gì là tốt nhất?', options: ['Xà phòng', 'Nước lạnh', 'Khăn', 'Không cần'], answer: 'Xà phòng', category: 'Health' },
+    { id: 'm_hlth_7', level: 'medium', question: 'Hít thở sâu giúp gì?', options: ['Giảm căng thẳng', 'Tăng căng thẳng', 'Không giúp gì', 'Đau đầu'], answer: 'Giảm căng thẳng', category: 'Health' },
+
+    // --- Vietnamese Cuisine ---
+    { id: 'm_food_1', level: 'medium', question: 'Bún bò Huế là đặc sản của nơi nào?', options: ['Huế', 'Hà Nội', 'Sài Gòn', 'Đà Nẵng'], answer: 'Huế', category: 'Food' },
+    { id: 'm_food_2', level: 'medium', question: 'Cao lầu là đặc sản của nơi nào?', options: ['Hội An', 'Huế', 'Hà Nội', 'Đà Lạt'], answer: 'Hội An', category: 'Food' },
+    { id: 'm_food_3', level: 'medium', question: 'Chả cá là đặc sản của nơi nào?', options: ['Hà Nội', 'Huế', 'Nha Trang', 'Vũng Tàu'], answer: 'Hà Nội', category: 'Food' },
+    { id: 'm_food_4', level: 'medium', question: 'Bánh xèo làm từ bột gì?', options: ['Bột gạo', 'Bột mì', 'Bột ngô', 'Bột năng'], answer: 'Bột gạo', category: 'Food' },
+    { id: 'm_food_5', level: 'medium', question: 'Nước mắm làm từ gì?', options: ['Cá', 'Tôm', 'Mực', 'Cua'], answer: 'Cá', category: 'Food' },
+    { id: 'm_food_6', level: 'medium', question: 'Bánh mì Việt Nam có gì đặc biệt?', options: ['Bánh giòn + nhân đa dạng', 'Chỉ có bánh', 'Rất to', 'Rất nhỏ'], answer: 'Bánh giòn + nhân đa dạng', category: 'Food' },
+
+    // --- More Geography ---
+    { id: 'm_geo_1', level: 'medium', question: 'Biển Đông thuộc đại dương nào?', options: ['Thái Bình Dương', 'Ấn Độ Dương', 'Đại Tây Dương', 'Bắc Băng Dương'], answer: 'Thái Bình Dương', category: 'Geography' },
+    { id: 'm_geo_2', level: 'medium', question: 'Việt Nam giáp với nước nào?', options: ['Trung Quốc, Lào, Campuchia', 'Chỉ Thái Lan', 'Chỉ Trung Quốc', 'Myanmar'], answer: 'Trung Quốc, Lào, Campuchia', category: 'Geography' },
+    { id: 'm_geo_3', level: 'medium', question: 'Vùng Tây Bắc có dân tộc nào đông nhất?', options: ['Thái', 'Kinh', 'Mường', 'Tày'], answer: 'Thái', category: 'Geography' },
+    { id: 'm_geo_4', level: 'medium', question: 'Đồng bằng sông Cửu Long trồng nhiều gì?', options: ['Lúa gạo', 'Cà phê', 'Chè', 'Cao su'], answer: 'Lúa gạo', category: 'Geography' },
+    { id: 'm_geo_5', level: 'medium', question: 'Tây Nguyên trồng nhiều gì?', options: ['Cà phê', 'Lúa', 'Chè', 'Hoa'], answer: 'Cà phê', category: 'Geography' },
+
+    // --- More Science (Space & Body) ---
+    { id: 'm_sci_1', level: 'medium', question: 'Hành tinh nào gần Mặt Trời nhất?', options: ['Sao Thủy', 'Sao Kim', 'Trái Đất', 'Sao Hỏa'], answer: 'Sao Thủy', category: 'Science' },
+    { id: 'm_sci_2', level: 'medium', question: 'Hành tinh nào được gọi là Hành tinh Đỏ?', options: ['Sao Hỏa', 'Sao Mộc', 'Sao Thổ', 'Sao Kim'], answer: 'Sao Hỏa', category: 'Science' },
+    { id: 'm_sci_3', level: 'medium', question: 'Mặt Trăng quay quanh đâu?', options: ['Trái Đất', 'Mặt Trời', 'Sao Hỏa', 'Chính nó'], answer: 'Trái Đất', category: 'Science' },
+    { id: 'm_sci_4', level: 'medium', question: 'Xương nào dài nhất trong cơ thể người?', options: ['Xương đùi', 'Xương cánh tay', 'Xương sống', 'Xương chậu'], answer: 'Xương đùi', category: 'Science' },
+    { id: 'm_sci_5', level: 'medium', question: 'Cơ quan nào lọc máu trong cơ thể?', options: ['Thận', 'Tim', 'Gan', 'Phổi'], answer: 'Thận', category: 'Science' },
+    { id: 'm_sci_6', level: 'medium', question: 'Nước sôi ở bao nhiêu độ C?', options: ['100 độ', '90 độ', '110 độ', '80 độ'], answer: '100 độ', category: 'Science' },
+    { id: 'm_sci_7', level: 'medium', question: 'Nước đóng băng ở bao nhiêu độ C?', options: ['0 độ', '-10 độ', '10 độ', '5 độ'], answer: '0 độ', category: 'Science' },
+    { id: 'm_sci_8', level: 'medium', question: 'Cây xanh quang hợp vào lúc nào?', options: ['Ban ngày', 'Ban đêm', 'Cả ngày', 'Buổi trưa'], answer: 'Ban ngày', category: 'Science' },
+    { id: 'm_sci_9', level: 'medium', question: 'Con người hít khí gì?', options: ['Oxy', 'Cacbonic', 'Nitơ', 'Hydro'], answer: 'Oxy', category: 'Science' },
+    { id: 'm_sci_10', level: 'medium', question: 'Con người thở ra khí gì?', options: ['Cacbonic', 'Oxy', 'Nitơ', 'Hydro'], answer: 'Cacbonic', category: 'Science' },
+
+    // --- World History Basics ---
+    { id: 'm_hist_1', level: 'medium', question: 'Kim tự tháp ở nước nào?', options: ['Ai Cập', 'Ấn Độ', 'Trung Quốc', 'Mỹ'], answer: 'Ai Cập', category: 'History' },
+    { id: 'm_hist_2', level: 'medium', question: 'Vạn Lý Trường Thành ở đâu?', options: ['Trung Quốc', 'Việt Nam', 'Nhật Bản', 'Hàn Quốc'], answer: 'Trung Quốc', category: 'History' },
+    { id: 'm_hist_3', level: 'medium', question: 'Tháp Eiffel ở nước nào?', options: ['Pháp', 'Anh', 'Mỹ', 'Ý'], answer: 'Pháp', category: 'History' },
+    { id: 'm_hist_4', level: 'medium', question: 'Tượng Nữ thần Tự do ở đâu?', options: ['Mỹ', 'Pháp', 'Anh', 'Canada'], answer: 'Mỹ', category: 'History' },
+    { id: 'm_hist_5', level: 'medium', question: 'Đấu trường La Mã ở nước nào?', options: ['Ý', 'Hy Lạp', 'Tây Ban Nha', 'Pháp'], answer: 'Ý', category: 'History' },
+
+    // --- Riddles (Fun Logic) ---
+    { id: 'm_riddle_1', level: 'medium', question: 'Cái gì càng thắng càng thua?', options: ['Cái phanh xe', 'Cuộc đua', 'Trò chơi', 'Đánh nhau'], answer: 'Cái phanh xe', category: 'Riddles' },
+    { id: 'm_riddle_2', level: 'medium', question: 'Cái gì có cổ mà không có miệng?', options: ['Cái áo', 'Con gà', 'Cái chai', 'Cái bình'], answer: 'Cái áo', category: 'Riddles' },
+    { id: 'm_riddle_3', level: 'medium', question: 'Cái gì có chân mà không biết đi?', options: ['Cái bàn', 'Con chó', 'Em bé', 'Con mèo'], answer: 'Cái bàn', category: 'Riddles' },
+    { id: 'm_riddle_4', level: 'medium', question: 'Cái gì càng to càng nhỏ?', options: ['Con cua', 'Quả cam', 'Cái bánh', 'Viên bi'], answer: 'Con cua', category: 'Riddles' },
+    { id: 'm_riddle_5', level: 'medium', question: 'Lịch nào dài nhất?', options: ['Lịch sử', 'Lịch treo tường', 'Lịch để bàn', 'Lịch vạn niên'], answer: 'Lịch sử', category: 'Riddles' },
+    { id: 'm_riddle_6', level: 'medium', question: 'Con gì đập thì sống, không đập thì chết?', options: ['Con tim', 'Con cá', 'Con muỗi', 'Con quay'], answer: 'Con tim', category: 'Riddles' },
+    { id: 'm_riddle_7', level: 'medium', question: 'Cái gì không cánh mà bay?', options: ['Tin đồn', 'Máy bay', 'Chim', 'Bướm'], answer: 'Tin đồn', category: 'Riddles' },
+    { id: 'm_riddle_8', level: 'medium', question: 'Cái gì của mình nhưng người khác dùng nhiều hơn?', options: ['Tên', 'Tiền', 'Xe', 'Nhà'], answer: 'Tên', category: 'Riddles' },
+    { id: 'm_riddle_9', level: 'medium', question: 'Tháng nào ngắn nhất trong năm?', options: ['Tháng 2', 'Tháng 1', 'Tháng 12', 'Tháng 6'], answer: 'Tháng 2', category: 'Riddles' },
+    { id: 'm_riddle_10', level: 'medium', question: 'Cái gì càng phơi nắng càng ướt?', options: ['Băng tan', 'Quần áo', 'Cá khô', 'Lúa'], answer: 'Băng tan', category: 'Riddles' },
+
+    // --- General Knowledge (Sports, Music, etc.) ---
+    { id: 'm_gen_1', level: 'medium', question: 'Môn thể thao vua là gì?', options: ['Bóng đá', 'Bóng rổ', 'Bơi lội', 'Cầu lông'], answer: 'Bóng đá', category: 'General' },
+    { id: 'm_gen_2', level: 'medium', question: 'Một trận bóng đá có bao nhiêu phút?', options: ['90 phút', '60 phút', '45 phút', '100 phút'], answer: '90 phút', category: 'General' },
+    { id: 'm_gen_3', level: 'medium', question: 'Đàn bầu có mấy dây?', options: ['1 dây', '2 dây', '3 dây', '4 dây'], answer: '1 dây', category: 'General' },
+    { id: 'm_gen_4', level: 'medium', question: 'Nốt nhạc Đồ kí hiệu là chữ gì?', options: ['C', 'D', 'E', 'F'], answer: 'C', category: 'General' },
+    { id: 'm_gen_5', level: 'medium', question: 'Nốt nhạc La kí hiệu là chữ gì?', options: ['A', 'B', 'C', 'D'], answer: 'A', category: 'General' },
+    { id: 'm_gen_6', level: 'medium', question: 'Ai là người sáng tác bài "Quốc ca" Việt Nam?', options: ['Văn Cao', 'Phạm Tuyên', 'Trịnh Công Sơn', 'Hoàng Vân'], answer: 'Văn Cao', category: 'General' },
+    { id: 'm_gen_7', level: 'medium', question: 'Bác Hồ đọc Tuyên ngôn độc lập ngày nào?', options: ['2/9/1945', '30/4/1975', '19/5/1890', '7/5/1954'], answer: '2/9/1945', category: 'General' },
+    { id: 'm_gen_8', level: 'medium', question: 'Ngày Nhà giáo Việt Nam là ngày nào?', options: ['20/11', '8/3', '20/10', '1/6'], answer: '20/11', category: 'General' },
+    { id: 'm_gen_9', level: 'medium', question: 'Ngày Quốc tế Phụ nữ là ngày nào?', options: ['8/3', '20/10', '20/11', '1/6'], answer: '8/3', category: 'General' },
+    { id: 'm_gen_10', level: 'medium', question: 'Ngày Quốc tế Thiếu nhi là ngày nào?', options: ['1/6', '15/8', '2/9', '30/4'], answer: '1/6', category: 'General' },
+    { id: 'm_gen_11', level: 'medium', question: 'Thủ đô của nước Mỹ là gì?', options: ['Washington D.C', 'New York', 'California', 'Texas'], answer: 'Washington D.C', category: 'General' },
+    { id: 'm_gen_12', level: 'medium', question: 'Thủ đô của nước Anh là gì?', options: ['London', 'Paris', 'Berlin', 'Rome'], answer: 'London', category: 'General' },
+    { id: 'm_gen_13', level: 'medium', question: 'Thủ đô của nước Pháp là gì?', options: ['Paris', 'London', 'Berlin', 'Rome'], answer: 'Paris', category: 'General' },
+    { id: 'm_gen_14', level: 'medium', question: 'Thủ đô của nước Nhật là gì?', options: ['Tokyo', 'Seoul', 'Beijing', 'Bangkok'], answer: 'Tokyo', category: 'General' },
+    { id: 'm_gen_15', level: 'medium', question: 'Thủ đô của nước Thái Lan là gì?', options: ['Bangkok', 'Jakarta', 'Manila', 'Hanoi'], answer: 'Bangkok', category: 'General' },
 ];

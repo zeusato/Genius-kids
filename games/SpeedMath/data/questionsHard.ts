@@ -109,4 +109,62 @@ export const HARD_QUESTIONS: GeneralKnowledgeQuestion[] = [
     { id: 'h_as_13', level: 'hard', question: 'Tim người có mấy ngăn?', options: ['4', '2', '3', '5'], answer: '4', category: 'Science' },
     { id: 'h_as_14', level: 'hard', question: 'Phổi dùng để làm gì?', options: ['Hô hấp', 'Tiêu hóa', 'Tuần hoàn', 'Bài tiết'], answer: 'Hô hấp', category: 'Science' },
     { id: 'h_as_15', level: 'hard', question: 'Dạ dày dùng để làm gì?', options: ['Tiêu hóa thức ăn', 'Hô hấp', 'Bơm máu', 'Lọc máu'], answer: 'Tiêu hóa thức ăn', category: 'Science' },
+
+    // --- Advanced History (Vietnam & World) ---
+    { id: 'h_adv_h_1', level: 'hard', question: 'Ai là vị vua đầu tiên của nhà Lý?', options: ['Lý Thái Tổ', 'Lý Thái Tông', 'Lý Thánh Tông', 'Lý Nhân Tông'], answer: 'Lý Thái Tổ', category: 'History' },
+    { id: 'h_adv_h_2', level: 'hard', question: 'Tên thật của vua Quang Trung là gì?', options: ['Nguyễn Huệ', 'Nguyễn Nhạc', 'Nguyễn Lữ', 'Nguyễn Ánh'], answer: 'Nguyễn Huệ', category: 'History' },
+    { id: 'h_adv_h_3', level: 'hard', question: 'Chiến thắng Đống Đa năm 1789 đánh bại quân nào?', options: ['Quân Thanh', 'Quân Minh', 'Quân Tống', 'Quân Nguyên'], answer: 'Quân Thanh', category: 'History' },
+    { id: 'h_adv_h_4', level: 'hard', question: 'Ai là người chỉ huy trận Rạch Gầm - Xoài Mút?', options: ['Nguyễn Huệ', 'Nguyễn Ánh', 'Lê Lợi', 'Trần Hưng Đạo'], answer: 'Nguyễn Huệ', category: 'History' },
+    { id: 'h_adv_h_5', level: 'hard', question: 'Thành nhà Hồ được xây dựng bằng gì?', options: ['Đá', 'Gạch', 'Gỗ', 'Đất'], answer: 'Đá', category: 'History' },
+    { id: 'h_adv_h_6', level: 'hard', question: 'Ai là tác giả của "Hịch tướng sĩ"?', options: ['Trần Hưng Đạo', 'Lý Thường Kiệt', 'Nguyễn Trãi', 'Quang Trung'], answer: 'Trần Hưng Đạo', category: 'History' },
+    { id: 'h_adv_h_7', level: 'hard', question: 'Nữ hoàng duy nhất trong lịch sử Việt Nam là ai?', options: ['Lý Chiêu Hoàng', 'Dương Vân Nga', 'Ỷ Lan', 'Bùi Thị Xuân'], answer: 'Lý Chiêu Hoàng', category: 'History' },
+    { id: 'h_adv_h_8', level: 'hard', question: 'Ai phát minh ra máy hơi nước?', options: ['James Watt', 'Edison', 'Newton', 'Einstein'], answer: 'James Watt', category: 'History' },
+    { id: 'h_adv_h_9', level: 'hard', question: 'Thế chiến thứ 2 kết thúc năm nào?', options: ['1945', '1939', '1918', '1954'], answer: '1945', category: 'History' },
+    { id: 'h_adv_h_10', level: 'hard', question: 'Ai là tổng thống đầu tiên của Mỹ?', options: ['Washington', 'Lincoln', 'Jefferson', 'Kennedy'], answer: 'Washington', category: 'History' },
+
+    // --- Advanced Geography ---
+    { id: 'h_adv_g_1', level: 'hard', question: 'Nước nào có diện tích nhỏ nhất thế giới?', options: ['Vatican', 'Monaco', 'Singapore', 'Maldives'], answer: 'Vatican', category: 'Geography' },
+    { id: 'h_adv_g_2', level: 'hard', question: 'Châu lục nào không có sa mạc?', options: ['Châu Âu', 'Châu Á', 'Châu Phi', 'Châu Mỹ'], answer: 'Châu Âu', category: 'Geography' },
+    { id: 'h_adv_g_3', level: 'hard', question: 'Biển Chết nằm ở khu vực nào?', options: ['Trung Đông', 'Đông Nam Á', 'Bắc Mỹ', 'Châu Âu'], answer: 'Trung Đông', category: 'Geography' },
+    { id: 'h_adv_g_4', level: 'hard', question: 'Nước nào được gọi là "Xứ sở hoa anh đào"?', options: ['Nhật Bản', 'Hàn Quốc', 'Trung Quốc', 'Việt Nam'], answer: 'Nhật Bản', category: 'Geography' },
+    { id: 'h_adv_g_5', level: 'hard', question: 'Nước nào được gọi là "Xứ sở chuột túi"?', options: ['Úc', 'Mỹ', 'Anh', 'Canada'], answer: 'Úc', category: 'Geography' },
+    { id: 'h_adv_g_6', level: 'hard', question: 'Dòng sông nào chảy qua nhiều quốc gia nhất?', options: ['Sông Danube', 'Sông Nile', 'Sông Amazon', 'Sông Mê Kông'], answer: 'Sông Danube', category: 'Geography' },
+    { id: 'h_adv_g_7', level: 'hard', question: 'Đỉnh núi cao nhất Nhật Bản là gì?', options: ['Phú Sĩ', 'Everest', 'K2', 'Alps'], answer: 'Phú Sĩ', category: 'Geography' },
+    { id: 'h_adv_g_8', level: 'hard', question: 'Thủ đô của Nga là gì?', options: ['Moscow', 'Saint Petersburg', 'Kiev', 'Minsk'], answer: 'Moscow', category: 'Geography' },
+    { id: 'h_adv_g_9', level: 'hard', question: 'Thủ đô của Hàn Quốc là gì?', options: ['Seoul', 'Busan', 'Incheon', 'Daegu'], answer: 'Seoul', category: 'Geography' },
+    { id: 'h_adv_g_10', level: 'hard', question: 'Kênh đào Panama nối liền hai đại dương nào?', options: ['Thái Bình Dương - Đại Tây Dương', 'Thái Bình Dương - Ấn Độ Dương', 'Đại Tây Dương - Ấn Độ Dương', 'Bắc Băng Dương - Thái Bình Dương'], answer: 'Thái Bình Dương - Đại Tây Dương', category: 'Geography' },
+
+    // --- Advanced Science (Physics, Chem, Bio) ---
+    { id: 'h_adv_s_1', level: 'hard', question: 'Đơn vị đo lực là gì?', options: ['Newton', 'Joule', 'Watt', 'Pascal'], answer: 'Newton', category: 'Science' },
+    { id: 'h_adv_s_2', level: 'hard', question: 'Đơn vị đo điện áp là gì?', options: ['Volt', 'Ampere', 'Ohm', 'Watt'], answer: 'Volt', category: 'Science' },
+    { id: 'h_adv_s_3', level: 'hard', question: 'Công thức hóa học của nước là gì?', options: ['H2O', 'CO2', 'O2', 'NaCl'], answer: 'H2O', category: 'Science' },
+    { id: 'h_adv_s_4', level: 'hard', question: 'Khí nào chiếm tỉ lệ lớn nhất trong không khí?', options: ['Nitơ', 'Oxy', 'Cacbonic', 'Argon'], answer: 'Nitơ', category: 'Science' },
+    { id: 'h_adv_s_5', level: 'hard', question: 'ADN chứa thông tin gì?', options: ['Di truyền', 'Dinh dưỡng', 'Năng lượng', 'Cảm xúc'], answer: 'Di truyền', category: 'Science' },
+    { id: 'h_adv_s_6', level: 'hard', question: 'Tế bào thần kinh gọi là gì?', options: ['Neuron', 'Hồng cầu', 'Bạch cầu', 'Tiểu cầu'], answer: 'Neuron', category: 'Science' },
+    { id: 'h_adv_s_7', level: 'hard', question: 'Hành tinh nào có vành đai đẹp nhất?', options: ['Sao Thổ', 'Sao Mộc', 'Sao Thiên Vương', 'Sao Hải Vương'], answer: 'Sao Thổ', category: 'Science' },
+    { id: 'h_adv_s_8', level: 'hard', question: 'Hiện tượng nhật thực xảy ra khi nào?', options: ['Mặt Trăng che Mặt Trời', 'Trái Đất che Mặt Trời', 'Mặt Trời che Mặt Trăng', 'Sao Kim che Mặt Trời'], answer: 'Mặt Trăng che Mặt Trời', category: 'Science' },
+    { id: 'h_adv_s_9', level: 'hard', question: 'Vận tốc âm thanh trong không khí khoảng bao nhiêu?', options: ['340 m/s', '300.000 km/s', '1000 km/h', '50 m/s'], answer: '340 m/s', category: 'Science' },
+    { id: 'h_adv_s_10', level: 'hard', question: 'Kim loại nào ở thể lỏng ở nhiệt độ thường?', options: ['Thủy ngân', 'Vàng', 'Bạc', 'Sắt'], answer: 'Thủy ngân', category: 'Science' },
+
+    // --- Literature & Arts ---
+    { id: 'h_adv_l_1', level: 'hard', question: 'Tác giả của bộ truyện "Harry Potter" là ai?', options: ['J.K. Rowling', 'Tolkien', 'Roald Dahl', 'Mark Twain'], answer: 'J.K. Rowling', category: 'Literature' },
+    { id: 'h_adv_l_2', level: 'hard', question: 'Ai vẽ bức tranh "Mona Lisa"?', options: ['Da Vinci', 'Picasso', 'Van Gogh', 'Michelangelo'], answer: 'Da Vinci', category: 'Arts' },
+    { id: 'h_adv_l_3', level: 'hard', question: 'Ai vẽ bức tranh "Hoa hướng dương"?', options: ['Van Gogh', 'Picasso', 'Da Vinci', 'Monet'], answer: 'Van Gogh', category: 'Arts' },
+    { id: 'h_adv_l_4', level: 'hard', question: 'Nhạc sĩ nào bị điếc nhưng vẫn sáng tác nhạc?', options: ['Beethoven', 'Mozart', 'Bach', 'Chopin'], answer: 'Beethoven', category: 'Arts' },
+    { id: 'h_adv_l_5', level: 'hard', question: 'Bài hát "Tiến quân ca" do ai sáng tác?', options: ['Văn Cao', 'Phạm Tuyên', 'Trịnh Công Sơn', 'Hoàng Vân'], answer: 'Văn Cao', category: 'Arts' },
+    { id: 'h_adv_l_6', level: 'hard', question: 'Truyện "Tấm Cám" thuộc thể loại gì?', options: ['Cổ tích', 'Truyền thuyết', 'Thần thoại', 'Ngụ ngôn'], answer: 'Cổ tích', category: 'Literature' },
+    { id: 'h_adv_l_7', level: 'hard', question: 'Truyện "Thánh Gióng" thuộc thể loại gì?', options: ['Truyền thuyết', 'Cổ tích', 'Thần thoại', 'Ngụ ngôn'], answer: 'Truyền thuyết', category: 'Literature' },
+    { id: 'h_adv_l_8', level: 'hard', question: 'Nhà thơ nào được gọi là "Bà Chúa Thơ Nôm"?', options: ['Hồ Xuân Hương', 'Đoàn Thị Điểm', 'Bà Huyện Thanh Quan', 'Sương Nguyệt Anh'], answer: 'Hồ Xuân Hương', category: 'Literature' },
+    { id: 'h_adv_l_9', level: 'hard', question: 'Tác phẩm "Nhật ký trong tù" là của ai?', options: ['Hồ Chí Minh', 'Tố Hữu', 'Xuân Diệu', 'Huy Cận'], answer: 'Hồ Chí Minh', category: 'Literature' },
+    { id: 'h_adv_l_10', level: 'hard', question: 'Ai là tác giả của "Hoàng tử bé"?', options: ['Saint-Exupéry', 'Andersen', 'Grimm', 'Perrault'], answer: 'Saint-Exupéry', category: 'Literature' },
+
+    // --- General Knowledge (Mix) ---
+    { id: 'h_adv_gk_1', level: 'hard', question: 'Biểu tượng của hòa bình là con gì?', options: ['Chim bồ câu', 'Đại bàng', 'Sư tử', 'Cá heo'], answer: 'Chim bồ câu', category: 'General' },
+    { id: 'h_adv_gk_2', level: 'hard', question: 'Thế vận hội Olympic đầu tiên diễn ra ở đâu?', options: ['Hy Lạp', 'La Mã', 'Ai Cập', 'Pháp'], answer: 'Hy Lạp', category: 'General' },
+    { id: 'h_adv_gk_3', level: 'hard', question: 'Giải Nobel không có lĩnh vực nào?', options: ['Toán học', 'Vật lý', 'Hóa học', 'Văn học'], answer: 'Toán học', category: 'General' },
+    { id: 'h_adv_gk_4', level: 'hard', question: 'Đồng tiền chung của Châu Âu là gì?', options: ['Euro', 'Dollar', 'Bảng Anh', 'Yên'], answer: 'Euro', category: 'General' },
+    { id: 'h_adv_gk_5', level: 'hard', question: 'Loài hoa nào hướng về mặt trời?', options: ['Hoa hướng dương', 'Hoa hồng', 'Hoa cúc', 'Hoa sen'], answer: 'Hoa hướng dương', category: 'General' },
+    { id: 'h_adv_gk_6', level: 'hard', question: 'Con vật nào là biểu tượng của nước Úc?', options: ['Chuột túi', 'Gấu Koala', 'Đà điểu', 'Cá sấu'], answer: 'Chuột túi', category: 'General' },
+    { id: 'h_adv_gk_7', level: 'hard', question: 'Đất nước nào có diện tích nhỏ thứ hai thế giới?', options: ['Monaco', 'Vatican', 'Nauru', 'Tuvalu'], answer: 'Monaco', category: 'General' },
+    { id: 'h_adv_gk_8', level: 'hard', question: 'Ai là người đầu tiên bay vào vũ trụ?', options: ['Yuri Gagarin', 'Neil Armstrong', 'Buzz Aldrin', 'Phạm Tuân'], answer: 'Yuri Gagarin', category: 'General' },
 ];

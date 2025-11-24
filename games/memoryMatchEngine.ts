@@ -161,11 +161,11 @@ export function getMedal(moves: number, totalPairs: number, timeSeconds: number)
     // Silver: moves <= totalPairs * 1.5
     // Bronze: moves > totalPairs * 1.5
 
-    if (moves <= totalPairs * 1.2) {
+    if (moves <= totalPairs * 1.5) {
         return { type: 'gold', message: 'Xuất sắc! Trí nhớ siêu đẳng!' };
     }
 
-    if (moves <= totalPairs * 1.5) {
+    if (moves <= totalPairs * 2) {
         return { type: 'silver', message: 'Tuyệt vời! Rất tốt!' };
     }
 
