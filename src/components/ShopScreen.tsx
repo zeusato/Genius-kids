@@ -8,6 +8,9 @@ import { getThemeById } from '../../services/themeService';
 import { getImageById } from '../../services/albumService';
 import { getRarityColor, getRarityName } from '../../services/albumService';
 import { ArrowLeft, ShoppingBag, Star, CheckCircle } from 'lucide-react';
+import { purchaseGachaSpin } from '../../services/shopService';
+import { Sparkles } from 'lucide-react';
+import { useStudentActions } from '@/src/contexts/StudentContext';
 
 interface ShopScreenProps {
     student: StudentProfile;
@@ -20,7 +23,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
     onUpdateProfile,
     onBack,
 }) => {
-    const [activeTab, setActiveTab] = useState<'avatars' | 'themes' | 'photos'>('avatars');
+    const [activeTab, setActiveTab] = useState<'avatars' | 'themes' | 'photos' | 'gacha'>('avatars');
+    const { setGachaResult } = useStudentActions();
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
     const shopAvatars = getShopAvatars();
@@ -76,6 +80,17 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
         }
     };
 
+    const handlePurchaseGacha = () => {
+        const result = purchaseGachaSpin(student);
+        if (result) {
+            onUpdateProfile(result.updatedProfile);
+            setGachaResult(result.gachaResult);
+            showMessage('✨ Quay gacha thành công!', 'success');
+        } else {
+            showMessage('Không đủ sao! Cần 50 ⭐ để quay gacha', 'error');
+        }
+    };
+
     const showMessage = (text: string, type: 'success' | 'error') => {
         setMessage({ text, type });
         setTimeout(() => setMessage(null), 3000);
@@ -115,8 +130,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                 <button
                     onClick={() => setActiveTab('avatars')}
                     className={`flex-1 px-4 py-3 rounded-lg font-semibold transition-all ${activeTab === 'avatars'
-                            ? 'bg-white shadow-md text-brand-600'
-                            : 'text-gray-600 hover:text-brand-600'
+                        ? 'bg-white shadow-md text-brand-600'
+                        : 'text-gray-600 hover:text-brand-600'
                         }`}
                 >
                     🎭 Avatars
@@ -124,8 +139,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                 <button
                     onClick={() => setActiveTab('themes')}
                     className={`flex-1 px-4 py-3 rounded-lg font-semibold transition-all ${activeTab === 'themes'
-                            ? 'bg-white shadow-md text-brand-600'
-                            : 'text-gray-600 hover:text-brand-600'
+                        ? 'bg-white shadow-md text-brand-600'
+                        : 'text-gray-600 hover:text-brand-600'
                         }`}
                 >
                     🎨 Themes
@@ -133,11 +148,20 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                 <button
                     onClick={() => setActiveTab('photos')}
                     className={`flex-1 px-4 py-3 rounded-lg font-semibold transition-all ${activeTab === 'photos'
-                            ? 'bg-white shadow-md text-brand-600'
-                            : 'text-gray-600 hover:text-brand-600'
+                        ? 'bg-white shadow-md text-brand-600'
+                        : 'text-gray-600 hover:text-brand-600'
                         }`}
                 >
                     🖼️ Ảnh hôm nay
+                </button>
+                <button
+                    onClick={() => setActiveTab('gacha')}
+                    className={`flex-1 px-4 py-3 rounded-lg font-semibold transition-all ${activeTab === 'gacha'
+                        ? 'bg-white shadow-md text-brand-600'
+                        : 'text-gray-600 hover:text-brand-600'
+                        }`}
+                >
+                    ✨ Gacha
                 </button>
             </div>
 
@@ -173,8 +197,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                                                 onClick={() => handlePurchaseAvatar(avatar.id, avatar.cost)}
                                                 disabled={!canAfford}
                                                 className={`w-full px-3 py-2 rounded-lg font-semibold flex items-center justify-center gap-1 ${canAfford
-                                                        ? 'bg-brand-500 hover:bg-brand-600 text-white'
-                                                        : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                                    ? 'bg-brand-500 hover:bg-brand-600 text-white'
+                                                    : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                                                     }`}
                                             >
                                                 <Star size={14} className={canAfford ? 'fill-yellow-300' : ''} />
@@ -231,8 +255,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                                             onClick={() => handlePurchaseTheme(theme.id, theme.cost)}
                                             disabled={!canAfford}
                                             className={`w-full px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 ${canAfford
-                                                    ? 'bg-brand-500 hover:bg-brand-600 text-white'
-                                                    : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                                ? 'bg-brand-500 hover:bg-brand-600 text-white'
+                                                : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                                                 }`}
                                         >
                                             <Star size={16} className={canAfford ? 'fill-yellow-300' : ''} />
@@ -295,8 +319,8 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                                                     onClick={() => handlePurchasePhoto(image.id, dailyPhoto.rarity)}
                                                     disabled={!canAfford}
                                                     className={`w-full px-2 py-1.5 rounded-lg font-semibold text-sm flex items-center justify-center gap-1 ${canAfford
-                                                            ? 'bg-brand-500 hover:bg-brand-600 text-white'
-                                                            : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                                        ? 'bg-brand-500 hover:bg-brand-600 text-white'
+                                                        : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                                                         }`}
                                                 >
                                                     <Star size={12} className={canAfford ? 'fill-yellow-300' : ''} />
@@ -313,6 +337,96 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                                 })}
                             </div>
                         )}
+                    </div>
+                )}
+                {/* Gacha Tab */}
+                {activeTab === 'gacha' && (
+                    <div className="max-w-2xl mx-auto">
+                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl shadow-2xl p-8 border-4 border-purple-200">
+                            {/* Header */}
+                            <div className="text-center mb-8">
+                                <div className="text-6xl mb-4 animate-bounce">🎰</div>
+                                <h2 className="text-3xl font-extrabold text-purple-800 mb-2">Máy Gacha</h2>
+                                <p className="text-gray-600">Quay gacha để nhận thẻ ngẫu nhiên!</p>
+                            </div>
+                            {/* Info Cards */}
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                                <div className="bg-white rounded-xl p-4 shadow-md">
+                                    <div className="text-2xl mb-1">💫</div>
+                                    <div className="text-sm text-gray-600">Giá mỗi lượt</div>
+                                    <div className="text-2xl font-bold text-purple-600 flex items-center gap-1">
+                                        <Star size={20} className="fill-yellow-400 text-yellow-400" />
+                                        50
+                                    </div>
+                                </div>
+                                <div className="bg-white rounded-xl p-4 shadow-md">
+                                    <div className="text-2xl mb-1">🔁</div>
+                                    <div className="text-sm text-gray-600">Thẻ trùng</div>
+                                    <div className="text-2xl font-bold text-green-600 flex items-center gap-1">
+                                        <Star size={20} className="fill-yellow-400 text-yellow-400" />
+                                        +10
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Rarity Probabilities */}
+                            <div className="bg-white rounded-xl p-6 shadow-md mb-6">
+                                <h3 className="font-bold text-gray-800 mb-4 text-center">📊 Tỷ lệ rơi thẻ</h3>
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 rounded-full bg-gray-400"></div>
+                                            <span className="text-sm font-medium">Phổ thông</span>
+                                        </div>
+                                        <span className="text-sm font-bold text-gray-600">44%</span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 rounded-full bg-green-500"></div>
+                                            <span className="text-sm font-medium">Không phổ biến</span>
+                                        </div>
+                                        <span className="text-sm font-bold text-green-600">30%</span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <span className="text-sm font-medium">Hiếm</span>
+                                        </div>
+                                        <span className="text-sm font-bold text-blue-600">20%</span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 rounded-full bg-purple-500"></div>
+                                            <span className="text-sm font-medium">Sử thi</span>
+                                        </div>
+                                        <span className="text-sm font-bold text-purple-600">5%</span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
+                                            <span className="text-sm font-medium">Huyền thoại</span>
+                                        </div>
+                                        <span className="text-sm font-bold text-yellow-600">1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Spin Button */}
+                            <button
+                                onClick={handlePurchaseGacha}
+                                disabled={student.stars < 50}
+                                className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all transform hover:scale-105 ${student.stars >= 50
+                                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:shadow-xl'
+                                    : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                    }`}
+                            >
+                                <Sparkles size={24} className={student.stars >= 50 ? 'animate-pulse' : ''} />
+                                {student.stars >= 50 ? 'Quay Gacha (50 ⭐)' : 'Không đủ sao'}
+                            </button>
+                            {student.stars < 50 && (
+                                <p className="text-center text-sm text-gray-500 mt-4">
+                                    Bạn cần thêm {50 - student.stars} ⭐ để quay gacha
+                                </p>
+                            )}
+                        </div>
                     </div>
                 )}
             </div>

@@ -1,5 +1,5 @@
-import { StudentProfile, Rarity, ShopDailyPhoto } from '../types';
-import { getAllImages } from './albumService';
+import { StudentProfile, Rarity, ShopDailyPhoto, AlbumImage } from '../types';
+import { getAllImages, gachaImage } from './albumService';
 import { getAllAvatars } from './avatarService';
 import { getAllThemes } from './themeService';
 
@@ -38,59 +38,77 @@ export const refreshDailyPhotosIfNeeded = (profile: StudentProfile): StudentProf
         }
     }
 
-    // Generate new daily photos
+    // Generate new daily photos - ONLY show images the user doesn't own
     const today = new Date().toISOString().split('T')[0];
     const allImages = getAllImages();
 
-    // Separate by rarity (show all images, not filtered by ownership)
-    const common = allImages.filter(img => img.rarity === Rarity.Common);
-    const uncommon = allImages.filter(img => img.rarity === Rarity.Uncommon);
-    const rare = allImages.filter(img => img.rarity === Rarity.Rare);
+    // Filter out images the user already owns
+    const unownedImages = allImages.filter(img => !profile.ownedImageIds.includes(img.id));
+
+    // If user owns everything, return empty shop
+    if (unownedImages.length === 0) {
+        return {
+            ...profile,
+            shopDailyPhotos: [],
+        };
+    }
+
+    // Separate unowned images by rarity
+    const common = unownedImages.filter(img => img.rarity === Rarity.Common);
+    const uncommon = unownedImages.filter(img => img.rarity === Rarity.Uncommon);
+    const rare = unownedImages.filter(img => img.rarity === Rarity.Rare);
+    const epic = unownedImages.filter(img => img.rarity === Rarity.Epic);
+    const legendary = unownedImages.filter(img => img.rarity === Rarity.Legendary);
 
     const dailyPhotos: ShopDailyPhoto[] = [];
 
-    // Pick 2 common
+    // Pick 2 common (if available)
     const selectedCommon = getRandomItems(common, Math.min(2, common.length));
     selectedCommon.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Common,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
 
-    // Pick 2 uncommon
+    // Pick 2 uncommon (if available)
     const selectedUncommon = getRandomItems(uncommon, Math.min(2, uncommon.length));
     selectedUncommon.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Uncommon,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
 
-    // Pick 1 rare
+    // Pick 1 rare (if available)
     const selectedRare = getRandomItems(rare, Math.min(1, rare.length));
     selectedRare.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Rare,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
 
-    // If not enough images of specified rarity, fill with any available
-    const allAvailable = allImages.filter(img =>
-        !dailyPhotos.some(dp => dp.imageId === img.id)
-    );
-    while (dailyPhotos.length < 5 && allAvailable.length > 0) {
-        const picked = allAvailable[Math.floor(Math.random() * allAvailable.length)];
-        dailyPhotos.push({
-            imageId: picked.id,
-            rarity: picked.rarity,
-            lastRefreshDate: today,
+    // If not enough images of specified rarity, fill with higher rarities
+    if (dailyPhotos.length < 5) {
+        const alreadySelected = new Set(dailyPhotos.map(dp => dp.imageId));
+        const remaining = unownedImages.filter(img => !alreadySelected.has(img.id));
+
+        // Prioritize epic and legendary for remaining slots
+        const priorityOrder = [...epic, ...legendary, ...rare, ...uncommon, ...common];
+        const uniquePriority = priorityOrder.filter(img => !alreadySelected.has(img.id));
+
+        const additionalPicks = getRandomItems(uniquePriority, Math.min(5 - dailyPhotos.length, uniquePriority.length));
+        additionalPicks.forEach(img => {
+            dailyPhotos.push({
+                imageId: img.id,
+                rarity: img.rarity,
+                lastRefreshDate: today,
+            });
         });
-        allAvailable.splice(allAvailable.indexOf(picked), 1);
     }
 
     return {
@@ -156,19 +174,71 @@ export const purchasePhoto = (profile: StudentProfile, imageId: string, rarity: 
     };
 };
 
+// Purchase gacha spin - 50 stars per spin
+export const purchaseGachaSpin = (profile: StudentProfile): {
+    updatedProfile: StudentProfile;
+    gachaResult: { image: AlbumImage; isNew: boolean }
+} | null => {
+    const GACHA_COST = 50;
+    const DUPLICATE_REFUND = 10;
+
+    // Check if user has enough stars
+    if (profile.stars < GACHA_COST) {
+        return null;
+    }
+
+    // Spin the gacha
+    const result = gachaImage(profile.ownedImageIds);
+
+    if (!result) {
+        return null; // No images available
+    }
+
+    const { image, isNew } = result;
+
+    // Calculate final cost and update profile
+    if (isNew) {
+        // New card - deduct full cost and add to collection
+        return {
+            updatedProfile: {
+                ...profile,
+                stars: profile.stars - GACHA_COST,
+                ownedImageIds: [...profile.ownedImageIds, image.id],
+            },
+            gachaResult: result,
+        };
+    } else {
+        // Duplicate card - deduct cost but refund 10 stars
+        return {
+            updatedProfile: {
+                ...profile,
+                stars: profile.stars - GACHA_COST + DUPLICATE_REFUND,
+            },
+            gachaResult: result,
+        };
+    }
+};
+
 export const canPurchase = (profile: StudentProfile, cost: number): boolean => {
     return profile.stars >= cost;
 };
 
-// Initialize daily photos for new profile
-export const initializeShopDailyPhotos = (): ShopDailyPhoto[] => {
+// Initialize daily photos for new profile (only unowned)
+export const initializeShopDailyPhotos = (ownedImageIds: string[] = []): ShopDailyPhoto[] => {
     const today = new Date().toISOString().split('T')[0];
     const allImages = getAllImages();
 
+    // Filter out owned images
+    const unownedImages = allImages.filter(img => !ownedImageIds.includes(img.id));
+
+    if (unownedImages.length === 0) {
+        return [];
+    }
+
     // Separate by rarity
-    const common = allImages.filter(img => img.rarity === Rarity.Common);
-    const uncommon = allImages.filter(img => img.rarity === Rarity.Uncommon);
-    const rare = allImages.filter(img => img.rarity === Rarity.Rare);
+    const common = unownedImages.filter(img => img.rarity === Rarity.Common);
+    const uncommon = unownedImages.filter(img => img.rarity === Rarity.Uncommon);
+    const rare = unownedImages.filter(img => img.rarity === Rarity.Rare);
 
     const dailyPhotos: ShopDailyPhoto[] = [];
 
@@ -177,7 +247,7 @@ export const initializeShopDailyPhotos = (): ShopDailyPhoto[] => {
     selectedCommon.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Common,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
@@ -187,7 +257,7 @@ export const initializeShopDailyPhotos = (): ShopDailyPhoto[] => {
     selectedUncommon.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Uncommon,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
@@ -197,10 +267,24 @@ export const initializeShopDailyPhotos = (): ShopDailyPhoto[] => {
     selectedRare.forEach(img => {
         dailyPhotos.push({
             imageId: img.id,
-            rarity: Rarity.Rare,
+            rarity: img.rarity,
             lastRefreshDate: today,
         });
     });
+
+    // If not enough, fill with any unowned
+    if (dailyPhotos.length < 5) {
+        const alreadySelected = new Set(dailyPhotos.map(dp => dp.imageId));
+        const remaining = unownedImages.filter(img => !alreadySelected.has(img.id));
+        const additional = getRandomItems(remaining, Math.min(5 - dailyPhotos.length, remaining.length));
+        additional.forEach(img => {
+            dailyPhotos.push({
+                imageId: img.id,
+                rarity: img.rarity,
+                lastRefreshDate: today,
+            });
+        });
+    }
 
     return dailyPhotos;
 };

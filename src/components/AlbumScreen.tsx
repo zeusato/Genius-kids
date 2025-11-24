@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StudentProfile, Rarity, AlbumImage } from '../../types';
 import { getAllCollections } from '../../services/albumService';
 import { getRarityColor, getRarityName } from '../../services/albumService';
-import { ArrowLeft, Lock, X } from 'lucide-react';
+import { ArrowLeft, Lock, X, Download } from 'lucide-react';
 
 interface AlbumScreenProps {
     student: StudentProfile;
@@ -15,6 +15,29 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
 }) => {
     const collections = getAllCollections();
     const [selectedImage, setSelectedImage] = useState<AlbumImage | null>(null);
+
+    const handleDownload = async (image: AlbumImage) => {
+        try {
+            // Fetch the image as blob
+            const response = await fetch(image.imagePath);
+            const blob = await response.blob();
+
+            // Create download link
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${image.name}.jpg`; // Filename with image name
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Không thể tải ảnh. Vui lòng thử lại!');
+        }
+    };
 
     return (
         <div className="min-h-screen p-4 pb-20 max-w-6xl mx-auto">
@@ -151,13 +174,25 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
                         style={{ borderColor: getRarityColor(selectedImage.rarity) }}
                         onClick={e => e.stopPropagation()}
                     >
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 z-10 p-3 bg-white/90 hover:bg-white text-gray-800 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
-                        >
-                            <X size={24} />
-                        </button>
+                        {/* Action Buttons */}
+                        <div className="absolute top-4 right-4 z-10 flex gap-2">
+                            {/* Download Button */}
+                            <button
+                                onClick={() => handleDownload(selectedImage)}
+                                className="p-3 bg-brand-500 hover:bg-brand-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110 flex items-center gap-2"
+                                title="Tải ảnh về"
+                            >
+                                <Download size={24} />
+                            </button>
+
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedImage(null)}
+                                className="p-3 bg-white/90 hover:bg-white text-gray-800 rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-110"
+                            >
+                                <X size={24} />
+                            </button>
+                        </div>
 
                         {/* Image Container with Gradient Border */}
                         <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-4">
@@ -190,7 +225,9 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
 
                             {/* Collection Info */}
                             <p className="text-gray-600 font-medium">
-                                Bộ sưu tập: <span className="text-brand-600 font-semibold">Thế Giới Động Vật</span>
+                                Bộ sưu tập: <span className="text-brand-600 font-semibold">
+                                    {collections.find(c => c.id === selectedImage.collectionId)?.name || 'Unknown'}
+                                </span>
                             </p>
                         </div>
                     </div>

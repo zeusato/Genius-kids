@@ -31,7 +31,100 @@ const ANIMAL_COLLECTION: AlbumCollection = {
     ],
 };
 
-const ALL_COLLECTIONS = [ANIMAL_COLLECTION];
+// Zodiac collection based on files in public/Album/Zodiac
+const ZODIAC_COLLECTION: AlbumCollection = {
+    id: 'zodiac',
+    name: 'Cung Hoàng Đạo',
+    description: 'Bộ sưu tập 12 con giáp phương Đông',
+    thumbnailPath: '/Genius-kids/Album/Zodiac/Z-Dragon-legendary.png',
+    images: [
+        // Common (4 images)
+        { id: 'zodiac_mouse', collectionId: 'zodiac', name: 'Chuột', imagePath: '/Genius-kids/Album/Zodiac/Z-Mouse-common.png', rarity: Rarity.Common },
+        { id: 'zodiac_dog', collectionId: 'zodiac', name: 'Chó', imagePath: '/Genius-kids/Album/Zodiac/Z-Dog-common.png', rarity: Rarity.Common },
+        { id: 'zodiac_goat', collectionId: 'zodiac', name: 'Dê', imagePath: '/Genius-kids/Album/Zodiac/Z-Goat-common.png', rarity: Rarity.Common },
+        { id: 'zodiac_pig', collectionId: 'zodiac', name: 'Heo', imagePath: '/Genius-kids/Album/Zodiac/Z-Pig-common.png', rarity: Rarity.Common },
+
+        // Uncommon (3 images)
+        { id: 'zodiac_chicken', collectionId: 'zodiac', name: 'Gà', imagePath: '/Genius-kids/Album/Zodiac/Z-Chicken-uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'zodiac_ox', collectionId: 'zodiac', name: 'Trâu', imagePath: '/Genius-kids/Album/Zodiac/Z-Ox-uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'zodiac_rabbit', collectionId: 'zodiac', name: 'Thỏ', imagePath: '/Genius-kids/Album/Zodiac/Z-Rabbit-uncommon.png', rarity: Rarity.Uncommon },
+
+        // Rare (2 images)
+        { id: 'zodiac_monkey', collectionId: 'zodiac', name: 'Khỉ', imagePath: '/Genius-kids/Album/Zodiac/Z-Monkey-rare.png', rarity: Rarity.Rare },
+        { id: 'zodiac_snake', collectionId: 'zodiac', name: 'Rắn', imagePath: '/Genius-kids/Album/Zodiac/Z-Snake-rare.png', rarity: Rarity.Rare },
+
+        // Epic (2 images)
+        { id: 'zodiac_horse', collectionId: 'zodiac', name: 'Ngựa', imagePath: '/Genius-kids/Album/Zodiac/Z-Horse-epic.png', rarity: Rarity.Epic },
+        { id: 'zodiac_tiger', collectionId: 'zodiac', name: 'Hổ', imagePath: '/Genius-kids/Album/Zodiac/Z-Tiger-epic.png', rarity: Rarity.Epic },
+
+        // Legendary (1 image)
+        { id: 'zodiac_dragon', collectionId: 'zodiac', name: 'Rồng', imagePath: '/Genius-kids/Album/Zodiac/Z-Dragon-legendary.png', rarity: Rarity.Legendary },
+    ],
+};
+
+// Kimetsu no Yaiba collection based on files in public/Album/Kimesu-No-Yaiba
+const KIMETSU_COLLECTION: AlbumCollection = {
+    id: 'kimetsu',
+    name: 'Kimetsu no Yaiba',
+    description: 'Bộ sưu tập nhân vật và kỹ năng từ thế giới Diệt Quỷ',
+    thumbnailPath: '/Genius-kids/Album/Kimesu-No-Yaiba/demon_slayers_bond-Legendary.png',
+    images: [
+        // Common (4 images)
+        { id: 'kimetsu_inosukes_mask', collectionId: 'kimetsu', name: "Inosuke's Mask", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/inosukes_mask-Common.png', rarity: Rarity.Common },
+        { id: 'kimetsu_nezukos_slumber', collectionId: 'kimetsu', name: "Nezuko's Slumber", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/nezukos_slumber-Common.png', rarity: Rarity.Common },
+        { id: 'kimetsu_tanjiros_resolve', collectionId: 'kimetsu', name: "Tanjiro's Resolve", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/tanjiros_resolve-Common.png', rarity: Rarity.Common },
+        { id: 'kimetsu_zenitsus_nap', collectionId: 'kimetsu', name: "Zenitsu's Nap", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/zenitsus_nap-Common.png', rarity: Rarity.Common },
+
+        // Uncommon (3 images)
+        { id: 'kimetsu_giyu_tomioka', collectionId: 'kimetsu', name: 'Giyu Tomioka', imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/giyu_tomioka-Uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'kimetsu_rengokus_spirit', collectionId: 'kimetsu', name: "Rengoku's Spirit", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/rengokus_spirit-Uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'kimetsu_shinobu_kocho', collectionId: 'kimetsu', name: 'Shinobu Kocho', imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/shinobu_kocho-Uncommon.png', rarity: Rarity.Uncommon },
+
+        // Rare (2 images)
+        { id: 'kimetsu_thunderclap_flash', collectionId: 'kimetsu', name: 'Thunderclap Flash', imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/thunderclap_flash-Rare.png', rarity: Rarity.Rare },
+        { id: 'kimetsu_water_wheel', collectionId: 'kimetsu', name: 'Water Wheel', imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/water_wheel-Rare.png', rarity: Rarity.Rare },
+
+        // Epic (2 images)
+        { id: 'kimetsu_flame_hashiras_roar', collectionId: 'kimetsu', name: "Flame Hashira's Roar", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/flame_hashiras_roar-Epic.png', rarity: Rarity.Epic },
+        { id: 'kimetsu_hinokami_kagura', collectionId: 'kimetsu', name: 'Hinokami Kagura', imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/hinokami_kagura-Epic.png', rarity: Rarity.Epic },
+
+        // Legendary (1 image)
+        { id: 'kimetsu_demon_slayers_bond', collectionId: 'kimetsu', name: "Demon Slayers' Bond", imagePath: '/Genius-kids/Album/Kimesu-No-Yaiba/demon_slayers_bond-Legendary.png', rarity: Rarity.Legendary },
+    ],
+};
+
+// Dragon Ball collection based on files in public/Album/Dragon ball
+const DRAGONBALL_COLLECTION: AlbumCollection = {
+    id: 'dragonball',
+    name: 'Dragon Ball',
+    description: 'Bộ sưu tập nhân vật và trận chiến từ thế giới Dragon Ball',
+    thumbnailPath: '/Genius-kids/Album/Dragon ball/Super Saiyan 3_Legendary.png',
+    images: [
+        // Common (4 images)
+        { id: 'dragonball_goku', collectionId: 'dragonball', name: 'Goku', imagePath: '/Genius-kids/Album/Dragon ball/Goku-Common.png', rarity: Rarity.Common },
+        { id: 'dragonball_kid_goku', collectionId: 'dragonball', name: 'Kid Goku', imagePath: '/Genius-kids/Album/Dragon ball/kid_goku-Common.png', rarity: Rarity.Common },
+        { id: 'dragonball_krillins_disc', collectionId: 'dragonball', name: "Krillin's Disc", imagePath: '/Genius-kids/Album/Dragon ball/krillins_disc-Common.png', rarity: Rarity.Common },
+        { id: 'dragonball_master_roshi', collectionId: 'dragonball', name: 'Master Roshi', imagePath: '/Genius-kids/Album/Dragon ball/master_roshi-Common.png', rarity: Rarity.Common },
+
+        // Uncommon (3 images)
+        { id: 'dragonball_piccolos_stance', collectionId: 'dragonball', name: "Piccolo's Stance", imagePath: '/Genius-kids/Album/Dragon ball/piccolos_stance-Uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'dragonball_vegetas_pride', collectionId: 'dragonball', name: "Vegeta's Pride", imagePath: '/Genius-kids/Album/Dragon ball/vegetas_pride-Uncommon.png', rarity: Rarity.Uncommon },
+        { id: 'dragonball_young_gohan', collectionId: 'dragonball', name: 'Young Gohan', imagePath: '/Genius-kids/Album/Dragon ball/young_gohan-Uncommon.png', rarity: Rarity.Uncommon },
+
+        // Rare (2 images)
+        { id: 'dragonball_perfect_cell', collectionId: 'dragonball', name: 'Perfect Cell', imagePath: '/Genius-kids/Album/Dragon ball/perfect_cell-Rare.png', rarity: Rarity.Rare },
+        { id: 'dragonball_super_saiyan_goku', collectionId: 'dragonball', name: 'Super Saiyan Goku', imagePath: '/Genius-kids/Album/Dragon ball/super_saiyan_goku-Rare.png', rarity: Rarity.Rare },
+
+        // Epic (2 images)
+        { id: 'dragonball_gohan_vs_cell', collectionId: 'dragonball', name: 'Gohan vs Cell', imagePath: '/Genius-kids/Album/Dragon ball/Gohan vs Cell-Epic.png', rarity: Rarity.Epic },
+        { id: 'dragonball_goku_vs_frieza', collectionId: 'dragonball', name: 'Goku vs Frieza', imagePath: '/Genius-kids/Album/Dragon ball/goku_vs_frieza-Epic.png', rarity: Rarity.Epic },
+
+        // Legendary (1 image)
+        { id: 'dragonball_super_saiyan_3', collectionId: 'dragonball', name: 'Super Saiyan 3', imagePath: '/Genius-kids/Album/Dragon ball/Super Saiyan 3_Legendary.png', rarity: Rarity.Legendary },
+    ],
+};
+
+const ALL_COLLECTIONS = [ANIMAL_COLLECTION, ZODIAC_COLLECTION, KIMETSU_COLLECTION, DRAGONBALL_COLLECTION];
 
 export const getAllCollections = (): AlbumCollection[] => {
     return ALL_COLLECTIONS;
@@ -113,9 +206,9 @@ export const gachaImage = (ownedImageIds: string[] = []): { image: AlbumImage, i
     return null;
 };
 
-// Check if should receive image (30% chance)
+// Check if should receive image (50% chance)
 export const shouldReceiveImage = (): boolean => {
-    return Math.random() < 0.3;
+    return Math.random() < 0.5;
 };
 
 // Get rarity color for UI

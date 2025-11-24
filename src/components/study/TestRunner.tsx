@@ -111,6 +111,14 @@ export function TestRunner({ questions, durationMinutes, onFinish, onExit }: Tes
 
         if (currentIndex < questions.length - 1) {
             setCurrentIndex(currentIndex + 1);
+
+            // Clear focus from previous button to prevent highlight confusion
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+            }
+
+            // Scroll to top of question card for better UX on mobile
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 

@@ -198,7 +198,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                             <div className="absolute right-0 top-8 w-64 bg-gradient-to-br from-purple-400 to-pink-400 text-gray-900 text-xs rounded-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl border-2 border-purple-500">
                                 <p className="font-bold mb-1">🎁 Cách nhận ảnh:</p>
                                 <p>• Kiếm được sao từ test/game</p>
-                                <p>• Có 30% cơ hội nhận ảnh ngẫu nhiên</p>
+                                <p>• Có 50% cơ hội nhận ảnh ngẫu nhiên</p>
                                 <p>• Độ hiếm: Phổ thông → Huyền thoại</p>
                                 <p>• Một số có thể mua tại cửa hàng</p>
                             </div>
