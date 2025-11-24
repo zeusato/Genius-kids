@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { StudentProfile } from '../../types';
 import { getShopAvatars } from '../../services/shopService';
 import { getShopThemes } from '../../services/shopService';
-import { getDailyPhotos, getPhotoPrice, purchaseAvatar, purchaseTheme, purchasePhoto } from '../../services/shopService';
+import {
+    getDailyPhotos, getPhotoPrice, purchaseAvatar, purchaseTheme, purchasePhoto,
+    purchaseGachaSpin, refreshDailyPhotosIfNeeded
+} from '../../services/shopService';
 import { getAvatarById } from '../../services/avatarService';
 import { getThemeById } from '../../services/themeService';
 import { getImageById } from '../../services/albumService';
 import { getRarityColor, getRarityName } from '../../services/albumService';
 import { ArrowLeft, ShoppingBag, Star, CheckCircle } from 'lucide-react';
-import { purchaseGachaSpin } from '../../services/shopService';
 import { Sparkles } from 'lucide-react';
 import { useStudentActions } from '@/src/contexts/StudentContext';
+
 
 interface ShopScreenProps {
     student: StudentProfile;
@@ -29,12 +32,19 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
 
     const shopAvatars = getShopAvatars();
     const shopThemes = getShopThemes();
-    const [dailyPhotos, setDailyPhotos] = useState(getDailyPhotos(student));
-
+    const [dailyPhotos, setDailyPhotos] = useState(student.shopDailyPhotos || []);
     useEffect(() => {
-        // Refresh daily photos if needed
-        setDailyPhotos(getDailyPhotos(student));
-    }, [student]);
+        // Refresh daily photos if needed and save to localStorage
+        const refreshed = refreshDailyPhotosIfNeeded(student);
+        if (refreshed) {
+            // Save updated profile with new photos to localStorage
+            onUpdateProfile(refreshed);
+            setDailyPhotos(refreshed.shopDailyPhotos);
+        } else {
+            // Use existing photos from profile
+            setDailyPhotos(student.shopDailyPhotos || []);
+        }
+    }, [student.id]); // Only run when student ID changes
 
     const handlePurchaseAvatar = (avatarId: string, cost: number) => {
         const result = purchaseAvatar(student, avatarId, cost);
