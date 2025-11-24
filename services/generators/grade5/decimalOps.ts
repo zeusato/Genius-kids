@@ -21,6 +21,30 @@ const roundToDecimals = (num: number, decimals: number): number => {
     return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };
 
+const generateUniqueWrongAnswers = (correct: number, count: number = 3, decimals: number = 2): number[] => {
+    const wrongs = new Set<number>();
+    const offsets = [0.1, -0.1, 0.2, -0.2, 1, -1, 0.5, -0.5, 2, -2];
+
+    for (const offset of offsets) {
+        if (wrongs.size >= count) break;
+        const val = roundToDecimals(correct + offset, decimals);
+        if (val !== correct && val > 0) {
+            wrongs.add(val);
+        }
+    }
+
+    // Fallback: generate random if not enough
+    while (wrongs.size < count) {
+        const offset = (randomInt(-20, 20) / 10);
+        const val = roundToDecimals(correct + offset, decimals);
+        if (val !== correct && val > 0) {
+            wrongs.add(val);
+        }
+    }
+
+    return Array.from(wrongs);
+};
+
 export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
 
@@ -30,15 +54,14 @@ export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
         const b = roundToDecimals(randomInt(10, 999) + randomInt(0, 99) / 100, 2);
         const answer = roundToDecimals(a + b, 2);
 
+        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
         return {
             type: QuestionType.SingleChoice,
             questionText: `${formatDecimal(a, 2)} + ${formatDecimal(b, 2)} = ?`,
             correctAnswer: formatDecimal(answer, 2),
             options: shuffleArray([
                 formatDecimal(answer, 2),
-                formatDecimal(answer + 0.1, 2),
-                formatDecimal(answer - 0.1, 2),
-                formatDecimal(answer + 1, 2)
+                ...wrongAnswers.map(w => formatDecimal(w, 2))
             ]),
             explanation: `${formatDecimal(a, 2)} + ${formatDecimal(b, 2)} = ${formatDecimal(answer, 2)}`
         };
@@ -50,15 +73,14 @@ export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
         const b = roundToDecimals(randomInt(5, answer - 5) + randomInt(0, 99) / 100, 2);
         const a = roundToDecimals(answer + b, 2);
 
+        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
         return {
             type: QuestionType.SingleChoice,
             questionText: `${formatDecimal(a, 2)} - ${formatDecimal(b, 2)} = ?`,
             correctAnswer: formatDecimal(answer, 2),
             options: shuffleArray([
                 formatDecimal(answer, 2),
-                formatDecimal(answer + 0.1, 2),
-                formatDecimal(answer - 0.1, 2),
-                formatDecimal(answer + 1, 2)
+                ...wrongAnswers.map(w => formatDecimal(w, 2))
             ]),
             explanation: `${formatDecimal(a, 2)} - ${formatDecimal(b, 2)} = ${formatDecimal(answer, 2)}`
         };
@@ -70,15 +92,14 @@ export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
         const b = randomInt(2, 9);
         const answer = roundToDecimals(a * b, 2);
 
+        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
         return {
             type: QuestionType.SingleChoice,
             questionText: `${formatDecimal(a, 1)} × ${b} = ?`,
             correctAnswer: formatDecimal(answer, 2),
             options: shuffleArray([
                 formatDecimal(answer, 2),
-                formatDecimal(answer + 1, 2),
-                formatDecimal(answer - 1, 2),
-                formatDecimal(a * 10, 2)
+                ...wrongAnswers.map(w => formatDecimal(w, 2))
             ]),
             explanation: `${formatDecimal(a, 1)} × ${b} = ${formatDecimal(answer, 2)}`
         };
@@ -90,15 +111,14 @@ export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
         const quotient = roundToDecimals(randomInt(5, 50) + randomInt(0, 9) / 10, 1);
         const dividend = roundToDecimals(quotient * divisor, 2);
 
+        const wrongAnswers = generateUniqueWrongAnswers(quotient, 3, 1);
         return {
             type: QuestionType.SingleChoice,
             questionText: `${formatDecimal(dividend, 2)} : ${divisor} = ?`,
             correctAnswer: formatDecimal(quotient, 1),
             options: shuffleArray([
                 formatDecimal(quotient, 1),
-                formatDecimal(quotient + 0.1, 1),
-                formatDecimal(quotient - 0.1, 1),
-                formatDecimal(quotient * 2, 1)
+                ...wrongAnswers.map(w => formatDecimal(w, 1))
             ]),
             explanation: `${formatDecimal(dividend, 2)} : ${divisor} = ${formatDecimal(quotient, 1)}`
         };

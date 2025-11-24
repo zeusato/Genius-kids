@@ -40,24 +40,28 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
         const isForward = Math.random() > 0.5;
 
         if (isForward) {
-            const val = randomInt(1, 500);
-            const result = val * conv.factor;
+            // Chuyển từ đơn vị NHỎ sang LỚN: CHIA cho factor
+            // Ví dụ: 100mm = 10cm (100 / 10)
+            const val = randomInt(1, 50) * conv.factor; // Đảm bảo chia hết
+            const result = val / conv.factor;
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, conv.factor * 5)]),
-                explanation: `1 ${conv.from} = ${formatNumber(conv.factor)} ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, Math.max(5, result / 2))]),
+                explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
+            // Chuyển từ đơn vị LỚN sang NHỎ: NHÂN với factor
+            // Ví dụ: 10cm = 100mm (10 * 10)
             const val = randomInt(1, 500);
             const result = val * conv.factor;
             return {
                 type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${formatNumber(result)} ${conv.to} = ... ${conv.from}`,
-                correctAnswer: formatNumber(val),
-                options: shuffleArray([formatNumber(val), ...generateWrongAnswers(val, 3, 50)]),
-                explanation: `${formatNumber(conv.factor)} ${conv.to} = 1 ${conv.from}. Vậy ${formatNumber(result)} ${conv.to} = ${formatNumber(val)} ${conv.from}.`
+                questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
+                correctAnswer: formatNumber(result),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, conv.factor * 5)]),
+                explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
     }
@@ -72,24 +76,28 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
         const isForward = Math.random() > 0.5;
 
         if (isForward) {
-            const val = randomInt(1, 50);
-            const result = val * conv.factor;
+            // Chuyển từ đơn vị NHỎ sang LỚN: CHIA cho factor
+            // Ví dụ: 5000g = 5kg (5000 / 1000)
+            const val = randomInt(1, 50) * conv.factor; // Đảm bảo chia hết
+            const result = val / conv.factor;
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 500)]),
-                explanation: `1 ${conv.from} = ${formatNumber(conv.factor)} ${conv.to}.`
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 10)]),
+                explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
+            // Chuyển từ đơn vị LỚN sang NHỎ: NHÂN với factor
+            // Ví dụ: 5kg = 5000g (5 * 1000)
             const val = randomInt(1, 50);
             const result = val * conv.factor;
             return {
                 type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${formatNumber(result)} ${conv.to} = ... ${conv.from}`,
-                correctAnswer: formatNumber(val),
-                options: shuffleArray([formatNumber(val), ...generateWrongAnswers(val, 3, 10)]),
-                explanation: `${formatNumber(conv.factor)} ${conv.to} = 1 ${conv.from}.`
+                questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
+                correctAnswer: formatNumber(result),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 500)]),
+                explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
     }
@@ -104,24 +112,28 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
         const isForward = Math.random() > 0.5;
 
         if (isForward) {
-            const val = randomInt(1, 10);
-            const result = val * conv.factor;
+            // Chuyển từ đơn vị NHỎ sang LỚN: CHIA cho factor
+            // Ví dụ: 180 giây = 3 phút (180 / 60)
+            const val = randomInt(1, 10) * conv.factor; // Đảm bảo chia hết
+            const result = val / conv.factor;
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${val} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: result.toString(),
-                options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 30)]),
-                explanation: `1 ${conv.from} = ${conv.factor} ${conv.to}.`
+                options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 3)]),
+                explanation: `${conv.factor} ${conv.from} = 1 ${conv.to}. Vậy ${val} ${conv.from} = ${result} ${conv.to}.`
             };
         } else {
+            // Chuyển từ đơn vị LỚN sang NHỎ: NHÂN với factor
+            // Ví dụ: 3 phút = 180 giây (3 * 60)
             const val = randomInt(1, 10);
             const result = val * conv.factor;
             return {
                 type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${result} ${conv.to} = ... ${conv.from}`,
-                correctAnswer: val.toString(),
-                options: shuffleArray([val.toString(), ...generateWrongAnswers(val, 3, 3)]),
-                explanation: `${conv.factor} ${conv.to} = 1 ${conv.from}.`
+                questionText: `Đổi đơn vị: ${val} ${conv.to} = ... ${conv.from}`,
+                correctAnswer: result.toString(),
+                options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 30)]),
+                explanation: `1 ${conv.to} = ${conv.factor} ${conv.from}. Vậy ${val} ${conv.to} = ${result} ${conv.from}.`
             };
         }
     }
@@ -136,24 +148,28 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
         const isForward = Math.random() > 0.5;
 
         if (isForward) {
-            const val = randomInt(1, 50);
-            const result = val * conv.factor;
+            // Chuyển từ đơn vị NHỎ sang LỚN: CHIA cho factor
+            // Ví dụ: 500cm² = 5dm² (500 / 100)
+            const val = randomInt(1, 50) * conv.factor; // Đảm bảo chia hết
+            const result = val / conv.factor;
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 100)]),
-                explanation: `1 ${conv.from} = ${formatNumber(conv.factor)} ${conv.to}.`
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 10)]),
+                explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
+            // Chuyển từ đơn vị LỚN sang NHỎ: NHÂN với factor
+            // Ví dụ: 5dm² = 500cm² (5 * 100)
             const val = randomInt(1, 50);
             const result = val * conv.factor;
             return {
                 type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${formatNumber(result)} ${conv.to} = ... ${conv.from}`,
-                correctAnswer: formatNumber(val),
-                options: shuffleArray([formatNumber(val), ...generateWrongAnswers(val, 3, 10)]),
-                explanation: `${formatNumber(conv.factor)} ${conv.to} = 1 ${conv.from}.`
+                questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
+                correctAnswer: formatNumber(result),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 100)]),
+                explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
     }
