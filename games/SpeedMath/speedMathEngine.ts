@@ -287,25 +287,24 @@ export const generateSpeedQuestion = (level: SpeedDifficulty): SpeedQuestion => 
 
     // Distribution based on level
     if (level === 'easy') {
-        // 30% Math, 20% Color, 20% Quiz, 10% Shape, 10% Clock, 10% Typing
-        if (rand < 0.3) return generateMathQuestion(level);
-        if (rand < 0.5) return generateColorQuestion();
+        // 20% Math, 10% Color, 40% Quiz, 10% Shape, 10% Clock, 10% Typing
+        if (rand < 0.2) return generateMathQuestion(level);
+        if (rand < 0.3) return generateColorQuestion();
         if (rand < 0.7) return generateQuizQuestion(level);
         if (rand < 0.8) return generateShapeQuestion(level);
         if (rand < 0.9) return generateClockQuestion(level);
         return generateTypingQuestion(level);
     } else if (level === 'medium') {
-        // Medium: 40% Math, 30% Quiz, 10% Clock, 10% Shape, 10% Typing
-        if (rand < 0.4) return generateMathQuestion(level);
+        // Medium: 30% Math, 40% Quiz, 10% Clock, 10% Shape, 10% Typing
+        if (rand < 0.3) return generateMathQuestion(level);
         if (rand < 0.7) return generateQuizQuestion(level);
         if (rand < 0.8) return generateClockQuestion(level);
         if (rand < 0.9) return generateShapeQuestion(level);
         return generateTypingQuestion(level);
     } else {
-        // Hard: 50% Math, 30% Quiz, 10% Shape, 10% Typing (No Clock)
-        if (rand < 0.5) return generateMathQuestion(level);
-        if (rand < 0.8) return generateQuizQuestion(level);
-        if (rand < 0.9) return generateShapeQuestion(level);
+        // Hard: 40% Math, 50% Quiz, 10% Typing (No Clock)
+        if (rand < 0.4) return generateMathQuestion(level);
+        if (rand < 0.9) return generateQuizQuestion(level);
         return generateTypingQuestion(level);
     }
 };

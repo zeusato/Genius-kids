@@ -1,0 +1,2962 @@
+[
+    {
+        "id": 1,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mặt trời tạo ra gió như thế nào?",
+        "answer": "Mặt trời làm nóng Trái Đất không đều: một số nơi nóng hơn nơi khác. **Không khí nóng** nhẹ hơn và bay lên, tạo ra vùng **áp suất thấp**. Không khí lạnh nặng hơn di chuyển vào lấp đầy chỗ trống. Sự chuyển động của không khí này chính là **gió**.",
+        "tags": [
+            "mặt trời",
+            "gió",
+            "áp suất",
+            "không khí nóng lạnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing how the sun heats the earth unevenly, causing warm air to rise (low pressure) and cool air to rush in (wind)"
+    },
+    {
+        "id": 2,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Đám mây được tạo thành từ những gì?",
+        "answer": "Mây không phải là khói mà là hàng tỷ **giọt nước nhỏ** hoặc **tinh thể băng** lơ lửng. Chúng hình thành khi hơi nước (khí) trong không khí ngưng tụ lại xung quanh các hạt bụi nhỏ xíu (hạt nhân ngưng tụ).",
+        "tags": [
+            "mây",
+            "giọt nước",
+            "ngưng tụ",
+            "hạt nhân ngưng tụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing the process of cloud formation: water vapor condensing around a small dust particle to form a tiny water droplet"
+    },
+    {
+        "id": 3,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Vì sao trời lại mưa?",
+        "answer": "Mưa là một phần của **chu trình nước**. Khi các giọt nước trong mây va chạm và kết hợp lại với nhau (tụ lại) đủ lớn và nặng, không khí không thể giữ chúng lại được nữa. Lúc này, chúng sẽ rơi xuống đất dưới dạng mưa.",
+        "tags": [
+            "mưa",
+            "chu trình nước",
+            "tụ lại",
+            "giọt nước nặng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the water cycle (evaporation, condensation, precipitation), focusing on water droplets in a cloud becoming heavy and falling as rain"
+    },
+    {
+        "id": 4,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Hơi nước là gì và nó đến từ đâu?",
+        "answer": "Hơi nước là **nước ở thể khí** (vô hình). Nó đến từ quá trình **bay hơi** khi Mặt trời làm nóng nước từ đại dương, sông, hồ, và cả từ cây cối (thoát hơi nước). Hơi nước là nhiên liệu chính cho mọi hiện tượng thời tiết.",
+        "tags": [
+            "hơi nước",
+            "thể khí",
+            "bay hơi",
+            "thoát hơi nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing the sun heating ocean water, causing invisible water vapor to rise into the air (evaporation)"
+    },
+    {
+        "id": 5,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây trắng và mây đen (mây mưa) khác nhau như thế nào?",
+        "answer": "Mây trắng là mây mỏng hoặc mây mới hình thành. Mây đen (hoặc xám đậm) là những đám mây **dày đặc** chứa nhiều giọt nước lớn hơn. Chúng dày đến mức ánh sáng mặt trời không thể xuyên qua được, khiến chúng trông tối màu.",
+        "tags": [
+            "mây trắng",
+            "mây đen",
+            "mây mưa",
+            "ánh sáng mặt trời"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a wispy white cumulus cloud (light can pass through) and a thick, dark cumulonimbus cloud (light is blocked)"
+    },
+    {
+        "id": 6,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây tầng (Stratus) cho chúng ta biết điều gì về thời tiết?",
+        "answer": "Mây tầng là những đám mây **thấp, bằng phẳng** và thường che phủ cả bầu trời như một tấm chăn. Chúng thường báo hiệu một ngày u ám, có thể có mưa phùn (drizzle) hoặc sương mù (fog) chứ không phải là mưa lớn.",
+        "tags": [
+            "mây tầng",
+            "stratus",
+            "thấp",
+            "mưa phùn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a vast, low layer of stratus clouds covering the entire sky like a grey blanket"
+    },
+    {
+        "id": 7,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Gió biển (Sea Breeze) xảy ra khi nào và tại sao?",
+        "answer": "Gió biển xảy ra vào **ban ngày** khi đất liền nóng lên nhanh hơn nước biển. Không khí nóng trên đất liền bay lên, và không khí mát hơn (nặng hơn) từ biển di chuyển vào để thay thế, tạo ra gió thổi từ biển vào bờ.",
+        "tags": [
+            "gió biển",
+            "ban ngày",
+            "đất liền",
+            "nước biển"
+        ],
+        "illustration_prompt": "cute educational diagram showing air movement during a sea breeze: warm air rising over land and cool air blowing in from the sea"
+    },
+    {
+        "id": 8,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Điều gì quyết định một đám mây sẽ tạo ra mưa, tuyết hay mưa đá?",
+        "answer": "Nhiệt độ của không khí **bên trong đám mây** và **giữa đám mây và mặt đất** là yếu tố quyết định. Nếu nhiệt độ rất lạnh suốt cả quãng đường, đó là tuyết. Nếu nhiệt độ ấm hơn, đó là mưa. Mưa đá cần luồng không khí mạnh lên xuống liên tục.",
+        "tags": [
+            "mưa",
+            "tuyết",
+            "mưa đá",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational diagram showing three paths of precipitation: rain (warm temp), snow (freezing temp), and hail (updrafts/downdrafts)"
+    },
+    {
+        "id": 9,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Sương mù là gì?",
+        "answer": "Sương mù thực chất là một đám mây **nằm rất thấp**, ở sát mặt đất. Nó hình thành khi không khí ẩm ướt, lạnh đi gần mặt đất và hơi nước ngưng tụ thành những giọt nhỏ lơ lửng làm giảm tầm nhìn.",
+        "tags": [
+            "sương mù",
+            "mây",
+            "ngưng tụ",
+            "tầm nhìn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thick layer of fog covering a landscape, emphasizing it is a ground-level cloud"
+    },
+    {
+        "id": 10,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Năng lượng Mặt trời được sử dụng để làm gì trên Trái Đất?",
+        "answer": "Mặt trời là **nguồn năng lượng chính** chi phối hầu hết mọi hiện tượng thời tiết. Nó làm ấm không khí, tạo ra gió, làm bay hơi nước (tạo ra mưa), và cung cấp ánh sáng cần thiết cho sự sống của thực vật (quang hợp).",
+        "tags": [
+            "năng lượng",
+            "mặt trời",
+            "thời tiết",
+            "quang hợp"
+        ],
+        "illustration_prompt": "cute educational diagram showing the sun radiating energy that causes wind, evaporation, and photosynthesis on Earth"
+    },
+    {
+        "id": 11,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Vì sao mây lại bay lơ lửng dù chúng rất nặng?",
+        "answer": "Mặc dù một đám mây lớn có thể nặng hàng trăm hoặc hàng nghìn tấn nước, nhưng các giọt nước bên trong chúng **rất nhỏ** và được giữ lơ lửng bởi sự **đẩy lên** liên tục của không khí nóng bốc lên từ mặt đất (luồng đối lưu).",
+        "tags": [
+            "mây",
+            "lơ lửng",
+            "giọt nước nhỏ",
+            "luồng đối lưu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cloud being held up by strong upward air currents (convection), despite its heavy weight"
+    },
+    {
+        "id": 12,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây tích (Cumulus) báo hiệu điều gì?",
+        "answer": "Mây tích là những đám mây **trắng, xốp, giống như bông gòn**, có đáy phẳng và đỉnh tròn. Chúng thường xuất hiện vào những ngày nắng đẹp, cho thấy thời tiết **ổn định** và không có mưa lớn, vì chúng là kết quả của luồng không khí nóng đi lên.",
+        "tags": [
+            "mây tích",
+            "cumulus",
+            "nắng đẹp",
+            "ổn định"
+        ],
+        "illustration_prompt": "cute educational illustration showing fluffy white cumulus clouds on a clear, sunny day"
+    },
+    {
+        "id": 13,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Cầu vồng hình thành như thế nào?",
+        "answer": "Cầu vồng được tạo ra khi ánh sáng mặt trời chiếu xuyên qua các **giọt mưa** trong không khí. Giọt mưa hoạt động như một lăng kính nhỏ, **bẻ cong** (khúc xạ) ánh sáng trắng và tách nó ra thành bảy màu khác nhau trong quang phổ.",
+        "tags": [
+            "cầu vồng",
+            "giọt mưa",
+            "khúc xạ",
+            "ánh sáng mặt trời"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight entering a raindrop, refracting, and splitting into the colors of the rainbow"
+    },
+    {
+        "id": 14,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Sương (Dew) là gì và nó đến từ đâu?",
+        "answer": "Sương là những giọt nước nhỏ ngưng tụ trên bề mặt cỏ hoặc vật thể vào buổi sáng sớm. Nó hình thành khi không khí ẩm ướt tiếp xúc với bề mặt đã **lạnh đi** (do mất nhiệt vào ban đêm), khiến hơi nước trong không khí ngưng tụ lại thành giọt lỏng.",
+        "tags": [
+            "sương",
+            "ngưng tụ",
+            "mặt đất lạnh",
+            "hơi nước"
+        ],
+        "illustration_prompt": "cute educational illustration of dew drops forming on blades of grass in the early morning"
+    },
+    {
+        "id": 15,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây ti (Cirrus) báo hiệu điều gì?",
+        "answer": "Mây ti là những đám mây **cao nhất**, mỏng, trắng và có hình dạng sợi lông vũ. Chúng được tạo thành hoàn toàn từ **tinh thể băng**. Sự xuất hiện của chúng thường báo hiệu rằng thời tiết có thể sẽ thay đổi trong vòng 24 giờ tới (thường là sắp có bão hoặc mưa).",
+        "tags": [
+            "mây ti",
+            "cirrus",
+            "cao nhất",
+            "tinh thể băng"
+        ],
+        "illustration_prompt": "cute educational illustration showing very high, wispy cirrus clouds made of ice crystals, often looking like paintbrush strokes"
+    },
+    {
+        "id": 16,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Gió đất (Land Breeze) xảy ra khi nào và tại sao?",
+        "answer": "Gió đất xảy ra vào **ban đêm** khi đất liền mát đi nhanh hơn nước biển. Không khí mát (nặng hơn) trên đất liền di chuyển ra biển để thay thế cho không khí ấm hơn vẫn còn bốc lên từ mặt biển, tạo ra gió thổi từ bờ ra biển.",
+        "tags": [
+            "gió đất",
+            "ban đêm",
+            "đất liền",
+            "nước biển"
+        ],
+        "illustration_prompt": "cute educational diagram showing air movement during a land breeze: cool air blowing from the land towards the warmer sea surface"
+    },
+    {
+        "id": 17,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Điều gì gây ra hiện tượng mưa đá (Hail)?",
+        "answer": "Mưa đá hình thành trong các đám mây dông lớn (Cumulonimbus). Những viên đá được luồng không khí mạnh **đẩy lên và rơi xuống** nhiều lần, mỗi lần như vậy, một lớp băng mới lại đông lại xung quanh viên đá, khiến nó lớn dần lên trước khi rơi xuống đất.",
+        "tags": [
+            "mưa đá",
+            "dông lớn",
+            "luồng không khí",
+            "lớp băng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a hailstone cycling up and down within a cumulonimbus cloud, adding layers of ice with each cycle"
+    },
+    {
+        "id": 18,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Vì sao chúng ta cảm thấy nóng hơn khi trời nắng so với khi trời râm?",
+        "answer": "Khi trời nắng, chúng ta cảm thấy nóng vì **bức xạ nhiệt** (radiant heat) từ Mặt trời trực tiếp truyền năng lượng qua da và quần áo của chúng ta. Khi trời râm, mây chặn hầu hết bức xạ đó, nên chúng ta chỉ cảm nhận nhiệt độ của không khí xung quanh.",
+        "tags": [
+            "nắng",
+            "râm",
+            "bức xạ nhiệt",
+            "năng lượng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the sun's direct radiant heat rays hitting a person versus a cloud blocking those rays"
+    },
+    {
+        "id": 19,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Sự ngưng tụ (Condensation) là gì?",
+        "answer": "Ngưng tụ là quá trình hơi nước (khí) trong không khí **chuyển thành nước lỏng**. Điều này xảy ra khi không khí nguội đi đến **điểm sương** (dew point). Đây là bước thiết yếu để hình thành mây, sương mù và sương.",
+        "tags": [
+            "ngưng tụ",
+            "hơi nước",
+            "lỏng",
+            "điểm sương"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor (gas) molecules slowing down and clustering together to form a liquid water droplet (condensation)"
+    },
+    {
+        "id": 20,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây tích vũ (Cumulonimbus) nguy hiểm như thế nào?",
+        "answer": "Mây tích vũ là những đám mây **dông bão** khổng lồ, cao chót vót. Chúng mang đến những hiện tượng thời tiết nguy hiểm nhất như **sấm sét, mưa đá lớn, mưa lớn đột ngột** và là nguồn gốc của lốc xoáy.",
+        "tags": [
+            "mây tích vũ",
+            "cumulonimbus",
+            "dông bão",
+            "sấm sét"
+        ],
+        "illustration_prompt": "cute educational illustration showing a massive, towering cumulonimbus cloud with lightning bolts striking and heavy rain falling"
+    },
+    {
+        "id": 21,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Sự khác biệt giữa gió và bão là gì?",
+        "answer": "Gió là sự chuyển động của không khí theo chiều ngang. **Bão** (Storm) là một hiện tượng thời tiết bạo lực, được xác định bởi gió rất mạnh (tốc độ cao) và thường kèm theo mưa, tuyết, sấm sét hoặc mưa đá.",
+        "tags": [
+            "gió",
+            "bão",
+            "tốc độ",
+            "thời tiết bạo lực"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: gentle breeze blowing leaves versus a hurricane with heavy rain and high winds"
+    },
+    {
+        "id": 22,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Nước thoát ra khỏi cây cối bằng cách nào?",
+        "answer": "Nước thoát ra khỏi cây cối dưới dạng hơi nước qua các lỗ nhỏ trên lá gọi là khí khổng (stomata). Quá trình này được gọi là **thoát hơi nước** (transpiration) và là một phần quan trọng của chu trình nước, góp phần tạo ra mây.",
+        "tags": [
+            "thoát hơi nước",
+            "transpiration",
+            "khí khổng",
+            "chu trình nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing a plant releasing invisible water vapor from its leaves (transpiration)"
+    },
+    {
+        "id": 23,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Sương giá (Frost) khác sương (Dew) như thế nào?",
+        "answer": "Sương hình thành khi nhiệt độ trên mức đóng băng. Sương giá hình thành khi nhiệt độ bề mặt **dưới mức đóng băng** 0°C hoặc 32°F. Hơi nước ngưng tụ **trực tiếp** thành các tinh thể băng trắng mỏng (giống như tuyết) mà không đi qua giai đoạn lỏng.",
+        "tags": [
+            "sương giá",
+            "sương",
+            "đóng băng",
+            "tinh thể băng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing liquid dew drops on a leaf with crystalline white frost forming on a leaf"
+    },
+    {
+        "id": 24,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây ô liu (Altostratus) cho chúng ta biết điều gì?",
+        "answer": "Mây ô liu là những đám mây tầng **ở độ cao trung bình**, thường có màu xám hoặc xanh xám. Chúng thường che phủ toàn bộ bầu trời và có thể khiến mặt trời hoặc mặt trăng trông giống như một đốm sáng mờ. Chúng thường báo hiệu một **mặt trận mưa/tuyết** đang đến gần.",
+        "tags": [
+            "mây ô liu",
+            "altostratus",
+            "độ cao trung bình",
+            "mặt trận mưa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a smooth, grey layer of altostratus cloud covering the sky, making the sun look like a hazy spot"
+    },
+    {
+        "id": 25,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mặt trời ảnh hưởng đến thủy triều như thế nào?",
+        "answer": "Mặc dù Mặt trăng có ảnh hưởng lớn nhất đến thủy triều, nhưng **lực hấp dẫn** của Mặt trời cũng ảnh hưởng. Khi Mặt trời, Mặt trăng và Trái Đất thẳng hàng (trăng non hoặc trăng tròn), lực hấp dẫn tổng hợp tạo ra **thủy triều cường** lớn nhất.",
+        "tags": [
+            "mặt trời",
+            "thủy triều",
+            "lực hấp dẫn",
+            "thủy triều cường"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Sun, Moon, and Earth aligned, demonstrating the combined gravitational pull causing spring tides"
+    },
+    {
+        "id": 26,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Khí hậu khác thời tiết ở chỗ nào?",
+        "answer": "**Thời tiết** là điều kiện không khí hiện tại ở một nơi (ví dụ: hôm nay trời mưa và gió). **Khí hậu** là mô hình thời tiết trung bình trong một khoảng thời gian dài (ví dụ: khí hậu nhiệt đới thường ấm và ẩm). Thời tiết là khoảnh khắc, khí hậu là thói quen.",
+        "tags": [
+            "khí hậu",
+            "thời tiết",
+            "mô hình",
+            "trung bình"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: a short-term weather scene (rainy day) versus a long-term climate map (tropical zone)"
+    },
+    {
+        "id": 27,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Vì sao các đám mây thường có hình dạng khác nhau?",
+        "answer": "Hình dạng của mây phụ thuộc vào **sự chuyển động của không khí** và **độ cao** mà chúng hình thành. Không khí di chuyển lên trên (đối lưu) tạo ra mây xốp, thẳng đứng (tích). Không khí di chuyển ngang tạo ra mây phẳng, trải dài (tầng).",
+        "tags": [
+            "hình dạng mây",
+            "đối lưu",
+            "độ cao",
+            "chuyển động không khí"
+        ],
+        "illustration_prompt": "cute educational illustration comparing how vertical air movement creates tall cumulus clouds and horizontal air movement creates flat stratus clouds"
+    },
+    {
+        "id": 28,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Hiện tượng mưa acid (Acid Rain) có liên quan gì đến mây?",
+        "answer": "Mưa acid xảy ra khi các chất ô nhiễm từ nhà máy (như $\text{sulfur dioxide}$ và $\text{nitrogen oxide}$) bay vào không khí và **hòa tan** trong các giọt nước trong mây. Khi những giọt nước này rơi xuống thành mưa, chúng có tính acid hơn bình thường.",
+        "tags": [
+            "mưa acid",
+            "ô nhiễm",
+            "sulfur dioxide",
+            "hòa tan"
+        ],
+        "illustration_prompt": "cute educational diagram showing factory emissions rising, dissolving into cloud droplets, and falling as acid rain"
+    },
+    {
+        "id": 29,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Mây vũ tầng (Nimbostratus) là gì?",
+        "answer": "Mây vũ tầng là những đám mây **tầng thấp, màu xám đen, dày đặc** và thường mang đến **mưa hoặc tuyết liên tục** trong thời gian dài (vài giờ). Từ 'Nimbo' có nghĩa là 'mang mưa', chỉ rõ mục đích chính của chúng.",
+        "tags": [
+            "mây vũ tầng",
+            "nimbostratus",
+            "mưa liên tục",
+            "thấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thick, dark layer of nimbostratus cloud producing steady, continuous rain"
+    },
+    {
+        "id": 30,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Thời tiết cơ bản",
+        "question": "Làm thế nào Mặt trời giúp chúng ta thấy rõ các đám mây?",
+        "answer": "Ánh sáng mặt trời chiếu vào các giọt nước hoặc tinh thể băng trong mây, làm cho chúng **phân tán ánh sáng** theo mọi hướng. Sự phân tán ánh sáng này khiến mắt chúng ta nhìn thấy đám mây có màu trắng hoặc xám và xác định được hình dạng của chúng.",
+        "tags": [
+            "mặt trời",
+            "ánh sáng",
+            "phân tán",
+            "giọt nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight hitting a cloud droplet and scattering the light in all directions, making the cloud visible"
+    },
+    {
+        "id": 31,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vòng tuần hoàn nước là gì?",
+        "answer": "Vòng tuần hoàn nước là một quá trình liên tục mà nước trên Trái Đất di chuyển giữa các trạng thái **lỏng, khí và rắn**, từ mặt đất lên không khí, rồi lại rơi xuống đất. Nó không bao giờ dừng lại và luôn giữ cho lượng nước tổng thể của hành tinh không đổi.",
+        "tags": [
+            "vòng tuần hoàn nước",
+            "chu trình",
+            "lỏng khí rắn",
+            "nước không đổi"
+        ],
+        "illustration_prompt": "cute educational diagram of the water cycle (evaporation, condensation, precipitation, collection)"
+    },
+    {
+        "id": 32,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Mặt trời ảnh hưởng đến vòng tuần hoàn nước như thế nào?",
+        "answer": "Mặt trời là **nguồn năng lượng** chính của toàn bộ chu trình. Nó cung cấp nhiệt làm cho nước lỏng chuyển thành hơi nước (quá trình **bay hơi**) và hơi nước bay lên trời, bắt đầu chu trình.",
+        "tags": [
+            "mặt trời",
+            "năng lượng",
+            "bay hơi",
+            "hơi nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing the sun radiating heat onto a body of water, triggering evaporation"
+    },
+    {
+        "id": 33,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Quá trình bay hơi (Evaporation) là gì?",
+        "answer": "Bay hơi là khi nước chuyển từ trạng thái **lỏng sang khí** (hơi nước) và bay lên không khí. Điều này xảy ra khi các phân tử nước nhận đủ năng lượng (từ nhiệt) để thoát ra khỏi bề mặt chất lỏng.",
+        "tags": [
+            "bay hơi",
+            "lỏng sang khí",
+            "hơi nước",
+            "năng lượng"
+        ],
+        "illustration_prompt": "cute educational diagram showing water molecules on the surface of a lake gaining heat and escaping as gas/vapor"
+    },
+    {
+        "id": 34,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Quá trình ngưng tụ (Condensation) là gì?",
+        "answer": "Ngưng tụ là khi hơi nước (khí) **nguội đi và chuyển thành nước lỏng** (giọt nước). Đây là lý do tại sao mây, sương mù và sương hình thành. Ngưng tụ xảy ra khi không khí ẩm bay lên và gặp nhiệt độ lạnh hơn.",
+        "tags": [
+            "ngưng tụ",
+            "khí sang lỏng",
+            "nguội đi",
+            "mây"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor molecules losing heat and clumping together to form a liquid droplet (condensation)"
+    },
+    {
+        "id": 35,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Sự kết tủa (Precipitation) bao gồm những hình thức nào?",
+        "answer": "Kết tủa là bất kỳ dạng nước nào rơi từ mây xuống đất. Các hình thức chính là **mưa** (rain), **tuyết** (snow), **mưa đá** (hail) và **mưa tuyết** (sleet - hỗn hợp mưa và tuyết).",
+        "tags": [
+            "kết tủa",
+            "mưa",
+            "tuyết",
+            "mưa đá",
+            "mưa tuyết"
+        ],
+        "illustration_prompt": "cute educational illustration showing the four main types of precipitation falling from a cloud: rain, snow, hail, and sleet"
+    },
+    {
+        "id": 36,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Đa số nước trên Trái Đất nằm ở đâu?",
+        "answer": "Khoảng **97%** lượng nước trên Trái Đất là **nước mặn** được tìm thấy trong các đại dương. Chỉ khoảng 3% là nước ngọt, và phần lớn nước ngọt này bị đóng băng trong các sông băng và chỏm băng.",
+        "tags": [
+            "đại dương",
+            "nước mặn",
+            "nước ngọt",
+            "sông băng"
+        ],
+        "illustration_prompt": "cute educational pie chart showing that 97% of Earth's water is salt water in the oceans, and only a small sliver is freshwater"
+    },
+    {
+        "id": 37,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Nước ở thể rắn (băng) khác nước ở thể lỏng như thế nào?",
+        "answer": "Khi nước đóng băng, các phân tử của nó giãn ra và tạo thành một cấu trúc tinh thể mở hơn, khiến băng **ít đặc hơn** (nhẹ hơn) nước lỏng. Đó là lý do tại sao băng luôn **nổi** trên mặt nước.",
+        "tags": [
+            "băng",
+            "thể rắn",
+            "thể lỏng",
+            "nổi",
+            "ít đặc"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the densely packed molecules of liquid water versus the open, crystalline structure of ice (solid water)"
+    },
+    {
+        "id": 38,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vì sao chúng ta thấy 'khói' bốc ra từ ấm nước sôi?",
+        "answer": "Đó không phải là hơi nước thật sự (hơi nước là vô hình). Đó là hơi nước nóng vừa thoát ra và **ngưng tụ ngay lập tức** thành hàng triệu giọt nước lỏng nhỏ li ti khi tiếp xúc với không khí lạnh hơn xung quanh.",
+        "tags": [
+            "khói",
+            "ấm nước sôi",
+            "ngưng tụ",
+            "vô hình"
+        ],
+        "illustration_prompt": "cute educational illustration showing steam from a boiling kettle, clarifying that the visible 'smoke' is actually tiny condensed water droplets"
+    },
+    {
+        "id": 39,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Chạy tràn (Runoff) là gì trong chu trình nước?",
+        "answer": "Chạy tràn là nước mưa chảy trên bề mặt đất, thường là xuống dốc, rồi đổ vào suối, sông, hồ và cuối cùng là đại dương. Chạy tràn giúp **thu thập** và vận chuyển nước từ đất liền về các bể chứa lớn.",
+        "tags": [
+            "chạy tràn",
+            "runoff",
+            "bề mặt đất",
+            "sông hồ"
+        ],
+        "illustration_prompt": "cute educational diagram showing rainwater flowing over a hill (runoff) into a river"
+    },
+    {
+        "id": 40,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Quá trình thăng hoa (Sublimation) là gì?",
+        "answer": "Thăng hoa là khi nước chuyển từ trạng thái **rắn (băng/tuyết) trực tiếp sang khí (hơi nước)** mà không đi qua giai đoạn lỏng. Nó xảy ra ở những nơi lạnh và khô, ví dụ như sự biến mất của tuyết trên đỉnh núi mà không tan chảy.",
+        "tags": [
+            "thăng hoa",
+            "rắn sang khí",
+            "tuyết",
+            "khô lạnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing an ice cube shrinking as its surface molecules turn directly into water vapor, skipping the liquid phase"
+    },
+    {
+        "id": 41,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vai trò của thực vật trong vòng tuần hoàn nước là gì?",
+        "answer": "Thực vật lấy nước từ đất qua rễ và giải phóng nó trở lại không khí dưới dạng hơi nước qua lá. Quá trình này gọi là **thoát hơi nước** (transpiration), làm tăng lượng hơi ẩm trong không khí, góp phần tạo mưa.",
+        "tags": [
+            "thực vật",
+            "thoát hơi nước",
+            "transpiration",
+            "hơi ẩm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a tree absorbing water from the ground and releasing water vapor from its leaves into the air"
+    },
+    {
+        "id": 42,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Các phân tử nước có bị mất đi trong chu trình nước không?",
+        "answer": "Không. Nước chỉ thay đổi trạng thái (lỏng, rắn, khí) và vị trí. Các phân tử nước tồn tại vĩnh viễn và không bị phá hủy. Điều này có nghĩa là lượng nước bạn uống hôm nay có thể đã từng là mưa trong thời kỳ Khủng long!",
+        "tags": [
+            "phân tử nước",
+            "không bị mất",
+            "thay đổi trạng thái",
+            "vĩnh viễn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a water molecule traveling through time and various parts of the water cycle"
+    },
+    {
+        "id": 43,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Nước ngầm (Groundwater) hình thành như thế nào?",
+        "answer": "Nước ngầm hình thành khi nước mưa hoặc nước mặt **thấm vào** (infiltration) đất. Nước chảy qua các lớp đất và đá xốp, tích tụ lại dưới lòng đất trong các tầng chứa nước (aquifers) và chảy rất chậm.",
+        "tags": [
+            "nước ngầm",
+            "thấm vào",
+            "infiltration",
+            "tầng chứa nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing rainwater soaking through soil and rock layers to accumulate in an underground aquifer"
+    },
+    {
+        "id": 44,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Tại sao một giọt mưa không bao giờ là 'tinh khiết'?",
+        "answer": "Mỗi giọt mưa được hình thành bằng cách ngưng tụ xung quanh một hạt cực nhỏ gọi là **hạt nhân ngưng tụ**. Hạt nhân này có thể là bụi, phấn hoa, muối biển hoặc chất ô nhiễm. Vì vậy, giọt mưa luôn mang theo một hạt nhỏ từ không khí.",
+        "tags": [
+            "giọt mưa",
+            "tinh khiết",
+            "hạt nhân ngưng tụ",
+            "bụi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a cloud droplet with a tiny dust particle at its center (condensation nucleus)"
+    },
+    {
+        "id": 45,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Quá trình kết tinh (Deposition) là gì?",
+        "answer": "Kết tinh là quá trình ngược lại của thăng hoa: hơi nước (khí) chuyển **trực tiếp sang rắn (băng/tuyết)** mà không đi qua trạng thái lỏng. Sương giá (frost) hình thành trên cửa sổ vào mùa đông là một ví dụ phổ biến của quá trình kết tinh.",
+        "tags": [
+            "kết tinh",
+            "khí sang rắn",
+            "sương giá",
+            "depostion"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor molecules in the air turning directly into solid ice crystals on a cold window pane"
+    },
+    {
+        "id": 46,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vì sao nước cần được bảo tồn (tiết kiệm)?",
+        "answer": "Mặc dù tổng lượng nước trên Trái Đất không đổi, nhưng chỉ một phần rất nhỏ là **nước ngọt có thể sử dụng được** (nước mặt, nước ngầm dễ tiếp cận). Việc bảo tồn là cần thiết để đảm bảo nguồn nước sạch dồi dào cho nhu cầu của con người và sinh thái.",
+        "tags": [
+            "bảo tồn nước",
+            "nước sạch",
+            "nước ngọt",
+            "tiết kiệm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a limited reservoir of accessible fresh water compared to the vast ocean"
+    },
+    {
+        "id": 47,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Điểm sương (Dew Point) là gì?",
+        "answer": "Điểm sương là **nhiệt độ** mà không khí cần đạt tới để hơi nước bão hòa (100% độ ẩm tương đối). Tại nhiệt độ này, hơi nước bắt đầu ngưng tụ thành nước lỏng, hình thành sương, sương mù hoặc mây.",
+        "tags": [
+            "điểm sương",
+            "nhiệt độ",
+            "ngưng tụ",
+            "độ ẩm tương đối"
+        ],
+        "illustration_prompt": "cute educational diagram showing a thermometer and a cooling surface where the air temperature hits the dew point, causing condensation"
+    },
+    {
+        "id": 48,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Điều gì gây ra sự chuyển động của băng hà (glaciers)?",
+        "answer": "Băng hà là một khối băng lớn, dày đặc và lâu dài trên đất liền. Chúng chuyển động rất chậm do chính **trọng lượng** và **lực hấp dẫn** của chúng. Băng hà cũng là kho dự trữ nước ngọt lớn nhất trên Trái Đất.",
+        "tags": [
+            "băng hà",
+            "glaciers",
+            "trọng lượng",
+            "chuyển động chậm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a massive glacier slowly creeping down a mountain slope due to gravity and its own weight"
+    },
+    {
+        "id": 49,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vì sao các giọt nước hình thành bên ngoài cốc nước lạnh?",
+        "answer": "Đây là hiện tượng **ngưng tụ**. Không khí ấm và ẩm chạm vào bề mặt cốc lạnh. Nhiệt độ của không khí giảm đột ngột, khiến hơi nước trong không khí nguội đi và ngưng tụ thành các giọt nước nhỏ trên bề mặt lạnh của cốc.",
+        "tags": [
+            "cốc lạnh",
+            "ngưng tụ",
+            "hơi nước",
+            "bề mặt lạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing condensation forming as tiny droplets on the outside of a glass filled with ice water"
+    },
+    {
+        "id": 50,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Độ ẩm (Humidity) là gì?",
+        "answer": "Độ ẩm là **lượng hơi nước** có trong không khí. Khi độ ẩm cao, có nghĩa là có nhiều hơi nước trong không khí, khiến việc bay hơi từ da chúng ta khó hơn và làm chúng ta cảm thấy nóng nực và dính hơn.",
+        "tags": [
+            "độ ẩm",
+            "hơi nước",
+            "không khí",
+            "cảm giác nóng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the air filled with many small water vapor molecules representing high humidity"
+    },
+    {
+        "id": 51,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Chu trình nước có giúp giảm nhiệt độ toàn cầu không?",
+        "answer": "Có. Khi nước lỏng bay hơi (lỏng sang khí), nó hấp thụ một lượng lớn nhiệt từ môi trường xung quanh, tạo ra hiệu ứng làm mát (giống như đổ nước lên da). Quá trình này giúp **điều hòa nhiệt độ** bề mặt Trái Đất.",
+        "tags": [
+            "giảm nhiệt độ",
+            "bay hơi",
+            "hấp thụ nhiệt",
+            "điều hòa"
+        ],
+        "illustration_prompt": "cute educational diagram showing water evaporating from the ocean surface, taking heat energy away from the surface and cooling the area"
+    },
+    {
+        "id": 52,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Sự khác biệt giữa mưa và mưa phùn (Drizzle) là gì?",
+        "answer": "Cả hai đều là kết tủa, nhưng mưa phùn là các giọt nước **rất nhỏ** (đường kính dưới 0.5 mm) và rơi với cường độ nhẹ hơn nhiều. Mưa là các giọt lớn hơn và thường rơi nhanh hơn.",
+        "tags": [
+            "mưa",
+            "mưa phùn",
+            "giọt nước nhỏ",
+            "cường độ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a few large drops of rain falling versus many tiny, fine drops of drizzle"
+    },
+    {
+        "id": 53,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Quá trình xâm nhập (Infiltration) là gì?",
+        "answer": "Xâm nhập là khi nước mưa (từ kết tủa hoặc chạy tràn) di chuyển từ bề mặt đất **thấm xuống** dưới lòng đất. Đây là bước đầu tiên để bổ sung cho nguồn nước ngầm và độ ẩm của đất cho cây trồng.",
+        "tags": [
+            "xâm nhập",
+            "infiltration",
+            "thấm xuống",
+            "nước ngầm"
+        ],
+        "illustration_prompt": "cute educational diagram showing rainwater soaking directly into the ground surface"
+    },
+    {
+        "id": 54,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Nước ngọt dễ tiếp cận được tìm thấy chủ yếu ở đâu?",
+        "answer": "Nước ngọt dễ tiếp cận nhất nằm trong **sông, hồ** (nước mặt) và **nước ngầm nông**. Đây là nguồn nước mà con người sử dụng chủ yếu cho việc uống, nông nghiệp và công nghiệp.",
+        "tags": [
+            "nước ngọt",
+            "sông hồ",
+            "nước ngầm",
+            "dễ tiếp cận"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person accessing clean drinking water from a lake or well"
+    },
+    {
+        "id": 55,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Làm thế nào việc chặt cây có thể ảnh hưởng đến chu trình nước?",
+        "answer": "Cây cối đóng vai trò quan trọng trong việc giữ nước qua rễ và trả nước về không khí qua quá trình **thoát hơi nước**. Chặt cây làm giảm lượng nước trở lại khí quyển, tăng nguy cơ **chạy tràn** và gây xói mòn, dẫn đến ít mưa hơn ở địa phương.",
+        "tags": [
+            "chặt cây",
+            "rừng",
+            "thoát hơi nước",
+            "xói mòn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a deforested area resulting in increased water runoff and soil erosion, disrupting the local water cycle"
+    },
+    {
+        "id": 56,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Vì sao nước lại được gọi là 'dung môi vạn năng' (Universal Solvent)?",
+        "answer": "Nước là chất lỏng có khả năng **hòa tan nhiều chất** nhất so với bất kỳ chất lỏng nào khác. Cấu trúc phân tử đặc biệt của nó cho phép nó kéo và tách các phân tử khác nhau, đó là lý do tại sao nước trong đại dương có vị mặn (hòa tan muối).",
+        "tags": [
+            "dung môi vạn năng",
+            "hòa tan",
+            "muối",
+            "cấu trúc phân tử"
+        ],
+        "illustration_prompt": "cute educational diagram showing a water molecule pulling apart a salt (NaCl) crystal"
+    },
+    {
+        "id": 57,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Sự khác biệt giữa đọng sương (Condensation) và ngưng kết (Coalescence) là gì?",
+        "answer": "**Đọng sương** là hơi nước (khí) chuyển thành giọt nước (lỏng). **Ngưng kết** là quá trình các giọt nước lỏng đã hình thành trong mây va chạm, dính vào nhau và hợp nhất lại để tạo thành các giọt lớn hơn, đủ nặng để rơi xuống thành mưa.",
+        "tags": [
+            "đọng sương",
+            "ngưng kết",
+            "giọt nước",
+            "mưa"
+        ],
+        "illustration_prompt": "cute educational diagram showing small cloud droplets combining and merging to form a single large raindrop (coalescence)"
+    },
+    {
+        "id": 58,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Hơi nước vô hình đến từ đâu trong nhà bạn?",
+        "answer": "Hơi nước trong nhà đến từ nhiều hoạt động hàng ngày: **tắm vòi sen**, **nấu ăn** (nước sôi), **sấy quần áo** hoặc thậm chí là **hơi thở** của con người và vật nuôi. Tất cả đều góp phần làm tăng độ ẩm trong nhà.",
+        "tags": [
+            "hơi nước",
+            "trong nhà",
+            "tắm",
+            "nấu ăn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bathroom mirror fogging up after a shower (condensation of invisible indoor water vapor)"
+    },
+    {
+        "id": 59,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Tại sao một số vùng lại có nước cứng (Hard Water)?",
+        "answer": "Nước cứng là nước có hàm lượng khoáng chất (chủ yếu là **canxi và magie**) cao. Điều này xảy ra khi nước mưa chảy qua các lớp đất và đá có chứa các khoáng chất này, làm chúng hòa tan vào nước trong quá trình xâm nhập (infiltration).",
+        "tags": [
+            "nước cứng",
+            "khoáng chất",
+            "canxi",
+            "magie"
+        ],
+        "illustration_prompt": "cute educational diagram showing water flowing through rock layers, dissolving minerals like calcium and magnesium"
+    },
+    {
+        "id": 60,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nước & vòng tuần hoàn",
+        "question": "Lũ lụt có liên quan gì đến vòng tuần hoàn nước?",
+        "answer": "Lũ lụt xảy ra khi lượng nước kết tủa (mưa) nhiều hơn so với khả năng hấp thụ của đất (thấm nhập) hoặc khả năng chứa của sông, hồ (thu thập/chạy tràn). Đó là sự mất cân bằng tạm thời giữa lượng nước **rơi xuống** và khả năng **thu thập** của môi trường.",
+        "tags": [
+            "lũ lụt",
+            "mất cân bằng",
+            "kết tủa",
+            "chạy tràn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a heavy rain storm overwhelming a riverbank, causing water to spread and flood the surrounding area"
+    },
+    {
+        "id": 61,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng là gì?",
+        "answer": "Ánh sáng là một dạng **năng lượng** di chuyển dưới dạng sóng điện từ và hạt nhỏ gọi là **photon**. Ánh sáng đi theo đường thẳng và là cách duy nhất để chúng ta nhìn thấy mọi vật xung quanh.",
+        "tags": [
+            "ánh sáng",
+            "năng lượng",
+            "photon",
+            "sóng điện từ"
+        ],
+        "illustration_prompt": "cute educational diagram showing light travelling as both waves and tiny particles (photons) in a straight line"
+    },
+    {
+        "id": 62,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Phản xạ ánh sáng (Reflection) là gì?",
+        "answer": "Phản xạ là khi ánh sáng đập vào một bề mặt và **bật ngược trở lại** (giống như quả bóng nảy). Phản xạ hoàn hảo nhất xảy ra trên bề mặt nhẵn như **gương**, cho phép chúng ta nhìn thấy hình ảnh của mình.",
+        "tags": [
+            "phản xạ",
+            "reflection",
+            "bật ngược",
+            "gương"
+        ],
+        "illustration_prompt": "cute educational diagram showing a light ray hitting a flat mirror surface and bouncing off at an equal angle"
+    },
+    {
+        "id": 63,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao chúng ta nhìn thấy mọi vật có màu sắc?",
+        "answer": "Màu sắc của một vật là màu mà vật đó **phản xạ** (hắt lại) về phía mắt ta. Ví dụ, một quả táo có màu đỏ vì nó **hấp thụ** tất cả các màu khác (cam, vàng, xanh,...) và chỉ phản xạ lại ánh sáng **đỏ**.",
+        "tags": [
+            "màu sắc",
+            "phản xạ",
+            "hấp thụ",
+            "ánh sáng trắng"
+        ],
+        "illustration_prompt": "cute educational diagram showing white light hitting a red apple, and the apple absorbing all colors except red, which is reflected to the eye"
+    },
+    {
+        "id": 64,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Khúc xạ ánh sáng (Refraction) là gì?",
+        "answer": "Khúc xạ là khi ánh sáng **bị bẻ cong** (thay đổi hướng đi) khi nó đi từ một môi trường này sang môi trường khác, ví dụ từ không khí vào nước hoặc thủy tinh. Đây là lý do tại sao chiếc đũa cắm trong cốc nước trông như bị cong.",
+        "tags": [
+            "khúc xạ",
+            "refraction",
+            "bẻ cong",
+            "môi trường"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pencil placed in a glass of water, illustrating how the light bends, making the pencil look broken"
+    },
+    {
+        "id": 65,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tốc độ ánh sáng nhanh đến mức nào?",
+        "answer": "Ánh sáng di chuyển với tốc độ khoảng **300.000 km/giây** trong chân không (khoảng trống), là tốc độ nhanh nhất trong vũ trụ. Ánh sáng từ Mặt trời mất khoảng **8 phút** để đi đến Trái Đất, trong khi nó có thể đi vòng quanh Trái Đất 7.5 lần chỉ trong một giây!",
+        "tags": [
+            "tốc độ ánh sáng",
+            "photon",
+            "nhanh nhất",
+            "vũ trụ"
+        ],
+        "illustration_prompt": "cute educational infographic illustrating the speed of light by comparing the time it takes to travel around the Earth vs to the Sun"
+    },
+    {
+        "id": 66,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Cầu vồng được tạo ra bởi những quá trình vật lý nào?",
+        "answer": "Cầu vồng được tạo ra bởi hai hiện tượng chính: **Khúc xạ** (ánh sáng bẻ cong khi vào giọt mưa) và **Phản xạ** (ánh sáng bật lại từ mặt sau của giọt mưa). Sự kết hợp này **tách** ánh sáng trắng thành các màu phổ.",
+        "tags": [
+            "cầu vồng",
+            "khúc xạ",
+            "phản xạ",
+            "phân tách ánh sáng"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight entering a raindrop, refracting, reflecting off the back surface, and refracting again as it exits, splitting into colors"
+    },
+    {
+        "id": 67,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng trắng được tạo thành từ những màu nào?",
+        "answer": "Ánh sáng trắng, như ánh sáng mặt trời, thực chất là sự kết hợp của **tất cả các màu** trong quang phổ nhìn thấy được. Khi ánh sáng trắng đi qua một lăng kính (hoặc giọt mưa), nó sẽ phân tách thành bảy màu cơ bản: Đỏ, Cam, Vàng, Lục, Lam, Chàm, Tím.",
+        "tags": [
+            "ánh sáng trắng",
+            "quang phổ",
+            "bảy màu",
+            "lăng kính"
+        ],
+        "illustration_prompt": "cute educational diagram showing white light passing through a glass prism and being dispersed into the seven colors of the visible spectrum"
+    },
+    {
+        "id": 68,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Hiện tượng hấp thụ ánh sáng (Absorption) là gì?",
+        "answer": "Hấp thụ là khi một vật thể thu nhận năng lượng ánh sáng và **biến năng lượng đó thành nhiệt**. Đây là lý do tại sao quần áo màu **đen** (hấp thụ hầu hết ánh sáng) lại nóng hơn quần áo màu trắng (phản xạ hầu hết ánh sáng) khi bạn đứng dưới nắng.",
+        "tags": [
+            "hấp thụ",
+            "absorption",
+            "năng lượng",
+            "nhiệt",
+            "màu đen"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a black t-shirt absorbing light/heat and a white t-shirt reflecting light/heat"
+    },
+    {
+        "id": 69,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tại sao bầu trời ban ngày có màu xanh lam?",
+        "answer": "Bầu trời màu xanh do hiện tượng **tán xạ Rayleigh** (Rayleigh Scattering). Ánh sáng mặt trời đi vào bầu khí quyển, và các phân tử không khí nhỏ bé (Oxy và Nitơ) tán xạ (rải rác) các bước sóng ngắn hơn như **màu xanh lam** nhiều hơn các màu khác. Mắt chúng ta nhìn thấy ánh sáng xanh bị tán xạ đó.",
+        "tags": [
+            "bầu trời xanh",
+            "tán xạ",
+            "rayleigh scattering",
+            "bước sóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight entering the atmosphere and blue light being scattered in all directions by small gas molecules"
+    },
+    {
+        "id": 70,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Mắt chúng ta nhìn thấy màu sắc như thế nào?",
+        "answer": "Mắt chúng ta có hai loại tế bào nhạy sáng. Các tế bào **que (rods)** giúp chúng ta nhìn trong điều kiện thiếu sáng (đen, trắng, xám). Các tế bào **nón (cones)** nhạy cảm với ba màu cơ bản (đỏ, xanh lục, xanh lam) và cho phép chúng ta nhìn thấy màu sắc.",
+        "tags": [
+            "tế bào que",
+            "tế bào nón",
+            "màu cơ bản",
+            "võng mạc"
+        ],
+        "illustration_prompt": "cute educational diagram showing the cross-section of a human eye, highlighting the rods and cones cells in the retina"
+    },
+    {
+        "id": 71,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Hiện tượng phân tán ánh sáng (Dispersion) là gì?",
+        "answer": "Phân tán là sự tách biệt của ánh sáng trắng thành các màu thành phần khi nó đi qua một vật thể (như lăng kính hoặc giọt nước). Điều này xảy ra vì mỗi màu (bước sóng) bị **bẻ cong ở một góc khác nhau**.",
+        "tags": [
+            "phân tán",
+            "dispersion",
+            "lăng kính",
+            "tách màu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a beam of white light entering a prism and splitting because different colors bend at different angles"
+    },
+    {
+        "id": 72,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao hoàng hôn (Sunset) và bình minh (Sunrise) thường có màu đỏ/cam?",
+        "answer": "Vào lúc hoàng hôn/bình minh, ánh sáng mặt trời phải đi qua một **lớp khí quyển dày hơn** so với ban ngày. Hầu hết các màu xanh lam bị tán xạ ra ngoài, chỉ còn lại các bước sóng dài hơn như **đỏ, cam và vàng** đi thẳng tới mắt chúng ta.",
+        "tags": [
+            "hoàng hôn",
+            "bình minh",
+            "đỏ cam",
+            "khí quyển dày"
+        ],
+        "illustration_prompt": "cute educational diagram showing the sun low on the horizon, with light passing through a very thick layer of atmosphere, scattering away blue light and leaving red/orange light"
+    },
+    {
+        "id": 73,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Sự khác biệt giữa màu sắc cộng (Additive Colors) và màu sắc trừ (Subtractive Colors) là gì?",
+        "answer": "**Cộng:** (Ánh sáng) - Màu cơ bản là Đỏ, Xanh lục, Xanh lam. Trộn cả ba sẽ ra **màu trắng** (dùng trên TV/màn hình). **Trừ:** (Sắc tố/Mực in) - Màu cơ bản là Lục lam, Đỏ tươi, Vàng. Trộn cả ba sẽ ra **màu đen** (hoặc nâu sẫm).",
+        "tags": [
+            "màu cộng",
+            "màu trừ",
+            "màu cơ bản",
+            "màn hình"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the color wheels for Additive (RGB) light mixing and Subtractive (CMYK) pigment mixing"
+    },
+    {
+        "id": 74,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Làm thế nào một chiếc gương lại tạo ra hình ảnh phản chiếu?",
+        "answer": "Gương có bề mặt **cực kỳ nhẵn và được tráng bạc**. Ánh sáng chiếu vào được phản xạ một cách có trật tự (theo cùng một góc), cho phép mắt chúng ta nhìn thấy các tia sáng bật ra, tạo thành một bản sao ảo của vật thể phía trước.",
+        "tags": [
+            "gương",
+            "bề mặt nhẵn",
+            "phản xạ có trật tự",
+            "ảnh ảo"
+        ],
+        "illustration_prompt": "cute educational diagram showing how a smooth mirrored surface reflects parallel light rays in an organized, parallel way"
+    },
+    {
+        "id": 75,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Mây thường có màu trắng vì sao?",
+        "answer": "Mây được tạo thành từ những giọt nước hoặc tinh thể băng **lớn hơn** nhiều so với các phân tử khí. Những giọt này tán xạ (rải rác) **tất cả các màu** trong ánh sáng mặt trời gần như nhau, do đó, mây thường có màu trắng.",
+        "tags": [
+            "mây trắng",
+            "tán xạ",
+            "giọt nước lớn",
+            "tất cả các màu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a white cloud scattering all colors of the rainbow equally in all directions"
+    },
+    {
+        "id": 76,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Hiện tượng khúc xạ được sử dụng trong kính mắt như thế nào?",
+        "answer": "Kính mắt sử dụng **thấu kính** (làm bằng thủy tinh hoặc nhựa) để khúc xạ (bẻ cong) ánh sáng trước khi nó đi vào mắt. Điều này giúp điều chỉnh tiêu điểm của ánh sáng, bù đắp cho các vấn đề thị lực như cận thị hoặc viễn thị.",
+        "tags": [
+            "kính mắt",
+            "thấu kính",
+            "khúc xạ",
+            "cận thị"
+        ],
+        "illustration_prompt": "cute educational diagram showing light rays being correctly refracted by a corrective lens before entering the human eye"
+    },
+    {
+        "id": 77,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Chúng ta có thể nhìn thấy cầu vồng vào ban đêm không?",
+        "answer": "Rất hiếm nhưng có thể. Đó được gọi là **cầu vồng mặt trăng** (Moonbow). Nó hình thành theo cách tương tự cầu vồng mặt trời (phản xạ và khúc xạ qua giọt nước), nhưng ánh sáng đến từ **Mặt trăng** (là ánh sáng Mặt trời phản xạ). Chúng thường mờ và khó nhìn thấy.",
+        "tags": [
+            "cầu vồng mặt trăng",
+            "moonbow",
+            "ban đêm",
+            "ánh trăng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a faint rainbow arc visible at night, created by the light of the moon"
+    },
+    {
+        "id": 78,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao các hồ bơi sâu lại trông có vẻ nông hơn so với thực tế?",
+        "answer": "Đây là kết quả của **khúc xạ**. Khi ánh sáng đi từ nước (môi trường đặc hơn) ra không khí (môi trường kém đặc hơn), nó bị bẻ cong. Bộ não của chúng ta suy nghĩ theo đường thẳng, vì vậy chúng ta thấy đáy hồ bơi ở vị trí **cao hơn** so với vị trí thực tế.",
+        "tags": [
+            "hồ bơi",
+            "nông hơn",
+            "khúc xạ",
+            "vị trí ảo"
+        ],
+        "illustration_prompt": "cute educational diagram showing the light rays from the bottom of a pool refracting as they exit the water, making the pool look shallower"
+    },
+    {
+        "id": 79,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Hiệu ứng Tyndall (Tyndall Effect) là gì?",
+        "answer": "Hiệu ứng Tyndall là khi bạn nhìn thấy **đường đi của ánh sáng** xuyên qua một môi trường chứa các hạt nhỏ (như bụi hoặc khói). Ánh sáng bị các hạt này tán xạ, làm cho tia sáng trở nên rõ ràng (ví dụ: tia nắng chiếu qua cửa sổ bụi hoặc qua rừng cây sương mù).",
+        "tags": [
+            "hiệu ứng tyndall",
+            "tán xạ",
+            "đường đi của ánh sáng",
+            "bụi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a strong beam of sunlight entering a dark, dusty room, making the path of the light clearly visible"
+    },
+    {
+        "id": 80,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng có thể đi xuyên qua vật thể không?",
+        "answer": "Tùy thuộc vào vật thể: 1) **Vật thể trong suốt** (trong suốt): Cho phép hầu hết ánh sáng đi qua (kính cửa sổ). 2) **Vật thể mờ** (translucent): Cho phép một phần ánh sáng đi qua, nhưng làm mờ hình ảnh (giấy nến). 3) **Vật thể không trong suốt** (opaque): Chặn hầu hết hoặc tất cả ánh sáng (tường, gỗ).",
+        "tags": [
+            "trong suốt",
+            "mờ",
+            "không trong suốt",
+            "truyền ánh sáng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing light passing through glass (transparent), frosted glass (translucent), and a wall (opaque)"
+    },
+    {
+        "id": 81,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao lá cây có màu xanh lục?",
+        "answer": "Lá cây có màu xanh lục vì chúng chứa chất diệp lục (chlorophyll). Chất diệp lục **hấp thụ** mạnh mẽ ánh sáng đỏ và xanh lam (để tạo ra thức ăn), nhưng lại **phản xạ** ánh sáng **xanh lục** trở lại mắt chúng ta.",
+        "tags": [
+            "lá cây",
+            "xanh lục",
+            "chất diệp lục",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing white light hitting a leaf, the chlorophyll absorbing red and blue light, and reflecting green light"
+    },
+    {
+        "id": 82,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Làm thế nào chúng ta nhìn thấy một cầu vồng kép (Double Rainbow)?",
+        "answer": "Cầu vồng kép xảy ra khi ánh sáng được **phản xạ hai lần** bên trong giọt mưa trước khi nó thoát ra ngoài. Cầu vồng thứ cấp (cầu vồng bên ngoài) có màu sắc đảo ngược so với cầu vồng chính (ví dụ: màu tím ở trên, màu đỏ ở dưới).",
+        "tags": [
+            "cầu vồng kép",
+            "phản xạ hai lần",
+            "màu sắc đảo ngược",
+            "giọt mưa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a main rainbow and a fainter secondary rainbow outside it with inverted colors"
+    },
+    {
+        "id": 83,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao ánh sáng từ đèn flash của camera thường có vẻ 'trắng'?",
+        "answer": "Ánh sáng từ đèn flash được thiết kế để là ánh sáng **toàn phổ** (full spectrum), bao gồm tất cả các bước sóng nhìn thấy được để mô phỏng ánh sáng mặt trời tự nhiên. Điều này đảm bảo màu sắc của đối tượng được chụp ảnh không bị sai lệch.",
+        "tags": [
+            "đèn flash",
+            "toàn phổ",
+            "ánh sáng trắng",
+            "màu sắc"
+        ],
+        "illustration_prompt": "cute educational illustration of a camera flash emitting full spectrum white light on a subject"
+    },
+    {
+        "id": 84,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Khái niệm 'Bước sóng' (Wavelength) liên quan đến màu sắc như thế nào?",
+        "answer": "Bước sóng là **khoảng cách giữa hai đỉnh** của sóng ánh sáng. Màu sắc khác nhau có bước sóng khác nhau: Màu **đỏ** có bước sóng **dài nhất** (mang ít năng lượng hơn), và màu **tím** có bước sóng **ngắn nhất** (mang nhiều năng lượng hơn).",
+        "tags": [
+            "bước sóng",
+            "wavelength",
+            "màu đỏ",
+            "màu tím",
+            "quang phổ"
+        ],
+        "illustration_prompt": "cute educational diagram showing two light waves: one with a long wavelength (red) and one with a short wavelength (violet)"
+    },
+    {
+        "id": 85,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Làm thế nào chúng ta có thể nhìn thấy các vật thể trong bóng tối?",
+        "answer": "Chúng ta không thể nhìn thấy vật thể nếu không có ánh sáng. Khi tối, mắt chúng ta sử dụng bất kỳ **nguồn sáng yếu** nào (ánh trăng, đèn đường) và tế bào que trở nên cực kỳ nhạy. Về cơ bản, chúng ta chỉ nhìn thấy **màu đen và trắng** trong điều kiện thiếu sáng.",
+        "tags": [
+            "bóng tối",
+            "tế bào que",
+            "ánh sáng yếu",
+            "đen trắng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person's eye adjusting to the dark, relying on rods to see shapes and black/white colors"
+    },
+    {
+        "id": 86,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Gương chiếu hậu trên ô tô sử dụng phản xạ như thế nào?",
+        "answer": "Gương chiếu hậu ngoài thường là **gương lồi** (convex mirrors). Chúng phản xạ ánh sáng để tạo ra một **ảnh ảo nhỏ hơn** nhưng có **trường nhìn rộng hơn** (wide field of view). Điều này giúp tài xế nhìn thấy nhiều xe hơn ở phía sau, mặc dù chúng trông xa hơn thực tế.",
+        "tags": [
+            "gương chiếu hậu",
+            "gương lồi",
+            "trường nhìn rộng",
+            "ảnh ảo"
+        ],
+        "illustration_prompt": "cute educational diagram showing a convex mirror reflecting a wide view from behind a car"
+    },
+    {
+        "id": 87,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao nước biển lại có màu xanh?",
+        "answer": "Màu xanh của đại dương chủ yếu là do **sự hấp thụ và tán xạ** của nước. Nước hấp thụ các bước sóng dài hơn (đỏ, vàng) và tán xạ các bước sóng ngắn hơn (**xanh lam**). Vì vậy, mắt chúng ta nhìn thấy màu xanh từ độ sâu lớn.",
+        "tags": [
+            "nước biển",
+            "xanh lam",
+            "hấp thụ",
+            "tán xạ"
+        ],
+        "illustration_prompt": "cute educational diagram showing red/yellow light being absorbed by deep ocean water, and blue light being scattered back up to the surface"
+    },
+    {
+        "id": 88,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng Mặt trời bị mờ đi khi trời nhiều mây vì sao?",
+        "answer": "Các giọt nước trong mây không chặn ánh sáng hoàn toàn, nhưng chúng **tán xạ** (rải rác) ánh sáng theo nhiều hướng khác nhau. Điều này làm cho ánh sáng Mặt trời đi qua mây trở nên khuếch tán, tạo ra ánh sáng mờ và ít bóng râm.",
+        "tags": [
+            "mây",
+            "mờ",
+            "khuếch tán",
+            "tán xạ"
+        ],
+        "illustration_prompt": "cute educational illustration showing sunlight being diffused and scattered by the water droplets in a cloudy sky"
+    },
+    {
+        "id": 89,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Thị giác của côn trùng khác chúng ta ở điểm nào?",
+        "answer": "Nhiều côn trùng (như ong) có thể nhìn thấy **ánh sáng cực tím** (UV), là bước sóng quá ngắn để mắt người nhìn thấy. Một số loài hoa có các dấu hiệu cực tím hoạt động như 'đường băng' để hướng dẫn côn trùng đến phấn hoa, điều mà chúng ta không thể thấy.",
+        "tags": [
+            "côn trùng",
+            "cực tím",
+            "tia UV",
+            "thị giác"
+        ],
+        "illustration_prompt": "cute educational illustration showing a flower as seen by a human (normal colors) and the same flower as seen by a bee (with UV patterns visible)"
+    },
+    {
+        "id": 90,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Làm thế nào để tạo ra một cầu vồng nhỏ trong nhà?",
+        "answer": "Bạn có thể tạo ra một cầu vồng nhỏ bằng cách sử dụng **lăng kính** (prism) hoặc một **ly nước** đặt trước một cửa sổ sáng. Ánh sáng Mặt trời đi qua nước/thủy tinh sẽ bị khúc xạ và phân tán, chiếu một dải màu lên tường.",
+        "tags": [
+            "lăng kính",
+            "ly nước",
+            "tạo cầu vồng",
+            "khúc xạ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a glass of water placed near a window, creating a small rainbow spectrum on the wall"
+    },
+    {
+        "id": 91,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh được tạo ra như thế nào?",
+        "answer": "Âm thanh được tạo ra bởi **rung động** (vibrations). Khi một vật rung động, nó làm rung động các phân tử không khí xung quanh, tạo ra sóng áp suất di chuyển đến tai chúng ta, và bộ não dịch thành âm thanh.",
+        "tags": [
+            "âm thanh",
+            "rung động",
+            "vibration",
+            "sóng áp suất"
+        ],
+        "illustration_prompt": "cute educational diagram showing a tuning fork vibrating and creating compression waves that travel through the air"
+    },
+    {
+        "id": 92,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh truyền đi bằng cách nào?",
+        "answer": "Âm thanh truyền đi bằng cách làm cho các phân tử vật chất (không khí, nước, hoặc vật rắn) **va chạm** và truyền năng lượng rung động từ phân tử này sang phân tử khác. Âm thanh cần một **môi trường** để truyền đi.",
+        "tags": [
+            "truyền âm",
+            "va chạm",
+            "phân tử",
+            "môi trường"
+        ],
+        "illustration_prompt": "cute educational diagram showing air molecules passing the sound vibration energy from one to the next in a chain reaction"
+    },
+    {
+        "id": 93,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Độ to của âm thanh (Loudness) là gì?",
+        "answer": "Độ to được đo bằng **biên độ** (amplitude) của sóng âm, tức là lượng năng lượng mà sóng mang theo. Biên độ càng lớn (sóng càng cao), âm thanh càng lớn và được đo bằng đơn vị **Decibel (dB)**.",
+        "tags": [
+            "độ to",
+            "biên độ",
+            "amplitude",
+            "decibel"
+        ],
+        "illustration_prompt": "cute educational diagram comparing two sound waves: one with a large amplitude (loud sound) and one with a small amplitude (quiet sound)"
+    },
+    {
+        "id": 94,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Độ cao của âm thanh (Pitch) là gì?",
+        "answer": "Độ cao của âm thanh được xác định bởi **tần số** (frequency) của sóng âm, tức là số lần sóng rung động trong một giây. Tần số cao (rung động nhanh) tạo ra **âm thanh cao** (bổng), và tần số thấp tạo ra **âm thanh trầm** (trầm).",
+        "tags": [
+            "độ cao",
+            "tần số",
+            "frequency",
+            "âm bổng",
+            "âm trầm"
+        ],
+        "illustration_prompt": "cute educational diagram comparing two sound waves: one with high frequency (high pitch) and one with low frequency (low pitch)"
+    },
+    {
+        "id": 95,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao chúng ta thấy chớp trước khi nghe thấy tiếng sấm?",
+        "answer": "Điều này là do sự khác biệt giữa tốc độ ánh sáng và tốc độ âm thanh. **Ánh sáng** di chuyển cực nhanh (300.000 km/s), trong khi **âm thanh** di chuyển chậm hơn nhiều (khoảng 343 m/s) trong không khí. Vì vậy, ánh sáng đến mắt bạn gần như ngay lập tức.",
+        "tags": [
+            "sấm chớp",
+            "tốc độ ánh sáng",
+            "tốc độ âm thanh",
+            "khoảng cách"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lightning strike, with the light reaching the viewer instantly and the sound (thunder) following slowly behind"
+    },
+    {
+        "id": 96,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh có truyền được trong chân không (Space) không?",
+        "answer": "Không. Chân không là môi trường hoàn toàn trống rỗng, không có không khí hoặc bất kỳ vật chất nào khác. Vì âm thanh cần các phân tử vật chất để truyền năng lượng rung động, nên **âm thanh không thể truyền đi được trong không gian**.",
+        "tags": [
+            "chân không",
+            "không gian",
+            "môi trường",
+            "không truyền được"
+        ],
+        "illustration_prompt": "cute educational illustration showing an astronaut trying to talk in space, with sound waves stopped immediately outside their helmet"
+    },
+    {
+        "id": 97,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Tiếng vọng (Echo) là gì?",
+        "answer": "Tiếng vọng là sự **phản xạ** (bật lại) của sóng âm khi nó đập vào một bề mặt cứng và nhẵn (như vách núi, tường lớn). Sóng âm bật trở lại và bạn nghe thấy chính âm thanh đó lần thứ hai sau một khoảng thời gian.",
+        "tags": [
+            "tiếng vọng",
+            "echo",
+            "phản xạ",
+            "bề mặt cứng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person shouting, and the sound wave traveling, hitting a cliff face, and reflecting back to the person as an echo"
+    },
+    {
+        "id": 98,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh truyền nhanh nhất trong môi trường nào: rắn, lỏng hay khí?",
+        "answer": "Âm thanh truyền nhanh nhất trong **chất rắn** (ví dụ: thép). Điều này là do các phân tử trong chất rắn được đóng gói chặt chẽ hơn nhiều so với chất lỏng hoặc chất khí, giúp năng lượng rung động truyền đi nhanh chóng hơn.",
+        "tags": [
+            "tốc độ truyền âm",
+            "chất rắn",
+            "phân tử",
+            "chất lỏng",
+            "chất khí"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the arrangement of molecules in gas (far apart), liquid (closer), and solid (tightly packed), showing speed of sound is fastest in solids"
+    },
+    {
+        "id": 99,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Siêu âm (Ultrasound) là gì?",
+        "answer": "Siêu âm là âm thanh có **tần số quá cao** (trên $20.000 \text{ Hz}$) mà **tai người không thể nghe được**. Dơi và cá heo sử dụng siêu âm để định vị (echolocation), và con người dùng siêu âm để tạo ra hình ảnh y tế bên trong cơ thể.",
+        "tags": [
+            "siêu âm",
+            "ultrasound",
+            "tần số cao",
+            "dơi",
+            "y tế"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bat emitting high-frequency ultrasound waves that bounce off a moth and return to the bat"
+    },
+    {
+        "id": 100,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Độ to (Decibel) nào là nguy hiểm cho tai người?",
+        "answer": "Tiếp xúc lâu dài với âm thanh trên **85 decibel (dB)** có thể làm hỏng tai. Âm thanh ở mức 120 dB (như còi báo động) trở lên có thể gây đau và tổn thương ngay lập tức. Đó là lý do bạn cần bảo vệ tai ở những nơi ồn ào.",
+        "tags": [
+            "decibel",
+            "nguy hiểm",
+            "tổn thương tai",
+            "85 dB"
+        ],
+        "illustration_prompt": "cute educational chart showing a decibel scale with different examples: whisper (30 dB), normal conversation (60 dB), rock concert (120 dB), highlighting the danger zone"
+    },
+    {
+        "id": 101,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Tai chúng ta dịch âm thanh thành tín hiệu như thế nào?",
+        "answer": "Sóng âm truyền qua ống tai, làm **màng nhĩ rung động**. Rung động này được truyền qua ba xương nhỏ (xương búa, đe, bàn đạp) đến ốc tai (cochlea). Ốc tai chuyển rung động thành **tín hiệu điện** để gửi lên não.",
+        "tags": [
+            "màng nhĩ",
+            "ốc tai",
+            "tín hiệu điện",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational diagram of the human ear, showing the sound waves vibrating the eardrum and the cochlea sending signals to the brain"
+    },
+    {
+        "id": 102,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao tiếng nói của chúng ta khác nhau khi nói vào một chiếc quạt?",
+        "answer": "Chiếc quạt gây ra sự **biến dạng** (distortion) của sóng âm khi chúng rời khỏi miệng bạn. Các luồng không khí hỗn loạn và rung động của quạt làm cho sóng âm thanh bị xé nhỏ và thay đổi tần số, khiến giọng nói của bạn nghe có vẻ bị rung hoặc méo mó.",
+        "tags": [
+            "quạt",
+            "biến dạng",
+            "sóng âm",
+            "luồng không khí"
+        ],
+        "illustration_prompt": "cute educational illustration of a person speaking into a desk fan, showing the sound waves being distorted by the moving air blades"
+    },
+    {
+        "id": 103,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Hạ âm (Infrasound) là gì?",
+        "answer": "Hạ âm là âm thanh có **tần số quá thấp** (dưới $20 \text{ Hz}$) mà tai người không thể nghe được. Voi, tê giác, và cá voi sử dụng hạ âm để giao tiếp qua những khoảng cách rất xa. Bão, động đất cũng tạo ra hạ âm.",
+        "tags": [
+            "hạ âm",
+            "infrasound",
+            "tần số thấp",
+            "voi",
+            "động đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing elephants communicating over a long distance using low-frequency infrasound waves"
+    },
+    {
+        "id": 104,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Sự dội âm (Reverberation) khác tiếng vọng (Echo) như thế nào?",
+        "answer": "**Tiếng vọng** là âm thanh phản xạ riêng biệt mà bạn có thể nghe thấy rõ ràng. **Dội âm** là khi âm thanh phản xạ qua lại nhiều lần và đến tai bạn gần như ngay lập tức sau âm thanh gốc, tạo ra cảm giác kéo dài hoặc đầy đặn hơn (như trong nhà thờ hoặc phòng hòa nhạc).",
+        "tags": [
+            "dội âm",
+            "reverberation",
+            "tiếng vọng",
+            "âm thanh kéo dài"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a distinct echo (long delay) versus reverberation (many quick reflections blending together)"
+    },
+    {
+        "id": 105,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Sự cộng hưởng (Resonance) là gì?",
+        "answer": "Cộng hưởng là khi một vật thể bắt đầu **rung động mạnh** ở tần số tự nhiên của nó do nhận được sóng âm có cùng tần số đó. Ví dụ nổi tiếng là một ca sĩ có thể dùng giọng hát của mình để làm vỡ ly thủy tinh.",
+        "tags": [
+            "cộng hưởng",
+            "resonance",
+            "rung động mạnh",
+            "tần số tự nhiên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sound wave matching the natural frequency of a glass, causing the glass to vibrate violently and shatter"
+    },
+    {
+        "id": 106,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào đàn Guitar tạo ra các nốt cao và thấp khác nhau?",
+        "answer": "Nốt nhạc (độ cao) được tạo ra bởi **tần số rung động** của dây đàn. Dây đàn **ngắn hơn** hoặc **căng hơn** sẽ rung nhanh hơn, tạo ra nốt cao (bổng). Dây đàn dài hơn hoặc lỏng hơn sẽ rung chậm hơn, tạo ra nốt thấp (trầm).",
+        "tags": [
+            "đàn guitar",
+            "nốt nhạc",
+            "tần số",
+            "dây đàn ngắn",
+            "dây đàn dài"
+        ],
+        "illustration_prompt": "cute educational diagram of a guitar neck showing a short, tight string (high pitch) and a long, loose string (low pitch)"
+    },
+    {
+        "id": 107,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao âm thanh nghe to hơn khi bạn đứng gần nguồn phát?",
+        "answer": "Đó là vì **năng lượng sóng âm** bị khuếch tán ra môi trường khi nó di chuyển. Càng xa nguồn, năng lượng càng bị phân tán trên một khu vực rộng hơn, làm cho biên độ (độ to) giảm đi. Đứng gần thì bạn nhận được nhiều năng lượng hơn.",
+        "tags": [
+            "nguồn phát âm thanh",
+            "năng lượng sóng âm",
+            "khuếch tán",
+            "biên độ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sound wave spreading out in a cone shape as it travels away from the source, reducing its intensity"
+    },
+    {
+        "id": 108,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Chúng ta có thể cảm nhận âm thanh không?",
+        "answer": "Có. Khi âm thanh quá lớn (biên độ cao), năng lượng rung động của nó có thể làm rung động không chỉ màng nhĩ mà cả cơ thể bạn. Ví dụ, bạn cảm thấy **tiếng bass** (âm trầm) mạnh rung trong lồng ngực tại một buổi hòa nhạc lớn.",
+        "tags": [
+            "cảm nhận âm thanh",
+            "rung động",
+            "tiếng bass",
+            "biên độ cao"
+        ],
+        "illustration_prompt": "cute educational illustration of a person at a concert feeling the deep bass vibrations in their chest"
+    },
+    {
+        "id": 109,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Sóng âm có phải là sóng ngang như sóng ánh sáng không?",
+        "answer": "Không. Sóng âm là **sóng dọc** (Longitudinal Wave). Trong sóng âm, các phân tử rung động **song song** với hướng truyền của sóng (tạo ra các vùng nén và giãn). Sóng ánh sáng là sóng ngang, rung động vuông góc với hướng truyền.",
+        "tags": [
+            "sóng dọc",
+            "sóng ngang",
+            "sóng âm",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the movement of a longitudinal sound wave (compression and rarefaction parallel to travel) and a transverse light wave (perpendicular to travel)"
+    },
+    {
+        "id": 110,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao nhiệt độ lại ảnh hưởng đến tốc độ âm thanh?",
+        "answer": "Khi không khí nóng, các phân tử không khí di chuyển nhanh hơn và ở xa nhau hơn một chút. Các phân tử di chuyển nhanh hơn cho phép sóng âm truyền năng lượng rung động **nhanh hơn**. Do đó, âm thanh truyền nhanh hơn trong không khí ấm hơn.",
+        "tags": [
+            "tốc độ âm thanh",
+            "nhiệt độ",
+            "phân tử",
+            "không khí nóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing air molecules moving faster in warm air, allowing sound vibrations to propagate quicker"
+    },
+    {
+        "id": 111,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Cá giao tiếp dưới nước như thế nào?",
+        "answer": "Cá giao tiếp bằng cách tạo ra âm thanh qua nhiều cách: rung bàng quang khí, nghiến răng hoặc vây. Âm thanh truyền đi **rất nhanh** trong nước (gấp khoảng 4 lần trong không khí) và được thu nhận thông qua tai trong và đường bên của cá.",
+        "tags": [
+            "cá",
+            "dưới nước",
+            "bàng quang khí",
+            "đường bên"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish making sound underwater by vibrating its swim bladder, showing the fast sound waves spreading in the water"
+    },
+    {
+        "id": 112,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao tai người nghe kém ở độ cao và độ sâu?",
+        "answer": "Tai người nhạy cảm với sự **thay đổi áp suất không khí**. Ở độ cao lớn (trên máy bay) hoặc độ sâu lớn (lặn), sự chênh lệch áp suất giữa tai giữa và môi trường bên ngoài làm tai bị 'ù' và có thể làm giảm tạm thời khả năng nghe.",
+        "tags": [
+            "tai người",
+            "áp suất không khí",
+            "độ cao",
+            "lặn"
+        ],
+        "illustration_prompt": "cute educational illustration of a plane flying high and a diver deep underwater, showing the air pressure imbalance affecting the eardrum"
+    },
+    {
+        "id": 113,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh được khuếch đại (Amplified) như thế nào?",
+        "answer": "Khuếch đại có nghĩa là làm cho âm thanh to hơn (tăng biên độ). Trong điện tử, tín hiệu âm thanh yếu được chuyển thành tín hiệu điện, được tăng cường bởi một **bộ khuếch đại** (amplifier), sau đó được chuyển ngược lại thành sóng âm to hơn bởi loa.",
+        "tags": [
+            "khuếch đại",
+            "amplified",
+            "biên độ",
+            "tín hiệu điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing a small electrical signal entering an amplifier and a much larger signal leaving the amplifier to drive a speaker"
+    },
+    {
+        "id": 114,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Các vật liệu mềm (Soft materials) làm giảm âm thanh như thế nào?",
+        "answer": "Các vật liệu mềm, xốp (như bọt biển, rèm dày, thảm) được gọi là vật liệu **hấp thụ âm thanh**. Chúng không phản xạ âm thanh mà hấp thụ năng lượng rung động, **chuyển nó thành nhiệt** và làm giảm tiếng vọng và tiếng ồn tổng thể.",
+        "tags": [
+            "hấp thụ âm thanh",
+            "vật liệu mềm",
+            "năng lượng",
+            "chuyển thành nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sound wave hitting a porous acoustic foam panel, and the energy being trapped and absorbed inside"
+    },
+    {
+        "id": 115,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Sự khúc xạ âm thanh (Refraction of Sound) là gì?",
+        "answer": "Khúc xạ âm thanh là sự **bẻ cong** sóng âm khi nó đi qua các môi trường có nhiệt độ hoặc mật độ khác nhau. Ví dụ: Tiếng nói có thể truyền xa hơn vào ban đêm vì sóng âm bị bẻ cong trở lại mặt đất khi nhiệt độ không khí lạnh hơn.",
+        "tags": [
+            "khúc xạ âm thanh",
+            "bẻ cong",
+            "nhiệt độ",
+            "ban đêm"
+        ],
+        "illustration_prompt": "cute educational diagram showing sound waves bending downwards toward the ground at night because the air is cooler near the ground"
+    },
+    {
+        "id": 116,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Con người có thể nghe thấy phạm vi tần số nào?",
+        "answer": "Tai người bình thường có thể nghe thấy tần số từ khoảng **$20 \text{ Hz}$ (hạ âm) đến $20.000 \text{ Hz}$ (siêu âm)**. Tuy nhiên, khả năng nghe các tần số cao (trên $15.000 \text{ Hz}$) thường giảm đi khi chúng ta già đi.",
+        "tags": [
+            "phạm vi nghe",
+            "tần số",
+            "20 Hz",
+            "20000 Hz"
+        ],
+        "illustration_prompt": "cute educational chart showing the audible range for humans (20 Hz to 20 kHz) compared to other animals like dogs or bats"
+    },
+    {
+        "id": 117,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào đàn Piano tạo ra các nốt cao và thấp?",
+        "answer": "Đàn Piano sử dụng các dây có **chiều dài và độ dày** khác nhau. Dây **ngắn và mỏng** tạo ra nốt cao (rung nhanh), trong khi dây **dài và dày** tạo ra nốt thấp (rung chậm). Búa đàn gõ vào dây để tạo ra rung động.",
+        "tags": [
+            "đàn piano",
+            "nốt nhạc",
+            "dây đàn",
+            "độ dày"
+        ],
+        "illustration_prompt": "cute educational diagram showing the internal mechanism of a piano with short/thin strings for high notes and long/thick strings for low notes"
+    },
+    {
+        "id": 118,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao giọng nói của chúng ta nghe khác khi được ghi âm lại?",
+        "answer": "Khi bạn nói, bạn nghe giọng mình theo hai đường: **đường không khí** (sóng âm ra ngoài) và **đường xương** (rung động qua xương sọ). Thiết bị ghi âm chỉ thu được đường không khí, thiếu đi sự cộng hưởng từ xương, khiến giọng bạn nghe có vẻ mỏng hơn hoặc cao hơn so với bạn tự cảm nhận.",
+        "tags": [
+            "giọng nói",
+            "ghi âm",
+            "đường xương",
+            "cộng hưởng"
+        ],
+        "illustration_prompt": "cute educational diagram showing how a person hears their own voice (through air and bone conduction) versus how a microphone records it (only air conduction)"
+    },
+    {
+        "id": 119,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Hiệu ứng Doppler (Doppler Effect) là gì?",
+        "answer": "Hiệu ứng Doppler là sự thay đổi độ cao (tần số) của âm thanh khi nguồn âm **di chuyển tương đối** so với người nghe. Ví dụ, còi xe cứu thương nghe **cao hơn** khi nó đi về phía bạn và nghe **trầm hơn** khi nó đi xa khỏi bạn.",
+        "tags": [
+            "hiệu ứng doppler",
+            "tần số",
+            "xe cứu thương",
+            "chuyển động tương đối"
+        ],
+        "illustration_prompt": "cute educational diagram showing a moving ambulance: sound waves are compressed in front (higher pitch) and stretched behind (lower pitch)"
+    },
+    {
+        "id": 120,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Âm thanh",
+        "question": "Tầm quan trọng của hai tai đối với việc nghe là gì?",
+        "answer": "Có hai tai (nghe âm thanh **hai bên**) giúp bộ não xác định **phương hướng** của âm thanh (Stereo Hearing). Sự khác biệt nhỏ về thời gian âm thanh đến mỗi tai giúp não tính toán chính xác nguồn âm thanh đến từ đâu.",
+        "tags": [
+            "hai tai",
+            "định vị âm thanh",
+            "phương hướng",
+            "stereo hearing"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sound source, and the sound wave reaching one ear slightly before the other, allowing the brain to calculate the source location"
+    },
+    {
+        "id": 121,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Lực Hấp dẫn (Gravity) là gì?",
+        "answer": "Lực hấp dẫn là lực **vô hình** kéo mọi vật thể có khối lượng về phía nhau. Lực hấp dẫn của **Trái Đất** kéo mọi thứ xuống bề mặt nó. Đây là lý do tại sao mọi vật rơi xuống khi bạn thả ra.",
+        "tags": [
+            "lực hấp dẫn",
+            "gravity",
+            "kéo xuống",
+            "vô hình"
+        ],
+        "illustration_prompt": "cute educational illustration showing the Earth with a gravitational force arrow pulling an apple towards its center"
+    },
+    {
+        "id": 122,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Chuyển động 'Rơi tự do' (Free Fall) là gì?",
+        "answer": "Rơi tự do là chuyển động của một vật thể chỉ chịu tác dụng của **lực hấp dẫn** (và bỏ qua sức cản không khí). Trong chân không, một chiếc lông vũ và một quả tạ sẽ rơi xuống đất **cùng một lúc**.",
+        "tags": [
+            "rơi tự do",
+            "free fall",
+            "lực hấp dẫn",
+            "cùng tốc độ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a feather and a bowling ball falling at the same time in a vacuum chamber"
+    },
+    {
+        "id": 123,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Lực Ma sát (Friction) là gì?",
+        "answer": "Ma sát là lực **chống lại** (làm chậm lại) chuyển động khi hai bề mặt tiếp xúc và trượt qua nhau. Ma sát tạo ra **nhiệt** và là lý do tại sao bạn phải đẩy một chiếc hộp nặng khó khăn hơn trên mặt đất thô ráp.",
+        "tags": [
+            "ma sát",
+            "friction",
+            "chống lại chuyển động",
+            "tạo nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a box being pushed across a rough surface, with an opposing friction force arrow pointing backward"
+    },
+    {
+        "id": 124,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Vì sao lăn (Rolling) dễ dàng hơn trượt (Sliding)?",
+        "answer": "Khi lăn, chỉ một **diện tích nhỏ** của vật thể tiếp xúc với bề mặt, tạo ra **ma sát lăn** (rolling friction) rất ít. Khi trượt, toàn bộ đáy vật thể tiếp xúc, tạo ra ma sát trượt lớn hơn nhiều, đòi hỏi nhiều lực hơn để di chuyển.",
+        "tags": [
+            "lăn",
+            "trượt",
+            "ma sát lăn",
+            "diện tích tiếp xúc"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the large contact area/high friction of a sliding block versus the small contact area/low friction of a rolling wheel"
+    },
+    {
+        "id": 125,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Quán tính (Inertia) là gì?",
+        "answer": "Quán tính là xu hướng của một vật thể **duy trì trạng thái chuyển động** (hoặc nghỉ) hiện tại của nó. Nếu bạn đang đi xe buýt và nó phanh gấp, bạn sẽ bị đẩy về phía trước vì cơ thể bạn muốn tiếp tục chuyển động!",
+        "tags": [
+            "quán tính",
+            "inertia",
+            "duy trì trạng thái",
+            "phanh gấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person on a bus being thrown forward when the bus suddenly stops, demonstrating inertia"
+    },
+    {
+        "id": 126,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Sức cản không khí (Air Resistance) là gì?",
+        "answer": "Sức cản không khí (hoặc sức cản) là một loại **ma sát** xảy ra khi một vật thể chuyển động xuyên qua không khí. Vật thể có diện tích lớn, phẳng (như chiếc dù) sẽ tạo ra sức cản không khí lớn hơn, làm chậm sự rơi của nó.",
+        "tags": [
+            "sức cản không khí",
+            "air resistance",
+            "ma sát",
+            "dù"
+        ],
+        "illustration_prompt": "cute educational diagram showing a parachute with a large, flat surface catching air, illustrating high air resistance slowing the fall"
+    },
+    {
+        "id": 127,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Tốc độ (Speed) khác gia tốc (Acceleration) như thế nào?",
+        "answer": "**Tốc độ** là bạn đi được bao xa trong một khoảng thời gian (ví dụ: $10 \text{ km/h}$). **Gia tốc** là sự **thay đổi** tốc độ của bạn. Nếu bạn đạp ga và đi nhanh hơn, bạn đang tăng gia tốc.",
+        "tags": [
+            "tốc độ",
+            "gia tốc",
+            "acceleration",
+            "thay đổi tốc độ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a constant speed graph (straight line) versus an acceleration graph (curved line getting steeper)"
+    },
+    {
+        "id": 128,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Vì sao các vận động viên trượt băng lại mặc đồ bó sát?",
+        "answer": "Họ mặc đồ bó sát để giảm thiểu tối đa **sức cản không khí** (ma sát). Sức cản càng ít thì vận động viên càng có thể di chuyển nhanh hơn, đặc biệt quan trọng trong các môn thể thao tốc độ.",
+        "tags": [
+            "trượt băng",
+            "đồ bó sát",
+            "sức cản không khí",
+            "tốc độ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a figure wearing loose, baggy clothing (high air resistance) versus tight, sleek clothing (low air resistance)"
+    },
+    {
+        "id": 129,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Lực đẩy (Thrust) là gì?",
+        "answer": "Lực đẩy là lực cần thiết để **di chuyển vật thể về phía trước** qua không khí hoặc nước. Lực đẩy được tạo ra bởi động cơ (máy bay, tên lửa, tàu thủy). Lực đẩy phải lớn hơn lực cản (drag) để vật thể di chuyển.",
+        "tags": [
+            "lực đẩy",
+            "thrust",
+            "động cơ",
+            "về phía trước"
+        ],
+        "illustration_prompt": "cute educational diagram showing a rocket with a large thrust force arrow pointing forward, overcoming the drag force"
+    },
+    {
+        "id": 130,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Điều gì khiến một vật thể bị nảy (Bounce)?",
+        "answer": "Sự nảy xảy ra khi một vật thể (ví dụ: quả bóng) va chạm với một bề mặt và **năng lượng động học** (năng lượng chuyển động) của nó được **chuyển hóa và phản xạ** trở lại. Vật liệu càng đàn hồi (elastic) thì nảy càng cao.",
+        "tags": [
+            "nảy",
+            "bounce",
+            "năng lượng động học",
+            "đàn hồi"
+        ],
+        "illustration_prompt": "cute educational diagram showing a bouncing ball transferring and regaining kinetic energy upon impact with the ground"
+    },
+    {
+        "id": 131,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Lực cản (Drag) là gì?",
+        "answer": "Lực cản là lực **ma sát** chống lại chuyển động của một vật thể trong chất lỏng (như nước) hoặc chất khí (như không khí). Lực cản luôn kéo vật thể theo hướng ngược lại với hướng chuyển động.",
+        "tags": [
+            "lực cản",
+            "drag",
+            "ma sát",
+            "ngược hướng"
+        ],
+        "illustration_prompt": "cute educational diagram showing an airplane moving forward, with a large opposing drag force arrow pointing backward"
+    },
+    {
+        "id": 132,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Tại sao các vật thể có cánh lại bay được?",
+        "answer": "Cánh (Airfoil) có hình dạng đặc biệt khiến không khí chảy qua chúng với **tốc độ khác nhau** (nhanh hơn ở trên, chậm hơn ở dưới). Sự khác biệt về tốc độ tạo ra **áp suất thấp** ở trên và áp suất cao ở dưới, dẫn đến **lực nâng (Lift)** kéo máy bay lên.",
+        "tags": [
+            "lực nâng",
+            "lift",
+            "cánh máy bay",
+            "tốc độ không khí"
+        ],
+        "illustration_prompt": "cute educational diagram showing the cross-section of an airplane wing, illustrating air flowing faster over the top surface (low pressure) and slower underneath (high pressure), creating lift"
+    },
+    {
+        "id": 133,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Lực Ma sát Tĩnh (Static Friction) là gì?",
+        "answer": "Ma sát tĩnh là lực giữ cho một vật thể **ở yên** và chống lại lực bắt đầu làm nó chuyển động. Ví dụ, bạn cần một lực đẩy mạnh để di chuyển chiếc ghế sofa nặng từ trạng thái nghỉ, đó là do bạn đang vượt qua ma sát tĩnh.",
+        "tags": [
+            "ma sát tĩnh",
+            "static friction",
+            "ở yên",
+            "vượt qua"
+        ],
+        "illustration_prompt": "cute educational diagram showing a large object at rest, and a small force being applied but being countered by an equal static friction force"
+    },
+    {
+        "id": 134,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Khi nào một vật thể đạt đến Tốc độ Giới hạn (Terminal Velocity)?",
+        "answer": "Tốc độ giới hạn là tốc độ tối đa mà một vật thể có thể rơi qua không khí. Nó đạt được khi **lực cản không khí** cân bằng hoàn toàn với **lực hấp dẫn**. Tại thời điểm này, gia tốc bằng 0 và vật thể rơi với tốc độ không đổi.",
+        "tags": [
+            "tốc độ giới hạn",
+            "terminal velocity",
+            "lực cản",
+            "lực hấp dẫn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a skydiver reaching terminal velocity when the upward air resistance force equals the downward gravity force"
+    },
+    {
+        "id": 135,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Đường dốc (Inclined Plane) giúp ích gì cho chuyển động?",
+        "answer": "Đường dốc là một loại **máy đơn giản** (simple machine). Nó giúp bạn di chuyển một vật nặng lên cao bằng cách **dùng ít lực hơn** nhưng phải di chuyển vật thể trên một **khoảng cách dài hơn**.",
+        "tags": [
+            "đường dốc",
+            "inclined plane",
+            "máy đơn giản",
+            "ít lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person pushing a heavy box up a long ramp (less force) instead of lifting it straight up (more force)"
+    },
+    {
+        "id": 136,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Vì sao đi trên băng lại dễ bị trượt?",
+        "answer": "Bề mặt băng cực kỳ **nhẵn**, làm giảm đáng kể **ma sát** giữa giày của bạn và băng. Vì ma sát là thứ giúp bạn tạo lực đẩy (grip) khi đi bộ, việc thiếu ma sát khiến bạn không thể tạo lực đẩy và dễ dàng trượt đi.",
+        "tags": [
+            "băng",
+            "nhẵn",
+            "ma sát thấp",
+            "trượt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person slipping on an icy surface due to very low friction"
+    },
+    {
+        "id": 137,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Chuyển động quay tròn (Rotational Motion) là gì?",
+        "answer": "Chuyển động quay tròn là khi một vật thể quay quanh một **trục cố định** (fixed axis). Ví dụ: Trái Đất quay quanh trục của nó, bánh xe quay quanh trục của nó, hoặc quạt trần quay xung quanh tâm.",
+        "tags": [
+            "quay tròn",
+            "rotational motion",
+            "trục cố định",
+            "bánh xe"
+        ],
+        "illustration_prompt": "cute educational diagram showing a spinning top rotating around a central axis"
+    },
+    {
+        "id": 138,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Làm thế nào để tăng ma sát khi đi trên băng tuyết?",
+        "answer": "Bạn có thể tăng ma sát bằng cách sử dụng các vật liệu có bề mặt **thô ráp, không đồng đều**. Ví dụ: Lốp xe có gai, đi giày có đế lớn và có rãnh sâu, hoặc rải cát/muối lên bề mặt để tạo thêm điểm bám.",
+        "tags": [
+            "tăng ma sát",
+            "băng tuyết",
+            "gai lốp",
+            "đế giày"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a smooth tire (low friction) and a winter tire with deep treads (high friction) on a snowy road"
+    },
+    {
+        "id": 139,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Chuyển động của một quả bóng được ném là gì?",
+        "answer": "Đó là **chuyển động parabol** (projectile motion), sự kết hợp của hai loại chuyển động đơn giản: chuyển động **ngang** (tốc độ không đổi) và chuyển động **thẳng đứng** (gia tốc không đổi do lực hấp dẫn kéo xuống).",
+        "tags": [
+            "chuyển động parabol",
+            "projectile motion",
+            "ngang",
+            "thẳng đứng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the parabolic path of a ball thrown into the air, illustrating the horizontal and vertical components of motion"
+    },
+    {
+        "id": 140,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Trạng thái 'Phi trọng lực' (Weightlessness) là gì?",
+        "answer": "Phi trọng lực không có nghĩa là không có trọng lực. Nó có nghĩa là bạn đang **rơi tự do** cùng với vật thể xung quanh bạn (ví dụ: các phi hành gia trên ISS). Vì bạn đang rơi ở cùng một tốc độ với mọi thứ khác, bạn cảm thấy như thể không có trọng lượng.",
+        "tags": [
+            "phi trọng lực",
+            "weightlessness",
+            "rơi tự do",
+            "ISS"
+        ],
+        "illustration_prompt": "cute educational illustration of astronauts floating inside the International Space Station (ISS) in a state of free fall"
+    },
+    {
+        "id": 141,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Tầm quan trọng của bôi trơn (Lubrication) là gì?",
+        "answer": "Bôi trơn (ví dụ: dầu nhớt, mỡ) được sử dụng để **giảm ma sát** giữa các bộ phận chuyển động (ví dụ: trong động cơ hoặc bản lề cửa). Giảm ma sát giúp các máy móc hoạt động trơn tru hơn và ngăn chúng bị nóng lên và mòn.",
+        "tags": [
+            "bôi trơn",
+            "lubrication",
+            "giảm ma sát",
+            "dầu nhớt"
+        ],
+        "illustration_prompt": "cute educational diagram showing oil being applied between two sliding machine parts to reduce friction and heat"
+    },
+    {
+        "id": 142,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Làm thế nào để xe đạp chạy nhanh hơn mà không cần đạp mạnh hơn?",
+        "answer": "Bạn có thể tận dụng **sức cản không khí** bằng cách nằm rạp người xuống thấp (hạ thấp trọng tâm) hoặc mặc đồ bó sát (giảm diện tích cản). Bạn cũng có thể **giảm ma sát** bằng cách bơm lốp xe thật căng.",
+        "tags": [
+            "xe đạp",
+            "sức cản không khí",
+            "giảm ma sát",
+            "lốp căng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a cyclist sitting upright (high drag) versus a cyclist leaning forward in an aerodynamic position (low drag)"
+    },
+    {
+        "id": 143,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Làm thế nào để bạn biết một vật thể đang chuyển động?",
+        "answer": "Chuyển động luôn là **tương đối**. Bạn biết một vật thể đang chuyển động nếu vị trí của nó **thay đổi** so với một **điểm tham chiếu** (reference point) cố định. Ví dụ: một chiếc ô tô đang di chuyển so với cái cây bên đường.",
+        "tags": [
+            "chuyển động",
+            "tương đối",
+            "thay đổi vị trí",
+            "điểm tham chiếu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a car driving past a stationary house, using the house as the reference point for movement"
+    },
+    {
+        "id": 144,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Tại sao các vật thể rơi xuống lại không tiếp tục tăng tốc mãi mãi?",
+        "answer": "Các vật thể không tiếp tục tăng tốc mãi mãi vì **lực cản không khí** tăng lên khi tốc độ tăng. Cuối cùng, lực cản không khí sẽ cân bằng với trọng lực, khiến vật thể đạt **tốc độ giới hạn** (terminal velocity).",
+        "tags": [
+            "tăng tốc",
+            "tốc độ giới hạn",
+            "lực cản không khí",
+            "cân bằng lực"
+        ],
+        "illustration_prompt": "cute educational graph showing the velocity of a falling object increasing rapidly at first, then leveling off as it reaches terminal velocity"
+    },
+    {
+        "id": 145,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Làm thế nào một chiếc dù (Parachute) hoạt động?",
+        "answer": "Dù hoạt động bằng cách tạo ra một **diện tích bề mặt lớn** và hình dạng để tạo ra **lực cản không khí khổng lồ**. Lực cản hướng lên này chống lại lực hấp dẫn hướng xuống, làm chậm tốc độ rơi của người nhảy dù đến mức an toàn.",
+        "tags": [
+            "dù",
+            "parachute",
+            "diện tích bề mặt",
+            "lực cản khổng lồ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a large, deployed parachute with a massive upward air resistance arrow and a smaller downward gravity arrow"
+    },
+    {
+        "id": 146,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Cần (Lever) là gì và hoạt động như thế nào?",
+        "answer": "Cần là một loại **máy đơn giản** bao gồm một thanh cứng và một điểm tựa (fulcrum). Cần giúp bạn di chuyển vật nặng bằng cách sử dụng **lợi thế cơ học**: dùng ít lực hơn để đẩy hoặc nâng vật ở đầu kia.",
+        "tags": [
+            "cần",
+            "lever",
+            "máy đơn giản",
+            "điểm tựa"
+        ],
+        "illustration_prompt": "cute educational diagram showing a classic lever setup: a plank of wood resting on a fulcrum, with a small force lifting a large object"
+    },
+    {
+        "id": 147,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Ma sát Trượt (Kinetic Friction) là gì?",
+        "answer": "Ma sát trượt là lực ma sát khi hai bề mặt **đang trượt** qua nhau. Ma sát trượt thường **nhỏ hơn** ma sát tĩnh (ma sát để bắt đầu chuyển động), đó là lý do tại sao việc giữ một vật thể di chuyển dễ hơn là làm nó bắt đầu di chuyển.",
+        "tags": [
+            "ma sát trượt",
+            "kinetic friction",
+            "đang trượt",
+            "nhỏ hơn ma sát tĩnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing an object already in motion, with a kinetic friction force opposing the movement"
+    },
+    {
+        "id": 148,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Làm thế nào để tạo ra một chuyển động theo chu kỳ (Periodic Motion)?",
+        "answer": "Chuyển động theo chu kỳ là chuyển động **lặp lại** đều đặn theo thời gian. Ví dụ đơn giản nhất là con lắc đồng hồ hoặc đu quay. Nó được tạo ra khi một lực hấp dẫn (hoặc lực phục hồi) đưa vật thể trở lại điểm cân bằng liên tục.",
+        "tags": [
+            "chu kỳ",
+            "periodic motion",
+            "lặp lại",
+            "con lắc"
+        ],
+        "illustration_prompt": "cute educational diagram showing a simple pendulum swinging back and forth in a regular, repeating motion"
+    },
+    {
+        "id": 149,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Chuyển động nào cần nhiều năng lượng hơn: trượt hay lăn?",
+        "answer": "Chuyển động **trượt** cần nhiều năng lượng hơn. Do có ma sát trượt cao hơn, bạn phải tiêu tốn nhiều năng lượng hơn để vượt qua lực cản đó. Lăn cần ít năng lượng hơn nhiều nhờ ma sát lăn thấp.",
+        "tags": [
+            "năng lượng",
+            "trượt",
+            "lăn",
+            "ma sát"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a child struggling to push a large box (sliding) versus easily pushing a wheeled cart (rolling)"
+    },
+    {
+        "id": 150,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Chuyển động đơn giản",
+        "question": "Vì sao các vật thể trôi nổi (Float) trên mặt nước?",
+        "answer": "Các vật thể trôi nổi khi lực **nổi (Buoyancy)** hướng lên (lực đẩy của nước) **lớn hơn** lực hấp dẫn (trọng lượng) hướng xuống của chúng. Điều này xảy ra khi vật thể **ít đặc hơn** (less dense) so với nước.",
+        "tags": [
+            "trôi nổi",
+            "float",
+            "lực nổi",
+            "buoyancy",
+            "mật độ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a floating boat with a large upward buoyancy force arrow counteracting the downward gravity arrow"
+    },
+    {
+        "id": 151,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nhiệt độ (Temperature) là gì?",
+        "answer": "Nhiệt độ là thước đo **mức độ nóng hay lạnh** của một vật thể. Về mặt vật lý, nhiệt độ cho biết các **phân tử** bên trong vật thể đang **rung động nhanh hay chậm**. Rung động càng nhanh thì vật thể càng nóng.",
+        "tags": [
+            "nhiệt độ",
+            "nóng lạnh",
+            "phân tử",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational diagram comparing molecules in a cold object (moving slowly) versus a hot object (moving quickly)"
+    },
+    {
+        "id": 152,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nhiệt (Heat) là gì?",
+        "answer": "Nhiệt là **năng lượng** được truyền từ một vật thể **nóng hơn** sang một vật thể **lạnh hơn**. Năng lượng này truyền cho đến khi cả hai vật đạt đến cùng một nhiệt độ (cân bằng nhiệt).",
+        "tags": [
+            "nhiệt",
+            "năng lượng",
+            "truyền nhiệt",
+            "cân bằng nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat energy flowing from a hot cup of tea to a cold hand"
+    },
+    {
+        "id": 153,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Ba trạng thái cơ bản của vật chất là gì?",
+        "answer": "Ba trạng thái cơ bản là **Rắn (Solid)**, **Lỏng (Liquid)**, và **Khí (Gas)**. Sự khác biệt nằm ở cách các phân tử được sắp xếp và cách chúng di chuyển. Nước là vật chất duy nhất tồn tại tự nhiên ở cả ba trạng thái trên Trái Đất.",
+        "tags": [
+            "trạng thái vật chất",
+            "rắn lỏng khí",
+            "phân tử",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the molecular structure of solid (ice), liquid (water), and gas (steam)"
+    },
+    {
+        "id": 154,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Quá trình nóng chảy (Melting) là gì?",
+        "answer": "Nóng chảy là khi vật chất chuyển từ trạng thái **rắn sang lỏng** do nhận **năng lượng nhiệt**. Năng lượng làm cho các phân tử trong vật rắn rung động đủ mạnh để phá vỡ cấu trúc cố định và cho phép chúng trượt qua nhau.",
+        "tags": [
+            "nóng chảy",
+            "melting",
+            "rắn sang lỏng",
+            "năng lượng nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat being applied to an ice cube, causing the tightly packed molecules to loosen and start sliding past each other"
+    },
+    {
+        "id": 155,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Quá trình đông đặc (Freezing) là gì?",
+        "answer": "Đông đặc là khi vật chất chuyển từ trạng thái **lỏng sang rắn** do **mất năng lượng nhiệt** (bị làm lạnh). Các phân tử chậm lại và sắp xếp lại thành một cấu trúc cố định, tạo ra hình dạng và thể tích xác định.",
+        "tags": [
+            "đông đặc",
+            "freezing",
+            "lỏng sang rắn",
+            "mất nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing liquid molecules slowing down due to cooling and locking into a fixed, rigid solid structure"
+    },
+    {
+        "id": 156,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Truyền nhiệt bằng Dẫn nhiệt (Conduction) là gì?",
+        "answer": "Dẫn nhiệt là sự truyền nhiệt qua sự **tiếp xúc trực tiếp** giữa các vật thể, hoặc giữa các phân tử trong một vật. Đó là lý do tay bạn bị nóng khi chạm vào một thanh kim loại nóng (phân tử kim loại nóng va chạm và truyền năng lượng vào tay bạn).",
+        "tags": [
+            "dẫn nhiệt",
+            "conduction",
+            "tiếp xúc trực tiếp",
+            "kim loại"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat traveling along a metal spoon when one end is placed in a hot liquid, due to direct molecular contact"
+    },
+    {
+        "id": 157,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Truyền nhiệt bằng Đối lưu (Convection) là gì?",
+        "answer": "Đối lưu là sự truyền nhiệt xảy ra trong **chất lỏng** (liquid) và **chất khí** (gas). Vật chất nóng hơn (ít đặc hơn) **bốc lên**, và vật chất lạnh hơn (đặc hơn) **chìm xuống**, tạo ra một dòng chảy tuần hoàn (current) để truyền nhiệt.",
+        "tags": [
+            "đối lưu",
+            "convection",
+            "chất lỏng",
+            "chất khí",
+            "dòng chảy"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pot of water being heated: the hot water rises, the cold water sinks, creating a circulating convection current"
+    },
+    {
+        "id": 158,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Truyền nhiệt bằng Bức xạ (Radiation) là gì?",
+        "answer": "Bức xạ là sự truyền nhiệt thông qua **sóng điện từ** (electromagnetic waves), bao gồm cả ánh sáng nhìn thấy và tia hồng ngoại. Đây là cách Mặt trời truyền nhiệt qua chân không để làm ấm Trái Đất mà không cần tiếp xúc hay môi trường vật chất.",
+        "tags": [
+            "bức xạ",
+            "radiation",
+            "sóng điện từ",
+            "mặt trời",
+            "chân không"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat from the sun traveling through space as electromagnetic waves to warm the Earth"
+    },
+    {
+        "id": 159,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao các vật dẫn nhiệt (Conductors) lại truyền nhiệt tốt?",
+        "answer": "Các vật liệu dẫn nhiệt tốt (như kim loại) có các electron có thể **di chuyển tự do** và nhanh chóng truyền năng lượng rung động (nhiệt) từ phân tử này sang phân tử khác. Đó là lý do nồi nấu ăn được làm bằng kim loại.",
+        "tags": [
+            "vật dẫn nhiệt",
+            "conductors",
+            "kim loại",
+            "electron tự do"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the rapid transfer of heat energy through a metallic conductor versus the slow transfer through an insulator"
+    },
+    {
+        "id": 160,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vật liệu cách nhiệt (Insulators) hoạt động như thế nào?",
+        "answer": "Vật liệu cách nhiệt (như len, gỗ, không khí) **chặn** sự truyền nhiệt. Chúng không có các electron tự do và thường có rất nhiều túi không khí bị kẹt lại. **Không khí** là một chất cách nhiệt tuyệt vời, làm chậm sự truyền nhiệt bằng dẫn nhiệt và đối lưu.",
+        "tags": [
+            "vật liệu cách nhiệt",
+            "insulators",
+            "không khí",
+            "chặn nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thick wool sweater with air pockets trapping heat close to the body, acting as an insulator"
+    },
+    {
+        "id": 161,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Quá trình sôi (Boiling) khác bay hơi (Evaporation) như thế nào?",
+        "answer": "**Bay hơi** xảy ra ở bất kỳ nhiệt độ nào và chỉ xảy ra ở **bề mặt** chất lỏng. **Sôi** xảy ra ở một nhiệt độ cố định (điểm sôi) và xảy ra **khắp** chất lỏng, tạo ra các bong bóng hơi nước lớn.",
+        "tags": [
+            "sôi",
+            "bay hơi",
+            "điểm sôi",
+            "bề mặt"
+        ],
+        "illustration_prompt": "cute educational diagram comparing evaporation (surface only, any temp) vs boiling (full liquid, fixed temp, forming bubbles)"
+    },
+    {
+        "id": 162,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao một vật rắn có hình dạng cố định?",
+        "answer": "Trong chất rắn, các phân tử được sắp xếp chặt chẽ, có trật tự và bị **khóa** vào vị trí. Chúng chỉ có thể rung động tại chỗ. Mối liên kết mạnh mẽ này giữ cho vật rắn có **hình dạng và thể tích cố định**.",
+        "tags": [
+            "chất rắn",
+            "hình dạng cố định",
+            "phân tử khóa",
+            "liên kết mạnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing the tightly packed, orderly arrangement of molecules in a solid state"
+    },
+    {
+        "id": 163,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điều gì khiến một chất lỏng đổ ra nhưng vẫn giữ nguyên thể tích?",
+        "answer": "Trong chất lỏng, các phân tử **vẫn gần nhau** (giữ nguyên thể tích) nhưng chúng có đủ năng lượng để **trượt qua nhau** (cho phép chất lỏng thay đổi hình dạng và chảy).",
+        "tags": [
+            "chất lỏng",
+            "trượt qua nhau",
+            "thay đổi hình dạng",
+            "giữ thể tích"
+        ],
+        "illustration_prompt": "cute educational diagram showing liquid molecules close together but randomly arranged, allowing them to flow and change shape"
+    },
+    {
+        "id": 164,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao chất khí (Gas) không có hình dạng hay thể tích cố định?",
+        "answer": "Trong chất khí, các phân tử có **rất nhiều năng lượng** và di chuyển rất nhanh, ngẫu nhiên. Chúng ở **rất xa nhau** và không bị ràng buộc. Điều này khiến chất khí chiếm toàn bộ không gian chứa nó.",
+        "tags": [
+            "chất khí",
+            "năng lượng cao",
+            "không hình dạng",
+            "phân tử xa nhau"
+        ],
+        "illustration_prompt": "cute educational diagram showing gas molecules widely separated and moving randomly and rapidly throughout a container"
+    },
+    {
+        "id": 165,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Trạng thái vật chất thứ tư, Plasma, là gì?",
+        "answer": "Plasma là một chất khí bị **ion hóa** (ionised gas) cực nóng, nơi các electron đã bị tách ra khỏi nguyên tử. Đây là trạng thái vật chất **phổ biến nhất** trong vũ trụ, tạo nên **Mặt trời và các ngôi sao**.",
+        "tags": [
+            "plasma",
+            "ion hóa",
+            "trạng thái thứ tư",
+            "ngôi sao"
+        ],
+        "illustration_prompt": "cute educational diagram showing plasma as a hot gas where electrons have been stripped from the atoms"
+    },
+    {
+        "id": 166,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự giãn nở vì nhiệt (Thermal Expansion) là gì?",
+        "answer": "Giãn nở vì nhiệt là xu hướng của vật chất thay đổi hình dạng, diện tích hoặc thể tích để đáp ứng với sự **thay đổi nhiệt độ**. Khi nóng lên, các phân tử rung mạnh hơn, cần nhiều không gian hơn, khiến vật chất **giãn nở** ra.",
+        "tags": [
+            "giãn nở vì nhiệt",
+            "thermal expansion",
+            "tăng nhiệt độ",
+            "giãn ra"
+        ],
+        "illustration_prompt": "cute educational diagram showing a metal rod expanding in length when heated, and shrinking when cooled"
+    },
+    {
+        "id": 167,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao chúng ta cảm thấy lạnh khi ra khỏi hồ bơi?",
+        "answer": "Nước trên da bạn đang **bay hơi**. Để chuyển từ lỏng sang khí, các phân tử nước cần năng lượng nhiệt. Chúng lấy nhiệt **từ chính da bạn**, khiến da bạn mất nhiệt và bạn cảm thấy lạnh.",
+        "tags": [
+            "bay hơi",
+            "mất nhiệt",
+            "làm mát",
+            "hồ bơi"
+        ],
+        "illustration_prompt": "cute educational illustration of a person exiting a pool feeling cold because the evaporating water on their skin is drawing heat away from their body"
+    },
+    {
+        "id": 168,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao nước là ngoại lệ duy nhất khi đóng băng?",
+        "answer": "Hầu hết các chất co lại (trở nên đặc hơn) khi đóng băng. Tuy nhiên, nước khi đông đặc lại **giãn nở** (trở nên ít đặc hơn). Điều này là do các phân tử nước tạo thành cấu trúc mạng tinh thể mở khi đóng băng, khiến băng **nổi** trên nước lỏng.",
+        "tags": [
+            "ngoại lệ",
+            "giãn nở",
+            "băng nổi",
+            "mật độ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the dense structure of liquid water with the open, less dense crystalline structure of ice"
+    },
+    {
+        "id": 169,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Hơi nước bão hòa (Saturation) là gì?",
+        "answer": "Bão hòa là khi không khí đã chứa **lượng hơi nước tối đa** mà nó có thể chứa ở một nhiệt độ nhất định. Nếu không khí bão hòa bị làm lạnh, hơi nước dư thừa sẽ phải ngưng tụ lại thành giọt nước (ví dụ: tạo ra sương mù hoặc mưa).",
+        "tags": [
+            "bão hòa",
+            "saturation",
+            "hơi nước tối đa",
+            "ngưng tụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing air molecules filled completely with water vapor molecules, indicating 100% saturation"
+    },
+    {
+        "id": 170,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Làm thế nào nhiệt độ ảnh hưởng đến phản ứng hóa học?",
+        "answer": "Tăng nhiệt độ làm cho các phân tử chuyển động nhanh hơn và va chạm vào nhau **thường xuyên và mạnh mẽ hơn**. Điều này thường làm cho các phản ứng hóa học (ví dụ: nấu ăn, hòa tan đường) xảy ra **nhanh hơn**.",
+        "tags": [
+            "phản ứng hóa học",
+            "tăng nhiệt độ",
+            "va chạm",
+            "nhanh hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing two molecules colliding more frequently and energetically at a higher temperature"
+    },
+    {
+        "id": 171,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nước sôi ở 100°C luôn đúng không?",
+        "answer": "Không hoàn toàn. 100°C là điểm sôi của nước ở **áp suất khí quyển tiêu chuẩn** (áp suất mực nước biển). Ở nơi có độ cao lớn (ví dụ: trên núi), áp suất thấp hơn, và nước sẽ sôi ở **nhiệt độ thấp hơn** 100°C.",
+        "tags": [
+            "điểm sôi",
+            "áp suất",
+            "độ cao",
+            "100 độ C"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pot of water boiling at a lower temperature on a mountain (low pressure) compared to at sea level (high pressure)"
+    },
+    {
+        "id": 172,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Làm thế nào tủ lạnh hoạt động để làm lạnh thực phẩm?",
+        "answer": "Tủ lạnh không thực sự 'thêm lạnh' vào thực phẩm. Thay vào đó, nó sử dụng chất lỏng đặc biệt (chất làm lạnh) để **hút nhiệt** ra khỏi không khí bên trong hộp và **thải nhiệt đó ra ngoài** (ở mặt sau hoặc đáy tủ lạnh), làm cho bên trong mát hơn.",
+        "tags": [
+            "tủ lạnh",
+            "hút nhiệt",
+            "chất làm lạnh",
+            "truyền nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing the refrigeration cycle: coolant absorbing heat inside the fridge and releasing heat outside the fridge"
+    },
+    {
+        "id": 173,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vì sao chúng ta cảm thấy độ ẩm (Humidity) cao khiến trời nóng hơn?",
+        "answer": "Khi độ ẩm cao, không khí đã chứa gần hết hơi nước. Điều này làm cho **sự bay hơi** của mồ hôi trên da chúng ta diễn ra rất chậm (hoặc không xảy ra). Vì cơ thể không thể tự làm mát bằng bay hơi, chúng ta cảm thấy nóng hơn nhiều.",
+        "tags": [
+            "độ ẩm cao",
+            "mồ hôi",
+            "bay hơi",
+            "làm mát cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a dry environment (fast sweat evaporation/cooling) and a humid environment (slow sweat evaporation/feeling hotter)"
+    },
+    {
+        "id": 174,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm Ba (Triple Point) của nước là gì?",
+        "answer": "Điểm ba là một nhiệt độ và áp suất rất cụ thể mà tại đó, nước có thể tồn tại đồng thời ở cả **ba trạng thái: rắn (băng), lỏng (nước), và khí (hơi nước)**. Điểm ba của nước là 0.01°C và áp suất khoảng $611.7 \text{ Pascals}$ (rất thấp).",
+        "tags": [
+            "điểm ba",
+            "triple point",
+            "rắn lỏng khí",
+            "cân bằng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a glass container where ice, liquid water, and water vapor coexist in equilibrium at the triple point"
+    },
+    {
+        "id": 175,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Làm thế nào mà lò vi sóng làm nóng thức ăn?",
+        "answer": "Lò vi sóng tạo ra **sóng điện từ** (microwave) có tần số đặc biệt. Các sóng này làm cho **các phân tử nước** (và chất béo) trong thực phẩm rung động cực nhanh, tạo ra ma sát và sinh ra nhiệt, làm nóng thức ăn từ bên trong.",
+        "tags": [
+            "lò vi sóng",
+            "microwave",
+            "sóng điện từ",
+            "phân tử nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing microwave energy penetrating food and causing water molecules to rapidly vibrate and heat up"
+    },
+    {
+        "id": 176,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự ngưng tụ (Condensation) là một quá trình tỏa nhiệt hay thu nhiệt?",
+        "answer": "Ngưng tụ (khí sang lỏng) là một quá trình **tỏa nhiệt** (Exothermic). Khi các phân tử hơi nước chậm lại để trở thành chất lỏng, chúng giải phóng **năng lượng nhiệt** trở lại môi trường xung quanh (đó là lý do tại sao hơi nước nóng có thể gây bỏng nghiêm trọng hơn nước sôi).",
+        "tags": [
+            "ngưng tụ",
+            "tỏa nhiệt",
+            "exothermic",
+            "giải phóng năng lượng"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor molecules losing heat and releasing that heat energy back into the surrounding air as they condense into liquid"
+    },
+    {
+        "id": 177,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm không tuyệt đối (Absolute Zero) là gì?",
+        "answer": "Không tuyệt đối (0° Kelvin hoặc -273.15°C) là **nhiệt độ lạnh nhất có thể**. Tại nhiệt độ này, về mặt lý thuyết, mọi chuyển động của các phân tử và nguyên tử trong vật chất **ngừng hoàn toàn**. Đây là giới hạn dưới của thang đo nhiệt độ.",
+        "tags": [
+            "không tuyệt đối",
+            "absolute zero",
+            "0 Kelvin",
+            "ngừng chuyển động"
+        ],
+        "illustration_prompt": "cute educational illustration showing atoms at absolute zero, completely stationary and not vibrating"
+    },
+    {
+        "id": 178,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao các cây cầu được xây dựng với khe hở (Expansion Joints)?",
+        "answer": "Khe hở (khớp giãn nở) được thêm vào để cho phép cầu **giãn nở** vào mùa hè (khi nóng) và **co lại** vào mùa đông (khi lạnh) do sự thay đổi nhiệt độ. Nếu không có khe hở, sự giãn nở có thể làm cầu bị nứt hoặc cong vênh.",
+        "tags": [
+            "cầu",
+            "khe hở",
+            "giãn nở",
+            "co lại"
+        ],
+        "illustration_prompt": "cute educational diagram showing the expansion joints of a bridge closing slightly in hot weather and opening slightly in cold weather"
+    },
+    {
+        "id": 179,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Quá trình thăng hoa (Sublimation) trong cuộc sống hàng ngày là gì?",
+        "answer": "Thăng hoa (rắn sang khí mà không qua lỏng) phổ biến nhất là **băng khô** (đá $\text{CO}_2$ rắn) và sự **biến mất của tuyết** vào một ngày lạnh nhưng đầy nắng. Băng khô trực tiếp chuyển thành khí $\text{CO}_2$ thay vì tan chảy.",
+        "tags": [
+            "thăng hoa",
+            "sublimation",
+            "băng khô",
+            "đá CO2"
+        ],
+        "illustration_prompt": "cute educational diagram showing a block of dry ice emitting visible fog as it turns directly into carbon dioxide gas"
+    },
+    {
+        "id": 180,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Quá trình bay hơi (Evaporation) là một quá trình tỏa nhiệt hay thu nhiệt?",
+        "answer": "Bay hơi (lỏng sang khí) là một quá trình **thu nhiệt** (Endothermic). Nó **hấp thụ** năng lượng nhiệt từ môi trường xung quanh (như da bạn) để cung cấp cho các phân tử nước năng lượng cần thiết để chuyển thành khí. Đây là cơ chế làm mát chính của cơ thể.",
+        "tags": [
+            "bay hơi",
+            "thu nhiệt",
+            "endothermic",
+            "cơ chế làm mát"
+        ],
+        "illustration_prompt": "cute educational diagram showing liquid water molecules absorbing heat energy from the surrounding surface as they escape into the air as vapor"
+    },
+    {
+        "id": 181,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực (Force) là gì?",
+        "answer": "Lực là một sự **tác động kéo hoặc đẩy** có thể làm vật thể **thay đổi chuyển động** (tăng tốc, giảm tốc, hoặc đổi hướng) hoặc làm vật thể **biến dạng**. Mọi thứ xảy ra trong vũ trụ đều là kết quả của các lực.",
+        "tags": [
+            "lực",
+            "kéo đẩy",
+            "thay đổi chuyển động",
+            "biến dạng"
+        ],
+        "illustration_prompt": "cute educational diagram showing two people applying force: one pushing a box and one pulling a wagon, causing movement"
+    },
+    {
+        "id": 182,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Trọng lực (Weight) khác Khối lượng (Mass) như thế nào?",
+        "answer": "**Khối lượng** là lượng vật chất tạo nên vật thể (luôn không đổi). **Trọng lực** (hay Trọng lượng) là lực **hấp dẫn** kéo khối lượng đó xuống. Trọng lực của bạn sẽ **thay đổi** nếu bạn lên Mặt trăng (ít hấp dẫn hơn), nhưng khối lượng của bạn thì **không đổi**.",
+        "tags": [
+            "trọng lực",
+            "khối lượng",
+            "mass",
+            "weight",
+            "hấp dẫn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person's mass being the same on Earth and the Moon, but their weight being much less on the Moon"
+    },
+    {
+        "id": 183,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Căng (Tension) là gì?",
+        "answer": "Lực căng là lực **kéo** được truyền qua một sợi dây, cáp, hoặc dây xích khi nó được kéo căng từ hai đầu. Ví dụ: lực căng giữ cho cầu treo đứng vững hoặc lực trong dây diều.",
+        "tags": [
+            "lực căng",
+            "tension",
+            "sợi dây",
+            "kéo căng",
+            "cầu treo"
+        ],
+        "illustration_prompt": "cute educational diagram showing a string being pulled tight from both ends, illustrating the internal tension force"
+    },
+    {
+        "id": 184,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Nén (Compression) là gì?",
+        "answer": "Lực nén là lực **đẩy** dồn lại hoặc ép vào nhau, khiến một vật thể bị **co lại** hoặc bị bóp méo. Lực nén được sử dụng trong các cây cầu hoặc cột nhà để chịu tải trọng từ trên xuống.",
+        "tags": [
+            "lực nén",
+            "compression",
+            "đẩy dồn",
+            "co lại",
+            "cột nhà"
+        ],
+        "illustration_prompt": "cute educational diagram showing a building column with downward force being met by an equal upward compression force within the column"
+    },
+    {
+        "id": 185,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Định luật 1 Newton (Luật Quán tính) là gì?",
+        "answer": "Định luật 1 Newton nói rằng: Một vật thể sẽ **duy trì trạng thái nghỉ** hoặc **chuyển động thẳng đều** của nó, trừ khi có **lực tổng hợp khác không** tác dụng lên nó. Nói cách khác, vật thể sẽ tiếp tục làm những gì nó đang làm, trừ khi bị đẩy hoặc kéo.",
+        "tags": [
+            "định luật newton 1",
+            "quán tính",
+            "inertia",
+            "lực tổng hợp"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating Newton's 1st law: a soccer ball at rest staying still until kicked, and a moving object continuing to move unless stopped"
+    },
+    {
+        "id": 186,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Định luật 2 Newton (F=ma) là gì?",
+        "answer": "Định luật 2 Newton nói về mối quan hệ giữa lực, khối lượng và gia tốc. Nó có thể tóm tắt là: Cần một **lực lớn hơn** để tăng tốc vật thể có **khối lượng lớn hơn**. ($F = ma$)",
+        "tags": [
+            "định luật newton 2",
+            "F=ma",
+            "khối lượng",
+            "gia tốc",
+            "lực lớn hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a small person pushing a large elephant (requiring a large force for small acceleration) versus the same person pushing a small car (requiring a small force for large acceleration)"
+    },
+    {
+        "id": 187,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Định luật 3 Newton (Luật Hành động và Phản ứng) là gì?",
+        "answer": "Định luật 3 Newton nói rằng: Đối với mọi lực **hành động** (action) đều có một lực **phản ứng** (reaction) **bằng nhau và ngược chiều**. Đây là cách bạn có thể đi bộ: chân bạn đẩy đất lùi, và đất đẩy chân bạn tiến về phía trước.",
+        "tags": [
+            "định luật newton 3",
+            "hành động phản ứng",
+            "ngược chiều",
+            "đi bộ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person walking: the foot pushes the ground backward (action), and the ground pushes the foot forward (reaction)"
+    },
+    {
+        "id": 188,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Bình thường (Normal Force) là gì?",
+        "answer": "Lực bình thường là lực **đẩy lên** mà một bề mặt (như sàn nhà hoặc mặt bàn) tác dụng vuông góc lên một vật thể để **chống lại** trọng lực. Đó là lý do tại sao bạn không rơi xuyên qua sàn nhà khi bạn đứng.",
+        "tags": [
+            "lực bình thường",
+            "normal force",
+            "phản lực",
+            "vuông góc",
+            "chống trọng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a block resting on a table, with a downward gravity force arrow and an equal upward normal force arrow"
+    },
+    {
+        "id": 189,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Tổng hợp (Net Force) là gì?",
+        "answer": "Lực tổng hợp là **tổng** của tất cả các lực riêng lẻ tác dụng lên một vật thể. Nếu lực tổng hợp khác không, vật thể sẽ **thay đổi chuyển động** (tăng tốc). Nếu lực tổng hợp bằng không (lực cân bằng), vật thể sẽ đứng yên hoặc chuyển động đều.",
+        "tags": [
+            "lực tổng hợp",
+            "net force",
+            "lực cân bằng",
+            "thay đổi chuyển động"
+        ],
+        "illustration_prompt": "cute educational diagram showing two people pulling a box: one pulling right with 10N and one pulling left with 5N, resulting in a net force of 5N to the right"
+    },
+    {
+        "id": 190,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Khi nào các lực được coi là Cân bằng (Balanced Forces)?",
+        "answer": "Các lực được coi là cân bằng khi lực tổng hợp tác dụng lên vật thể **bằng không**. Khi đó, vật thể sẽ **không thay đổi chuyển động**. Ví dụ: một cuốn sách nằm yên trên bàn (trọng lực và phản lực cân bằng nhau).",
+        "tags": [
+            "lực cân bằng",
+            "balanced forces",
+            "tổng lực bằng 0",
+            "đứng yên"
+        ],
+        "illustration_prompt": "cute educational diagram showing a tug-of-war where both sides are pulling with equal force, resulting in no movement"
+    },
+    {
+        "id": 191,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực cơ học (Applied Force) là gì?",
+        "answer": "Lực cơ học là lực **kéo hoặc đẩy trực tiếp** do một người, động vật hoặc máy móc tác dụng lên một vật thể. Đây là lực bạn sử dụng khi đá bóng, nâng tạ, hoặc đẩy xe hàng.",
+        "tags": [
+            "lực cơ học",
+            "applied force",
+            "kéo đẩy trực tiếp",
+            "đá bóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a hand applying a direct pushing force to a box"
+    },
+    {
+        "id": 192,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Sự khác biệt giữa Lực tiếp xúc (Contact Force) và Lực không tiếp xúc (Non-Contact Force) là gì?",
+        "answer": "**Tiếp xúc** xảy ra khi hai vật thể chạm vào nhau (ví dụ: ma sát, kéo, đẩy). **Không tiếp xúc** xảy ra ngay cả khi vật thể không chạm vào nhau (ví dụ: trọng lực, từ tính, tĩnh điện).",
+        "tags": [
+            "lực tiếp xúc",
+            "lực không tiếp xúc",
+            "trọng lực",
+            "ma sát",
+            "từ tính"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a contact force (a hand pushing a box) and a non-contact force (a magnet pulling metal from a distance)"
+    },
+    {
+        "id": 193,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Vì sao các vận động viên nhảy cao lại rơi xuống?",
+        "answer": "Ngay cả khi vận động viên nhảy lên, **trọng lực** vẫn liên tục kéo họ xuống. Trọng lực làm cho chuyển động đi lên của họ chậm lại (gia tốc âm) và cuối cùng đảo ngược hướng, kéo họ rơi trở lại mặt đất.",
+        "tags": [
+            "nhảy cao",
+            "trọng lực",
+            "kéo xuống",
+            "gia tốc âm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a high jumper at the peak of their jump, with a constant downward gravity arrow acting on them"
+    },
+    {
+        "id": 194,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Làm thế nào tên lửa hoạt động dựa trên Định luật 3 Newton?",
+        "answer": "Tên lửa đẩy một lượng lớn khí nóng và khí thải **xuống dưới** (Hành động). Khí thải này đẩy ngược lại tên lửa **lên trên** (Phản ứng). Lực phản ứng này, gọi là lực đẩy, là thứ đưa tên lửa vào không gian.",
+        "tags": [
+            "tên lửa",
+            "định luật newton 3",
+            "lực đẩy",
+            "khí thải"
+        ],
+        "illustration_prompt": "cute educational diagram showing a rocket firing downward exhaust (action force) resulting in an upward thrust (reaction force)"
+    },
+    {
+        "id": 195,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Vì sao ma sát có thể là lực hữu ích?",
+        "answer": "Ma sát rất hữu ích vì nó tạo ra **lực bám** (grip) và **chống lại sự trượt**. Không có ma sát, bạn không thể đi bộ, ô tô không thể phanh, và các vật dụng không thể giữ nguyên vị trí khi đặt trên bề mặt nghiêng.",
+        "tags": [
+            "ma sát",
+            "hữu ích",
+            "lực bám",
+            "trượt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person walking safely on a normal sidewalk due to friction"
+    },
+    {
+        "id": 196,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Điều gì quyết định một chiếc thuyền sẽ nổi hay chìm?",
+        "answer": "Điều này phụ thuộc vào sự cân bằng giữa **Trọng lực** (kéo thuyền xuống) và **Lực Nổi (Buoyancy)** (lực đẩy của nước lên). Thuyền sẽ nổi nếu lực nổi lớn hơn trọng lực (khối lượng riêng của thuyền nhỏ hơn nước).",
+        "tags": [
+            "nổi chìm",
+            "lực nổi",
+            "buoyancy",
+            "trọng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a boat floating: the upward buoyancy arrow is larger than the downward gravity arrow"
+    },
+    {
+        "id": 197,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Làm thế nào lực đẩy của gió ảnh hưởng đến chuyển động của buồm?",
+        "answer": "Buồm được thiết kế để hoạt động giống như cánh máy bay. Gió đẩy buồm, nhưng quan trọng hơn, buồm tạo ra sự chênh lệch áp suất (như lực nâng), tạo ra lực đẩy ngang giúp thuyền buồm di chuyển **thẳng góc** với gió, không chỉ xuôi theo gió.",
+        "tags": [
+            "buồm",
+            "lực đẩy gió",
+            "lực nâng",
+            "chênh lệch áp suất"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sailboat sailing into the wind, with the sail generating lift like an airplane wing"
+    },
+    {
+        "id": 198,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực đàn hồi (Elastic Force) là gì?",
+        "answer": "Lực đàn hồi là lực **phục hồi** mà một vật liệu bị kéo căng (như lò xo hoặc dây cao su) tạo ra để cố gắng trở về hình dạng ban đầu của nó. Lực này luôn ngược hướng với lực biến dạng.",
+        "tags": [
+            "lực đàn hồi",
+            "elastic force",
+            "phục hồi",
+            "lò xo"
+        ],
+        "illustration_prompt": "cute educational diagram showing a spring being stretched (action) and the spring pulling back with an elastic force (reaction)"
+    },
+    {
+        "id": 199,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Làm thế nào chúng ta có thể làm giảm ma sát khi cần?",
+        "answer": "Chúng ta có thể giảm ma sát bằng cách sử dụng **chất bôi trơn** (dầu, mỡ) hoặc làm cho bề mặt **nhẵn hơn**. Một cách khác là thay thế ma sát trượt bằng **ma sát lăn** (ví dụ: dùng bánh xe hoặc bi lăn).",
+        "tags": [
+            "giảm ma sát",
+            "chất bôi trơn",
+            "bánh xe",
+            "ma sát lăn"
+        ],
+        "illustration_prompt": "cute educational illustration comparing an object sliding on a rough surface and the same object rolling on a ball bearing (reducing friction)"
+    },
+    {
+        "id": 200,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Hướng tâm (Centripetal Force) là gì?",
+        "answer": "Lực hướng tâm là lực **kéo một vật thể vào trong** (về phía trung tâm) để giữ nó chuyển động theo **quỹ đạo tròn**. Ví dụ: Dây giữ quả bóng quay vòng trên đầu bạn đang tạo ra lực hướng tâm.",
+        "tags": [
+            "lực hướng tâm",
+            "centripetal force",
+            "quỹ đạo tròn",
+            "kéo vào trung tâm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a ball being swung in a circle on a string, with the tension in the string providing the centripetal force pointing towards the center"
+    },
+    {
+        "id": 201,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Sự khác biệt giữa Lực hấp dẫn và Lực điện từ (Electromagnetic Force) là gì?",
+        "answer": "Cả hai đều là lực cơ bản. **Hấp dẫn** hoạt động trên mọi thứ có khối lượng và chỉ có tính chất **kéo** (attraction). **Điện từ** hoạt động trên các vật thể tích điện (proton, electron) và có thể **kéo** (từ trường) hoặc **đẩy** (tĩnh điện).",
+        "tags": [
+            "lực hấp dẫn",
+            "lực điện từ",
+            "kéo đẩy",
+            "tích điện"
+        ],
+        "illustration_prompt": "cute educational diagram comparing gravity (only pulls) and electromagnetism (pushes and pulls, shown with magnets)"
+    },
+    {
+        "id": 202,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Khi nào một chiếc xe đạp đang di chuyển có 'Lực tổng hợp' bằng không?",
+        "answer": "Lực tổng hợp bằng không khi xe đạp di chuyển với **tốc độ không đổi** (không tăng tốc, không giảm tốc). Điều này xảy ra khi lực đẩy của người đạp xe **cân bằng** hoàn toàn với lực ma sát và lực cản không khí.",
+        "tags": [
+            "xe đạp",
+            "lực tổng hợp bằng 0",
+            "tốc độ không đổi",
+            "cân bằng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a bicycle moving at constant speed, where the forward pedaling force is equal to the backward friction and drag forces"
+    },
+    {
+        "id": 203,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực làm việc (Work) trong vật lý là gì?",
+        "answer": "Lực làm việc xảy ra khi bạn tác dụng một lực và làm cho vật thể **chuyển động theo hướng của lực** đó. Công thức là **Công (W) = Lực (F) x Quãng đường (d)**. Nếu bạn đẩy tường nhưng tường không di chuyển, bạn **không làm việc** về mặt vật lý.",
+        "tags": [
+            "công",
+            "work",
+            "lực",
+            "quãng đường",
+            "chuyển động"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person pushing a box across the floor (work is done) versus a person pushing a stationary wall (no work is done)"
+    },
+    {
+        "id": 204,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Vì sao các đường hầm lại có hình dạng cong (Arc)?",
+        "answer": "Hình dạng cong (vòm) là cấu trúc rất tốt để chịu được **lực nén** lớn. Hình vòng cung giúp chuyển hướng trọng lượng của vật liệu trên nó (đất, đá) sang hai bên trụ, thay vì tập trung lực nén thẳng xuống, giúp đường hầm vững chắc hơn.",
+        "tags": [
+            "đường hầm",
+            "hình vòm",
+            "lực nén",
+            "chuyển hướng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a curved tunnel arch distributing the downward load forces outward towards the side supports"
+    },
+    {
+        "id": 205,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Phân bón và nước được hút lên cây nhờ lực gì?",
+        "answer": "Nước và chất dinh dưỡng di chuyển lên từ rễ nhờ **Lực Mao dẫn (Capillary Action)**. Lực này là sự kết hợp của lực **dính** (nước bám vào thành ống dẫn) và lực **liên kết** (các phân tử nước kéo nhau lên), cho phép chất lỏng di chuyển ngược trọng lực.",
+        "tags": [
+            "lực mao dẫn",
+            "capillary action",
+            "lực dính",
+            "lực liên kết"
+        ],
+        "illustration_prompt": "cute educational diagram showing water molecules climbing up a thin tube against gravity due to adhesion and cohesion forces"
+    },
+    {
+        "id": 206,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Sự khác biệt giữa Lực hấp dẫn trên Trái Đất và Mặt trăng?",
+        "answer": "Lực hấp dẫn trên Mặt trăng chỉ bằng khoảng **1/6** lực hấp dẫn trên Trái Đất. Điều này là do Mặt trăng có **khối lượng nhỏ hơn** nhiều. Đó là lý do phi hành gia có thể nhảy rất cao và đi lại nhẹ nhàng trên bề mặt Mặt trăng.",
+        "tags": [
+            "mặt trăng",
+            "lực hấp dẫn",
+            "1/6",
+            "khối lượng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a person jumping normally on Earth versus jumping six times higher on the Moon"
+    },
+    {
+        "id": 207,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Làm thế nào chúng ta sử dụng Định luật 3 Newton khi bơi?",
+        "answer": "Khi bơi, bạn dùng tay và chân **đẩy nước về phía sau** (Hành động). Nước đẩy ngược lại bạn **về phía trước** (Phản ứng), giúp bạn di chuyển qua nước. Đây là nguyên tắc cơ bản cho mọi chuyển động đẩy trong nước.",
+        "tags": [
+            "bơi",
+            "định luật newton 3",
+            "đẩy nước",
+            "lực phản ứng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a swimmer pushing water backward with their hand (action) and the water pushing the swimmer forward (reaction)"
+    },
+    {
+        "id": 208,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Vì sao mọi vật đều rơi xuống đất với cùng một gia tốc (Acceleration)?",
+        "answer": "Mặc dù vật thể nặng hơn chịu lực hấp dẫn lớn hơn, nhưng theo Định luật 2 Newton ($F=ma$), vật nặng hơn cũng có **quán tính** (khối lượng) lớn hơn để chống lại sự tăng tốc. Hai yếu tố này **triệt tiêu** lẫn nhau, khiến mọi vật (bỏ qua sức cản không khí) rơi với cùng một gia tốc khoảng $9.8 \text{ m/s}^2$.",
+        "tags": [
+            "gia tốc rơi",
+            "9.8 m/s^2",
+            "định luật newton 2",
+            "quán tính"
+        ],
+        "illustration_prompt": "cute educational diagram showing two different mass objects falling side-by-side at the same acceleration rate"
+    },
+    {
+        "id": 209,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Lực Cắt (Shear Force) là gì?",
+        "answer": "Lực cắt là lực tác dụng **song song** (hoặc tiếp tuyến) với một bề mặt, khiến các lớp vật liệu trượt qua nhau. Lực này có thể làm cắt một tờ giấy bằng kéo hoặc làm biến dạng cấu trúc của đất trong động đất.",
+        "tags": [
+            "lực cắt",
+            "shear force",
+            "song song",
+            "kéo",
+            "động đất"
+        ],
+        "illustration_prompt": "cute educational diagram showing two opposing parallel forces pushing on the top and bottom of a cube, causing a shearing deformation"
+    },
+    {
+        "id": 210,
+        "category": "Hiện tượng tự nhiên",
+        "sub_category": "Lực cơ bản trong đời sống",
+        "question": "Tầm quan trọng của Lực hướng tâm trong việc quay ô tô là gì?",
+        "answer": "Để ô tô chuyển hướng (rẽ), cần phải có **lực hướng tâm** kéo ô tô vào tâm của vòng cua. Lực này chủ yếu đến từ **ma sát** giữa lốp xe và mặt đường. Nếu ma sát không đủ (đường trơn), xe sẽ bị văng ra ngoài (trượt).",
+        "tags": [
+            "lực hướng tâm",
+            "quay ô tô",
+            "ma sát lốp",
+            "đường trơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a car turning on a curve, with a centripetal force arrow pointing inward provided by the friction between the tires and the road"
+    }
+]

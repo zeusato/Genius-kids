@@ -1,11 +1,11 @@
 import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
-import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText } from 'lucide-react';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop') => void;
+    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy') => void;
     onLogout: () => void;
 }
 
@@ -69,7 +69,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
                 {/* Study Mode */}
                 <button
                     onClick={() => onSelectMode('study')}
@@ -133,6 +133,40 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                             </span>
                             <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
                                 Thử thách
+                            </span>
+                        </div>
+                    </div>
+                </button>
+
+                {/* Tell Me Why Mode */}
+                <button
+                    onClick={() => onSelectMode('tellmewhy')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-yellow-400 hover:scale-105 animate-in fade-in slide-in-from-bottom duration-500"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="relative z-10">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <BookText size={48} className="text-white" />
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-yellow-600 transition-colors">
+                            1000 Câu hỏi
+                        </h2>
+
+                        <p className="text-slate-600 text-lg">
+                            Khám phá tri thức qua câu hỏi vì sao
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
+                                Động vật
+                            </span>
+                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
+                                Khoa học
+                            </span>
+                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
+                                Tự nhiên
                             </span>
                         </div>
                     </div>

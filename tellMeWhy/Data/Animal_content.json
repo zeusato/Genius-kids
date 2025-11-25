@@ -1,0 +1,2942 @@
+[
+    {
+        "id": 1,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao cá voi xanh lại to lớn được đến thế?",
+        "answer": "Nhờ sống dưới nước, lực nâng của đại dương giúp nâng đỡ cơ thể khổng lồ của chúng. Nếu sống trên cạn, trọng lượng hàng trăm tấn sẽ khiến khung xương của chúng bị gãy nát. Bạn có biết tim của cá voi xanh to bằng một chiếc ô tô con không?",
+        "tags": [
+            "cá voi xanh",
+            "đại dương",
+            "kích thước",
+            "trái tim"
+        ],
+        "illustration_prompt": "cute educational illustration of a blue whale comparing size with a small car inside its body outline, simple style, ocean blue colors"
+    },
+    {
+        "id": 2,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Sự thật về cái bướu của lạc đà là gì?",
+        "answer": "Nhiều người nghĩ bướu chứa nước, nhưng thực ra nó chứa mỡ. Lạc đà dùng khối mỡ này làm năng lượng dự trữ khi đi qua sa mạc khắc nghiệt. Ngoài ra, việc tập trung mỡ ở lưng giúp toàn bộ cơ thể mát mẻ hơn vì không bị lớp mỡ bao quanh giữ nhiệt.",
+        "tags": [
+            "lạc đà",
+            "sa mạc",
+            "bướu",
+            "mỡ"
+        ],
+        "illustration_prompt": "cute educational illustration of a camel with a hump shown as a battery energy icon, desert background, bright sun"
+    },
+    {
+        "id": 3,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vì sao lưỡi hươu cao cổ lại có màu xanh đen?",
+        "answer": "Hươu cao cổ dành phần lớn thời gian trong ngày để thè lưỡi ăn lá cây dưới nắng gắt. Màu sắc sẫm (xanh đen hoặc tím) hoạt động như một lớp kem chống nắng tự nhiên, giúp lưỡi của chúng không bị cháy nắng hay phồng rộp.",
+        "tags": [
+            "hươu cao cổ",
+            "lưỡi",
+            "màu sắc",
+            "chống nắng"
+        ],
+        "illustration_prompt": "cute educational illustration of a giraffe sticking out a long dark purple tongue to eat leaves, close up, funny expression"
+    },
+    {
+        "id": 4,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao loài dơi lại ngủ treo ngược?",
+        "answer": "Chân của dơi rất nhỏ và yếu, không thể chạy lấy đà để cất cánh như chim. Việc treo ngược giúp chúng chỉ cần buông tay là có thể rơi tự do và bay lượn ngay lập tức. Tư thế này cũng giúp chúng an toàn trước các loài thú săn mồi dưới đất.",
+        "tags": [
+            "dơi",
+            "treo ngược",
+            "bay",
+            "thích nghi"
+        ],
+        "illustration_prompt": "cute educational illustration of a bat hanging upside down wrapping wings like a blanket, cave background, purple tones"
+    },
+    {
+        "id": 5,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Chuột túi (Kangaroo) con sống trong túi mẹ bao lâu?",
+        "answer": "Kangaroo con khi sinh ra chỉ bé bằng hạt đậu! Nó phải bò vào túi mẹ, ngậm chặt vú để uống sữa và ở đó khoảng 6-8 tháng cho đến khi đủ lông đủ cánh. Kể cả khi đã biết nhảy, chúng vẫn chui vào túi mẹ nếu thấy nguy hiểm.",
+        "tags": [
+            "kangaroo",
+            "chuột túi",
+            "túi",
+            "chăm sóc con"
+        ],
+        "illustration_prompt": "cute educational illustration of a mother kangaroo with a baby joey looking out from the pouch, australian bush background"
+    },
+    {
+        "id": 6,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vằn của ngựa vằn có tác dụng gì đặc biệt?",
+        "answer": "Ngoài việc làm rối mắt kẻ thù như sư tử, các sọc đen trắng còn giúp ngựa vằn 'tàng hình' trước loài ruồi trâu hút máu. Mắt của ruồi trâu bị nhiễu loạn bởi các sọc tương phản nên chúng rất khó hạ cánh xuống mình ngựa.",
+        "tags": [
+            "ngựa vằn",
+            "sọc",
+            "ngụy trang",
+            "chống côn trùng"
+        ],
+        "illustration_prompt": "cute educational illustration of a confused fly trying to land on a zebra but failing, comic style, simple background"
+    },
+    {
+        "id": 7,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao báo Cheetah có 'dòng lệ' đen trên mặt?",
+        "answer": "Hai vệt đen chạy từ mắt xuống miệng của báo Cheetah không phải để trang trí. Chúng giúp hấp thụ ánh sáng mặt trời, chống chói mắt khi báo đi săn vào ban ngày, giống như cách các vận động viên bôi đen dưới mắt vậy.",
+        "tags": [
+            "báo cheetah",
+            "săn mồi",
+            "mắt",
+            "chống chói"
+        ],
+        "illustration_prompt": "cute educational illustration of a cheetah face focusing on the black tear lines, sunny savannah background"
+    },
+    {
+        "id": 8,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vòi của voi lợi hại như thế nào?",
+        "answer": "Vòi voi là sự kết hợp của mũi và môi trên, chứa tới 40.000 cơ bắp (trong khi cả cơ thể người chỉ có hơn 600 cơ). Nó khỏe đến mức nhấc bổng được cây gỗ, nhưng cũng khéo léo nhặt được một hạt đậu nhỏ xíu dưới đất.",
+        "tags": [
+            "voi",
+            "vòi",
+            "cơ bắp",
+            "khéo léo"
+        ],
+        "illustration_prompt": "cute educational illustration of an elephant trunk picking up a tiny peanut, contrast in size, simple background"
+    },
+    {
+        "id": 9,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Màu lông thật sự của gấu Bắc Cực là gì?",
+        "answer": "Thực ra lông gấu Bắc Cực không phải màu trắng mà là trong suốt và rỗng ruột! Chúng phản chiếu ánh sáng nên mắt ta thấy màu trắng. Lớp da bên dưới lông thực chất có màu đen để hấp thụ nhiệt từ mặt trời sưởi ấm cơ thể.",
+        "tags": [
+            "gấu bắc cực",
+            "lông",
+            "màu sắc",
+            "giữ ấm"
+        ],
+        "illustration_prompt": "cute educational illustration of a polar bear hair strand zoomed in showing it is transparent, snowy background"
+    },
+    {
+        "id": 10,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vì sao con lười lại mọc rêu trên người?",
+        "answer": "Vì lười di chuyển quá chậm và lông của chúng có cấu tạo đặc biệt giữ ẩm tốt, nên rêu và tảo xanh mọc luôn trên đó. Lớp 'áo khoác' rêu này giúp lười ngụy trang vào tán lá cây, trốn mắt đại bàng.",
+        "tags": [
+            "con lười",
+            "chậm chạp",
+            "rêu",
+            "ngụy trang"
+        ],
+        "illustration_prompt": "cute educational illustration of a sloth with green moss patches on its fur, blending into a tree, funny smile"
+    },
+    {
+        "id": 11,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao mũi chó lại luôn ướt?",
+        "answer": "Mũi ướt giúp chó ngửi mùi tốt hơn gấp ngàn lần con người. Lớp màng nhầy ẩm ướt giúp giữ lại các hạt mùi trong không khí. Ngoài ra, mũi ướt cũng giúp chó làm mát cơ thể vào những ngày nóng.",
+        "tags": [
+            "chó",
+            "khứu giác",
+            "mũi ướt",
+            "thú cưng"
+        ],
+        "illustration_prompt": "cute educational illustration of a dog sniffing a flower with a shiny wet nose, scent trails visible, garden background"
+    },
+    {
+        "id": 12,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Mèo giao tiếp bằng cách nào ngoài tiếng kêu?",
+        "answer": "Mèo dùng đuôi và tai để 'nói chuyện'. Đuôi dựng thẳng là đang vui, đuôi xù lên là đang sợ hãi hoặc tức giận. Đặc biệt, khi mèo chớp mắt chậm rãi với bạn, đó là cách chúng nói 'Tôi yêu bạn' đấy!",
+        "tags": [
+            "mèo",
+            "ngôn ngữ cơ thể",
+            "đuôi",
+            "cảm xúc"
+        ],
+        "illustration_prompt": "cute educational illustration of a cat blinking slowly with heart symbols, peaceful expression, soft colors"
+    },
+    {
+        "id": 13,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Thú mỏ vịt kỳ lạ ở điểm nào?",
+        "answer": "Đây là loài động vật 'lắp ghép': mỏ như vịt, đuôi như hải ly, chân có màng như rái cá, đẻ trứng như chim nhưng lại nuôi con bằng sữa. Con đực còn có một cái cựa độc ở chân sau để tự vệ.",
+        "tags": [
+            "thú mỏ vịt",
+            "kỳ lạ",
+            "độc đáo",
+            "châu úc"
+        ],
+        "illustration_prompt": "cute educational illustration of a platypus showing different animal parts puzzle style, underwater background"
+    },
+    {
+        "id": 14,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Sừng tê giác có phải là xương không?",
+        "answer": "Không đâu, sừng tê giác có cấu tạo giống hệt tóc và móng tay của chúng ta (chất keratin). Tuy nhiên, nó rất cứng và chắc chắn. Đáng buồn là nhiều người săn bắt tê giác chỉ vì hiểu lầm sừng của nó là thuốc chữa bệnh.",
+        "tags": [
+            "tê giác",
+            "sừng",
+            "keratin",
+            "bảo tồn"
+        ],
+        "illustration_prompt": "cute educational illustration of a rhino with a shiny horn, comparison bubble showing human fingernails, savannah background"
+    },
+    {
+        "id": 15,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Túi đặc biệt của rái cá dùng để làm gì?",
+        "answer": "Rái cá biển có một lớp da chùng dưới nách tạo thành cái túi. Chúng dùng túi này để cất giữ món ăn yêu thích hoặc cất một viên đá 'bảo bối'. Viên đá này dùng để đập vỡ vỏ sò, nghêu khi ăn.",
+        "tags": [
+            "rái cá",
+            "thông minh",
+            "dụng cụ",
+            "biển"
+        ],
+        "illustration_prompt": "cute educational illustration of an otter floating on back, pulling a rock out of its armpit pocket, happy face"
+    },
+    {
+        "id": 16,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Mồ hôi của hà mã có màu gì?",
+        "answer": "Hà mã tiết ra một loại mồ hôi nhớt màu đỏ (nhìn như máu) nhưng thực ra đó là chất lỏng giúp chống nắng và diệt khuẩn. Nó giúp làn da nhạy cảm của hà mã không bị nhiễm trùng khi ngâm mình trong nước đục.",
+        "tags": [
+            "hà mã",
+            "mồ hôi đỏ",
+            "chống nắng",
+            "bảo vệ da"
+        ],
+        "illustration_prompt": "cute educational illustration of a hippo with pinkish/red sweat drops, holding a sunscreen bottle metaphor, sunny river background"
+    },
+    {
+        "id": 17,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao răng chuột lại dài ra mãi?",
+        "answer": "Răng cửa của các loài gặm nhấm (chuột, sóc, hải ly) mọc dài ra suốt đời. Vì thế, chúng buộc phải gặm nhấm đồ vật cứng liên tục để mài mòn bớt răng đi, nếu không răng sẽ quá dài đâm vào nướu khiến chúng không ăn được.",
+        "tags": [
+            "chuột",
+            "răng",
+            "gặm nhấm",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a mouse gnawing on a piece of wood, teeth shown clearly, busy expression"
+    },
+    {
+        "id": 18,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao gấu trúc có màu trắng đen?",
+        "answer": "Màu trắng giúp gấu trúc ngụy trang trong tuyết vào mùa đông, còn màu đen giúp chúng ẩn mình trong bóng râm rừng tre. Đôi mắt đen thẫm cũng giúp chúng nhận ra nhau dễ dàng hơn giữa rừng núi hoang vu.",
+        "tags": [
+            "gấu trúc",
+            "màu sắc",
+            "ngụy trang",
+            "rừng tre"
+        ],
+        "illustration_prompt": "cute educational illustration of a panda hiding half in snow (white part) and half in shadow (black part), bamboo forest background"
+    },
+    {
+        "id": 19,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vai trò của con đầu đàn trong bầy chó sói là gì?",
+        "answer": "Con đầu đàn (Alpha) thường là con khỏe mạnh và thông minh nhất. Nó quyết định khi nào đi săn, đi đâu và bảo vệ cả đàn. Tuy nhiên, sói rất đoàn kết, chúng cùng nhau chăm sóc con non của cả bầy chứ không chỉ con riêng.",
+        "tags": [
+            "chó sói",
+            "đầu đàn",
+            "lãnh đạo",
+            "tinh thần đồng đội"
+        ],
+        "illustration_prompt": "cute educational illustration of a leader wolf standing on a rock howling, pack members listening below, moonlight background"
+    },
+    {
+        "id": 20,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Hải ly - Kỹ sư xây dựng tài ba nhất?",
+        "answer": "Hải ly có thể thay đổi môi trường sống giỏi hơn bất kỳ loài vật nào (trừ con người). Đập nước do hải ly xây giúp lọc sạch nước sông, tạo ra vùng đất ngập nước giúp cá và các loài chim khác sinh sống phát triển.",
+        "tags": [
+            "hải ly",
+            "kỹ sư",
+            "môi trường",
+            "xây dựng"
+        ],
+        "illustration_prompt": "cute educational illustration of a beaver wearing a yellow construction hat, looking at a blueprint of a dam, river background"
+    },
+    {
+        "id": 21,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao móng ngựa cần đóng sắt?",
+        "answer": "Móng ngựa cũng giống móng tay người, không có cảm giác đau. Vì ngựa phải chạy trên đường đá cứng hoặc chở nặng, người ta đóng móng sắt (móng ngựa) để bảo vệ móng thật không bị mài mòn hay nứt vỡ.",
+        "tags": [
+            "ngựa",
+            "móng sắt",
+            "bảo vệ",
+            "chăm sóc"
+        ],
+        "illustration_prompt": "cute educational illustration of a horse lifting a leg showing a shiny horseshoe, blacksmith tools nearby, stable background"
+    },
+    {
+        "id": 22,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Gai của nhím là gì?",
+        "answer": "Gai nhím thực chất là những sợi lông bị hóa sừng, rất cứng và nhọn. Một con nhím có thể có tới 30.000 chiếc gai! Khi bị tấn công, gai nhím dựng đứng lên và rất dễ rụng ra để găm vào kẻ thù.",
+        "tags": [
+            "nhím",
+            "gai",
+            "lông",
+            "tự vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a porcupine with quills raised, defending against a curious nose of another animal, comic style"
+    },
+    {
+        "id": 23,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Mũi của chuột chũi mũi sao đặc biệt thế nào?",
+        "answer": "Chuột chũi mũi sao có cái mũi kỳ dị với 22 'ngón tay' nhỏ xíu màu hồng. Chiếc mũi này nhạy cảm đến mức có thể phát hiện ra con mồi và quyết định có ăn được hay không chỉ trong... 8 mili giây!",
+        "tags": [
+            "chuột chũi",
+            "mũi sao",
+            "siêu giác quan",
+            "tốc độ"
+        ],
+        "illustration_prompt": "cute educational illustration of a star-nosed mole sniffing a worm, cartoon style to make it look cute not scary, underground background"
+    },
+    {
+        "id": 24,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Báo đốm (Jaguar) khác báo hoa mai (Leopard) thế nào?",
+        "answer": "Nhìn qua thì giống nhau, nhưng hãy nhìn kỹ vào đốm trên lông. Đốm của báo đốm (Jaguar) có chấm nhỏ ở giữa, còn báo hoa mai thì không. Báo đốm cũng vạm vỡ hơn và bơi rất giỏi.",
+        "tags": [
+            "báo đốm",
+            "báo hoa mai",
+            "phân biệt",
+            "họa tiết"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: Jaguar spot pattern vs Leopard spot pattern, simple zoom in visual"
+    },
+    {
+        "id": 25,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tiếng gầm của sư tử vang xa bao nhiêu?",
+        "answer": "Tiếng gầm của sư tử mạnh mẽ đến mức có thể nghe thấy từ cách xa 8km! Chúng gầm để khẳng định lãnh thổ. Thú vị là, sư tử con khi mới sinh ra chỉ biết kêu 'meo meo' như mèo thôi.",
+        "tags": [
+            "sư tử",
+            "tiếng gầm",
+            "âm thanh",
+            "sức mạnh"
+        ],
+        "illustration_prompt": "cute educational illustration of a lion roaring with sound waves traveling far, birds flying away in distance, savannah background"
+    },
+    {
+        "id": 26,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Tại sao Koala con ăn 'chất thải' của mẹ?",
+        "answer": "Nghe hơi ghê, nhưng đó là cách sinh tồn. Koala con mới sinh chưa tiêu hóa được lá khuynh diệp độc hại. Nó phải ăn một loại phân đặc biệt của mẹ (gọi là pap) chứa vi khuẩn có lợi để giúp đường ruột tập làm quen với thức ăn này.",
+        "tags": [
+            "koala",
+            "sinh tồn",
+            "tiêu hóa",
+            "châu úc"
+        ],
+        "illustration_prompt": "cute educational illustration of a mother koala and baby koala hugging, simplified biology diagram overlay, eucalyptus tree"
+    },
+    {
+        "id": 27,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Cá heo ngủ như thế nào dưới nước?",
+        "answer": "Cá heo không bao giờ ngủ hoàn toàn vì chúng cần ngoi lên mặt nước để thở. Chúng ngủ bằng một nửa bán cầu não, nửa còn lại vẫn thức để canh chừng nguy hiểm và nhắc cơ thể ngoi lên hít khí trời.",
+        "tags": [
+            "cá heo",
+            "ngủ",
+            "não bộ",
+            "hô hấp"
+        ],
+        "illustration_prompt": "cute educational illustration of a dolphin with one eye open and one eye closed, zzz symbol on one side, underwater background"
+    },
+    {
+        "id": 28,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vì sao lợn thích tắm bùn?",
+        "answer": "Lợn bị mang tiếng ở bẩn, nhưng thực ra chúng tắm bùn để làm sạch đấy! Lợn không có tuyến mồ hôi để làm mát. Lớp bùn giúp hạ nhiệt cơ thể và khi bùn khô lại, nó bong ra kéo theo rận và ký sinh trùng trên da lợn.",
+        "tags": [
+            "con lợn",
+            "tắm bùn",
+            "vệ sinh",
+            "làm mát"
+        ],
+        "illustration_prompt": "cute educational illustration of a happy pig rolling in a mud puddle, sunglasses on (optional), farm background"
+    },
+    {
+        "id": 29,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Vân tay của khỉ và người giống nhau không?",
+        "answer": "Các loài linh trưởng như khỉ, vượn và cả gấu túi Koala đều có vân tay xoắn ốc rất giống con người. Vân tay này giúp tăng ma sát để tay bám chắc hơn vào cành cây khi leo trèo.",
+        "tags": [
+            "khỉ",
+            "vân tay",
+            "leo trèo",
+            "giải phẫu"
+        ],
+        "illustration_prompt": "cute educational illustration of a monkey hand palm showing fingerprints, magnifying glass effect, jungle background"
+    },
+    {
+        "id": 30,
+        "category": "Động vật",
+        "sub_category": "Lớp thú",
+        "question": "Cáo Fennec (Cáo sa mạc) dùng tai to để làm gì?",
+        "answer": "Cáo Fennec có đôi tai to khổng lồ so với cơ thể nhỏ bé. Đôi tai này hoạt động như bộ tản nhiệt, giúp thoát hơi nóng ra ngoài để làm mát cơ thể giữa sa mạc nóng bỏng, đồng thời nghe được tiếng con mồi di chuyển dưới cát.",
+        "tags": [
+            "cáo fennec",
+            "tai to",
+            "sa mạc",
+            "làm mát"
+        ],
+        "illustration_prompt": "cute educational illustration of a fennec fox with exaggerated large ears, listening intently, desert dunes background"
+    },
+    {
+        "id": 31,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim cánh cụt là chim mà không biết bay?",
+        "answer": "Chim cánh cụt đã đánh đổi đôi cánh bay để lấy đôi 'mai chèo' bơi lội siêu đẳng. Xương của chúng nặng và đặc giúp chúng lặn sâu xuống biển để bắt cá, thay vì rỗng và nhẹ để bay lượn như các loài chim khác.",
+        "tags": [
+            "chim cánh cụt",
+            "bơi lội",
+            "nam cực",
+            "thích nghi"
+        ],
+        "illustration_prompt": "cute educational illustration of a penguin swimming underwater chasing fish, wings acting like flippers, antarctic background"
+    },
+    {
+        "id": 32,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Vì sao hồng hạc lại có màu hồng?",
+        "answer": "Hồng hạc thực ra sinh ra với bộ lông màu xám trắng. Chúng chuyển sang màu hồng đỏ rực rỡ là do thức ăn yêu thích của chúng: tôm và tảo biển. Những loại thức ăn này chứa sắc tố tự nhiên nhuộm màu cho lông chim.",
+        "tags": [
+            "hồng hạc",
+            "màu sắc",
+            "thức ăn",
+            "tôm"
+        ],
+        "illustration_prompt": "cute educational illustration of a pink flamingo standing on one leg in water, eating shrimp, pink reflection"
+    },
+    {
+        "id": 33,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Cú mèo có thể quay đầu được bao xa?",
+        "answer": "Cú mèo có thể quay đầu gần một vòng tròn (270 độ) mà không bị gãy cổ! Lý do là mắt của chúng hình ống, bị cố định không liếc được, nên chúng bắt buộc phải quay cả cái đầu để nhìn xung quanh.",
+        "tags": [
+            "cú mèo",
+            "quay đầu",
+            "mắt",
+            "cổ"
+        ],
+        "illustration_prompt": "cute educational illustration of an owl looking backwards over its shoulder, big yellow eyes, night forest background"
+    },
+    {
+        "id": 34,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim gõ kiến không bị đau đầu khi gõ vào thân cây?",
+        "answer": "Chim gõ kiến gõ vào cây hàng ngàn lần mỗi ngày để tìm sâu. Chúng không bị chấn động não vì lưỡi của chúng cực dài, quấn quanh hộp sọ như một lớp đệm giảm xóc tự nhiên bảo vệ não bộ.",
+        "tags": [
+            "gõ kiến",
+            "lưỡi",
+            "giảm xóc",
+            "cây cối"
+        ],
+        "illustration_prompt": "cute educational illustration of a woodpecker pecking a tree, x-ray bubble showing tongue wrapping around skull (simplified), forest background"
+    },
+    {
+        "id": 35,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Vẹt nói tiếng người như thế nào?",
+        "answer": "Vẹt không có dây thanh quản giống người, nhưng cơ quan phát âm (gọi là syrinx) của chúng rất linh hoạt. Vẹt bắt chước âm thanh để giao tiếp và hòa nhập với bầy đàn, và khi ở với người, chúng coi chúng ta là 'bầy đàn' nên học theo tiếng nói.",
+        "tags": [
+            "con vẹt",
+            "bắt chước",
+            "nói chuyện",
+            "giao tiếp"
+        ],
+        "illustration_prompt": "cute educational illustration of a colorful parrot saying 'Hello' in a speech bubble, tropical background"
+    },
+    {
+        "id": 36,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Đà điểu châu Phi có vùi đầu xuống cát khi sợ hãi không?",
+        "answer": "Không đâu, đó chỉ là hiểu lầm! Khi gặp nguy hiểm, đà điểu sẽ chạy rất nhanh (lên tới 70km/h) hoặc tung cú đá cực mạnh. Chúng chỉ hạ thấp đầu xuống đất để kiểm tra trứng hoặc nghỉ ngơi để ngụy trang thôi.",
+        "tags": [
+            "đà điểu",
+            "chạy nhanh",
+            "hiểu lầm",
+            "sa mạc"
+        ],
+        "illustration_prompt": "cute educational illustration of an ostrich running fast with dust clouds behind, determined face, savannah background"
+    },
+    {
+        "id": 37,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim ruồi (Hummingbird) bay đặc biệt như thế nào?",
+        "answer": "Chim ruồi là loài chim duy nhất có thể bay lùi, bay đứng yên một chỗ và vỗ cánh tới 80 lần mỗi giây. Chúng tốn rất nhiều năng lượng nên phải ăn mật hoa liên tục, nếu ngừng ăn vài giờ chúng có thể bị đói lả.",
+        "tags": [
+            "chim ruồi",
+            "bay lùi",
+            "mật hoa",
+            "năng lượng"
+        ],
+        "illustration_prompt": "cute educational illustration of a hummingbird hovering near a flower, blurry wings indicating speed, vibrant colors"
+    },
+    {
+        "id": 38,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Vì sao vịt không bị ướt lông khi bơi?",
+        "answer": "Gần đuôi vịt có một tuyến dầu đặc biệt. Vịt dùng mỏ lấy dầu từ đó rồi chải đều lên bộ lông. Lớp dầu này giúp lông không thấm nước, giữ cho cơ thể vịt luôn khô ráo và ấm áp bên dưới.",
+        "tags": [
+            "con vịt",
+            "lông vũ",
+            "chống nước",
+            "bơi lội"
+        ],
+        "illustration_prompt": "cute educational illustration of a duck grooming its feathers, water droplets rolling off, pond background"
+    },
+    {
+        "id": 39,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim công xòe đuôi để làm gì?",
+        "answer": "Chỉ có công đực mới có bộ đuôi lộng lẫy. Chúng xòe đuôi múa may để thu hút sự chú ý của công cái. Những 'con mắt' trên lông đuôi càng to, màu càng rực rỡ thì càng chứng tỏ chú công đó khỏe mạnh.",
+        "tags": [
+            "chim công",
+            "đuôi đẹp",
+            "tán tỉnh",
+            "màu sắc"
+        ],
+        "illustration_prompt": "cute educational illustration of a peacock spreading its tail wide, vibrant patterns, looking proud"
+    },
+    {
+        "id": 40,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim tu-hú bị gọi là 'bà mẹ lười biếng'?",
+        "answer": "Chim tu-hú không tự xây tổ ấp trứng. Nó lén đẻ trứng vào tổ của các loài chim khác (như chích chòe) để nhờ nuôi hộ. Chim non tu-hú nở ra trước thường đẩy trứng của 'bố mẹ nuôi' ra ngoài để độc chiếm thức ăn.",
+        "tags": [
+            "tu hú",
+            "ký sinh",
+            "tổ chim",
+            "nuôi con"
+        ],
+        "illustration_prompt": "cute educational illustration of a cuckoo bird sneaking an egg into another bird's nest, sneaky expression, cartoon style"
+    },
+    {
+        "id": 41,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Đại bàng nhìn xa đến mức nào?",
+        "answer": "Mắt đại bàng tinh tường gấp 4-8 lần con người. Từ trên cao hàng trăm mét, nó có thể nhìn thấy một con thỏ nhỏ xíu đang chạy trong bụi cỏ. Nó còn có mí mắt thứ ba trong suốt để bảo vệ mắt khi bay nhanh.",
+        "tags": [
+            "đại bàng",
+            "thị lực",
+            "săn mồi",
+            "bầu trời"
+        ],
+        "illustration_prompt": "cute educational illustration of an eagle soaring high, view through eagle eye showing a zoomed-in rabbit below"
+    },
+    {
+        "id": 42,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim bồ câu đưa thư tìm đường về nhà bằng cách nào?",
+        "answer": "Bồ câu có khả năng ghi nhớ bản đồ địa hình tuyệt vời và đặc biệt là chúng cảm nhận được từ trường của Trái Đất (như một cái la bàn tự nhiên trong đầu) để định hướng đường về tổ dù bị đưa đi rất xa.",
+        "tags": [
+            "bồ câu",
+            "đưa thư",
+            "định hướng",
+            "từ trường"
+        ],
+        "illustration_prompt": "cute educational illustration of a pigeon carrying a letter, wearing a pilot hat/goggles, flying over a map"
+    },
+    {
+        "id": 43,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao mỏ chim Toucan (Chim tucan) lại to thế?",
+        "answer": "Chiếc mỏ khổng lồ rực rỡ giúp Toucan hái quả ở những cành cây xa mà cơ thể nặng nề của nó không đậu lên được. Ngoài ra, chiếc mỏ lớn còn giúp tản nhiệt, làm mát cơ thể trong rừng nhiệt đới nóng bức.",
+        "tags": [
+            "toucan",
+            "mỏ to",
+            "nhiệt đới",
+            "làm mát"
+        ],
+        "illustration_prompt": "cute educational illustration of a toucan picking a fruit with its large colorful beak, jungle background"
+    },
+    {
+        "id": 44,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim hải âu bay qua đại dương mà không cần vỗ cánh?",
+        "answer": "Hải âu lữ hành có sải cánh dài tới 3 mét! Chúng lợi dụng sức gió trên biển để lướt đi hàng ngàn cây số mà không tốn sức vỗ cánh, thậm chí chúng có thể vừa bay vừa ngủ trong những chuyến đi dài.",
+        "tags": [
+            "hải âu",
+            "sải cánh",
+            "đại dương",
+            "lướt gió"
+        ],
+        "illustration_prompt": "cute educational illustration of an albatross gliding smoothly over ocean waves, peaceful sky background"
+    },
+    {
+        "id": 45,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Quạ thông minh đến mức nào?",
+        "answer": "Quạ được coi là loài chim thông minh nhất (như một đứa trẻ 7 tuổi). Chúng biết dùng cành cây làm công cụ để móc sâu, biết thả hạt cứng xuống đường cho xe cán vỡ vỏ để ăn, và còn biết thù dai nhớ mặt người trêu chọc chúng.",
+        "tags": [
+            "con quạ",
+            "thông minh",
+            "công cụ",
+            "trí tuệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a crow dropping a nut on the road waiting for a car, clever expression"
+    },
+    {
+        "id": 46,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim bay theo hình chữ V?",
+        "answer": "Khi bay theo hình chữ V, con chim dẫn đầu sẽ xé gió, tạo ra luồng khí nâng đỡ cho các con bay sau đỡ tốn sức hơn. Khi con dẫn đầu mệt, con khác sẽ bay lên thay thế. Đây là bài học tuyệt vời về tinh thần đồng đội.",
+        "tags": [
+            "đàn chim",
+            "hình chữ V",
+            "di cư",
+            "đồng đội"
+        ],
+        "illustration_prompt": "cute educational illustration of birds flying in V-formation, motion lines showing air flow assisting them"
+    },
+    {
+        "id": 47,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim Kiwi là chim gì mà lạ thế?",
+        "answer": "Kiwi là biểu tượng của New Zealand. Nó là loài chim duy nhất có lỗ mũi nằm ở... đầu mỏ để đánh hơi tìm giun dưới đất. Kiwi không có cánh (tiêu biến rất nhỏ) và đẻ quả trứng khổng lồ so với kích thước cơ thể.",
+        "tags": [
+            "chim kiwi",
+            "không cánh",
+            "trứng to",
+            "new zealand"
+        ],
+        "illustration_prompt": "cute educational illustration of a round brown kiwi bird sniffing ground, huge egg next to it, fern background"
+    },
+    {
+        "id": 48,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao thiên nga thường đi có đôi?",
+        "answer": "Thiên nga nổi tiếng với lòng chung thủy. Khi đã kết đôi, chúng thường sống bên nhau trọn đời, cùng nhau xây tổ và nuôi con. Hình ảnh hai con thiên nga chụm đầu vào nhau tạo thành hình trái tim rất đẹp.",
+        "tags": [
+            "thiên nga",
+            "chung thủy",
+            "tình yêu",
+            "hồ nước"
+        ],
+        "illustration_prompt": "cute educational illustration of two swans touching heads forming a heart shape, romantic lake setting"
+    },
+    {
+        "id": 49,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Túi dưới mỏ bồ nông dùng để làm gì?",
+        "answer": "Cái túi da dưới mỏ bồ nông giống như cái lưới đánh cá. Khi săn mồi, nó hớp một ngụm nước lớn chứa cá, sau đó ép nước chảy ra ngoài và nuốt chửng con cá vào bụng. Túi này chứa được tới 11 lít nước đấy!",
+        "tags": [
+            "bồ nông",
+            "túi mỏ",
+            "săn cá",
+            "biển"
+        ],
+        "illustration_prompt": "cute educational illustration of a pelican with a full pouch containing water and a surprised fish, comical style"
+    },
+    {
+        "id": 50,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Vì sao gà cũng có cánh mà bay không giỏi?",
+        "answer": "Tổ tiên của gà là loài chim rừng sống chủ yếu dưới đất. Qua hàng ngàn năm được con người nuôi dưỡng, gà có thân hình nặng nề và cơ cánh yếu đi, chỉ bay được đoạn ngắn để leo lên cây hoặc hàng rào trốn kẻ thù.",
+        "tags": [
+            "con gà",
+            "bay kém",
+            "gia cầm",
+            "tiến hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a chicken flapping wings trying to fly but staying low, feathers flying, farm background"
+    },
+    {
+        "id": 51,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim ưng (Falcon) bay nhanh cỡ nào?",
+        "answer": "Chim ưng Peregrine là động vật nhanh nhất hành tinh. Khi lao xuống bắt mồi (bổ nhào), tốc độ của nó có thể đạt tới 320km/h, nhanh hơn cả siêu xe đua công thức 1!",
+        "tags": [
+            "chim ưng",
+            "tốc độ",
+            "bổ nhào",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a peregrine falcon diving down with speed lines/fire effect, wearing a racer helmet (optional)"
+    },
+    {
+        "id": 52,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim bói cá lặn xuống nước không bị mờ mắt?",
+        "answer": "Khi lao xuống nước, mắt chim bói cá được bảo vệ bởi một mí mắt thứ ba trong suốt giống như kính bơi. Điều này giúp chúng nhìn rõ con mồi dưới nước mà không bị nước làm cay mắt.",
+        "tags": [
+            "bói cá",
+            "lặn",
+            "kính bơi",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a kingfisher wearing swimming goggles diving into water, catching a small fish"
+    },
+    {
+        "id": 53,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tổ chim yến làm bằng gì?",
+        "answer": "Khác với các loài chim dùng rơm rạ, chim yến xây tổ bằng chính nước bọt của mình. Nước bọt này khô lại thành sợi cứng và trắng ngà. Đây là món ăn rất bổ dưỡng và đắt đỏ của con người (yến sào).",
+        "tags": [
+            "chim yến",
+            "tổ yến",
+            "nước bọt",
+            "yến sào"
+        ],
+        "illustration_prompt": "cute educational illustration of a swiftlet bird building a white nest on a cave wall, saliva threads shown clearly"
+    },
+    {
+        "id": 54,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim Sẻ thường tắm bụi?",
+        "answer": "Bạn hay thấy chim sẻ vùi mình vào đất cát bụi mù, đó là cách chúng 'tắm khô'. Việc cọ xát vào bụi đất giúp làm sạch dầu thừa trên lông và loại bỏ các con rận, bọ chét ký sinh ngứa ngáy.",
+        "tags": [
+            "chim sẻ",
+            "tắm bụi",
+            "vệ sinh",
+            "đô thị"
+        ],
+        "illustration_prompt": "cute educational illustration of a chubby sparrow rolling in dust, happy expression, city park background"
+    },
+    {
+        "id": 55,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim Thiên đường (Bird of Paradise) đặc biệt ở đâu?",
+        "answer": "Sống ở rừng rậm New Guinea, loài chim này có bộ lông kỳ quái và điệu nhảy tán tỉnh bạn tình độc nhất vô nhị. Chúng có thể biến hình dạng cơ thể thành hình cái đĩa, hình mặt cười... để gây ấn tượng.",
+        "tags": [
+            "chim thiên đường",
+            "nhảy múa",
+            "lông vũ",
+            "kỳ lạ"
+        ],
+        "illustration_prompt": "cute educational illustration of a bird of paradise performing a dance, shape-shifted into a funny black oval with blue smile"
+    },
+    {
+        "id": 56,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Cấu tạo xương của chim có gì đặc biệt để giúp bay?",
+        "answer": "Xương của chim (trừ chim cánh cụt/đà điểu) là xương rỗng và có các khoang khí bên trong. Cấu tạo này giúp khung xương cực nhẹ nhưng vẫn đủ cứng chắc để chịu lực khi vỗ cánh bay cao.",
+        "tags": [
+            "xương chim",
+            "cấu tạo",
+            "bay lượn",
+            "giải phẫu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a bird bone being hollow/honeycomb structure, lightweight feather symbol"
+    },
+    {
+        "id": 57,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao trứng chim có nhiều màu sắc và đốm?",
+        "answer": "Màu sắc trứng giúp ngụy trang. Những loài đẻ trứng dưới đất sỏi thường có trứng lốm đốm để hòa lẫn với môi trường, tránh bị thú ăn trứng phát hiện. Những loài đẻ trong hốc tối thường có trứng màu trắng hoặc xanh nhạt để dễ tìm.",
+        "tags": [
+            "trứng chim",
+            "màu sắc",
+            "ngụy trang",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a nest containing eggs with different speckled patterns, blending with surroundings"
+    },
+    {
+        "id": 58,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Chim Puffin (Hải âu cổ rụt) mang cá về tổ kiểu gì?",
+        "answer": "Mỏ của Puffin có các gai nhỏ hướng vào trong, giúp chúng giữ chặt con cá. Nhờ đó, chúng có thể ngậm hàng chục con cá nhỏ ngang mỏ một lúc mà không bị rơi khi lặn xuống bắt thêm con khác.",
+        "tags": [
+            "puffin",
+            "hải âu cổ rụt",
+            "bắt cá",
+            "cực bắc"
+        ],
+        "illustration_prompt": "cute educational illustration of a puffin bird with many small fish lined up in its colorful beak, icy background"
+    },
+    {
+        "id": 59,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Loài chim nào bay cao nhất thế giới?",
+        "answer": "Kền kền Ruppell có thể bay ở độ cao hơn 11.000 mét, ngang với máy bay phản lực! Ở độ cao đó không khí rất loãng và lạnh, nhưng cơ thể chúng có loại máu đặc biệt để hấp thụ oxy cực tốt.",
+        "tags": [
+            "kền kền",
+            "bay cao",
+            "kỷ lục",
+            "bầu trời"
+        ],
+        "illustration_prompt": "cute educational illustration of a vulture flying next to an airplane window, waving wing to passengers (funny style)"
+    },
+    {
+        "id": 60,
+        "category": "Động vật",
+        "sub_category": "Chim",
+        "question": "Tại sao chim Chào Mào lại có cái mào trên đầu?",
+        "answer": "Cái mào nhọn giúp chim chào mào thể hiện cảm xúc. Khi vui vẻ hay tò mò, mào dựng đứng lên. Khi sợ hãi, mào cụp xuống sát đầu. Đây cũng là đặc điểm để chúng nhận ra đồng loại.",
+        "tags": [
+            "chào mào",
+            "cảm xúc",
+            "đặc điểm",
+            "chim cảnh"
+        ],
+        "illustration_prompt": "cute educational illustration of a red-whiskered bulbul with crest standing up high, singing on a branch"
+    },
+    {
+        "id": 61,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá thở dưới nước bằng cách nào?",
+        "answer": "Cá thở bằng mang (gills). Khi cá mở miệng, nước tràn vào và đi qua mang. Mang hấp thụ oxy hòa tan trong nước và thải ra carbon dioxide. Tuyệt vời hơn, mang cá có thể lấy tới 80% lượng oxy trong nước, trong khi phổi người chỉ lấy được khoảng 25% oxy trong không khí.",
+        "tags": [
+            "cá",
+            "hô hấp",
+            "mang",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish showing its gills opening to take oxygen from water, simplified diagram, clear blue water"
+    },
+    {
+        "id": 62,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Bóng bơi (Swim Bladder) giúp cá làm gì?",
+        "answer": "Bóng bơi là một túi khí bên trong cơ thể cá, hoạt động như một chiếc phao điều chỉnh. Khi bơm hoặc xả khí, cá có thể dễ dàng nổi lên gần mặt nước hoặc lặn sâu xuống mà không cần dùng nhiều sức bơi. Cá mập thì không có bóng bơi nên phải bơi liên tục để không bị chìm!",
+        "tags": [
+            "cá",
+            "bóng bơi",
+            "nổi",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish with a highlighted swim bladder (balloon-like), showing it floating up and down in water"
+    },
+    {
+        "id": 63,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá hề (Clownfish) sống chung với hải quỳ có độc như thế nào?",
+        "answer": "Cá hề tự tạo ra một lớp chất nhầy đặc biệt bao phủ cơ thể, giúp chúng miễn nhiễm với chất độc của hải quỳ. Đổi lại, cá hề được hải quỳ bảo vệ khỏi kẻ thù và còn được ăn thức ăn thừa của hải quỳ nữa.",
+        "tags": [
+            "cá hề",
+            "hải quỳ",
+            "cộng sinh",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a clownfish nestled safely inside a colorful sea anemone, happy expression"
+    },
+    {
+        "id": 64,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Làm thế nào cá nóc lại phồng lên được?",
+        "answer": "Khi sợ hãi hoặc gặp nguy hiểm, cá nóc nhanh chóng nuốt một lượng lớn nước hoặc không khí vào dạ dày. Việc phồng to ra giống như một quả bóng gai giúp nó trở nên quá lớn để kẻ thù nuốt chửng. Độc tố trong cơ thể chúng còn nguy hiểm hơn cả gai nhọn.",
+        "tags": [
+            "cá nóc",
+            "tự vệ",
+            "phồng",
+            "chất độc"
+        ],
+        "illustration_prompt": "cute educational illustration of a pufferfish transforming from normal to a spiky round ball, startled expression"
+    },
+    {
+        "id": 65,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá mập ngủ như thế nào?",
+        "answer": "Hầu hết các loài cá mập cần bơi liên tục để nước chảy qua mang và lấy oxy, vì vậy chúng không 'ngủ' theo nghĩa đen. Thay vào đó, chúng có thể nghỉ ngơi bằng cách tắt một nửa bộ não hoặc bơi chậm trong trạng thái 'ngủ mơ' mà vẫn tỉnh táo.",
+        "tags": [
+            "cá mập",
+            "ngủ",
+            "bơi",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a shark slowly swimming with one eye half-closed, deep sea background"
+    },
+    {
+        "id": 66,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá chép vượt vũ môn tìm đường về nơi đẻ trứng bằng cách nào?",
+        "answer": "Cá hồi và một số loài cá khác có khả năng định vị tuyệt vời. Chúng sử dụng khứu giác siêu nhạy để ngửi mùi của dòng sông nơi mình được sinh ra (như một 'dấu ấn hóa học') để bơi hàng ngàn cây số quay về nguồn nước đó đẻ trứng.",
+        "tags": [
+            "cá chép",
+            "cá hồi",
+            "di cư",
+            "khứu giác"
+        ],
+        "illustration_prompt": "cute educational illustration of a salmon swimming upstream against a waterfall, determined look, simplified map showing journey"
+    },
+    {
+        "id": 67,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Làm sao lươn điện lại tạo ra điện?",
+        "answer": "Lươn điện có các tế bào đặc biệt trong cơ thể giống như pin (gọi là electrocyte). Khi gặp nguy hiểm hoặc săn mồi, lươn phóng ra một dòng điện cực mạnh (tới 600 Volts) làm choáng váng con mồi. Chúng còn dùng điện yếu để định hướng trong nước đục.",
+        "tags": [
+            "lươn điện",
+            "điện",
+            "săn mồi",
+            "cơ quan đặc biệt"
+        ],
+        "illustration_prompt": "cute educational illustration of an electric eel emitting a strong blue electric spark in water, shocked fish nearby"
+    },
+    {
+        "id": 68,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá bay 'bay' lên không trung bằng cách nào?",
+        "answer": "Cá bay không thực sự bay như chim, mà chúng tăng tốc dưới nước rồi nhảy vọt lên khỏi mặt biển. Sau đó, chúng xòe hai chiếc vây ngực khổng lồ như cánh để lướt đi trên không trung để trốn thoát kẻ thù, có thể lướt xa tới 400 mét.",
+        "tags": [
+            "cá bay",
+            "vây ngực",
+            "lướt",
+            "thoát hiểm"
+        ],
+        "illustration_prompt": "cute educational illustration of a flying fish gliding above the ocean waves, large fins spread out like airplane wings"
+    },
+    {
+        "id": 69,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Tại sao cá thường bơi thành đàn lớn?",
+        "answer": "Bơi thành đàn lớn là chiến thuật bảo vệ bản thân. Khi cả ngàn con cá bơi sát nhau, chúng sẽ làm rối mắt kẻ thù (cá mập, cá voi), khiến kẻ thù khó chọn mục tiêu riêng lẻ. Cá còn bơi thành đàn khi di cư và tìm thức ăn.",
+        "tags": [
+            "cá",
+            "bơi đàn",
+            "an toàn",
+            "chiến thuật"
+        ],
+        "illustration_prompt": "cute educational illustration of a massive school of fish moving together in a wave pattern, confusing a bigger predator"
+    },
+    {
+        "id": 70,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá có thể nghe được âm thanh không?",
+        "answer": "Cá không có tai ngoài nhưng chúng nghe được thông qua xương đầu và bong bóng bơi (swim bladder), thứ truyền rung động âm thanh đến tai trong. Ngoài ra, chúng có 'đường bên' (lateral line) là một hàng tế bào cảm nhận rung động của nước dọc theo thân.",
+        "tags": [
+            "cá",
+            "thính giác",
+            "đường bên",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish with the lateral line highlighted, showing sound waves vibrating in the water"
+    },
+    {
+        "id": 71,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá đực hay cá cái mang bầu ở cá ngựa (Seahorse)?",
+        "answer": "Thật ngạc nhiên, chính cá ngựa đực mới là con mang bầu! Cá cái đẻ trứng vào một cái túi đặc biệt ở bụng cá đực. Cá đực sẽ giữ và nuôi dưỡng trứng cho đến khi nở thành cá con, giống như một người cha tuyệt vời.",
+        "tags": [
+            "cá ngựa",
+            "cá đực",
+            "mang bầu",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a male seahorse with a bulging pouch, baby seahorses peeking out, warm sea colors"
+    },
+    {
+        "id": 72,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Ánh sáng tự nhiên ở cá đèn lồng (Anglerfish) đến từ đâu?",
+        "answer": "Đèn lồng ở đầu cá đèn lồng là nơi sống của một loại vi khuẩn phát quang sinh học đặc biệt. Vi khuẩn này phát ra ánh sáng lạnh rọi trong vùng biển sâu tối tăm, thu hút con mồi bơi đến gần miệng cá.",
+        "tags": [
+            "cá đèn lồng",
+            "biển sâu",
+            "phát quang",
+            "vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of an anglerfish in the deep dark sea, with a glowing lure hanging from its head, surprised small fish swimming toward it"
+    },
+    {
+        "id": 73,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Tại sao một số loài cá có vảy và một số lại không?",
+        "answer": "Vảy cá như một lớp giáp bảo vệ da cá khỏi thương tích và ký sinh trùng. Cá không vảy (như lươn, cá da trơn) thì có lớp da dày và nhầy bao phủ để tự bảo vệ. Vảy cá còn giúp chúng bơi nhanh hơn bằng cách giảm ma sát.",
+        "tags": [
+            "cá",
+            "vảy",
+            "bảo vệ",
+            "da trơn"
+        ],
+        "illustration_prompt": "cute educational illustration showing different types of fish skin: one with detailed scales and one completely smooth (catfish)"
+    },
+    {
+        "id": 74,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá mặt trăng (Ocean Sunfish) to lớn ra sao?",
+        "answer": "Cá mặt trăng là loài cá có xương nặng nhất thế giới, có thể nặng tới 2.300 kg và cao hơn 4 mét! Chúng bơi rất chậm, thường nổi trên mặt nước để sưởi nắng và cho chim hải âu dọn dẹp ký sinh trùng trên da.",
+        "tags": [
+            "cá mặt trăng",
+            "kỷ lục",
+            "kích thước",
+            "đại dương"
+        ],
+        "illustration_prompt": "cute educational illustration of a massive, rounded ocean sunfish floating near the surface, small seagull perched on it"
+    },
+    {
+        "id": 75,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá bắn nước để săn mồi như thế nào?",
+        "answer": "Cá cung thủ (Archerfish) có khả năng nhắm bắn côn trùng đậu trên cành cây bằng cách phun một tia nước mạnh và chính xác. Chúng dùng lưỡi và một rãnh trên vòm miệng để tạo ra 'súng nước' tự nhiên, sau đó ăn con mồi rơi xuống nước.",
+        "tags": [
+            "cá cung thủ",
+            "săn mồi",
+            "phun nước",
+            "côn trùng"
+        ],
+        "illustration_prompt": "cute educational illustration of an archerfish shooting a stream of water at an insect on a leaf above the water"
+    },
+    {
+        "id": 76,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá mập có răng như thế nào?",
+        "answer": "Cá mập không chỉ có một hàng răng mà có nhiều hàng, hoạt động như một băng chuyền! Khi răng phía trước bị rụng hoặc gãy trong lúc săn mồi, răng ở hàng sau sẽ di chuyển lên để thay thế. Một con cá mập có thể thay hàng ngàn chiếc răng trong đời.",
+        "tags": [
+            "cá mập",
+            "răng",
+            "thay răng",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a shark's open mouth with multiple rows of sharp teeth (conveyor belt metaphor)"
+    },
+    {
+        "id": 77,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Tại sao cá có thể sống sót dưới nước đóng băng?",
+        "answer": "Một số loài cá ở vùng cực có một chất chống đông đặc biệt (antifreeze) trong máu, giúp ngăn cơ thể bị đóng băng hoàn toàn. Chúng cũng thường bơi xuống các khu vực nước sâu hơn, nơi nhiệt độ luôn ổn định và ấm hơn.",
+        "tags": [
+            "cá",
+            "nước đá",
+            "chống đông",
+            "vùng cực"
+        ],
+        "illustration_prompt": "cute educational illustration of a small fish swimming happily under a sheet of ice, with antifreeze liquid bubbles"
+    },
+    {
+        "id": 78,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá voi sát thủ (Orca) có phải là cá mập không?",
+        "answer": "Không, cá voi sát thủ không phải là cá mà là loài động vật có vú (mammal), thuộc họ cá heo. Chúng thở bằng phổi, đẻ con và cho con bú sữa. Chúng được gọi là 'cá' vì chúng sống dưới biển và có kích thước lớn.",
+        "tags": [
+            "cá voi sát thủ",
+            "cá heo",
+            "động vật có vú",
+            "phân loại"
+        ],
+        "illustration_prompt": "cute educational illustration of an Orca (killer whale) swimming, with a thought bubble showing a difference between it and a shark (lungs vs gills)"
+    },
+    {
+        "id": 79,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá có thể thay đổi giới tính không?",
+        "answer": "Có. Một số loài cá như cá hề hay cá bàng chài có thể thay đổi giới tính tùy thuộc vào nhu cầu của bầy đàn. Ví dụ, trong đàn cá hề, nếu con cái lớn nhất chết đi, con đực lớn nhất sẽ chuyển đổi thành con cái để duy trì sự sinh sản.",
+        "tags": [
+            "cá",
+            "giới tính",
+            "cá hề",
+            "sinh học"
+        ],
+        "illustration_prompt": "cute educational illustration of a clownfish transforming from small (male symbol) to large (female symbol), transition effect"
+    },
+    {
+        "id": 80,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá có cảm thấy đau không?",
+        "answer": "Các nhà khoa học tin rằng cá có thể cảm thấy đau. Não cá có các thụ thể đau và chúng phản ứng với vết thương giống như con người hay các động vật khác. Điều này cho thấy chúng ta cần đối xử tử tế với cá.",
+        "tags": [
+            "cá",
+            "cảm giác",
+            "đau",
+            "thụ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish making a sad face, highlighting the brain area related to pain/sensation"
+    },
+    {
+        "id": 81,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá nào có tốc độ bơi nhanh nhất?",
+        "answer": "Cá buồm (Sailfish) là nhà vô địch về tốc độ bơi, chúng có thể đạt tốc độ 110 km/h, nhanh hơn cả vận động viên điền kinh Olympic chạy! Chúng dùng cái vây lưng lớn của mình để làm buồm giúp di chuyển nhanh hơn trong nước.",
+        "tags": [
+            "cá buồm",
+            "tốc độ",
+            "bơi nhanh",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a sailfish racing, large dorsal fin raised like a boat sail, speed lines in water"
+    },
+    {
+        "id": 82,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá có uống nước không?",
+        "answer": "Cá nước ngọt không cần uống nước vì nước luôn chảy tự nhiên vào cơ thể chúng qua da và mang. Ngược lại, cá nước mặn phải liên tục uống nước biển để bù đắp lượng nước bị mất do hiện tượng thẩm thấu.",
+        "tags": [
+            "cá",
+            "uống nước",
+            "nước ngọt",
+            "nước mặn"
+        ],
+        "illustration_prompt": "cute educational illustration split screen: freshwater fish with 'no drink' symbol, saltwater fish drinking water with a straw (funny)"
+    },
+    {
+        "id": 83,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Tại sao cá mập voi lại to lớn nhưng hiền lành?",
+        "answer": "Cá mập voi là loài cá lớn nhất thế giới, dài tới 18 mét. Tuy nhiên, chúng chỉ ăn các sinh vật nhỏ bé (như tôm, giáp xác) bằng cách lọc nước biển qua miệng khổng lồ của mình, nên chúng không hề nguy hiểm với con người.",
+        "tags": [
+            "cá mập voi",
+            "lớn nhất",
+            "ăn lọc",
+            "hiền lành"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant whale shark with its mouth open filtering tiny plankton, gentle expression"
+    },
+    {
+        "id": 84,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Làm thế nào cá dọn bể lại dọn được bể cá?",
+        "answer": "Cá dọn bể (Pleco) có miệng giống như cái cốc hút chân không. Chúng dùng miệng dính vào thành bể, sau đó dùng hàm răng bé xíu để cạo sạch rêu, tảo và thức ăn thừa trên đó. Chúng là những công nhân vệ sinh chăm chỉ của bể cá.",
+        "tags": [
+            "cá dọn bể",
+            "hút",
+            "rêu tảo",
+            "vệ sinh"
+        ],
+        "illustration_prompt": "cute educational illustration of a plecostomus fish sucking on the side of a glass tank, happy cleaning action"
+    },
+    {
+        "id": 85,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá ngựa di chuyển bằng cách nào?",
+        "answer": "Cá ngựa bơi rất dở và thường bám vào san hô/rong biển bằng cái đuôi đặc biệt của mình. Chúng bơi bằng cách vẫy rất nhanh một chiếc vây nhỏ trên lưng (vây lưng), khiến cơ thể thẳng đứng trôi đi chậm rãi.",
+        "tags": [
+            "cá ngựa",
+            "bơi chậm",
+            "vây lưng",
+            "bám víu"
+        ],
+        "illustration_prompt": "cute educational illustration of a seahorse gripping seaweed with its tail, small dorsal fin vibrating quickly"
+    },
+    {
+        "id": 86,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Lý do nào khiến cá có màu sắc rực rỡ?",
+        "answer": "Màu sắc rực rỡ có nhiều mục đích. Một số là để thu hút bạn tình (giống công xòe đuôi). Một số khác là màu cảnh báo, cho kẻ thù biết rằng chúng có độc hoặc có mùi vị rất tệ.",
+        "tags": [
+            "cá",
+            "màu sắc",
+            "cảnh báo",
+            "tán tỉnh"
+        ],
+        "illustration_prompt": "cute educational illustration of two brightly colored tropical fish flirting with each other near coral"
+    },
+    {
+        "id": 87,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Loài cá nào có khả năng nhìn thấu không khí?",
+        "answer": "Cá bốn mắt (Four-eyed fish) có mắt chia làm hai phần: nửa trên nhìn được trong không khí, nửa dưới nhìn được trong nước. Điều này giúp chúng vừa bơi sát mặt nước vừa quan sát được côn trùng trên bờ để săn mồi và kẻ thù dưới nước.",
+        "tags": [
+            "cá bốn mắt",
+            "thị lực",
+            "lưỡng môi trường",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a fish with divided eyes, showing one half looking above water and the other half looking below"
+    },
+    {
+        "id": 88,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Tại sao cá voi lại không phải là cá?",
+        "answer": "Cá voi là động vật có vú (mammal) chứ không phải cá. Dù sống dưới nước, chúng vẫn phải ngoi lên mặt nước để thở bằng phổi, chúng đẻ con và cho con bú sữa mẹ. Chúng có nguồn gốc từ tổ tiên sống trên cạn.",
+        "tags": [
+            "cá voi",
+            "động vật có vú",
+            "phổi",
+            "phân loại"
+        ],
+        "illustration_prompt": "cute educational illustration of a whale spouting water, with a mini diagram of lungs inside its body"
+    },
+    {
+        "id": 89,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá có thể sống lâu đến đâu?",
+        "answer": "Hầu hết cá sống vài năm. Tuy nhiên, một số loài cá đặc biệt sống rất lâu. Cá nhám Greenland có thể sống tới 400 năm, trở thành loài có xương sống sống lâu nhất trên Trái Đất!",
+        "tags": [
+            "cá",
+            "tuổi thọ",
+            "kỷ lục",
+            "Greenland"
+        ],
+        "illustration_prompt": "cute educational illustration of an old Greenland shark wearing glasses and a birthday hat with 400 candles, deep blue background"
+    },
+    {
+        "id": 90,
+        "category": "Động vật",
+        "sub_category": "Cá",
+        "question": "Cá hồi vượt thác có bị kiệt sức không?",
+        "answer": "Hàng triệu con cá hồi bơi ngược dòng nước về nơi sinh sản, đó là hành trình kiệt sức. Khi về tới nơi, hầu hết chúng sẽ chết sau khi đẻ trứng. Tuy nhiên, cái chết của cá hồi lại cung cấp chất dinh dưỡng nuôi dưỡng cả khu rừng và động vật xung quanh.",
+        "tags": [
+            "cá hồi",
+            "vượt thác",
+            "sinh sản",
+            "vòng đời"
+        ],
+        "illustration_prompt": "cute educational illustration of a salmon reaching the spawning ground, looking exhausted but successful, forest river background"
+    },
+    {
+        "id": 91,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao tắc kè hoa (Chameleon) đổi màu?",
+        "answer": "Nhiều người nghĩ tắc kè hoa đổi màu để ngụy trang, nhưng mục đích chính là để **thể hiện cảm xúc** (giận dữ, sợ hãi) và **điều chỉnh nhiệt độ** cơ thể. Màu tối giúp chúng hấp thụ nhiệt, còn màu sáng giúp chúng phản xạ nhiệt để làm mát.",
+        "tags": [
+            "tắc kè hoa",
+            "đổi màu",
+            "cảm xúc",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational illustration of a chameleon changing color from bright green (happy) to dark brown (angry), simple background"
+    },
+    {
+        "id": 92,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Con rắn nuốt chửng con mồi to lớn hơn đầu nó như thế nào?",
+        "answer": "Rắn không nhai mà nuốt toàn bộ con mồi. Hàm của chúng không gắn chặt vào nhau như chúng ta mà được nối bằng dây chằng rất linh hoạt. Điều này cho phép miệng rắn mở rộng ra 180 độ, từ từ 'đi bộ' quanh con mồi để nuốt nó vào bụng.",
+        "tags": [
+            "con rắn",
+            "nuốt chửng",
+            "hàm",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake with its jaw widely unhinged, swallowing a large but cute mouse, simplified diagram"
+    },
+    {
+        "id": 93,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Tại sao rùa (Turtle) và rùa cạn (Tortoise) lại khác nhau?",
+        "answer": "Rùa (Turtle) có mai mỏng, nhẹ và chân có màng để bơi lội dưới nước (sống dưới nước hoặc gần nước). Rùa cạn (Tortoise) có mai hình vòm nặng, chân tròn, cứng cáp như voi để đi lại trên đất liền (sống hoàn toàn trên cạn).",
+        "tags": [
+            "con rùa",
+            "rùa cạn",
+            "mai",
+            "phân biệt"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: flat-shelled turtle swimming vs dome-shelled tortoise walking on land"
+    },
+    {
+        "id": 94,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn dùng lưỡi để làm gì?",
+        "answer": "Rắn không dùng lưỡi để nếm thức ăn mà dùng để 'ngửi' không khí. Lưỡi chẻ đôi sẽ thu thập các hạt mùi trong không khí, sau đó rắn đưa lưỡi vào một cơ quan đặc biệt trong miệng (cơ quan Jacobson) để phân tích mùi, giúp nó săn mồi và tìm bạn tình.",
+        "tags": [
+            "con rắn",
+            "lưỡi",
+            "ngửi",
+            "giác quan"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake flicking its forked tongue out, scent trails visible, focused expression"
+    },
+    {
+        "id": 95,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao cá sấu thường ngủ với miệng há to?",
+        "answer": "Cá sấu không có tuyến mồ hôi. Việc há to miệng khi nằm phơi nắng (gọi là 'gaping') giúp làm mát cơ thể bằng cách để hơi ẩm bốc hơi từ lớp màng miệng. Giống như chó thè lưỡi làm mát vậy!",
+        "tags": [
+            "cá sấu",
+            "há miệng",
+            "làm mát",
+            "nắng nóng"
+        ],
+        "illustration_prompt": "cute educational illustration of a crocodile lying on a riverbank with its mouth wide open, sun shining on it"
+    },
+    {
+        "id": 96,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Con thằn lằn có thể làm gì khi bị đứt đuôi?",
+        "answer": "Khi bị kẻ thù tấn công, một số loài thằn lằn sẽ tự cắt đứt đuôi của mình. Cái đuôi sẽ quằn quại một lúc để đánh lạc hướng kẻ thù, giúp thằn lằn có thời gian chạy trốn. Sau đó, đuôi mới sẽ mọc lại, dù thường ngắn và kém đẹp hơn đuôi cũ.",
+        "tags": [
+            "thằn lằn",
+            "đứt đuôi",
+            "tự vệ",
+            "mọc lại"
+        ],
+        "illustration_prompt": "cute educational illustration of a lizard running away while its detached tail is wiggling to distract a predator, comic style"
+    },
+    {
+        "id": 97,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn làm sao để di chuyển mà không có chân?",
+        "answer": "Rắn sử dụng các cơ bụng khỏe mạnh và các vảy bụng đặc biệt. Chúng co duỗi các cơ theo kiểu lượn sóng, đẩy cơ thể tiến lên. Có nhiều kiểu bò khác nhau, như bò lượn, bò thẳng (giống như đi bộ) và bò khóa để leo cây.",
+        "tags": [
+            "con rắn",
+            "di chuyển",
+            "vảy bụng",
+            "cơ bắp"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake slithering in S-shape movement on the ground, showing muscular contraction"
+    },
+    {
+        "id": 98,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Tại sao rùa biển lại 'khóc'?",
+        "answer": "Rùa biển thường ăn nhiều thức ăn mặn và uống nước biển. Để giữ cho cơ thể cân bằng, chúng phải thải lượng muối thừa qua một tuyến đặc biệt gần mắt. Những giọt nước mặn chảy ra đó trông giống như rùa đang khóc vậy.",
+        "tags": [
+            "rùa biển",
+            "khóc",
+            "muối",
+            "thải độc"
+        ],
+        "illustration_prompt": "cute educational illustration of a sea turtle on a beach with salty tears (water droplets) near its eyes, peaceful expression"
+    },
+    {
+        "id": 99,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Điều gì quyết định giới tính của cá sấu con?",
+        "answer": "Không phải gen mà là nhiệt độ của tổ trứng! Nếu trứng được ấp ở nhiệt độ ấm hơn (khoảng 32-33 độ C), cá sấu con sẽ nở ra là con đực. Nếu nhiệt độ thấp hơn hoặc cao hơn ngưỡng đó, trứng sẽ nở ra là con cái.",
+        "tags": [
+            "cá sấu",
+            "giới tính",
+            "trứng",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a crocodile nest, a thermometer showing different temperatures leading to male/female hatchlings"
+    },
+    {
+        "id": 100,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao các loài bò sát phải tắm nắng?",
+        "answer": "Bò sát là động vật máu lạnh (poikilotherm), có nghĩa là chúng không thể tự tạo ra nhiệt độ ổn định như con người. Tắm nắng giúp chúng hấp thụ nhiệt từ môi trường để làm ấm cơ thể, giúp chúng có đủ năng lượng để di chuyển và tiêu hóa thức ăn.",
+        "tags": [
+            "bò sát",
+            "máu lạnh",
+            "tắm nắng",
+            "điều chỉnh nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration of a small lizard sunbathing on a rock, temperature gauge going up, satisfied face"
+    },
+    {
+        "id": 101,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn độc tiêm nọc độc bằng cách nào?",
+        "answer": "Rắn độc có răng nanh rỗng ruột (như kim tiêm) được gắn với tuyến nọc độc. Khi rắn cắn, các cơ quanh tuyến độc co lại, ép nọc độc chảy qua răng nanh và tiêm vào con mồi. Răng nanh này thường gập lại vào trong miệng khi không sử dụng.",
+        "tags": [
+            "rắn độc",
+            "nọc độc",
+            "răng nanh",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a venomous snake showing its fangs being injected into a soft object, simplified biology"
+    },
+    {
+        "id": 102,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Kỳ đà Komodo nổi tiếng về điều gì?",
+        "answer": "Kỳ đà Komodo là loài thằn lằn lớn nhất thế giới, dài tới 3 mét và nặng 70 kg. Chúng rất nguy hiểm vì có nước bọt chứa đầy vi khuẩn độc hại, khiến vết cắn của chúng gây nhiễm trùng nhanh chóng làm con mồi suy yếu.",
+        "tags": [
+            "kỳ đà komodo",
+            "thằn lằn lớn nhất",
+            "độc tố",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant Komodo dragon walking, showing off its size, jungle background"
+    },
+    {
+        "id": 103,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn có mí mắt không?",
+        "answer": "Rắn không có mí mắt mà có một lớp vảy trong suốt bao phủ mắt, giúp bảo vệ mắt khỏi bụi bẩn và thương tích (gọi là 'spectacle'). Vì vậy, rắn không bao giờ chớp mắt và dường như luôn mở mắt, ngay cả khi ngủ.",
+        "tags": [
+            "con rắn",
+            "mắt",
+            "mí mắt",
+            "ngủ"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake head, focusing on the eye covered by a clear scale layer, sleepy expression"
+    },
+    {
+        "id": 104,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao cá sấu có thể nhịn ăn lâu như vậy?",
+        "answer": "Cá sấu có tốc độ trao đổi chất cực kỳ chậm (máu lạnh). Chúng chỉ cần rất ít năng lượng để duy trì sự sống. Một con cá sấu lớn có thể nhịn ăn trong nhiều tháng, thậm chí cả năm sau một bữa ăn thịnh soạn.",
+        "tags": [
+            "cá sấu",
+            "nhịn ăn",
+            "trao đổi chất",
+            "sinh tồn"
+        ],
+        "illustration_prompt": "cute educational illustration of a crocodile lying motionless in a swamp, energy bar meter showing very low consumption"
+    },
+    {
+        "id": 105,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Mai rùa được cấu tạo từ gì?",
+        "answer": "Mai rùa không phải là một cái nhà di động mà là một phần không thể thiếu của cơ thể nó. Mai rùa được tạo thành từ xương sườn và xương sống của rùa dính liền vào nhau. Đó là lý do vì sao rùa không thể thoát ra khỏi mai của mình.",
+        "tags": [
+            "con rùa",
+            "mai",
+            "xương sườn",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a turtle with a simple x-ray style showing the backbone connected to the shell, protective shield concept"
+    },
+    {
+        "id": 106,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Sự khác biệt giữa rắn hổ mang (Cobra) và rắn thường là gì?",
+        "answer": "Rắn hổ mang có khả năng bành rộng một cái 'mũ' to ra quanh đầu khi cảm thấy bị đe dọa. Cái mũ này thực chất là các xương sườn cổ được bung ra để làm cho hổ mang trông to lớn và đáng sợ hơn.",
+        "tags": [
+            "rắn hổ mang",
+            "mũ",
+            "hù dọa",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a cobra with its hood fully extended, defensive posture, jungle background"
+    },
+    {
+        "id": 107,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Thằn lằn bay (Flying Dragon Lizard) bay như thế nào?",
+        "answer": "Thằn lằn bay không vỗ cánh như chim mà dùng màng da rộng ở hai bên sườn (được chống đỡ bởi xương sườn kéo dài) để lượn từ cây này sang cây khác. Chúng chỉ lượn chứ không thể tự nâng mình lên cao như bay.",
+        "tags": [
+            "thằn lằn bay",
+            "lượn",
+            "màng da",
+            "cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a flying dragon lizard gliding through the air between two trees, membrane wings spread out"
+    },
+    {
+        "id": 108,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Lớp da rắn có tác dụng gì?",
+        "answer": "Lớp da có vảy bảo vệ rắn khỏi bị mất nước và khỏi bị thương. Đặc biệt, da rắn còn giúp chúng cảm nhận được rung động từ mặt đất để phát hiện con mồi và kẻ thù.",
+        "tags": [
+            "con rắn",
+            "da",
+            "vảy",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational illustration of snake skin texture zoomed in, showing the scales overlapping smoothly"
+    },
+    {
+        "id": 109,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao cá sấu mẹ lại tha con trong miệng?",
+        "answer": "Miệng cá sấu tuy nguy hiểm nhưng cơ hàm lại rất nhạy cảm. Sau khi trứng nở, cá sấu mẹ dùng miệng để cẩn thận tha những đứa con mới nở xuống nước. Miệng mẹ là nơi an toàn nhất cho cá sấu con lúc đó.",
+        "tags": [
+            "cá sấu",
+            "cá sấu mẹ",
+            "chăm sóc con",
+            "miệng"
+        ],
+        "illustration_prompt": "cute educational illustration of a mother crocodile gently carrying a baby crocodile in its massive mouth, tenderness expression"
+    },
+    {
+        "id": 110,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rùa cạn khổng lồ Galapagos có gì đặc biệt?",
+        "answer": "Đây là loài rùa lớn nhất thế giới, và cũng là một trong những loài động vật sống thọ nhất, một số cá thể có thể sống tới 150-200 năm. Chúng có vai trò quan trọng trong việc phân tán hạt giống cây cối trên các đảo.",
+        "tags": [
+            "rùa cạn",
+            "Galapagos",
+            "sống thọ",
+            "kích thước"
+        ],
+        "illustration_prompt": "cute educational illustration of a large Galapagos tortoise slowly walking, a small bird sitting on its shell, peaceful nature"
+    },
+    {
+        "id": 111,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Vì sao Tắc kè hoa (Gecko) có thể đi trên trần nhà?",
+        "answer": "Chân tắc kè hoa không có giác hút mà có hàng triệu sợi lông siêu nhỏ. Lực hút giữa các sợi lông này với bề mặt (lực Van der Waals) mạnh đến mức giúp tắc kè dễ dàng bám dính, chống lại trọng lực và đi trên mọi bề mặt phẳng.",
+        "tags": [
+            "tắc kè",
+            "lực hút",
+            "chân",
+            "đi trên tường"
+        ],
+        "illustration_prompt": "cute educational illustration of a gecko walking upside down on a ceiling, zoomed-in view showing tiny hairs on its foot pads"
+    },
+    {
+        "id": 112,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn làm sao để nghe được âm thanh?",
+        "answer": "Rắn không có tai ngoài, vì vậy chúng không nghe rõ âm thanh trong không khí. Thay vào đó, chúng cảm nhận rung động của mặt đất qua hàm và xương đầu, giúp chúng phát hiện các bước đi của con mồi hoặc mối nguy hiểm.",
+        "tags": [
+            "con rắn",
+            "thính giác",
+            "rung động",
+            "xương hàm"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake sensing vibrations through the ground with its head close to the dirt, simple sound wave graphic"
+    },
+    {
+        "id": 113,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Làm thế nào tắc kè hoa lại bắt được côn trùng nhanh thế?",
+        "answer": "Lưỡi của tắc kè hoa phóng ra ngoài với tốc độ cực nhanh (gấp 5 lần tốc độ của xe đua F1) và dài gấp rưỡi cơ thể chúng. Đầu lưỡi có chất nhầy siêu dính, ngay lập tức kéo con mồi về miệng.",
+        "tags": [
+            "tắc kè hoa",
+            "lưỡi",
+            "tốc độ",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a chameleon shooting its long, sticky tongue out to catch a mosquito, high speed effect"
+    },
+    {
+        "id": 114,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Tại sao da của bò sát lại khô?",
+        "answer": "Da bò sát được bao phủ bởi các vảy sừng hóa cứng và khô. Lớp da này giúp ngăn chặn sự mất nước qua da, một đặc điểm quan trọng giúp chúng sống sót trong môi trường khô cằn và nóng bức như sa mạc.",
+        "tags": [
+            "bò sát",
+            "da",
+            "khô",
+            "mất nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a scaled lizard in a dry environment, minimal water symbol, tough skin texture"
+    },
+    {
+        "id": 115,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Rắn chuông (Rattlesnake) tạo ra tiếng kêu 'rắc rắc' bằng gì?",
+        "answer": "Âm thanh đó không phải là tiếng kêu mà là tiếng va chạm của một chuỗi các lớp keratin rỗng ở đầu đuôi (gọi là chuông). Khi rắn rung đuôi, những lớp này va vào nhau tạo ra âm thanh lớn để cảnh báo kẻ thù đừng đến gần.",
+        "tags": [
+            "rắn chuông",
+            "đuôi",
+            "cảnh báo",
+            "âm thanh"
+        ],
+        "illustration_prompt": "cute educational illustration of a rattlesnake shaking its tail, a close-up of the rattle making a loud noise"
+    },
+    {
+        "id": 116,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Cá sấu khác cá sấu Mỹ (Alligator) như thế nào?",
+        "answer": "Khi ngậm miệng, **cá sấu** (Crocodile) sẽ để lộ răng thứ tư ở hàm dưới. Hàm của chúng hẹp hơn và có hình chữ V. **Cá sấu Mỹ** (Alligator) có hàm rộng hơn, hình chữ U và khi ngậm miệng thì hầu hết răng không lộ ra.",
+        "tags": [
+            "cá sấu",
+            "alligator",
+            "hàm",
+            "phân biệt"
+        ],
+        "illustration_prompt": "cute educational illustration split screen comparison: Crocodile (narrow snout, visible teeth) vs Alligator (broad snout, hidden teeth)"
+    },
+    {
+        "id": 117,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Tại sao Rồng Úc (Bearded Dragon) lại thổi phồng cổ?",
+        "answer": "Khi bị đe dọa hoặc khi muốn thu hút bạn tình, Rồng Úc sẽ làm phẳng cơ thể và thổi phồng cái cổ họng có gai màu đen (như bộ râu). Điều này làm chúng trông to hơn và đáng sợ hơn nhiều so với kích thước thật.",
+        "tags": [
+            "rồng úc",
+            "phồng cổ",
+            "hù dọa",
+            "sa mạc"
+        ],
+        "illustration_prompt": "cute educational illustration of a bearded dragon inflating its neck skin into a black, spiky 'beard', defensive stance"
+    },
+    {
+        "id": 118,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Con rắn 'lột da' để làm gì?",
+        "answer": "Rắn lột da (shedding) vì hai lý do chính: **1) Rắn lớn lên** và lớp da cũ không còn vừa nữa. **2) Loại bỏ ký sinh trùng** như ve, rận. Sau khi lột, lớp da mới bên trong sẽ bóng bẩy, tươi tắn hơn.",
+        "tags": [
+            "con rắn",
+            "lột da",
+            "lớn lên",
+            "vệ sinh"
+        ],
+        "illustration_prompt": "cute educational illustration of a snake peeling off its old skin (like a sock), new shiny skin underneath"
+    },
+    {
+        "id": 119,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Tại sao một số loài thằn lằn lại bơi được trên cát?",
+        "answer": "Thằn lằn cát (Sandfish) di chuyển như thể bơi trong cát. Chúng có hình dáng thuôn, trơn và vảy mịn, cho phép chúng lặn sâu xuống dưới lớp cát lỏng và 'bơi' đi bằng chuyển động lượn sóng của cơ thể để trốn nóng và trốn kẻ thù.",
+        "tags": [
+            "thằn lằn",
+            "bơi cát",
+            "sa mạc",
+            "ngụy trang"
+        ],
+        "illustration_prompt": "cute educational illustration of a sandfish lizard seemingly swimming under a layer of sand, showing only a small wake behind it"
+    },
+    {
+        "id": 120,
+        "category": "Động vật",
+        "sub_category": "Bò sát",
+        "question": "Bò sát có phải là 'hóa thạch sống' không?",
+        "answer": "Một số loài bò sát như cá sấu và rùa được gọi là 'hóa thạch sống' vì hình dạng cơ thể của chúng hầu như không thay đổi qua hàng triệu năm. Cá sấu đã tồn tại từ thời khủng long, chứng minh khả năng sinh tồn tuyệt vời của chúng.",
+        "tags": [
+            "bò sát",
+            "hóa thạch sống",
+            "khủng long",
+            "tiến hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a modern crocodile standing next to a simplified dinosaur fossil skeleton, showing lineage"
+    },
+    {
+        "id": 121,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Vì sao ếch phải sống gần nước?",
+        "answer": "Ếch cần nước để sinh sản, vì trứng ếch (nòng nọc) phải sống dưới nước. Ngoài ra, da ếch mỏng và phải luôn ẩm ướt để hấp thụ oxy và thở. Nếu da bị khô, ếch sẽ không thở được và có thể chết.",
+        "tags": [
+            "con ếch",
+            "da ẩm",
+            "hô hấp",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog sitting on a lily pad with visible moisture on its skin, near a pond"
+    },
+    {
+        "id": 122,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Lưỡng cư biến thái (metamorphosis) như thế nào?",
+        "answer": "Lưỡng cư trải qua một sự thay đổi kỳ diệu. Từ một quả trứng, chúng nở thành **nòng nọc** (có đuôi, thở bằng mang, sống dưới nước). Sau đó, chúng mọc chân, đuôi rụng đi và phát triển phổi, biến thành **ếch/cóc** trưởng thành sống trên cạn.",
+        "tags": [
+            "lưỡng cư",
+            "biến thái",
+            "nòng nọc",
+            "vòng đời"
+        ],
+        "illustration_prompt": "cute educational illustration showing the life cycle stages: egg, tadpole, tadpole with legs, and fully formed frog"
+    },
+    {
+        "id": 123,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Tại sao lưỡi ếch lại lợi hại đến vậy?",
+        "answer": "Lưỡi ếch cực kỳ dính và được gắn vào phía trước miệng, không phải phía sau như chúng ta. Điều này giúp ếch phóng lưỡi ra với tốc độ tia chớp để bắt côn trùng. Toàn bộ quá trình từ phóng lưỡi đến nuốt con mồi chỉ mất chưa đầy một giây!",
+        "tags": [
+            "con ếch",
+            "lưỡi dính",
+            "tốc độ",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog shooting its sticky tongue out quickly to catch a fly, high speed effect"
+    },
+    {
+        "id": 124,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Con cóc cóc nốt sần (warts) để làm gì?",
+        "answer": "Những nốt sần trên da cóc không truyền 'bệnh cóc' như lời đồn. Thực chất, chúng chứa các tuyến độc gọi là tuyến mang tai (parotoid glands). Khi bị đe dọa, cóc tiết ra chất độc có vị rất tệ để làm cho kẻ thù bỏ chạy.",
+        "tags": [
+            "con cóc",
+            "nốt sần",
+            "chất độc",
+            "tự vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a toad with visible warts, a simple warning sign graphic"
+    },
+    {
+        "id": 125,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Vì sao ếch phi tiêu độc (Poison Dart Frog) lại có màu sặc sỡ?",
+        "answer": "Màu sắc rực rỡ (xanh lam, vàng, đỏ) là màu cảnh báo! Nó cho kẻ thù biết rằng chúng cực kỳ độc và không thể ăn được. Ếch có được chất độc này từ các loài côn trùng chúng ăn trong tự nhiên.",
+        "tags": [
+            "ếch độc",
+            "màu sắc",
+            "cảnh báo",
+            "độc tố"
+        ],
+        "illustration_prompt": "cute educational illustration of a small, brightly colored poison dart frog sitting on a leaf, bold warning colors"
+    },
+    {
+        "id": 126,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Nòng nọc sống sót ở hồ cạn nước như thế nào?",
+        "answer": "Khi hồ nước bắt đầu khô, một số loài nòng nọc (đặc biệt là nòng nọc sa mạc) sẽ đẩy nhanh tốc độ biến thái của mình. Chúng cố gắng rụng đuôi, mọc chân nhanh hơn bình thường để lên bờ trước khi nước cạn hoàn toàn.",
+        "tags": [
+            "nòng nọc",
+            "sa mạc",
+            "biến thái nhanh",
+            "sinh tồn"
+        ],
+        "illustration_prompt": "cute educational illustration of a tadpole quickly growing legs near a small, shrinking puddle, determined face"
+    },
+    {
+        "id": 127,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Loài lưỡng cư nào trông giống rắn?",
+        "answer": "Đó là loài **chuột chũi không chân** (Caecilian). Chúng là loài lưỡng cư nhưng không có chân, sống chủ yếu dưới lòng đất, đào hang như giun. Điều thú vị là con non ăn lớp da giàu chất béo trên cơ thể mẹ để lớn lên.",
+        "tags": [
+            "caecilian",
+            "không chân",
+            "lòng đất",
+            "kỳ lạ"
+        ],
+        "illustration_prompt": "cute educational illustration of a caecilian burrowing underground, long snake-like body, soil texture visible"
+    },
+    {
+        "id": 128,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Vì sao ếch phải nuốt chửng con mồi bằng mắt?",
+        "answer": "Ếch không có răng để nhai nên phải nuốt cả con mồi. Khi nuốt, ếch co mắt lại và đẩy hai nhãn cầu sâu xuống cổ họng. Áp lực này giúp đẩy thức ăn xuống dạ dày dễ dàng hơn.",
+        "tags": [
+            "con ếch",
+            "nuốt chửng",
+            "mắt",
+            "tiêu hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog blinking hard while swallowing a large bug, comical look"
+    },
+    {
+        "id": 129,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Kỳ nhông (Salamander) có khả năng siêu phàm gì?",
+        "answer": "Kỳ nhông có khả năng tái tạo các bộ phận cơ thể đã mất một cách đáng kinh ngạc. Nếu bị mất chân, đuôi, thậm chí một phần của tim hoặc mắt, chúng có thể mọc lại hoàn chỉnh mà không để lại sẹo.",
+        "tags": [
+            "kỳ nhông",
+            "tái tạo",
+            "mọc lại chân",
+            "siêu năng lực"
+        ],
+        "illustration_prompt": "cute educational illustration of a salamander with a regrowing tail, showing the healing process, amazement expression"
+    },
+    {
+        "id": 130,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch đực kêu 'ộp oạp' để làm gì?",
+        "answer": "Chỉ có ếch đực mới kêu (croaking). Chúng kêu rất to để thu hút ếch cái đến giao phối. Mỗi loài ếch có một kiểu kêu khác nhau, giống như một bài hát riêng để ếch cái không nhầm lẫn bạn tình.",
+        "tags": [
+            "con ếch",
+            "tiếng kêu",
+            "giao tiếp",
+            "hẹn hò"
+        ],
+        "illustration_prompt": "cute educational illustration of a male frog inflating its vocal sac (like a balloon) and croaking loudly, simple sound waves"
+    },
+    {
+        "id": 131,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch có thể uống nước bằng chân không?",
+        "answer": "Có. Ếch có một 'miếng vá uống nước' đặc biệt trên da bụng. Chúng có thể hấp thụ nước trực tiếp qua da này thay vì uống bằng miệng. Miếng vá này cũng giúp chúng hấp thụ oxy khi ở trong nước.",
+        "tags": [
+            "con ếch",
+            "uống nước",
+            "da bụng",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog sitting in shallow water with its belly skin absorbing water droplets, happy hydration expression"
+    },
+    {
+        "id": 132,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Vì sao nòng nọc ăn chay nhưng ếch trưởng thành lại ăn thịt?",
+        "answer": "Nòng nọc có hệ tiêu hóa dài, phù hợp để ăn tảo, cây cỏ mềm và vụn hữu cơ. Khi biến thái thành ếch, hệ tiêu hóa co lại và thay đổi, giúp chúng chuyển sang chế độ ăn côn trùng, nhện và các động vật nhỏ khác.",
+        "tags": [
+            "nòng nọc",
+            "thực đơn",
+            "tiêu hóa",
+            "thay đổi"
+        ],
+        "illustration_prompt": "cute educational illustration split screen: tadpole eating algae vs frog eating a beetle"
+    },
+    {
+        "id": 133,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch có thể đóng băng và sống sót không?",
+        "answer": "Một số loài ếch ở vùng lạnh có khả năng kỳ diệu này. Chúng tạo ra glucose (một loại đường) bơm vào máu và mô để ngăn các tinh thể băng làm hỏng tế bào. Chúng có thể bị đóng băng như đá lạnh và sống lại khi trời ấm hơn.",
+        "tags": [
+            "con ếch",
+            "đóng băng",
+            "sinh tồn",
+            "glucose"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog covered in frost/ice crystals, looking frozen but peaceful, with a heart symbol indicating life"
+    },
+    {
+        "id": 134,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Làm thế nào lưỡng cư có thể giúp con người?",
+        "answer": "Lưỡng cư được coi là 'chỉ số sức khỏe' của môi trường. Da của chúng rất nhạy cảm với ô nhiễm. Nếu ếch và cóc trong một khu vực biến mất, đó là dấu hiệu cảnh báo nghiêm trọng về chất lượng nước và không khí bị suy giảm.",
+        "tags": [
+            "lưỡng cư",
+            "môi trường",
+            "chỉ số",
+            "cảnh báo"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog wearing a stethoscope, pointing to a healthy/clean river"
+    },
+    {
+        "id": 135,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Tại sao một số loài lưỡng cư có da trong suốt?",
+        "answer": "Ếch thủy tinh (Glass Frog) có da bụng trong suốt, để lộ các cơ quan nội tạng bên trong (tim, gan, xương). Điều này giúp chúng ngụy trang tốt hơn trên các tán lá khi nhìn từ dưới lên, và giúp các nhà khoa học dễ dàng nghiên cứu cơ thể chúng.",
+        "tags": [
+            "ếch thủy tinh",
+            "da trong suốt",
+            "ngụy trang",
+            "cơ quan"
+        ],
+        "illustration_prompt": "cute educational illustration of a glass frog sitting on a green leaf, showing transparent skin revealing internal organs"
+    },
+    {
+        "id": 136,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch 'hạ cánh' sau khi nhảy như thế nào?",
+        "answer": "Ếch là vận động viên nhảy xa tuyệt vời. Khi hạ cánh, chúng duỗi thẳng các chi trước (tay) để đỡ cơ thể và thu chân sau lại, giống như một vận động viên thể dục dụng cụ chuyên nghiệp để giảm xóc và không bị thương.",
+        "tags": [
+            "con ếch",
+            "nhảy xa",
+            "hạ cánh",
+            "vận động viên"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog landing gracefully after a big jump, arms outstretched for balance"
+    },
+    {
+        "id": 137,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Sự khác biệt chính giữa ếch (Frog) và cóc (Toad) là gì?",
+        "answer": "Ếch thường có da mịn, ướt và chân dài hơn để nhảy xa. Cóc thường có da khô, sần sùi và chân ngắn hơn, chúng di chuyển bằng cách đi hoặc bò thay vì nhảy. Cóc cũng thích môi trường khô ráo hơn ếch.",
+        "tags": [
+            "con ếch",
+            "con cóc",
+            "phân biệt",
+            "da"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: smooth, wet frog vs dry, warty toad"
+    },
+    {
+        "id": 138,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Tại sao Kỳ nhông Mexico (Axolotl) lại trông đáng yêu thế?",
+        "answer": "Axolotl được gọi là 'khủng long nước'. Chúng dành cả đời trong nước mà không biến thái thành dạng trưởng thành trên cạn. Những cái tua nhỏ màu hồng xung quanh đầu chúng chính là mang ngoài để lấy oxy từ nước.",
+        "tags": [
+            "axolotl",
+            "kỳ nhông",
+            "mang ngoài",
+            "dễ thương"
+        ],
+        "illustration_prompt": "cute educational illustration of a smiling Axolotl swimming in water, showing its feathery external gills"
+    },
+    {
+        "id": 139,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch ngủ đông (hibernation) hay ngủ hè (aestivation)?",
+        "answer": "Tùy thuộc vào khí hậu. Ếch ở vùng lạnh ngủ đông (hibernation) để tránh cái rét khắc nghiệt. Ếch ở vùng nóng, khô ngủ hè (aestivation) bằng cách chui xuống đất, tự tạo lớp vỏ nhầy bao quanh để giữ ẩm, tránh bị khô trong mùa hạn hán.",
+        "tags": [
+            "con ếch",
+            "ngủ đông",
+            "ngủ hè",
+            "thích nghi"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog buried in the ground during a very hot day, wrapped in a protective cocoon of slime"
+    },
+    {
+        "id": 140,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Tại sao các loài lưỡng cư có đôi mắt to lồi?",
+        "answer": "Đôi mắt to lồi giúp lưỡng cư có tầm nhìn rộng và tốt để săn mồi trong bóng tối. Khi nuốt, mắt chúng còn đóng vai trò quan trọng trong việc đẩy thức ăn xuống họng (như đã nói ở câu 128).",
+        "tags": [
+            "lưỡng cư",
+            "mắt to",
+            "tầm nhìn",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog with huge, expressive, bulging eyes looking around, night sky background"
+    },
+    {
+        "id": 141,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch lá (Leaf Frog) ngụy trang như thế nào?",
+        "answer": "Ếch lá có màu xanh lá cây hoặc nâu đất hoàn hảo, giúp chúng hòa lẫn vào tán lá. Đặc biệt, chúng có thể nằm yên bất động rất lâu để trông giống hệt như một chiếc lá, qua mặt kẻ thù.",
+        "tags": [
+            "ếch lá",
+            "ngụy trang",
+            "lá cây",
+            "ẩn nấp"
+        ],
+        "illustration_prompt": "cute educational illustration of a leaf frog perfectly camouflaged on a bright green leaf, subtle details"
+    },
+    {
+        "id": 142,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch có thể nhảy xa đến mức nào?",
+        "answer": "Một số loài ếch có thể nhảy xa gấp 20 lần chiều dài cơ thể của chúng! Nếu con người có tỉ lệ nhảy như vậy, một đứa trẻ cao 1 mét có thể nhảy xa tới 20 mét trong một bước.",
+        "tags": [
+            "con ếch",
+            "nhảy xa",
+            "kỷ lục",
+            "vận động viên"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog making a cartoon-style mega jump, comparison line to a small human figure"
+    },
+    {
+        "id": 143,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Loài lưỡng cư có khả năng đẻ hàng chục ngàn trứng?",
+        "answer": "Cóc Mía (Cane Toad) là nhà vô địch đẻ trứng, có thể đẻ tới 30.000 quả trứng trong một lần sinh sản! Chúng là loài cóc lớn và độc hại, được du nhập vào Úc để diệt côn trùng nhưng lại trở thành loài xâm lấn gây hại lớn.",
+        "tags": [
+            "cóc mía",
+            "đẻ trứng",
+            "xâm lấn",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant cane toad surrounded by an enormous cluster of small eggs in the water"
+    },
+    {
+        "id": 144,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Kỳ nhông lửa (Fire Salamander) có đặc điểm gì?",
+        "answer": "Kỳ nhông lửa có màu đen và vàng rực rỡ, đó là màu cảnh báo về độc tố của chúng. Khi bị đe dọa, chúng tiết ra một chất độc thần kinh từ tuyến da để bảo vệ mình khỏi những kẻ săn mồi.",
+        "tags": [
+            "kỳ nhông lửa",
+            "cảnh báo",
+            "độc tố",
+            "màu vàng đen"
+        ],
+        "illustration_prompt": "cute educational illustration of a black and yellow fire salamander with visible slime/goo on its skin, warning look"
+    },
+    {
+        "id": 145,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Sự khác biệt giữa nòng nọc và cá con là gì?",
+        "answer": "Nòng nọc là giai đoạn ấu trùng của lưỡng cư (ếch, cóc), chúng sẽ biến thái thành động vật trên cạn. Cá con là cá nhỏ, chúng sẽ lớn lên thành cá trưởng thành và vẫn sống dưới nước.",
+        "tags": [
+            "nòng nọc",
+            "cá con",
+            "phân biệt",
+            "ấu trùng"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: tadpole (fat body, small head) vs small fish (streamlined body)"
+    },
+    {
+        "id": 146,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Lưỡng cư thở bằng phổi hay bằng da?",
+        "answer": "Lưỡng cư thở bằng cả hai! Chúng có phổi nhưng phổi yếu, nên chúng hô hấp chủ yếu qua da (khoảng 30-50%). Da phải luôn ẩm để hấp thụ oxy. Thậm chí có loài kỳ nhông hoàn toàn không có phổi và chỉ thở bằng da.",
+        "tags": [
+            "lưỡng cư",
+            "hô hấp",
+            "phổi",
+            "da"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog showing air bubbles going in through the skin, simplified diagram of lung and skin breathing"
+    },
+    {
+        "id": 147,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Con cóc giữ nước ở đâu?",
+        "answer": "Khi đi vào môi trường khô, cóc có một chiếc bàng quang rất lớn, chúng có thể trữ một lượng nước khổng lồ trong đó (giống như một chiếc bình nước dự phòng) để giữ ẩm cơ thể và chống lại tình trạng mất nước.",
+        "tags": [
+            "con cóc",
+            "trữ nước",
+            "bàng quang",
+            "sinh tồn"
+        ],
+        "illustration_prompt": "cute educational illustration of a toad looking slightly bloated/full of water, labeled 'water reserve' bubble"
+    },
+    {
+        "id": 148,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Ếch dùng đôi chân có màng để làm gì?",
+        "answer": "Đôi chân có màng của ếch hoạt động như chân vịt khi bơi dưới nước, giúp chúng lướt đi rất nhanh. Trên cạn, màng chân này lại giúp chúng tản đều trọng lực, hỗ trợ bám dính vào các bề mặt thẳng đứng.",
+        "tags": [
+            "con ếch",
+            "chân có màng",
+            "bơi",
+            "tản lực"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog swimming, showing webbed feet propelling it forward, fast motion effect"
+    },
+    {
+        "id": 149,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Lớp da nhầy của lưỡng cư có lợi gì?",
+        "answer": "Lớp da nhầy giúp giữ ẩm cho da để lưỡng cư có thể thở. Lớp nhầy này còn chứa các chất kháng khuẩn và kháng nấm để bảo vệ chúng khỏi bệnh tật. Thậm chí, một số loài tiết ra chất nhầy rất khó chịu để xua đuổi kẻ thù.",
+        "tags": [
+            "lưỡng cư",
+            "da nhầy",
+            "kháng khuẩn",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a frog covered in a light, glossy layer of slime, acting as an invisible shield"
+    },
+    {
+        "id": 150,
+        "category": "Động vật",
+        "sub_category": "Lưỡng cư",
+        "question": "Loài ếch nào được mệnh danh là 'vua ngụy trang'?",
+        "answer": "Đó là Ếch Rừng (Horned Frog) Nam Mỹ. Chúng có thân hình tròn và nhiều nếp da, giúp chúng trông giống hệt như một đống lá khô mục nát trên nền rừng. Chúng thường ẩn mình, chờ đợi con mồi đi ngang qua rồi tấn công bất ngờ.",
+        "tags": [
+            "ếch rừng",
+            "ngụy trang",
+            "lá khô",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a horned frog sitting on the forest floor, blending perfectly with brown leaves and dirt"
+    },
+    {
+        "id": 151,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Cấu tạo cơ bản của côn trùng là gì?",
+        "answer": "Côn trùng có ba bộ phận cơ thể chính: **Đầu** (chứa mắt, râu và miệng), **Ngực** (chứa 6 chân và cánh, nếu có), và **Bụng** (chứa các cơ quan nội tạng). Cơ thể chúng được bao phủ bởi lớp vỏ ngoài cứng (exoskeleton).",
+        "tags": [
+            "côn trùng",
+            "cấu tạo",
+            "3 phần",
+            "6 chân"
+        ],
+        "illustration_prompt": "cute educational illustration showing a general insect body plan with head, thorax, and abdomen labeled clearly, simple colors"
+    },
+    {
+        "id": 152,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Kiến làm sao để tìm được đường về tổ?",
+        "answer": "Kiến để lại một vệt hóa chất đặc biệt gọi là **pheromone** khi đi. Các con kiến khác sẽ đi theo mùi của pheromone này, tạo thành một hàng dài không bao giờ lạc lối. Chúng còn dùng pheromone để đánh dấu thức ăn hoặc cảnh báo nguy hiểm.",
+        "tags": [
+            "con kiến",
+            "pheromone",
+            "định hướng",
+            "tổ"
+        ],
+        "illustration_prompt": "cute educational illustration of a line of ants following a scented trail (wavy line) back to their anthill, cartoon style"
+    },
+    {
+        "id": 153,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Ong mật 'nhảy múa' để làm gì?",
+        "answer": "Ong thợ thực hiện một điệu nhảy đặc biệt gọi là **'waggle dance'** (nhảy lắc lư) ngay trong tổ. Điệu nhảy này là cách truyền đạt vị trí, khoảng cách và hướng đi của nguồn mật hoa vừa tìm thấy cho những con ong khác trong đàn.",
+        "tags": [
+            "ong mật",
+            "waggle dance",
+            "giao tiếp",
+            "mật hoa"
+        ],
+        "illustration_prompt": "cute educational illustration of a honey bee performing a waggle dance on the comb, with arrows indicating direction and distance to a flower"
+    },
+    {
+        "id": 154,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Bướm dùng gì để 'nếm' thức ăn?",
+        "answer": "Bướm không dùng miệng để nếm mà dùng **chân**! Chúng đậu lên cây hoặc bông hoa, và các thụ thể ở chân sẽ cho chúng biết đó có phải là thức ăn phù hợp không. Sau đó, chúng thè vòi hút mật hoa.",
+        "tags": [
+            "con bướm",
+            "nếm",
+            "chân",
+            "thụ thể"
+        ],
+        "illustration_prompt": "cute educational illustration of a butterfly landing on a flower, showing a taste receptor on its feet, gentle colors"
+    },
+    {
+        "id": 155,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Tại sao Bọ rùa (Ladybug) có màu đỏ với chấm đen?",
+        "answer": "Màu đỏ và đen tươi sáng là màu **cảnh báo** cho các loài chim hoặc côn trùng khác. Nó thông báo rằng bọ rùa có vị rất tệ và hơi độc. Khi gặp nguy hiểm, chúng còn tiết ra một chất lỏng vàng, có mùi hôi từ chân.",
+        "tags": [
+            "bọ rùa",
+            "màu cảnh báo",
+            "tự vệ",
+            "đốm"
+        ],
+        "illustration_prompt": "cute educational illustration of a ladybug on a leaf, with an exclamation mark warning sign, simple colors"
+    },
+    {
+        "id": 156,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Lớp vỏ cứng (Exoskeleton) của côn trùng có tác dụng gì?",
+        "answer": "Lớp vỏ ngoài này hoạt động như một bộ áo giáp, giúp bảo vệ cơ thể mềm yếu bên trong. Nó cũng giữ ẩm, ngăn côn trùng bị khô và giúp hỗ trợ cơ thể, vì côn trùng không có xương sống.",
+        "tags": [
+            "côn trùng",
+            "vỏ ngoài",
+            "bảo vệ",
+            "khung xương"
+        ],
+        "illustration_prompt": "cute educational illustration of a beetle with a strong, shiny outer shell, acting like armor, proud posture"
+    },
+    {
+        "id": 157,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Làm thế nào Bọ ngựa (Praying Mantis) có thể săn mồi lén lút?",
+        "answer": "Bọ ngựa là bậc thầy **ngụy trang**, trông giống hệt cành cây hoặc lá. Nó là loài côn trùng duy nhất có thể quay đầu 180 độ. Điều này giúp nó theo dõi con mồi mà không cần di chuyển thân, rồi chộp lấy bằng hai càng sắc nhọn.",
+        "tags": [
+            "bọ ngựa",
+            "ngụy trang",
+            "quay đầu",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a praying mantis turning its head completely backwards, blending in with a twig"
+    },
+    {
+        "id": 158,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Chuồn chuồn bay nhanh và chính xác như thế nào?",
+        "answer": "Chuồn chuồn là những 'phi công' siêu đẳng với hai bộ cánh có thể hoạt động độc lập. Mắt chúng to lớn (chiếm gần hết đầu) và chứa gần 30.000 ống kính nhỏ, cho chúng tầm nhìn gần 360 độ để dễ dàng bắt côn trùng khác khi đang bay.",
+        "tags": [
+            "chuồn chuồn",
+            "tốc độ",
+            "mắt kép",
+            "bay lượn"
+        ],
+        "illustration_prompt": "cute educational illustration of a dragonfly flying very fast, showing its huge, complex compound eyes, high detail"
+    },
+    {
+        "id": 159,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Tại sao ve sầu lại kêu to như vậy?",
+        "answer": "Chỉ có ve sầu đực kêu to. Chúng có một cơ quan phát âm đặc biệt ở bụng gọi là **timbals**. Âm thanh lớn này dùng để thu hút ve cái. Tiếng kêu càng lớn, chúng càng thu hút được nhiều bạn tình hơn.",
+        "tags": [
+            "ve sầu",
+            "tiếng kêu",
+            "timbals",
+            "giao phối"
+        ],
+        "illustration_prompt": "cute educational illustration of a cicada clinging to a tree, vibrating its abdomen to make a loud noise, sun hot background"
+    },
+    {
+        "id": 160,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Con dế mèn tạo ra âm thanh như thế nào?",
+        "answer": "Dế mèn phát ra tiếng 'gáy' bằng cách cọ xát hai cánh vào nhau (gọi là stridulation). Mỗi loài dế mèn có một bài hát riêng, và tần số gáy của dế còn thay đổi theo nhiệt độ ngoài trời. Bạn có thể dùng dế để đoán nhiệt độ đấy!",
+        "tags": [
+            "dế mèn",
+            "tiếng kêu",
+            "cọ xát",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational illustration of a cricket rubbing its forewings together to make a chirping sound, night scene"
+    },
+    {
+        "id": 161,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Sức mạnh của kiến là bao nhiêu?",
+        "answer": "Kiến là những nhà vô địch cử tạ. Một con kiến thợ có thể nâng vật nặng gấp **50 lần trọng lượng cơ thể** của nó. Sức mạnh này đến từ tỉ lệ kích thước cơ thể rất nhỏ so với cơ bắp của chúng.",
+        "tags": [
+            "con kiến",
+            "sức mạnh",
+            "cử tạ",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of an ant lifting a large mushroom cap over its head, flexing muscle, cartoon style"
+    },
+    {
+        "id": 162,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Bướm đêm (Moth) khác bướm ngày (Butterfly) ở điểm nào?",
+        "answer": "Bướm ngày thường có màu sắc rực rỡ, cánh khép lại khi đậu, và râu mỏng có hình bầu dục ở đầu. Bướm đêm thường có màu tối hơn, cánh mở ra khi đậu, và râu dày, xù xì (giống như lông vũ) để đánh hơi tốt hơn trong bóng tối.",
+        "tags": [
+            "bướm",
+            "bướm đêm",
+            "phân biệt",
+            "râu"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: Colorful butterfly with thin antenna vs fuzzy moth with thick antenna, day vs night background"
+    },
+    {
+        "id": 163,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Cánh bướm được làm từ gì?",
+        "answer": "Cánh bướm không chỉ là da mà được bao phủ bởi hàng ngàn hạt li ti giống như bụi phấn, đó là **vảy nhỏ** (scales). Các vảy này tạo nên hoa văn, màu sắc và giúp bướm giữ ấm, đồng thời bảo vệ chúng khỏi nước mưa.",
+        "tags": [
+            "con bướm",
+            "cánh",
+            "vảy",
+            "màu sắc"
+        ],
+        "illustration_prompt": "cute educational illustration of a monarch butterfly wing, a zoomed-in section showing the tiny scales, rainbow dust effect"
+    },
+    {
+        "id": 164,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Vì sao các loài Bọ cánh cứng (Beetle) lại thành công nhất?",
+        "answer": "Bọ cánh cứng là nhóm động vật lớn nhất trên Trái Đất (chiếm khoảng 1/4 tổng số loài động vật). Vỏ cánh cứng của chúng (elytra) bảo vệ đôi cánh mỏng manh bên dưới, cho phép chúng tồn tại trong hầu hết mọi môi trường sống.",
+        "tags": [
+            "bọ cánh cứng",
+            "số lượng",
+            "vỏ cánh",
+            "thành công"
+        ],
+        "illustration_prompt": "cute educational illustration of many different types of beetles together, showing diversity in sizes and shapes"
+    },
+    {
+        "id": 165,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Muỗi đực và muỗi cái khác nhau ở đâu?",
+        "answer": "Muỗi đực chỉ ăn mật hoa và không đốt người. Muỗi cái mới là con đi đốt và hút máu (vì chúng cần protein trong máu để sản xuất trứng). Bạn có thể nhận biết muỗi đực qua bộ râu xù xì và lông tơ hơn muỗi cái.",
+        "tags": [
+            "con muỗi",
+            "muỗi đực",
+            "muỗi cái",
+            "hút máu"
+        ],
+        "illustration_prompt": "cute educational illustration split screen: male mosquito (fuzzy antenna, eating flower nectar) vs female mosquito (plain antenna, biting an arm)"
+    },
+    {
+        "id": 166,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Ong bắp cày (Wasp) và ong mật (Bee) khác nhau ra sao?",
+        "answer": "Ong mật có lông và chết sau khi chích, còn ong bắp cày ít lông hơn, thân trơn, eo thon và có thể chích nhiều lần mà không chết. Ong bắp cày thường ăn thịt hoặc các loại côn trùng khác, còn ong mật chỉ ăn mật hoa.",
+        "tags": [
+            "ong bắp cày",
+            "ong mật",
+            "chích",
+            "phân biệt"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: fuzzy, rounded bee vs sleek, shiny wasp with visible stinger"
+    },
+    {
+        "id": 167,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Tại sao rệp vừng (Aphid) lại quan trọng với kiến?",
+        "answer": "Kiến coi rệp vừng như những 'cô bò sữa' của chúng. Rệp vừng ăn nhựa cây và tiết ra một chất lỏng ngọt ngào gọi là **mật ngọt**. Kiến bảo vệ rệp vừng khỏi kẻ thù và đổi lại được 'vắt sữa' ngọt để ăn.",
+        "tags": [
+            "con kiến",
+            "rệp vừng",
+            "cộng sinh",
+            "mật ngọt"
+        ],
+        "illustration_prompt": "cute educational illustration of an ant gently tapping an aphid to collect a drop of sweet honeydew, farmer analogy"
+    },
+    {
+        "id": 168,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Bướm có thể di cư xa đến mức nào?",
+        "answer": "Bướm vua (Monarch Butterfly) thực hiện một trong những cuộc di cư dài nhất của côn trùng, bay tới 4.800 km từ Canada đến Mexico để tránh rét. Cuộc hành trình này dài đến nỗi phải mất đến 4 thế hệ bướm mới hoàn thành.",
+        "tags": [
+            "bướm vua",
+            "di cư",
+            "quãng đường",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a swarm of Monarch butterflies flying over a map, long distance journey indicated"
+    },
+    {
+        "id": 169,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Loài côn trùng nào có thính giác tốt nhất?",
+        "answer": "Bướm đêm (Wax Moth) là loài có khả năng nghe siêu đẳng, có thể nghe được tần số âm thanh cao hơn bất kỳ loài động vật nào khác trên Trái Đất. Chúng dùng khả năng này để phát hiện siêu âm của dơi và tránh bị săn mồi.",
+        "tags": [
+            "bướm đêm",
+            "thính giác",
+            "siêu âm",
+            "dơi"
+        ],
+        "illustration_prompt": "cute educational illustration of a wax moth flying, with sound waves graphic indicating very high frequency detection"
+    },
+    {
+        "id": 170,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Mối có mối quan hệ gì với lửa?",
+        "answer": "Mối không thích lửa, nhưng chúng tiêu hóa gỗ nhờ vi khuẩn đặc biệt trong ruột, và quá trình tiêu hóa này tạo ra khí metan. Các nhà khoa học ước tính mối tạo ra lượng khí metan nhiều hơn cả hoạt động núi lửa trên Trái Đất.",
+        "tags": [
+            "con mối",
+            "tiêu hóa",
+            "metan",
+            "vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of a termite eating wood, with a small gas cloud icon (methane) escaping its body"
+    },
+    {
+        "id": 171,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Bọ chét nhảy cao đến mức nào?",
+        "answer": "Bọ chét có thể nhảy xa gấp 200 lần chiều dài cơ thể của mình! Nếu con người nhảy được như vậy, chúng ta có thể dễ dàng nhảy qua cả một tòa nhà cao tầng. Sức mạnh này đến từ đôi chân sau cực khỏe hoạt động như lò xo.",
+        "tags": [
+            "bọ chét",
+            "nhảy cao",
+            "kỷ lục",
+            "lò xo"
+        ],
+        "illustration_prompt": "cute educational illustration of a tiny flea making a massive jump over a big obstacle, exaggerated jumping power"
+    },
+    {
+        "id": 172,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Làm thế nào bọ nước lại có thể đi bộ trên mặt nước?",
+        "answer": "Bọ nước (Water strider) có chân nhẹ và dài với các sợi lông nhỏ chống thấm nước. Chúng dùng sức căng bề mặt của nước (giống như một lớp màng mỏng) để đứng và lướt đi mà không bị chìm.",
+        "tags": [
+            "bọ nước",
+            "đi trên nước",
+            "sức căng bề mặt",
+            "lướt"
+        ],
+        "illustration_prompt": "cute educational illustration of a water strider standing on the water surface, showing dimples made by its feet without breaking the surface"
+    },
+    {
+        "id": 173,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Bọ hung (Dung Beetle) làm gì với phân động vật?",
+        "answer": "Bọ hung cuộn phân động vật thành những quả bóng lớn. Chúng làm vậy để đẻ trứng vào đó (cung cấp thức ăn cho con non) và để dự trữ thức ăn. Một số loài còn lăn quả bóng đó đi rất xa để trốn kẻ thù.",
+        "tags": [
+            "bọ hung",
+            "phân",
+            "cuộn bóng",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a dung beetle carefully rolling a perfectly round ball of dung, proud posture"
+    },
+    {
+        "id": 174,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Côn trùng có thể làm gì với nhiệt độ cơ thể?",
+        "answer": "Côn trùng là động vật máu lạnh, nhiệt độ cơ thể thay đổi theo môi trường. Vào những ngày lạnh, ong sẽ rung cánh để tạo ra nhiệt sưởi ấm tổ. Ruồi sẽ cọ xát chân và cánh để làm ấm cơ trước khi bay.",
+        "tags": [
+            "côn trùng",
+            "máu lạnh",
+            "rung cánh",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational illustration of a bee inside a hive intensely vibrating its wings to generate heat, thermometer graphic"
+    },
+    {
+        "id": 175,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Cà cuống làm sao để sống sót dưới nước?",
+        "answer": "Cà cuống (Giant Water Bug) không có mang, chúng phải ngoi lên mặt nước để lấy không khí. Chúng tích trữ một bong bóng khí dưới cánh. Bong bóng này hoạt động như một bình dưỡng khí nhỏ khi chúng lặn xuống săn mồi.",
+        "tags": [
+            "cà cuống",
+            "hít thở",
+            "bong bóng khí",
+            "săn mồi"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant water bug swimming underwater with an air bubble trapped under its wings, predatory look"
+    },
+    {
+        "id": 176,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Lớp ngụy trang của Bọ lá (Leaf Insect) hiệu quả đến mức nào?",
+        "answer": "Bọ lá là một trong những bậc thầy ngụy trang, trông giống hệt một chiếc lá cây, bao gồm cả gân lá, các vết thủng và cạnh lá bị cắn. Kể cả khi đi, chúng vẫn lắc lư nhẹ nhàng để giả vờ là chiếc lá bị gió thổi.",
+        "tags": [
+            "bọ lá",
+            "ngụy trang",
+            "lá cây",
+            "tàng hình"
+        ],
+        "illustration_prompt": "cute educational illustration of a leaf insect blending seamlessly into a green plant, subtle details of veins on its body"
+    },
+    {
+        "id": 177,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Ong sát thủ (Murder Hornet) đáng sợ như thế nào?",
+        "answer": "Ong bắp cày khổng lồ châu Á (hay còn gọi là 'ong sát thủ') là loài ong lớn nhất thế giới, dài tới 5cm. Chúng đặc biệt nguy hiểm với đàn ong mật: chúng tấn công tổ ong mật, chặt đầu cả đàn chỉ trong vài giờ để cướp nhộng về nuôi con.",
+        "tags": [
+            "ong sát thủ",
+            "kích thước",
+            "nguy hiểm",
+            "châu á"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant Asian hornet next to a regular honey bee, showing the huge size difference, menacing look"
+    },
+    {
+        "id": 178,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Tại sao một số loài bướm có 'mắt giả' trên cánh?",
+        "answer": "Những đốm tròn lớn giống như đôi mắt trên cánh bướm là chiến thuật hù dọa. Khi bị chim tấn công, bướm bất ngờ mở cánh, lộ ra đôi mắt giả to lớn khiến kẻ thù giật mình. Đôi khi, chim chỉ mổ vào đốm mắt giả thay vì cơ thể bướm.",
+        "tags": [
+            "con bướm",
+            "mắt giả",
+            "hù dọa",
+            "cánh"
+        ],
+        "illustration_prompt": "cute educational illustration of a butterfly suddenly opening its wings to reveal large, striking eyespots, scaring a bird"
+    },
+    {
+        "id": 179,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Con người có ăn côn trùng không?",
+        "answer": "Có, khoảng 2 tỷ người trên thế giới ăn côn trùng (entomophagy). Côn trùng rất giàu protein, vitamin và khoáng chất. Các món ăn phổ biến là châu chấu rang, dế chiên giòn và ấu trùng sâu bướm.",
+        "tags": [
+            "côn trùng",
+            "thức ăn",
+            "protein",
+            "entomophagy"
+        ],
+        "illustration_prompt": "cute educational illustration of a chef's hat and serving dish with crunchy, cartoon-like fried crickets, global food concept"
+    },
+    {
+        "id": 180,
+        "category": "Động vật",
+        "sub_category": "Côn trùng",
+        "question": "Loài côn trùng nào xây tổ lớn nhất?",
+        "answer": "Mối có thể xây những tổ khổng lồ cao tới 9 mét (cao hơn cả một ngôi nhà 3 tầng) ở châu Phi và Úc. Những 'tòa nhà' này được làm từ đất, cát và nước bọt của mối, giúp điều hòa nhiệt độ bên trong tổ rất hiệu quả.",
+        "tags": [
+            "con mối",
+            "tổ mối",
+            "xây dựng",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a huge termite mound in the savannah, comparing its height to a small house next to it"
+    },
+    {
+        "id": 181,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Con nhện làm tơ nhện (silk) bằng cách nào?",
+        "answer": "Nhện có các tuyến đặc biệt (spinnerets) ở cuối bụng để tạo ra tơ nhện dạng lỏng. Khi tơ tiếp xúc với không khí, nó ngay lập tức cứng lại thành sợi. Điều đáng ngạc nhiên là tơ nhện có độ bền chắc hơn thép cùng kích thước nhiều lần.",
+        "tags": [
+            "con nhện",
+            "tơ nhện",
+            "tuyến tơ",
+            "độ bền"
+        ],
+        "illustration_prompt": "cute educational illustration of a spider spinning a strong, geometric web, with a magnified view of the silk coming out of the spinnerets"
+    },
+    {
+        "id": 182,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Bạch tuộc thay đổi màu da nhanh và chính xác như thế nào?",
+        "answer": "Bạch tuộc là bậc thầy ngụy trang nhờ các tế bào sắc tố (chromatophores) nằm ngay dưới da. Chúng điều khiển các cơ xung quanh các tế bào này để làm màu sắc co lại hoặc mở rộng, giúp chúng thay đổi cả màu sắc lẫn kết cấu da trong tích tắc để hòa lẫn vào môi trường.",
+        "tags": [
+            "bạch tuộc",
+            "ngụy trang",
+            "chromatophores",
+            "thay đổi màu"
+        ],
+        "illustration_prompt": "cute educational illustration of an octopus rapidly changing its color and texture to blend into a coral reef background"
+    },
+    {
+        "id": 183,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Sao biển (Starfish) di chuyển bằng gì?",
+        "answer": "Sao biển không có chân hay vây. Chúng di chuyển bằng hàng ngàn cái chân ống (tube feet) nhỏ xíu nằm dưới mỗi cánh tay. Những chân ống này hoạt động bằng hệ thống thủy lực (dùng áp suất nước), giúp sao biển từ từ bò trên đáy biển và mở vỏ các loài nhuyễn thể.",
+        "tags": [
+            "sao biển",
+            "chân ống",
+            "thủy lực",
+            "di chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration of a starfish on the seafloor, zoomed-in view showing its tiny tube feet working like suction cups"
+    },
+    {
+        "id": 184,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Vì sao Sứa (Jellyfish) có thể tự phát sáng?",
+        "answer": "Sứa phát sáng nhờ một quá trình hóa học gọi là **phát quang sinh học** (bioluminescence). Chúng sử dụng ánh sáng này để ngụy trang, thu hút con mồi hoặc làm giật mình kẻ săn mồi ở dưới vùng biển sâu tối tăm.",
+        "tags": [
+            "con sứa",
+            "phát quang",
+            "sinh học",
+            "biển sâu"
+        ],
+        "illustration_prompt": "cute educational illustration of a glowing jellyfish pulsing with light in a dark ocean setting, mesmerizing effect"
+    },
+    {
+        "id": 185,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Con cua (Crab) đi ngang để làm gì?",
+        "answer": "Cua đi ngang vì khớp ở chân của chúng chỉ cho phép chúng uốn cong và di chuyển theo phương đó. Ngoài ra, việc đi ngang còn giúp chúng di chuyển nhanh hơn, linh hoạt hơn để trốn kẻ thù hoặc săn mồi.",
+        "tags": [
+            "con cua",
+            "đi ngang",
+            "khớp chân",
+            "di chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration of a cartoon crab scuttling sideways on a beach, fast movement"
+    },
+    {
+        "id": 186,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Bạch tuộc làm gì khi bị đe dọa?",
+        "answer": "Ngoài việc ngụy trang, bạch tuộc sẽ phun ra một đám mây mực đen. Đám mây mực này hoạt động như một cái bẫy khói để đánh lạc hướng và làm kẻ thù mất phương hướng, cho phép bạch tuộc nhanh chóng trốn thoát.",
+        "tags": [
+            "bạch tuộc",
+            "mực đen",
+            "tự vệ",
+            "thoát hiểm"
+        ],
+        "illustration_prompt": "cute educational illustration of an octopus quickly swimming away after releasing a large cloud of black ink into the water"
+    },
+    {
+        "id": 187,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Giun đất (Earthworm) có vai trò gì với đất?",
+        "answer": "Giun đất là 'người nông dân' của đất. Chúng đào xới, tạo ra các đường hầm giúp không khí, nước và chất dinh dưỡng thấm sâu vào đất. Phân của chúng (gọi là mùn giun) là một loại phân bón tự nhiên cực kỳ giàu dinh dưỡng.",
+        "tags": [
+            "giun đất",
+            "đất đai",
+            "mùn",
+            "thông khí"
+        ],
+        "illustration_prompt": "cute educational illustration of a happy earthworm tunneling underground, showing air and water penetrating the soil through the tunnels"
+    },
+    {
+        "id": 188,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tôm, cua, tép làm sao để lớn lên được khi có vỏ cứng?",
+        "answer": "Chúng phải trải qua quá trình **lột xác** (molting). Khi cơ thể lớn lên, chúng tự nứt và thoát ra khỏi lớp vỏ cũ, cứng cáp để lộ lớp vỏ mới mềm mại bên dưới. Trong vài ngày lớp vỏ mới cứng lại, và chúng tiếp tục lớn lên.",
+        "tags": [
+            "giáp xác",
+            "lột xác",
+            "vỏ cứng",
+            "phát triển"
+        ],
+        "illustration_prompt": "cute educational illustration of a shrimp shedding its old exoskeleton, looking soft and vulnerable before the new shell hardens"
+    },
+    {
+        "id": 189,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Làm thế nào nhện di chuyển bằng cách 'bay'?",
+        "answer": "Một số loài nhện con sử dụng kỹ thuật gọi là **'ballooning'** (thả dù). Chúng bắn một sợi tơ dài vào không khí, gió sẽ cuốn sợi tơ và kéo con nhện đi xa hàng trăm cây số. Đây là cách chúng tìm môi trường sống mới.",
+        "tags": [
+            "con nhện",
+            "thả dù",
+            "tơ nhện",
+            "di cư"
+        ],
+        "illustration_prompt": "cute educational illustration of a small spider floating high in the air, attached to a long silk thread, windy sky background"
+    },
+    {
+        "id": 190,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tại sao bạch tuộc lại có máu màu xanh?",
+        "answer": "Khác với máu đỏ của chúng ta (dùng sắt để mang oxy), máu của bạch tuộc có màu xanh lam vì nó sử dụng một hợp chất gọi là **hemocyanin** (chứa đồng) để vận chuyển oxy. Hemocyanin hoạt động tốt hơn trong môi trường lạnh, ít oxy dưới biển sâu.",
+        "tags": [
+            "bạch tuộc",
+            "máu xanh",
+            "đồng",
+            "hemocyanin"
+        ],
+        "illustration_prompt": "cute educational illustration of an octopus with a labeled diagram showing blue blood flowing inside its body, simplified"
+    },
+    {
+        "id": 191,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Cá nóc Gai (Sea Urchin) bảo vệ mình bằng cách nào?",
+        "answer": "Cầu gai có cơ thể tròn được bao phủ bởi hàng trăm cái gai sắc nhọn và di chuyển được. Những cái gai này giống như một lớp giáp phòng thủ tuyệt vời. Một số loài còn có độc tố ở đầu gai để gây đau đớn cho kẻ thù.",
+        "tags": [
+            "cầu gai",
+            "gai nhọn",
+            "bảo vệ",
+            "da gai"
+        ],
+        "illustration_prompt": "cute educational illustration of a sea urchin with long, spiky spines pointing outwards aggressively, bright colors"
+    },
+    {
+        "id": 192,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Sên (Slug) và Ốc sên (Snail) khác nhau ở đâu?",
+        "answer": "Ốc sên mang một cái vỏ xoắn cứng trên lưng để ẩn nấp và tự vệ. Sên thì không có vỏ, nên chúng phải dựa vào chất nhầy và ngụy trang để bảo vệ mình. Cả hai đều di chuyển bằng cách trườn trên chất nhầy.",
+        "tags": [
+            "sên",
+            "ốc sên",
+            "vỏ",
+            "thân mềm"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: Snail with large shell vs Slug with no shell, both leaving slime trails"
+    },
+    {
+        "id": 193,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tôm tít (Mantis Shrimp) có gì đặc biệt?",
+        "answer": "Tôm tít có cặp càng như búa tạ. Nó có thể đấm với tốc độ cực nhanh, tạo ra một bọt khí vỡ với lực mạnh đến nỗi tạo ra sóng xung kích làm tê liệt con mồi. Chúng còn có đôi mắt có thể nhìn thấy nhiều màu sắc hơn con người rất nhiều.",
+        "tags": [
+            "tôm tít",
+            "cú đấm",
+            "tốc độ",
+            "thị giác"
+        ],
+        "illustration_prompt": "cute educational illustration of a brightly colored mantis shrimp throwing a high-speed punch, showing shockwave effect underwater"
+    },
+    {
+        "id": 194,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Vì sao nhện có 8 chân và côn trùng có 6 chân?",
+        "answer": "Nhện thuộc lớp **Động vật hình nhện** (Arachnida), có 8 chân và hai phần cơ thể (đầu-ngực và bụng). Côn trùng thuộc lớp **Côn trùng** (Insecta), có 6 chân và ba phần cơ thể (đầu, ngực, bụng).",
+        "tags": [
+            "con nhện",
+            "côn trùng",
+            "số chân",
+            "phân loại"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: Spider with 8 legs and 2 body parts vs Ant with 6 legs and 3 body parts"
+    },
+    {
+        "id": 195,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Sứa đốt (chích) con mồi bằng gì?",
+        "answer": "Sứa có các tế bào châm (nematocysts) trên xúc tu. Những tế bào này giống như một khẩu súng bắn ra một sợi chỉ nhỏ chứa chất độc khi chạm vào con mồi. Dù không có não, sứa vẫn săn mồi hiệu quả bằng cách để thức ăn chạm vào xúc tu.",
+        "tags": [
+            "con sứa",
+            "chích",
+            "nematocysts",
+            "xúc tu"
+        ],
+        "illustration_prompt": "cute educational illustration of a jellyfish tentacle, zoomed-in view showing a nematocyst 'firing' a toxic thread"
+    },
+    {
+        "id": 196,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Bạch tuộc có bao nhiêu tim?",
+        "answer": "Bạch tuộc có ba trái tim! Hai trái tim nhỏ bơm máu (máu xanh) qua mang, và trái tim lớn còn lại bơm máu đi khắp các phần còn lại của cơ thể. Trái tim lớn ngừng đập khi bạch tuộc bơi, đó là lý do chúng thường bò hơn là bơi.",
+        "tags": [
+            "bạch tuộc",
+            "trái tim",
+            "số lượng",
+            "máu xanh"
+        ],
+        "illustration_prompt": "cute educational illustration of an octopus with three hearts clearly visible and labeled inside its body (simplified diagram)"
+    },
+    {
+        "id": 197,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Con đỉa (Leech) hút máu như thế nào?",
+        "answer": "Đỉa có ba hàm răng hình lưỡi cưa nhỏ, tạo ra một vết cắt hình chữ Y hoàn hảo trên da. Đồng thời, chúng tiết ra chất chống đông máu (anticoagulant) và chất giảm đau (anesthetic) để nạn nhân không cảm thấy đau đớn và máu chảy liên tục.",
+        "tags": [
+            "con đỉa",
+            "hút máu",
+            "chống đông",
+            "y học"
+        ],
+        "illustration_prompt": "cute educational illustration of a leech attaching to skin, zoomed-in view showing the Y-shaped bite and released anti-coagulant"
+    },
+    {
+        "id": 198,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tôm hùm (Lobster) có thể tự mọc lại càng không?",
+        "answer": "Có. Tôm hùm có khả năng tái tạo tuyệt vời. Nếu bị mất một chiếc càng hoặc một chiếc chân trong lúc đánh nhau hoặc bị thương, chúng có thể tự mọc lại một chiếc càng mới trong quá trình lột xác.",
+        "tags": [
+            "tôm hùm",
+            "càng",
+            "tái tạo",
+            "lột xác"
+        ],
+        "illustration_prompt": "cute educational illustration of a lobster showing a small, regrowing claw next to its large, original claw, happy expression"
+    },
+    {
+        "id": 199,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Vì sao ốc sên phải bò trên một đường chất nhầy?",
+        "answer": "Ốc sên tiết ra chất nhầy (slime) để di chuyển. Chất nhầy này giúp bôi trơn, giảm ma sát, bảo vệ cơ thể mềm yếu của chúng khỏi các bề mặt thô ráp, và còn giúp giữ ẩm cho cơ thể.",
+        "tags": [
+            "ốc sên",
+            "chất nhầy",
+            "di chuyển",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a snail sliding along a surface, leaving a shiny trail of mucus behind it"
+    },
+    {
+        "id": 200,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Sao biển ăn con mồi bằng cách nào?",
+        "answer": "Sao biển ăn rất độc đáo: chúng lộn ngược dạ dày của mình ra ngoài miệng, sau đó đưa dạ dày lên vỏ hàu hoặc trai. Các enzyme tiêu hóa sẽ làm tan chảy con mồi, sau đó sao biển hút chất lỏng dinh dưỡng vào.",
+        "tags": [
+            "sao biển",
+            "dạ dày",
+            "tiêu hóa",
+            "hàu"
+        ],
+        "illustration_prompt": "cute educational illustration of a starfish with its stomach partially everted over a clam shell, eating action"
+    },
+    {
+        "id": 201,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Hải quỳ (Sea Anemone) có gì nguy hiểm?",
+        "answer": "Hải quỳ trông giống như hoa, nhưng thực ra là động vật (Cnidarian). Các xúc tu của chúng chứa các tế bào châm (nematocysts) tương tự sứa, dùng để tiêm độc tố làm tê liệt cá hoặc tôm nhỏ để làm thức ăn.",
+        "tags": [
+            "hải quỳ",
+            "xúc tu",
+            "tế bào châm",
+            "san hô"
+        ],
+        "illustration_prompt": "cute educational illustration of a sea anemone swaying, with tiny stingers (nematocysts) on its tentacles"
+    },
+    {
+        "id": 202,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Làm thế nào cua ẩn sĩ (Hermit Crab) tự bảo vệ mình?",
+        "answer": "Cua ẩn sĩ không thể tự tạo vỏ cứng cho phần bụng mềm yếu. Vì vậy, chúng phải tìm và sử dụng vỏ ốc rỗng. Khi lớn lên, chúng cần phải nhanh chóng tìm một cái vỏ mới, lớn hơn để thay thế.",
+        "tags": [
+            "cua ẩn sĩ",
+            "vỏ ốc",
+            "bảo vệ",
+            "thay nhà"
+        ],
+        "illustration_prompt": "cute educational illustration of a hermit crab changing from a small seashell to a large seashell, excited expression"
+    },
+    {
+        "id": 203,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Bạch tuộc cái chăm sóc trứng như thế nào?",
+        "answer": "Bạch tuộc cái là những bà mẹ tận tụy. Chúng đẻ hàng ngàn quả trứng và chăm sóc chúng trong suốt nhiều tháng mà không hề rời đi săn mồi. Sau khi trứng nở, bạch tuộc mẹ thường chết vì kiệt sức hoặc đói.",
+        "tags": [
+            "bạch tuộc",
+            "trứng",
+            "chăm sóc mẹ",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a female octopus guarding and fanning a cluster of eggs in a rocky crevice, soft light"
+    },
+    {
+        "id": 204,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Giun dẹp (Flatworm) có khả năng tái tạo siêu việt gì?",
+        "answer": "Giun dẹp (Planaria) là nhà vô địch tái tạo. Nếu bạn cắt chúng thành nhiều mảnh nhỏ, mỗi mảnh có thể tự mọc lại thành một con giun hoàn chỉnh, bao gồm cả đầu và não! ",
+        "tags": [
+            "giun dẹp",
+            "tái tạo",
+            "não",
+            "kỳ lạ"
+        ],
+        "illustration_prompt": "cute educational illustration of a flatworm regenerating a head and tail, showing the original cut piece and the two resulting new worms"
+    },
+    {
+        "id": 205,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tại sao con nhện không bị dính vào tơ của chính mình?",
+        "answer": "Mạng nhện có hai loại tơ: **Tơ bắt mồi** (dính) và **Tơ cấu trúc** (không dính). Nhện biết mình phải đi lại trên những sợi tơ không dính. Ngoài ra, chân nhện còn có một lớp dầu nhẹ giúp chúng di chuyển an toàn.",
+        "tags": [
+            "con nhện",
+            "tơ dính",
+            "tơ cấu trúc",
+            "chân"
+        ],
+        "illustration_prompt": "cute educational illustration of a spider walking on its web, highlighting the difference between sticky and non-sticky threads"
+    },
+    {
+        "id": 206,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Hàu (Oyster) làm gì để làm sạch đại dương?",
+        "answer": "Hàu là **'máy lọc nước'** của đại dương. Chúng liên tục hút nước biển qua cơ thể và lọc ra tảo, phù du, cặn bẩn để ăn. Một con hàu trưởng thành có thể lọc tới 190 lít nước mỗi ngày, giúp nước biển sạch hơn.",
+        "tags": [
+            "con hàu",
+            "lọc nước",
+            "đại dương",
+            "môi trường"
+        ],
+        "illustration_prompt": "cute educational illustration of an oyster filtering dirty water entering its shell and clean water exiting, with tiny dirt particles being trapped"
+    },
+    {
+        "id": 207,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Bọt biển (Sponge) có phải là động vật không?",
+        "answer": "Đúng vậy, bọt biển là động vật. Chúng là những sinh vật đa bào đơn giản nhất, không có cơ quan, mô, dây thần kinh hay cơ bắp. Chúng sống cố định và lọc thức ăn (tảo, vi khuẩn) từ nước biển đi qua cơ thể.",
+        "tags": [
+            "bọt biển",
+            "động vật",
+            "lọc thức ăn",
+            "đơn giản"
+        ],
+        "illustration_prompt": "cute educational illustration of a sea sponge attached to a rock, showing water flow with tiny food particles being filtered inside"
+    },
+    {
+        "id": 208,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Tại sao Nhím biển (Sea Cucumber) lại phun ra nội tạng của mình?",
+        "answer": "Đây là cách phòng thủ kỳ lạ. Khi bị kẻ thù tấn công, nhím biển sẽ co mạnh và phun ra một phần nội tạng dính. Điều này làm kẻ thù phân tâm, và chúng sẽ mọc lại nội tạng mới sau đó. ",
+        "tags": [
+            "nhím biển",
+            "tự vệ",
+            "nội tạng",
+            "tái tạo"
+        ],
+        "illustration_prompt": "cute educational illustration of a sea cucumber squirting out long, sticky internal organs to distract a crab"
+    },
+    {
+        "id": 209,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Giun đất làm sao để thở?",
+        "answer": "Giun đất không có phổi. Chúng thở bằng cách hấp thụ oxy trực tiếp qua làn da mỏng, ẩm ướt của mình. Đó là lý do vì sao chúng cần phải sống trong đất ẩm và sẽ bị ngạt thở nếu da bị khô hoặc bị ngập nước quá lâu.",
+        "tags": [
+            "giun đất",
+            "hô hấp",
+            "da",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration of an earthworm underground, showing oxygen molecules being absorbed through its skin"
+    },
+    {
+        "id": 210,
+        "category": "Động vật",
+        "sub_category": "Động vật không xương sống",
+        "question": "Mực nang (Cuttlefish) có khả năng ngụy trang nào đặc biệt hơn bạch tuộc?",
+        "answer": "Mực nang có thể thay đổi màu sắc và kết cấu da nhanh hơn bạch tuộc. Hơn nữa, chúng còn có khả năng tạo ra các dải màu chuyển động trên cơ thể (gọi là 'zebra flash') để thôi miên hoặc cảnh báo các loài khác.",
+        "tags": [
+            "mực nang",
+            "ngụy trang",
+            "zebra flash",
+            "thôi miên"
+        ],
+        "illustration_prompt": "cute educational illustration of a cuttlefish displaying rapid, flashy black and white stripes on its skin, hypnotizing effect"
+    }
+]

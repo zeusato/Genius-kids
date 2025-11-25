@@ -9,6 +9,7 @@ import { GamePage } from '@/src/pages/GamePage';
 import { ProfilePage } from '@/src/pages/ProfilePage';
 import { ShopPage } from '@/src/pages/ShopPage';
 import { AlbumPage } from '@/src/pages/AlbumPage';
+import { TellMeWhyPage } from '@/src/pages/TellMeWhyPage';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/updateService';
@@ -197,6 +198,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <AlbumPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tellmewhy"
+            element={
+              <ProtectedRoute>
+                <TellMeWhyPage />
               </ProtectedRoute>
             }
           />

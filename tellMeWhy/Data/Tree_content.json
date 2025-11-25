@@ -1,0 +1,2942 @@
+[
+    {
+        "id": 1,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào cây xanh tạo ra thức ăn cho chính mình?",
+        "answer": "Cây xanh tạo ra thức ăn qua quá trình **quang hợp** (Photosynthesis). Cây hấp thụ ánh sáng mặt trời, nước và khí carbon dioxide ($\text{CO}_2$) từ không khí. Sau đó, chúng chuyển hóa chúng thành đường (thức ăn) và giải phóng khí oxy ($\text{O}_2$) để chúng ta thở. Quá trình này diễn ra chủ yếu ở lá cây.",
+        "tags": [
+            "quang hợp",
+            "lá cây",
+            "ánh sáng",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant absorbing sunlight, water, and carbon dioxide, releasing oxygen and sugar, simplified diagram"
+    },
+    {
+        "id": 2,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Vì sao lá cây lại có màu xanh?",
+        "answer": "Lá cây có màu xanh là do chất diệp lục (**Chlorophyll**). Diệp lục là một sắc tố đặc biệt giúp cây hấp thụ năng lượng từ ánh sáng mặt trời để thực hiện quá trình quang hợp. Mặc dù diệp lục hấp thụ màu xanh kém, nhưng nó phản xạ lại màu xanh mà chúng ta thấy.",
+        "tags": [
+            "lá cây",
+            "diệp lục",
+            "màu xanh",
+            "sắc tố"
+        ],
+        "illustration_prompt": "cute educational illustration of a green leaf showing chlorophyll molecules absorbing sunlight, green color reflecting"
+    },
+    {
+        "id": 3,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Rễ cây làm nhiệm vụ gì?",
+        "answer": "Rễ cây có ba nhiệm vụ chính: **1) Hấp thụ** nước và chất dinh dưỡng từ đất. **2) Neo giữ** cây đứng vững. **3) Lưu trữ** thức ăn (tinh bột) để cây sử dụng trong mùa đông hoặc thời kỳ khó khăn.",
+        "tags": [
+            "rễ cây",
+            "hấp thụ",
+            "neo giữ",
+            "chức năng"
+        ],
+        "illustration_prompt": "cute educational illustration of large plant roots anchoring the plant firmly in the soil and showing arrows for water absorption"
+    },
+    {
+        "id": 4,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Vì sao hoa có màu sắc rực rỡ và có mùi thơm?",
+        "answer": "Hoa sử dụng màu sắc rực rỡ và mùi hương ngọt ngào như một **tấm biển quảng cáo** lớn để thu hút các loài thụ phấn như ong, bướm và chim. Điều này giúp côn trùng mang phấn hoa đi nơi khác để cây có thể sinh sản.",
+        "tags": [
+            "bông hoa",
+            "màu sắc",
+            "thụ phấn",
+            "ong bướm"
+        ],
+        "illustration_prompt": "cute educational illustration of a colorful flower attracting a bee, which is carrying pollen on its legs"
+    },
+    {
+        "id": 5,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào cây di chuyển nước từ rễ lên lá?",
+        "answer": "Nước được vận chuyển qua các ống nhỏ gọi là **mạch gỗ** (xylem) trong thân cây. Lực hút từ sự bay hơi nước ở lá (gọi là **thoát hơi nước**) tạo ra một lực kéo, giống như bạn dùng ống hút để hút nước lên vậy.",
+        "tags": [
+            "thân cây",
+            "mạch gỗ",
+            "thoát hơi nước",
+            "vận chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant stem with xylem tubes, showing arrows illustrating water moving up from the roots to the leaves"
+    },
+    {
+        "id": 6,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây bắt mồi (Venus Flytrap) làm sao để bắt côn trùng?",
+        "answer": "Cây bắt ruồi có lá biến đổi thành cái bẫy có lông nhạy cảm. Khi côn trùng chạm vào hai lần, cái bẫy sẽ đóng lại cực nhanh trong chưa đầy một giây. Sau đó, cây tiết ra enzyme để tiêu hóa và hấp thụ chất dinh dưỡng từ con mồi (chủ yếu là **nitơ**).",
+        "tags": [
+            "cây bắt mồi",
+            "lá bẫy",
+            "côn trùng",
+            "tiêu hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a Venus flytrap leaf closing rapidly on a small fly, dramatic action"
+    },
+    {
+        "id": 7,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Quả (Fruit) có vai trò gì với hạt?",
+        "answer": "Quả là bộ phận bảo vệ hạt bên trong. Quả thường có vị ngọt, màu sắc đẹp để thu hút động vật ăn chúng. Khi động vật ăn quả, hạt sẽ đi qua hệ tiêu hóa và được thải ra ở một nơi xa, giúp cây **phân tán hạt**.",
+        "tags": [
+            "quả",
+            "hạt",
+            "phân tán",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a colorful apple with seeds inside, a bird eating the apple"
+    },
+    {
+        "id": 8,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây thông qua hơi nước thải ra làm gì?",
+        "answer": "Quá trình thải hơi nước qua lá (gọi là **thoát hơi nước**) giúp cây làm mát (giống như đổ mồ hôi của người). Quá trình này cũng tạo ra lực hút giúp vận chuyển nước và chất dinh dưỡng từ rễ lên các bộ phận cao nhất của cây.",
+        "tags": [
+            "thoát hơi nước",
+            "làm mát",
+            "hơi nước",
+            "vận chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant leaf with small water droplets (steam) escaping, sun shining on it"
+    },
+    {
+        "id": 9,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Thực vật một lá mầm và hai lá mầm khác nhau như thế nào?",
+        "answer": "Thực vật được chia làm hai nhóm chính. **Một lá mầm** (Monocots) có một lá mầm trong hạt, lá có gân song song (như cỏ, ngô), và cánh hoa thường là bội số của ba. **Hai lá mầm** (Dicots) có hai lá mầm, lá có gân mạng lưới (như hoa hồng, đậu), và cánh hoa thường là bội số của bốn hoặc năm.",
+        "tags": [
+            "một lá mầm",
+            "hai lá mầm",
+            "hạt",
+            "gân lá"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: Monocot seed (one part, parallel veins) vs Dicot seed (two parts, net-like veins)"
+    },
+    {
+        "id": 10,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cánh hoa (Petal) có tác dụng gì?",
+        "answer": "Cánh hoa thường là bộ phận đẹp nhất, sặc sỡ nhất của hoa. Chức năng chính của chúng là **bảo vệ** các bộ phận sinh sản bên trong (như nhị và nhụy) và là nơi **quảng cáo màu sắc** để thu hút côn trùng thụ phấn.",
+        "tags": [
+            "cánh hoa",
+            "màu sắc",
+            "bảo vệ",
+            "hút côn trùng"
+        ],
+        "illustration_prompt": "cute educational illustration of a vibrant flower, highlighting the colorful petals as an attraction sign for a bee"
+    },
+    {
+        "id": 11,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Phấn hoa là gì?",
+        "answer": "Phấn hoa là những hạt nhỏ li ti, thường có màu vàng, chứa vật chất di truyền của cây đực. Phấn hoa phải được di chuyển từ nhị đực sang nhụy cái để thụ tinh và tạo ra hạt mới. Phấn hoa là thức ăn chính cho ong.",
+        "tags": [
+            "phấn hoa",
+            "sinh sản",
+            "màu vàng",
+            "thụ phấn"
+        ],
+        "illustration_prompt": "cute educational illustration of pollen grains (yellow dots) on a flower stamen, ready to be carried away"
+    },
+    {
+        "id": 12,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây xương rồng sống sót trong sa mạc như thế nào?",
+        "answer": "Cây xương rồng có khả năng tuyệt vời trong việc dự trữ nước trong thân và rễ. Lá của chúng đã tiến hóa thành **gai nhọn** để giảm thiểu việc mất nước qua thoát hơi nước và bảo vệ cây khỏi bị động vật ăn thịt.",
+        "tags": [
+            "xương rồng",
+            "gai nhọn",
+            "sa mạc",
+            "dự trữ nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a cactus in the desert, showing water being stored inside its thick stem"
+    },
+    {
+        "id": 13,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào hạt bồ công anh lại bay được trong gió?",
+        "answer": "Hạt bồ công anh được gắn vào một bộ phận giống như **chiếc dù nhỏ** (parachutes). Cấu trúc nhẹ và xốp này giúp gió dễ dàng cuốn hạt đi rất xa, đảm bảo hạt rơi xuống một khu vực mới để nảy mầm và phát triển.",
+        "tags": [
+            "bồ công anh",
+            "phân tán hạt",
+            "chiếc dù",
+            "gió"
+        ],
+        "illustration_prompt": "cute educational illustration of a dandelion seed floating in the air, carried by its parachute structure, windy sky"
+    },
+    {
+        "id": 14,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Thân cây gỗ cứng có chức năng gì?",
+        "answer": "Thân cây không chỉ là trụ đỡ. Bên trong thân cây có các lớp khác nhau: **Mạch gỗ** (xylem) vận chuyển nước lên, **Mạch rây** (phloem) vận chuyển đường (thức ăn) đi xuống, và **Tầng sinh gỗ** (cambium) tạo ra các vòng sinh trưởng giúp cây lớn lên.",
+        "tags": [
+            "thân cây",
+            "mạch gỗ",
+            "mạch rây",
+            "vòng sinh trưởng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a tree trunk with xylem and phloem layers labeled"
+    },
+    {
+        "id": 15,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Vì sao các loài dây leo cần bám vào cây khác?",
+        "answer": "Dây leo cần bám vào cây hoặc cấu trúc khác để vươn lên cao và tìm kiếm ánh sáng mặt trời. Chúng có các bộ phận đặc biệt như **vòi cuốn** để quấn lấy vật thể, giúp chúng tiết kiệm năng lượng không phải tạo ra thân gỗ cứng cáp.",
+        "tags": [
+            "dây leo",
+            "vòi cuốn",
+            "ánh sáng",
+            "bám víu"
+        ],
+        "illustration_prompt": "cute educational illustration of a vine plant wrapping its tendrils around a wooden pole, climbing upwards"
+    },
+    {
+        "id": 16,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Lá cây chuyển màu vào mùa thu như thế nào?",
+        "answer": "Vào mùa thu, do ngày ngắn hơn và trời lạnh hơn, cây ngừng sản xuất diệp lục xanh. Các sắc tố khác đã có sẵn trong lá (như carotenoid màu vàng, cam và anthocyanin màu đỏ, tím) trở nên nổi bật, tạo ra màu sắc rực rỡ.",
+        "tags": [
+            "mùa thu",
+            "lá chuyển màu",
+            "diệp lục",
+            "sắc tố"
+        ],
+        "illustration_prompt": "cute educational illustration of a maple tree with half green leaves and half red/yellow leaves, sun setting in autumn"
+    },
+    {
+        "id": 17,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào hoa cúc (Sunflower) lại xoay theo mặt trời?",
+        "answer": "Hoa hướng dương sử dụng một quá trình gọi là **quang hướng động** (phototropism). Chúng có một chất điều hòa sinh trưởng đặc biệt (auxin) giúp các tế bào ở phía tối của thân phát triển nhanh hơn, khiến đầu hoa nghiêng và hướng về phía ánh sáng mặt trời.",
+        "tags": [
+            "hoa hướng dương",
+            "quang hướng động",
+            "ánh sáng",
+            "xoay"
+        ],
+        "illustration_prompt": "cute educational illustration of a sunflower head following the path of the sun from morning to afternoon, curved arrow showing movement"
+    },
+    {
+        "id": 18,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Hạt cần những điều kiện gì để nảy mầm?",
+        "answer": "Hạt cần ba yếu tố chính: **1) Nước** (để vỏ hạt mềm và kích hoạt sự sống), **2) Nhiệt độ** thích hợp (không quá nóng hoặc quá lạnh), và **3) Oxy** (để thở). Hầu hết hạt không cần ánh sáng để nảy mầm.",
+        "tags": [
+            "hạt",
+            "nảy mầm",
+            "điều kiện",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a seed in soil with symbols for water, warm temperature, and oxygen needed for sprouting"
+    },
+    {
+        "id": 19,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Thực vật thở như thế nào?",
+        "answer": "Thực vật hô hấp cả ngày lẫn đêm bằng cách sử dụng **lỗ khí** (stomata) nhỏ xíu ở mặt dưới lá. Chúng hấp thụ $\text{O}_2$ và thải $\text{CO}_2$, giống như động vật. Quá trình này giúp cây giải phóng năng lượng từ thức ăn đã tạo ra.",
+        "tags": [
+            "hô hấp",
+            "lỗ khí",
+            "oxy",
+            "carbon dioxide"
+        ],
+        "illustration_prompt": "cute educational illustration of the underside of a leaf, showing microscopic stomata pores opening and closing, gas exchange diagram"
+    },
+    {
+        "id": 20,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Hạt dừa được phân tán bằng cách nào?",
+        "answer": "Hạt dừa nằm bên trong quả dừa cứng cáp, lớn. Chúng được phân tán bằng **nước**. Quả dừa có một lớp vỏ ngoài dày, xốp giúp nó nổi trên mặt biển và có thể trôi dạt đến các bãi biển xa xôi để nảy mầm.",
+        "tags": [
+            "hạt dừa",
+            "phân tán",
+            "nổi",
+            "nước biển"
+        ],
+        "illustration_prompt": "cute educational illustration of a large coconut floating on the ocean waves, traveling to a distant island"
+    },
+    {
+        "id": 21,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào rễ cây lại biết mọc xuống đất?",
+        "answer": "Rễ cây tuân theo **trọng lực** Trái Đất, gọi là **hướng trọng lực dương** (positive gravitropism). Chúng luôn biết cách mọc hướng xuống dưới để tìm kiếm nước và chất dinh dưỡng, bất kể hạt được gieo ở tư thế nào.",
+        "tags": [
+            "rễ cây",
+            "trọng lực",
+            "hướng động",
+            "mọc xuống"
+        ],
+        "illustration_prompt": "cute educational illustration of a seed sprouting, showing the root always growing downwards regardless of the seed's orientation"
+    },
+    {
+        "id": 22,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Phần nào của hoa phát triển thành quả?",
+        "answer": "Sau khi được thụ tinh, phần **bầu nhụy** (ovary) của hoa sẽ phát triển và sưng lên, biến thành quả. Noãn bên trong bầu nhụy sẽ biến thành hạt. Ví dụ, bầu nhụy của cây táo phát triển thành quả táo mà chúng ta ăn.",
+        "tags": [
+            "bầu nhụy",
+            "quả",
+            "thụ tinh",
+            "cấu tạo hoa"
+        ],
+        "illustration_prompt": "cute educational illustration showing the base of a flower (ovary) swelling up and transforming into a piece of fruit"
+    },
+    {
+        "id": 23,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Vòng sinh trưởng (Growth Rings) của cây cho biết điều gì?",
+        "answer": "Mỗi vòng sinh trưởng trên thân cây đại diện cho **một năm tuổi** của cây. Vòng rộng (màu sáng) cho thấy năm đó cây phát triển tốt (có nhiều nước và ánh sáng), còn vòng hẹp (màu tối) cho thấy năm đó cây phát triển kém.",
+        "tags": [
+            "vòng sinh trưởng",
+            "tuổi cây",
+            "năm",
+            "phát triển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a tree stump cross-section with annual growth rings clearly visible, counting the rings"
+    },
+    {
+        "id": 24,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây súng (Mimosa pudica) cụp lá lại để làm gì?",
+        "answer": "Cây súng (hay còn gọi là cây trinh nữ) cụp lá lại khi chạm vào là cơ chế tự vệ. Hành động này được gọi là **ứng động tự vệ** (thigmonasty), nhằm mục đích hù dọa côn trùng hoặc động vật đang muốn ăn lá.",
+        "tags": [
+            "cây súng",
+            "cụp lá",
+            "tự vệ",
+            "chạm vào"
+        ],
+        "illustration_prompt": "cute educational illustration of a Mimosa plant with some leaves open and some leaves folding inward after being gently touched"
+    },
+    {
+        "id": 25,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Thực vật có thể di chuyển không?",
+        "answer": "Thực vật không thể di chuyển vị trí, nhưng chúng có thể di chuyển các bộ phận của mình. Ví dụ, lá cây có thể hướng về phía mặt trời (**quang hướng động**), hoặc rễ cây mọc về phía nguồn nước (**hướng nước động**).",
+        "tags": [
+            "thực vật",
+            "di chuyển",
+            "hướng động",
+            "quang hướng động"
+        ],
+        "illustration_prompt": "cute educational illustration of a potted plant leaning towards a sunny window, simple arrow showing movement"
+    },
+    {
+        "id": 26,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây Phong (Maple) phân tán hạt bằng cách nào?",
+        "answer": "Hạt cây phong (Maple) có một cánh mỏng, giống như **máy bay trực thăng** (samara). Khi rụng, hạt quay tròn và lượn xa khỏi cây mẹ. Điều này giúp hạt có cơ hội lớn hơn để nảy mầm mà không bị cây mẹ che khuất ánh sáng.",
+        "tags": [
+            "cây phong",
+            "hạt",
+            "máy bay trực thăng",
+            "gió"
+        ],
+        "illustration_prompt": "cute educational illustration of a maple seed spinning and falling gracefully through the air, helicopter effect"
+    },
+    {
+        "id": 27,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Vì sao cây cần Nitơ (Nitrogen) từ đất?",
+        "answer": "Nitơ là một chất dinh dưỡng quan trọng để cây tạo ra **Protein** và **Diệp lục** (chlorophyll). Không có Nitơ, cây không thể lớn lên, lá sẽ chuyển sang màu vàng và cây sẽ bị suy yếu.",
+        "tags": [
+            "nitơ",
+            "dinh dưỡng",
+            "protein",
+            "diệp lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant root absorbing nitrogen molecules from the soil, simple chemistry symbol N"
+    },
+    {
+        "id": 28,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Làm thế nào hoa thụ phấn chéo (Cross-Pollination) tốt hơn tự thụ phấn?",
+        "answer": "Thụ phấn chéo (phấn hoa từ cây A sang cây B) tạo ra sự đa dạng di truyền lớn hơn. Sự đa dạng này giúp con cái của cây khỏe mạnh hơn, thích nghi tốt hơn với những thay đổi của môi trường và ít bị bệnh tật hơn.",
+        "tags": [
+            "thụ phấn chéo",
+            "đa dạng di truyền",
+            "sinh sản",
+            "thụ phấn"
+        ],
+        "illustration_prompt": "cute educational illustration of a bee carrying pollen from one flower to a different, neighboring flower, indicating genetic mixing"
+    },
+    {
+        "id": 29,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Cây nào có hoa lớn nhất thế giới?",
+        "answer": "Đó là hoa **Rafflesia arnoldii** (còn gọi là hoa xác thối). Bông hoa này có thể nặng tới 10 kg và đường kính hơn 1 mét! Nó không có lá, rễ hay thân, và phát ra mùi hôi thối để thu hút ruồi thụ phấn.",
+        "tags": [
+            "rafflesia",
+            "hoa lớn nhất",
+            "hoa xác thối",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant Rafflesia flower on the forest floor, a small cartoon person standing next to it for size comparison"
+    },
+    {
+        "id": 30,
+        "category": "Thực vật",
+        "sub_category": "Thực vật có hoa",
+        "question": "Tại sao rễ cây có lông tơ (Root Hairs)?",
+        "answer": "Lông tơ là những phần kéo dài cực nhỏ của tế bào rễ. Chúng làm tăng đáng kể **diện tích bề mặt** của rễ, cho phép cây hấp thụ được nhiều nước và chất dinh dưỡng hơn rất nhiều so với rễ trơn nhẵn.",
+        "tags": [
+            "rễ cây",
+            "lông tơ",
+            "hấp thụ",
+            "diện tích bề mặt"
+        ],
+        "illustration_prompt": "cute educational illustration of a magnified root tip, showing tiny, numerous root hairs extending into the soil, simple diagram"
+    },
+    {
+        "id": 31,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Thực vật không có hoa sinh sản bằng gì?",
+        "answer": "Hầu hết thực vật không có hoa sinh sản bằng **bào tử** (spores), giống như hạt rất nhỏ chỉ thấy được dưới kính hiển vi. Riêng nhóm thực vật hạt trần (như thông, tùng) thì sinh sản bằng **hạt trần** nằm trong nón (cone).",
+        "tags": [
+            "bào tử",
+            "sinh sản",
+            "nón",
+            "thực vật không hoa"
+        ],
+        "illustration_prompt": "cute educational illustration comparing reproduction methods: a fern releasing spores vs a pine cone containing seeds"
+    },
+    {
+        "id": 32,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Bào tử của cây dương xỉ nằm ở đâu?",
+        "answer": "Bào tử của cây dương xỉ được chứa trong các cấu trúc nhỏ gọi là **túi bào tử** (sporangia), thường được nhóm lại thành những đốm màu nâu hoặc đen gọi là **ổ túi bào tử** (sori). Chúng nằm ở mặt dưới của lá già (gọi là lá bào tử).",
+        "tags": [
+            "dương xỉ",
+            "bào tử",
+            "mặt dưới lá",
+            "sori"
+        ],
+        "illustration_prompt": "cute educational illustration showing the underside of a fern frond with visible brown sori (spore clusters) clearly labeled"
+    },
+    {
+        "id": 33,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Cây lá kim (Conifer) khác cây rụng lá ở điểm nào?",
+        "answer": "Cây lá kim (như thông, tùng, bách) thường có lá hình kim hoặc vảy, cứng và luôn xanh tốt quanh năm (gọi là **cây thường xanh**). Cây rụng lá (thực vật có hoa) rụng lá hoàn toàn vào mùa đông để tiết kiệm nước và năng lượng.",
+        "tags": [
+            "lá kim",
+            "thường xanh",
+            "rụng lá",
+            "thích nghi"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: a pine tree (conifer) with needle leaves vs a maple tree (flowering) with broad leaves"
+    },
+    {
+        "id": 34,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Nón thông (Pine Cone) có chức năng gì?",
+        "answer": "Nón thông là cơ quan sinh sản của cây thông. **Nón cái** lớn chứa hạt trần, còn **Nón đực** nhỏ hơn tạo ra phấn hoa (giống như bụi vàng). Nón cái sẽ mở ra khi khô ráo để gió mang hạt đi xa, và đóng lại khi ẩm ướt để bảo vệ hạt.",
+        "tags": [
+            "nón thông",
+            "nón cái",
+            "hạt trần",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of an open pine cone releasing winged seeds into the wind, sunny day"
+    },
+    {
+        "id": 35,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Vì sao rêu (Moss) lại chỉ sống ở nơi ẩm ướt?",
+        "answer": "Rêu là thực vật bậc thấp, không có rễ và mạch dẫn nước (như xylem). Chúng hấp thụ nước và chất dinh dưỡng trực tiếp qua bề mặt lá. Hơn nữa, chúng cần nước để tinh trùng bơi đến thụ tinh, nên phải sống gần nguồn nước.",
+        "tags": [
+            "cây rêu",
+            "ẩm ướt",
+            "mạch dẫn",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration of a clump of moss growing on a wet rock, showing water being directly absorbed by the leaves"
+    },
+    {
+        "id": 36,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Rêu có rễ thật không?",
+        "answer": "Rêu không có rễ thật, mà chỉ có các cấu trúc mỏng gọi là **rễ giả** (rhizoids). Rễ giả không dùng để hấp thụ nước, mà chỉ giúp rêu bám chặt vào bề mặt (như đá, vỏ cây) để không bị nước cuốn trôi.",
+        "tags": [
+            "cây rêu",
+            "rễ giả",
+            "rhizoids",
+            "bám chặt"
+        ],
+        "illustration_prompt": "cute educational illustration of a magnified moss plant, highlighting the tiny rhizoids holding the plant to the ground"
+    },
+    {
+        "id": 37,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Gai của cây thông có tác dụng gì?",
+        "answer": "Gai thông (hay lá kim) có bề mặt hẹp hơn nhiều so với lá rộng, giúp cây **giảm thiểu việc mất nước** qua thoát hơi nước, đặc biệt quan trọng trong mùa đông lạnh hoặc khô. Chúng còn được bao phủ bởi lớp sáp để bảo vệ cây.",
+        "tags": [
+            "cây thông",
+            "lá kim",
+            "giảm mất nước",
+            "sáp"
+        ],
+        "illustration_prompt": "cute educational illustration of pine needles covered in a protective waxy coating, symbolizing water retention"
+    },
+    {
+        "id": 38,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Lá non của dương xỉ trông như thế nào?",
+        "answer": "Lá non của dương xỉ (gọi là **fronds**) ban đầu cuộn chặt lại thành hình xoắn ốc giống như đầu cây vĩ cầm (violin head), nên được gọi là **fiddlehead**. Sau đó, chúng từ từ mở ra và phát triển thành lá phẳng.",
+        "tags": [
+            "dương xỉ",
+            "lá non",
+            "fiddlehead",
+            "xoắn ốc"
+        ],
+        "illustration_prompt": "cute educational illustration of a young fern frond tightly coiled, resembling a violin scroll, with a green background"
+    },
+    {
+        "id": 39,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Rêu Sphagnum (rêu than bùn) đặc biệt ở điểm nào?",
+        "answer": "Rêu than bùn có khả năng **hấp thụ một lượng nước cực lớn** (gấp 20 lần trọng lượng khô của nó). Khi chết, rêu này tạo thành than bùn, là nguồn nhiên liệu quan trọng và giúp bảo quản các vật thể hữu cơ cực kỳ tốt.",
+        "tags": [
+            "rêu than bùn",
+            "hấp thụ nước",
+            "than bùn",
+            "lưu trữ"
+        ],
+        "illustration_prompt": "cute educational illustration of Sphagnum moss looking very spongy and wet, a drop of water being sucked into it"
+    },
+    {
+        "id": 40,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Loài cây không hoa nào được coi là 'hóa thạch sống'?",
+        "answer": "Đó là **cây Bạch quả** (Ginkgo biloba). Nó là loài thực vật hạt trần duy nhất còn sót lại của bộ Ginkgoales cổ đại, có hình dạng lá và cấu trúc hầu như không thay đổi kể từ thời khủng long cách đây hơn 200 triệu năm.",
+        "tags": [
+            "bạch quả",
+            "hóa thạch sống",
+            "thực vật cổ đại",
+            "lá quạt"
+        ],
+        "illustration_prompt": "cute educational illustration of a Ginkgo leaf next to a dinosaur fossil, symbolizing its ancient lineage"
+    },
+    {
+        "id": 41,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Tại sao rễ cây thông lại thường nông (không sâu)?",
+        "answer": "Cây thông thường có rễ chùm nông (shallow root system) để giúp chúng hấp thụ nước nhanh chóng từ bề mặt đất. Tuy nhiên, chúng phát triển mạnh ở vùng lạnh và thường dựa vào một rễ cái khỏe mạnh để neo giữ cây trong gió.",
+        "tags": [
+            "cây thông",
+            "rễ nông",
+            "rễ chùm",
+            "hấp thụ nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a pine tree with wide, shallow roots spreading out close to the ground surface"
+    },
+    {
+        "id": 42,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Dương xỉ khác rêu ở chỗ nào về cấu tạo?",
+        "answer": "Dương xỉ là thực vật bậc cao hơn rêu vì chúng có **hệ thống mạch dẫn** (vascular system) thực sự (xylem và phloem) để vận chuyển nước và thức ăn. Điều này cho phép dương xỉ phát triển lớn hơn và cao hơn rêu rất nhiều.",
+        "tags": [
+            "dương xỉ",
+            "rêu",
+            "mạch dẫn",
+            "kích thước"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: small moss next to a tall fern, showing the fern has internal tubes (vascular system) and the moss does not"
+    },
+    {
+        "id": 43,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Thực vật hạt trần có quả không?",
+        "answer": "Không. Thực vật hạt trần (Gymnosperms) không có quả. Hạt của chúng không được bao bọc trong bầu nhụy (như thực vật có hoa) mà nằm **trần** trên vảy của nón cái, đó là lý do chúng được gọi là 'hạt trần'.",
+        "tags": [
+            "hạt trần",
+            "quả",
+            "nón",
+            "thực vật không hoa"
+        ],
+        "illustration_prompt": "cute educational illustration showing pine seeds lying directly on the scales of a cone, not enclosed by any fruit flesh"
+    },
+    {
+        "id": 44,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Tảo bẹ (Kelp) là gì và chúng sống ở đâu?",
+        "answer": "Tảo bẹ là một loại **tảo nâu khổng lồ** (Giant Algae) chứ không phải thực vật thật sự. Chúng sống dưới đại dương, có thể phát triển rất nhanh, tạo thành **rừng tảo bẹ** (kelp forest) dưới nước, cung cấp thức ăn và nơi trú ẩn cho nhiều loài sinh vật biển.",
+        "tags": [
+            "tảo bẹ",
+            "rừng tảo",
+            "đại dương",
+            "tảo nâu"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant kelp forest underwater, fish and sea otters swimming among the tall stalks"
+    },
+    {
+        "id": 45,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Làm thế nào cây rêu lại giúp ngăn xói mòn đất?",
+        "answer": "Rêu mọc thành thảm dày, bám chặt vào bề mặt đất hoặc đá. Thảm rêu này hoạt động như một lớp xốp, hấp thụ và giữ nước, làm chậm dòng chảy của nước mưa, từ đó **ngăn đất bị rửa trôi** (xói mòn).",
+        "tags": [
+            "cây rêu",
+            "xói mòn",
+            "thảm",
+            "giữ nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a layer of moss on a slope preventing soil erosion during a rain shower"
+    },
+    {
+        "id": 46,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Cây nào có thể tạo ra những nón thông lớn nhất thế giới?",
+        "answer": "Cây **thông Sugar Pine** ở Bắc Mỹ tạo ra những nón thông dài nhất thế giới, có thể dài tới 50 cm. Người ta nói rằng, đi bộ dưới những cây này phải cẩn thận vì nón có thể rơi xuống đầu!",
+        "tags": [
+            "thông sugar pine",
+            "nón lớn nhất",
+            "kỷ lục",
+            "bắc mỹ"
+        ],
+        "illustration_prompt": "cute educational illustration of a very long sugar pine cone, a small cartoon character holding it for size comparison"
+    },
+    {
+        "id": 47,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Dương xỉ làm gì cho môi trường?",
+        "answer": "Dương xỉ là một phần quan trọng của hệ sinh thái rừng. Chúng tạo ra lớp thảm thực vật dưới tán cây lớn, giữ ẩm cho đất và cung cấp nơi trú ẩn cho nhiều loài động vật nhỏ. Một số loài còn giúp làm sạch đất bị ô nhiễm.",
+        "tags": [
+            "dương xỉ",
+            "môi trường",
+            "làm sạch đất",
+            "hệ sinh thái"
+        ],
+        "illustration_prompt": "cute educational illustration of ferns growing densely on a forest floor, small creatures hiding among the fronds"
+    },
+    {
+        "id": 48,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Các loài thông có rụng lá không?",
+        "answer": "Có, nhưng không phải đồng loạt như cây rụng lá. Thông rụng lá kim dần dần theo chu kỳ vài năm một lần, giúp cây luôn xanh tốt quanh năm. Điều này giúp chúng duy trì quang hợp ngay cả trong mùa đông.",
+        "tags": [
+            "cây thông",
+            "rụng lá kim",
+            "quang hợp",
+            "thường xanh"
+        ],
+        "illustration_prompt": "cute educational illustration of a pine tree with a few old, brown needles falling off, but the majority remaining green"
+    },
+    {
+        "id": 49,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Loài thực vật không hoa nào có thân rỗng và phân đốt?",
+        "answer": "Đó là **cây mộc tặc** (Horsetail). Chúng là loài thực vật bậc thấp cổ đại, có thân cây rỗng, cứng và chia thành các đốt rõ rệt. Cây mộc tặc chứa silica (thành phần của thủy tinh) khiến chúng rất cứng cáp.",
+        "tags": [
+            "mộc tặc",
+            "horsetail",
+            "thân rỗng",
+            "silica"
+        ],
+        "illustration_prompt": "cute educational illustration of a horsetail plant showing the segmented, jointed stem structure, antique appearance"
+    },
+    {
+        "id": 50,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Vì sao rêu được gọi là 'thực vật hồi sinh'?",
+        "answer": "Rêu có thể khô héo gần như hoàn toàn khi không có nước, nhưng không chết. Khi có nước, chúng có thể hấp thụ ngay lập tức và phục hồi lại trạng thái xanh tươi, khỏe mạnh chỉ trong vài giờ. Đây là khả năng sống sót tuyệt vời.",
+        "tags": [
+            "cây rêu",
+            "hồi sinh",
+            "sống sót",
+            "hấp thụ nước"
+        ],
+        "illustration_prompt": "cute educational illustration split screen: dry, shriveled moss vs the same moss fully hydrated and green, transformation effect"
+    },
+    {
+        "id": 51,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Loài cây không hoa nào cao nhất thế giới?",
+        "answer": "Đó là cây **Hồng sam ven biển** (Coast Redwood) ở California. Chúng là loài hạt trần (Gymnosperm) và là thực vật cao nhất trên Trái Đất, có thể cao hơn 115 mét (cao hơn tượng Nữ Thần Tự Do).",
+        "tags": [
+            "hồng sam",
+            "cao nhất",
+            "kỷ lục",
+            "gymnosperm"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant redwood tree, comparing its height to a small skyscraper next to it"
+    },
+    {
+        "id": 52,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Bào tử dương xỉ phân tán bằng cách nào?",
+        "answer": "Bào tử của dương xỉ rất nhẹ, và được phát tán chủ yếu bằng **gió**. Khi ổ túi bào tử (sori) chín, chúng bật ra như một chiếc lò xo, phóng bào tử vào không khí để gió mang đi khắp nơi.",
+        "tags": [
+            "dương xỉ",
+            "bào tử",
+            "gió",
+            "phân tán"
+        ],
+        "illustration_prompt": "cute educational illustration of sori on the underside of a fern frond bursting open and releasing tiny spores into the air"
+    },
+    {
+        "id": 53,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Loài thông nào có hạt được phát tán nhờ sóc?",
+        "answer": "Cây **thông Pinyon** ở Bắc Mỹ có hạt thông béo ngậy, giàu chất béo. Sóc và chim (đặc biệt là chim Pinyon Jay) thu thập những hạt này để dự trữ. Quá trình cất giấu và quên đi của chúng giúp hạt được gieo và nảy mầm.",
+        "tags": [
+            "thông pinyon",
+            "sóc",
+            "chim",
+            "phân tán hạt"
+        ],
+        "illustration_prompt": "cute educational illustration of a squirrel burying a large pinyon pine nut in the ground, snowy background"
+    },
+    {
+        "id": 54,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Thực vật không có hoa đầu tiên là gì?",
+        "answer": "Rêu (Moss) được coi là một trong những loài thực vật đầu tiên chuyển từ nước lên đất liền. Chúng là thực vật **phi mạch** (non-vascular), không có rễ và phải sống rất sát mặt đất để hấp thụ nước.",
+        "tags": [
+            "cây rêu",
+            "thực vật đầu tiên",
+            "phi mạch",
+            "tiến hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a timeline showing moss being the first plant emerging from water onto land"
+    },
+    {
+        "id": 55,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Gỗ thông có gì đặc biệt khiến nó thường được dùng để xây nhà?",
+        "answer": "Gỗ thông (Pinewood) là loại gỗ mềm, giá thành rẻ, dễ dàng gia công và có khả năng chịu lực tốt. Gỗ thông còn chứa nhựa thơm, giúp gỗ kháng mối mọt và có mùi dễ chịu, rất phù hợp cho xây dựng và làm đồ nội thất.",
+        "tags": [
+            "gỗ thông",
+            "gỗ mềm",
+            "xây dựng",
+            "nhựa thơm"
+        ],
+        "illustration_prompt": "cute educational illustration of a log of pinewood being used to build a cozy, simple house, warm colors"
+    },
+    {
+        "id": 56,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Cây Tuế (Cycad) có phải là cây thông không?",
+        "answer": "Không. Tuế (Cycad) không phải là thông, nhưng chúng cũng là thực vật hạt trần (Gymnosperm). Chúng có hình dáng giống cây cọ, lá cứng và cũng tạo ra nón. Tuế là một trong những loài thực vật có hạt cổ nhất, sống từ thời khủng long.",
+        "tags": [
+            "cây tuế",
+            "cycad",
+            "cây cọ",
+            "hạt trần"
+        ],
+        "illustration_prompt": "cute educational illustration of a cycad plant (looks like a squat palm tree) with a cone in the center, jungle background"
+    },
+    {
+        "id": 57,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Làm thế nào tảo đơn bào lại tạo ra oxy cho Trái Đất?",
+        "answer": "Tảo đơn bào (phytoplankton) là những sinh vật cực nhỏ sống trong đại dương. Chúng thực hiện quang hợp, hấp thụ $\text{CO}_2$ và giải phóng $\text{O}_2$. Các nhà khoa học ước tính tảo tạo ra **50% đến 80% oxy** mà chúng ta hít thở.",
+        "tags": [
+            "tảo đơn bào",
+            "oxy",
+            "quang hợp",
+            "đại dương"
+        ],
+        "illustration_prompt": "cute educational illustration of tiny phytoplankton cells in the ocean, showing them producing oxygen bubbles, global atmosphere context"
+    },
+    {
+        "id": 58,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Rừng dương xỉ cổ đại có gì đặc biệt?",
+        "answer": "Rừng dương xỉ khổng lồ đã thống trị Trái Đất trong Kỷ Than Đá (Carboniferous Period). Khi những cây này chết đi và bị chôn vùi, chúng tạo ra phần lớn các mỏ **than đá** mà con người khai thác và sử dụng làm nhiên liệu ngày nay.",
+        "tags": [
+            "dương xỉ",
+            "rừng cổ đại",
+            "than đá",
+            "kỷ than đá"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dense, misty prehistoric forest with huge, tree-sized ferns, ancient atmosphere"
+    },
+    {
+        "id": 59,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Loài rêu nào được người lính dùng để băng bó vết thương?",
+        "answer": "Trong Thế chiến thứ nhất, rêu **Sphagnum** (rêu than bùn) đã được sử dụng rộng rãi để băng bó vết thương do khả năng hấp thụ cực cao và đặc tính kháng khuẩn nhẹ của nó. Nó là vật liệu cứu thương thiết yếu lúc bấy giờ.",
+        "tags": [
+            "rêu sphagnum",
+            "thế chiến",
+            "băng bó",
+            "kháng khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of a first aid kit containing a patch of Sphagnum moss, historical context"
+    },
+    {
+        "id": 60,
+        "category": "Thực vật",
+        "sub_category": "Thực vật không có hoa",
+        "question": "Cây thông dùng nhựa cây (Resin) để làm gì?",
+        "answer": "Nhựa cây thông là chất lỏng dính do cây tiết ra. Nó hoạt động như một loại **băng dán tự nhiên**! Nhựa cây bịt kín vết thương trên vỏ cây do côn trùng hoặc động vật gây ra, ngăn chặn vi khuẩn và côn trùng xâm nhập vào thân cây.",
+        "tags": [
+            "cây thông",
+            "nhựa cây",
+            "bảo vệ",
+            "kháng khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of golden pine resin dripping down a tree trunk, covering a small cut in the bark"
+    },
+    {
+        "id": 61,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Vỏ cây (Bark) có tác dụng gì với cây thân gỗ?",
+        "answer": "Vỏ cây hoạt động như lớp **áo giáp bảo vệ** cây khỏi côn trùng, bệnh tật, và lửa. Vỏ cây cũng giống như làn da, ngăn nước bốc hơi khỏi thân cây và cách nhiệt, giúp cây sống sót qua những thay đổi lớn của nhiệt độ.",
+        "tags": [
+            "vỏ cây",
+            "bảo vệ",
+            "cách nhiệt",
+            "chống cháy"
+        ],
+        "illustration_prompt": "cute educational illustration of a thick tree bark acting as a shield against a small insect, focusing on texture"
+    },
+    {
+        "id": 62,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Thân gỗ được hình thành như thế nào?",
+        "answer": "Thân gỗ được hình thành từ một lớp mỏng gọi là **tầng sinh gỗ** (cambium) nằm ngay dưới vỏ cây. Tầng này liên tục tạo ra các tế bào mới: mạch gỗ (xylem) hướng vào trong tạo thành gỗ cứng, và mạch rây (phloem) hướng ra ngoài tạo thành vỏ cây.",
+        "tags": [
+            "thân gỗ",
+            "tầng sinh gỗ",
+            "xylem",
+            "phloem"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a woody stem with cambium layer highlighted between wood and bark"
+    },
+    {
+        "id": 63,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Gỗ lõi (Heartwood) và Gỗ giác (Sapwood) khác nhau ở điểm nào?",
+        "answer": "**Gỗ giác** (màu sáng hơn) là phần gỗ mới hơn, sống và có chức năng vận chuyển nước. **Gỗ lõi** (màu sẫm hơn, nằm ở trung tâm) là các tế bào chết đã ngừng vận chuyển nước, nhưng cung cấp sự **cứng cáp và hỗ trợ** chính cho cây.",
+        "tags": [
+            "gỗ lõi",
+            "gỗ giác",
+            "cứng cáp",
+            "vận chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration of a tree trunk cross-section showing the difference in color and location between the darker heartwood and the lighter sapwood"
+    },
+    {
+        "id": 64,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây Baobab giữ nước như thế nào ở châu Phi?",
+        "answer": "Cây Baobab (Cây bao báp) có biệt danh là 'cây lộn ngược' vì cành của nó giống rễ. Thân cây của chúng có khả năng trữ một lượng nước khổng lồ, lên đến 120.000 lít, giúp chúng sống sót qua các mùa khô hạn kéo dài ở châu Phi và Úc.",
+        "tags": [
+            "baobab",
+            "dự trữ nước",
+            "thân cây",
+            "châu phi"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant Baobab tree with a very thick, water-storing trunk, in an arid landscape"
+    },
+    {
+        "id": 65,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào cây rụng lá (Deciduous) lại biết khi nào nên rụng lá?",
+        "answer": "Khi ngày ngắn hơn và nhiệt độ giảm, cây cảm nhận được sự thay đổi của ánh sáng. Chúng tạo ra một lớp tế bào đặc biệt gọi là **lớp abscission** (lớp phân tách) ở gốc lá để 'niêm phong' lá, ngừng cung cấp nước và chất dinh dưỡng trước khi lá rơi.",
+        "tags": [
+            "rụng lá",
+            "mùa đông",
+            "ánh sáng",
+            "abscission layer"
+        ],
+        "illustration_prompt": "cute educational illustration of a leaf stem connecting to a branch, showing the formation of the abscission layer before the leaf drops"
+    },
+    {
+        "id": 66,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Loài cây nào được coi là cây sống lâu đời nhất thế giới?",
+        "answer": "Đó là cây **Thông Bristlecone** (Bristlecone Pine) ở California và Nevada (Mỹ). Một cá thể tên là Methuselah được cho là đã sống hơn **4.800 năm**, chứng kiến lịch sử nhân loại từ thời kỳ xây dựng kim tự tháp.",
+        "tags": [
+            "thông bristlecone",
+            "sống lâu nhất",
+            "kỷ lục",
+            "methuselah"
+        ],
+        "illustration_prompt": "cute educational illustration of a very gnarled, ancient Bristlecone Pine in a harsh mountain environment, suggesting great age"
+    },
+    {
+        "id": 67,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây cối làm thế nào để làm sạch không khí chúng ta thở?",
+        "answer": "Cây cối là **bể chứa carbon** tự nhiên. Chúng hấp thụ một lượng lớn $\text{CO}_2$ (khí nhà kính) từ không khí để quang hợp và lưu trữ carbon đó trong thân và rễ, giúp giảm ô nhiễm không khí và điều hòa khí hậu.",
+        "tags": [
+            "bể chứa carbon",
+            "làm sạch không khí",
+            "quang hợp",
+            "carbon dioxide"
+        ],
+        "illustration_prompt": "cute educational illustration of a large, healthy tree with a graphic showing carbon dioxide being absorbed and stored in its wood"
+    },
+    {
+        "id": 68,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Sự khác biệt giữa Cây lá kim (Softwood) và Cây lá rộng (Hardwood) là gì?",
+        "answer": "**Gỗ mềm** (Softwood) đến từ cây lá kim (thường là thường xanh) và có mật độ thấp hơn. **Gỗ cứng** (Hardwood) đến từ cây lá rộng (thường là cây rụng lá) và có mật độ cao hơn, chắc chắn hơn, như gỗ sồi và gỗ thích.",
+        "tags": [
+            "gỗ mềm",
+            "gỗ cứng",
+            "lá kim",
+            "lá rộng"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: a block of light softwood (pine) vs a block of dark, dense hardwood (oak)"
+    },
+    {
+        "id": 69,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào nhựa cây (Sap) lại có thể dính và ngọt?",
+        "answer": "Nhựa cây là chất lỏng lưu thông trong các mạch rây (phloem) của cây, mang đường (thức ăn được tạo ra trong quá trình quang hợp) đi khắp nơi. Nhựa của một số cây như **cây thích** (Maple) rất ngọt, có thể dùng để làm si-rô.",
+        "tags": [
+            "nhựa cây",
+            "mạch rây",
+            "đường",
+            "si-rô"
+        ],
+        "illustration_prompt": "cute educational illustration of a maple tree with a spout collecting sweet, sticky sap into a bucket"
+    },
+    {
+        "id": 70,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây đước (Mangrove) sống trong nước mặn bằng cách nào?",
+        "answer": "Cây đước có một số cơ chế: **1) Lọc muối** ngay tại rễ, chỉ cho nước ngọt đi qua. **2) Đẩy muối thừa** lên lá già, sau đó lá rụng. Rễ chống đỡ của chúng còn giúp làm chậm dòng nước, bảo vệ bờ biển khỏi xói mòn.",
+        "tags": [
+            "cây đước",
+            "nước mặn",
+            "rễ chống",
+            "lọc muối"
+        ],
+        "illustration_prompt": "cute educational illustration of a mangrove tree with prop roots submerged in salt water, showing salt being excreted onto the leaves"
+    },
+    {
+        "id": 71,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Sự khác biệt chính giữa Cây (Tree) và Cây bụi (Shrub) là gì?",
+        "answer": "Cây thường có **một thân gỗ chính** to và cứng cáp. Cây bụi thì thường nhỏ hơn, có **nhiều thân gỗ** mọc ngay sát mặt đất và phân nhánh từ gốc, tạo thành hình dạng xòe ra hơn.",
+        "tags": [
+            "cây",
+            "cây bụi",
+            "thân chính",
+            "phân nhánh"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: a tall tree with one main trunk vs a short shrub with multiple thin woody stems"
+    },
+    {
+        "id": 72,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây có thể 'chữa lành' vết thương như thế nào?",
+        "answer": "Cây không thực sự chữa lành vết thương mà tạo ra một lớp mô sẹo cứng gọi là **Callus** bao phủ vết thương. Quá trình này được gọi là 'tạo rào chắn', giúp cô lập phần gỗ bị thương và ngăn ngừa nấm, sâu bệnh xâm nhập.",
+        "tags": [
+            "chữa lành",
+            "vết thương",
+            "callus",
+            "tạo rào chắn"
+        ],
+        "illustration_prompt": "cute educational illustration of a tree trunk with a small cut, showing the cut slowly being covered by a layer of protective scar tissue (callus)"
+    },
+    {
+        "id": 73,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Tại sao rễ cây cần phải vươn xa và sâu?",
+        "answer": "Rễ cây vươn xa để tìm kiếm **nước và chất dinh dưỡng** mới (hướng nước động). Chúng mọc sâu để **neo giữ** cây chống lại gió bão. Diện tích rễ thường lớn hơn nhiều so với phần tán cây phía trên mặt đất.",
+        "tags": [
+            "rễ cây",
+            "nước",
+            "neo giữ",
+            "hướng nước động"
+        ],
+        "illustration_prompt": "cute educational illustration of a tree showing its deep and wide root system underground, balancing the large canopy"
+    },
+    {
+        "id": 74,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây Bách (Cypress) nổi tiếng vì điều gì?",
+        "answer": "Cây bách nổi tiếng vì gỗ của chúng có khả năng **chống sâu bệnh và chống ẩm** cực cao. Gỗ bách thường được dùng để đóng thuyền và xây nhà ở nơi có độ ẩm cao. Một số loài bách còn tạo ra các chồi rễ (cypress knees) nhô lên khỏi mặt nước.",
+        "tags": [
+            "cây bách",
+            "chống ẩm",
+            "gỗ",
+            "chồi rễ"
+        ],
+        "illustration_prompt": "cute educational illustration of a cypress tree growing near water, showing its distinctive 'cypress knees' rising from the ground"
+    },
+    {
+        "id": 75,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào cây lại làm giảm nhiệt độ không khí xung quanh?",
+        "answer": "Cây làm mát không khí qua hai cách: **1) Thoát hơi nước:** Cây giải phóng hơi nước mát từ lá. **2) Cung cấp bóng râm:** Tán lá rộng che chắn trực tiếp ánh nắng mặt trời, giữ cho mặt đất và không khí bên dưới mát hơn nhiều.",
+        "tags": [
+            "làm mát",
+            "thoát hơi nước",
+            "bóng râm",
+            "tán lá"
+        ],
+        "illustration_prompt": "cute educational illustration of a tree providing shade, showing the temperature lower under the canopy than in the sunny spot"
+    },
+    {
+        "id": 76,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Sự khác biệt giữa Cây đơn tính (Dioecious) và Cây lưỡng tính (Monoecious) là gì?",
+        "answer": "**Cây đơn tính** có hoa đực và hoa cái nằm trên hai cây riêng biệt (ví dụ: cây chà là, cây bạch quả). **Cây lưỡng tính** có cả hoa đực và hoa cái trên cùng một cây (ví dụ: cây sồi, cây thông).",
+        "tags": [
+            "đơn tính",
+            "lưỡng tính",
+            "sinh sản",
+            "hoa"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: a dioecious plant (male flowers on one plant, female on another) vs a monoecious plant (both flowers on one plant)"
+    },
+    {
+        "id": 77,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây nào có thân rộng nhất thế giới?",
+        "answer": "Đó là cây **Thủy sam Mexico** (Montezuma Cypress). Một cây được biết đến với tên **'El Árbol del Tule'** có chu vi thân cây (không phải đường kính) lớn nhất, lên tới 42 mét, cần hơn 30 người lớn nắm tay mới ôm hết.",
+        "tags": [
+            "thủy sam",
+            "chu vi lớn nhất",
+            "thân cây",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of the massive El Árbol del Tule tree in Mexico, showing many small people holding hands around its base"
+    },
+    {
+        "id": 78,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây Bạch Dương (Birch) có vỏ cây đặc biệt như thế nào?",
+        "answer": "Vỏ cây bạch dương rất mỏng, mịn và thường có màu trắng. Điều độc đáo là vỏ cây này không thấm nước và có thể được lột ra thành từng lớp mỏng giống như giấy. Trong lịch sử, nó được dùng để viết thư và làm vỏ ca-nô.",
+        "tags": [
+            "bạch dương",
+            "vỏ trắng",
+            "không thấm nước",
+            "lớp giấy"
+        ],
+        "illustration_prompt": "cute educational illustration of a white birch tree with peeling, papery bark, forest setting"
+    },
+    {
+        "id": 79,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Lá cây sồi (Oak) rụng muộn để làm gì?",
+        "answer": "Một số cây sồi và các cây gỗ cứng khác giữ lại lá đã chết, khô héo (quá trình gọi là **marcescence**) trong suốt mùa đông. Các nhà khoa học cho rằng điều này giúp bảo vệ chồi mới khỏi bị động vật ăn hoặc có thể giúp giữ ẩm cho đất khi lá rụng vào mùa xuân.",
+        "tags": [
+            "cây sồi",
+            "giữ lá",
+            "marcescence",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of an oak branch in the middle of winter, showing dry, brown leaves still clinging to the branch"
+    },
+    {
+        "id": 80,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây Thích (Maple) tạo ra màu đỏ rực rỡ vào mùa thu bằng cách nào?",
+        "answer": "Màu đỏ, tím đậm là do sắc tố **Anthocyanin** được cây sản xuất vào mùa thu. Cây tạo ra chất đường này để 'niêm phong' các chất dinh dưỡng còn sót lại trong lá, sau đó ánh nắng mặt trời buổi sáng sẽ kích hoạt Anthocyanin, tạo ra màu đỏ.",
+        "tags": [
+            "cây thích",
+            "anthocyanin",
+            "màu đỏ",
+            "mùa thu"
+        ],
+        "illustration_prompt": "cute educational illustration of a bright red maple leaf, sun shining on it, artistic autumn scene"
+    },
+    {
+        "id": 81,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào cây có thể giao tiếp với nhau?",
+        "answer": "Cây có thể gửi tín hiệu hóa học cho nhau qua không khí (dùng chất bay hơi) hoặc qua một mạng lưới nấm ngầm dưới đất (gọi là **'Mạng lưới Gỗ-Nấm'**). Chúng cảnh báo nhau về côn trùng hoặc chuyển chất dinh dưỡng cho cây con.",
+        "tags": [
+            "giao tiếp",
+            "mạng lưới nấm",
+            "cảnh báo",
+            "chất dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the underground fungal network (mycorrhizal network) connecting the roots of two neighboring trees"
+    },
+    {
+        "id": 82,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây Bách Xù (Juniper) được dùng để làm gì?",
+        "answer": "Cây bách xù là loại cây thân gỗ thường xanh, tạo ra quả mọng có màu xanh lam sẫm. Những quả mọng này được sử dụng để tạo hương vị đặc trưng cho một loại rượu mạnh nổi tiếng gọi là **Gin**.",
+        "tags": [
+            "bách xù",
+            "quả mọng",
+            "gin",
+            "hương vị"
+        ],
+        "illustration_prompt": "cute educational illustration of juniper berries growing on a branch, dark blue color, stylized"
+    },
+    {
+        "id": 83,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Gỗ từ cây Sồi (Oak) quý giá vì điều gì?",
+        "answer": "Gỗ sồi là một loại gỗ cứng nổi tiếng về **sức mạnh, độ bền và khả năng chống nước** (nhờ có hàm lượng tannin cao). Gỗ sồi được sử dụng rộng rãi để đóng đồ nội thất cao cấp, ván sàn, và đặc biệt là làm **thùng ủ rượu vang**.",
+        "tags": [
+            "gỗ sồi",
+            "gỗ cứng",
+            "độ bền",
+            "thùng rượu"
+        ],
+        "illustration_prompt": "cute educational illustration of an oak tree next to a wooden wine barrel made from its wood"
+    },
+    {
+        "id": 84,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào chúng ta biết tuổi của một cây cổ thụ đã chết?",
+        "answer": "Các nhà khoa học sử dụng phương pháp **phân tích vòng sinh trưởng** (Dendrochronology). Họ so sánh các mẫu vòng sinh trưởng của cây đã chết với các cây còn sống, dựa trên độ rộng/hẹp của vòng để xác định năm sinh của cây đã chết.",
+        "tags": [
+            "tuổi cây",
+            "vòng sinh trưởng",
+            "dendrochronology",
+            "phân tích"
+        ],
+        "illustration_prompt": "cute educational illustration of a scientist examining a cross-section of an old tree log with a magnifying glass"
+    },
+    {
+        "id": 85,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây có thể 'uống' sương mù như thế nào?",
+        "answer": "Một số cây, đặc biệt là cây ở các khu rừng ven biển, có thể hấp thụ trực tiếp hơi ẩm từ sương mù hoặc mây thông qua lá và kim của chúng. Hiện tượng này đặc biệt quan trọng đối với các cây khổng lồ như **cây Hồng sam ven biển**.",
+        "tags": [
+            "sương mù",
+            "hấp thụ",
+            "hồng sam",
+            "hơi ẩm"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant redwood tree with a cloud of mist/fog enveloping its canopy, water droplets falling on the leaves"
+    },
+    {
+        "id": 86,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Tại sao không nên cưa quá sâu vào thân cây?",
+        "answer": "Cưa quá sâu có thể làm hỏng **mạch rây** (phloem) và **tầng sinh gỗ** (cambium) ngay dưới vỏ cây. Mạch rây vận chuyển thức ăn xuống rễ, nên việc làm hỏng nó có thể làm rễ cây bị đói và cuối cùng là làm chết cả cây.",
+        "tags": [
+            "thân cây",
+            "cưa",
+            "mạch rây",
+            "chết cây"
+        ],
+        "illustration_prompt": "cute educational illustration showing a tree with a deep cut, highlighting the damaged phloem layer beneath the bark, danger sign"
+    },
+    {
+        "id": 87,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Cây nào được mệnh danh là 'cây thép'?",
+        "answer": "Đó là **cây Lignum Vitae**. Gỗ của nó là loại gỗ cứng và nặng nhất thế giới, có thể chìm trong nước. Nó được sử dụng để làm các bộ phận cần độ bền cực cao, như vòng bi, trục chân vịt tàu thuyền.",
+        "tags": [
+            "lignum vitae",
+            "gỗ cứng nhất",
+            "nặng nhất",
+            "chìm trong nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a small piece of dark Lignum Vitae wood sinking in water, very dense look"
+    },
+    {
+        "id": 88,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Làm thế nào cây cọ (Palm) chống chọi với gió bão?",
+        "answer": "Cây cọ có thân cây linh hoạt, không phải gỗ cứng mà là các sợi xơ xếp chồng lên nhau. Thân cây mềm dẻo cho phép chúng uốn cong rất sâu trong gió mà không bị gãy. Chúng còn có hệ thống rễ chùm rộng, giúp neo giữ thân cây.",
+        "tags": [
+            "cây cọ",
+            "thân mềm dẻo",
+            "bão",
+            "rễ chùm"
+        ],
+        "illustration_prompt": "cute educational illustration of a tall palm tree bending dramatically in a strong wind, but not breaking, flexible effect"
+    },
+    {
+        "id": 89,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Gỗ từ cây Bần (Cork Oak) có ứng dụng gì?",
+        "answer": "Cây bần (Cork Oak) tạo ra một lớp vỏ dày, xốp và đàn hồi. Người ta có thể lột lớp vỏ này mà không làm chết cây. Vỏ bần được sử dụng rộng rãi để làm **nút chai rượu vang** vì khả năng chống thấm nước và cách nhiệt tuyệt vời.",
+        "tags": [
+            "cây bần",
+            "vỏ bần",
+            "nút chai",
+            "cách nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration of the thick, textured bark of a Cork Oak tree, a cork wine stopper floating nearby"
+    },
+    {
+        "id": 90,
+        "category": "Thực vật",
+        "sub_category": "Cây thân gỗ",
+        "question": "Tại sao gỗ từ cây Tuyết tùng (Cedar) có mùi thơm đặc trưng?",
+        "answer": "Gỗ tuyết tùng có mùi thơm dễ chịu do chứa các loại dầu tự nhiên. Các loại dầu này còn đóng vai trò là **chất xua đuổi côn trùng** tự nhiên. Vì thế, gỗ tuyết tùng thường được dùng để lót tủ quần áo để bảo vệ quần áo khỏi bị mối mọt.",
+        "tags": [
+            "tuyết tùng",
+            "mùi thơm",
+            "dầu tự nhiên",
+            "xua đuổi côn trùng"
+        ],
+        "illustration_prompt": "cute educational illustration of cedar wood planks emitting a pleasant scent, with a moth flying away from the smell"
+    },
+    {
+        "id": 91,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao cây thân mềm (Herbaceous) lại bị héo rũ khi thiếu nước?",
+        "answer": "Cây thân mềm không có thân gỗ cứng nên chúng cần **áp suất nước** (turgor pressure) trong tế bào để đứng thẳng. Khi thiếu nước, các tế bào mất áp suất, giống như một quả bóng bị xì hơi, khiến cây mất độ cứng và bị héo rũ.",
+        "tags": [
+            "héo rũ",
+            "áp suất nước",
+            "thân thảo",
+            "turgor pressure"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a healthy herbaceous plant standing upright with high turgor pressure versus a wilted plant with low turgor pressure"
+    },
+    {
+        "id": 92,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây khoai tây (Potato) là rễ hay thân?",
+        "answer": "Củ khoai tây mà chúng ta ăn thực chất là **thân ngầm** (tuber) đã được phình to ra để lưu trữ tinh bột, chứ không phải rễ. Các 'mắt' nhỏ trên củ khoai tây là chồi có thể phát triển thành cây mới.",
+        "tags": [
+            "khoai tây",
+            "thân ngầm",
+            "củ",
+            "tinh bột"
+        ],
+        "illustration_prompt": "cute educational illustration showing the potato plant, clearly labeling the tubers (potatoes) as modified underground stems, not roots"
+    },
+    {
+        "id": 93,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây một năm (Annual) khác cây lâu năm (Perennial) ở điểm nào?",
+        "answer": "**Cây một năm** hoàn thành toàn bộ vòng đời (nảy mầm, ra hoa, tạo hạt, chết) chỉ trong một mùa sinh trưởng (ví dụ: hoa hướng dương). **Cây lâu năm** sống qua nhiều mùa, thân và rễ vẫn sống sót qua mùa đông để tiếp tục phát triển (ví dụ: hoa hồng, cỏ).",
+        "tags": [
+            "một năm",
+            "lâu năm",
+            "vòng đời",
+            "sinh trưởng"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: an annual plant (sunflower) completes life in one year vs a perennial plant (grass) surviving through winter"
+    },
+    {
+        "id": 94,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây dùng thân bò (Runner/Stolon) để làm gì?",
+        "answer": "Một số cây như dâu tây hoặc bạc hà sử dụng thân bò (còn gọi là Stolon) để **nhân giống vô tính** (cloning) nhanh chóng. Thân bò nằm ngang trên mặt đất, mọc rễ và chồi mới ở các đốt, tạo ra một cây con giống hệt cây mẹ.",
+        "tags": [
+            "thân bò",
+            "dâu tây",
+            "nhân giống",
+            "vô tính"
+        ],
+        "illustration_prompt": "cute educational illustration of a strawberry plant sending out a runner that sprouts a new baby strawberry plant, labeled stolon"
+    },
+    {
+        "id": 95,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Làm thế nào cây cà rốt (Carrot) dự trữ thức ăn?",
+        "answer": "Cà rốt là một ví dụ về **rễ củ** (taproot) phình to để lưu trữ một lượng lớn đường và tinh bột. Cây sử dụng nguồn năng lượng dự trữ này để sống sót qua mùa đông và sau đó phát triển thành cây hai năm (biennial) vào mùa xuân năm sau.",
+        "tags": [
+            "cà rốt",
+            "rễ củ",
+            "lưu trữ",
+            "biennial"
+        ],
+        "illustration_prompt": "cute educational illustration of a carrot growing underground, showing the large taproot storing nutrients, simplified diagram"
+    },
+    {
+        "id": 96,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây cần tây (Celery) làm thế nào để vận chuyển nước?",
+        "answer": "Mỗi 'cọng' cần tây là một cuống lá, chứa rất nhiều **mạch dẫn** (vascular bundles) - bao gồm mạch gỗ (xylem) và mạch rây (phloem). Bạn có thể dễ dàng nhìn thấy những bó mạch này (giống như những sợi dây) khi bẻ cọng cần tây.",
+        "tags": [
+            "cần tây",
+            "mạch dẫn",
+            "cuống lá",
+            "vận chuyển nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a celery stalk, zoomed in view showing the internal vascular bundles (strings) transporting water"
+    },
+    {
+        "id": 97,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Làm thế nào cây đậu (Pea) lại leo lên được?",
+        "answer": "Cây đậu, nho và các loại dây leo khác sử dụng các cấu trúc xoắn ốc mỏng gọi là **vòi cuốn** (tendrils). Vòi cuốn cực kỳ nhạy cảm với sự tiếp xúc và sẽ nhanh chóng quấn chặt lấy bất cứ vật đỡ nào chúng chạm vào để leo lên cao tìm ánh sáng.",
+        "tags": [
+            "vòi cuốn",
+            "dây leo",
+            "cây đậu",
+            "bám víu"
+        ],
+        "illustration_prompt": "cute educational illustration of a pea plant tendril coiling tightly around a thin vertical support, climbing action"
+    },
+    {
+        "id": 98,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Củ hành tây (Onion) có gì đặc biệt?",
+        "answer": "Củ hành tây là một loại **củ hành** (bulb), là một thân cây ngầm rất ngắn với các lá đã biến đổi (gọi là vảy) phình to để dự trữ thức ăn. Nó giúp cây sống sót qua mùa đông và cung cấp năng lượng cho sự phát triển vào mùa xuân.",
+        "tags": [
+            "hành tây",
+            "củ hành",
+            "dự trữ",
+            "lá biến đổi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of an onion bulb, pointing out the modified, fleshy leaves storing nutrients"
+    },
+    {
+        "id": 99,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao cỏ (Grass) lại mọc lại rất nhanh sau khi bị cắt?",
+        "answer": "Cỏ có **vùng sinh trưởng** (meristem) nằm gần gốc (chứ không phải ở đầu như hầu hết các loài cây khác). Khi bạn cắt cỏ, bạn chỉ cắt phần ngọn chết, còn vùng sinh trưởng vẫn còn nguyên vẹn, cho phép cỏ nhanh chóng mọc lại.",
+        "tags": [
+            "cỏ",
+            "sinh trưởng",
+            "vùng sinh trưởng",
+            "cắt cỏ"
+        ],
+        "illustration_prompt": "cute educational illustration of a grass blade showing the meristem (growth point) located near the soil, below the cutting line of a lawnmower"
+    },
+    {
+        "id": 100,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nghệ (Ginger) mà chúng ta ăn có phải là rễ không?",
+        "answer": "Không. Củ nghệ và củ gừng là **thân rễ** (rhizome), là một thân cây ngầm phát triển theo chiều ngang. Thân rễ này dùng để lưu trữ thức ăn và có thể mọc rễ và chồi mới ở các mắt, giúp cây sinh sản.",
+        "tags": [
+            "cây nghệ",
+            "gừng",
+            "thân rễ",
+            "rhizome"
+        ],
+        "illustration_prompt": "cute educational illustration showing a ginger rhizome (underground stem) growing horizontally, with roots growing down and shoots growing up"
+    },
+    {
+        "id": 101,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào có thể thay đổi vị giác của bạn thành ngọt?",
+        "answer": "Đó là quả của **cây Thần kỳ** (Miracle Berry). Sau khi ăn quả này, một loại protein trong quả (miraculin) sẽ bám vào lưỡi và làm cho mọi thứ chua (như chanh) đều có vị ngọt. Hiệu ứng này kéo dài khoảng một giờ.",
+        "tags": [
+            "cây thần kỳ",
+            "miracle berry",
+            "vị giác",
+            "miraculin"
+        ],
+        "illustration_prompt": "cute educational illustration of the small red miracle berry fruit, showing its effect on a cartoon lemon (making it look sweet)"
+    },
+    {
+        "id": 102,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Lá cây bắp cải (Cabbage) có tác dụng gì?",
+        "answer": "Lá bắp cải là những lá đã biến đổi, xếp chồng lên nhau thành một cái đầu chặt chẽ. Lá ngoài bảo vệ các lá bên trong, và cả cụm lá dùng để **dự trữ nước và chất dinh dưỡng** để cây sử dụng trong quá trình sinh trưởng.",
+        "tags": [
+            "bắp cải",
+            "lá",
+            "dự trữ",
+            "biến đổi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a cabbage head, highlighting the tightly packed, protective leaves"
+    },
+    {
+        "id": 103,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào sử dụng cơ chế 'bật tung' để phân tán hạt?",
+        "answer": "Một số cây như **cây họ đậu** (Pea Pods) hoặc **cây Hoàng liên gai** (Impatiens) sử dụng cơ chế này. Khi quả chín và khô, nó sẽ nứt ra và xoắn lại, đẩy hạt bắn đi xa như một khẩu súng nhỏ.",
+        "tags": [
+            "phân tán hạt",
+            "bật tung",
+            "họ đậu",
+            "hoàng liên gai"
+        ],
+        "illustration_prompt": "cute educational illustration of a pea pod splitting open and launching small seeds outward, dynamic effect"
+    },
+    {
+        "id": 104,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao các loại cây thân mềm lại có tuổi thọ ngắn hơn cây thân gỗ?",
+        "answer": "Cây thân mềm không tạo ra **gỗ cứng** (xylem thứ cấp) để hỗ trợ. Chúng tập trung năng lượng vào việc sinh sản nhanh chóng. Do đó, chúng dễ bị tổn thương bởi thời tiết lạnh, thiếu nước và thường chết đi sau một hoặc hai mùa sinh trưởng.",
+        "tags": [
+            "tuổi thọ",
+            "thân gỗ",
+            "thân thảo",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the robust, long-lasting structure of a tree trunk versus the fragile, short-lived stem of a soft plant"
+    },
+    {
+        "id": 105,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào được coi là loại cỏ cao nhất thế giới?",
+        "answer": "Mặc dù trông giống như cây gỗ, nhưng **cây Tre** (Bamboo) là một loại **cỏ thân gỗ** (woody grass) khổng lồ. Một số loài tre có thể cao tới 30 mét và phát triển cực kỳ nhanh chóng, với tốc độ lên tới gần 1 mét mỗi ngày.",
+        "tags": [
+            "cây tre",
+            "cỏ",
+            "cao nhất",
+            "tốc độ phát triển"
+        ],
+        "illustration_prompt": "cute educational illustration of a bamboo forest, with a height comparison to a typical tree or house"
+    },
+    {
+        "id": 106,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào có 'bộ não' nằm dưới đất?",
+        "answer": "Đó là **cây dương xỉ**. Mặc dù dương xỉ là thực vật không hoa (thường được đề cập trong nhóm này vì thân mềm), phần sống lâu năm của chúng là **thân rễ** (rhizome) lớn nằm dưới lòng đất, giống như một 'bộ não' hoặc trung tâm điều khiển cho phép cây tái sinh vào mỗi mùa xuân.",
+        "tags": [
+            "dương xỉ",
+            "thân rễ",
+            "bộ não",
+            "tái sinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a fern plant, highlighting the thick, central rhizome underground as the control center"
+    },
+    {
+        "id": 107,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây cỏ (lawn grass) cần bao nhiêu nước?",
+        "answer": "Cỏ là loại cây thân mềm cần một lượng nước đáng kể để duy trì áp suất turgor và màu xanh. Để giữ cỏ luôn tươi tốt, cần cung cấp khoảng **2.5 cm (1 inch) nước mỗi tuần**, chia thành 2-3 lần tưới sâu.",
+        "tags": [
+            "cỏ",
+            "nước",
+            "tưới",
+            "lượng nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a sprinkler watering a lush green lawn, with a measuring ruler showing 1 inch of water applied"
+    },
+    {
+        "id": 108,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây lá lốt (Mint) lan rộng nhanh như thế nào?",
+        "answer": "Giống như dâu tây, bạc hà sử dụng **thân bò** (runner) để tạo ra các cây con. Chúng lan rộng rất mạnh mẽ và nhanh chóng, có thể nhanh chóng chiếm hết không gian vườn nếu không được kiểm soát. Đây là lý do chúng thường được trồng trong chậu.",
+        "tags": [
+            "cây bạc hà",
+            "lan rộng",
+            "thân bò",
+            "kiểm soát"
+        ],
+        "illustration_prompt": "cute educational illustration showing mint runners rapidly spreading across a garden bed, multiplying effect"
+    },
+    {
+        "id": 109,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào có thể giúp giảm đau nếu bị bỏng rát?",
+        "answer": "Đó là cây **Lô hội** (Aloe Vera). Các lá mọng nước của lô hội chứa một chất gel trong suốt có đặc tính làm dịu, chống viêm và chữa lành, thường được dùng để chữa cháy nắng hoặc vết bỏng nhẹ.",
+        "tags": [
+            "lô hội",
+            "aloe vera",
+            "gel",
+            "chữa bỏng"
+        ],
+        "illustration_prompt": "cute educational illustration of an aloe vera plant, showing the leaf being cut to reveal the soothing clear gel inside"
+    },
+    {
+        "id": 110,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Củ sắn (Cassava) nguy hiểm như thế nào?",
+        "answer": "Củ sắn (khoai mì) chứa một hợp chất tự nhiên gọi là **cyanogenic glycoside**, có thể giải phóng chất độc xyanua khi được tiêu thụ sống hoặc chế biến không đúng cách. Vì vậy, sắn phải được lột vỏ, ngâm nước và nấu chín kỹ trước khi ăn.",
+        "tags": [
+            "củ sắn",
+            "nguy hiểm",
+            "cyanua",
+            "chế biến"
+        ],
+        "illustration_prompt": "cute educational illustration of raw cassava root with a warning sign, showing the proper way to prepare it (peeling and boiling)"
+    },
+    {
+        "id": 111,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao lá cây bị đổi màu khi bị sương giá?",
+        "answer": "Sương giá làm cho nước bên trong tế bào thực vật đóng băng. Khi nước đóng băng, nó nở ra và làm **vỡ thành tế bào**, khiến lá bị chuyển sang màu đen hoặc nâu và chết đi. Cây thân mềm đặc biệt dễ bị tổn thương bởi sương giá.",
+        "tags": [
+            "sương giá",
+            "đóng băng",
+            "tế bào",
+            "thân thảo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a plant leaf turning brown/black after frost, magnified view showing burst cell walls"
+    },
+    {
+        "id": 112,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Loại cây thân thảo nào được sử dụng phổ biến nhất để làm gia vị?",
+        "answer": "Các loại cây thuộc họ **Bạc hà** (Mint family) như bạc hà, húng quế, hương thảo và cỏ xạ hương là những cây thân thảo dùng làm gia vị phổ biến nhất trên thế giới. Chúng có hàm lượng tinh dầu cao, mang lại hương vị và mùi thơm độc đáo.",
+        "tags": [
+            "gia vị",
+            "bạc hà",
+            "hương thảo",
+            "tinh dầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a collection of common culinary herbs: basil, mint, rosemary, thyme"
+    },
+    {
+        "id": 113,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây Atisô (Artichoke) là bộ phận nào của cây?",
+        "answer": "Atisô là một loại **búp hoa chưa nở** khổng lồ của cây. Chúng ta ăn phần đế hoa (heart) và các vảy ngoài (bracts). Nếu để nguyên, búp atisô sẽ nở thành một bông hoa màu tím lớn, rất đẹp.",
+        "tags": [
+            "atisô",
+            "búp hoa",
+            "ăn",
+            "thân thảo"
+        ],
+        "illustration_prompt": "cute educational illustration of an artichoke showing its structure as a large, unopened flower bud, with a purple flower blooming nearby"
+    },
+    {
+        "id": 114,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Làm thế nào cây thân mềm lại có thể sống sót sau mùa đông?",
+        "answer": "Cây thân mềm lâu năm tồn tại bằng cách **'chết' phần trên mặt đất** (lá và thân mềm) nhưng giữ lại năng lượng sống và chất dinh dưỡng trong các cơ quan ngầm như **củ, thân rễ, hoặc rễ dự trữ** dưới mặt đất.",
+        "tags": [
+            "sống sót",
+            "mùa đông",
+            "củ",
+            "thân rễ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dormant perennial plant in winter with dead top growth, but a healthy rhizome/tuber protected underground"
+    },
+    {
+        "id": 115,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao khoai lang (Sweet Potato) lại khác khoai tây?",
+        "answer": "Khoai lang là **rễ củ** đã được phình to ra để lưu trữ thức ăn, còn khoai tây là **thân ngầm** (tuber). Cả hai đều lưu trữ tinh bột nhưng là các bộ phận khác nhau của cây.",
+        "tags": [
+            "khoai lang",
+            "khoai tây",
+            "rễ củ",
+            "thân ngầm"
+        ],
+        "illustration_prompt": "cute educational illustration comparison split screen: a sweet potato (labeled taproot) vs a white potato (labeled tuber/stem)"
+    },
+    {
+        "id": 116,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Bột sắn dây (Arrowroot) được làm từ bộ phận nào của cây?",
+        "answer": "Bột sắn dây (dùng để làm chất tạo độ đặc) được làm từ tinh bột chiết xuất từ **thân rễ** (rhizome) của một số loại cây nhiệt đới, không phải từ quả hay hạt. Thân rễ này chứa nhiều tinh bột dự trữ.",
+        "tags": [
+            "bột sắn dây",
+            "thân rễ",
+            "tinh bột",
+            "tạo độ đặc"
+        ],
+        "illustration_prompt": "cute educational illustration of an arrowroot plant, showing the roots/rhizomes being harvested to extract the white starch powder"
+    },
+    {
+        "id": 117,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây nào có thể hút và giữ kim loại nặng từ đất?",
+        "answer": "Một số cây thân thảo, đặc biệt là cây **Hoa hướng dương** (Sunflower) và một số loại cải, có khả năng đặc biệt gọi là **siêu tích tụ** (hyperaccumulation). Chúng hút kim loại nặng (như chì) qua rễ và lưu trữ chúng trong thân và lá, giúp làm sạch đất ô nhiễm.",
+        "tags": [
+            "siêu tích tụ",
+            "hút kim loại",
+            "hoa hướng dương",
+            "làm sạch đất"
+        ],
+        "illustration_prompt": "cute educational illustration of a sunflower plant with its roots absorbing heavy metal contaminants from the soil, clean-up effect"
+    },
+    {
+        "id": 118,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Các loại hạt ngũ cốc (như lúa mì, lúa gạo) là bộ phận nào của cây?",
+        "answer": "Hạt ngũ cốc mà chúng ta ăn là **quả** và **hạt** của các loại cỏ thân mềm. Ví dụ, mỗi hạt lúa mì, lúa gạo là một quả nhỏ, khô với hạt nằm bên trong. Chúng là nguồn carbohydrate và năng lượng chính trên thế giới.",
+        "tags": [
+            "ngũ cốc",
+            "lúa mì",
+            "quả",
+            "carbohydrate"
+        ],
+        "illustration_prompt": "cute educational illustration of a wheat stalk, showing the grain (seed/fruit) being harvested, simplified structure"
+    },
+    {
+        "id": 119,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Cây thân thảo nào có thể 'bắt chước' mùi vị của cá?",
+        "answer": "Đó là **cây Diếp cá** (Houttuynia cordata). Loại rau gia vị này có một mùi và vị rất đặc trưng, được mô tả là giống mùi tanh của cá hoặc xà phòng, khiến nó trở thành một loại cây thân thảo độc đáo trong ẩm thực.",
+        "tags": [
+            "diếp cá",
+            "mùi cá",
+            "rau gia vị",
+            "độc đáo"
+        ],
+        "illustration_prompt": "cute educational illustration of a Houttuynia cordata (Diếp cá) leaf with a thought bubble showing a small cartoon fish, representing its distinctive smell"
+    },
+    {
+        "id": 120,
+        "category": "Thực vật",
+        "sub_category": "Cây thân mềm - cây bụi",
+        "question": "Vì sao cây thuốc lá (Tobacco) lại tạo ra nicotine?",
+        "answer": "Nicotine là một hợp chất hóa học được tạo ra trong rễ cây thuốc lá và sau đó được vận chuyển đến lá. Chức năng chính của nicotine là hoạt động như một **chất độc thần kinh** mạnh để bảo vệ cây khỏi bị côn trùng ăn lá.",
+        "tags": [
+            "thuốc lá",
+            "nicotine",
+            "chất độc",
+            "tự vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a tobacco leaf with a cartoon insect trying to eat it but being repelled by the nicotine"
+    },
+    {
+        "id": 121,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Rêu khác dương xỉ ở điểm nào quan trọng nhất?",
+        "answer": "Rêu là thực vật **phi mạch** (non-vascular), nghĩa là chúng không có mạch dẫn nước và chất dinh dưỡng thực sự, nên chúng luôn nhỏ và thấp. Dương xỉ là thực vật **có mạch** (vascular), giúp chúng lớn hơn và cao hơn.",
+        "tags": [
+            "rêu",
+            "dương xỉ",
+            "phi mạch",
+            "có mạch"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a tiny moss plant (non-vascular) with a tall fern plant (vascular)"
+    },
+    {
+        "id": 122,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tảo có được coi là thực vật thật sự không?",
+        "answer": "Theo phân loại hiện đại, hầu hết tảo (Algae) không phải là thực vật. Tảo là sinh vật quang hợp có thể là đơn bào hoặc đa bào, nhưng chúng **không có rễ, thân hoặc lá thật** và thiếu các mô chuyên biệt của thực vật trên cạn. Tuy nhiên, chúng là những 'nhà sản xuất' oxy quan trọng nhất.",
+        "tags": [
+            "tảo",
+            "thực vật",
+            "quang hợp",
+            "rễ thân lá"
+        ],
+        "illustration_prompt": "cute educational illustration of a simple algal cell next to a complex plant cell, highlighting the structural differences"
+    },
+    {
+        "id": 123,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Làm thế nào dương xỉ sinh sản mà không cần hoa?",
+        "answer": "Dương xỉ sinh sản bằng **bào tử** (spores) chứa trong túi bào tử (sori) ở mặt dưới lá. Chúng có một vòng đời phức tạp gọi là **xen kẽ thế hệ**, với hai dạng sống khác nhau: thể giao tử nhỏ và thể bào tử lớn (cây dương xỉ mà chúng ta thấy).",
+        "tags": [
+            "dương xỉ",
+            "bào tử",
+            "xen kẽ thế hệ",
+            "sori"
+        ],
+        "illustration_prompt": "cute educational illustration showing the life cycle of a fern, highlighting the release of spores and the two life forms (sporophyte and tiny gametophyte)"
+    },
+    {
+        "id": 124,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Rêu giúp định cư cho thực vật bậc cao như thế nào?",
+        "answer": "Rêu được gọi là **sinh vật tiên phong** (pioneer species). Chúng có thể mọc trên những bề mặt cứng như đá, dần dần tích lũy vật chất hữu cơ, giữ độ ẩm và tạo ra một lớp đất thô. Lớp đất này sau đó cho phép hạt của thực vật lớn hơn nảy mầm và phát triển.",
+        "tags": [
+            "rêu",
+            "tiên phong",
+            "đất",
+            "định cư"
+        ],
+        "illustration_prompt": "cute educational illustration of moss growing on a barren rock, slowly creating a thin layer of soil for a small sapling to take root"
+    },
+    {
+        "id": 125,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Vì sao tảo được gọi là 'lá phổi của hành tinh'?",
+        "answer": "Tảo (đặc biệt là tảo đơn bào - phytoplankton) thực hiện một lượng lớn quá trình quang hợp trên Trái Đất. Chúng sản xuất ra ước tính **50% đến 80%** lượng oxy toàn cầu, nhiều hơn tất cả các khu rừng trên thế giới cộng lại.",
+        "tags": [
+            "tảo",
+            "lá phổi",
+            "oxy",
+            "phytoplankton"
+        ],
+        "illustration_prompt": "cute educational illustration of a tiny phytoplankton cell releasing a large bubble of oxygen into the ocean, global scale"
+    },
+    {
+        "id": 126,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Loại dương xỉ nào có thể cao bằng cây?",
+        "answer": "Đó là **dương xỉ thân gỗ** (Tree Ferns). Chúng có thân cứng cáp, thẳng đứng, giống như thân cây cọ, và có thể cao tới hơn 20 mét. Chúng chủ yếu được tìm thấy ở các khu rừng nhiệt đới.",
+        "tags": [
+            "dương xỉ thân gỗ",
+            "cây cọ",
+            "nhiệt đới",
+            "kích thước"
+        ],
+        "illustration_prompt": "cute educational illustration of a towering tree fern with a person standing next to it for scale, jungle environment"
+    },
+    {
+        "id": 127,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Địa y (Lichen) là gì? Nó có phải là rêu không?",
+        "answer": "Địa y không phải là rêu (moss) hay một loại thực vật duy nhất. Nó là một sự **cộng sinh** giữa **nấm** (fungus) và **tảo** (algae) hoặc **vi khuẩn lam** (cyanobacteria). Nấm cung cấp nơi ở và nước, còn tảo/vi khuẩn cung cấp thức ăn bằng quang hợp.",
+        "tags": [
+            "địa y",
+            "cộng sinh",
+            "nấm",
+            "tảo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lichen as a partnership between a fungus structure and tiny algal cells living inside"
+    },
+    {
+        "id": 128,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Vì sao tảo phát triển mạnh và gây ra thủy triều đỏ (Red Tide)?",
+        "answer": "Thủy triều đỏ là hiện tượng bùng nổ dân số của một số loại tảo (gọi là **tảo nở hoa** - algal bloom). Điều này thường xảy ra khi nước biển giàu chất dinh dưỡng (từ ô nhiễm hoặc dòng chảy) và nhiệt độ ấm, tạo điều kiện lý tưởng cho tảo sinh sản nhanh chóng.",
+        "tags": [
+            "thủy triều đỏ",
+            "tảo nở hoa",
+            "ô nhiễm",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large patch of ocean water turning bright red/brown due to a massive algal bloom"
+    },
+    {
+        "id": 129,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Rêu có giúp lọc nước không?",
+        "answer": "Có. Rêu than bùn (**Sphagnum moss**) có cấu trúc giống như bọt biển và chứa các hợp chất kháng khuẩn. Nó không chỉ hấp thụ một lượng nước lớn mà còn hoạt động như một bộ lọc, giúp làm sạch và **axit hóa** (tăng độ chua) nước chảy qua nó.",
+        "tags": [
+            "rêu than bùn",
+            "lọc nước",
+            "axit hóa",
+            "kháng khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of a clump of Sphagnum moss acting as a natural filter for murky water, water coming out clean"
+    },
+    {
+        "id": 130,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Dương xỉ trong nhà cần gì để phát triển tốt?",
+        "answer": "Dương xỉ thường cần **bóng râm** (tránh ánh nắng trực tiếp) và **độ ẩm cao** để phát triển tốt. Trong tự nhiên, chúng thường sống dưới tán cây rừng, nơi có ánh sáng dịu và không khí ẩm ướt, giống với điều kiện mà chúng cần cho quá trình sinh sản bằng bào tử.",
+        "tags": [
+            "dương xỉ",
+            "trong nhà",
+            "bóng râm",
+            "độ ẩm"
+        ],
+        "illustration_prompt": "cute educational illustration of a potted fern thriving in a shaded, humid corner of a room, mist being sprayed"
+    },
+    {
+        "id": 131,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Bột Agar (thạch) được làm từ loại tảo nào?",
+        "answer": "Bột Agar (thạch) được chiết xuất từ **tảo đỏ** (Red Algae). Agar là một chất giống như gel, không màu, không mùi, được sử dụng rộng rãi trong ẩm thực (làm thạch rau câu) và trong các phòng thí nghiệm khoa học (làm môi trường nuôi cấy vi khuẩn).",
+        "tags": [
+            "agar",
+            "tảo đỏ",
+            "thạch",
+            "nuôi cấy vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration of red algae in the ocean being harvested, and a clear block of agar jelly nearby"
+    },
+    {
+        "id": 132,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Làm thế nào rêu than bùn lại tạo ra than bùn (Peat)?",
+        "answer": "Than bùn là vật chất được tạo thành từ rêu **Sphagnum** chết. Trong môi trường ẩm ướt, thiếu oxy của đầm lầy, vật chất hữu cơ này không thể phân hủy hoàn toàn, và qua hàng ngàn năm, nó nén lại thành vật liệu màu nâu, giàu carbon gọi là than bùn.",
+        "tags": [
+            "rêu than bùn",
+            "than bùn",
+            "đầm lầy",
+            "phân hủy"
+        ],
+        "illustration_prompt": "cute educational illustration showing layers of dead Sphagnum moss compressed over time to form peat (brown layer) underground"
+    },
+    {
+        "id": 133,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Rễ giả (Rhizoids) của rêu khác rễ thật (Roots) của dương xỉ ở điểm nào?",
+        "answer": "Rễ giả của rêu chỉ là các sợi nhỏ dùng để **bám chặt** vào bề mặt, chúng không có khả năng hấp thụ nước. Rễ thật của dương xỉ có **hệ thống mạch dẫn** và chuyên dùng để hấp thụ nước và chất dinh dưỡng từ đất.",
+        "tags": [
+            "rễ giả",
+            "rễ thật",
+            "hấp thụ",
+            "bám chặt"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a fern's true root absorbing water with a moss rhizoid simply clinging to a rock"
+    },
+    {
+        "id": 134,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Vì sao các loại tảo như tảo bẹ lại có thể lớn và dài như vậy?",
+        "answer": "Tảo bẹ (Kelp) có thể phát triển rất lớn vì chúng sống trong nước, nơi chúng được **hỗ trợ bởi sức nổi** của nước, không cần thân gỗ cứng. Ngoài ra, chúng có các cấu trúc giống như **phần giữ (holdfast)** để bám vào đá và có tốc độ quang hợp cao.",
+        "tags": [
+            "tảo bẹ",
+            "lớn",
+            "sức nổi",
+            "holdfast"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant kelp reaching towards the water surface, showing the holdfast anchoring it to the seabed"
+    },
+    {
+        "id": 135,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Dương xỉ được sử dụng trong y học như thế nào?",
+        "answer": "Trong lịch sử, nhiều loài dương xỉ đã được sử dụng như **thuốc tẩy giun** vì chúng chứa các hóa chất tự nhiên có khả năng làm tê liệt và loại bỏ ký sinh trùng đường ruột. Tuy nhiên, việc sử dụng dương xỉ trong y học ngày nay cần thận trọng.",
+        "tags": [
+            "dương xỉ",
+            "y học",
+            "tẩy giun",
+            "ký sinh trùng"
+        ],
+        "illustration_prompt": "cute educational illustration of a fern leaf with a small cartoon parasite being repelled by it, historical context"
+    },
+    {
+        "id": 136,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tảo có thể sống sót trong băng tuyết không?",
+        "answer": "Có. Tảo tuyết (Snow Algae), chủ yếu là tảo lục có sắc tố đỏ, sống trong băng tuyết và phát triển mạnh khi tuyết tan vào mùa hè. Chúng thường tạo ra hiện tượng **'tuyết dưa hấu'** (watermelon snow) với màu đỏ hoặc hồng.",
+        "tags": [
+            "tảo tuyết",
+            "băng tuyết",
+            "tuyết dưa hấu",
+            "sắc tố đỏ"
+        ],
+        "illustration_prompt": "cute educational illustration of a patch of snow turning pink/red due to the presence of snow algae, arctic landscape"
+    },
+    {
+        "id": 137,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Làm thế nào rêu và địa y lại giúp các nhà khoa học?",
+        "answer": "Rêu và địa y rất nhạy cảm với ô nhiễm không khí và chất lượng nước. Chúng được sử dụng như **chỉ thị sinh học** (bio-indicators). Nếu môi trường bị ô nhiễm, chúng sẽ chết hoặc không phát triển được, báo hiệu cho các nhà khoa học biết.",
+        "tags": [
+            "rêu",
+            "địa y",
+            "chỉ thị sinh học",
+            "ô nhiễm"
+        ],
+        "illustration_prompt": "cute educational illustration of a scientist examining a patch of moss with a magnifying glass to check the air quality"
+    },
+    {
+        "id": 138,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Sự khác biệt giữa Tảo lục, Tảo nâu và Tảo đỏ là gì?",
+        "answer": "Sự khác biệt chính là ở **sắc tố** mà chúng sử dụng để quang hợp. Tảo lục có màu xanh giống thực vật trên cạn. Tảo nâu (như tảo bẹ) có sắc tố màu nâu vàng. Tảo đỏ sống ở vùng nước sâu hơn và có sắc tố đỏ để hấp thụ ánh sáng xanh hiệu quả hơn.",
+        "tags": [
+            "tảo lục",
+            "tảo nâu",
+            "tảo đỏ",
+            "sắc tố"
+        ],
+        "illustration_prompt": "cute educational illustration showing three types of algae (green, brown, red) at different water depths, light spectrum diagram"
+    },
+    {
+        "id": 139,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tại sao rêu có thể mọc trên gạch hoặc mái nhà?",
+        "answer": "Rêu có khả năng đặc biệt là hấp thụ nước và chất dinh dưỡng qua toàn bộ bề mặt, và rễ giả của chúng bám chặt vào bề mặt cứng, ẩm ướt. Chúng có thể sống sót chỉ với một lượng bụi hoặc khoáng chất tối thiểu bị gió cuốn đến.",
+        "tags": [
+            "rêu",
+            "bám chặt",
+            "mái nhà",
+            "sinh tồn"
+        ],
+        "illustration_prompt": "cute educational illustration of a patch of moss growing on the edge of a clay roof tile, damp environment"
+    },
+    {
+        "id": 140,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Dương xỉ có thể làm gì cho một khu vườn?",
+        "answer": "Dương xỉ tạo ra **kết cấu và màu xanh** cho các khu vực bóng râm trong vườn, nơi nhiều cây có hoa không phát triển được. Chúng giúp giữ ẩm cho đất và bổ sung vẻ ngoài rậm rạp, cổ kính cho cảnh quan.",
+        "tags": [
+            "dương xỉ",
+            "khu vườn",
+            "bóng râm",
+            "kết cấu"
+        ],
+        "illustration_prompt": "cute educational illustration of a shaded garden corner densely planted with various kinds of ferns, lush and green"
+    },
+    {
+        "id": 141,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tảo có thể được dùng làm nhiên liệu không?",
+        "answer": "Có. Tảo chứa hàm lượng dầu và lipid cao. Các nhà khoa học đang nghiên cứu nuôi cấy tảo để chiết xuất dầu, sau đó biến thành **nhiên liệu sinh học** (biofuel) thân thiện với môi trường, thay thế cho nhiên liệu hóa thạch.",
+        "tags": [
+            "tảo",
+            "nhiên liệu sinh học",
+            "dầu",
+            "lipid"
+        ],
+        "illustration_prompt": "cute educational illustration showing algae being grown in large water tubes, then processed into fuel for a car"
+    },
+    {
+        "id": 142,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Thân của cây dương xỉ nằm ở đâu?",
+        "answer": "Thân của hầu hết các cây dương xỉ trưởng thành (trừ dương xỉ thân gỗ) là **thân rễ** (rhizome) mọc ngang dưới lòng đất. Thân rễ này giúp cây dự trữ thức ăn và gửi rễ xuống đất, lá non (fiddleheads) lên trên.",
+        "tags": [
+            "dương xỉ",
+            "thân rễ",
+            "rhizome",
+            "thân ngầm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a fern plant with the majority of its body (the rhizome) hidden horizontally underground"
+    },
+    {
+        "id": 143,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tại sao cần phải có nước để rêu sinh sản?",
+        "answer": "Để sinh sản, tinh trùng của rêu phải bơi từ cây đực sang cây cái để thụ tinh cho trứng. Vì không thể di chuyển trong không khí, chúng cần một lớp nước mỏng (như sương, mưa) để hoàn thành quá trình thụ tinh này.",
+        "tags": [
+            "rêu",
+            "sinh sản",
+            "tinh trùng",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a drop of water on moss, with tiny sperm cells swimming towards the egg, magnified view"
+    },
+    {
+        "id": 144,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tảo silic (Diatom) là gì?",
+        "answer": "Tảo silic là một loại **tảo đơn bào** nhỏ bé, có tầm quan trọng lớn. Chúng có thành tế bào làm bằng silica (thủy tinh) và có hình dạng cực kỳ đẹp và đối xứng. Chúng là nguồn thức ăn quan trọng cho các sinh vật biển nhỏ.",
+        "tags": [
+            "tảo silic",
+            "đơn bào",
+            "silica",
+            "thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration of various microscopic diatoms with intricate, geometric silica shells"
+    },
+    {
+        "id": 145,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Làm thế nào dương xỉ lại có thể sống trên cây (Epiphytes)?",
+        "answer": "Một số loài dương xỉ (Epiphytes) có thể mọc trên thân hoặc cành cây cao. Chúng không ký sinh mà chỉ dùng cây làm chỗ dựa để tiếp cận ánh sáng. Chúng hấp thụ nước và chất dinh dưỡng từ không khí ẩm và các mảnh vụn rơi xuống.",
+        "tags": [
+            "dương xỉ",
+            "epiphyte",
+            "sống trên cây",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational illustration of a fern growing high up on the branch of a large tree, collecting moisture from the air"
+    },
+    {
+        "id": 146,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Cây nào đã tạo ra than đá trong quá khứ?",
+        "answer": "Than đá chủ yếu được tạo ra từ sự tích tụ và nén chặt của các loại thực vật không hoa cổ đại, đặc biệt là **dương xỉ thân gỗ** và **cây mộc tặc** khổng lồ, trong Kỷ Than Đá (Carboniferous Period) cách đây hàng trăm triệu năm.",
+        "tags": [
+            "than đá",
+            "dương xỉ",
+            "cổ đại",
+            "kỷ than đá"
+        ],
+        "illustration_prompt": "cute educational illustration showing ancient, giant ferns falling and being buried underground to eventually become coal"
+    },
+    {
+        "id": 147,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Rêu có thể giúp điều chỉnh nhiệt độ bề mặt Trái Đất không?",
+        "answer": "Có. Thảm rêu hấp thụ và giữ một lượng nước lớn. Quá trình bay hơi nước này tạo ra hơi mát, đồng thời rêu hấp thụ ánh sáng mặt trời để quang hợp, giúp giảm lượng nhiệt bị phản xạ, góp phần làm **mát cục bộ**.",
+        "tags": [
+            "rêu",
+            "nhiệt độ",
+            "làm mát",
+            "hấp thụ nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thick mat of moss absorbing sunlight and releasing cool water vapor, temperature effect"
+    },
+    {
+        "id": 148,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Loại tảo nào được ăn phổ biến nhất?",
+        "answer": "Đó là **tảo bẹ** (Kelp) và **tảo nori** (một loại tảo đỏ). Tảo nori là loại tảo mỏng, đen được sử dụng để cuộn món sushi. Chúng rất giàu vitamin, khoáng chất và chất xơ.",
+        "tags": [
+            "tảo nori",
+            "tảo bẹ",
+            "sushi",
+            "thực phẩm"
+        ],
+        "illustration_prompt": "cute educational illustration of a sheet of dried nori seaweed (used for sushi) next to fresh kelp in the ocean"
+    },
+    {
+        "id": 149,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tầm quan trọng của lá non dương xỉ (Fiddlehead) là gì?",
+        "answer": "Lá non dương xỉ (fiddlehead) là phần đầu cuộn của lá mới. Chúng chứa nhiều chất dinh dưỡng và là một loại **rau ăn được** trong nhiều nền văn hóa. Tuy nhiên, chúng phải được nấu chín kỹ vì một số loại có thể gây độc nhẹ khi ăn sống.",
+        "tags": [
+            "fiddlehead",
+            "lá non",
+            "rau ăn được",
+            "dương xỉ"
+        ],
+        "illustration_prompt": "cute educational illustration of a cluster of tightly coiled fiddlehead fern fronds, ready for harvesting"
+    },
+    {
+        "id": 150,
+        "category": "Thực vật",
+        "sub_category": "Rêu - Dương xỉ - Tảo",
+        "question": "Tại sao tảo đơn bào không cần rễ hay thân?",
+        "answer": "Vì tảo đơn bào sống hoàn toàn trong nước. Nước bao quanh chúng cung cấp tất cả các chất dinh dưỡng và $\text{CO}_2$ cần thiết, và nước hỗ trợ cấu trúc của chúng (sức nổi). Chúng hấp thụ mọi thứ trực tiếp qua thành tế bào mà không cần hệ thống mạch dẫn phức tạp.",
+        "tags": [
+            "tảo",
+            "đơn bào",
+            "mạch dẫn",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a single-celled alga floating in water, showing arrows for direct absorption of nutrients and CO2"
+    },
+    {
+        "id": 151,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Vì sao nấm không được coi là thực vật?",
+        "answer": "Nấm không phải thực vật vì chúng không thể tự tạo thức ăn bằng quang hợp (không có chất diệp lục). Thay vào đó, nấm là **sinh vật dị dưỡng** (heterotrophs), chúng phải hấp thụ thức ăn bằng cách tiết enzyme ra ngoài để phân hủy và tiêu hóa vật chất hữu cơ.",
+        "tags": [
+            "nấm",
+            "thực vật",
+            "quang hợp",
+            "dị dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a green plant absorbing sunlight vs a mushroom absorbing nutrients from dead wood"
+    },
+    {
+        "id": 152,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Phần lớn cơ thể nấm nằm ở đâu?",
+        "answer": "Phần nấm chúng ta thấy trên mặt đất (thân nấm/mũ nấm) chỉ là **cơ quan sinh sản** (fruiting body). Phần lớn cơ thể nấm là một mạng lưới sợi mỏng, dài gọi là **sợi nấm** (mycelium), nằm ẩn sâu dưới đất, gỗ hoặc vật chất hữu cơ.",
+        "tags": [
+            "sợi nấm",
+            "mycelium",
+            "cơ quan sinh sản",
+            "dưới đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a mushroom above ground and its extensive, thread-like mycelium network spreading out underneath"
+    },
+    {
+        "id": 153,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm sinh sản bằng cách nào?",
+        "answer": "Nấm sinh sản bằng các hạt rất nhỏ gọi là **bào tử** (spores), giống như bụi. Hàng triệu bào tử được tạo ra trong nón (gills) hoặc lỗ (pores) dưới mũ nấm và được gió mang đi. Khi bào tử rơi xuống nơi thích hợp, chúng sẽ nảy mầm thành sợi nấm mới.",
+        "tags": [
+            "bào tử",
+            "sinh sản",
+            "mũ nấm",
+            "nón nấm"
+        ],
+        "illustration_prompt": "cute educational illustration of a mushroom cap with spores dropping from the gills and being carried away by the wind"
+    },
+    {
+        "id": 154,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm men (Yeast) khác nấm thông thường ở điểm nào?",
+        "answer": "Nấm men là loại nấm **đơn bào** (chỉ có một tế bào) và rất nhỏ, không tạo thành thân hay mũ nấm. Nấm men cực kỳ quan trọng vì chúng tạo ra $\text{CO}_2$ (làm bánh mì nở) và rượu (trong quá trình lên men bia, rượu).",
+        "tags": [
+            "nấm men",
+            "đơn bào",
+            "lên men",
+            "bánh mì"
+        ],
+        "illustration_prompt": "cute educational illustration of microscopic yeast cells next to a rising loaf of bread, showing the CO2 bubbles"
+    },
+    {
+        "id": 155,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm có vai trò gì trong rừng?",
+        "answer": "Nấm là những **sinh vật phân hủy** (decomposers) chính của tự nhiên. Chúng phân hủy lá rụng, gỗ chết và xác động vật, giải phóng các chất dinh dưỡng trở lại đất. Nếu không có nấm, rừng sẽ chất đầy vật chất chết.",
+        "tags": [
+            "phân hủy",
+            "rừng",
+            "chất dinh dưỡng",
+            "sinh vật"
+        ],
+        "illustration_prompt": "cute educational illustration of mushrooms growing on a decaying log, showing the process of decomposition returning nutrients to the soil"
+    },
+    {
+        "id": 156,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm Penicillin giúp ích cho con người như thế nào?",
+        "answer": "Nấm mốc **Penicillium** sản xuất ra một chất hóa học gọi là **Penicillin**, là loại thuốc kháng sinh đầu tiên và quan trọng nhất. Nó đã cứu sống hàng triệu người bằng cách tiêu diệt vi khuẩn gây bệnh.",
+        "tags": [
+            "penicillin",
+            "kháng sinh",
+            "nấm mốc",
+            "cứu mạng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the Penicillium mold producing a substance that inhibits the growth of harmful bacteria"
+    },
+    {
+        "id": 157,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Mạng lưới sợi nấm (Mycelium) còn được gọi là gì?",
+        "answer": "Sợi nấm bao phủ dưới lòng đất thường được gọi là **'Mạng lưới Gỗ Rộng'** (Wood Wide Web). Nó kết nối rễ của hầu hết các cây trong rừng, giúp chúng trao đổi nước, chất dinh dưỡng và thậm chí là tín hiệu hóa học (giao tiếp).",
+        "tags": [
+            "mạng lưới sợi nấm",
+            "wood wide web",
+            "giao tiếp",
+            "trao đổi chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dense mycelium network underground connecting the roots of two different trees"
+    },
+    {
+        "id": 158,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Tại sao một số loài nấm lại phát sáng trong bóng tối?",
+        "answer": "Một số loài nấm (như nấm phát sáng - foxfire) tạo ra ánh sáng mát mẻ, xanh lục bằng cách sử dụng một phản ứng hóa học gọi là **phát quang sinh học** (bioluminescence). Các nhà khoa học cho rằng ánh sáng này có thể thu hút côn trùng để giúp phân tán bào tử.",
+        "tags": [
+            "nấm phát sáng",
+            "bioluminescence",
+            "bào tử",
+            "ánh sáng"
+        ],
+        "illustration_prompt": "cute educational illustration of several luminous mushrooms glowing green brightly in a dark, misty forest floor"
+    },
+    {
+        "id": 159,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm Truffle (Nấm cục) phát triển ở đâu?",
+        "answer": "Nấm Truffle là loại nấm ăn được quý hiếm, phát triển **hoàn toàn dưới lòng đất** (hypogeous). Chúng thường phát triển cộng sinh với rễ cây sồi hoặc cây phỉ, và thường phải dùng chó hoặc heo được huấn luyện để tìm kiếm vì mùi thơm mạnh của chúng.",
+        "tags": [
+            "truffle",
+            "nấm cục",
+            "dưới đất",
+            "cộng sinh"
+        ],
+        "illustration_prompt": "cute educational illustration of a truffle mushroom growing underground near the roots of an oak tree, with a trained dog sniffing the ground above"
+    },
+    {
+        "id": 160,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm men được dùng để làm rượu vang như thế nào?",
+        "answer": "Trong quá trình làm rượu vang, nấm men tiêu thụ đường tự nhiên có trong nước ép nho. Thông qua quá trình **lên men**, nấm men biến đường thành **rượu ethanol** và khí carbon dioxide, tạo ra rượu vang.",
+        "tags": [
+            "nấm men",
+            "rượu vang",
+            "lên men",
+            "ethanol"
+        ],
+        "illustration_prompt": "cute educational illustration showing a yeast cell converting sugar from grapes into alcohol and CO2 bubbles"
+    },
+    {
+        "id": 161,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Thành tế bào của nấm được làm từ gì?",
+        "answer": "Không giống thực vật có thành tế bào làm từ cellulose, thành tế bào của nấm được làm từ **chitin**. Chitin là một vật liệu bền, cứng, cũng được tìm thấy trong bộ xương ngoài của côn trùng và động vật giáp xác.",
+        "tags": [
+            "thành tế bào",
+            "chitin",
+            "cellulose",
+            "côn trùng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the cell wall structure of a mushroom cell (chitin) versus a plant cell (cellulose)"
+    },
+    {
+        "id": 162,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Làm thế nào nấm lại có thể gây bệnh cho cây cối?",
+        "answer": "Nhiều loại nấm là **ký sinh trùng** (parasites). Chúng xâm nhập vào mô thực vật, sử dụng enzyme để tiêu hóa và hấp thụ chất dinh dưỡng của cây. Điều này làm suy yếu hoặc giết chết cây, gây ra các bệnh như rỉ sét, phấn trắng và thối rễ.",
+        "tags": [
+            "ký sinh",
+            "gây bệnh",
+            "enzyme",
+            "cây cối"
+        ],
+        "illustration_prompt": "cute educational illustration of a fungal hyphae network invading the roots or stem of a tree, labeled parasite"
+    },
+    {
+        "id": 163,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm có lợi cho nông nghiệp bằng cách nào?",
+        "answer": "Nấm tạo ra mối quan hệ **cộng sinh rễ nấm** (Mycorrhizae) với rễ cây trồng. Mạng lưới sợi nấm mở rộng giúp rễ cây hấp thụ nước và khoáng chất (đặc biệt là phốt pho) hiệu quả hơn. Đổi lại, cây cung cấp đường cho nấm.",
+        "tags": [
+            "cộng sinh",
+            "mycorrhizae",
+            "nông nghiệp",
+            "rễ cây"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant root system connected to an extensive fungal mycorrhizal network underground, showing nutrient exchange"
+    },
+    {
+        "id": 164,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Điều gì khiến một số loại nấm trở nên cực kỳ độc?",
+        "answer": "Nấm độc tạo ra các chất hóa học mạnh mẽ gọi là **độc tố** (toxins), được dùng để xua đuổi động vật. Những độc tố này, ngay cả với lượng rất nhỏ, có thể gây tổn thương nghiêm trọng cho gan, thận và hệ thần kinh của con người và động vật.",
+        "tags": [
+            "nấm độc",
+            "độc tố",
+            "hóa học",
+            "tự vệ"
+        ],
+        "illustration_prompt": "cute educational illustration of a highly poisonous mushroom (e.g., Death Cap) with a small skull and crossbones warning sign"
+    },
+    {
+        "id": 165,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Làm thế nào nấm lại có thể giúp làm sạch ô nhiễm?",
+        "answer": "Một số loại nấm có thể sử dụng các enzyme mạnh của chúng để phân hủy các chất ô nhiễm hóa học phức tạp (như dầu mỏ hoặc thuốc trừ sâu) thành các hợp chất đơn giản, ít độc hơn. Quá trình này được gọi là **phục hồi nấm** (mycoremediation).",
+        "tags": [
+            "phục hồi nấm",
+            "mycoremediation",
+            "ô nhiễm",
+            "enzyme"
+        ],
+        "illustration_prompt": "cute educational illustration showing specialized mushrooms growing on a patch of oil-contaminated soil, breaking down the pollution"
+    },
+    {
+        "id": 166,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm Chaga được dùng để làm gì?",
+        "answer": "Nấm Chaga là một loại nấm ký sinh trên cây Bạch Dương. Nó được sử dụng trong y học cổ truyền ở Đông Âu và Nga, thường được pha thành **trà** để hỗ trợ hệ thống miễn dịch do hàm lượng chất chống oxy hóa cao.",
+        "tags": [
+            "chaga",
+            "nấm ký sinh",
+            "trà",
+            "chất chống oxy hóa"
+        ],
+        "illustration_prompt": "cute educational illustration of a Chaga mushroom (looks like burnt charcoal) growing on the side of a birch tree"
+    },
+    {
+        "id": 167,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Tại sao một số loài nấm có màu sắc sặc sỡ?",
+        "answer": "Màu sắc tươi sáng của một số loài nấm có thể phục vụ nhiều mục đích khác nhau. Đối với nấm độc, nó hoạt động như một **lời cảnh báo** rõ ràng cho các loài động vật. Đối với nấm khác, màu sắc có thể giúp chúng thu hút côn trùng để phân tán bào tử.",
+        "tags": [
+            "màu sắc",
+            "cảnh báo",
+            "sắc tố",
+            "bào tử"
+        ],
+        "illustration_prompt": "cute educational illustration of a brightly colored, possibly red and white, mushroom with a caution icon"
+    },
+    {
+        "id": 168,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm rơm được trồng và ăn như thế nào?",
+        "answer": "Nấm rơm là loại nấm phổ biến được trồng trên rơm rạ hoặc các chất thải nông nghiệp khác. Chúng phát triển nhanh chóng, tiêu thụ chất cellulose và lignin trong rơm, chuyển chúng thành cơ quan sinh sản (mũ nấm) mà chúng ta ăn.",
+        "tags": [
+            "nấm rơm",
+            "rơm rạ",
+            "trồng trọt",
+            "cellulose"
+        ],
+        "illustration_prompt": "cute educational illustration of a cluster of rice straw mushrooms growing out of a bed of damp rice straw"
+    },
+    {
+        "id": 169,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Loại nấm nào được coi là sinh vật lớn nhất thế giới?",
+        "answer": "Phần lớn cơ thể của nấm **Mật Ong** (Armillaria ostoyae) là mạng lưới sợi nấm khổng lồ. Một cá thể ở Oregon (Mỹ) bao phủ diện tích hơn 880 ha (1.665 sân bóng đá) và ước tính nặng hàng trăm tấn, khiến nó trở thành sinh vật lớn nhất từng được biết đến.",
+        "tags": [
+            "nấm mật ong",
+            "lớn nhất thế giới",
+            "sợi nấm",
+            "kỷ lục"
+        ],
+        "illustration_prompt": "cute educational illustration of a tiny mushroom on the surface, with a massive underground mycelium network spreading across a wide landscape map"
+    },
+    {
+        "id": 170,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Bột nở (Baking Powder) và nấm men (Yeast) khác nhau như thế nào khi làm bánh?",
+        "answer": "Nấm men là sinh vật sống, tạo ra $\text{CO}_2$ bằng cách ăn đường (quá trình chậm). Bột nở là hỗn hợp hóa học (axit và bazơ) tạo ra $\text{CO}_2$ **ngay lập tức** khi tiếp xúc với chất lỏng và nhiệt, giúp bánh nở nhanh hơn mà không cần thời gian ủ.",
+        "tags": [
+            "nấm men",
+            "bột nở",
+            "làm bánh",
+            "carbon dioxide"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: yeast slowly bubbling dough vs baking powder rapidly fizzing in liquid"
+    },
+    {
+        "id": 171,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm mốc (Mold) là gì?",
+        "answer": "Nấm mốc là loại nấm dạng sợi (filamentous fungi) phát triển dưới dạng các tế bào đa nhân mỏng, tạo thành các sợi mỏng trên bề mặt thức ăn, tường nhà hoặc vật liệu hữu cơ. Chúng đóng vai trò là sinh vật phân hủy trong nhà của chúng ta.",
+        "tags": [
+            "nấm mốc",
+            "dạng sợi",
+            "phân hủy",
+            "trong nhà"
+        ],
+        "illustration_prompt": "cute educational illustration of green and white mold growing on an old piece of bread, magnified view"
+    },
+    {
+        "id": 172,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Vì sao nấm lại cần môi trường ẩm ướt để phát triển?",
+        "answer": "Nấm không thể hấp thụ thức ăn ở dạng rắn. Chúng phải tiết ra enzyme để hòa tan vật chất hữu cơ trước. Quá trình tiêu hóa và hấp thụ này chỉ có thể xảy ra khi có đủ **nước và độ ẩm** để hòa tan các chất dinh dưỡng.",
+        "tags": [
+            "nấm",
+            "ẩm ướt",
+            "enzyme",
+            "hấp thụ thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration of a mushroom growing in a moist area, showing water facilitating the dissolution and absorption of nutrients"
+    },
+    {
+        "id": 173,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm men được dùng để chế biến đậu nành như thế nào?",
+        "answer": "Nấm men (chủ yếu là *Aspergillus oryzae*, còn gọi là Koji) được dùng để lên men đậu nành và ngũ cốc để tạo ra các loại gia vị cơ bản của châu Á như **nước tương (soy sauce)**, **miso** và **tempeh**.",
+        "tags": [
+            "nấm men",
+            "đậu nành",
+            "nước tương",
+            "lên men"
+        ],
+        "illustration_prompt": "cute educational illustration of soy beans covered in Koji mold (Aspergillus oryzae) during the fermentation process"
+    },
+    {
+        "id": 174,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm có thể 'ăn' vật liệu nhân tạo như thế nào?",
+        "answer": "Một số nhà khoa học đã phát hiện ra các loài nấm đặc biệt có khả năng tạo ra enzyme đủ mạnh để phân hủy cả **chất dẻo** (plastics) và polyurethane. Điều này mở ra hy vọng sử dụng nấm để tái chế và xử lý rác thải nhựa.",
+        "tags": [
+            "nấm",
+            "chất dẻo",
+            "tái chế",
+            "enzyme"
+        ],
+        "illustration_prompt": "cute educational illustration of a mushroom growing on a discarded plastic bottle, slowly breaking down the material"
+    },
+    {
+        "id": 175,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Đặc điểm nhận dạng quan trọng nhất của nấm độc là gì?",
+        "answer": "Không có quy tắc đơn giản nào để phân biệt nấm độc và nấm ăn được. Đặc điểm nhận dạng thường là phức tạp và yêu cầu kiến thức chuyên môn. **Tuyệt đối không nên ăn bất kỳ loại nấm hoang dã nào** trừ khi được xác định bởi chuyên gia vì ngay cả nấm độc nhỏ nhất cũng có thể gây tử vong.",
+        "tags": [
+            "nấm độc",
+            "nhận dạng",
+            "cảnh báo",
+            "an toàn"
+        ],
+        "illustration_prompt": "cute educational illustration of various types of wild mushrooms with a big red X on them, emphasizing the danger of self-identification"
+    },
+    {
+        "id": 176,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Làm thế nào nấm lại giúp cây cối đối phó với hạn hán?",
+        "answer": "Trong mối quan hệ cộng sinh rễ nấm (Mycorrhizae), mạng lưới sợi nấm có thể vươn xa hơn nhiều so với rễ cây. Điều này cho phép cây **hút nước** từ những nơi xa hơn và khô hơn trong đất, giúp cây chống chịu tốt hơn với điều kiện hạn hán.",
+        "tags": [
+            "hạn hán",
+            "mycorrhizae",
+            "hấp thụ nước",
+            "cộng sinh"
+        ],
+        "illustration_prompt": "cute educational illustration of a tree struggling in dry soil, but its roots are connected to a fungal network that reaches deep into a hidden pocket of water"
+    },
+    {
+        "id": 177,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm tạo ra chất dinh dưỡng nào mà thực vật không tạo ra?",
+        "answer": "Nấm là một trong số ít sinh vật có thể tạo ra **Vitamin D** khi tiếp xúc với ánh sáng UV (giống như da người). Chúng cũng là một nguồn cung cấp **Vitamin B12** quan trọng (thường được tìm thấy chủ yếu trong thịt/sản phẩm động vật).",
+        "tags": [
+            "vitamin D",
+            "vitamin B12",
+            "ánh sáng UV",
+            "dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration of a mushroom under the sun (UV rays), showing it synthesizing Vitamin D, nutritional information"
+    },
+    {
+        "id": 178,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm mốc được dùng để làm phô mai như thế nào?",
+        "answer": "Nấm mốc (thường là các chủng Penicillium khác nhau, ví dụ *Penicillium roqueforti*) được thêm vào sữa để làm phô mai xanh (blue cheese) như Roquefort hoặc Gorgonzola. Nấm mốc tạo ra **hương vị cay nồng** đặc trưng và các tĩnh mạch xanh/xám đặc trưng trong phô mai.",
+        "tags": [
+            "nấm mốc",
+            "phô mai",
+            "lên men",
+            "roquefort"
+        ],
+        "illustration_prompt": "cute educational illustration of a slice of blue cheese showing the characteristic blue veins formed by Penicillium mold"
+    },
+    {
+        "id": 179,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Vì sao nấm lại phát triển nhanh như vậy?",
+        "answer": "Phần lớn sự phát triển của nấm không phải là mũ nấm mà là mạng lưới sợi nấm (mycelium) đã được xây dựng sẵn. Mũ nấm chỉ là cơ quan sinh sản mọc lên khi điều kiện (độ ẩm, nhiệt độ) hoàn hảo. Chúng chứa đầy nước, cho phép chúng **phồng lên và mở ra** rất nhanh.",
+        "tags": [
+            "phát triển nhanh",
+            "sợi nấm",
+            "mũ nấm",
+            "độ ẩm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a time-lapse effect of a small mushroom rapidly expanding in size overnight"
+    },
+    {
+        "id": 180,
+        "category": "Thực vật",
+        "sub_category": "Nấm",
+        "question": "Nấm có thể 'biến' thành vật liệu xây dựng không?",
+        "answer": "Có. Sợi nấm (mycelium) có thể được nuôi cấy trong khuôn với rơm hoặc phế liệu nông nghiệp. Khi sợi nấm phát triển, nó tạo thành một khối vật liệu **nhẹ, bền, chống cháy** và có thể phân hủy sinh học, được gọi là **Myco-material**.",
+        "tags": [
+            "sợi nấm",
+            "vật liệu xây dựng",
+            "myco-material",
+            "bền vững"
+        ],
+        "illustration_prompt": "cute educational illustration of a brick or packaging material made from white, woven fungal mycelium"
+    },
+    {
+        "id": 181,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Vì sao lá cây sen và cây súng (Water Lily) có thể nổi trên mặt nước?",
+        "answer": "Lá của chúng có các **túi khí** (air sacs) hoặc mô chứa khí đặc biệt nằm ở mặt dưới. Những túi khí này hoạt động giống như chiếc phao cứu sinh, giúp lá luôn nhẹ và giữ chúng nổi trên mặt nước.",
+        "tags": [
+            "sen",
+            "súng",
+            "nổi",
+            "túi khí"
+        ],
+        "illustration_prompt": "cute educational illustration of a water lily leaf showing a cross-section with air sacs (aerenchyma) inside, making it float"
+    },
+    {
+        "id": 182,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh lấy $\text{CO}_2$ (carbon dioxide) để quang hợp bằng cách nào?",
+        "answer": "Các loài cây chìm hoàn toàn trong nước hấp thụ $\text{CO}_2$ đã được **hòa tan** trong nước thông qua toàn bộ bề mặt lá và thân. Điều này khác với thực vật trên cạn, vốn hấp thụ $\text{CO}_2$ từ không khí qua khí khổng (stomata).",
+        "tags": [
+            "quang hợp",
+            "carbon dioxide",
+            "hòa tan",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational illustration of a submerged aquatic plant (like anacharis) with tiny bubbles of CO2 being absorbed from the surrounding water"
+    },
+    {
+        "id": 183,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào được coi là loài thực vật có hoa nhỏ nhất thế giới?",
+        "answer": "Đó là **Bèo tấm** (Duckweed). Bèo tấm là thực vật thủy sinh nhỏ li ti, có hoa nhỏ bé và không có rễ thật sự mà chỉ có những sợi rễ nhỏ. Chúng nhân lên cực kỳ nhanh chóng, phủ kín mặt nước.",
+        "tags": [
+            "bèo tấm",
+            "nhỏ nhất",
+            "thực vật có hoa",
+            "nhân giống"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the size of a tiny duckweed plant to a thumbnail, emphasizing its small size"
+    },
+    {
+        "id": 184,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thân cây thủy sinh (Aerenchyma) giúp cây sống sót như thế nào?",
+        "answer": "Thân và cuống lá của nhiều loài thực vật thủy sinh có **mô khí** (Aerenchyma), là các khoang chứa đầy không khí chạy dọc bên trong. Mô này cung cấp **oxy** cho các bộ phận chìm dưới nước (như rễ) và làm cho cây nhẹ, dễ nổi hơn.",
+        "tags": [
+            "mô khí",
+            "aerenchyma",
+            "oxy",
+            "nổi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of an aquatic plant stem, clearly highlighting the air-filled channels (aerenchyma)"
+    },
+    {
+        "id": 185,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Vì sao khí khổng (Stomata) của cây súng (Water Lily) lại nằm ở mặt trên của lá?",
+        "answer": "Cây súng cần lấy $\text{CO}_2$ từ không khí để quang hợp. Vì lá của chúng nổi trên mặt nước, nếu khí khổng nằm ở mặt dưới (như thực vật trên cạn), chúng sẽ bị ngập nước và không thể trao đổi khí được, do đó chúng phải nằm ở **mặt trên**.",
+        "tags": [
+            "khí khổng",
+            "stomata",
+            "mặt trên",
+            "trao đổi khí"
+        ],
+        "illustration_prompt": "cute educational illustration of a water lily leaf floating, with stomata pores only visible on the top surface, magnified detail"
+    },
+    {
+        "id": 186,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh giúp làm sạch nước như thế nào?",
+        "answer": "Chúng giúp làm sạch nước bằng hai cách: 1) **Lọc:** Rễ và lá của chúng hấp thụ các chất dinh dưỡng thừa (như nitrat và photphat) gây ô nhiễm. 2) **Tạo bóng râm:** Lá nổi che phủ bề mặt, ngăn chặn sự phát triển quá mức của tảo (algae).",
+        "tags": [
+            "lọc nước",
+            "nitrat",
+            "tảo",
+            "chất dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the roots of an aquatic plant (like hyacinth) filtering dirty water and absorbing excess nutrients"
+    },
+    {
+        "id": 187,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Rễ của các cây chìm hoàn toàn trong nước (Submerged) có gì khác biệt?",
+        "answer": "Rễ của chúng thường bị **giảm kích thước** và ít phát triển hơn rễ cây trên cạn. Điều này là do chức năng chính của chúng là neo giữ, vì phần lớn chất dinh dưỡng và nước được hấp thụ trực tiếp qua lá và thân từ môi trường nước xung quanh.",
+        "tags": [
+            "rễ",
+            "cây chìm",
+            "giảm kích thước",
+            "neo giữ"
+        ],
+        "illustration_prompt": "cute educational illustration of a submerged aquatic plant with very small, minimal roots, compared to a large root system of a terrestrial plant"
+    },
+    {
+        "id": 188,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây Lục bình (Water Hyacinth) nguy hiểm như thế nào?",
+        "answer": "Lục bình là loài **xâm lấn** (invasive species) phát triển cực nhanh. Chúng tạo thành một thảm dày đặc trên mặt nước, ngăn ánh sáng mặt trời chiếu xuống các loài cây chìm khác và làm giảm nồng độ oxy trong nước, gây hại cho cá và các sinh vật khác.",
+        "tags": [
+            "lục bình",
+            "xâm lấn",
+            "thảm dày",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration showing a river completely covered by a dense, suffocating mat of water hyacinth plants"
+    },
+    {
+        "id": 189,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh tạo ra oxy như thế nào cho cá?",
+        "answer": "Trong quá trình quang hợp dưới nước, thực vật thủy sinh giải phóng **oxy** dưới dạng bong bóng vào môi trường nước xung quanh. Bong bóng này hòa tan trong nước, cung cấp oxy cho cá và các sinh vật thủy sinh khác để thở.",
+        "tags": [
+            "oxy",
+            "quang hợp",
+            "bong bóng",
+            "cá"
+        ],
+        "illustration_prompt": "cute educational illustration of a submerged plant releasing oxygen bubbles into the water, with a happy fish swimming nearby"
+    },
+    {
+        "id": 190,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào có lá có khả năng tự làm sạch (Hiệu ứng Hoa sen)?",
+        "answer": "Đó là **cây sen** (Lotus). Lá sen có cấu trúc bề mặt cực kỳ gồ ghề và có sáp. Điều này khiến nước mưa hoặc sương tụ lại thành giọt tròn và lăn đi, mang theo bụi bẩn và chất ô nhiễm, khiến lá luôn sạch (hiệu ứng hoa sen).",
+        "tags": [
+            "hoa sen",
+            "tự làm sạch",
+            "hiệu ứng hoa sen",
+            "chống thấm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a drop of water perfectly spherical and rolling off a textured lotus leaf, carrying dirt away"
+    },
+    {
+        "id": 191,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Làm thế nào cây rong đuôi chó (Ceratophyllum) lại nổi được mà không cần rễ bám đất?",
+        "answer": "Rong đuôi chó (Hornwort) là loài **trôi nổi tự do**. Chúng không có rễ bám đất; thay vào đó, chúng có thân và lá chứa nhiều không khí (aerenchyma), và các nhánh lá xum xuê giúp giữ chúng lơ lửng trong cột nước.",
+        "tags": [
+            "rong đuôi chó",
+            "trôi nổi",
+            "aerenchyma",
+            "rễ"
+        ],
+        "illustration_prompt": "cute educational illustration of a hornwort plant drifting freely in water without any roots anchoring it to the bottom"
+    },
+    {
+        "id": 192,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào có hoa nở dưới nước?",
+        "answer": "Hầu hết thực vật thủy sinh đưa hoa lên mặt nước để thụ phấn (ví dụ: Súng), nhưng **cỏ biển** (Seagrass) thì thụ phấn hoàn toàn dưới nước. Phấn hoa của chúng thường dài và dạng sợi, trôi trong nước để tìm hoa cái.",
+        "tags": [
+            "cỏ biển",
+            "thụ phấn",
+            "dưới nước",
+            "phấn hoa"
+        ],
+        "illustration_prompt": "cute educational illustration of a small, submerged seagrass flower being pollinated by thread-like pollen floating in the water current"
+    },
+    {
+        "id": 193,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh có thể tạo ra âm thanh không?",
+        "answer": "Dù không phải âm thanh nghe được lớn, thực vật chìm hoàn toàn trong nước (như *Elodea*) khi quang hợp mạnh tạo ra các **bong bóng oxy** nhỏ xíu. Sự vỡ của hàng ngàn bong bóng này trong các bể cá lớn có thể tạo ra tiếng động li ti, nhẹ nhàng.",
+        "tags": [
+            "bong bóng oxy",
+            "quang hợp",
+            "âm thanh",
+            "bể cá"
+        ],
+        "illustration_prompt": "cute educational illustration of a plant in an aquarium releasing many tiny oxygen bubbles that make a faint, crackling sound effect"
+    },
+    {
+        "id": 194,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh bán chìm (Emergent) là gì?",
+        "answer": "Đó là những loài cây mọc rễ trong đất dưới nước nhưng phần lớn thân, lá và hoa mọc **vươn cao trên mặt nước** (ví dụ: cây cói, cây lác, cây bấc). Chúng có cấu trúc hỗ trợ cứng cáp hơn thực vật chìm hoàn toàn.",
+        "tags": [
+            "bán chìm",
+            "emergent",
+            "cói",
+            "vươn cao"
+        ],
+        "illustration_prompt": "cute educational illustration of cattail reeds rooted underwater but standing tall above the water surface"
+    },
+    {
+        "id": 195,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Làm thế nào cây bèo cái (Water Lettuce) lại sống được trên mặt nước?",
+        "answer": "Bèo cái có lá dày, xốp, và các **sợi lông** (hairs) dày đặc ở cả hai mặt lá. Những sợi lông này giữ một lớp không khí mỏng xung quanh lá, giúp tăng cường khả năng nổi và ngăn lá bị ướt hoặc chìm.",
+        "tags": [
+            "bèo cái",
+            "sợi lông",
+            "xốp",
+            "nổi"
+        ],
+        "illustration_prompt": "cute educational illustration of a water lettuce plant floating, with a magnified view showing the dense, fuzzy hairs on the leaf surface trapping air"
+    },
+    {
+        "id": 196,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào có thể hút thủy ngân (Mercury) từ nước?",
+        "answer": "Một số loài thực vật thủy sinh, như **Lục bình** (Water Hyacinth), có khả năng hấp thụ và tích lũy các chất ô nhiễm kim loại nặng như thủy ngân, chì, asen trong mô của chúng. Chúng được dùng trong kỹ thuật **xử lý sinh học** (bioremediation) để làm sạch nước ô nhiễm.",
+        "tags": [
+            "lục bình",
+            "thủy ngân",
+            "kim loại nặng",
+            "xử lý sinh học"
+        ],
+        "illustration_prompt": "cute educational illustration of water hyacinth roots absorbing mercury particles (labeled Hg) from polluted water"
+    },
+    {
+        "id": 197,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Vì sao lá của các loài cây chìm (Submerged) thường mỏng và rách?",
+        "answer": "Lá mỏng (hoặc rách, hình dải) giúp tăng **diện tích bề mặt** để hấp thụ ánh sáng và chất dinh dưỡng tối đa từ nước. Cấu trúc lỏng lẻo cũng giúp chúng chống chịu tốt hơn với dòng chảy của nước mà không bị rách nát.",
+        "tags": [
+            "lá mỏng",
+            "cây chìm",
+            "dòng chảy",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a wide, strong terrestrial leaf with a thin, dissected aquatic leaf floating loosely in water"
+    },
+    {
+        "id": 198,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh có ngủ vào ban đêm không?",
+        "answer": "Vào ban đêm, hầu hết thực vật thủy sinh **ngừng quang hợp** vì không có ánh sáng. Tuy nhiên, chúng vẫn tiếp tục **hô hấp** (sử dụng oxy và giải phóng $\text{CO}_2$). Do đó, nồng độ oxy trong nước thường giảm vào ban đêm.",
+        "tags": [
+            "ban đêm",
+            "hô hấp",
+            "ngừng quang hợp",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration of submerged plants at night, showing a decrease in oxygen bubbles being released and an increase in CO2"
+    },
+    {
+        "id": 199,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào được coi là 'bộ lọc tự nhiên' tốt nhất cho ao hồ?",
+        "answer": "Cây **Cói** (Cattails) được coi là một bộ lọc tự nhiên tuyệt vời. Rễ của chúng tạo thành một mạng lưới dày đặc, giúp **lắng đọng các hạt bùn** và hấp thụ chất dinh dưỡng dư thừa từ nước chảy qua, ngăn ngừa ô nhiễm.",
+        "tags": [
+            "cói",
+            "bộ lọc",
+            "lắng đọng",
+            "ô nhiễm"
+        ],
+        "illustration_prompt": "cute educational illustration of cattails growing at the edge of a pond, showing their dense roots capturing sediment and clarifying the water"
+    },
+    {
+        "id": 200,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Làm thế nào cây súng khổng lồ (Giant Water Lily) có thể nâng đỡ vật nặng?",
+        "answer": "Lá của chúng (cây *Victoria amazonica*) có thể đạt đường kính 3 mét. Sức nâng khổng lồ là nhờ cấu trúc **gân lá** bên dưới: gân tạo thành một mạng lưới cứng cáp giống như dầm thép của một cây cầu, phân bổ trọng lượng trên toàn bộ bề mặt lá.",
+        "tags": [
+            "súng khổng lồ",
+            "victoria amazonica",
+            "gân lá",
+            "sức nâng"
+        ],
+        "illustration_prompt": "cute educational illustration of a giant water lily pad with a small, lightweight child sitting on it, showing the supporting vein structure underneath"
+    },
+    {
+        "id": 201,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh giúp động vật làm gì?",
+        "answer": "Chúng tạo ra **môi trường sống và nơi trú ẩn** quan trọng. Thảm thực vật dưới nước cung cấp nơi ẩn nấp cho cá con khỏi kẻ săn mồi, đồng thời lá nổi và thân cây cũng là nơi làm tổ và đẻ trứng của nhiều loài côn trùng và chim nước.",
+        "tags": [
+            "môi trường sống",
+            "nơi trú ẩn",
+            "cá",
+            "chim nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small fish hiding among the dense leaves of a submerged aquatic plant"
+    },
+    {
+        "id": 202,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh ở vùng ven biển được gọi là gì?",
+        "answer": "Thực vật thủy sinh sống ở các vùng nước lợ, nông ven biển được gọi là **cỏ biển** (Seagrass). Chúng không phải là tảo mà là thực vật có hoa thật sự. Chúng tạo ra các đồng cỏ dưới nước khổng lồ, là nơi sinh sản của nhiều sinh vật biển.",
+        "tags": [
+            "cỏ biển",
+            "ven biển",
+            "nước lợ",
+            "đồng cỏ dưới nước"
+        ],
+        "illustration_prompt": "cute educational illustration of a large underwater meadow of green seagrass, with small marine life swimming around"
+    },
+    {
+        "id": 203,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Tại sao rễ cây cói (Cattails) lại cần mô khí (Aerenchyma)?",
+        "answer": "Cói mọc trong đất ngập nước, nơi **oxy trong đất rất thấp** do nước ngăn cản không khí. Mô khí cho phép cây vận chuyển oxy từ thân trên mặt nước xuống rễ chìm dưới bùn, giúp rễ có thể hô hấp và sống sót.",
+        "tags": [
+            "cói",
+            "mô khí",
+            "ngập nước",
+            "hô hấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a cattail rhizome (underground stem) in muddy water, with air channels supplying oxygen from the surface"
+    },
+    {
+        "id": 204,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Làm thế nào cây rong (Elodea) giữ thẳng thân trong nước?",
+        "answer": "Rong (Elodea) giữ thẳng thân nhờ sự kết hợp giữa **sức nổi** của nước (hỗ trợ trọng lượng) và **áp suất turgor** (áp suất nước trong tế bào). Chúng không cần thân gỗ cứng vì không phải chiến đấu với trọng lực như cây trên cạn.",
+        "tags": [
+            "rong",
+            "sức nổi",
+            "áp suất turgor",
+            "thân mềm"
+        ],
+        "illustration_prompt": "cute educational illustration of a long, delicate elodea stem floating upright in the water, supported by buoyancy"
+    },
+    {
+        "id": 205,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào có thể di chuyển và lật mình khi cần?",
+        "answer": "Cây **Rong mái chèo** (Vallisneria, hoặc Eelgrass) có thể điều chỉnh độ dài cuống hoa cái của mình. Sau khi hoa cái được thụ phấn trên mặt nước, cuống sẽ **cuộn lại** như lò xo, kéo bông hoa đã thụ phấn xuống dưới nước để phát triển hạt.",
+        "tags": [
+            "rong mái chèo",
+            "cuộn lại",
+            "di chuyển",
+            "thụ phấn"
+        ],
+        "illustration_prompt": "cute educational illustration showing the Vallisneria flower stalk coiling up like a spring to pull the pollinated flower underwater"
+    },
+    {
+        "id": 206,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Thực vật thủy sinh làm gì khi hồ bị đóng băng?",
+        "answer": "Thực vật thủy sinh lâu năm sẽ trở nên **ngủ đông** (dormant). Cây chìm hoàn toàn trong nước có thể giữ được một phần lá xanh dưới băng. Các loài khác, như súng, rụng lá và giữ lại năng lượng sống trong thân rễ (rhizome) dưới đáy bùn để chờ đến mùa xuân.",
+        "tags": [
+            "đóng băng",
+            "ngủ đông",
+            "thân rễ",
+            "sống sót"
+        ],
+        "illustration_prompt": "cute educational illustration of a frozen pond surface with a dormant water lily rhizome safely buried in the mud at the bottom"
+    },
+    {
+        "id": 207,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Vì sao các loại cây có hoa ven bờ (Emergent) lại rất quan trọng cho sự ổn định của bờ sông?",
+        "answer": "Rễ dày, chằng chịt của các cây ven bờ (như sậy, cói) giúp **neo giữ đất** lại với nhau. Điều này ngăn chặn xói mòn và sạt lở bờ sông, bờ hồ do sóng và dòng chảy của nước.",
+        "tags": [
+            "ven bờ",
+            "xói mòn",
+            "neo giữ đất",
+            "sông hồ"
+        ],
+        "illustration_prompt": "cute educational illustration of a riverbank with dense reeds, showing the roots holding the soil firmly in place against the water current"
+    },
+    {
+        "id": 208,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Làm thế nào cây lúa (Rice) có thể mọc trong đồng ruộng ngập nước?",
+        "answer": "Cây lúa đã tiến hóa để phát triển các kênh **mô khí** (aerenchyma) đặc biệt. Giống như cây cói, những kênh này vận chuyển oxy từ lá trên không khí xuống rễ chìm trong bùn, cho phép cây hô hấp dù rễ bị ngập trong môi trường thiếu oxy.",
+        "tags": [
+            "cây lúa",
+            "ngập nước",
+            "mô khí",
+            "aerenchyma"
+        ],
+        "illustration_prompt": "cute educational illustration of a rice plant growing in a flooded paddy field, showing air transport from the leaves down to the submerged roots"
+    },
+    {
+        "id": 209,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Cây nào có thể 'bẫy' không khí để duy trì sự nổi?",
+        "answer": "Cây **Bèo ong** (Salvinia) có lá nhỏ, nổi và được bao phủ bởi các sợi lông giống như cái bẫy trứng đánh bông. Những sợi lông này **giữ một lớp không khí mỏng** ổn định, khiến cây cực kỳ chống thấm nước và không bao giờ bị chìm.",
+        "tags": [
+            "bèo ong",
+            "sợi lông",
+            "bẫy không khí",
+            "chống thấm"
+        ],
+        "illustration_prompt": "cute educational illustration of a Salvinia leaf floating, with a microscopic detail showing the complex, air-trapping hairs"
+    },
+    {
+        "id": 210,
+        "category": "Thực vật",
+        "sub_category": "Thực vật thủy sinh",
+        "question": "Các loại rong biển (Seaweed) có phải là thực vật thủy sinh không?",
+        "answer": "Hầu hết rong biển (Seaweed) được phân loại là **tảo** (Algae) lớn, không phải thực vật có hoa (true plants). Tảo thiếu rễ, thân, lá và hệ thống mạch dẫn phức tạp. Tuy nhiên, chúng có vai trò sinh thái tương tự như thực vật thủy sinh (sản xuất oxy, cung cấp thức ăn/nơi ở).",
+        "tags": [
+            "rong biển",
+            "tảo",
+            "thực vật có hoa",
+            "hệ thống mạch dẫn"
+        ],
+        "illustration_prompt": "cute educational illustration comparison: a simple seaweed (algae) attached by a holdfast versus a complex submerged true plant with roots"
+    }
+]
