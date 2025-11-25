@@ -42,6 +42,35 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
         saveTellMeWhyProfile(student.id, profile);
     }, [profile, student.id]);
 
+    // Keyboard navigation: Arrow keys for previous/next
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            // Only navigate if a question is selected and user is not typing in an input
+            if (!selectedQuestion) return;
+            if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+
+            // ArrowLeft for previous
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevQ = getAdjacentQuestion(selectedQuestion.id, 'prev', profile, undefined, selectedQuestion);
+                if (prevQ) {
+                    setSelectedQuestion(prevQ);
+                }
+            }
+            // ArrowRight for next
+            else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextQ = getAdjacentQuestion(selectedQuestion.id, 'next', profile, undefined, selectedQuestion);
+                if (nextQ) {
+                    setSelectedQuestion(nextQ);
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, [selectedQuestion, profile]);
+
     // Build tree structure
     const treeData = buildTreeStructure(profile);
 
@@ -67,8 +96,8 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
 
     // Handle unlock subcategory - show modal
     const handleUnlockSubCategory = (categoryId: number, subCategory: string) => {
-        // Free category
-        if (categoryId === 1) return;
+        // Free categories (1-4 are free for all users)
+        if (categoryId >= 1 && categoryId <= 4) return;
 
         // Find category name
         const categories = buildTreeStructure(profile);
@@ -113,7 +142,7 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
     // Navigation handlers
     const handleNext = () => {
         if (!selectedQuestion) return;
-        const nextQ = getAdjacentQuestion(selectedQuestion.id, 'next', profile);
+        const nextQ = getAdjacentQuestion(selectedQuestion.id, 'next', profile, undefined, selectedQuestion);
         if (nextQ) {
             setSelectedQuestion(nextQ);
         }
@@ -121,16 +150,16 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
 
     const handlePrevious = () => {
         if (!selectedQuestion) return;
-        const prevQ = getAdjacentQuestion(selectedQuestion.id, 'prev', profile);
+        const prevQ = getAdjacentQuestion(selectedQuestion.id, 'prev', profile, undefined, selectedQuestion);
         if (prevQ) {
             setSelectedQuestion(prevQ);
         }
     };
 
     const hasPrevious = selectedQuestion ?
-        getAdjacentQuestion(selectedQuestion.id, 'prev', profile) !== null : false;
+        getAdjacentQuestion(selectedQuestion.id, 'prev', profile, undefined, selectedQuestion) !== null : false;
     const hasNext = selectedQuestion ?
-        getAdjacentQuestion(selectedQuestion.id, 'next', profile) !== null : false;
+        getAdjacentQuestion(selectedQuestion.id, 'next', profile, undefined, selectedQuestion) !== null : false;
 
     const isFavorite = selectedQuestion ?
         profile.favoriteQuestionIds.includes(selectedQuestion.id) : false;
@@ -172,13 +201,24 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
                 </div>
             </div>
 
+            {/* Mobile Menu Hint - Shows when no question selected */}
+            {!selectedQuestion && !showMobileMenu && (
+                <div className="md:hidden fixed top-20 right-4 z-40 animate-bounce">
+                    <div className="bg-gradient-to-r from-brand-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg relative">
+                        <p className="text-sm font-semibold whitespace-nowrap">👆 Mở menu câu hỏi</p>
+                        {/* Arrow pointing to menu button */}
+                        <div className="absolute -top-2 right-2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-brand-500"></div>
+                    </div>
+                </div>
+            )}
+
             {/* Main Content */}
             <div className="flex-1 max-w-7xl mx-auto p-4 w-full overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full">
                     {/* Left Panel - Tree Menu (Mobile: overlay) */}
                     <div className={`
                         md:col-span-4 lg:col-span-3
-                        ${showMobileMenu ? 'fixed inset-0 z-50 bg-white p-4' : 'hidden md:flex md:flex-col md:min-h-0'}
+                        ${showMobileMenu ? 'fixed inset-0 z-50 bg-white p-4 flex flex-col overflow-y-auto' : 'hidden md:flex md:flex-col md:min-h-0'}
                     `}>
                         {/* Search Box */}
                         <div className="flex-shrink-0 mb-4">

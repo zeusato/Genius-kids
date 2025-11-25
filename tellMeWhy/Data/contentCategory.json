@@ -4,39 +4,84 @@
       "age_group_id": 1,
       "age_range": "6-8",
       "categories": [
-        { "id": 1, "name": "Động vật" },
-        { "id": 2, "name": "Thực vật" },
-        { "id": 3, "name": "Sự vật & hiện tượng cơ bản" },
-        { "id": 4, "name": "Đời sống hằng ngày" }
+        {
+          "id": 1,
+          "name": "Động vật"
+        },
+        {
+          "id": 2,
+          "name": "Thực vật"
+        },
+        {
+          "id": 4,
+          "name": "Sự vật & hiện tượng cơ bản"
+        },
+        {
+          "id": 3,
+          "name": "Đời sống hằng ngày"
+        }
       ]
     },
     {
       "age_group_id": 2,
       "age_range": "8-10",
       "categories": [
-        { "id": 5, "name": "Trái Đất & Môi trường" },
-        { "id": 6, "name": "Cơ thể người (cơ bản)" },
-        { "id": 7, "name": "Thời tiết & Khí hậu" },
-        { "id": 8, "name": "Vật lý đời sống (mức dễ)" }
+        {
+          "id": 5,
+          "name": "Trái Đất & Môi trường"
+        },
+        {
+          "id": 6,
+          "name": "Cơ thể người (cơ bản)"
+        },
+        {
+          "id": 7,
+          "name": "Thời tiết & Khí hậu"
+        },
+        {
+          "id": 8,
+          "name": "Vật lý đời sống (mức dễ)"
+        }
       ]
     },
     {
       "age_group_id": 3,
       "age_range": "10-12",
       "categories": [
-        { "id": 9, "name": "Không gian & Hệ Mặt Trời" },
-        { "id": 10, "name": "Sinh học đơn giản" },
-        { "id": 11, "name": "Hóa học đời sống (nguyên lý dễ)" }
+        {
+          "id": 9,
+          "name": "Không gian & Hệ Mặt Trời"
+        },
+        {
+          "id": 10,
+          "name": "Sinh học đơn giản"
+        },
+        {
+          "id": 11,
+          "name": "Hóa học đời sống (nguyên lý dễ)"
+        }
       ]
     },
     {
       "age_group_id": 4,
       "age_range": "12-16",
       "categories": [
-        { "id": 12, "name": "Vũ trụ nâng cao" },
-        { "id": 13, "name": "Năng lượng & Vật lý cơ bản" },
-        { "id": 14, "name": "Công nghệ – Máy móc – Khoa học ứng dụng" },
-        { "id": 15, "name": "Môi trường – Tài nguyên – Biến đổi khí hậu" }
+        {
+          "id": 12,
+          "name": "Vũ trụ nâng cao"
+        },
+        {
+          "id": 13,
+          "name": "Năng lượng & Vật lý cơ bản"
+        },
+        {
+          "id": 14,
+          "name": "Công nghệ – Máy móc – Khoa học ứng dụng"
+        },
+        {
+          "id": 15,
+          "name": "Môi trường – Tài nguyên – Biến đổi khí hậu"
+        }
       ]
     }
   ]

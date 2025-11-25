@@ -3,6 +3,8 @@
 import categoryStructure from '../tellMeWhy/Data/contentCategory.json';
 import animalData from '../tellMeWhy/Data/Animal_content.json';
 import treeData from '../tellMeWhy/Data/Tree_content.json';
+import dailyLifeData from '../tellMeWhy/Data/Daily_life_content.json';
+import natureBasicData from '../tellMeWhy/Data/Nature_basic_content.json';
 import {
     CategoryStructure,
     QuestionData,
@@ -40,8 +42,12 @@ export const loadCategoryContent = (categoryId: number): QuestionData[] | null =
             return animalData as QuestionData[];
         case 2: // Thực vật
             return treeData as QuestionData[];
+        case 3: // Đời sống hằng ngày
+            return dailyLifeData as QuestionData[];
+        case 4: // Sự vật & hiện tượng cơ bản
+            return natureBasicData as QuestionData[];
         // Add more cases as content becomes available
-        // case 3: return phenomenaData;
+        // case 4: return dailyLifeData;
         default:
             return null;
     }
@@ -121,7 +127,7 @@ export const buildTreeStructure = (profile: TellMeWhyProfile): TreeNode[] => {
         if (!content || content.length === 0) return;
 
         const subCategories = getSubCategories(cat.id);
-        const isFreeCategory = cat.id === FREE_CATEGORY_ID;
+        const isFreeCategory = cat.id >= 1 && cat.id <= 4; // Categories 1-4 are free
 
         const categoryNode: TreeNode = {
             id: `cat-${cat.id}`,
@@ -185,7 +191,7 @@ export const searchQuestions = (keyword: string, profile: TellMeWhyProfile): Que
         const content = loadCategoryContent(cat.id);
         if (!content) return;
 
-        const isFreeCategory = cat.id === FREE_CATEGORY_ID;
+        const isFreeCategory = cat.id >= 1 && cat.id <= 4; // Categories 1-4 are free
 
         content.forEach(q => {
             // Check if this question's subcategory is unlocked
@@ -282,7 +288,8 @@ export const getAdjacentQuestion = (
     currentQuestionId: number,
     direction: 'next' | 'prev',
     profile: TellMeWhyProfile,
-    currentContext?: 'favorites' | 'normal'
+    currentContext?: 'favorites' | 'normal',
+    currentQuestion?: QuestionData  // Add optional current question for context
 ): QuestionData | null => {
     // If viewing from favorites, navigate within favorites
     if (currentContext === 'favorites' || profile.favoriteQuestionIds.includes(currentQuestionId)) {
@@ -317,31 +324,72 @@ export const getAdjacentQuestion = (
     }
 
     // Normal navigation within subcategory
-    const categories = getAllCategories();
+    // If we have the current question object, use its category and subcategory directly
+    let targetCategory: string | null = null;
+    let targetSubCategory: string | null = null;
+    let targetCategoryId: number | null = null;
 
-    for (const cat of categories) {
-        const content = loadCategoryContent(cat.id);
-        if (!content) continue;
+    if (currentQuestion) {
+        // Use category and sub_category from the question object
+        targetCategory = currentQuestion.category;
+        targetSubCategory = currentQuestion.sub_category;
 
-        const index = content.findIndex(q => q.id === currentQuestionId);
-        if (index === -1) continue;
+        // Find the category ID by matching category name
+        const categories = getAllCategories();
+        const foundCat = categories.find(cat => {
+            const content = loadCategoryContent(cat.id);
+            if (!content || content.length === 0) return false;
+            // Check if this category's questions have the same category name
+            return content[0]?.category === targetCategory;
+        });
 
-        // Found the current question, get current subcategory
-        const currentQ = content[index];
-        const subCatQuestions = content.filter(q => q.sub_category === currentQ.sub_category);
-        const subIndex = subCatQuestions.findIndex(q => q.id === currentQuestionId);
+        if (foundCat) {
+            targetCategoryId = foundCat.id;
+        }
+    } else {
+        // Fallback: find by question ID (less reliable if IDs are not unique across categories)
+        const categories = getAllCategories();
 
-        if (direction === 'next') {
-            if (subIndex < subCatQuestions.length - 1) {
-                return subCatQuestions[subIndex + 1];
-            }
-        } else {
-            if (subIndex > 0) {
-                return subCatQuestions[subIndex - 1];
+        for (const cat of categories) {
+            const content = loadCategoryContent(cat.id);
+            if (!content) continue;
+
+            const found = content.find(q => q.id === currentQuestionId);
+            if (found) {
+                targetCategory = found.category;
+                targetSubCategory = found.sub_category;
+                targetCategoryId = cat.id;
+                break;
             }
         }
+    }
 
-        return null;
+    // If we couldn't find the question's context, return null
+    if (!targetCategoryId || !targetSubCategory) return null;
+
+    // Get all questions from the SAME category and SAME subcategory
+    const categoryContent = loadCategoryContent(targetCategoryId);
+    if (!categoryContent) return null;
+
+    const subCatQuestions = categoryContent.filter(
+        q => q.sub_category === targetSubCategory
+    );
+
+    // Sort by ID to ensure consistent ordering
+    subCatQuestions.sort((a, b) => a.id - b.id);
+
+    const subIndex = subCatQuestions.findIndex(q => q.id === currentQuestionId);
+
+    if (subIndex === -1) return null;
+
+    if (direction === 'next') {
+        if (subIndex < subCatQuestions.length - 1) {
+            return subCatQuestions[subIndex + 1];
+        }
+    } else {
+        if (subIndex > 0) {
+            return subCatQuestions[subIndex - 1];
+        }
     }
 
     return null;

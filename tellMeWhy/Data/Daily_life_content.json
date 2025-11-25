@@ -1,0 +1,3105 @@
+[
+    {
+        "id": 1,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao chúng ta cần ăn thức ăn?",
+        "answer": "Chúng ta cần thức ăn vì ba lý do chính: **Năng lượng** (để chạy, chơi, học tập), **Tăng trưởng** (để xây dựng cơ bắp, xương và các bộ phận khác) và **Sửa chữa** (để chữa lành vết thương và thay thế các tế bào cũ). Thức ăn là nhiên liệu của cơ thể!",
+        "tags": [
+            "năng lượng",
+            "tăng trưởng",
+            "sửa chữa",
+            "nhiên liệu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child eating a healthy meal with energy flowing to their brain, muscles, and healing a small cut"
+    },
+    {
+        "id": 2,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Carbohydrate (Carb) có vai trò gì?",
+        "answer": "Carb (có nhiều trong cơm, mì, bánh mì, khoai tây) là nguồn **năng lượng chính** và nhanh nhất cho cơ thể và đặc biệt là **bộ não** của bạn. Carb giống như nhiên liệu xăng cao cấp cho một chiếc xe đua.",
+        "tags": [
+            "carbohydrate",
+            "carb",
+            "năng lượng chính",
+            "bộ não",
+            "nhiên liệu"
+        ],
+        "illustration_prompt": "cute educational illustration showing various carb sources (rice, bread, potato) powering a light bulb representing the brain"
+    },
+    {
+        "id": 3,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Protein (Đạm) có vai trò gì?",
+        "answer": "Protein (có nhiều trong thịt, cá, trứng, đậu) được gọi là **vật liệu xây dựng** của cơ thể. Chúng xây dựng và sửa chữa **cơ bắp, da, tóc và máu**. Cơ thể bạn luôn cần Protein, ngay cả khi bạn đang ngủ.",
+        "tags": [
+            "protein",
+            "đạm",
+            "vật liệu xây dựng",
+            "cơ bắp",
+            "sửa chữa"
+        ],
+        "illustration_prompt": "cute educational illustration showing protein sources (meat, egg) building up and repairing a child's muscle fiber"
+    },
+    {
+        "id": 4,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Chất béo (Fat) có vai trò gì?",
+        "answer": "Chất béo là nguồn **năng lượng dự trữ** dồi dào, giúp cơ thể bạn **hấp thụ một số loại Vitamin** (A, D, E, K) và giữ ấm cơ thể. Chất béo khỏe mạnh (trong bơ, hạt) còn quan trọng cho sự phát triển của não bộ.",
+        "tags": [
+            "chất béo",
+            "năng lượng dự trữ",
+            "hấp thụ vitamin",
+            "não bộ"
+        ],
+        "illustration_prompt": "cute educational illustration showing healthy fat sources (avocado, nuts) acting as a warm blanket around a body and fueling a brain"
+    },
+    {
+        "id": 5,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vitamin và Khoáng chất (Minerals) có vai trò gì?",
+        "answer": "Vitamin và Khoáng chất không cung cấp năng lượng, nhưng chúng hoạt động như những **người trợ giúp** nhỏ bé. Chúng giúp cơ thể thực hiện các chức năng quan trọng, như Vitamin C giúp chống lại bệnh tật và Canxi giúp xương chắc khỏe.",
+        "tags": [
+            "vitamin",
+            "khoáng chất",
+            "chức năng quan trọng",
+            "người trợ giúp"
+        ],
+        "illustration_prompt": "cute educational illustration showing tiny vitamins and minerals wearing superhero capes, protecting a child's body"
+    },
+    {
+        "id": 6,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Hệ tiêu hóa (Digestive System) bắt đầu ở đâu?",
+        "answer": "Hệ tiêu hóa bắt đầu ngay từ **miệng** của bạn. Khi bạn nhai, răng của bạn nghiền thức ăn (tiêu hóa cơ học), và nước bọt của bạn bắt đầu phá vỡ các Carb thành đường đơn giản (tiêu hóa hóa học).",
+        "tags": [
+            "hệ tiêu hóa",
+            "miệng",
+            "nhai",
+            "nước bọt",
+            "tiêu hóa cơ học"
+        ],
+        "illustration_prompt": "cute educational diagram showing the mouth with teeth chewing food and salivary glands releasing saliva to start digestion"
+    },
+    {
+        "id": 7,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Dạ dày (Stomach) làm gì với thức ăn?",
+        "answer": "Dạ dày hoạt động như một chiếc máy trộn và một nhà máy hóa chất. Nó trộn thức ăn đã nhai với **axit dạ dày cực mạnh** và các enzyme để biến thức ăn thành một chất lỏng sệt gọi là chyme, sẵn sàng để hấp thụ ở ruột non.",
+        "tags": [
+            "dạ dày",
+            "stomach",
+            "axit",
+            "máy trộn",
+            "enzyme"
+        ],
+        "illustration_prompt": "cute educational diagram showing the stomach churning and mixing food with strong acid and enzymes"
+    },
+    {
+        "id": 8,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Nước quan trọng như thế nào đối với cơ thể?",
+        "answer": "Nước vô cùng quan trọng! Nó chiếm khoảng **60% cơ thể** bạn. Nước giúp vận chuyển chất dinh dưỡng và oxy, điều chỉnh nhiệt độ cơ thể (qua mồ hôi) và loại bỏ chất thải. Nếu không có nước, mọi thứ sẽ ngừng hoạt động.",
+        "tags": [
+            "nước",
+            "60% cơ thể",
+            "vận chuyển chất dinh dưỡng",
+            "điều chỉnh nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational diagram showing water flowing through a body and cooling down the body like a radiator in a car"
+    },
+    {
+        "id": 9,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Ruột non (Small Intestine) có vai trò gì?",
+        "answer": "Đây là nơi **hấp thụ** hầu hết các chất dinh dưỡng. Ruột non có độ dài đáng kinh ngạc (khoảng $6 \text{ mét}$ ở người lớn) và có các ngón tay nhỏ (nhung mao) để lấy các phân tử dinh dưỡng đã được tiêu hóa và đưa chúng vào máu.",
+        "tags": [
+            "ruột non",
+            "hấp thụ",
+            "nhung mao",
+            "máu"
+        ],
+        "illustration_prompt": "cute educational diagram showing the long, coiled small intestine with tiny finger-like villi absorbing nutrients into the bloodstream"
+    },
+    {
+        "id": 10,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Chất xơ (Fiber) có vai trò gì, dù nó không được tiêu hóa?",
+        "answer": "Chất xơ không cung cấp calo vì cơ thể không tiêu hóa được nó, nhưng nó được gọi là **'người quét đường'** của cơ thể. Nó giúp làm sạch hệ tiêu hóa, giữ cho bạn đi ngoài đều đặn và giúp loại bỏ cholesterol xấu.",
+        "tags": [
+            "chất xơ",
+            "fiber",
+            "người quét đường",
+            "làm sạch",
+            "cholesterol"
+        ],
+        "illustration_prompt": "cute educational illustration showing tiny fiber molecules sweeping debris out of the large intestine"
+    },
+    {
+        "id": 11,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao việc ăn uống cân bằng (Balanced Diet) lại quan trọng?",
+        "answer": "Ăn uống cân bằng nghĩa là ăn đúng lượng từ **tất cả** các nhóm thực phẩm (carb, protein, chất béo, rau, trái cây). Nếu thiếu một nhóm, cơ thể sẽ thiếu các 'vật liệu' cần thiết để hoạt động, giống như cố gắng xây nhà mà thiếu gạch hoặc xi măng.",
+        "tags": [
+            "cân bằng",
+            "balanced diet",
+            "nhóm thực phẩm",
+            "thiếu hụt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a balanced meal plate divided into sections for vegetables, protein, grains, and fruit"
+    },
+    {
+        "id": 12,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Calorie (Calo) là gì?",
+        "answer": "Calorie là đơn vị dùng để đo **năng lượng** mà bạn nhận được từ thức ăn và năng lượng mà cơ thể bạn đốt cháy. Ăn nhiều calo hơn mức bạn đốt cháy sẽ khiến cơ thể dự trữ nó dưới dạng chất béo.",
+        "tags": [
+            "calorie",
+            "calo",
+            "năng lượng",
+            "đơn vị đo",
+            "chất béo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a food item with a label indicating the energy in calories"
+    },
+    {
+        "id": 13,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Gan (Liver) có vai trò gì trong tiêu hóa?",
+        "answer": "Gan là nhà máy xử lý khổng lồ của cơ thể. Nó sản xuất **Mật (Bile)**, chất lỏng giúp phá vỡ chất béo trong ruột non. Gan cũng lọc máu, lưu trữ Vitamin và biến đường thành năng lượng.",
+        "tags": [
+            "gan",
+            "liver",
+            "mật",
+            "phá vỡ chất béo",
+            "lọc máu"
+        ],
+        "illustration_prompt": "cute educational diagram showing the liver producing bile and releasing it into the digestive tract"
+    },
+    {
+        "id": 14,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vitamin D đến từ đâu và làm gì?",
+        "answer": "Vitamin D độc đáo vì cơ thể bạn có thể tự tạo ra nó khi **da tiếp xúc với ánh nắng mặt trời**! Nó rất quan trọng vì nó giúp cơ thể bạn hấp thụ **Canxi** để xây dựng xương và răng chắc khỏe.",
+        "tags": [
+            "vitamin D",
+            "ánh nắng mặt trời",
+            "canxi",
+            "xương răng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the sun shining on a child's skin, which then triggers the body to produce Vitamin D, which helps strengthen a bone"
+    },
+    {
+        "id": 15,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Chế độ ăn chay (Vegetarian) khác chế độ ăn thuần chay (Vegan) như thế nào?",
+        "answer": "**Ăn chay** không ăn thịt động vật (bao gồm thịt bò, heo, gia cầm) nhưng có thể ăn các sản phẩm từ động vật như trứng, sữa và mật ong. **Thuần chay** nghiêm ngặt hơn, loại bỏ **tất cả** sản phẩm từ động vật, bao gồm cả sữa, trứng và mật ong.",
+        "tags": [
+            "ăn chay",
+            "thuần chay",
+            "sữa trứng",
+            "thịt",
+            "vegan"
+        ],
+        "illustration_prompt": "cute educational diagram comparing two food plates: one vegetarian (with eggs and dairy) and one vegan (only plants)"
+    },
+    {
+        "id": 16,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao ăn đường (Sugar) quá nhiều lại không tốt?",
+        "answer": "Ăn nhiều đường khiến cơ thể nhận một lượng **năng lượng rất lớn** (calo) một cách nhanh chóng, có thể gây tăng cân. Ngoài ra, nó có thể làm hỏng **răng** và gây ra sự tăng giảm đột ngột trong năng lượng (cú 'hạ cánh' năng lượng).",
+        "tags": [
+            "đường",
+            "sugar",
+            "tăng cân",
+            "răng",
+            "năng lượng đột ngột"
+        ],
+        "illustration_prompt": "cute educational illustration showing a piece of cake with an oversized burst of energy coming out, followed by a quick energy crash"
+    },
+    {
+        "id": 17,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Làm thế nào lưỡi nhận biết các vị khác nhau?",
+        "answer": "Lưỡi có các cảm biến nhỏ gọi là **chồi vị giác** (taste buds). Chúng có thể phát hiện **5 vị cơ bản**: ngọt, mặn, chua, đắng và vị Umami (vị thịt hoặc vị ngon). Chồi vị giác gửi tín hiệu đến não, cho biết bạn đang ăn gì.",
+        "tags": [
+            "lưỡi",
+            "vị giác",
+            "chồi vị giác",
+            "5 vị cơ bản",
+            "umami"
+        ],
+        "illustration_prompt": "cute educational diagram showing a stylized tongue with different areas highlighted for the 5 basic tastes"
+    },
+    {
+        "id": 18,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Tại sao một số người bị dị ứng thức ăn (Food Allergies)?",
+        "answer": "Dị ứng thức ăn xảy ra khi hệ thống **miễn dịch** của cơ thể nhầm một loại Protein vô hại trong thức ăn (như đậu phộng) là một **kẻ xâm lược nguy hiểm**. Hệ miễn dịch phản ứng quá mức và có thể gây ra các triệu chứng nghiêm trọng.",
+        "tags": [
+            "dị ứng thức ăn",
+            "hệ miễn dịch",
+            "protein",
+            "phản ứng quá mức"
+        ],
+        "illustration_prompt": "cute educational illustration showing the immune system (as a tiny security guard) aggressively attacking a benign peanut molecule"
+    },
+    {
+        "id": 19,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Men vi sinh (Probiotics) là gì và có ích lợi gì?",
+        "answer": "Men vi sinh là những **vi khuẩn tốt** (good bacteria) sống trong ruột của bạn. Chúng giúp tiêu hóa thức ăn, sản xuất Vitamin và cạnh tranh với những vi khuẩn xấu để giữ cho bạn khỏe mạnh. Chúng có nhiều trong sữa chua và các thực phẩm lên men.",
+        "tags": [
+            "men vi sinh",
+            "probiotics",
+            "vi khuẩn tốt",
+            "sữa chua",
+            "tiêu hóa khỏe mạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing happy, friendly bacteria (probiotics) living in the gut and fighting off mean-looking bad bacteria"
+    },
+    {
+        "id": 20,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao bạn cần ăn các loại rau củ có màu sắc khác nhau?",
+        "answer": "Các màu sắc rực rỡ (xanh, đỏ, tím, vàng) trong rau củ quả là dấu hiệu của các **chất dinh dưỡng** và **chất chống oxy hóa** khác nhau. Ăn nhiều màu sắc đảm bảo bạn nhận được nhiều loại Vitamin và khoáng chất khác nhau mà cơ thể cần.",
+        "tags": [
+            "màu sắc rau củ",
+            "chất chống oxy hóa",
+            "vitamin",
+            "đa dạng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a rainbow of different colored vegetables (red tomato, green broccoli, purple eggplant) on a plate"
+    },
+    {
+        "id": 21,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Chất béo chuyển hóa (Trans Fat) là gì và tại sao nên tránh?",
+        "answer": "Chất béo chuyển hóa là chất béo nhân tạo được tạo ra để thực phẩm tồn tại lâu hơn. Chúng đặc biệt không tốt vì chúng có thể làm tăng **cholesterol xấu** và tăng nguy cơ mắc bệnh tim. Chúng thường có trong đồ ăn chiên và đồ nướng đóng gói.",
+        "tags": [
+            "chất béo chuyển hóa",
+            "trans fat",
+            "nhân tạo",
+            "cholesterol xấu",
+            "bệnh tim"
+        ],
+        "illustration_prompt": "cute educational illustration showing a packaged snack with a warning sign over the 'trans fat' ingredient"
+    },
+    {
+        "id": 22,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao các loại ngũ cốc nguyên hạt (Whole Grains) tốt hơn ngũ cốc tinh chế?",
+        "answer": "Ngũ cốc nguyên hạt (như gạo lứt, yến mạch) chứa **toàn bộ hạt** (bao gồm cám và mầm), chứa nhiều **chất xơ, vitamin và khoáng chất**. Ngũ cốc tinh chế (như gạo trắng) đã loại bỏ những phần đó, nên ít dinh dưỡng hơn nhiều.",
+        "tags": [
+            "ngũ cốc nguyên hạt",
+            "whole grains",
+            "chất xơ",
+            "cám",
+            "mầm"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the layers of a whole grain (bran, germ, endosperm) with the refined grain (only endosperm)"
+    },
+    {
+        "id": 23,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Hóc-môn Insulin có vai trò gì liên quan đến thức ăn?",
+        "answer": "Insulin là một hóc-môn được tuyến tụy tạo ra, nó hoạt động như một chiếc **chìa khóa** giúp đường (glucose) từ máu đi vào các tế bào để biến thành năng lượng. Nếu không có Insulin, đường sẽ bị kẹt lại trong máu.",
+        "tags": [
+            "insulin",
+            "hóc-môn",
+            "tuyến tụy",
+            "glucose",
+            "chìa khóa"
+        ],
+        "illustration_prompt": "cute educational diagram showing an insulin molecule (key) unlocking a cell to allow a glucose molecule to enter and be used for energy"
+    },
+    {
+        "id": 24,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Ngủ có liên quan gì đến tiêu hóa và dinh dưỡng?",
+        "answer": "Khi bạn ngủ, cơ thể không cần nhiều năng lượng, vì vậy nó có thể tập trung vào **sửa chữa và phục hồi**. Đây là thời điểm lý tưởng để cơ thể sử dụng các Protein và chất dinh dưỡng đã hấp thụ để xây dựng cơ bắp và phục hồi tế bào.",
+        "tags": [
+            "giấc ngủ",
+            "phục hồi",
+            "sửa chữa",
+            "xây dựng cơ bắp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleeping child with tiny construction workers inside their body repairing muscles and cells"
+    },
+    {
+        "id": 25,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao ăn thức ăn từ thực vật (Rau, củ, quả) lại quan trọng?",
+        "answer": "Thực phẩm từ thực vật chứa rất nhiều **Vitamin, Khoáng chất** và **Chất chống oxy hóa** giúp bảo vệ tế bào khỏi bị hư hại. Chúng cũng chứa **Chất xơ** giúp hệ tiêu hóa khỏe mạnh. Chúng là nền tảng của một chế độ ăn uống lành mạnh.",
+        "tags": [
+            "thực vật",
+            "rau củ",
+            "chất chống oxy hóa",
+            "chất xơ",
+            "bảo vệ tế bào"
+        ],
+        "illustration_prompt": "cute educational illustration showing various vegetables and fruits forming a protective shield around a body"
+    },
+    {
+        "id": 26,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Làm thế nào việc nhai kỹ giúp tiêu hóa?",
+        "answer": "Nhai kỹ không chỉ chia thức ăn thành những mảnh nhỏ hơn mà còn cho phép nước bọt (chứa enzyme) **trộn đều hơn** với thức ăn. Điều này làm cho việc tiêu hóa trong dạ dày và ruột non trở nên **dễ dàng và hiệu quả** hơn rất nhiều.",
+        "tags": [
+            "nhai kỹ",
+            "tiêu hóa",
+            "nước bọt",
+            "enzyme",
+            "hiệu quả"
+        ],
+        "illustration_prompt": "cute educational diagram showing a large piece of food being chewed into many small pieces, allowing enzymes to coat the surfaces"
+    },
+    {
+        "id": 27,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Tại sao một số người không dung nạp được Lactose (Lactose Intolerance)?",
+        "answer": "Lactose là đường trong sữa. Để tiêu hóa nó, cơ thể cần một enzyme gọi là **Lactase**. Người không dung nạp được Lactose không sản xuất đủ Lactase, vì vậy đường không được phá vỡ, gây ra đau bụng và đầy hơi.",
+        "tags": [
+            "lactose",
+            "không dung nạp",
+            "lactase",
+            "enzyme",
+            "sữa"
+        ],
+        "illustration_prompt": "cute educational diagram showing the enzyme lactase trying to break down a lactose molecule, but failing because there are too few lactase enzymes"
+    },
+    {
+        "id": 28,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Hormone Ghrelin và Leptin có vai trò gì?",
+        "answer": "Hai hormone này điều chỉnh cảm giác thèm ăn. **Ghrelin** được gọi là 'hormone đói', gửi tín hiệu đến não rằng bạn cần ăn. **Leptin** được gọi là 'hormone no', gửi tín hiệu dừng ăn sau khi bạn đã ăn đủ.",
+        "tags": [
+            "hormone",
+            "ghrelin",
+            "leptin",
+            "đói",
+            "no"
+        ],
+        "illustration_prompt": "cute educational diagram showing a ghrelin molecule ringing an alarm bell in the brain (hunger) and a leptin molecule giving a thumbs up (fullness)"
+    },
+    {
+        "id": 29,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Ruột già (Large Intestine) làm gì với những gì còn lại?",
+        "answer": "Ruột non hấp thụ dinh dưỡng, còn ruột già (cũng gọi là đại tràng) chủ yếu hấp thụ **Nước** và **muối khoáng** còn sót lại từ thức ăn không tiêu hóa được. Nó biến chất thải lỏng còn lại thành chất thải rắn (phân) để loại bỏ.",
+        "tags": [
+            "ruột già",
+            "large intestine",
+            "đại tràng",
+            "hấp thụ nước",
+            "chất thải"
+        ],
+        "illustration_prompt": "cute educational diagram showing the large intestine collecting remaining waste and slowly extracting water from it"
+    },
+    {
+        "id": 30,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Ăn uống & dinh dưỡng",
+        "question": "Vì sao uống nhiều nước ngọt có gas lại không tốt cho xương?",
+        "answer": "Nước ngọt có gas thường chứa axit phosphoric. Việc tiêu thụ quá nhiều có thể ảnh hưởng đến khả năng cơ thể **hấp thụ Canxi** và một số khoáng chất khác, vốn rất quan trọng cho việc xây dựng và duy trì xương chắc khỏe.",
+        "tags": [
+            "nước ngọt có gas",
+            "axit phosphoric",
+            "hấp thụ canxi",
+            "xương"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bubbly soda drink with tiny acid molecules trying to block calcium molecules from entering a bone"
+    },
+    {
+        "id": 31,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vì sao chúng ta cần ngủ?",
+        "answer": "Ngủ giống như việc sạc pin và bảo trì hệ thống của cơ thể. Ngủ giúp **phục hồi năng lượng**, **củng cố ký ức** (ghi nhớ những gì bạn học) và cho phép cơ thể **sửa chữa** các cơ bắp và tế bào bị mòn.",
+        "tags": [
+            "phục hồi năng lượng",
+            "củng cố ký ức",
+            "sửa chữa cơ thể",
+            "sạc pin"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleeping child with batteries charging and a brain sorting out memories"
+    },
+    {
+        "id": 32,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Đồng hồ sinh học (Circadian Rhythm) là gì?",
+        "answer": "Đồng hồ sinh học là **đồng hồ bên trong** cơ thể bạn, hoạt động theo chu kỳ khoảng 24 giờ. Nó quyết định khi nào bạn cảm thấy buồn ngủ và khi nào bạn cảm thấy tỉnh táo. **Ánh sáng** (đặc biệt là ánh sáng mặt trời) là yếu tố chính đặt lại đồng hồ này.",
+        "tags": [
+            "đồng hồ sinh học",
+            "circadian rhythm",
+            "chu kỳ 24 giờ",
+            "ánh sáng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a 24-hour cycle with the sun rising (wake up) and the moon appearing (sleep), illustrating the circadian rhythm"
+    },
+    {
+        "id": 33,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hormone Melatonin có vai trò gì trong giấc ngủ?",
+        "answer": "Melatonin là 'hormone ngủ'. Khi trời tối, cơ thể bạn bắt đầu tiết ra Melatonin để **gửi tín hiệu buồn ngủ** đến não. Nó giống như việc bật đèn báo hiệu 'Đã đến giờ đi ngủ' cho cơ thể.",
+        "tags": [
+            "melatonin",
+            "hormone ngủ",
+            "tín hiệu buồn ngủ",
+            "trời tối"
+        ],
+        "illustration_prompt": "cute educational diagram showing the brain releasing melatonin hormone molecules as the sky outside turns dark"
+    },
+    {
+        "id": 34,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hai loại giấc ngủ chính (chu kỳ) là gì?",
+        "answer": "Hai loại chính là **NREM** (Non-Rapid Eye Movement - chuyển động mắt không nhanh) và **REM** (Rapid Eye Movement - chuyển động mắt nhanh). Bạn trải qua cả hai loại trong một chu kỳ ngủ.",
+        "tags": [
+            "chu kỳ ngủ",
+            "NREM",
+            "REM",
+            "chuyển động mắt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sleep cycle graph with alternating periods of NREM (deep sleep) and REM (dreaming)"
+    },
+    {
+        "id": 35,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Điều gì xảy ra trong giấc ngủ sâu (Deep Sleep - giai đoạn NREM 3)?",
+        "answer": "Giấc ngủ sâu là giai đoạn nghỉ ngơi **quan trọng nhất** của cơ thể. Tim đập chậm lại, huyết áp giảm. Đây là lúc cơ thể giải phóng **Hormone tăng trưởng** để giúp trẻ em phát triển và cơ bắp người lớn được sửa chữa tối đa.",
+        "tags": [
+            "giấc ngủ sâu",
+            "NREM 3",
+            "hormone tăng trưởng",
+            "sửa chữa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child growing taller while they are in the deep sleep phase"
+    },
+    {
+        "id": 36,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Điều gì xảy ra trong giai đoạn ngủ REM (Mơ)?",
+        "answer": "Trong REM, mắt bạn di chuyển nhanh, **bộ não bạn rất năng động** (giống như khi thức), và hầu hết **giấc mơ** xảy ra. Cơ thể bạn bị **tê liệt tạm thời** để bạn không thực hiện các hành động trong giấc mơ. REM giúp phát triển não bộ và củng cố ký ức phức tạp.",
+        "tags": [
+            "ngủ REM",
+            "giấc mơ",
+            "não năng động",
+            "tê liệt tạm thời"
+        ],
+        "illustration_prompt": "cute educational diagram showing a brain highly active during REM sleep with colorful dream images floating above the head"
+    },
+    {
+        "id": 37,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hệ thống Glymphatic là gì và hoạt động khi ngủ?",
+        "answer": "Hệ thống Glymphatic là hệ thống 'rửa chén' của bộ não. Khi bạn ngủ sâu, hệ thống này **loại bỏ các chất thải và độc tố** tích tụ trong não khi bạn thức. Nó giúp giữ cho bộ não 'sạch sẽ' và hoạt động tốt vào ngày hôm sau.",
+        "tags": [
+            "hệ thống glymphatic",
+            "rửa chén",
+            "chất thải",
+            "độc tố",
+            "não sạch"
+        ],
+        "illustration_prompt": "cute educational diagram showing fluid washing away waste molecules inside a sleeping brain"
+    },
+    {
+        "id": 38,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vì sao giấc ngủ lại quan trọng cho việc học tập?",
+        "answer": "Khi bạn ngủ, đặc biệt là trong giai đoạn REM và ngủ sâu, bộ não của bạn sẽ **sắp xếp và lưu trữ** những thông tin mới học được. Ngủ đủ giúp bạn chuyển kiến thức từ bộ nhớ ngắn hạn sang **bộ nhớ dài hạn** (ghi nhớ lâu hơn).",
+        "tags": [
+            "học tập",
+            "bộ nhớ",
+            "ghi nhớ",
+            "sắp xếp thông tin"
+        ],
+        "illustration_prompt": "cute educational illustration showing information folders being neatly filed away in a brain during sleep"
+    },
+    {
+        "id": 39,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Sự khác biệt giữa Giấc mơ và Ác mộng là gì?",
+        "answer": "**Giấc mơ** là những câu chuyện và hình ảnh mà bộ não tạo ra khi ngủ (thường trong REM). **Ác mộng** là những giấc mơ gây khó chịu, đáng sợ, thường làm bạn tỉnh giấc và có thể xảy ra trong giai đoạn REM hoặc NREM 3.",
+        "tags": [
+            "giấc mơ",
+            "ác mộng",
+            "REM",
+            "đáng sợ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a bright, happy dream scene with a dark, scary nightmare scene"
+    },
+    {
+        "id": 40,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Uống cà phê hoặc trà vào buổi tối ảnh hưởng đến giấc ngủ như thế nào?",
+        "answer": "Cà phê và trà chứa **Caffeine**. Caffeine là chất kích thích, nó **ngăn chặn** các hóa chất gây buồn ngủ tự nhiên trong não, khiến bạn cảm thấy tỉnh táo hơn. Uống quá gần giờ ngủ sẽ làm bạn khó đi vào giấc ngủ sâu.",
+        "tags": [
+            "caffeine",
+            "chất kích thích",
+            "khó ngủ",
+            "tỉnh táo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a caffeine molecule blocking the pathway of a sleepy hormone molecule in the brain"
+    },
+    {
+        "id": 41,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vệ sinh giấc ngủ (Sleep Hygiene) là gì?",
+        "answer": "Vệ sinh giấc ngủ là việc xây dựng các **thói quen lành mạnh** để đảm bảo bạn ngủ ngon. Điều này bao gồm việc đi ngủ và thức dậy vào cùng một thời điểm, giữ phòng ngủ tối và mát mẻ, và tránh các thiết bị điện tử trước khi ngủ.",
+        "tags": [
+            "vệ sinh giấc ngủ",
+            "thói quen lành mạnh",
+            "giờ giấc cố định",
+            "phòng tối"
+        ],
+        "illustration_prompt": "cute educational checklist showing good sleep hygiene habits (consistent bedtime, dark room, no phone)"
+    },
+    {
+        "id": 42,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Tại sao một số người bị mộng du (Sleepwalking)?",
+        "answer": "Mộng du xảy ra khi một người **tỉnh dậy một phần** trong giai đoạn **ngủ sâu** (NREM 3), nhưng não vẫn chưa hoàn toàn tỉnh táo. Họ có thể đi lại hoặc thực hiện các hành động đơn giản mà không nhớ gì về nó khi thức dậy.",
+        "tags": [
+            "mộng du",
+            "sleepwalking",
+            "ngủ sâu",
+            "tỉnh dậy một phần"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person walking slowly in a dark room with a crescent moon above their head, illustrating sleepwalking"
+    },
+    {
+        "id": 43,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Ánh sáng xanh (Blue Light) từ điện thoại ảnh hưởng đến giấc ngủ như thế nào?",
+        "answer": "Ánh sáng xanh (từ điện thoại, máy tính bảng) **đánh lừa** bộ não rằng vẫn là ban ngày. Điều này **ngăn chặn** việc sản xuất Melatonin, làm cho cơ thể khó cảm thấy buồn ngủ và trì hoãn thời gian bạn đi vào giấc ngủ.",
+        "tags": [
+            "ánh sáng xanh",
+            "blue light",
+            "ngăn melatonin",
+            "trì hoãn ngủ"
+        ],
+        "illustration_prompt": "cute educational diagram showing blue light waves hitting a brain and stopping the release of melatonin"
+    },
+    {
+        "id": 44,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Nghỉ ngơi khác Ngủ như thế nào?",
+        "answer": "**Ngủ** là một trạng thái vô thức, chủ động giúp cơ thể phục hồi sâu. **Nghỉ ngơi** là trạng thái thư giãn (ví dụ: ngồi yên, đọc sách, thiền) nơi bạn vẫn tỉnh táo nhưng cho phép cơ thể và tâm trí bạn chậm lại, giảm căng thẳng.",
+        "tags": [
+            "ngủ",
+            "nghỉ ngơi",
+            "vô thức",
+            "tỉnh táo",
+            "thư giãn"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a child deeply asleep (sleep) and a child quietly reading a book (rest)"
+    },
+    {
+        "id": 45,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Cần ngủ bao nhiêu tiếng mỗi đêm là đủ cho trẻ em?",
+        "answer": "Hầu hết **trẻ em trong độ tuổi đi học** (6-13 tuổi) cần từ **9 đến 11 tiếng** ngủ mỗi đêm. Thanh thiếu niên (14-17 tuổi) cần khoảng 8 đến 10 tiếng. Ngủ đủ giờ là rất quan trọng cho sự phát triển toàn diện.",
+        "tags": [
+            "số giờ ngủ",
+            "trẻ em",
+            "thanh thiếu niên",
+            "9-11 tiếng"
+        ],
+        "illustration_prompt": "cute educational chart showing the recommended hours of sleep for different age groups"
+    },
+    {
+        "id": 46,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vì sao chúng ta ngáp (Yawn)?",
+        "answer": "Ngáp có thể xảy ra khi bạn cảm thấy buồn ngủ, mệt mỏi hoặc buồn chán. Mặc dù lý do chính xác vẫn còn đang được nghiên cứu, nhưng một giả thuyết phổ biến là ngáp giúp **làm mát bộ não** bằng cách đưa một lượng lớn không khí mát vào phổi.",
+        "tags": [
+            "ngáp",
+            "yawn",
+            "làm mát bộ não",
+            "buồn ngủ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large open mouth yawning with a breeze of cool air entering the body"
+    },
+    {
+        "id": 47,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hội chứng Chân không yên (Restless Legs Syndrome - RLS) là gì?",
+        "answer": "RLS là một tình trạng thần kinh khiến người bệnh có cảm giác **khó chịu, ngứa ran** ở chân và có một **thôi thúc không thể cưỡng lại** để di chuyển chúng, đặc biệt là khi họ nghỉ ngơi hoặc cố gắng ngủ, gây khó khăn lớn cho việc đi vào giấc ngủ.",
+        "tags": [
+            "chân không yên",
+            "RLS",
+            "ngứa ran",
+            "thôi thúc di chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a pair of legs twitching uncontrollably while a person is lying in bed, unable to rest"
+    },
+    {
+        "id": 48,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Ngủ trưa (Nap) có lợi ích gì?",
+        "answer": "Một giấc ngủ trưa ngắn (khoảng $20 - 30 \text{ phút}$) có thể giúp cải thiện sự **tỉnh táo** và **tâm trạng** của bạn. Giấc ngủ trưa quá dài (trên một giờ) có thể khiến bạn đi vào giấc ngủ sâu và khi thức dậy sẽ cảm thấy uể oải hơn.",
+        "tags": [
+            "ngủ trưa",
+            "nap",
+            "tỉnh táo",
+            "tâm trạng",
+            "20-30 phút"
+        ],
+        "illustration_prompt": "cute educational diagram showing a 20-minute power nap boosting a child's alertness level bar"
+    },
+    {
+        "id": 49,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vì sao đôi khi bạn cảm thấy 'giật mình' khi đang ngủ say?",
+        "answer": "Hiện tượng này gọi là **giật mình thôi miên** (Hypnic Jerk). Nó xảy ra khi cơ thể chuyển từ trạng thái thức sang ngủ. Các nhà khoa học nghĩ rằng não đôi khi hiểu sai sự thư giãn cơ bắp nhanh chóng là tín hiệu rơi, khiến cơ thể bạn co giật để 'bắt' chính mình.",
+        "tags": [
+            "giật mình thôi miên",
+            "hypnic jerk",
+            "thư giãn cơ bắp",
+            "rơi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleeping person's body twitching suddenly, with a tiny brain alarm clock going off"
+    },
+    {
+        "id": 50,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hormone Cortisol (Stress Hormone) có liên quan gì đến giấc ngủ?",
+        "answer": "Cortisol là hormone giúp bạn tỉnh táo và sẵn sàng hành động. Mức độ Cortisol **giảm** vào buổi tối (để bạn ngủ) và **tăng** vào buổi sáng sớm (để bạn thức dậy). Căng thẳng quá mức có thể giữ mức Cortisol cao vào ban đêm, gây mất ngủ.",
+        "tags": [
+            "cortisol",
+            "hormone stress",
+            "mất ngủ",
+            "tỉnh táo"
+        ],
+        "illustration_prompt": "cute educational diagram showing the level of cortisol hormone decreasing rapidly at night and peaking in the morning"
+    },
+    {
+        "id": 51,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Cố gắng 'bắt kịp' giấc ngủ vào cuối tuần có hiệu quả không?",
+        "answer": "Việc này được gọi là 'ngủ bù'. Ngủ bù có thể giúp bạn cảm thấy đỡ mệt mỏi hơn một chút, nhưng nó **không thể hoàn toàn đảo ngược** những tác hại do thiếu ngủ mãn tính gây ra. Nó cũng làm rối loạn đồng hồ sinh học của bạn, khiến việc dậy sớm vào thứ Hai trở nên khó khăn hơn.",
+        "tags": [
+            "ngủ bù",
+            "thiếu ngủ",
+            "rối loạn đồng hồ sinh học",
+            "không hiệu quả"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleepy child trying to fill a bucket with sleep during the weekend, but the bucket has holes"
+    },
+    {
+        "id": 52,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vị trí ngủ tốt nhất là gì?",
+        "answer": "Vị trí ngủ tốt nhất là **nằm ngửa** hoặc **nằm nghiêng**. Nằm sấp thường không được khuyến khích vì nó gây áp lực lên lưng và cổ của bạn, có thể gây đau. Nằm nghiêng giúp ngăn ngừa chứng ngáy và trào ngược axit.",
+        "tags": [
+            "vị trí ngủ",
+            "nằm ngửa",
+            "nằm nghiêng",
+            "nằm sấp"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the pressure points on the spine for different sleeping positions (best: side/back, worst: stomach)"
+    },
+    {
+        "id": 53,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Nói mớ (Sleep Talking) có nguy hiểm không?",
+        "answer": "Nói mớ là hiện tượng phổ biến và **vô hại**. Nó xảy ra trong bất kỳ giai đoạn ngủ nào, nhưng thường xuyên hơn trong giấc ngủ NREM nhẹ (giai đoạn 1 và 2). Bạn không có ý thức về những gì bạn đang nói và không nhớ nó khi thức dậy.",
+        "tags": [
+            "nói mớ",
+            "sleep talking",
+            "vô hại",
+            "ngủ NREM nhẹ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a speech bubble coming out of a sleeping person's mouth with nonsensical words"
+    },
+    {
+        "id": 54,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Chất dẫn truyền thần kinh Adenosine làm gì?",
+        "answer": "Adenosine là một chất hóa học tích tụ trong não khi bạn thức. Nó hoạt động như một bộ **đếm thời gian** gây buồn ngủ. Adenosine càng tích tụ nhiều thì bạn càng cảm thấy **áp lực ngủ** (sleep pressure) lớn hơn. Giấc ngủ giúp làm sạch Adenosine.",
+        "tags": [
+            "adenosine",
+            "chất dẫn truyền thần kinh",
+            "áp lực ngủ",
+            "đếm thời gian"
+        ],
+        "illustration_prompt": "cute educational diagram showing adenosine molecules accumulating in the brain throughout the day, increasing sleep pressure"
+    },
+    {
+        "id": 55,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Giấc ngủ có giúp bạn giảm cân không?",
+        "answer": "Giấc ngủ không trực tiếp làm bạn giảm cân, nhưng nó giúp **điều chỉnh** các hormone thèm ăn (**Ghrelin** gây đói và **Leptin** gây no). Khi thiếu ngủ, hormone Ghrelin tăng lên và Leptin giảm xuống, khiến bạn cảm thấy đói hơn và dễ thèm ăn vặt.",
+        "tags": [
+            "giảm cân",
+            "hormone thèm ăn",
+            "ghrelin",
+            "leptin",
+            "điều chỉnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing the hunger hormone Ghrelin rising and the fullness hormone Leptin dropping when a person has poor sleep"
+    },
+    {
+        "id": 56,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Hệ thống miễn dịch được tăng cường như thế nào khi ngủ?",
+        "answer": "Trong khi ngủ, cơ thể bạn tạo ra và giải phóng các **Cytokine** (loại Protein chống viêm). Cytokine giúp chống lại viêm nhiễm, bệnh tật và căng thẳng. Ngủ không đủ giấc làm giảm khả năng sản xuất Cytokine, khiến bạn dễ bị ốm hơn.",
+        "tags": [
+            "hệ miễn dịch",
+            "cytokine",
+            "chống viêm",
+            "chống bệnh tật"
+        ],
+        "illustration_prompt": "cute educational illustration showing the immune system cells actively producing protective cytokine molecules during deep sleep"
+    },
+    {
+        "id": 57,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Vì sao đôi khi chúng ta thức dậy và không thể di chuyển cơ thể?",
+        "answer": "Điều này được gọi là **Tê liệt khi ngủ** (Sleep Paralysis). Nó xảy ra khi bạn tỉnh dậy trong khi cơ thể vẫn còn trong trạng thái **tê liệt tạm thời** của giai đoạn REM. Nó có thể đáng sợ nhưng hoàn toàn vô hại và chỉ kéo dài trong vài giây hoặc vài phút.",
+        "tags": [
+            "tê liệt khi ngủ",
+            "sleep paralysis",
+            "ngủ REM",
+            "tê liệt tạm thời"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person waking up in bed but unable to move their limbs, with the sleep paralysis effect"
+    },
+    {
+        "id": 58,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Giấc mơ có ý nghĩa gì?",
+        "answer": "Các nhà khoa học có nhiều giả thuyết. Giấc mơ có thể là cách bộ não **xử lý cảm xúc**, **thực hành** đối phó với các tình huống nguy hiểm, hoặc đơn giản là cách bộ não **sắp xếp** những thông tin dư thừa mà nó không cần nữa.",
+        "tags": [
+            "ý nghĩa giấc mơ",
+            "xử lý cảm xúc",
+            "thực hành",
+            "sắp xếp thông tin"
+        ],
+        "illustration_prompt": "cute educational illustration showing a brain processing and sorting out complex emotional symbols during a dream"
+    },
+    {
+        "id": 59,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Làm thế nào để 'dọn dẹp' phòng ngủ để ngủ ngon hơn?",
+        "answer": "Phòng ngủ của bạn nên là 'thánh đường ngủ'. Hãy đảm bảo phòng **tối**, **mát mẻ** (nhiệt độ mát giúp ngủ nhanh hơn), và **yên tĩnh**. Quan trọng nhất là chỉ nên sử dụng giường để ngủ, tránh làm việc hoặc xem TV trên giường.",
+        "tags": [
+            "dọn dẹp phòng ngủ",
+            "phòng tối",
+            "mát mẻ",
+            "yên tĩnh",
+            "thánh đường ngủ"
+        ],
+        "illustration_prompt": "cute educational illustration of a dark, cool, and quiet bedroom optimized for sleeping"
+    },
+    {
+        "id": 60,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Giấc ngủ & nghỉ ngơi",
+        "question": "Mối quan hệ giữa giấc ngủ và tâm trạng (Mood) là gì?",
+        "answer": "Ngủ đủ giúp bạn **kiểm soát cảm xúc** tốt hơn. Khi bạn thiếu ngủ, bạn dễ bị **cáu kỉnh, buồn bã hoặc lo lắng**. Bộ não cần ngủ để thiết lập lại các vùng kiểm soát cảm xúc, giúp bạn vui vẻ và bình tĩnh hơn vào ngày hôm sau.",
+        "tags": [
+            "tâm trạng",
+            "cáu kỉnh",
+            "kiểm soát cảm xúc",
+            "vui vẻ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a well-rested child with a happy, stable mood versus a sleep-deprived child with an angry, unstable mood"
+    },
+    {
+        "id": 61,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao hoạt động thể chất (Physical Activity) lại quan trọng?",
+        "answer": "Hoạt động thể chất giúp cơ thể bạn khỏe mạnh, giúp xương và cơ **chắc khỏe**, giúp **trái tim** bơm máu hiệu quả hơn, và giúp **bộ não** của bạn học tập và tập trung tốt hơn. Cơ thể con người được thiết kế để di chuyển!",
+        "tags": [
+            "hoạt động thể chất",
+            "sức khỏe",
+            "tim mạch",
+            "cơ xương",
+            "tập trung"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child running with energy flowing to their heart, muscles, and brain"
+    },
+    {
+        "id": 62,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Cơ bắp (Muscles) hoạt động như thế nào để giúp chúng ta di chuyển?",
+        "answer": "Cơ bắp hoạt động bằng cách **co lại** (rút ngắn lại), và điều này tạo ra lực **kéo** lên xương. Cơ bắp không thể tự đẩy. Để duỗi một cánh tay, bạn cần phải thư giãn một nhóm cơ và co nhóm cơ đối diện.",
+        "tags": [
+            "cơ bắp",
+            "co lại",
+            "kéo",
+            "xương",
+            "nhóm cơ đối diện"
+        ],
+        "illustration_prompt": "cute educational diagram showing biceps and triceps working together to bend and straighten the arm (biceps pull, triceps relax, then vice versa)"
+    },
+    {
+        "id": 63,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Bài tập tim mạch (Cardio) là gì và có lợi ích gì?",
+        "answer": "Bài tập tim mạch (ví dụ: chạy, bơi, nhảy dây) là hoạt động làm **tăng nhịp tim** và hơi thở của bạn. Lợi ích là làm cho **trái tim và phổi** của bạn khỏe hơn, cho phép chúng cung cấp oxy và năng lượng hiệu quả hơn cho cơ thể.",
+        "tags": [
+            "cardio",
+            "bài tập tim mạch",
+            "tăng nhịp tim",
+            "phổi khỏe",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational illustration showing a strong, happy heart pumping blood efficiently during a run"
+    },
+    {
+        "id": 64,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Sự khác biệt giữa sức mạnh (Strength) và sức bền (Endurance)?",
+        "answer": "**Sức mạnh** là khả năng cơ bắp tạo ra lực lớn trong một khoảng thời gian ngắn (ví dụ: nâng vật nặng). **Sức bền** là khả năng cơ bắp duy trì hoạt động trong thời gian dài (ví dụ: chạy marathon hoặc bơi đường dài).",
+        "tags": [
+            "sức mạnh",
+            "sức bền",
+            "strength",
+            "endurance",
+            "thời gian dài"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a weightlifter (strength) and a long-distance runner (endurance)"
+    },
+    {
+        "id": 65,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao chúng ta thở nhanh hơn khi tập thể dục?",
+        "answer": "Khi tập thể dục, cơ bắp cần **nhiều oxy hơn** để tạo ra năng lượng và cần loại bỏ **Carbon Dioxide** nhanh hơn. Hít thở nhanh hơn giúp máu nhận được oxy và thải $\text{CO}_2$ nhanh hơn để giữ cho cơ bắp hoạt động.",
+        "tags": [
+            "thở nhanh",
+            "oxy",
+            "carbon dioxide",
+            "tạo năng lượng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the lungs rapidly taking in oxygen and expelling CO2 during vigorous exercise"
+    },
+    {
+        "id": 66,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Endorphin (Hormone Hạnh phúc) là gì?",
+        "answer": "Endorphin là các hóa chất tự nhiên mà cơ thể bạn giải phóng khi bạn vận động mạnh. Chúng hoạt động như một loại **thuốc giảm đau tự nhiên** và là nguyên nhân khiến bạn cảm thấy **vui vẻ** và **sảng khoái** sau khi tập thể dục (còn gọi là 'runner's high').",
+        "tags": [
+            "endorphin",
+            "hormone hạnh phúc",
+            "giảm đau tự nhiên",
+            "sảng khoái"
+        ],
+        "illustration_prompt": "cute educational illustration showing endorphin molecules (represented as tiny happy faces) being released into the brain during a run"
+    },
+    {
+        "id": 67,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Việc khởi động (Warm-up) trước khi tập thể dục có vai trò gì?",
+        "answer": "Khởi động làm tăng dần **nhịp tim** và **lưu lượng máu** đến cơ bắp. Điều này làm cho cơ bắp của bạn **ấm hơn và linh hoạt hơn**, giúp ngăn ngừa chấn thương (rách cơ) trong quá trình tập luyện.",
+        "tags": [
+            "khởi động",
+            "warm-up",
+            "tăng lưu lượng máu",
+            "ngăn ngừa chấn thương"
+        ],
+        "illustration_prompt": "cute educational diagram showing stiff muscles becoming more pliable and ready for action after a light warm-up stretch"
+    },
+    {
+        "id": 68,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao xương của chúng ta trở nên chắc khỏe hơn khi chúng ta tập luyện?",
+        "answer": "Khi bạn chạy, nhảy hoặc nâng tạ, bạn đang tạo ra **áp lực** (stress) lên xương. Xương phản ứng lại áp lực này bằng cách hấp thụ nhiều Canxi hơn và tạo ra **mô xương mới**, khiến chúng trở nên dày đặc và cứng cáp hơn.",
+        "tags": [
+            "xương",
+            "canxi",
+            "mô xương mới",
+            "áp lực",
+            "chắc khỏe"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bone strengthening and thickening in response to a jumping impact"
+    },
+    {
+        "id": 69,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Việc giãn cơ (Stretching) sau khi tập thể dục có vai trò gì?",
+        "answer": "Giãn cơ giúp cơ bắp của bạn **dài ra** và **giảm căng thẳng**, ngăn ngừa tình trạng cơ bị co cứng (soreness) vào ngày hôm sau. Nó cũng là một phần của quá trình hạ nhiệt (Cool-down) để tim bạn từ từ trở lại nhịp đập bình thường.",
+        "tags": [
+            "giãn cơ",
+            "stretching",
+            "giảm căng thẳng",
+            "hạ nhiệt",
+            "linh hoạt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child stretching their leg muscles after a run"
+    },
+    {
+        "id": 70,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Nhịp tim tối đa (Maximum Heart Rate) là gì?",
+        "answer": "Nhịp tim tối đa là **số lần tim bạn có thể đập trong một phút** khi bạn hoạt động thể chất ở cường độ cao nhất. Đối với trẻ em, việc biết nhịp tim giúp đảm bảo tập luyện hiệu quả nhưng không quá sức. (Công thức gần đúng: $220 - \text{tuổi}$ của bạn).",
+        "tags": [
+            "nhịp tim tối đa",
+            "maximum heart rate",
+            "cường độ cao",
+            "công thức"
+        ],
+        "illustration_prompt": "cute educational diagram showing a digital heart rate monitor flashing a high number during a sprint"
+    },
+    {
+        "id": 71,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao uống nước (Hydration) rất quan trọng khi tập thể dục?",
+        "answer": "Khi tập thể dục, cơ thể bạn mất nước qua **mồ hôi** để tự làm mát. Mất nước có thể làm bạn **mệt mỏi**, chóng mặt, và làm giảm hiệu suất. Uống nước thay thế chất lỏng đã mất giúp cơ thể bạn tiếp tục hoạt động và điều chỉnh nhiệt độ.",
+        "tags": [
+            "uống nước",
+            "hydration",
+            "mồ hôi",
+            "điều chỉnh nhiệt độ",
+            "mệt mỏi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a water bottle replenishing a body that is sweating heavily during exercise"
+    },
+    {
+        "id": 72,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Mối quan hệ giữa thể chất và tâm trạng (Mood) là gì?",
+        "answer": "Tập thể dục là một liều thuốc tăng cường tâm trạng tuyệt vời. Nó giúp **giảm căng thẳng và lo lắng** và cải thiện sự tự tin. Vận động giúp máu lưu thông đến não, làm bạn **cảm thấy tỉnh táo** và tích cực hơn.",
+        "tags": [
+            "tâm trạng",
+            "căng thẳng",
+            "lo lắng",
+            "tự tin",
+            "tỉnh táo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child's brain becoming brighter and happier after a session of physical play"
+    },
+    {
+        "id": 73,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Thể dục nhịp điệu (Aerobic) khác Thể dục yếm khí (Anaerobic) như thế nào?",
+        "answer": "**Aerobic** (như chạy bộ) là bài tập sử dụng **oxy** để tạo ra năng lượng và có thể duy trì trong thời gian dài. **Anaerobic** (như nâng tạ nặng, chạy nước rút) là bài tập không cần oxy, tạo ra năng lượng nhanh nhưng chỉ duy trì được trong thời gian ngắn.",
+        "tags": [
+            "aerobic",
+            "anaerobic",
+            "oxy",
+            "thời gian dài",
+            "chạy nước rút"
+        ],
+        "illustration_prompt": "cute educational diagram comparing an aerobic activity (long-distance running with steady breathing) and an anaerobic activity (lifting a very heavy weight)"
+    },
+    {
+        "id": 74,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Chấn thương do sử dụng quá mức (Overuse Injury) là gì?",
+        "answer": "Chấn thương do sử dụng quá mức là tổn thương xảy ra do **tập luyện lặp đi lặp lại** một chuyển động cụ thể trong thời gian dài (ví dụ: đau đầu gối do chạy quá nhiều hoặc chấn thương khuỷu tay do chơi tennis liên tục). Cần phải nghỉ ngơi để cơ thể kịp phục hồi.",
+        "tags": [
+            "chấn thương",
+            "overuse injury",
+            "lặp đi lặp lại",
+            "nghỉ ngơi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child's knee joint with small red marks indicating stress from repetitive running"
+    },
+    {
+        "id": 75,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao hoạt động thể chất giúp bạn ngủ ngon hơn?",
+        "answer": "Hoạt động thể chất làm tiêu hao **năng lượng dư thừa** và có thể tăng nhẹ nhiệt độ cơ thể. Khi nhiệt độ này giảm xuống vào buổi tối, đó là một **tín hiệu tự nhiên** cho cơ thể rằng đã đến lúc cần phải ngủ sâu và nghỉ ngơi.",
+        "tags": [
+            "giấc ngủ",
+            "tiêu hao năng lượng",
+            "tín hiệu tự nhiên",
+            "nhiệt độ cơ thể"
+        ],
+        "illustration_prompt": "cute educational diagram showing high activity leading to a drop in body temperature at bedtime, which signals better sleep"
+    },
+    {
+        "id": 76,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Lợi ích của việc tập luyện ngoài trời so với tập luyện trong nhà?",
+        "answer": "Tập luyện ngoài trời giúp bạn tiếp xúc với **ánh nắng mặt trời** (tăng cường Vitamin D) và **không khí trong lành**. Việc tiếp xúc với thiên nhiên đã được chứng minh là có thể **giảm căng thẳng** và cải thiện sự tập trung.",
+        "tags": [
+            "ngoài trời",
+            "ánh nắng mặt trời",
+            "vitamin D",
+            "giảm căng thẳng",
+            "thiên nhiên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child doing stretching exercises in a sunny park with trees and birds"
+    },
+    {
+        "id": 77,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Làm thế nào để đo cường độ tập luyện của bạn?",
+        "answer": "Một cách đơn giản là **Kiểm tra Nói chuyện (Talk Test)**. Nếu bạn có thể nói chuyện bình thường (hát), đó là cường độ nhẹ. Nếu bạn chỉ có thể nói một vài câu ngắn (chứ không phải cả đoạn văn), đó là cường độ vừa phải (tốt nhất). Nếu bạn không thể nói được, đó là cường độ cao.",
+        "tags": [
+            "cường độ",
+            "talk test",
+            "kiểm tra nói chuyện",
+            "cường độ vừa phải"
+        ],
+        "illustration_prompt": "cute educational diagram showing three levels of exercise intensity corresponding to being able to sing, talk in sentences, or only talk in gasps"
+    },
+    {
+        "id": 78,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Tập thể dục giúp hệ thống miễn dịch của bạn như thế nào?",
+        "answer": "Tập thể dục vừa phải giúp **cải thiện lưu thông máu** và bạch huyết, cho phép các tế bào chống lại bệnh tật (tế bào miễn dịch) di chuyển khắp cơ thể hiệu quả hơn. Tuy nhiên, tập luyện **quá sức** có thể tạm thời làm suy yếu hệ miễn dịch.",
+        "tags": [
+            "hệ thống miễn dịch",
+            "lưu thông máu",
+            "tế bào miễn dịch",
+            "chống bệnh tật"
+        ],
+        "illustration_prompt": "cute educational illustration showing immune cells traveling faster through the bloodstream in an exercising body"
+    },
+    {
+        "id": 79,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao cơ bắp của bạn bị đau (Soreness) sau một buổi tập nặng?",
+        "answer": "Cơn đau thường là do các **vết rách nhỏ** (micro-tears) trong các sợi cơ. Cơ thể sửa chữa các vết rách này, và khi chúng lành lại, cơ bắp sẽ **khỏe hơn và lớn hơn** trước. Đây là dấu hiệu cơ thể bạn đang thích nghi và trở nên mạnh mẽ hơn.",
+        "tags": [
+            "đau cơ",
+            "soreness",
+            "vết rách nhỏ",
+            "phục hồi",
+            "khỏe hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing tiny microscopic tears in a muscle fiber after exercise, with small workers rushing in to repair them"
+    },
+    {
+        "id": 80,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vận động có vai trò gì trong việc kiểm soát cân nặng?",
+        "answer": "Vận động giúp **đốt cháy Calorie** (năng lượng). Cùng với chế độ ăn uống lành mạnh, việc đốt cháy Calorie dư thừa này giúp cơ thể duy trì cân nặng khỏe mạnh. Vận động cũng xây dựng cơ bắp, giúp bạn đốt cháy Calorie nhiều hơn ngay cả khi nghỉ ngơi.",
+        "tags": [
+            "kiểm soát cân nặng",
+            "đốt cháy calorie",
+            "cơ bắp",
+            "nghỉ ngơi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a calorie being 'burned' away by a running flame icon during exercise"
+    },
+    {
+        "id": 81,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Tầm quan trọng của tư thế (Posture) tốt khi đứng và ngồi?",
+        "answer": "Tư thế tốt giúp giữ cho **xương sống** của bạn thẳng hàng, giảm căng thẳng lên cơ bắp và dây chằng, và cho phép bạn **thở sâu hơn**. Tư thế xấu có thể dẫn đến đau lưng và mệt mỏi.",
+        "tags": [
+            "tư thế",
+            "posture",
+            "xương sống",
+            "giảm căng thẳng",
+            "thở sâu"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a healthy, straight spine posture (good) and a slouched, curved posture (bad)"
+    },
+    {
+        "id": 82,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Loại thực phẩm nào tốt nhất để ăn trước khi tập luyện?",
+        "answer": "Thực phẩm giàu **Carbohydrate** dễ tiêu hóa (như chuối, yến mạch) là tốt nhất. Carb cung cấp **năng lượng nhanh** và sẵn có cho cơ bắp của bạn. Tránh ăn quá nhiều chất béo hoặc chất xơ ngay trước khi tập vì chúng tiêu hóa chậm hơn.",
+        "tags": [
+            "trước tập luyện",
+            "carbohydrate",
+            "chuối",
+            "năng lượng nhanh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a banana and a bowl of oatmeal with an energy boost arrow pointing towards a running figure"
+    },
+    {
+        "id": 83,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Loại thực phẩm nào tốt nhất để ăn sau khi tập luyện?",
+        "answer": "Sau khi tập luyện, bạn cần nạp lại **Carbohydrate** (để bổ sung năng lượng đã mất) và **Protein** (để sửa chữa cơ bắp). Ví dụ: sữa sô cô la (có cả hai) hoặc thịt gà với rau củ.",
+        "tags": [
+            "sau tập luyện",
+            "protein",
+            "carbohydrate",
+            "sửa chữa cơ bắp",
+            "sữa sô cô la"
+        ],
+        "illustration_prompt": "cute educational illustration showing a meal containing chicken and vegetables with arrows pointing to muscle repair and energy replenishment"
+    },
+    {
+        "id": 84,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Chạy bộ (Running) có thể giúp bộ não bạn như thế nào?",
+        "answer": "Chạy bộ giúp tăng **lưu lượng máu** lên não, cung cấp thêm oxy và chất dinh dưỡng. Điều này có thể kích thích tạo ra các tế bào thần kinh mới và cải thiện sự **tập trung, trí nhớ** và khả năng giải quyết vấn đề của bạn.",
+        "tags": [
+            "chạy bộ",
+            "bộ não",
+            "lưu lượng máu",
+            "tập trung",
+            "trí nhớ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child running with their brain glowing brightly with increased blood flow"
+    },
+    {
+        "id": 85,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Vì sao việc giữ thăng bằng (Balance) lại quan trọng?",
+        "answer": "Giữ thăng bằng là khả năng kiểm soát vị trí cơ thể của bạn, cho dù bạn đang đứng yên hay đang di chuyển. Khả năng thăng bằng tốt giúp bạn **ngăn ngừa té ngã và chấn thương** và cải thiện hiệu suất trong hầu hết các môn thể thao.",
+        "tags": [
+            "thăng bằng",
+            "balance",
+            "ngăn ngừa té ngã",
+            "kiểm soát cơ thể",
+            "môn thể thao"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child successfully balancing on one leg"
+    },
+    {
+        "id": 86,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Tập luyện sức bền (Resistance Training) là gì?",
+        "answer": "Tập luyện sức bền (ví dụ: dùng tạ, dây kháng lực, hoặc trọng lượng cơ thể) là bất kỳ hoạt động nào buộc cơ bắp của bạn phải làm việc chống lại một **lực cản bên ngoài**. Nó là cách hiệu quả nhất để **xây dựng cơ bắp** và tăng cường sức mạnh của xương.",
+        "tags": [
+            "tập luyện sức bền",
+            "resistance training",
+            "xây dựng cơ bắp",
+            "lực cản",
+            "tạ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child doing a push-up, using their own body weight as resistance"
+    },
+    {
+        "id": 87,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Tại sao một số người đổ mồ hôi nhiều hơn những người khác khi tập thể dục?",
+        "answer": "Mức độ đổ mồ hôi chủ yếu phụ thuộc vào **Gen** của bạn, **mức độ thích nghi** của cơ thể (những người tập luyện thường xuyên đổ mồ hôi sớm hơn và nhiều hơn), và **môi trường** (nóng ẩm hơn). Đổ mồ hôi là một điều tốt, đó là cách cơ thể tự làm mát.",
+        "tags": [
+            "đổ mồ hôi",
+            "gene",
+            "thích nghi",
+            "môi trường",
+            "làm mát cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration comparing two figures exercising: one sweating profusely and the other sweating less"
+    },
+    {
+        "id": 88,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Làm thế nào để tránh bị chuột rút (Muscle Cramps) khi đang chạy?",
+        "answer": "Chuột rút thường là dấu hiệu của **mất nước**, **thiếu chất điện giải** (như Kali hoặc Natri) hoặc cơ bắp bị **quá tải**. Để tránh chuột rút, hãy uống đủ nước, bổ sung chất điện giải và không đẩy cơ thể tập quá nhanh hoặc quá sức.",
+        "tags": [
+            "chuột rút",
+            "muscle cramps",
+            "mất nước",
+            "chất điện giải",
+            "quá tải"
+        ],
+        "illustration_prompt": "cute educational illustration showing a runner suddenly stopping and clutching their calf muscle with a painful expression"
+    },
+    {
+        "id": 89,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Tại sao việc học một kỹ năng mới (ví dụ: nhảy múa, tennis) lại tốt cho bộ não?",
+        "answer": "Học một kỹ năng vận động mới tạo ra những **kết nối thần kinh mới** trong não. Nó không chỉ cải thiện sự phối hợp cơ thể (kỹ năng vận động) mà còn giúp tăng cường **trí nhớ** và khả năng học hỏi các môn học khác.",
+        "tags": [
+            "kỹ năng mới",
+            "kết nối thần kinh",
+            "phối hợp cơ thể",
+            "trí nhớ"
+        ],
+        "illustration_prompt": "cute educational illustration showing new electrical connections being formed between neurons in the brain while a person learns to juggle"
+    },
+    {
+        "id": 90,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vận động & hoạt động thể chất",
+        "question": "Chơi game có thể được coi là hoạt động thể chất không?",
+        "answer": "Thông thường là không, nhưng **Game thể thao tương tác** (như chơi bằng máy $\text{Wii}$ hoặc $\text{VR}$) có thể được coi là hoạt động thể chất nhẹ đến vừa phải, tùy thuộc vào cường độ. Các trò chơi này giúp cơ thể di chuyển và có thể là một cách tuyệt vời để bắt đầu vận động.",
+        "tags": [
+            "chơi game",
+            "hoạt động thể chất tương tác",
+            "VR",
+            "Wii",
+            "cường độ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child actively moving and jumping while playing a sports game on a VR headset"
+    },
+    {
+        "id": 91,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Cảm xúc (Emotions) là gì?",
+        "answer": "Cảm xúc là những **phản ứng mạnh mẽ** của cơ thể và tâm trí đối với những gì xảy ra xung quanh bạn. Chúng là một cách để bộ não nói với bạn rằng điều gì đó **quan trọng** đang diễn ra và giúp bạn quyết định nên hành động như thế nào.",
+        "tags": [
+            "cảm xúc",
+            "emotions",
+            "phản ứng mạnh mẽ",
+            "quan trọng",
+            "hành động"
+        ],
+        "illustration_prompt": "cute educational illustration showing a variety of basic emotional facial expressions (happy, sad, angry, surprised, scared)"
+    },
+    {
+        "id": 92,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Vì sao chúng ta có cảm xúc sợ hãi (Fear)?",
+        "answer": "Sợ hãi là một cảm xúc **sinh tồn** rất quan trọng. Nó cảnh báo bạn về **nguy hiểm** và giúp bạn chuẩn bị để **chạy trốn** (flight) hoặc **chiến đấu** (fight). Khi sợ hãi, tim bạn đập nhanh hơn và cơ bắp căng hơn để sẵn sàng hành động.",
+        "tags": [
+            "sợ hãi",
+            "fear",
+            "sinh tồn",
+            "nguy hiểm",
+            "chạy trốn",
+            "chiến đấu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a small, frightened person with their heart beating fast and muscles tensing up"
+    },
+    {
+        "id": 93,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Phần nào của não xử lý cảm xúc sợ hãi và cảnh báo nguy hiểm?",
+        "answer": "Đó là **Hạch hạnh nhân (Amygdala)**. Amygdala hoạt động như một **chuông báo động** khẩn cấp của bộ não. Nó phản ứng cực nhanh với các mối đe dọa, thậm chí trước khi phần tư duy (Vỏ não trước trán) kịp suy nghĩ.",
+        "tags": [
+            "amygdala",
+            "hạch hạnh nhân",
+            "chuông báo động",
+            "sợ hãi",
+            "nguy hiểm"
+        ],
+        "illustration_prompt": "cute educational diagram showing the location of the amygdala in the brain and illustrating it as a tiny alarm bell"
+    },
+    {
+        "id": 94,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Làm thế nào chúng ta có thể làm dịu cảm xúc tức giận (Anger)?",
+        "answer": "Khi tức giận, hãy để **Vỏ não trước trán** (Prefrontal Cortex - phần suy nghĩ logic) có thời gian xử lý. Các cách làm dịu bao gồm: **Hít thở sâu** (đếm đến 10), **Đi dạo** để làm tiêu hao năng lượng, hoặc **Chia sẻ** cảm xúc với người lớn đáng tin cậy.",
+        "tags": [
+            "tức giận",
+            "anger",
+            "hít thở sâu",
+            "vỏ não trước trán",
+            "làm dịu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child taking a deep, calming breath with a timer counting down from 10"
+    },
+    {
+        "id": 95,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Cảm xúc vui vẻ (Happiness) đến từ đâu?",
+        "answer": "Cảm xúc vui vẻ đến từ các hóa chất 'cảm thấy tốt' trong não, như **Dopamine** và **Serotonin**. Dopamine tạo ra cảm giác **thưởng** khi bạn đạt được điều gì đó. Serotonin giúp bạn cảm thấy **ổn định và bình tĩnh**.",
+        "tags": [
+            "vui vẻ",
+            "happiness",
+            "dopamine",
+            "serotonin",
+            "hóa chất thần kinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing dopamine and serotonin molecules shaped like confetti being released in the brain"
+    },
+    {
+        "id": 96,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Lòng tốt (Kindness) và sự giúp đỡ ảnh hưởng đến bạn như thế nào?",
+        "answer": "Khi bạn thể hiện lòng tốt hoặc giúp đỡ người khác, bộ não của bạn sẽ giải phóng **Oxytocin**, còn gọi là 'hormone yêu thương'. Oxytocin tạo ra cảm giác **ấm áp và kết nối** xã hội, khiến cả người cho và người nhận đều cảm thấy tốt hơn.",
+        "tags": [
+            "lòng tốt",
+            "kindness",
+            "oxytocin",
+            "kết nối xã hội",
+            "hormone yêu thương"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child helping another child, with a heart symbol and oxytocin molecules surrounding them"
+    },
+    {
+        "id": 97,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Empati (Empathy) là gì?",
+        "answer": "Empati là khả năng **đặt mình vào vị trí của người khác** và **hiểu** cảm xúc của họ. Nó không chỉ là biết người đó đang buồn, mà còn là cảm nhận được **tại sao** họ buồn. Empati giúp bạn trở thành một người bạn tốt và biết cách an ủi.",
+        "tags": [
+            "empati",
+            "empathy",
+            "đặt mình vào vị trí",
+            "hiểu cảm xúc",
+            "an ủi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child mentally stepping into another child's shoes to understand their feelings"
+    },
+    {
+        "id": 98,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Cảm xúc buồn bã (Sadness) có vai trò gì?",
+        "answer": "Buồn bã là một cảm xúc tự nhiên, báo hiệu bạn đã trải qua **mất mát** hoặc **thất vọng**. Nó cho phép bạn **chậm lại**, xử lý những gì đã xảy ra, và **nhận được sự hỗ trợ** từ những người thân yêu. Đó là cách để chữa lành tâm hồn.",
+        "tags": [
+            "buồn bã",
+            "sadness",
+            "mất mát",
+            "thất vọng",
+            "chậm lại",
+            "chữa lành"
+        ],
+        "illustration_prompt": "cute educational illustration showing a quiet, reflective child receiving a comforting hug from a parent"
+    },
+    {
+        "id": 99,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Tự nhận thức (Self-Awareness) là gì?",
+        "answer": "Tự nhận thức là khả năng **hiểu rõ** cảm xúc, suy nghĩ và hành vi của **chính bạn** tại một thời điểm. Đây là kỹ năng đầu tiên để kiểm soát cảm xúc, vì bạn không thể quản lý những gì bạn không nhận ra.",
+        "tags": [
+            "tự nhận thức",
+            "self-awareness",
+            "hiểu rõ",
+            "cảm xúc",
+            "quản lý"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child looking into a mirror and seeing thought bubbles and emotion symbols above their reflection"
+    },
+    {
+        "id": 100,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Làm thế nào việc Hít thở có thể giúp kiểm soát cảm xúc mạnh?",
+        "answer": "Hít thở sâu và chậm là một cách **kích hoạt hệ thần kinh phó giao cảm** (Phần 'Thư giãn và Tiêu hóa' của cơ thể). Nó gửi tín hiệu đến bộ não rằng 'Mọi thứ vẫn ổn', làm giảm nhịp tim và ngăn chặn Amygdala báo động quá mức.",
+        "tags": [
+            "hít thở",
+            "kiểm soát cảm xúc",
+            "thần kinh phó giao cảm",
+            "thư giãn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a deep breath slowing down a fast-beating heart and calming down the amygdala"
+    },
+    {
+        "id": 101,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Ngôn ngữ cơ thể (Body Language) nói lên điều gì?",
+        "answer": "Ngôn ngữ cơ thể (như tư thế, cử chỉ, nét mặt) thường nói lên **cảm xúc thực sự** của bạn, đôi khi còn rõ ràng hơn lời nói. Ví dụ: khoanh tay có thể cho thấy bạn đang phòng thủ hoặc lo lắng, ngay cả khi bạn nói 'Tôi ổn'.",
+        "tags": [
+            "ngôn ngữ cơ thể",
+            "body language",
+            "cảm xúc thực sự",
+            "khoanh tay",
+            "giao tiếp"
+        ],
+        "illustration_prompt": "cute educational illustration comparing two figures: one with open, relaxed posture (confident) and one with crossed arms and a tense expression (defensive)"
+    },
+    {
+        "id": 102,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Stress (Căng thẳng) là gì?",
+        "answer": "Stress là phản ứng của cơ thể khi cảm thấy bị **áp lực** hoặc **đe dọa**. Cơ thể giải phóng hormone **Cortisol** để cung cấp năng lượng giúp bạn đối phó. Stress ngắn hạn có thể giúp bạn tập trung, nhưng Stress dài hạn (Chronic Stress) lại gây hại cho sức khỏe.",
+        "tags": [
+            "stress",
+            "căng thẳng",
+            "áp lực",
+            "cortisol",
+            "đe dọa"
+        ],
+        "illustration_prompt": "cute educational diagram showing a small, worried figure with a timer counting down and a high level of cortisol hormone being released"
+    },
+    {
+        "id": 103,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Kỹ năng lắng nghe tích cực (Active Listening) là gì?",
+        "answer": "Lắng nghe tích cực là **tập trung hoàn toàn** vào người nói, không ngắt lời và cố gắng **hiểu** thông điệp của họ. Nó bao gồm việc giao tiếp bằng mắt và lặp lại ngắn gọn những gì họ nói để xác nhận bạn đã hiểu đúng.",
+        "tags": [
+            "lắng nghe tích cực",
+            "active listening",
+            "tập trung",
+            "giao tiếp bằng mắt",
+            "hiểu"
+        ],
+        "illustration_prompt": "cute educational illustration showing two children talking, with one child leaning in, making eye contact, and nodding to show they are listening actively"
+    },
+    {
+        "id": 104,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Vì sao đôi khi chúng ta khóc (Crying)?",
+        "answer": "Khóc là phản ứng tự nhiên để **giải phóng** cảm xúc mạnh mẽ (buồn bã, vui sướng, tức giận). Nước mắt có chứa hormone căng thẳng, vì vậy khóc là một cách để cơ thể **thải độc** và giúp bạn cảm thấy bình tĩnh hơn sau đó.",
+        "tags": [
+            "khóc",
+            "crying",
+            "giải phóng cảm xúc",
+            "hormone căng thẳng",
+            "thải độc"
+        ],
+        "illustration_prompt": "cute educational illustration showing tears falling, with small stress hormone molecules leaving the body through the tears"
+    },
+    {
+        "id": 105,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Tự nói chuyện tích cực (Positive Self-Talk) có tác dụng gì?",
+        "answer": "Đây là việc thay thế những suy nghĩ tự chỉ trích bằng những lời lẽ **khuyến khích** và **động viên** bản thân. Tự nói chuyện tích cực giúp bộ não bạn tập trung vào giải pháp thay vì vấn đề, xây dựng **sự tự tin** và khả năng phục hồi.",
+        "tags": [
+            "tự nói chuyện tích cực",
+            "self-talk",
+            "khuyến khích",
+            "tự tin",
+            "phục hồi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child encouraging themselves with a positive thought bubble ('I can do this!') before attempting a challenge"
+    },
+    {
+        "id": 106,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Trí tuệ cảm xúc (Emotional Intelligence - EQ) là gì?",
+        "answer": "EQ là khả năng **nhận biết, hiểu** và **quản lý** cảm xúc của chính bạn, và khả năng **hiểu** và **ảnh hưởng** đến cảm xúc của người khác. EQ thường quan trọng hơn IQ trong việc thành công trong các mối quan hệ và cuộc sống.",
+        "tags": [
+            "trí tuệ cảm xúc",
+            "EQ",
+            "nhận biết",
+            "quản lý cảm xúc",
+            "mối quan hệ"
+        ],
+        "illustration_prompt": "cute educational diagram showing the four main components of Emotional Intelligence (self-awareness, self-management, social awareness, relationship management)"
+    },
+    {
+        "id": 107,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Làm thế nào để giải quyết xung đột (Conflict Resolution) một cách hòa bình?",
+        "answer": "Sử dụng kỹ năng lắng nghe, giữ bình tĩnh, và tránh đổ lỗi. Thay vì nói 'Bạn luôn làm vậy', hãy nói **'Tôi cảm thấy... khi bạn làm...'** (Sử dụng 'I' statements). Cùng nhau tìm kiếm giải pháp mà cả hai bên đều hài lòng.",
+        "tags": [
+            "xung đột",
+            "conflict resolution",
+            "hòa bình",
+            "i statements",
+            "giải pháp"
+        ],
+        "illustration_prompt": "cute educational illustration showing two children sitting calmly face-to-face using 'I' statements to resolve a disagreement"
+    },
+    {
+        "id": 108,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Thói quen (Habits) được hình thành như thế nào?",
+        "answer": "Thói quen được hình thành qua một chu kỳ ba bước: **Tín hiệu** (nhận biết), **Thói quen** (hành động), và **Phần thưởng** (cảm giác tốt). Lặp lại chu kỳ này đủ lâu sẽ tạo ra **kết nối thần kinh tự động** trong não, giúp bạn thực hiện hành động mà không cần suy nghĩ.",
+        "tags": [
+            "thói quen",
+            "habits",
+            "tín hiệu",
+            "thưởng",
+            "kết nối thần kinh"
+        ],
+        "illustration_prompt": "cute educational diagram showing the three-step loop of habit formation: Cue -> Routine -> Reward"
+    },
+    {
+        "id": 109,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Sự khác biệt giữa Cảm xúc và Tâm trạng (Mood)?",
+        "answer": "**Cảm xúc** là những phản ứng **ngắn hạn, mãnh liệt** đối với một sự kiện cụ thể (ví dụ: tức giận vì làm đổ sữa). **Tâm trạng** là trạng thái cảm xúc **kéo dài hơn, ít dữ dội hơn** và thường không có nguyên nhân rõ ràng (ví dụ: cảm thấy cáu kỉnh cả buổi sáng).",
+        "tags": [
+            "cảm xúc",
+            "tâm trạng",
+            "mood",
+            "ngắn hạn",
+            "kéo dài hơn"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a quick flash of anger (emotion) with a long, steady cloud of gloom (mood)"
+    },
+    {
+        "id": 110,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Chúng ta có thể kiểm soát cảm xúc không?",
+        "answer": "Chúng ta **không thể kiểm soát** cảm xúc ban đầu (ví dụ: cảm thấy sợ hãi khi nghe tiếng động lớn). Nhưng chúng ta **có thể kiểm soát** **phản ứng** và **hành vi** sau đó của mình. Đó là nơi kỹ năng điều chỉnh cảm xúc (Emotional Regulation) phát huy tác dụng.",
+        "tags": [
+            "kiểm soát cảm xúc",
+            "phản ứng",
+            "hành vi",
+            "điều chỉnh cảm xúc"
+        ],
+        "illustration_prompt": "cute educational diagram showing an initial emotion (fire) that can be either let burn (uncontrolled behavior) or carefully managed by a tap (regulated behavior)"
+    },
+    {
+        "id": 111,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Hành vi bốc đồng (Impulsive Behavior) là gì?",
+        "answer": "Hành vi bốc đồng là làm một điều gì đó **mà không suy nghĩ** về hậu quả. Điều này xảy ra khi Amygdala (chuông báo động) phản ứng nhanh hơn Vỏ não trước trán (phần suy nghĩ logic). Học cách **dừng lại và suy nghĩ** là chìa khóa để kiểm soát bốc đồng.",
+        "tags": [
+            "bốc đồng",
+            "impulsive behavior",
+            "không suy nghĩ",
+            "hậu quả",
+            "dừng lại"
+        ],
+        "illustration_prompt": "cute educational illustration showing an emotional hand grabbing an object impulsively, followed by a thought bubble of regret"
+    },
+    {
+        "id": 112,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Vì sao sự biết ơn (Gratitude) lại tốt cho tâm trạng?",
+        "answer": "Thực hành biết ơn (như viết nhật ký) giúp bộ não bạn tập trung vào những **điều tốt đẹp** bạn có thay vì những điều bạn thiếu. Điều này trực tiếp kích hoạt các mạch Dopamine và Serotonin, giúp bạn cảm thấy **hạnh phúc hơn** và **ít căng thẳng hơn**.",
+        "tags": [
+            "biết ơn",
+            "gratitude",
+            "dopamine",
+            "serotonin",
+            "tâm trạng",
+            "tập trung điều tốt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child writing in a gratitude journal with sunshine and happy feeling symbols around them"
+    },
+    {
+        "id": 113,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Khả năng phục hồi (Resilience) là gì?",
+        "answer": "Khả năng phục hồi là khả năng **bật lại** sau những thất bại, khó khăn hoặc căng thẳng. Nó không phải là không bao giờ gục ngã, mà là học cách đứng dậy, thích nghi, và **tiếp tục tiến lên** một cách mạnh mẽ hơn.",
+        "tags": [
+            "khả năng phục hồi",
+            "resilience",
+            "bật lại",
+            "thất bại",
+            "tiếp tục tiến lên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small, strong figure being knocked down by a wave of failure but quickly bouncing back up"
+    },
+    {
+        "id": 114,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Làm thế nào để đặt ra giới hạn (Boundaries) cá nhân?",
+        "answer": "Giới hạn là những **quy tắc** mà bạn thiết lập để bảo vệ không gian và cảm xúc của mình. Việc đặt giới hạn cần sự **tự tin** và **giao tiếp rõ ràng** (ví dụ: 'Xin lỗi, tôi không muốn nói về chuyện đó ngay bây giờ'). Giới hạn giúp mối quan hệ lành mạnh hơn.",
+        "tags": [
+            "giới hạn",
+            "boundaries",
+            "quy tắc",
+            "tự tin",
+            "giao tiếp rõ ràng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child drawing a clear boundary line around themselves to protect their emotional space"
+    },
+    {
+        "id": 115,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Tại sao việc so sánh bản thân với người khác lại gây hại?",
+        "answer": "So sánh bản thân với người khác (đặc biệt trên mạng xã hội) thường là một trò chơi không công bằng, vì bạn chỉ thấy **'điểm nổi bật'** của họ, chứ không phải toàn bộ cuộc sống. Nó có thể dẫn đến **lòng tự trọng thấp** và cảm giác không đủ tốt.",
+        "tags": [
+            "so sánh",
+            "lòng tự trọng thấp",
+            "mạng xã hội",
+            "không công bằng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child sadly looking at a magnified, perfect image of another person on a phone screen"
+    },
+    {
+        "id": 116,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Cảm giác ghen tị (Jealousy) có ý nghĩa gì?",
+        "answer": "Ghen tị là cảm xúc phức tạp, thường xuất hiện khi bạn **sợ mất** thứ gì đó hoặc cảm thấy bị **đe dọa** bởi thành công của người khác. Ghen tị có thể là một **tín hiệu** cho bạn biết điều gì đó bạn thực sự **coi trọng**.",
+        "tags": [
+            "ghen tị",
+            "jealousy",
+            "sợ mất",
+            "đe dọa",
+            "tín hiệu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child looking longingly and slightly sadly at another child who has a toy they wish they had"
+    },
+    {
+        "id": 117,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Làm thế nào để xây dựng sự tự tin (Self-Confidence)?",
+        "answer": "Sự tự tin không phải là tin rằng bạn sẽ luôn thành công, mà là tin rằng bạn **có thể xử lý** kết quả, bất kể nó là gì. Xây dựng tự tin bằng cách **thử thách bản thân**, học hỏi từ thất bại và **tập trung vào điểm mạnh** của chính mình.",
+        "tags": [
+            "tự tin",
+            "self-confidence",
+            "thử thách bản thân",
+            "điểm mạnh",
+            "xử lý kết quả"
+        ],
+        "illustration_prompt": "cute educational illustration showing a confident child standing tall and accepting a difficult challenge with a smile"
+    },
+    {
+        "id": 118,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Sự khác biệt giữa Cảm xúc và Phán đoán (Judgment)?",
+        "answer": "**Cảm xúc** là những gì bạn **cảm thấy** trong cơ thể (ví dụ: dạ dày thắt lại). **Phán đoán** là **ý nghĩ** bạn gán cho cảm xúc đó (ví dụ: 'Tôi là người thất bại vì tôi cảm thấy lo lắng'). Học cách tách biệt hai điều này là chìa khóa của Chánh niệm.",
+        "tags": [
+            "phán đoán",
+            "judgment",
+            "cảm xúc",
+            "ý nghĩ",
+            "chánh niệm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a thought cloud (judgment) separating from a heart with a feeling symbol inside (emotion)"
+    },
+    {
+        "id": 119,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Thiếu ngủ ảnh hưởng đến cảm xúc của chúng ta như thế nào?",
+        "answer": "Thiếu ngủ khiến **Amygdala** (chuông báo động) trở nên **quá nhạy cảm** và phần **Vỏ não trước trán** (tư duy logic) bị suy yếu. Điều này khiến bạn khó kiểm soát cảm xúc hơn, dễ **cáu kỉnh, bực bội** và phản ứng quá mức với những điều nhỏ nhặt.",
+        "tags": [
+            "thiếu ngủ",
+            "cáu kỉnh",
+            "amygdala nhạy cảm",
+            "vỏ não trước trán suy yếu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a tired brain where the emotional amygdala is oversized and the logical prefrontal cortex is tiny and asleep"
+    },
+    {
+        "id": 120,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Cảm xúc & hành vi",
+        "question": "Tại sao việc thừa nhận (Acknowledge) cảm xúc của bạn lại quan trọng?",
+        "answer": "Việc thừa nhận cảm xúc không có nghĩa là bạn phải hành động theo nó, mà là cho phép cảm xúc **được tồn tại** và được gọi tên ('Tôi đang cảm thấy buồn'). Việc này giúp giảm bớt sức mạnh của cảm xúc và cho phép phần tư duy của bộ não bắt đầu **xử lý và đưa ra quyết định** tốt hơn.",
+        "tags": [
+            "thừa nhận cảm xúc",
+            "acknowledge",
+            "gọi tên cảm xúc",
+            "giảm sức mạnh",
+            "đưa ra quyết định"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child giving a label ('Sadness') to a feeling cloud, which then shrinks in size"
+    },
+    {
+        "id": 121,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vi khuẩn (Bacteria) và Virus (Virus) là gì?",
+        "answer": "Chúng là những **sinh vật siêu nhỏ** (gọi chung là mầm bệnh - germs) không thể nhìn thấy bằng mắt thường. **Vi khuẩn** là sinh vật sống đơn bào có thể tự sinh sản. **Virus** nhỏ hơn và cần tế bào sống của bạn để nhân bản. Cả hai đều có thể gây bệnh.",
+        "tags": [
+            "vi khuẩn",
+            "virus",
+            "mầm bệnh",
+            "sinh vật siêu nhỏ",
+            "sinh sản"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the relative size of a bacteria cell and a virus particle attacking a human cell"
+    },
+    {
+        "id": 122,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao rửa tay bằng xà phòng lại hiệu quả hơn rửa bằng nước không?",
+        "answer": "Xà phòng có các phân tử đặc biệt có khả năng bám vào cả **nước** và **dầu mỡ/chất béo**. Nhiều loại virus (như virus cúm) và vi khuẩn có một lớp màng **chất béo** bảo vệ. Xà phòng phá vỡ lớp màng này và cuốn trôi chúng cùng với nước.",
+        "tags": [
+            "rửa tay",
+            "xà phòng",
+            "chất béo",
+            "màng bảo vệ",
+            "hiệu quả"
+        ],
+        "illustration_prompt": "cute educational diagram showing a soap molecule breaking down the fatty outer layer of a germ, causing it to fall apart"
+    },
+    {
+        "id": 123,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Chúng ta nên chải răng (Brushing) trong bao lâu và bao nhiêu lần một ngày?",
+        "answer": "Bạn nên chải răng ít nhất **hai lần một ngày** (sau khi thức dậy và trước khi đi ngủ) và chải trong **hai phút** mỗi lần. Mục tiêu là loại bỏ **Mảng bám (Plaque)** - lớp màng vi khuẩn dính bám trên răng, nguyên nhân gây sâu răng.",
+        "tags": [
+            "chải răng",
+            "hai lần một ngày",
+            "hai phút",
+            "mảng bám",
+            "plaque"
+        ],
+        "illustration_prompt": "cute educational illustration showing a toothbrush scrubbing away sticky yellow plaque on a tooth"
+    },
+    {
+        "id": 124,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Chất khử trùng tay (Hand Sanitizer) hoạt động như thế nào?",
+        "answer": "Chất khử trùng tay thường chứa **cồn (Alcohol)**. Cồn hoạt động bằng cách **phá hủy lớp protein** bên ngoài và làm khô nước bên trong mầm bệnh, giết chết chúng. Tuy nhiên, nó không loại bỏ bụi bẩn hoặc chất béo tốt như xà phòng và nước.",
+        "tags": [
+            "khử trùng tay",
+            "hand sanitizer",
+            "cồn",
+            "alcohol",
+            "phá hủy protein"
+        ],
+        "illustration_prompt": "cute educational illustration showing alcohol molecules attacking and destroying the structure of a germ"
+    },
+    {
+        "id": 125,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Fluoride (Chất khoáng) trong kem đánh răng có tác dụng gì?",
+        "answer": "Fluoride là một khoáng chất tự nhiên giúp men răng (lớp ngoài cứng của răng) trở nên **cứng hơn và chống lại axit tốt hơn**. Nó hoạt động như một chất **tái khoáng hóa**, sửa chữa những hư hỏng nhỏ do vi khuẩn gây ra trước khi chúng trở thành sâu răng lớn.",
+        "tags": [
+            "fluoride",
+            "kem đánh răng",
+            "men răng",
+            "chống axit",
+            "tái khoáng hóa"
+        ],
+        "illustration_prompt": "cute educational diagram showing fluoride molecules patching up small holes and strengthening the enamel layer of a tooth"
+    },
+    {
+        "id": 126,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao chúng ta nên thay bàn chải đánh răng thường xuyên?",
+        "answer": "Bạn nên thay bàn chải (hoặc đầu bàn chải điện) khoảng **mỗi 3 đến 4 tháng** một lần, hoặc sớm hơn nếu lông bàn chải bị tòe. Lông bàn chải cũ sẽ **không còn hiệu quả** trong việc loại bỏ mảng bám và có thể tích tụ vi khuẩn.",
+        "tags": [
+            "bàn chải đánh răng",
+            "thay thế",
+            "3-4 tháng",
+            "lông tòe",
+            "mảng bám"
+        ],
+        "illustration_prompt": "cute educational illustration showing a new, neat toothbrush next to an old, worn-out toothbrush with frayed bristles"
+    },
+    {
+        "id": 127,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Mồ hôi (Sweat) là gì và vì sao nó có mùi?",
+        "answer": "Mồ hôi là cách cơ thể **tự làm mát** (giống như điều hòa không khí). Mồ hôi ban đầu không có mùi, nhưng mùi hôi phát sinh khi **vi khuẩn** trên da bạn bắt đầu **phá vỡ** chất béo và protein có trong mồ hôi.",
+        "tags": [
+            "mồ hôi",
+            "sweat",
+            "làm mát cơ thể",
+            "mùi hôi",
+            "vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational diagram showing sweat glands releasing liquid which evaporates and cools the body, with bacteria on the skin causing the odor"
+    },
+    {
+        "id": 128,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Tắm gội (Bathing) có giúp ngăn ngừa mụn trứng cá (Acne) không?",
+        "answer": "Tắm gội thường xuyên giúp loại bỏ **dầu thừa (sebum)**, **da chết** và **vi khuẩn** tích tụ trên da, những yếu tố chính gây ra mụn. Việc giữ da sạch sẽ, đặc biệt sau khi đổ mồ hôi, là bước quan trọng để ngăn ngừa mụn trứng cá.",
+        "tags": [
+            "tắm gội",
+            "mụn trứng cá",
+            "acne",
+            "dầu thừa",
+            "da chết",
+            "vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational diagram showing pores on the skin being cleaned by water, removing oil and dead skin cells"
+    },
+    {
+        "id": 129,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Nên cắt móng tay và móng chân thường xuyên để làm gì?",
+        "answer": "Móng tay/chân dài là nơi trú ẩn lý tưởng cho **vi khuẩn và bụi bẩn** dưới móng, nơi khó làm sạch khi rửa tay. Việc cắt tỉa thường xuyên giúp **ngăn ngừa sự lây lan** của mầm bệnh và cũng giúp tránh móng bị gãy hoặc bị xước gây đau.",
+        "tags": [
+            "cắt móng",
+            "mầm bệnh",
+            "vi khuẩn",
+            "lây lan",
+            "sạch sẽ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a magnifying glass looking under a fingernail, revealing tiny germs hiding there"
+    },
+    {
+        "id": 130,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Thói quen (Routine) là gì và tại sao nó lại tốt cho trẻ em?",
+        "answer": "Thói quen là một chuỗi các hành động bạn làm theo một trình tự cố định (ví dụ: thói quen buổi sáng). Thói quen giúp bộ não bạn **tiết kiệm năng lượng**, mang lại cảm giác **an toàn** và **dự đoán** được, và giúp bạn hoàn thành công việc hiệu quả hơn.",
+        "tags": [
+            "thói quen",
+            "routine",
+            "trình tự cố định",
+            "an toàn",
+            "tiết kiệm năng lượng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a series of small action icons (wake up, brush teeth, eat breakfast) arranged neatly in a daily timeline"
+    },
+    {
+        "id": 131,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để che miệng đúng cách khi ho hoặc hắt hơi?",
+        "answer": "Để ngăn mầm bệnh lây lan trong không khí, bạn nên **che miệng bằng khuỷu tay** (elbow) thay vì bằng tay của mình. Khuỷu tay ít chạm vào người hoặc vật khác hơn, giúp giảm sự lây truyền mầm bệnh.",
+        "tags": [
+            "ho",
+            "hắt hơi",
+            "che miệng",
+            "khuỷu tay",
+            "ngăn lây lan"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child properly sneezing into their elbow instead of their hand"
+    },
+    {
+        "id": 132,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Tầm quan trọng của việc chải tóc và da đầu là gì?",
+        "answer": "Chải tóc giúp **phân phối dầu tự nhiên** của da đầu (sebum) dọc theo sợi tóc, giữ cho tóc bóng khỏe. Nó cũng kích thích lưu thông máu ở da đầu và giúp loại bỏ **da chết** và **tóc rụng**.",
+        "tags": [
+            "chải tóc",
+            "da đầu",
+            "phân phối dầu tự nhiên",
+            "lưu thông máu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hairbrush distributing oil evenly from the scalp down the hair shaft"
+    },
+    {
+        "id": 133,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao chúng ta không nên chia sẻ bàn chải đánh răng?",
+        "answer": "Bàn chải đánh răng của bạn có thể chứa **vi khuẩn và virus** từ miệng của bạn. Chia sẻ có thể truyền những mầm bệnh đó, cũng như lây truyền **bệnh nướu răng** và các bệnh lây nhiễm qua đường máu nếu có vết thương nhỏ.",
+        "tags": [
+            "chia sẻ",
+            "bàn chải đánh răng",
+            "vi khuẩn",
+            "bệnh nướu răng",
+            "cá nhân"
+        ],
+        "illustration_prompt": "cute educational illustration showing a clear 'no sharing' sign over two different toothbrushes touching each other"
+    },
+    {
+        "id": 134,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Thói quen tốt nào giúp bạn tập trung vào việc học?",
+        "answer": "Tạo **khu vực học tập sạch sẽ và yên tĩnh** (không có đồ chơi hoặc TV), lập **thời gian biểu** học tập, và **nghỉ giải lao ngắn** (5-10 phút) sau mỗi 30-45 phút học. Điều này giúp bộ não giữ được sự tỉnh táo và tập trung.",
+        "tags": [
+            "thói quen học tập",
+            "tập trung",
+            "thời gian biểu",
+            "nghỉ giải lao"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child at a clean, quiet desk with a visible timetable and a small timer"
+    },
+    {
+        "id": 135,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để chăm sóc một vết thương nhỏ (Minor Wound)?",
+        "answer": "Trước tiên, rửa tay của bạn! Sau đó, nhẹ nhàng **rửa sạch vết thương** bằng nước sạch và xà phòng để loại bỏ bụi bẩn. Bôi thuốc mỡ kháng sinh và **băng vết thương** bằng băng dán sạch để tránh nhiễm trùng và giúp vết thương nhanh lành hơn.",
+        "tags": [
+            "vết thương nhỏ",
+            "minor wound",
+            "rửa sạch",
+            "thuốc mỡ kháng sinh",
+            "băng bó"
+        ],
+        "illustration_prompt": "cute educational step-by-step diagram showing how to clean and apply a bandage to a small scrape"
+    },
+    {
+        "id": 136,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Tác dụng của việc sử dụng kem chống nắng (Sunscreen) là gì?",
+        "answer": "Kem chống nắng tạo ra một **lá chắn** trên da bạn, bảo vệ da khỏi **tia UV** có hại từ mặt trời. Tia UV không chỉ gây bỏng da mà còn làm hỏng tế bào da về lâu dài. Kem chống nắng giúp ngăn ngừa cháy nắng và giữ cho làn da khỏe mạnh.",
+        "tags": [
+            "kem chống nắng",
+            "sunscreen",
+            "tia UV",
+            "lá chắn",
+            "cháy nắng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a skin cell being protected by a layer of sunscreen against harmful UV rays from the sun"
+    },
+    {
+        "id": 137,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao không nên sờ (Touching) vào mặt thường xuyên?",
+        "answer": "Tay bạn thường mang mầm bệnh từ mọi thứ bạn chạm vào (tay nắm cửa, điện thoại...). Chạm vào mắt, mũi hoặc miệng là cách **dễ nhất để mầm bệnh đi vào cơ thể** bạn. Việc này cũng làm lây lan dầu và vi khuẩn lên da, góp phần gây ra mụn.",
+        "tags": [
+            "sờ mặt",
+            "mầm bệnh",
+            "lây lan",
+            "vi khuẩn",
+            "mắt mũi miệng"
+        ],
+        "illustration_prompt": "cute educational illustration showing tiny germs jumping from a hand to a face (mouth, eyes, nose)"
+    },
+    {
+        "id": 138,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để tạo một thói quen buổi sáng (Morning Routine) tốt?",
+        "answer": "Bắt đầu với những hành động đơn giản: **Dậy đúng giờ**, sau đó là các hành động tự chăm sóc như chải răng/rửa mặt, ăn sáng, và cuối cùng là chuẩn bị quần áo/sách vở. Một thói quen buổi sáng tốt giúp bạn bắt đầu ngày mới **bình tĩnh** và **sẵn sàng**.",
+        "tags": [
+            "thói quen buổi sáng",
+            "morning routine",
+            "bình tĩnh",
+            "sẵn sàng",
+            "dậy đúng giờ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child calmly completing a checklist of morning tasks (brush, dress, eat) before going to school"
+    },
+    {
+        "id": 139,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao vệ sinh giày và tất là quan trọng?",
+        "answer": "Giày và tất giữ lại **mồ hôi** và **độ ẩm**, tạo ra một môi trường lý tưởng cho vi khuẩn và nấm phát triển, có thể gây ra mùi hôi chân và các bệnh nấm da. Việc giặt tất và để giày khô là cách để giữ cho chân bạn khỏe mạnh.",
+        "tags": [
+            "vệ sinh giày tất",
+            "mồ hôi",
+            "độ ẩm",
+            "nấm",
+            "mùi hôi chân"
+        ],
+        "illustration_prompt": "cute educational illustration showing bacteria and fungi happily growing in a damp, smelly sock"
+    },
+    {
+        "id": 140,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Tầm quan trọng của việc sắp xếp đồ đạc (Organization) là gì?",
+        "answer": "Sắp xếp đồ đạc giúp bạn **tiết kiệm thời gian** tìm kiếm đồ vật (như chìa khóa hoặc sách vở). Một không gian ngăn nắp cũng giúp tâm trí bạn **ít căng thẳng** và **tập trung** hơn, vì bạn không bị phân tâm bởi sự lộn xộn.",
+        "tags": [
+            "sắp xếp đồ đạc",
+            "organization",
+            "tiết kiệm thời gian",
+            "giảm căng thẳng",
+            "tập trung"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a messy, cluttered desk (leading to confusion) with a clean, organized desk (leading to clarity)"
+    },
+    {
+        "id": 141,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Nên dùng chỉ nha khoa (Flossing) như thế nào và vì sao?",
+        "answer": "Chỉ nha khoa được sử dụng để loại bỏ **mảng bám và thức ăn** bị mắc kẹt **giữa kẽ răng**, nơi bàn chải không thể với tới. Bạn nên dùng chỉ nha khoa ít nhất **một lần mỗi ngày** (tốt nhất là trước khi đi ngủ) để ngăn ngừa bệnh nướu răng.",
+        "tags": [
+            "chỉ nha khoa",
+            "flossing",
+            "kẽ răng",
+            "mảng bám",
+            "bệnh nướu răng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a piece of dental floss cleaning the tight space between two teeth"
+    },
+    {
+        "id": 142,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Việc thay khăn tắm (Towel) thường xuyên có quan trọng không?",
+        "answer": "Có. Khăn tắm luôn ẩm ướt sau khi sử dụng và đó là môi trường hoàn hảo cho **vi khuẩn, nấm và nấm mốc** phát triển nhanh chóng. Khăn tắm nên được giặt **sau 3-4 lần sử dụng** để tránh truyền mầm bệnh ngược lại da bạn.",
+        "tags": [
+            "khăn tắm",
+            "towel",
+            "vi khuẩn",
+            "nấm mốc",
+            "giặt thường xuyên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a damp towel with tiny mold spores and bacteria growing on the fibers"
+    },
+    {
+        "id": 143,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để xây dựng một thói quen tốt mới?",
+        "answer": "Hãy bắt đầu bằng cách **chọn một hành động nhỏ** và dễ thực hiện (ví dụ: uống một cốc nước sau khi thức dậy). Sau đó, hãy **liên kết** hành động mới này với một thói quen cũ đã có (Tín hiệu). Lặp lại nó mỗi ngày cho đến khi nó trở nên tự động.",
+        "tags": [
+            "xây dựng thói quen",
+            "hành động nhỏ",
+            "liên kết",
+            "lặp lại",
+            "tự động"
+        ],
+        "illustration_prompt": "cute educational diagram showing a small, new action linking up with a large, established routine"
+    },
+    {
+        "id": 144,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Rửa tay nên mất bao lâu để đảm bảo diệt khuẩn?",
+        "answer": "Các chuyên gia khuyên nên chà xát với xà phòng và nước ít nhất **20 giây**. Khoảng thời gian này đủ để xà phòng phá vỡ màng bảo vệ của mầm bệnh. Bạn có thể hát bài 'Chúc mừng sinh nhật' hai lần để tính giờ!",
+        "tags": [
+            "rửa tay",
+            "20 giây",
+            "xà phòng",
+            "diệt khuẩn",
+            "chà xát"
+        ],
+        "illustration_prompt": "cute educational illustration showing a pair of hands vigorously rubbing together with soap suds, accompanied by a timer showing 20 seconds"
+    },
+    {
+        "id": 145,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao không nên nặn mụn trứng cá?",
+        "answer": "Nặn mụn có thể đẩy **vi khuẩn và dầu** vào sâu hơn trong da, làm tình trạng **viêm nhiễm** trở nên tồi tệ hơn và có thể dẫn đến **sẹo** vĩnh viễn trên mặt. Tốt nhất là để mụn tự lành hoặc sử dụng kem trị mụn phù hợp.",
+        "tags": [
+            "nặn mụn",
+            "acne",
+            "vi khuẩn",
+            "viêm nhiễm",
+            "sẹo",
+            "da"
+        ],
+        "illustration_prompt": "cute educational illustration showing a pimple with an angry red mark, with a hand trying to squeeze it, causing deeper damage"
+    },
+    {
+        "id": 146,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vệ sinh mắt (Eye Hygiene) bao gồm những gì?",
+        "answer": "Vệ sinh mắt bao gồm **không dụi mắt** (để tránh đưa mầm bệnh vào), rửa mặt hàng ngày để loại bỏ chất bẩn xung quanh mắt, và nếu bạn đeo kính áp tròng, phải **vệ sinh kính đúng cách** theo hướng dẫn.",
+        "tags": [
+            "vệ sinh mắt",
+            "eye hygiene",
+            "không dụi mắt",
+            "kính áp tròng",
+            "mầm bệnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a 'no' sign over a hand trying to rub an eye"
+    },
+    {
+        "id": 147,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Tại sao việc vứt rác đúng nơi quy định là thói quen tốt?",
+        "answer": "Vứt rác đúng nơi không chỉ giữ cho môi trường xung quanh **sạch đẹp** mà còn ngăn ngừa sự lây lan của **vi trùng, sâu bọ và chuột** mang mầm bệnh. Đó là một phần của vệ sinh công cộng và sự tôn trọng cộng đồng.",
+        "tags": [
+            "vứt rác",
+            "môi trường",
+            "vi trùng",
+            "vệ sinh công cộng",
+            "sạch đẹp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child putting trash into a designated recycle bin"
+    },
+    {
+        "id": 148,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để tạo ra 'Thời gian nghỉ màn hình' (Screen Time Breaks) tốt?",
+        "answer": "Sau mỗi 20-30 phút nhìn màn hình (điện thoại, máy tính), hãy thực hiện quy tắc **'20-20-20'**: nhìn vào vật gì đó cách xa **20 feet** (khoảng $6 \text{ mét}$) trong **20 giây**. Điều này giúp **mắt** bạn thư giãn và ngăn ngừa mỏi mắt.",
+        "tags": [
+            "nghỉ màn hình",
+            "screen time",
+            "quy tắc 20-20-20",
+            "mỏi mắt",
+            "thư giãn mắt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person looking away from a computer screen at a distant object for 20 seconds"
+    },
+    {
+        "id": 149,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Vì sao phải giặt quần áo (Washing Clothes) thường xuyên?",
+        "answer": "Quần áo bẩn tích tụ **mồ hôi, da chết và vi khuẩn**. Giặt quần áo không chỉ loại bỏ mùi hôi mà còn **giết chết mầm bệnh** bám trên vải. Mặc quần áo sạch giúp da bạn khỏe mạnh và ngăn ngừa kích ứng da.",
+        "tags": [
+            "giặt quần áo",
+            "mồ hôi",
+            "da chết",
+            "vi khuẩn",
+            "kích ứng da"
+        ],
+        "illustration_prompt": "cute educational illustration showing dirty clothes releasing germs into the air, and then clean clothes folded neatly"
+    },
+    {
+        "id": 150,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Vệ sinh cá nhân & thói quen tốt",
+        "question": "Làm thế nào để tránh 'đồ ăn bị hỏng' (Food Spoilage)?",
+        "answer": "Đồ ăn bị hỏng là do vi khuẩn và nấm mốc phát triển. Hãy luôn nhớ **bốn quy tắc an toàn thực phẩm**: **Làm sạch** (rửa tay/thực phẩm), **Tách biệt** (thịt sống và đồ chín), **Nấu chín** (đúng nhiệt độ), và **Làm lạnh** (bảo quản thức ăn thừa ngay lập tức).",
+        "tags": [
+            "an toàn thực phẩm",
+            "food spoilage",
+            "làm sạch",
+            "tách biệt",
+            "nấu chín",
+            "làm lạnh"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the four main rules of food safety (Clean, Separate, Cook, Chill)"
+    },
+    {
+        "id": 151,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Vì sao việc giúp đỡ việc nhà (Chores) lại quan trọng?",
+        "answer": "Giúp đỡ việc nhà không chỉ làm giảm gánh nặng cho cha mẹ mà còn là cách bạn học các **kỹ năng sống** quan trọng (nấu ăn, dọn dẹp). Nó dạy bạn tinh thần **trách nhiệm** và khiến bạn cảm thấy mình là một thành viên **có giá trị** trong gia đình.",
+        "tags": [
+            "việc nhà",
+            "chores",
+            "kỹ năng sống",
+            "trách nhiệm",
+            "thành viên có giá trị"
+        ],
+        "illustration_prompt": "cute educational illustration showing family members happily working together to clean and organize a room"
+    },
+    {
+        "id": 152,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Lợi ích của việc ăn cơm cùng gia đình (Family Meal) là gì?",
+        "answer": "Bữa cơm gia đình là thời gian để mọi người **kết nối** và chia sẻ về những gì đã xảy ra trong ngày. Nghiên cứu cho thấy trẻ em ăn cơm cùng gia đình thường có **kỹ năng ngôn ngữ** tốt hơn và lòng **tự trọng** cao hơn.",
+        "tags": [
+            "bữa cơm gia đình",
+            "kết nối",
+            "chia sẻ",
+            "kỹ năng ngôn ngữ",
+            "tự trọng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a happy family sitting together at a dinner table, laughing and talking"
+    },
+    {
+        "id": 153,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Nguyên tắc cơ bản để giữ an toàn khi ở trong bếp là gì?",
+        "answer": "Bếp có nhiều nguy hiểm tiềm ẩn (dao, nhiệt, điện). Nguyên tắc là: **Luôn hỏi ý kiến người lớn** trước khi sử dụng bất kỳ thiết bị nào (bếp, lò nướng) và giữ tay cầm chảo **quay vào trong** để tránh làm đổ thức ăn nóng.",
+        "tags": [
+            "an toàn trong bếp",
+            "người lớn",
+            "thiết bị điện",
+            "tay cầm chảo",
+            "bỏng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pot on a stove with the handle safely turned inwards, and a child pointing to a parent for permission"
+    },
+    {
+        "id": 154,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để giao tiếp hiệu quả (Effective Communication) trong gia đình?",
+        "answer": "Giao tiếp hiệu quả là **lắng nghe** không ngắt lời, **giao tiếp bằng mắt**, và sử dụng **ngôn từ rõ ràng**. Hãy cố gắng diễn đạt cảm xúc của bạn bằng **câu 'Tôi' (I-statements)** thay vì đổ lỗi ('Tôi cảm thấy buồn' thay vì 'Bạn làm tôi buồn').",
+        "tags": [
+            "giao tiếp hiệu quả",
+            "lắng nghe",
+            "giao tiếp bằng mắt",
+            "I-statements",
+            "ngôn từ rõ ràng"
+        ],
+        "illustration_prompt": "cute educational illustration showing two family members making eye contact and listening attentively to each other"
+    },
+    {
+        "id": 155,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Tiết kiệm tiền (Saving Money) là gì?",
+        "answer": "Tiết kiệm tiền là quyết định **không tiêu tiền ngay bây giờ** để bạn có thể mua một thứ gì đó **lớn hơn hoặc quan trọng hơn** trong tương lai. Nó giống như 'trả tiền cho chính bạn trong tương lai'.",
+        "tags": [
+            "tiết kiệm tiền",
+            "saving money",
+            "tương lai",
+            "không tiêu tiền ngay"
+        ],
+        "illustration_prompt": "cute educational illustration showing money flowing from a hand into a piggy bank labeled 'Future Goal'"
+    },
+    {
+        "id": 156,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Vì sao phải dọn dẹp phòng ngủ (Cleaning your room) thường xuyên?",
+        "answer": "Phòng ngủ sạch sẽ giúp giảm **bụi bẩn** và **chất gây dị ứng**, giúp bạn thở dễ dàng hơn và ngủ ngon hơn. Một căn phòng ngăn nắp cũng giúp **tâm trí bạn thư giãn** và giảm căng thẳng.",
+        "tags": [
+            "dọn dẹp phòng ngủ",
+            "bụi bẩn",
+            "dị ứng",
+            "tâm trí thư giãn",
+            "ngủ ngon"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a messy, cluttered bedroom with a clean, organized bedroom"
+    },
+    {
+        "id": 157,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Nên làm gì khi chuông báo cháy (Fire Alarm) kêu lên?",
+        "answer": "Khi chuông báo cháy kêu, hãy **giữ bình tĩnh**, **bò sát sàn nhà** (để tránh khói) và đi theo **lối thoát hiểm đã được lên kế hoạch** ra khỏi nhà. Đừng bao giờ quay lại để lấy đồ đạc, và hãy tập hợp tại điểm hẹn an toàn đã định.",
+        "tags": [
+            "chuông báo cháy",
+            "fire alarm",
+            "giữ bình tĩnh",
+            "bò sát sàn",
+            "lối thoát hiểm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a family practice fire drill, with everyone calmly crawling towards an exit door"
+    },
+    {
+        "id": 158,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Kỹ năng 'gấp quần áo' (Folding Laundry) giúp ích gì?",
+        "answer": "Gấp quần áo là một việc nhà đơn giản nhưng dạy bạn về **tính ngăn nắp** và **trật tự**. Nó cũng là một kỹ năng **vận động tinh** tốt và giúp bạn **tự chủ** hơn khi lớn lên, không cần phụ thuộc vào người khác.",
+        "tags": [
+            "gấp quần áo",
+            "folding laundry",
+            "tính ngăn nắp",
+            "tự chủ",
+            "vận động tinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child neatly folding a t-shirt into a small square"
+    },
+    {
+        "id": 159,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Ngân sách (Budgeting) là gì trong gia đình?",
+        "answer": "Ngân sách là một **kế hoạch** về cách một gia đình **kiếm tiền** (thu nhập) và cách họ **chi tiêu** (chi phí) trong một khoảng thời gian. Nó giúp đảm bảo rằng gia đình có đủ tiền cho những thứ họ cần trước khi mua những thứ họ muốn.",
+        "tags": [
+            "ngân sách",
+            "budgeting",
+            "kế hoạch chi tiêu",
+            "thu nhập",
+            "chi phí"
+        ],
+        "illustration_prompt": "cute educational diagram showing money coming in (income) and being divided into different labeled jars (needs, wants, savings)"
+    },
+    {
+        "id": 160,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để lắng nghe khi có tranh cãi (Argument) trong nhà?",
+        "answer": "Khi có tranh cãi, cố gắng **không ngắt lời** hoặc lên giọng. Hãy tập trung vào việc **hiểu cảm xúc** của người kia thay vì chỉ bảo vệ ý kiến của mình. Đôi khi, mọi người chỉ cần cảm thấy **được lắng nghe** hơn là cần một người chiến thắng.",
+        "tags": [
+            "tranh cãi",
+            "argument",
+            "lắng nghe",
+            "hiểu cảm xúc",
+            "không ngắt lời"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child calming down and actively listening to a parent who is expressing frustration"
+    },
+    {
+        "id": 161,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Vì sao việc phân loại rác (Sorting Trash) lại quan trọng?",
+        "answer": "Phân loại rác (tái chế, hữu cơ, rác thải chung) giúp **bảo vệ môi trường** bằng cách giảm lượng rác thải đổ ra bãi rác. Việc tái chế giúp **tiết kiệm năng lượng** và **tài nguyên** bằng cách biến đồ cũ thành đồ mới.",
+        "tags": [
+            "phân loại rác",
+            "tái chế",
+            "bảo vệ môi trường",
+            "tiết kiệm năng lượng",
+            "tài nguyên"
+        ],
+        "illustration_prompt": "cute educational diagram showing three bins labeled 'Recycle', 'Compost', and 'Trash' with different items going into each"
+    },
+    {
+        "id": 162,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Nhu cầu (Needs) và Mong muốn (Wants) khác nhau như thế nào?",
+        "answer": "**Nhu cầu** là những thứ bạn **phải có** để sống sót và khỏe mạnh (như thức ăn, nước uống, nhà ở, quần áo). **Mong muốn** là những thứ bạn **muốn có** để khiến cuộc sống thú vị hơn, nhưng không cần thiết để sống (như đồ chơi, kem, video game mới).",
+        "tags": [
+            "nhu cầu",
+            "mong muốn",
+            "needs",
+            "wants",
+            "sống sót"
+        ],
+        "illustration_prompt": "cute educational diagram comparing basic essentials (food, water, house) under 'Needs' and luxury items (toys, video games) under 'Wants'"
+    },
+    {
+        "id": 163,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để sử dụng điện an toàn trong nhà?",
+        "answer": "Tuyệt đối không bao giờ **chạm vào ổ cắm hoặc dây điện** bị hỏng. Không bao giờ cắm quá nhiều thiết bị vào một ổ cắm. Quan trọng nhất là **không bao giờ để nước gần các thiết bị điện**.",
+        "tags": [
+            "an toàn điện",
+            "ổ cắm",
+            "dây điện hỏng",
+            "nước",
+            "thiết bị điện"
+        ],
+        "illustration_prompt": "cute educational illustration showing a 'no' sign over a child touching an electrical outlet with wet hands"
+    },
+    {
+        "id": 164,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Mục đích của việc đặt ra quy tắc gia đình (Family Rules) là gì?",
+        "answer": "Quy tắc gia đình giúp mọi người hiểu rõ **kỳ vọng** về hành vi và cách đối xử với nhau. Chúng tạo ra **môi trường an toàn và tôn trọng** cho mọi người. Quy tắc giúp gia đình hoạt động trơn tru và hòa hợp hơn.",
+        "tags": [
+            "quy tắc gia đình",
+            "family rules",
+            "kỳ vọng",
+            "an toàn",
+            "tôn trọng"
+        ],
+        "illustration_prompt": "cute educational poster showing a short, clear list of family rules (e.g., Be Kind, Listen, Help Out)"
+    },
+    {
+        "id": 165,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Vì sao phải khóa cửa (Locking Doors) khi ra ngoài?",
+        "answer": "Khóa cửa là hành động đơn giản giúp **bảo vệ gia đình** và **tài sản** của bạn khỏi những người lạ không được mời. Nó là một bước quan trọng trong việc giữ **an ninh và sự riêng tư** cho ngôi nhà.",
+        "tags": [
+            "khóa cửa",
+            "an ninh",
+            "người lạ",
+            "bảo vệ gia đình",
+            "tài sản"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand turning a door lock with a happy family icon inside the house"
+    },
+    {
+        "id": 166,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc tiết kiệm năng lượng (Saving Energy) ở nhà có tác dụng gì?",
+        "answer": "Tiết kiệm năng lượng (tắt đèn khi ra khỏi phòng, rút phích cắm thiết bị) giúp **giảm hóa đơn tiền điện** cho gia đình. Quan trọng hơn, nó giúp **giảm ô nhiễm** từ việc sản xuất điện, bảo vệ môi trường chung.",
+        "tags": [
+            "tiết kiệm năng lượng",
+            "tắt đèn",
+            "giảm hóa đơn",
+            "giảm ô nhiễm",
+            "bảo vệ môi trường"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand flipping a light switch to 'off' with a smiling Earth icon"
+    },
+    {
+        "id": 167,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để lên kế hoạch cho một ngày (Planning the Day) tốt?",
+        "answer": "Sử dụng một **danh sách việc cần làm (To-do List)**, bắt đầu bằng cách liệt kê những việc quan trọng nhất. Ưu tiên những việc **phải làm** (học, việc nhà) trước những việc **muốn làm** (chơi game). Điều này giúp bạn cảm thấy kiểm soát và ít căng thẳng hơn.",
+        "tags": [
+            "lên kế hoạch",
+            "to-do list",
+            "ưu tiên",
+            "kiểm soát",
+            "giảm căng thẳng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child organizing their daily tasks with a colorful checklist"
+    },
+    {
+        "id": 168,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc 'chia sẻ' (Sharing) tài sản trong nhà có ý nghĩa gì?",
+        "answer": "Chia sẻ trong gia đình không chỉ là về đồ chơi mà còn là về **không gian, thời gian và sự chú ý**. Nó dạy bạn về sự **hợp tác**, sự **nhượng bộ** và rằng hạnh phúc của người khác cũng quan trọng như của bạn.",
+        "tags": [
+            "chia sẻ",
+            "sharing",
+            "hợp tác",
+            "nhượng bộ",
+            "thời gian"
+        ],
+        "illustration_prompt": "cute educational illustration showing two siblings happily sharing a toy and a play space"
+    },
+    {
+        "id": 169,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Quy tắc 'Stop, Drop, and Roll' (Dừng, Ngã, và Lăn) dùng để làm gì?",
+        "answer": "Đây là quy tắc **an toàn phòng cháy** cơ bản, được dùng nếu **quần áo của bạn bị bắt lửa**. **Dừng** lại ngay lập tức (không chạy), **Ngã** xuống sàn, và **Lăn** qua lại để dập tắt ngọn lửa.",
+        "tags": [
+            "stop drop and roll",
+            "an toàn phòng cháy",
+            "quần áo bắt lửa",
+            "dập tắt lửa"
+        ],
+        "illustration_prompt": "cute educational step-by-step diagram showing the three actions of 'Stop, Drop, and Roll'"
+    },
+    {
+        "id": 170,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc tôn trọng sự riêng tư (Privacy) của các thành viên trong gia đình là gì?",
+        "answer": "Tôn trọng sự riêng tư có nghĩa là **gõ cửa** trước khi vào phòng người khác, không đọc thư hoặc tin nhắn của họ, và **không lấy đồ** của họ mà không xin phép. Điều này thể hiện sự **tôn trọng** và xây dựng **lòng tin**.",
+        "tags": [
+            "riêng tư",
+            "privacy",
+            "tôn trọng",
+            "gõ cửa",
+            "lòng tin"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand gently knocking on a closed bedroom door"
+    },
+    {
+        "id": 171,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc giữ cho tủ lạnh và tủ đông hoạt động tốt giúp gì?",
+        "answer": "Tủ lạnh và tủ đông giữ cho thực phẩm ở **nhiệt độ an toàn** (lạnh dưới 4°C. Điều này làm chậm sự phát triển của **vi khuẩn** gây ngộ độc thực phẩm, giữ cho đồ ăn tươi ngon lâu hơn và tránh lãng phí.",
+        "tags": [
+            "tủ lạnh",
+            "an toàn thực phẩm",
+            "nhiệt độ an toàn",
+            "vi khuẩn",
+            "lãng phí"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thermometer inside a refrigerator indicating a safe, cold temperature"
+    },
+    {
+        "id": 172,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Tại sao không nên nói dối (Lying) trong gia đình?",
+        "answer": "Nói dối làm **phá vỡ lòng tin** giữa các thành viên. Lòng tin là nền tảng của một gia đình mạnh mẽ. Mặc dù sự thật có thể khó nói, nhưng nói sự thật luôn là bước đầu tiên để **sửa chữa** lỗi lầm và nhận được sự giúp đỡ.",
+        "tags": [
+            "nói dối",
+            "lying",
+            "lòng tin",
+            "sửa chữa",
+            "nền tảng gia đình"
+        ],
+        "illustration_prompt": "cute educational illustration showing a broken glass heart representing trust being shattered by a lie"
+    },
+    {
+        "id": 173,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để sử dụng máy giặt (Washing Machine) hiệu quả?",
+        "answer": "Phân loại quần áo theo **màu sắc** (tránh lem màu) và **loại vải** (tránh làm hỏng đồ tinh xảo). Không chất quần áo quá đầy, vì nó sẽ không được giặt sạch. Sử dụng **lượng bột giặt vừa đủ** theo hướng dẫn.",
+        "tags": [
+            "máy giặt",
+            "phân loại quần áo",
+            "màu sắc",
+            "loại vải",
+            "bột giặt"
+        ],
+        "illustration_prompt": "cute educational illustration showing piles of clothes separated by color (dark, light) next to a washing machine"
+    },
+    {
+        "id": 174,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc tiết kiệm nước (Saving Water) ở nhà có ý nghĩa gì?",
+        "answer": "Tiết kiệm nước (tắt vòi khi đánh răng, tắm nhanh hơn) giúp **giảm hóa đơn nước** và **bảo tồn tài nguyên thiên nhiên** quan trọng. Nước sạch không phải là vô tận, vì vậy sử dụng nó một cách có ý thức là rất quan trọng.",
+        "tags": [
+            "tiết kiệm nước",
+            "tắt vòi",
+            "bảo tồn tài nguyên",
+            "hóa đơn nước",
+            "có ý thức"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand turning off a running faucet, with a happy water droplet character"
+    },
+    {
+        "id": 175,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Vì sao phải kiểm tra và vứt bỏ thức ăn hết hạn (Expired Food)?",
+        "answer": "Thức ăn hết hạn có thể chứa **vi khuẩn** đã phát triển đến mức gây bệnh. Việc kiểm tra và loại bỏ chúng đảm bảo rằng bạn và gia đình **không bị ngộ độc thực phẩm** và giữ cho tủ lạnh luôn sạch sẽ.",
+        "tags": [
+            "thức ăn hết hạn",
+            "expired food",
+            "ngộ độc thực phẩm",
+            "vi khuẩn",
+            "kiểm tra"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child checking the expiration date label on a milk carton"
+    },
+    {
+        "id": 176,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để giữ an toàn cho thú cưng (Pets) trong nhà?",
+        "answer": "Cung cấp **thức ăn và nước sạch** thường xuyên, đảm bảo chúng có **không gian ngủ thoải mái**, và giữ **các chất hóa học, thuốc men** ngoài tầm với của chúng. Luôn đối xử nhẹ nhàng và yêu thương chúng.",
+        "tags": [
+            "an toàn thú cưng",
+            "thức ăn sạch",
+            "không gian ngủ",
+            "chất hóa học",
+            "yêu thương"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child safely petting a cat away from a cabinet containing cleaning supplies"
+    },
+    {
+        "id": 177,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Ý nghĩa của việc 'đặt mình vào vị trí của người khác' trong gia đình?",
+        "answer": "Điều này có nghĩa là sử dụng **Empati** (lòng trắc ẩn) để cố gắng hiểu tại sao anh, chị hoặc cha mẹ của bạn lại cảm thấy hoặc hành động như vậy. Nó giúp bạn phản ứng bằng sự **thông cảm** thay vì tức giận, củng cố mối quan hệ gia đình.",
+        "tags": [
+            "empati",
+            "lòng trắc ẩn",
+            "thông cảm",
+            "mối quan hệ",
+            "đặt mình vào vị trí"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child holding hands with a family member and looking at a feeling cloud above the family member's head"
+    },
+    {
+        "id": 178,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Làm thế nào để xử lý các vật dụng thủy tinh (Glass Items) bị vỡ an toàn?",
+        "answer": "Không bao giờ dùng tay không để nhặt các mảnh vỡ! Đeo **găng tay dày**, dùng **chổi và xẻng** để quét các mảnh lớn, sau đó dùng một miếng **bánh mì cũ hoặc khăn giấy ẩm** để nhặt các mảnh vụn nhỏ còn sót lại. Bỏ vào thùng rác đã dán nhãn.",
+        "tags": [
+            "thủy tinh vỡ",
+            "an toàn",
+            "chổi và xẻng",
+            "găng tay",
+            "bánh mì cũ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child safely sweeping up glass shards with a dustpan and broom while wearing gloves"
+    },
+    {
+        "id": 179,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Việc có một 'Khoảng thời gian yên tĩnh' (Quiet Time) trong nhà có lợi ích gì?",
+        "answer": "Thời gian yên tĩnh là một khoảng thời gian ngắn (ví dụ: 30 phút) mà mọi người ở nhà đều **ngừng các hoạt động ồn ào** (TV, điện thoại) để đọc, suy nghĩ hoặc nghỉ ngơi. Nó giúp **giảm mức độ căng thẳng** tổng thể và cho phép mọi người tự sạc năng lượng.",
+        "tags": [
+            "khoảng thời gian yên tĩnh",
+            "quiet time",
+            "giảm căng thẳng",
+            "suy nghĩ",
+            "nghỉ ngơi"
+        ],
+        "illustration_prompt": "cute educational illustration showing different family members quietly reading, drawing, or resting in separate corners of the house"
+    },
+    {
+        "id": 180,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Gia đình & sinh hoạt trong nhà",
+        "question": "Tại sao việc 'Xin lỗi' (Apologizing) chân thành lại quan trọng trong gia đình?",
+        "answer": "Một lời xin lỗi chân thành cho thấy bạn **hiểu** hành động của mình đã gây tổn thương và bạn **quan tâm** đến cảm xúc của người khác. Nó giúp **chữa lành** mối quan hệ, giải tỏa sự oán giận và xây dựng lại lòng tin đã mất.",
+        "tags": [
+            "xin lỗi",
+            "apologizing",
+            "chân thành",
+            "chữa lành",
+            "lòng tin",
+            "quan tâm"
+        ],
+        "illustration_prompt": "cute educational illustration showing one child sincerely apologizing to another, with a healing heart symbol between them"
+    },
+    {
+        "id": 181,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Vì sao trường học có quy tắc (School Rules)?",
+        "answer": "Quy tắc trường học giúp tạo ra một **môi trường an toàn, công bằng và tôn trọng** cho tất cả học sinh và giáo viên. Chúng giúp việc học tập diễn ra **trật tự** và dạy bạn cách sống trong một cộng đồng có luật lệ.",
+        "tags": [
+            "quy tắc trường học",
+            "an toàn",
+            "công bằng",
+            "tôn trọng",
+            "cộng đồng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a group of diverse children happily following a short, clear list of school rules"
+    },
+    {
+        "id": 182,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Kỹ thuật 'Học tập Tích cực' (Active Recall) là gì?",
+        "answer": "Học tập tích cực là việc **cố gắng nhớ lại thông tin** mà không nhìn vào sách. Ví dụ: tự hỏi bản thân câu hỏi, làm flashcards. Điều này giúp tạo ra **kết nối thần kinh mạnh hơn** trong bộ não so với việc chỉ đọc lại bài học (thụ động).",
+        "tags": [
+            "học tập tích cực",
+            "active recall",
+            "cố gắng nhớ lại",
+            "kết nối thần kinh",
+            "flashcards"
+        ],
+        "illustration_prompt": "cute educational diagram showing a brain fishing for information from a 'memory lake' using an active recall question hook"
+    },
+    {
+        "id": 183,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để kết bạn (Making Friends) mới?",
+        "answer": "Hãy **mỉm cười** và thể hiện sự **thân thiện**. Tìm kiếm những người có **sở thích chung** với bạn. Bắt đầu bằng cách hỏi một câu hỏi mở hoặc mời họ tham gia một hoạt động nhỏ. Quan trọng nhất là **chính là bạn**.",
+        "tags": [
+            "kết bạn",
+            "mỉm cười",
+            "sở thích chung",
+            "thân thiện",
+            "chính là bạn"
+        ],
+        "illustration_prompt": "cute educational illustration showing two children with similar interest thought bubbles (e.g., space, drawing) starting a conversation"
+    },
+    {
+        "id": 184,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Việc mắc lỗi (Making Mistakes) trong học tập có ý nghĩa gì?",
+        "answer": "Mắc lỗi không phải là thất bại; đó là một phần **cần thiết** của quá trình học tập. Khi bạn mắc lỗi, bộ não bạn sẽ **phân tích** tại sao sai và **tạo ra kết nối mới** để không lặp lại. Đừng sợ mắc lỗi, hãy học hỏi từ chúng!",
+        "tags": [
+            "mắc lỗi",
+            "making mistakes",
+            "học hỏi",
+            "quá trình học tập",
+            "kết nối mới"
+        ],
+        "illustration_prompt": "cute educational diagram showing a mistake being highlighted, leading to a new, stronger correct neural pathway being formed in the brain"
+    },
+    {
+        "id": 185,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Áp lực từ bạn bè (Peer Pressure) là gì?",
+        "answer": "Áp lực từ bạn bè là cảm giác bạn phải **làm điều gì đó** (thường là điều bạn không muốn) để được **chấp nhận** hoặc **hòa hợp** với một nhóm bạn. Điều quan trọng là phải biết **nói 'Không'** và lắng nghe tiếng nói bên trong của chính bạn.",
+        "tags": [
+            "áp lực bạn bè",
+            "peer pressure",
+            "chấp nhận",
+            "hòa hợp",
+            "nói không"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small figure confidently saying 'No' to a larger group of figures pointing towards a risky activity"
+    },
+    {
+        "id": 186,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để quản lý thời gian làm bài tập về nhà (Homework)?",
+        "answer": "Sử dụng **Lịch trình** hoặc **Danh sách việc cần làm (To-do List)**. Chia các dự án lớn thành **các bước nhỏ** dễ quản lý hơn. Làm những bài khó nhất khi bạn có nhiều năng lượng nhất, và tránh các yếu tố gây xao nhãng (như điện thoại, TV).",
+        "tags": [
+            "bài tập về nhà",
+            "quản lý thời gian",
+            "to-do list",
+            "các bước nhỏ",
+            "xao nhãng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large task being broken down into three smaller, manageable pieces on a list"
+    },
+    {
+        "id": 187,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Tầm quan trọng của việc hỏi câu hỏi (Asking Questions) trong lớp?",
+        "answer": "Hỏi câu hỏi cho thấy bạn **tích cực tham gia** vào việc học. Nó giúp bạn **hiểu rõ** những gì chưa chắc chắn và có thể giúp những bạn khác trong lớp, những người cũng đang thắc mắc điều tương tự nhưng ngại hỏi.",
+        "tags": [
+            "hỏi câu hỏi",
+            "asking questions",
+            "tích cực tham gia",
+            "hiểu rõ",
+            "giúp bạn bè"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child confidently raising their hand in a classroom setting"
+    },
+    {
+        "id": 188,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Bạn bè tốt (Good Friend) có những đặc điểm gì?",
+        "answer": "Một người bạn tốt là người **đáng tin cậy**, **tôn trọng** bạn, **lắng nghe** bạn khi bạn cần, và **ăn mừng** thành công của bạn. Họ khiến bạn cảm thấy **an toàn** và **chính là bạn** khi ở bên họ.",
+        "tags": [
+            "bạn bè tốt",
+            "good friend",
+            "đáng tin cậy",
+            "tôn trọng",
+            "ăn mừng",
+            "an toàn"
+        ],
+        "illustration_prompt": "cute educational illustration showing two friends supporting each other: one helping the other up, and one cheering loudly"
+    },
+    {
+        "id": 189,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Kỹ thuật 'Ôn tập Cách quãng' (Spaced Repetition) là gì?",
+        "answer": "Đây là kỹ thuật học tập thông minh: thay vì nhồi nhét mọi thứ vào tối hôm trước, bạn **ôn lại thông tin** trong **khoảng thời gian dài hơn** (ví dụ: hôm nay, ba ngày sau, tuần sau). Điều này giúp thông tin **chuyển vào bộ nhớ dài hạn** của bạn.",
+        "tags": [
+            "ôn tập cách quãng",
+            "spaced repetition",
+            "nhồi nhét",
+            "bộ nhớ dài hạn",
+            "khoảng thời gian dài"
+        ],
+        "illustration_prompt": "cute educational diagram showing a memory review schedule: reviewing information on Day 1, Day 3, and Day 7 for better retention"
+    },
+    {
+        "id": 190,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Việc bị bắt nạt (Bullying) là gì và làm thế nào để đối phó?",
+        "answer": "Bắt nạt là hành vi **lặp đi lặp lại** nhằm gây tổn hại cho người khác (bằng lời nói, hành động, hoặc trực tuyến). Điều quan trọng nhất là **báo cáo ngay lập tức** cho giáo viên hoặc người lớn đáng tin cậy. **Đừng bao giờ đối phó một mình**.",
+        "tags": [
+            "bắt nạt",
+            "bullying",
+            "lặp đi lặp lại",
+            "báo cáo",
+            "người lớn đáng tin cậy"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child walking away from a conflict and talking to a kind, trustworthy teacher"
+    },
+    {
+        "id": 191,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để tập trung (Focus) tốt hơn trong lớp học?",
+        "answer": "Hãy **ngồi ở phía trước** để giảm xao nhãng. **Ghi chép** (Take Notes) bằng tay (việc viết giúp bạn ghi nhớ hơn là gõ máy). **Tham gia tích cực** bằng cách suy nghĩ về những gì giáo viên đang nói, không chỉ nghe.",
+        "tags": [
+            "tập trung",
+            "focus",
+            "ngồi phía trước",
+            "ghi chép",
+            "tham gia tích cực"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child sitting attentively in the front row, actively taking notes in a notebook"
+    },
+    {
+        "id": 192,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Tại sao việc làm việc nhóm (Group Work) lại quan trọng?",
+        "answer": "Làm việc nhóm dạy bạn các **kỹ năng hợp tác, thỏa hiệp và giao tiếp**. Mọi người đều có những điểm mạnh khác nhau, và học cách kết hợp những điểm mạnh đó là một kỹ năng quan trọng trong công việc và cuộc sống.",
+        "tags": [
+            "làm việc nhóm",
+            "group work",
+            "hợp tác",
+            "thỏa hiệp",
+            "kỹ năng giao tiếp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a group of children putting together different puzzle pieces to complete a project"
+    },
+    {
+        "id": 193,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để xin lỗi (Apologize) một người bạn một cách chân thành?",
+        "answer": "Thứ nhất, **chịu trách nhiệm** về hành động của bạn ('Tôi xin lỗi vì đã làm...'). Thứ hai, **thừa nhận cảm xúc** của họ ('Tôi biết điều đó khiến bạn cảm thấy buồn'). Thứ ba, **đưa ra cách khắc phục** nếu có ('Tôi sẽ không làm vậy nữa').",
+        "tags": [
+            "xin lỗi",
+            "apologize",
+            "chịu trách nhiệm",
+            "thừa nhận cảm xúc",
+            "khắc phục"
+        ],
+        "illustration_prompt": "cute educational diagram showing the three steps of a sincere apology between two friends"
+    },
+    {
+        "id": 194,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Thói quen 'Đọc sách' (Reading Habit) giúp ích gì cho việc học?",
+        "answer": "Đọc sách thường xuyên giúp mở rộng **vốn từ vựng**, cải thiện **kỹ năng viết** và **tăng khả năng tập trung** của bạn. Nó cũng giúp bộ não bạn xử lý thông tin nhanh hơn, làm cho việc học các môn khác dễ dàng hơn.",
+        "tags": [
+            "đọc sách",
+            "reading habit",
+            "vốn từ vựng",
+            "tăng khả năng tập trung",
+            "kỹ năng viết"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child reading a book with words and ideas flowing from the book into their head"
+    },
+    {
+        "id": 195,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để đối phó với tin đồn và chuyện phiếm (Gossip)?",
+        "answer": "Cách tốt nhất là **không tham gia**. Nếu bạn nghe thấy, hãy **thay đổi chủ đề** hoặc **bước đi**. Nhớ rằng, người bạn thực sự sẽ không nói xấu người khác sau lưng và sẽ không tin vào những tin đồn đó.",
+        "tags": [
+            "tin đồn",
+            "gossip",
+            "không tham gia",
+            "thay đổi chủ đề",
+            "bước đi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child covering their ears and walking away from two other children whispering"
+    },
+    {
+        "id": 196,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Thang điểm (Grading System) trong trường học có ý nghĩa gì?",
+        "answer": "Thang điểm là một cách để giáo viên **đánh giá** mức độ bạn đã học và nắm vững các kỹ năng và kiến thức. Nó cho bạn biết những lĩnh vực bạn đang **làm tốt** và những lĩnh vực bạn cần **cố gắng hơn**.",
+        "tags": [
+            "thang điểm",
+            "grading system",
+            "đánh giá",
+            "mức độ nắm vững",
+            "cố gắng hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a report card with different grades assigned to different subjects"
+    },
+    {
+        "id": 197,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để đối phó khi bạn cảm thấy bị loại trừ (Excluded)?",
+        "answer": "Cảm thấy bị loại trừ là điều đau đớn. Hãy **tìm kiếm những người khác** để chơi. Nếu bạn muốn tham gia, hãy **hỏi một cách lịch sự** ('Tôi có thể chơi cùng không?'). Quan trọng nhất, hãy nhớ rằng **giá trị của bạn** không phụ thuộc vào việc bạn có được mời tham gia hay không.",
+        "tags": [
+            "bị loại trừ",
+            "excluded",
+            "hỏi lịch sự",
+            "giá trị bản thân",
+            "tìm người khác"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child walking confidently towards a different group of friendly children after being excluded by the first group"
+    },
+    {
+        "id": 198,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Việc ghi chép (Note-Taking) giúp bộ não bạn như thế nào?",
+        "answer": "Ghi chép giúp bạn **tập trung** hơn và **lựa chọn thông tin quan trọng** để viết xuống. Hành động viết vật lý giúp kích hoạt các vùng não liên quan đến **bộ nhớ**, khiến bạn dễ dàng nhớ lại thông tin đó sau này.",
+        "tags": [
+            "ghi chép",
+            "note-taking",
+            "tập trung",
+            "thông tin quan trọng",
+            "bộ nhớ"
+        ],
+        "illustration_prompt": "cute educational diagram showing the hand-writing process activating memory centers in the brain more strongly than typing"
+    },
+    {
+        "id": 199,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Điều gì tạo nên một 'Môi trường học tập' (Learning Environment) tốt ở nhà?",
+        "answer": "Một môi trường học tập tốt phải **sạch sẽ, yên tĩnh, có đủ ánh sáng** và **không có điện thoại/game** khi đang học. Nó nên là một nơi mà bạn cảm thấy **thoải mái** và **có động lực** để tập trung.",
+        "tags": [
+            "môi trường học tập",
+            "yên tĩnh",
+            "đủ ánh sáng",
+            "không xao nhãng",
+            "thoải mái"
+        ],
+        "illustration_prompt": "cute educational illustration showing a clean desk with a lamp, books, and a smiling child focused on their homework"
+    },
+    {
+        "id": 200,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Tại sao việc học những điều bạn không thích lại quan trọng?",
+        "answer": "Ngay cả những môn học bạn không thích cũng dạy cho bạn những **kỹ năng chung** có giá trị, như **tư duy phản biện**, **giải quyết vấn đề** và **tính kiên trì**. Đây là những kỹ năng bạn sẽ sử dụng trong mọi lĩnh vực của cuộc sống.",
+        "tags": [
+            "môn học không thích",
+            "tư duy phản biện",
+            "giải quyết vấn đề",
+            "tính kiên trì",
+            "kỹ năng chung"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child successfully completing a difficult math problem (a subject they dislike) and gaining a 'skill boost' badge"
+    },
+    {
+        "id": 201,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để trở thành một người lãnh đạo (Leader) tốt trong nhóm?",
+        "answer": "Một người lãnh đạo tốt không phải là người ra lệnh. Họ là người **lắng nghe ý kiến** của mọi người, **phân công nhiệm vụ** một cách công bằng, **khuyến khích** các thành viên khác, và **chịu trách nhiệm** về kết quả của nhóm.",
+        "tags": [
+            "người lãnh đạo",
+            "leader",
+            "lắng nghe ý kiến",
+            "phân công công bằng",
+            "khuyến khích"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child leader facilitating a group discussion, making sure everyone gets a chance to speak"
+    },
+    {
+        "id": 202,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Tại sao cần phải xin phép (Permission) khi sử dụng đồ của bạn bè?",
+        "answer": "Xin phép là một dấu hiệu của **sự tôn trọng** đối với tài sản và giới hạn của người khác. Nó xây dựng **lòng tin** và ngăn ngừa sự hiểu lầm hoặc tranh cãi về việc bị mất hoặc hỏng đồ.",
+        "tags": [
+            "xin phép",
+            "permission",
+            "tôn trọng",
+            "tài sản",
+            "lòng tin"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child asking politely, 'May I use this?' before picking up a friend's toy"
+    },
+    {
+        "id": 203,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để đối phó với một bài kiểm tra khó (Tough Test)?",
+        "answer": "Trước tiên, hãy **bình tĩnh và đọc kỹ** hướng dẫn. Trả lời những câu bạn **biết chắc** trước. Đối với những câu khó, hãy cố gắng **loại bỏ** những đáp án sai và **phỏng đoán hợp lý** (educated guess). Quan trọng nhất là đừng bỏ cuộc.",
+        "tags": [
+            "bài kiểm tra khó",
+            "bình tĩnh",
+            "đọc kỹ",
+            "trả lời câu dễ",
+            "phỏng đoán hợp lý"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child taking a deep breath and focusing calmly on the first question of a test paper"
+    },
+    {
+        "id": 204,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Việc tham gia câu lạc bộ (Clubs) ở trường có lợi ích gì?",
+        "answer": "Các câu lạc bộ cho phép bạn khám phá **sở thích** của mình, phát triển **kỹ năng xã hội** mới, và gặp gỡ những người bạn mới có cùng đam mê. Đó là một cách tuyệt vời để xây dựng **hồ sơ cá nhân** và niềm vui.",
+        "tags": [
+            "câu lạc bộ",
+            "clubs",
+            "sở thích",
+            "kỹ năng xã hội",
+            "xây dựng hồ sơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a variety of school club icons (sports, science, art) next to a smiling child"
+    },
+    {
+        "id": 205,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Nếu thấy bạn bè đang có hành vi nguy hiểm (Dangerous Behavior), bạn nên làm gì?",
+        "answer": "Ưu tiên hàng đầu là **an toàn**. Hãy **tách mình ra** khỏi tình huống đó, và sau đó **báo cáo ngay lập tức** cho giáo viên, phụ huynh hoặc người lớn có thẩm quyền. Đừng cố gắng tự giải quyết vấn đề nguy hiểm.",
+        "tags": [
+            "hành vi nguy hiểm",
+            "dangerous behavior",
+            "an toàn",
+            "báo cáo ngay",
+            "người lớn có thẩm quyền"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child quickly and discreetly alerting a teacher to a dangerous situation"
+    },
+    {
+        "id": 206,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để tạo ra một 'Cây Mục tiêu Học tập' (Learning Goals Tree)?",
+        "answer": "Bắt đầu bằng một **Mục tiêu Lớn** (thân cây, ví dụ: 'Đạt điểm A môn Toán'). Sau đó, thêm **Mục tiêu Trung bình** (cành cây, ví dụ: 'Làm hết bài tập về nhà'). Cuối cùng, thêm **Mục tiêu Nhỏ hàng ngày** (lá cây, ví dụ: 'Ôn 10 phút').",
+        "tags": [
+            "mục tiêu học tập",
+            "learning goals",
+            "mục tiêu lớn",
+            "mục tiêu nhỏ",
+            "lên kế hoạch"
+        ],
+        "illustration_prompt": "cute educational diagram showing a stylized tree where the trunk is the 'Big Goal' and the leaves are 'Daily Steps'"
+    },
+    {
+        "id": 207,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Việc ghi nhớ (Memorization) khác với việc hiểu (Understanding) như thế nào?",
+        "answer": "**Ghi nhớ** là khả năng nhớ lại thông tin **chính xác** (ví dụ: một ngày tháng). **Hiểu** là biết **tại sao** điều đó lại đúng, biết cách áp dụng nó và giải thích nó bằng lời của riêng bạn. Hiểu là quan trọng hơn ghi nhớ.",
+        "tags": [
+            "ghi nhớ",
+            "hiểu",
+            "memorization",
+            "understanding",
+            "áp dụng kiến thức",
+            "tại sao"
+        ],
+        "illustration_prompt": "cute educational diagram comparing rote memorization (a child repeating facts like a parrot) vs. understanding (a child solving a problem creatively)"
+    },
+    {
+        "id": 208,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Làm thế nào để giữ bình tĩnh (Stay Calm) trước khi thuyết trình?",
+        "answer": "Hầu hết mọi người đều lo lắng! Hãy **luyện tập nhiều lần**. Trước khi lên, hãy thực hiện vài **hơi thở sâu** từ bụng. **Tập trung** vào những điều bạn muốn nói chứ không phải vào những khuôn mặt đang nhìn bạn.",
+        "tags": [
+            "thuyết trình",
+            "luyện tập",
+            "hơi thở sâu",
+            "bình tĩnh",
+            "lo lắng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child taking a big, calming breath behind a podium before starting a presentation"
+    },
+    {
+        "id": 209,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Sự khác biệt giữa 'Trêu chọc thân thiện' và 'Trêu chọc ác ý'?",
+        "answer": "**Trêu chọc thân thiện** là đùa vui, nhẹ nhàng, cả hai bên đều cười và không ai cảm thấy bị tổn thương. **Trêu chọc ác ý** là cố tình nhằm vào **điểm yếu** của người khác, làm người đó **cảm thấy buồn, tức giận hoặc bị xúc phạm**.",
+        "tags": [
+            "trêu chọc",
+            "ác ý",
+            "thân thiện",
+            "tổn thương",
+            "đùa vui"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a friendly, laughing interaction with a mean-spirited interaction causing a person to cry"
+    },
+    {
+        "id": 210,
+        "category": "Đời sống hàng ngày",
+        "sub_category": "Trường học & bạn bè",
+        "question": "Tại sao việc làm bài tập về nhà (Homework) lại có lợi?",
+        "answer": "Bài tập về nhà giúp bạn **củng cố** những gì đã học trong lớp. Nó cho phép bạn thực hành các kỹ năng mới và học cách **làm việc độc lập**. Đây là cơ hội để bạn tự nhận ra mình đã thực sự hiểu bài hay chưa.",
+        "tags": [
+            "bài tập về nhà",
+            "củng cố kiến thức",
+            "làm việc độc lập",
+            "thực hành kỹ năng"
+        ],
+        "illustration_prompt": "cute educational illustration showing information from a textbook being solidified and organized in the brain during homework time"
+    }
+]

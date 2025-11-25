@@ -35,7 +35,7 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
     }
 
     return (
-        <div className="h-full flex flex-col bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+        <div className="flex-1 min-h-0 flex flex-col bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
             {/* Header with favorite */}
             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-brand-500 to-purple-500 text-white">
                 <div className="flex-1">
