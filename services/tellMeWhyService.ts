@@ -8,6 +8,9 @@ import natureBasicData from '../tellMeWhy/Data/Nature_basic_content.json';
 import earthData from '../tellMeWhy/Data/Earth_content.json';
 import humanBodyData from '../tellMeWhy/Data/Human_body_content.json';
 import physicsData from '../tellMeWhy/Data/physics_content.json';
+import spaceData from '../tellMeWhy/Data/Space_content.json';
+import chemicalData from '../tellMeWhy/Data/Chemical_content.json';
+import spaceExtraData from '../tellMeWhy/Data/Space_extra_content.json';
 import {
     CategoryStructure,
     QuestionData,
@@ -55,6 +58,12 @@ export const loadCategoryContent = (categoryId: number): QuestionData[] | null =
             return humanBodyData as QuestionData[];
         case 7: // Vật lý đời sống
             return physicsData as QuestionData[];
+        case 8: // Không gian & Hệ Mặt Trời
+            return spaceData as QuestionData[];
+        case 9: // Hóa học đời sống
+            return chemicalData as QuestionData[];
+        case 10: // Vũ trụ nâng cao
+            return spaceExtraData as QuestionData[];
         default:
             return null;
     }

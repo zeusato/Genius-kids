@@ -16,9 +16,9 @@ export interface SpeedQuestion {
 
 // --- CONFIGURATION ---
 const TIME_LIMITS = {
-    easy: 15,
+    easy: 10,
     medium: 12,
-    hard: 10
+    hard: 15
 };
 
 const COLORS = [

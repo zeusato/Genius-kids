@@ -1,0 +1,3291 @@
+[
+    {
+        "id": 1,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Mặt Trời (The Sun) thực chất là gì?",
+        "answer": "Mặt Trời không phải là một hành tinh mà là một **Ngôi Sao (Star)**, là trung tâm của Hệ Mặt Trời chúng ta. Nó là một quả cầu khổng lồ chứa đầy khí siêu nóng (plasma), chủ yếu là **Hydrogen** và **Helium**, và tạo ra năng lượng thông qua phản ứng **nhiệt hạch (Fusion)**.",
+        "tags": [
+            "mặt trời",
+            "the sun",
+            "ngôi sao",
+            "star",
+            "plasma",
+            "hydrogen",
+            "helium",
+            "nhiệt hạch"
+        ],
+        "illustration_prompt": "educational illustration of the sun, highlighting its bright plasma surface and flares"
+    },
+    {
+        "id": 2,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Điều gì giữ cho các hành tinh quay quanh Mặt Trời?",
+        "answer": "Đó là **Lực hấp dẫn (Gravity)**. Mặt Trời có khối lượng rất lớn, tạo ra một lực hấp dẫn mạnh mẽ kéo tất cả các hành tinh và vật thể khác về phía nó, buộc chúng phải di chuyển theo quỹ đạo (Orbit) hình bầu dục xung quanh nó thay vì bay thẳng ra ngoài không gian.",
+        "tags": [
+            "lực hấp dẫn",
+            "gravity",
+            "quỹ đạo",
+            "orbit",
+            "mặt trời",
+            "khối lượng lớn"
+        ],
+        "illustration_prompt": "educational diagram showing the Sun at the center and the Earth orbiting it, with an arrow indicating the gravitational pull"
+    },
+    {
+        "id": 3,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Tám hành tinh trong Hệ Mặt Trời (Solar System) là gì?",
+        "answer": "Thứ tự của các hành tinh từ gần Mặt Trời nhất đến xa nhất là: **Sao Thủy (Mercury)**, **Sao Kim (Venus)**, **Trái Đất (Earth)**, **Sao Hỏa (Mars)**, **Sao Mộc (Jupiter)**, **Sao Thổ (Saturn)**, **Sao Thiên Vương (Uranus)**, và **Sao Hải Vương (Neptune)**.",
+        "tags": [
+            "hệ mặt trời",
+            "solar system",
+            "tám hành tinh",
+            "thứ tự hành tinh",
+            "sao thủy",
+            "sao kim",
+            "trái đất",
+            "sao hỏa",
+            "sao mộc",
+            "sao thổ",
+            "sao thiên vương",
+            "sao hải vương"
+        ],
+        "illustration_prompt": "detailed diagram of the solar system showing the Sun and the eight planets in their correct orbital order"
+    },
+    {
+        "id": 4,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sự khác biệt giữa các Hành tinh Đá (Terrestrial Planets) và Hành tinh Khí khổng lồ (Gas Giants) là gì?",
+        "answer": "**Hành tinh đá** (Sao Thủy, Kim, Trái Đất, Hỏa) gần Mặt Trời, nhỏ, mật độ cao và chủ yếu được làm từ đá và kim loại. **Hành tinh khí khổng lồ** (Sao Mộc, Thổ, Thiên Vương, Hải Vương) ở xa, lớn hơn, và chủ yếu được làm từ chất khí (Hydrogen và Helium).",
+        "tags": [
+            "hành tinh đá",
+            "terrestrial planets",
+            "hành tinh khí khổng lồ",
+            "gas giants",
+            "đá kim loại",
+            "chất khí",
+            "phân loại hành tinh"
+        ],
+        "illustration_prompt": "comparative diagram showing the relative sizes and compositions of the four inner rocky planets and the four outer gas giant planets"
+    },
+    {
+        "id": 5,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Thủy (Mercury) có đặc điểm gì nổi bật?",
+        "answer": "Sao Thủy là hành tinh **nhỏ nhất** và **gần Mặt Trời nhất**. Nó có nhiệt độ cực đoan: nóng rực vào ban ngày (gần 430°C) và lạnh cóng vào ban đêm (xuống đến -180°C) do nó **không có khí quyển** để giữ nhiệt.",
+        "tags": [
+            "sao thủy",
+            "mercury",
+            "nhỏ nhất",
+            "gần nhất",
+            "nhiệt độ cực đoan",
+            "không có khí quyển"
+        ],
+        "illustration_prompt": "illustration of Mercury, showing its heavily cratered, barren surface"
+    },
+    {
+        "id": 6,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Kim (Venus) là hành tinh nóng nhất trong Hệ Mặt Trời vì sao?",
+        "answer": "Sao Kim rất nóng vì nó có **hiệu ứng nhà kính chạy trốn** (Runaway Greenhouse Effect). Khí quyển dày đặc của nó chứa đầy **carbon dioxide**, giữ lại nhiệt Mặt Trời rất hiệu quả, khiến nhiệt độ bề mặt của nó nóng hơn cả Sao Thủy (khoảng 470°C), đủ để làm tan chảy chì.",
+        "tags": [
+            "sao kim",
+            "venus",
+            "nóng nhất",
+            "hiệu ứng nhà kính",
+            "carbon dioxide",
+            "khí quyển dày đặc"
+        ],
+        "illustration_prompt": "illustration of Venus shrouded in its thick, yellow-white, cloud-filled atmosphere"
+    },
+    {
+        "id": 7,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Điều gì làm cho Trái Đất (Earth) trở nên đặc biệt?",
+        "answer": "Trái Đất là hành tinh duy nhất mà chúng ta biết có **sự sống** và **nước ở dạng lỏng** trên bề mặt. Nó nằm trong **Vùng có thể sống được (Habitable Zone)** của Mặt Trời, nơi nhiệt độ vừa phải để nước lỏng tồn tại.",
+        "tags": [
+            "trái đất",
+            "earth",
+            "sự sống",
+            "nước lỏng",
+            "habitable zone",
+            "vùng có thể sống được"
+        ],
+        "illustration_prompt": "illustration of a vibrant Earth, highlighting the blue oceans, white clouds, and green continents"
+    },
+    {
+        "id": 8,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Tại sao Sao Hỏa (Mars) có biệt danh là 'Hành tinh Đỏ'?",
+        "answer": "Sao Hỏa có màu đỏ do bề mặt của nó được bao phủ bởi **sắt oxit** (Iron Oxide), hay còn gọi là **gỉ sét**. Sao Hỏa có rất nhiều băng nước đóng băng và là mục tiêu hàng đầu cho việc khám phá không gian của con người trong tương lai.",
+        "tags": [
+            "sao hỏa",
+            "mars",
+            "hành tinh đỏ",
+            "sắt oxit",
+            "gỉ sét",
+            "băng nước",
+            "khám phá không gian"
+        ],
+        "illustration_prompt": "illustration of the Martian surface, emphasizing its reddish-orange color and rocky landscape"
+    },
+    {
+        "id": 9,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Mộc (Jupiter) có đặc điểm gì nổi bật?",
+        "answer": "Sao Mộc là hành tinh **lớn nhất** trong Hệ Mặt Trời. Nó là một Hành tinh khí khổng lồ nổi tiếng với **Vết đỏ lớn (Great Red Spot)**, một cơn bão khổng lồ đã kéo dài ít nhất 350 năm và lớn hơn cả Trái Đất.",
+        "tags": [
+            "sao mộc",
+            "jupiter",
+            "lớn nhất",
+            "hành tinh khí",
+            "vết đỏ lớn",
+            "great red spot",
+            "bão khổng lồ"
+        ],
+        "illustration_prompt": "illustration of Jupiter showing its iconic Great Red Spot and bands of clouds"
+    },
+    {
+        "id": 10,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Điều gì làm nên Vành đai (Rings) nổi tiếng của Sao Thổ (Saturn)?",
+        "answer": "Vành đai của Sao Thổ không phải là một khối rắn mà được tạo thành từ **hàng tỷ mảnh băng** và đá, từ kích thước hạt bụi đến kích thước ô tô. Sao Thổ là hành tinh **ít đặc** nhất trong Hệ Mặt Trời, nó có thể nổi nếu đặt vào một bồn nước khổng lồ.",
+        "tags": [
+            "sao thổ",
+            "saturn",
+            "vành đai",
+            "rings",
+            "mảnh băng và đá",
+            "ít đặc nhất",
+            "nổi"
+        ],
+        "illustration_prompt": "detailed illustration of Saturn with its dramatic and complex system of ice rings"
+    },
+    {
+        "id": 11,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Thiên Vương (Uranus) có gì độc đáo về quỹ đạo?",
+        "answer": "Sao Thiên Vương độc đáo vì nó **quay nghiêng** sang một bên, gần như song song với quỹ đạo của nó, giống như một quả bóng đang lăn. Các nhà khoa học nghĩ rằng một va chạm lớn với vật thể nào đó trong quá khứ đã khiến nó nghiêng hẳn.",
+        "tags": [
+            "sao thiên vương",
+            "uranus",
+            "quay nghiêng",
+            "side-rolling",
+            "va chạm lớn",
+            "quỹ đạo"
+        ],
+        "illustration_prompt": "illustration of Uranus showing its unusual axial tilt, making it appear to roll on its side"
+    },
+    {
+        "id": 12,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Hải Vương (Neptune) nổi bật với đặc điểm nào?",
+        "answer": "Sao Hải Vương là hành tinh **xa Mặt Trời nhất** và là hành tinh khí khổng lồ lạnh nhất. Nó cũng là hành tinh **gió mạnh nhất** trong Hệ Mặt Trời, với tốc độ gió có thể đạt gần $2.100 \text{ km/h}$.",
+        "tags": [
+            "sao hải vương",
+            "neptune",
+            "xa nhất",
+            "gió mạnh nhất",
+            "lạnh nhất",
+            "hành tinh khí"
+        ],
+        "illustration_prompt": "illustration of Neptune with a deep blue color and high-speed wind streaks in its atmosphere"
+    },
+    {
+        "id": 13,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Hành tinh nào có một ngày dài hơn một năm của nó?",
+        "answer": "Đó là **Sao Kim (Venus)**. Sao Kim quay quanh trục của nó (một ngày) rất chậm, mất khoảng 243 ngày Trái Đất, trong khi nó chỉ mất khoảng 225 ngày Trái Đất để quay quanh Mặt Trời (một năm).",
+        "tags": [
+            "sao kim",
+            "venus",
+            "ngày dài hơn năm",
+            "quay chậm",
+            "243 ngày trái đất"
+        ],
+        "illustration_prompt": "educational graphic comparing the rotation speed (day length) and revolution speed (year length) of Venus"
+    },
+    {
+        "id": 14,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Diêm Vương (Pluto) có phải là một hành tinh không?",
+        "answer": "Không. Từ năm 2006, Sao Diêm Vương được phân loại là **Hành tinh Lùn (Dwarf Planet)**. Nó bị loại khỏi danh sách hành tinh vì nó không đáp ứng đủ tiêu chí: nó không 'dọn sạch' được quỹ đạo của mình khỏi các vật thể khác trong Vành đai Kuiper.",
+        "tags": [
+            "sao diêm vương",
+            "pluto",
+            "hành tinh lùn",
+            "dwarf planet",
+            "2006",
+            "vành đai kuiper",
+            "quỹ đạo"
+        ],
+        "illustration_prompt": "illustration showing Pluto and its largest moon Charon, labeling Pluto as a dwarf planet"
+    },
+    {
+        "id": 15,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Vành đai Tiểu hành tinh (Asteroid Belt) nằm ở đâu?",
+        "answer": "Vành đai Tiểu hành tinh là một khu vực hình vành khăn nằm giữa quỹ đạo của **Sao Hỏa (Mars)** và **Sao Mộc (Jupiter)**. Nó chứa hàng triệu tảng đá nhỏ và vật thể kim loại được gọi là tiểu hành tinh (Asteroid).",
+        "tags": [
+            "vành đai tiểu hành tinh",
+            "asteroid belt",
+            "sao hỏa",
+            "sao mộc",
+            "tiểu hành tinh",
+            "tảng đá"
+        ],
+        "illustration_prompt": "diagram showing the location of the asteroid belt between Mars and Jupiter"
+    },
+    {
+        "id": 16,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Các Mặt Trăng (Moons) được hình thành như thế nào?",
+        "answer": "Mặt Trăng là các vệ tinh tự nhiên quay quanh các hành tinh hoặc hành tinh lùn. Chúng có thể được hình thành từ vật chất còn sót lại sau khi hành tinh hình thành (như Mặt Trăng của Sao Mộc) hoặc là kết quả của một **va chạm khổng lồ** (như Mặt Trăng của Trái Đất).",
+        "tags": [
+            "mặt trăng",
+            "moons",
+            "vệ tinh tự nhiên",
+            "hình thành",
+            "va chạm khổng lồ",
+            "vật chất còn sót lại"
+        ],
+        "illustration_prompt": "illustration showing the Earth and its Moon, with a caption about how the Moon formed from a massive impact"
+    },
+    {
+        "id": 17,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Mộc có những mặt trăng nổi tiếng nào có thể có sự sống?",
+        "answer": "Bốn mặt trăng lớn nhất của Sao Mộc (Io, Europa, Ganymede và Callisto) được gọi là **Mặt trăng Galileo**. **Europa** là mặt trăng nổi tiếng nhất vì có bằng chứng cho thấy một **đại dương nước lỏng khổng lồ** nằm bên dưới lớp băng dày của nó, có khả năng chứa sự sống.",
+        "tags": [
+            "sao mộc",
+            "jupiter",
+            "mặt trăng galileo",
+            "europa",
+            "đại dương nước lỏng",
+            "sự sống"
+        ],
+        "illustration_prompt": "illustration of Jupiter and its four Galilean moons, highlighting Europa's icy surface"
+    },
+    {
+        "id": 18,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Thổ có mặt trăng nổi tiếng nào có sông hồ?",
+        "answer": "Mặt trăng **Titan** của Sao Thổ. Titan là mặt trăng duy nhất có **khí quyển dày** và bề mặt của nó có **sông, hồ và biển** chứa đầy **mêtan và etan lỏng** thay vì nước. Đây là một trong những nơi thú vị nhất để tìm kiếm sự sống ngoài Trái Đất.",
+        "tags": [
+            "sao thổ",
+            "saturn",
+            "titan",
+            "khí quyển dày",
+            "sông hồ",
+            "mêtan lỏng",
+            "etan lỏng"
+        ],
+        "illustration_prompt": "illustration of the surface of Titan, showing lakes and rivers of liquid methane"
+    },
+    {
+        "id": 19,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao chổi (Comets) là gì?",
+        "answer": "Sao chổi là những **'quả cầu tuyết bẩn'** lớn làm từ băng, đá và bụi. Khi chúng đến gần Mặt Trời, nhiệt làm băng bay hơi, tạo ra một đám mây khí và bụi lớn gọi là **'đuôi'** hướng ra xa Mặt Trời.",
+        "tags": [
+            "sao chổi",
+            "comets",
+            "quả cầu tuyết bẩn",
+            "băng đá bụi",
+            "đuôi sao chổi",
+            "bay hơi"
+        ],
+        "illustration_prompt": "illustration of a comet with a brightly lit coma and a long, distinct tail pointing away from the sun"
+    },
+    {
+        "id": 20,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Thiên thạch (Meteoroid), Sao băng (Meteor), và Thiên thạch rơi (Meteorite) khác nhau như thế nào?",
+        "answer": "**Thiên thạch (Meteoroid)** là tảng đá trong không gian. Khi nó lao vào khí quyển Trái Đất và bốc cháy, nó được gọi là **Sao băng (Meteor)** (hay 'sao băng' mà chúng ta thấy). Nếu nó sống sót và chạm đất, nó được gọi là **Thiên thạch rơi (Meteorite)**.",
+        "tags": [
+            "thiên thạch",
+            "meteoroid",
+            "sao băng",
+            "meteor",
+            "thiên thạch rơi",
+            "meteorite",
+            "bốc cháy"
+        ],
+        "illustration_prompt": "educational diagram showing the progression: rock in space (meteoroid) -> streak in atmosphere (meteor/shooting star) -> rock on the ground (meteorite)"
+    },
+    {
+        "id": 21,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Mặt Trời tạo ra ánh sáng và nhiệt bằng cách nào?",
+        "answer": "Mặt Trời tạo ra năng lượng thông qua phản ứng **Nhiệt hạch (Nuclear Fusion)**. Trong lõi cực nóng của nó, các nguyên tử **Hydrogen** hợp nhất với nhau để tạo thành **Helium**, giải phóng một lượng lớn **năng lượng** dưới dạng ánh sáng và nhiệt.",
+        "tags": [
+            "nhiệt hạch",
+            "nuclear fusion",
+            "hydrogen",
+            "helium",
+            "tạo ra ánh sáng và nhiệt",
+            "lõi mặt trời"
+        ],
+        "illustration_prompt": "educational diagram showing hydrogen atoms fusing into helium in the sun's core, releasing energy"
+    },
+    {
+        "id": 22,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao Thủy và Sao Kim có Mặt Trăng không?",
+        "answer": "Không. **Sao Thủy (Mercury)** và **Sao Kim (Venus)** là hai hành tinh duy nhất trong Hệ Mặt Trời **không có bất kỳ vệ tinh tự nhiên (Mặt Trăng) nào** quay quanh chúng. Các hành tinh khác đều có ít nhất một hoặc nhiều Mặt Trăng.",
+        "tags": [
+            "sao thủy",
+            "sao kim",
+            "không có mặt trăng",
+            "vệ tinh tự nhiên"
+        ],
+        "illustration_prompt": "illustration comparing Mercury and Venus with the other planets, showing their lack of orbiting moons"
+    },
+    {
+        "id": 23,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Vì sao các Hành tinh khí khổng lồ lại có nhiều Mặt Trăng đến vậy?",
+        "answer": "Các hành tinh khí khổng lồ (Sao Mộc, Thổ, Thiên Vương, Hải Vương) có **lực hấp dẫn khổng lồ** do kích thước lớn của chúng. Lực này giúp chúng **bắt giữ** các tiểu hành tinh hoặc sao chổi đi lạc, biến chúng thành các Mặt Trăng mới.",
+        "tags": [
+            "hành tinh khí khổng lồ",
+            "nhiều mặt trăng",
+            "lực hấp dẫn khổng lồ",
+            "bắt giữ tiểu hành tinh"
+        ],
+        "illustration_prompt": "illustration showing Jupiter's massive gravity capturing small passing asteroids, turning them into moons"
+    },
+    {
+        "id": 24,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sao nào trong Hệ Mặt Trời có thể trôi nổi trên nước?",
+        "answer": "Đó là **Sao Thổ (Saturn)**. Mặc dù là hành tinh khổng lồ, Sao Thổ có **mật độ trung bình thấp hơn nước** (khoảng $0.687 \text{ g/cm}^3$). Nếu bạn tìm thấy một bồn tắm đủ lớn, Sao Thổ sẽ nổi trên mặt nước!",
+        "tags": [
+            "sao thổ",
+            "saturn",
+            "nổi trên nước",
+            "mật độ thấp",
+            "hành tinh khí"
+        ],
+        "illustration_prompt": "whimsical illustration showing the planet Saturn floating in a giant bathtub of water"
+    },
+    {
+        "id": 25,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Vành đai Kuiper (Kuiper Belt) là gì?",
+        "answer": "Vành đai Kuiper là một khu vực hình đĩa nằm ngoài quỹ đạo của **Sao Hải Vương**. Nó giống như một **vành đai tiểu hành tinh thứ hai** nhưng lớn hơn và lạnh hơn, chứa hàng ngàn vật thể băng giá, bao gồm cả **Sao Diêm Vương** (Pluto) và nhiều hành tinh lùn khác.",
+        "tags": [
+            "vành đai kuiper",
+            "kuiper belt",
+            "ngoài sao hải vương",
+            "vật thể băng giá",
+            "sao diêm vương",
+            "hành tinh lùn"
+        ],
+        "illustration_prompt": "diagram showing the location of the Kuiper Belt beyond Neptune's orbit, containing icy bodies"
+    },
+    {
+        "id": 26,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Làm thế nào chúng ta đo khoảng cách trong Hệ Mặt Trời?",
+        "answer": "Chúng ta sử dụng **Đơn vị Thiên văn (Astronomical Unit - AU)**. $1 \text{ AU}$ là khoảng cách **trung bình** từ **Trái Đất đến Mặt Trời** (khoảng 150 triệu $\text{km}$). Ví dụ: Sao Mộc cách Mặt Trời khoảng $5.2 \text{ AU}$.",
+        "tags": [
+            "đơn vị thiên văn",
+            "astronomical unit",
+            "au",
+            "khoảng cách",
+            "trái đất mặt trời",
+            "150 triệu km"
+        ],
+        "illustration_prompt": "educational diagram illustrating the distance of 1 AU between the Earth and the Sun"
+    },
+    {
+        "id": 27,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Tại sao Sao Mộc được gọi là 'Máy hút bụi' của Hệ Mặt Trời?",
+        "answer": "Do **kích thước khổng lồ** và **lực hấp dẫn mạnh mẽ** của nó, Sao Mộc thường xuyên **hút hoặc làm chệch hướng** các sao chổi và tiểu hành tinh nguy hiểm có thể đi vào bên trong Hệ Mặt Trời. Điều này giúp bảo vệ các hành tinh đá bên trong, bao gồm cả Trái Đất.",
+        "tags": [
+            "sao mộc",
+            "jupiter",
+            "máy hút bụi",
+            "kích thước khổng lồ",
+            "lực hấp dẫn",
+            "hút tiểu hành tinh",
+            "bảo vệ trái đất"
+        ],
+        "illustration_prompt": "illustration showing Jupiter's large mass drawing in or deflecting several comets and asteroids"
+    },
+    {
+        "id": 28,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Vết đen Mặt Trời (Sunspots) là gì?",
+        "answer": "Vết đen Mặt Trời là những khu vực **tối màu hơn** và **mát hơn** một chút (so với các khu vực xung quanh) trên bề mặt Mặt Trời. Chúng được hình thành do sự **tập trung mạnh mẽ của từ trường** ngăn chặn sự truyền nhiệt đến bề mặt.",
+        "tags": [
+            "vết đen mặt trời",
+            "sunspots",
+            "tối màu mát hơn",
+            "từ trường mạnh",
+            "ngăn chặn truyền nhiệt"
+        ],
+        "illustration_prompt": "close-up illustration of the Sun's surface showing large, dark sunspots"
+    },
+    {
+        "id": 29,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Sự khác biệt giữa Quỹ đạo (Orbit) và Sự Tự quay (Rotation) là gì?",
+        "answer": "**Quỹ đạo (Orbit)** là chuyển động của một vật thể quay **quanh một vật thể khác** (ví dụ: Trái Đất quay quanh Mặt Trời - tạo ra một năm). **Sự Tự quay (Rotation)** là chuyển động của một vật thể **quay quanh trục của chính nó** (ví dụ: Trái Đất tự quay - tạo ra ngày và đêm).",
+        "tags": [
+            "quỹ đạo",
+            "orbit",
+            "tự quay",
+            "rotation",
+            "quay quanh vật thể khác",
+            "quay quanh trục",
+            "ngày đêm năm"
+        ],
+        "illustration_prompt": "educational diagram illustrating the Earth's rotation (spinning on its axis) and its orbit (traveling around the Sun)"
+    },
+    {
+        "id": 30,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt trời và các hành tinh",
+        "question": "Tại sao các hành tinh lại có hình dạng gần như hình cầu (Spherical)?",
+        "answer": "Khi một vật thể trong không gian đạt đến một kích thước và khối lượng đủ lớn, **Lực hấp dẫn** của nó trở nên mạnh mẽ đến mức nó **kéo tất cả vật chất** về phía trung tâm, làm cho hình dạng tổng thể của nó trở thành hình cầu hoàn hảo nhất có thể.",
+        "tags": [
+            "hình cầu",
+            "spherical",
+            "lực hấp dẫn",
+            "kéo vật chất",
+            "trung tâm",
+            "khối lượng lớn"
+        ],
+        "illustration_prompt": "educational diagram showing gravity pulling material towards the center of a large mass, shaping it into a sphere"
+    },
+    {
+        "id": 31,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng (The Moon) được hình thành như thế nào?",
+        "answer": "Lý thuyết phổ biến nhất là **Giả thuyết Va chạm Khổng lồ (Giant Impact Hypothesis)**: Một hành tinh sơ khai (gọi là Theia), có kích thước bằng Sao Hỏa, đã va chạm mạnh với Trái Đất sơ khai. Các mảnh vỡ khổng lồ của cả hai vật thể bị đẩy vào quỹ đạo và sau đó kết hợp lại với nhau để tạo thành Mặt Trăng.",
+        "tags": [
+            "mặt trăng",
+            "moon formation",
+            "giả thuyết va chạm khổng lồ",
+            "giant impact hypothesis",
+            "theia",
+            "mảnh vỡ quỹ đạo"
+        ],
+        "illustration_prompt": "educational diagram showing the Giant Impact Hypothesis: a large protoplanet striking early Earth and the debris forming the Moon"
+    },
+    {
+        "id": 32,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng có bao nhiêu 'Pha' (Phases)?",
+        "answer": "Mặt Trăng có tám pha chính (tuần tự): **Trăng Non (New Moon)**, Trăng Lưỡi Liềm Đầu Tháng (Waxing Crescent), **Trăng Khuyết Đầu Tháng (First Quarter)**, Trăng Tròn Khuyết Đầu Tháng (Waxing Gibbous), **Trăng Tròn (Full Moon)**, Trăng Tròn Khuyết Cuối Tháng (Waning Gibbous), **Trăng Khuyết Cuối Tháng (Third Quarter)**, và Trăng Lưỡi Liềm Cuối Tháng (Waning Crescent).",
+        "tags": [
+            "pha mặt trăng",
+            "moon phases",
+            "tám pha",
+            "trăng non",
+            "trăng tròn",
+            "quỹ đạo mặt trăng"
+        ],
+        "illustration_prompt": "educational diagram showing the eight major phases of the Moon as seen from Earth and their positions relative to the Sun"
+    },
+    {
+        "id": 33,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Tại sao chúng ta chỉ thấy một mặt của Mặt Trăng?",
+        "answer": "Điều này là do Mặt Trăng có tốc độ **tự quay (Rotation)** quanh trục của nó **bằng với** tốc độ nó **quay quanh Trái Đất (Orbit)**. Hiện tượng này được gọi là **Khóa Thủy Triều (Tidal Locking)**. Vì vậy, mặc dù Mặt Trăng quay, chúng ta luôn thấy cùng một mặt.",
+        "tags": [
+            "một mặt trăng",
+            "khóa thủy triều",
+            "tidal locking",
+            "tự quay",
+            "quay quanh trái đất",
+            "tốc độ bằng nhau"
+        ],
+        "illustration_prompt": "educational diagram illustrating tidal locking, showing the Moon rotating once for every orbit around the Earth, thus keeping the same face towards Earth"
+    },
+    {
+        "id": 34,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Các hố va chạm (Craters) và Biển Mặt Trăng (Maria) là gì?",
+        "answer": "**Hố va chạm** là những hố lõm do thiên thạch và tiểu hành tinh đâm vào Mặt Trăng. **Biển Mặt Trăng (Maria)**, mặc dù có tên là 'biển', thực chất là các vùng **đồng bằng bazan tối màu** được tạo ra bởi dòng dung nham cổ xưa, đã nguội đi và rắn lại. ",
+        "tags": [
+            "hố va chạm",
+            "craters",
+            "biển mặt trăng",
+            "maria",
+            "thiên thạch",
+            "đồng bằng bazan",
+            "dung nham cổ xưa"
+        ],
+        "illustration_prompt": "close-up illustration of the Moon's surface showing both light-colored, heavily cratered highlands and dark, smooth maria"
+    },
+    {
+        "id": 35,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Điều gì gây ra Thủy triều (Tides) trên Trái Đất?",
+        "answer": "Thủy triều là do **lực hấp dẫn** của **Mặt Trăng** và (ở mức độ thấp hơn) **Mặt Trời** kéo nước trên Trái Đất. Lực hấp dẫn của Mặt Trăng tạo ra sự phồng lên của nước ở cả mặt gần và mặt xa Mặt Trăng, tạo thành thủy triều cao và thấp.",
+        "tags": [
+            "thủy triều",
+            "tides",
+            "lực hấp dẫn",
+            "mặt trăng mặt trời",
+            "nước phồng lên",
+            "thủy triều cao thấp"
+        ],
+        "illustration_prompt": "educational diagram showing the Moon's gravitational pull creating high tides on both the near and far sides of the Earth"
+    },
+    {
+        "id": 36,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng có khí quyển (Atmosphere) không?",
+        "answer": "Mặt Trăng không có khí quyển thực sự. Nó có một **Khí quyển ngoài (Exosphere)** cực kỳ mỏng, tạo thành từ các nguyên tử và phân tử khí thoát ra khỏi bề mặt của nó. Vì không có không khí, âm thanh không thể truyền đi và bầu trời luôn **tối đen**.",
+        "tags": [
+            "khí quyển mặt trăng",
+            "atmosphere",
+            "khí quyển ngoài",
+            "exosphere",
+            "cực kỳ mỏng",
+            "tối đen"
+        ],
+        "illustration_prompt": "illustration of an astronaut on the Moon's surface, showing the lack of atmosphere and a black sky despite the sunlight"
+    },
+    {
+        "id": 37,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Sao Mộc có những mặt trăng lớn nào được gọi là Mặt trăng Galileo?",
+        "answer": "Bốn Mặt Trăng lớn nhất của Sao Mộc là **Io, Europa, Ganymede và Callisto**. Chúng được đặt tên theo nhà thiên văn học Galileo Galilei, người đã phát hiện ra chúng vào năm 1610. **Ganymede** là mặt trăng lớn nhất trong Hệ Mặt Trời, lớn hơn cả Sao Thủy!",
+        "tags": [
+            "sao mộc",
+            "jupiter",
+            "mặt trăng galileo",
+            "io",
+            "europa",
+            "ganymede",
+            "callisto",
+            "lớn nhất"
+        ],
+        "illustration_prompt": "diagram showing Jupiter and its four Galilean moons with their relative sizes"
+    },
+    {
+        "id": 38,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng Io của Sao Mộc có đặc điểm gì nổi bật?",
+        "answer": "Io là mặt trăng **hoạt động núi lửa mạnh nhất** trong Hệ Mặt Trời! Nó có hàng trăm núi lửa đang phun trào do bị lực hấp dẫn mạnh của Sao Mộc và các mặt trăng lân cận **ép và kéo** liên tục. Nhiệt độ bên trong này khiến băng tan chảy và tạo ra dung nham nóng.",
+        "tags": [
+            "mặt trăng io",
+            "io",
+            "núi lửa mạnh nhất",
+            "volcanic",
+            "lực hấp dẫn sao mộc",
+            "ép và kéo",
+            "dung nham nóng"
+        ],
+        "illustration_prompt": "illustration of Io's surface, showing multiple active volcanoes erupting plumes of material"
+    },
+    {
+        "id": 39,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Tại sao Europa của Sao Mộc lại thú vị đối với các nhà khoa học?",
+        "answer": "Europa được bao phủ bởi một lớp băng dày và có bằng chứng mạnh mẽ về một **đại dương nước lỏng khổng lồ** nằm bên dưới lớp băng này. Đại dương này được giữ ấm bởi lực thủy triều của Sao Mộc. Các nhà khoa học tin rằng đại dương này có thể là nơi có **sự sống ngoài Trái Đất**.",
+        "tags": [
+            "europa",
+            "đại dương nước lỏng",
+            "lớp băng dày",
+            "sự sống ngoài trái đất",
+            "lực thủy triều"
+        ],
+        "illustration_prompt": "cutaway diagram of Europa showing the layers: ice crust, liquid water ocean, and rocky interior"
+    },
+    {
+        "id": 40,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng Titan của Sao Thổ có gì đặc biệt?",
+        "answer": "Titan là mặt trăng duy nhất có **khí quyển dày đặc** riêng. Bề mặt của nó có **sông, hồ và biển** chứa đầy **mêtan và etan lỏng** thay vì nước. Titan được cho là giống Trái Đất thời kỳ đầu, nhưng lạnh hơn rất nhiều.",
+        "tags": [
+            "titan",
+            "sao thổ",
+            "khí quyển dày đặc",
+            "sông hồ",
+            "mêtan lỏng",
+            "etan lỏng",
+            "trái đất thời kỳ đầu"
+        ],
+        "illustration_prompt": "illustration of the surface of Titan, showing lakes and rivers of liquid methane under a hazy, orange-tinged sky"
+    },
+    {
+        "id": 41,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Vệ tinh tự nhiên (Natural Satellite) là gì?",
+        "answer": "Vệ tinh tự nhiên là một vật thể **quay quanh một hành tinh** hoặc một hành tinh lùn. Chúng còn được gọi là 'mặt trăng', bất kể chúng quay quanh hành tinh nào. Trái Đất chỉ có một vệ tinh tự nhiên (Mặt Trăng), trong khi Sao Mộc có gần 100 vệ tinh đã được xác nhận.",
+        "tags": [
+            "vệ tinh tự nhiên",
+            "natural satellite",
+            "quay quanh hành tinh",
+            "mặt trăng",
+            "số lượng"
+        ],
+        "illustration_prompt": "diagram showing a planet with several smaller objects orbiting it, representing natural satellites"
+    },
+    {
+        "id": 42,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Ganymede, mặt trăng lớn nhất, có điểm gì độc đáo khác?",
+        "answer": "Ganymede là mặt trăng duy nhất được biết đến trong Hệ Mặt Trời có **từ trường (Magnetic Field)** riêng. Từ trường này được tạo ra bởi sự chuyển động của chất lỏng bên trong lõi của nó, tương tự như cách từ trường của Trái Đất được tạo ra.",
+        "tags": [
+            "ganymede",
+            "lớn nhất",
+            "từ trường riêng",
+            "magnetic field",
+            "lõi chất lỏng"
+        ],
+        "illustration_prompt": "cutaway diagram of Ganymede showing its internal structure and the presence of its own magnetic field"
+    },
+    {
+        "id": 43,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Sự khác biệt giữa Nhật thực (Solar Eclipse) và Nguyệt thực (Lunar Eclipse) là gì?",
+        "answer": "**Nhật thực** xảy ra khi **Mặt Trăng** đi qua giữa Mặt Trời và Trái Đất, che khuất ánh sáng Mặt Trời. **Nguyệt thực** xảy ra khi **Trái Đất** đi qua giữa Mặt Trời và Mặt Trăng, khiến bóng của Trái Đất che khuất Mặt Trăng.",
+        "tags": [
+            "nhật thực",
+            "solar eclipse",
+            "nguyệt thực",
+            "lunar eclipse",
+            "mặt trăng che mặt trời",
+            "trái đất che mặt trăng"
+        ],
+        "illustration_prompt": "educational diagram showing the alignment of the Sun, Earth, and Moon during a solar eclipse and a lunar eclipse"
+    },
+    {
+        "id": 44,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng đang di chuyển ra xa Trái Đất như thế nào?",
+        "answer": "Đúng vậy, Mặt Trăng đang từ từ di chuyển ra xa Trái Đất khoảng **$3.8 \text{ cm mỗi năm}$**. Sự di chuyển này là kết quả của lực hấp dẫn và năng lượng ma sát thủy triều giữa Trái Đất và Mặt Trăng. Điều này có nghĩa là ngày Trái Đất đang dần dài ra.",
+        "tags": [
+            "mặt trăng di chuyển xa",
+            "3.8 cm mỗi năm",
+            "ma sát thủy triều",
+            "ngày dài ra"
+        ],
+        "illustration_prompt": "educational graphic illustrating the Moon's orbit slowly expanding away from the Earth over time"
+    },
+    {
+        "id": 45,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Enceladus, một mặt trăng của Sao Thổ, có gì độc đáo?",
+        "answer": "Enceladus được bao phủ bởi băng và có các **Suối phun Geyser** ở cực Nam của nó, phun hơi nước và các hạt băng vào không gian. Điều này cho thấy Enceladus cũng có một **đại dương nước lỏng** nằm bên dưới lớp vỏ băng của nó, tương tự như Europa.",
+        "tags": [
+            "enceladus",
+            "sao thổ",
+            "suối phun geyser",
+            "đại dương nước lỏng",
+            "băng"
+        ],
+        "illustration_prompt": "illustration of Enceladus showing jets of water vapor and ice particles erupting from its south pole"
+    },
+    {
+        "id": 46,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Triton, mặt trăng lớn nhất của Sao Hải Vương, có gì khác biệt?",
+        "answer": "Triton nổi bật vì nó quay quanh Sao Hải Vương theo **quỹ đạo ngược (Retrograde Orbit)**, tức là nó quay theo hướng ngược lại so với sự tự quay của Sao Hải Vương. Các nhà khoa học tin rằng Triton đã bị Sao Hải Vương **bắt giữ** từ Vành đai Kuiper.",
+        "tags": [
+            "triton",
+            "sao hải vương",
+            "quỹ đạo ngược",
+            "retrograde orbit",
+            "bị bắt giữ",
+            "vành đai kuiper"
+        ],
+        "illustration_prompt": "educational diagram showing Triton orbiting Neptune in the opposite direction of Neptune's rotation"
+    },
+    {
+        "id": 47,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Tại sao Trăng Non (New Moon) lại không nhìn thấy được?",
+        "answer": "Pha Trăng Non xảy ra khi Mặt Trăng nằm **giữa Trái Đất và Mặt Trời**. Phần Mặt Trăng hướng về Trái Đất **hoàn toàn không được chiếu sáng** (nằm trong bóng tối), và phần được chiếu sáng lại hướng về phía Mặt Trời. Vì vậy, chúng ta không thấy nó vào ban đêm.",
+        "tags": [
+            "trăng non",
+            "new moon",
+            "không nhìn thấy được",
+            "giữa trái đất mặt trời",
+            "hoàn toàn không chiếu sáng"
+        ],
+        "illustration_prompt": "diagram showing the New Moon position where the illuminated side faces away from the Earth"
+    },
+    {
+        "id": 48,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Sự khác biệt giữa Trăng Xanh (Blue Moon) và Siêu Trăng (Supermoon) là gì?",
+        "answer": "**Trăng Xanh (Blue Moon)** là tên gọi được đặt cho **trăng tròn thứ hai** xảy ra trong cùng một tháng dương lịch (hoặc thứ tư trong một mùa). **Siêu Trăng (Supermoon)** là trăng tròn xảy ra khi Mặt Trăng ở gần Trái Đất nhất trong quỹ đạo của nó, khiến nó trông **lớn hơn và sáng hơn** bình thường.",
+        "tags": [
+            "trăng xanh",
+            "blue moon",
+            "siêu trăng",
+            "supermoon",
+            "trăng tròn thứ hai",
+            "gần trái đất nhất"
+        ],
+        "illustration_prompt": "comparative illustration showing a standard Full Moon next to a larger, brighter Supermoon"
+    },
+    {
+        "id": 49,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Tại sao không phải lúc nào cũng có Nhật thực và Nguyệt thực?",
+        "answer": "Quỹ đạo của Mặt Trăng không nằm hoàn toàn trên cùng mặt phẳng với quỹ đạo của Trái Đất quanh Mặt Trời; nó bị **nghiêng khoảng 5 độ**. Vì vậy, hầu hết thời gian, Mặt Trăng đi qua **bên trên hoặc bên dưới** bóng của Trái Đất, thay vì đi thẳng vào giữa.",
+        "tags": [
+            "nhật thực nguyệt thực",
+            "không thường xuyên",
+            "quỹ đạo nghiêng",
+            "5 độ"
+        ],
+        "illustration_prompt": "educational diagram illustrating the 5-degree tilt of the Moon's orbit relative to the Earth's orbit around the Sun"
+    },
+    {
+        "id": 50,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Dân cư đầu tiên trên Mặt Trăng được gọi là gì?",
+        "answer": "Không có dân cư trên Mặt Trăng! Tuy nhiên, các phi hành gia trong sứ mệnh **Apollo** đã đổ bộ lên Mặt Trăng. Sứ mệnh Apollo 11 năm 1969 đưa **Neil Armstrong** trở thành người đầu tiên đặt chân lên Mặt Trăng.",
+        "tags": [
+            "dân cư mặt trăng",
+            "apollo 11",
+            "neil armstrong",
+            "người đầu tiên",
+            "1969"
+        ],
+        "illustration_prompt": "historic illustration of Neil Armstrong taking the first step on the Moon's surface"
+    },
+    {
+        "id": 51,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Các hành tinh lùn (Dwarf Planets) có Mặt Trăng không?",
+        "answer": "Có. Nhiều hành tinh lùn, bao gồm **Sao Diêm Vương (Pluto)**, có các vệ tinh tự nhiên. Sao Diêm Vương có 5 vệ tinh, nổi tiếng nhất là **Charon**, vệ tinh lớn đến mức hệ thống Pluto-Charon đôi khi được coi là một hành tinh lùn **nhị phân** (quay quanh nhau).",
+        "tags": [
+            "hành tinh lùn",
+            "dwarf planets",
+            "vệ tinh tự nhiên",
+            "sao diêm vương",
+            "pluto",
+            "charon",
+            "nhị phân"
+        ],
+        "illustration_prompt": "illustration of Pluto and its largest moon, Charon, orbiting a common center of gravity"
+    },
+    {
+        "id": 52,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Tại sao chúng ta thấy Mặt Trăng phát sáng?",
+        "answer": "Mặt Trăng **không tự phát ra ánh sáng**. Chúng ta thấy nó phát sáng vì nó **phản chiếu ánh sáng** từ **Mặt Trời** chiếu vào bề mặt của nó. Tương tự như gương, Mặt Trăng chỉ là một vật thể phản chiếu.",
+        "tags": [
+            "mặt trăng phát sáng",
+            "phản chiếu ánh sáng",
+            "mặt trời",
+            "vật thể phản chiếu"
+        ],
+        "illustration_prompt": "diagram showing the Sun's light hitting the Moon, which then reflects that light towards the Earth"
+    },
+    {
+        "id": 53,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Vành đai E của Sao Thổ (Saturn’s E Ring) được hình thành từ đâu?",
+        "answer": "Vành đai E, vành đai lớn nhất và ngoài cùng của Sao Thổ, được cho là được hình thành từ vật chất (hạt băng và hơi nước) được **phun ra từ các suối phun** trên mặt trăng **Enceladus** của nó. Mặt trăng này liên tục cung cấp vật chất cho vành đai.",
+        "tags": [
+            "vành đai e",
+            "saturn's e ring",
+            "enceladus",
+            "suối phun",
+            "hạt băng",
+            "vật chất"
+        ],
+        "illustration_prompt": "illustration showing the moon Enceladus releasing geyser plumes that feed into Saturn's E-ring"
+    },
+    {
+        "id": 54,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng có băng nước (Water Ice) không?",
+        "answer": "Có. Các nhà khoa học đã tìm thấy bằng chứng về băng nước chủ yếu nằm trong các **hố va chạm sâu** ở các **cực** của Mặt Trăng. Các hố này luôn nằm trong bóng tối, giúp nhiệt độ đủ thấp để băng tồn tại vĩnh viễn.",
+        "tags": [
+            "băng nước mặt trăng",
+            "water ice",
+            "hố va chạm sâu",
+            "cực mặt trăng",
+            "bóng tối vĩnh viễn"
+        ],
+        "illustration_prompt": "illustration of a deep crater at the Moon's pole, showing ice deposits at the permanently shadowed floor"
+    },
+    {
+        "id": 55,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Một ngày trên Mặt Trăng dài bao lâu?",
+        "answer": "Một ngày trên Mặt Trăng (thời gian tự quay một vòng) tương đương với khoảng **$29.5 \text{ ngày Trái Đất}$**. Điều này có nghĩa là bạn sẽ có khoảng $14.75$ ngày Mặt Trăng đầy ánh sáng ban ngày cực nóng, sau đó là $14.75$ ngày đêm cực lạnh.",
+        "tags": [
+            "một ngày mặt trăng",
+            "29.5 ngày trái đất",
+            "tự quay",
+            "ban ngày",
+            "ban đêm"
+        ],
+        "illustration_prompt": "educational graphic showing the Moon's rotation period taking 29.5 Earth days to complete one cycle of day and night"
+    },
+    {
+        "id": 56,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Các vành đai của Hành tinh Khí có phải là Vệ tinh Tự nhiên không?",
+        "answer": "Không hẳn. Các vành đai (như của Sao Thổ) được tạo thành từ vô số các **hạt nhỏ** (tiểu hành tinh và băng) quay quanh hành tinh. Tuy nhiên, các nhà khoa học tin rằng những hạt này là **tàn dư của các vệ tinh tự nhiên** (mặt trăng nhỏ) đã bị xé toạc bởi lực hấp dẫn mạnh của hành tinh.",
+        "tags": [
+            "vành đai hành tinh khí",
+            "vệ tinh tự nhiên",
+            "hạt nhỏ",
+            "tàn dư",
+            "lực hấp dẫn mạnh"
+        ],
+        "illustration_prompt": "illustration showing a small moon being broken apart by the tidal forces of a giant planet, forming a ring of debris"
+    },
+    {
+        "id": 57,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Sao Hỏa có bao nhiêu Mặt Trăng?",
+        "answer": "Sao Hỏa có hai mặt trăng nhỏ bé, có hình dạng không đều (giống như củ khoai tây) tên là **Phobos** và **Deimos**. Chúng được cho là những **tiểu hành tinh bị bắt giữ** thay vì được hình thành cùng với Sao Hỏa.",
+        "tags": [
+            "sao hỏa",
+            "mars",
+            "hai mặt trăng",
+            "phobos",
+            "deimos",
+            "tiểu hành tinh bị bắt giữ"
+        ],
+        "illustration_prompt": "illustration showing the planet Mars with its two small, irregularly shaped moons, Phobos and Deimos"
+    },
+    {
+        "id": 58,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng Phobos của Sao Hỏa có số phận gì?",
+        "answer": "Phobos đang từ từ **tiến gần hơn** đến Sao Hỏa khoảng $1.8 \text{ cm mỗi năm}$. Các nhà khoa học dự đoán trong khoảng **$30 \text{ đến } 50 \text{ triệu năm}$** nữa, lực hấp dẫn của Sao Hỏa sẽ xé toạc Phobos, biến nó thành một **vành đai bụi** quay quanh Sao Hỏa hoặc đâm vào bề mặt hành tinh.",
+        "tags": [
+            "phobos",
+            "sao hỏa",
+            "tiến gần hơn",
+            "vành đai bụi",
+            "xé toạc"
+        ],
+        "illustration_prompt": "educational graphic illustrating Phobos's slow descent towards Mars due to tidal forces"
+    },
+    {
+        "id": 59,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Điều gì là quan trọng nhất về mặt trăng Callisto của Sao Mộc?",
+        "answer": "Callisto là mặt trăng **bị hố va chạm nhiều nhất** trong các mặt trăng Galileo, cho thấy bề mặt của nó là rất cổ xưa và không có hoạt động địa chất gần đây. Điều này khiến nó trở thành ứng cử viên hàng đầu cho một **căn cứ tương lai** vì nó là nơi 'yên tĩnh' nhất.",
+        "tags": [
+            "callisto",
+            "sao mộc",
+            "bị hố va chạm nhiều nhất",
+            "cổ xưa",
+            "căn cứ tương lai",
+            "hoạt động địa chất"
+        ],
+        "illustration_prompt": "illustration of Callisto's surface, heavily scarred with numerous ancient impact craters"
+    },
+    {
+        "id": 60,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Mặt Trăng & các vệ tinh tự nhiên",
+        "question": "Mặt Trăng có thể giúp con người định cư trên Sao Hỏa bằng cách nào?",
+        "answer": "Mặt Trăng, đặc biệt là các cực của nó chứa **băng nước** (water ice). Băng này có thể được thu hoạch và phân tách thành **Hydrogen (nhiên liệu tên lửa)** và **Oxygen (không khí để thở)**. Điều này cho phép con người sử dụng Mặt Trăng làm **'trạm xăng'** để tiếp nhiên liệu cho các chuyến bay đến Sao Hỏa.",
+        "tags": [
+            "định cư sao hỏa",
+            "băng nước",
+            "hydrogen",
+            "oxygen",
+            "nhiên liệu tên lửa",
+            "trạm xăng"
+        ],
+        "illustration_prompt": "illustration of a futuristic lunar base utilizing a facility to extract water ice and convert it into rocket fuel (hydrogen and oxygen)"
+    },
+    {
+        "id": 61,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao Chổi (Comet) là gì?",
+        "answer": "Sao chổi là những vật thể nhỏ, đóng băng trong Hệ Mặt Trời, thường được mô tả là **'quả cầu tuyết bẩn'** lớn. Chúng được tạo thành từ **băng, bụi** và **đá**. Khi chúng bay gần Mặt Trời, nhiệt làm băng bay hơi và tạo ra một cái đuôi rực rỡ.",
+        "tags": [
+            "sao chổi",
+            "comet",
+            "quả cầu tuyết bẩn",
+            "băng bụi đá",
+            "đuôi rực rỡ"
+        ],
+        "illustration_prompt": "illustration of a comet with a bright nucleus, a surrounding coma, and a long tail"
+    },
+    {
+        "id": 62,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tiểu Hành Tinh (Asteroid) là gì?",
+        "answer": "Tiểu hành tinh là những **vật thể đá, kim loại** quay quanh Mặt Trời, quá nhỏ để được coi là hành tinh. Chúng là những **tàn dư** từ thời kỳ đầu hình thành Hệ Mặt Trời. Hầu hết nằm trong **Vành đai Tiểu hành tinh**.",
+        "tags": [
+            "tiểu hành tinh",
+            "asteroid",
+            "vật thể đá kim loại",
+            "tàn dư",
+            "vành đai tiểu hành tinh"
+        ],
+        "illustration_prompt": "illustration showing a typical asteroid, a large, irregularly shaped space rock"
+    },
+    {
+        "id": 63,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Thiên Thạch (Meteoroid) là gì?",
+        "answer": "Thiên thạch là một **tảng đá nhỏ** hoặc mảnh vụn trong không gian, có kích thước từ hạt bụi đến khối đá lớn hơn. Nó là thuật ngữ dùng cho vật thể **khi còn ở ngoài không gian** (trước khi lao vào khí quyển hành tinh).",
+        "tags": [
+            "thiên thạch",
+            "meteoroid",
+            "tảng đá nhỏ",
+            "mảnh vụn không gian",
+            "ngoài không gian"
+        ],
+        "illustration_prompt": "illustration of a small, irregular rock floating in the dark expanse of space, labeled as a meteoroid"
+    },
+    {
+        "id": 64,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao Băng (Meteor) là gì?",
+        "answer": "Sao băng là **vệt sáng** mà chúng ta nhìn thấy khi một thiên thạch (meteoroid) đi vào khí quyển Trái Đất và **bốc cháy** do ma sát với không khí. Vì chúng trông giống như những ngôi sao đang rơi nên chúng thường được gọi là 'sao băng' (shooting star).",
+        "tags": [
+            "sao băng",
+            "meteor",
+            "vệt sáng",
+            "bốc cháy",
+            "ma sát",
+            "sao băng rơi"
+        ],
+        "illustration_prompt": "illustration of a shooting star (meteor) streaking brightly across the night sky"
+    },
+    {
+        "id": 65,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Thiên Thạch Rơi (Meteorite) là gì?",
+        "answer": "Thiên thạch rơi là **phần còn sót lại** của một thiên thạch (meteoroid) đã sống sót qua quá trình đi vào khí quyển Trái Đất mà **không bị cháy hết** và **chạm đến mặt đất**.",
+        "tags": [
+            "thiên thạch rơi",
+            "meteorite",
+            "chạm mặt đất",
+            "phần còn sót lại",
+            "không bị cháy hết"
+        ],
+        "illustration_prompt": "illustration of a dark, rocky fragment sitting on the ground, having created a small impact crater"
+    },
+    {
+        "id": 66,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Đuôi của Sao Chổi được tạo ra như thế nào?",
+        "answer": "Khi sao chổi đến gần Mặt Trời, nhiệt làm băng trên bề mặt nó bay hơi (thăng hoa) thành khí, tạo ra một đám mây (Coma). Áp suất ánh sáng Mặt Trời và gió Mặt Trời **thổi vật chất** này ra khỏi sao chổi, tạo thành **hai cái đuôi** hướng ra xa Mặt Trời.",
+        "tags": [
+            "đuôi sao chổi",
+            "thăng hoa",
+            "áp suất ánh sáng",
+            "gió mặt trời",
+            "hai cái đuôi",
+            "coma"
+        ],
+        "illustration_prompt": "educational diagram of a comet showing two tails: the straight ion tail and the curved dust tail, both pointing away from the sun"
+    },
+    {
+        "id": 67,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Hai loại đuôi của Sao Chổi là gì?",
+        "answer": "Sao chổi có hai loại đuôi: **1. Đuôi bụi (Dust Tail)**: rộng, cong, được tạo thành từ các hạt bụi. **2. Đuôi Ion/Khí (Ion/Gas Tail)**: mỏng, thẳng và luôn chỉ trực tiếp ra xa Mặt Trời do bị gió Mặt Trời đẩy mạnh mẽ.",
+        "tags": [
+            "hai loại đuôi",
+            "đuôi bụi",
+            "đuôi ion",
+            "đuôi khí",
+            "cong",
+            "thẳng",
+            "gió mặt trời"
+        ],
+        "illustration_prompt": "educational diagram highlighting the shape and composition of the comet's dust tail and ion tail"
+    },
+    {
+        "id": 68,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Hầu hết Tiểu Hành Tinh nằm ở đâu?",
+        "answer": "Phần lớn các tiểu hành tinh nằm trong **Vành đai Tiểu hành tinh Chính (Main Asteroid Belt)**, một khu vực hình vành khăn nằm giữa quỹ đạo của **Sao Hỏa (Mars)** và **Sao Mộc (Jupiter)**.",
+        "tags": [
+            "vành đai tiểu hành tinh",
+            "main asteroid belt",
+            "sao hỏa",
+            "sao mộc",
+            "quỹ đạo",
+            "nơi ở"
+        ],
+        "illustration_prompt": "diagram showing the location of the main asteroid belt between Mars and Jupiter"
+    },
+    {
+        "id": 69,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao chổi bắt nguồn từ đâu?",
+        "answer": "Hầu hết sao chổi bắt nguồn từ hai khu vực đóng băng nằm xa Hệ Mặt Trời: **Vành đai Kuiper (Kuiper Belt)** (ngoài Sao Hải Vương) và **Đám mây Oort (Oort Cloud)** (một khu vực hình cầu cực xa bao quanh toàn bộ Hệ Mặt Trời).",
+        "tags": [
+            "nguồn gốc sao chổi",
+            "vành đai kuiper",
+            "oort cloud",
+            "khu vực đóng băng",
+            "xa hệ mặt trời"
+        ],
+        "illustration_prompt": "diagram showing the location of the Kuiper Belt (disk shape) and the Oort Cloud (spherical cloud) at the outer reaches of the solar system"
+    },
+    {
+        "id": 70,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao chổi Halley nổi tiếng vì điều gì?",
+        "answer": "Sao chổi Halley là một trong những sao chổi nổi tiếng nhất và có thể nhìn thấy bằng mắt thường. Nó là một **Sao chổi Chu kỳ Ngắn (Short-period Comet)**, hoàn thành một quỹ đạo quanh Mặt Trời cứ sau **$75 \text{ đến } 76 \text{ năm}$**. Lần xuất hiện gần đây nhất của nó là vào năm 1986.",
+        "tags": [
+            "sao chổi halley",
+            "halley's comet",
+            "chu kỳ ngắn",
+            "76 năm",
+            "nhìn thấy bằng mắt thường"
+        ],
+        "illustration_prompt": "illustration of Halley's Comet as it appeared in the sky, with its bright tail"
+    },
+    {
+        "id": 71,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Điều gì xảy ra với Sao Chổi khi nó đi vào bên trong Hệ Mặt Trời?",
+        "answer": "Nhiệt Mặt Trời làm cho băng trong sao chổi **tan chảy (thăng hoa)**, giải phóng khí và bụi. Quá trình này tạo ra cái đầu mờ (Coma) và cái đuôi ngoạn mục của sao chổi. Với mỗi chuyến đi gần Mặt Trời, sao chổi **mất đi vật chất** và cuối cùng sẽ tan rã.",
+        "tags": [
+            "tan rã",
+            "thăng hoa",
+            "mất vật chất",
+            "coma",
+            "đuôi"
+        ],
+        "illustration_prompt": "educational diagram showing a comet's nucleus losing mass (gas and dust) as it approaches the sun"
+    },
+    {
+        "id": 72,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tại sao Sao Mộc lại quan trọng đối với Vành đai Tiểu hành tinh?",
+        "answer": "Lực **hấp dẫn khổng lồ** của Sao Mộc được cho là đã ngăn cản vật chất trong khu vực Vành đai Tiểu hành tinh **kết hợp lại với nhau** để hình thành một hành tinh. Đồng thời, lực hấp dẫn của nó cũng giúp **làm chệch hướng** hoặc **hút** nhiều tiểu hành tinh, giúp bảo vệ Trái Đất.",
+        "tags": [
+            "sao mộc",
+            "jupiter",
+            "lực hấp dẫn khổng lồ",
+            "ngăn hình thành hành tinh",
+            "bảo vệ trái đất",
+            "làm chệch hướng"
+        ],
+        "illustration_prompt": "diagram showing Jupiter's massive size and gravity affecting the paths of asteroids in the belt"
+    },
+    {
+        "id": 73,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao băng có thể đi nhanh đến mức nào?",
+        "answer": "Các sao băng có thể đi vào khí quyển Trái Đất với tốc độ cực kỳ nhanh, từ khoảng **$11 \text{ km/giây}$** (40.000 km/h) đến **$72 \text{ km/giây}$** (260.000 km/h). Tốc độ đáng kinh ngạc này là lý do tại sao chúng bốc cháy rất nhanh và sáng.",
+        "tags": [
+            "tốc độ sao băng",
+            "km/giây",
+            "bốc cháy",
+            "ma sát",
+            "tốc độ cực kỳ nhanh"
+        ],
+        "illustration_prompt": "illustration showing a meteor streaking at high speed into the atmosphere, causing bright combustion"
+    },
+    {
+        "id": 74,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Cơ quan nào có nhiệm vụ theo dõi các tiểu hành tinh nguy hiểm?",
+        "answer": "Nhiều tổ chức quốc tế theo dõi các vật thể gần Trái Đất (Near-Earth Objects - NEOs). Đáng chú ý nhất là **NASA** của Mỹ và **ESA** của Châu Âu có các chương trình giám sát chuyên dụng để tìm kiếm và theo dõi các tiểu hành tinh có khả năng va chạm với Trái Đất.",
+        "tags": [
+            "vật thể gần trái đất",
+            "neos",
+            "theo dõi tiểu hành tinh",
+            "nasa",
+            "esa",
+            "va chạm"
+        ],
+        "illustration_prompt": "illustration of a ground-based telescope scanning the night sky for near-Earth objects (NEOs)"
+    },
+    {
+        "id": 75,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Mưa Sao Băng (Meteor Shower) là gì?",
+        "answer": "Mưa sao băng xảy ra khi **Trái Đất đi qua quỹ đạo** của một **Sao Chổi cũ**. Khi đó, Trái Đất sẽ đi vào một **'vệt' bụi và mảnh vụn** do sao chổi để lại, khiến hàng loạt sao băng xuất hiện trên bầu trời cùng lúc. Ví dụ: Mưa sao băng Perseids.",
+        "tags": [
+            "mưa sao băng",
+            "meteor shower",
+            "quỹ đạo sao chổi",
+            "vệt bụi",
+            "mảnh vụn",
+            "perseids"
+        ],
+        "illustration_prompt": "diagram showing the Earth moving through a stream of comet debris, resulting in a meteor shower"
+    },
+    {
+        "id": 76,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Các loại tiểu hành tinh chính là gì?",
+        "answer": "Tiểu hành tinh được phân loại theo thành phần chính của chúng: **1. Loại C (Carbonaceous)**: Phổ biến nhất, có màu tối, giàu carbon. **2. Loại S (Stony)**: Màu sáng, giàu silicat (đá). **3. Loại M (Metallic)**: Màu đỏ hơn, giàu kim loại (sắt và niken).",
+        "tags": [
+            "phân loại tiểu hành tinh",
+            "carbonaceous",
+            "stony",
+            "metallic",
+            "carbon",
+            "silicat",
+            "sắt niken"
+        ],
+        "illustration_prompt": "comparative diagram showing the different appearances and compositions of C-type, S-type, and M-type asteroids"
+    },
+    {
+        "id": 77,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tiểu hành tinh Ceres có gì đặc biệt?",
+        "answer": "Ceres là vật thể lớn nhất trong Vành đai Tiểu hành tinh. Nó lớn đến mức đã được phân loại lại thành **Hành tinh Lùn (Dwarf Planet)** vào năm 2006 (cùng với Sao Diêm Vương). Nó là hành tinh lùn duy nhất nằm trong Vành đai Tiểu hành tinh.",
+        "tags": [
+            "ceres",
+            "lớn nhất",
+            "hành tinh lùn",
+            "dwarf planet",
+            "vành đai tiểu hành tinh"
+        ],
+        "illustration_prompt": "illustration of the dwarf planet Ceres, showing its spherical shape and bright spots"
+    },
+    {
+        "id": 78,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tại sao các thiên thạch lại tạo ra hố va chạm (Impact Craters)?",
+        "answer": "Các thiên thạch rơi xuống đất với **tốc độ cực cao**, mang theo một lượng lớn **động năng**. Khi va chạm, động năng này được giải phóng ngay lập tức dưới dạng nhiệt và sóng xung kích, đẩy vật chất ra ngoài và tạo ra một hố tròn lớn (Hố va chạm).",
+        "tags": [
+            "hố va chạm",
+            "impact craters",
+            "tốc độ cực cao",
+            "động năng",
+            "sóng xung kích",
+            "hố tròn lớn"
+        ],
+        "illustration_prompt": "illustration of a large, circular impact crater on the Earth's surface"
+    },
+    {
+        "id": 79,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao chổi Chu kỳ Dài (Long-period Comets) khác với Sao chổi Chu kỳ Ngắn như thế nào?",
+        "answer": "**Sao chổi Chu kỳ Ngắn** có quỹ đạo nhỏ, quay quanh Mặt Trời trong vòng chưa đầy 200 năm (ví dụ: Halley) và đến từ Vành đai Kuiper. **Sao chổi Chu kỳ Dài** có quỹ đạo khổng lồ, quay quanh Mặt Trời có thể mất hàng nghìn hoặc hàng triệu năm, và đến từ Đám mây Oort.",
+        "tags": [
+            "chu kỳ dài",
+            "chu kỳ ngắn",
+            "vành đai kuiper",
+            "oort cloud",
+            "quỹ đạo khổng lồ",
+            "200 năm"
+        ],
+        "illustration_prompt": "diagram comparing the short, elliptical orbit of a short-period comet (from the Kuiper Belt) and the long, stretched orbit of a long-period comet (from the Oort Cloud)"
+    },
+    {
+        "id": 80,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Điều gì là quan trọng nhất về thiên thạch rơi đối với các nhà khoa học?",
+        "answer": "Thiên thạch rơi là vật chất **cổ xưa nhất** mà chúng ta có từ Hệ Mặt Trời. Chúng là những **viên nang thời gian** chứa đựng các manh mối về thành phần hóa học, nhiệt độ và điều kiện xảy ra khi Mặt Trời và các hành tinh của chúng ta được hình thành lần đầu tiên.",
+        "tags": [
+            "cổ xưa nhất",
+            "viên nang thời gian",
+            "thiên thạch rơi",
+            "manh mối",
+            "hình thành hệ mặt trời"
+        ],
+        "illustration_prompt": "illustration of a scientist examining a meteorite sample in a lab, highlighting its dark, ancient appearance"
+    },
+    {
+        "id": 81,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Các tiểu hành tinh Trojan là gì?",
+        "answer": "Các tiểu hành tinh Trojan là các nhóm tiểu hành tinh đặc biệt cùng chia sẻ **quỹ đạo** với một hành tinh lớn (thường là **Sao Mộc**). Chúng tụ tập tại hai điểm ổn định đặc biệt (gọi là điểm Lagrange) nằm trước và sau hành tinh.",
+        "tags": [
+            "tiểu hành tinh trojan",
+            "trojan asteroids",
+            "sao mộc",
+            "quỹ đạo chia sẻ",
+            "điểm lagrange",
+            "tụ tập"
+        ],
+        "illustration_prompt": "diagram showing Jupiter and the two main groups of Trojan asteroids clustered at the L4 and L5 Lagrange points along Jupiter's orbit"
+    },
+    {
+        "id": 82,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tại sao các thiên thạch lại nóng lên và bốc cháy?",
+        "answer": "Khi một thiên thạch lao vào khí quyển dày đặc của Trái Đất, nó di chuyển với **tốc độ cực cao** (siêu thanh). Điều này tạo ra **ma sát** khổng lồ với không khí, khiến nhiệt độ của thiên thạch tăng lên đến hàng nghìn độ C và làm nó phát sáng/bốc cháy.",
+        "tags": [
+            "nóng lên bốc cháy",
+            "tốc độ cực cao",
+            "siêu thanh",
+            "ma sát",
+            "khí quyển dày đặc"
+        ],
+        "illustration_prompt": "illustration of a meteoroid entering the Earth's atmosphere, showing friction and heating causing it to glow brightly"
+    },
+    {
+        "id": 83,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Thiên thạch đã gây ra sự kiện tuyệt chủng nổi tiếng nào?",
+        "answer": "Khoảng **66 triệu năm trước**, một tiểu hành tinh lớn (khoảng 10 km) đã va chạm với Trái Đất tại **Chicxulub** (Mexico). Vụ va chạm này được cho là nguyên nhân chính gây ra sự tuyệt chủng của **khủng long** và khoảng 75% sự sống trên Trái Đất.",
+        "tags": [
+            "tuyệt chủng khủng long",
+            "chicxulub",
+            "66 triệu năm trước",
+            "va chạm tiểu hành tinh",
+            "khủng long"
+        ],
+        "illustration_prompt": "artist's depiction of the massive asteroid impact at Chicxulub causing a large explosion and shockwave"
+    },
+    {
+        "id": 84,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Sao chổi có thể mang lại sự sống cho Trái Đất không?",
+        "answer": "Có thể. Nhiều nhà khoa học tin rằng các sao chổi và tiểu hành tinh đã mang một lượng lớn **nước và các hợp chất hữu cơ (vật liệu xây dựng sự sống)** đến Trái Đất sơ khai qua hàng tỷ năm va chạm. Băng của sao chổi có thể đã tạo ra đại dương của chúng ta.",
+        "tags": [
+            "mang lại sự sống",
+            "nước",
+            "hợp chất hữu cơ",
+            "đại dương",
+            "va chạm",
+            "trái đất sơ khai"
+        ],
+        "illustration_prompt": "illustration showing a comet impacting the early Earth, releasing water and organic compounds"
+    },
+    {
+        "id": 85,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Vật thể nào được gọi là 'quả cầu lửa' (Fireball)?",
+        "answer": "Quả cầu lửa là một **sao băng (meteor) cực kỳ sáng**, thường được định nghĩa là sáng hơn cả hành tinh Sao Kim khi quan sát từ Trái Đất. Chúng thường được tạo ra bởi các thiên thạch lớn hơn đi vào bầu khí quyển.",
+        "tags": [
+            "quả cầu lửa",
+            "fireball",
+            "sao băng cực kỳ sáng",
+            "sao kim",
+            "thiên thạch lớn hơn"
+        ],
+        "illustration_prompt": "illustration of a stunningly bright fireball streaking across the night sky, illuminating the landscape"
+    },
+    {
+        "id": 86,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Các nhà khoa học tìm thấy thiên thạch rơi ở đâu nhiều nhất?",
+        "answer": "Họ tìm thấy nhiều thiên thạch rơi ở **Nam Cực (Antarctica)**. Mặc dù chúng rơi đều trên khắp Trái Đất, nhưng trên các vùng băng tuyết rộng lớn của Nam Cực, thiên thạch **màu tối nổi bật** trên nền trắng sáng, và băng bảo tồn chúng rất tốt.",
+        "tags": [
+            "thiên thạch rơi",
+            "nam cực",
+            "antarctica",
+            "băng tuyết",
+            "màu tối nổi bật",
+            "bảo tồn"
+        ],
+        "illustration_prompt": "illustration of scientists on the Antarctic ice finding a dark meteorite fragment against the vast white snow"
+    },
+    {
+        "id": 87,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tiểu hành tinh Vesta có gì độc đáo?",
+        "answer": "Vesta là tiểu hành tinh lớn thứ hai và là tiểu hành tinh duy nhất có **cấu trúc bên trong phân tầng** (có lõi, lớp phủ và lớp vỏ), giống như một hành tinh. Các nhà khoa học đã tìm thấy các thiên thạch rơi trên Trái Đất đến từ Vesta.",
+        "tags": [
+            "vesta",
+            "tiểu hành tinh lớn thứ hai",
+            "cấu trúc bên trong phân tầng",
+            "lõi lớp phủ lớp vỏ",
+            "thiên thạch rơi"
+        ],
+        "illustration_prompt": "cutaway diagram of the Vesta asteroid showing its internal, layered structure (core, mantle, crust)"
+    },
+    {
+        "id": 88,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Vành đai Kuiper và Đám mây Oort khác nhau như thế nào về hình dạng?",
+        "answer": "**Vành đai Kuiper** là một khu vực **hình đĩa phẳng** nằm ngay bên ngoài quỹ đạo của Sao Hải Vương. **Đám mây Oort** là một khu vực **hình cầu khổng lồ** bao quanh toàn bộ Hệ Mặt Trời ở khoảng cách cực xa.",
+        "tags": [
+            "vành đai kuiper",
+            "oort cloud",
+            "hình đĩa phẳng",
+            "hình cầu khổng lồ",
+            "hình dạng"
+        ],
+        "illustration_prompt": "diagram comparing the flat, disc-like shape of the Kuiper Belt to the distant, spherical shape of the Oort Cloud, relative to the rest of the Solar System"
+    },
+    {
+        "id": 89,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Tại sao các sao chổi Chu kỳ Ngắn lại nguy hiểm hơn cho Trái Đất?",
+        "answer": "Các sao chổi Chu kỳ Ngắn có **quỹ đạo gần Mặt Trời hơn** (và gần các hành tinh đá hơn) và dễ bị lực hấp dẫn của các hành tinh lớn (như Sao Mộc) **làm chệch hướng** đi vào bên trong Hệ Mặt Trời, khiến chúng có nguy cơ va chạm với Trái Đất cao hơn.",
+        "tags": [
+            "sao chổi chu kỳ ngắn",
+            "nguy hiểm hơn",
+            "quỹ đạo gần mặt trời",
+            "làm chệch hướng",
+            "nguy cơ va chạm"
+        ],
+        "illustration_prompt": "diagram showing the orbit of a short-period comet intersecting the orbits of the inner planets (Mars, Earth, Venus, Mercury)"
+    },
+    {
+        "id": 90,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Sao chổi, tiểu hành tinh & thiên thạch",
+        "question": "Điều gì là quan trọng nhất về thiên thạch rơi từ Sao Hỏa?",
+        "answer": "Một số thiên thạch rơi trên Trái Đất được xác định là có nguồn gốc từ **Sao Hỏa**. Chúng là những mảnh đá bị **đẩy ra** khỏi bề mặt Sao Hỏa sau một vụ va chạm tiểu hành tinh lớn. Những thiên thạch này mang đến manh mối về khả năng có **sự sống cổ đại** trên Sao Hỏa.",
+        "tags": [
+            "thiên thạch sao hỏa",
+            "nguồn gốc sao hỏa",
+            "mảnh đá bị đẩy ra",
+            "sự sống cổ đại",
+            "va chạm tiểu hành tinh"
+        ],
+        "illustration_prompt": "illustration of a Martian meteorite fragment, detailing the journey of rock ejected from Mars to impact on Earth"
+    },
+    {
+        "id": 91,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên Hà (Galaxy) là gì?",
+        "answer": "Thiên Hà là một **hệ thống khổng lồ** của hàng tỷ **ngôi sao**, hành tinh, bụi, khí và **vật chất tối** được giữ lại với nhau bởi **lực hấp dẫn**. Mỗi thiên hà giống như một 'đảo vũ trụ' chứa hàng triệu thế giới.",
+        "tags": [
+            "thiên hà",
+            "galaxy",
+            "hệ thống khổng lồ",
+            "ngôi sao",
+            "lực hấp dẫn",
+            "vật chất tối"
+        ],
+        "illustration_prompt": "illustration of a large spiral galaxy seen from a distance, highlighting its billions of stars"
+    },
+    {
+        "id": 92,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Ngân Hà (The Milky Way) là gì?",
+        "answer": "Ngân Hà là tên của **thiên hà quê hương** của chúng ta, nơi chứa Hệ Mặt Trời và tất cả các ngôi sao bạn có thể thấy vào ban đêm. Nó trông giống như một **dải sáng mờ** kéo dài qua bầu trời đêm.",
+        "tags": [
+            "ngân hà",
+            "milky way",
+            "thiên hà quê hương",
+            "hệ mặt trời",
+            "dải sáng mờ"
+        ],
+        "illustration_prompt": "illustration of the Milky Way galaxy as seen from Earth, appearing as a cloudy, bright band in the night sky"
+    },
+    {
+        "id": 93,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Ngân Hà có hình dạng như thế nào?",
+        "answer": "Ngân Hà là một **Thiên Hà Xoắn Ốc Có Thanh Chắn (Barred Spiral Galaxy)**. Nó có một **trung tâm phình ra** và các **cánh tay xoắn ốc** kéo dài ra ngoài, giống như một chiếc chong chóng khổng lồ. Nó cũng khá dẹt, giống như một chiếc đĩa.",
+        "tags": [
+            "thiên hà xoắn ốc có thanh chắn",
+            "barred spiral galaxy",
+            "trung tâm phình ra",
+            "cánh tay xoắn ốc",
+            "hình chiếc đĩa"
+        ],
+        "illustration_prompt": "educational diagram showing the structure of the Milky Way galaxy viewed from above, highlighting the central bar and spiral arms"
+    },
+    {
+        "id": 94,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Hệ Mặt Trời của chúng ta nằm ở đâu trong Ngân Hà?",
+        "answer": "Hệ Mặt Trời của chúng ta nằm trong một trong các cánh tay xoắn ốc, được gọi là **Cánh tay Orion (Orion Arm)**, cách tâm Ngân Hà khoảng **$27.000 \text{ năm ánh sáng}$**. Chúng ta không ở trung tâm, mà nằm ở vị trí tương đối 'ngoại ô'.",
+        "tags": [
+            "vị trí hệ mặt trời",
+            "cánh tay orion",
+            "orion arm",
+            "tâm ngân hà",
+            "ngoại ô"
+        ],
+        "illustration_prompt": "diagram showing the location of the Solar System (Sun) within the Orion Arm of the Milky Way galaxy"
+    },
+    {
+        "id": 95,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Điều gì nằm ở trung tâm của Ngân Hà?",
+        "answer": "Ở trung tâm Ngân Hà là một **Lỗ Đen Siêu Khối (Supermassive Black Hole)** khổng lồ được gọi là **Nhân Mã A* (Sagittarius A*)**. Lỗ đen này có khối lượng gấp khoảng 4 triệu lần Mặt Trời của chúng ta!",
+        "tags": [
+            "trung tâm ngân hà",
+            "lỗ đen siêu khối",
+            "supermassive black hole",
+            "nhân mã a*",
+            "sagittarius a*",
+            "4 triệu lần mặt trời"
+        ],
+        "illustration_prompt": "illustration of Sagittarius A* (the supermassive black hole) at the center of the Milky Way galaxy"
+    },
+    {
+        "id": 96,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên hà gần Ngân Hà nhất là gì?",
+        "answer": "Thiên hà lớn gần Ngân Hà nhất là **Thiên Hà Andromeda (Andromeda Galaxy)**. Nó là thiên hà xoắn ốc lớn hơn Ngân Hà và cách chúng ta khoảng **$2.5 \text{ triệu năm ánh sáng}$**. Hiện tại, nó đang di chuyển về phía chúng ta!",
+        "tags": [
+            "thiên hà gần nhất",
+            "andromeda galaxy",
+            "thiên hà andromeda",
+            "2.5 triệu năm ánh sáng",
+            "di chuyển về phía chúng ta"
+        ],
+        "illustration_prompt": "illustration of the Andromeda Galaxy, showing its large spiral shape"
+    },
+    {
+        "id": 97,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Điều gì sẽ xảy ra khi Ngân Hà và Thiên Hà Andromeda va chạm?",
+        "answer": "Khoảng **$4.5 \text{ tỷ năm}$** nữa, hai thiên hà sẽ va chạm và hợp nhất thành một thiên hà lớn hơn, mới, có thể được gọi là **Milkomeda**. Tuy nhiên, vì các ngôi sao cách nhau rất xa, ít có khả năng các hành tinh và ngôi sao của chúng ta sẽ thực sự va chạm.",
+        "tags": [
+            "va chạm thiên hà",
+            "milkomeda",
+            "andromeda",
+            "4.5 tỷ năm",
+            "hợp nhất"
+        ],
+        "illustration_prompt": "artist's concept illustration showing the Milky Way and Andromeda galaxies colliding and merging into a new galaxy"
+    },
+    {
+        "id": 98,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên Hà Xoắn Ốc (Spiral Galaxy) là gì?",
+        "answer": "Thiên hà xoắn ốc (như Ngân Hà) có một **trung tâm sáng** và **các cánh tay rõ ràng** xoắn ốc ra bên ngoài. Các cánh tay này thường chứa nhiều **khí và bụi**, nơi các ngôi sao trẻ đang được hình thành.",
+        "tags": [
+            "thiên hà xoắn ốc",
+            "spiral galaxy",
+            "cánh tay xoắn ốc",
+            "trung tâm sáng",
+            "ngôi sao trẻ",
+            "hình dạng"
+        ],
+        "illustration_prompt": "illustration of a classic spiral galaxy with clearly defined arms and a central bulge"
+    },
+    {
+        "id": 99,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên Hà Hình Elip (Elliptical Galaxy) là gì?",
+        "answer": "Thiên hà hình elip có hình dạng từ **hình cầu đến hình bầu dục** (giống quả trứng). Chúng không có cánh tay xoắn ốc rõ ràng và thường chứa nhiều **ngôi sao già** hơn và ít khí/bụi hơn để tạo ra các ngôi sao mới.",
+        "tags": [
+            "thiên hà hình elip",
+            "elliptical galaxy",
+            "hình cầu",
+            "hình bầu dục",
+            "ngôi sao già",
+            "ít khí bụi"
+        ],
+        "illustration_prompt": "illustration of a giant elliptical galaxy, showing its smooth, featureless, oval shape"
+    },
+    {
+        "id": 100,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên Hà Bất Thường (Irregular Galaxy) là gì?",
+        "answer": "Thiên hà bất thường **không có hình dạng rõ ràng** (không xoắn ốc, không elip). Chúng thường có hình dạng này do bị **lực hấp dẫn** của các thiên hà lớn gần đó **làm biến dạng**. Chúng chứa nhiều khí và bụi để tạo ra các ngôi sao mới.",
+        "tags": [
+            "thiên hà bất thường",
+            "irregular galaxy",
+            "không có hình dạng rõ ràng",
+            "lực hấp dẫn",
+            "làm biến dạng",
+            "ngôi sao mới"
+        ],
+        "illustration_prompt": "illustration of an irregular galaxy, showing its chaotic, non-symmetrical structure"
+    },
+    {
+        "id": 101,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Vật chất Tối (Dark Matter) là gì?",
+        "answer": "Vật chất tối là một loại vật chất **không phát ra ánh sáng** hoặc năng lượng, khiến nó **không thể nhìn thấy** trực tiếp. Các nhà khoa học biết nó tồn tại vì lực **hấp dẫn mạnh mẽ** mà nó tác dụng lên các ngôi sao và khí trong các thiên hà. Nó chiếm khoảng 85% tổng vật chất trong vũ trụ.",
+        "tags": [
+            "vật chất tối",
+            "dark matter",
+            "không phát ra ánh sáng",
+            "không thể nhìn thấy",
+            "lực hấp dẫn",
+            "85% vật chất"
+        ],
+        "illustration_prompt": "diagram showing a galaxy with visible stars and a surrounding, invisible halo representing dark matter exerting a gravitational pull"
+    },
+    {
+        "id": 102,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Năng lượng Tối (Dark Energy) là gì?",
+        "answer": "Năng lượng tối là một dạng năng lượng bí ẩn được cho là nguyên nhân khiến sự **giãn nở (expansion)** của vũ trụ đang **tăng tốc**. Không giống như lực hấp dẫn (kéo mọi thứ lại), năng lượng tối đang **đẩy** các thiên hà ra xa nhau nhanh hơn.",
+        "tags": [
+            "năng lượng tối",
+            "dark energy",
+            "giãn nở vũ trụ",
+            "tăng tốc",
+            "đẩy các thiên hà",
+            "bí ẩn"
+        ],
+        "illustration_prompt": "diagram showing the universe's expansion accelerating over time, attributed to dark energy"
+    },
+    {
+        "id": 103,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Một năm ánh sáng (Light-Year) dài bao nhiêu?",
+        "answer": "Một năm ánh sáng là **khoảng cách** mà ánh sáng đi được trong **một năm**. Vì ánh sáng đi rất nhanh, nên một năm ánh sáng tương đương với khoảng **$9.46 \text{ nghìn tỷ km}$** ($9,460,000,000,000 \text{ km}$). Đây là cách chúng ta đo khoảng cách khổng lồ giữa các ngôi sao và thiên hà.",
+        "tags": [
+            "năm ánh sáng",
+            "light-year",
+            "khoảng cách ánh sáng đi",
+            "một năm",
+            "9.46 nghìn tỷ km"
+        ],
+        "illustration_prompt": "educational diagram showing a beam of light traveling from one star to another, illustrating the vast distance of one light-year"
+    },
+    {
+        "id": 104,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Chúng ta nhìn thấy các thiên hà khác trong quá khứ hay hiện tại?",
+        "answer": "Chúng ta luôn thấy các thiên hà khác trong **quá khứ**! Ví dụ, nếu một thiên hà cách chúng ta $100 \text{ triệu năm ánh sáng}$, điều đó có nghĩa là ánh sáng của nó đã mất $100 \text{ triệu năm}$ để đến Trái Đất, vì vậy chúng ta đang thấy nó **$100 \text{ triệu năm}$ trước**.",
+        "tags": [
+            "nhìn thấy thiên hà",
+            "quá khứ",
+            "năm ánh sáng",
+            "ánh sáng mất thời gian"
+        ],
+        "illustration_prompt": "diagram illustrating the concept of light travel time, showing light emitted from a distant galaxy reaching Earth millions of years later"
+    },
+    {
+        "id": 105,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Nhóm Địa Phương (Local Group) là gì?",
+        "answer": "Nhóm Địa Phương là một **cụm thiên hà nhỏ** mà Ngân Hà của chúng ta là thành viên. Nó bị chi phối bởi hai thiên hà lớn: **Ngân Hà (Milky Way)** và **Thiên Hà Andromeda**. Khoảng 50 thiên hà nhỏ hơn đang quay quanh hai thiên hà lớn này.",
+        "tags": [
+            "nhóm địa phương",
+            "local group",
+            "cụm thiên hà nhỏ",
+            "ngân hà",
+            "andromeda",
+            "50 thiên hà nhỏ hơn"
+        ],
+        "illustration_prompt": "map illustration showing the arrangement of the Local Group, centered around the Milky Way and Andromeda galaxies"
+    },
+    {
+        "id": 106,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Các Đám mây Magellan (Magellanic Clouds) là gì?",
+        "answer": "Đám mây Magellan là **hai thiên hà lùn bất thường nhỏ** quay quanh Ngân Hà. Chúng là một trong những vệ tinh tự nhiên của Ngân Hà và dễ dàng nhìn thấy bằng mắt thường ở Bán cầu Nam.",
+        "tags": [
+            "đám mây magellan",
+            "magellanic clouds",
+            "thiên hà lùn",
+            "irregular galaxy",
+            "quay quanh ngân hà",
+            "bán cầu nam"
+        ],
+        "illustration_prompt": "illustration showing the Milky Way with the two small, orbiting Magellanic Cloud galaxies nearby"
+    },
+    {
+        "id": 107,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên hà Quasar là gì?",
+        "answer": "Quasar là các vật thể cực kỳ **sáng và mạnh mẽ** được tìm thấy ở **trung tâm các thiên hà trẻ** và xa xôi. Chúng được cung cấp năng lượng bởi các **lỗ đen siêu khối** đang tích cực hút vật chất, giải phóng một lượng năng lượng khổng lồ.",
+        "tags": [
+            "quasar",
+            "cực kỳ sáng",
+            "thiên hà trẻ",
+            "lỗ đen siêu khối",
+            "năng lượng khổng lồ"
+        ],
+        "illustration_prompt": "artist's concept illustration of a distant quasar, showing an accretion disk around a black hole emitting bright jets of energy"
+    },
+    {
+        "id": 108,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Tại sao Ngân Hà được gọi là Ngân Hà (Milky Way)?",
+        "answer": "Tên 'Milky Way' có nguồn gốc từ tiếng Hy Lạp và La Mã, có nghĩa là **'Con Đường Sữa'** (Milk Road). Người xưa đã đặt tên như vậy vì họ thấy dải sáng mờ của hàng tỷ ngôi sao này giống như một **vệt sữa** đổ trên bầu trời đêm.",
+        "tags": [
+            "tên ngân hà",
+            "milky way name",
+            "con đường sữa",
+            "vệt sữa",
+            "hy lạp",
+            "hàng tỷ ngôi sao"
+        ],
+        "illustration_prompt": "illustration depicting a mythological scene of milk being spilled across the night sky, giving rise to the name 'Milky Way'"
+    },
+    {
+        "id": 109,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Các Cụm Sao Cầu (Globular Clusters) là gì?",
+        "answer": "Cụm sao cầu là những **nhóm sao cổ xưa, dày đặc** chứa hàng trăm nghìn đến hàng triệu ngôi sao. Chúng quay quanh các thiên hà (bao gồm cả Ngân Hà) giống như những đàn ong quay quanh tổ. Đây là một số vật thể lâu đời nhất trong vũ trụ.",
+        "tags": [
+            "cụm sao cầu",
+            "globular clusters",
+            "nhóm sao cổ xưa",
+            "dày đặc",
+            "quay quanh thiên hà",
+            "lâu đời nhất"
+        ],
+        "illustration_prompt": "illustration of a dense, spherical globular cluster, packed tightly with thousands of ancient stars"
+    },
+    {
+        "id": 110,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Các nhà khoa học ước tính có bao nhiêu ngôi sao trong Ngân Hà?",
+        "answer": "Các nhà khoa học ước tính Ngân Hà chứa từ **$100 \text{ tỷ đến } 400 \text{ tỷ ngôi sao}$**. Để so sánh, số lượng này lớn hơn số lượng hạt cát trên tất cả các bãi biển trên Trái Đất cộng lại!",
+        "tags": [
+            "số lượng sao ngân hà",
+            "100 tỷ đến 400 tỷ",
+            "hạt cát",
+            "ước tính"
+        ],
+        "illustration_prompt": "illustration visually comparing the vast number of stars in the Milky Way to the grains of sand on all the Earth's beaches"
+    },
+    {
+        "id": 111,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Tại sao một số thiên hà có màu xanh lam và một số có màu đỏ hơn?",
+        "answer": "Các thiên hà có màu **xanh lam** thường là nơi **hình thành ngôi sao tích cực**, chứa nhiều ngôi sao **trẻ, nóng, sáng**. Các thiên hà có màu **đỏ hơn** thường chứa nhiều ngôi sao **già, nguội hơn**, và việc hình thành sao mới đã chậm lại hoặc dừng lại.",
+        "tags": [
+            "màu thiên hà",
+            "xanh lam",
+            "đỏ hơn",
+            "hình thành ngôi sao",
+            "ngôi sao trẻ nóng",
+            "ngôi sao già nguội"
+        ],
+        "illustration_prompt": "comparative illustration of a blue, active spiral galaxy (new stars) and a reddish, elliptical galaxy (old stars)"
+    },
+    {
+        "id": 112,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Các Cụm Thiên Hà (Galaxy Clusters) là gì?",
+        "answer": "Các cụm thiên hà là những **tập hợp khổng lồ** của hàng trăm đến hàng nghìn thiên hà được giữ lại với nhau bởi **lực hấp dẫn**. Nhóm Địa Phương của chúng ta chỉ là một phần nhỏ của **Siêu Cụm Xử Nữ (Virgo Supercluster)** khổng lồ.",
+        "tags": [
+            "cụm thiên hà",
+            "galaxy clusters",
+            "tập hợp khổng lồ",
+            "hàng nghìn thiên hà",
+            "lực hấp dẫn",
+            "siêu cụm xử nữ"
+        ],
+        "illustration_prompt": "diagram showing a large cluster of many different galaxies gravitationally bound together in space"
+    },
+    {
+        "id": 113,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Khái niệm 'Giãn nở Vũ trụ' (Cosmic Expansion) là gì?",
+        "answer": "Giãn nở vũ trụ không có nghĩa là các thiên hà đang di chuyển trong không gian, mà là bản thân **không gian giữa các thiên hà đang giãn ra** ra. Điều này khiến các thiên hà (không phải trong cùng một cụm) ngày càng di chuyển ra xa nhau hơn.",
+        "tags": [
+            "giãn nở vũ trụ",
+            "cosmic expansion",
+            "không gian giãn ra",
+            "thiên hà di chuyển ra xa",
+            "tăng tốc"
+        ],
+        "illustration_prompt": "analogy diagram showing dots (galaxies) painted on a balloon (space) that are moving farther apart as the balloon is inflated"
+    },
+    {
+        "id": 114,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Định luật Hubble (Hubble's Law) là gì?",
+        "answer": "Định luật Hubble nói rằng **thiên hà càng xa chúng ta**, nó càng di chuyển **ra xa chúng ta nhanh hơn**. Điều này là bằng chứng chính cho thấy vũ trụ đang giãn nở. Nó được đặt theo tên của nhà thiên văn học Edwin Hubble.",
+        "tags": [
+            "định luật hubble",
+            "hubble's law",
+            "thiên hà càng xa",
+            "di chuyển nhanh hơn",
+            "giãn nở vũ trụ",
+            "edwin hubble"
+        ],
+        "illustration_prompt": "scientific graph illustrating Hubble's Law, showing a linear relationship between the distance of galaxies and their recession velocity"
+    },
+    {
+        "id": 115,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Thiên hà nào có hình dạng kỳ lạ do bị Ngân Hà kéo?",
+        "answer": "Các **Đám mây Magellan Lớn và Nhỏ** đang bị lực hấp dẫn của Ngân Hà **làm biến dạng** khi chúng quay quanh Ngân Hà. Lực kéo thủy triều này đang dần xé toạc chúng, tạo ra các vệt vật chất dài.",
+        "tags": [
+            "đám mây magellan",
+            "lực hấp dẫn",
+            "làm biến dạng",
+            "kéo thủy triều",
+            "vệt vật chất"
+        ],
+        "illustration_prompt": "illustration showing the tidal forces from the Milky Way stretching and distorting the shape of the Magellanic Clouds"
+    },
+    {
+        "id": 116,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Sự khác biệt giữa Tinh Vân (Nebula) và Thiên Hà (Galaxy) là gì?",
+        "answer": "**Tinh Vân** là một **đám mây khổng lồ** của khí và bụi **bên trong** một thiên hà, nơi các ngôi sao được sinh ra hoặc chết đi. **Thiên Hà** là một **tập hợp khổng lồ** của hàng tỷ ngôi sao và tinh vân được giữ lại với nhau.",
+        "tags": [
+            "tinh vân",
+            "nebula",
+            "thiên hà",
+            "galaxy",
+            "đám mây khí bụi",
+            "nơi sinh sao",
+            "tập hợp khổng lồ"
+        ],
+        "illustration_prompt": "comparative illustration showing a colorful nebula (cloud of gas/dust) inside a much larger, vast galaxy filled with stars"
+    },
+    {
+        "id": 117,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Các Lỗ Đen Siêu Khối được tìm thấy ở đâu?",
+        "answer": "Hầu như mọi **thiên hà lớn** đều được cho là có một **Lỗ Đen Siêu Khối (Supermassive Black Hole)** khổng lồ ẩn giấu ở **trung tâm** của nó. Chúng phát triển cùng với thiên hà chủ của chúng.",
+        "tags": [
+            "lỗ đen siêu khối",
+            "supermassive black hole",
+            "trung tâm thiên hà",
+            "thiên hà lớn",
+            "lỗ đen",
+            "phát triển cùng thiên hà"
+        ],
+        "illustration_prompt": "illustration showing the bright center of a galaxy with a massive black hole dominating the core"
+    },
+    {
+        "id": 118,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Ngân Hà của chúng ta đang quay quanh trung tâm nhanh như thế nào?",
+        "answer": "Hệ Mặt Trời của chúng ta di chuyển quanh trung tâm Ngân Hà với tốc độ khoảng **$220 \text{ km/giây}$** (tương đương 792.000 km/h). Với tốc độ này, chúng ta mất khoảng **$230 \text{ triệu năm}$** để hoàn thành một vòng quỹ đạo (gọi là **Một Năm Thiên Hà**).",
+        "tags": [
+            "tốc độ quay ngân hà",
+            "220 km/giây",
+            "một năm thiên hà",
+            "230 triệu năm",
+            "quỹ đạo"
+        ],
+        "illustration_prompt": "diagram showing the Sun's path orbiting the center of the Milky Way, indicating the speed and the 230 million year period"
+    },
+    {
+        "id": 119,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Tại sao các thiên hà lại va chạm với nhau?",
+        "answer": "Trong các cụm thiên hà, **lực hấp dẫn** giữa các thiên hà là rất mạnh. Mặc dù vũ trụ đang giãn nở, lực hấp dẫn cục bộ này mạnh hơn và kéo các thiên hà lân cận về phía nhau, dẫn đến các vụ va chạm và hợp nhất.",
+        "tags": [
+            "va chạm thiên hà",
+            "lực hấp dẫn",
+            "cụm thiên hà",
+            "hợp nhất",
+            "lực hấp dẫn cục bộ"
+        ],
+        "illustration_prompt": "illustration of two nearby galaxies in a cluster being pulled toward each other by gravity"
+    },
+    {
+        "id": 120,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngân Hà & các thiên hà",
+        "question": "Màu sắc của Ngân Hà khi nhìn từ xa sẽ như thế nào?",
+        "answer": "Nếu nhìn từ xa, Ngân Hà sẽ có màu sắc tổng thể là **màu trắng hoặc xanh trắng**. Màu này là sự pha trộn của ánh sáng từ hàng tỷ ngôi sao. Các cánh tay xoắn ốc có màu xanh lam hơn (do có nhiều ngôi sao trẻ, nóng) và trung tâm có màu vàng hơn (do có nhiều ngôi sao già, nguội hơn).",
+        "tags": [
+            "màu ngân hà",
+            "trắng xanh",
+            "pha trộn ánh sáng",
+            "ngôi sao trẻ nóng",
+            "ngôi sao già nguội"
+        ],
+        "illustration_prompt": "full image of the Milky Way as seen by other galaxies, showing its overall blue-white color with yellower core"
+    },
+    {
+        "id": 121,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Ngôi sao (Star) là gì?",
+        "answer": "Ngôi sao là một **quả cầu khí khổng lồ, nóng bỏng** và **tự phát sáng**. Năng lượng của nó đến từ phản ứng **nhiệt hạch (Nuclear Fusion)** trong lõi, nơi các nguyên tử **Hydrogen** được ép lại để tạo thành **Helium**, giải phóng một lượng lớn nhiệt và ánh sáng.",
+        "tags": [
+            "ngôi sao",
+            "star",
+            "quả cầu khí khổng lồ",
+            "tự phát sáng",
+            "nhiệt hạch",
+            "hydrogen helium"
+        ],
+        "illustration_prompt": "illustration of a star, emphasizing its bright, gaseous nature and central energy source"
+    },
+    {
+        "id": 122,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Ngôi sao được hình thành như thế nào?",
+        "answer": "Ngôi sao bắt đầu cuộc đời bên trong một **Tinh Vân (Nebula)**, một đám mây khổng lồ chứa khí và bụi. Lực hấp dẫn kéo vật chất lại với nhau, làm nóng nó cho đến khi lõi đủ nóng và đủ áp suất để kích hoạt phản ứng **nhiệt hạch**, lúc đó ngôi sao mới 'bật sáng'.",
+        "tags": [
+            "hình thành ngôi sao",
+            "tinh vân",
+            "nebula",
+            "đám mây khí bụi",
+            "lực hấp dẫn",
+            "phản ứng nhiệt hạch"
+        ],
+        "illustration_prompt": "educational diagram showing a cloud of gas and dust (nebula) collapsing under gravity to form a protostar"
+    },
+    {
+        "id": 123,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Ngôi sao có màu sắc khác nhau có ý nghĩa gì?",
+        "answer": "Màu sắc của một ngôi sao cho biết **nhiệt độ** bề mặt của nó. **Sao Xanh Lam (Blue)** là **nóng nhất** (hàng chục nghìn độ C). **Sao Trắng** thì nóng vừa phải. **Sao Đỏ (Red)** là những ngôi sao **nguội nhất** (khoảng 3.000°C).",
+        "tags": [
+            "màu sắc ngôi sao",
+            "nhiệt độ",
+            "sao xanh lam",
+            "nóng nhất",
+            "sao đỏ",
+            "nguội nhất"
+        ],
+        "illustration_prompt": "color chart showing the relationship between star color (blue, white, yellow, orange, red) and its surface temperature"
+    },
+    {
+        "id": 124,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tại sao các ngôi sao lớn lại chết nhanh hơn các ngôi sao nhỏ?",
+        "answer": "Các ngôi sao lớn hơn có khối lượng lớn hơn, khiến chúng phải đốt cháy nhiên liệu **Hydrogen** trong lõi của mình **nhanh hơn nhiều** để chống lại lực hấp dẫn khổng lồ. Việc sử dụng nhiên liệu quá nhanh này làm chúng hết nhiên liệu và chết đi (thành Siêu Tân Tinh) chỉ trong vài triệu năm.",
+        "tags": [
+            "sao lớn",
+            "chết nhanh hơn",
+            "đốt cháy nhiên liệu nhanh",
+            "lực hấp dẫn khổng lồ",
+            "siêu tân tinh"
+        ],
+        "illustration_prompt": "diagram comparing the lifespans of a massive star (short life) and a low-mass star (long life)"
+    },
+    {
+        "id": 125,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Mặt Trời sẽ kết thúc cuộc đời của nó như thế nào?",
+        "answer": "Trong khoảng **$5 \text{ tỷ năm}$** nữa, Mặt Trời sẽ hết Hydrogen trong lõi và phồng lên thành một **Sao Khổng Lồ Đỏ (Red Giant)**, nuốt chửng Sao Thủy và Sao Kim (có thể cả Trái Đất). Sau đó, nó sẽ co lại thành một vật thể nhỏ, rất đặc và nguội dần gọi là **Sao Lùn Trắng (White Dwarf)**.",
+        "tags": [
+            "kết thúc mặt trời",
+            "5 tỷ năm",
+            "sao khổng lồ đỏ",
+            "red giant",
+            "sao lùn trắng",
+            "white dwarf"
+        ],
+        "illustration_prompt": "educational diagram showing the future evolution of the Sun from a Main Sequence star to a Red Giant, and finally to a White Dwarf"
+    },
+    {
+        "id": 126,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Siêu Tân Tinh (Supernova) là gì?",
+        "answer": "Siêu tân tinh là một vụ **nổ khổng lồ, dữ dội** đánh dấu sự kết thúc cuộc đời của một **ngôi sao rất lớn**. Trong một thời gian ngắn, nó có thể tỏa sáng rực rỡ hơn cả một thiên hà, phân tán các vật chất mới được hình thành vào không gian.",
+        "tags": [
+            "siêu tân tinh",
+            "supernova",
+            "vụ nổ khổng lồ",
+            "ngôi sao rất lớn",
+            "tỏa sáng rực rỡ",
+            "phân tán vật chất"
+        ],
+        "illustration_prompt": "illustration of a brilliant and violent supernova explosion in space"
+    },
+    {
+        "id": 127,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Chòm Sao (Constellation) là gì?",
+        "answer": "Chòm sao là một **nhóm các ngôi sao** tạo thành một **hình dạng hoặc mô hình** mà chúng ta thấy trên bầu trời đêm. Hình dạng này hoàn toàn là sự **tưởng tượng** của con người và giúp chúng ta dễ dàng định hướng bầu trời.",
+        "tags": [
+            "chòm sao",
+            "constellation",
+            "nhóm các ngôi sao",
+            "hình dạng",
+            "mô hình",
+            "tưởng tượng con người"
+        ],
+        "illustration_prompt": "illustration showing the stars of the Ursa Major (Big Dipper) constellation connected by imaginary lines"
+    },
+    {
+        "id": 128,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Có bao nhiêu Chòm Sao được công nhận chính thức?",
+        "answer": "Hiện có **88 Chòm Sao** được **Hiệp hội Thiên văn Quốc tế (IAU)** công nhận chính thức. Chúng bao gồm các chòm sao nổi tiếng như Lục giác Mùa Đông (Winter Hexagon) và 12 chòm sao Hoàng đạo (Zodiac).",
+        "tags": [
+            "số lượng chòm sao",
+            "88 chòm sao",
+            "iau",
+            "hiệp hội thiên văn quốc tế",
+            "hoàng đạo"
+        ],
+        "illustration_prompt": "map of the night sky showing the boundaries and locations of the 88 officially recognized constellations"
+    },
+    {
+        "id": 129,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Chòm sao Lớn (Ursa Major) có gì đặc biệt?",
+        "answer": "Chòm sao Lớn (hay còn gọi là Gấu Lớn) là một trong những chòm sao nổi tiếng nhất ở Bắc Bán cầu. Bảy ngôi sao sáng nhất của nó tạo thành một hình dạng dễ nhận biết được gọi là **Gáo Lớn (Big Dipper)**, được sử dụng để **tìm Sao Bắc Cực (Polaris)**.",
+        "tags": [
+            "chòm sao lớn",
+            "ursa major",
+            "gáo lớn",
+            "big dipper",
+            "sao bắc cực",
+            "polaris",
+            "bắc bán cầu"
+        ],
+        "illustration_prompt": "illustration highlighting the Big Dipper asterism within the larger Ursa Major constellation"
+    },
+    {
+        "id": 130,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Lỗ Đen (Black Hole) được hình thành từ đâu?",
+        "answer": "Lỗ đen được hình thành khi một **ngôi sao cực kỳ lớn** (lớn hơn Mặt Trời từ 20 lần trở lên) hết nhiên liệu và sụp đổ dưới lực hấp dẫn của chính nó. Vật chất bị ép lại thành một điểm có **mật độ vô hạn**, tạo ra một lực hấp dẫn mạnh đến mức ngay cả **ánh sáng cũng không thể thoát ra**.",
+        "tags": [
+            "lỗ đen",
+            "black hole",
+            "sao cực kỳ lớn",
+            "sụp đổ",
+            "mật độ vô hạn",
+            "ánh sáng không thể thoát ra"
+        ],
+        "illustration_prompt": "illustration of a stellar mass black hole, showing the warped space-time and the event horizon"
+    },
+    {
+        "id": 131,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Lùn Trắng (White Dwarf) là gì?",
+        "answer": "Sao Lùn Trắng là **phần lõi còn sót lại** của một ngôi sao nhỏ hoặc trung bình (như Mặt Trời) sau khi nó đã loại bỏ các lớp bên ngoài của mình. Nó không còn thực hiện nhiệt hạch nữa, mà chỉ từ từ **nguội đi** và mờ dần trong hàng tỷ năm.",
+        "tags": [
+            "sao lùn trắng",
+            "white dwarf",
+            "lõi còn sót lại",
+            "nguội đi",
+            "không còn nhiệt hạch"
+        ],
+        "illustration_prompt": "illustration of a small, dense white dwarf star slowly cooling down in space"
+    },
+    {
+        "id": 132,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tại sao các ngôi sao 'lấp lánh' (Twinkle)?",
+        "answer": "Các ngôi sao không thực sự lấp lánh; chúng ta thấy chúng lấp lánh vì **khí quyển Trái Đất** hỗn loạn. Khi ánh sáng sao đi qua các túi không khí nóng và lạnh, nó bị **bẻ cong** (khúc xạ) nhiều lần, khiến ngôi sao dường như nhấp nháy hoặc lấp lánh.",
+        "tags": [
+            "sao lấp lánh",
+            "twinkle",
+            "khí quyển trái đất",
+            "bẻ cong ánh sáng",
+            "khúc xạ",
+            "nhấp nháy"
+        ],
+        "illustration_prompt": "diagram showing starlight passing through the turbulent layers of Earth's atmosphere, causing the twinkling effect"
+    },
+    {
+        "id": 133,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao nào gần Trái Đất nhất (ngoài Mặt Trời)?",
+        "answer": "Ngôi sao gần Trái Đất nhất (sau Mặt Trời) là **Proxima Centauri**. Nó là một ngôi sao **Sao Lùn Đỏ (Red Dwarf)** nhỏ và mờ, cách chúng ta khoảng **$4.24 \text{ năm ánh sáng}$**. Nó là một phần của hệ thống ba sao Alpha Centauri.",
+        "tags": [
+            "sao gần nhất",
+            "proxima centauri",
+            "alpha centauri",
+            "sao lùn đỏ",
+            "4.24 năm ánh sáng"
+        ],
+        "illustration_prompt": "illustration showing the relative proximity of Proxima Centauri and Alpha Centauri to the Solar System"
+    },
+    {
+        "id": 134,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Chòm sao Orion (Thợ Săn) có gì nổi bật?",
+        "answer": "Orion là một trong những chòm sao nổi tiếng và dễ nhận biết nhất, đặc biệt vào mùa đông. Nó được nhận diện bằng **Ba Ngôi Sao Thắt Lưng** thẳng hàng và chứa hai ngôi sao sáng nổi tiếng: **Betelgeuse** (một Sao Khổng Lồ Đỏ) và **Rigel** (một Sao Siêu Khổng Lồ Xanh).",
+        "tags": [
+            "chòm sao orion",
+            "thợ săn",
+            "ba ngôi sao thắt lưng",
+            "betelgeuse",
+            "rigel",
+            "siêu khổng lồ"
+        ],
+        "illustration_prompt": "illustration of the Orion constellation, highlighting the three belt stars and the bright stars Betelgeuse and Rigel"
+    },
+    {
+        "id": 135,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Thiên Lang (Sirius) có đặc điểm gì?",
+        "answer": "Sao Thiên Lang là **ngôi sao sáng nhất** trên bầu trời đêm (ngoài Mặt Trời). Nó là một phần của chòm sao Canis Major (Chó Lớn) và có biệt danh là **'Ngôi sao Chó'**. Nó rất sáng vì nó tương đối gần chúng ta (khoảng $8.6 \text{ năm ánh sáng}$)",
+        "tags": [
+            "sao thiên lang",
+            "sirius",
+            "sáng nhất",
+            "ngôi sao chó",
+            "canis major",
+            "gần trái đất"
+        ],
+        "illustration_prompt": "illustration of the Canis Major constellation, highlighting the extremely bright star Sirius"
+    },
+    {
+        "id": 136,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sự khác biệt giữa Quang độ (Luminosity) và Độ sáng Biểu kiến (Apparent Brightness) là gì?",
+        "answer": "**Quang độ** là **tổng năng lượng** thực mà một ngôi sao phát ra. **Độ sáng Biểu kiến** là độ sáng của ngôi sao **khi được nhìn thấy từ Trái Đất**. Một ngôi sao rất sáng có thể mờ đi nếu nó ở rất xa, hoặc một ngôi sao mờ có thể trông sáng nếu nó rất gần.",
+        "tags": [
+            "quang độ",
+            "luminosity",
+            "độ sáng biểu kiến",
+            "apparent brightness",
+            "năng lượng thực",
+            "nhìn thấy từ trái đất",
+            "khoảng cách"
+        ],
+        "illustration_prompt": "diagram illustrating the difference between luminosity (intrinsic brightness) and apparent brightness (how bright it appears based on distance)"
+    },
+    {
+        "id": 137,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tại sao các chòm sao mà chúng ta thấy lại thay đổi theo mùa?",
+        "answer": "Các chòm sao thay đổi theo mùa vì **Trái Đất quay quanh Mặt Trời**. Khi Trái Đất di chuyển qua quỹ đạo của nó, chúng ta nhìn ra một **phần khác** của không gian vào ban đêm, vì vậy chúng ta thấy các nhóm ngôi sao (chòm sao) khác nhau.",
+        "tags": [
+            "chòm sao thay đổi theo mùa",
+            "trái đất quay quanh mặt trời",
+            "quỹ đạo",
+            "phần khác của không gian"
+        ],
+        "illustration_prompt": "diagram showing the Earth orbiting the Sun and how different constellations are visible at night during different seasons"
+    },
+    {
+        "id": 138,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Lùn Đỏ (Red Dwarf) là gì?",
+        "answer": "Sao Lùn Đỏ là loại ngôi sao **phổ biến nhất** trong Ngân Hà. Chúng nhỏ, nguội, mờ và đốt cháy nhiên liệu **cực kỳ chậm**. Chúng có tuổi thọ lên tới hàng nghìn tỷ năm, dài hơn nhiều so với Mặt Trời của chúng ta.",
+        "tags": [
+            "sao lùn đỏ",
+            "red dwarf",
+            "phổ biến nhất",
+            "nhỏ nguội mờ",
+            "đốt cháy chậm",
+            "tuổi thọ dài"
+        ],
+        "illustration_prompt": "illustration comparing the small size and dim redness of a Red Dwarf star to the Sun"
+    },
+    {
+        "id": 139,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Các chòm sao Hoàng đạo (Zodiac) là gì?",
+        "answer": "Chòm sao Hoàng đạo là **12 chòm sao** (Cung hoàng đạo) nằm trên **Đường Hoàng đạo (Ecliptic)** – đường mà Mặt Trời dường như di chuyển qua bầu trời trong suốt một năm. Mặt Trăng và các hành tinh cũng thường di chuyển qua các chòm sao này.",
+        "tags": [
+            "chòm sao hoàng đạo",
+            "zodiac",
+            "12 chòm sao",
+            "đường hoàng đạo",
+            "ecliptic",
+            "mặt trời mặt trăng hành tinh"
+        ],
+        "illustration_prompt": "diagram illustrating the Ecliptic (the path of the Sun) passing through the 12 Zodiac constellations"
+    },
+    {
+        "id": 140,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Neutron (Neutron Star) là gì?",
+        "answer": "Sao Neutron là một vật thể cực kỳ **nhỏ, đặc** được hình thành từ lõi sụp đổ của một ngôi sao lớn sau một vụ Siêu Tân Tinh. Nó quay rất nhanh và chỉ nhỏ bằng một thành phố (khoảng 10-20 km), nhưng có **khối lượng lớn hơn Mặt Trời** và mật độ cao đến mức một thìa vật chất sẽ nặng hàng tỷ tấn.",
+        "tags": [
+            "sao neutron",
+            "neutron star",
+            "cực kỳ nhỏ đặc",
+            "lõi sụp đổ",
+            "siêu tân tinh",
+            "mật độ cao"
+        ],
+        "illustration_prompt": "illustration comparing the tiny size of a neutron star (city size) to a planet like Earth"
+    },
+    {
+        "id": 141,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Chúng ta có thể thấy bao nhiêu ngôi sao bằng mắt thường?",
+        "answer": "Trong điều kiện hoàn hảo (trời tối hoàn toàn, không có ô nhiễm ánh sáng), một người có thể nhìn thấy khoảng **$2.000 \text{ đến } 2.500$** ngôi sao trên bầu trời vào bất kỳ đêm nào. Tuy nhiên, trong toàn bộ Hệ Mặt Trời của chúng ta, có thể có tới $400 \text{ tỷ}$ ngôi sao!",
+        "tags": [
+            "ngôi sao bằng mắt thường",
+            "2000 2500",
+            "ô nhiễm ánh sáng",
+            "toàn bộ ngân hà"
+        ],
+        "illustration_prompt": "illustration of a clear night sky in a dark location, showing thousands of visible stars"
+    },
+    {
+        "id": 142,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Cách các nhà thiên văn học đo khoảng cách đến các ngôi sao gần là gì?",
+        "answer": "Họ sử dụng một kỹ thuật gọi là **Thị sai Sao (Stellar Parallax)**. Kỹ thuật này đo sự **thay đổi vị trí biểu kiến** của một ngôi sao khi Trái Đất di chuyển từ bên này sang bên kia Mặt Trời trong quỹ đạo 6 tháng của nó. Khoảng cách càng xa thì sự thay đổi càng nhỏ.",
+        "tags": [
+            "thị sai sao",
+            "stellar parallax",
+            "đo khoảng cách",
+            "thay đổi vị trí",
+            "quỹ đạo trái đất"
+        ],
+        "illustration_prompt": "educational diagram illustrating the concept of stellar parallax: measuring a star's apparent shift as the Earth orbits the Sun"
+    },
+    {
+        "id": 143,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Bắc Cực (Polaris) có gì đặc biệt?",
+        "answer": "Sao Bắc Cực không phải là ngôi sao sáng nhất, nhưng nó rất quan trọng vì nó nằm **gần như thẳng hàng** với **trục quay của Trái Đất**. Điều này khiến nó dường như **đứng yên** trên bầu trời đêm, trong khi tất cả các ngôi sao khác dường như quay quanh nó. Nó được dùng để định hướng ở Bắc Bán cầu.",
+        "tags": [
+            "sao bắc cực",
+            "polaris",
+            "trục quay trái đất",
+            "đứng yên",
+            "định hướng"
+        ],
+        "illustration_prompt": "illustration showing Polaris near the North Celestial Pole, with other stars appearing to rotate around it"
+    },
+    {
+        "id": 144,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tinh vân Hành Tinh (Planetary Nebula) là gì?",
+        "answer": "Tinh vân hành tinh là một **vỏ khí và bụi** khổng lồ bị đẩy ra ngoài bởi một **ngôi sao già** (như Mặt Trời) khi nó chuyển từ giai đoạn Sao Khổng Lồ Đỏ sang Sao Lùn Trắng. Tên gọi gây hiểu lầm; chúng **không liên quan** gì đến hành tinh, nhưng có hình dạng tròn mờ.",
+        "tags": [
+            "tinh vân hành tinh",
+            "planetary nebula",
+            "vỏ khí bụi",
+            "ngôi sao già",
+            "sao khổng lồ đỏ",
+            "sao lùn trắng"
+        ],
+        "illustration_prompt": "colorful image of a planetary nebula, showing the spherical shell of gas surrounding a central white dwarf star"
+    },
+    {
+        "id": 145,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sự khác biệt giữa Sao chổi (Comet) và Tinh vân (Nebula)?",
+        "answer": "**Sao chổi** là một **vật thể băng giá** nhỏ quay quanh Mặt Trời, nằm trong Hệ Mặt Trời. **Tinh vân** là một **đám mây khí và bụi khổng lồ** (nơi sinh và nơi chết của các ngôi sao), nằm ở **giữa các ngôi sao** bên trong các thiên hà (rất lớn và rất xa).",
+        "tags": [
+            "sao chổi",
+            "tinh vân",
+            "comet",
+            "nebula",
+            "vật thể băng giá",
+            "đám mây khí bụi",
+            "khác biệt"
+        ],
+        "illustration_prompt": "comparative illustration of a small comet near the Sun and a vast, colorful nebula deep in space"
+    },
+    {
+        "id": 146,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Lùn Nâu (Brown Dwarf) là gì?",
+        "answer": "Sao Lùn Nâu thường được gọi là **'ngôi sao thất bại'**. Chúng lớn hơn hành tinh khí khổng lồ, nhưng không đủ lớn để kích hoạt phản ứng **nhiệt hạch ổn định** (như các ngôi sao thực sự). Chúng phát ra nhiệt và ánh sáng rất mờ và từ từ nguội đi.",
+        "tags": [
+            "sao lùn nâu",
+            "brown dwarf",
+            "ngôi sao thất bại",
+            "không đủ lớn",
+            "nhiệt hạch ổn định",
+            "mờ nhạt"
+        ],
+        "illustration_prompt": "illustration comparing the size of a Brown Dwarf (larger than Jupiter but smaller than the smallest stars) to Jupiter and a Red Dwarf"
+    },
+    {
+        "id": 147,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao Xung (Pulsar) là gì?",
+        "answer": "Sao xung là một loại **Sao Neutron** quay rất nhanh, phát ra các **chùm bức xạ** mạnh mẽ từ các cực từ của nó. Khi chùm tia này quét qua Trái Đất (giống như ánh sáng từ ngọn hải đăng), chúng ta thấy một chuỗi các xung (từ đó có tên là 'sao xung') với độ chính xác cao.",
+        "tags": [
+            "sao xung",
+            "pulsar",
+            "sao neutron quay nhanh",
+            "chùm bức xạ",
+            "ngọn hải đăng",
+            "xung"
+        ],
+        "illustration_prompt": "diagram showing a rapidly spinning neutron star (pulsar) emitting beams of radiation that sweep across space like a lighthouse"
+    },
+    {
+        "id": 148,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tại sao các ngôi sao mà chúng ta thấy lại có vẻ ở cùng một vị trí hàng đêm?",
+        "answer": "Mặc dù các ngôi sao đang di chuyển trong Ngân Hà, nhưng chúng **quá xa** chúng ta. Do khoảng cách khổng lồ, chuyển động của chúng đối với chúng ta dường như là không đáng kể, khiến chúng dường như ở cùng một vị trí cố định trên bầu trời đêm, tạo ra các chòm sao quen thuộc.",
+        "tags": [
+            "ngôi sao cố định",
+            "quá xa",
+            "khoảng cách khổng lồ",
+            "chuyển động không đáng kể",
+            "ngân hà"
+        ],
+        "illustration_prompt": "illustration emphasizing the vast distances between stars, which makes their relative movement undetectable over human lifetimes"
+    },
+    {
+        "id": 149,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Tầm quan trọng của Carbon trong vòng đời ngôi sao là gì?",
+        "answer": "Carbon (Cacbon) là một trong những nguyên tố quan trọng nhất cho sự sống và được tạo ra bên trong các ngôi sao. Nó được hình thành từ **sự hợp nhất của ba hạt nhân Helium** bên trong lõi của một **Sao Khổng Lồ Đỏ**. Cuối cùng, nó được phân tán vào không gian, nơi nó có thể hình thành các hành tinh và sự sống.",
+        "tags": [
+            "carbon",
+            "cacbon",
+            "quan trọng cho sự sống",
+            "sao khổng lồ đỏ",
+            "hợp nhất helium",
+            "phân tán vào không gian"
+        ],
+        "illustration_prompt": "educational diagram showing the triple-alpha process (fusion of three helium nuclei into carbon) inside a red giant star"
+    },
+    {
+        "id": 150,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Ngôi sao & chòm sao",
+        "question": "Sao nào có biệt danh là 'Ngôi sao Phát nổ'?",
+        "answer": "Ngôi sao **Betelgeuse** (trong chòm sao Orion) thường được gọi là 'ngôi sao phát nổ'. Nó là một **Sao Siêu Khổng Lồ Đỏ (Red Supergiant)** đang ở cuối vòng đời của mình. Các nhà khoa học dự đoán rằng nó sẽ sớm sụp đổ và tạo thành một vụ **Siêu Tân Tinh** ngoạn mục.",
+        "tags": [
+            "betelgeuse",
+            "ngôi sao phát nổ",
+            "sao siêu khổng lồ đỏ",
+            "red supergiant",
+            "siêu tân tinh",
+            "cuối vòng đời"
+        ],
+        "illustration_prompt": "illustration of the red supergiant star Betelgeuse in the Orion constellation, highlighting its immense size and red color"
+    },
+    {
+        "id": 151,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Không gian vũ trụ (Space) được định nghĩa là gì?",
+        "answer": "Không gian vũ trụ được định nghĩa là khu vực nằm ngoài khí quyển dày đặc của Trái Đất. Nó chủ yếu là một **chân không (Vacuum)**, có nghĩa là nó gần như hoàn toàn **trống rỗng** và không có không khí hoặc vật chất để mang âm thanh.",
+        "tags": [
+            "không gian vũ trụ",
+            "space",
+            "chân không",
+            "vacuum",
+            "trống rỗng",
+            "không có không khí"
+        ],
+        "illustration_prompt": "illustration of outer space, showing the darkness and lack of visible matter, emphasizing the vacuum concept"
+    },
+    {
+        "id": 152,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao không có âm thanh trong không gian?",
+        "answer": "Âm thanh cần một **môi trường (chất khí, chất lỏng hoặc chất rắn)** để truyền đi. Vì không gian vũ trụ là chân không nên **không có phân tử không khí** để sóng âm thanh va vào và truyền đi. Vì vậy, mặc dù các vụ nổ sao rất mạnh, chúng ta không nghe thấy gì.",
+        "tags": [
+            "không có âm thanh",
+            "chân không",
+            "môi trường",
+            "phân tử không khí",
+            "sóng âm thanh"
+        ],
+        "illustration_prompt": "educational diagram contrasting how sound waves travel through air (with molecules) versus how they cannot travel in a vacuum (lack of molecules)"
+    },
+    {
+        "id": 153,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Trọng lực (Gravity) là gì?",
+        "answer": "Trọng lực là một **lực vô hình** kéo hai vật thể có **khối lượng** về phía nhau. Khối lượng càng lớn thì lực hấp dẫn càng mạnh. Trọng lực của Mặt Trời giữ tất cả các hành tinh trong Hệ Mặt Trời ở quỹ đạo của chúng.",
+        "tags": [
+            "trọng lực",
+            "gravity",
+            "lực vô hình",
+            "kéo vật thể",
+            "khối lượng",
+            "mặt trời",
+            "quỹ đạo"
+        ],
+        "illustration_prompt": "illustration showing the Sun's gravity keeping the planets in orbit, represented by invisible lines of force"
+    },
+    {
+        "id": 154,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Làm thế nào để các hành tinh quay quanh Mặt Trời mà không bay đi?",
+        "answer": "Đó là sự kết hợp của hai thứ: **1. Quán tính (Inertia)** (mong muốn của hành tinh di chuyển theo một đường thẳng) và **2. Lực hấp dẫn của Mặt Trời** (kéo hành tinh vào). Sự cân bằng liên tục này khiến hành tinh 'rơi' xung quanh Mặt Trời, tạo ra một **quỹ đạo** ổn định.",
+        "tags": [
+            "quỹ đạo hành tinh",
+            "quán tính",
+            "lực hấp dẫn mặt trời",
+            "cân bằng",
+            "rơi xung quanh"
+        ],
+        "illustration_prompt": "educational diagram showing the two forces involved in an orbit: the forward velocity (inertia) and the central pull (gravity)"
+    },
+    {
+        "id": 155,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Quỹ đạo (Orbit) là gì?",
+        "answer": "Quỹ đạo là đường cong mà một vật thể (như hành tinh, mặt trăng hoặc vệ tinh) đi theo khi nó **rơi liên tục xung quanh** một vật thể lớn hơn (như Mặt Trời hoặc Trái Đất). Về cơ bản, vật thể đó đang di chuyển sang bên đủ nhanh để bỏ lỡ mặt đất khi nó rơi.",
+        "tags": [
+            "quỹ đạo",
+            "orbit",
+            "đường cong",
+            "rơi liên tục",
+            "bỏ lỡ mặt đất"
+        ],
+        "illustration_prompt": "diagram illustrating the concept of orbit as 'falling around' a planet, with the object's speed preventing it from hitting the ground"
+    },
+    {
+        "id": 156,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao không gian lại tối đen, mặc dù có nhiều ngôi sao sáng?",
+        "answer": "Đây là một câu hỏi nổi tiếng gọi là **Nghịch lý Olbers (Olbers’ Paradox)**. Mặc dù có hàng tỷ ngôi sao, nhưng hầu hết không gian là tối vì **vũ trụ đang giãn nở**, làm kéo dài (dịch chuyển đỏ) ánh sáng từ các thiên hà rất xa ra khỏi dải nhìn thấy được của chúng ta.",
+        "tags": [
+            "không gian tối đen",
+            "nghịch lý olbers",
+            "olbers’ paradox",
+            "vũ trụ giãn nở",
+            "dịch chuyển đỏ",
+            "ánh sáng không nhìn thấy"
+        ],
+        "illustration_prompt": "illustration contrasting the brightness of individual stars and galaxies with the overall blackness of the space between them"
+    },
+    {
+        "id": 157,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Sự khác biệt giữa Khối lượng (Mass) và Trọng lượng (Weight) là gì?",
+        "answer": "**Khối lượng (Mass)** là lượng **vật chất** thực sự trong một vật thể, và nó không bao giờ thay đổi. **Trọng lượng (Weight)** là **lực hấp dẫn** tác dụng lên khối lượng đó. Trên Mặt Trăng (nơi trọng lực yếu hơn), khối lượng của bạn vẫn giữ nguyên, nhưng trọng lượng của bạn sẽ ít hơn nhiều.",
+        "tags": [
+            "khối lượng",
+            "mass",
+            "trọng lượng",
+            "weight",
+            "lượng vật chất",
+            "lực hấp dẫn",
+            "mặt trăng"
+        ],
+        "illustration_prompt": "educational diagram showing an object's mass remaining constant, but its weight changing when measured on Earth versus the Moon"
+    },
+    {
+        "id": 158,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao các phi hành gia trên Trạm Vũ trụ Quốc tế (ISS) lại bị 'Mất trọng lượng'?",
+        "answer": "ISS không thực sự nằm ngoài trọng lực; trọng lực ở đó vẫn mạnh. Sự 'mất trọng lượng' là do họ và trạm vũ trụ đều **liên tục rơi tự do** (free-falling) xung quanh Trái Đất (đang trong quỹ đạo). Việc rơi tự do liên tục này tạo ra cảm giác **vi trọng lực (Microgravity)**.",
+        "tags": [
+            "mất trọng lượng",
+            "vi trọng lực",
+            "microgravity",
+            "iss",
+            "rơi tự do",
+            "quỹ đạo",
+            "trọng lực vẫn tồn tại"
+        ],
+        "illustration_prompt": "illustration of an astronaut floating inside the ISS, showing that they are in a state of continuous freefall around Earth"
+    },
+    {
+        "id": 159,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Không gian có lạnh không?",
+        "answer": "Không gian là một môi trường phức tạp. **Nhiệt độ môi trường xung quanh** là cực kỳ lạnh (gần -270°C). Tuy nhiên, các vật thể trong ánh sáng Mặt Trời **sẽ nóng lên** rất nhanh vì không có không khí để mang nhiệt đi, và các vật thể trong bóng râm sẽ rất lạnh.",
+        "tags": [
+            "không gian lạnh",
+            "nhiệt độ môi trường",
+            "ánh sáng mặt trời",
+            "bóng râm",
+            "không có không khí truyền nhiệt"
+        ],
+        "illustration_prompt": "illustration of an object in space, showing one side brightly illuminated and very hot, and the other side in deep shadow and very cold"
+    },
+    {
+        "id": 160,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Lực hấp dẫn của một vật thể hoạt động ở khoảng cách bao xa?",
+        "answer": "Về mặt lý thuyết, lực hấp dẫn của một vật thể (như Mặt Trời) **hoạt động vĩnh viễn** trong toàn vũ trụ. Tuy nhiên, nó trở nên **yếu hơn nhanh chóng** khi khoảng cách tăng lên. Chính vì vậy, trọng lực của các thiên hà và các vật thể xa xôi khác không ảnh hưởng đến chúng ta.",
+        "tags": [
+            "lực hấp dẫn",
+            "khoảng cách",
+            "hoạt động vĩnh viễn",
+            "yếu hơn nhanh chóng",
+            "khoảng cách tăng lên"
+        ],
+        "illustration_prompt": "diagram showing the strength of gravity decreasing significantly as the distance from the central mass increases"
+    },
+    {
+        "id": 161,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Vệ tinh Nhân tạo (Artificial Satellite) là gì và chúng hoạt động như thế nào?",
+        "answer": "Vệ tinh nhân tạo là những **cỗ máy** do con người chế tạo và được phóng vào không gian để quay quanh Trái Đất. Chúng duy trì quỹ đạo bằng cách sử dụng nguyên tắc của lực hấp dẫn và quán tính, tương tự như Mặt Trăng.",
+        "tags": [
+            "vệ tinh nhân tạo",
+            "artificial satellite",
+            "cỗ máy",
+            "quay quanh trái đất",
+            "trọng lực",
+            "quán tính"
+        ],
+        "illustration_prompt": "illustration of a man-made satellite orbiting the Earth"
+    },
+    {
+        "id": 162,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Trọng lực có làm cong ánh sáng không?",
+        "answer": "Có. Thuyết Tương Đối Rộng của Albert Einstein nói rằng các vật thể có khối lượng lớn (như các ngôi sao, thiên hà hoặc lỗ đen) làm **cong vênh không-thời gian (spacetime)**. Ánh sáng di chuyển dọc theo đường cong này, khiến nó có vẻ như bị **bẻ cong** khi đi ngang qua các vật thể khổng lồ.",
+        "tags": [
+            "trọng lực làm cong ánh sáng",
+            "thuyết tương đối rộng",
+            "einstein",
+            "cong vênh không thời gian",
+            "bẻ cong ánh sáng"
+        ],
+        "illustration_prompt": "diagram showing the concept of gravitational lensing, where a massive object bends the path of light traveling from a distant source"
+    },
+    {
+        "id": 163,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao phi thuyền cần đạt tốc độ cao để vào quỹ đạo?",
+        "answer": "Để vào quỹ đạo, phi thuyền cần đạt một **tốc độ ngang (Horizontal Velocity)** nhất định (khoảng $28.000 \text{ km/h}$ đối với quỹ đạo thấp của Trái Đất). Tốc độ này cần đủ lớn để nó luôn **bỏ lỡ mặt đất** khi lực hấp dẫn kéo nó xuống (tạo ra sự 'rơi xung quanh').",
+        "tags": [
+            "tốc độ cao vào quỹ đạo",
+            "tốc độ ngang",
+            "bỏ lỡ mặt đất",
+            "rơi xung quanh",
+            "28.000 km/h"
+        ],
+        "illustration_prompt": "diagram illustrating that achieving orbit requires both high altitude and extremely high horizontal speed"
+    },
+    {
+        "id": 164,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Một quỹ đạo hình Elip (Elliptical Orbit) là gì?",
+        "answer": "Quỹ đạo hình elip là một quỹ đạo **hình bầu dục** (không phải hình tròn hoàn hảo). Hầu hết các hành tinh, sao chổi và vệ tinh đều có quỹ đạo hình elip, có nghĩa là đôi khi chúng **gần vật thể trung tâm hơn** (điểm cận nhật/cận địa) và đôi khi chúng **xa hơn** (điểm viễn nhật/viễn địa).",
+        "tags": [
+            "quỹ đạo hình elip",
+            "elliptical orbit",
+            "hình bầu dục",
+            "cận nhật cận địa",
+            "viễn nhật viễn địa"
+        ],
+        "illustration_prompt": "diagram showing an object moving in an elliptical orbit around a central mass, highlighting the varying distance"
+    },
+    {
+        "id": 165,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Vệ tinh Địa tĩnh (Geostationary Satellite) là gì?",
+        "answer": "Vệ tinh địa tĩnh là vệ tinh quay quanh Trái Đất với tốc độ **bằng với tốc độ tự quay của Trái Đất**. Điều này khiến nó dường như **luôn ở cùng một vị trí** trên bầu trời (từ góc nhìn trên mặt đất). Chúng được sử dụng cho các vệ tinh liên lạc và thời tiết.",
+        "tags": [
+            "vệ tinh địa tĩnh",
+            "geostationary satellite",
+            "tốc độ bằng trái đất",
+            "cùng một vị trí",
+            "liên lạc thời tiết"
+        ],
+        "illustration_prompt": "diagram showing a geostationary satellite remaining fixed over a single point on the Earth's equator"
+    },
+    {
+        "id": 166,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Ánh sáng truyền đi trong không gian như thế nào?",
+        "answer": "Ánh sáng là **sóng điện từ** và không cần môi trường để truyền đi. Nó có thể di chuyển qua chân không của không gian với tốc độ nhanh nhất có thể: **tốc độ ánh sáng** (khoảng $300.000 \text{ km/giây}$), cho phép chúng ta nhìn thấy các ngôi sao và thiên hà xa xôi.",
+        "tags": [
+            "ánh sáng truyền đi",
+            "sóng điện từ",
+            "tốc độ ánh sáng",
+            "300.000 km/giây",
+            "không cần môi trường"
+        ],
+        "illustration_prompt": "illustration of electromagnetic waves (light) traveling unimpeded through the vacuum of space"
+    },
+    {
+        "id": 167,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao không gian không làm nổ tung một người ngay lập tức (như trong phim)?",
+        "answer": "Trong phim, áp suất không khí thấp khiến cơ thể nổ tung, nhưng thực tế thì không. Cơ thể bạn không bị nổ vì da và mạch máu đủ đàn hồi. Tuy nhiên, các vấn đề nghiêm trọng như máu và chất lỏng sôi ở nhiệt độ cơ thể do **áp suất cực thấp** sẽ giết chết bạn rất nhanh.",
+        "tags": [
+            "áp suất không gian",
+            "áp suất cực thấp",
+            "không nổ tung",
+            "chất lỏng sôi",
+            "mạch máu đàn hồi"
+        ],
+        "illustration_prompt": "diagram showing the effects of extreme low pressure (vacuum) on the human body, such as fluids boiling"
+    },
+    {
+        "id": 168,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Làm thế nào để các phi hành gia trên ISS tạo ra không khí để thở?",
+        "answer": "Họ tạo ra oxy bằng cách sử dụng một quy trình gọi là **Điện phân (Electrolysis)**. Hệ thống này sử dụng điện để tách **nước (H2O)** thành **Hydrogen** và **Oxygen**. Oxy được sử dụng để thở, và Hydrogen được loại bỏ.",
+        "tags": [
+            "không khí iss",
+            "điện phân",
+            "electrolysis",
+            "tách nước",
+            "hydrogen oxygen",
+            "máy thở"
+        ],
+        "illustration_prompt": "diagram showing the process of electrolysis on the ISS to split water into breathable oxygen and hydrogen"
+    },
+    {
+        "id": 169,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Trọng lực trên Mặt Trăng bằng bao nhiêu so với Trái Đất?",
+        "answer": "Trọng lực trên Mặt Trăng chỉ bằng khoảng **$1/6$** trọng lực trên Trái Đất. Đó là lý do tại sao các phi hành gia có thể nhảy lên rất cao và dường như nhẹ nhàng đi lại trên bề mặt Mặt Trăng.",
+        "tags": [
+            "trọng lực mặt trăng",
+            "1/6 trọng lực trái đất",
+            "nhảy lên cao",
+            "nhẹ nhàng đi lại"
+        ],
+        "illustration_prompt": "illustration comparing an astronaut jumping on Earth versus an astronaut jumping much higher on the Moon"
+    },
+    {
+        "id": 170,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Các nhà khoa học sử dụng gì để đo khoảng cách lớn trong không gian?",
+        "answer": "Họ sử dụng **Năm Ánh Sáng (Light-Year)**, là khoảng cách ánh sáng đi được trong một năm. Đối với khoảng cách ngắn hơn (như trong Hệ Mặt Trời), họ sử dụng **Đơn vị Thiên văn (Astronomical Unit - AU)**, là khoảng cách trung bình từ Trái Đất đến Mặt Trời.",
+        "tags": [
+            "đo khoảng cách không gian",
+            "năm ánh sáng",
+            "light-year",
+            "đơn vị thiên văn",
+            "au",
+            "khoảng cách mặt trời trái đất"
+        ],
+        "illustration_prompt": "diagram showing the distance of 1 AU (Earth to Sun) and using that scale to illustrate the immense distance of 1 light-year"
+    },
+    {
+        "id": 171,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Sự khác biệt giữa Quỹ đạo LEO, MEO và GEO là gì?",
+        "answer": "**LEO (Low Earth Orbit)**: Quỹ đạo thấp (dưới $2.000 \text{ km}$), nơi ISS bay. **MEO (Medium Earth Orbit)**: Quỹ đạo trung bình (thường từ $2.000 \text{ đến } 35.786 \text{ km}$), nơi vệ tinh GPS bay. **GEO (Geostationary Earth Orbit)**: Quỹ đạo địa tĩnh (khoảng $35.786 \text{ km}$), nơi vệ tinh truyền hình bay.",
+        "tags": [
+            "quỹ đạo vệ tinh",
+            "leo",
+            "meo",
+            "geo",
+            "iss",
+            "gps",
+            "truyền hình"
+        ],
+        "illustration_prompt": "educational diagram illustrating the three main orbital altitudes: Low Earth Orbit (LEO), Medium Earth Orbit (MEO), and Geostationary Earth Orbit (GEO)"
+    },
+    {
+        "id": 172,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Làm thế nào Mặt Trăng tạo ra lực hấp dẫn lên Trái Đất nếu nó ở xa?",
+        "answer": "Mặt Trăng tuy nhỏ hơn nhưng **rất gần** Trái Đất (chỉ khoảng $384.400 \text{ km}$), do đó lực hấp dẫn của nó đủ mạnh để kéo **thủy triều** trên đại dương của chúng ta. Lực kéo thủy triều này yếu dần theo khoảng cách.",
+        "tags": [
+            "mặt trăng",
+            "lực hấp dẫn",
+            "thủy triều",
+            "khoảng cách gần",
+            "384.400 km"
+        ],
+        "illustration_prompt": "diagram showing the Moon's gravitational pull on the Earth's oceans, creating bulges (tides)"
+    },
+    {
+        "id": 173,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao các phi hành gia phải mặc bộ đồ không gian?",
+        "answer": "Bộ đồ không gian không chỉ cung cấp **oxy để thở**, mà còn bảo vệ phi hành gia khỏi 4 mối nguy hiểm chính: **1. Áp suất chân không cực thấp**, **2. Nhiệt độ cực đoan**, **3. Bức xạ vũ trụ**, và **4. Các thiên thạch cực nhỏ (micrometeoroids)**.",
+        "tags": [
+            "bộ đồ không gian",
+            "space suit",
+            "oxy",
+            "áp suất chân không",
+            "nhiệt độ cực đoan",
+            "bức xạ vũ trụ",
+            "micrometeoroids"
+        ],
+        "illustration_prompt": "illustration of an astronaut in a full space suit, labeling the protective features of the suit"
+    },
+    {
+        "id": 174,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Vệ tinh GPS hoạt động như thế nào để biết vị trí của bạn?",
+        "answer": "Hệ thống **GPS** (Global Positioning System) bao gồm một mạng lưới vệ tinh MEO. Thiết bị của bạn (điện thoại/máy định vị) nhận tín hiệu từ **ít nhất 4 vệ tinh** để tính toán chính xác khoảng cách đến mỗi vệ tinh, từ đó xác định **vị trí ba chiều** (vĩ độ, kinh độ và độ cao) của bạn.",
+        "tags": [
+            "vệ tinh gps",
+            "global positioning system",
+            "4 vệ tinh",
+            "vị trí ba chiều",
+            "khoảng cách"
+        ],
+        "illustration_prompt": "diagram showing a GPS device on Earth receiving signals from four orbiting satellites to pinpoint its location"
+    },
+    {
+        "id": 175,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Chân không có nghĩa là không có gì tuyệt đối không?",
+        "answer": "Không. Mặc dù là chân không nhưng nó **không hoàn toàn trống rỗng**. Không gian ngoài Hệ Mặt Trời chứa một lượng nhỏ **bụi, khí (Hydrogen)** và **hạt hạ nguyên tử** đến từ gió Mặt Trời và tia vũ trụ. Nó chỉ cực kỳ thưa thớt.",
+        "tags": [
+            "chân không tuyệt đối",
+            "không hoàn toàn trống rỗng",
+            "bụi khí",
+            "hạt hạ nguyên tử",
+            "gió mặt trời",
+            "cực kỳ thưa thớt"
+        ],
+        "illustration_prompt": "illustration of interstellar space showing a few scattered atoms and dust particles in the otherwise empty vacuum"
+    },
+    {
+        "id": 176,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao một quỹ đạo không kéo dài mãi mãi và cuối cùng bị phân rã (decay)?",
+        "answer": "Quỹ đạo của các vệ tinh LEO (như ISS) không kéo dài mãi mãi vì chúng vẫn chạm vào các phân tử khí cực kỳ thưa thớt ở phần rìa ngoài của khí quyển Trái Đất. Sự **ma sát** nhẹ này làm vệ tinh **mất tốc độ** dần dần và từ từ rơi trở lại Trái Đất (phân rã quỹ đạo).",
+        "tags": [
+            "phân rã quỹ đạo",
+            "orbital decay",
+            "ma sát",
+            "phân tử khí thưa thớt",
+            "mất tốc độ",
+            "rơi trở lại"
+        ],
+        "illustration_prompt": "diagram showing a satellite in LEO slowly losing altitude due to drag from residual atmospheric molecules"
+    },
+    {
+        "id": 177,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Sự khác biệt giữa Cận nhật (Perihelion) và Viễn nhật (Aphelion) là gì?",
+        "answer": "**Cận nhật** là điểm trong quỹ đạo của một hành tinh (hoặc sao chổi) khi nó **gần Mặt Trời nhất**. **Viễn nhật** là điểm khi nó **xa Mặt Trời nhất**. Trái Đất của chúng ta đạt viễn nhật vào tháng 7 và cận nhật vào tháng 1.",
+        "tags": [
+            "cận nhật",
+            "perihelion",
+            "viễn nhật",
+            "aphelion",
+            "gần mặt trời nhất",
+            "xa mặt trời nhất",
+            "quỹ đạo elip"
+        ],
+        "illustration_prompt": "diagram of Earth's elliptical orbit around the Sun, clearly labeling the Perihelion (closest point) and Aphelion (farthest point)"
+    },
+    {
+        "id": 178,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Trọng lực trên Sao Mộc mạnh hơn bao nhiêu lần so với Trái Đất?",
+        "answer": "Lực hấp dẫn bề mặt của Sao Mộc mạnh hơn Trái Đất khoảng **$2.5 \text{ lần}$** (250%). Điều này là do Sao Mộc là hành tinh có **khối lượng khổng lồ** nhất trong Hệ Mặt Trời. Nếu bạn nặng $100 \text{ kg}$ trên Trái Đất, bạn sẽ nặng khoảng $250 \text{ kg}$ trên Sao Mộc.",
+        "tags": [
+            "trọng lực sao mộc",
+            "2.5 lần",
+            "khối lượng khổng lồ",
+            "250%"
+        ],
+        "illustration_prompt": "diagram comparing the size of Jupiter to Earth, explaining that its massive size results in much stronger surface gravity"
+    },
+    {
+        "id": 179,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Lực hấp dẫn giúp tạo ra các cấu trúc nào trong vũ trụ?",
+        "answer": "Trọng lực là động lực chính tạo ra tất cả các cấu trúc lớn trong vũ trụ. Nó kéo vật chất lại với nhau để hình thành: **Ngôi sao**, **Hành tinh**, **Thiên Hà**, **Cụm Thiên Hà**, và cuối cùng là **Siêu Cụm Thiên Hà**.",
+        "tags": [
+            "lực hấp dẫn",
+            "cấu trúc vũ trụ",
+            "ngôi sao",
+            "hành tinh",
+            "thiên hà",
+            "cụm thiên hà",
+            "siêu cụm"
+        ],
+        "illustration_prompt": "diagram showing gravity as the unifying force that leads to the formation of stars, then galaxies, then clusters of galaxies"
+    },
+    {
+        "id": 180,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Không gian vũ trụ",
+        "question": "Tại sao các phi hành gia phải tập thể dục trong không gian?",
+        "answer": "Trong điều kiện vi trọng lực, cơ thể con người không cần phải làm việc để chống lại trọng lực. Điều này khiến **xương mất mật độ** và **cơ bắp bị teo đi** rất nhanh. Các phi hành gia phải tập thể dục cường độ cao hàng giờ mỗi ngày để giảm thiểu những tác động tiêu cực này.",
+        "tags": [
+            "tập thể dục trong không gian",
+            "vi trọng lực",
+            "xương mất mật độ",
+            "cơ bắp teo đi",
+            "tác động tiêu cực"
+        ],
+        "illustration_prompt": "illustration of an astronaut using specialized exercise equipment (like a treadmill or resistance machine) on the ISS"
+    },
+    {
+        "id": 181,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tên lửa hoạt động dựa trên nguyên lý nào?",
+        "answer": "Tên lửa hoạt động dựa trên **Định luật 3 Newton**: 'Mọi hành động đều có phản ứng ngược lại và bằng nhau'. Tên lửa phun khí nóng ra phía sau với tốc độ cực cao (hành động), và lực phản ứng đẩy tên lửa bay về phía trước.",
+        "tags": [
+            "nguyên lý tên lửa",
+            "định luật 3 newton",
+            "phản lực",
+            "hành động phản ứng",
+            "phun khí"
+        ],
+        "illustration_prompt": "educational diagram showing a rocket launching, with arrows indicating 'Hot Gas Pushing Down' and 'Rocket Pushing Up'"
+    },
+    {
+        "id": 182,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tại sao tên lửa thường có nhiều tầng (Stages)?",
+        "answer": "Để bay vào vũ trụ, tên lửa cần rất nhiều nhiên liệu. Khi nhiên liệu của tầng dưới cùng cạn kiệt, tầng đó trở thành **trọng lượng chết** vô ích. Tên lửa **vứt bỏ (tách)** tầng đó đi để trở nên nhẹ hơn và bay nhanh hơn với tầng tiếp theo.",
+        "tags": [
+            "tên lửa đa tầng",
+            "stages",
+            "tách tầng",
+            "giảm trọng lượng",
+            "tiết kiệm nhiên liệu"
+        ],
+        "illustration_prompt": "diagram showing the sequence of a rocket launch, with the first stage detaching and falling away while the second stage ignites"
+    },
+    {
+        "id": 183,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Vận tốc thoát (Escape Velocity) là gì?",
+        "answer": "Vận tốc thoát là tốc độ tối thiểu mà một vật thể cần đạt được để **thoát khỏi lực hấp dẫn** của một hành tinh và bay vào không gian. Đối với Trái Đất, tốc độ này là khoảng **11.2 km/giây** (khoảng 40.000 km/h).",
+        "tags": [
+            "vận tốc thoát",
+            "escape velocity",
+            "thoát khỏi trọng lực",
+            "11.2 km/s",
+            "tốc độ cao"
+        ],
+        "illustration_prompt": "educational diagram showing a rocket achieving escape velocity and breaking free from Earth's gravitational pull curve"
+    },
+    {
+        "id": 184,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Nhiên liệu tên lửa (Rocket Fuel) cần gì để cháy trong không gian?",
+        "answer": "Trong không gian không có không khí (oxy), nên lửa không thể cháy tự nhiên. Vì vậy, tên lửa phải mang theo **Chất oxy hóa (Oxidizer)** (thường là oxy lỏng) của riêng mình để trộn với nhiên liệu và đốt cháy nó trong động cơ.",
+        "tags": [
+            "nhiên liệu tên lửa",
+            "chất oxy hóa",
+            "oxidizer",
+            "oxy lỏng",
+            "cháy trong chân không"
+        ],
+        "illustration_prompt": "cutaway diagram of a rocket showing two separate tanks: one for fuel and one for liquid oxygen, feeding into the engine"
+    },
+    {
+        "id": 185,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tàu con thoi (Space Shuttle) có gì đặc biệt?",
+        "answer": "Tàu con thoi là tàu vũ trụ đầu tiên có khả năng **tái sử dụng một phần**. Nó phóng lên thẳng đứng như tên lửa, hoạt động như tàu vũ trụ trên quỹ đạo, và sau đó **hạ cánh như một chiếc máy bay** (tàu lượn) xuống đường băng.",
+        "tags": [
+            "tàu con thoi",
+            "space shuttle",
+            "tái sử dụng",
+            "hạ cánh như máy bay",
+            "nasa"
+        ],
+        "illustration_prompt": "illustration showing the Space Shuttle orbiter gliding in for a landing on a runway"
+    },
+    {
+        "id": 186,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Trạm Vũ trụ Quốc tế (ISS) là gì?",
+        "answer": "ISS là một **phòng thí nghiệm khổng lồ** bay quanh Trái Đất ở độ cao khoảng 400 km. Nó là sản phẩm hợp tác của nhiều quốc gia, nơi các phi hành gia sống và làm việc liên tục trong môi trường vi trọng lực từ năm 2000.",
+        "tags": [
+            "iss",
+            "trạm vũ trụ quốc tế",
+            "phòng thí nghiệm",
+            "hợp tác quốc tế",
+            "vi trọng lực"
+        ],
+        "illustration_prompt": "illustration of the International Space Station orbiting Earth, highlighting its large solar panels"
+    },
+    {
+        "id": 187,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tấm chắn nhiệt (Heat Shield) hoạt động như thế nào khi tàu vũ trụ quay về?",
+        "answer": "Khi tàu vũ trụ lao vào khí quyển Trái Đất với tốc độ cao, **ma sát và nén khí** tạo ra nhiệt độ cực lớn (hàng nghìn độ C). Tấm chắn nhiệt được làm từ vật liệu đặc biệt để **hấp thụ và tản nhiệt**, bảo vệ phi hành gia bên trong không bị thiêu rụi.",
+        "tags": [
+            "tấm chắn nhiệt",
+            "heat shield",
+            "khí quyển",
+            "ma sát",
+            "nhiệt độ cao",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "illustration of a space capsule re-entering Earth's atmosphere, with the heat shield glowing bright orange/red due to friction"
+    },
+    {
+        "id": 188,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Xe tự hành (Rover) trên Sao Hỏa làm gì?",
+        "answer": "Xe tự hành (như Curiosity hay Perseverance) là những **phòng thí nghiệm di động** điều khiển từ xa. Chúng lăn bánh trên bề mặt Sao Hỏa để khoan đá, phân tích đất, tìm kiếm dấu hiệu của nước và **sự sống cổ đại**.",
+        "tags": [
+            "xe tự hành",
+            "rover",
+            "sao hỏa",
+            "curiosity",
+            "perseverance",
+            "tìm kiếm sự sống"
+        ],
+        "illustration_prompt": "illustration of the Perseverance rover on the red surface of Mars, using its robotic arm to examine a rock"
+    },
+    {
+        "id": 189,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Kỹ thuật 'Hỗ trợ hấp dẫn' (Gravity Assist) hay 'Bắn đá' là gì?",
+        "answer": "Đây là kỹ thuật tàu vũ trụ bay sát qua một hành tinh để **'đánh cắp' một chút năng lượng** từ lực hấp dẫn của hành tinh đó. Điều này giúp tàu vũ trụ **tăng tốc** và thay đổi hướng đi mà không tốn nhiên liệu, giúp nó bay đến các hành tinh xa hơn.",
+        "tags": [
+            "hỗ trợ hấp dẫn",
+            "gravity assist",
+            "slingshot",
+            "tăng tốc",
+            "tiết kiệm nhiên liệu"
+        ],
+        "illustration_prompt": "diagram showing a spacecraft's trajectory bending around a planet and shooting off at a faster speed (slingshot effect)"
+    },
+    {
+        "id": 190,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Rác vũ trụ (Space Junk) là gì và tại sao nó nguy hiểm?",
+        "answer": "Rác vũ trụ là các mảnh vỡ của tên lửa cũ, vệ tinh hỏng hoặc công cụ bị đánh rơi đang bay quanh Trái Đất. Chúng di chuyển với tốc độ **cực nhanh** (hàng ngàn km/h), nên ngay cả một mảnh nhỏ như hạt sơn cũng có thể đâm thủng tàu vũ trụ.",
+        "tags": [
+            "rác vũ trụ",
+            "space junk",
+            "mảnh vỡ",
+            "tốc độ cao",
+            "nguy hiểm",
+            "va chạm"
+        ],
+        "illustration_prompt": "illustration showing the Earth surrounded by a cloud of man-made debris and satellites"
+    },
+    {
+        "id": 191,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Sputnik 1 là gì?",
+        "answer": "Sputnik 1 là **vệ tinh nhân tạo đầu tiên** của thế giới, được Liên Xô phóng lên vào năm 1957. Nó chỉ là một quả cầu kim loại nhỏ phát ra tiếng 'bíp bíp', nhưng nó đã mở đầu cho **Kỷ nguyên Vũ trụ (Space Age)**.",
+        "tags": [
+            "sputnik 1",
+            "vệ tinh đầu tiên",
+            "1957",
+            "liên xô",
+            "kỷ nguyên vũ trụ"
+        ],
+        "illustration_prompt": "illustration of the Sputnik 1 satellite, a silver sphere with four long antennas, orbiting Earth"
+    },
+    {
+        "id": 192,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Ai là người đầu tiên bay vào vũ trụ?",
+        "answer": "Đó là phi hành gia người Liên Xô **Yuri Gagarin**. Vào ngày 12 tháng 4 năm 1961, ông đã bay vòng quanh Trái Đất một lần trên tàu vũ trụ Vostok 1, chứng minh con người có thể tồn tại trong không gian.",
+        "tags": [
+            "yuri gagarin",
+            "người đầu tiên",
+            "vostok 1",
+            "1961",
+            "liên xô"
+        ],
+        "illustration_prompt": "portrait illustration of Yuri Gagarin in his spacesuit helmet with the Vostok 1 spacecraft in the background"
+    },
+    {
+        "id": 193,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Sứ mệnh Apollo 11 nổi tiếng vì điều gì?",
+        "answer": "Apollo 11 (năm 1969) là sứ mệnh đầu tiên đưa **con người đặt chân lên Mặt Trăng**. Phi hành gia Neil Armstrong và Buzz Aldrin đã đi bộ trên bề mặt Mặt Trăng, trong khi Michael Collins lái tàu chỉ huy trên quỹ đạo.",
+        "tags": [
+            "apollo 11",
+            "mặt trăng",
+            "neil armstrong",
+            "buzz aldrin",
+            "1969",
+            "nasa"
+        ],
+        "illustration_prompt": "illustration of the Apollo 11 Lunar Module 'Eagle' landed on the Moon with an astronaut planting the US flag"
+    },
+    {
+        "id": 194,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tàu vũ trụ Voyager 1 đang ở đâu?",
+        "answer": "Voyager 1 (phóng năm 1977) là vật thể nhân tạo **xa nhất** Trái Đất. Nó đã bay ra khỏi Hệ Mặt Trời và đi vào **vùng không gian giữa các vì sao (Interstellar Space)**, mang theo thông điệp của loài người gửi tới người ngoài hành tinh.",
+        "tags": [
+            "voyager 1",
+            "xa nhất",
+            "không gian giữa các vì sao",
+            "interstellar",
+            "thông điệp"
+        ],
+        "illustration_prompt": "illustration of the Voyager 1 probe traveling through dark interstellar space, far away from the Sun"
+    },
+    {
+        "id": 195,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Đĩa Ghi Vàng (Golden Record) trên tàu Voyager chứa gì?",
+        "answer": "Đó là một đĩa hát bằng đồng mạ vàng chứa **âm thanh và hình ảnh** chọn lọc để mô tả sự đa dạng của sự sống và văn hóa trên Trái Đất (tiếng nói, âm nhạc, tiếng động vật, vị trí Trái Đất). Nó giống như một 'bức thư trong chai' gửi vào vũ trụ.",
+        "tags": [
+            "đĩa ghi vàng",
+            "golden record",
+            "voyager",
+            "thông điệp trái đất",
+            "âm thanh hình ảnh"
+        ],
+        "illustration_prompt": "illustration of the Golden Record showing its etched cover with instructions and a pulsar map"
+    },
+    {
+        "id": 196,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Kính viễn vọng James Webb (JWST) khác gì Hubble?",
+        "answer": "Kính James Webb mạnh hơn nhiều và nhìn vũ trụ chủ yếu bằng **tia hồng ngoại** (Infrared), cho phép nó nhìn xuyên qua các đám mây bụi và nhìn thấy những ngôi sao/thiên hà **đầu tiên** được hình thành sau Big Bang. Hubble chủ yếu nhìn bằng ánh sáng khả kiến.",
+        "tags": [
+            "kính viễn vọng james webb",
+            "jwst",
+            "hubble",
+            "hồng ngoại",
+            "nhìn xuyên bụi",
+            "ngôi sao đầu tiên"
+        ],
+        "illustration_prompt": "illustration of the James Webb Space Telescope with its large gold hexagonal mirrors unfolding in space"
+    },
+    {
+        "id": 197,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Các phi hành gia đi vệ sinh trong không gian như thế nào?",
+        "answer": "Trong môi trường không trọng lực, họ không thể dùng nước xả. Toilet không gian sử dụng **luồng khí hút chân không** mạnh (như máy hút bụi) để hút chất thải rắn và lỏng vào các thùng chứa riêng biệt để xử lý hoặc tái chế.",
+        "tags": [
+            "toilet không gian",
+            "hút chân không",
+            "không trọng lực",
+            "xử lý chất thải"
+        ],
+        "illustration_prompt": "diagram showing how a space toilet uses air suction to pull waste away from the body in microgravity"
+    },
+    {
+        "id": 198,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Phi hành gia ngủ trong không gian ra sao?",
+        "answer": "Họ không cần giường đệm vì không có trọng lực kéo xuống. Họ ngủ trong các **túi ngủ được buộc chặt vào tường** hoặc trần của trạm vũ trụ để tránh bị trôi nổi tự do và va đập vào các thiết bị khi đang ngủ.",
+        "tags": [
+            "ngủ trong không gian",
+            "túi ngủ",
+            "buộc chặt",
+            "trôi nổi",
+            "không trọng lực"
+        ],
+        "illustration_prompt": "illustration of an astronaut sleeping vertically in a sleeping bag strapped to the wall of the ISS"
+    },
+    {
+        "id": 199,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tên lửa tái sử dụng (Reusable Rocket) của SpaceX thay đổi điều gì?",
+        "answer": "Trước đây, tên lửa chỉ dùng một lần rồi vứt bỏ, rất tốn kém. Tên lửa Falcon 9 của SpaceX có thể **tự hạ cánh thẳng đứng** trở lại Trái Đất sau khi phóng, cho phép nạp nhiên liệu và **bay lại**, giúp giảm chi phí bay vào vũ trụ rất nhiều.",
+        "tags": [
+            "spacex",
+            "tên lửa tái sử dụng",
+            "falcon 9",
+            "hạ cánh thẳng đứng",
+            "giảm chi phí"
+        ],
+        "illustration_prompt": "illustration of a SpaceX Falcon 9 booster rocket landing vertically on a drone ship at sea"
+    },
+    {
+        "id": 200,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Trọng lực nhân tạo (Artificial Gravity) có thể được tạo ra như thế nào?",
+        "answer": "Hiện tại chúng ta chưa có công nghệ 'trọng lực' như trong phim. Cách khả thi nhất theo lý thuyết là sử dụng **lực ly tâm**: làm cho trạm vũ trụ hình bánh xe **quay tròn** liên tục. Lực quay sẽ đẩy các phi hành gia ra phía vành ngoài, tạo cảm giác giống trọng lực.",
+        "tags": [
+            "trọng lực nhân tạo",
+            "lực ly tâm",
+            "trạm vũ trụ quay",
+            "bánh xe",
+            "lý thuyết"
+        ],
+        "illustration_prompt": "diagram showing a rotating ring-shaped space station creating artificial gravity on the inside of the outer ring"
+    },
+    {
+        "id": 201,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Thức ăn không gian (Space Food) ngày nay như thế nào?",
+        "answer": "Thức ăn không gian không còn là tuýp bột nhão nữa. Ngày nay, phi hành gia ăn thực phẩm **đông khô (dehydrated)** hoặc đóng gói hút chân không (như thịt, rau, trái cây). Họ thêm nước nóng vào để làm mềm thức ăn. Muối và hạt tiêu ở dạng **lỏng** để tránh bụi bay lung tung.",
+        "tags": [
+            "thức ăn không gian",
+            "đông khô",
+            "hút chân không",
+            "gia vị lỏng",
+            "tránh bụi"
+        ],
+        "illustration_prompt": "illustration showing an astronaut preparing a meal packet by injecting water into it, with floating bubbles of water nearby"
+    },
+    {
+        "id": 202,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Mạng lưới Không gian Sâu (Deep Space Network) là gì?",
+        "answer": "Đó là một mạng lưới các **ăng-ten chảo khổng lồ** đặt ở Mỹ, Tây Ban Nha và Úc. Chúng được sử dụng để **liên lạc** và gửi lệnh điều khiển tới các tàu vũ trụ đang ở rất xa trong Hệ Mặt Trời (như Voyager hoặc xe tự hành trên Sao Hỏa).",
+        "tags": [
+            "mạng lưới không gian sâu",
+            "dsn",
+            "ăng-ten khổng lồ",
+            "liên lạc xa",
+            "tàu vũ trụ"
+        ],
+        "illustration_prompt": "illustration of a massive satellite dish antenna pointing towards the stars to communicate with distant probes"
+    },
+    {
+        "id": 203,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Cánh buồm Mặt Trời (Solar Sail) là gì?",
+        "answer": "Cánh buồm Mặt Trời là phương pháp đẩy tàu vũ trụ không dùng nhiên liệu. Nó sử dụng một tấm gương siêu mỏng, khổng lồ để hứng **áp suất của ánh sáng (photon)** từ Mặt Trời đẩy vào, giống như gió đẩy thuyền buồm, giúp tàu tăng tốc từ từ nhưng liên tục.",
+        "tags": [
+            "cánh buồm mặt trời",
+            "solar sail",
+            "áp suất ánh sáng",
+            "photon",
+            "không nhiên liệu",
+            "gương mỏng"
+        ],
+        "illustration_prompt": "illustration of a spacecraft with a giant, shiny, square solar sail catching sunlight in space"
+    },
+    {
+        "id": 204,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Du lịch vũ trụ (Space Tourism) là gì?",
+        "answer": "Du lịch vũ trụ là việc đưa **người bình thường** (không phải phi hành gia chuyên nghiệp) vào không gian để giải trí. Các công ty như Blue Origin, Virgin Galactic và SpaceX đang phát triển các chuyến bay để ngắm Trái Đất từ trên cao hoặc trải nghiệm không trọng lực.",
+        "tags": [
+            "du lịch vũ trụ",
+            "space tourism",
+            "người bình thường",
+            "blue origin",
+            "spacex",
+            "giải trí"
+        ],
+        "illustration_prompt": "illustration of a commercial spacecraft with large windows allowing tourists to look down at the Earth"
+    },
+    {
+        "id": 205,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Terraforming (Cải tạo hành tinh) là ý tưởng gì?",
+        "answer": "Terraforming là ý tưởng (giả thuyết) về việc **làm thay đổi môi trường** của một hành tinh khác (như Sao Hỏa) để nó trở nên **giống Trái Đất** hơn, cho phép con người sống ở đó mà không cần đồ bảo hộ (ví dụ: làm dày khí quyển, tạo ra oxy và nước lỏng).",
+        "tags": [
+            "terraforming",
+            "cải tạo hành tinh",
+            "sao hỏa",
+            "giống trái đất",
+            "giả thuyết",
+            "tương lai"
+        ],
+        "illustration_prompt": "split illustration showing Mars as it is today (red, barren) and a terraformed Mars (green, blue oceans, clouds)"
+    },
+    {
+        "id": 206,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Sự chậm trễ tín hiệu (Signal Delay) trong không gian là gì?",
+        "answer": "Vì ánh sáng và sóng vô tuyến có **tốc độ giới hạn** (300.000 km/s), nên việc gửi tin nhắn đến các hành tinh xa xôi mất thời gian. Ví dụ: tín hiệu từ Sao Hỏa mất từ **3 đến 22 phút** để đến Trái Đất, khiến việc điều khiển trực tiếp xe tự hành là không thể.",
+        "tags": [
+            "chậm trễ tín hiệu",
+            "signal delay",
+            "tốc độ ánh sáng",
+            "sao hỏa",
+            "giao tiếp",
+            "khoảng cách xa"
+        ],
+        "illustration_prompt": "diagram showing a radio signal taking time to travel between Earth and Mars, visualized with a clock or loading bar"
+    },
+    {
+        "id": 207,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "SETI là gì?",
+        "answer": "SETI (Search for Extraterrestrial Intelligence) là dự án khoa học chuyên **tìm kiếm trí thông minh ngoài Trái Đất**. Các nhà khoa học sử dụng kính thiên văn vô tuyến khổng lồ để lắng nghe các **tín hiệu lạ** hoặc có quy luật từ không gian sâu thẳm.",
+        "tags": [
+            "seti",
+            "người ngoài hành tinh",
+            "trí thông minh",
+            "kính thiên văn vô tuyến",
+            "lắng nghe tín hiệu"
+        ],
+        "illustration_prompt": "illustration of multiple radio telescope dishes pointing at the sky, listening for alien signals"
+    },
+    {
+        "id": 208,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Hành tinh ngoại hệ (Exoplanet) là gì?",
+        "answer": "Hành tinh ngoại hệ là một hành tinh quay quanh một **ngôi sao khác** (không phải Mặt Trời của chúng ta). Các kính viễn vọng như Kepler và James Webb đã tìm thấy hàng nghìn hành tinh ngoại hệ, một số trong đó có thể có điều kiện giống Trái Đất.",
+        "tags": [
+            "hành tinh ngoại hệ",
+            "exoplanet",
+            "ngôi sao khác",
+            "kepler",
+            "giống trái đất"
+        ],
+        "illustration_prompt": "illustration of a diverse range of exoplanets orbiting a distant star"
+    },
+    {
+        "id": 209,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Huấn luyện Phi hành gia trong môi trường 'Trung tính' (Neutral Buoyancy) là gì?",
+        "answer": "Để tập luyện cho các chuyến đi bộ ngoài không gian, phi hành gia tập luyện dưới một **bể bơi khổng lồ**. Nước giúp tạo ra cảm giác trôi nổi giống như **không trọng lực**, cho phép họ thực hành sửa chữa tàu vũ trụ trên các mô hình kích thước thật.",
+        "tags": [
+            "huấn luyện phi hành gia",
+            "neutral buoyancy",
+            "bể bơi",
+            "mô phỏng không trọng lực",
+            "đi bộ không gian"
+        ],
+        "illustration_prompt": "illustration of astronauts in spacesuits training underwater in a giant pool next to a replica of the ISS"
+    },
+    {
+        "id": 210,
+        "category": "Không gian & Hệ Mặt Trời",
+        "sub_category": "Tên lửa & thám hiểm vũ trụ",
+        "question": "Tại sao Sao Hỏa là mục tiêu chính cho việc định cư của con người?",
+        "answer": "Sao Hỏa là hành tinh **gần nhất và giống Trái Đất nhất** mà chúng ta có thể tiếp cận. Nó có **ngày dài 24.6 giờ**, có các mùa, có băng nước, và khí quyển (tuy mỏng). Nó là ứng cử viên tốt nhất để xây dựng 'ngôi nhà thứ hai' cho nhân loại.",
+        "tags": [
+            "định cư sao hỏa",
+            "giống trái đất",
+            "mục tiêu tương lai",
+            "ngày sao hỏa",
+            "ngôi nhà thứ hai"
+        ],
+        "illustration_prompt": "futuristic illustration of a human colony on Mars, with habitats, greenhouses, and astronauts walking on the surface"
+    }
+]

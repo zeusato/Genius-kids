@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StudentProfile, Grade } from '@/types';
 import { getAllProfiles, createProfile, saveProfiles } from '@/services/profileService';
@@ -6,6 +6,7 @@ import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
 import { Plus, CheckCircle, Download } from 'lucide-react';
 import { useStudentActions } from '@/src/contexts/StudentContext';
+import { DevTools } from '@/components/DevTools';
 
 interface HomePageProps {
     onInstallClick?: () => void;
@@ -33,11 +34,56 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     const [isCreating, setIsCreating] = useState(false);
     const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
 
+    // DevTools secret feature
+    const [showDevTools, setShowDevTools] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
+    const [selectedProfile, setSelectedProfile] = useState<StudentProfile | null>(null);
+    const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+
     useEffect(() => {
         const loadedProfiles = getAllProfiles();
         setProfiles(loadedProfiles);
         initializeTheme();
     }, []);
+
+    // Secret: Click title 7 times in 2 seconds to open DevTools
+    const handleTitleClick = () => {
+        const newCount = clickCount + 1;
+        setClickCount(newCount);
+
+        if (clickTimerRef.current) {
+            clearTimeout(clickTimerRef.current);
+        }
+
+        if (newCount >= 7) {
+            setShowDevTools(true);
+            setClickCount(0);
+        } else {
+            clickTimerRef.current = setTimeout(() => setClickCount(0), 2000);
+        }
+    };
+
+    // Add stars to selected profile by ID
+    const handleAddStars = (profileId: string, amount: number) => {
+        const allProfiles = getAllProfiles();
+        const profileToUpdate = allProfiles.find(p => p.id === profileId);
+        if (!profileToUpdate) return;
+
+        const updatedProfile = {
+            ...profileToUpdate,
+            stars: profileToUpdate.stars + amount
+        };
+
+        const updatedProfiles = allProfiles.map(p =>
+            p.id === updatedProfile.id ? updatedProfile : p
+        );
+
+        saveProfiles(updatedProfiles);
+        setProfiles(updatedProfiles);
+        if (selectedProfile?.id === profileId) {
+            setSelectedProfile(updatedProfile);
+        }
+    };
 
     const handleCreate = () => {
         if (!newProfile.name) return;
@@ -50,6 +96,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     };
 
     const handleSelectProfile = (profile: StudentProfile) => {
+        setSelectedProfile(profile);
         setStudent(profile);
         navigate('/mode');
     };
@@ -82,7 +129,12 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
             </div>
 
             <div className="text-center space-y-2">
-                <h1 className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm">MathGenius Kids</h1>
+                <h1
+                    onClick={handleTitleClick}
+                    className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm cursor-pointer select-none"
+                >
+                    MathGenius Kids
+                </h1>
                 <p className="text-xl text-slate-500">Học toán thật vui!</p>
             </div>
 
@@ -146,6 +198,15 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                         </div>
                     </div>
                 </Card>
+            )}
+
+            {/* DevTools Modal */}
+            {showDevTools && profiles.length > 0 && (
+                <DevTools
+                    profiles={profiles}
+                    onAddStars={handleAddStars}
+                    onClose={() => setShowDevTools(false)}
+                />
             )}
         </div>
     );

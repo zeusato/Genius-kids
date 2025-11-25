@@ -1,0 +1,2698 @@
+[
+    {
+        "id": 1,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Vật chất (Matter) là gì?",
+        "answer": "Vật chất là **bất cứ thứ gì** xung quanh chúng ta chiếm không gian (có thể tích) và có trọng lượng (có khối lượng). Từ không khí bạn thở, nước bạn uống, đến chiếc ghế bạn ngồi, tất cả đều là vật chất.",
+        "tags": [
+            "vật chất",
+            "matter",
+            "khối lượng",
+            "thể tích",
+            "không gian"
+        ],
+        "illustration_prompt": "cute educational illustration showing a variety of objects like a balloon (gas), a glass of water (liquid), and a rock (solid) all on a scale"
+    },
+    {
+        "id": 2,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Ba trạng thái phổ biến nhất của vật chất trên Trái Đất là gì?",
+        "answer": "Ba trạng thái chính mà chúng ta gặp hàng ngày là: **Rắn (Solid)**, **Lỏng (Liquid)**, và **Khí (Gas)**. Nước là ví dụ tuyệt vời nhất vì nó có thể tồn tại ở cả ba dạng: đá, nước và hơi nước.",
+        "tags": [
+            "rắn",
+            "lỏng",
+            "khí",
+            "trạng thái vật chất",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing an ice cube, a drop of water, and a steam cloud representing the three states"
+    },
+    {
+        "id": 3,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Các hạt (Nguyên tử/Phân tử) trong Chất Rắn cư xử như thế nào?",
+        "answer": "Trong chất rắn, các hạt được **xếp chặt vào nhau** theo một trật tự ngăn nắp. Chúng không thể di chuyển tự do mà chỉ có thể **rung động tại chỗ**. Đó là lý do tại sao chất rắn giữ nguyên hình dạng của nó.",
+        "tags": [
+            "chất rắn",
+            "solid",
+            "hạt",
+            "xếp chặt",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational diagram showing particles in a solid arranged in a tight grid pattern, vibrating slightly"
+    },
+    {
+        "id": 4,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Các hạt trong Chất Lỏng cư xử như thế nào?",
+        "answer": "Trong chất lỏng, các hạt vẫn ở gần nhau nhưng **không có trật tự** cố định. Chúng có thể **trượt qua nhau** và di chuyển xung quanh. Điều này cho phép chất lỏng chảy và mang hình dạng của vật chứa nó.",
+        "tags": [
+            "chất lỏng",
+            "liquid",
+            "hạt",
+            "trượt qua nhau",
+            "chảy"
+        ],
+        "illustration_prompt": "cute educational diagram showing particles in a liquid close together but in a messy arrangement, sliding around"
+    },
+    {
+        "id": 5,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Các hạt trong Chất Khí cư xử như thế nào?",
+        "answer": "Trong chất khí, các hạt ở **rất xa nhau** và di chuyển **rất nhanh** theo mọi hướng. Chúng va chạm vào nhau và vào thành bình chứa. Chất khí sẽ lan tỏa để lấp đầy toàn bộ không gian mà nó ở trong.",
+        "tags": [
+            "chất khí",
+            "gas",
+            "hạt",
+            "xa nhau",
+            "di chuyển nhanh",
+            "lan tỏa"
+        ],
+        "illustration_prompt": "cute educational diagram showing gas particles flying freely and rapidly inside a jar, far apart from each other"
+    },
+    {
+        "id": 6,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Tại sao bạn không thể đi xuyên qua bức tường (Chất Rắn)?",
+        "answer": "Bởi vì các hạt trong bức tường được liên kết với nhau **rất chặt chẽ và mạnh mẽ**. Không có khoảng trống đủ lớn để cơ thể bạn (cũng là chất rắn) đi qua mà không phá vỡ các liên kết đó.",
+        "tags": [
+            "chất rắn",
+            "liên kết mạnh",
+            "không thể xuyên qua",
+            "bức tường"
+        ],
+        "illustration_prompt": "humorous illustration of a stick figure bumping into a brick wall, highlighting the dense particles of the wall"
+    },
+    {
+        "id": 7,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Tại sao chất lỏng lại có thể đổ ra được?",
+        "answer": "Vì lực hút giữa các hạt trong chất lỏng **yếu hơn** trong chất rắn. Các hạt không bị khóa chặt vào vị trí, nên trọng lực có thể kéo chúng trượt qua nhau và chảy xuống dưới (đổ ra).",
+        "tags": [
+            "chất lỏng",
+            "đổ ra",
+            "lực hút yếu",
+            "trọng lực",
+            "chảy"
+        ],
+        "illustration_prompt": "cute educational illustration showing water being poured from a pitcher into a glass, zooming in on sliding particles"
+    },
+    {
+        "id": 8,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Khí nén (Compressed Gas) là gì?",
+        "answer": "Vì các hạt khí ở rất xa nhau, nên có rất nhiều **khoảng trống** giữa chúng. Chúng ta có thể dùng lực để ép các hạt này lại gần nhau hơn vào một không gian nhỏ hơn. Ví dụ: không khí trong lốp xe đạp hoặc bình lặn.",
+        "tags": [
+            "khí nén",
+            "compressed gas",
+            "khoảng trống",
+            "ép lại",
+            "lốp xe"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a balloon with normal air vs. a scuba tank with many gas particles packed tightly"
+    },
+    {
+        "id": 9,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự nóng chảy (Melting) xảy ra khi nào?",
+        "answer": "Nóng chảy xảy ra khi chất rắn được nung nóng. Nhiệt cung cấp **năng lượng** làm các hạt rung động mạnh đến mức chúng **phá vỡ** cấu trúc cứng nhắc và bắt đầu trượt qua nhau, biến thành chất lỏng. Ví dụ: kem tan chảy.",
+        "tags": [
+            "nóng chảy",
+            "melting",
+            "nhiệt",
+            "năng lượng",
+            "phá vỡ cấu trúc",
+            "kem"
+        ],
+        "illustration_prompt": "cute educational illustration of a solid ice cream melting into a puddle, showing particles loosening up"
+    },
+    {
+        "id": 10,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Điểm sôi (Boiling Point) là gì?",
+        "answer": "Điểm sôi là nhiệt độ cụ thể mà tại đó chất lỏng bắt đầu chuyển thành khí **nhanh chóng**, tạo ra các bong bóng khí bên trong lòng chất lỏng. Đối với nước, điểm sôi là 100°C.",
+        "tags": [
+            "điểm sôi",
+            "boiling point",
+            "100°C",
+            "bong bóng khí",
+            "chuyển thành khí"
+        ],
+        "illustration_prompt": "cute educational illustration of a pot of boiling water with bubbles rising, thermometer showing 100°C"
+    },
+    {
+        "id": 11,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự đông đặc (Freezing) là gì?",
+        "answer": "Đông đặc là quá trình ngược lại của nóng chảy. Khi chất lỏng bị làm lạnh, các hạt **mất năng lượng** và di chuyển chậm lại. Cuối cùng, chúng bị khóa vào vị trí cố định và trở thành chất rắn. Ví dụ: làm đá viên.",
+        "tags": [
+            "đông đặc",
+            "freezing",
+            "làm lạnh",
+            "mất năng lượng",
+            "chất rắn"
+        ],
+        "illustration_prompt": "cute educational illustration showing water droplets turning into ice crystals in a freezer"
+    },
+    {
+        "id": 12,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự ngưng tụ (Condensation) là gì?",
+        "answer": "Ngưng tụ là khi chất khí chuyển thành chất lỏng. Điều này xảy ra khi hơi nóng gặp bề mặt lạnh, các hạt khí **nguội đi**, chậm lại và tụ tập lại với nhau thành giọt nước. Ví dụ: sương trên cỏ hoặc nước đọng ngoài ly đá.",
+        "tags": [
+            "ngưng tụ",
+            "condensation",
+            "khí sang lỏng",
+            "nguội đi",
+            "sương",
+            "giọt nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing water droplets forming on the outside of a cold soda can"
+    },
+    {
+        "id": 13,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự bay hơi (Evaporation) khác sôi như thế nào?",
+        "answer": "Sôi cần nhiệt độ cao và xảy ra khắp nơi trong chất lỏng. **Bay hơi** có thể xảy ra ở bất kỳ nhiệt độ nào nhưng chỉ diễn ra ở **bề mặt** chất lỏng. Ví dụ: vũng nước khô đi sau cơn mưa nhờ gió và nắng.",
+        "tags": [
+            "bay hơi",
+            "evaporation",
+            "bề mặt",
+            "vũng nước",
+            "khác sôi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a puddle slowly shrinking under the sun, with particles escaping from the surface"
+    },
+    {
+        "id": 14,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự thăng hoa (Sublimation) là gì?",
+        "answer": "Thăng hoa là một phép thuật của hóa học! Đó là khi chất rắn chuyển **trực tiếp** thành chất khí mà không qua giai đoạn lỏng. Ví dụ nổi tiếng nhất là **Băng khô (Dry Ice)**, nó bốc hơi thành khói trắng ngay lập tức.",
+        "tags": [
+            "thăng hoa",
+            "sublimation",
+            "rắn sang khí",
+            "không qua lỏng",
+            "băng khô"
+        ],
+        "illustration_prompt": "cute educational illustration of a block of dry ice turning directly into fog/gas"
+    },
+    {
+        "id": 15,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự ngưng kết (Deposition) là gì?",
+        "answer": "Ngưng kết là ngược lại với thăng hoa: chất khí chuyển **trực tiếp** thành chất rắn. Ví dụ: **Sương muối (Frost)** hình thành trên cửa sổ hoặc lá cây vào buổi sáng rất lạnh là do hơi nước trong không khí đông cứng ngay lập tức.",
+        "tags": [
+            "ngưng kết",
+            "deposition",
+            "khí sang rắn",
+            "sương muối",
+            "frost"
+        ],
+        "illustration_prompt": "cute educational illustration showing frost patterns forming on a window pane from the cold air"
+    },
+    {
+        "id": 16,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Trạng thái thứ 4 của vật chất: Plasma là gì?",
+        "answer": "Plasma giống như chất khí nhưng **siêu nóng** và mang điện. Các electron bị tách ra khỏi nguyên tử. Plasma hiếm gặp trên Trái Đất (chỉ thấy trong **sét** hoặc đèn neon) nhưng lại là trạng thái phổ biến nhất trong vũ trụ (các **ngôi sao**).",
+        "tags": [
+            "plasma",
+            "trạng thái thứ 4",
+            "siêu nóng",
+            "sét",
+            "ngôi sao",
+            "mang điện"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lightning bolt and the sun, labeled as Plasma"
+    },
+    {
+        "id": 17,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Tại sao nước đá lại nổi trên nước lỏng?",
+        "answer": "Hầu hết các chất đều co lại (nặng hơn) khi đông đặc. Nhưng nước thì kỳ lạ! Khi đóng băng, các phân tử nước sắp xếp thành một mạng lưới **rỗng hơn**, khiến băng **nhẹ hơn** (ít đặc hơn) nước lỏng, nên nó nổi.",
+        "tags": [
+            "nước đá",
+            "nổi",
+            "mật độ",
+            "kỳ lạ",
+            "cấu trúc rỗng"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the molecular structure of liquid water (packed) vs ice (spaced out hexagonally)"
+    },
+    {
+        "id": 18,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Độ nhớt (Viscosity) là gì?",
+        "answer": "Độ nhớt là thước đo độ **đặc quánh** hay khả năng **chống lại sự chảy** của chất lỏng. Mật ong có độ nhớt cao (chảy chậm), trong khi nước có độ nhớt thấp (chảy nhanh).",
+        "tags": [
+            "độ nhớt",
+            "viscosity",
+            "đặc quánh",
+            "chảy chậm",
+            "mật ong",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational illustration comparing pouring water (fast) vs pouring honey (slow)"
+    },
+    {
+        "id": 19,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sức căng bề mặt (Surface Tension) là gì?",
+        "answer": "Sức căng bề mặt giống như một **lớp da mỏng đàn hồi** trên mặt nước. Các phân tử nước ở bề mặt bám chặt lấy nhau, tạo ra lực đủ mạnh để đỡ được những vật nhẹ như kẹp giấy hoặc con nhện nước.",
+        "tags": [
+            "sức căng bề mặt",
+            "surface tension",
+            "lớp da",
+            "nhện nước",
+            "bám chặt"
+        ],
+        "illustration_prompt": "cute educational illustration of a water strider insect standing on top of the water surface without sinking"
+    },
+    {
+        "id": 20,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Khuếch tán (Diffusion) là gì?",
+        "answer": "Khuếch tán là sự di chuyển của các hạt từ nơi có **nhiều** sang nơi có **ít** cho đến khi chúng phân bố đều. Ví dụ: khi bạn xịt nước hoa ở một góc phòng, mùi thơm sẽ từ từ lan ra khắp phòng.",
+        "tags": [
+            "khuếch tán",
+            "diffusion",
+            "lan tỏa",
+            "nước hoa",
+            "phân bố đều"
+        ],
+        "illustration_prompt": "cute educational diagram showing perfume particles spreading from a bottle across a room"
+    },
+    {
+        "id": 21,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Chất lỏng phi Newton (Non-Newtonian Fluid) là gì?",
+        "answer": "Đây là loại chất lỏng kỳ quái thay đổi độ nhớt khi bị tác động lực. Ví dụ: **Oobleck** (bột ngô trộn nước). Nếu bạn đấm mạnh, nó cứng như đá. Nếu bạn nhúng tay nhẹ nhàng, nó lỏng như nước.",
+        "tags": [
+            "phi newton",
+            "non-newtonian",
+            "oobleck",
+            "kỳ quái",
+            "bột ngô"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand punching Oobleck (solid response) vs dipping a finger gently (liquid response)"
+    },
+    {
+        "id": 22,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Thủy tinh là chất rắn hay chất lỏng?",
+        "answer": "Thủy tinh thường được gọi là **chất rắn vô định hình**. Các hạt của nó không được sắp xếp trật tự như tinh thể rắn thực sự, nhưng chúng di chuyển quá chậm để được coi là lỏng. Nó nằm ở giữa!",
+        "tags": [
+            "thủy tinh",
+            "chất rắn vô định hình",
+            "amorphous solid",
+            "không trật tự"
+        ],
+        "illustration_prompt": "cute educational illustration showing the random particle arrangement of glass compared to the orderly arrangement of a crystal"
+    },
+    {
+        "id": 23,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Sự giãn nở nhiệt (Thermal Expansion) là gì?",
+        "answer": "Khi vật chất nóng lên, các hạt di chuyển nhanh hơn và **đẩy nhau ra xa hơn**, làm vật thể **nở ra** (lớn hơn). Đây là lý do tại sao các cây cầu có khe hở nhỏ để chúng không bị cong vênh vào mùa hè nóng bức.",
+        "tags": [
+            "giãn nở nhiệt",
+            "nở ra",
+            "nóng lên",
+            "khe hở cầu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a metal bar getting longer when heated by a flame"
+    },
+    {
+        "id": 24,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Tại sao bóng bay khí Heli lại bay lên?",
+        "answer": "Vì khí Heli **nhẹ hơn** (ít đặc hơn) không khí xung quanh. Một vật thể ít đặc hơn sẽ nổi lên trên vật thể đặc hơn. Giống như gỗ nổi trên mặt nước vậy.",
+        "tags": [
+            "heli",
+            "bóng bay",
+            "nhẹ hơn",
+            "mật độ",
+            "nổi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a helium balloon floating up while an air-filled balloon sits on the floor"
+    },
+    {
+        "id": 25,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Chân không (Vacuum) có phải là một trạng thái vật chất không?",
+        "answer": "Không, chân không là sự **vắng mặt** của vật chất. Đó là một không gian không chứa bất kỳ hạt (nguyên tử/phân tử) nào, hoặc chứa rất ít. Vũ trụ ngoài kia chủ yếu là chân không.",
+        "tags": [
+            "chân không",
+            "vacuum",
+            "vắng mặt vật chất",
+            "vũ trụ",
+            "trống rỗng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a jar labeled 'Vacuum' with nothing inside, contrasting with a jar full of air particles"
+    },
+    {
+        "id": 26,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Hợp kim (Alloy) là gì?",
+        "answer": "Hợp kim là một hỗn hợp rắn của hai hay nhiều kim loại (hoặc kim loại với phi kim). Ví dụ: **Thép** là hợp kim của Sắt và Carbon. Hợp kim thường cứng hơn và bền hơn kim loại nguyên chất.",
+        "tags": [
+            "hợp kim",
+            "alloy",
+            "thép",
+            "hỗn hợp",
+            "cứng hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing iron atoms mixed with smaller carbon atoms to create strong steel"
+    },
+    {
+        "id": 27,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Tinh thể (Crystal) là gì?",
+        "answer": "Tinh thể là một dạng chất rắn đặc biệt nơi các hạt được sắp xếp theo một **mẫu lặp đi lặp lại** rất trật tự và đẹp mắt. Muối ăn, đường và kim cương đều là tinh thể.",
+        "tags": [
+            "tinh thể",
+            "crystal",
+            "trật tự",
+            "mẫu lặp lại",
+            "muối",
+            "kim cương"
+        ],
+        "illustration_prompt": "cute educational microscopic view of a salt crystal showing its perfect cubic structure"
+    },
+    {
+        "id": 28,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Dung dịch (Solution) là gì?",
+        "answer": "Dung dịch là một hỗn hợp lỏng nơi một chất (chất tan) **tan hoàn toàn** vào chất kia (dung môi). Ví dụ: Nước muối là dung dịch vì bạn không thể nhìn thấy hạt muối nữa, chúng đã phân tán đều trong nước.",
+        "tags": [
+            "dung dịch",
+            "solution",
+            "tan hoàn toàn",
+            "nước muối",
+            "đồng nhất"
+        ],
+        "illustration_prompt": "cute educational illustration showing salt being stirred into water until it disappears, labeled 'Solution'"
+    },
+    {
+        "id": 29,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Khối lượng riêng (Density) là gì?",
+        "answer": "Khối lượng riêng đo độ **đặc** của một vật. Nó cho biết có bao nhiêu vật chất được nén trong một không gian nhất định. Đất sét có khối lượng riêng cao (nặng và đặc), trong khi xốp có khối lượng riêng thấp (nhẹ và rỗng).",
+        "tags": [
+            "khối lượng riêng",
+            "density",
+            "độ đặc",
+            "nặng nhẹ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a small heavy rock and a large light sponge on a balance scale"
+    },
+    {
+        "id": 30,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Trạng thái vật chất cơ bản",
+        "question": "Không khí có trọng lượng không?",
+        "answer": "Có! Mặc dù bạn không cảm thấy, nhưng không khí là vật chất và có khối lượng. Lớp không khí bao quanh Trái Đất đè lên chúng ta với một lực rất lớn gọi là **áp suất khí quyển**.",
+        "tags": [
+            "không khí",
+            "trọng lượng",
+            "áp suất khí quyển",
+            "vật chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a balloon on a scale, tipping it slightly to show air has weight"
+    },
+    {
+        "id": 31,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Hỗn hợp (Mixture) là gì?",
+        "answer": "Hỗn hợp là sự kết hợp của hai hay nhiều chất mà trong đó mỗi chất vẫn **giữ nguyên tính chất** ban đầu của nó. Ví dụ: Một bát salad trái cây là hỗn hợp vì bạn vẫn có thể nhận ra và tách riêng từng miếng táo, chuối hay nho.",
+        "tags": [
+            "hỗn hợp",
+            "mixture",
+            "kết hợp",
+            "giữ nguyên tính chất",
+            "salad trái cây"
+        ],
+        "illustration_prompt": "cute educational illustration of a fruit salad bowl showing distinct pieces of apple, banana, and grapes labeled as a mixture"
+    },
+    {
+        "id": 32,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Dung dịch (Solution) là gì?",
+        "answer": "Dung dịch là một loại hỗn hợp đặc biệt gọi là **hỗn hợp đồng nhất**. Trong đó, một chất (chất tan) tan hoàn toàn vào chất kia (dung môi) đến mức bạn không thể nhìn thấy các hạt riêng biệt nữa. Ví dụ: Nước đường.",
+        "tags": [
+            "dung dịch",
+            "solution",
+            "đồng nhất",
+            "chất tan",
+            "dung môi",
+            "nước đường"
+        ],
+        "illustration_prompt": "cute educational diagram showing sugar disappearing into water to form a clear solution"
+    },
+    {
+        "id": 33,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Chất tan (Solute) và Dung môi (Solvent) khác nhau thế nào?",
+        "answer": "**Chất tan** là chất bị hòa tan (ví dụ: bột ca cao). **Dung môi** là chất dùng để hòa tan (ví dụ: sữa nóng). Thường thì dung môi chiếm số lượng nhiều hơn chất tan. Nước được gọi là 'dung môi vạn năng' vì nó hòa tan được rất nhiều thứ.",
+        "tags": [
+            "chất tan",
+            "solute",
+            "dung môi",
+            "solvent",
+            "hòa tan",
+            "nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing cocoa powder (solute) being poured into milk (solvent) to make hot chocolate"
+    },
+    {
+        "id": 34,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Làm thế nào để chất tan tan nhanh hơn?",
+        "answer": "Có ba cách chính: **1. Khuấy** (giúp các hạt phân tán nhanh hơn), **2. Đun nóng** (nhiệt làm các hạt di chuyển nhanh hơn), và **3. Nghiền nhỏ** chất tan (tăng diện tích tiếp xúc với dung môi).",
+        "tags": [
+            "tan nhanh hơn",
+            "khuấy",
+            "đun nóng",
+            "nghiền nhỏ",
+            "tốc độ hòa tan"
+        ],
+        "illustration_prompt": "cute educational diagram showing three beakers: one being stirred, one being heated, and one with crushed sugar, all dissolving faster"
+    },
+    {
+        "id": 35,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Dung dịch bão hòa (Saturated Solution) là gì?",
+        "answer": "Dung dịch bão hòa giống như một chiếc xe buýt đã chật kín chỗ. Đó là khi dung môi đã hòa tan hết mức có thể và **không thể hòa tan thêm** chất tan được nữa. Nếu bạn thêm nữa, chất tan sẽ lắng xuống đáy.",
+        "tags": [
+            "bão hòa",
+            "saturated",
+            "không thể hòa tan thêm",
+            "lắng xuống đáy",
+            "đầy chỗ"
+        ],
+        "illustration_prompt": "cute educational illustration of a glass of water with a pile of undissolved sugar at the bottom, labeled 'Saturated'"
+    },
+    {
+        "id": 36,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Chất không tan (Insoluble) là gì?",
+        "answer": "Chất không tan là chất **không thể hòa tan** trong một dung môi cụ thể. Ví dụ: Cát không tan trong nước; nếu bạn khuấy cát vào nước, nó sẽ lơ lửng một chút rồi chìm xuống đáy chứ không biến mất.",
+        "tags": [
+            "không tan",
+            "insoluble",
+            "cát",
+            "nước",
+            "chìm xuống"
+        ],
+        "illustration_prompt": "cute educational illustration showing sand settling at the bottom of a water glass despite being stirred"
+    },
+    {
+        "id": 37,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Huyền phù (Suspension) là gì?",
+        "answer": "Huyền phù là một hỗn hợp chứa các hạt rắn khá lớn **lơ lửng** trong chất lỏng nhưng không tan. Nếu để yên, các hạt này sẽ lắng xuống. Ví dụ: Nước cam có tép, nước bùn, hoặc lọ thuốc 'lắc kỹ trước khi uống'.",
+        "tags": [
+            "huyền phù",
+            "suspension",
+            "lơ lửng",
+            "lắng xuống",
+            "nước cam",
+            "nước bùn"
+        ],
+        "illustration_prompt": "cute educational diagram showing muddy water: cloudy when stirred (suspension) and clear with mud at bottom after resting"
+    },
+    {
+        "id": 38,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Hệ keo (Colloid) là gì?",
+        "answer": "Hệ keo nằm giữa dung dịch và huyền phù. Các hạt trong hệ keo nhỏ hơn huyền phù nên chúng **không bao giờ lắng xuống**, nhưng lại lớn hơn dung dịch nên làm hỗn hợp trông mờ đục. Ví dụ: Sữa, sương mù, kem đánh răng.",
+        "tags": [
+            "hệ keo",
+            "colloid",
+            "không lắng",
+            "mờ đục",
+            "sữa",
+            "sương mù"
+        ],
+        "illustration_prompt": "cute educational microscopic view of milk showing tiny fat globules suspended in liquid, labeled Colloid"
+    },
+    {
+        "id": 39,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Nhũ tương (Emulsion) là gì?",
+        "answer": "Nhũ tương là một loại hệ keo đặc biệt, nơi **hai chất lỏng không hòa tan** (như dầu và nước) được trộn lẫn vào nhau nhờ một chất thứ ba (chất nhũ hóa). Ví dụ: Mayonnaise là nhũ tương của dầu và giấm được giữ bởi lòng đỏ trứng.",
+        "tags": [
+            "nhũ tương",
+            "emulsion",
+            "dầu và nước",
+            "mayonnaise",
+            "chất nhũ hóa"
+        ],
+        "illustration_prompt": "cute educational illustration showing oil droplets dispersed evenly in water thanks to an emulsifier molecule holding them"
+    },
+    {
+        "id": 40,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Không khí (Air) có phải là dung dịch không?",
+        "answer": "Có! Không khí là một **dung dịch khí**. Nó là hỗn hợp đồng nhất của nhiều loại khí khác nhau, trong đó khí Nitơ là dung môi (chiếm nhiều nhất) và các khí khác như Oxy, Argon, Carbon Dioxide là chất tan.",
+        "tags": [
+            "không khí",
+            "dung dịch khí",
+            "hỗn hợp đồng nhất",
+            "nitơ",
+            "oxy"
+        ],
+        "illustration_prompt": "cute educational diagram showing air as a mixture of different colored gas molecules evenly spread out"
+    },
+    {
+        "id": 41,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Hợp kim (Alloy) là loại hỗn hợp nào?",
+        "answer": "Hợp kim là một **dung dịch rắn** của các kim loại. Người ta nấu chảy các kim loại với nhau rồi để nguội. Ví dụ: **Đồng thau** là hỗn hợp của Đồng và Kẽm; **Thép** là hỗn hợp của Sắt và Carbon. Chúng thường cứng và bền hơn kim loại gốc.",
+        "tags": [
+            "hợp kim",
+            "alloy",
+            "dung dịch rắn",
+            "đồng thau",
+            "thép",
+            "kim loại"
+        ],
+        "illustration_prompt": "cute educational diagram showing copper atoms and zinc atoms mixing to form a strong brass alloy structure"
+    },
+    {
+        "id": 42,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Lọc (Filtration) dùng để tách hỗn hợp nào?",
+        "answer": "Lọc dùng để tách **chất rắn không tan ra khỏi chất lỏng** (hoặc khí). Giấy lọc có những lỗ nhỏ xíu chỉ cho chất lỏng đi qua và giữ lại chất rắn. Ví dụ: Lọc bã cà phê, đeo khẩu trang để lọc bụi.",
+        "tags": [
+            "lọc",
+            "filtration",
+            "tách chất",
+            "chất rắn chất lỏng",
+            "giấy lọc",
+            "cà phê"
+        ],
+        "illustration_prompt": "cute educational illustration showing coffee being brewed, with the filter holding back the grounds while liquid passes through"
+    },
+    {
+        "id": 43,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Bay hơi (Evaporation) giúp tách chất như thế nào?",
+        "answer": "Bay hơi dùng để tách **chất tan rắn ra khỏi dung môi lỏng**. Khi đun nóng hoặc để ngoài nắng, chất lỏng biến thành hơi bay đi, để lại tinh thể chất rắn. Đây là cách người ta làm ra **muối từ nước biển**.",
+        "tags": [
+            "bay hơi",
+            "evaporation",
+            "tách chất",
+            "làm muối",
+            "nước biển"
+        ],
+        "illustration_prompt": "cute educational illustration showing sea water evaporating in the sun, leaving behind piles of white salt crystals"
+    },
+    {
+        "id": 44,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Chưng cất (Distillation) là gì?",
+        "answer": "Chưng cất là cách tách các chất lỏng dựa trên **điểm sôi khác nhau** của chúng. Hỗn hợp được đun sôi, chất lỏng có điểm sôi thấp hơn sẽ bay hơi trước, sau đó hơi này được làm lạnh để ngưng tụ lại thành chất lỏng tinh khiết.",
+        "tags": [
+            "chưng cất",
+            "distillation",
+            "tách chất lỏng",
+            "điểm sôi",
+            "ngưng tụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a simple distillation apparatus separating pure water from colored water"
+    },
+    {
+        "id": 45,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Sàng (Sieving) dùng để làm gì?",
+        "answer": "Sàng là phương pháp đơn giản để tách các hỗn hợp rắn có **kích thước hạt khác nhau**. Các hạt nhỏ sẽ lọt qua lỗ sàng, còn các hạt lớn bị giữ lại. Ví dụ: Dùng rây để lọc bột mịn hoặc tách cát khỏi đá sỏi.",
+        "tags": [
+            "sàng",
+            "sieving",
+            "tách chất rắn",
+            "kích thước hạt",
+            "rây bột"
+        ],
+        "illustration_prompt": "cute educational illustration showing rocks staying in a sieve while sand falls through the holes"
+    },
+    {
+        "id": 46,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Nam châm giúp tách hỗn hợp như thế nào?",
+        "answer": "Nam châm được dùng để tách các vật liệu **từ tính** (như sắt, thép, niken) ra khỏi hỗn hợp các chất không từ tính (như nhựa, gỗ, nhôm). Cách này thường được dùng trong các nhà máy tái chế rác.",
+        "tags": [
+            "nam châm",
+            "magnetism",
+            "tách từ tính",
+            "sắt",
+            "tái chế"
+        ],
+        "illustration_prompt": "cute educational illustration showing a magnet pulling iron filings out of a pile of sand"
+    },
+    {
+        "id": 47,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Sắc ký (Chromatography) là gì?",
+        "answer": "Sắc ký là một cách thú vị để tách các chất màu. Khi bạn chấm mực lên giấy và nhúng vào nước, nước thấm lan ra và kéo theo mực. Các màu khác nhau trong mực di chuyển với **tốc độ khác nhau**, tạo thành dải màu cầu vồng.",
+        "tags": [
+            "sắc ký",
+            "chromatography",
+            "tách màu",
+            "mực",
+            "tốc độ di chuyển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a strip of paper with black ink separating into blue, red, and yellow bands as water rises"
+    },
+    {
+        "id": 48,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Chiết (Decanting) là phương pháp gì?",
+        "answer": "Chiết là cách tách hai chất lỏng **không hòa tan** vào nhau (như dầu và nước) hoặc tách chất lỏng khỏi cặn lắng. Bạn để yên cho chúng tách lớp (lớp nhẹ nổi lên, lớp nặng chìm xuống), sau đó nhẹ nhàng đổ lớp trên ra.",
+        "tags": [
+            "chiết",
+            "decanting",
+            "tách lớp",
+            "dầu và nước",
+            "không hòa tan"
+        ],
+        "illustration_prompt": "cute educational illustration showing oil floating on water, and the oil being carefully poured off into another container"
+    },
+    {
+        "id": 49,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Dung dịch Loãng (Dilute) và Đậm đặc (Concentrated) khác nhau thế nào?",
+        "answer": "Dung dịch **loãng** có ít chất tan so với dung môi (ví dụ: nước chanh nhạt). Dung dịch **đậm đặc** có rất nhiều chất tan (ví dụ: nước chanh rất chua và ngọt). Bạn có thể làm loãng dung dịch đậm đặc bằng cách thêm dung môi.",
+        "tags": [
+            "loãng",
+            "đậm đặc",
+            "dilute",
+            "concentrated",
+            "nồng độ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a glass of pale lemonade (few lemon particles) vs a glass of dark yellow lemonade (many lemon particles)"
+    },
+    {
+        "id": 50,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Hiệu ứng Tyndall giúp phân biệt điều gì?",
+        "answer": "Hiệu ứng Tyndall giúp phân biệt **Dung dịch** và **Hệ keo**. Khi chiếu đèn pin qua chất lỏng, nếu bạn **nhìn thấy tia sáng** rõ ràng (do các hạt tán xạ ánh sáng), đó là hệ keo (hoặc huyền phù). Nếu ánh sáng đi qua mà không thấy đường dẫn, đó là dung dịch.",
+        "tags": [
+            "hiệu ứng tyndall",
+            "phân biệt",
+            "hệ keo",
+            "dung dịch",
+            "tán xạ ánh sáng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a flashlight beam being invisible in a glass of sugar water but visible in a glass of milk"
+    },
+    {
+        "id": 51,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Nước biển có phải là chất tinh khiết không?",
+        "answer": "Không, nước biển là một **hỗn hợp** (cụ thể là một dung dịch). Nó chứa nước tinh khiết cùng với rất nhiều loại muối khoáng, khí oxy, và các sinh vật nhỏ bé hòa tan hoặc lơ lửng trong đó.",
+        "tags": [
+            "nước biển",
+            "hỗn hợp",
+            "không tinh khiết",
+            "muối khoáng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a magnifying glass over ocean water revealing salt ions and tiny plankton inside"
+    },
+    {
+        "id": 52,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Nhiệt độ ảnh hưởng thế nào đến việc hòa tan chất rắn?",
+        "answer": "Thông thường, nước **nóng** hòa tan được **nhiều** chất rắn (như đường, muối) hơn nước lạnh. Nhiệt độ cao làm các phân tử nước di chuyển nhanh hơn, va chạm mạnh hơn và tách các hạt chất rắn ra dễ dàng hơn.",
+        "tags": [
+            "nhiệt độ",
+            "hòa tan",
+            "nóng",
+            "chất rắn",
+            "đường"
+        ],
+        "illustration_prompt": "cute educational graph showing solubility going up as temperature increases for sugar"
+    },
+    {
+        "id": 53,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Nhiệt độ ảnh hưởng thế nào đến việc hòa tan chất khí?",
+        "answer": "Ngược lại với chất rắn! Chất khí tan tốt hơn trong nước **lạnh**. Khi nước nóng lên, các hạt khí nhận năng lượng và **thoát ra ngoài**. Đó là lý do nước ngọt có ga bị mất ga nhanh hơn khi để ấm.",
+        "tags": [
+            "nhiệt độ",
+            "hòa tan khí",
+            "nước lạnh",
+            "mất ga",
+            "nước ngọt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a warm soda bottle fizzing a lot (losing gas) vs a cold soda bottle keeping its gas"
+    },
+    {
+        "id": 54,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Kết tinh (Crystallization) là gì?",
+        "answer": "Kết tinh là quá trình tách chất rắn ra khỏi dung dịch dưới dạng **tinh thể**. Khi một dung dịch bão hòa nóng nguội đi hoặc khi dung môi bay hơi, chất tan sẽ từ từ kết tụ lại thành các hình khối đẹp mắt (như làm kẹo đường).",
+        "tags": [
+            "kết tinh",
+            "crystallization",
+            "tinh thể",
+            "làm kẹo đường",
+            "bão hòa"
+        ],
+        "illustration_prompt": "cute educational illustration showing sugar crystals growing on a string dipped in a jar of sugar syrup"
+    },
+    {
+        "id": 55,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Chất lỏng có thể hòa tan (Miscible) và không hòa tan (Immiscible) là gì?",
+        "answer": "Hai chất lỏng **hòa tan** được (Miscible) sẽ trộn lẫn hoàn toàn vào nhau (như nước và nước ép). Hai chất lỏng **không hòa tan** (Immiscible) sẽ tách lớp và không chịu trộn lẫn (như dầu và nước).",
+        "tags": [
+            "hòa tan",
+            "không hòa tan",
+            "miscible",
+            "immiscible",
+            "dầu và nước",
+            "trộn lẫn"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a glass of mixed juice (miscible) vs a glass with distinct oil and water layers (immiscible)"
+    },
+    {
+        "id": 56,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Tại sao khi mở lon nước ngọt lại có tiếng 'xì'?",
+        "answer": "Trong lon nước ngọt, khí Carbon Dioxide (CO2) bị ép hòa tan vào nước dưới **áp suất cao**. Khi bạn mở nắp, áp suất giảm đột ngột, khí không còn bị ép nữa nên **thoát ra ngoài** rất nhanh, tạo thành tiếng xì và bọt khí.",
+        "tags": [
+            "nước ngọt",
+            "áp suất",
+            "khí co2",
+            "tiếng xì",
+            "hòa tan khí"
+        ],
+        "illustration_prompt": "cute educational illustration showing gas bubbles rushing out of a soda can the moment it is opened"
+    },
+    {
+        "id": 57,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Ly tâm (Centrifugation) tách hỗn hợp như thế nào?",
+        "answer": "Ly tâm sử dụng lực quay tròn cực nhanh. Nó đẩy các thành phần **nặng hơn** ra xa tâm (xuống đáy ống nghiệm) và các thành phần **nhẹ hơn** ở lại phía trên. Cách này dùng để tách kem ra khỏi sữa hoặc tách các tế bào máu.",
+        "tags": [
+            "ly tâm",
+            "centrifugation",
+            "lực quay",
+            "tách nặng nhẹ",
+            "tách máu",
+            "tách kem"
+        ],
+        "illustration_prompt": "cute educational diagram showing a centrifuge spinning test tubes, separating liquids into layers"
+    },
+    {
+        "id": 58,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Dung dịch quá bão hòa (Supersaturated) là gì?",
+        "answer": "Đây là một trạng thái không ổn định khi dung dịch chứa **nhiều chất tan hơn mức bình thường** có thể chứa. Điều này thường làm được bằng cách đun nóng để hòa tan thật nhiều rồi để nguội từ từ. Chỉ cần một tác động nhỏ, lượng dư thừa sẽ kết tinh ngay lập tức.",
+        "tags": [
+            "quá bão hòa",
+            "supersaturated",
+            "không ổn định",
+            "kết tinh nhanh",
+            "đun nóng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a supersaturated solution instantly turning into a solid block of crystals when touched"
+    },
+    {
+        "id": 59,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Khối lượng có thay đổi khi tạo thành hỗn hợp không?",
+        "answer": "Không! Theo định luật bảo toàn khối lượng: Tổng khối lượng của hỗn hợp **bằng đúng** tổng khối lượng của các thành phần cộng lại. $100\text{g}$ nước + $10\text{g}$ đường sẽ luôn tạo ra $110\text{g}$ nước đường.",
+        "tags": [
+            "bảo toàn khối lượng",
+            "không thay đổi",
+            "tổng khối lượng",
+            "cân đo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a scale balancing a glass of sugar water against a separate glass of water and a pile of sugar"
+    },
+    {
+        "id": 60,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Dung dịch & hỗn hợp",
+        "question": "Thẩm thấu (Osmosis) là gì?",
+        "answer": "Thẩm thấu là sự di chuyển của nước qua một màng bán thấm (như màng tế bào) từ nơi có nồng độ chất tan **thấp** sang nơi có nồng độ chất tan **cao** để cân bằng. Ví dụ: Ngón tay bị nhăn nheo khi ngâm nước lâu là do thẩm thấu.",
+        "tags": [
+            "thẩm thấu",
+            "osmosis",
+            "di chuyển nước",
+            "màng bán thấm",
+            "cân bằng nồng độ",
+            "tay nhăn nheo"
+        ],
+        "illustration_prompt": "cute educational diagram showing water molecules moving across a membrane to dilute a salty solution on the other side"
+    },
+    {
+        "id": 61,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng hóa học (Chemical Reaction) là gì?",
+        "answer": "Phản ứng hóa học giống như trò chơi xếp hình Lego. Bạn tháo rời các mảnh ghép (nguyên tử) của mô hình cũ (chất phản ứng) và lắp ghép chúng lại theo cách mới để tạo ra mô hình mới (sản phẩm). Chất ban đầu biến đổi thành chất hoàn toàn mới.",
+        "tags": [
+            "phản ứng hóa học",
+            "chemical reaction",
+            "biến đổi chất",
+            "nguyên tử",
+            "lego"
+        ],
+        "illustration_prompt": "cute educational illustration showing Lego bricks being taken apart from a car shape and reassembled into a plane shape"
+    },
+    {
+        "id": 62,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Làm sao biết một phản ứng hóa học đang xảy ra?",
+        "answer": "Có 4 dấu hiệu chính để nhận biết: **1. Đổi màu** (như lá cây sang vàng), **2. Sủi bọt khí** (như viên C sủi), **3. Tạo ra chất rắn** (kết tủa), hoặc **4. Thay đổi nhiệt độ/phát sáng** (như lửa cháy).",
+        "tags": [
+            "dấu hiệu phản ứng",
+            "đổi màu",
+            "sủi bọt",
+            "kết tủa",
+            "tỏa nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing four beakers displaying the signs: color change, bubbles, solid forming, and heat/light"
+    },
+    {
+        "id": 63,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Chất phản ứng (Reactants) và Sản phẩm (Products) là gì?",
+        "answer": "**Chất phản ứng** là những 'nguyên liệu' bạn có lúc bắt đầu (bên trái mũi tên). **Sản phẩm** là những chất mới được tạo ra sau phản ứng (bên phải mũi tên). Ví dụ: Bột + Trứng + Nhiệt $\\rightarrow$ Bánh ngọt.",
+        "tags": [
+            "chất phản ứng",
+            "sản phẩm",
+            "reactants",
+            "products",
+            "phương trình hóa học"
+        ],
+        "illustration_prompt": "cute educational equation showing 'Ingredients' arrow 'Cake' to explain Reactants and Products"
+    },
+    {
+        "id": 64,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao sắt lại bị gỉ (Rusting)?",
+        "answer": "Gỉ sét là kết quả của một phản ứng chậm giữa **Sắt**, **Oxy** (trong không khí) và **Nước**. Chúng kết hợp lại tạo thành một chất mới màu nâu đỏ gọi là Oxit sắt, yếu hơn và dễ vỡ hơn sắt ban đầu.",
+        "tags": [
+            "gỉ sét",
+            "rusting",
+            "sắt",
+            "oxy",
+            "nước",
+            "oxit sắt"
+        ],
+        "illustration_prompt": "cute educational illustration showing oxygen and water molecules attacking an iron chain, turning it orange/brown"
+    },
+    {
+        "id": 65,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Sự cháy (Combustion) cần những gì?",
+        "answer": "Để tạo ra lửa, bạn cần 'Tam giác lửa': **1. Nhiên liệu** (gỗ, xăng), **2. Oxy** (trong không khí), và **3. Nhiệt** (tia lửa). Phản ứng cháy giải phóng năng lượng dưới dạng ánh sáng và sức nóng.",
+        "tags": [
+            "sự cháy",
+            "combustion",
+            "tam giác lửa",
+            "nhiên liệu",
+            "oxy",
+            "nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram of the 'Fire Triangle' with Fuel, Oxygen, and Heat labels forming a flame"
+    },
+    {
+        "id": 66,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Quang hợp (Photosynthesis) là phản ứng gì?",
+        "answer": "Đây là phản ứng hóa học quan trọng nhất trên Trái Đất! Cây xanh sử dụng năng lượng **Mặt Trời** để biến **Nước** và **Khí CO2** thành **Đường** (thức ăn cho cây) và giải phóng **Oxy** cho chúng ta thở.",
+        "tags": [
+            "quang hợp",
+            "photosynthesis",
+            "cây xanh",
+            "mặt trời",
+            "oxy",
+            "co2"
+        ],
+        "illustration_prompt": "cute educational diagram showing a plant factory taking in sunlight, water, CO2 and outputting sugar and O2"
+    },
+    {
+        "id": 67,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao bánh mì lại nở xốp?",
+        "answer": "Đó là nhờ phản ứng hóa học của **Men nở** hoặc **Bột nở**. Khi gặp nước và nhiệt, chúng tạo ra hàng ngàn bong bóng khí **Carbon Dioxide (CO2)** nhỏ xíu bị kẹt bên trong bột, làm chiếc bánh phồng lên.",
+        "tags": [
+            "bánh mì nở",
+            "men nở",
+            "bột nở",
+            "khí co2",
+            "làm bánh"
+        ],
+        "illustration_prompt": "cute educational illustration showing tiny gas bubbles expanding inside dough causing it to rise in an oven"
+    },
+    {
+        "id": 68,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Thí nghiệm 'Núi lửa' (Giấm + Baking Soda) hoạt động thế nào?",
+        "answer": "Khi Giấm (axit) gặp Baking Soda (bazơ), chúng phản ứng dữ dội và tạo ra khí **Carbon Dioxide**. Khí này thoát ra rất nhanh, tạo ra rất nhiều bọt trào ra ngoài giống như dung nham núi lửa phun trào.",
+        "tags": [
+            "thí nghiệm núi lửa",
+            "giấm",
+            "baking soda",
+            "sủi bọt",
+            "co2"
+        ],
+        "illustration_prompt": "cute educational illustration of a model volcano erupting with foamy bubbles from the vinegar and baking soda reaction"
+    },
+    {
+        "id": 69,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng tỏa nhiệt (Exothermic) là gì?",
+        "answer": "Là phản ứng hóa học giải phóng năng lượng dưới dạng **nhiệt**, làm môi trường xung quanh nóng lên. Ví dụ: Đốt lửa trại, hoặc khi bạn bẻ gói 'miếng dán giữ nhiệt' (hand warmer) vào mùa đông.",
+        "tags": [
+            "tỏa nhiệt",
+            "exothermic",
+            "nóng lên",
+            "lửa trại",
+            "miếng dán nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing heat waves radiating out from a burning log"
+    },
+    {
+        "id": 70,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng thu nhiệt (Endothermic) là gì?",
+        "answer": "Là phản ứng hóa học **hấp thụ nhiệt** từ môi trường xung quanh, làm cho mọi thứ trở nên lạnh hơn. Ví dụ: Khi bạn bóp mạnh một 'túi chườm lạnh y tế' (instant ice pack), hóa chất bên trong phản ứng và túi trở nên lạnh buốt.",
+        "tags": [
+            "thu nhiệt",
+            "endothermic",
+            "lạnh đi",
+            "túi chườm lạnh",
+            "hấp thụ nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing an instant ice pack turning blue/cold with heat arrows moving into it"
+    },
+    {
+        "id": 71,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao táo cắt ra để lâu lại bị thâm (Nâu)?",
+        "answer": "Đây là phản ứng **Oxy hóa**. Khi thịt táo tiếp xúc với Oxy trong không khí, các enzyme trong táo phản ứng và tạo ra chất màu nâu (melanin) để bảo vệ vết cắt. Vắt nước chanh (Vitamin C) lên có thể ngăn chặn phản ứng này.",
+        "tags": [
+            "táo thâm",
+            "oxy hóa",
+            "enzyme",
+            "bảo vệ",
+            "vitamin c"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a brown apple slice exposed to air vs a fresh apple slice protected by lemon juice"
+    },
+    {
+        "id": 72,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Chất xúc tác (Catalyst) là gì?",
+        "answer": "Chất xúc tác giống như một 'người trợ giúp' nhanh nhẹn. Nó làm cho phản ứng hóa học xảy ra **nhanh hơn** mà bản thân nó không bị thay đổi hay tiêu hao. Ví dụ: Enzyme trong nước bọt giúp tiêu hóa thức ăn nhanh hơn.",
+        "tags": [
+            "chất xúc tác",
+            "catalyst",
+            "tăng tốc phản ứng",
+            "enzyme",
+            "người trợ giúp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a helper character pushing two molecules together to make them react faster"
+    },
+    {
+        "id": 73,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Định luật Bảo toàn Khối lượng là gì?",
+        "answer": "Định luật này nói rằng trong một phản ứng hóa học, vật chất không tự nhiên sinh ra hay mất đi. **Tổng khối lượng** của các sản phẩm luôn **bằng đúng** tổng khối lượng của các chất phản ứng ban đầu. Chỉ là các nguyên tử sắp xếp lại thôi!",
+        "tags": [
+            "bảo toàn khối lượng",
+            "không mất đi",
+            "cân bằng",
+            "nguyên tử"
+        ],
+        "illustration_prompt": "cute educational illustration showing a scale balancing the ingredients before a reaction and the products after the reaction"
+    },
+    {
+        "id": 74,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Mực tàng hình (Invisible Ink) hoạt động thế nào?",
+        "answer": "Nước chanh có thể dùng làm mực tàng hình. Khi viết lên giấy, nó khô và không màu. Khi bạn hơ nóng tờ giấy, axit trong nước chanh phản ứng với giấy và **hóa than (cháy nhẹ)** nhanh hơn giấy thường, hiện lên màu nâu.",
+        "tags": [
+            "mực tàng hình",
+            "invisible ink",
+            "nước chanh",
+            "hóa than",
+            "nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a secret message appearing on paper when held over a light bulb/heat source"
+    },
+    {
+        "id": 75,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng Maillard là gì mà làm thức ăn ngon thế?",
+        "answer": "Đây là phản ứng hóa học 'thơm ngon' xảy ra khi bạn nướng hoặc chiên thức ăn ở nhiệt độ cao. Đường và protein trong thực phẩm phản ứng với nhau, tạo ra **màu nâu** hấp dẫn và **hương vị thơm phức** (như vỏ bánh mì nướng hay thịt nướng).",
+        "tags": [
+            "phản ứng maillard",
+            "nấu ăn",
+            "màu nâu",
+            "hương vị",
+            "thịt nướng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a steak turning brown and releasing delicious aroma swirls while cooking"
+    },
+    {
+        "id": 76,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao que phát sáng (Glow Stick) lại sáng?",
+        "answer": "Bên trong que có hai hóa chất được ngăn cách bởi một ống thủy tinh nhỏ. Khi bạn bẻ que, ống vỡ ra, hai chất trộn lẫn và gây ra phản ứng hóa học giải phóng năng lượng dưới dạng **ánh sáng** (không phải nhiệt). Đây gọi là **Hóa phát quang**.",
+        "tags": [
+            "que phát sáng",
+            "glow stick",
+            "hóa phát quang",
+            "ánh sáng lạnh",
+            "phản ứng hóa học"
+        ],
+        "illustration_prompt": "cute educational diagram showing the inner glass vial of a glow stick breaking and chemicals mixing to produce light"
+    },
+    {
+        "id": 77,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Pháo hoa có màu sắc rực rỡ nhờ đâu?",
+        "answer": "Nhờ các phản ứng cháy của **muối kim loại**. Mỗi kim loại khi cháy sẽ phát ra một màu đặc trưng: Stronti cho màu Đỏ, Natri cho màu Vàng, Bari cho màu Xanh lá, và Đồng cho màu Xanh dương.",
+        "tags": [
+            "pháo hoa",
+            "màu sắc",
+            "muối kim loại",
+            "phản ứng cháy",
+            "hóa học màu"
+        ],
+        "illustration_prompt": "cute educational illustration showing colorful fireworks labeled with their metal elements (Cu-Blue, Na-Yellow, Sr-Red)"
+    },
+    {
+        "id": 78,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tiêu hóa thức ăn có phải là phản ứng hóa học không?",
+        "answer": "Có! Cơ thể bạn sử dụng các chất đặc biệt gọi là **Enzyme** và **Axit** (trong dạ dày) để thực hiện hàng loạt phản ứng hóa học, cắt nhỏ thức ăn phức tạp thành các chất dinh dưỡng đơn giản mà máu có thể hấp thụ.",
+        "tags": [
+            "tiêu hóa",
+            "enzyme",
+            "axit",
+            "cắt nhỏ thức ăn",
+            "phản ứng sinh hóa"
+        ],
+        "illustration_prompt": "cute educational illustration showing enzymes like tiny scissors cutting long food chains into smaller nutrients"
+    },
+    {
+        "id": 79,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Làm Slime (Chất nhờn ma quái) là phản ứng gì?",
+        "answer": "Đó là phản ứng tạo **liên kết chéo (Cross-linking)**. Khi trộn hồ dán (polymer) với dung dịch hàn the (borax), các sợi polymer dài và lỏng lẻo bị 'buộc' lại với nhau, biến chất lỏng thành một khối dẻo, đàn hồi gọi là Slime.",
+        "tags": [
+            "slime",
+            "liên kết chéo",
+            "polymer",
+            "hàn the",
+            "hóa học vui"
+        ],
+        "illustration_prompt": "cute educational diagram showing long spaghetti-like polymer chains getting tied together to form a slime blob"
+    },
+    {
+        "id": 80,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao cắt hành tây lại làm cay mắt?",
+        "answer": "Khi cắt hành, bạn phá vỡ các tế bào của nó, giải phóng ra một loại khí. Khi khí này bay vào mắt và gặp nước mắt, nó tạo ra một lượng nhỏ **Axit Sulfuric** lỏng, gây rát mắt và khiến bạn khóc để rửa trôi axit.",
+        "tags": [
+            "hành tây",
+            "cay mắt",
+            "axit sulfuric",
+            "khí",
+            "phản ứng với nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing gas from an onion reaching the eye and turning into tiny acid droplets"
+    },
+    {
+        "id": 81,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng trung hòa (Neutralization) là gì?",
+        "answer": "Là phản ứng khi **Axit** (vị chua) gặp **Bazơ** (vị đắng/trơn). Chúng 'đánh nhau' và hủy bỏ tính chất của nhau, thường tạo ra **Nước** và **Muối**. Ví dụ: Dùng thuốc kháng axit (bazơ) để chữa đau dạ dày (do dư axit).",
+        "tags": [
+            "trung hòa",
+            "neutralization",
+            "axit",
+            "bazơ",
+            "muối và nước",
+            "chữa đau dạ dày"
+        ],
+        "illustration_prompt": "cute educational illustration showing an Angry Acid character and an Angry Base character shaking hands and becoming peaceful Water and Salt"
+    },
+    {
+        "id": 82,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Mưa axit ăn mòn tượng đá như thế nào?",
+        "answer": "Mưa axit (chứa axit loãng) phản ứng hóa học với **Đá vôi** (Canxi cacbonat) của các bức tượng. Phản ứng này hòa tan đá từ từ, làm mất đi các chi tiết chạm khắc và khiến tượng bị mòn đi theo thời gian.",
+        "tags": [
+            "mưa axit",
+            "ăn mòn",
+            "đá vôi",
+            "phản ứng hóa học",
+            "hòa tan"
+        ],
+        "illustration_prompt": "cute educational illustration showing acid rain drops falling on a statue, slowly smoothing out its features"
+    },
+    {
+        "id": 83,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Xà phòng được làm ra như thế nào (Xà phòng hóa)?",
+        "answer": "Xà phòng được tạo ra từ phản ứng hóa học giữa **Chất béo** (dầu ăn, mỡ) và một chất **Kiềm mạnh** (như xút). Phản ứng này biến dầu mỡ nhớt thành bánh xà phòng rắn có khả năng làm sạch.",
+        "tags": [
+            "xà phòng hóa",
+            "saponification",
+            "chất béo",
+            "kiềm",
+            "làm xà phòng"
+        ],
+        "illustration_prompt": "cute educational diagram showing oil and lye combining to transform into a bar of soap"
+    },
+    {
+        "id": 84,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Pin tạo ra điện bằng cách nào?",
+        "answer": "Bên trong pin diễn ra các **phản ứng hóa học**. Các chất hóa học bên trong phản ứng với nhau và đẩy các **electron** chạy từ cực âm sang cực dương, tạo thành dòng điện để thắp sáng đèn hoặc chạy đồ chơi.",
+        "tags": [
+            "pin",
+            "tạo điện",
+            "phản ứng hóa học",
+            "electron",
+            "dòng điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing chemical reactions inside a battery pushing electrons out through a wire"
+    },
+    {
+        "id": 85,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao nước oxy già (Hydrogen Peroxide) sủi bọt trên vết thương?",
+        "answer": "Máu và tế bào của chúng ta chứa enzyme giúp **phân hủy** nước oxy già cực nhanh thành **Nước** và khí **Oxy**. Bọt trắng bạn thấy chính là khí Oxy đang thoát ra, giúp đẩy bụi bẩn ra khỏi vết thương.",
+        "tags": [
+            "nước oxy già",
+            "sủi bọt",
+            "phân hủy",
+            "khí oxy",
+            "sát trùng"
+        ],
+        "illustration_prompt": "cute educational illustration showing hydrogen peroxide bubbles lifting dirt out of a small scratch"
+    },
+    {
+        "id": 86,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao sữa lại chua khi để lâu?",
+        "answer": "Vi khuẩn trong sữa ăn đường lactose và thực hiện phản ứng **lên men**, biến đường thành **Axit Lactic**. Axit này có vị chua và làm protein trong sữa đông tụ lại (vón cục). Đây cũng là cách người ta làm sữa chua!",
+        "tags": [
+            "sữa chua",
+            "lên men",
+            "axit lactic",
+            "vi khuẩn",
+            "vón cục"
+        ],
+        "illustration_prompt": "cute educational illustration showing friendly bacteria turning sugar molecules into sour acid molecules in a glass of milk"
+    },
+    {
+        "id": 87,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng kết tủa (Precipitation) là gì?",
+        "answer": "Là khi trộn hai dung dịch lỏng với nhau và bất ngờ xuất hiện **chất rắn** (không tan). Chất rắn này gọi là kết tủa, thường lắng xuống đáy hoặc làm dung dịch đục ngầu. Giống như làm 'tuyết' trong ống nghiệm vậy.",
+        "tags": [
+            "kết tủa",
+            "precipitation",
+            "tạo chất rắn",
+            "hai chất lỏng",
+            "đục ngầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing two clear liquids mixing and suddenly forming colorful solid particles falling like snow"
+    },
+    {
+        "id": 88,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Tại sao lá cây đổi màu vào mùa thu?",
+        "answer": "Khi trời lạnh, cây ngừng tạo ra chất diệp lục (màu xanh). Khi màu xanh mất đi, các **hóa chất màu khác** (như vàng, cam, đỏ) vốn đã có sẵn hoặc mới được tạo ra trong lá sẽ lộ diện, tạo nên màu sắc mùa thu rực rỡ.",
+        "tags": [
+            "lá đổi màu",
+            "mùa thu",
+            "diệp lục",
+            "hóa chất màu",
+            "sắc tố"
+        ],
+        "illustration_prompt": "cute educational illustration showing the green color fading from a leaf to reveal the yellow and orange colors underneath"
+    },
+    {
+        "id": 89,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Phản ứng phân hủy (Decomposition) là gì?",
+        "answer": "Là khi một chất phức tạp bị **vỡ ra** thành hai hay nhiều chất đơn giản hơn. Ví dụ: Khi dòng điện chạy qua nước, nó phân hủy nước ($H_2O$) thành khí Hydro và khí Oxy.",
+        "tags": [
+            "phân hủy",
+            "decomposition",
+            "vỡ ra",
+            "đơn giản hơn",
+            "tách nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing a complex Lego structure breaking apart into smaller, separate pieces"
+    },
+    {
+        "id": 90,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Phản ứng hóa học đơn giản",
+        "question": "Quy tắc an toàn quan trọng nhất khi làm thí nghiệm hóa học là gì?",
+        "answer": "Không bao giờ được **nếm** hoặc **ngửi trực tiếp** hóa chất! Luôn đeo kính bảo hộ, làm theo hướng dẫn của người lớn và rửa tay sạch sau khi làm xong. Hóa chất có thể thú vị nhưng cũng có thể gây hại nếu không cẩn thận.",
+        "tags": [
+            "an toàn hóa học",
+            "không nếm",
+            "kính bảo hộ",
+            "người lớn",
+            "rửa tay"
+        ],
+        "illustration_prompt": "cute educational poster showing a child scientist wearing safety goggles and gloves, with a 'Safety First' sign"
+    },
+    {
+        "id": 91,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Axit (Acid) có vị gì?",
+        "answer": "Axit thường có vị **chua**. Bạn có thể nếm thấy vị chua này trong quả chanh (axit citric), giấm ăn (axit axetic) hoặc sữa chua. Tuy nhiên, không bao giờ được nếm các loại axit mạnh trong phòng thí nghiệm vì chúng rất nguy hiểm!",
+        "tags": [
+            "axit",
+            "acid",
+            "vị chua",
+            "chanh",
+            "giấm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lemon character making a sour face, labeled 'Acid'"
+    },
+    {
+        "id": 92,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Bazơ (Base) có đặc điểm gì dễ nhận biết?",
+        "answer": "Bazơ (hay còn gọi là Kiềm) thường có vị **đắng** và cảm giác **trơn trượt** như xà phòng khi chạm vào. Các chất tẩy rửa gia dụng, xà phòng và thuốc trị đau dạ dày thường là bazơ.",
+        "tags": [
+            "bazơ",
+            "base",
+            "kiềm",
+            "vị đắng",
+            "trơn trượt",
+            "xà phòng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a slippery bar of soap and a bottle of cleaning liquid, labeled 'Base'"
+    },
+    {
+        "id": 93,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Thang đo pH là gì?",
+        "answer": "Thang đo pH giống như một cây thước để đo độ mạnh của Axit hoặc Bazơ, chạy từ **0 đến 14**. pH bằng 7 là **Trung tính** (như nước lọc). pH nhỏ hơn 7 là **Axit** (càng nhỏ càng chua). pH lớn hơn 7 là **Bazơ**.",
+        "tags": [
+            "thang đo ph",
+            "ph scale",
+            "trung tính",
+            "đo độ mạnh"
+        ],
+        "illustration_prompt": "cute educational diagram of a colorful pH scale ranging from red (acid) to green (neutral) to purple (base)"
+    },
+    {
+        "id": 94,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Giấy quỳ tím (Litmus Paper) dùng để làm gì?",
+        "answer": "Giấy quỳ là 'thám tử' hóa học giúp phân biệt Axit và Bazơ. Khi nhúng vào **Axit**, giấy quỳ chuyển sang màu **Đỏ**. Khi nhúng vào **Bazơ**, nó chuyển sang màu **Xanh**. Nếu là chất trung tính, nó không đổi màu.",
+        "tags": [
+            "giấy quỳ tím",
+            "litmus paper",
+            "đổi màu",
+            "nhận biết",
+            "đỏ xanh"
+        ],
+        "illustration_prompt": "cute educational illustration showing two strips of litmus paper: one turning red in lemon juice and one turning blue in soapy water"
+    },
+    {
+        "id": 95,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Muối ăn (Table Salt) được tạo ra như thế nào?",
+        "answer": "Muối ăn (Natri Clorua - NaCl) là kết quả của một 'đám cưới' hóa học giữa một axit mạnh (HCl) và một bazơ mạnh (NaOH). Khi chúng phản ứng (trung hòa), chúng mất đi tính nguy hiểm và tạo ra muối mặn và nước.",
+        "tags": [
+            "muối ăn",
+            "nacl",
+            "trung hòa",
+            "phản ứng hóa học",
+            "natri clorua"
+        ],
+        "illustration_prompt": "cute educational diagram showing an Acid character and a Base character hugging to form a Salt crystal and a Water drop"
+    },
+    {
+        "id": 96,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao dạ dày của chúng ta lại chứa Axit?",
+        "answer": "Dạ dày chứa Axit Clohiđric (HCl) rất mạnh để **tiêu hóa thức ăn** (đặc biệt là protein) và **diệt vi khuẩn** có hại xâm nhập qua đường ăn uống. Lớp niêm mạc dạ dày đặc biệt giúp nó không bị chính axit này ăn mòn.",
+        "tags": [
+            "axit dạ dày",
+            "hcl",
+            "tiêu hóa",
+            "diệt khuẩn"
+        ],
+        "illustration_prompt": "cute educational illustration showing the stomach containing green acid liquid breaking down food particles"
+    },
+    {
+        "id": 97,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Baking Soda (Muối nở) là axit hay bazơ?",
+        "answer": "Baking Soda là một loại **bazơ yếu**. Vì vậy, khi nó gặp axit (như giấm hoặc chanh), nó sẽ phản ứng sủi bọt khí CO2. Đây là lý do nó được dùng để làm bánh nở xốp hoặc làm vệ sinh nhà cửa.",
+        "tags": [
+            "baking soda",
+            "bazơ yếu",
+            "làm bánh",
+            "sủi bọt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a box of baking soda reacting with vinegar to create a fizzy eruption"
+    },
+    {
+        "id": 98,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Phản ứng trung hòa (Neutralization) là gì?",
+        "answer": "Là khi bạn trộn Axit và Bazơ với lượng vừa đủ. Chúng sẽ 'hủy bỏ' tính chất của nhau. Sản phẩm tạo thành thường là **Muối và Nước**, và dung dịch trở nên trung tính (không còn chua hay đắng).",
+        "tags": [
+            "trung hòa",
+            "neutralization",
+            "axit và bazơ",
+            "tạo muối nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a scale balancing perfectly between an Acid bottle and a Base bottle"
+    },
+    {
+        "id": 99,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Mưa Axit (Acid Rain) nguy hiểm như thế nào?",
+        "answer": "Mưa axit hình thành khi khói bụi ô nhiễm (từ xe cộ, nhà máy) hòa tan vào nước mưa tạo thành axit loãng. Nó có thể làm **chết cây cối**, làm hại cá trong hồ và **ăn mòn** các bức tượng đá hoặc tòa nhà.",
+        "tags": [
+            "mưa axit",
+            "acid rain",
+            "ô nhiễm",
+            "ăn mòn",
+            "hại cây"
+        ],
+        "illustration_prompt": "cute educational illustration showing rain clouds with angry faces raining down on a statue, causing it to look weathered"
+    },
+    {
+        "id": 100,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Chất chỉ thị màu tự nhiên (Natural Indicator) là gì?",
+        "answer": "Là những chất có trong rau củ quả tự nhiên có thể đổi màu khi gặp axit hoặc bazơ. Ví dụ nổi tiếng nhất là **nước bắp cải tím**. Nó chuyển sang màu đỏ khi gặp axit và màu xanh lá/vàng khi gặp bazơ.",
+        "tags": [
+            "chất chỉ thị màu",
+            "bắp cải tím",
+            "đổi màu",
+            "thí nghiệm vui"
+        ],
+        "illustration_prompt": "cute educational illustration showing three glasses of cabbage juice: one pink (acid), one purple (neutral), and one green (base)"
+    },
+    {
+        "id": 101,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao kem đánh răng lại có tính bazơ (Kiềm)?",
+        "answer": "Sau khi ăn, vi khuẩn trong miệng tạo ra **Axit** tấn công men răng gây sâu răng. Kem đánh răng có tính **Bazơ** để **trung hòa** lượng axit này, giúp bảo vệ răng và làm sạch miệng.",
+        "tags": [
+            "kem đánh răng",
+            "tính kiềm",
+            "trung hòa axit",
+            "bảo vệ răng",
+            "sâu răng"
+        ],
+        "illustration_prompt": "cute educational illustration showing toothpaste as a superhero fighting against acid monsters on a tooth"
+    },
+    {
+        "id": 102,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Nước biển mặn vì chứa loại muối nào?",
+        "answer": "Nước biển chứa rất nhiều loại muối khoáng hòa tan, nhưng nhiều nhất là **Natri Clorua** (muối ăn). Các loại muối này được nước mưa rửa trôi từ đất đá trên lục địa và đổ ra biển qua hàng triệu năm.",
+        "tags": [
+            "nước biển",
+            "muối ăn",
+            "natri clorua",
+            "khoáng chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing rivers carrying minerals from mountains down into the salty ocean"
+    },
+    {
+        "id": 103,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Axit trong pin (Battery Acid) là gì?",
+        "answer": "Đó thường là **Axit Sulfuric** (H2SO4), một loại axit cực mạnh và nguy hiểm. Nó giúp tạo ra dòng điện bên trong ắc quy xe hơi. Tuyệt đối không được chạm vào chất lỏng rò rỉ từ pin cũ.",
+        "tags": [
+            "pin",
+            "axit sulfuric",
+            "nguy hiểm",
+            "tạo điện"
+        ],
+        "illustration_prompt": "cute educational illustration showing a car battery with a warning sign about corrosive acid inside"
+    },
+    {
+        "id": 104,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Làm thế nào để xử lý vết ong đốt bằng hóa học?",
+        "answer": "Nọc ong mật thường có tính **Axit**, nên bạn có thể bôi một ít dung dịch **Bazơ** nhẹ (như bột baking soda hòa nước) để trung hòa và giảm đau. (Lưu ý: Nọc ong vò vẽ lại là bazơ, nên cần dùng giấm!).",
+        "tags": [
+            "ong đốt",
+            "trung hòa",
+            "baking soda",
+            "sơ cứu",
+            "axit bazơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bee sting being treated with a baking soda paste to soothe the pain"
+    },
+    {
+        "id": 105,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao nước có ga (Soda) lại có tính axit?",
+        "answer": "Để tạo ra bọt ga, người ta nén khí CO2 vào nước. Khí này phản ứng với nước tạo thành một axit yếu gọi là **Axit Carbonic** (H2CO3). Đó là lý do nước ngọt có vị hơi chua nhẹ và có thể làm mòn men răng nếu uống quá nhiều.",
+        "tags": [
+            "nước có ga",
+            "soda",
+            "axit carbonic",
+            "co2",
+            "bọt khí"
+        ],
+        "illustration_prompt": "cute educational illustration showing bubbles in a soda bottle forming weak acid molecules"
+    },
+    {
+        "id": 106,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Thuốc kháng axit (Antacid) chữa đau dạ dày như thế nào?",
+        "answer": "Khi bạn bị ợ chua hay đau dạ dày do dư axit, thuốc kháng axit (chứa các **bazơ** yếu như Magiê hydroxit) sẽ được uống vào để **trung hòa** bớt lượng axit thừa, giúp bạn dễ chịu hơn.",
+        "tags": [
+            "thuốc kháng axit",
+            "đau dạ dày",
+            "trung hòa",
+            "bazơ",
+            "ợ chua"
+        ],
+        "illustration_prompt": "cute educational illustration showing a pill dissolving in the stomach and calming down the angry acid waves"
+    },
+    {
+        "id": 107,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Axit Lactic là gì và nó xuất hiện khi nào?",
+        "answer": "Axit Lactic được tạo ra trong cơ bắp khi bạn **tập thể dục quá sức** mà không đủ oxy. Nó cũng là axit tạo nên vị chua của **sữa chua** và các loại thực phẩm lên men (do vi khuẩn tạo ra).",
+        "tags": [
+            "axit lactic",
+            "cơ bắp",
+            "sữa chua",
+            "lên men",
+            "tập thể dục"
+        ],
+        "illustration_prompt": "cute educational illustration showing a tired muscle containing lactic acid, next to a cup of yogurt"
+    },
+    {
+        "id": 108,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Vôi sống (Bazơ) được dùng trong nông nghiệp để làm gì?",
+        "answer": "Nông dân thường rắc vôi bột (một loại bazơ) lên ruộng đất. Việc này giúp **khử chua** (giảm độ axit) cho đất, tạo môi trường tốt hơn cho cây trồng phát triển, vì nhiều loại cây không thích đất quá chua.",
+        "tags": [
+            "vôi sống",
+            "nông nghiệp",
+            "khử chua",
+            "cải tạo đất",
+            "bazơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a farmer spreading lime powder on soil to make plants grow happier"
+    },
+    {
+        "id": 109,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao muối giúp làm tan băng trên đường vào mùa đông?",
+        "answer": "Khi rắc muối lên băng, muối hòa tan vào lớp nước mỏng trên bề mặt và **làm giảm nhiệt độ đóng băng** của nước xuống dưới 0°C. Điều này khiến băng tan chảy thành nước ngay cả khi trời vẫn lạnh.",
+        "tags": [
+            "muối tan băng",
+            "hạ nhiệt độ đóng băng",
+            "mùa đông",
+            "an toàn giao thông"
+        ],
+        "illustration_prompt": "cute educational diagram showing salt crystals mixing with ice and turning it into water puddles"
+    },
+    {
+        "id": 110,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Chất tẩy rửa cống rãnh hoạt động như thế nào?",
+        "answer": "Chất thông cống thường chứa các **bazơ cực mạnh** (như Xút ăn da). Chúng phản ứng hóa học để **hòa tan** tóc, dầu mỡ và các chất hữu cơ gây tắc nghẽn, biến chúng thành chất lỏng dễ trôi đi.",
+        "tags": [
+            "thông cống",
+            "bazơ mạnh",
+            "hòa tan tóc",
+            "xút",
+            "tẩy rửa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a strong base cleaner dissolving a hair clog in a pipe"
+    },
+    {
+        "id": 111,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Axit có thể làm sạch gỉ sét không?",
+        "answer": "Có. Axit (như axit trong Coca-Cola hoặc giấm) phản ứng với lớp gỉ sắt (oxit sắt) và hòa tan nó, để lộ ra lớp kim loại sáng bóng bên dưới. Đây là một mẹo làm sạch phổ biến.",
+        "tags": [
+            "tẩy gỉ sét",
+            "axit",
+            "làm sạch",
+            "phản ứng hóa học"
+        ],
+        "illustration_prompt": "cute educational illustration showing a rusty coin being dipped in cola and coming out shiny"
+    },
+    {
+        "id": 112,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Thạch nhũ trong hang động được hình thành nhờ axit nào?",
+        "answer": "Nước mưa hòa tan CO2 trong không khí tạo thành **Axit Carbonic** yếu. Axit này chảy qua đá vôi, hòa tan đá và tạo thành các hang động. Khi nước nhỏ giọt và bay hơi, đá vôi kết tinh lại tạo thành thạch nhũ.",
+        "tags": [
+            "thạch nhũ",
+            "hang động",
+            "axit carbonic",
+            "đá vôi",
+            "hòa tan"
+        ],
+        "illustration_prompt": "cute educational diagram showing acidic water dripping in a cave to form stalactites and stalagmites"
+    },
+    {
+        "id": 113,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Vitamin C có tên hóa học là gì?",
+        "answer": "Vitamin C chính là **Axit Ascorbic**. Nó là một loại axit hữu cơ yếu rất quan trọng cho sức khỏe, giúp tăng cường hệ miễn dịch. Vì là axit nên nó có vị chua (như trong cam, chanh).",
+        "tags": [
+            "vitamin c",
+            "axit ascorbic",
+            "vị chua",
+            "dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration showing an orange slice wearing a 'Vitamin C' sash and holding a shield"
+    },
+    {
+        "id": 114,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao xà phòng lại làm cay mắt?",
+        "answer": "Mắt của chúng ta có độ pH trung tính. Xà phòng là **Bazơ**, có độ pH cao hơn. Sự chênh lệch pH này gây kích ứng và cảm giác nóng rát (cay) khi xà phòng dính vào mắt. Nước mắt sẽ chảy ra để rửa trôi và cân bằng lại pH.",
+        "tags": [
+            "xà phòng",
+            "cay mắt",
+            "độ ph",
+            "bazơ",
+            "kích ứng"
+        ],
+        "illustration_prompt": "cute educational illustration showing an eye tearing up to wash away a soap bubble"
+    },
+    {
+        "id": 115,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Muối có tác dụng bảo quản thực phẩm như thế nào?",
+        "answer": "Muối hút nước ra khỏi thực phẩm và ra khỏi vi khuẩn (thông qua thẩm thấu). Khi thiếu nước, **vi khuẩn không thể phát triển** hoặc chết đi, giúp thực phẩm (như cá muối, dưa muối) không bị thối rữa trong thời gian dài.",
+        "tags": [
+            "bảo quản thực phẩm",
+            "muối",
+            "hút nước",
+            "diệt khuẩn",
+            "thẩm thấu"
+        ],
+        "illustration_prompt": "cute educational illustration showing salt crystals pulling water out of a microbe, stopping it from growing"
+    },
+    {
+        "id": 116,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Clo (Chlorine) trong hồ bơi có tác dụng gì?",
+        "answer": "Clo được thêm vào hồ bơi để tạo ra một axit yếu giúp **tiêu diệt vi khuẩn và tảo**, giữ cho nước sạch. Mùi hắc đặc trưng ở hồ bơi thực ra là do Clo phản ứng với các chất bẩn, chứ không phải mùi của Clo nguyên chất.",
+        "tags": [
+            "hồ bơi",
+            "clo",
+            "diệt khuẩn",
+            "làm sạch nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing chlorine molecules chasing away green algae and bacteria in a pool"
+    },
+    {
+        "id": 117,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Tại sao người ta bón phân đạm (Muối) cho cây?",
+        "answer": "Phân bón hóa học thực chất là các loại **Muối** chứa Nitơ, Phốt pho và Kali. Cây cối cần những khoáng chất này để phát triển lá, rễ và quả. Muối tan vào đất và rễ cây hút chúng lên cùng với nước.",
+        "tags": [
+            "phân bón",
+            "muối khoáng",
+            "dinh dưỡng cây trồng",
+            "nitơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing plant roots absorbing nutrient salts from the soil to grow big and strong"
+    },
+    {
+        "id": 118,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Axit nào được tìm thấy trong giấm ăn?",
+        "answer": "Đó là **Axit Axetic**. Giấm thực chất là một dung dịch loãng của axit axetic trong nước (khoảng 4-5%). Nó được tạo ra khi vi khuẩn lên men rượu hoặc đường.",
+        "tags": [
+            "giấm",
+            "axit axetic",
+            "lên men",
+            "gia vị"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bottle of vinegar labeled 'Acetic Acid' next to a salad"
+    },
+    {
+        "id": 119,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Nước cường toan (Aqua Regia) là gì?",
+        "answer": "Đây là một hỗn hợp axit cực mạnh (Axit Nitric + Axit Clohiđric) có thể **hòa tan cả Vàng**! Cái tên này có nghĩa là 'Nước Hoàng gia' vì khả năng đặc biệt của nó đối với kim loại quý.",
+        "tags": [
+            "nước cường toan",
+            "hòa tan vàng",
+            "axit mạnh",
+            "hóa học thú vị"
+        ],
+        "illustration_prompt": "cute educational illustration showing a beaker of liquid dissolving a gold bar, labeled 'Royal Water'"
+    },
+    {
+        "id": 120,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Axit – bazơ – muối",
+        "question": "Quy tắc an toàn quan trọng nhất khi pha loãng axit là gì?",
+        "answer": "Luôn luôn **rót Axit vào Nước**, không bao giờ làm ngược lại! Nếu rót nước vào axit đậm đặc, phản ứng tỏa nhiệt dữ dội có thể làm nước sôi ngay lập tức và bắn axit ra ngoài gây bỏng.",
+        "tags": [
+            "an toàn hóa học",
+            "pha loãng axit",
+            "axit vào nước",
+            "nguy hiểm"
+        ],
+        "illustration_prompt": "cute educational poster showing the correct way (Acid into Water) with a checkmark and the wrong way (Water into Acid) with a warning sign"
+    },
+    {
+        "id": 121,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Nhựa (Plastic) được tạo ra từ đâu?",
+        "answer": "Hầu hết nhựa được làm từ **Dầu mỏ** (dầu thô). Dầu thô được tinh chế thành các chất gọi là **Polymer**. Polymer giống như những chuỗi hạt cực dài được nối lại với nhau. Độ dài và cách sắp xếp của chuỗi quyết định loại nhựa.",
+        "tags": [
+            "nhựa",
+            "plastic",
+            "polymer",
+            "dầu mỏ",
+            "dầu thô"
+        ],
+        "illustration_prompt": "cute educational diagram showing oil droplets transforming into long, linked chains of polymer molecules"
+    },
+    {
+        "id": 122,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Mã tái chế (Recycling Code) trên chai nhựa có ý nghĩa gì?",
+        "answer": "Các số từ 1 đến 7 nằm trong biểu tượng hình tam giác giúp phân loại nhựa. Số **1 (PET)** là nhựa chai nước; số **2 (HDPE)** là nhựa chai sữa. Việc này giúp nhà máy tái chế biết cách xử lý từng loại nhựa riêng.",
+        "tags": [
+            "tái chế",
+            "recycling",
+            "mã nhựa",
+            "pet",
+            "hdpe",
+            "phân loại"
+        ],
+        "illustration_prompt": "cute educational illustration showing plastic bottles with the recycling symbol and number 1 inside"
+    },
+    {
+        "id": 123,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Tại sao kim loại lại dẫn điện tốt?",
+        "answer": "Trong cấu trúc của kim loại, có rất nhiều **electron tự do**. Những electron này không bị ràng buộc vào một nguyên tử nào mà có thể di chuyển dễ dàng khi có lực điện tác dụng, giúp dòng điện chạy qua nhanh chóng.",
+        "tags": [
+            "kim loại",
+            "dẫn điện",
+            "electron tự do",
+            "dòng điện",
+            "dây điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing a metallic wire with tiny electron dots moving freely and quickly"
+    },
+    {
+        "id": 124,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Nhôm (Aluminum) là kim loại có đặc tính gì nổi bật?",
+        "answer": "Nhôm là kim loại cực **nhẹ** và **chống gỉ** tốt. Mặc dù dễ bị oxy hóa, nhưng lớp oxit nhôm mỏng hình thành bên ngoài lại rất cứng và bảo vệ kim loại bên trong. Vì vậy, nhôm được dùng làm lon nước ngọt và khung máy bay.",
+        "tags": [
+            "nhôm",
+            "aluminum",
+            "nhẹ",
+            "chống gỉ",
+            "lon nước",
+            "máy bay"
+        ],
+        "illustration_prompt": "cute educational illustration of a shiny soda can lifting easily, next to an airplane wing"
+    },
+    {
+        "id": 125,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Thép (Steel) được làm ra như thế nào?",
+        "answer": "Thép là một loại **hợp kim** (hỗn hợp) của **Sắt** và một lượng nhỏ **Carbon**. Việc thêm Carbon làm cho Sắt cứng hơn, bền hơn và ít bị biến dạng hơn, lý tưởng cho xây dựng và làm công cụ.",
+        "tags": [
+            "thép",
+            "steel",
+            "hợp kim",
+            "sắt",
+            "carbon",
+            "cứng cáp"
+        ],
+        "illustration_prompt": "cute educational diagram showing iron atoms being mixed with smaller carbon atoms to form the strong steel structure"
+    },
+    {
+        "id": 126,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Thủy tinh (Glass) được làm từ gì?",
+        "answer": "Thủy tinh chủ yếu được làm từ **Cát** (Silica/Silic dioxit). Cát được nung chảy ở nhiệt độ cực cao, sau đó được làm nguội nhanh chóng mà không kịp tạo thành cấu trúc tinh thể, khiến nó trở thành **chất rắn vô định hình**.",
+        "tags": [
+            "thủy tinh",
+            "glass",
+            "cát",
+            "silica",
+            "nung chảy",
+            "vô định hình"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large pile of sand being heated in a furnace and turning into a clear glass bottle"
+    },
+    {
+        "id": 127,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Tại sao thủy tinh lại trong suốt?",
+        "answer": "Thủy tinh được làm từ các phân tử sắp xếp lộn xộn nhưng rất chặt chẽ, không có khuyết tật lớn để làm lệch ánh sáng. Quan trọng hơn, không có electron tự do nào để **hấp thụ ánh sáng nhìn thấy**, nên ánh sáng đi thẳng qua nó.",
+        "tags": [
+            "thủy tinh",
+            "trong suốt",
+            "ánh sáng",
+            "hấp thụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a straight beam of light passing easily through a glass pane"
+    },
+    {
+        "id": 128,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Gốm sứ (Ceramics) khác thủy tinh ở điểm nào?",
+        "answer": "Gốm sứ thường được làm từ đất sét, nung ở nhiệt độ cao. Chúng có cấu trúc **tinh thể** (có trật tự) và không trong suốt như thủy tinh. Gốm sứ nổi tiếng về khả năng **chịu nhiệt** và **độ cứng** cao.",
+        "tags": [
+            "gốm sứ",
+            "ceramics",
+            "đất sét",
+            "chịu nhiệt",
+            "cứng"
+        ],
+        "illustration_prompt": "cute educational illustration of a beautifully glazed ceramic vase being taken out of a very hot kiln"
+    },
+    {
+        "id": 129,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Xi măng (Cement) cứng lại như thế nào?",
+        "answer": "Xi măng không chỉ khô đi, nó thực hiện một **phản ứng hóa học** với nước gọi là quá trình thủy hóa. Các hạt xi măng kết hợp với nước tạo ra các tinh thể mới liên kết chặt chẽ vào nhau, làm cho hỗn hợp (bê tông) cứng rắn.",
+        "tags": [
+            "xi măng",
+            "cement",
+            "thủy hóa",
+            "phản ứng với nước",
+            "bê tông"
+        ],
+        "illustration_prompt": "cute educational diagram showing cement powder and water mixing and quickly forming strong crystal bonds"
+    },
+    {
+        "id": 130,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Gỗ là vật liệu cấu tạo từ chất hóa học nào?",
+        "answer": "Gỗ chủ yếu được làm từ **Cellulose** (Chất xơ) và **Lignin**. Cellulose là một chuỗi polymer dài tạo nên độ bền và cấu trúc cho cây. Lignin là 'keo' hóa học giúp giữ các sợi cellulose lại với nhau, làm cho gỗ cứng cáp.",
+        "tags": [
+            "gỗ",
+            "cellulose",
+            "lignin",
+            "polymer tự nhiên",
+            "cây xanh"
+        ],
+        "illustration_prompt": "cute educational diagram showing the interlocking fibers of cellulose and lignin within a piece of wood"
+    },
+    {
+        "id": 131,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Vải cotton (Bông) có bản chất hóa học là gì?",
+        "answer": "Cotton là một loại sợi tự nhiên được tạo thành gần như hoàn toàn từ **Cellulose tinh khiết**. Cellulose có cấu trúc giúp hấp thụ nước tốt, đó là lý do tại sao vải cotton mềm mại và thấm hút mồ hôi.",
+        "tags": [
+            "cotton",
+            "bông",
+            "cellulose",
+            "sợi tự nhiên",
+            "thấm hút"
+        ],
+        "illustration_prompt": "cute educational illustration showing a fluffy cotton ball and a cotton t-shirt"
+    },
+    {
+        "id": 132,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Giấy được làm từ nguyên liệu gì?",
+        "answer": "Giấy được làm chủ yếu từ **bột gỗ** (Wood Pulp), bao gồm các sợi cellulose đã được nghiền nhỏ. Các sợi này sau đó được ép mỏng và phơi khô. Trong quá trình này, các liên kết hóa học mới được hình thành giữa các sợi, giữ chúng lại với nhau thành tờ giấy.",
+        "tags": [
+            "giấy",
+            "paper",
+            "bột gỗ",
+            "cellulose",
+            "sợi"
+        ],
+        "illustration_prompt": "cute educational illustration showing wood logs being processed into wood pulp and then flattened into sheets of paper"
+    },
+    {
+        "id": 133,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Cao su (Rubber) có đặc tính gì đặc biệt?",
+        "answer": "Cao su nổi tiếng với tính **đàn hồi** (Elasticity). Về mặt hóa học, nó là một polymer có các liên kết chéo, cho phép các chuỗi phân tử bị kéo căng ra rất xa rồi tự co lại về hình dạng ban đầu mà không bị đứt.",
+        "tags": [
+            "cao su",
+            "rubber",
+            "đàn hồi",
+            "elasticity",
+            "polymer",
+            "lốp xe"
+        ],
+        "illustration_prompt": "cute educational diagram showing a piece of rubber being stretched and then snapping back to its original shape"
+    },
+    {
+        "id": 134,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Chất cách điện (Insulator) là gì?",
+        "answer": "Chất cách điện là vật liệu **không cho dòng điện** (hoặc nhiệt) chạy qua dễ dàng. Ví dụ: Nhựa, cao su, gỗ khô và thủy tinh. Chúng được dùng để bao bọc dây điện để giữ cho chúng ta an toàn.",
+        "tags": [
+            "cách điện",
+            "insulator",
+            "không dẫn điện",
+            "an toàn",
+            "nhựa bọc dây"
+        ],
+        "illustration_prompt": "cute educational illustration showing a plastic casing around a copper wire, blocking the electricity"
+    },
+    {
+        "id": 135,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Tại sao kim cương lại là vật liệu cứng nhất?",
+        "answer": "Kim cương được tạo thành từ các nguyên tử **Carbon** liên kết với nhau theo một mạng lưới tinh thể **cực kỳ chặt chẽ và đối xứng** (hình tứ diện). Cấu trúc này làm cho kim cương gần như không thể bị phá vỡ hay cào xước.",
+        "tags": [
+            "kim cương",
+            "diamond",
+            "cứng nhất",
+            "carbon",
+            "liên kết chặt",
+            "tứ diện"
+        ],
+        "illustration_prompt": "cute educational diagram showing the repeating tetrahedral arrangement of carbon atoms in a diamond crystal"
+    },
+    {
+        "id": 136,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Than chì (Graphite) mềm mại và trơn trượt vì sao?",
+        "answer": "Than chì (dùng trong bút chì) cũng được làm từ **Carbon**, nhưng các nguyên tử của nó được sắp xếp thành các **lớp phẳng** (hình lục giác) xếp chồng lên nhau. Các lớp này có thể **trượt** qua nhau dễ dàng, nên than chì mềm và có thể để lại vệt trên giấy.",
+        "tags": [
+            "than chì",
+            "graphite",
+            "carbon",
+            "lớp phẳng",
+            "bút chì"
+        ],
+        "illustration_prompt": "cute educational diagram showing the hexagonal layers of carbon atoms in graphite, with one layer sliding off easily"
+    },
+    {
+        "id": 137,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Polyme tổng hợp (Synthetic Polymer) là gì?",
+        "answer": "Là những chuỗi phân tử dài được tạo ra bởi con người trong phòng thí nghiệm. Chúng bao gồm các loại nhựa, nylon, polyester và sợi tổng hợp khác, thường được thiết kế để có những đặc tính vượt trội hơn vật liệu tự nhiên.",
+        "tags": [
+            "polymer tổng hợp",
+            "synthetic",
+            "nhân tạo",
+            "nylon",
+            "polyester"
+        ],
+        "illustration_prompt": "cute educational illustration showing a chemist building long, colorful polymer chains in a lab"
+    },
+    {
+        "id": 138,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Vật liệu composite là gì?",
+        "answer": "Là vật liệu được làm bằng cách **trộn hai hoặc nhiều vật liệu khác nhau** để tạo ra một vật liệu mới có những đặc tính tốt hơn các thành phần riêng lẻ. Ví dụ: **Sợi thủy tinh (Fiberglass)** là sợi thủy tinh trộn trong nhựa để tạo độ bền và nhẹ.",
+        "tags": [
+            "composite",
+            "hỗn hợp vật liệu",
+            "sợi thủy tinh",
+            "kết hợp"
+        ],
+        "illustration_prompt": "cute educational illustration showing strong glass fibers embedded in a plastic matrix to form a composite material"
+    },
+    {
+        "id": 139,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Tại sao Vàng (Gold) lại được dùng làm đồ trang sức?",
+        "answer": "Vàng là kim loại **không phản ứng** (không gỉ hoặc xỉn màu) và rất **dễ uốn** (dễ dàng tạo hình). Nó cũng là kim loại hiếm, làm tăng giá trị của nó. Độ 'Carat' đo lượng vàng nguyên chất trong hợp kim.",
+        "tags": [
+            "vàng",
+            "gold",
+            "trang sức",
+            "không phản ứng",
+            "dễ uốn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a shiny gold ring next to a karat scale"
+    },
+    {
+        "id": 140,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Đồng (Copper) nổi bật với tính chất gì?",
+        "answer": "Đồng là một trong những kim loại **dẫn điện và dẫn nhiệt tốt nhất**, chỉ đứng sau Bạc. Nó được dùng phổ biến để làm dây điện và ống nước. Khi để ngoài trời, nó chuyển sang màu xanh lục (gọi là gỉ đồng).",
+        "tags": [
+            "đồng",
+            "copper",
+            "dẫn điện",
+            "dẫn nhiệt",
+            "dây điện",
+            "gỉ đồng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a copper wire with electricity flowing through it, next to a green copper statue"
+    },
+    {
+        "id": 141,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Chất bán dẫn (Semiconductor) là gì?",
+        "answer": "Chất bán dẫn là vật liệu dẫn điện **tốt hơn chất cách điện**, nhưng lại **kém hơn kim loại**. Chúng ta có thể kiểm soát được khả năng dẫn điện của chúng. Ví dụ: **Silic** (Silicon), là vật liệu cơ bản để làm máy tính và điện thoại thông minh.",
+        "tags": [
+            "chất bán dẫn",
+            "semiconductor",
+            "silic",
+            "máy tính",
+            "kiểm soát điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing a silicon chip with controlled electric flow"
+    },
+    {
+        "id": 142,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Than hoạt tính (Activated Carbon) có gì đặc biệt?",
+        "answer": "Than hoạt tính được xử lý để có **hàng tỷ lỗ nhỏ** (tăng diện tích bề mặt) giúp nó trở thành một 'nam châm' hút các chất bẩn, độc hại hoặc mùi hôi. Nó được dùng để lọc nước, lọc không khí và trong mặt nạ phòng độc.",
+        "tags": [
+            "than hoạt tính",
+            "activated carbon",
+            "lọc nước",
+            "hút chất bẩn",
+            "lỗ nhỏ"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing activated carbon particles with many tiny, porous holes"
+    },
+    {
+        "id": 143,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Vật liệu nào không bị gỉ sét (Không phản ứng)?",
+        "answer": "Các kim loại quý như **Vàng** và **Bạch kim** (Platinum) là những ví dụ điển hình. Chúng trơ về mặt hóa học, nghĩa là chúng không dễ dàng phản ứng với oxy, nước, hoặc các hóa chất khác, nên luôn giữ được độ sáng bóng.",
+        "tags": [
+            "kim loại quý",
+            "vàng",
+            "bạch kim",
+            "không phản ứng",
+            "trơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a gold coin and a platinum ring shining brightly and unaffected by water or air"
+    },
+    {
+        "id": 144,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Vật liệu từ tính (Magnetic Material) là gì?",
+        "answer": "Vật liệu từ tính là vật liệu có khả năng bị nam châm hút hoặc có thể tự trở thành nam châm. Điều này xảy ra khi các **electron** trong nguyên tử của chúng sắp xếp thẳng hàng. Sắt, Niken và Coban là ba kim loại từ tính chính.",
+        "tags": [
+            "từ tính",
+            "magnetic",
+            "sắt",
+            "niken",
+            "coban",
+            "electron"
+        ],
+        "illustration_prompt": "cute educational diagram showing the atomic magnetic fields aligned in a magnetic material like iron"
+    },
+    {
+        "id": 145,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Vật liệu nano (Nanomaterials) là gì?",
+        "answer": "Là những vật liệu được tạo ra với cấu trúc cực kỳ nhỏ, chỉ bằng một phần tỷ mét (1 nanomet). Khi ở kích thước nhỏ này, vật liệu có thể có những đặc tính hóa học và vật lý **hoàn toàn mới** và khác biệt so với kích thước lớn.",
+        "tags": [
+            "nanomaterials",
+            "vật liệu nano",
+            "kích thước nhỏ",
+            "đặc tính mới",
+            "công nghệ cao"
+        ],
+        "illustration_prompt": "cute educational illustration showing tiny, complex structures at a microscopic level, labeled 'Nanomaterials'"
+    },
+    {
+        "id": 146,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Chất dẻo nhiệt (Thermoplastics) và chất dẻo nhiệt rắn (Thermoset) khác nhau thế nào?",
+        "answer": "**Dẻo nhiệt** có thể được đun nóng và định hình lại nhiều lần (như chai nhựa PET). **Dẻo nhiệt rắn** khi đã định hình và cứng lại thì không thể làm mềm hay định hình lại được nữa (như tay cầm nồi hoặc một số loại keo epoxy).",
+        "tags": [
+            "chất dẻo",
+            "thermoplastics",
+            "thermoset",
+            "tái chế",
+            "định hình"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a plastic that melts and reforms (thermoplastic) vs one that stays rigid (thermoset)"
+    },
+    {
+        "id": 147,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Cao su lưu hóa (Vulcanized Rubber) là gì?",
+        "answer": "Cao su tự nhiên rất dính và mềm. Lưu hóa là quá trình thêm **Lưu huỳnh** vào cao su và đun nóng. Lưu huỳnh tạo ra các **liên kết chéo** bền vững hơn, làm cao su trở nên cứng, bền và ít bị biến dạng bởi nhiệt (dùng làm lốp xe).",
+        "tags": [
+            "lưu hóa",
+            "vulcanized",
+            "cao su",
+            "lưu huỳnh",
+            "liên kết chéo",
+            "lốp xe"
+        ],
+        "illustration_prompt": "cute educational diagram showing sulfur bridges connecting the polymer chains in rubber to make it stronger"
+    },
+    {
+        "id": 148,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Teflon (Chất chống dính) được làm từ chất gì?",
+        "answer": "Teflon là một loại polymer đặc biệt chứa **Fluorine** (PFTE). Các liên kết giữa Carbon và Fluorine cực kỳ mạnh và ổn định, làm cho nó trở nên **trơ (không phản ứng)** và có độ ma sát thấp đến kinh ngạc.",
+        "tags": [
+            "teflon",
+            "chống dính",
+            "fluorine",
+            "ma sát thấp",
+            "nồi chảo"
+        ],
+        "illustration_prompt": "cute educational illustration of an egg sliding easily off a Teflon-coated frying pan"
+    },
+    {
+        "id": 149,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Thủy tinh hữu cơ (Plexiglass/Acrylic) là gì?",
+        "answer": "Đây là một loại **nhựa** trong suốt (polymer) có thể thay thế thủy tinh. Nó nhẹ hơn thủy tinh và **khó vỡ hơn** nhiều, nhưng dễ bị trầy xước hơn. Nó được dùng làm cửa sổ máy bay hoặc kính mũ bảo hiểm.",
+        "tags": [
+            "plexiglass",
+            "acrylic",
+            "nhựa trong suốt",
+            "khó vỡ",
+            "thay thế thủy tinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hammer bouncing harmlessly off a sheet of transparent plexiglass"
+    },
+    {
+        "id": 150,
+        "category": "Hóa học và đời sống",
+        "sub_category": "Vật liệu quanh ta",
+        "question": "Thuật ngữ 3R (Giảm thiểu, Tái sử dụng, Tái chế) có ý nghĩa gì trong hóa học vật liệu?",
+        "answer": "Đây là nguyên tắc vàng để bảo vệ môi trường: **Giảm thiểu** (Reduce) vật liệu phải sử dụng, **Tái sử dụng** (Reuse) vật liệu nhiều lần, và **Tái chế** (Recycle) biến vật liệu cũ thành vật liệu mới. Điều này giúp giảm khai thác nguyên liệu và giảm rác thải hóa học.",
+        "tags": [
+            "3r",
+            "bảo vệ môi trường",
+            "giảm thiểu",
+            "tái sử dụng",
+            "tái chế",
+            "nguyên tắc vàng"
+        ],
+        "illustration_prompt": "cute educational diagram showing three circular arrows labeled Reduce, Reuse, and Recycle around a green Earth icon"
+    },
+    {
+        "id": 151,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Quy tắc an toàn số 1 với hóa chất gia dụng là gì?",
+        "answer": "Không bao giờ được **nếm, uống, hay ngửi trực tiếp** bất kỳ hóa chất nào, kể cả các chất tẩy rửa trong nhà tắm hay nhà bếp. Ngay cả khi chúng trông giống đồ uống (như nước rửa bát màu xanh), chúng vẫn có thể gây ngộ độc nghiêm trọng.",
+        "tags": [
+            "quy tắc số 1",
+            "không nếm",
+            "không ngửi",
+            "ngộ độc",
+            "an toàn hóa chất"
+        ],
+        "illustration_prompt": "cute educational poster showing a child holding up a hand with a 'STOP' sign next to a bottle of cleaning fluid"
+    },
+    {
+        "id": 152,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm thế nào để cất giữ hóa chất an toàn tại nhà?",
+        "answer": "Luôn luôn cất hóa chất (thuốc tẩy, thuốc men, thuốc trừ sâu) ở nơi **cao, xa tầm tay trẻ em**, tốt nhất là trong **tủ có khóa**. Không bao giờ để chúng ở dưới sàn nhà hoặc ngăn tủ thấp dễ tiếp cận.",
+        "tags": [
+            "cất giữ",
+            "tủ có khóa",
+            "xa tầm tay trẻ em",
+            "an toàn gia đình"
+        ],
+        "illustration_prompt": "cute educational illustration showing a locked high cabinet in a kitchen where all cleaning products are stored"
+    },
+    {
+        "id": 153,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Tại sao không được trộn thuốc tẩy (Bleach) với nước rửa toilet có Amoniac?",
+        "answer": "Vì chúng phản ứng hóa học tạo ra **Khí Cloramin độc hại** (Toxic Gas). Khí này có thể gây bỏng phổi, khó thở và thậm chí gây tử vong. **Không bao giờ** trộn hai loại chất tẩy rửa khác nhau.",
+        "tags": [
+            "trộn hóa chất",
+            "khí độc",
+            "thuốc tẩy",
+            "amoniac",
+            "nguy hiểm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a skull and crossbones warning sign when a bleach bottle and an ammonia bottle are mixed"
+    },
+    {
+        "id": 154,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Carbon Monoxide (CO) là gì và tại sao nó nguy hiểm?",
+        "answer": "Carbon Monoxide là một loại khí độc không màu, không mùi, được tạo ra khi nhiên liệu cháy không hết (từ máy phát điện, bếp gas cũ). Nó còn được gọi là 'kẻ giết người thầm lặng' vì bạn **không thể nhận ra** khi nó đang đầu độc bạn.",
+        "tags": [
+            "carbon monoxide",
+            "co",
+            "khí độc",
+            "không màu không mùi",
+            "kẻ giết người thầm lặng"
+        ],
+        "illustration_prompt": "cute educational illustration of a CO alarm sensor next to a gas stove, with a transparent CO cloud being warned about"
+    },
+    {
+        "id": 155,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Cần làm gì ngay lập tức khi hóa chất dính vào da?",
+        "answer": "Phải rửa vùng da bị dính hóa chất **ngay lập tức** dưới vòi nước chảy (hoặc vòi sen) trong **ít nhất 15 đến 20 phút**. Điều này giúp rửa trôi và làm loãng hóa chất, ngăn ngừa bỏng hóa học.",
+        "tags": [
+            "sơ cứu",
+            "dính vào da",
+            "rửa nước",
+            "bỏng hóa học",
+            "15 phút"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand being thoroughly washed under a faucet with flowing water"
+    },
+    {
+        "id": 156,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Cần làm gì ngay lập tức khi hóa chất bắn vào mắt?",
+        "answer": "Đến bồn rửa mắt (hoặc vòi nước) **ngay lập tức** và mở mắt to để xả nước trong **ít nhất 15 phút**. Nếu bạn đeo kính áp tròng, hãy tháo chúng ra trước. Sau đó, gọi cấp cứu hoặc đến cơ sở y tế ngay.",
+        "tags": [
+            "sơ cứu",
+            "bắn vào mắt",
+            "xả nước 15 phút",
+            "khẩn cấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child holding their eyes open and washing them thoroughly under a gentle stream of water"
+    },
+    {
+        "id": 157,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Dấu hiệu 'Đầu lâu xương chéo' trên nhãn mác hóa chất có nghĩa là gì?",
+        "answer": "Dấu hiệu này cảnh báo rằng chất đó là **Độc hại (Toxic)**. Dù chỉ tiếp xúc với một lượng rất nhỏ qua da, hít thở hoặc nuốt phải cũng có thể gây tử vong hoặc nguy hiểm tính mạng ngay lập tức.",
+        "tags": [
+            "dấu hiệu cảnh báo",
+            "đầu lâu xương chéo",
+            "toxic",
+            "độc hại",
+            "nguy hiểm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bottle with the skull and crossbones symbol and a warning label"
+    },
+    {
+        "id": 158,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Tại sao không được đựng hóa chất trong chai nước ngọt cũ?",
+        "answer": "Điều này cực kỳ nguy hiểm vì người khác (đặc biệt là trẻ em) có thể nhầm lẫn chất tẩy rửa hoặc chất lỏng độc hại là đồ uống như nước ngọt, nước trái cây và **uống nhầm** gây ngộ độc.",
+        "tags": [
+            "ngộ độc",
+            "nhầm lẫn",
+            "chai nước ngọt",
+            "cảnh báo",
+            "đồ uống"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cleaning fluid in a soda bottle with a red cross mark over it"
+    },
+    {
+        "id": 159,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Hóa chất dễ cháy (Flammable) được cảnh báo bằng biểu tượng nào?",
+        "answer": "Chúng thường được cảnh báo bằng biểu tượng hình **Ngọn lửa** (Flame) hoặc ngọn lửa trên vòng tròn. Điều này có nghĩa là chất đó có thể bốc cháy rất dễ dàng, thậm chí chỉ cần một tia lửa nhỏ hoặc nhiệt độ cao.",
+        "tags": [
+            "dễ cháy",
+            "flammable",
+            "biểu tượng ngọn lửa",
+            "xăng",
+            "sơn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a jerrycan with the flame warning symbol on it"
+    },
+    {
+        "id": 160,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm gì với thuốc (Medication) đã hết hạn sử dụng?",
+        "answer": "Tuyệt đối **không được vứt thẳng vào thùng rác** hoặc xả xuống toilet. Bạn nên mang thuốc hết hạn đến các nhà thuốc hoặc cơ sở thu hồi để họ xử lý an toàn, tránh thuốc ngấm vào nguồn nước hoặc đất.",
+        "tags": [
+            "thuốc hết hạn",
+            "xử lý thuốc",
+            "tái chế",
+            "bảo vệ môi trường"
+        ],
+        "illustration_prompt": "cute educational illustration showing expired medicine being placed in a designated disposal box at a pharmacy"
+    },
+    {
+        "id": 161,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Dụng cụ bảo hộ cá nhân (PPE) nào nên dùng khi lau dọn bằng chất tẩy rửa mạnh?",
+        "answer": "Bạn nên dùng **Găng tay cao su** (để bảo vệ da tay) và đôi khi là **Kính bảo hộ** (nếu chất lỏng có thể bắn tóe). Nếu chất tẩy rửa có mùi mạnh, bạn cần **Khẩu trang** hoặc đảm bảo phòng có thông gió tốt.",
+        "tags": [
+            "ppe",
+            "găng tay",
+            "kính bảo hộ",
+            "chất tẩy rửa",
+            "thông gió"
+        ],
+        "illustration_prompt": "cute educational illustration of a person wearing yellow rubber gloves and safety goggles while cleaning a toilet"
+    },
+    {
+        "id": 162,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm thế nào để giảm nguy cơ ngộ độc chất tẩy rửa trong bồn rửa chén?",
+        "answer": "Sau khi dùng xong chất tẩy rửa như nước rửa chén hay nước lau bếp, hãy luôn **đóng chặt nắp chai** và **lau khô đáy chai** trước khi cất đi. Điều này ngăn ngừa rò rỉ và giúp chai khó bị mở bởi trẻ nhỏ hơn.",
+        "tags": [
+            "nguy cơ",
+            "đóng chặt nắp",
+            "chất tẩy rửa",
+            "rò rỉ",
+            "an toàn bếp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand tightly screwing the cap back onto a bottle of dish soap"
+    },
+    {
+        "id": 163,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Nguy hiểm lớn nhất từ pin (Battery) là gì?",
+        "answer": "Nguy hiểm lớn nhất là **Pin cúc áo (Coin battery)** nhỏ bé. Khi trẻ em nuốt phải, chất hóa học mạnh mẽ bên trong có thể tạo ra dòng điện và gây **bỏng nặng** cho thực quản chỉ trong vài giờ. Cần sơ cứu khẩn cấp.",
+        "tags": [
+            "pin",
+            "pin cúc áo",
+            "nguy hiểm nuốt",
+            "bỏng",
+            "sơ cứu khẩn cấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small round coin battery next to a warning sign"
+    },
+    {
+        "id": 164,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Tại sao phải giữ lại nhãn mác gốc của hóa chất?",
+        "answer": "Nhãn mác gốc cung cấp thông tin quan trọng như **tên hóa chất**, **biện pháp sơ cứu** và **số điện thoại khẩn cấp**. Nếu xảy ra sự cố, người lớn hoặc bác sĩ cần thông tin này để xử lý kịp thời.",
+        "tags": [
+            "nhãn mác",
+            "thông tin sơ cứu",
+            "khẩn cấp",
+            "tên hóa chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a magnifying glass examining a chemical label with first aid instructions"
+    },
+    {
+        "id": 165,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm thế nào để xử lý an toàn các loại Bình Xịt (Aerosol Cans)?",
+        "answer": "Bình xịt (như keo xịt tóc, bình xịt côn trùng) chứa các chất khí bị nén và dễ cháy. Không bao giờ được **đâm thủng, ném vào lửa** hoặc để chúng gần nguồn nhiệt, vì chúng có thể bị nổ.",
+        "tags": [
+            "bình xịt",
+            "aerosol",
+            "dễ cháy",
+            "nguy cơ nổ",
+            "khí nén"
+        ],
+        "illustration_prompt": "cute educational illustration showing a spray can with fire and puncture warning symbols"
+    },
+    {
+        "id": 166,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Nếu vô tình nuốt phải hóa chất, nên làm gì?",
+        "answer": "Gọi ngay cho cấp cứu hoặc trung tâm chống độc. **Không được gây nôn** trừ khi được hướng dẫn bởi chuyên gia y tế, vì việc gây nôn có thể làm hóa chất gây hại lần thứ hai cho thực quản và phổi.",
+        "tags": [
+            "nuốt phải",
+            "sơ cứu",
+            "không gây nôn",
+            "trung tâm chống độc",
+            "khẩn cấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a phone dialing an emergency number immediately"
+    },
+    {
+        "id": 167,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "An toàn khi sử dụng keo siêu dính (Super Glue) là gì?",
+        "answer": "Keo siêu dính phản ứng nhanh với độ ẩm, bao gồm cả độ ẩm trên da, gây dính da ngay lập tức. Cần đeo găng tay và **cẩn thận không để keo dính vào mắt**, vì nó có thể dính mí mắt lại.",
+        "tags": [
+            "keo siêu dính",
+            "super glue",
+            "dính da",
+            "an toàn mắt"
+        ],
+        "illustration_prompt": "cute educational illustration showing two fingers slightly stuck together by super glue, with a clear warning"
+    },
+    {
+        "id": 168,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Tại sao cần thông gió khi dùng sơn hoặc keo dán?",
+        "answer": "Sơn và keo dán chứa các **dung môi (solvents)** hóa học có thể tạo ra hơi độc. Bạn phải mở cửa sổ, bật quạt để hơi độc được đẩy ra ngoài, tránh hít phải nhiều gây chóng mặt, buồn nôn hoặc tổn thương hệ hô hấp.",
+        "tags": [
+            "thông gió",
+            "hít hơi độc",
+            "sơn",
+            "keo dán",
+            "dung môi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person painting a wall near a wide-open window and an electric fan"
+    },
+    {
+        "id": 169,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Nắp chai chống trẻ em (Child-resistant Cap) hoạt động thế nào?",
+        "answer": "Nắp chai này được thiết kế để đòi hỏi hai hành động cùng lúc (ví dụ: ấn xuống và xoay) để mở. Người lớn có thể dễ dàng mở, nhưng trẻ nhỏ với cơ chế vận động chưa hoàn thiện thì sẽ gặp khó khăn, giảm nguy cơ tiếp xúc với hóa chất độc hại.",
+        "tags": [
+            "nắp chống trẻ em",
+            "child-resistant",
+            "an toàn",
+            "ngăn ngừa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child struggling to open a special safety cap while an adult opens it easily"
+    },
+    {
+        "id": 170,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "An toàn khi sử dụng thuốc trừ sâu/diệt cỏ là gì?",
+        "answer": "Chỉ sử dụng khi thật cần thiết và luôn **mặc quần áo bảo hộ** (áo dài tay, găng tay, khẩu trang). Không bao giờ xịt khi có gió to, và giữ vật nuôi, trẻ em tránh xa khu vực đã xịt trong thời gian quy định.",
+        "tags": [
+            "thuốc trừ sâu",
+            "pesticides",
+            "quần áo bảo hộ",
+            "an toàn vườn",
+            "nguy hiểm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person spraying pesticide in a garden while wearing a mask and gloves"
+    },
+    {
+        "id": 171,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Nếu quần áo bị dính hóa chất nguy hiểm, nên làm gì?",
+        "answer": "Phải **cởi bỏ ngay lập tức** quần áo bị dính hóa chất để ngăn chất đó tiếp xúc lâu hơn với da. Sau đó, rửa sạch da dưới vòi nước như quy trình sơ cứu cơ bản.",
+        "tags": [
+            "quần áo dính hóa chất",
+            "cởi bỏ ngay",
+            "sơ cứu",
+            "bảo vệ da"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person quickly removing a contaminated shirt"
+    },
+    {
+        "id": 172,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm thế nào để phát hiện rò rỉ khí thiên nhiên (Gas) trong nhà?",
+        "answer": "Khí thiên nhiên vốn không mùi, nhưng người ta đã thêm một chất hóa học có mùi **trứng thối** (chất tạo mùi) để bạn có thể dễ dàng nhận ra. Nếu ngửi thấy mùi này, hãy mở cửa, không bật/tắt công tắc điện và gọi khẩn cấp.",
+        "tags": [
+            "khí thiên nhiên",
+            "rò rỉ gas",
+            "mùi trứng thối",
+            "an toàn",
+            "khẩn cấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a nose wrinkling due to the smell of rotten eggs near a gas pipe"
+    },
+    {
+        "id": 173,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Hóa chất ăn mòn (Corrosive) là gì?",
+        "answer": "Là những chất (axit mạnh, bazơ mạnh) có thể gây **hủy hoại và bỏng vĩnh viễn** cho da, mắt, và đường hô hấp. Chúng thường được cảnh báo bằng biểu tượng bàn tay/kim loại bị ăn mòn.",
+        "tags": [
+            "ăn mòn",
+            "corrosive",
+            "axit mạnh",
+            "bazơ mạnh",
+            "bỏng vĩnh viễn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand with the skin bubbling and a warning sign for corrosive chemicals"
+    },
+    {
+        "id": 174,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Tại sao không được hút thuốc gần các chất dễ cháy (Xăng, Cồn)?",
+        "answer": "Vì nhiệt độ cao hoặc tia lửa nhỏ từ điếu thuốc, hay tàn thuốc, có thể dễ dàng kích hoạt phản ứng cháy và gây ra **vụ nổ hoặc hỏa hoạn lớn** khi tiếp xúc với hơi hóa chất dễ cháy.",
+        "tags": [
+            "hút thuốc",
+            "dễ cháy",
+            "nguy cơ cháy nổ",
+            "xăng",
+            "an toàn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large 'NO SMOKING' sign next to a gasoline pump"
+    },
+    {
+        "id": 175,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm thế nào để xử lý pin (Battery) đã qua sử dụng?",
+        "answer": "Pin cũ vẫn chứa hóa chất độc hại và có thể rò rỉ ra kim loại nặng. Bạn nên **thu gom chúng vào một hộp riêng** và mang đến các điểm thu hồi pin chuyên dụng, không vứt vào thùng rác gia đình.",
+        "tags": [
+            "pin đã qua sử dụng",
+            "rò rỉ",
+            "thu gom pin",
+            "kim loại nặng",
+            "xử lý rác thải"
+        ],
+        "illustration_prompt": "cute educational illustration showing a clear box specifically for collecting old used batteries"
+    },
+    {
+        "id": 176,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Phải làm gì khi da bị dính keo siêu dính?",
+        "answer": "Đừng cố giật mạnh! Dùng chất lỏng có chứa **Acetone** (như nước rửa móng tay) để từ từ hòa tan liên kết keo, hoặc ngâm vùng dính vào nước ấm và dùng một vật cùn để tách nhẹ nhàng.",
+        "tags": [
+            "keo siêu dính",
+            "dính da",
+            "acetone",
+            "sơ cứu keo"
+        ],
+        "illustration_prompt": "cute educational illustration showing fingers being gently separated by soaking in a bowl of warm water"
+    },
+    {
+        "id": 177,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Nguy hiểm từ rượu/cồn sát trùng (Alcohol) là gì?",
+        "answer": "Rượu/cồn là chất **dễ cháy** và nếu nuốt phải, nó có thể gây ngộ độc nặng (đặc biệt là cồn công nghiệp). Luôn để cồn sát trùng xa nguồn nhiệt và cất kỹ như các hóa chất khác.",
+        "tags": [
+            "cồn",
+            "alcohol",
+            "dễ cháy",
+            "ngộ độc",
+            "sát trùng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bottle of rubbing alcohol with a flame warning and a child-lock symbol"
+    },
+    {
+        "id": 178,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "An toàn khi sử dụng chất làm lạnh trong tủ lạnh/máy lạnh?",
+        "answer": "Các chất làm lạnh (Refrigerants) có thể gây ngạt nếu bị rò rỉ với lượng lớn trong phòng kín. Nếu tủ lạnh/máy lạnh bị hỏng và bạn thấy mùi hóa chất mạnh, hãy **mở cửa sổ và thoát ra ngoài** ngay lập tức.",
+        "tags": [
+            "chất làm lạnh",
+            "refrigerants",
+            "nguy cơ ngạt",
+            "rò rỉ",
+            "máy lạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a refrigerator with a leaky tube and a person opening the window"
+    },
+    {
+        "id": 179,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Làm sao để đảm bảo an toàn khi mua các sản phẩm hóa chất mới?",
+        "answer": "Hãy luôn **đọc kỹ hướng dẫn sử dụng** và **các cảnh báo an toàn** trước khi mở bao bì. Đảm bảo bạn có đủ không gian, dụng cụ bảo hộ cần thiết và biết cách xử lý nếu xảy ra sự cố.",
+        "tags": [
+            "mua hóa chất",
+            "đọc hướng dẫn",
+            "cảnh báo an toàn",
+            "phòng ngừa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand pointing to the safety warning section on a product label"
+    },
+    {
+        "id": 180,
+        "category": "Hóa học và đời sống",
+        "sub_category": "An toàn hóa chất trong đời sống",
+        "question": "Số điện thoại quan trọng nhất khi xảy ra sự cố hóa chất là gì?",
+        "answer": "Luôn gọi số **Cấp cứu (115 ở Việt Nam)** hoặc số của **Trung tâm Chống độc**. Hãy chuẩn bị sẵn tên hóa chất và lượng bị tiếp xúc để cung cấp thông tin kịp thời cho đội ngũ y tế.",
+        "tags": [
+            "số khẩn cấp",
+            "cấp cứu",
+            "trung tâm chống độc",
+            "việt nam",
+            "115"
+        ],
+        "illustration_prompt": "cute educational illustration showing a phone with 115 displayed prominently"
+    }
+]

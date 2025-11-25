@@ -1,0 +1,2707 @@
+[
+    {
+        "id": 1,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Thuyết Vụ nổ Lớn (Big Bang Theory) nói gì về sự khởi đầu của Vũ trụ?",
+        "answer": "Thuyết Big Bang không phải là một vụ nổ trong không gian, mà là sự **bành trướng** của chính không gian. Nó mô tả rằng 13.8 tỷ năm trước, Vũ trụ khởi đầu từ một điểm cực kỳ nóng, dày đặc (điểm kỳ dị) và đã mở rộng, nguội đi cho đến ngày nay.",
+        "tags": [
+            "big bang",
+            "vụ nổ lớn",
+            "bành trướng",
+            "khởi đầu vũ trụ",
+            "điểm kỳ dị"
+        ],
+        "illustration_prompt": "conceptual diagram showing the universe expanding rapidly from a small, hot point (singularity) to its current large size"
+    },
+    {
+        "id": 2,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Tuổi của Vũ trụ là bao nhiêu?",
+        "answer": "Các nhà khoa học ước tính Vũ trụ khoảng **13.8 tỷ năm tuổi**. Họ xác định con số này bằng cách đo tốc độ giãn nở của Vũ trụ (Định luật Hubble) và phân tích Bức xạ Vi sóng Vũ trụ nền (CMB) – ánh sáng còn sót lại từ thời kỳ sơ khai.",
+        "tags": [
+            "tuổi vũ trụ",
+            "13.8 tỷ năm",
+            "định luật hubble",
+            "cmb"
+        ],
+        "illustration_prompt": "timeline diagram showing the major epochs of the universe, starting at 13.8 billion years ago"
+    },
+    {
+        "id": 3,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Lạm phát Vũ trụ (Cosmic Inflation) là gì?",
+        "answer": "Đây là một giai đoạn cực ngắn, kéo dài chưa đến một giây (khoảng $10^{-32}$ giây) ngay sau Big Bang, khi Vũ trụ đột nhiên **giãn nở cực nhanh** hơn cả tốc độ ánh sáng. Nó giải thích tại sao Vũ trụ ngày nay lại phẳng và đồng nhất đến vậy.",
+        "tags": [
+            "lạm phát vũ trụ",
+            "cosmic inflation",
+            "giãn nở nhanh",
+            "đồng nhất",
+            "sơ khai"
+        ],
+        "illustration_prompt": "conceptual graph showing a sudden, sharp, exponential spike in the size of the universe immediately after the big bang"
+    },
+    {
+        "id": 4,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Bức xạ Vi sóng Vũ trụ nền (CMB) là gì?",
+        "answer": "CMB là 'bức ảnh em bé' của Vũ trụ, là ánh sáng cổ xưa nhất chúng ta có thể thấy. Nó được phát ra khoảng **380.000 năm** sau Big Bang khi Vũ trụ đủ nguội để electron và proton kết hợp tạo thành **nguyên tử trung hòa** (giai đoạn Tái kết hợp).",
+        "tags": [
+            "bức xạ cmb",
+            "cosmic microwave background",
+            "tái kết hợp",
+            "380000 năm",
+            "ánh sáng cổ xưa"
+        ],
+        "illustration_prompt": "colorful all-sky map of the CMB showing subtle temperature fluctuations (red and blue spots)"
+    },
+    {
+        "id": 5,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Vật chất tối (Dark Matter) là gì?",
+        "answer": "Vật chất tối là 'keo vô hình' chiếm khoảng **27%** tổng vật chất và năng lượng của Vũ trụ. Chúng ta không thể nhìn thấy nó, nhưng biết nó tồn tại vì ảnh hưởng hấp dẫn mạnh mẽ của nó lên các thiên hà, giữ chúng không bị văng ra khi quay.",
+        "tags": [
+            "vật chất tối",
+            "dark matter",
+            "27 phần trăm",
+            "lực hấp dẫn",
+            "vô hình"
+        ],
+        "illustration_prompt": "conceptual diagram showing an invisible halo surrounding a spiral galaxy, illustrating the gravitational influence of dark matter"
+    },
+    {
+        "id": 6,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Năng lượng tối (Dark Energy) là gì?",
+        "answer": "Năng lượng tối là 'sức đẩy vô hình' chiếm khoảng **68%** Vũ trụ. Nó hoạt động ngược lại với trọng lực, khiến Vũ trụ không chỉ giãn nở mà còn giãn nở **ngày càng nhanh hơn** (gia tốc giãn nở). Nó là bí ẩn lớn nhất của vũ trụ học.",
+        "tags": [
+            "năng lượng tối",
+            "dark energy",
+            "68 phần trăm",
+            "gia tốc giãn nở",
+            "lực đẩy"
+        ],
+        "illustration_prompt": "conceptual diagram showing the universe expansion accelerating rapidly due to the effect of a mysterious dark energy force"
+    },
+    {
+        "id": 7,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Các nguyên tố hóa học đầu tiên được tạo ra là gì?",
+        "answer": "Khoảng 3 phút sau Big Bang (giai đoạn Tổng hợp Hạt nhân Sơ khai), Vũ trụ đủ nguội để các hạt cơ bản kết hợp. Các nguyên tố đầu tiên được tạo ra là **Hydro (H)** và **Heli (He)**, với một lượng rất nhỏ Lithium.",
+        "tags": [
+            "nguyên tố đầu tiên",
+            "hydro",
+            "heli",
+            "tổng hợp hạt nhân",
+            "lithium"
+        ],
+        "illustration_prompt": "simple diagram showing protons and neutrons combining to form Hydrogen and Helium nuclei"
+    },
+    {
+        "id": 8,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Các ngôi sao đầu tiên (Population III) khác biệt như thế nào?",
+        "answer": "Những ngôi sao đầu tiên này được sinh ra từ vật chất sơ khai (chủ yếu là H và He), không có kim loại (các nguyên tố nặng hơn He). Chúng **cực kỳ lớn** và **sáng**, nhưng có tuổi thọ rất ngắn. Chúng đã chết đi và 'gieo hạt' các nguyên tố nặng vào Vũ trụ.",
+        "tags": [
+            "ngôi sao đầu tiên",
+            "population iii",
+            "không kim loại",
+            "lớn và sáng",
+            "tuổi thọ ngắn"
+        ],
+        "illustration_prompt": "conceptual image of huge, brilliant blue, short-lived stars forming in the early dark universe"
+    },
+    {
+        "id": 9,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Luật Hubble (Hubble's Law) là gì?",
+        "answer": "Luật Hubble cho biết tốc độ một thiên hà đang di chuyển ra xa chúng ta **tỉ lệ thuận** với khoảng cách của nó. Nói cách khác, thiên hà càng ở xa thì càng di chuyển ra xa chúng ta nhanh hơn, chứng tỏ Vũ trụ đang giãn nở.",
+        "tags": [
+            "luật hubble",
+            "giãn nở vũ trụ",
+            "tốc độ",
+            "khoảng cách",
+            "redshift"
+        ],
+        "illustration_prompt": "diagram showing three galaxies at different distances from Earth, with the furthest one moving away the fastest"
+    },
+    {
+        "id": 10,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Dịch chuyển Đỏ (Redshift) là gì?",
+        "answer": "Khi một thiên hà di chuyển ra xa chúng ta, sóng ánh sáng mà nó phát ra sẽ bị 'kéo dãn', khiến bước sóng dài ra và dịch về phía màu **Đỏ** của quang phổ. Dịch chuyển Đỏ là bằng chứng mạnh mẽ cho sự giãn nở của Vũ trụ.",
+        "tags": [
+            "dịch chuyển đỏ",
+            "redshift",
+            "giãn nở vũ trụ",
+            "sóng ánh sáng",
+            "quang phổ"
+        ],
+        "illustration_prompt": "diagram showing light waves being stretched (longer wavelength) as the source moves away, shifting the light toward the red end of the spectrum"
+    },
+    {
+        "id": 11,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Các nguyên tố nặng hơn được tạo ra ở đâu?",
+        "answer": "Các nguyên tố nặng (Carbon, Oxy, Sắt, v.v.) được tạo ra thông qua quá trình **Tổng hợp hạt nhân sao** (Stellar Nucleosynthesis) bên trong lõi của các ngôi sao lớn và trong các **vụ nổ siêu tân tinh (Supernovae)** khi chúng chết đi.",
+        "tags": [
+            "nguyên tố nặng",
+            "tổng hợp hạt nhân sao",
+            "supernova",
+            "sao lớn"
+        ],
+        "illustration_prompt": "conceptual diagram showing heavy elements like carbon and iron being forged inside the core of a giant star"
+    },
+    {
+        "id": 12,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Làm thế nào các thiên hà hình thành?",
+        "answer": "Các thiên hà được hình thành từ những 'hạt giống' đầu tiên là các **vùng vật chất tối đậm đặc**. Lực hấp dẫn của vật chất tối kéo khí Hydro và Heli lại với nhau, làm cho khí sụp đổ và tạo thành các ngôi sao đầu tiên, dần dần phát triển thành thiên hà.",
+        "tags": [
+            "hình thành thiên hà",
+            "galaxy formation",
+            "vật chất tối",
+            "lực hấp dẫn",
+            "khí hydro"
+        ],
+        "illustration_prompt": "conceptual diagram showing an invisible dark matter blob attracting gas clouds which collapse into a visible galaxy"
+    },
+    {
+        "id": 13,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Mạng lưới Vũ trụ (Cosmic Web) là gì?",
+        "answer": "Mạng lưới Vũ trụ là cấu trúc vĩ mô lớn nhất được biết đến, giống như một **miếng bọt biển khổng lồ**. Các thiên hà tập trung thành 'sợi' và 'tường' (Filaments), bao quanh những vùng trống rỗng khổng lồ gọi là 'vùng rỗng' (Voids).",
+        "tags": [
+            "mạng lưới vũ trụ",
+            "cosmic web",
+            "sợi",
+            "vùng rỗng",
+            "cấu trúc vĩ mô"
+        ],
+        "illustration_prompt": "conceptual image showing the large-scale structure of the universe resembling a massive, interconnected network of threads and knots"
+    },
+    {
+        "id": 14,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Quasar (Chuẩn tinh) là gì?",
+        "answer": "Quasar là những vật thể **sáng nhất** và **xa nhất** trong Vũ trụ được quan sát. Chúng là những **Hố đen siêu khối** đang tích cực nuốt vật chất ở trung tâm các thiên hà sơ khai. Khi vật chất rơi vào, nó giải phóng năng lượng khổng lồ dưới dạng ánh sáng.",
+        "tags": [
+            "quasar",
+            "chuẩn tinh",
+            "sáng nhất",
+            "hố đen siêu khối",
+            "thiên hà sơ khai"
+        ],
+        "illustration_prompt": "conceptual image of a quasar as an extremely bright, powerful light source fueled by a supermassive black hole at the center of a distant galaxy"
+    },
+    {
+        "id": 15,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Hố đen siêu khối (Supermassive Black Hole) ảnh hưởng đến thiên hà như thế nào?",
+        "answer": "Hầu hết các thiên hà đều có một hố đen siêu khối tại trung tâm. Lực hấp dẫn của nó giúp hình thành và điều chỉnh sự phát triển của thiên hà xung quanh. Đôi khi, luồng vật chất (Jets) từ hố đen có thể ngăn chặn sự hình thành sao.",
+        "tags": [
+            "hố đen siêu khối",
+            "trung tâm thiên hà",
+            "lực hấp dẫn",
+            "jets",
+            "ảnh hưởng"
+        ],
+        "illustration_prompt": "conceptual image showing a powerful jet of energy shooting out from the supermassive black hole at the center of a spiral galaxy"
+    },
+    {
+        "id": 16,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Sự va chạm Thiên hà Tiên Nữ (Andromeda) và Dải Ngân Hà sẽ xảy ra khi nào?",
+        "answer": "Hai thiên hà lớn nhất trong Nhóm Địa phương này đang lao vào nhau với tốc độ khoảng 110 km/giây. Chúng được dự đoán sẽ va chạm và hợp nhất thành một thiên hà hình elip khổng lồ mới, có thể tên là 'Milkomeda', trong khoảng **4.5 tỷ năm** nữa.",
+        "tags": [
+            "thiên hà tiên nữ",
+            "andromeda",
+            "dải ngân hà",
+            "milky way",
+            "va chạm",
+            "milkomeda"
+        ],
+        "illustration_prompt": "conceptual image showing the two spiral galaxies, Andromeda and the Milky Way, slowly beginning to merge and distort each other's shape"
+    },
+    {
+        "id": 17,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Vũ trụ Quan sát được (Observable Universe) là gì?",
+        "answer": "Đó là phần Vũ trụ mà ánh sáng từ đó đã có đủ thời gian để đến được Trái Đất kể từ Big Bang. Nó là một hình cầu có bán kính khoảng **46.5 tỷ năm ánh sáng** xung quanh chúng ta, và chúng ta không bao giờ có thể nhìn thấy bất cứ thứ gì nằm ngoài giới hạn này.",
+        "tags": [
+            "vũ trụ quan sát được",
+            "observable universe",
+            "46.5 tỷ năm ánh sáng",
+            "giới hạn",
+            "ánh sáng"
+        ],
+        "illustration_prompt": "conceptual diagram showing Earth at the center of a large sphere, representing the observable universe"
+    },
+    {
+        "id": 18,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Phân rã Hạt nhân (Nucleosynthesis) là gì?",
+        "answer": "Là quá trình tạo ra các hạt nhân nguyên tử mới từ các hạt nhân cũ. Có hai loại chính: **Tổng hợp hạt nhân Sơ khai** (tạo H và He sau Big Bang) và **Tổng hợp hạt nhân sao** (tạo các nguyên tố nặng hơn bên trong sao).",
+        "tags": [
+            "phân rã hạt nhân",
+            "nucleosynthesis",
+            "nguyên tử",
+            "tổng hợp hạt nhân sao"
+        ],
+        "illustration_prompt": "simple diagram showing atomic nuclei combining to form a heavier nucleus, with energy being released"
+    },
+    {
+        "id": 19,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Hiện tượng Vật chất - Phản vật chất (Matter-Antimatter) là gì?",
+        "answer": "Ngay sau Big Bang, vật chất và phản vật chất được tạo ra với số lượng gần như bằng nhau, và chúng **triệt tiêu lẫn nhau** khi gặp nhau. Nhưng vì một lý do bí ẩn, đã có một lượng vật chất dư thừa nhỏ còn sót lại, tạo nên Vũ trụ mà chúng ta thấy ngày nay.",
+        "tags": [
+            "vật chất",
+            "phản vật chất",
+            "triệt tiêu",
+            "dư thừa vật chất",
+            "baryogenesis"
+        ],
+        "illustration_prompt": "diagram showing a matter particle and an antimatter particle colliding and disappearing in a flash of energy, with a tiny bit of matter remaining"
+    },
+    {
+        "id": 20,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Sự phát triển của Lỗ Đen (Black Hole) ảnh hưởng đến Vũ trụ như thế nào?",
+        "answer": "Lỗ Đen phát triển bằng cách nuốt vật chất và hợp nhất với các lỗ đen khác. Những lỗ đen siêu khối này kiểm soát sự phát triển của các thiên hà lớn bằng cách điều chỉnh lượng khí có thể được chuyển thành ngôi sao, duy trì sự cân bằng trong Vũ trụ.",
+        "tags": [
+            "lỗ đen",
+            "black hole",
+            "phát triển",
+            "hợp nhất",
+            "hình thành sao"
+        ],
+        "illustration_prompt": "conceptual image showing gas and dust spiraling into a black hole accretion disk"
+    },
+    {
+        "id": 21,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Sự hình thành Hệ Mặt Trời là gì?",
+        "answer": "Hệ Mặt Trời hình thành cách đây khoảng 4.6 tỷ năm từ một **đám mây khí và bụi khổng lồ** (Tinh vân Mặt Trời). Hấp dẫn khiến đám mây co lại thành một đĩa quay, Mặt Trời hình thành ở trung tâm, còn các hành tinh hình thành từ sự va chạm và tích tụ vật chất trong đĩa (Bồi đắp).",
+        "tags": [
+            "hệ mặt trời",
+            "tinh vân mặt trời",
+            "đám mây khí bụi",
+            "bồi đắp",
+            "hình thành hành tinh"
+        ],
+        "illustration_prompt": "diagram showing a large spinning disk of gas and dust collapsing, with the sun forming at the center and planets forming from rings of material"
+    },
+    {
+        "id": 22,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Sự va chạm thiên hà nhỏ có vai trò gì?",
+        "answer": "Các thiên hà nhỏ va chạm và hợp nhất với nhau là cách các thiên hà lớn hơn phát triển. Quá trình này kích hoạt các **đợt hình thành sao mới** khổng lồ và thay đổi hình dạng của các thiên hà, biến chúng từ xoắn ốc thành elip.",
+        "tags": [
+            "va chạm thiên hà",
+            "hợp nhất",
+            "hình thành sao",
+            "thiên hà elip"
+        ],
+        "illustration_prompt": "conceptual image showing two small spiral galaxies merging into one larger, slightly distorted elliptical galaxy"
+    },
+    {
+        "id": 23,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Không - Thời gian (Spacetime) là gì?",
+        "answer": "Theo Einstein, không gian và thời gian không phải là hai thứ riêng biệt mà là một thực thể thống nhất bốn chiều, gọi là Không-Thời gian. Các vật thể có khối lượng (như hành tinh, ngôi sao) sẽ làm **cong** tấm vải Không-Thời gian này, và đó chính là **Lực Hấp dẫn**.",
+        "tags": [
+            "không thời gian",
+            "spacetime",
+            "bốn chiều",
+            "lực hấp dẫn",
+            "thuyết tương đối"
+        ],
+        "illustration_prompt": "conceptual image of a large bowling ball (representing a star) sitting on a stretched rubber sheet, causing it to curve (representing spacetime warp)"
+    },
+    {
+        "id": 24,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Sóng Hấp dẫn (Gravitational Waves) là gì?",
+        "answer": "Sóng hấp dẫn là những **gợn sóng trong cấu trúc Không-Thời gian** di chuyển với tốc độ ánh sáng. Chúng được tạo ra bởi các sự kiện cực kỳ bạo lực trong Vũ trụ, như sự va chạm của các lỗ đen hoặc sao neutron.",
+        "tags": [
+            "sóng hấp dẫn",
+            "gravitational waves",
+            "gợn sóng",
+            "va chạm lỗ đen",
+            "tốc độ ánh sáng"
+        ],
+        "illustration_prompt": "conceptual diagram showing ripples spreading out on the stretched fabric of spacetime after two black holes merge"
+    },
+    {
+        "id": 25,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Hằng số Vũ trụ (Cosmological Constant) là gì?",
+        "answer": "Được đưa ra bởi Einstein, Hằng số Vũ trụ ($ \\Lambda $) ban đầu dùng để giữ cho Vũ trụ tĩnh (không giãn nở). Ngày nay, nó được dùng để đại diện cho **Năng lượng tối** – một dạng năng lượng nội tại của không gian, thúc đẩy sự giãn nở gia tốc của Vũ trụ.",
+        "tags": [
+            "hằng số vũ trụ",
+            "cosmological constant",
+            "năng lượng tối",
+            "einstein",
+            "giãn nở"
+        ],
+        "illustration_prompt": "conceptual diagram showing empty space generating a subtle outward push force (dark energy)"
+    },
+    {
+        "id": 26,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Các loại Thiên hà (Galaxy Types) chính là gì?",
+        "answer": "Có ba loại chính: **Xoắn ốc** (Spiral - như Dải Ngân Hà của chúng ta), **Elip** (Elliptical - hình bầu dục, ít sao mới) và **Bất định hình** (Irregular - không có hình dạng rõ ràng, thường do va chạm).",
+        "tags": [
+            "thiên hà",
+            "galaxy types",
+            "xoắn ốc",
+            "elip",
+            "bất định hình"
+        ],
+        "illustration_prompt": "simple diagram comparing the three main types of galaxies: spiral, elliptical, and irregular"
+    },
+    {
+        "id": 27,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Tương lai (Cái kết) của Vũ trụ là gì nếu Năng lượng Tối tiếp tục chiếm ưu thế?",
+        "answer": "Kịch bản khả thi nhất là **Cái Chết Lớn (Big Freeze)** hay **Big Chill**. Vũ trụ sẽ tiếp tục giãn nở và nguội đi mãi mãi. Cuối cùng, các ngôi sao sẽ cháy hết, và Vũ trụ sẽ trở thành một nơi lạnh lẽo, tối tăm, chỉ còn lại các lỗ đen và các hạt cơ bản.",
+        "tags": [
+            "tương lai vũ trụ",
+            "big freeze",
+            "cái chết lớn",
+            "năng lượng tối",
+            "nguội lạnh"
+        ],
+        "illustration_prompt": "conceptual image showing the universe dark and cold, with the last star flickering out"
+    },
+    {
+        "id": 28,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Phông nền Neutrino Vũ trụ (CNB) là gì?",
+        "answer": "Giống như CMB là ánh sáng còn sót lại, CNB là tập hợp các **Neutrino** còn sót lại từ thời kỳ sơ khai của Vũ trụ. Chúng được tạo ra chỉ một giây sau Big Bang. CNB rất khó phát hiện vì neutrino gần như không tương tác với vật chất.",
+        "tags": [
+            "neutrino",
+            "cnb",
+            "phông nền",
+            "hạt cơ bản",
+            "không tương tác"
+        ],
+        "illustration_prompt": "conceptual diagram showing extremely faint, non-interacting neutrino particles flowing uniformly throughout space"
+    },
+    {
+        "id": 29,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Giả thuyết Đa Vũ trụ (Multiverse) là gì?",
+        "answer": "Giả thuyết này cho rằng Vũ trụ của chúng ta **chỉ là một trong nhiều vũ trụ** khác tồn tại song song. Chúng có thể được tạo ra bởi sự mở rộng liên tục của Lạm phát Vũ trụ (Đa Vũ trụ Bong bóng) hoặc do các phiên bản khác nhau của cơ học lượng tử.",
+        "tags": [
+            "đa vũ trụ",
+            "multiverse",
+            "vũ trụ song song",
+            "giả thuyết",
+            "lạm phát"
+        ],
+        "illustration_prompt": "conceptual image showing multiple bubble-shaped universes floating next to each other in a larger expanse"
+    },
+    {
+        "id": 30,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sự hình thành & tiến hóa của vũ trụ",
+        "question": "Các ngôi sao tạo ra hành tinh như thế nào?",
+        "answer": "Hành tinh không hình thành trong ngôi sao mà từ vật chất xung quanh nó. Sau khi ngôi sao hình thành, vật chất còn sót lại tạo thành một **Đĩa Bồi đắp**. Các hạt bụi trong đĩa va chạm, dính vào nhau và dần dần tích tụ thành các hành tinh lớn hơn (quá trình bồi tụ).",
+        "tags": [
+            "hình thành hành tinh",
+            "đĩa bồi đắp",
+            "bồi tụ",
+            "ngôi sao",
+            "hạt bụi"
+        ],
+        "illustration_prompt": "conceptual diagram showing dust and rock particles in a protoplanetary disk orbiting a star, clumping together to form a planet"
+    },
+    {
+        "id": 31,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà (Galaxy) được định nghĩa là gì?",
+        "answer": "Thiên hà là một hệ thống khổng lồ được liên kết với nhau bằng **Lực Hấp dẫn**, bao gồm hàng tỷ ngôi sao, các hành tinh, khí và bụi, và đặc biệt là một lượng lớn **Vật chất tối** vô hình. Tất cả đều quay xung quanh một trung tâm khối lượng chung.",
+        "tags": [
+            "thiên hà",
+            "galaxy",
+            "lực hấp dẫn",
+            "vật chất tối",
+            "ngôi sao"
+        ],
+        "illustration_prompt": "conceptual illustration of a galaxy showing stars, gas, and an outer dark matter halo holding it together"
+    },
+    {
+        "id": 32,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Các thành phần chính của Thiên hà Xoắn ốc (Spiral Galaxy) là gì?",
+        "answer": "Thiên hà xoắn ốc (như Dải Ngân Hà) có ba thành phần chính: **Đĩa** (chứa các nhánh xoắn ốc, nơi hình thành sao mới), **Lõi phình** (Bulge - trung tâm hình cầu chứa các ngôi sao già) và **Vầng hào quang** (Halo - vùng cầu bao quanh chứa vật chất tối và cụm sao cầu).",
+        "tags": [
+            "thiên hà xoắn ốc",
+            "spiral galaxy",
+            "đĩa",
+            "lõi phình",
+            "vầng hào quang"
+        ],
+        "illustration_prompt": "conceptual diagram labeling the disk, bulge, and halo components of a spiral galaxy"
+    },
+    {
+        "id": 33,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà Elip (Elliptical Galaxy) có đặc điểm gì?",
+        "answer": "Thiên hà elip có hình dạng **bầu dục/hình cầu** và chứa chủ yếu là **các ngôi sao già** (màu đỏ). Chúng có rất ít khí và bụi, do đó, quá trình hình thành sao mới gần như đã dừng lại. Chúng thường được tạo ra sau khi hai thiên hà khác va chạm.",
+        "tags": [
+            "thiên hà elip",
+            "elliptical galaxy",
+            "hình cầu",
+            "ngôi sao già",
+            "ít hình thành sao"
+        ],
+        "illustration_prompt": "conceptual image of a large, smooth, reddish elliptical galaxy"
+    },
+    {
+        "id": 34,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà Bất định hình (Irregular Galaxy) là gì?",
+        "answer": "Là những thiên hà **không có hình dạng rõ ràng** (không xoắn ốc, không elip). Chúng thường có rất nhiều khí và bụi, và đang trải qua quá trình **hình thành sao mới rất mạnh mẽ**. Chúng có thể là kết quả của sự nhiễu loạn do lực hấp dẫn từ các thiên hà lớn gần đó.",
+        "tags": [
+            "thiên hà bất định hình",
+            "irregular galaxy",
+            "không hình dạng",
+            "hình thành sao mạnh",
+            "va chạm"
+        ],
+        "illustration_prompt": "conceptual image of a small, chaotic galaxy with bright blue areas of star formation"
+    },
+    {
+        "id": 35,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà Xoắn ốc có thanh chắn (Barred Spiral Galaxy) khác gì Xoắn ốc thường?",
+        "answer": "Thiên hà Xoắn ốc có thanh chắn có một **cấu trúc hình thanh** rõ ràng kéo dài từ lõi phình ở trung tâm. Thanh này giúp kênh khí và bụi từ đĩa vào trung tâm thiên hà, thúc đẩy sự hình thành sao hoặc cung cấp vật chất cho hố đen siêu khối. Dải Ngân Hà của chúng ta là một thiên hà có thanh chắn.",
+        "tags": [
+            "xoắn ốc thanh chắn",
+            "barred spiral",
+            "thanh chắn",
+            "dải ngân hà",
+            "kênh khí bụi"
+        ],
+        "illustration_prompt": "conceptual image of a barred spiral galaxy showing the prominent bar structure crossing the central bulge"
+    },
+    {
+        "id": 36,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Nhóm Địa phương (Local Group) của chúng ta là gì?",
+        "answer": "Là cụm thiên hà nhỏ chứa **Dải Ngân Hà** của chúng ta, **Thiên hà Tiên Nữ (Andromeda)** và **Thiên hà Tam Giác (Triangulum)**, cùng khoảng 50 thiên hà lùn nhỏ hơn. Các thiên hà này bị ràng buộc bởi lực hấp dẫn chung.",
+        "tags": [
+            "nhóm địa phương",
+            "local group",
+            "dải ngân hà",
+            "andromeda",
+            "triangulum",
+            "cụm thiên hà"
+        ],
+        "illustration_prompt": "conceptual diagram showing the Milky Way, Andromeda, and Triangulum galaxies clustered together with smaller dwarf galaxies"
+    },
+    {
+        "id": 37,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Cụm Thiên hà (Galaxy Cluster) là gì?",
+        "answer": "Là một tập hợp các thiên hà lớn bị ràng buộc với nhau bởi lực hấp dẫn, thường chứa từ vài chục đến hàng nghìn thiên hà. Giữa các thiên hà là khí nóng rực, chỉ có thể nhìn thấy bằng kính viễn vọng tia X.",
+        "tags": [
+            "cụm thiên hà",
+            "galaxy cluster",
+            "ràng buộc hấp dẫn",
+            "khí nóng",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual image showing hundreds of galaxies densely packed together in a cluster"
+    },
+    {
+        "id": 38,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Siêu Cụm Thiên hà (Supercluster) là gì?",
+        "answer": "Là một **cấu trúc lớn nhất** trong Vũ trụ, bao gồm hàng chục cụm thiên hà và nhóm thiên hà. Các siêu cụm không bị ràng buộc hoàn toàn bởi hấp dẫn, nhưng chúng là đơn vị cấu trúc chính của Mạng lưới Vũ trụ.",
+        "tags": [
+            "siêu cụm thiên hà",
+            "supercluster",
+            "cấu trúc lớn nhất",
+            "mạng lưới vũ trụ"
+        ],
+        "illustration_prompt": "conceptual diagram showing a large collection of galaxy clusters interconnected to form a supercluster"
+    },
+    {
+        "id": 39,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Siêu Cụm Laniakea (Laniakea Supercluster) là gì?",
+        "answer": "Là Siêu Cụm Thiên hà khổng lồ mà Nhóm Địa phương và Dải Ngân Hà của chúng ta đang cư trú. Cái tên Laniakea có nghĩa là **'Thiên đường bao la'** trong tiếng Hawaii. Hầu hết các thiên hà trong Laniakea đều đang di chuyển về phía một vùng hấp dẫn mạnh mẽ gọi là Đại Hấp Dẫn Tử (Great Attractor).",
+        "tags": [
+            "laniakea",
+            "siêu cụm laniakea",
+            "đại hấp dẫn tử",
+            "thiên đường bao la",
+            "nhóm địa phương"
+        ],
+        "illustration_prompt": "map visualization showing the boundaries and filaments of the Laniakea Supercluster, highlighting the position of the Milky Way"
+    },
+    {
+        "id": 40,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Đại Hấp Dẫn Tử (Great Attractor) là gì?",
+        "answer": "Đó là một **điểm tập trung khối lượng lớn** ẩn sau Dải Ngân Hà. Lực hấp dẫn của nó lớn đến mức nó đang kéo toàn bộ Siêu Cụm Laniakea về phía mình. Chúng ta không thể quan sát rõ ràng nó bằng kính thiên văn quang học do Dải Ngân Hà chặn tầm nhìn.",
+        "tags": [
+            "đại hấp dẫn tử",
+            "great attractor",
+            "khối lượng lớn",
+            "lực hấp dẫn",
+            "laniakea"
+        ],
+        "illustration_prompt": "conceptual diagram showing the entire Laniakea Supercluster flows towards a single point labeled 'Great Attractor'"
+    },
+    {
+        "id": 41,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Vùng Rỗng (Void) trong Vũ trụ là gì?",
+        "answer": "Là các khu vực không gian rộng lớn, hình cầu, tạo nên **phần trống** của Mạng lưới Vũ trụ. Chúng có rất ít hoặc không có thiên hà, chỉ có mật độ vật chất thấp hơn nhiều so với mức trung bình của Vũ trụ.",
+        "tags": [
+            "vùng rỗng",
+            "void",
+            "không thiên hà",
+            "mật độ thấp",
+            "mạng lưới vũ trụ"
+        ],
+        "illustration_prompt": "conceptual diagram showing the vast empty spaces (voids) surrounded by the cosmic web filaments"
+    },
+    {
+        "id": 42,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thấu kính Hấp dẫn (Gravitational Lensing) là gì?",
+        "answer": "Là hiện tượng khối lượng lớn của một cụm thiên hà hoặc vật chất tối làm **bẻ cong đường đi của ánh sáng** từ một thiên hà phía sau. Nó giống như một ống kính thiên nhiên, giúp các nhà khoa học nhìn thấy các thiên hà ở rất xa.",
+        "tags": [
+            "thấu kính hấp dẫn",
+            "gravitational lensing",
+            "bẻ cong ánh sáng",
+            "vật chất tối",
+            "thiên hà xa"
+        ],
+        "illustration_prompt": "conceptual diagram showing light from a distant galaxy being bent and magnified as it passes by a foreground galaxy cluster"
+    },
+    {
+        "id": 43,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Vầng Hào quang Vật chất Tối (Dark Matter Halo) là gì?",
+        "answer": "Là cấu trúc hình cầu khổng lồ, vô hình, bao quanh mỗi thiên hà và cụm thiên hà, được tạo thành từ **Vật chất tối**. Vầng hào quang chiếm phần lớn khối lượng của thiên hà và là yếu tố chính giữ cho đĩa thiên hà không bị vỡ tan.",
+        "tags": [
+            "vầng hào quang",
+            "dark matter halo",
+            "vật chất tối",
+            "khối lượng thiên hà",
+            "vô hình"
+        ],
+        "illustration_prompt": "conceptual diagram showing the visible spiral galaxy embedded within a much larger, transparent sphere representing the dark matter halo"
+    },
+    {
+        "id": 44,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Các ngôi sao trong thiên hà có va chạm khi hai thiên hà hợp nhất không?",
+        "answer": "Rất hiếm khi. Mặc dù thiên hà chứa hàng tỷ ngôi sao, nhưng không gian giữa các ngôi sao lại rất rộng lớn. Trong quá trình hợp nhất, các thiên hà và khí của chúng va chạm, nhưng các ngôi sao hầu như **chỉ đi xuyên qua nhau** mà không bị va chạm trực tiếp.",
+        "tags": [
+            "va chạm thiên hà",
+            "hợp nhất",
+            "ngôi sao",
+            "không gian rộng lớn"
+        ],
+        "illustration_prompt": "conceptual image showing the huge empty space between stars, even during a galaxy merger"
+    },
+    {
+        "id": 45,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Cụm Sao Cầu (Globular Cluster) là gì?",
+        "answer": "Là một tập hợp dày đặc, hình cầu của hàng trăm ngàn đến hàng triệu **ngôi sao rất già** (thường nghèo kim loại). Chúng không nằm trong đĩa thiên hà mà trôi nổi trong Vầng Hào quang (Halo) của thiên hà, như vệ tinh của Dải Ngân Hà.",
+        "tags": [
+            "cụm sao cầu",
+            "globular cluster",
+            "ngôi sao già",
+            "vầng hào quang",
+            "hình cầu"
+        ],
+        "illustration_prompt": "conceptual image of a densely packed, spherical globular cluster orbiting a galaxy"
+    },
+    {
+        "id": 46,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Quá trình 'Ăn thịt Thiên hà' (Galactic Cannibalism) là gì?",
+        "answer": "Là khi một thiên hà lớn **nuốt chửng** một thiên hà nhỏ hơn bằng cách sử dụng lực hấp dẫn mạnh mẽ của nó. Đây là một cách phổ biến để các thiên hà lớn (đặc biệt là thiên hà Elip) phát triển, và Dải Ngân Hà của chúng ta cũng đang 'ăn thịt' một số thiên hà lùn.",
+        "tags": [
+            "ăn thịt thiên hà",
+            "cannibalism",
+            "nuốt chửng",
+            "phát triển thiên hà",
+            "lực hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual image showing a large elliptical galaxy engulfing a smaller dwarf galaxy"
+    },
+    {
+        "id": 47,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà Bùng nổ Sao (Starburst Galaxy) là gì?",
+        "answer": "Là thiên hà đang trải qua quá trình **hình thành sao với tốc độ cực kỳ cao** (nhanh hơn nhiều so với Dải Ngân Hà). Điều này thường xảy ra khi hai thiên hà va chạm, làm nén khí và bụi của chúng lại, kích hoạt đợt bùng nổ sinh sao lớn.",
+        "tags": [
+            "bùng nổ sao",
+            "starburst",
+            "tốc độ hình thành sao cao",
+            "va chạm thiên hà"
+        ],
+        "illustration_prompt": "conceptual image of a highly active, bright blue galaxy with enormous regions of new star formation"
+    },
+    {
+        "id": 48,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Sự khác biệt về 'Kim loại' trong các thế hệ sao là gì?",
+        "answer": "Trong vũ trụ học, 'kim loại' là bất kỳ nguyên tố nào nặng hơn Heli. **Thế hệ sao I** (Pop I, sao trẻ) có hàm lượng kim loại cao (như Mặt Trời). **Thế hệ sao II** (Pop II, sao già) có hàm lượng kim loại thấp. **Thế hệ sao III** (Pop III, sao đầu tiên) gần như không có kim loại.",
+        "tags": [
+            "kim loại",
+            "metallicity",
+            "thế hệ sao",
+            "pop i",
+            "pop ii",
+            "nguyên tố nặng"
+        ],
+        "illustration_prompt": "diagram comparing the composition of three generations of stars: Population I (high metal), Population II (low metal), and Population III (zero metal)"
+    },
+    {
+        "id": 49,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà vệ tinh (Satellite Galaxy) là gì?",
+        "answer": "Là những thiên hà nhỏ hơn bị lực hấp dẫn của một thiên hà lớn hơn (thiên hà mẹ) ràng buộc và quay quanh nó. Ví dụ, **Đám Mây Magellan Lớn và Nhỏ** là thiên hà vệ tinh của Dải Ngân Hà.",
+        "tags": [
+            "thiên hà vệ tinh",
+            "satellite galaxy",
+            "đám mây magellan",
+            "lực hấp dẫn",
+            "thiên hà lùn"
+        ],
+        "illustration_prompt": "conceptual image showing a large spiral galaxy with several smaller dwarf galaxies orbiting it"
+    },
+    {
+        "id": 50,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Các cụm sao mở (Open Cluster) khác Cụm sao cầu (Globular Cluster) thế nào?",
+        "answer": "**Cụm sao mở** nhỏ hơn, chứa ít sao hơn (vài trăm đến vài nghìn), các ngôi sao **trẻ hơn** và có nhiều kim loại hơn. Chúng nằm trong đĩa xoắn ốc của thiên hà, trong khi cụm sao cầu là những cụm sao già nằm trong vầng hào quang.",
+        "tags": [
+            "cụm sao mở",
+            "open cluster",
+            "cụm sao cầu",
+            "sao trẻ",
+            "đĩa thiên hà"
+        ],
+        "illustration_prompt": "conceptual image comparing a sparse, blue-tinged open star cluster in the galactic disk with a dense, reddish globular cluster in the halo"
+    },
+    {
+        "id": 51,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thời gian nhìn lại (Lookback Time) là gì?",
+        "answer": "Vì ánh sáng cần thời gian để đi đến chúng ta, khi chúng ta quan sát một thiên hà cách xa 1 tỷ năm ánh sáng, chúng ta đang thấy nó **như nó đã từng tồn tại cách đây 1 tỷ năm**. Khoảng cách càng lớn, thời gian nhìn lại càng xa, giúp ta nghiên cứu Vũ trụ sơ khai.",
+        "tags": [
+            "thời gian nhìn lại",
+            "lookback time",
+            "năm ánh sáng",
+            "vũ trụ sơ khai",
+            "ánh sáng"
+        ],
+        "illustration_prompt": "conceptual diagram showing light traveling from a very distant, young galaxy to an observer on Earth, illustrating looking back in time"
+    },
+    {
+        "id": 52,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thành (Wall) Vũ trụ là gì?",
+        "answer": "Thành Vũ trụ là một tập hợp thiên hà khổng lồ, là một trong những cấu trúc lớn nhất được biết đến trong Mạng lưới Vũ trụ, trong đó các thiên hà tụ tập lại thành một **mặt phẳng** hoặc **tấm chắn**. Ví dụ nổi tiếng là Vạn Lý Trường Thành Sloan (Sloan Great Wall).",
+        "tags": [
+            "thành vũ trụ",
+            "wall",
+            "vạn lý trường thành sloan",
+            "mạng lưới vũ trụ",
+            "mặt phẳng"
+        ],
+        "illustration_prompt": "conceptual diagram showing a massive, flat arrangement of galaxies stretching across a large expanse of the cosmic web"
+    },
+    {
+        "id": 53,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Lực Thủy triều Thiên hà (Galactic Tidal Forces) là gì?",
+        "answer": "Là lực hấp dẫn không đều tác dụng lên một thiên hà do sự gần gũi của một thiên hà lớn hơn. Lực này có thể **kéo căng và biến dạng** thiên hà nhỏ hơn, tạo ra các 'đuôi thủy triều' dài của sao và khí trong quá trình hợp nhất.",
+        "tags": [
+            "lực thủy triều",
+            "tidal forces",
+            "lực hấp dẫn",
+            "biến dạng thiên hà",
+            "hợp nhất"
+        ],
+        "illustration_prompt": "conceptual diagram showing a small galaxy being stretched and distorted into a long stream of stars by the gravitational pull of a larger galaxy"
+    },
+    {
+        "id": 54,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Các Vùng hình thành Sao (Star-Forming Regions) trông như thế nào?",
+        "answer": "Chúng là những đám mây khí và bụi khổng lồ, lạnh và đậm đặc. Chúng thường có màu **đỏ hoặc hồng** do Hydro bị các ngôi sao mới sinh ra chiếu sáng (gọi là **Tinh vân phát xạ**). Đây là nơi các ngôi sao trẻ, sáng, màu xanh lam xuất hiện.",
+        "tags": [
+            "hình thành sao",
+            "star forming",
+            "tinh vân phát xạ",
+            "khí bụi",
+            "hydro"
+        ],
+        "illustration_prompt": "conceptual image of a colorful nebula (emission nebula) with bright pink and blue areas where stars are being born"
+    },
+    {
+        "id": 55,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Dải Ngân Hà được gọi là thiên hà loại SBa, SBb, hay SBc?",
+        "answer": "Dải Ngân Hà được phân loại là thiên hà xoắn ốc có thanh chắn loại **SBc**. Chữ 'SB' là xoắn ốc có thanh chắn, và chữ 'c' cho biết các nhánh xoắn ốc của nó được quấn lỏng và lõi phình (Bulge) tương đối nhỏ.",
+        "tags": [
+            "phân loại thiên hà",
+            "dải ngân hà",
+            "sbc",
+            "xoắn ốc có thanh chắn",
+            "bulge"
+        ],
+        "illustration_prompt": "conceptual diagram illustrating the differences between SB galaxies based on how tightly the spiral arms are wound (SBa, SBb, SBc)"
+    },
+    {
+        "id": 56,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Thiên hà lùn (Dwarf Galaxy) là gì?",
+        "answer": "Là những thiên hà nhỏ hơn nhiều so với các thiên hà lớn như Dải Ngân Hà, chỉ chứa từ vài trăm triệu đến vài tỷ ngôi sao. Chúng thường là **thiên hà vệ tinh** của các thiên hà lớn và là những khối xây dựng của các thiên hà khổng lồ.",
+        "tags": [
+            "thiên hà lùn",
+            "dwarf galaxy",
+            "thiên hà vệ tinh",
+            "khối xây dựng"
+        ],
+        "illustration_prompt": "conceptual image showing a small, faint dwarf galaxy next to a massive spiral galaxy"
+    },
+    {
+        "id": 57,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Làm thế nào để đo khoảng cách đến các thiên hà rất xa?",
+        "answer": "Chúng ta sử dụng **Siêu tân tinh loại Ia** (Type Ia Supernovae). Các vụ nổ này được coi là 'Ngọn nến tiêu chuẩn' vì chúng luôn phát ra cùng một lượng ánh sáng. Bằng cách so sánh độ sáng thực và độ sáng quan sát được, ta có thể tính ra khoảng cách.",
+        "tags": [
+            "đo khoảng cách",
+            "siêu tân tinh loại ia",
+            "ngọn nến tiêu chuẩn",
+            "type ia supernova",
+            "dịch chuyển đỏ"
+        ],
+        "illustration_prompt": "conceptual diagram showing a Type Ia Supernova (standard candle) in a distant galaxy being used to calculate the galaxy's distance"
+    },
+    {
+        "id": 58,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Sự Khác biệt giữa Thụ Tinh (Fertilization) và Tinh Vân Hành Tinh (Planetary Nebula) là gì?",
+        "answer": "Thực ra là không có! 'Tinh vân Hành Tinh' là một tên gọi sai lịch sử. Chúng là lớp vỏ khí và bụi bị một **ngôi sao nhỏ sắp chết** (giống Mặt Trời) phun ra, không liên quan đến việc hình thành hành tinh hay thụ tinh.",
+        "tags": [
+            "tinh vân hành tinh",
+            "planetary nebula",
+            "ngôi sao sắp chết",
+            "tên gọi sai",
+            "sao lùn trắng"
+        ],
+        "illustration_prompt": "conceptual image of a colorful planetary nebula, showing the expelled gas shell and the white dwarf remnant at the center"
+    },
+    {
+        "id": 59,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Sự phân bố của Vật chất Tối có ảnh hưởng thế nào đến Cấu trúc Lớn?",
+        "answer": "Vật chất Tối là 'giàn giáo' xây dựng Cấu trúc Lớn. Các cụm Vật chất Tối đã hình thành trước và sau đó **kéo Vật chất thông thường** (khí và bụi) vào các vị trí của Mạng lưới Vũ trụ ngày nay. Nếu không có Vật chất Tối, Vũ trụ sẽ đồng nhất và không có thiên hà.",
+        "tags": [
+            "phân bố vật chất tối",
+            "cấu trúc lớn",
+            "mạng lưới vũ trụ",
+            "giàn giáo",
+            "lực hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual diagram showing the early universe where dark matter clumps determined the future location of galaxy clusters"
+    },
+    {
+        "id": 60,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Thiên hà & cấu trúc lớn của vũ trụ",
+        "question": "Tốc độ giãn nở của Vũ trụ ảnh hưởng đến Cấu trúc Lớn như thế nào?",
+        "answer": "Sự giãn nở (đặc biệt là sự **giãn nở gia tốc** do Năng lượng Tối) đang kéo các Siêu Cụm và Cụm Thiên hà ra xa nhau. Về lâu dài, các thiên hà ngoài Nhóm Địa phương sẽ di chuyển ra xa đến mức ánh sáng của chúng không bao giờ đến được chúng ta, khiến Vũ trụ trở nên cô lập hơn.",
+        "tags": [
+            "giãn nở vũ trụ",
+            "năng lượng tối",
+            "giãn nở gia tốc",
+            "cấu trúc lớn",
+            "cô lập"
+        ],
+        "illustration_prompt": "conceptual image showing the vast distances between superclusters increasing rapidly over time due to dark energy"
+    },
+    {
+        "id": 61,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao (Star) được định nghĩa theo hóa học và vật lý như thế nào?",
+        "answer": "Sao là một quả cầu plasma khổng lồ, phát sáng do năng lượng được tạo ra thông qua phản ứng **Tổng hợp Hạt nhân** (Nuclear Fusion) ở lõi. Quá trình này biến Hydro thành Heli, giải phóng một lượng năng lượng khổng lồ theo công thức nổi tiếng $ E = mc^2 $.",
+        "tags": [
+            "sao",
+            "plasma",
+            "tổng hợp hạt nhân",
+            "hydro",
+            "heli",
+            "e=mc2"
+        ],
+        "illustration_prompt": "conceptual diagram showing hydrogen atoms fusing into helium in the core of a star, releasing light and heat energy"
+    },
+    {
+        "id": 62,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao được hình thành từ đâu?",
+        "answer": "Sao sinh ra trong các **Đám mây Phân tử Khổng lồ** (Giant Molecular Clouds) chứa đầy khí (Hydro và Heli) và bụi. Lực hấp dẫn làm cho các vùng đậm đặc trong đám mây co lại. Khi co lại, nhiệt độ tăng lên, tạo thành một **Tiền sao (Protostar)**.",
+        "tags": [
+            "hình thành sao",
+            "đám mây phân tử",
+            "lực hấp dẫn",
+            "tiền sao",
+            "protostar"
+        ],
+        "illustration_prompt": "conceptual image showing a dense pocket of gas and dust collapsing under gravity to form a protostar"
+    },
+    {
+        "id": 63,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Giai đoạn Chuỗi Chính (Main Sequence) là gì?",
+        "answer": "Đây là giai đoạn **dài nhất** trong đời sống của một ngôi sao (khoảng 90% tuổi thọ của nó). Trong giai đoạn này, ngôi sao cân bằng. Lực hấp dẫn cố gắng làm nó sụp đổ được cân bằng bởi áp suất đẩy ra từ quá trình tổng hợp Hydro thành Heli trong lõi.",
+        "tags": [
+            "chuỗi chính",
+            "main sequence",
+            "cân bằng",
+            "hydro fusion",
+            "tuổi thọ dài"
+        ],
+        "illustration_prompt": "diagram showing a star in perfect balance, with gravity pulling inwards balanced by fusion pressure pushing outwards"
+    },
+    {
+        "id": 64,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Khối lượng ảnh hưởng đến tuổi thọ của sao như thế nào?",
+        "answer": "Ngược lại với suy nghĩ thông thường, những ngôi sao **càng lớn** (khối lượng càng nặng) lại có **tuổi thọ càng ngắn**. Chúng đốt cháy nhiên liệu Hydro của mình nhanh hơn nhiều do áp suất và nhiệt độ lõi cao hơn, chỉ tồn tại vài triệu năm thay vì hàng tỷ năm như Mặt Trời.",
+        "tags": [
+            "khối lượng sao",
+            "tuổi thọ sao",
+            "đốt nhiên liệu nhanh",
+            "sao lớn"
+        ],
+        "illustration_prompt": "diagram comparing a small, long-lived star (like the Sun) with a large, short-lived star, illustrating the difference in their burn rates"
+    },
+    {
+        "id": 65,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Khổng lồ Đỏ (Red Giant) là gì?",
+        "answer": "Là giai đoạn mà các ngôi sao có khối lượng nhỏ (như Mặt Trời) bước vào sau khi hết Hydro ở lõi. Lõi co lại và nóng lên, khiến các lớp ngoài của sao **phình to ra** và nguội đi, làm cho ngôi sao trông lớn hơn và có màu đỏ hơn.",
+        "tags": [
+            "sao khổng lồ đỏ",
+            "red giant",
+            "hết hydro",
+            "phình to",
+            "mặt trời"
+        ],
+        "illustration_prompt": "conceptual image showing the Sun expanding dramatically to engulf the inner planets as it turns into a Red Giant"
+    },
+    {
+        "id": 66,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Vụ Bùng nổ Heli (Helium Flash) là gì?",
+        "answer": "Là một sự kiện xảy ra ở lõi của sao Khổng lồ Đỏ có khối lượng nhỏ. Khi lõi Heli co lại đến một nhiệt độ và áp suất nhất định, phản ứng tổng hợp Heli thành Carbon bùng nổ **cực kỳ nhanh chóng** trong một thời gian ngắn, sau đó sao ổn định lại.",
+        "tags": [
+            "bùng nổ heli",
+            "helium flash",
+            "tổng hợp heli",
+            "sao khổng lồ đỏ",
+            "carbon"
+        ],
+        "illustration_prompt": "conceptual diagram showing a sudden, intense burst of heat and energy originating from the core of a Red Giant star"
+    },
+    {
+        "id": 67,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Tinh vân Hành tinh (Planetary Nebula) được tạo ra như thế nào?",
+        "answer": "Sau giai đoạn Khổng lồ Đỏ, các ngôi sao có khối lượng nhỏ thổi bay các lớp ngoài cùng của chúng vào không gian, tạo thành một **vỏ khí phát sáng rực rỡ**. Lớp vỏ này được gọi là Tinh vân Hành tinh (mặc dù không liên quan đến hành tinh).",
+        "tags": [
+            "tinh vân hành tinh",
+            "planetary nebula",
+            "sao khổng lồ đỏ",
+            "vỏ khí",
+            "phát sáng"
+        ],
+        "illustration_prompt": "conceptual image of a colorful, expanding ring or bubble of gas and dust surrounding a tiny central star"
+    },
+    {
+        "id": 68,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Lùn Trắng (White Dwarf) là gì?",
+        "answer": "Là phần còn lại nóng, dày đặc của lõi ngôi sao sau khi Tinh vân Hành tinh bị thổi bay. Nó không còn thực hiện tổng hợp hạt nhân nữa mà được chống đỡ bởi một lực lượng lượng tử gọi là **Áp suất suy biến electron** (Electron Degeneracy Pressure).",
+        "tags": [
+            "sao lùn trắng",
+            "white dwarf",
+            "lõi sao",
+            "áp suất suy biến",
+            "electron"
+        ],
+        "illustration_prompt": "conceptual diagram comparing the size of a White Dwarf (about the size of Earth) to the Sun, emphasizing its small size and high density"
+    },
+    {
+        "id": 69,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Giới hạn Chandrasekhar là gì?",
+        "answer": "Là khối lượng tối đa mà một Sao Lùn Trắng có thể đạt được và vẫn được giữ vững bởi Áp suất suy biến electron. Giới hạn này là khoảng **1.4 lần khối lượng Mặt Trời**. Nếu vượt quá giới hạn này (thường do hút vật chất từ sao đồng hành), sao sẽ sụp đổ và gây ra **Siêu tân tinh Loại Ia**.",
+        "tags": [
+            "giới hạn chandrasekhar",
+            "1.4 khối lượng mặt trời",
+            "sao lùn trắng",
+            "siêu tân tinh loại ia"
+        ],
+        "illustration_prompt": "conceptual diagram showing a White Dwarf slowly adding mass from a companion star, approaching the 1.4 solar mass limit"
+    },
+    {
+        "id": 70,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Khổng lồ Xanh (Blue Giant/Supergiant) là gì?",
+        "answer": "Là những ngôi sao **cực kỳ lớn, nóng và sáng** (màu xanh lam). Chúng đốt cháy nhiên liệu ở tốc độ khủng khiếp, chỉ tồn tại vài triệu năm trước khi sụp đổ thành một siêu tân tinh và có thể để lại một sao neutron hoặc hố đen.",
+        "tags": [
+            "sao khổng lồ xanh",
+            "blue giant",
+            "rất lớn",
+            "rất nóng",
+            "tuổi thọ ngắn"
+        ],
+        "illustration_prompt": "conceptual image of a gigantic, intensely bright blue supergiant star"
+    },
+    {
+        "id": 71,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Siêu tân tinh Loại II (Type II Supernova) được tạo ra như thế nào?",
+        "answer": "Là vụ nổ khủng khiếp xảy ra khi một ngôi sao **rất lớn** (hơn 8 lần khối lượng Mặt Trời) hết nhiên liệu. Lõi của nó sụp đổ thành Sắt, không thể tổng hợp được nữa, dẫn đến sự sụp đổ thảm khốc của lõi và sự bung ra của các lớp ngoài.",
+        "tags": [
+            "siêu tân tinh loại ii",
+            "type ii supernova",
+            "sao rất lớn",
+            "sụp đổ lõi",
+            "sắt"
+        ],
+        "illustration_prompt": "conceptual image showing the catastrophic explosion of a massive star, blasting stellar material out into space"
+    },
+    {
+        "id": 72,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Neutron (Neutron Star) là gì?",
+        "answer": "Là phần lõi cực kỳ dày đặc còn lại sau một vụ Siêu tân tinh Loại II. Nó chỉ rộng khoảng 10-20 km nhưng có khối lượng lớn hơn Mặt Trời. Lực hấp dẫn của nó bị chống đỡ bởi **Áp suất suy biến neutron** (Neutron Degeneracy Pressure).",
+        "tags": [
+            "sao neutron",
+            "neutron star",
+            "cực kỳ dày đặc",
+            "áp suất suy biến neutron",
+            "siêu tân tinh"
+        ],
+        "illustration_prompt": "conceptual diagram comparing the tiny size of a Neutron Star (a small city) to the massive Sun"
+    },
+    {
+        "id": 73,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Pulsar (Sao Xung) là gì?",
+        "answer": "Pulsar là một **Sao Neutron quay rất nhanh** với từ trường cực mạnh. Nó phát ra chùm bức xạ điện từ mạnh mẽ (như tia radio) từ các cực của nó. Khi chùm tia này quét qua Trái Đất, chúng ta nhận được tín hiệu xung đều đặn, giống như đèn hiệu vũ trụ.",
+        "tags": [
+            "pulsar",
+            "sao xung",
+            "sao neutron quay",
+            "từ trường mạnh",
+            "tín hiệu xung"
+        ],
+        "illustration_prompt": "conceptual diagram showing a rapidly rotating neutron star emitting two narrow beams of energy from its poles, like a cosmic lighthouse"
+    },
+    {
+        "id": 74,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Lỗ Đen (Black Hole) hình thành như thế nào?",
+        "answer": "Khi lõi còn lại của một ngôi sao lớn sau siêu tân tinh **vượt quá Giới hạn Tolman-Oppenheimer-Volkoff** (khoảng 2-3 khối lượng Mặt Trời). Áp suất suy biến neutron không thể chịu được lực hấp dẫn nữa, và lõi sụp đổ vô hạn thành một **điểm kỳ dị**.",
+        "tags": [
+            "lỗ đen",
+            "black hole",
+            "sụp đổ lõi",
+            "điểm kỳ dị",
+            "giới hạn tov"
+        ],
+        "illustration_prompt": "conceptual diagram showing a massive star core collapsing past the neutron star limit into a singularity"
+    },
+    {
+        "id": 75,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Hố đen không gian (Schwarzschild radius) là gì?",
+        "answer": "Là bán kính xung quanh một lỗ đen mà tại đó, **tốc độ thoát ly** (tốc độ cần thiết để thoát khỏi lực hấp dẫn của lỗ đen) bằng với **tốc độ ánh sáng**. Mọi thứ vượt qua ranh giới này, bao gồm cả ánh sáng, đều không thể thoát ra được.",
+        "tags": [
+            "chân trời sự kiện",
+            "event horizon",
+            "schwarzschild radius",
+            "tốc độ ánh sáng",
+            "lỗ đen"
+        ],
+        "illustration_prompt": "conceptual diagram showing a dark sphere with a boundary line labeled 'Event Horizon', where light rays are shown falling inward"
+    },
+    {
+        "id": 76,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Lùn Nâu (Brown Dwarf) là gì?",
+        "answer": "Là những 'ngôi sao thất bại'. Chúng lớn hơn hành tinh nhưng không đủ khối lượng (dưới 0.08 lần khối lượng Mặt Trời) để đạt được nhiệt độ cần thiết và bắt đầu quá trình **tổng hợp Hydro** thành Heli. Chúng chỉ tổng hợp được Deuterium (Hydro nặng) trong thời gian ngắn.",
+        "tags": [
+            "sao lùn nâu",
+            "brown dwarf",
+            "sao thất bại",
+            "không tổng hợp hydro",
+            "deuterium"
+        ],
+        "illustration_prompt": "conceptual image comparing a Brown Dwarf (faint, reddish-brown) to Jupiter (planet) and a Red Dwarf (smallest true star)"
+    },
+    {
+        "id": 77,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Hệ Sao đôi (Binary Star System) là gì?",
+        "answer": "Là một hệ thống gồm **hai ngôi sao** bị ràng buộc bởi lực hấp dẫn và quay quanh một trung tâm khối lượng chung. Hơn một nửa số ngôi sao trong thiên hà tồn tại trong hệ thống sao đôi hoặc đa sao (multiple star systems).",
+        "tags": [
+            "hệ sao đôi",
+            "binary star",
+            "ràng buộc hấp dẫn",
+            "trung tâm khối lượng",
+            "sao đa sao"
+        ],
+        "illustration_prompt": "conceptual diagram showing two stars of different sizes orbiting around a common center of mass"
+    },
+    {
+        "id": 78,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Thùy Roche (Roche Lobe) là gì trong hệ sao đôi?",
+        "answer": "Thùy Roche là vùng không gian hình giọt nước xung quanh mỗi ngôi sao trong hệ sao đôi, nơi vật chất bị ràng buộc bởi lực hấp dẫn của ngôi sao đó. Khi một ngôi sao **phình to vượt qua Thùy Roche**, vật chất sẽ chảy sang ngôi sao đồng hành.",
+        "tags": [
+            "thùy roche",
+            "roche lobe",
+            "lực hấp dẫn",
+            "chuyển vật chất",
+            "sao đôi"
+        ],
+        "illustration_prompt": "conceptual diagram showing two stars in a binary system, with their Roche Lobes touching at the Lagrangian Point (L1), allowing mass transfer"
+    },
+    {
+        "id": 79,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Lùn Đỏ (Red Dwarf) có vòng đời như thế nào?",
+        "answer": "Sao Lùn Đỏ là những ngôi sao **nhỏ nhất** và **lạnh nhất** trong Chuỗi Chính. Chúng đốt cháy nhiên liệu Hydro cực kỳ chậm, chỉ tồn tại hàng nghìn tỷ (trillion) năm. Chúng sẽ không bao giờ trở thành Khổng lồ Đỏ mà chỉ từ từ nguội đi thành Sao Lùn Trắng Heli (Helium White Dwarf).",
+        "tags": [
+            "sao lùn đỏ",
+            "red dwarf",
+            "sao nhỏ nhất",
+            "tuổi thọ dài nhất",
+            "nguội đi"
+        ],
+        "illustration_prompt": "conceptual diagram showing a very long timeline for a Red Dwarf star, emphasizing its slow burn rate"
+    },
+    {
+        "id": 80,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Biểu đồ Hertzsprung-Russell (H-R Diagram) dùng để làm gì?",
+        "answer": "Là một công cụ cơ bản của thiên văn học, biểu đồ này sắp xếp các ngôi sao theo **độ sáng (Luminosity)** so với **nhiệt độ bề mặt (hoặc màu sắc)** của chúng. Nó giúp các nhà khoa học theo dõi và hiểu được các giai đoạn tiến hóa của sao.",
+        "tags": [
+            "biểu đồ h-r",
+            "hertzsprung-russell",
+            "độ sáng",
+            "nhiệt độ",
+            "tiến hóa sao"
+        ],
+        "illustration_prompt": "scientific chart of the Hertzsprung-Russell diagram with the Main Sequence, Red Giants, and White Dwarfs clearly labeled"
+    },
+    {
+        "id": 81,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao biến quang Cepheid (Cepheid Variable) có vai trò gì?",
+        "answer": "Là loại sao đặc biệt mà **độ sáng của chúng dao động** theo một chu kỳ rất đều đặn. Chu kỳ dao động này tỉ lệ trực tiếp với độ sáng thực của sao. Vì vậy, chúng được dùng làm 'Ngọn nến tiêu chuẩn' để đo khoảng cách đến các thiên hà lân cận.",
+        "tags": [
+            "sao biến quang cepheid",
+            "cepheid variable",
+            "độ sáng dao động",
+            "đo khoảng cách",
+            "ngọn nến tiêu chuẩn"
+        ],
+        "illustration_prompt": "conceptual graph showing the periodic change in brightness (light curve) of a Cepheid Variable star"
+    },
+    {
+        "id": 82,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Vòng đời của Mặt Trời sẽ kết thúc như thế nào?",
+        "answer": "Trong khoảng 5 tỷ năm nữa, Mặt Trời sẽ trở thành một **Sao Khổng lồ Đỏ**, phình to ra và nuốt chửng Sao Thủy, Sao Kim, và có thể cả Trái Đất. Cuối cùng, nó sẽ đẩy các lớp ngoài của mình thành Tinh vân Hành tinh và để lại một lõi là **Sao Lùn Trắng**.",
+        "tags": [
+            "vòng đời mặt trời",
+            "sao khổng lồ đỏ",
+            "sao lùn trắng",
+            "5 tỷ năm",
+            "trái đất"
+        ],
+        "illustration_prompt": "conceptual diagram showing the future path of the Sun from a Main Sequence star to a Red Giant and finally a White Dwarf"
+    },
+    {
+        "id": 83,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao Xung Lực (Magnetar) là gì?",
+        "answer": "Là một loại **Sao Neutron** có **từ trường cực kỳ mạnh** (mạnh nhất trong Vũ trụ). Từ trường này mạnh đến mức có thể bóp méo nguyên tử và phát ra các vụ bùng phát năng lượng cao (tia X và tia gamma) mạnh mẽ và không thể đoán trước.",
+        "tags": [
+            "magnetar",
+            "sao xung lực",
+            "sao neutron",
+            "từ trường cực mạnh",
+            "tia gamma"
+        ],
+        "illustration_prompt": "conceptual image showing a neutron star with magnetic field lines intensely twisted and warped around it"
+    },
+    {
+        "id": 84,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Phản ứng Tổng hợp Heli (Triple Alpha Process) là gì?",
+        "answer": "Là quá trình mà ba hạt nhân Heli (alpha) kết hợp lại với nhau để tạo thành một hạt nhân **Carbon** duy nhất. Phản ứng này là nguồn năng lượng chính cho các ngôi sao trong giai đoạn Khổng lồ Đỏ sau khi Hydro ở lõi đã cạn kiệt.",
+        "tags": [
+            "triple alpha process",
+            "tổng hợp heli",
+            "carbon",
+            "sao khổng lồ đỏ",
+            "hạt nhân"
+        ],
+        "illustration_prompt": "conceptual diagram showing three helium nuclei colliding and fusing together to create a carbon nucleus"
+    },
+    {
+        "id": 85,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Tinh vân (Nebula) khác với Sao như thế nào?",
+        "answer": "Tinh vân là **đám mây khí và bụi khổng lồ** (chủ yếu là Hydro và Heli) trong không gian. Chúng là nơi **sinh ra** các ngôi sao (tinh vân tối) hoặc là tàn dư từ sự **chết đi** của các ngôi sao (tinh vân hành tinh, tàn dư siêu tân tinh). Sao là vật thể phát sáng, nóng và dày đặc.",
+        "tags": [
+            "tinh vân",
+            "nebula",
+            "đám mây khí bụi",
+            "sinh sao",
+            "tàn dư sao"
+        ],
+        "illustration_prompt": "conceptual image showing a large, colorful nebula containing both dark clouds and bright spots of star formation"
+    },
+    {
+        "id": 86,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao lùn Đen (Black Dwarf) là gì?",
+        "answer": "Là giai đoạn **giả thuyết** cuối cùng của một Sao Lùn Trắng. Khi một Sao Lùn Trắng nguội đi hoàn toàn và ngừng phát ra bất kỳ ánh sáng nào, nó sẽ trở thành một vật thể tối, lạnh lẽo gọi là Sao Lùn Đen. Vì quá trình nguội lạnh diễn ra chậm hơn cả tuổi của Vũ trụ hiện tại, nên chưa có Sao Lùn Đen nào được quan sát.",
+        "tags": [
+            "sao lùn đen",
+            "black dwarf",
+            "giả thuyết",
+            "nguội lạnh",
+            "sao lùn trắng"
+        ],
+        "illustration_prompt": "conceptual diagram showing a cold, dark, non-luminous sphere in space, representing a theoretical Black Dwarf"
+    },
+    {
+        "id": 87,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Làm thế nào Siêu tân tinh làm phong phú thêm Vũ trụ?",
+        "answer": "Trong các vụ nổ siêu tân tinh, tất cả các nguyên tố nặng được tạo ra bên trong ngôi sao (từ Carbon đến Sắt) và thậm chí các nguyên tố nặng hơn (vàng, uranium) được tạo ra trong chính vụ nổ đều bị **phóng vào không gian**. Vật liệu này sau đó trở thành nguyên liệu cho thế hệ sao và hành tinh mới.",
+        "tags": [
+            "siêu tân tinh",
+            "supernova",
+            "phong phú",
+            "nguyên tố nặng",
+            "vàng",
+            "uranium"
+        ],
+        "illustration_prompt": "conceptual image showing heavy elements being scattered from an exploding supernova remnant into the surrounding space"
+    },
+    {
+        "id": 88,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Bùng nổ Tia Gamma (Gamma Ray Burst - GRB) là gì?",
+        "answer": "GRB là những vụ nổ **sáng nhất và mạnh nhất** trong Vũ trụ, kéo dài từ vài mili giây đến vài phút. Các GRB dài thường liên quan đến sự sụp đổ của các ngôi sao cực kỳ lớn (Hypernova), và các GRB ngắn liên quan đến sự hợp nhất của hai sao neutron hoặc một sao neutron và một lỗ đen.",
+        "tags": [
+            "bùng nổ tia gamma",
+            "grb",
+            "sáng nhất",
+            "mạnh nhất",
+            "hypernova",
+            "hợp nhất sao neutron"
+        ],
+        "illustration_prompt": "conceptual diagram showing an extremely focused, powerful beam of gamma rays shooting out from a distant collapsing star"
+    },
+    {
+        "id": 89,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Sao biến quang kiểu RR Lyrae (RR Lyrae Variables) khác Cepheid thế nào?",
+        "answer": "Sao RR Lyrae cũng là 'ngọn nến tiêu chuẩn' có độ sáng dao động. Tuy nhiên, chúng là những ngôi sao **già, có khối lượng nhỏ** và độ sáng của chúng thấp hơn nhiều so với Cepheid. Chúng được sử dụng để đo khoảng cách trong phạm vi Thiên hà và các cụm sao cầu.",
+        "tags": [
+            "sao biến quang",
+            "rr lyrae",
+            "sao già",
+            "đo khoảng cách",
+            "cụm sao cầu"
+        ],
+        "illustration_prompt": "conceptual graph comparing the light curves of a high-luminosity Cepheid and a lower-luminosity RR Lyrae star"
+    },
+    {
+        "id": 90,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Sao & vòng đời của sao",
+        "question": "Áp suất Suy biến (Degeneracy Pressure) là gì?",
+        "answer": "Đây là một lực lượng thuần túy **lượng tử** (quantum mechanical) xảy ra khi các hạt (electron hoặc neutron) bị nén rất chặt. Lực này chống lại sự sụp đổ của lực hấp dẫn và là nguyên nhân khiến Sao Lùn Trắng (electron) và Sao Neutron (neutron) không bị sụp đổ thành Hố Đen.",
+        "tags": [
+            "áp suất suy biến",
+            "degeneracy pressure",
+            "lượng tử",
+            "electron",
+            "neutron",
+            "chống sụp đổ"
+        ],
+        "illustration_prompt": "conceptual diagram showing electrons or neutrons densely packed together, creating an outward quantum force that resists further compression"
+    },
+    {
+        "id": 91,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sự kiện Kilonova (Kilonova) là gì?",
+        "answer": "Kilonova là một vụ nổ cực kỳ mạnh mẽ, sáng hơn một vụ nổ sao nova thông thường nhưng yếu hơn siêu tân tinh. Nó được tạo ra khi hai vật thể dày đặc, như **hai Sao Neutron** hoặc một Sao Neutron và một Lỗ Đen, **hợp nhất** với nhau. Kilonova là nguồn gốc chính của các nguyên tố nặng như **Vàng và Bạch kim** trong Vũ trụ.",
+        "tags": [
+            "kilonova",
+            "hợp nhất sao neutron",
+            "vàng",
+            "bạch kim",
+            "sóng hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual image showing the spectacular merger of two neutron stars, resulting in a kilonova explosion and the ejection of heavy elements"
+    },
+    {
+        "id": 92,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Xung Lực (Magnetar) đặc biệt như thế nào?",
+        "answer": "Magnetar là một loại **Sao Neutron** có **từ trường mạnh nhất** được biết đến trong Vũ trụ ($ 10^{15} $ Gauss, mạnh hơn Trái Đất hàng nghìn tỷ lần). Từ trường mạnh mẽ này gây ra các 'cơn địa chấn sao', tạo ra những vụ bùng nổ tia X và tia Gamma cực kỳ sáng và mạnh mẽ.",
+        "tags": [
+            "magnetar",
+            "từ trường mạnh nhất",
+            "sao neutron",
+            "tia x",
+            "tia gamma"
+        ],
+        "illustration_prompt": "conceptual image showing a neutron star with intensely warped magnetic field lines radiating energy"
+    },
+    {
+        "id": 93,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hố Trắng (White Hole) là gì?",
+        "answer": "Hố Trắng là một đối tượng **lý thuyết** trong thuyết Tương đối rộng, được coi là phiên bản đảo ngược thời gian của Hố Đen. Trong khi Hố Đen không cho phép vật chất thoát ra, Hố Trắng là nơi **không cho phép vật chất đi vào** và chỉ có thể phun vật chất ra ngoài. Chưa có bằng chứng quan sát được về Hố Trắng.",
+        "tags": [
+            "hố trắng",
+            "white hole",
+            "lý thuyết",
+            "đảo ngược thời gian",
+            "phun vật chất"
+        ],
+        "illustration_prompt": "conceptual diagram comparing a black hole (in-going arrows) and a white hole (out-going arrows) in spacetime"
+    },
+    {
+        "id": 94,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Lỗ Giun (Wormhole) là gì?",
+        "answer": "Lỗ Giun, hay cầu Einstein–Rosen, là một đối tượng **lý thuyết** khác trong vật lý, được mô tả như một **đường tắt** xuyên qua Không-Thời gian, có thể kết nối hai điểm rất xa trong Vũ trụ hoặc thậm chí hai Vũ trụ khác nhau. Tuy nhiên, để giữ cho nó mở, nó có thể cần **năng lượng tiêu cực (exotic matter)**.",
+        "tags": [
+            "lỗ giun",
+            "wormhole",
+            "đường tắt",
+            "không thời gian",
+            "lý thuyết"
+        ],
+        "illustration_prompt": "conceptual diagram showing a shortcut connecting two distant parts of the universe by folding the fabric of spacetime"
+    },
+    {
+        "id": 95,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Vòng Einstein (Einstein Ring) là gì?",
+        "answer": "Là một hiện tượng Thấu kính Hấp dẫn đặc biệt, xảy ra khi một thiên hà ở xa, thiên hà thấu kính (Foreground Galaxy) và Trái Đất nằm gần như **thẳng hàng hoàn hảo**. Ánh sáng từ thiên hà xa bị bẻ cong tạo thành một **vòng tròn gần như hoàn hảo** bao quanh thiên hà thấu kính.",
+        "tags": [
+            "vòng einstein",
+            "einstein ring",
+            "thấu kính hấp dẫn",
+            "thẳng hàng",
+            "vòng tròn hoàn hảo"
+        ],
+        "illustration_prompt": "conceptual image showing a distant galaxy's light being stretched into a perfect ring shape around a closer, massive foreground galaxy"
+    },
+    {
+        "id": 96,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sự kiện Xé rách Thủy triều (Tidal Disruption Event - TDE) là gì?",
+        "answer": "TDE là một hiện tượng bạo lực xảy ra khi một ngôi sao đi quá gần một **Lỗ Đen siêu khối** ở trung tâm thiên hà. Lực hấp dẫn cực mạnh của lỗ đen **xé toạc ngôi sao** thành một dòng khí dài, và khí này bị lỗ đen nuốt chửng, tạo ra một đợt bùng phát tia X và tia Gamma.",
+        "tags": [
+            "xé rách thủy triều",
+            "tidal disruption event",
+            "lỗ đen siêu khối",
+            "xé toạc ngôi sao",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual diagram showing a star getting too close to a supermassive black hole and being stretched into a stream of material before being consumed"
+    },
+    {
+        "id": 97,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Siêu Tốc độ (Hypervelocity Star) là gì?",
+        "answer": "Là những ngôi sao đang bay ra khỏi Dải Ngân Hà với **tốc độ cực cao** (hàng trăm km/giây). Chúng thường bị đẩy ra bởi sự tương tác hấp dẫn mạnh mẽ với **Lỗ Đen siêu khối** ở trung tâm thiên hà của chúng ta.",
+        "tags": [
+            "sao siêu tốc độ",
+            "hypervelocity star",
+            "tốc độ cực cao",
+            "lỗ đen siêu khối",
+            "dải ngân hà"
+        ],
+        "illustration_prompt": "conceptual diagram showing a star being slingshotted out of the center of a spiral galaxy by a black hole"
+    },
+    {
+        "id": 98,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hành tinh Lang thang (Rogue Planet) là gì?",
+        "answer": "Là những hành tinh không bị ràng buộc bởi lực hấp dẫn của bất kỳ ngôi sao nào và **trôi nổi tự do** trong không gian liên sao. Chúng có thể bị đẩy ra khỏi hệ sao mẹ của chúng do nhiễu loạn hấp dẫn mạnh mẽ từ các ngôi sao khác hoặc các hành tinh khổng lồ.",
+        "tags": [
+            "hành tinh lang thang",
+            "rogue planet",
+            "trôi nổi tự do",
+            "không gian liên sao",
+            "lực hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual image showing a solitary planet floating in the dark emptiness of interstellar space, far from any star"
+    },
+    {
+        "id": 99,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Neutron Hợp nhất tạo ra gì?",
+        "answer": "Khi hai Sao Neutron hợp nhất, chúng gây ra vụ nổ **Kilonova** và giải phóng **Sóng Hấp dẫn** mạnh mẽ. Tàn dư của vụ hợp nhất có thể là một Sao Neutron lớn hơn hoặc, nếu khối lượng vượt quá giới hạn, là một **Lỗ Đen** mới.",
+        "tags": [
+            "hợp nhất sao neutron",
+            "kilonova",
+            "sóng hấp dẫn",
+            "lỗ đen mới"
+        ],
+        "illustration_prompt": "conceptual diagram showing two neutron stars spiraling in towards each other, emitting gravitational waves, and culminating in an explosion"
+    },
+    {
+        "id": 100,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Bức xạ Hawking (Hawking Radiation) là gì?",
+        "answer": "Là một **lý thuyết** mô tả cách Lỗ Đen có thể từ từ 'bốc hơi' và mất khối lượng theo thời gian bằng cách phát ra bức xạ nhiệt. Bức xạ này là kết quả của các hạt ảo xuất hiện gần Chân trời Sự kiện. Lý thuyết cho rằng, cuối cùng, tất cả Lỗ Đen sẽ biến mất.",
+        "tags": [
+            "bức xạ hawking",
+            "hawking radiation",
+            "lý thuyết",
+            "lỗ đen bốc hơi",
+            "chân trời sự kiện"
+        ],
+        "illustration_prompt": "conceptual diagram showing virtual particle pairs forming near the event horizon of a black hole, with one particle escaping as Hawking Radiation"
+    },
+    {
+        "id": 101,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Đĩa Bồi Tụ (Accretion Disk) là gì?",
+        "answer": "Là một cấu trúc **hình đĩa** của khí, bụi và vật chất quay rất nhanh, xoáy vào một vật thể trung tâm khổng lồ (như Lỗ Đen, Sao Neutron hoặc Sao Lùn Trắng). Lực ma sát và trọng lực trong đĩa làm cho vật chất nóng lên cực độ và **phát ra bức xạ sáng** (thường là tia X hoặc ánh sáng khả kiến).",
+        "tags": [
+            "đĩa bồi tụ",
+            "accretion disk",
+            "lỗ đen",
+            "sao neutron",
+            "phát sáng",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual image showing a hot, brightly glowing accretion disk spiraling into a central black hole"
+    },
+    {
+        "id": 102,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hiện tượng 'Spaghettification' (Mì hóa) là gì?",
+        "answer": "Đây là thuật ngữ mô tả hiệu ứng xảy ra khi một vật thể (thậm chí là một ngôi sao) đi quá gần một **Lỗ Đen**. Lực hấp dẫn lên phần gần lỗ đen mạnh hơn nhiều so với phần xa, khiến vật thể bị **kéo căng ra** thành một sợi mỏng dài giống như mì spaghetti.",
+        "tags": [
+            "spaghettification",
+            "mì hóa",
+            "lỗ đen",
+            "lực hấp dẫn",
+            "kéo căng"
+        ],
+        "illustration_prompt": "conceptual image showing an astronaut or a small celestial body being stretched vertically into a long, thin strand near a black hole"
+    },
+    {
+        "id": 103,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao chổi (Comet) khác Tiểu hành tinh (Asteroid) như thế nào?",
+        "answer": "**Tiểu hành tinh** là các vật thể đá, kim loại, có nguồn gốc từ bên trong Hệ Mặt Trời (Vành đai Tiểu hành tinh). **Sao chổi** là các vật thể 'băng bẩn' được tạo thành từ băng, đá và bụi, có nguồn gốc từ bên ngoài (Vành đai Kuiper hoặc Đám mây Oort). Khi sao chổi đến gần Mặt Trời, băng tan tạo ra một cái đuôi rực rỡ.",
+        "tags": [
+            "sao chổi",
+            "tiểu hành tinh",
+            "băng bẩn",
+            "đá kim loại",
+            "đuôi"
+        ],
+        "illustration_prompt": "conceptual diagram comparing a rocky asteroid and an icy comet with a visible tail near the Sun"
+    },
+    {
+        "id": 104,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Các Tia vũ trụ (Cosmic Rays) là gì?",
+        "answer": "Là các hạt hạ nguyên tử có **năng lượng cực cao** (chủ yếu là proton và hạt nhân nguyên tử) bắn phá Trái Đất từ không gian. Chúng có nguồn gốc từ các vụ nổ siêu tân tinh, Lỗ Đen, và các sự kiện cực đoan khác. Mặc dù chúng liên tục xuyên qua cơ thể chúng ta, nhưng hầu hết bị từ trường Trái Đất chặn lại.",
+        "tags": [
+            "tia vũ trụ",
+            "cosmic rays",
+            "năng lượng cực cao",
+            "proton",
+            "siêu tân tinh",
+            "từ trường"
+        ],
+        "illustration_prompt": "conceptual diagram showing high-energy charged particles (cosmic rays) bombarding the Earth's atmosphere"
+    },
+    {
+        "id": 105,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Mộc Nóng (Hot Jupiter) là gì?",
+        "answer": "Là một loại **Ngoại hành tinh** (Exoplanet) đặc biệt. Chúng là những hành tinh khí khổng lồ, lớn như Sao Mộc, nhưng quay quanh ngôi sao mẹ của chúng ở một quỹ đạo **cực kỳ gần** (gần hơn cả Sao Thủy so với Mặt Trời). Nhiệt độ bề mặt của chúng rất cao.",
+        "tags": [
+            "sao mộc nóng",
+            "hot jupiter",
+            "ngoại hành tinh",
+            "quỹ đạo gần",
+            "nhiệt độ cao"
+        ],
+        "illustration_prompt": "conceptual diagram showing a large gas giant planet orbiting extremely close to its star"
+    },
+    {
+        "id": 106,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Siêu Trái Đất (Super-Earth) là gì?",
+        "answer": "Là một loại **Ngoại hành tinh** có khối lượng lớn hơn Trái Đất nhưng nhỏ hơn các hành tinh khí khổng lồ (như Sao Hải Vương). Chúng có thể là hành tinh đá hoặc kết hợp đá/khí. Chúng rất phổ biến và là mục tiêu tìm kiếm chính để tìm kiếm sự sống ngoài Trái Đất.",
+        "tags": [
+            "siêu trái đất",
+            "super-earth",
+            "ngoại hành tinh",
+            "hành tinh đá",
+            "khối lượng lớn"
+        ],
+        "illustration_prompt": "conceptual image comparing the size of a Super-Earth to Earth and Neptune"
+    },
+    {
+        "id": 107,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Phương pháp Vận tốc Xuyên tâm (Radial Velocity) để tìm Ngoại hành tinh là gì?",
+        "answer": "Phương pháp này tìm kiếm sự 'lung lay' của ngôi sao. Khi một hành tinh quay quanh ngôi sao, lực hấp dẫn của nó khiến ngôi sao cũng **dao động qua lại** một chút. Sự dao động này được phát hiện bằng cách đo sự dịch chuyển đỏ và dịch chuyển xanh của ánh sáng sao.",
+        "tags": [
+            "vận tốc xuyên tâm",
+            "radial velocity",
+            "ngoại hành tinh",
+            "dao động",
+            "dịch chuyển đỏ xanh"
+        ],
+        "illustration_prompt": "conceptual diagram showing a star subtly moving back and forth due to the gravitational pull of an orbiting planet, observed via redshift and blueshift"
+    },
+    {
+        "id": 108,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Lùn Trắng Phục Sinh (Reborn White Dwarf) là gì?",
+        "answer": "Là hiện tượng xảy ra trong một số hệ sao đôi, khi một Sao Lùn Trắng đã nguội đi, nhưng do hút vật chất từ sao đồng hành, nó đạt được khối lượng đủ để **tổng hợp lại Carbon và Oxy** ở bề mặt. Điều này khiến nó sáng lên, trở thành một ngôi sao Khổng lồ Đỏ mới trong thời gian ngắn.",
+        "tags": [
+            "sao lùn trắng phục sinh",
+            "reborn",
+            "tổng hợp carbon",
+            "sao đôi",
+            "hiếm"
+        ],
+        "illustration_prompt": "conceptual diagram showing a white dwarf regaining its red giant characteristics after accreting mass from its companion"
+    },
+    {
+        "id": 109,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hố Đen Primordial (Primordial Black Hole) là gì?",
+        "answer": "Là những lỗ đen **lý thuyết** được cho là đã hình thành **ngay sau Big Bang**, không phải từ sự sụp đổ của một ngôi sao. Chúng có thể có khối lượng từ cực nhỏ (kích thước vi mô) đến siêu khối và có thể là một phần của Vật chất Tối.",
+        "tags": [
+            "lỗ đen primordial",
+            "primordial black hole",
+            "sơ khai",
+            "big bang",
+            "vật chất tối"
+        ],
+        "illustration_prompt": "conceptual diagram showing a tiny black hole formed in the extremely dense early universe"
+    },
+    {
+        "id": 110,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Thiên hà Mờ tối (Dark Galaxy) là gì?",
+        "answer": "Là một loại thiên hà **lý thuyết** được cho là chỉ bao gồm **Vật chất Tối và khí Hydro**, với rất ít hoặc không có ngôi sao nhìn thấy được. Chúng được cho là những khối xây dựng của các thiên hà lớn hơn, nhưng khó phát hiện do thiếu ánh sáng.",
+        "tags": [
+            "thiên hà mờ tối",
+            "dark galaxy",
+            "lý thuyết",
+            "vật chất tối",
+            "khí hydro"
+        ],
+        "illustration_prompt": "conceptual image showing a large, invisible cloud of gas and dark matter with no visible stars"
+    },
+    {
+        "id": 111,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Chùm Tia Phổ Biến (Cosmic Strings) là gì?",
+        "answer": "Là những **khiếm khuyết cấu trúc lý thuyết** (theoretical structural defects) có thể đã hình thành trong Vũ trụ sơ khai sau Lạm phát. Chúng là những sợi năng lượng cực kỳ mỏng, đơn chiều (1D) trải dài xuyên qua Vũ trụ và có thể tạo ra các hiệu ứng hấp dẫn mạnh mẽ (chưa được xác nhận).",
+        "tags": [
+            "chùm tia phổ biến",
+            "cosmic strings",
+            "khiếm khuyết cấu trúc",
+            "lý thuyết",
+            "lạm phát"
+        ],
+        "illustration_prompt": "conceptual diagram showing thin, thread-like structures stretching across the early universe"
+    },
+    {
+        "id": 112,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao chổi Interstellar (Interstellar Comet) là gì?",
+        "answer": "Là một sao chổi **không có nguồn gốc từ Hệ Mặt Trời** của chúng ta. Nó được hình thành xung quanh một ngôi sao khác, sau đó bị đẩy ra không gian liên sao và đang đi qua Hệ Mặt Trời của chúng ta. Vật thể đầu tiên được xác nhận là sao chổi liên sao là **2I/Borisov**.",
+        "tags": [
+            "sao chổi interstellar",
+            "2i/borisov",
+            "không hệ mặt trời",
+            "liên sao",
+            "thiên thể"
+        ],
+        "illustration_prompt": "conceptual image showing a comet with a visible tail passing through the outer part of the solar system, traveling on a non-orbital path"
+    },
+    {
+        "id": 113,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hiệu ứng Shapiro (Shapiro Delay) là gì?",
+        "answer": "Đây là một thử nghiệm của Thuyết Tương đối rộng, trong đó **ánh sáng hoặc sóng vô tuyến bị chậm lại** một chút khi đi qua một trường hấp dẫn mạnh mẽ (như Mặt Trời). Sự chậm trễ này xảy ra do Không-Thời gian bị cong khi có khối lượng lớn.",
+        "tags": [
+            "hiệu ứng shapiro",
+            "shapiro delay",
+            "tương đối rộng",
+            "chậm ánh sáng",
+            "hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual diagram showing a light beam taking a slightly longer, curved path and slowing down as it passes a massive object like the Sun"
+    },
+    {
+        "id": 114,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Hành tinh Hycean (Hycean Planet) là gì?",
+        "answer": "Là một loại **Ngoại hành tinh lý thuyết** được cho là có khả năng hỗ trợ sự sống. Chúng là những hành tinh lớn hơn Trái Đất, có **Bầu khí quyển giàu Hydro** khổng lồ và được bao phủ bởi **Đại dương nước lỏng** sâu dưới bề mặt.",
+        "tags": [
+            "hành tinh hycean",
+            "hycean planet",
+            "bầu khí quyển hydro",
+            "đại dương nước lỏng",
+            "ngoại hành tinh"
+        ],
+        "illustration_prompt": "conceptual image showing a large, cloudy exoplanet with a massive hydrogen atmosphere and a deep, liquid water ocean"
+    },
+    {
+        "id": 115,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Thiên hà Mặc áo choàng (Veil Galaxy) là gì?",
+        "answer": "Là một thuật ngữ không chính thức, thường dùng để chỉ **Tàn dư Siêu tân tinh Veil** (Veil Supernova Remnant). Đây là phần còn sót lại của một ngôi sao lớn đã phát nổ khoảng 8.000 năm trước. Nó nổi bật với các sợi khí mỏng manh, phức tạp, tạo thành một 'tấm mạng' rực rỡ.",
+        "tags": [
+            "thiên hà mặc áo choàng",
+            "veil galaxy",
+            "tàn dư siêu tân tinh",
+            "sợi khí",
+            "phát nổ"
+        ],
+        "illustration_prompt": "conceptual image of the Veil Nebula, showing its delicate, thread-like gas structures glowing in space"
+    },
+    {
+        "id": 116,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Lùn Trắng (White Dwarf) có thể biến thành Siêu tân tinh (Supernova) không?",
+        "answer": "Có. Nếu Sao Lùn Trắng là một phần của hệ sao đôi và hút đủ vật chất từ sao đồng hành để **vượt qua Giới hạn Chandrasekhar** (1.4 khối lượng Mặt Trời), nó sẽ kích hoạt phản ứng tổng hợp carbon không kiểm soát và phát nổ thành **Siêu tân tinh Loại Ia**.",
+        "tags": [
+            "sao lùn trắng",
+            "siêu tân tinh",
+            "giới hạn chandrasekhar",
+            "sao đôi",
+            "loại ia"
+        ],
+        "illustration_prompt": "conceptual diagram showing a white dwarf accreting mass from its companion until it detonates in a Type Ia Supernova explosion"
+    },
+    {
+        "id": 117,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Độ Sáng Eddington (Eddington Luminosity) là gì?",
+        "answer": "Là giới hạn lý thuyết về **độ sáng tối đa** mà một vật thể (như một ngôi sao hoặc Quasar) có thể đạt được. Nếu vật thể phát ra quá nhiều ánh sáng, áp suất bức xạ sẽ lớn hơn lực hấp dẫn, làm cho vật chất bên ngoài bị **thổi bay** vào không gian.",
+        "tags": [
+            "độ sáng eddington",
+            "eddington luminosity",
+            "giới hạn",
+            "áp suất bức xạ",
+            "lực hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual diagram showing a star where the outward pressure of radiation is so high it begins to push away the outer layers of the star"
+    },
+    {
+        "id": 118,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Cổng Ngân Hà (Galactic Center) khác biệt thế nào?",
+        "answer": "Trung tâm Dải Ngân Hà là nơi có mật độ sao cao nhất và chứa **Lỗ Đen siêu khối** của chúng ta (Sagittarius A*). Đây là một vùng cực kỳ hoạt động, đầy khí nóng, tia X, và các vụ bùng phát năng lượng do vật chất rơi vào Lỗ Đen.",
+        "tags": [
+            "cổng ngân hà",
+            "galactic center",
+            "sagittarius a",
+            "lỗ đen siêu khối",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual image of the dense, bright, and active core of the Milky Way galaxy"
+    },
+    {
+        "id": 119,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Sao Thùy tinh (Mercury-like Exoplanet) là gì?",
+        "answer": "Là một loại Ngoại hành tinh được cho là có **lõi kim loại lớn** và rất ít hoặc không có lớp vỏ ngoài. Chúng có thể là kết quả của các vụ va chạm thiên thể dữ dội hoặc sự 'bóc vỏ' của các lớp khí bên ngoài do bức xạ cực mạnh của ngôi sao mẹ.",
+        "tags": [
+            "sao thủy tinh",
+            "mercury-like",
+            "lõi kim loại lớn",
+            "ngoại hành tinh",
+            "bóc vỏ"
+        ],
+        "illustration_prompt": "conceptual diagram showing a small, dense exoplanet with a disproportionately large iron core"
+    },
+    {
+        "id": 120,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Hiện tượng vũ trụ đặc biệt",
+        "question": "Phản ứng Tổng hợp Hạt nhân Gây nổ (Explosive Nucleosynthesis) là gì?",
+        "answer": "Là quá trình tạo ra các nguyên tố nặng xảy ra trong điều kiện cực đoan của **vụ nổ Siêu tân tinh** hoặc **Kilonova**. Nhiệt độ và áp suất cực cao trong vài giây của vụ nổ cho phép tạo ra các nguyên tố nặng hơn sắt (như Vàng, Chì và Uran) một cách nhanh chóng.",
+        "tags": [
+            "phản ứng gây nổ",
+            "explosive nucleosynthesis",
+            "siêu tân tinh",
+            "kilonova",
+            "nguyên tố nặng hơn sắt",
+            "uran"
+        ],
+        "illustration_prompt": "conceptual diagram showing various heavy elements being rapidly forged and then scattered in the violent conditions of a supernova explosion"
+    },
+    {
+        "id": 121,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Phổ Điện từ (Electromagnetic Spectrum) bao gồm những gì?",
+        "answer": "Phổ Điện từ là toàn bộ phạm vi bức xạ điện từ, bao gồm các sóng có bước sóng từ dài nhất đến ngắn nhất: **Sóng Radio, Vi sóng, Hồng ngoại, Ánh sáng Khả kiến (Visible), Tia Cực tím (UV), Tia X và Tia Gamma**. Tất cả đều di chuyển với **tốc độ ánh sáng** và mang năng lượng.",
+        "tags": [
+            "phổ điện từ",
+            "electromagnetic spectrum",
+            "tia gamma",
+            "sóng radio",
+            "tốc độ ánh sáng"
+        ],
+        "illustration_prompt": "diagram of the electromagnetic spectrum showing the different types of waves, their wavelengths, and frequencies"
+    },
+    {
+        "id": 122,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ Vi sóng Vũ trụ nền (CMB) có năng lượng gì?",
+        "answer": "CMB là bức xạ nhiệt, năng lượng còn sót lại từ thời kỳ sơ khai của Vũ trụ. Ban đầu nó cực nóng, nhưng do Vũ trụ giãn nở, nó đã bị kéo dãn và nguội đi. Hiện tại, nó chỉ có nhiệt độ khoảng **2.73 độ Kelvin (-270.42 °C)**, tương ứng với sóng Vi sóng.",
+        "tags": [
+            "cmb",
+            "bức xạ nền",
+            "năng lượng sơ khai",
+            "giãn nở",
+            "2.73 kelvin"
+        ],
+        "illustration_prompt": "conceptual image showing the Cosmic Microwave Background radiation as a faint, uniform glow across the entire sky with tiny temperature fluctuations"
+    },
+    {
+        "id": 123,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Năng lượng Tối (Dark Energy) là gì?",
+        "answer": "Năng lượng Tối là một dạng năng lượng bí ẩn, chiếm khoảng **68%** tổng năng lượng của Vũ trụ. Nó hoạt động như một áp suất âm, đẩy không gian ra xa nhau và gây ra sự **giãn nở gia tốc** của Vũ trụ. Bản chất chính xác của nó vẫn là bí ẩn.",
+        "tags": [
+            "năng lượng tối",
+            "dark energy",
+            "68 phần trăm",
+            "giãn nở gia tốc",
+            "áp suất âm"
+        ],
+        "illustration_prompt": "conceptual diagram illustrating dark energy as a force causing the universe's expansion rate to increase over time"
+    },
+    {
+        "id": 124,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Nguồn năng lượng chính của các ngôi sao là gì?",
+        "answer": "Nguồn năng lượng chính của các ngôi sao là **Tổng hợp Hạt nhân** (Nuclear Fusion) Hydro thành Heli ở lõi. Quá trình này chuyển hóa một lượng nhỏ khối lượng thành năng lượng khổng lồ theo công thức $ E = mc^2 $. Mặt Trời của chúng ta chuyển khoảng 4 triệu tấn vật chất thành năng lượng mỗi giây.",
+        "tags": [
+            "tổng hợp hạt nhân",
+            "nuclear fusion",
+            "nguồn năng lượng sao",
+            "e=mc2",
+            "khối lượng thành năng lượng"
+        ],
+        "illustration_prompt": "conceptual diagram showing hydrogen atoms fusing into helium, releasing energy in the star's core"
+    },
+    {
+        "id": 125,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ Đồng bộ (Synchrotron Radiation) là gì?",
+        "answer": "Là bức xạ điện từ được tạo ra khi các **hạt mang điện tích** (thường là electron) di chuyển với tốc độ cực nhanh, gần tốc độ ánh sáng, và bị uốn cong bởi **từ trường** mạnh mẽ. Nó thường được quan sát gần Tàn dư Siêu tân tinh, Pulsar và các Vết phun từ Hố Đen.",
+        "tags": [
+            "bức xạ đồng bộ",
+            "synchrotron radiation",
+            "hạt mang điện tích",
+            "từ trường",
+            "tàn dư siêu tân tinh"
+        ],
+        "illustration_prompt": "conceptual diagram showing a high-speed electron spiraling around a magnetic field line, emitting electromagnetic radiation"
+    },
+    {
+        "id": 126,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Định luật Dịch chuyển Wien (Wien's Displacement Law) nói gì về bức xạ?",
+        "answer": "Định luật này mô tả mối quan hệ giữa **nhiệt độ** của một vật thể và **bước sóng cực đại** của bức xạ mà nó phát ra. Vật thể càng nóng, bước sóng phát xạ cực đại của nó càng ngắn (dịch về phía màu xanh/cực tím) – đó là lý do tại sao các ngôi sao nóng có màu xanh lam.",
+        "tags": [
+            "định luật wien",
+            "wien's law",
+            "nhiệt độ",
+            "bước sóng cực đại",
+            "sao xanh"
+        ],
+        "illustration_prompt": "conceptual graph showing the blackbody radiation curves for objects at different temperatures, illustrating the peak wavelength shifting to shorter wavelengths as temperature increases"
+    },
+    {
+        "id": 127,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Lực hấp dẫn chuyển thành năng lượng ở đâu?",
+        "answer": "Lực hấp dẫn chuyển thành năng lượng (nhiệt và bức xạ) tại **Đĩa Bồi Tụ** (Accretion Disks) quanh Lỗ Đen và Sao Neutron. Khi vật chất rơi vào, lực hấp dẫn làm nó nóng lên cực độ do ma sát và va chạm, phát ra lượng lớn năng lượng, chủ yếu là **Tia X và Tia Gamma**.",
+        "tags": [
+            "lực hấp dẫn",
+            "năng lượng hấp dẫn",
+            "đĩa bồi tụ",
+            "lỗ đen",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual diagram showing gravitational energy being converted into heat and X-rays as gas spirals frictionally into an accretion disk"
+    },
+    {
+        "id": 128,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Hệ số mật độ năng lượng (Energy Density Parameter, Omega) là gì?",
+        "answer": "Hệ số Omega là tỉ lệ giữa **mật độ năng lượng thực tế** của Vũ trụ và **mật độ tới hạn** (critical density). Giá trị Omega = 1 cho thấy Vũ trụ phẳng. Giá trị quan sát được hiện tại gần bằng 1, với Omega = Omega_Vật chất + Omega_Năng lượng Tối + OmegaBức xạ.",
+        "tags": [
+            "hệ số mật độ",
+            "energy density",
+            "mật độ tới hạn",
+            "vũ trụ phẳng",
+            "omega"
+        ],
+        "illustration_prompt": "conceptual diagram showing how the density parameter (Omega) determines the overall curvature and fate of the universe"
+    },
+    {
+        "id": 129,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Sự khác biệt giữa Tia X (X-rays) và Tia Gamma (Gamma Rays) trong không gian là gì?",
+        "answer": "Cả hai đều là bức xạ năng lượng cao, nhưng **Tia Gamma** có **bước sóng ngắn nhất** và **năng lượng cao nhất** (được tạo ra bởi các sự kiện cực đoan như GRB). **Tia X** có bước sóng dài hơn một chút và được tạo ra bởi khí nóng trong các cụm thiên hà hoặc đĩa bồi tụ.",
+        "tags": [
+            "tia x",
+            "tia gamma",
+            "bước sóng ngắn",
+            "năng lượng cao",
+            "grb"
+        ],
+        "illustration_prompt": "diagram comparing the relative wavelengths of X-rays and Gamma Rays within the electromagnetic spectrum"
+    },
+    {
+        "id": 130,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ Hãm (Bremsstrahlung Radiation) là gì?",
+        "answer": "Là bức xạ được tạo ra khi một **hạt mang điện tích** (thường là electron) bị **giảm tốc độ** đột ngột khi đi gần một hạt nhân nguyên tử. Bức xạ Hãm là nguồn gốc chính của Tia X trong Khí nóng ở các Cụm Thiên hà.",
+        "tags": [
+            "bức xạ hãm",
+            "bremsstrahlung",
+            "electron",
+            "giảm tốc độ",
+            "tia x"
+        ],
+        "illustration_prompt": "conceptual diagram showing a fast-moving electron being deflected and slowed down by an atomic nucleus, emitting a photon (X-ray)"
+    },
+    {
+        "id": 131,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Hiệu ứng Sunyaev–Zel'dovich (SZ) là gì?",
+        "answer": "Là sự biến dạng của **Bức xạ Vi sóng Vũ trụ nền (CMB)** khi nó đi qua khí nóng rực (plasma) trong các cụm thiên hà. Các electron trong khí nóng va chạm và truyền năng lượng cho các photon CMB, khiến chúng thay đổi tần số (dịch chuyển xanh).",
+        "tags": [
+            "hiệu ứng sz",
+            "sunyaev zel'dovich",
+            "biến dạng cmb",
+            "khí nóng",
+            "electron"
+        ],
+        "illustration_prompt": "conceptual diagram showing CMB photons passing through the hot gas of a galaxy cluster, receiving a small energy boost (SZ effect)"
+    },
+    {
+        "id": 132,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Làm thế nào năng lượng được truyền đi trong không gian?",
+        "answer": "Năng lượng được truyền chủ yếu qua **Bức xạ** (Radiation) dưới dạng sóng điện từ (ánh sáng, nhiệt, tia X, v.v.). **Đối lưu** và **Dẫn nhiệt** gần như không xảy ra trong không gian chân không. Bức xạ là cách duy nhất để Mặt Trời làm nóng Trái Đất.",
+        "tags": [
+            "truyền năng lượng",
+            "bức xạ",
+            "radiation",
+            "không gian",
+            "chân không"
+        ],
+        "illustration_prompt": "conceptual diagram showing heat and light energy traveling from the sun to the earth exclusively through radiation across the vacuum of space"
+    },
+    {
+        "id": 133,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Áp suất Bức xạ (Radiation Pressure) là gì?",
+        "answer": "Là lực vật lý được tác dụng bởi các **Photon** (hạt ánh sáng) lên một bề mặt. Mặc dù từng photon có khối lượng nghỉ bằng 0, nhưng tổng động lượng lớn của dòng photon có thể tạo ra một lực đẩy đáng kể. Áp suất này có thể thổi bay khí ra khỏi các ngôi sao nóng.",
+        "tags": [
+            "áp suất bức xạ",
+            "radiation pressure",
+            "photon",
+            "lực đẩy",
+            "ngôi sao nóng"
+        ],
+        "illustration_prompt": "conceptual diagram showing photons hitting a surface (like a solar sail or gas cloud) and exerting a small but measurable pushing force"
+    },
+    {
+        "id": 134,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Tính đồng nhất của CMB cho thấy điều gì về năng lượng Vũ trụ sơ khai?",
+        "answer": "Tính đồng nhất đáng kinh ngạc của CMB (chỉ dao động $ 1/100000 $) là bằng chứng mạnh mẽ cho thấy Vũ trụ phải trải qua giai đoạn **Lạm phát Vũ trụ (Inflation)**. Năng lượng trong giai đoạn đó phân bố đồng đều, tạo ra một Vũ trụ phẳng và đồng nhất về nhiệt độ và mật độ năng lượng.",
+        "tags": [
+            "đồng nhất cmb",
+            "lạm phát vũ trụ",
+            "inflation",
+            "năng lượng đồng đều",
+            "vũ trụ phẳng"
+        ],
+        "illustration_prompt": "conceptual diagram showing how cosmic inflation smoothed out the early universe's energy density differences, leading to a uniform CMB"
+    },
+    {
+        "id": 135,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Năng lượng của Lỗ Đen được tính bằng gì?",
+        "answer": "Lỗ Đen có năng lượng khối lượng khổng lồ. Tuy nhiên, nó không tỏa ra năng lượng theo cách thông thường, mà thông qua **Quá trình Penrose** (chiết xuất năng lượng từ Vùng Quay - Ergosphere) hoặc **Bức xạ Hawking** (mất năng lượng do bốc hơi).",
+        "tags": [
+            "năng lượng lỗ đen",
+            "quá trình penrose",
+            "ergosphere",
+            "bức xạ hawking",
+            "bốc hơi"
+        ],
+        "illustration_prompt": "conceptual diagram of a spinning black hole's ergosphere, showing how energy extraction might occur (Penrose process)"
+    },
+    {
+        "id": 136,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Tiêu chuẩn Ω_bức_xạ (Radiation Density) là gì?",
+        "answer": "Đây là mật độ năng lượng dưới dạng photon và neutrino, mặc dù nhỏ so với vật chất và năng lượng tối ngày nay, nó lại là **thành phần thống trị** trong vài chục ngàn năm đầu tiên của Vũ trụ (Thời đại Bức xạ).",
+        "tags": [
+            "mật độ bức xạ",
+            "radiation density",
+            "thời đại bức xạ",
+            "photon",
+            "neutrino"
+        ],
+        "illustration_prompt": "historical timeline diagram of the universe showing the 'Radiation-Dominated Era' followed by the 'Matter-Dominated Era'"
+    },
+    {
+        "id": 137,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ Tia Gamma (Gamma Ray) từ không gian có gây nguy hiểm cho Trái Đất không?",
+        "answer": "Tia Gamma có thể gây nguy hiểm nếu có một vụ **Bùng nổ Tia Gamma (GRB)** xảy ra gần Trái Đất (trong vòng 6.000 năm ánh sáng). Mặc dù bản thân tia gamma bị bầu khí quyển hấp thụ, nhưng chúng có thể phá hủy tầng Ozone, khiến bề mặt Trái Đất tiếp xúc với Tia Cực Tím gây hại.",
+        "tags": [
+            "tia gamma nguy hiểm",
+            "grb",
+            "bầu khí quyển",
+            "tầng ozone",
+            "tia cực tím"
+        ],
+        "illustration_prompt": "conceptual diagram showing a powerful gamma-ray burst from a distant source hitting the Earth's atmosphere and causing a chemical cascade that depletes the ozone layer"
+    },
+    {
+        "id": 138,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ ánh sáng khả kiến (Visible Light) được tạo ra từ đâu?",
+        "answer": "Ánh sáng khả kiến được tạo ra chủ yếu từ **bề mặt của các ngôi sao** thông qua quá trình bức xạ vật thể đen (Blackbody Radiation), và từ các **khí bị ion hóa** trong các Tinh vân Phát xạ khi electron chuyển từ mức năng lượng cao hơn sang mức năng lượng thấp hơn.",
+        "tags": [
+            "ánh sáng khả kiến",
+            "visible light",
+            "bề mặt sao",
+            "tinh vân phát xạ",
+            "blackbody radiation"
+        ],
+        "illustration_prompt": "conceptual diagram showing excited electrons in a gas cloud dropping energy levels and emitting visible light photons"
+    },
+    {
+        "id": 139,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Sao phát ra Hồng ngoại (Infrared) từ đâu?",
+        "answer": "Hồng ngoại (nhiệt) được phát ra từ **các vật thể tương đối mát** trong không gian. Nó thường đến từ các **Đám mây bụi** bị ánh sáng sao làm ấm (nhưng không đủ để phát sáng khả kiến), và từ các Sao Lùn Đỏ mát mẻ và các Hành tinh.",
+        "tags": [
+            "hồng ngoại",
+            "infrared",
+            "đám mây bụi",
+            "sao lùn đỏ",
+            "vật thể mát"
+        ],
+        "illustration_prompt": "conceptual image showing a cloud of cool interstellar dust glowing brightly when observed in infrared light"
+    },
+    {
+        "id": 140,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Các Dòng Phun Tương đối tính (Relativistic Jets) là gì và mang năng lượng gì?",
+        "answer": "Là những luồng **Plasma** cực kỳ mạnh mẽ, tập trung và di chuyển gần **tốc độ ánh sáng** (tương đối tính), bắn ra từ các cực của Lỗ Đen hoặc Sao Neutron hoạt động. Chúng mang năng lượng dưới dạng động năng (Kinetic Energy) và từ trường.",
+        "tags": [
+            "dòng phun tương đối tính",
+            "relativistic jets",
+            "plasma",
+            "tốc độ ánh sáng",
+            "lỗ đen",
+            "động năng"
+        ],
+        "illustration_prompt": "conceptual image showing powerful, narrow jets of plasma shooting perpendicularly out from the accretion disk of a supermassive black hole"
+    },
+    {
+        "id": 141,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Định luật Stefan–Boltzmann nói gì về năng lượng của sao?",
+        "answer": "Định luật này cho biết **tổng năng lượng** (độ sáng) mà một ngôi sao phát ra **tỉ lệ thuận với lũy thừa bậc bốn của nhiệt độ tuyệt đối** L ∝ T^4 và tỉ lệ thuận với diện tích bề mặt. Điều này giải thích tại sao một sự thay đổi nhỏ về nhiệt độ bề mặt lại tạo ra sự khác biệt lớn về độ sáng.",
+        "tags": [
+            "định luật stefan-boltzmann",
+            "năng lượng sao",
+            "độ sáng",
+            "nhiệt độ tuyệt đối"
+        ],
+        "illustration_prompt": "conceptual graph showing the relationship between a star's temperature (T) and its total energy output (L), emphasizing the T^4 relationship"
+    },
+    {
+        "id": 142,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Hiện tượng Ion hóa (Ionization) của khí Hydrogen là gì?",
+        "answer": "Ion hóa xảy ra khi năng lượng bức xạ (thường là **Tia Cực Tím** cường độ cao từ các ngôi sao nóng, trẻ) bắn phá nguyên tử Hydrogen, **tách electron khỏi proton**. Điều này tạo ra plasma Hydrogen (khí ion hóa), tạo thành các Vùng H II (vùng hình thành sao) phát ra ánh sáng đỏ.",
+        "tags": [
+            "ion hóa",
+            "ionization",
+            "tia cực tím",
+            "hydrogen",
+            "plasma",
+            "vùng h ii"
+        ],
+        "illustration_prompt": "conceptual diagram showing an ultraviolet photon hitting a neutral hydrogen atom and ejecting an electron, creating an ion"
+    },
+    {
+        "id": 143,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Hiệu suất chuyển hóa năng lượng của Lỗ Đen cao đến mức nào?",
+        "answer": "Lỗ Đen có hiệu suất chuyển hóa khối lượng thành năng lượng cực kỳ cao. Đĩa bồi tụ của Lỗ Đen có thể chuyển khoảng **10-40%** khối lượng vật chất rơi vào thành năng lượng, so với chỉ **0.7%** trong quá trình tổng hợp hạt nhân của Mặt Trời.",
+        "tags": [
+            "hiệu suất năng lượng",
+            "lỗ đen",
+            "đĩa bồi tụ",
+            "tổng hợp hạt nhân",
+            "mặt trời"
+        ],
+        "illustration_prompt": "conceptual diagram comparing the mass-to-energy conversion efficiency of a nuclear fusion reaction (low) versus a black hole accretion disk (high)"
+    },
+    {
+        "id": 144,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Sự Khác biệt giữa Tia Cực Tím (UV) và Ánh sáng Khả kiến (Visible) là gì?",
+        "answer": "Tia Cực Tím có **bước sóng ngắn hơn** và **năng lượng cao hơn** so với Ánh sáng Khả kiến. Trong Vũ trụ, UV chủ yếu được phát ra bởi **các ngôi sao rất nóng và trẻ**. Ánh sáng khả kiến có bước sóng và năng lượng trung bình, được phát ra bởi các ngôi sao như Mặt Trời.",
+        "tags": [
+            "tia cực tím",
+            "uv",
+            "ánh sáng khả kiến",
+            "bước sóng",
+            "ngôi sao nóng"
+        ],
+        "illustration_prompt": "conceptual diagram showing the section of the electromagnetic spectrum containing UV light next to visible light, emphasizing the difference in wavelength"
+    },
+    {
+        "id": 145,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Áp suất Suy biến (Degeneracy Pressure) đóng vai trò năng lượng gì?",
+        "answer": "Đây là một dạng năng lượng lượng tử, không phụ thuộc vào nhiệt độ, tạo ra một **lực đẩy mạnh mẽ** chống lại lực hấp dẫn. Nó là nguồn năng lượng duy nhất duy trì trạng thái cân bằng của Sao Lùn Trắng (áp suất suy biến electron) và Sao Neutron (áp suất suy biến neutron).",
+        "tags": [
+            "áp suất suy biến",
+            "degeneracy pressure",
+            "năng lượng lượng tử",
+            "sao lùn trắng",
+            "chống sụp đổ"
+        ],
+        "illustration_prompt": "conceptual diagram showing electrons or neutrons packed so tightly that their quantum properties generate an outward pressure"
+    },
+    {
+        "id": 146,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Đám mây Oort (Oort Cloud) phát ra bức xạ gì?",
+        "answer": "Đám mây Oort là một vỏ cầu gồm các vật thể băng giá rất xa bao quanh Hệ Mặt Trời. Vì chúng ở rất xa Mặt Trời và rất lạnh, chúng hầu như không phát ra ánh sáng khả kiến mà chỉ phát ra một lượng nhỏ **bức xạ Hồng ngoại (nhiệt)**.",
+        "tags": [
+            "đám mây oort",
+            "oort cloud",
+            "vật thể băng giá",
+            "hồng ngoại",
+            "nhiệt"
+        ],
+        "illustration_prompt": "conceptual diagram showing the spherical Oort Cloud surrounding the solar system far beyond the planets, emphasizing its cold, dark nature"
+    },
+    {
+        "id": 147,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Sự hủy diệt Vật chất - Phản Vật chất (Matter-Antimatter Annihilation) giải phóng năng lượng gì?",
+        "answer": "Khi một hạt vật chất va chạm với hạt phản vật chất tương ứng của nó, cả hai sẽ **triệt tiêu hoàn toàn** và chuyển toàn bộ khối lượng của chúng thành **năng lượng tinh khiết** dưới dạng bức xạ (chủ yếu là Tia Gamma) theo $ E = mc^2 $. Đây là phản ứng năng lượng hiệu quả nhất được biết đến.",
+        "tags": [
+            "hủy diệt vật chất phản vật chất",
+            "annihilation",
+            "tia gamma",
+            "e=mc2",
+            "năng lượng tinh khiết"
+        ],
+        "illustration_prompt": "conceptual diagram showing a proton colliding with an antiproton, resulting in a burst of gamma-ray energy"
+    },
+    {
+        "id": 148,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Năng lượng Vũ trụ Rỗng (Vacuum Energy/Zero-Point Energy) là gì?",
+        "answer": "Là năng lượng lý thuyết được cho là tồn tại trong cả **không gian trống rỗng (chân không)**. Nó được đề xuất là ứng cử viên cho **Năng lượng Tối**. Tuy nhiên, các nhà vật lý tính toán rằng mật độ năng lượng chân không phải cao hơn mật độ năng lượng tối quan sát được hàng tỷ lần (một trong những vấn đề lớn nhất của vật lý).",
+        "tags": [
+            "năng lượng chân không",
+            "vacuum energy",
+            "zero point energy",
+            "năng lượng tối",
+            "lý thuyết"
+        ],
+        "illustration_prompt": "conceptual diagram showing the vacuum of space, highlighting the idea that even 'empty' space contains fluctuating virtual particles and energy"
+    },
+    {
+        "id": 149,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Bức xạ Nước (Water Maser) là gì?",
+        "answer": "Maser (Microwave Amplification by Stimulated Emission of Radiation) là phiên bản sóng vi sóng của laser. **Maser Nước** là những điểm phát xạ vi sóng rất mạnh, tự nhiên, xảy ra trong các **vùng hình thành sao** khi các phân tử nước được kích thích bởi bức xạ mạnh mẽ của ngôi sao gần đó.",
+        "tags": [
+            "maser nước",
+            "water maser",
+            "vùng hình thành sao",
+            "sóng vi sóng",
+            "phân tử nước"
+        ],
+        "illustration_prompt": "conceptual diagram of a star formation region, highlighting the maser spots where water molecules emit intense microwave radiation"
+    },
+    {
+        "id": 150,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Bức xạ & năng lượng trong vũ trụ",
+        "question": "Sự bảo toàn năng lượng trong Vũ trụ giãn nở có bị vi phạm không?",
+        "answer": "Theo thuyết Tương đối rộng, trong một Vũ trụ giãn nở, năng lượng tổng thể không được bảo toàn theo cách truyền thống. Các Photon (hạt ánh sáng) **mất năng lượng** (dịch chuyển đỏ) khi chúng di chuyển qua không gian đang giãn nở. Năng lượng mất đi không biến thành năng lượng khác, mà chỉ đơn giản là bị 'mất' khỏi hệ thống (theo quan điểm của người quan sát).",
+        "tags": [
+            "bảo toàn năng lượng",
+            "vũ trụ giãn nở",
+            "dịch chuyển đỏ",
+            "photon",
+            "tương đối rộng"
+        ],
+        "illustration_prompt": "conceptual diagram showing a light wave being stretched as it travels through expanding space, losing energy and increasing in wavelength (redshift)"
+    },
+    {
+        "id": 151,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Môi trường Liên sao (Interstellar Medium - ISM) là gì?",
+        "answer": "ISM là vật chất (khí, bụi, và tia vũ trụ) lấp đầy **khoảng trống giữa các ngôi sao** trong một thiên hà. Mặc dù rất loãng, nó là nơi sinh ra các ngôi sao và hành tinh. ISM chủ yếu bao gồm **Hydro** và **Heli**, cùng với một lượng nhỏ bụi.",
+        "tags": [
+            "môi trường liên sao",
+            "interstellar medium",
+            "khí bụi",
+            "hydro",
+            "heli",
+            "sinh sao"
+        ],
+        "illustration_prompt": "conceptual image showing the faint, wispy gas and dust that exists between stars in a galaxy"
+    },
+    {
+        "id": 152,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Các Đám mây Phân tử (Molecular Clouds) có vai trò gì?",
+        "answer": "Đây là những vùng **lạnh nhất và đậm đặc nhất** trong ISM. Chúng đủ lạnh (dưới $ 10 $ Kelvin) để các nguyên tử kết hợp thành **phân tử** (chủ yếu là Hydro phân tử, $ H_2 $). Đây là những **vườn ươm sao** chính, nơi các ngôi sao và hệ hành tinh mới được hình thành.",
+        "tags": [
+            "đám mây phân tử",
+            "molecular clouds",
+            "lạnh",
+            "đậm đặc",
+            "h2",
+            "vườn ươm sao"
+        ],
+        "illustration_prompt": "conceptual image of a large, dark, and dense molecular cloud where star formation is beginning"
+    },
+    {
+        "id": 153,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Sự Khác biệt giữa Tinh vân Phát xạ (Emission) và Tinh vân Phản xạ (Reflection) là gì?",
+        "answer": "* **Phát xạ (Đỏ/Hồng):** Khí được ion hóa bởi bức xạ UV từ các ngôi sao nóng gần đó, khiến chúng **tự phát ra ánh sáng** khả kiến (chủ yếu là màu đỏ từ Hydrogen). * **Phản xạ (Xanh Lam):** Bụi trong tinh vân chỉ đơn thuần **phản chiếu** ánh sáng từ các ngôi sao gần đó. Chúng thường có màu xanh lam vì bụi tán xạ ánh sáng xanh tốt hơn ánh sáng đỏ.",
+        "tags": [
+            "tinh vân phát xạ",
+            "tinh vân phản xạ",
+            "emission",
+            "reflection",
+            "ion hóa",
+            "tán xạ"
+        ],
+        "illustration_prompt": "conceptual image comparing a pink/red emission nebula with a blue reflection nebula, showing the light source and gas/dust composition"
+    },
+    {
+        "id": 154,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Hiện tượng Quá đỏ Liên sao (Interstellar Reddening) là gì?",
+        "answer": "Là hiệu ứng do **bụi liên sao** gây ra. Bụi này chặn và tán xạ ánh sáng xanh hiệu quả hơn ánh sáng đỏ, khiến ánh sáng của các ngôi sao ở xa đến mắt chúng ta bị **đổi màu sang màu đỏ** hơn mức nhiệt độ thực tế của chúng.",
+        "tags": [
+            "quá đỏ liên sao",
+            "reddening",
+            "bụi liên sao",
+            "tán xạ",
+            "ánh sáng xanh"
+        ],
+        "illustration_prompt": "conceptual diagram showing light from a distant star passing through an interstellar dust cloud, where blue light is scattered away and only red light reaches the observer"
+    },
+    {
+        "id": 155,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vật chất Tối (Dark Matter) chiếm bao nhiêu phần trăm vật chất trong Vũ trụ?",
+        "answer": "Vật chất Tối chiếm khoảng **85%** tổng khối lượng vật chất trong Vũ trụ, và khoảng **27%** tổng năng lượng/vật chất. Vật chất thông thường ('baryonic' - tất cả những thứ chúng ta thấy) chỉ chiếm khoảng 15% vật chất và 5% tổng năng lượng.",
+        "tags": [
+            "vật chất tối",
+            "dark matter",
+            "85 phần trăm vật chất",
+            "27 phần trăm tổng",
+            "baryonic"
+        ],
+        "illustration_prompt": "pie chart showing the relative composition of the universe's energy density: 5% ordinary matter, 27% dark matter, 68% dark energy"
+    },
+    {
+        "id": 156,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Bằng chứng chính cho sự tồn tại của Vật chất Tối là gì?",
+        "answer": "Bằng chứng mạnh mẽ nhất là **Đường cong Quay của Thiên hà** (Galaxy Rotation Curves). Các ngôi sao và khí ở rìa ngoài của thiên hà quay nhanh hơn nhiều so với dự đoán dựa trên khối lượng vật chất nhìn thấy được. Điều này chỉ có thể xảy ra nếu có thêm một khối lượng vô hình (Vật chất Tối) phân bố rộng rãi.",
+        "tags": [
+            "đường cong quay",
+            "rotation curves",
+            "vật chất tối",
+            "khối lượng vô hình",
+            "thiên hà"
+        ],
+        "illustration_prompt": "graph comparing the predicted galaxy rotation curve based on visible matter versus the observed curve, showing the need for dark matter"
+    },
+    {
+        "id": 157,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Thấu kính Hấp dẫn (Gravitational Lensing) chứng minh Vật chất Tối như thế nào?",
+        "answer": "Khi quan sát các cụm thiên hà, chúng ta thấy ánh sáng từ các thiên hà phía sau bị bẻ cong **mạnh hơn** so với dự kiến từ khối lượng nhìn thấy. Sự bẻ cong này, gây ra bởi **tổng khối lượng** của cụm, xác nhận rằng hầu hết khối lượng (Vật chất Tối) ở đó là vô hình.",
+        "tags": [
+            "thấu kính hấp dẫn",
+            "gravitational lensing",
+            "vật chất tối",
+            "bẻ cong ánh sáng",
+            "cụm thiên hà"
+        ],
+        "illustration_prompt": "conceptual diagram of a galaxy cluster showing the visible galaxies and the inferred massive, invisible dark matter halo that causes the strong gravitational lensing effect"
+    },
+    {
+        "id": 158,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vật chất Tối khác Vật chất Thường (Baryonic Matter) ở điểm nào?",
+        "answer": "Vật chất Tối là **không-baryonic** (Non-baryonic), nghĩa là nó không được tạo thành từ proton và neutron như chúng ta. Nó **không tương tác** với ánh sáng (không phát xạ, hấp thụ hay phản xạ) và chỉ tương tác với vật chất khác thông qua **lực hấp dẫn** và có thể là Lực Hạt nhân Yếu.",
+        "tags": [
+            "không baryonic",
+            "non-baryonic",
+            "không tương tác ánh sáng",
+            "lực hấp dẫn",
+            "vật chất tối"
+        ],
+        "illustration_prompt": "conceptual diagram contrasting an ordinary matter atom (interacting with light) with a dark matter particle (only interacting via gravity)"
+    },
+    {
+        "id": 159,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "WIMPs là gì, và tại sao chúng là ứng cử viên hàng đầu cho Vật chất Tối?",
+        "answer": "WIMPs là viết tắt của **Weakly Interacting Massive Particles** (Hạt lớn tương tác yếu). Chúng là hạt **lý thuyết** có khối lượng, di chuyển tương đối chậm và chỉ tương tác thông qua lực hấp dẫn và lực yếu. Mô hình Vũ trụ lạnh (CDM) dự đoán sự tồn tại của WIMPs để giải thích cấu trúc thiên hà.",
+        "tags": [
+            "wimps",
+            "hạt lớn tương tác yếu",
+            "lý thuyết",
+            "lực yếu",
+            "cdm",
+            "ứng cử viên"
+        ],
+        "illustration_prompt": "conceptual diagram showing a WIMP particle passing straight through the Earth with very rare chance of interaction with an ordinary atom"
+    },
+    {
+        "id": 160,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Năng lượng Tối (Dark Energy) chiếm bao nhiêu phần trăm tổng năng lượng/vật chất Vũ trụ?",
+        "answer": "Năng lượng Tối là thành phần chiếm ưu thế nhất, khoảng **68%** tổng năng lượng/vật chất của Vũ trụ. Đây là động lực cho sự **giãn nở gia tốc** của Vũ trụ. Cả Năng lượng Tối và Vật chất Tối cộng lại chiếm khoảng 95% tổng Vũ trụ.",
+        "tags": [
+            "năng lượng tối",
+            "dark energy",
+            "68 phần trăm",
+            "giãn nở gia tốc",
+            "thành phần thống trị"
+        ],
+        "illustration_prompt": "pie chart showing the total composition of the Universe: 5% ordinary matter, 27% dark matter, and 68% dark energy"
+    },
+    {
+        "id": 161,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Bằng chứng chính cho sự tồn tại của Năng lượng Tối là gì?",
+        "answer": "Bằng chứng chính đến từ việc quan sát các **Siêu tân tinh Loại Ia** (Type Ia Supernovae) ở xa. Các siêu tân tinh này cho thấy các thiên hà ở xa đang **di chuyển ra xa chúng ta nhanh hơn** so với dự kiến. Sự giãn nở gia tốc này được quy cho Năng lượng Tối.",
+        "tags": [
+            "siêu tân tinh loại ia",
+            "type ia supernova",
+            "giãn nở gia tốc",
+            "bằng chứng",
+            "năng lượng tối"
+        ],
+        "illustration_prompt": "conceptual graph showing the measured brightness (and thus distance) of distant Type Ia supernovae compared to the redshift, demonstrating the accelerated expansion"
+    },
+    {
+        "id": 162,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Năng lượng Tối được phân bố trong Vũ trụ như thế nào?",
+        "answer": "Năng lượng Tối được cho là có **mật độ đồng nhất** và **hằng số** trong toàn bộ không-thời gian. Nó không tụ lại thành cụm như vật chất và vật chất tối mà có mặt ở khắp mọi nơi, bao gồm cả không gian trống rỗng.",
+        "tags": [
+            "phân bố đồng nhất",
+            "mật độ hằng số",
+            "khắp mọi nơi",
+            "không thời gian",
+            "năng lượng tối"
+        ],
+        "illustration_prompt": "conceptual diagram showing dark energy evenly distributed throughout the fabric of space, contrasting with dark matter which clumps into halos"
+    },
+    {
+        "id": 163,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Không gian Liên sao có nhiệt độ như thế nào?",
+        "answer": "Nhiệt độ của ISM rất đa dạng: * **Các đám mây phân tử lạnh** (nơi sinh sao) có thể chỉ lạnh **10 K** (-263 °C). * **Vùng Khí Hydro trung tính (H I)** khoảng **100 K**. * **Vùng Khí bị ion hóa (H II)** có thể đạt **10,000 K**. * **Khí siêu nóng** trong Vòng hào quang thiên hà có thể lên đến **hàng triệu K**.",
+        "tags": [
+            "nhiệt độ ism",
+            "đám mây phân tử",
+            "h i",
+            "h ii",
+            "hàng triệu k"
+        ],
+        "illustration_prompt": "conceptual diagram showing different components of the interstellar medium (cold clouds, warm gas, hot gas) and their relative temperatures"
+    },
+    {
+        "id": 164,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vai trò của Bụi Liên sao (Interstellar Dust) trong sinh học vũ trụ (Astrobiology) là gì?",
+        "answer": "Bụi liên sao không chỉ là vật liệu hình thành hành tinh mà còn chứa các **phân tử hữu cơ phức tạp** (như PAH - Polycyclic Aromatic Hydrocarbons). Chúng có thể hoạt động như 'mặt phẳng xúc tác' để các nguyên tử kết hợp thành các khối xây dựng sự sống, sau đó được vận chuyển đến các hệ hành tinh mới.",
+        "tags": [
+            "bụi liên sao",
+            "astrobiology",
+            "phân tử hữu cơ",
+            "pah",
+            "sự sống"
+        ],
+        "illustration_prompt": "conceptual diagram showing complex organic molecules forming on the surface of an interstellar dust grain"
+    },
+    {
+        "id": 165,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Bằng chứng từ Nền Vi sóng Vũ trụ (CMB) nói gì về Vật chất Tối?",
+        "answer": "Sự **dao động nhiệt độ** cực nhỏ trong CMB cho thấy các hạt giống (seeds) mật độ vật chất trong Vũ trụ sơ khai. Mô hình máy tính cho thấy các hạt giống này **quá lớn** để chỉ có thể được tạo ra bởi vật chất thông thường. Điều này xác nhận rằng Vật chất Tối phải tồn tại để cung cấp thêm khối lượng hấp dẫn.",
+        "tags": [
+            "dao động cmb",
+            "seeds mật độ",
+            "vật chất tối",
+            "vũ trụ sơ khai",
+            "hấp dẫn"
+        ],
+        "illustration_prompt": "conceptual image showing the tiny temperature fluctuations in the CMB map, which are used to infer the presence of dark matter seeds"
+    },
+    {
+        "id": 166,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Các Bong bóng Địa phương (Local Bubble) là gì?",
+        "answer": "Là một khu vực rộng lớn, hình bong bóng, chứa **khí siêu nóng, mật độ thấp** trong ISM, bao quanh Hệ Mặt Trời của chúng ta (khoảng 300 năm ánh sáng). Nó được tạo ra bởi các **vụ nổ siêu tân tinh** xảy ra trong vài triệu năm qua, đẩy khí lạnh ra xa.",
+        "tags": [
+            "bong bóng địa phương",
+            "local bubble",
+            "khí siêu nóng",
+            "siêu tân tinh",
+            "hệ mặt trời"
+        ],
+        "illustration_prompt": "conceptual diagram showing the solar system located inside a large, irregularly shaped region of hot, low-density gas"
+    },
+    {
+        "id": 167,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vòng hào quang Vật chất Tối (Dark Matter Halo) có hình dạng như thế nào?",
+        "answer": "Vòng hào quang Vật chất Tối được mô hình hóa là một cấu trúc có hình dạng **gần như hình elip (bầu dục)**, hoặc **hình trứng** (prolate/oblate), chứ không phải hình cầu hoàn hảo. Nó lan rộng ra ngoài giới hạn của thiên hà nhìn thấy được hàng trăm nghìn năm ánh sáng và kiểm soát động lực của thiên hà.",
+        "tags": [
+            "vòng hào quang vật chất tối",
+            "dark matter halo",
+            "hình elip",
+            "kiểm soát động lực"
+        ],
+        "illustration_prompt": "conceptual diagram showing a visible spiral galaxy embedded within a much larger, elongated, and invisible dark matter halo"
+    },
+    {
+        "id": 168,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Các mô hình Vật chất Tối Lạnh (CDM) và Vật chất Tối Nóng (HDM) khác nhau như thế nào?",
+        "answer": "Sự khác biệt nằm ở **tốc độ** của các hạt Vật chất Tối: * **CDM (Lạnh):** Hạt di chuyển **chậm** (như WIMPs). Mô hình này khớp tốt với sự hình thành của các cấu trúc thiên hà nhỏ. * **HDM (Nóng):** Hạt di chuyển **nhanh** (như neutrino khối lượng nhỏ). Mô hình này không phù hợp vì nó phá hủy các cấu trúc nhỏ trong Vũ trụ sơ khai.",
+        "tags": [
+            "vật chất tối lạnh",
+            "vật chất tối nóng",
+            "cdm",
+            "hdm",
+            "tốc độ hạt",
+            "wimps"
+        ],
+        "illustration_prompt": "conceptual diagram illustrating the difference between fast-moving (Hot) dark matter particles and slow-moving (Cold) dark matter particles"
+    },
+    {
+        "id": 169,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Năng lượng Tối liên quan đến Năng lượng Chân không (Vacuum Energy) như thế nào?",
+        "answer": "Năng lượng Chân không là khái niệm từ cơ học lượng tử, cho rằng ngay cả không gian trống rỗng cũng có năng lượng vốn có. Nhiều nhà khoa học tin rằng Năng lượng Tối chính là **biểu hiện vũ trụ** của Năng lượng Chân không. Tuy nhiên, tính toán lý thuyết về mật độ năng lượng chân không cao hơn hàng tỷ lần so với Năng lượng Tối quan sát được.",
+        "tags": [
+            "năng lượng chân không",
+            "vacuum energy",
+            "năng lượng tối",
+            "cơ học lượng tử",
+            "mật độ"
+        ],
+        "illustration_prompt": "conceptual diagram showing the link between vacuum energy (from quantum fluctuations) and dark energy (driving cosmic expansion)"
+    },
+    {
+        "id": 170,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vận tốc Tối (Dark Flow) là gì?",
+        "answer": "Là một **hiện tượng gây tranh cãi** được đề xuất để mô tả chuyển động 'đồng loạt' không giải thích được của các cụm thiên hà lớn. Lực hút có thể đến từ một vùng **bên ngoài Vũ trụ khả kiến** của chúng ta, nhưng hiện tượng này không được giới khoa học chấp nhận rộng rãi.",
+        "tags": [
+            "vận tốc tối",
+            "dark flow",
+            "chuyển động đồng loạt",
+            "vũ trụ khả kiến",
+            "tranh cãi"
+        ],
+        "illustration_prompt": "conceptual diagram showing a large section of the visible universe's galaxy clusters all moving in a consistent, bulk direction"
+    },
+    {
+        "id": 171,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Các Tia Vũ trụ (Cosmic Rays) tương tác với ISM như thế nào?",
+        "answer": "Các Tia Vũ trụ (hạt mang năng lượng cao) va chạm với các nguyên tử khí và bụi trong ISM, gây ra sự **ion hóa** và **phát ra bức xạ Gamma**. Sự tương tác này giúp các nhà khoa học vẽ bản đồ mật độ khí và từ trường của ISM.",
+        "tags": [
+            "tia vũ trụ",
+            "cosmic rays",
+            "ism",
+            "ion hóa",
+            "bức xạ gamma",
+            "từ trường"
+        ],
+        "illustration_prompt": "conceptual diagram showing a high-energy cosmic ray particle colliding with a hydrogen atom in the interstellar medium"
+    },
+    {
+        "id": 172,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Hạt Axion là gì, và nó liên quan đến Vật chất Tối như thế nào?",
+        "answer": "Axion là một hạt **lý thuyết** có khối lượng rất nhỏ. Nó được đề xuất để giải quyết một vấn đề trong Sắc động lực học lượng tử (QCD). Nếu tồn tại, Axion sẽ tương tác rất yếu và có thể là một thành phần quan trọng của **Vật chất Tối Lạnh**.",
+        "tags": [
+            "axion",
+            "hạt lý thuyết",
+            "vật chất tối lạnh",
+            "khối lượng nhỏ",
+            "qcd"
+        ],
+        "illustration_prompt": "conceptual diagram showing a cloud of extremely low-mass axion particles distributed across a region of space"
+    },
+    {
+        "id": 173,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Đám mây tốc độ cao (High-Velocity Clouds - HVCs) là gì?",
+        "answer": "Là những đám mây khí Hydrogen lớn có **tốc độ khác biệt** với sự quay của thiên hà và thường được tìm thấy trong Vòng hào quang Dải Ngân Hà. Chúng có thể là tàn dư từ sự hình thành thiên hà hoặc vật chất từ các thiên hà lùn lân cận đang rơi vào Dải Ngân Hà.",
+        "tags": [
+            "đám mây tốc độ cao",
+            "hvc",
+            "khí hydrogen",
+            "vòng hào quang",
+            "tốc độ khác biệt"
+        ],
+        "illustration_prompt": "conceptual diagram showing large clouds of high-velocity neutral hydrogen gas orbiting or falling into the halo of the Milky Way galaxy"
+    },
+    {
+        "id": 174,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Kết thúc 'Big Rip' (Vụ Xé Lớn) do Năng lượng Tối là gì?",
+        "answer": "Là một kịch bản **lý thuyết** về kết thúc Vũ trụ, trong đó Năng lượng Tối trở nên mạnh mẽ đến mức vượt qua tất cả các lực hấp dẫn khác. Nó sẽ không chỉ xé các thiên hà ra xa nhau, mà còn xé các cụm sao, hành tinh, và cuối cùng là **tự xé toạc các nguyên tử**.",
+        "tags": [
+            "big rip",
+            "vụ xé lớn",
+            "năng lượng tối",
+            "xé toạc nguyên tử",
+            "kịch bản kết thúc"
+        ],
+        "illustration_prompt": "conceptual diagram showing the ultimate fate of the universe where all structures, down to atoms, are torn apart by dark energy"
+    },
+    {
+        "id": 175,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vai trò của Sốc sóng (Shockwaves) trong ISM là gì?",
+        "answer": "Sốc sóng, thường được tạo ra bởi **Siêu tân tinh** hoặc **gió sao mạnh mẽ**, truyền qua ISM. Chúng nén khí và bụi, gây ra sự **sụp đổ hấp dẫn** và **kích hoạt** sự hình thành các ngôi sao mới trong các đám mây phân tử.",
+        "tags": [
+            "sốc sóng",
+            "shockwaves",
+            "siêu tân tinh",
+            "nén khí",
+            "kích hoạt sinh sao"
+        ],
+        "illustration_prompt": "conceptual image showing a shockwave expanding from a supernova explosion and impacting a nearby molecular cloud, triggering new star formation"
+    },
+    {
+        "id": 176,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Chúng ta có thể thấy Vật chất Tối bằng kính viễn vọng không?",
+        "answer": "Không. Theo định nghĩa, Vật chất Tối không phát ra, hấp thụ hoặc phản xạ bất kỳ dạng bức xạ điện từ nào (ánh sáng). Chúng ta chỉ có thể **suy ra** sự tồn tại và vị trí của nó bằng cách quan sát **tác động hấp dẫn** mà nó gây ra đối với vật chất thông thường và ánh sáng.",
+        "tags": [
+            "vật chất tối",
+            "kính viễn vọng",
+            "tác động hấp dẫn",
+            "vô hình",
+            "không bức xạ"
+        ],
+        "illustration_prompt": "conceptual image showing a dark, transparent web of dark matter inferred by gravity, overlaid on the visible galaxies"
+    },
+    {
+        "id": 177,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Làm thế nào Vật chất Tối ảnh hưởng đến Bức xạ Vi sóng Vũ trụ nền (CMB)?",
+        "answer": "Vật chất Tối cung cấp các 'hố' hấp dẫn sớm. Các Photon CMB phải thoát ra khỏi các hố này, khiến chúng mất năng lượng và gây ra những **điểm lạnh** nhẹ trong bản đồ CMB. Mẫu của các điểm nóng/lạnh này xác nhận mật độ và phân bố của Vật chất Tối.",
+        "tags": [
+            "cmg",
+            "vật chất tối",
+            "điểm lạnh",
+            "hố hấp dẫn",
+            "mẫu phân bố"
+        ],
+        "illustration_prompt": "conceptual image showing how the gravitational potential of dark matter clumps influences the temperature spots (hot and cold) observed in the CMB map"
+    },
+    {
+        "id": 178,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Sóng Radio (Radio Waves) được tạo ra trong ISM như thế nào?",
+        "answer": "Sóng radio được tạo ra trong ISM, thường là từ các luồng điện tử (electron) di chuyển chậm hơn tạo ra bức xạ Đồng bộ. Quan trọng hơn, chúng đến từ **sự chuyển tiếp Spin** của nguyên tử **Hydrogen trung tính (H I)**. Tần số 21 cm (1420 MHz) này là công cụ chính để lập bản đồ các đám mây khí trong thiên hà.",
+        "tags": [
+            "sóng radio",
+            "hydrogen trung tính",
+            "h i",
+            "chuyển tiếp spin",
+            "21 cm",
+            "lập bản đồ"
+        ],
+        "illustration_prompt": "conceptual diagram showing the spin-flip transition of a neutral hydrogen atom's electron, releasing a 21 cm radio photon"
+    },
+    {
+        "id": 179,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Vật chất Tối và Năng lượng Tối khác nhau về vai trò như thế nào?",
+        "answer": "* **Vật chất Tối:** Tạo ra **lực hấp dẫn** (lực hút). Nó làm chậm sự giãn nở và giúp vật chất **tụ lại** thành thiên hà và cụm thiên hà. * **Năng lượng Tối:** Tạo ra **áp suất âm** (lực đẩy). Nó thúc đẩy sự **giãn nở gia tốc** của không gian.",
+        "tags": [
+            "vật chất tối",
+            "năng lượng tối",
+            "lực hút",
+            "lực đẩy",
+            "giãn nở gia tốc"
+        ],
+        "illustration_prompt": "conceptual diagram contrasting dark matter pulling structures together (gravity) and dark energy pushing space apart (expansion)"
+    },
+    {
+        "id": 180,
+        "category": "Vũ trụ nâng cao",
+        "sub_category": "Không gian liên sao & vật chất tối / năng lượng tối",
+        "question": "Nếu Vật chất Tối không tồn tại, Vũ trụ sẽ trông như thế nào?",
+        "answer": "Nếu không có Vật chất Tối, các thiên hà sẽ **quay nhanh đến mức chúng tự vỡ tan** ra. Sự hình thành cấu trúc lớn sẽ chậm hơn nhiều. Vũ trụ sẽ trở nên **đồng nhất hơn** và có ít cụm thiên hà và thiên hà rõ ràng hơn so với những gì chúng ta quan sát thấy ngày nay.",
+        "tags": [
+            "không vật chất tối",
+            "vỡ tan thiên hà",
+            "đồng nhất",
+            "hình thành cấu trúc"
+        ],
+        "illustration_prompt": "conceptual image showing a galaxy where stars are flying off the edges because the visible mass is insufficient to hold them together"
+    }
+]

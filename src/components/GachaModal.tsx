@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AlbumImage, Rarity } from '../../types';
-import { Gift, Star, X } from 'lucide-react';
+import { Gift, Star, X, Sparkles } from 'lucide-react';
 
 interface GachaModalProps {
     image: AlbumImage;
@@ -9,120 +9,225 @@ interface GachaModalProps {
 }
 
 export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose }) => {
-    const [stage, setStage] = useState<'box' | 'opening' | 'reveal'>('box');
+    const [stage, setStage] = useState<'box' | 'spinning' | 'reveal'>('box');
 
     useEffect(() => {
-        if (stage === 'box') {
-            // Auto open after delay or wait for click
-        }
+        // Auto transition from box to spinning if needed
     }, [stage]);
 
     const handleOpen = () => {
         if (stage === 'box') {
-            setStage('opening');
+            setStage('spinning');
             setTimeout(() => {
                 setStage('reveal');
-            }, 1000);
+            }, 1500);
         }
     };
 
     const getRarityColor = (rarity: Rarity) => {
         switch (rarity) {
-            case Rarity.Legendary: return 'text-yellow-500 drop-shadow-lg';
-            case Rarity.Epic: return 'text-purple-500';
-            case Rarity.Rare: return 'text-blue-500';
-            case Rarity.Uncommon: return 'text-green-500';
-            default: return 'text-slate-500';
+            case Rarity.Legendary: return '#FFD700';
+            case Rarity.Epic: return '#A855F7';
+            case Rarity.Rare: return '#3B82F6';
+            case Rarity.Uncommon: return '#10B981';
+            default: return '#64748B';
         }
     };
 
-    const getRarityBg = (rarity: Rarity) => {
+    const getRarityName = (rarity: Rarity) => {
         switch (rarity) {
-            case Rarity.Legendary: return 'bg-gradient-to-br from-yellow-100 to-orange-100 border-yellow-300';
-            case Rarity.Epic: return 'bg-gradient-to-br from-purple-100 to-pink-100 border-purple-300';
-            case Rarity.Rare: return 'bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300';
-            case Rarity.Uncommon: return 'bg-gradient-to-br from-green-100 to-emerald-100 border-green-300';
-            default: return 'bg-gray-50 border-gray-200';
+            case Rarity.Legendary: return 'Huyền Thoại';
+            case Rarity.Epic: return 'Sử Thi';
+            case Rarity.Rare: return 'Hiếm';
+            case Rarity.Uncommon: return 'Không Phổ Biến';
+            default: return 'Phổ Biến';
         }
     };
+
+    const rarityColor = getRarityColor(image.rarity);
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
             <div className="relative w-full max-w-md">
-                {/* Close button (only in reveal stage) */}
+                {/* Close button */}
                 {stage === 'reveal' && (
                     <button
                         onClick={onClose}
-                        className="absolute -top-12 right-0 text-white hover:text-gray-200 transition-colors z-20"
+                        className="absolute -top-12 right-0 p-2 bg-white/20 hover:bg-white/30 rounded-full shadow-lg transition-all hover:scale-110 z-20"
                     >
-                        <X size={32} />
+                        <X size={28} className="text-white" />
                     </button>
                 )}
 
-                <div className="bg-white rounded-3xl shadow-2xl overflow-hidden min-h-[400px] flex flex-col items-center justify-center p-8 text-center relative">
-                    {/* Background Effects */}
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none z-0" />
+                <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 rounded-3xl shadow-2xl overflow-hidden">
+                    <div className="p-8">
+                        {/* Box Stage - Click to open */}
+                        {stage === 'box' && (
+                            <div className="flex flex-col items-center justify-center min-h-[400px] relative">
+                                <div
+                                    className="cursor-pointer transform hover:scale-110 transition-all duration-300"
+                                    onClick={handleOpen}
+                                >
+                                    <div className="relative flex justify-center">
+                                        {/* Pulsing glow */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-3xl opacity-50 animate-pulse"></div>
 
-                    {stage === 'box' && (
-                        <div
-                            className="cursor-pointer transform hover:scale-110 transition-transform duration-300 relative z-10"
-                            onClick={handleOpen}
-                        >
-                            <div className="animate-bounce">
-                                <Gift size={120} className="text-brand-500 drop-shadow-xl" />
-                            </div>
-                            <p className="mt-8 text-2xl font-bold text-brand-600 animate-pulse">
-                                Chạm để mở quà!
-                            </p>
-                        </div>
-                    )}
+                                        {/* Gift box with bounce */}
+                                        <div className="relative animate-bounce">
+                                            <Gift size={140} className="text-gradient-to-r from-purple-500 to-pink-500 drop-shadow-2xl" style={{ filter: 'drop-shadow(0 10px 30px rgba(168, 85, 247, 0.4))' }} />
+                                        </div>
+                                    </div>
 
-                    {stage === 'opening' && (
-                        <div className="animate-spin-slow relative z-10">
-                            <Star size={100} className="text-yellow-400" />
-                        </div>
-                    )}
-
-                    {stage === 'reveal' && (
-                        <div className="animate-in zoom-in duration-500 flex flex-col items-center w-full relative z-10">
-                            <div className="mb-2">
-                                <span className={`text-lg font-bold uppercase tracking-wider ${getRarityColor(image.rarity)}`}>
-                                    {image.rarity}
-                                </span>
-                            </div>
-
-                            <h2 className="text-3xl font-extrabold text-slate-800 mb-6 drop-shadow-sm">
-                                {isNew ? '🎉 Ảnh Mới! 🎉' : 'Ảnh đã sở hữu'}
-                            </h2>
-
-                            <div className={`p-4 rounded-2xl border-4 shadow-inner mb-6 ${getRarityBg(image.rarity)} transform hover:rotate-2 transition-transform duration-300`}>
-                                <img
-                                    src={image.imagePath}
-                                    alt={image.name}
-                                    className="w-48 h-48 object-contain drop-shadow-md"
-                                />
-                            </div>
-
-                            <h3 className="text-xl font-bold text-slate-700 mb-2">{image.name}</h3>
-
-                            {!isNew && (
-                                <div className="flex items-center gap-2 text-yellow-600 bg-yellow-50 px-4 py-2 rounded-full font-bold">
-                                    <span>Đổi thành</span>
-                                    <Star size={20} fill="currentColor" />
-                                    <span>+10 sao</span>
+                                    <p className="mt-8 text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
+                                        🎁 Chạm để mở quà! 🎁
+                                    </p>
                                 </div>
-                            )}
 
-                            <button
-                                onClick={onClose}
-                                className="mt-8 px-8 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold text-lg shadow-lg shadow-brand-200 transition-all hover:-translate-y-1 relative z-20 cursor-pointer"
-                            >
-                                Tuyệt vời!
-                            </button>
-                        </div>
-                    )}
+                                {/* Floating particles */}
+                                <div className="absolute top-10 left-10 text-3xl animate-float-slow">✨</div>
+                                <div className="absolute top-20 right-10 text-2xl animate-float-slower delay-100">⭐</div>
+                                <div className="absolute bottom-20 left-20 text-2xl animate-float-slow delay-200">💫</div>
+                            </div>
+                        )}
+
+                        {/* Spinning Stage */}
+                        {stage === 'spinning' && (
+                            <div className="flex flex-col items-center justify-center min-h-[400px]">
+                                <div className="relative">
+                                    {/* Spinning card with 3D effect */}
+                                    <div className="w-48 h-64 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-2xl shadow-2xl animate-spin-3d flex items-center justify-center">
+                                        <div className="text-white text-7xl drop-shadow-lg">🎴</div>
+                                    </div>
+
+                                    {/* Shimmer effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer rounded-2xl"></div>
+
+                                    {/* Glow ring */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl blur-2xl opacity-60 animate-pulse"></div>
+                                </div>
+
+                                <p className="mt-8 text-xl font-bold text-purple-600 animate-pulse">
+                                    Đang mở...
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Reveal Stage */}
+                        {stage === 'reveal' && (
+                            <div className="animate-in zoom-in duration-500 flex flex-col items-center min-h-[400px] justify-center">
+                                {/* Header with sparkles */}
+                                <div className="mb-6 flex items-center gap-2">
+                                    <Sparkles size={24} className="text-yellow-500 animate-pulse" />
+                                    <h2 className="text-3xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                        {isNew ? '🎉 Ảnh Mới! 🎉' : 'Ảnh Đã Có'}
+                                    </h2>
+                                    <Sparkles size={24} className="text-yellow-500 animate-pulse" />
+                                </div>
+
+                                {/* Card Display with 3D flip effect */}
+                                <div
+                                    className="relative w-56 h-72 mb-6 perspective-1000 animate-in flip-x duration-500"
+                                    style={{
+                                        borderColor: rarityColor,
+                                        boxShadow: `0 0 40px ${rarityColor}40`
+                                    }}
+                                >
+                                    <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 shadow-2xl">
+                                        {/* Glow effect */}
+                                        <div
+                                            className="absolute inset-0 opacity-40 blur-xl -z-10"
+                                            style={{ backgroundColor: rarityColor }}
+                                        ></div>
+
+                                        {/* Image */}
+                                        <img
+                                            src={image.imagePath}
+                                            alt={image.name}
+                                            className="relative w-full h-full object-cover"
+                                        />
+
+                                        {/* Rarity badge */}
+                                        <div
+                                            className="absolute top-2 right-2 px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg backdrop-blur-sm"
+                                            style={{ backgroundColor: rarityColor }}
+                                        >
+                                            ✨ {getRarityName(image.rarity)}
+                                        </div>
+
+                                        {/* Shine overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                                    </div>
+
+                                    {/* Floating particles around card */}
+                                    <div className="absolute -top-4 -left-4 text-2xl animate-float-slow">✨</div>
+                                    <div className="absolute -top-2 -right-6 text-3xl animate-float-slower delay-100">⭐</div>
+                                    <div className="absolute -bottom-4 left-1/2 text-2xl animate-float-slow delay-200">💫</div>
+                                </div>
+
+                                {/* Card name */}
+                                <h3 className="text-2xl font-extrabold text-gray-800 mb-4">{image.name}</h3>
+
+                                {/* Duplicate compensation */}
+                                {!isNew && (
+                                    <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-3 rounded-full font-bold shadow-lg mb-4 animate-in zoom-in duration-300 delay-200">
+                                        <span>Đổi thành</span>
+                                        <Star size={20} fill="currentColor" className="animate-pulse" />
+                                        <span className="text-lg">+10 sao</span>
+                                    </div>
+                                )}
+
+                                {/* Close button */}
+                                <button
+                                    onClick={onClose}
+                                    className="mt-4 px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:-translate-y-1"
+                                >
+                                    {isNew ? 'Tuyệt vời!' : 'Đóng'}
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
+
+            <style jsx>{`
+                @keyframes spin-3d {
+                    from { transform: rotateY(0deg); }
+                    to { transform: rotateY(360deg); }
+                }
+                @keyframes shimmer {
+                    0% { transform: translateX(-100%); }
+                    100% { transform: translateX(100%); }
+                }
+                @keyframes float-slow {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-20px); }
+                }
+                @keyframes float-slower {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-15px) rotate(10deg); }
+                }
+                .animate-spin-3d {
+                    animation: spin-3d 1.5s ease-in-out;
+                }
+                .animate-shimmer {
+                    animation: shimmer 1.5s ease-in-out infinite;
+                }
+                .animate-float-slow {
+                    animation: float-slow 3s ease-in-out infinite;
+                }
+                .animate-float-slower {
+                    animation: float-slower 4s ease-in-out infinite;
+                }
+                .delay-100 {
+                    animation-delay: 0.1s;
+                }
+                .delay-200 {
+                    animation-delay: 0.2s;
+                }
+                .perspective-1000 {
+                    perspective: 1000px;
+                }
+            `}</style>
         </div>
     );
 };

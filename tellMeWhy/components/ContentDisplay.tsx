@@ -39,8 +39,8 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
             {/* Header with favorite */}
             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-brand-500 to-purple-500 text-white">
                 <div className="flex-1">
-                    <h2 className="text-lg font-bold">Nội dung câu hỏi</h2>
-                    <p className="text-xs text-white/80 mt-1">Lưu câu hỏi yêu thích để xem lại sau</p>
+                    <h2 className="text-lg font-bold">Chuyên mục: {questionData.category}</h2>
+                    <p className="text-xs text-white/80 mt-1 bold">Tiểu mục: {questionData.sub_category}</p>
                 </div>
 
                 <button
@@ -86,32 +86,6 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Tags */}
-                {questionData.tags && questionData.tags.length > 0 && (
-                    <div className="pt-4 border-t border-slate-200">
-                        <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">
-                            Từ khóa liên quan
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                            {questionData.tags.map((tag, index) => (
-                                <span
-                                    key={index}
-                                    className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-medium"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Category and Subcategory Info */}
-                <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
-                    <span>{questionData.category}</span>
-                    <span>•</span>
-                    <span>{questionData.sub_category}</span>
                 </div>
 
                 {/* Navigation Buttons - Inside content area for easier mobile access */}
