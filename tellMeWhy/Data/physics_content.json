@@ -1,0 +1,2379 @@
+[
+    {
+        "id": 1,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng (Light) là gì?",
+        "answer": "Ánh sáng là một dạng **năng lượng** mà chúng ta có thể nhìn thấy. Nó di chuyển rất nhanh dưới dạng **sóng** và **hạt** (gọi là photon). Ánh sáng giúp chúng ta nhìn thấy thế giới xung quanh.",
+        "tags": [
+            "ánh sáng",
+            "light",
+            "năng lượng",
+            "sóng",
+            "photon",
+            "tốc độ"
+        ],
+        "illustration_prompt": "cute educational illustration showing light behaving as both a wave and small particles (photons)"
+    },
+    {
+        "id": 2,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng di chuyển nhanh như thế nào?",
+        "answer": "Ánh sáng là **thứ nhanh nhất** trong vũ trụ! Tốc độ của nó là khoảng **$300.000 \text{ km/giây}$**. Nó có thể đi vòng quanh Trái Đất $7,5 \text{ lần}$ chỉ trong một giây. Đó là lý do bạn thấy sét trước khi nghe tiếng sấm.",
+        "tags": [
+            "tốc độ ánh sáng",
+            "fastest thing",
+            "300000 km/s",
+            "sét",
+            "sấm"
+        ],
+        "illustration_prompt": "cute illustration comparing the speed of light leaving the sun to the speed of sound, with light arriving instantly"
+    },
+    {
+        "id": 3,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng truyền đi như thế nào?",
+        "answer": "Ánh sáng luôn truyền theo **đường thẳng**. Bạn có thể thấy điều này khi nhìn vào tia nắng xuyên qua cửa sổ hoặc xuyên qua bụi. Nếu có vật cản, ánh sáng sẽ bị chặn lại.",
+        "tags": [
+            "ánh sáng truyền thẳng",
+            "đường thẳng",
+            "tia nắng",
+            "vật cản"
+        ],
+        "illustration_prompt": "cute educational diagram showing straight lines of light rays passing through a small hole or dust particles"
+    },
+    {
+        "id": 4,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Phản xạ ánh sáng (Reflection) là gì?",
+        "answer": "Phản xạ ánh sáng là khi ánh sáng **va vào** một bề mặt và **bật ngược trở lại** (giống như quả bóng nảy ra khỏi tường). Đây là cách bạn có thể nhìn thấy hình ảnh của mình trong gương hoặc trên mặt nước.",
+        "tags": [
+            "phản xạ ánh sáng",
+            "reflection",
+            "bật ngược trở lại",
+            "gương",
+            "mặt nước"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating a light ray reflecting off a smooth mirror surface at the same angle it hit"
+    },
+    {
+        "id": 5,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Khúc xạ ánh sáng (Refraction) là gì?",
+        "answer": "Khúc xạ là khi ánh sáng **bị bẻ cong** (thay đổi hướng) khi đi từ môi trường này sang môi trường khác (ví dụ: từ không khí vào nước). Đây là lý do chiếc thìa trong cốc nước có vẻ bị **gãy** hoặc lớn hơn.",
+        "tags": [
+            "khúc xạ ánh sáng",
+            "refraction",
+            "bị bẻ cong",
+            "thay đổi hướng",
+            "không khí nước",
+            "thìa trong cốc nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pencil appearing bent when placed partially in a glass of water due to light refraction"
+    },
+    {
+        "id": 6,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Bóng tối (Shadows) được hình thành như thế nào?",
+        "answer": "Bóng tối được tạo ra khi một vật thể **mờ đục** (opaque object) **chặn** đường đi của ánh sáng. Vì ánh sáng truyền theo đường thẳng, vật cản ngăn ánh sáng chạm tới bề mặt phía sau, tạo ra một khu vực tối.",
+        "tags": [
+            "bóng tối",
+            "shadows",
+            "vật mờ đục",
+            "chặn ánh sáng",
+            "đường thẳng"
+        ],
+        "illustration_prompt": "cute educational illustration showing an object blocking light from a source, creating a sharp shadow on a screen"
+    },
+    {
+        "id": 7,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao cầu vồng (Rainbow) lại xuất hiện?",
+        "answer": "Cầu vồng xuất hiện khi **ánh sáng mặt trời** chiếu qua **các hạt mưa** (giống như hàng triệu lăng kính tí hon). Các hạt mưa này làm ánh sáng **khúc xạ và tán sắc** thành bảy màu khác nhau: Đỏ, Cam, Vàng, Lục, Lam, Chàm, Tím.",
+        "tags": [
+            "cầu vồng",
+            "rainbow",
+            "hạt mưa",
+            "lăng kính",
+            "tán sắc",
+            "bảy màu"
+        ],
+        "illustration_prompt": "cute educational diagram showing white light entering a raindrop and splitting into the full color spectrum"
+    },
+    {
+        "id": 8,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Màu sắc (Color) của một vật thể đến từ đâu?",
+        "answer": "Màu sắc của một vật thể không nằm trong chính nó, mà là **màu sắc ánh sáng mà nó phản xạ** (bật lại) đến mắt bạn. Ví dụ: một quả táo có màu đỏ vì nó **hấp thụ** tất cả các màu khác (Xanh, Vàng...) và chỉ **phản xạ** màu Đỏ.",
+        "tags": [
+            "màu sắc",
+            "color",
+            "phản xạ ánh sáng",
+            "hấp thụ",
+            "quá táo đỏ"
+        ],
+        "illustration_prompt": "cute educational diagram showing white light hitting a red object; blue, green, and yellow rays are absorbed, and only the red ray reflects back to the eye"
+    },
+    {
+        "id": 9,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng trắng (White Light) là gì?",
+        "answer": "Ánh sáng trắng, chẳng hạn như ánh sáng mặt trời, thực chất là sự **tổng hợp** (kết hợp) của **tất cả các màu** trong cầu vồng (phổ ánh sáng). Khi bạn nhìn thấy ánh sáng trắng, bạn đang nhìn thấy tất cả các màu cùng một lúc.",
+        "tags": [
+            "ánh sáng trắng",
+            "white light",
+            "tổng hợp màu",
+            "phổ ánh sáng",
+            "cầu vồng"
+        ],
+        "illustration_prompt": "cute educational diagram showing all the colors of the rainbow merging back together to form white light"
+    },
+    {
+        "id": 10,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Lăng kính (Prism) có vai trò gì?",
+        "answer": "Lăng kính là một khối vật liệu trong suốt (thường là thủy tinh hoặc nhựa). Khi ánh sáng trắng chiếu vào lăng kính, nó sẽ làm các màu sắc **bị khúc xạ ở các góc hơi khác nhau** và **tách ra** thành phổ màu (giống như cách hạt mưa tạo ra cầu vồng).",
+        "tags": [
+            "lăng kính",
+            "prism",
+            "tách ánh sáng",
+            "khúc xạ",
+            "phổ màu",
+            "tán sắc"
+        ],
+        "illustration_prompt": "cute educational diagram showing a ray of white light entering a triangular prism and exiting as the full spectrum of colors"
+    },
+    {
+        "id": 11,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ba màu cơ bản của Ánh sáng (Additive Primary Colors) là gì?",
+        "answer": "Ba màu cơ bản của ánh sáng (còn gọi là **Màu cộng**) là **Đỏ (Red), Xanh lá cây (Green), và Xanh lam (Blue)**. Bằng cách trộn các mức độ khác nhau của ba màu ánh sáng này, bạn có thể tạo ra tất cả các màu khác (như trên màn hình tivi hoặc điện thoại).",
+        "tags": [
+            "màu cơ bản ánh sáng",
+            "additive colors",
+            "màu cộng",
+            "RGB",
+            "đỏ xanh lá xanh lam",
+            "tivi điện thoại"
+        ],
+        "illustration_prompt": "cute educational diagram showing three overlapping circles of Red, Green, and Blue light, with the center overlap being White"
+    },
+    {
+        "id": 12,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ba màu cơ bản của Màu vẽ (Subtractive Primary Colors) là gì?",
+        "answer": "Ba màu cơ bản của màu vẽ, mực in hoặc sơn (còn gọi là **Màu trừ**) là **Đỏ tươi (Magenta), Vàng (Yellow), và Xanh lơ (Cyan)**. Khi trộn chúng lại, chúng hấp thụ ánh sáng và tạo ra các màu tối hơn. Trộn cả ba sẽ tạo ra màu gần như Đen.",
+        "tags": [
+            "màu cơ bản màu vẽ",
+            "subtractive colors",
+            "màu trừ",
+            "CMY",
+            "đỏ tươi vàng xanh lơ",
+            "mực in"
+        ],
+        "illustration_prompt": "cute educational diagram showing three overlapping circles of Cyan, Magenta, and Yellow pigment, with the center overlap being Black"
+    },
+    {
+        "id": 13,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tại sao Bầu trời lại có màu Xanh lam?",
+        "answer": "Bầu trời có màu xanh lam do hiện tượng **Tán xạ Rayleigh (Rayleigh Scattering)**. Ánh sáng mặt trời đi vào bầu khí quyển, và các phân tử không khí nhỏ **tán xạ** (phân tán) bước sóng **xanh lam** và **tím** ra khắp mọi hướng, khiến chúng ta thấy bầu trời có màu xanh.",
+        "tags": [
+            "bầu trời màu xanh",
+            "rayleigh scattering",
+            "tán xạ",
+            "bước sóng xanh lam",
+            "phân tử không khí"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight entering the atmosphere, with blue light scattering in all directions by air molecules"
+    },
+    {
+        "id": 14,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tại sao Mặt trời lại có màu Đỏ/Cam khi Hoàng hôn?",
+        "answer": "Khi hoàng hôn, ánh sáng mặt trời phải đi qua một **lớp khí quyển dày hơn nhiều**. Ánh sáng xanh bị tán xạ hết. Chỉ còn lại các bước sóng **đỏ** và **cam** dài hơn, ít bị tán xạ hơn, mới có thể đi thẳng đến mắt chúng ta.",
+        "tags": [
+            "hoàng hôn",
+            "mặt trời đỏ",
+            "khí quyển dày",
+            "bước sóng đỏ cam",
+            "tán xạ ít hơn"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the short distance sunlight travels at midday vs. the long, scattering distance at sunset"
+    },
+    {
+        "id": 15,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Thấu kính (Lens) là gì và có vai trò gì?",
+        "answer": "Thấu kính là một vật liệu trong suốt có hình dạng cong (như trong kính mắt hoặc máy ảnh). Nó sử dụng **khúc xạ** để **bẻ cong** ánh sáng, giúp ánh sáng **tụ lại** (hội tụ) hoặc **phân tán** (phân kỳ), để hình ảnh được rõ nét hơn.",
+        "tags": [
+            "thấu kính",
+            "lens",
+            "kính mắt",
+            "máy ảnh",
+            "khúc xạ",
+            "bẻ cong ánh sáng",
+            "hội tụ phân kỳ"
+        ],
+        "illustration_prompt": "cute educational diagram showing light rays passing through a convex lens (converging) and a concave lens (diverging)"
+    },
+    {
+        "id": 16,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng có thể đi xuyên qua tất cả các vật liệu không?",
+        "answer": "Không. Vật liệu được chia thành ba loại: **Trong suốt** (Transparent, ánh sáng đi qua hoàn toàn), **Mờ** (Translucent, ánh sáng đi qua một phần và bị tán xạ), và **Mờ đục** (Opaque, ánh sáng bị chặn hoàn toàn, tạo ra bóng).",
+        "tags": [
+            "vật liệu trong suốt",
+            "transparent",
+            "mờ",
+            "translucent",
+            "mờ đục",
+            "opaque",
+            "bóng"
+        ],
+        "illustration_prompt": "cute educational illustration showing light passing clearly through glass (transparent), dimly through frosted glass (translucent), and being blocked by wood (opaque)"
+    },
+    {
+        "id": 17,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao các loại kính lúp (Magnifying Glass) lại làm vật thể trông lớn hơn?",
+        "answer": "Kính lúp là một loại **thấu kính hội tụ** (convex lens). Nó sử dụng **khúc xạ** để bẻ cong ánh sáng trước khi nó đến mắt bạn, khiến bộ não nhận được hình ảnh có vẻ như đang đến từ một vật thể **lớn hơn và gần hơn** so với thực tế.",
+        "tags": [
+            "kính lúp",
+            "magnifying glass",
+            "thấu kính hội tụ",
+            "khúc xạ",
+            "vật thể lớn hơn",
+            "ảo ảnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing a convex lens bending light rays to create a magnified virtual image"
+    },
+    {
+        "id": 18,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Hiện tượng tán sắc (Dispersion) là gì?",
+        "answer": "Tán sắc là hiện tượng **phân tách** ánh sáng trắng thành các màu cấu tạo (phổ màu) khi nó đi qua một vật liệu trong suốt (như lăng kính hoặc giọt nước). Nó xảy ra vì mỗi màu (bước sóng) bị bẻ cong (khúc xạ) ở một góc hơi khác nhau.",
+        "tags": [
+            "tán sắc",
+            "dispersion",
+            "phân tách ánh sáng",
+            "phổ màu",
+            "lăng kính",
+            "bước sóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing how light with different wavelengths (colors) bends at different angles inside a medium"
+    },
+    {
+        "id": 19,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng và Âm thanh khác nhau như thế nào?",
+        "answer": "Ánh sáng là **sóng điện từ**, có thể truyền qua **chân không** (không gian trống) và di chuyển cực kỳ nhanh. Âm thanh là **sóng cơ học**, cần có **môi trường** (như không khí hoặc nước) để truyền đi và di chuyển chậm hơn nhiều so với ánh sáng.",
+        "tags": [
+            "ánh sáng âm thanh",
+            "sóng điện từ",
+            "sóng cơ học",
+            "chân không",
+            "môi trường",
+            "tốc độ"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a fast light wave traveling in space vs. a slow sound wave traveling through the air"
+    },
+    {
+        "id": 20,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao lá cây lại có màu Xanh lá cây?",
+        "answer": "Lá cây chứa một sắc tố gọi là **Diệp lục (Chlorophyll)**. Diệp lục **hấp thụ** hầu hết các màu ánh sáng (đặc biệt là Đỏ và Xanh lam) để tạo ra năng lượng (quang hợp), nhưng nó **phản xạ** (bật lại) bước sóng **Xanh lá cây** đến mắt chúng ta.",
+        "tags": [
+            "lá cây màu xanh",
+            "diệp lục",
+            "chlorophyll",
+            "hấp thụ ánh sáng",
+            "phản xạ xanh lá cây",
+            "quang hợp"
+        ],
+        "illustration_prompt": "cute educational diagram showing chlorophyll molecules in a leaf absorbing blue and red light while reflecting green light"
+    },
+    {
+        "id": 21,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng tia cực tím (UV Light) là gì?",
+        "answer": "Tia UV là một loại **ánh sáng vô hình** (chúng ta không nhìn thấy được) nằm ngay bên ngoài màu tím trong phổ ánh sáng. Tia UV từ mặt trời gây ra **cháy nắng** nhưng cũng cần thiết để cơ thể sản xuất **Vitamin D**.",
+        "tags": [
+            "tia cực tím",
+            "uv light",
+            "ánh sáng vô hình",
+            "cháy nắng",
+            "vitamin d",
+            "phổ ánh sáng"
+        ],
+        "illustration_prompt": "cute educational diagram showing UV light just beyond the visible violet color in the electromagnetic spectrum"
+    },
+    {
+        "id": 22,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng tia hồng ngoại (Infrared Light) là gì?",
+        "answer": "Tia hồng ngoại là một loại **ánh sáng vô hình** nằm ngay bên ngoài màu đỏ trong phổ ánh sáng. Chúng ta không nhìn thấy, nhưng chúng ta cảm nhận chúng dưới dạng **Nhiệt** (Heat). Điều khiển TV sử dụng tia hồng ngoại để gửi lệnh.",
+        "tags": [
+            "tia hồng ngoại",
+            "infrared light",
+            "ánh sáng vô hình",
+            "nhiệt",
+            "heat",
+            "điều khiển tv"
+        ],
+        "illustration_prompt": "cute educational diagram showing infrared light just beyond the visible red color in the electromagnetic spectrum"
+    },
+    {
+        "id": 23,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Gương (Mirror) tạo ra hình ảnh như thế nào?",
+        "answer": "Gương là một bề mặt **rất nhẵn** có lớp phủ kim loại bóng (thường là nhôm) để **phản xạ ánh sáng một cách trật tự** (phản xạ gương). Bộ não của bạn nghĩ rằng ánh sáng truyền theo đường thẳng, vì vậy nó tạo ra một **hình ảnh ảo** (virtual image) ở phía sau gương.",
+        "tags": [
+            "gương",
+            "mirror",
+            "phản xạ trật tự",
+            "bề mặt nhẵn",
+            "hình ảnh ảo"
+        ],
+        "illustration_prompt": "cute educational diagram showing parallel light rays hitting a smooth mirror surface and reflecting parallel, creating a virtual image"
+    },
+    {
+        "id": 24,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Vì sao hình ảnh trong gương lại bị đảo ngược Trái/Phải (Laterally Inverted)?",
+        "answer": "Gương không thực sự đảo ngược Trái/Phải, mà nó đảo ngược **Trước/Sau** (Front/Back). Khi bạn giơ tay phải lên, hình ảnh của bạn cũng giơ 'tay phải' (từ góc nhìn của nó), nhưng tay đó nằm ở phía ngược lại của hình ảnh, tạo ra ảo giác đảo ngược ngang.",
+        "tags": [
+            "gương đảo ngược",
+            "laterally inverted",
+            "đảo ngược trước sau",
+            "ảo giác",
+            "hình ảnh ảo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person raising their right hand and the mirror image raising its left hand from the viewer's perspective"
+    },
+    {
+        "id": 25,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Màu Đen và màu Trắng có phải là màu thực sự không?",
+        "answer": "Trong vật lý: **Trắng** là sự **kết hợp** của tất cả các màu ánh sáng. **Đen** là sự **vắng mặt** hoàn toàn của ánh sáng và màu sắc (vật thể đen hấp thụ tất cả ánh sáng và không phản xạ lại gì). Vì vậy, chúng là sự đối lập về ánh sáng.",
+        "tags": [
+            "màu đen",
+            "màu trắng",
+            "kết hợp ánh sáng",
+            "vắng mặt ánh sáng",
+            "hấp thụ tất cả"
+        ],
+        "illustration_prompt": "cute educational diagram contrasting a white surface reflecting all light rays and a black surface absorbing all light rays"
+    },
+    {
+        "id": 26,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Sợi quang học (Fiber Optics) hoạt động như thế nào?",
+        "answer": "Sợi quang học sử dụng ánh sáng để truyền dữ liệu (như internet) với tốc độ rất cao. Chúng hoạt động dựa trên nguyên tắc **Phản xạ toàn phần (Total Internal Reflection)**: ánh sáng bị mắc kẹt và **nảy** liên tục bên trong sợi thủy tinh cho đến khi đến đích, truyền đi rất xa mà không bị mất tín hiệu.",
+        "tags": [
+            "sợi quang học",
+            "fiber optics",
+            "phản xạ toàn phần",
+            "total internal reflection",
+            "internet tốc độ cao",
+            "nảy liên tục"
+        ],
+        "illustration_prompt": "cute educational diagram showing a light ray bouncing repeatedly and continuously down the inside of a fiber optic cable"
+    },
+    {
+        "id": 27,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ảo ảnh (Mirage) là gì?",
+        "answer": "Ảo ảnh là hiện tượng khúc xạ ánh sáng trong khí quyển, nơi không khí ở các nhiệt độ khác nhau (như không khí nóng trên đường vào mùa hè) khiến ánh sáng bị **bẻ cong** và tạo ra hình ảnh phản chiếu của bầu trời (giống như vũng nước).",
+        "tags": [
+            "ảo ảnh",
+            "mirage",
+            "khúc xạ trong khí quyển",
+            "không khí nóng",
+            "bẻ cong ánh sáng",
+            "vũng nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing light rays bending upwards as they pass through hot air near a road, creating a mirage image of the sky"
+    },
+    {
+        "id": 28,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tại sao các đèn hiệu (Traffic Lights) thường sử dụng màu Đỏ, Vàng và Xanh lá cây?",
+        "answer": "Màu **Đỏ** có **bước sóng dài nhất**, nên ít bị tán xạ nhất bởi không khí, giúp nó có thể nhìn thấy rõ và xa nhất, đặc biệt là trong sương mù hoặc mưa. Màu **Xanh lá cây** và **Vàng** cũng dễ nhận biết và dễ phân biệt với Đỏ.",
+        "tags": [
+            "đèn hiệu giao thông",
+            "traffic lights",
+            "màu đỏ",
+            "bước sóng dài nhất",
+            "ít bị tán xạ",
+            "dễ phân biệt"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the long wavelength of red light compared to other colors"
+    },
+    {
+        "id": 29,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Ánh sáng cần vật chất để truyền đi không?",
+        "answer": "Không. Ánh sáng là **sóng điện từ** và có thể truyền qua **Chân không** (Vacuum) – tức là không gian không có bất kỳ vật chất nào. Đây là lý do ánh sáng mặt trời có thể truyền qua không gian trống để đến Trái Đất.",
+        "tags": [
+            "ánh sáng chân không",
+            "vacuum",
+            "sóng điện từ",
+            "không cần vật chất",
+            "ánh sáng mặt trời"
+        ],
+        "illustration_prompt": "cute educational diagram showing light rays traveling successfully from the sun through the vacuum of space to Earth"
+    },
+    {
+        "id": 30,
+        "category": "Vật lý đời sống",
+        "sub_category": "Ánh sáng & màu sắc",
+        "question": "Tại sao một số đèn huỳnh quang (Fluorescent Lights) lại phát ra ánh sáng 'lạnh' (Cool Light)?",
+        "answer": "Màu sắc của ánh sáng do đèn huỳnh quang phát ra được kiểm soát bởi một lớp bột phủ bên trong gọi là **chất lân quang (Phosphor)**. Bằng cách thay đổi thành phần hóa học của chất lân quang, nhà sản xuất có thể tạo ra ánh sáng có màu ấm (vàng hơn) hoặc lạnh (xanh lam hơn).",
+        "tags": [
+            "đèn huỳnh quang",
+            "fluorescent lights",
+            "ánh sáng lạnh",
+            "chất lân quang",
+            "phosphor",
+            "thành phần hóa học"
+        ],
+        "illustration_prompt": "cute educational diagram showing the inner workings of a fluorescent light tube and the phosphor layer"
+    },
+    {
+        "id": 31,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh (Sound) được tạo ra như thế nào?",
+        "answer": "Âm thanh được tạo ra bởi **rung động (Vibrations)**. Khi một vật thể rung lên (ví dụ: dây đàn guitar, dây thanh âm trong cổ họng), nó làm rung các phân tử không khí xung quanh, và sự rung động đó truyền đến tai chúng ta.",
+        "tags": [
+            "âm thanh",
+            "sound",
+            "rung động",
+            "vibrations",
+            "dây thanh âm",
+            "phân tử không khí"
+        ],
+        "illustration_prompt": "cute educational illustration showing a vibrating tuning fork creating ripples in the air (sound waves)"
+    },
+    {
+        "id": 32,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Sóng âm (Sound Waves) là gì và chúng truyền đi như thế nào?",
+        "answer": "Sóng âm là những **rung động truyền qua vật chất**. Chúng là sóng **cơ học** (Mechanical Waves), nghĩa là chúng cần có **môi trường** (Medium) như không khí, nước hoặc chất rắn để truyền đi, bằng cách đẩy các phân tử xung quanh chúng.",
+        "tags": [
+            "sóng âm",
+            "sound waves",
+            "rung động",
+            "sóng cơ học",
+            "môi trường",
+            "vật chất"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating a longitudinal sound wave compressing and expanding air molecules as it travels"
+    },
+    {
+        "id": 33,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao không có âm thanh trong không gian (Space)?",
+        "answer": "Không gian là **chân không (Vacuum)**, nghĩa là hầu như không có không khí hoặc vật chất. Vì âm thanh cần vật chất (môi trường) để truyền rung động, nên rung động không thể truyền đi được. Vì vậy, trong không gian hoàn toàn tĩnh lặng!",
+        "tags": [
+            "không gian",
+            "space",
+            "chân không",
+            "vacuum",
+            "không có âm thanh",
+            "cần vật chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing an astronaut trying to talk in space, with the sound waves stopping immediately"
+    },
+    {
+        "id": 34,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Âm thanh di chuyển nhanh nhất trong môi trường nào?",
+        "answer": "Âm thanh di chuyển nhanh nhất trong **chất rắn**, sau đó đến **chất lỏng**, và chậm nhất là trong **chất khí** (như không khí). Điều này là do các phân tử trong chất rắn gần nhau nhất, giúp truyền rung động nhanh và hiệu quả hơn.",
+        "tags": [
+            "tốc độ âm thanh",
+            "chất rắn",
+            "chất lỏng",
+            "chất khí",
+            "phân tử gần nhau"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the speed of sound in solids (fastest), liquids (medium), and gases (slowest) with molecule spacing"
+    },
+    {
+        "id": 35,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tần số (Frequency) của sóng âm là gì?",
+        "answer": "Tần số là số lần sóng âm **rung động (hoặc chu kỳ)** trong một giây, được đo bằng **Hertz (Hz)**. Tần số quyết định **Cao độ (Pitch)** của âm thanh: tần số cao tạo ra âm thanh bổng (như tiếng huýt sáo), tần số thấp tạo ra âm trầm (như tiếng trống).",
+        "tags": [
+            "tần số",
+            "frequency",
+            "cao độ",
+            "pitch",
+            "hertz",
+            "âm thanh bổng",
+            "âm thanh trầm"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a high-frequency (high pitch) wave and a low-frequency (low pitch) wave"
+    },
+    {
+        "id": 36,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Biên độ (Amplitude) của sóng âm là gì?",
+        "answer": "Biên độ là **độ lớn** của rung động sóng âm. Biên độ quyết định **Độ to (Loudness)** của âm thanh: biên độ lớn tạo ra âm thanh lớn (như tiếng hét), biên độ nhỏ tạo ra âm thanh nhỏ (như tiếng thì thầm). Độ to được đo bằng **Decibel (dB)**.",
+        "tags": [
+            "biên độ",
+            "amplitude",
+            "độ to",
+            "loudness",
+            "decibel",
+            "tiếng hét",
+            "rung động lớn"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a high-amplitude (loud) wave and a low-amplitude (soft) wave"
+    },
+    {
+        "id": 37,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tiếng vọng (Echo) được tạo ra như thế nào?",
+        "answer": "Tiếng vọng xảy ra khi sóng âm **va vào** một bề mặt cứng và nhẵn (như núi hoặc tường lớn) và **phản xạ** (bật lại) đến tai bạn. Nếu bạn đủ xa bề mặt đó, bạn sẽ nghe thấy âm thanh ban đầu lặp lại.",
+        "tags": [
+            "tiếng vọng",
+            "echo",
+            "phản xạ âm thanh",
+            "bề mặt cứng",
+            "núi",
+            "lặp lại"
+        ],
+        "illustration_prompt": "cute educational diagram showing a sound wave bouncing off a cliff face and returning to the source"
+    },
+    {
+        "id": 38,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Phạm vi nghe của con người là bao nhiêu?",
+        "answer": "Tai người bình thường có thể nghe được âm thanh có tần số từ khoảng **$20 \text{ Hz}$** (rất trầm) đến **$20.000 \text{ Hz}$** (rất bổng). Âm thanh dưới $20 \text{ Hz}$ gọi là **Hạ âm** và trên $20.000 \text{ Hz}$ gọi là **Siêu âm**.",
+        "tags": [
+            "phạm vi nghe",
+            "human hearing range",
+            "20 hz",
+            "20000 hz",
+            "hạ âm",
+            "siêu âm"
+        ],
+        "illustration_prompt": "cute educational diagram showing the human hearing range on a frequency scale, with inaudible low and high frequencies marked"
+    },
+    {
+        "id": 39,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao âm thanh truyền nhanh hơn ánh sáng?",
+        "answer": "Ngược lại, ánh sáng truyền đi **nhanh hơn nhiều** so với âm thanh. Tốc độ ánh sáng là khoảng $300.000 \text{ km/giây}$, trong khi tốc độ âm thanh trong không khí chỉ khoảng **$343 \text{ m/giây}$**. Đó là lý do bạn luôn thấy ánh sáng chớp (sét) trước khi nghe thấy âm thanh (sấm).",
+        "tags": [
+            "tốc độ âm thanh",
+            "tốc độ ánh sáng",
+            "sét",
+            "sấm",
+            "343 m/s"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lightning bolt where the light reaches the observer instantly, but the sound (thunder) lags far behind"
+    },
+    {
+        "id": 40,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Cấu tạo của tai (Ear) giúp chúng ta nghe như thế nào?",
+        "answer": "Tai ngoài thu sóng âm, làm **Màng nhĩ** rung lên. Rung động được ba xương nhỏ (xương búa, đe, bàn đạp) khuếch đại và truyền đến **Ốc tai** (Cochlea). Ốc tai biến rung động thành **tín hiệu điện** để não hiểu là âm thanh.",
+        "tags": [
+            "cấu tạo tai",
+            "ear",
+            "màng nhĩ",
+            "ốc tai",
+            "tín hiệu điện",
+            "rung động"
+        ],
+        "illustration_prompt": "cute educational diagram of the human ear showing the progression of sound waves from the outer ear to the cochlea"
+    },
+    {
+        "id": 41,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Sự hấp thụ âm thanh (Sound Absorption) là gì?",
+        "answer": "Hấp thụ âm thanh là khi sóng âm va vào một vật liệu mềm, xốp (như thảm, rèm cửa, hoặc bọt biển) và **năng lượng rung động bị biến thành nhiệt**, thay vì phản xạ lại. Điều này làm cho không gian trở nên **yên tĩnh hơn**.",
+        "tags": [
+            "hấp thụ âm thanh",
+            "sound absorption",
+            "vật liệu mềm xốp",
+            "biến thành nhiệt",
+            "yên tĩnh hơn"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a hard wall reflecting sound waves and a soft, carpeted wall absorbing them"
+    },
+    {
+        "id": 42,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tiếng ồn (Noise) là gì?",
+        "answer": "Tiếng ồn là âm thanh **lớn, hỗn loạn, không mong muốn** hoặc khó chịu. Về mặt vật lý, tiếng ồn thường là sự kết hợp của nhiều sóng âm có **tần số và biên độ không đều**, khiến chúng ta khó chịu khi nghe.",
+        "tags": [
+            "tiếng ồn",
+            "noise",
+            "âm thanh lớn",
+            "hỗn loạn",
+            "tần số biên độ không đều"
+        ],
+        "illustration_prompt": "cute educational diagram showing a messy, disorganized sound wave representing noise, compared to a smooth, ordered wave representing music"
+    },
+    {
+        "id": 43,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào để tạo ra âm thanh bổng hơn trên đàn guitar?",
+        "answer": "Bạn có thể tạo ra âm thanh bổng hơn bằng cách: **1. Làm dây đàn ngắn hơn** (bằng cách ấn ngón tay xuống). **2. Làm dây đàn căng hơn**. **3. Sử dụng dây đàn mỏng hơn**. Tất cả những cách này đều làm tăng **tần số rung động** của dây.",
+        "tags": [
+            "âm thanh bổng",
+            "đàn guitar",
+            "tần số rung động",
+            "dây ngắn hơn",
+            "dây căng hơn",
+            "dây mỏng hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a guitar string vibrating faster when shortened or tightened"
+    },
+    {
+        "id": 44,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Hiện tượng Cộng hưởng (Resonance) là gì?",
+        "answer": "Cộng hưởng xảy ra khi một vật thể bắt đầu rung động **cùng tần số** với một sóng âm bên ngoài. Ví dụ: khi bạn hát đúng một nốt nhạc, đồ vật trong phòng (như cốc thủy tinh) có thể bắt đầu rung theo, đôi khi đủ mạnh để làm vỡ chúng!",
+        "tags": [
+            "cộng hưởng",
+            "resonance",
+            "cùng tần số",
+            "rung động",
+            "vỡ cốc thủy tinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a singing person hitting a note that causes a glass to vibrate intensely"
+    },
+    {
+        "id": 45,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Siêu âm (Ultrasound) được sử dụng để làm gì?",
+        "answer": "Siêu âm là âm thanh có **tần số quá cao** (trên $20.000 \text{ Hz}$) để tai người nghe được. Nó được sử dụng trong y tế để **tạo hình ảnh** bên trong cơ thể (như xem em bé trong bụng mẹ), vì sóng siêu âm va chạm và phản xạ lại từ các cơ quan bên trong.",
+        "tags": [
+            "siêu âm",
+            "ultrasound",
+            "tần số cao",
+            "tạo hình ảnh",
+            "em bé",
+            "y tế"
+        ],
+        "illustration_prompt": "cute educational diagram showing an ultrasound probe sending high-frequency sound waves into the body and receiving echoes to form an image"
+    },
+    {
+        "id": 46,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào để các nhà khoa học nghe được âm thanh dưới nước?",
+        "answer": "Họ sử dụng một thiết bị đặc biệt gọi là **Thủy âm kế (Hydrophone)**. Thủy âm kế hoạt động như một micro dưới nước, chuyển đổi sự rung động của sóng âm trong nước thành tín hiệu điện để chúng ta có thể nghe được.",
+        "tags": [
+            "âm thanh dưới nước",
+            "hydrophone",
+            "thủy âm kế",
+            "micro dưới nước",
+            "sóng âm trong nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hydrophone submerged in the ocean recording the sound of whales"
+    },
+    {
+        "id": 47,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Cơ chế định vị bằng tiếng vang (Echolocation) hoạt động như thế nào?",
+        "answer": "Định vị bằng tiếng vang là khả năng của một số động vật (như dơi và cá heo) để **phát ra âm thanh** (siêu âm) và **lắng nghe tiếng vọng** (echo) phản xạ trở lại. Dựa vào thời gian tiếng vọng quay lại và độ to của nó, chúng có thể xác định **khoảng cách, kích thước và hình dạng** của vật thể.",
+        "tags": [
+            "định vị bằng tiếng vang",
+            "echolocation",
+            "dơi",
+            "cá heo",
+            "siêu âm",
+            "lắng nghe tiếng vọng",
+            "khoảng cách"
+        ],
+        "illustration_prompt": "cute educational diagram showing a bat emitting high-frequency sound waves that bounce off a moth and return to the bat's ears"
+    },
+    {
+        "id": 48,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao đeo tai nghe (Headphones) ở âm lượng lớn lại có hại?",
+        "answer": "Âm thanh quá lớn tạo ra **rung động mạnh** liên tục trong tai trong. Điều này có thể làm **tổn thương** vĩnh viễn các tế bào lông nhỏ và mỏng manh trong **Ốc tai (Cochlea)**, dẫn đến giảm thính lực hoặc ù tai.",
+        "tags": [
+            "tai nghe lớn",
+            "giảm thính lực",
+            "ù tai",
+            "tổn thương tế bào lông",
+            "ốc tai"
+        ],
+        "illustration_prompt": "cute educational diagram showing very loud sound waves shaking and damaging the delicate hair cells inside the cochlea"
+    },
+    {
+        "id": 49,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao giọng nói của bạn nghe khác đi khi bạn tự thu âm và nghe lại?",
+        "answer": "Khi bạn nói, bạn nghe thấy giọng mình qua hai cách: **1. Sóng âm truyền qua không khí** (tai ngoài). **2. Rung động truyền trực tiếp qua xương** sọ (tai trong). Thiết bị thu âm chỉ ghi lại âm thanh truyền qua không khí, khiến giọng nói thu âm nghe 'mỏng' hơn so với những gì bạn thường nghe.",
+        "tags": [
+            "giọng nói thu âm",
+            "nghe khác",
+            "rung động qua xương",
+            "sóng âm qua không khí",
+            "mỏng hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person speaking, with one sound path going through the air to a microphone and another path vibrating directly through the skull bones"
+    },
+    {
+        "id": 50,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Hiện tượng Nhiễu xạ âm thanh (Diffraction) là gì?",
+        "answer": "Nhiễu xạ là khả năng sóng âm thanh **uốn cong** (đi vòng) quanh các góc hoặc lan truyền qua các khe hở nhỏ. Đây là lý do bạn vẫn có thể nghe thấy một người nói chuyện dù họ đang ở **phòng bên cạnh** hoặc **sau một bức tường** (qua khe cửa).",
+        "tags": [
+            "nhiễu xạ âm thanh",
+            "diffraction",
+            "uốn cong sóng âm",
+            "đi vòng quanh góc",
+            "phòng bên cạnh"
+        ],
+        "illustration_prompt": "cute educational diagram showing sound waves bending around a corner or an obstacle, allowing the sound to be heard on the other side"
+    },
+    {
+        "id": 51,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Điều gì quyết định Độ dài sóng (Wavelength) của âm thanh?",
+        "answer": "Độ dài sóng là **khoảng cách vật lý** giữa hai đỉnh sóng liên tiếp. Âm thanh **trầm** (tần số thấp) có **bước sóng dài** hơn, trong khi âm thanh **bổng** (tần số cao) có **bước sóng ngắn** hơn.",
+        "tags": [
+            "độ dài sóng",
+            "wavelength",
+            "âm trầm",
+            "bước sóng dài",
+            "âm bổng",
+            "bước sóng ngắn"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the physical length of a long, spread-out wavelength (low pitch) and a short, compressed wavelength (high pitch)"
+    },
+    {
+        "id": 52,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao giọng nói của chúng ta lại 'vang' (Reverberation) trong một căn phòng trống?",
+        "answer": "Trong một căn phòng trống, các bức tường, sàn nhà và trần nhà cứng và nhẵn, chúng **phản xạ âm thanh nhiều lần** trước khi âm thanh tắt hẳn. Hiệu ứng **nhiều tiếng vọng nhỏ** này xảy ra rất nhanh, tạo ra cảm giác vang và kéo dài âm thanh.",
+        "tags": [
+            "tiếng vang",
+            "reverberation",
+            "phòng trống",
+            "phản xạ nhiều lần",
+            "tường cứng"
+        ],
+        "illustration_prompt": "cute educational illustration showing sound waves bouncing chaotically multiple times inside an empty, hard-walled room"
+    },
+    {
+        "id": 53,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào để tạo ra vật liệu Cách âm (Soundproofing)?",
+        "answer": "Vật liệu cách âm thường là vật liệu **mềm, xốp và dày đặc** (như len khoáng, bọt biển). Chúng được thiết kế để **hấp thụ** năng lượng âm thanh, **biến nó thành nhiệt** và **ngăn chặn** rung động truyền từ không khí vào tường.",
+        "tags": [
+            "cách âm",
+            "soundproofing",
+            "vật liệu mềm xốp",
+            "hấp thụ năng lượng",
+            "biến thành nhiệt",
+            "ngăn rung động"
+        ],
+        "illustration_prompt": "cute educational diagram showing a thick layer of porous soundproofing material absorbing sound waves entering a wall"
+    },
+    {
+        "id": 54,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Hiệu ứng Doppler (Doppler Effect) là gì?",
+        "answer": "Hiệu ứng Doppler là sự thay đổi về **cao độ (pitch)** của âm thanh khi nguồn âm thanh **di chuyển** so với người nghe. Ví dụ: còi xe cứu thương nghe **bổng hơn** khi nó đến gần và nghe **trầm hơn** khi nó đi xa.",
+        "tags": [
+            "hiệu ứng doppler",
+            "doppler effect",
+            "cao độ thay đổi",
+            "nguồn âm thanh di chuyển",
+            "xe cứu thương",
+            "bổng trầm"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the Doppler effect with sound waves compressing as a siren approaches and stretching as it moves away"
+    },
+    {
+        "id": 55,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Cá voi và cá heo giao tiếp với nhau như thế nào dưới nước?",
+        "answer": "Chúng sử dụng âm thanh. Sóng âm truyền đi trong nước **nhanh hơn bốn lần** so với trong không khí và có thể truyền đi **xa hơn nhiều**. Cá voi dùng những tiếng 'hát' trầm (tần số thấp) có thể đi khắp đại dương; cá heo dùng siêu âm (tần số cao) để săn mồi và trò chuyện.",
+        "tags": [
+            "cá voi cá heo",
+            "âm thanh dưới nước",
+            "giao tiếp",
+            "sóng âm nhanh hơn",
+            "hát trầm",
+            "siêu âm"
+        ],
+        "illustration_prompt": "cute educational illustration showing sound waves traveling very long distances underwater from one whale to another"
+    },
+    {
+        "id": 56,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Vì sao đôi khi âm nhạc lại có thể giúp bạn thư giãn?",
+        "answer": "Âm nhạc (đặc biệt là nhịp điệu chậm, tần số thấp) có thể ảnh hưởng đến **tâm trạng** của bạn bằng cách làm nhịp tim và hoạt động sóng não chậm lại, làm giảm nồng độ hormone căng thẳng **Cortisol** và giúp cơ thể cảm thấy bình tĩnh hơn.",
+        "tags": [
+            "âm nhạc thư giãn",
+            "tâm trạng",
+            "nhịp điệu chậm",
+            "giảm cortisol",
+            "hormone căng thẳng"
+        ],
+        "illustration_prompt": "cute educational illustration showing calming music notes entering the ear and reducing stress icons near the brain"
+    },
+    {
+        "id": 57,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Hộp âm thanh (Sound Box) trong nhạc cụ (như đàn guitar) có vai trò gì?",
+        "answer": "Khi dây đàn guitar rung, chúng chỉ tạo ra một lượng âm thanh nhỏ. Hộp âm thanh (thân đàn) có vai trò là **Bộ cộng hưởng (Resonator)**. Nó bắt lấy các rung động, làm rung động một lượng không khí lớn hơn, giúp **khuếch đại** (làm lớn hơn) âm thanh.",
+        "tags": [
+            "hộp âm thanh",
+            "sound box",
+            "bộ cộng hưởng",
+            "resonator",
+            "khuếch đại âm thanh",
+            "thân đàn guitar"
+        ],
+        "illustration_prompt": "cute educational diagram showing the small vibration of a guitar string transferring to the large vibration of the wooden body (sound box), amplifying the sound"
+    },
+    {
+        "id": 58,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Tại sao trong một hang động lớn lại có tiếng vang lớn và kéo dài?",
+        "answer": "Hang động lớn có nhiều **bề mặt cứng, nhẵn và không hấp thụ** âm thanh. Khi bạn nói, sóng âm liên tục **phản xạ** trở lại từ các bức tường và trần nhà đá. Do kích thước lớn, sóng âm cần nhiều thời gian để đi và quay lại, tạo ra tiếng vang lớn và kéo dài.",
+        "tags": [
+            "tiếng vang lớn",
+            "hang động",
+            "bề mặt cứng nhẵn",
+            "phản xạ liên tục",
+            "kích thước lớn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sound wave bouncing many times inside a large, irregularly shaped cave"
+    },
+    {
+        "id": 59,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Sự giao thoa âm thanh (Sound Interference) là gì?",
+        "answer": "Giao thoa xảy ra khi **hai hoặc nhiều sóng âm gặp nhau**. Nếu chúng gặp nhau **đúng pha** (cùng đỉnh), chúng sẽ **cộng hưởng** và làm âm thanh lớn hơn. Nếu chúng gặp nhau **ngược pha** (đỉnh gặp đáy), chúng sẽ **triệt tiêu** nhau và làm âm thanh nhỏ hơn hoặc biến mất (như trong tai nghe chống ồn).",
+        "tags": [
+            "giao thoa âm thanh",
+            "sound interference",
+            "cộng hưởng",
+            "triệt tiêu",
+            "tai nghe chống ồn",
+            "ngược pha"
+        ],
+        "illustration_prompt": "cute educational diagram showing two sound waves meeting, one resulting in a larger wave (constructive interference) and the other in a flat line (destructive interference)"
+    },
+    {
+        "id": 60,
+        "category": "Vật lý đời sống",
+        "sub_category": "Âm thanh",
+        "question": "Làm thế nào để các bác sĩ nghe được nhịp tim (Heartbeat) của bạn?",
+        "answer": "Họ sử dụng một ống nghe (Stethoscope). Ống nghe hoạt động dựa trên nguyên tắc **khuếch đại âm thanh**. Nó thu thập những rung động rất nhỏ của nhịp tim và phổi từ da bạn và truyền chúng đến tai bác sĩ thông qua một ống chứa đầy không khí, làm âm thanh to hơn và rõ hơn.",
+        "tags": [
+            "ống nghe",
+            "stethoscope",
+            "nhịp tim",
+            "khuếch đại âm thanh",
+            "rung động",
+            "phổi"
+        ],
+        "illustration_prompt": "cute educational diagram showing a stethoscope head collecting faint heart sounds and amplifying them through the tubes to the doctor's ears"
+    },
+    {
+        "id": 61,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực (Force) là gì?",
+        "answer": "Lực là một sự **kéo (Pull)** hoặc **đẩy (Push)** tác động lên một vật thể. Lực có thể làm vật thể **bắt đầu chuyển động**, **ngừng chuyển động**, **thay đổi hướng** hoặc **thay đổi hình dạng** của vật thể. Đơn vị đo lực là **Newton (N)**.",
+        "tags": [
+            "lực",
+            "force",
+            "kéo đẩy",
+            "push pull",
+            "thay đổi chuyển động",
+            "newton"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person pushing a box (push force) and another person pulling a wagon (pull force)"
+    },
+    {
+        "id": 62,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực Hấp dẫn (Gravity) là gì?",
+        "answer": "Lực hấp dẫn là một lực **kéo vô hình** khiến hai vật thể có **khối lượng** hút nhau. Lực hấp dẫn của **Trái Đất** kéo mọi thứ về phía tâm của nó, giữ chúng ta và mọi vật trên mặt đất và khiến quả táo rơi xuống.",
+        "tags": [
+            "lực hấp dẫn",
+            "gravity",
+            "lực kéo vô hình",
+            "khối lượng",
+            "trái đất",
+            "tâm trái đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing the Earth pulling an apple down from a tree, with an arrow indicating the force direction"
+    },
+    {
+        "id": 63,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực Ma sát (Friction) là gì?",
+        "answer": "Ma sát là một lực **ngăn cản hoặc chống lại chuyển động** khi hai bề mặt chạm vào nhau và trượt qua nhau. Ma sát xảy ra vì không bề mặt nào thực sự nhẵn. Nó giúp chúng ta **đi lại** mà không bị trượt và giúp ô tô **phanh**.",
+        "tags": [
+            "lực ma sát",
+            "friction",
+            "chống lại chuyển động",
+            "bề mặt chạm nhau",
+            "đi lại",
+            "phanh xe"
+        ],
+        "illustration_prompt": "cute educational diagram showing the microscopic interlocking bumps of two surfaces creating friction and slowing down a moving block"
+    },
+    {
+        "id": 64,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Quán tính (Inertia) là gì? (Định luật 1 Newton)",
+        "answer": "**Định luật 1 Newton** nói rằng vật thể có xu hướng giữ nguyên **trạng thái chuyển động** của nó. Quán tính là xu hướng 'lười biếng' này: vật đang đứng yên sẽ tiếp tục đứng yên, và vật đang chuyển động sẽ tiếp tục chuyển động cho đến khi có **Lực không cân bằng** tác động vào nó.",
+        "tags": [
+            "quán tính",
+            "inertia",
+            "định luật 1 newton",
+            "trạng thái chuyển động",
+            "lực không cân bằng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person lurching forward when a moving car suddenly brakes, demonstrating inertia"
+    },
+    {
+        "id": 65,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Điều gì quyết định một vật thể tăng tốc nhanh như thế nào? (Định luật 2 Newton)",
+        "answer": "**Định luật 2 Newton** (còn được gọi là $F=ma$) nói rằng **Gia tốc (Acceleration)** của một vật thể phụ thuộc vào: **1. Lực tác dụng** (Lực càng lớn, gia tốc càng nhanh) và **2. Khối lượng** của vật thể (Khối lượng càng lớn, gia tốc càng chậm).",
+        "tags": [
+            "định luật 2 newton",
+            "f=ma",
+            "gia tốc",
+            "acceleration",
+            "lực tác dụng",
+            "khối lượng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing two people pushing a shopping cart: one pushing an empty cart (high acceleration) and one pushing a full cart (low acceleration) with the same force"
+    },
+    {
+        "id": 66,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Định luật Hành động và Phản ứng (Action/Reaction) là gì? (Định luật 3 Newton)",
+        "answer": "**Định luật 3 Newton** nói rằng đối với mọi hành động (lực), luôn có một **phản ứng ngược lại và bằng nhau** (lực khác). Ví dụ: khi bạn nhảy lên, bạn đẩy mặt đất xuống, và mặt đất đẩy bạn lên với một lực bằng nhau.",
+        "tags": [
+            "định luật 3 newton",
+            "hành động phản ứng",
+            "action reaction",
+            "lực ngược lại bằng nhau",
+            "nhảy lên"
+        ],
+        "illustration_prompt": "cute educational diagram showing a rocket pushing gas downwards (action force) and the gas pushing the rocket upwards (reaction force)"
+    },
+    {
+        "id": 67,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực không cân bằng (Unbalanced Force) có vai trò gì?",
+        "answer": "Khi các lực tác dụng lên một vật thể **không bằng nhau** và **không triệt tiêu** lẫn nhau, đó là lực không cân bằng. Lực không cân bằng luôn gây ra **thay đổi chuyển động** (tức là gây ra gia tốc, làm vật bắt đầu, dừng lại hoặc đổi hướng).",
+        "tags": [
+            "lực không cân bằng",
+            "unbalanced force",
+            "không bằng nhau",
+            "thay đổi chuyển động",
+            "gia tốc"
+        ],
+        "illustration_prompt": "cute educational diagram showing two unequal forces pushing a box, with the resulting unbalanced force causing acceleration in the direction of the larger force"
+    },
+    {
+        "id": 68,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Tốc độ (Speed) và Vận tốc (Velocity) khác nhau như thế nào?",
+        "answer": "**Tốc độ** chỉ cho biết vật thể di chuyển **nhanh như thế nào** (ví dụ: $60 \text{ km/h}$). **Vận tốc** cho biết vật thể di chuyển **nhanh như thế nào VÀ theo hướng nào** (ví dụ: $60 \text{ km/h}$ về phía bắc). Vận tốc có thêm yếu tố hướng.",
+        "tags": [
+            "tốc độ",
+            "speed",
+            "vận tốc",
+            "velocity",
+            "hướng",
+            "nhanh như thế nào"
+        ],
+        "illustration_prompt": "cute educational diagram comparing a speedometer reading (speed) and a GPS map showing speed and direction (velocity)"
+    },
+    {
+        "id": 69,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực cản không khí (Air Resistance) là gì?",
+        "answer": "Lực cản không khí (còn gọi là **Lực cản**) là một dạng **ma sát** xảy ra khi một vật thể chuyển động qua không khí (chất khí). Nó luôn **chống lại** chuyển động. Lực cản không khí là lý do dù bạn thả quả bóng và chiếc lông chim cùng lúc, chiếc lông chim lại rơi chậm hơn.",
+        "tags": [
+            "lực cản không khí",
+            "air resistance",
+            "lực cản",
+            "drag",
+            "ma sát",
+            "chống lại chuyển động",
+            "lông chim"
+        ],
+        "illustration_prompt": "cute educational diagram showing air molecules hitting a falling parachute, creating a strong drag force upwards"
+    },
+    {
+        "id": 70,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Vì sao các vật nặng và nhẹ rơi với tốc độ gần như nhau?",
+        "answer": "Điều này chỉ xảy ra khi **không có lực cản không khí**. Lực hấp dẫn tạo ra cùng một **Gia tốc ($9.8 \text{ m/s}^2$)** cho mọi vật thể, bất kể khối lượng của chúng. Trong chân không, một quả bóng bowling và một chiếc lông vũ sẽ rơi xuống sàn cùng một lúc.",
+        "tags": [
+            "vật nặng vật nhẹ rơi",
+            "gia tốc",
+            "chân không",
+            "lực hấp dẫn",
+            "lực cản không khí",
+            "9.8 m/s^2"
+        ],
+        "illustration_prompt": "cute educational illustration showing an astronaut dropping a hammer and a feather at the same time on the moon (where there is no air resistance), and them hitting the ground together"
+    },
+    {
+        "id": 71,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Làm thế nào mà máy bay có thể bay được?",
+        "answer": "Máy bay bay được nhờ bốn lực cân bằng chính: **1. Lực nâng (Lift)** (đẩy cánh lên), **2. Trọng lực (Weight)** (kéo xuống), **3. Lực đẩy (Thrust)** (đẩy máy bay về phía trước), và **4. Lực cản (Drag)** (kéo máy bay về phía sau). Lực nâng được tạo ra bởi hình dạng đặc biệt của cánh.",
+        "tags": [
+            "máy bay bay",
+            "lực nâng",
+            "lift",
+            "trọng lực",
+            "weight",
+            "lực đẩy",
+            "thrust",
+            "lực cản",
+            "drag"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the four main forces acting on an airplane in flight (Lift, Weight, Thrust, Drag)"
+    },
+    {
+        "id": 72,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực nổi (Buoyancy) là gì?",
+        "answer": "Lực nổi là **lực đẩy hướng lên** do chất lỏng (hoặc chất khí) tác dụng lên một vật thể được nhúng vào. Lực nổi giải thích tại sao một chiếc thuyền kim loại lớn có thể **nổi** trên mặt nước. Lực nổi lớn hơn trọng lực của chiếc thuyền.",
+        "tags": [
+            "lực nổi",
+            "buoyancy",
+            "lực đẩy hướng lên",
+            "chất lỏng",
+            "thuyền nổi",
+            "trọng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a boat floating on water, with a large buoyancy arrow pointing up and a smaller weight arrow pointing down"
+    },
+    {
+        "id": 73,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực căng (Tension) là gì?",
+        "answer": "Lực căng là lực **kéo** truyền qua một sợi dây, cáp, hoặc chuỗi khi nó được kéo căng từ hai đầu. Ví dụ: lực căng giữ cho bạn không bị rơi khi bạn đu dây hoặc là lực kéo khi bạn kéo một sợi dây thừng.",
+        "tags": [
+            "lực căng",
+            "tension",
+            "lực kéo",
+            "sợi dây",
+            "kéo căng",
+            "đu dây"
+        ],
+        "illustration_prompt": "cute educational illustration showing two people pulling on opposite ends of a rope, with arrows indicating the tension force within the rope"
+    },
+    {
+        "id": 74,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Chuyển động quay (Rotational Motion) là gì?",
+        "answer": "Chuyển động quay là khi một vật thể chuyển động theo một **vòng tròn** quanh một điểm cố định (gọi là **Trục quay**). Ví dụ: Trái Đất quay quanh trục của nó (tạo ra ngày và đêm), hoặc bánh xe quay quanh trục.",
+        "tags": [
+            "chuyển động quay",
+            "rotational motion",
+            "vòng tròn",
+            "trục quay",
+            "trái đất quay",
+            "bánh xe"
+        ],
+        "illustration_prompt": "cute educational diagram showing a spinning top rotating around a central axis"
+    },
+    {
+        "id": 75,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Điều gì tạo ra Lực Ma sát lớn hơn?",
+        "answer": "Ma sát lớn hơn được tạo ra bởi: **1. Bề mặt gồ ghề** (Rough surfaces, vì chúng 'khóa' lại với nhau nhiều hơn) và **2. Áp lực lớn hơn** (Higher pressure, vì vật thể bị đẩy vào nhau mạnh hơn). Ví dụ: lốp xe có gai lốp tạo ma sát lớn hơn trên tuyết.",
+        "tags": [
+            "ma sát lớn hơn",
+            "bề mặt gồ ghề",
+            "áp lực lớn",
+            "lốp xe có gai",
+            "tuyết"
+        ],
+        "illustration_prompt": "cute educational diagram showing two rough surfaces pressed together, magnifying the interlocked bumps causing high friction"
+    },
+    {
+        "id": 76,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Vì sao Trọng lượng (Weight) của bạn lại thay đổi trên các hành tinh khác?",
+        "answer": "Trọng lượng là **lực hấp dẫn** tác dụng lên khối lượng của bạn. Vì các hành tinh khác nhau có **khối lượng khác nhau** và **kích thước khác nhau**, nên lực hấp dẫn của chúng cũng khác nhau. Trên Sao Mộc, bạn sẽ nặng hơn, nhưng trên Mặt Trăng, bạn sẽ nhẹ hơn nhiều.",
+        "tags": [
+            "trọng lượng",
+            "weight",
+            "lực hấp dẫn",
+            "hành tinh khác",
+            "khối lượng kích thước",
+            "mặt trăng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a person's weight on Earth, the Moon (lighter), and Jupiter (heavier)"
+    },
+    {
+        "id": 77,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Gia tốc (Acceleration) là gì?",
+        "answer": "Gia tốc là **tốc độ thay đổi vận tốc** của một vật thể. Điều này có nghĩa là vật thể đó có thể **tăng tốc**, **giảm tốc** (cũng là một dạng gia tốc) hoặc **thay đổi hướng** chuyển động. Bất cứ khi nào vận tốc thay đổi, vật thể đang gia tốc.",
+        "tags": [
+            "gia tốc",
+            "acceleration",
+            "tốc độ thay đổi vận tốc",
+            "tăng tốc",
+            "giảm tốc",
+            "thay đổi hướng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a race car changing its velocity over time, illustrating acceleration"
+    },
+    {
+        "id": 78,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực đàn hồi (Elastic Force) là gì?",
+        "answer": "Lực đàn hồi là lực do một vật liệu **biến dạng** (bị kéo căng hoặc nén lại) tác dụng để **phục hồi** lại hình dạng ban đầu của nó. Ví dụ: lực do dây cao su kéo căng hoặc lò xo bị nén lại tạo ra.",
+        "tags": [
+            "lực đàn hồi",
+            "elastic force",
+            "biến dạng",
+            "phục hồi hình dạng",
+            "dây cao su",
+            "lò xo"
+        ],
+        "illustration_prompt": "cute educational illustration showing a stretched spring with an arrow indicating the restorative elastic force pulling it back to its original shape"
+    },
+    {
+        "id": 79,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực hướng tâm (Centripetal Force) là gì?",
+        "answer": "Lực hướng tâm là lực luôn **hướng vào tâm** của một đường tròn và giữ cho một vật thể di chuyển theo quỹ đạo tròn. Ví dụ: lực căng của sợi dây giữ quả bóng bay quanh bạn theo một vòng tròn.",
+        "tags": [
+            "lực hướng tâm",
+            "centripetal force",
+            "hướng vào tâm",
+            "quỹ đạo tròn",
+            "bóng bay quanh"
+        ],
+        "illustration_prompt": "cute educational diagram showing a person swinging a ball on a string, with the centripetal force arrow pointing inward to the hand"
+    },
+    {
+        "id": 80,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Tại sao các vật thể có Quán tính (Inertia)?",
+        "answer": "Quán tính là do vật thể có **Khối lượng (Mass)**. Khối lượng là thước đo lượng vật chất trong một vật thể. Vật thể có khối lượng càng lớn, nó càng có nhiều quán tính và càng khó khăn hơn để thay đổi chuyển động của nó (khởi động hoặc dừng lại).",
+        "tags": [
+            "quán tính",
+            "inertia",
+            "khối lượng",
+            "mass",
+            "lượng vật chất",
+            "khó thay đổi chuyển động"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a small box (low mass, low inertia) that is easy to push and a large heavy rock (high mass, high inertia) that is hard to push"
+    },
+    {
+        "id": 81,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Trọng tâm (Center of Mass) là gì?",
+        "answer": "Trọng tâm là **điểm trung bình** của khối lượng của một vật thể. Tất cả các lực hấp dẫn tác dụng lên vật thể có thể được coi là tập trung tại điểm này. Để giữ thăng bằng một vật, bạn phải đặt điểm hỗ trợ của mình **ngay bên dưới** trọng tâm.",
+        "tags": [
+            "trọng tâm",
+            "center of mass",
+            "điểm trung bình",
+            "lực hấp dẫn",
+            "giữ thăng bằng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the center of mass marked on a hammer and how to easily balance it at that point"
+    },
+    {
+        "id": 82,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Làm thế nào mà nam châm tạo ra lực (Magnetic Force)?",
+        "answer": "Nam châm tạo ra lực thông qua một **Trường từ (Magnetic Field)** vô hình xung quanh chúng. Lực từ là lực **đẩy** (giữa hai cực giống nhau) hoặc **kéo** (giữa hai cực khác nhau) tác dụng lên các vật liệu từ tính hoặc nam châm khác.",
+        "tags": [
+            "lực từ",
+            "magnetic force",
+            "nam châm",
+            "trường từ",
+            "cực bắc cực nam",
+            "đẩy kéo"
+        ],
+        "illustration_prompt": "cute educational diagram showing the magnetic field lines around a bar magnet, with North and South poles attracting"
+    },
+    {
+        "id": 83,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực Pháp tuyến (Normal Force) là gì?",
+        "answer": "Lực pháp tuyến là lực **hỗ trợ** mà một bề mặt (như sàn nhà hoặc mặt bàn) tác dụng **vuông góc** với một vật thể đặt lên nó. Lực pháp tuyến **ngăn** vật thể rơi xuyên qua bề mặt và thường bằng với trọng lượng của vật thể.",
+        "tags": [
+            "lực pháp tuyến",
+            "normal force",
+            "lực hỗ trợ",
+            "vuông góc",
+            "sàn nhà",
+            "trọng lượng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a box resting on a table, with the gravity arrow pointing down and the normal force arrow pointing up from the table surface"
+    },
+    {
+        "id": 84,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Tại sao đi xe đạp lại dễ hơn sau khi bạn đạt tốc độ nhất định?",
+        "answer": "Khi bạn đã đạt tốc độ, **quán tính** sẽ giúp bạn tiếp tục chuyển động. Lực bạn cần để giữ cho bánh xe quay ổn định và cân bằng sẽ nhỏ hơn nhiều so với lực cần thiết để **khởi động** xe đạp từ trạng thái đứng yên.",
+        "tags": [
+            "đi xe đạp dễ hơn",
+            "quán tính",
+            "giữ chuyển động",
+            "lực khởi động"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the large initial force needed to start a bike vs. the smaller continuous force needed to maintain speed"
+    },
+    {
+        "id": 85,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực li tâm (Centrifugal Force) là gì?",
+        "answer": "Lực li tâm không phải là một lực thực sự mà là một **hiệu ứng giả** (apparent effect). Khi bạn quay trong vòng tròn, **quán tính** khiến bạn cảm thấy như thể có một lực đang đẩy bạn **ra khỏi trung tâm**. Ví dụ: cảm giác bị đẩy ra ngoài khi đi vòng đu quay.",
+        "tags": [
+            "lực li tâm",
+            "centrifugal force",
+            "hiệu ứng giả",
+            "quán tính",
+            "đẩy ra khỏi trung tâm",
+            "vòng đu quay"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child on a merry-go-round feeling pushed outwards, labeling the feeling as an inertial effect"
+    },
+    {
+        "id": 86,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Cách tính Tốc độ trung bình (Average Speed)?",
+        "answer": "Tốc độ trung bình được tính bằng cách lấy **Tổng quãng đường** mà vật thể đã đi và chia cho **Tổng thời gian** cần thiết để đi quãng đường đó. $$Tốc độ trung bình = \frac{Quãng đường}{Thời gian}$$.",
+        "tags": [
+            "tốc độ trung bình",
+            "average speed",
+            "tổng quãng đường",
+            "tổng thời gian",
+            "công thức"
+        ],
+        "illustration_prompt": "cute educational illustration showing a car traveling a certain distance and the calculation for average speed"
+    },
+    {
+        "id": 87,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Điều gì gây ra chuyển động của Thủy triều (Tides)?",
+        "answer": "Thủy triều được gây ra chủ yếu bởi **Lực hấp dẫn** của **Mặt Trăng** (và ở mức độ thấp hơn là Mặt Trời). Lực hấp dẫn của Mặt Trăng kéo nước trên Trái Đất phồng lên ở cả phía gần và phía xa nó, tạo ra thủy triều lên và xuống.",
+        "tags": [
+            "thủy triều",
+            "tides",
+            "lực hấp dẫn",
+            "mặt trăng",
+            "phồng lên",
+            "thủy triều lên xuống"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Moon's gravity pulling the water on Earth, creating tidal bulges on opposite sides"
+    },
+    {
+        "id": 88,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Lực tác động khi bạn bơi (Swimming) là gì?",
+        "answer": "Khi bạn bơi, bạn đẩy nước **về phía sau** (Hành động). Nước đẩy bạn **về phía trước** (Phản ứng). Đây là **Định luật 3 Newton** đang hoạt động. Bạn cũng cần lực nổi (Buoyancy) để giữ mình trên mặt nước.",
+        "tags": [
+            "bơi lội",
+            "swimming",
+            "định luật 3 newton",
+            "hành động phản ứng",
+            "đẩy nước",
+            "lực nổi"
+        ],
+        "illustration_prompt": "cute educational diagram showing a swimmer pushing water backward (action arrow) and the water pushing the swimmer forward (reaction arrow)"
+    },
+    {
+        "id": 89,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Khối lượng (Mass) và Trọng lượng (Weight) khác nhau như thế nào?",
+        "answer": "**Khối lượng** là lượng vật chất trong một vật thể và **không thay đổi** ở bất cứ đâu (đo bằng $\text{kg}$). **Trọng lượng** là thước đo lực hấp dẫn tác dụng lên khối lượng đó và **thay đổi** tùy thuộc vào hành tinh hoặc lực hấp dẫn (đo bằng Newton).",
+        "tags": [
+            "khối lượng",
+            "mass",
+            "trọng lượng",
+            "weight",
+            "lượng vật chất",
+            "lực hấp dẫn",
+            "thay đổi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a scale measuring mass (same on Earth and Moon) and a spring scale measuring weight (different on Earth and Moon)"
+    },
+    {
+        "id": 90,
+        "category": "Vật lý đời sống",
+        "sub_category": "Lực & chuyển động",
+        "question": "Chuyển động tịnh tiến (Translational Motion) là gì?",
+        "answer": "Chuyển động tịnh tiến là khi một vật thể **di chuyển từ nơi này đến nơi khác** (theo một đường thẳng hoặc đường cong) **mà không quay**. Ví dụ: một quả bóng lăn thẳng trên mặt đất hoặc một chiếc ô tô chạy thẳng trên đường cao tốc.",
+        "tags": [
+            "chuyển động tịnh tiến",
+            "translational motion",
+            "di chuyển từ nơi này đến nơi khác",
+            "không quay",
+            "đường thẳng đường cong"
+        ],
+        "illustration_prompt": "cute educational diagram showing a square block sliding along a straight path without rotating"
+    },
+    {
+        "id": 91,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nhiệt (Heat) là gì?",
+        "answer": "Nhiệt là một dạng **năng lượng** liên quan đến **sự chuyển động** của các phân tử và nguyên tử trong một vật thể. Nhiệt luôn truyền từ vật thể **nóng hơn** sang vật thể **lạnh hơn**.",
+        "tags": [
+            "nhiệt",
+            "heat",
+            "năng lượng",
+            "chuyển động phân tử",
+            "truyền nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing rapidly moving molecules in a hot object and slowly moving molecules in a cold object"
+    },
+    {
+        "id": 92,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nhiệt độ (Temperature) là gì?",
+        "answer": "Nhiệt độ là thước đo **mức độ nóng hay lạnh** của một vật thể, hay chính xác hơn là thước đo **năng lượng chuyển động trung bình** của các hạt (nguyên tử/phân tử) cấu tạo nên vật thể đó. Chúng ta thường đo nhiệt độ bằng **Độ C (Celsius)** hoặc **Độ F (Fahrenheit)**.",
+        "tags": [
+            "nhiệt độ",
+            "temperature",
+            "nóng lạnh",
+            "năng lượng chuyển động",
+            "độ C",
+            "độ F"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thermometer with Celsius and Fahrenheit scales"
+    },
+    {
+        "id": 93,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Ba trạng thái cơ bản của vật chất (States of Matter) là gì?",
+        "answer": "Ba trạng thái cơ bản là: **Rắn (Solid)** (hình dạng và thể tích cố định), **Lỏng (Liquid)** (thể tích cố định nhưng hình dạng thay đổi theo vật chứa), và **Khí (Gas)** (hình dạng và thể tích đều thay đổi).",
+        "tags": [
+            "trạng thái vật chất",
+            "states of matter",
+            "rắn",
+            "solid",
+            "lỏng",
+            "liquid",
+            "khí",
+            "gas"
+        ],
+        "illustration_prompt": "cute educational diagram showing the particle arrangement in solid (tight), liquid (loose), and gas (very loose) states"
+    },
+    {
+        "id": 94,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự dẫn nhiệt (Conduction) là gì?",
+        "answer": "Dẫn nhiệt là cách nhiệt truyền qua vật chất bằng cách **tiếp xúc trực tiếp** (chạm vào nhau). Các hạt nóng rung mạnh và va chạm, truyền năng lượng cho các hạt lạnh bên cạnh. Ví dụ: tay cầm kim loại của chiếc muỗng nóng lên khi bạn chạm vào.",
+        "tags": [
+            "dẫn nhiệt",
+            "conduction",
+            "tiếp xúc trực tiếp",
+            "va chạm hạt",
+            "muỗng nóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat transfer by conduction through a metal rod, with molecules vibrating faster and hitting neighbors"
+    },
+    {
+        "id": 95,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự đối lưu (Convection) là gì?",
+        "answer": "Đối lưu là cách nhiệt truyền qua chất lỏng và chất khí (gọi chung là chất lưu) bằng cách **dòng chuyển động** của vật chất. Chất lỏng/khí nóng **nở ra và nổi lên**, chất lỏng/khí lạnh **chìm xuống**, tạo thành một chu trình gọi là **Dòng đối lưu**.",
+        "tags": [
+            "đối lưu",
+            "convection",
+            "chất lưu",
+            "dòng chuyển động",
+            "nổi lên chìm xuống",
+            "dòng đối lưu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a convection current in a pot of water being heated, with hot water rising and cool water sinking"
+    },
+    {
+        "id": 96,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự bức xạ nhiệt (Radiation) là gì?",
+        "answer": "Bức xạ nhiệt là cách nhiệt truyền qua không gian (và cả chân không) dưới dạng **sóng điện từ** (như tia hồng ngoại). Đây là cách bạn cảm thấy ấm áp từ **Mặt Trời** hoặc từ một đám cháy mà không cần chạm vào chúng.",
+        "tags": [
+            "bức xạ nhiệt",
+            "radiation",
+            "sóng điện từ",
+            "tia hồng ngoại",
+            "mặt trời",
+            "chân không"
+        ],
+        "illustration_prompt": "cute educational diagram showing heat energy radiating outwards from a fire as invisible waves, warming a person nearby"
+    },
+    {
+        "id": 97,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự nóng chảy (Melting) là gì?",
+        "answer": "Nóng chảy là quá trình vật chất chuyển từ trạng thái **Rắn sang Lỏng**. Điều này xảy ra khi bạn **thêm nhiệt** vào vật rắn, khiến các hạt rung động quá mạnh và thoát khỏi vị trí cố định của chúng (ví dụ: đá tan thành nước).",
+        "tags": [
+            "nóng chảy",
+            "melting",
+            "rắn sang lỏng",
+            "thêm nhiệt",
+            "rung động mạnh",
+            "đá tan"
+        ],
+        "illustration_prompt": "cute educational diagram showing solid ice particles gaining heat, vibrating faster, and becoming liquid water particles"
+    },
+    {
+        "id": 98,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự đông đặc (Freezing) là gì?",
+        "answer": "Đông đặc là quá trình vật chất chuyển từ trạng thái **Lỏng sang Rắn**. Điều này xảy ra khi bạn **loại bỏ nhiệt** khỏi chất lỏng, khiến các hạt chậm lại và bị các lực hút khóa vào vị trí cố định (ví dụ: nước đóng thành băng).",
+        "tags": [
+            "đông đặc",
+            "freezing",
+            "lỏng sang rắn",
+            "loại bỏ nhiệt",
+            "hạt chậm lại",
+            "nước đóng băng"
+        ],
+        "illustration_prompt": "cute educational diagram showing liquid water particles losing heat, slowing down, and locking into a fixed solid structure"
+    },
+    {
+        "id": 99,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự bay hơi (Evaporation) là gì?",
+        "answer": "Bay hơi là quá trình vật chất chuyển từ trạng thái **Lỏng sang Khí** (hơi nước) ở nhiệt độ **dưới điểm sôi**. Các hạt năng lượng cao gần bề mặt chất lỏng thoát ra ngoài thành khí (ví dụ: vũng nước khô đi vào một ngày nắng).",
+        "tags": [
+            "bay hơi",
+            "evaporation",
+            "lỏng sang khí",
+            "dưới điểm sôi",
+            "hạt năng lượng cao",
+            "vũng nước khô"
+        ],
+        "illustration_prompt": "cute educational diagram showing high-energy liquid particles escaping the surface and becoming gas particles"
+    },
+    {
+        "id": 100,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự ngưng tụ (Condensation) là gì?",
+        "answer": "Ngưng tụ là quá trình vật chất chuyển từ trạng thái **Khí sang Lỏng**. Điều này xảy ra khi khí (hơi nước) **mất nhiệt** và **làm chậm các hạt** lại, khiến chúng tập hợp lại thành chất lỏng. Ví dụ: những giọt nước đọng bên ngoài cốc nước lạnh.",
+        "tags": [
+            "ngưng tụ",
+            "condensation",
+            "khí sang lỏng",
+            "mất nhiệt",
+            "giọt nước",
+            "hơi nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing gas particles losing energy and clumping together to form liquid droplets on a cold surface"
+    },
+    {
+        "id": 101,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Sự thăng hoa (Sublimation) là gì?",
+        "answer": "Thăng hoa là quá trình vật chất chuyển trực tiếp từ trạng thái **Rắn sang Khí** mà **không đi qua trạng thái Lỏng**. Ví dụ nổi tiếng nhất là **Băng khô (Dry Ice)**, là carbon dioxide rắn, bốc hơi thành khí ngay lập tức ở nhiệt độ phòng.",
+        "tags": [
+            "thăng hoa",
+            "sublimation",
+            "rắn sang khí",
+            "không qua lỏng",
+            "băng khô",
+            "dry ice"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the phase change path directly from solid to gas, bypassing the liquid state, using dry ice as an example"
+    },
+    {
+        "id": 102,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao các vật thể lại bị Nở vì nhiệt (Thermal Expansion)?",
+        "answer": "Khi vật chất nóng lên, các hạt (phân tử) bên trong **chuyển động nhanh hơn** và **va chạm mạnh hơn**, đẩy nhau ra xa hơn. Điều này khiến vật thể (chất rắn, lỏng, khí) **chiếm thể tích lớn hơn** và nở ra.",
+        "tags": [
+            "nở vì nhiệt",
+            "thermal expansion",
+            "hạt chuyển động nhanh hơn",
+            "chiếm thể tích lớn hơn",
+            "va chạm mạnh hơn"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing molecules in a metal bar moving faster and spacing out further when heated"
+    },
+    {
+        "id": 103,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vật liệu nào là chất dẫn nhiệt (Conductors) tốt?",
+        "answer": "Chất dẫn nhiệt tốt nhất là **kim loại** (như đồng, bạc, nhôm). Chúng có các electron tự do di chuyển và truyền năng lượng nhiệt (rung động) rất nhanh chóng và hiệu quả từ hạt này sang hạt khác.",
+        "tags": [
+            "chất dẫn nhiệt",
+            "conductors",
+            "kim loại",
+            "đồng bạc nhôm",
+            "electron tự do",
+            "truyền năng lượng nhanh"
+        ],
+        "illustration_prompt": "cute educational illustration showing heat quickly traveling through a copper wire from a flame"
+    },
+    {
+        "id": 104,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Vật liệu nào là chất cách nhiệt (Insulators) tốt?",
+        "answer": "Chất cách nhiệt tốt là vật liệu **dẫn nhiệt rất kém** (như không khí, nhựa, gỗ, xốp). Chúng có các hạt được giữ chặt và ít electron tự do, làm chậm đáng kể quá trình truyền nhiệt. Áo len của bạn sử dụng không khí bị mắc kẹt để cách nhiệt.",
+        "tags": [
+            "chất cách nhiệt",
+            "insulators",
+            "dẫn nhiệt kém",
+            "không khí nhựa gỗ",
+            "electron tự do",
+            "áo len"
+        ],
+        "illustration_prompt": "cute educational illustration showing heat being blocked by a foam cup, demonstrating poor heat conduction"
+    },
+    {
+        "id": 105,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm sôi (Boiling Point) là gì?",
+        "answer": "Điểm sôi là nhiệt độ mà tại đó một chất lỏng **chuyển nhanh chóng thành khí** (bằng cách tạo thành bong bóng hơi nước) ở khắp mọi nơi trong chất lỏng, không chỉ trên bề mặt. Điểm sôi của nước ở mực nước biển là **100°C** (212°F).",
+        "tags": [
+            "điểm sôi",
+            "boiling point",
+            "lỏng thành khí",
+            "bong bóng hơi nước",
+            "100 độ C",
+            "áp suất"
+        ],
+        "illustration_prompt": "cute educational diagram showing water in a pot reaching 100 degrees Celsius and rapidly turning into steam bubbles throughout the liquid"
+    },
+    {
+        "id": 106,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Trạng thái vật chất thứ tư, Plasma, là gì?",
+        "answer": "Plasma là trạng thái vật chất **siêu nóng** và **siêu tích điện** (Superheated and super-charged). Nó là khí đã bị nung nóng đến mức các electron bị tách ra khỏi nguyên tử. Hơn 99% vật chất có thể nhìn thấy trong vũ trụ (như **Mặt Trời** và **các ngôi sao**) là ở trạng thái plasma.",
+        "tags": [
+            "plasma",
+            "trạng thái thứ tư",
+            "siêu nóng",
+            "siêu tích điện",
+            "electron tách rời",
+            "mặt trời",
+            "ngôi sao"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing atoms that have lost their electrons due to high heat, creating charged particles (plasma)"
+    },
+    {
+        "id": 107,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao đổ mồ hôi lại làm mát cơ thể bạn?",
+        "answer": "Khi mồ hôi (chất lỏng) bay hơi khỏi da bạn, nó cần rất nhiều **năng lượng nhiệt** để chuyển thành hơi nước. Mồ hôi lấy năng lượng nhiệt này **trực tiếp từ da bạn**, khiến bạn cảm thấy mát lạnh. Đây là một ví dụ về **bay hơi làm mát**.",
+        "tags": [
+            "đổ mồ hôi",
+            "làm mát cơ thể",
+            "bay hơi làm mát",
+            "năng lượng nhiệt",
+            "hơi nước"
+        ],
+        "illustration_prompt": "cute educational diagram showing a drop of sweat on skin absorbing heat energy to evaporate, cooling the skin surface"
+    },
+    {
+        "id": 108,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao nước đá lại nổi trên nước lỏng?",
+        "answer": "Hầu hết các chất đều đặc hơn khi đông đặc, nhưng **nước là ngoại lệ**. Khi đông đặc thành băng, các phân tử nước sắp xếp thành một cấu trúc tinh thể mở khiến băng **ít đặc hơn** (có nhiều không gian trống hơn) so với nước lỏng. Đó là lý do băng nổi.",
+        "tags": [
+            "nước đá nổi",
+            "ít đặc hơn",
+            "cấu trúc tinh thể mở",
+            "ngoại lệ của nước",
+            "phân tử nước"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram comparing the tightly packed molecules of liquid water with the more spaced-out, crystalline structure of solid ice"
+    },
+    {
+        "id": 109,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Nhiệt độ tuyệt đối (Absolute Zero) là gì?",
+        "answer": "Nhiệt độ tuyệt đối, hay **0° Kelvin (-273.15°C)**, là nhiệt độ lạnh nhất có thể trong vũ trụ. Ở nhiệt độ này, về mặt lý thuyết, tất cả các hạt (nguyên tử/phân tử) sẽ **hoàn toàn ngừng chuyển động** và không có bất kỳ năng lượng nhiệt nào.",
+        "tags": [
+            "nhiệt độ tuyệt đối",
+            "absolute zero",
+            "0 kelvin",
+            "-273.15 độ C",
+            "ngừng chuyển động",
+            "không có năng lượng nhiệt"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing particles completely motionless at absolute zero"
+    },
+    {
+        "id": 110,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao hơi nước nóng lại gây bỏng nặng hơn nước sôi?",
+        "answer": "Hơi nước ở 100°C chứa nhiều **năng lượng ẩn** hơn nước sôi ở 100°C. Khi hơi nước chạm vào da lạnh hơn của bạn, nó **ngưng tụ** trở lại thành nước lỏng, **giải phóng lượng lớn năng lượng nhiệt** đó cùng một lúc, gây ra vết bỏng nặng hơn.",
+        "tags": [
+            "hơi nước bỏng nặng",
+            "năng lượng ẩn",
+            "ngưng tụ",
+            "giải phóng nhiệt",
+            "100 độ C"
+        ],
+        "illustration_prompt": "cute educational diagram showing steam (gas) hitting skin, releasing its high latent heat energy as it condenses into liquid water"
+    },
+    {
+        "id": 111,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm nóng chảy (Melting Point) là gì?",
+        "answer": "Điểm nóng chảy là nhiệt độ mà tại đó vật chất chuyển từ trạng thái **rắn sang lỏng**. Điểm nóng chảy và điểm đông đặc của một chất tinh khiết thường **giống nhau** (ví dụ: đối với nước là 0°C hay 32°F).",
+        "tags": [
+            "điểm nóng chảy",
+            "melting point",
+            "rắn sang lỏng",
+            "điểm đông đặc",
+            "0 độ C"
+        ],
+        "illustration_prompt": "cute educational diagram showing the temperature at which a substance transitions from a solid to a liquid phase"
+    },
+    {
+        "id": 112,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điều gì xảy ra với áp suất (Pressure) khi bạn nung nóng chất khí?",
+        "answer": "Khi bạn nung nóng chất khí (ví dụ: trong lốp xe), các phân tử khí **chuyển động nhanh hơn** và **va chạm vào thành vật chứa** với lực lớn hơn và thường xuyên hơn. Điều này làm cho **áp suất** bên trong vật chứa **tăng lên**.",
+        "tags": [
+            "áp suất",
+            "pressure",
+            "nung nóng chất khí",
+            "hạt va chạm nhanh hơn",
+            "tăng áp suất",
+            "lốp xe"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing gas particles moving rapidly inside a container and hitting the walls, illustrating increasing pressure"
+    },
+    {
+        "id": 113,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao các nồi áp suất (Pressure Cooker) lại nấu thức ăn nhanh hơn?",
+        "answer": "Nồi áp suất giữ cho hơi nước **không thoát ra ngoài**, làm cho áp suất bên trong nồi **tăng lên**. Áp suất tăng lên này làm cho **điểm sôi của nước tăng lên trên 100°C**, cho phép thức ăn được nấu ở nhiệt độ cao hơn nhiều, dẫn đến thời gian nấu nhanh hơn.",
+        "tags": [
+            "nồi áp suất",
+            "pressure cooker",
+            "áp suất tăng",
+            "điểm sôi tăng",
+            "nấu nhanh hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing the inside of a pressure cooker with high pressure raising the boiling point of water"
+    },
+    {
+        "id": 114,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Năng lượng ẩn (Latent Heat) là gì?",
+        "answer": "Năng lượng ẩn là nhiệt năng được **thêm vào** hoặc **lấy đi** khỏi vật chất trong quá trình **thay đổi trạng thái** (nóng chảy, sôi) mà **không làm thay đổi nhiệt độ** của vật chất. Năng lượng này được sử dụng để phá vỡ hoặc hình thành các liên kết hạt.",
+        "tags": [
+            "năng lượng ẩn",
+            "latent heat",
+            "thay đổi trạng thái",
+            "không thay đổi nhiệt độ",
+            "phá vỡ liên kết hạt"
+        ],
+        "illustration_prompt": "cute educational graph showing a flat line during a phase change (like melting) where heat is added but temperature remains constant, representing latent heat"
+    },
+    {
+        "id": 115,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao hơi thở của chúng ta có thể nhìn thấy được vào một ngày lạnh?",
+        "answer": "Hơi thở ấm áp của bạn chứa hơi nước (chất khí). Khi bạn thở ra, hơi nước nóng này gặp không khí lạnh bên ngoài, nó **nhanh chóng mất nhiệt** và **ngưng tụ** thành hàng triệu giọt nước lỏng rất nhỏ (giống như sương mù), tạo thành 'khói' trắng mà bạn thấy.",
+        "tags": [
+            "hơi thở nhìn thấy",
+            "ngày lạnh",
+            "hơi nước",
+            "mất nhiệt",
+            "ngưng tụ",
+            "giọt nước nhỏ"
+        ],
+        "illustration_prompt": "cute educational illustration showing warm breath containing water vapor mixing with cold air, causing rapid condensation into visible fog"
+    },
+    {
+        "id": 116,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm quan trọng của sự giãn nở vì nhiệt trong đời sống là gì?",
+        "answer": "Các kỹ sư phải tính toán sự giãn nở vì nhiệt của vật liệu khi thiết kế các công trình lớn. Ví dụ: họ phải để lại **khoảng trống** (Khe co giãn) giữa các đoạn **đường ray xe lửa** và **cầu kim loại** để chúng có chỗ để nở ra vào mùa hè mà không bị cong vênh.",
+        "tags": [
+            "giãn nở vì nhiệt",
+            "thermal expansion",
+            "khe co giãn",
+            "đường ray xe lửa",
+            "cầu kim loại",
+            "cong vênh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small gap left between sections of railroad tracks to allow for thermal expansion in summer"
+    },
+    {
+        "id": 117,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Hiện tượng ngưng đọng sương muối (Frost) là gì?",
+        "answer": "Sương muối xảy ra khi hơi nước trong không khí **ngưng tụ** và **đông đặc** trực tiếp thành **tinh thể băng** trên bề mặt (như cỏ) mà **không qua trạng thái lỏng** (giống như sự thăng hoa ngược). Điều này xảy ra khi nhiệt độ bề mặt dưới 0°C (32°F).",
+        "tags": [
+            "sương muối",
+            "frost",
+            "ngưng tụ đông đặc",
+            "tinh thể băng",
+            "không qua lỏng",
+            "dưới 0 độ C"
+        ],
+        "illustration_prompt": "cute educational illustration showing water vapor turning directly into delicate ice crystals on a blade of grass on a cold morning"
+    },
+    {
+        "id": 118,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Tại sao chất lỏng có hình dạng thay đổi nhưng thể tích cố định?",
+        "answer": "Các hạt trong chất lỏng **có đủ năng lượng** để trượt qua nhau (cho phép hình dạng thay đổi theo vật chứa), nhưng chúng **vẫn bị hút** vào nhau đủ mạnh để giữ một khoảng cách nhất định, giữ cho **thể tích không đổi**.",
+        "tags": [
+            "chất lỏng",
+            "hình dạng thay đổi",
+            "thể tích cố định",
+            "trượt qua nhau",
+            "lực hút"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing liquid particles sliding over each other but remaining close together, maintaining constant volume"
+    },
+    {
+        "id": 119,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Làm thế nào để tủ lạnh (Refrigerator) làm mát mọi thứ?",
+        "answer": "Tủ lạnh không thực sự 'tạo ra cái lạnh', mà nó **chuyển nhiệt** từ bên trong tủ lạnh ra bên ngoài. Nó sử dụng một chất lỏng làm mát (chất làm lạnh) để **hấp thụ nhiệt** bên trong tủ và sau đó giải phóng nhiệt đó ra môi trường bên ngoài thông qua các cuộn dây phía sau.",
+        "tags": [
+            "tủ lạnh",
+            "refrigerator",
+            "chuyển nhiệt",
+            "chất làm lạnh",
+            "hấp thụ nhiệt",
+            "giải phóng nhiệt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a refrigerator loop transferring heat from the cold inside compartment to the warm air outside the coils"
+    },
+    {
+        "id": 120,
+        "category": "Vật lý đời sống",
+        "sub_category": "Nhiệt độ & trạng thái vật chất",
+        "question": "Điểm khác biệt chính giữa Hơi nước (Steam) và Khí (Gas) là gì?",
+        "answer": "**Hơi nước** là một dạng khí (gọi là **hơi**) của một chất thường là chất lỏng ở nhiệt độ phòng (ví dụ: hơi nước). **Khí** là một chất tồn tại ở trạng thái khí ở nhiệt độ phòng (ví dụ: oxy, nitơ). Cả hai đều không có hình dạng hoặc thể tích cố định.",
+        "tags": [
+            "hơi nước",
+            "steam",
+            "khí",
+            "gas",
+            "hơi",
+            "nhiệt độ phòng",
+            "oxy nitơ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing water vapor (steam) with oxygen gas molecules in the air"
+    },
+    {
+        "id": 121,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Điện tích (Electric Charge) là gì?",
+        "answer": "Điện tích là một **thuộc tính cơ bản** của vật chất. Có hai loại: **Dương (Positive)** (do proton mang) và **Âm (Negative)** (do electron mang). Điện tích là nguồn gốc của tất cả các hiện tượng điện và từ.",
+        "tags": [
+            "điện tích",
+            "electric charge",
+            "proton",
+            "electron",
+            "dương",
+            "âm",
+            "thuộc tính cơ bản"
+        ],
+        "illustration_prompt": "cute educational diagram showing an atom with positive protons in the nucleus and negative electrons orbiting it"
+    },
+    {
+        "id": 122,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Làm thế nào để các điện tích tương tác với nhau?",
+        "answer": "Quy tắc đơn giản là: Các điện tích **giống nhau** thì **đẩy nhau** (Dương đẩy Dương, Âm đẩy Âm). Các điện tích **khác nhau** thì **hút nhau** (Dương hút Âm). Lực này được gọi là **Lực tĩnh điện**.",
+        "tags": [
+            "tương tác điện tích",
+            "đẩy nhau",
+            "hút nhau",
+            "lực tĩnh điện",
+            "giống nhau khác nhau"
+        ],
+        "illustration_prompt": "cute educational diagram showing two positive charges repelling each other and a positive and negative charge attracting each other"
+    },
+    {
+        "id": 123,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Dòng điện (Electric Current) là gì?",
+        "answer": "Dòng điện là sự **chuyển động có hướng** của các **electron** (hạt mang điện âm) qua một vật liệu dẫn (thường là dây kim loại). Nó giống như nước chảy trong ống, nhưng là các electron đang chạy. Đơn vị đo là **Ampere (A)**.",
+        "tags": [
+            "dòng điện",
+            "electric current",
+            "chuyển động electron",
+            "dây kim loại",
+            "ampere",
+            "chuyển động có hướng"
+        ],
+        "illustration_prompt": "cute educational diagram showing electrons flowing in one direction through a wire, representing electric current"
+    },
+    {
+        "id": 124,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Hiệu điện thế/Điện áp (Voltage) là gì?",
+        "answer": "Hiệu điện thế (còn gọi là điện áp) là **Lực đẩy** hoặc **Áp lực** khiến các electron di chuyển trong mạch. Nó giống như áp lực nước từ máy bơm hoặc đập nước. Đơn vị đo là **Volt (V)**. Pin (Battery) là nguồn tạo ra điện áp.",
+        "tags": [
+            "hiệu điện thế",
+            "voltage",
+            "lực đẩy electron",
+            "áp lực",
+            "volt",
+            "pin",
+            "máy bơm"
+        ],
+        "illustration_prompt": "cute educational analogy diagram comparing a water pump creating pressure (voltage) to push water (current) through a pipe"
+    },
+    {
+        "id": 125,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Điện trở (Resistance) là gì?",
+        "answer": "Điện trở là **sự cản trở** đối với dòng điện. Nó làm cho dòng điện bị chậm lại và một phần năng lượng điện được chuyển thành **nhiệt** và **ánh sáng**. Đơn vị đo là **Ohm (Ω)**. Điện trở là lý do bóng đèn sợi đốt phát sáng (sợi tóc bị cản trở và nóng lên).",
+        "tags": [
+            "điện trở",
+            "resistance",
+            "sự cản trở",
+            "ohm",
+            "nhiệt",
+            "ánh sáng",
+            "bóng đèn"
+        ],
+        "illustration_prompt": "cute educational analogy diagram showing electricity (current) struggling to pass through a narrow or congested section (resistance) of a wire"
+    },
+    {
+        "id": 126,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Mạch điện (Circuit) là gì?",
+        "answer": "Mạch điện là một **đường dẫn khép kín và hoàn chỉnh** để dòng điện có thể chạy từ nguồn (pin) qua các thành phần (bóng đèn) và quay trở lại nguồn. Nếu mạch bị **hở** (Open), dòng điện không thể chạy và thiết bị không hoạt động.",
+        "tags": [
+            "mạch điện",
+            "circuit",
+            "đường dẫn khép kín",
+            "dòng điện chạy",
+            "mạch hở",
+            "pin"
+        ],
+        "illustration_prompt": "cute educational diagram showing a simple closed circuit with a battery, a switch, and a light bulb that is lit"
+    },
+    {
+        "id": 127,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Chất dẫn điện (Conductors) là gì?",
+        "answer": "Chất dẫn điện là vật liệu cho phép **electron di chuyển dễ dàng** qua chúng. Hầu hết các **kim loại** (như đồng và nhôm) là chất dẫn điện tốt vì chúng có nhiều electron tự do. Đây là lý do dây điện được làm bằng đồng.",
+        "tags": [
+            "chất dẫn điện",
+            "conductors",
+            "electron di chuyển dễ dàng",
+            "kim loại",
+            "đồng",
+            "dây điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing electrons flowing smoothly through a copper wire (conductor)"
+    },
+    {
+        "id": 128,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Chất cách điện (Insulators) là gì?",
+        "answer": "Chất cách điện là vật liệu **không cho phép electron di chuyển** dễ dàng. Chúng được sử dụng để **ngăn** dòng điện bị rò rỉ hoặc gây nguy hiểm. Ví dụ: **cao su, nhựa, thủy tinh** và **không khí** là chất cách điện tốt. Vỏ ngoài của dây điện thường làm bằng nhựa.",
+        "tags": [
+            "chất cách điện",
+            "insulators",
+            "không cho electron di chuyển",
+            "ngăn rò rỉ điện",
+            "cao su nhựa",
+            "vỏ dây điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing a wire covered in a plastic sheath (insulator) that prevents electrons from leaving the metal core"
+    },
+    {
+        "id": 129,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Điện tích tĩnh (Static Electricity) là gì?",
+        "answer": "Điện tích tĩnh là sự **tích tụ (imbalance)** của điện tích trên bề mặt một vật thể. Nó xảy ra khi hai vật liệu cọ xát vào nhau, khiến các electron bị **cướp đi hoặc tích tụ thêm**. Nó tạo ra các cú **giật điện nhỏ** (shock) hoặc làm tóc bạn dựng đứng.",
+        "tags": [
+            "điện tích tĩnh",
+            "static electricity",
+            "tích tụ điện tích",
+            "cọ xát",
+            "electron cướp đi",
+            "giật điện",
+            "tóc dựng đứng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a balloon being rubbed against hair, causing the hair to stand up due to static charge"
+    },
+    {
+        "id": 130,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Sét (Lightning) là gì?",
+        "answer": "Sét là sự **phóng điện tĩnh (Static discharge) khổng lồ** giữa các đám mây hoặc giữa đám mây và mặt đất. Nó xảy ra do sự **tích tụ lớn** của điện tích âm ở đáy đám mây, sau đó đột ngột giải phóng điện tích này để cân bằng với điện tích dương trên mặt đất.",
+        "tags": [
+            "sét",
+            "lightning",
+            "phóng điện tĩnh",
+            "static discharge",
+            "đám mây",
+            "cân bằng điện tích",
+            "khổng lồ"
+        ],
+        "illustration_prompt": "cute educational diagram showing the build-up of negative charge in a cloud and the massive discharge of lightning to the ground (positive charge)"
+    },
+    {
+        "id": 131,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Nam châm (Magnet) có gì đặc biệt?",
+        "answer": "Nam châm là vật thể tạo ra một **Trường từ (Magnetic Field)** vô hình xung quanh nó. Trường từ này tạo ra lực có thể **kéo (hút)** các vật liệu từ tính (như sắt) hoặc **đẩy (đẩy lùi)** các nam châm khác mà không cần chạm vào chúng.",
+        "tags": [
+            "nam châm",
+            "magnet",
+            "trường từ",
+            "magnetic field",
+            "kéo đẩy",
+            "sắt"
+        ],
+        "illustration_prompt": "cute educational diagram showing a bar magnet with North and South poles and the invisible magnetic field lines curving from N to S outside the magnet"
+    },
+    {
+        "id": 132,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Các cực từ (Magnetic Poles) tương tác với nhau như thế nào?",
+        "answer": "Giống như điện tích: Các cực **giống nhau** thì **đẩy nhau** (Bắc đẩy Bắc, Nam đẩy Nam). Các cực **khác nhau** thì **hút nhau** (Bắc hút Nam). Bạn không bao giờ có thể tách rời một cực từ, nếu bạn cắt đôi nam châm, bạn sẽ có hai nam châm mới, mỗi nam châm đều có cả cực Bắc và Nam.",
+        "tags": [
+            "cực từ",
+            "magnetic poles",
+            "bắc nam",
+            "đẩy nhau hút nhau",
+            "nam châm cắt đôi"
+        ],
+        "illustration_prompt": "cute educational diagram showing the attraction between N and S poles and the repulsion between two N poles of bar magnets"
+    },
+    {
+        "id": 133,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Làm thế nào để tạo ra Nam châm điện (Electromagnet)?",
+        "answer": "Nam châm điện được tạo ra bằng cách quấn một **dây dẫn** xung quanh một lõi kim loại (thường là **sắt**) và cho **dòng điện** chạy qua dây đó. Nó đặc biệt vì bạn có thể **bật và tắt** từ trường bằng cách bật và tắt dòng điện.",
+        "tags": [
+            "nam châm điện",
+            "electromagnet",
+            "dây dẫn",
+            "lõi sắt",
+            "dòng điện",
+            "bật tắt từ trường"
+        ],
+        "illustration_prompt": "cute educational diagram showing a battery connected to a coil of wire wrapped around an iron nail, attracting paper clips"
+    },
+    {
+        "id": 134,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Tại sao Trái Đất lại có từ trường?",
+        "answer": "Từ trường của Trái Đất được tạo ra bởi sự chuyển động của **kim loại lỏng (sắt và niken)** ở **lõi ngoài** của hành tinh. Chuyển động này tạo ra các dòng điện lớn, giống như một **nam châm điện khổng lồ**, giúp bảo vệ chúng ta khỏi bức xạ mặt trời.",
+        "tags": [
+            "từ trường trái đất",
+            "earth magnetic field",
+            "lõi ngoài",
+            "kim loại lỏng",
+            "sắt niken",
+            "nam châm điện khổng lồ",
+            "bức xạ mặt trời"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Earth's core generating magnetic field lines that surround and protect the planet"
+    },
+    {
+        "id": 135,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Mạch nối tiếp (Series Circuit) là gì?",
+        "answer": "Trong mạch nối tiếp, dòng điện chỉ có **một đường dẫn duy nhất** để đi qua. Nếu **một bóng đèn bị hỏng** hoặc bị tháo ra, toàn bộ mạch sẽ bị hở và **tất cả các bóng đèn khác sẽ tắt** (giống như dây đèn Giáng Sinh kiểu cũ).",
+        "tags": [
+            "mạch nối tiếp",
+            "series circuit",
+            "một đường dẫn duy nhất",
+            "bóng đèn hỏng",
+            "tất cả tắt",
+            "đèn giáng sinh"
+        ],
+        "illustration_prompt": "cute educational diagram showing a battery connected to three light bulbs in a single, continuous loop"
+    },
+    {
+        "id": 136,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Mạch song song (Parallel Circuit) là gì?",
+        "answer": "Trong mạch song song, dòng điện có **nhiều đường dẫn** để đi qua. Nếu **một bóng đèn bị hỏng**, dòng điện vẫn có thể chạy qua các nhánh khác, và **các bóng đèn khác vẫn sáng** (như hệ thống điện trong nhà bạn).",
+        "tags": [
+            "mạch song song",
+            "parallel circuit",
+            "nhiều đường dẫn",
+            "một bóng đèn hỏng",
+            "vẫn sáng",
+            "hệ thống điện trong nhà"
+        ],
+        "illustration_prompt": "cute educational diagram showing a battery connected to three light bulbs, each on its own separate branch"
+    },
+    {
+        "id": 137,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Làm thế nào để Máy phát điện (Generator) tạo ra điện?",
+        "answer": "Máy phát điện hoạt động bằng cách **chuyển động** (xoay) **dây dẫn** (cuộn dây) qua một **trường từ** mạnh. Chuyển động này **đẩy các electron** trong dây dẫn, tạo ra dòng điện. Nó biến **động năng** (năng lượng chuyển động) thành **điện năng**.",
+        "tags": [
+            "máy phát điện",
+            "generator",
+            "tạo ra điện",
+            "chuyển động dây dẫn",
+            "trường từ",
+            "động năng điện năng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a coil of wire rotating between the poles of a magnet, inducing an electric current"
+    },
+    {
+        "id": 138,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Động cơ điện (Electric Motor) hoạt động như thế nào?",
+        "answer": "Động cơ điện là ngược lại với máy phát điện. Nó sử dụng **điện năng** (dòng điện chạy qua cuộn dây) để tạo ra **từ trường**, từ trường này **đẩy nam châm** và làm cuộn dây **xoay** liên tục. Nó biến **điện năng** thành **động năng** (chuyển động).",
+        "tags": [
+            "động cơ điện",
+            "electric motor",
+            "điện năng",
+            "từ trường",
+            "xoay",
+            "động năng"
+        ],
+        "illustration_prompt": "cute educational diagram showing an electric current flowing through a coil, causing it to spin due to the interaction with a surrounding permanent magnet"
+    },
+    {
+        "id": 139,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Định luật Ohm (Ohm's Law) là gì?",
+        "answer": "Định luật Ohm mô tả mối quan hệ giữa **Điện áp (Voltage - V)**, **Cường độ dòng điện (Current - I)**, và **Điện trở (Resistance - R)**. Nó có công thức $V=IR$. Nó cho biết nếu bạn tăng điện áp, dòng điện sẽ tăng (và ngược lại) với cùng một điện trở.",
+        "tags": [
+            "định luật ohm",
+            "ohm's law",
+            "điện áp dòng điện điện trở",
+            "v=ir",
+            "mối quan hệ"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the relationship of Voltage (V), Current (I), and Resistance (R) in a circuit (Ohm's Triangle)"
+    },
+    {
+        "id": 140,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Sự phóng điện vầng quang (Corona Discharge) là gì?",
+        "answer": "Phóng điện vầng quang là một sự rò rỉ điện tĩnh xảy ra khi trường điện từ **cực kỳ mạnh** xung quanh một vật thể sắc nhọn (như cột buồm tàu). Nó làm **ion hóa** không khí xung quanh, tạo ra một **quầng sáng xanh/tím mờ** (ví dụ: Lửa Thánh Elmo) và thường xảy ra trước một cơn bão.",
+        "tags": [
+            "phóng điện vầng quang",
+            "corona discharge",
+            "lửa thánh elmo",
+            "ion hóa không khí",
+            "quầng sáng",
+            "cột buồm"
+        ],
+        "illustration_prompt": "cute educational illustration showing the faint, glowing blue light of St. Elmo's Fire appearing on the mast of a ship during a storm"
+    },
+    {
+        "id": 141,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Bộ biến áp (Transformer) làm gì?",
+        "answer": "Máy biến áp là thiết bị sử dụng **từ trường** để **thay đổi điện áp** của dòng điện xoay chiều (AC). Nó có thể **tăng (Step-up)** điện áp để truyền tải điện năng đi xa hoặc **giảm (Step-down)** điện áp để sử dụng an toàn trong gia đình.",
+        "tags": [
+            "bộ biến áp",
+            "transformer",
+            "thay đổi điện áp",
+            "tăng áp",
+            "giảm áp",
+            "truyền tải điện",
+            "dòng điện xoay chiều"
+        ],
+        "illustration_prompt": "cute educational diagram showing the principle of a transformer, with two coils around an iron core, changing the voltage level"
+    },
+    {
+        "id": 142,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Dòng điện một chiều (DC) và dòng điện xoay chiều (AC) khác nhau như thế nào?",
+        "answer": "**DC (Direct Current)** là dòng điện chỉ chảy theo **một hướng** (như từ pin). **AC (Alternating Current)** là dòng điện **thường xuyên đảo ngược hướng** của nó (như điện từ ổ cắm trên tường). AC được sử dụng để truyền tải điện năng đi xa hiệu quả hơn.",
+        "tags": [
+            "dòng điện dc",
+            "dòng điện ac",
+            "direct current",
+            "alternating current",
+            "một hướng",
+            "đảo ngược hướng",
+            "pin",
+            "ổ cắm"
+        ],
+        "illustration_prompt": "cute educational graph comparing the steady straight line of DC current vs. the wavy oscillating line of AC current over time"
+    },
+    {
+        "id": 143,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Pin (Battery) hoạt động như thế nào?",
+        "answer": "Pin tạo ra điện bằng một **phản ứng hóa học** bên trong. Phản ứng này khiến các electron tích tụ ở một cực (cực âm) và tạo ra sự thiếu hụt ở cực kia (cực dương). Sự mất cân bằng này tạo ra **Hiệu điện thế (Voltage)**, cho phép dòng điện chạy qua mạch.",
+        "tags": [
+            "pin",
+            "battery",
+            "phản ứng hóa học",
+            "cực âm cực dương",
+            "tạo hiệu điện thế",
+            "mất cân bằng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the internal chemistry of a battery, illustrating the movement of ions and electrons from the negative to the positive terminal"
+    },
+    {
+        "id": 144,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Làm thế nào để tạo ra Nam châm vĩnh cửu (Permanent Magnet)?",
+        "answer": "Nam châm vĩnh cửu được làm từ vật liệu từ tính (như thép hoặc hợp kim đặc biệt) đã được **từ hóa mạnh** (thường là bằng cách tiếp xúc với trường từ mạnh). Các miền từ tính (Magnetic Domains) bên trong vật liệu được sắp xếp vĩnh viễn, tạo ra từ trường liên tục.",
+        "tags": [
+            "nam châm vĩnh cửu",
+            "permanent magnet",
+            "từ hóa mạnh",
+            "miền từ tính",
+            "sắp xếp vĩnh viễn",
+            "thép"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing magnetic domains inside a material aligning perfectly to form a permanent magnet"
+    },
+    {
+        "id": 145,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Tại sao các thiết bị điện thường có Dây nối đất (Grounding Wire)?",
+        "answer": "Dây nối đất (hoặc nối đất) là một dây an toàn. Nếu có sự cố (như dây điện bị lỏng chạm vào vỏ kim loại của thiết bị), dòng điện dư thừa sẽ được dẫn đi một **lối đi an toàn** trực tiếp xuống đất, thay vì chạy qua người bạn và gây ra điện giật.",
+        "tags": [
+            "dây nối đất",
+            "grounding wire",
+            "an toàn",
+            "dòng điện dư thừa",
+            "lối đi an toàn",
+            "điện giật"
+        ],
+        "illustration_prompt": "cute educational diagram showing a faulty electrical current being safely diverted through the grounding wire into the Earth"
+    },
+    {
+        "id": 146,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Làm thế nào để nam châm mất từ tính?",
+        "answer": "Nam châm có thể bị mất từ tính nếu: **1. Nung nóng** nó đến nhiệt độ cao. **2. Đập** hoặc **Đánh** nó mạnh. Cả hai hành động này đều làm các **miền từ tính** (các nhóm nguyên tử được sắp xếp) bên trong vật liệu bị xáo trộn và mất đi sự sắp xếp thẳng hàng của chúng.",
+        "tags": [
+            "mất từ tính",
+            "demagnetize",
+            "nung nóng",
+            "đập mạnh",
+            "miền từ tính",
+            "xáo trộn"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing the magnetic domains becoming randomly oriented after a magnet is heated or hit"
+    },
+    {
+        "id": 147,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Điện từ (Electromagnetism) là gì?",
+        "answer": "Điện từ là sự thống nhất giữa **điện** và **từ tính**. Nó cho thấy **dòng điện tạo ra từ trường** (như trong nam châm điện) và **từ trường chuyển động tạo ra dòng điện** (như trong máy phát điện). Đây là một trong bốn lực cơ bản của vũ trụ.",
+        "tags": [
+            "điện từ",
+            "electromagnetism",
+            "điện và từ tính",
+            "dòng điện tạo từ trường",
+            "từ trường tạo dòng điện",
+            "lực cơ bản"
+        ],
+        "illustration_prompt": "cute educational diagram showing the two-way relationship between electricity (current in a wire) and magnetism (magnetic field generated around the wire)"
+    },
+    {
+        "id": 148,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Cầu chì (Fuse) hoặc Áptômát (Circuit Breaker) có vai trò gì trong mạch điện?",
+        "answer": "Chúng là các thiết bị **an toàn** được thiết kế để **ngắt mạch** nếu dòng điện trở nên quá lớn (do đoản mạch hoặc quá tải). Cầu chì chứa một sợi dây mỏng sẽ **cháy** đứt; Áptômát tự động **ngắt công tắc** (và có thể đặt lại được), ngăn ngừa hỏa hoạn.",
+        "tags": [
+            "cầu chì",
+            "fuse",
+            "áptômát",
+            "circuit breaker",
+            "an toàn",
+            "ngắt mạch",
+            "dòng điện quá lớn",
+            "ngăn ngừa hỏa hoạn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a circuit breaker mechanism automatically flipping open when the current exceeds a safe limit"
+    },
+    {
+        "id": 149,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Tại sao kim la bàn (Compass) luôn chỉ về phía Bắc?",
+        "answer": "Kim la bàn là một nam châm nhỏ. Nó không chỉ về phía Bắc địa lý, mà là về phía **Cực Bắc từ trường** của Trái Đất. Vì các cực khác nhau hút nhau, nên Cực Bắc của Trái Đất thực chất là một **Cực Nam từ tính** (hút cực Bắc của la bàn).",
+        "tags": [
+            "kim la bàn",
+            "compass",
+            "chỉ về phía bắc",
+            "cực bắc từ trường",
+            "cực nam từ tính",
+            "trái đất"
+        ],
+        "illustration_prompt": "cute educational diagram showing a compass needle aligning with the Earth's magnetic field lines, pointing towards the magnetic North Pole"
+    },
+    {
+        "id": 150,
+        "category": "Vật lý đời sống",
+        "sub_category": "Điện & từ trường cơ bản",
+        "question": "Cảm ứng điện từ (Electromagnetic Induction) là gì?",
+        "answer": "Cảm ứng điện từ là hiện tượng **tạo ra dòng điện** trong một dây dẫn bằng cách **thay đổi từ trường** xung quanh nó. Đây là nguyên tắc hoạt động cơ bản của **máy phát điện** và **bếp từ** (induction cooker).",
+        "tags": [
+            "cảm ứng điện từ",
+            "electromagnetic induction",
+            "tạo ra dòng điện",
+            "thay đổi từ trường",
+            "máy phát điện",
+            "bếp từ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a magnet being quickly moved in and out of a coil of wire, causing an electric current to register on a meter"
+    }
+]

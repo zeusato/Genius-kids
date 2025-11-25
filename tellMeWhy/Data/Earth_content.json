@@ -1,0 +1,2820 @@
+[
+    {
+        "id": 1,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Trái Đất được cấu tạo từ mấy lớp chính?",
+        "answer": "Trái Đất được cấu tạo từ **bốn lớp chính** giống như một quả đào: **Vỏ Trái Đất (Crust)** là lớp mỏng bên ngoài; **Lớp Manti (Mantle)** là lớp dày nhất, nóng nhất; **Lõi Ngoài (Outer Core)** là chất lỏng; và **Lõi Trong (Inner Core)** là chất rắn.",
+        "tags": [
+            "cấu tạo trái đất",
+            "bốn lớp",
+            "vỏ trái đất",
+            "lớp manti",
+            "lõi ngoài",
+            "lõi trong"
+        ],
+        "illustration_prompt": "cute educational diagram showing the four main layers of the Earth with simplified labels in a cross-section"
+    },
+    {
+        "id": 2,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Vỏ Trái Đất (Crust) mỏng đến mức nào?",
+        "answer": "Vỏ Trái Đất rất mỏng so với các lớp khác, giống như **vỏ của một quả táo** hoặc **da của một quả đào**. Nó chỉ dày trung bình khoảng $30 \text{ km}$ dưới đất liền (Lục địa) và mỏng hơn nhiều (khoảng $5 \text{ km}$) dưới đáy đại dương.",
+        "tags": [
+            "vỏ trái đất",
+            "crust",
+            "mỏng",
+            "lục địa",
+            "đáy đại dương"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the Earth's crust thickness to the skin of an apple"
+    },
+    {
+        "id": 3,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Lớp Manti (Mantle) được tạo thành từ gì và vì sao nó quan trọng?",
+        "answer": "Lớp Manti là lớp **dày nhất**, được tạo thành từ **đá nóng chảy và đặc quánh** (gọi là magma) hoạt động giống như nhựa dẻo. Sự chuyển động chậm chạp và liên tục của đá trong Manti tạo ra **lực đẩy** khiến các mảng kiến tạo bên trên di chuyển.",
+        "tags": [
+            "lớp manti",
+            "mantle",
+            "magma",
+            "đá đặc quánh",
+            "chuyển động",
+            "lực đẩy"
+        ],
+        "illustration_prompt": "cute educational illustration showing slow, circular convection currents in the Earth's mantle, like thick soup heating up"
+    },
+    {
+        "id": 4,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Điều gì tạo ra từ trường (Magnetic Field) bảo vệ Trái Đất?",
+        "answer": "Đó là sự chuyển động của **Lõi Ngoài (Outer Core)**. Lõi Ngoài được làm bằng **sắt và niken nóng chảy**, và khi chất lỏng này quay, nó tạo ra dòng điện khổng lồ. Dòng điện này tạo ra **từ trường**, hoạt động như một lá chắn bảo vệ chúng ta khỏi gió mặt trời có hại.",
+        "tags": [
+            "từ trường",
+            "magnetic field",
+            "lõi ngoài",
+            "sắt nóng chảy",
+            "gió mặt trời"
+        ],
+        "illustration_prompt": "cute educational diagram showing the liquid outer core spinning and generating magnetic field lines around the Earth"
+    },
+    {
+        "id": 5,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Phần nào của Trái Đất là nóng nhất?",
+        "answer": "Phần nóng nhất là **Lõi Trong (Inner Core)**. Mặc dù ở sâu bên trong, nó vẫn là một khối cầu **sắt và niken rắn chắc** do áp suất cực lớn. Nhiệt độ của nó được ước tính lên tới hơn 5000°C, thậm chí **nóng hơn cả bề mặt Mặt Trời**!",
+        "tags": [
+            "lõi trong",
+            "inner core",
+            "nóng nhất",
+            "sắt rắn",
+            "áp suất cực lớn"
+        ],
+        "illustration_prompt": "cute educational diagram showing the inner core with a high-temperature thermometer icon, comparing its heat to the sun's surface"
+    },
+    {
+        "id": 6,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Các Mảng Kiến Tạo (Tectonic Plates) là gì?",
+        "answer": "Các Mảng Kiến Tạo là những **mảnh khổng lồ, cứng** của Vỏ Trái Đất và phần trên của Lớp Manti. Chúng giống như những **mảnh ghép** khổng lồ nổi và trôi dạt rất chậm trên lớp Manti lỏng bên dưới.",
+        "tags": [
+            "mảng kiến tạo",
+            "tectonic plates",
+            "mảnh ghép khổng lồ",
+            "trôi dạt",
+            "vỏ trái đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a map of the Earth with the major tectonic plates outlined and labeled"
+    },
+    {
+        "id": 7,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Vì sao Trái Đất có động đất (Earthquake)?",
+        "answer": "Động đất xảy ra khi các **Mảng Kiến Tạo va chạm, trượt qua nhau hoặc bị kẹt lại**. Khi áp suất tích tụ quá lớn và các mảng đột ngột trượt, năng lượng được giải phóng dưới dạng **sóng địa chấn**, gây ra sự rung lắc trên bề mặt.",
+        "tags": [
+            "động đất",
+            "earthquake",
+            "mảng kiến tạo",
+            "sóng địa chấn",
+            "áp suất"
+        ],
+        "illustration_prompt": "cute educational diagram showing two tectonic plates locked together at a fault line, building up pressure, and then suddenly slipping"
+    },
+    {
+        "id": 8,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Núi lửa (Volcano) được hình thành như thế nào?",
+        "answer": "Núi lửa hình thành ở những nơi **magma** (đá nóng chảy) từ Lớp Manti tìm được **lối thoát** lên Vỏ Trái Đất. Khi magma tích tụ và phun trào lên bề mặt (lúc này gọi là **dung nham - lava**), nó nguội đi và xây dựng thành hình chóp của núi lửa.",
+        "tags": [
+            "núi lửa",
+            "volcano",
+            "magma",
+            "dung nham",
+            "lối thoát",
+            "hình chóp"
+        ],
+        "illustration_prompt": "cute educational cross-section diagram showing magma rising from the mantle through a vent to erupt as lava, forming a cone-shaped volcano"
+    },
+    {
+        "id": 9,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Sự trôi dạt lục địa (Continental Drift) là gì?",
+        "answer": "Là ý tưởng cho rằng tất cả các lục địa trên Trái Đất đã từng là một **siêu lục địa khổng lồ** duy nhất tên là **Pangaea** ($200 \text{ triệu}$ năm trước). Do chuyển động của các mảng kiến tạo, lục địa đó đã dần dần **tách ra và trôi dạt** đến vị trí hiện tại.",
+        "tags": [
+            "trôi dạt lục địa",
+            "continental drift",
+            "Pangaea",
+            "siêu lục địa",
+            "tách ra"
+        ],
+        "illustration_prompt": "cute educational illustration showing the evolution of continents from Pangaea to the present-day map"
+    },
+    {
+        "id": 10,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Hệ thống 'Đứt gãy' (Fault Line) là gì?",
+        "answer": "Đứt gãy là một **vết nứt** hoặc **vùng yếu** trong Vỏ Trái Đất. Đây là nơi các Mảng Kiến Tạo **gặp nhau** và có thể **trượt hoặc va chạm**. Hầu hết các trận động đất đều xảy ra dọc theo các đường đứt gãy này.",
+        "tags": [
+            "đứt gãy",
+            "fault line",
+            "vết nứt",
+            "vùng yếu",
+            "động đất"
+        ],
+        "illustration_prompt": "cute educational diagram showing a cross-section of land with a visible fault line where the two sides have shifted relative to each other"
+    },
+    {
+        "id": 11,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Các loại đá cơ bản trên Trái Đất là gì?",
+        "answer": "Có ba loại đá cơ bản: **Đá Magma (Igneous)** (hình thành từ magma/dung nham nguội đi), **Đá Trầm Tích (Sedimentary)** (hình thành từ các mảnh vụn bị nén), và **Đá Biến Chất (Metamorphic)** (hình thành từ đá cũ bị nhiệt và áp suất biến đổi).",
+        "tags": [
+            "các loại đá",
+            "đá magma",
+            "đá trầm tích",
+            "đá biến chất",
+            "chu kỳ đá"
+        ],
+        "illustration_prompt": "cute educational diagram showing the three main rock types and their formation processes in the rock cycle"
+    },
+    {
+        "id": 12,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Đá Magma (Igneous Rock) hình thành như thế nào?",
+        "answer": "Đá Magma được hình thành khi đá nóng chảy (magma hoặc dung nham) **nguội đi và đông cứng**. Nếu nguội nhanh trên bề mặt, nó tạo thành đá có **hạt mịn** (như đá Obsidian). Nếu nguội chậm dưới lòng đất, nó tạo thành đá có **hạt lớn** (như đá Granite).",
+        "tags": [
+            "đá magma",
+            "igneous rock",
+            "magma nguội đi",
+            "đông cứng",
+            "granite",
+            "obsidian"
+        ],
+        "illustration_prompt": "cute educational diagram comparing fast cooling (small crystals/obsidian) and slow cooling (large crystals/granite)"
+    },
+    {
+        "id": 13,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Vì sao các núi lửa dưới đáy đại dương lại quan trọng?",
+        "answer": "Núi lửa dưới đáy đại dương, đặc biệt dọc theo **Vành đai Đại dương giữa (Mid-Ocean Ridges)**, là nơi **Vỏ Trái Đất mới** liên tục được tạo ra. Magma phun trào và nguội đi, đẩy các mảng cũ ra xa nhau, làm cho đại dương ngày càng rộng ra.",
+        "tags": [
+            "núi lửa dưới biển",
+            "vỏ trái đất mới",
+            "mid-ocean ridges",
+            "đại dương rộng ra"
+        ],
+        "illustration_prompt": "cute educational diagram showing a cross-section of a mid-ocean ridge where magma is rising and cooling to form new crust"
+    },
+    {
+        "id": 14,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Chu kỳ Đá (Rock Cycle) là gì?",
+        "answer": "Chu kỳ Đá là quá trình các loại đá **biến đổi liên tục** từ loại này sang loại khác qua hàng triệu năm. Ví dụ, Đá Magma bị phong hóa thành Đá Trầm Tích, rồi bị nhiệt và áp suất biến thành Đá Biến Chất, sau đó có thể tan chảy lại thành Magma.",
+        "tags": [
+            "chu kỳ đá",
+            "rock cycle",
+            "biến đổi liên tục",
+            "phong hóa",
+            "triệu năm"
+        ],
+        "illustration_prompt": "cute educational diagram showing the cyclical transformation between Igneous, Sedimentary, and Metamorphic rocks"
+    },
+    {
+        "id": 15,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Làm thế nào các dãy núi lớn (Mountain Ranges) được hình thành?",
+        "answer": "Hầu hết các dãy núi lớn (như Himalayas) được hình thành khi **hai mảng lục địa va chạm** (Convergent Boundary). Hai mảng có cùng mật độ nên chúng không chìm, mà thay vào đó **bị đẩy lên** rất chậm, tạo thành các nếp gấp khổng lồ trên Vỏ Trái Đất.",
+        "tags": [
+            "dãy núi",
+            "mountain ranges",
+            "hai mảng lục địa va chạm",
+            "convergent boundary",
+            "bị đẩy lên"
+        ],
+        "illustration_prompt": "cute educational diagram showing two continental tectonic plates colliding and slowly pushing up the land between them to form a mountain range"
+    },
+    {
+        "id": 16,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Hóa thạch (Fossil) thường được tìm thấy trong loại đá nào?",
+        "answer": "Hóa thạch hầu như chỉ được tìm thấy trong **Đá Trầm Tích (Sedimentary Rock)**. Đá trầm tích được hình thành bởi các lớp vật chất và bùn bị nén lại, quá trình này đủ nhẹ nhàng để **bảo tồn** hình dạng của các sinh vật chết chìm bên trong.",
+        "tags": [
+            "hóa thạch",
+            "fossil",
+            "đá trầm tích",
+            "sedimentary rock",
+            "bảo tồn",
+            "bùn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of sedimentary rock layers with a fossilized fern embedded inside"
+    },
+    {
+        "id": 17,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Vành đai lửa Thái Bình Dương (Ring of Fire) là gì?",
+        "answer": "Đây là một khu vực hình **vòng móng ngựa** lớn xung quanh Thái Bình Dương, nơi tập trung **phần lớn động đất và núi lửa** của Trái Đất. Nó là nơi nhiều mảng kiến tạo gặp nhau và đang **tích cực trượt, va chạm và chìm** (Subduction Zone).",
+        "tags": [
+            "vành đai lửa",
+            "ring of fire",
+            "thái bình dương",
+            "động đất",
+            "núi lửa",
+            "subduction zone"
+        ],
+        "illustration_prompt": "cute educational map highlighting the Pacific Ring of Fire with small icons of volcanoes and earthquake waves"
+    },
+    {
+        "id": 18,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Tsunami (Sóng thần) hình thành như thế nào?",
+        "answer": "Sóng thần thường hình thành do một **trận động đất dưới đáy đại dương** mạnh mẽ làm **thay đổi đột ngột** độ sâu của đáy biển. Sự dịch chuyển của đáy biển đẩy một lượng nước khổng lồ lên, tạo thành những con sóng lớn di chuyển rất nhanh qua đại dương.",
+        "tags": [
+            "sóng thần",
+            "tsunami",
+            "động đất dưới đáy biển",
+            "thay đổi đột ngột",
+            "sóng lớn"
+        ],
+        "illustration_prompt": "cute educational diagram showing an underwater earthquake causing a sudden vertical shift in the seabed, generating a large tsunami wave"
+    },
+    {
+        "id": 19,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Đá Phiến Sét (Shale) được hình thành như thế nào?",
+        "answer": "Đá Phiến Sét là một loại **Đá Trầm Tích** được hình thành từ **bùn và sét** rất mịn, bị nén lại dưới áp suất lớn trong thời gian dài. Nó thường dễ tách thành các lớp mỏng, giống như những trang sách.",
+        "tags": [
+            "đá phiến sét",
+            "shale",
+            "đá trầm tích",
+            "bùn và sét",
+            "nén lại"
+        ],
+        "illustration_prompt": "cute educational illustration showing layers of fine sediment (mud and clay) being pressed and compacted into shale rock"
+    },
+    {
+        "id": 20,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Đá Biến Chất (Metamorphic Rock) là gì?",
+        "answer": "Đá Biến Chất là loại đá đã được **biến đổi** (thay đổi hình dạng) bởi **nhiệt độ và áp suất cực cao** dưới lòng đất. Ví dụ, đá Granite (Magma) có thể biến thành Gneiss, hoặc đá vôi (Trầm tích) có thể biến thành đá Marble (cẩm thạch).",
+        "tags": [
+            "đá biến chất",
+            "metamorphic rock",
+            "biến đổi",
+            "nhiệt độ và áp suất",
+            "marble",
+            "gneiss"
+        ],
+        "illustration_prompt": "cute educational diagram showing a pre-existing rock being subjected to intense heat and pressure, changing its internal structure"
+    },
+    {
+        "id": 21,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Khu vực Hút chìm (Subduction Zone) là gì?",
+        "answer": "Đây là nơi **một mảng kiến tạo trượt xuống** bên dưới mảng kiến tạo khác (thường là mảng đại dương chìm dưới mảng lục địa). Sự hút chìm tạo ra các **rãnh sâu** dưới đại dương và là nguyên nhân chính gây ra **núi lửa** và **động đất mạnh**.",
+        "tags": [
+            "khu vực hút chìm",
+            "subduction zone",
+            "mảng trượt xuống",
+            "rãnh sâu",
+            "núi lửa",
+            "động đất"
+        ],
+        "illustration_prompt": "cute educational diagram showing an oceanic plate sinking beneath a continental plate, forming a trench and volcanic arc"
+    },
+    {
+        "id": 22,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Làm thế nào để các nhà khoa học biết về các lớp bên trong Trái Đất?",
+        "answer": "Họ không thể đào sâu đến đó! Thay vào đó, họ nghiên cứu **Sóng Địa Chấn (Seismic Waves)** tạo ra bởi động đất. Cách sóng di chuyển và tốc độ của chúng thay đổi khi đi qua các vật liệu khác nhau giúp họ **vẽ bản đồ** cấu trúc bên trong Trái Đất.",
+        "tags": [
+            "sóng địa chấn",
+            "seismic waves",
+            "cấu trúc bên trong",
+            "động đất",
+            "vẽ bản đồ"
+        ],
+        "illustration_prompt": "cute educational diagram showing seismic waves radiating from an earthquake's epicenter and bending/reflecting as they pass through different Earth layers"
+    },
+    {
+        "id": 23,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Đá Granite (Granite) được hình thành như thế nào?",
+        "answer": "Granite là một loại **Đá Magma xâm nhập (Intrusive Igneous)**. Nó được hình thành khi magma nguội đi **rất chậm** sâu bên trong Vỏ Trái Đất. Quá trình nguội chậm này cho phép các **tinh thể lớn** của thạch anh và fenspat phát triển, tạo nên vẻ ngoài lốm đốm đặc trưng.",
+        "tags": [
+            "đá granite",
+            "magma xâm nhập",
+            "nguội rất chậm",
+            "tinh thể lớn",
+            "thạch anh"
+        ],
+        "illustration_prompt": "cute educational diagram showing magma cooling slowly deep underground, resulting in large, visible crystals in the rock"
+    },
+    {
+        "id": 24,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Sự Phong hóa (Weathering) là gì?",
+        "answer": "Phong hóa là quá trình **phá vỡ đá** thành các mảnh nhỏ hơn, được gọi là **trầm tích**. Nó có thể là **Phong hóa cơ học** (gió, nước, băng phá vỡ vật lý) hoặc **Phong hóa hóa học** (nước mưa axit hòa tan các khoáng chất trong đá).",
+        "tags": [
+            "phong hóa",
+            "weathering",
+            "phá vỡ đá",
+            "trầm tích",
+            "cơ học",
+            "hóa học"
+        ],
+        "illustration_prompt": "cute educational illustration showing rock being broken down by physical forces (ice wedge) and chemical forces (acid rain dissolving rock)"
+    },
+    {
+        "id": 25,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Làm thế nào Trái Đất liên tục tạo ra Vỏ Trái Đất mới (New Crust)?",
+        "answer": "Vỏ Trái Đất mới được tạo ra tại các **ranh giới phân kỳ (Divergent Boundaries)**, đặc biệt là tại **Vành đai Đại dương giữa**. Magma từ Lớp Manti dâng lên, lấp đầy khoảng trống khi các mảng tách ra, nguội đi và tạo thành đá bazan mới.",
+        "tags": [
+            "vỏ trái đất mới",
+            "ranh giới phân kỳ",
+            "divergent boundaries",
+            "vành đai đại dương giữa",
+            "magma dâng lên"
+        ],
+        "illustration_prompt": "cute educational diagram showing two tectonic plates moving apart and new crust being formed by magma rising up from the middle"
+    },
+    {
+        "id": 26,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Điểm Khác biệt chính giữa Lục địa (Continental) và Đại dương (Oceanic) Vỏ Trái Đất?",
+        "answer": "Vỏ Lục địa **dày hơn** và được làm từ đá **Granite nhẹ hơn**. Vỏ Đại dương **mỏng hơn** nhưng lại **đặc hơn** vì nó được làm từ đá **Bazan** nặng hơn. Vì vỏ Đại dương nặng hơn nên nó thường chìm xuống dưới vỏ Lục địa tại các khu vực hút chìm.",
+        "tags": [
+            "vỏ lục địa",
+            "vỏ đại dương",
+            "granite",
+            "bazan",
+            "đặc hơn",
+            "mỏng hơn"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the thickness and density of continental crust (floating higher) and oceanic crust (sinking lower)"
+    },
+    {
+        "id": 27,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Magma và Dung nham (Lava) khác nhau như thế nào?",
+        "answer": "**Magma** là đá nóng chảy nằm **bên dưới** bề mặt Trái Đất (trong Lớp Manti hoặc trong các buồng dưới núi lửa). **Dung nham** là đá nóng chảy đã **phun trào ra ngoài** bề mặt Vỏ Trái Đất.",
+        "tags": [
+            "magma",
+            "dung nham",
+            "lava",
+            "bên dưới",
+            "phun trào ra ngoài"
+        ],
+        "illustration_prompt": "cute educational diagram showing a distinction between magma (underground) and lava (flowing on the surface)"
+    },
+    {
+        "id": 28,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Làm thế nào để Đo lường (Measure) sức mạnh của một trận động đất?",
+        "answer": "Động đất được đo bằng **Máy đo địa chấn (Seismograph)**, tạo ra biểu đồ sóng. Sức mạnh được đo bằng **Thang Richter** hoặc **Thang đo Mô-men (Moment Magnitude Scale)**. Mỗi bước tăng trên thang Richter là động đất mạnh hơn gấp khoảng **32 lần** so với bước trước đó.",
+        "tags": [
+            "đo lường động đất",
+            "seismograph",
+            "thang richter",
+            "moment magnitude scale",
+            "sóng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a seismograph recording seismic waves on a rolling paper drum"
+    },
+    {
+        "id": 29,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Hệ thống 'Điểm Nóng' (Hotspot) trên Trái Đất là gì?",
+        "answer": "Điểm nóng là một khu vực **rất nóng** trong Lớp Manti, nơi **dòng đá nóng chảy dâng lên** và xuyên thủng Vỏ Trái Đất. Điểm nóng vẫn cố định, nhưng mảng kiến tạo di chuyển trên nó, tạo thành một **chuỗi núi lửa** (như Quần đảo Hawaii).",
+        "tags": [
+            "điểm nóng",
+            "hotspot",
+            "dòng đá nóng chảy",
+            "chuỗi núi lửa",
+            "hawaii"
+        ],
+        "illustration_prompt": "cute educational diagram showing a stationary hotspot in the mantle creating a chain of volcanic islands as the tectonic plate moves over it"
+    },
+    {
+        "id": 30,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Cấu trúc Trái Đất",
+        "question": "Vì sao chúng ta không cảm thấy Trái Đất đang quay liên tục?",
+        "answer": "Chúng ta không cảm thấy Trái Đất quay (với tốc độ khoảng $1,600 \text{ km/h}$ ở xích đạo) vì **mọi thứ xung quanh chúng ta** (không khí, nhà cửa, cây cối) đều di chuyển với **tốc độ giống hệt nhau**. Cũng giống như bạn không cảm thấy mình đang di chuyển khi đi trên máy bay đang bay đều đặn.",
+        "tags": [
+            "trái đất quay",
+            "không cảm thấy",
+            "tốc độ giống hệt",
+            "quán tính"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person standing on Earth not feeling the rotation, compared to a person on a smoothly moving train not feeling the motion"
+    },
+    {
+        "id": 31,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Khí quyển (Atmosphere) là gì và thành phần chính của nó?",
+        "answer": "Khí quyển là **lớp khí khổng lồ** bao quanh Trái Đất, được giữ lại bởi trọng lực. Nó được tạo thành chủ yếu từ khí **Nitrogen 78%** và **Oxygen 21$)**. Lớp khí này cung cấp không khí để thở và bảo vệ chúng ta khỏi không gian.",
+        "tags": [
+            "khí quyển",
+            "atmosphere",
+            "nitrogen",
+            "oxygen",
+            "trọng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Earth surrounded by a layer of atmosphere, highlighting the composition percentages of nitrogen and oxygen"
+    },
+    {
+        "id": 32,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Khí quyển có những tầng (Layers) chính nào?",
+        "answer": "Khí quyển có bốn tầng chính từ dưới lên: **Tầng Đối Lưu (Troposphere)** (nơi thời tiết xảy ra), **Tầng Bình Lưu (Stratosphere)** (chứa tầng ozone), **Tầng Trung Quyển (Mesosphere)**, và **Tầng Nhiệt Quyển (Thermosphere)** (nơi có cực quang).",
+        "tags": [
+            "tầng khí quyển",
+            "troposphere",
+            "stratosphere",
+            "tầng ozone",
+            "mesosphere",
+            "thermosphere"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the four main layers of the Earth's atmosphere with their unique characteristics labeled"
+    },
+    {
+        "id": 33,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Thời tiết (Weather) và Khí hậu (Climate) khác nhau như thế nào?",
+        "answer": "**Thời tiết** là trạng thái của khí quyển trong một **khoảng thời gian ngắn** (nắng, mưa, gió hôm nay). **Khí hậu** là mô hình thời tiết **trung bình** của một khu vực trong một **khoảng thời gian dài** (khí hậu nhiệt đới, khí hậu ôn đới).",
+        "tags": [
+            "thời tiết",
+            "khí hậu",
+            "khoảng thời gian ngắn",
+            "trung bình dài hạn",
+            "mô hình"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a snapshot of current weather (rainy day) with a historical average of climate (yearly temperature chart)"
+    },
+    {
+        "id": 34,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Gió (Wind) được hình thành như thế nào?",
+        "answer": "Gió là không khí đang chuyển động. Nó được tạo ra do sự **chênh lệch áp suất không khí**. Không khí luôn di chuyển từ nơi có **áp suất cao** (mát hơn, nặng hơn) đến nơi có **áp suất thấp** (ấm hơn, nhẹ hơn) để cân bằng.",
+        "tags": [
+            "gió",
+            "wind",
+            "áp suất không khí",
+            "áp suất cao",
+            "áp suất thấp",
+            "chuyển động"
+        ],
+        "illustration_prompt": "cute educational diagram showing air moving from a high-pressure zone (dense air) to a low-pressure zone (less dense air) to create wind"
+    },
+    {
+        "id": 35,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Độ ẩm (Humidity) là gì?",
+        "answer": "Độ ẩm là **lượng hơi nước** có trong không khí. Khi độ ẩm cao, không khí chứa nhiều hơi nước hơn, điều này khiến mồ hôi của bạn **khó bay hơi** hơn, làm bạn cảm thấy nóng và dính hơn.",
+        "tags": [
+            "độ ẩm",
+            "humidity",
+            "hơi nước",
+            "không khí",
+            "bay hơi",
+            "mồ hôi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a humid day with visible moisture in the air and a person sweating"
+    },
+    {
+        "id": 36,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Mây (Clouds) được hình thành như thế nào?",
+        "answer": "Mây hình thành khi không khí ấm áp mang theo hơi nước **bốc lên cao và nguội đi**. Hơi nước sau đó **ngưng tụ** (biến thành chất lỏng) xung quanh các **hạt bụi nhỏ** lơ lửng trong không khí (gọi là nhân ngưng tụ), tạo thành các giọt nước li ti.",
+        "tags": [
+            "mây",
+            "clouds",
+            "hơi nước",
+            "ngưng tụ",
+            "hạt bụi",
+            "nhân ngưng tụ"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor rising, cooling, and condensing around a tiny dust particle to form a cloud droplet"
+    },
+    {
+        "id": 37,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Tầng Ozone (Ozone Layer) có vai trò gì?",
+        "answer": "Tầng Ozone nằm trong Tầng Bình Lưu, hoạt động như một **kem chống nắng tự nhiên khổng lồ** của Trái Đất. Nó hấp thụ và ngăn chặn phần lớn **Tia Cực Tím (UV)** có hại từ Mặt Trời chiếu xuống, bảo vệ sinh vật sống khỏi bị tổn thương.",
+        "tags": [
+            "tầng ozone",
+            "ozone layer",
+            "tia cực tím",
+            "UV",
+            "kem chống nắng",
+            "tầng bình lưu"
+        ],
+        "illustration_prompt": "cute educational diagram showing the ozone layer absorbing harmful UV rays from the sun before they reach the Earth's surface"
+    },
+    {
+        "id": 38,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Vì sao không khí nóng lại bốc lên trên?",
+        "answer": "Khi không khí nóng lên, các phân tử khí **di chuyển nhanh hơn** và **tách xa nhau hơn**. Điều này làm cho không khí nóng trở nên **ít đặc (nhẹ)** hơn không khí lạnh xung quanh, vì vậy nó nổi lên trên theo nguyên tắc **lực nổi (buoyancy)**.",
+        "tags": [
+            "không khí nóng",
+            "bốc lên",
+            "ít đặc",
+            "lực nổi",
+            "buoyancy",
+            "phân tử khí"
+        ],
+        "illustration_prompt": "cute educational diagram showing hot air molecules moving fast and spreading apart (becoming less dense) and rising above cold air molecules"
+    },
+    {
+        "id": 39,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Hiện tượng Mưa (Rain) xảy ra như thế nào?",
+        "answer": "Khi các giọt nước li ti trong mây **va chạm và kết hợp** với nhau, chúng trở nên **quá nặng** để không khí giữ được nữa. Lúc này, chúng rơi xuống Trái Đất dưới dạng mưa. Đây là phần **Giáng Thủy (Precipitation)** của chu trình nước.",
+        "tags": [
+            "mưa",
+            "rain",
+            "giọt nước",
+            "quá nặng",
+            "giáng thủy",
+            "precipitation"
+        ],
+        "illustration_prompt": "cute educational diagram showing tiny cloud droplets merging and growing larger until they fall to the ground as raindrops"
+    },
+    {
+        "id": 40,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Sương mù (Fog) là gì?",
+        "answer": "Sương mù thực chất là **mây hình thành gần mặt đất**. Nó xảy ra khi không khí ẩm ướt **làm mát đến điểm sương** và ngưng tụ thành những giọt nước nhỏ li ti, nhưng thay vì ở trên cao, nó nằm lơ lửng ngay sát mặt đất.",
+        "tags": [
+            "sương mù",
+            "fog",
+            "mây",
+            "gần mặt đất",
+            "điểm sương",
+            "ngưng tụ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thin layer of cloud (fog) covering the ground and low-lying objects"
+    },
+    {
+        "id": 41,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Chu trình Nước (Water Cycle) hoạt động như thế nào?",
+        "answer": "Chu trình nước mô tả cách nước di chuyển liên tục qua các giai đoạn: **Bay hơi (Evaporation)** (thành hơi nước), **Ngưng tụ (Condensation)** (thành mây), **Giáng thủy (Precipitation)** (mưa, tuyết), và **Thu gom (Collection)** (tập trung thành sông, biển).",
+        "tags": [
+            "chu trình nước",
+            "water cycle",
+            "bay hơi",
+            "ngưng tụ",
+            "giáng thủy",
+            "thu gom"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the steps of the water cycle: evaporation, condensation, precipitation, and collection"
+    },
+    {
+        "id": 42,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Vì sao đôi khi chúng ta thấy sét (Lightning) trước khi nghe thấy sấm (Thunder)?",
+        "answer": "Sét và sấm xảy ra gần như cùng một lúc, nhưng **Ánh sáng** di chuyển **nhanh hơn nhiều** so với **Âm thanh**. Bạn nhìn thấy tia sét gần như ngay lập tức, nhưng âm thanh của tiếng sấm phải mất một khoảng thời gian ngắn để đến tai bạn.",
+        "tags": [
+            "sét",
+            "sấm",
+            "ánh sáng",
+            "âm thanh",
+            "tốc độ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lightning bolt striking, with a timeline comparing the speed difference between light reaching the eye and sound reaching the ear"
+    },
+    {
+        "id": 43,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Mây Tích Vân (Cumulus Clouds) và Mây Tầng (Stratus Clouds) khác nhau như thế nào?",
+        "answer": "**Mây Tích Vân** là những đám mây **bông xốp, trắng** như kẹo bông gòn, thường thấy vào ngày nắng đẹp. **Mây Tầng** là những đám mây **mỏng, phẳng, trải rộng** như một tấm chăn xám, thường mang theo mưa phùn nhẹ hoặc sương mù.",
+        "tags": [
+            "mây tích vân",
+            "cumulus clouds",
+            "mây tầng",
+            "stratus clouds",
+            "bông xốp",
+            "mỏng phẳng"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the shape of a fluffy cumulus cloud with a flat, layered stratus cloud"
+    },
+    {
+        "id": 44,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Hiệu ứng Nhà kính (Greenhouse Effect) là gì?",
+        "answer": "Hiệu ứng Nhà kính là quá trình các loại khí trong khí quyển (như Carbon Dioxide và hơi nước) **giữ lại nhiệt** từ Mặt Trời, giống như kính trong nhà kính giữ lại nhiệt. Hiệu ứng này **cần thiết** để giữ Trái Đất ấm áp cho sự sống, nhưng quá nhiều khí nhà kính có thể gây ra **nóng lên toàn cầu**.",
+        "tags": [
+            "hiệu ứng nhà kính",
+            "greenhouse effect",
+            "giữ lại nhiệt",
+            "carbon dioxide",
+            "nóng lên toàn cầu"
+        ],
+        "illustration_prompt": "cute educational diagram showing greenhouse gases trapping heat waves inside the Earth's atmosphere"
+    },
+    {
+        "id": 45,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Sấm (Thunder) là gì?",
+        "answer": "Sấm là **âm thanh** do **sét** tạo ra. Tia sét thực sự nóng gấp 5 lần bề mặt Mặt Trời, khiến không khí xung quanh nó **nóng lên cực nhanh**. Sự nóng lên và nở ra đột ngột của không khí tạo ra **sóng xung kích** mà tai ta nghe thấy là tiếng sấm.",
+        "tags": [
+            "sấm",
+            "thunder",
+            "sóng xung kích",
+            "sét",
+            "nóng lên cực nhanh"
+        ],
+        "illustration_prompt": "cute educational diagram showing a lightning bolt rapidly superheating the air, causing a loud sound wave (thunder)"
+    },
+    {
+        "id": 46,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Bão Tuyết (Blizzard) khác với tuyết rơi bình thường như thế nào?",
+        "answer": "Bão tuyết là một cơn bão mùa đông nguy hiểm, không chỉ có tuyết rơi. Nó được định nghĩa bởi **gió mạnh** (trên $56 \text{ km/h}$) và **tầm nhìn giảm** do tuyết bay hoặc tuyết rơi dày đặc. Gió làm tuyết tan chảy tạo ra điều kiện đóng băng nguy hiểm.",
+        "tags": [
+            "bão tuyết",
+            "blizzard",
+            "gió mạnh",
+            "tầm nhìn giảm",
+            "tuyết rơi dày đặc"
+        ],
+        "illustration_prompt": "cute educational illustration showing a severe winter storm with strong winds blowing snow horizontally, limiting visibility"
+    },
+    {
+        "id": 47,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Áp suất không khí (Air Pressure) là gì?",
+        "answer": "Áp suất không khí là **trọng lượng** của tất cả không khí nằm trên đầu bạn, đè lên bề mặt Trái Đất. Không khí nặng, và áp suất này thay đổi do nhiệt độ và độ cao, là yếu tố quan trọng gây ra thay đổi thời tiết.",
+        "tags": [
+            "áp suất không khí",
+            "air pressure",
+            "trọng lượng không khí",
+            "thay đổi thời tiết",
+            "đè lên"
+        ],
+        "illustration_prompt": "cute educational diagram showing a column of air extending from the ground to space, illustrating the weight (pressure) of the air pushing down"
+    },
+    {
+        "id": 48,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Sương giá (Frost) được hình thành như thế nào?",
+        "answer": "Sương giá hình thành khi nhiệt độ không khí **gần mặt đất** hạ xuống dưới mức đóng băng (0°C) và **hơi nước** trong không khí ngay lập tức **ngưng kết** thành những tinh thể băng nhỏ (không phải đóng băng thành giọt nước) trên bề mặt.",
+        "tags": [
+            "sương giá",
+            "frost",
+            "nhiệt độ đóng băng",
+            "ngưng kết",
+            "tinh thể băng"
+        ],
+        "illustration_prompt": "cute educational illustration showing delicate ice crystals (frost) forming directly on grass and leaves on a very cold morning"
+    },
+    {
+        "id": 49,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Bão (Hurricane/Typhoon) được hình thành ở đâu?",
+        "answer": "Bão hình thành trên **vùng biển nhiệt đới ấm áp**. Chúng cần nhiệt độ nước biển ít nhất là 26.5°C để hơi nước bốc lên đủ năng lượng. Bão chỉ hình thành cách xích đạo một chút do cần **lực Coriolis** để xoay.",
+        "tags": [
+            "bão",
+            "hurricane",
+            "typhoon",
+            "vùng biển nhiệt đới",
+            "lực coriolis",
+            "xoay"
+        ],
+        "illustration_prompt": "cute educational diagram showing the formation of a hurricane over warm ocean water, illustrating the spinning motion"
+    },
+    {
+        "id": 50,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Tầm quan trọng của Tầng Đối Lưu (Troposphere)?",
+        "answer": "Tầng Đối Lưu là **tầng thấp nhất** và gần mặt đất nhất. Đây là nơi chứa **75% khối lượng** khí quyển và là nơi **toàn bộ hiện tượng thời tiết** (mây, mưa, gió) xảy ra. Nó chỉ dày khoảng $7-20 \text{ km}$ ($4-12 \text{ dặm}$).",
+        "tags": [
+            "tầng đối lưu",
+            "troposphere",
+            "thấp nhất",
+            "hiện tượng thời tiết",
+            "khối lượng khí quyển"
+        ],
+        "illustration_prompt": "cute educational diagram highlighting the troposphere as the layer closest to the Earth where all weather events are happening"
+    },
+    {
+        "id": 51,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Khí Helium (Helium) có thể thoát ra khỏi khí quyển không?",
+        "answer": "Có. Helium là nguyên tố **nhẹ thứ hai** (sau Hydrogen). Nó di chuyển nhanh và ở **tầng cao nhất** của khí quyển (Exosphere). Với đủ tốc độ, các phân tử Helium có thể thoát khỏi sức kéo của trọng lực Trái Đất và **trôi dạt vào không gian**.",
+        "tags": [
+            "helium",
+            "thoát khỏi khí quyển",
+            "nhẹ thứ hai",
+            "trôi dạt vào không gian",
+            "exosphere"
+        ],
+        "illustration_prompt": "cute educational illustration showing a helium atom escaping the earth's atmosphere and floating into space"
+    },
+    {
+        "id": 52,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Nhiệt độ thay đổi như thế nào khi bạn lên cao trong Tầng Đối Lưu?",
+        "answer": "Trong Tầng Đối Lưu, nhiệt độ **giảm dần** khi bạn lên cao. Không khí lạnh hơn vì nó **xa nguồn nhiệt** (mặt đất đã được Mặt Trời làm nóng) và ít bị nén hơn so với không khí ở dưới thấp.",
+        "tags": [
+            "tầng đối lưu",
+            "nhiệt độ giảm",
+            "lên cao",
+            "nguồn nhiệt",
+            "nén"
+        ],
+        "illustration_prompt": "cute educational diagram showing a mountain climber experiencing decreasing temperature as they ascend the mountain"
+    },
+    {
+        "id": 53,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Mây Vũ Tầng (Nimbostratus) mang theo loại mưa nào?",
+        "answer": "Mây Vũ Tầng là những đám mây **xám, dày đặc** nằm ở tầng thấp. Chúng mang theo **mưa phùn hoặc tuyết rơi nhẹ kéo dài** trong nhiều giờ. Từ 'Nimbus' có nghĩa là mưa và 'Stratus' có nghĩa là trải rộng/tầng.",
+        "tags": [
+            "mây vũ tầng",
+            "nimbostratus",
+            "mưa phùn kéo dài",
+            "tuyết rơi nhẹ",
+            "xám dày đặc"
+        ],
+        "illustration_prompt": "cute educational illustration showing a flat, dark grey nimbostratus cloud with light rain falling consistently"
+    },
+    {
+        "id": 54,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Vì sao các loại khí nhà kính (Greenhouse Gases) lại làm Trái Đất nóng lên?",
+        "answer": "Các loại khí nhà kính như Carbon Dioxide (CO2) **trong suốt** đối với ánh sáng Mặt Trời đi vào. Nhưng chúng lại **hấp thụ nhiệt** (bức xạ hồng ngoại) đang cố gắng phản xạ ra khỏi Trái Đất, giữ nhiệt lại và làm ấm hành tinh.",
+        "tags": [
+            "khí nhà kính",
+            "carbon dioxide",
+            "hấp thụ nhiệt",
+            "bức xạ hồng ngoại",
+            "nóng lên"
+        ],
+        "illustration_prompt": "cute educational diagram showing CO2 molecules absorbing and re-emitting infrared radiation back towards the Earth"
+    },
+    {
+        "id": 55,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Tuyết (Snow) được hình thành như thế nào?",
+        "answer": "Tuyết hình thành khi hơi nước trong mây **đóng băng trực tiếp** thành tinh thể băng (không đi qua giai đoạn lỏng) trong không khí lạnh. Các tinh thể băng này kết hợp lại thành **bông tuyết (snowflakes)** và rơi xuống nếu nhiệt độ dưới mặt đất đủ lạnh.",
+        "tags": [
+            "tuyết",
+            "snow",
+            "tinh thể băng",
+            "đóng băng trực tiếp",
+            "bông tuyết"
+        ],
+        "illustration_prompt": "cute educational diagram showing water vapor freezing directly into a complex hexagonal snowflake structure in a cold cloud"
+    },
+    {
+        "id": 56,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Sự Khác biệt giữa Vòi Rồng (Tornado) và Bão (Hurricane)?",
+        "answer": "**Vòi Rồng** (Lốc xoáy) là những cơn bão xoay **mạnh mẽ nhưng nhỏ** và **ngắn ngủi**, hình thành trên **đất liền** từ các cơn dông lớn. **Bão** (Hurricane) là những hệ thống xoay **khổng lồ, kéo dài** hàng tuần, hình thành trên **biển** nhiệt đới ấm áp.",
+        "tags": [
+            "vòi rồng",
+            "tornado",
+            "bão",
+            "hurricane",
+            "đất liền",
+            "biển",
+            "kích thước"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the small, intense funnel shape of a tornado on land with the large, swirling structure of a hurricane over the ocean"
+    },
+    {
+        "id": 57,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Dòng tia (Jet Stream) là gì?",
+        "answer": "Dòng tia là những **dòng không khí chảy nhanh** và hẹp, nằm ở ranh giới giữa Tầng Đối Lưu và Tầng Bình Lưu. Nó chảy theo hướng từ tây sang đông và có vai trò như **đường cao tốc** của thời tiết, **đẩy** các hệ thống thời tiết lớn đi khắp Trái Đất.",
+        "tags": [
+            "dòng tia",
+            "jet stream",
+            "không khí chảy nhanh",
+            "đường cao tốc thời tiết",
+            "tây sang đông"
+        ],
+        "illustration_prompt": "cute educational illustration showing a fast-moving, ribbon-like current of wind (jet stream) circling the Earth high in the atmosphere"
+    },
+    {
+        "id": 58,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Mưa đá (Hail) được hình thành như thế nào?",
+        "answer": "Mưa đá hình thành bên trong những đám mây giông **rất cao và mạnh mẽ (Cumulonimbus)**. Các giọt nước đóng băng bị **đẩy lên và rơi xuống liên tục** bởi các luồng gió mạnh, tạo thêm các lớp băng mới cho đến khi chúng quá nặng và rơi xuống đất dưới dạng những viên đá tròn.",
+        "tags": [
+            "mưa đá",
+            "hail",
+            "mây giông",
+            "cumulonimbus",
+            "đẩy lên rơi xuống",
+            "lớp băng"
+        ],
+        "illustration_prompt": "cute educational diagram showing hailstones being repeatedly lifted by strong updrafts and falling down in a tall cumulonimbus cloud, adding layers of ice"
+    },
+    {
+        "id": 59,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Vì sao không khí trong nhà kính lại ấm hơn không khí bên ngoài?",
+        "answer": "Nhà kính hoạt động giống như Hiệu ứng Nhà kính của Trái Đất. Kính **cho ánh sáng Mặt Trời đi vào**, làm nóng các vật thể bên trong. Nhưng kính **ngăn không khí nóng** này thoát ra ngoài, giữ nhiệt lại và làm tăng nhiệt độ bên trong.",
+        "tags": [
+            "nhà kính",
+            "greenhouse",
+            "kính ngăn nhiệt",
+            "ánh sáng mặt trời",
+            "giữ nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing sunlight passing through the glass roof of a greenhouse, and then heat waves being trapped inside"
+    },
+    {
+        "id": 60,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Khí quyển & Thời tiết",
+        "question": "Cực quang (Aurora) là gì và xảy ra ở đâu?",
+        "answer": "Cực quang (Bắc Cực quang/Nam Cực quang) là những màn trình diễn ánh sáng ngoạn mục trên bầu trời. Nó xảy ra khi các **hạt mang điện tích** từ Mặt Trời va chạm với các **nguyên tử khí** (oxy và nitơ) ở **Tầng Nhiệt Quyển (Thermosphere)** và Tầng Ngoại Quyển (Exosphere), làm chúng phát sáng.",
+        "tags": [
+            "cực quang",
+            "aurora",
+            "bắc cực quang",
+            "nam cực quang",
+            "hạt mang điện tích",
+            "tầng nhiệt quyển"
+        ],
+        "illustration_prompt": "cute educational illustration showing charged particles from the sun interacting with oxygen and nitrogen atoms in the upper atmosphere, causing colorful lights"
+    },
+    {
+        "id": 61,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tài nguyên thiên nhiên (Natural Resources) là gì?",
+        "answer": "Tài nguyên thiên nhiên là **những thứ có sẵn trong tự nhiên** mà con người sử dụng để đáp ứng nhu cầu của mình. Ví dụ: **Nước, không khí, đất đai, khoáng sản, dầu mỏ**, và **ánh sáng mặt trời**.",
+        "tags": [
+            "tài nguyên thiên nhiên",
+            "sẵn có trong tự nhiên",
+            "nước",
+            "khoáng sản",
+            "ánh sáng mặt trời"
+        ],
+        "illustration_prompt": "cute educational illustration showing various natural elements (water, sun, trees, rocks) being used by humans"
+    },
+    {
+        "id": 62,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tài nguyên tái tạo (Renewable Resources) là gì?",
+        "answer": "Tài nguyên tái tạo là những tài nguyên **có thể được bổ sung** một cách tự nhiên trong khoảng thời gian ngắn hoặc **không bao giờ cạn kiệt** khi chúng ta sử dụng. Ví dụ: **Gió, ánh nắng Mặt Trời, và Nước**.",
+        "tags": [
+            "tài nguyên tái tạo",
+            "renewable resources",
+            "bổ sung tự nhiên",
+            "không bao giờ cạn kiệt",
+            "gió",
+            "mặt trời"
+        ],
+        "illustration_prompt": "cute educational illustration showing a perpetual source like the sun shining down on a wind turbine and a river"
+    },
+    {
+        "id": 63,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tài nguyên không tái tạo (Non-renewable Resources) là gì?",
+        "answer": "Tài nguyên không tái tạo là những tài nguyên **tồn tại với số lượng hữu hạn** và mất **hàng triệu năm** để hình thành. Khi chúng ta sử dụng hết, chúng sẽ biến mất. Ví dụ: **Than đá, dầu mỏ, khí đốt tự nhiên, và khoáng sản**.",
+        "tags": [
+            "tài nguyên không tái tạo",
+            "non-renewable resources",
+            "số lượng hữu hạn",
+            "hàng triệu năm",
+            "than đá",
+            "dầu mỏ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a limited supply of fossil fuels (oil drum, coal lump) with a decreasing bar graph"
+    },
+    {
+        "id": 64,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Lợi ích của Năng lượng Mặt Trời (Solar Energy) là gì?",
+        "answer": "Năng lượng Mặt Trời là nguồn năng lượng **sạch và miễn phí**. Nó không tạo ra **ô nhiễm** khi sản xuất điện. Hơn nữa, Mặt Trời là một nguồn năng lượng **khổng lồ và ổn định**, được coi là 'máy phát điện' của Trái Đất.",
+        "tags": [
+            "năng lượng mặt trời",
+            "solar energy",
+            "sạch",
+            "miễn phí",
+            "không ô nhiễm",
+            "ổn định"
+        ],
+        "illustration_prompt": "cute educational illustration showing solar panels on a rooftop generating clean electricity with zero pollution"
+    },
+    {
+        "id": 65,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Dầu mỏ (Oil) và Khí đốt tự nhiên (Natural Gas) hình thành như thế nào?",
+        "answer": "Chúng được gọi là **Nhiên liệu hóa thạch (Fossil Fuels)**. Chúng hình thành từ **xác sinh vật biển và thực vật** cổ đại bị chôn vùi dưới lòng đất hàng triệu năm, bị **nén** dưới nhiệt độ và áp suất cực cao, biến thành chất lỏng và khí.",
+        "tags": [
+            "dầu mỏ",
+            "khí đốt tự nhiên",
+            "nhiên liệu hóa thạch",
+            "xác sinh vật cổ đại",
+            "nén",
+            "triệu năm"
+        ],
+        "illustration_prompt": "cute educational diagram showing ancient sea creatures and plants being buried under sediment layers, compacted over millions of years into oil and gas"
+    },
+    {
+        "id": 66,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Vì sao phải tiết kiệm nước sạch (Clean Water)?",
+        "answer": "Mặc dù Trái Đất có rất nhiều nước, nhưng chỉ một phần nhỏ (chưa đến 1%) là **nước ngọt có thể sử dụng** được. Tiết kiệm nước là điều cần thiết để đảm bảo **nguồn cung cấp nước** đủ cho mọi người và hệ sinh thái trong tương lai.",
+        "tags": [
+            "tiết kiệm nước sạch",
+            "nguồn cung cấp nước",
+            "nước ngọt",
+            "hệ sinh thái",
+            "hữu hạn"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Earth with a very small, labeled section representing the available clean freshwater supply"
+    },
+    {
+        "id": 67,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Gió (Wind Energy) hoạt động như thế nào?",
+        "answer": "Tua-bin gió (Wind Turbines) hoạt động như **cánh quạt khổng lồ** được gió thổi. Gió làm quay cánh quạt, cánh quạt nối với một **máy phát điện** bên trong, biến **động năng** của gió thành **điện năng** sạch và không gây ô nhiễm.",
+        "tags": [
+            "năng lượng gió",
+            "wind energy",
+            "tua-bin gió",
+            "động năng",
+            "điện năng",
+            "máy phát điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing a wind turbine with the wind turning the blades, connected to a generator producing electricity"
+    },
+    {
+        "id": 68,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Than đá (Coal) gây ô nhiễm như thế nào?",
+        "answer": "Khi than đá được đốt để tạo ra điện, nó giải phóng một lượng lớn **Carbon Dioxide (CO2)** (gây ra hiệu ứng nhà kính) và các **chất ô nhiễm độc hại** khác như Lưu huỳnh và Thủy ngân. Những chất này gây hại cho không khí và sức khỏe con người.",
+        "tags": [
+            "than đá",
+            "coal",
+            "ô nhiễm",
+            "carbon dioxide",
+            "chất ô nhiễm độc hại",
+            "hiệu ứng nhà kính"
+        ],
+        "illustration_prompt": "cute educational illustration showing a power plant burning coal, releasing visible plumes of smoke and CO2 into the atmosphere"
+    },
+    {
+        "id": 69,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Ba chữ R (The 3 R's) trong bảo tồn tài nguyên là gì?",
+        "answer": "Đó là **Giảm thiểu (Reduce)** (sử dụng ít hơn), **Tái sử dụng (Reuse)** (tìm cách dùng lại đồ cũ), và **Tái chế (Recycle)** (biến vật liệu đã qua sử dụng thành đồ mới). Đây là ba bước quan trọng để giảm rác thải và tiết kiệm tài nguyên.",
+        "tags": [
+            "ba chữ R",
+            "reduce reuse recycle",
+            "giảm thiểu",
+            "tái sử dụng",
+            "tái chế",
+            "bảo tồn"
+        ],
+        "illustration_prompt": "cute educational infographic showing three labeled arrows forming a circle: Reduce, Reuse, Recycle"
+    },
+    {
+        "id": 70,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tại sao đất (Soil) là một tài nguyên quan trọng?",
+        "answer": "Đất là nơi chúng ta **trồng trọt** để lấy lương thực và là nơi **cây cối sinh trưởng** (nguồn cung cấp oxy và gỗ). Đất cũng là nơi diễn ra **sự phân hủy** chất hữu cơ và là môi trường sống của nhiều loài sinh vật.",
+        "tags": [
+            "đất",
+            "soil",
+            "trồng trọt",
+            "lương thực",
+            "cây cối",
+            "phân hủy"
+        ],
+        "illustration_prompt": "cute educational illustration showing rich, dark soil with healthy roots of plants growing from it"
+    },
+    {
+        "id": 71,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Thủy Điện (Hydroelectric Power) là gì?",
+        "answer": "Thủy điện là điện được tạo ra từ **sức mạnh của nước chuyển động**. Nước được tích trữ trong **đập lớn**, sau đó được xả xuống để làm quay **tua-bin** và máy phát điện. Đây là nguồn năng lượng tái tạo sạch, nhưng việc xây đập có thể ảnh hưởng đến môi trường.",
+        "tags": [
+            "thủy điện",
+            "hydroelectric power",
+            "sức mạnh của nước",
+            "đập lớn",
+            "tua-bin",
+            "tái tạo sạch"
+        ],
+        "illustration_prompt": "cute educational diagram showing a large dam where water flows through turbines to generate electricity"
+    },
+    {
+        "id": 72,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Sinh khối (Biomass Energy) là gì?",
+        "answer": "Sinh khối là năng lượng tạo ra từ việc đốt các **vật chất hữu cơ sống hoặc mới chết** (như gỗ, phế phẩm nông nghiệp, chất thải). Nó được coi là tái tạo vì chúng ta có thể **trồng cây** mới để thay thế những gì đã đốt.",
+        "tags": [
+            "năng lượng sinh khối",
+            "biomass energy",
+            "vật chất hữu cơ",
+            "trồng cây mới",
+            "phế phẩm nông nghiệp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a plant growing and then being converted into fuel pellets for energy"
+    },
+    {
+        "id": 73,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tại sao việc Tái chế Nhôm (Aluminum Recycling) lại quan trọng?",
+        "answer": "Tái chế nhôm **tiết kiệm năng lượng cực lớn** – chỉ mất khoảng 5% năng lượng so với sản xuất nhôm mới từ quặng (Bauxite). Hơn nữa, nhôm có thể được **tái chế vô thời hạn** mà không làm giảm chất lượng.",
+        "tags": [
+            "tái chế nhôm",
+            "aluminum recycling",
+            "tiết kiệm năng lượng",
+            "vô thời hạn",
+            "bauxite"
+        ],
+        "illustration_prompt": "cute educational diagram showing a comparison of the high energy required to mine and process new aluminum versus the low energy required to recycle aluminum cans"
+    },
+    {
+        "id": 74,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Khoáng sản (Minerals) hình thành như thế nào?",
+        "answer": "Khoáng sản hình thành từ **các quá trình địa chất tự nhiên** qua hàng ngàn hoặc hàng triệu năm. Chúng có thể kết tinh từ **magma nguội đi**, từ **nước nóng bay hơi**, hoặc được tạo ra dưới **áp suất và nhiệt độ** cực lớn trong lòng đất.",
+        "tags": [
+            "khoáng sản",
+            "minerals",
+            "quá trình địa chất",
+            "magma nguội đi",
+            "kết tinh",
+            "áp suất"
+        ],
+        "illustration_prompt": "cute educational illustration showing different geological processes: magma cooling (forming quartz) and water evaporating (forming salt crystals)"
+    },
+    {
+        "id": 75,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Cạn kiệt tài nguyên (Resource Depletion) là gì?",
+        "answer": "Cạn kiệt tài nguyên là sự **sử dụng tài nguyên nhanh hơn** tốc độ chúng có thể được phục hồi hoặc thay thế. Đây là mối đe dọa lớn đối với các tài nguyên **không tái tạo** (như dầu mỏ) và có thể gây ra thiếu hụt trong tương lai.",
+        "tags": [
+            "cạn kiệt tài nguyên",
+            "resource depletion",
+            "sử dụng nhanh hơn",
+            "thiếu hụt",
+            "không tái tạo"
+        ],
+        "illustration_prompt": "cute educational graph showing a steep decline in a resource supply line over time due to overconsumption"
+    },
+    {
+        "id": 76,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Việc sử dụng năng lượng Tái tạo giúp chống lại biến đổi khí hậu như thế nào?",
+        "answer": "Năng lượng tái tạo (gió, mặt trời) **không thải ra Carbon Dioxide (CO2)** hoặc các khí nhà kính khác. Bằng cách thay thế nhiên liệu hóa thạch, chúng giúp **giảm lượng CO2** trong khí quyển, làm chậm tốc độ **nóng lên toàn cầu**.",
+        "tags": [
+            "biến đổi khí hậu",
+            "năng lượng tái tạo",
+            "không thải CO2",
+            "giảm khí nhà kính",
+            "nóng lên toàn cầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a solar panel and a wind turbine replacing a smoking factory chimney, resulting in a cleaner atmosphere"
+    },
+    {
+        "id": 77,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Địa Nhiệt (Geothermal Energy) là gì?",
+        "answer": "Địa nhiệt là năng lượng đến từ **nhiệt độ bên trong Trái Đất**. Chúng ta khai thác nhiệt này bằng cách bơm nước lạnh xuống lòng đất, để nó được **làm nóng** bởi đá nóng, sau đó đưa lên lại để chạy tua-bin phát điện.",
+        "tags": [
+            "năng lượng địa nhiệt",
+            "geothermal energy",
+            "nhiệt độ bên trong trái đất",
+            "đá nóng",
+            "phát điện"
+        ],
+        "illustration_prompt": "cute educational diagram showing cold water being pumped into the ground, heated by geothermal heat, and rising to power a turbine"
+    },
+    {
+        "id": 78,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tại sao việc bảo tồn Rừng (Forest Conservation) lại quan trọng?",
+        "answer": "Rừng là **lá phổi của Trái Đất**, chúng hấp thụ **CO2** và thải ra **Oxy** (quá trình quang hợp). Rừng cũng là nơi sinh sống của vô số **loài động vật, thực vật** và giúp **ngăn chặn xói mòn** đất.",
+        "tags": [
+            "bảo tồn rừng",
+            "forest conservation",
+            "lá phổi của trái đất",
+            "hấp thụ CO2",
+            "quang hợp",
+            "ngăn chặn xói mòn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dense forest with trees labeled 'CO2 in' and 'Oxygen out', along with diverse animals living within"
+    },
+    {
+        "id": 79,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Sự Khác biệt giữa Nước Ngọt (Freshwater) và Nước Mặn (Saltwater)?",
+        "answer": "**Nước Mặn** (Đại dương) chứa nhiều muối hòa tan, không thể uống được. **Nước Ngọt** (Sông, hồ, băng) chỉ chứa một lượng nhỏ muối. Chúng ta cần nước ngọt để uống, tưới tiêu, và sinh hoạt hàng ngày.",
+        "tags": [
+            "nước ngọt",
+            "nước mặn",
+            "freshwater",
+            "saltwater",
+            "muối hòa tan",
+            "uống",
+            "tưới tiêu"
+        ],
+        "illustration_prompt": "cute educational illustration showing ocean water being contrasted with river water, highlighting the salinity difference"
+    },
+    {
+        "id": 80,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Việc sử dụng quá nhiều túi nhựa (Plastic Bags) gây hại như thế nào?",
+        "answer": "Túi nhựa được làm từ **dầu mỏ** (tài nguyên không tái tạo) và **rất khó phân hủy** (mất hàng trăm năm). Chúng thường gây **ô nhiễm đại dương** và đất đai, đe dọa sinh vật biển và làm tắc nghẽn hệ thống thoát nước.",
+        "tags": [
+            "túi nhựa",
+            "plastic bags",
+            "dầu mỏ",
+            "khó phân hủy",
+            "ô nhiễm đại dương",
+            "sinh vật biển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a plastic bag floating in the ocean next to a sad sea turtle"
+    },
+    {
+        "id": 81,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Khai thác tài nguyên thiên nhiên (Extraction) là gì?",
+        "answer": "Khai thác là hành động **lấy tài nguyên** (như khoáng sản, dầu mỏ, gỗ) từ Trái Đất. Mặc dù cần thiết, việc khai thác quá mức có thể gây **mất môi trường sống**, **ô nhiễm nước và đất**, và làm cạn kiệt nhanh chóng các nguồn tài nguyên.",
+        "tags": [
+            "khai thác",
+            "extraction",
+            "lấy tài nguyên",
+            "mất môi trường sống",
+            "ô nhiễm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large open-pit mine extracting minerals from the earth"
+    },
+    {
+        "id": 82,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Hạt nhân (Nuclear Energy) là gì?",
+        "answer": "Năng lượng Hạt nhân tạo ra điện bằng cách **chia các nguyên tử** (thường là Uranium) trong một quá trình gọi là **Phân Hạch (Fission)**. Nó tạo ra một lượng điện lớn mà **không thải CO2**, nhưng vấn đề là xử lý **chất thải phóng xạ** nguy hiểm.",
+        "tags": [
+            "năng lượng hạt nhân",
+            "nuclear energy",
+            "phân hạch",
+            "uranium",
+            "chất thải phóng xạ",
+            "không thải CO2"
+        ],
+        "illustration_prompt": "cute educational diagram showing a stylized atomic nucleus undergoing fission inside a nuclear reactor"
+    },
+    {
+        "id": 83,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Việc trồng lại rừng (Reforestation) có lợi ích gì?",
+        "answer": "Trồng lại rừng giúp **hấp thụ thêm CO2** từ không khí, giúp chống biến đổi khí hậu. Nó cũng **phục hồi môi trường sống** tự nhiên, giúp đất **ngăn chặn xói mòn** và giữ nước tốt hơn, giảm nguy cơ lũ lụt.",
+        "tags": [
+            "trồng lại rừng",
+            "reforestation",
+            "hấp thụ CO2",
+            "phục hồi môi trường sống",
+            "ngăn chặn xói mòn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a deforested area being replanted with many healthy young trees"
+    },
+    {
+        "id": 84,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Sự bền vững (Sustainability) là gì?",
+        "answer": "Bền vững là việc sử dụng tài nguyên của Trái Đất theo cách để **không làm cạn kiệt** chúng. Mục đích là để **thế hệ tương lai** cũng có đủ tài nguyên để đáp ứng nhu cầu của họ. Đó là sự cân bằng giữa nhu cầu của hiện tại và tương lai.",
+        "tags": [
+            "bền vững",
+            "sustainability",
+            "không làm cạn kiệt",
+            "thế hệ tương lai",
+            "cân bằng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a balance scale with 'Current Needs' on one side and 'Future Needs' on the other, perfectly balanced"
+    },
+    {
+        "id": 85,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Vì sao phải tiết kiệm giấy (Saving Paper)?",
+        "answer": "Giấy được làm từ **cây cối**, một tài nguyên tái tạo nhưng cần thời gian để phát triển. Tiết kiệm giấy giúp **giảm việc chặt phá rừng**, giảm lượng **nước và năng lượng** cần thiết cho việc sản xuất giấy mới, và giảm rác thải.",
+        "tags": [
+            "tiết kiệm giấy",
+            "saving paper",
+            "giảm chặt phá rừng",
+            "nước và năng lượng",
+            "sản xuất giấy"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand choosing to use both sides of a piece of paper instead of throwing it away"
+    },
+    {
+        "id": 86,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Tầm quan trọng của Đa dạng Sinh học (Biodiversity) đối với tài nguyên?",
+        "answer": "Đa dạng sinh học là sự **đa dạng của sự sống** trên Trái Đất. Nó giúp duy trì các hệ sinh thái **khỏe mạnh**, cung cấp các tài nguyên quan trọng như **thuốc men, lương thực** và giúp điều chỉnh khí hậu của hành tinh chúng ta.",
+        "tags": [
+            "đa dạng sinh học",
+            "biodiversity",
+            "đa dạng của sự sống",
+            "hệ sinh thái khỏe mạnh",
+            "thuốc men"
+        ],
+        "illustration_prompt": "cute educational illustration showing a variety of different animals and plants thriving together in a healthy, colorful ecosystem"
+    },
+    {
+        "id": 87,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Năng lượng Đại dương (Ocean Energy) là gì?",
+        "answer": "Đó là năng lượng sạch được tạo ra từ **sóng biển, thủy triều** hoặc sự khác biệt về **nhiệt độ** của nước biển. Mặc dù tiềm năng lớn, việc khai thác loại năng lượng này vẫn còn đắt và phức tạp.",
+        "tags": [
+            "năng lượng đại dương",
+            "ocean energy",
+            "sóng biển",
+            "thủy triều",
+            "sạch"
+        ],
+        "illustration_prompt": "cute educational diagram showing a device floating on the ocean capturing energy from the rising and falling tides"
+    },
+    {
+        "id": 88,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Làm thế nào để 'Tái sử dụng' (Reuse) đồ cũ một cách sáng tạo?",
+        "answer": "Thay vì vứt đi, hãy biến chúng thành thứ gì đó mới. Ví dụ: biến lốp xe cũ thành **bồn hoa**, quần áo cũ thành **giẻ lau**, hoặc lọ thủy tinh thành **hộp đựng bút** hoặc đồ trang trí. Điều này giảm rác thải tối đa.",
+        "tags": [
+            "tái sử dụng",
+            "reuse",
+            "sáng tạo",
+            "giảm rác thải",
+            "lốp xe cũ",
+            "lọ thủy tinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child painting an old glass jar to use as a colorful pencil holder"
+    },
+    {
+        "id": 89,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Nguyên tắc 'Người gây ô nhiễm phải trả tiền' (Polluter Pays Principle) là gì?",
+        "answer": "Đây là một nguyên tắc kinh tế và pháp lý trong bảo vệ môi trường, quy định rằng **bên gây ô nhiễm** (công ty, cá nhân) phải **chịu chi phí** để kiểm soát, ngăn chặn hoặc khắc phục ô nhiễm do họ gây ra, thay vì xã hội phải trả tiền.",
+        "tags": [
+            "người gây ô nhiễm phải trả tiền",
+            "polluter pays principle",
+            "chịu chi phí",
+            "khắc phục ô nhiễm",
+            "pháp lý"
+        ],
+        "illustration_prompt": "cute educational illustration showing a company paying to clean up pollution they caused in a river"
+    },
+    {
+        "id": 90,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Tài nguyên thiên nhiên",
+        "question": "Vai trò của ánh sáng Mặt Trời (Sunlight) đối với tài nguyên thực vật?",
+        "answer": "Ánh sáng Mặt Trời là tài nguyên thiết yếu cho **Quang hợp (Photosynthesis)** – quá trình cây cối sử dụng ánh sáng để biến CO2 và nước thành **thức ăn và Oxy**. Nếu không có Mặt Trời, tất cả cây xanh sẽ chết, và chuỗi thức ăn sẽ sụp đổ.",
+        "tags": [
+            "ánh sáng mặt trời",
+            "sunlight",
+            "quang hợp",
+            "photosynthesis",
+            "thức ăn",
+            "oxy",
+            "chuỗi thức ăn"
+        ],
+        "illustration_prompt": "cute educational diagram showing a plant absorbing sunlight, CO2, and water to produce oxygen and sugar (food) through photosynthesis"
+    },
+    {
+        "id": 91,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hệ sinh thái (Ecosystem) là gì?",
+        "answer": "Hệ sinh thái là một **cộng đồng sinh vật sống** (cây cối, động vật) và **các yếu tố không sống** (nước, đất, ánh sáng) **tương tác** với nhau trong một khu vực nhất định. Nó có thể là một khu rừng lớn, một hồ nước nhỏ, hoặc thậm chí là một bồn hoa.",
+        "tags": [
+            "hệ sinh thái",
+            "ecosystem",
+            "sinh vật sống",
+            "yếu tố không sống",
+            "tương tác",
+            "cộng đồng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a forest ecosystem with diverse plants, animals, water, and sunlight all interacting"
+    },
+    {
+        "id": 92,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Yếu tố Sống (Biotic) và Không Sống (Abiotic) khác nhau như thế nào?",
+        "answer": "Các yếu tố **Sống (Biotic)** là mọi thứ có sự sống, hoặc từng sống (ví dụ: cây cối, nấm, động vật, xác chết). Các yếu tố **Không Sống (Abiotic)** là những thứ không sống nhưng ảnh hưởng đến sự sống (ví dụ: nhiệt độ, ánh sáng mặt trời, đá, nước, đất).",
+        "tags": [
+            "yếu tố sống",
+            "yếu tố không sống",
+            "biotic",
+            "abiotic",
+            "cây cối",
+            "nước",
+            "nhiệt độ"
+        ],
+        "illustration_prompt": "cute educational diagram comparing living components (animals, plants) and non-living components (rocks, water, sun) in an environment"
+    },
+    {
+        "id": 93,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sinh vật Sản xuất (Producers) là gì?",
+        "answer": "Sinh vật sản xuất, chủ yếu là **thực vật và tảo**, là những sinh vật **tạo ra thức ăn của riêng chúng** bằng cách sử dụng ánh sáng Mặt Trời qua quá trình **quang hợp (Photosynthesis)**. Chúng là **nền tảng** của mọi chuỗi thức ăn.",
+        "tags": [
+            "sinh vật sản xuất",
+            "producers",
+            "thực vật",
+            "tảo",
+            "quang hợp",
+            "nền tảng chuỗi thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a green plant absorbing sunlight and CO2 to create food and release oxygen"
+    },
+    {
+        "id": 94,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Chuỗi Thức Ăn (Food Chain) là gì?",
+        "answer": "Chuỗi thức ăn là một sơ đồ cho thấy **dòng năng lượng** từ sinh vật này sang sinh vật khác. Nó bắt đầu từ **Sinh vật sản xuất** (cây cỏ), sau đó đến **Sinh vật tiêu thụ cấp 1** (ăn cỏ), rồi đến **Sinh vật tiêu thụ cấp 2** (ăn thịt).",
+        "tags": [
+            "chuỗi thức ăn",
+            "food chain",
+            "dòng năng lượng",
+            "sinh vật sản xuất",
+            "sinh vật tiêu thụ",
+            "sơ đồ"
+        ],
+        "illustration_prompt": "cute educational diagram showing a simple food chain: Sun -> Grass -> Rabbit -> Fox"
+    },
+    {
+        "id": 95,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sinh vật Phân hủy (Decomposers) có vai trò gì?",
+        "answer": "Sinh vật phân hủy (như **vi khuẩn và nấm**) là **đội ngũ tái chế** của tự nhiên. Chúng phân hủy **xác động vật, thực vật chết** và chất thải, biến chúng thành **chất dinh dưỡng** trở lại cho đất để thực vật mới có thể phát triển.",
+        "tags": [
+            "sinh vật phân hủy",
+            "decomposers",
+            "vi khuẩn",
+            "nấm",
+            "tái chế",
+            "chất dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational illustration showing bacteria and fungi breaking down a fallen log or dead leaf, with nutrients returning to the soil"
+    },
+    {
+        "id": 96,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sinh vật Tiêu thụ (Consumers) được chia làm những loại nào?",
+        "answer": "Sinh vật tiêu thụ được chia làm ba loại chính: **Sinh vật ăn cỏ (Herbivores)** (ăn thực vật), **Sinh vật ăn thịt (Carnivores)** (ăn thịt động vật khác), và **Sinh vật ăn tạp (Omnivores)** (ăn cả thực vật và động vật).",
+        "tags": [
+            "sinh vật tiêu thụ",
+            "consumers",
+            "ăn cỏ",
+            "herbivores",
+            "ăn thịt",
+            "carnivores",
+            "ăn tạp",
+            "omnivores"
+        ],
+        "illustration_prompt": "cute educational illustration showing three animals representing the consumer types: a cow (herbivore), a lion (carnivore), and a bear (omnivore)"
+    },
+    {
+        "id": 97,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Mạng Lưới Thức Ăn (Food Web) khác Chuỗi Thức Ăn như thế nào?",
+        "answer": "Chuỗi thức ăn là một con đường đơn giản. **Mạng lưới thức ăn** là một hệ thống **phức tạp** và **thực tế hơn**, cho thấy **nhiều mối quan hệ ăn uống** chồng chéo lên nhau. Một sinh vật có thể ăn nhiều loại thức ăn và bị nhiều loài khác ăn lại.",
+        "tags": [
+            "mạng lưới thức ăn",
+            "food web",
+            "phức tạp",
+            "thực tế hơn",
+            "mối quan hệ ăn uống",
+            "chồng chéo"
+        ],
+        "illustration_prompt": "cute educational diagram showing multiple intersecting food chains forming a complex food web"
+    },
+    {
+        "id": 98,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Môi trường sống (Habitat) là gì?",
+        "answer": "Môi trường sống là **nơi tự nhiên** mà một loài sinh vật sống. Nó cung cấp cho sinh vật **tất cả những gì chúng cần** để tồn tại: thức ăn, nước uống, nơi trú ẩn và không gian.",
+        "tags": [
+            "môi trường sống",
+            "habitat",
+            "nơi tự nhiên",
+            "thức ăn",
+            "nước uống",
+            "nơi trú ẩn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a squirrel's habitat, specifically focusing on the tree, food source, and water source"
+    },
+    {
+        "id": 99,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Quá trình Quang hợp (Photosynthesis) là gì?",
+        "answer": "Quang hợp là cách thực vật **tạo ra thức ăn** bằng cách sử dụng **ánh sáng Mặt Trời** làm năng lượng, kết hợp với **Nước** và **Carbon Dioxide (CO2)**. Sản phẩm phụ quan trọng nhất của quá trình này là **Oxygen (O2)** mà chúng ta hít thở.",
+        "tags": [
+            "quang hợp",
+            "photosynthesis",
+            "ánh sáng mặt trời",
+            "carbon dioxide",
+            "nước",
+            "oxygen",
+            "tạo ra thức ăn"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the photosynthesis process: sun + CO2 + water = sugar + oxygen"
+    },
+    {
+        "id": 100,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hệ sinh thái Rừng Nhiệt đới (Rainforest) quan trọng như thế nào?",
+        "answer": "Rừng nhiệt đới được mệnh danh là **'Hiệu thuốc tự nhiên'** vì chúng chứa một **đa dạng sinh học** khổng lồ và nhiều loại cây có thể dùng làm thuốc. Chúng cũng sản xuất một lượng lớn **Oxy** cho hành tinh.",
+        "tags": [
+            "rừng nhiệt đới",
+            "rainforest",
+            "hiệu thuốc tự nhiên",
+            "đa dạng sinh học",
+            "oxy",
+            "thuốc"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dense, layered rainforest with vibrant plants and animals, focusing on biodiversity"
+    },
+    {
+        "id": 101,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sự khác biệt giữa Biome (Sinh quần) và Habitat (Môi trường sống)?",
+        "answer": "Một **Biome** là một khu vực địa lý rộng lớn được đặc trưng bởi **khí hậu và các loại thực vật/động vật** chính (ví dụ: sa mạc, thảo nguyên). Một **Habitat** là **nơi cụ thể** và nhỏ hơn trong biome đó nơi một loài sinh vật sống (ví dụ: ổ chuột chũi dưới thảo nguyên).",
+        "tags": [
+            "biome",
+            "habitat",
+            "sinh quần",
+            "môi trường sống",
+            "khu vực rộng lớn",
+            "nơi cụ thể"
+        ],
+        "illustration_prompt": "cute educational illustration contrasting a large desert biome with a small, specific cactus habitat within it"
+    },
+    {
+        "id": 102,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hiện tượng Tuyệt chủng (Extinction) là gì?",
+        "answer": "Tuyệt chủng xảy ra khi **toàn bộ loài sinh vật** (thực vật hoặc động vật) **biến mất vĩnh viễn** khỏi Trái Đất. Hiện tượng này xảy ra tự nhiên nhưng đang được **đẩy nhanh** bởi các hoạt động của con người (mất môi trường sống, biến đổi khí hậu).",
+        "tags": [
+            "tuyệt chủng",
+            "extinction",
+            "biến mất vĩnh viễn",
+            "hoạt động của con người",
+            "mất môi trường sống"
+        ],
+        "illustration_prompt": "cute educational illustration showing a dodo bird disappearing from the Earth"
+    },
+    {
+        "id": 103,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hệ sinh thái Đại dương (Ocean Ecosystem) hoạt động như thế nào?",
+        "answer": "Sự sống trong đại dương phụ thuộc vào **Tảo và Thực vật phù du (Phytoplankton)** (Sinh vật sản xuất). Chúng được ăn bởi các sinh vật nhỏ hơn, sau đó là cá lớn hơn và cuối cùng là động vật ăn thịt hàng đầu (cá mập). Đại dương còn giúp điều hòa **khí hậu** toàn cầu.",
+        "tags": [
+            "hệ sinh thái đại dương",
+            "ocean ecosystem",
+            "thực vật phù du",
+            "phytoplankton",
+            "chuỗi thức ăn biển",
+            "điều hòa khí hậu"
+        ],
+        "illustration_prompt": "cute educational diagram showing the marine food web starting from phytoplankton, up to a large shark"
+    },
+    {
+        "id": 104,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sự hợp tác Cộng sinh (Symbiosis) là gì?",
+        "answer": "Cộng sinh là một **mối quan hệ gần gũi, lâu dài** giữa hai loài sinh vật khác nhau. Có ba loại chính: **Hợp tác** (cả hai đều có lợi), **Hội sinh** (một có lợi, một không bị hại) và **Ký sinh** (một có lợi, một bị hại).",
+        "tags": [
+            "cộng sinh",
+            "symbiosis",
+            "hợp tác",
+            "hội sinh",
+            "ký sinh",
+            "mối quan hệ gần gũi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a clownfish living happily within a sea anemone (mutualism)"
+    },
+    {
+        "id": 105,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sự ô nhiễm (Pollution) có hại cho hệ sinh thái như thế nào?",
+        "answer": "Ô nhiễm làm thay đổi các yếu tố **Không Sống (Abiotic)** (ví dụ: làm nước độc, làm không khí bẩn). Điều này có thể khiến thực vật và động vật **bị bệnh, không thể sinh sản** hoặc **chết**, làm sụp đổ toàn bộ chuỗi thức ăn trong hệ sinh thái đó.",
+        "tags": [
+            "ô nhiễm",
+            "pollution",
+            "yếu tố không sống",
+            "nước độc",
+            "không khí bẩn",
+            "sụp đổ chuỗi thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration showing dirty factory smoke and waste polluting a river, causing fish to die"
+    },
+    {
+        "id": 106,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Làm thế nào để đo lường Đa dạng Sinh học (Biodiversity)?",
+        "answer": "Đa dạng sinh học được đo lường bằng cách đếm **số lượng và sự phong phú** của các **loài sinh vật khác nhau** (thực vật, động vật, vi khuẩn) trong một khu vực nhất định. Số lượng loài càng lớn, hệ sinh thái đó càng đa dạng và khỏe mạnh.",
+        "tags": [
+            "đa dạng sinh học",
+            "biodiversity",
+            "số lượng loài",
+            "sự phong phú",
+            "hệ sinh thái khỏe mạnh",
+            "vi khuẩn"
+        ],
+        "illustration_prompt": "cute educational diagram showing two plots of land: one with only 3 types of plants, and one with 10 types of plants and insects, labeled 'High Biodiversity'"
+    },
+    {
+        "id": 107,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sự Khác biệt giữa Động vật Ăn cỏ (Herbivore) và Động vật Ăn thịt (Carnivore)?",
+        "answer": "**Động vật Ăn cỏ** có răng phẳng để nhai vật chất thực vật cứng. **Động vật Ăn thịt** có răng nanh sắc nhọn để xé thịt và hệ thống tiêu hóa ngắn hơn vì thịt dễ tiêu hóa hơn thực vật.",
+        "tags": [
+            "ăn cỏ",
+            "ăn thịt",
+            "herbivore",
+            "carnivore",
+            "răng phẳng",
+            "răng nanh sắc nhọn",
+            "hệ thống tiêu hóa"
+        ],
+        "illustration_prompt": "cute educational illustration comparing the flat teeth of a cow (herbivore) with the sharp canines of a wolf (carnivore)"
+    },
+    {
+        "id": 108,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sa mạc (Desert) là một biome như thế nào?",
+        "answer": "Sa mạc là một biome có **lượng mưa rất thấp** (khô cằn). Sinh vật ở đây phải thích nghi để tồn tại với **nhiệt độ khắc nghiệt** (rất nóng vào ban ngày, rất lạnh vào ban đêm) và **lưu trữ nước** (ví dụ: cây xương rồng, lạc đà).",
+        "tags": [
+            "sa mạc",
+            "desert",
+            "lượng mưa thấp",
+            "khắc nghiệt",
+            "lưu trữ nước",
+            "xương rồng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a desert landscape with a cactus and a camel, emphasizing the dryness and heat"
+    },
+    {
+        "id": 109,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Nguyên nhân chính gây ra mất môi trường sống (Habitat Loss)?",
+        "answer": "Nguyên nhân chính là **hoạt động của con người**, bao gồm **phá rừng** để làm nông nghiệp, **xây dựng thành phố** và phát triển công nghiệp. Điều này phá hủy nơi ở và nguồn thức ăn của động vật, buộc chúng phải di dời hoặc chết.",
+        "tags": [
+            "mất môi trường sống",
+            "habitat loss",
+            "hoạt động của con người",
+            "phá rừng",
+            "xây dựng thành phố",
+            "nguồn thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bulldozer clearing a forest to build a housing development, with displaced animals watching sadly"
+    },
+    {
+        "id": 110,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Khí Carbon Dioxide (CO2) có vai trò gì trong hệ sinh thái?",
+        "answer": "CO2 là một **yếu tố không sống** quan trọng. Nó cần thiết cho **thực vật** thực hiện **quang hợp**. Tuy nhiên, quá nhiều CO2 trong khí quyển (do hoạt động của con người) lại gây ra **hiệu ứng nhà kính** và biến đổi khí hậu.",
+        "tags": [
+            "carbon dioxide",
+            "co2",
+            "yếu tố không sống",
+            "quang hợp",
+            "hiệu ứng nhà kính",
+            "biến đổi khí hậu"
+        ],
+        "illustration_prompt": "cute educational illustration showing CO2 being used by a plant for photosynthesis, but also showing excess CO2 trapping heat in the atmosphere"
+    },
+    {
+        "id": 111,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hệ sinh thái Sông và Hồ (River and Lake Ecosystems) khác nhau như thế nào?",
+        "answer": "Hệ sinh thái **Sông** có **nước chảy** và thường có ít chất dinh dưỡng hơn, với các loài thích nghi với dòng chảy (như cá hồi). Hệ sinh thái **Hồ** có **nước tĩnh** và thường có nhiều thực vật, tảo và trầm tích hơn ở đáy.",
+        "tags": [
+            "sông và hồ",
+            "river and lake",
+            "nước chảy",
+            "nước tĩnh",
+            "chất dinh dưỡng",
+            "cá hồi",
+            "trầm tích"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a fast-flowing river with a calm, deep lake, highlighting different plant/animal life in each"
+    },
+    {
+        "id": 112,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sự cạnh tranh (Competition) trong hệ sinh thái là gì?",
+        "answer": "Cạnh tranh xảy ra khi **hai hay nhiều sinh vật** cùng tranh giành một **tài nguyên giới hạn** (như thức ăn, nước, ánh sáng, không gian). Cạnh tranh giúp giữ cho số lượng loài trong hệ sinh thái được **cân bằng**.",
+        "tags": [
+            "cạnh tranh",
+            "competition",
+            "tài nguyên giới hạn",
+            "cân bằng",
+            "thức ăn",
+            "không gian"
+        ],
+        "illustration_prompt": "cute educational illustration showing two animals (e.g., two deer) competing for a small patch of grass"
+    },
+    {
+        "id": 113,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Biến đổi Khí hậu (Climate Change) ảnh hưởng đến hệ sinh thái như thế nào?",
+        "answer": "Biến đổi khí hậu làm thay đổi **nhiệt độ và lượng mưa** của Biome. Điều này có thể khiến động vật và thực vật **không thể thích nghi** (ví dụ: san hô bị tẩy trắng do nước biển quá nóng), gây ra mất đa dạng sinh học.",
+        "tags": [
+            "biến đổi khí hậu",
+            "climate change",
+            "nhiệt độ và lượng mưa",
+            "không thể thích nghi",
+            "san hô tẩy trắng",
+            "mất đa dạng sinh học"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bleached coral reef due to rising ocean temperatures"
+    },
+    {
+        "id": 114,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Thảm thực vật (Vegetation) đóng vai trò gì trong việc ngăn chặn xói mòn?",
+        "answer": "Rễ cây và cỏ hoạt động như một **mạng lưới neo giữ** đất. Chúng giữ chặt đất lại với nhau, ngăn không cho **gió hoặc nước** cuốn trôi đi (hiện tượng **xói mòn**). Mất thảm thực vật sẽ dẫn đến đất bị rửa trôi nhanh chóng.",
+        "tags": [
+            "thảm thực vật",
+            "vegetation",
+            "rễ cây",
+            "mạng lưới neo giữ",
+            "xói mòn",
+            "rửa trôi"
+        ],
+        "illustration_prompt": "cute educational diagram showing plant roots holding soil firmly in place against rain (preventing erosion)"
+    },
+    {
+        "id": 115,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Sinh vật Ăn tạp (Omnivore) quan trọng như thế nào đối với hệ sinh thái?",
+        "answer": "Sinh vật ăn tạp giúp **duy trì sự cân bằng** bằng cách kiểm soát cả quần thể thực vật và động vật. Khả năng ăn nhiều loại thức ăn cũng giúp chúng **sống sót** tốt hơn trong các môi trường thay đổi, làm cho mạng lưới thức ăn ổn định hơn.",
+        "tags": [
+            "sinh vật ăn tạp",
+            "omnivore",
+            "duy trì cân bằng",
+            "kiểm soát quần thể",
+            "mạng lưới thức ăn ổn định"
+        ],
+        "illustration_prompt": "cute educational illustration showing a bear eating both berries and fish, symbolizing its role as an omnivore in balancing the food web"
+    },
+    {
+        "id": 116,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Tầm quan trọng của Đất ngập nước (Wetlands)?",
+        "answer": "Đất ngập nước (đầm lầy, vũng lầy) là **bộ lọc nước** tự nhiên của Trái Đất. Chúng **lọc chất ô nhiễm** ra khỏi nước trước khi nước chảy vào sông hoặc hồ. Chúng cũng là **nơi sinh sản** quan trọng cho nhiều loài chim, cá và động vật lưỡng cư.",
+        "tags": [
+            "đất ngập nước",
+            "wetlands",
+            "bộ lọc nước tự nhiên",
+            "lọc chất ô nhiễm",
+            "nơi sinh sản",
+            "đầm lầy"
+        ],
+        "illustration_prompt": "cute educational illustration showing wetland reeds and plants absorbing and filtering pollutants from water flowing through them"
+    },
+    {
+        "id": 117,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Tại sao Mây giông (Thunderstorms) có thể gây hại cho hệ sinh thái?",
+        "answer": "Mây giông mang theo **sét**, có thể gây ra **cháy rừng** lớn, phá hủy môi trường sống và tiêu diệt nhiều loài sinh vật. Mưa lớn đột ngột cũng có thể gây ra **lũ lụt** và xói mòn đất nghiêm trọng.",
+        "tags": [
+            "mây giông",
+            "thunderstorms",
+            "sét",
+            "cháy rừng",
+            "lũ lụt",
+            "xói mòn đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a lightning bolt striking a tree, igniting a small wildfire in a forest"
+    },
+    {
+        "id": 118,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Hệ sinh thái Đồng cỏ (Grassland) có những đặc điểm gì?",
+        "answer": "Đồng cỏ được đặc trưng bởi **cỏ** là thảm thực vật chính, với **rất ít cây gỗ** do lượng mưa không đủ hoặc thường xuyên bị cháy. Đây là môi trường sống lý tưởng cho các loài động vật **ăn cỏ lớn** (như bò, ngựa vằn) và các loài săn mồi chạy nhanh.",
+        "tags": [
+            "đồng cỏ",
+            "grassland",
+            "cỏ",
+            "ít cây gỗ",
+            "động vật ăn cỏ lớn",
+            "cháy"
+        ],
+        "illustration_prompt": "cute educational illustration showing a wide open savanna grassland with tall grasses and a herd of grazing zebras"
+    },
+    {
+        "id": 119,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Các loài Xâm lấn (Invasive Species) gây hại như thế nào?",
+        "answer": "Các loài xâm lấn là những sinh vật **không có nguồn gốc** từ một hệ sinh thái và được đưa vào đó. Chúng thường **sinh sản nhanh chóng** và **cạnh tranh** không công bằng với các loài bản địa về thức ăn và không gian, gây ra sự mất cân bằng hệ sinh thái.",
+        "tags": [
+            "loài xâm lấn",
+            "invasive species",
+            "không có nguồn gốc",
+            "sinh sản nhanh chóng",
+            "mất cân bằng",
+            "cạnh tranh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a non-native plant rapidly taking over and choking out the native plants in a field"
+    },
+    {
+        "id": 120,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Hệ sinh thái",
+        "question": "Làm thế nào để một hệ sinh thái trở nên 'Khỏe mạnh'?",
+        "answer": "Một hệ sinh thái khỏe mạnh phải có **đa dạng sinh học cao**, có **sự cân bằng** giữa các loài săn mồi và con mồi, và có **nguồn tài nguyên dồi dào** (nước, đất sạch). Nó phải có khả năng **chịu đựng** và phục hồi sau những thay đổi nhỏ (như một đợt khô hạn ngắn).",
+        "tags": [
+            "hệ sinh thái khỏe mạnh",
+            "đa dạng sinh học cao",
+            "sự cân bằng",
+            "tài nguyên dồi dào",
+            "phục hồi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a vibrant, colorful, and balanced ecosystem with many different species interacting peacefully"
+    },
+    {
+        "id": 121,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Sự nóng lên toàn cầu (Global Warming) là gì?",
+        "answer": "Sự nóng lên toàn cầu là **sự gia tăng nhiệt độ trung bình** của bề mặt Trái Đất và khí quyển. Nguyên nhân chính là do con người thải quá nhiều **khí nhà kính** (như CO2) vào không khí, làm tăng cường **Hiệu ứng Nhà kính** tự nhiên.",
+        "tags": [
+            "nóng lên toàn cầu",
+            "global warming",
+            "tăng nhiệt độ",
+            "khí nhà kính",
+            "hiệu ứng nhà kính"
+        ],
+        "illustration_prompt": "cute educational diagram showing sunlight entering the Earth's atmosphere and greenhouse gases trapping the heat, causing the planet to warm up"
+    },
+    {
+        "id": 122,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Khí nhà kính (Greenhouse Gases) chính là gì?",
+        "answer": "Khí nhà kính chính là **Carbon Dioxide (CO2)** (chủ yếu từ việc đốt nhiên liệu hóa thạch), **Methane (CH4)** (từ chăn nuôi và bãi rác), và **Nitrous Oxide (N2O)**. Các khí này hoạt động như một **lớp chăn** giữ nhiệt trong khí quyển.",
+        "tags": [
+            "khí nhà kính",
+            "greenhouse gases",
+            "carbon dioxide",
+            "methane",
+            "nitrous oxide",
+            "lớp chăn giữ nhiệt"
+        ],
+        "illustration_prompt": "cute educational illustration showing the different sources of greenhouse gases: a car (CO2), a cow (Methane), and a factory (N2O)"
+    },
+    {
+        "id": 123,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Biến đổi khí hậu (Climate Change) gây ra những tác động gì?",
+        "answer": "Biến đổi khí hậu không chỉ là việc nóng hơn. Nó gây ra những thay đổi lớn về **mô hình thời tiết**, dẫn đến **nước biển dâng**, **các hiện tượng thời tiết cực đoan** (hạn hán, lũ lụt, bão mạnh hơn), và làm tan chảy băng.",
+        "tags": [
+            "biến đổi khí hậu",
+            "climate change",
+            "mô hình thời tiết",
+            "nước biển dâng",
+            "thời tiết cực đoan",
+            "tan chảy băng"
+        ],
+        "illustration_prompt": "cute educational infographic showing the multiple effects of climate change: melting ice, rising sea levels, and severe storms"
+    },
+    {
+        "id": 124,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Vì sao băng tan (Melting Ice) lại nguy hiểm?",
+        "answer": "Băng tan nguy hiểm vì hai lý do. Thứ nhất, nó làm **nước biển dâng**, đe dọa các thành phố ven biển. Thứ hai, băng màu trắng **phản xạ** ánh sáng Mặt Trời. Khi băng tan, nước biển tối màu **hấp thụ** nhiều nhiệt hơn, làm tăng tốc độ nóng lên.",
+        "tags": [
+            "băng tan",
+            "melting ice",
+            "nước biển dâng",
+            "phản xạ ánh sáng",
+            "hấp thụ nhiệt",
+            "tăng tốc độ nóng lên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a polar bear on a small piece of melting ice, with water levels rising"
+    },
+    {
+        "id": 125,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Ô nhiễm không khí (Air Pollution) là gì?",
+        "answer": "Ô nhiễm không khí là sự có mặt của các **chất độc hại** (khí, hạt) trong không khí, gây hại cho sức khỏe con người và môi trường. Nguồn gốc chính là từ **khói xe cộ** và **khói nhà máy** đốt nhiên liệu hóa thạch.",
+        "tags": [
+            "ô nhiễm không khí",
+            "air pollution",
+            "chất độc hại",
+            "khói xe cộ",
+            "khói nhà máy",
+            "sức khỏe"
+        ],
+        "illustration_prompt": "cute educational illustration showing smog hanging over a city, with visible smoke coming from cars and industrial chimneys"
+    },
+    {
+        "id": 126,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Nước biển dâng (Sea Level Rise) do biến đổi khí hậu xảy ra như thế nào?",
+        "answer": "Nước biển dâng do hai nguyên nhân chính: **Băng tan** (lượng nước bổ sung) và **Sự giãn nở nhiệt (Thermal Expansion)**. Khi nước biển ấm lên, nó chiếm **nhiều không gian hơn** (giống như không khí nóng nở ra), làm mực nước biển dâng lên.",
+        "tags": [
+            "nước biển dâng",
+            "sea level rise",
+            "băng tan",
+            "giãn nở nhiệt",
+            "thermal expansion",
+            "chiếm nhiều không gian"
+        ],
+        "illustration_prompt": "cute educational diagram showing the dual causes of sea level rise: water expansion due to heat and water added from melting glaciers"
+    },
+    {
+        "id": 127,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Ô nhiễm nguồn nước (Water Pollution) là gì?",
+        "answer": "Ô nhiễm nước là khi các **chất độc hại** (rác thải nhựa, hóa chất công nghiệp, nước thải) bị đưa vào sông, hồ, và đại dương. Điều này gây hại cho **sinh vật biển** và khiến nước trở nên **không an toàn** cho con người.",
+        "tags": [
+            "ô nhiễm nguồn nước",
+            "water pollution",
+            "rác thải nhựa",
+            "hóa chất công nghiệp",
+            "nước thải",
+            "sinh vật biển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a river filled with visible trash, plastic bottles, and industrial run-off"
+    },
+    {
+        "id": 128,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Vì sao Methane (CH4) lại nguy hiểm hơn CO2?",
+        "answer": "Methane nguy hiểm hơn CO2 vì nó có khả năng **giữ nhiệt (làm nóng)** khí quyển **mạnh hơn gấp khoảng $25$ lần** so với CO2 trong khoảng thời gian $100$ năm. May mắn thay, Methane tồn tại trong không khí **ngắn hơn** CO2 nhiều.",
+        "tags": [
+            "methane",
+            "ch4",
+            "giữ nhiệt mạnh hơn",
+            "nguy hiểm hơn co2",
+            "chăn nuôi",
+            "bãi rác"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the heat-trapping power of a methane molecule (large arrow) to a carbon dioxide molecule (small arrow)"
+    },
+    {
+        "id": 129,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Mưa Axit (Acid Rain) là gì?",
+        "answer": "Mưa Axit là mưa hoặc tuyết có **tính axit cao** bất thường. Nó hình thành khi các chất ô nhiễm từ nhà máy (chủ yếu là **Lưu huỳnh Dioxide**) trộn lẫn với hơi nước trong không khí. Mưa axit làm **hư hại cây cối, hồ nước** và các tòa nhà.",
+        "tags": [
+            "mưa axit",
+            "acid rain",
+            "tính axit cao",
+            "lưu huỳnh dioxide",
+            "hư hại cây cối",
+            "ô nhiễm nhà máy"
+        ],
+        "illustration_prompt": "cute educational diagram showing factory emissions mixing with clouds to form acid rain, which then falls and damages trees and lakes"
+    },
+    {
+        "id": 130,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Hành động nào của con người gây ra sự nóng lên toàn cầu lớn nhất?",
+        "answer": "Hành động lớn nhất là **Đốt nhiên liệu hóa thạch** (than, dầu, khí đốt) để lấy năng lượng (sản xuất điện, vận hành ô tô). Việc đốt cháy này thải ra một lượng lớn **Carbon Dioxide** đã bị chôn vùi dưới lòng đất hàng triệu năm.",
+        "tags": [
+            "đốt nhiên liệu hóa thạch",
+            "fossil fuels",
+            "nguyên nhân lớn nhất",
+            "carbon dioxide",
+            "sản xuất điện",
+            "vận hành ô tô"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large factory and a fleet of cars all emitting smoke/exhaust labeled CO2"
+    },
+    {
+        "id": 131,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Thùng rác (Landfill) gây hại cho môi trường như thế nào?",
+        "answer": "Thùng rác chứa một lượng lớn chất thải **khó phân hủy** (như nhựa, kim loại) và thải ra **khí Methane** (khí nhà kính mạnh). Nước thấm qua rác cũng có thể mang theo **chất độc hại** (gọi là nước rỉ rác) và làm ô nhiễm nước ngầm.",
+        "tags": [
+            "thùng rác",
+            "landfill",
+            "khó phân hủy",
+            "khí methane",
+            "chất độc hại",
+            "ô nhiễm nước ngầm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large, smelly landfill site with a plume of methane gas rising and liquid waste seeping into the ground"
+    },
+    {
+        "id": 132,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Hạn hán (Drought) có liên quan đến biến đổi khí hậu như thế nào?",
+        "answer": "Biến đổi khí hậu làm tăng **nhiệt độ toàn cầu**, khiến nước **bay hơi nhanh hơn** từ đất và hồ. Nó cũng làm thay đổi các mô hình thời tiết, khiến một số khu vực có **lượng mưa giảm** mạnh trong thời gian dài, gây ra hạn hán.",
+        "tags": [
+            "hạn hán",
+            "drought",
+            "bay hơi nhanh hơn",
+            "lượng mưa giảm",
+            "nhiệt độ toàn cầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing dry, cracked earth and a withered plant under a scorching sun"
+    },
+    {
+        "id": 133,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Hiệu ứng 'Đảo nhiệt đô thị' (Urban Heat Island) là gì?",
+        "answer": "Đây là hiện tượng các **thành phố lớn nóng hơn** các khu vực nông thôn xung quanh, đặc biệt là vào ban đêm. Điều này là do vật liệu xây dựng (như bê tông và nhựa đường) **hấp thụ và lưu trữ nhiệt** Mặt Trời, trong khi cây xanh lại bị giảm đi.",
+        "tags": [
+            "đảo nhiệt đô thị",
+            "urban heat island",
+            "thành phố nóng hơn",
+            "bê tông và nhựa đường",
+            "hấp thụ nhiệt",
+            "cây xanh"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the temperature of a city area (high temp) versus a surrounding rural area (lower temp)"
+    },
+    {
+        "id": 134,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Sự Khác biệt giữa Bảo tồn (Conservation) và Bảo vệ (Preservation)?",
+        "answer": "**Bảo tồn** là việc sử dụng tài nguyên thiên nhiên một cách **khôn ngoan và bền vững** (chẳng hạn như chặt cây theo kế hoạch). **Bảo vệ** là việc **để yên hoàn toàn** một khu vực tự nhiên, không cho phép con người sử dụng hoặc can thiệp.",
+        "tags": [
+            "bảo tồn",
+            "bảo vệ",
+            "conservation",
+            "preservation",
+            "sử dụng khôn ngoan",
+            "để yên hoàn toàn",
+            "tài nguyên"
+        ],
+        "illustration_prompt": "cute educational illustration comparing two forest management styles: one showing sustainable logging (conservation) and one showing a fence protecting a completely untouched area (preservation)"
+    },
+    {
+        "id": 135,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Thảm họa nào liên quan đến biển mà CO2 gây ra?",
+        "answer": "Đó là **Axit hóa Đại dương (Ocean Acidification)**. Khi đại dương hấp thụ một lượng lớn CO2 từ khí quyển, CO2 trộn lẫn với nước để tạo thành axit yếu. Axit này làm **tan rã hoặc ngăn cản sự hình thành** vỏ và xương của các sinh vật biển (như san hô và hàu).",
+        "tags": [
+            "axit hóa đại dương",
+            "ocean acidification",
+            "hấp thụ co2",
+            "axit yếu",
+            "san hô",
+            "hàu"
+        ],
+        "illustration_prompt": "cute educational diagram showing CO2 being absorbed into the ocean and making it more acidic, negatively affecting a seashell"
+    },
+    {
+        "id": 136,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Phá rừng (Deforestation) góp phần vào biến đổi khí hậu như thế nào?",
+        "answer": "Cây cối đóng vai trò quan trọng trong việc **hấp thụ CO2**. Khi chúng ta phá rừng, **lượng CO2 hấp thụ giảm** và thêm vào đó, việc đốt hoặc phân hủy cây còn **giải phóng** CO2 đã lưu trữ trở lại khí quyển, làm tăng hiệu ứng nhà kính.",
+        "tags": [
+            "phá rừng",
+            "deforestation",
+            "hấp thụ co2",
+            "giải phóng co2",
+            "hiệu ứng nhà kính"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large area of cut-down trees, with an arrow pointing to increased CO2 in the air"
+    },
+    {
+        "id": 137,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Chuyển đổi sang Năng lượng Tái tạo (Renewable Energy) giúp ích như thế nào?",
+        "answer": "Việc chuyển sang các nguồn năng lượng tái tạo (như mặt trời, gió, thủy điện) **thay thế việc đốt nhiên liệu hóa thạch**. Điều này giúp **ngừng thải** Carbon Dioxide vào khí quyển, loại bỏ nguyên nhân lớn nhất gây ra biến đổi khí hậu.",
+        "tags": [
+            "năng lượng tái tạo",
+            "renewable energy",
+            "thay thế nhiên liệu hóa thạch",
+            "ngừng thải co2",
+            "gió",
+            "mặt trời"
+        ],
+        "illustration_prompt": "cute educational illustration showing solar panels and wind turbines actively generating power while an old, dirty coal plant is shut down"
+    },
+    {
+        "id": 138,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Làm thế nào để giảm lượng rác thải của cá nhân?",
+        "answer": "Bạn có thể thực hiện nguyên tắc **Ba Chữ R (Reduce, Reuse, Recycle)**. Đặc biệt quan trọng là **Giảm thiểu (Reduce)**: mua ít hơn, chọn sản phẩm có ít bao bì hơn, và mang theo túi và chai nước của riêng bạn.",
+        "tags": [
+            "giảm rác thải",
+            "reduce reuse recycle",
+            "giảm thiểu",
+            "bao bì",
+            "túi riêng",
+            "chai nước"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child carrying their own reusable bag and water bottle while shopping"
+    },
+    {
+        "id": 139,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Các vi hạt nhựa (Microplastics) gây hại như thế nào?",
+        "answer": "Vi hạt nhựa là những mảnh nhựa **rất nhỏ** (thường dưới $5 \text{ mm}$) bị phân hủy từ rác thải lớn. Chúng dễ dàng bị **sinh vật biển ăn nhầm**, đi vào chuỗi thức ăn và thậm chí đã được tìm thấy trong **thực phẩm và nước uống** của con người.",
+        "tags": [
+            "vi hạt nhựa",
+            "microplastics",
+            "mảnh nhựa nhỏ",
+            "sinh vật biển ăn nhầm",
+            "chuỗi thức ăn"
+        ],
+        "illustration_prompt": "cute educational microscopic view of tiny microplastic particles floating in ocean water near a small fish"
+    },
+    {
+        "id": 140,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Hạn chế sử dụng phương tiện giao thông cá nhân giúp ích như thế nào?",
+        "answer": "Xe hơi và xe máy chạy bằng xăng dầu thải ra **khí CO2** và các chất gây ô nhiễm không khí khác. Bằng cách **đi bộ, đi xe đạp** hoặc sử dụng **phương tiện công cộng**, chúng ta giảm được lượng lớn khí thải này, làm không khí sạch hơn.",
+        "tags": [
+            "phương tiện cá nhân",
+            "khí co2",
+            "ô nhiễm không khí",
+            "đi bộ",
+            "xe đạp",
+            "phương tiện công cộng"
+        ],
+        "illustration_prompt": "cute educational illustration showing people choosing to ride bikes or take a bus instead of driving a car, resulting in clear air"
+    },
+    {
+        "id": 141,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Làm thế nào để nông nghiệp bền vững (Sustainable Farming) giúp môi trường?",
+        "answer": "Nông nghiệp bền vững sử dụng các phương pháp như **luân canh cây trồng** và **giảm hóa chất**. Điều này giúp **cải thiện chất lượng đất**, sử dụng **ít nước hơn**, giảm ô nhiễm từ thuốc trừ sâu và bảo vệ đa dạng sinh học.",
+        "tags": [
+            "nông nghiệp bền vững",
+            "sustainable farming",
+            "luân canh",
+            "giảm hóa chất",
+            "cải thiện chất lượng đất",
+            "ít nước hơn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a farm with diverse crops planted in rotation, without visible chemical sprayers"
+    },
+    {
+        "id": 142,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Hậu quả của nhiệt độ tăng đối với Động vật và Thực vật?",
+        "answer": "Nhiệt độ tăng buộc động vật và thực vật phải **di cư** đến những nơi lạnh hơn hoặc cao hơn. Những loài **không thể di chuyển nhanh** (như cây cối hoặc san hô) sẽ bị **căng thẳng** và có nguy cơ **tuyệt chủng**.",
+        "tags": [
+            "nhiệt độ tăng",
+            "di cư",
+            "không thể di chuyển",
+            "tuyệt chủng",
+            "căng thẳng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a group of animals moving uphill or towards the poles to find a cooler climate"
+    },
+    {
+        "id": 143,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Khí thải có thể gây ảnh hưởng gì đến các tòa nhà lịch sử?",
+        "answer": "Ô nhiễm không khí, đặc biệt là **Mưa Axit**, có thể làm **tan rã và ăn mòn** các vật liệu xây dựng (đá, kim loại) của các tượng đài và tòa nhà lịch sử quan trọng theo thời gian, làm hỏng chúng vĩnh viễn.",
+        "tags": [
+            "khí thải",
+            "mưa axit",
+            "tòa nhà lịch sử",
+            "tan rã",
+            "ăn mòn",
+            "vật liệu xây dựng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a statue or building being slowly eroded and damaged by acid rain"
+    },
+    {
+        "id": 144,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Vai trò của Cộng đồng Quốc tế trong biến đổi khí hậu là gì?",
+        "answer": "Biến đổi khí hậu là vấn đề toàn cầu, cần sự hợp tác của tất cả các quốc gia. Các tổ chức và chính phủ ký kết các **hiệp ước và thỏa thuận** (như Hiệp định Paris) để cùng nhau **giảm phát thải** và giúp các quốc gia dễ bị tổn thương **thích ứng**.",
+        "tags": [
+            "cộng đồng quốc tế",
+            "hiệp định paris",
+            "giảm phát thải",
+            "thỏa thuận",
+            "thích ứng",
+            "toàn cầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing representatives from different countries shaking hands around a globe, symbolizing a climate agreement"
+    },
+    {
+        "id": 145,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Dấu chân Carbon (Carbon Footprint) là gì?",
+        "answer": "Dấu chân Carbon là **tổng lượng khí nhà kính** (chủ yếu là CO2) mà một cá nhân, một tổ chức, hoặc một sản phẩm thải ra trong suốt quá trình hoạt động của họ. **Giảm** dấu chân carbon của bạn là một cách để giúp Trái Đất.",
+        "tags": [
+            "dấu chân carbon",
+            "carbon footprint",
+            "tổng lượng khí nhà kính",
+            "co2 thải ra",
+            "giảm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large, labeled footprint next to a small one, comparing high and low carbon emissions"
+    },
+    {
+        "id": 146,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Ô nhiễm ánh sáng (Light Pollution) có tác động gì?",
+        "answer": "Ô nhiễm ánh sáng là ánh sáng nhân tạo dư thừa vào ban đêm. Nó làm **mất tầm nhìn** của các ngôi sao, nhưng quan trọng hơn, nó làm **rối loạn nhịp sinh học** của động vật hoang dã (như chim di cư, rùa biển mới nở) và cả con người.",
+        "tags": [
+            "ô nhiễm ánh sáng",
+            "light pollution",
+            "ánh sáng nhân tạo",
+            "rối loạn nhịp sinh học",
+            "chim di cư",
+            "rùa biển"
+        ],
+        "illustration_prompt": "cute educational illustration showing bright city lights obscuring the view of the stars and disorienting nocturnal animals"
+    },
+    {
+        "id": 147,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Thịt động vật và biến đổi khí hậu liên quan như thế nào?",
+        "answer": "Việc chăn nuôi (đặc biệt là bò) thải ra một lượng lớn **khí Methane** (CH4) vào khí quyển. Hơn nữa, cần một lượng lớn **đất đai và nước** để trồng thức ăn cho chúng, dẫn đến phá rừng và tiêu thụ tài nguyên.",
+        "tags": [
+            "thịt động vật",
+            "chăn nuôi",
+            "methane",
+            "phá rừng",
+            "tiêu thụ tài nguyên"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cow releasing methane gas and a large area of land used for cattle ranching"
+    },
+    {
+        "id": 148,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Thích ứng (Adaptation) với biến đổi khí hậu là gì?",
+        "answer": "Thích ứng là việc **điều chỉnh** các hành động, quy trình hoặc cấu trúc để **giảm thiểu** những tác động tiêu cực hoặc **tận dụng** các cơ hội mới do biến đổi khí hậu gây ra. Ví dụ: xây dựng đê chắn sóng để đối phó với nước biển dâng.",
+        "tags": [
+            "thích ứng",
+            "adaptation",
+            "điều chỉnh",
+            "giảm thiểu tác động",
+            "đê chắn sóng",
+            "cơ hội mới"
+        ],
+        "illustration_prompt": "cute educational illustration showing a coastal city building a strong sea wall (flood defense) to protect against rising sea levels"
+    },
+    {
+        "id": 149,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Tẩy trắng San hô (Coral Bleaching) là gì?",
+        "answer": "Tẩy trắng San hô xảy ra khi **nước biển quá nóng**. San hô bị căng thẳng và **đẩy tảo** sống cộng sinh trong mô của chúng ra ngoài. Tảo là thứ cho san hô màu sắc và thức ăn, khiến san hô trở nên **trắng bệch** và có thể chết đói.",
+        "tags": [
+            "tẩy trắng san hô",
+            "coral bleaching",
+            "nước biển quá nóng",
+            "đẩy tảo ra ngoài",
+            "trắng bệch",
+            "căng thẳng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a healthy, colorful coral reef next to a stressed, white-bleached coral reef"
+    },
+    {
+        "id": 150,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Làm thế nào để sử dụng năng lượng ở nhà hiệu quả hơn?",
+        "answer": "Bạn có thể sử dụng năng lượng hiệu quả bằng cách **tắt đèn** và rút phích cắm khi không sử dụng (kể cả chế độ chờ), thay thế bóng đèn bằng **đèn LED tiết kiệm điện**, và **hạn chế sử dụng máy lạnh** hoặc máy sưởi.",
+        "tags": [
+            "sử dụng năng lượng hiệu quả",
+            "energy efficiency",
+            "tắt đèn",
+            "rút phích cắm",
+            "đèn led",
+            "máy lạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child turning off a light switch and unplugging a charger to save electricity"
+    },
+    {
+        "id": 151,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để 'Giảm thiểu' (Reduce) rác thải của chúng ta?",
+        "answer": "Giảm thiểu là bước quan trọng nhất! Hãy **mua ít hơn** những thứ bạn không thực sự cần, chọn những sản phẩm có **bao bì tối thiểu**, và **tránh** các vật dụng dùng một lần (như ống hút, cốc nhựa).",
+        "tags": [
+            "giảm thiểu",
+            "reduce",
+            "rác thải",
+            "bao bì tối thiểu",
+            "vật dụng dùng một lần",
+            "mua ít hơn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand saying 'no thanks' to a plastic item and choosing a reusable option"
+    },
+    {
+        "id": 152,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Vì sao việc sử dụng Túi Tái Sử Dụng (Reusable Bags) lại tốt cho môi trường?",
+        "answer": "Sử dụng túi tái sử dụng giúp **tránh lãng phí** hàng trăm túi nhựa dùng một lần. Túi nhựa thường mất hàng trăm năm để phân hủy, gây **ô nhiễm đất và biển**, và có thể làm hại động vật hoang dã.",
+        "tags": [
+            "túi tái sử dụng",
+            "reusable bags",
+            "tránh lãng phí",
+            "túi nhựa",
+            "ô nhiễm biển",
+            "hàng trăm năm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person happily shopping with a sturdy cloth reusable bag instead of plastic bags"
+    },
+    {
+        "id": 153,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để tiết kiệm nước khi đánh răng hoặc rửa bát?",
+        "answer": "Quy tắc đơn giản là: **Không để nước chảy liên tục!** Hãy **tắt vòi nước** khi bạn đang chải răng hoặc khi bạn đang cọ xát bát đĩa. Một vòi nước chảy có thể lãng phí hàng lít nước mỗi phút.",
+        "tags": [
+            "tiết kiệm nước",
+            "tắt vòi nước",
+            "lãng phí",
+            "đánh răng",
+            "rửa bát"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child turning off the tap while brushing their teeth"
+    },
+    {
+        "id": 154,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để 'Tái chế' (Recycle) giấy đúng cách?",
+        "answer": "Bạn cần chắc chắn rằng giấy của bạn **sạch và khô**. Loại bỏ bất kỳ phần nào có **dầu mỡ** (như hộp bánh pizza dính dầu) vì chúng không thể tái chế. Hộp sữa và hộp nước trái cây thường cần được tái chế riêng biệt vì có lớp lót nhựa.",
+        "tags": [
+            "tái chế giấy",
+            "recycle paper",
+            "sạch và khô",
+            "dầu mỡ",
+            "hộp sữa",
+            "phân loại"
+        ],
+        "illustration_prompt": "cute educational illustration showing clean, flattened cardboard and paper being put into a recycling bin"
+    },
+    {
+        "id": 155,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Môi trường & Biến đổi khí hậu",
+        "question": "Năng lượng Ma (Phantom Power) là gì và làm thế nào để tránh nó?",
+        "answer": "Năng lượng Ma (hay năng lượng ma cà rồng) là lượng điện năng bị lãng phí khi các thiết bị (như TV, bộ sạc điện thoại, máy tính) được **cắm điện nhưng không sử dụng**. Để tránh lãng phí, hãy **rút phích cắm** hoặc sử dụng **ổ cắm có công tắc tổng**.",
+        "tags": [
+            "năng lượng ma",
+            "phantom power",
+            "năng lượng ma cà rồng",
+            "cắm điện",
+            "rút phích cắm",
+            "ổ cắm tổng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a glowing electric plug in a wall socket, with an angry 'vampire' face to represent wasted energy"
+    },
+    {
+        "id": 156,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Tại sao việc trồng cây (Planting Trees) lại là hành động bảo vệ môi trường tuyệt vời?",
+        "answer": "Cây xanh là những **chiến binh chống biến đổi khí hậu** tự nhiên. Chúng **hấp thụ Carbon Dioxide (CO2)** từ không khí và thải ra **Oxy** (quang hợp). Cây cũng cung cấp nơi trú ẩn, làm mát không khí và giữ đất chống xói mòn.",
+        "tags": [
+            "trồng cây",
+            "planting trees",
+            "hấp thụ co2",
+            "quang hợp",
+            "chống biến đổi khí hậu",
+            "giữ đất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child planting a small sapling, with the tree immediately absorbing CO2 from the air"
+    },
+    {
+        "id": 157,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Ủ phân (Composting) giúp ích gì cho môi trường?",
+        "answer": "Ủ phân là quá trình biến **phế phẩm hữu cơ** (như vỏ rau củ, bã cà phê) thành **chất dinh dưỡng giàu có** cho đất. Điều này giúp **giảm lượng rác thải** đưa đến bãi rác và giảm nhu cầu sử dụng phân bón hóa học.",
+        "tags": [
+            "ủ phân",
+            "composting",
+            "phế phẩm hữu cơ",
+            "chất dinh dưỡng",
+            "giảm rác thải",
+            "phân bón hóa học"
+        ],
+        "illustration_prompt": "cute educational diagram showing food scraps being put into a compost bin and turning into rich, dark soil"
+    },
+    {
+        "id": 158,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để ủng hộ các sản phẩm 'Địa phương' (Local Products)?",
+        "answer": "Hãy cố gắng mua **thực phẩm và hàng hóa** được sản xuất hoặc trồng trọt **gần nơi bạn sống**. Điều này giúp **giảm khí thải** từ việc vận chuyển hàng hóa đường dài và hỗ trợ nông dân cũng như doanh nghiệp địa phương.",
+        "tags": [
+            "sản phẩm địa phương",
+            "local products",
+            "giảm khí thải vận chuyển",
+            "hỗ trợ nông dân",
+            "gần nơi sống"
+        ],
+        "illustration_prompt": "cute educational illustration showing a farmer's market stand with fresh local produce and happy customers"
+    },
+    {
+        "id": 159,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Vì sao nên chọn Bóng đèn LED thay vì bóng đèn sợi đốt cũ?",
+        "answer": "Bóng đèn **LED** sử dụng ít năng lượng hơn đáng kể (lên đến **80% ít hơn**) so với bóng đèn sợi đốt cũ để tạo ra cùng một lượng ánh sáng. Chúng cũng **bền hơn** và không cần phải thay thế thường xuyên, giúp tiết kiệm tài nguyên.",
+        "tags": [
+            "bóng đèn led",
+            "led bulbs",
+            "tiết kiệm năng lượng",
+            "bền hơn",
+            "sợi đốt"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a traditional glowing incandescent bulb next to a cool, energy-efficient LED bulb"
+    },
+    {
+        "id": 160,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để tránh lãng phí thức ăn (Food Waste)?",
+        "answer": "Bạn có thể tránh lãng phí bằng cách **lên kế hoạch bữa ăn**, **mua sắm thông minh** (không mua quá nhiều), **bảo quản thức ăn** đúng cách, và **ăn hết** những gì bạn đã lấy. Đồ ăn thừa có thể được dùng cho bữa ăn tiếp theo!",
+        "tags": [
+            "lãng phí thức ăn",
+            "food waste",
+            "lên kế hoạch",
+            "bảo quản thức ăn",
+            "ăn hết"
+        ],
+        "illustration_prompt": "cute educational illustration showing a refrigerator with organized, labeled containers of leftovers and fresh produce"
+    },
+    {
+        "id": 161,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Vai trò của Khu Bảo Tồn Thiên Nhiên (Nature Reserves)?",
+        "answer": "Khu bảo tồn là những khu vực đất được **bảo vệ pháp lý** để **giữ gìn** sự sống hoang dã, hệ sinh thái và cảnh quan. Chúng đảm bảo các loài động vật và thực vật quý hiếm có một **môi trường sống an toàn** để sinh sôi và phát triển.",
+        "tags": [
+            "khu bảo tồn thiên nhiên",
+            "nature reserves",
+            "bảo vệ pháp lý",
+            "giữ gìn sự sống hoang dã",
+            "môi trường sống an toàn"
+        ],
+        "illustration_prompt": "cute educational illustration showing a protected, fenced-off natural area with various native animals thriving inside"
+    },
+    {
+        "id": 162,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Phân loại rác thải tại nguồn (Source Separation) là gì?",
+        "answer": "Phân loại rác tại nguồn là việc bạn **tự tách rác** ở nhà thành các loại khác nhau (như nhựa, giấy, thủy tinh, hữu cơ) **trước khi** chúng được thu gom. Điều này giúp các cơ sở tái chế làm việc dễ dàng và hiệu quả hơn.",
+        "tags": [
+            "phân loại rác",
+            "source separation",
+            "tách rác",
+            "nhựa",
+            "thủy tinh",
+            "hiệu quả tái chế"
+        ],
+        "illustration_prompt": "cute educational illustration showing three different color-coded bins for separating plastic, paper, and organic waste"
+    },
+    {
+        "id": 163,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Vì sao không nên xả dầu mỡ thừa xuống cống hoặc bồn rửa?",
+        "answer": "Dầu mỡ không tan trong nước. Khi chúng nguội đi, chúng sẽ **đóng cục** và **làm tắc nghẽn** hệ thống thoát nước hoặc cống rãnh. Điều này gây ra sự cố cho hệ thống xử lý nước thải và có thể làm ô nhiễm sông hồ.",
+        "tags": [
+            "dầu mỡ thừa",
+            "xả cống",
+            "đóng cục",
+            "tắc nghẽn",
+            "hệ thống xử lý nước thải",
+            "ô nhiễm"
+        ],
+        "illustration_prompt": "cute educational illustration showing solidified grease clogging a pipe under a sink"
+    },
+    {
+        "id": 164,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để tiết kiệm năng lượng khi sử dụng máy giặt?",
+        "answer": "Bạn nên **giặt đầy lồng** giặt để sử dụng hiệu quả hơn. Hơn nữa, hãy chọn chế độ **nước lạnh** khi có thể. Đun nóng nước là phần tốn điện nhất của chu trình giặt!",
+        "tags": [
+            "tiết kiệm năng lượng",
+            "máy giặt",
+            "giặt đầy lồng",
+            "nước lạnh",
+            "tốn điện"
+        ],
+        "illustration_prompt": "cute educational illustration showing a washing machine with a fully loaded drum and the 'cold water' setting highlighted"
+    },
+    {
+        "id": 165,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Tại sao việc Tái sử dụng (Reuse) tốt hơn Tái chế (Recycle)?",
+        "answer": "**Tái sử dụng** là tốt nhất vì nó **không cần năng lượng** để biến vật liệu cũ thành vật liệu mới. **Tái chế** vẫn cần năng lượng để thu gom, xử lý và chế tạo. Tái sử dụng là cách đơn giản và tiết kiệm nhất!",
+        "tags": [
+            "tái sử dụng",
+            "reuse",
+            "tái chế",
+            "recycle",
+            "không cần năng lượng",
+            "tiết kiệm nhất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a scale balancing 'Reuse' (lighter, no energy needed) and 'Recycle' (heavier, energy needed)"
+    },
+    {
+        "id": 166,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để bảo vệ các loài động vật hoang dã địa phương?",
+        "answer": "Bạn có thể giúp bằng cách **không xả rác** (đặc biệt là nhựa), **không cho chúng ăn** (thức ăn của con người có thể gây hại), và **trồng các loài cây bản địa** trong vườn nhà bạn để cung cấp thức ăn và nơi trú ẩn tự nhiên cho chúng.",
+        "tags": [
+            "động vật hoang dã",
+            "wildlife",
+            "không xả rác",
+            "không cho ăn",
+            "cây bản địa",
+            "môi trường sống"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child quietly observing a small animal in a garden full of native plants"
+    },
+    {
+        "id": 167,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Hệ thống giao thông công cộng (Public Transport) giúp ích gì?",
+        "answer": "Sử dụng xe buýt, xe lửa hoặc tàu điện ngầm thay vì lái xe cá nhân giúp **giảm số lượng xe** trên đường. Một chiếc xe buýt có thể chở hàng chục người, giảm đáng kể lượng **khí thải CO2 và ô nhiễm** so với mọi người lái xe riêng lẻ.",
+        "tags": [
+            "giao thông công cộng",
+            "public transport",
+            "giảm số lượng xe",
+            "khí thải co2",
+            "ô nhiễm",
+            "xe buýt"
+        ],
+        "illustration_prompt": "cute educational illustration showing a full bus moving down a road, with fewer individual cars around it"
+    },
+    {
+        "id": 168,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Nước thải (Wastewater) được xử lý như thế nào trước khi trở lại môi trường?",
+        "answer": "Nước thải được đưa đến nhà máy xử lý, trải qua nhiều giai đoạn. Đầu tiên là **lọc vật lý** (loại bỏ rác thải), sau đó là **làm sạch bằng vi khuẩn** (ăn chất thải hữu cơ), và cuối cùng là **khử trùng** (thường bằng clo hoặc tia UV) trước khi xả ra sông hoặc biển.",
+        "tags": [
+            "nước thải",
+            "wastewater",
+            "xử lý",
+            "lọc vật lý",
+            "vi khuẩn",
+            "khử trùng",
+            "nhà máy xử lý"
+        ],
+        "illustration_prompt": "cute educational diagram showing the three main stages of wastewater treatment: screening, bacterial decomposition, and disinfection"
+    },
+    {
+        "id": 169,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Tại sao việc tắt các thiết bị điện tử qua đêm lại quan trọng?",
+        "answer": "Việc tắt hoàn toàn các thiết bị (như máy tính, màn hình) giúp **tiết kiệm điện năng** so với để chúng ở chế độ chờ (Standby). Hơn nữa, nó giúp **kéo dài tuổi thọ** của các thiết bị đó, giảm nhu cầu mua mới và thải rác điện tử.",
+        "tags": [
+            "tắt thiết bị",
+            "tiết kiệm điện",
+            "chế độ chờ",
+            "kéo dài tuổi thọ",
+            "rác điện tử"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleeping person and all electronic devices in the room (TV, computer) are completely switched off"
+    },
+    {
+        "id": 170,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Vai trò của nhãn 'Energy Star' (Ngôi sao Năng lượng)?",
+        "answer": "Nhãn 'Energy Star' xuất hiện trên các thiết bị gia dụng và điện tử. Nó có nghĩa là sản phẩm đó **được chứng nhận là tiết kiệm năng lượng** so với các mô hình tiêu chuẩn, giúp bạn tiết kiệm tiền điện và giảm phát thải khí nhà kính.",
+        "tags": [
+            "energy star",
+            "ngôi sao năng lượng",
+            "tiết kiệm năng lượng",
+            "chứng nhận",
+            "giảm phát thải",
+            "thiết bị gia dụng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the Energy Star logo prominently displayed on a refrigerator or air conditioner"
+    },
+    {
+        "id": 171,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để tái chế thủy tinh (Glass) đúng cách?",
+        "answer": "Hầu hết thủy tinh đều có thể tái chế, nhưng chúng cần được **rửa sạch** để loại bỏ cặn thức ăn và **phân loại theo màu** (trong suốt, xanh lá, nâu) để giúp việc chế tạo sản phẩm mới dễ dàng hơn. Gương hoặc gốm sứ thì **không** thể tái chế với thủy tinh thông thường.",
+        "tags": [
+            "tái chế thủy tinh",
+            "recycle glass",
+            "rửa sạch",
+            "phân loại theo màu",
+            "gương gốm sứ"
+        ],
+        "illustration_prompt": "cute educational illustration showing clean glass bottles being sorted into colored bins"
+    },
+    {
+        "id": 172,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Ô nhiễm tiếng ồn (Noise Pollution) có tác động gì đến động vật hoang dã?",
+        "answer": "Tiếng ồn quá mức từ giao thông, máy bay hoặc công nghiệp có thể làm **rối loạn hành vi** của động vật, ảnh hưởng đến khả năng **giao tiếp** của chúng (chim, cá voi) và **tìm kiếm thức ăn**, thậm chí khiến chúng phải rời bỏ môi trường sống.",
+        "tags": [
+            "ô nhiễm tiếng ồn",
+            "noise pollution",
+            "rối loạn hành vi",
+            "giao tiếp",
+            "tìm kiếm thức ăn",
+            "động vật hoang dã"
+        ],
+        "illustration_prompt": "cute educational illustration showing a loud city environment causing distress to small birds trying to communicate"
+    },
+    {
+        "id": 173,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để giảm tiêu thụ thịt (Meat Consumption) giúp ích cho môi trường?",
+        "answer": "Việc sản xuất thịt (đặc biệt là thịt bò) đòi hỏi nhiều **đất đai, nước** và tạo ra nhiều **khí Methane** hơn so với việc trồng rau củ. Bằng cách ăn ít thịt hơn, bạn giúp **giảm phát thải khí nhà kính** và bảo tồn tài nguyên.",
+        "tags": [
+            "giảm tiêu thụ thịt",
+            "meat consumption",
+            "khí methane",
+            "ít đất đai",
+            "giảm phát thải khí nhà kính"
+        ],
+        "illustration_prompt": "cute educational illustration showing a small bowl of vegetables next to a large piece of meat, with the vegetable side having a smaller carbon footprint symbol"
+    },
+    {
+        "id": 174,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Sự Khác biệt giữa 'Xanh' (Green) và 'Hữu cơ' (Organic)?",
+        "answer": "**Xanh** (Green) thường đề cập đến các sản phẩm hoặc hành động thân thiện với môi trường nói chung (ví dụ: dùng năng lượng mặt trời). **Hữu cơ** (Organic) đề cập cụ thể đến các sản phẩm nông nghiệp được trồng **không sử dụng hóa chất tổng hợp** (thuốc trừ sâu, phân bón hóa học).",
+        "tags": [
+            "xanh",
+            "hữu cơ",
+            "green",
+            "organic",
+            "thân thiện môi trường",
+            "không hóa chất tổng hợp",
+            "nông nghiệp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a solar panel (Green) next to a field of crops grown without pesticides (Organic)"
+    },
+    {
+        "id": 175,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để trở thành 'Người tiêu dùng có ý thức'?",
+        "answer": "Người tiêu dùng có ý thức luôn hỏi: **'Sản phẩm này đến từ đâu?'** và **'Nó sẽ đi đâu khi tôi vứt bỏ?'**. Hãy chọn mua những sản phẩm **bền**, được sản xuất **có đạo đức** và có thể dễ dàng **tái chế hoặc phân hủy**.",
+        "tags": [
+            "người tiêu dùng có ý thức",
+            "có đạo đức",
+            "sản phẩm bền",
+            "tái chế",
+            "nguồn gốc sản phẩm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a thought bubble above a shopper's head with questions about the product's lifespan and origins"
+    },
+    {
+        "id": 176,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Tại sao không nên sử dụng quá nhiều chất tẩy rửa hóa học?",
+        "answer": "Chất tẩy rửa hóa học sau khi sử dụng sẽ trôi xuống cống và làm **ô nhiễm nguồn nước** (sông, hồ, biển). Chúng có thể **gây hại cho sinh vật biển** và phá vỡ cân bằng hệ sinh thái. Hãy chuyển sang các sản phẩm tẩy rửa **thân thiện với môi trường**.",
+        "tags": [
+            "chất tẩy rửa hóa học",
+            "ô nhiễm nguồn nước",
+            "gây hại sinh vật biển",
+            "hệ sinh thái",
+            "thân thiện với môi trường"
+        ],
+        "illustration_prompt": "cute educational illustration showing cleaning chemicals flowing down a drain and causing distress to a fish in the river"
+    },
+    {
+        "id": 177,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để 'Tái chế' pin và ắc quy cũ?",
+        "answer": "Pin và ắc quy cũ chứa các **hóa chất độc hại** (kim loại nặng) và **không thể** vứt vào thùng rác thông thường. Bạn phải mang chúng đến **các điểm thu gom chuyên biệt** hoặc các cửa hàng lớn có chương trình tái chế để xử lý an toàn.",
+        "tags": [
+            "tái chế pin",
+            "recycle batteries",
+            "hóa chất độc hại",
+            "kim loại nặng",
+            "điểm thu gom chuyên biệt",
+            "xử lý an toàn"
+        ],
+        "illustration_prompt": "cute educational illustration showing used batteries being dropped off safely at a designated recycling collection point"
+    },
+    {
+        "id": 178,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Bảo vệ tầng ozone (Ozone Layer) là gì và làm thế nào chúng ta thực hiện điều đó?",
+        "answer": "Tầng ozone bảo vệ chúng ta khỏi tia UV. Chúng ta bảo vệ nó bằng cách ngừng sử dụng các hóa chất gọi là **CFC (Chlorofluorocarbons)**, thường được tìm thấy trong bình xịt cũ và một số thiết bị làm lạnh. Nhờ các hiệp ước quốc tế, tầng ozone đang **dần phục hồi**!",
+        "tags": [
+            "bảo vệ tầng ozone",
+            "ozone layer",
+            "tia uv",
+            "cfc",
+            "chlorofluorocarbons",
+            "phục hồi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a protective shield (ozone layer) around the Earth, with a ban symbol over old aerosol spray cans"
+    },
+    {
+        "id": 179,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Các Khu vực Cấm đánh bắt (Marine Protected Areas) giúp ích gì cho đại dương?",
+        "answer": "Các khu vực này giống như **khu bảo tồn** trên đất liền, nơi việc đánh bắt và các hoạt động gây hại khác bị **hạn chế hoặc cấm hoàn toàn**. Điều này cho phép **quần thể cá và sinh vật biển phục hồi** và giữ cho hệ sinh thái đại dương khỏe mạnh.",
+        "tags": [
+            "khu vực cấm đánh bắt",
+            "marine protected areas",
+            "hạn chế đánh bắt",
+            "phục hồi quần thể cá",
+            "hệ sinh thái đại dương"
+        ],
+        "illustration_prompt": "cute educational illustration showing a designated area in the ocean where fish and coral are thriving peacefully without fishing boats"
+    },
+    {
+        "id": 180,
+        "category": "Trái Đất & Môi trường",
+        "sub_category": "Bảo vệ môi trường",
+        "question": "Làm thế nào để sử dụng máy tính tiết kiệm điện hơn?",
+        "answer": "Hãy đặt máy tính của bạn vào chế độ **ngủ (Sleep Mode)** hoặc **ngủ đông (Hibernate)** khi bạn nghỉ ngơi. Cài đặt chế độ **tắt màn hình** tự động sau một thời gian không sử dụng. Màn hình máy tính là một trong những thành phần tiêu tốn nhiều năng lượng nhất.",
+        "tags": [
+            "máy tính",
+            "tiết kiệm điện",
+            "sleep mode",
+            "hibernate",
+            "tắt màn hình",
+            "tiêu thụ năng lượng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a computer screen automatically dimming after a period of inactivity to save power"
+    }
+]

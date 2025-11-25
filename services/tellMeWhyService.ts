@@ -5,6 +5,9 @@ import animalData from '../tellMeWhy/Data/Animal_content.json';
 import treeData from '../tellMeWhy/Data/Tree_content.json';
 import dailyLifeData from '../tellMeWhy/Data/Daily_life_content.json';
 import natureBasicData from '../tellMeWhy/Data/Nature_basic_content.json';
+import earthData from '../tellMeWhy/Data/Earth_content.json';
+import humanBodyData from '../tellMeWhy/Data/Human_body_content.json';
+import physicsData from '../tellMeWhy/Data/physics_content.json';
 import {
     CategoryStructure,
     QuestionData,
@@ -46,12 +49,17 @@ export const loadCategoryContent = (categoryId: number): QuestionData[] | null =
             return dailyLifeData as QuestionData[];
         case 4: // Sự vật & hiện tượng cơ bản
             return natureBasicData as QuestionData[];
-        // Add more cases as content becomes available
-        // case 4: return dailyLifeData;
+        case 5: // Trái Đất & Môi trường
+            return earthData as QuestionData[];
+        case 6: // Cơ thể người
+            return humanBodyData as QuestionData[];
+        case 7: // Vật lý đời sống
+            return physicsData as QuestionData[];
         default:
             return null;
     }
 };
+
 
 /**
  * Get all unique sub-categories for a category

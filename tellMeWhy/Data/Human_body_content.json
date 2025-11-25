@@ -1,0 +1,2868 @@
+[
+    {
+        "id": 1,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Bộ xương (Skeleton) có vai trò gì trong cơ thể chúng ta?",
+        "answer": "Bộ xương là **khung đỡ** bên trong cơ thể, giúp chúng ta đứng thẳng và có hình dạng. Nó cũng có vai trò **bảo vệ** các cơ quan quan trọng (như hộp sọ bảo vệ não) và giúp **chúng ta di chuyển**.",
+        "tags": [
+            "bộ xương",
+            "skeleton",
+            "khung đỡ",
+            "bảo vệ",
+            "hộp sọ",
+            "di chuyển"
+        ],
+        "illustration_prompt": "cute educational diagram of the human skeletal system showing major bones"
+    },
+    {
+        "id": 2,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Người lớn có bao nhiêu chiếc xương?",
+        "answer": "Một người trưởng thành thường có **206 chiếc xương**. Khi sinh ra, em bé có nhiều xương hơn (khoảng $270$ chiếc), nhưng một số xương nhỏ **hợp nhất lại** với nhau khi lớn lên (ví dụ: các xương ở sọ và cột sống).",
+        "tags": [
+            "số lượng xương",
+            "206 xương",
+            "xương trẻ em",
+            "hợp nhất"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the number of bones in a baby's skeleton versus an adult's skeleton"
+    },
+    {
+        "id": 3,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Loại xương nào bảo vệ bộ não của chúng ta?",
+        "answer": "Đó là **Hộp sọ (Skull)**, một cấu trúc xương cứng chắc bao quanh và bảo vệ bộ não mềm mại. Hộp sọ cũng là nơi có các xương tạo nên khuôn mặt của chúng ta.",
+        "tags": [
+            "hộp sọ",
+            "skull",
+            "bảo vệ bộ não",
+            "cấu trúc xương cứng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of the human skull protecting the brain"
+    },
+    {
+        "id": 4,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Tủy xương (Bone Marrow) có chức năng gì?",
+        "answer": "Tủy xương là một chất mềm, xốp nằm bên trong một số xương lớn (như xương đùi). Nó là một **nhà máy sản xuất máu**! Tủy xương tạo ra tất cả các loại tế bào máu: **hồng cầu, bạch cầu, và tiểu cầu**.",
+        "tags": [
+            "tủy xương",
+            "bone marrow",
+            "nhà máy sản xuất máu",
+            "hồng cầu",
+            "bạch cầu",
+            "tiểu cầu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a cross-section of a long bone, highlighting the bone marrow and its function in producing blood cells"
+    },
+    {
+        "id": 5,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Xương dài nhất trong cơ thể chúng ta là gì?",
+        "answer": "Đó là **Xương đùi (Femur)**, nằm ở chân trên. Xương đùi không chỉ dài nhất mà còn là **xương nặng và khỏe nhất** trong cơ thể, có thể chịu được lực lớn hơn cả bê tông!",
+        "tags": [
+            "xương đùi",
+            "femur",
+            "xương dài nhất",
+            "xương khỏe nhất",
+            "chân trên"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the location and size of the human femur bone"
+    },
+    {
+        "id": 6,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Khớp (Joints) là gì?",
+        "answer": "Khớp là **nơi hai hoặc nhiều xương gặp nhau**. Chúng hoạt động như những **bản lề và trục quay**, cho phép xương di chuyển. Nếu không có khớp, chúng ta sẽ cứng đờ như một bức tượng!",
+        "tags": [
+            "khớp",
+            "joints",
+            "nơi hai xương gặp nhau",
+            "bản lề",
+            "trục quay",
+            "di chuyển"
+        ],
+        "illustration_prompt": "cute educational diagram showing the knee joint as an example of a hinge joint"
+    },
+    {
+        "id": 7,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Loại khớp nào cho phép cánh tay của bạn xoay tròn?",
+        "answer": "Đó là **Khớp cầu và ổ cối (Ball-and-Socket Joint)**, có ở vai và hông. Loại khớp này cho phép xương di chuyển theo **nhiều hướng khác nhau**, bao gồm cả việc xoay tròn đầy đủ.",
+        "tags": [
+            "khớp cầu và ổ cối",
+            "ball-and-socket joint",
+            "vai",
+            "hông",
+            "xoay tròn",
+            "nhiều hướng"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the ball-and-socket joint structure found in the shoulder"
+    },
+    {
+        "id": 8,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cột sống (Spine) hay Xương sống có chức năng gì?",
+        "answer": "Cột sống là trục chính của cơ thể. Nó giúp chúng ta **cúi người, xoay và giữ thăng bằng**. Quan trọng hơn, nó chứa và bảo vệ **tủy sống**, đường cao tốc thông tin từ não đến phần còn lại của cơ thể.",
+        "tags": [
+            "cột sống",
+            "spine",
+            "xương sống",
+            "giữ thăng bằng",
+            "cúi người",
+            "bảo vệ tủy sống"
+        ],
+        "illustration_prompt": "cute educational illustration showing the human spine, highlighting its curves and the spinal cord running through it"
+    },
+    {
+        "id": 9,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cơ (Muscles) có vai trò gì?",
+        "answer": "Cơ bắp là động cơ của cơ thể! Chúng co lại và thư giãn để tạo ra **chuyển động** (đi, chạy, nhai, mỉm cười). Cơ bắp cũng giúp **giữ tư thế** và tạo ra **nhiệt** để giữ ấm cơ thể.",
+        "tags": [
+            "cơ",
+            "muscles",
+            "chuyển động",
+            "giữ tư thế",
+            "sản xuất nhiệt",
+            "động cơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a flexing arm muscle contracting to lift a small object"
+    },
+    {
+        "id": 10,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Có bao nhiêu loại cơ bắp chính trong cơ thể?",
+        "answer": "Có ba loại cơ chính: **Cơ Vân (Skeletal Muscle)** (cơ bắp bạn có thể kiểm soát, gắn với xương), **Cơ Trơn (Smooth Muscle)** (cơ bắp bạn không kiểm soát, trong nội tạng như dạ dày), và **Cơ Tim (Cardiac Muscle)** (chỉ có ở tim, co bóp không ngừng).",
+        "tags": [
+            "loại cơ bắp",
+            "cơ vân",
+            "cơ trơn",
+            "cơ tim",
+            "skeletal smooth cardiac"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating the microscopic appearance of skeletal, smooth, and cardiac muscle tissue"
+    },
+    {
+        "id": 11,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cơ Vân (Skeletal Muscle) hoạt động như thế nào để di chuyển xương?",
+        "answer": "Cơ vân hoạt động theo cặp (cơ đối kháng). Khi một cơ (ví dụ: cơ nhị đầu) **co lại** (rút ngắn) nó sẽ kéo xương, làm cho chi di chuyển. Cùng lúc đó, cơ đối diện (cơ tam đầu) sẽ **thư giãn** (kéo dài ra).",
+        "tags": [
+            "cơ vân",
+            "skeletal muscle",
+            "cơ đối kháng",
+            "co lại",
+            "thư giãn",
+            "cơ nhị đầu",
+            "cơ tam đầu"
+        ],
+        "illustration_prompt": "cute educational diagram showing the bicep muscle contracting and the tricep muscle relaxing to bend the arm"
+    },
+    {
+        "id": 12,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Gân (Tendon) có vai trò gì?",
+        "answer": "Gân là những **sợi mô liên kết** chắc chắn, giống như sợi dây thừng. Chúng có vai trò **nối Cơ bắp với Xương**. Khi cơ bắp co lại, gân truyền lực kéo đó đến xương, giúp xương chuyển động.",
+        "tags": [
+            "gân",
+            "tendon",
+            "nối cơ bắp với xương",
+            "mô liên kết",
+            "truyền lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing the Achilles tendon connecting the calf muscle to the heel bone"
+    },
+    {
+        "id": 13,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Dây chằng (Ligament) có vai trò gì?",
+        "answer": "Dây chằng là những dải mô tương tự gân, nhưng chúng có vai trò **nối Xương với Xương** (Bone to Bone), giữ các xương ở khớp lại với nhau. Chúng giữ cho khớp **ổn định** và ngăn xương bị trật ra ngoài.",
+        "tags": [
+            "dây chằng",
+            "ligament",
+            "nối xương với xương",
+            "giữ ổn định khớp",
+            "trật khớp"
+        ],
+        "illustration_prompt": "cute educational diagram showing ligaments connecting two bones across a joint, emphasizing their role in stability"
+    },
+    {
+        "id": 14,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Sụn (Cartilage) là gì?",
+        "answer": "Sụn là mô liên kết **mềm dẻo và đàn hồi hơn** xương, nhưng cứng hơn cơ. Nó bao phủ **các đầu xương** trong khớp để **ngăn chúng cọ xát** vào nhau và hấp thụ sốc. Tai và mũi của chúng ta cũng được làm từ sụn.",
+        "tags": [
+            "sụn",
+            "cartilage",
+            "mềm dẻo",
+            "đàn hồi",
+            "bao phủ đầu xương",
+            "hấp thụ sốc"
+        ],
+        "illustration_prompt": "cute educational diagram showing cartilage covering the ends of bones within a joint"
+    },
+    {
+        "id": 15,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Vì sao xương của trẻ em lại dễ uốn cong hơn người lớn?",
+        "answer": "Xương của trẻ em có tỷ lệ **sụn** cao hơn, khiến chúng **mềm và linh hoạt** hơn. Khi lớn lên, sụn dần được thay thế bằng mô xương cứng hơn thông qua quá trình gọi là **cốt hóa**.",
+        "tags": [
+            "xương trẻ em",
+            "linh hoạt",
+            "sụn cao hơn",
+            "cốt hóa",
+            "mềm"
+        ],
+        "illustration_prompt": "cute educational illustration comparing a flexible child's bone next to a rigid adult's bone"
+    },
+    {
+        "id": 16,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Lồng ngực (Rib Cage) có chức năng gì?",
+        "answer": "Lồng ngực là một khung xương bao gồm **$12$ cặp xương sườn**. Chức năng chính của nó là **bảo vệ** hai cơ quan cực kỳ quan trọng: **tim và phổi**.",
+        "tags": [
+            "lồng ngực",
+            "rib cage",
+            "xương sườn",
+            "bảo vệ tim",
+            "bảo vệ phổi"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the rib cage and showing the heart and lungs located safely inside"
+    },
+    {
+        "id": 17,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cơ Tim (Cardiac Muscle) khác gì so với các loại cơ khác?",
+        "answer": "Cơ Tim chỉ có ở **tim** và là loại cơ **không bao giờ biết mệt**! Nó co bóp liên tục, không ngừng nghỉ, từ lúc bạn được sinh ra cho đến hết đời, để **bơm máu** đi khắp cơ thể.",
+        "tags": [
+            "cơ tim",
+            "cardiac muscle",
+            "không bao giờ mệt",
+            "bơm máu",
+            "tim",
+            "co bóp liên tục"
+        ],
+        "illustration_prompt": "cute educational illustration showing the heart and its specialized cardiac muscle tissue"
+    },
+    {
+        "id": 18,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Làm thế nào để xương của chúng ta chắc khỏe?",
+        "answer": "Để xương chắc khỏe, bạn cần: 1. Đảm bảo cung cấp đủ **Canxi** (từ sữa, phô mai, rau xanh) để xây dựng xương. 2. Tiếp xúc với **Ánh sáng Mặt Trời** để cơ thể tổng hợp **Vitamin D** (giúp hấp thụ Canxi). 3. **Tập thể dục** (như chạy, nhảy) để kích thích xương phát triển.",
+        "tags": [
+            "xương chắc khỏe",
+            "canxi",
+            "vitamin d",
+            "ánh sáng mặt trời",
+            "tập thể dục"
+        ],
+        "illustration_prompt": "cute educational illustration showing a child drinking milk, playing outside in the sun, and jumping"
+    },
+    {
+        "id": 19,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Khớp bản lề (Hinge Joint) là gì?",
+        "answer": "Khớp bản lề hoạt động giống như bản lề cửa, chỉ cho phép **chuyển động theo một trục** (gập và duỗi). Ví dụ điển hình là **khớp gối** và **khớp khuỷu tay**.",
+        "tags": [
+            "khớp bản lề",
+            "hinge joint",
+            "một trục",
+            "gập và duỗi",
+            "khớp gối",
+            "khớp khuỷu tay"
+        ],
+        "illustration_prompt": "cute educational diagram showing the movement of a hinge joint, like the elbow, bending and straightening"
+    },
+    {
+        "id": 20,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cơ Trơn (Smooth Muscle) có chức năng gì?",
+        "answer": "Cơ trơn nằm trong **thành các cơ quan nội tạng** (như dạ dày, ruột, mạch máu). Chúng hoạt động **tự động (không tự chủ)** để thực hiện các chức năng như đẩy thức ăn qua đường tiêu hóa hoặc kiểm soát lưu lượng máu.",
+        "tags": [
+            "cơ trơn",
+            "smooth muscle",
+            "nội tạng",
+            "không tự chủ",
+            "đường tiêu hóa",
+            "lưu lượng máu"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of the intestine wall, highlighting the smooth muscle that pushes food along"
+    },
+    {
+        "id": 21,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Cơ nào được coi là cơ khỏe nhất trong cơ thể?",
+        "answer": "Nếu xét theo lực tạo ra trên mỗi đơn vị diện tích, cơ khỏe nhất là **Cơ Masseter** (cơ hàm). Nó giúp chúng ta **nhai và nghiền nát** thức ăn với một lực đáng kinh ngạc!",
+        "tags": [
+            "cơ khỏe nhất",
+            "masseter",
+            "cơ hàm",
+            "nhai",
+            "nghiền nát thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the location of the masseter muscle near the jaw"
+    },
+    {
+        "id": 22,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Vì sao phải làm ấm cơ (Warm-up) trước khi tập thể dục?",
+        "answer": "Làm ấm cơ giúp **tăng lưu lượng máu** đến cơ bắp và làm cho cơ **mềm dẻo hơn**. Điều này giúp cơ sẵn sàng cho các bài tập nặng, **ngăn ngừa chấn thương** (rách cơ) và giúp bạn hoạt động tốt hơn.",
+        "tags": [
+            "làm ấm cơ",
+            "warm-up",
+            "tăng lưu lượng máu",
+            "mềm dẻo hơn",
+            "ngăn ngừa chấn thương",
+            "rách cơ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person stretching gently before starting a run"
+    },
+    {
+        "id": 23,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Xương có đang 'Sống' (Living) hay không?",
+        "answer": "Xương là **mô sống**! Xương chứa **tế bào xương** liên tục đổi mới, mạch máu cung cấp chất dinh dưỡng và thần kinh. Xương cũng có khả năng **tự sửa chữa** sau khi bị gãy.",
+        "tags": [
+            "xương sống",
+            "living tissue",
+            "tế bào xương",
+            "mạch máu",
+            "tự sửa chữa",
+            "gãy xương"
+        ],
+        "illustration_prompt": "cute educational diagram showing a microscopic view of bone tissue with blood vessels and living cells"
+    },
+    {
+        "id": 24,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Điều gì xảy ra khi bạn bị trật khớp (Dislocation)?",
+        "answer": "Trật khớp xảy ra khi **các đầu xương** tạo nên khớp bị **buộc phải tách ra** khỏi vị trí bình thường của chúng (ví dụ: vai hoặc ngón tay). Đây là một chấn thương nghiêm trọng cần được bác sĩ điều chỉnh lại vị trí xương.",
+        "tags": [
+            "trật khớp",
+            "dislocation",
+            "tách ra khỏi vị trí",
+            "khớp vai",
+            "chấn thương"
+        ],
+        "illustration_prompt": "cute educational diagram showing a normal shoulder joint compared to a dislocated shoulder joint"
+    },
+    {
+        "id": 25,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Nút ruồi (Hole) trên xương có chức năng gì?",
+        "answer": "Các 'nút ruồi' hoặc lỗ nhỏ trên xương (gọi là **Lỗ (Foramen)**) không phải là lỗi. Chúng là những **lối đi an toàn** cho **mạch máu và dây thần kinh** đi qua để nuôi dưỡng và kết nối với xương cũng như các mô khác.",
+        "tags": [
+            "lỗ trên xương",
+            "foramen",
+            "lối đi an toàn",
+            "mạch máu",
+            "dây thần kinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a section of bone with small holes where blood vessels and nerves enter and exit"
+    },
+    {
+        "id": 26,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Hội chứng 'Chuột rút' (Cramp) là gì?",
+        "answer": "Chuột rút là tình trạng một cơ bắp **co thắt không tự chủ và mạnh mẽ** (thường ở chân). Nó có thể xảy ra do **mất nước**, **thiếu chất điện giải** hoặc cơ bắp bị **quá tải**.",
+        "tags": [
+            "chuột rút",
+            "cramp",
+            "co thắt không tự chủ",
+            "mất nước",
+            "quá tải cơ bắp",
+            "chất điện giải"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person holding their calf muscle in pain due to a cramp"
+    },
+    {
+        "id": 27,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Khớp Bán động (Slightly Movable Joint) là gì?",
+        "answer": "Khớp bán động cho phép **một ít chuyển động** nhưng ít hơn khớp động (như gối). Ví dụ là các khớp giữa các **đốt sống** (vertebrae) của cột sống, chúng cần linh hoạt vừa đủ để bạn có thể cúi và xoay người.",
+        "tags": [
+            "khớp bán động",
+            "slightly movable joint",
+            "ít chuyển động",
+            "đốt sống",
+            "cột sống"
+        ],
+        "illustration_prompt": "cute educational diagram showing two vertebrae in the spine with a slight amount of movement allowed between them"
+    },
+    {
+        "id": 28,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Tầm quan trọng của Cơ bắp trong việc giữ ấm cơ thể?",
+        "answer": "Khi bạn cảm thấy lạnh, cơ thể sẽ tự động khiến cơ bắp của bạn **co thắt nhanh** (gọi là **Rung (Shivering)**). Sự co thắt này tạo ra **nhiệt** như một sản phẩm phụ, giúp tăng nhiệt độ cơ thể và giữ ấm cho bạn.",
+        "tags": [
+            "giữ ấm cơ thể",
+            "rung",
+            "shivering",
+            "co thắt nhanh",
+            "tạo ra nhiệt",
+            "sản phẩm phụ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person shivering, with small heat waves emanating from their contracting muscles"
+    },
+    {
+        "id": 29,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Loại khớp nào không di chuyển được (Fixed Joint)?",
+        "answer": "Đó là các khớp **Cố định (Fixed)** hoặc **Bất động**. Ví dụ điển hình là các khớp xương tạo nên **hộp sọ**. Chúng hợp nhất với nhau một cách chắc chắn để **bảo vệ não** và không cho phép bất kỳ chuyển động nào.",
+        "tags": [
+            "khớp không di chuyển",
+            "fixed joint",
+            "bất động",
+            "hộp sọ",
+            "bảo vệ não"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the fixed, interlocked joints (sutures) in the human skull"
+    },
+    {
+        "id": 30,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Cơ & Xương",
+        "question": "Vì sao các vận động viên thể hình cần nạp nhiều Protein?",
+        "answer": "Protein là **khối xây dựng** của cơ bắp (Muscle Building Blocks). Khi tập thể dục, cơ bắp bị rách nhỏ, và protein cần thiết để **sửa chữa** những vết rách đó và xây dựng lại cơ bắp **lớn hơn và khỏe hơn**.",
+        "tags": [
+            "protein",
+            "vận động viên thể hình",
+            "khối xây dựng cơ bắp",
+            "sửa chữa",
+            "lớn hơn và khỏe hơn"
+        ],
+        "illustration_prompt": "cute educational illustration showing protein molecules (building blocks) repairing and adding size to a cartoon muscle"
+    },
+    {
+        "id": 31,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Hệ tiêu hóa (Digestive System) có vai trò gì?",
+        "answer": "Hệ tiêu hóa là **dây chuyền tháo lắp** của cơ thể. Vai trò của nó là **phá vỡ thức ăn** thành các hạt nhỏ xíu, gọi là **chất dinh dưỡng**, mà cơ thể có thể hấp thụ và sử dụng để lấy năng lượng và phát triển.",
+        "tags": [
+            "hệ tiêu hóa",
+            "digestive system",
+            "phá vỡ thức ăn",
+            "chất dinh dưỡng",
+            "năng lượng",
+            "phát triển"
+        ],
+        "illustration_prompt": "cute educational diagram of the human digestive system"
+    },
+    {
+        "id": 32,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Vai trò của nước bọt (Saliva) trong miệng là gì?",
+        "answer": "Nước bọt không chỉ làm ẩm thức ăn mà còn là nơi bắt đầu **tiêu hóa hóa học**. Nước bọt chứa một loại enzyme gọi là **amylase**, giúp phá vỡ **tinh bột** (có trong bánh mì, cơm) ngay khi bạn nhai.",
+        "tags": [
+            "nước bọt",
+            "saliva",
+            "tiêu hóa hóa học",
+            "amylase",
+            "tinh bột",
+            "làm ẩm thức ăn"
+        ],
+        "illustration_prompt": "cute educational illustration showing the salivary glands producing saliva in the mouth, with a molecule of starch being broken down by an enzyme"
+    },
+    {
+        "id": 33,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Thực quản (Esophagus) đẩy thức ăn xuống dạ dày bằng cách nào?",
+        "answer": "Thực quản sử dụng một loạt các **cơn co thắt cơ bắp** nhịp nhàng, giống như một làn sóng, được gọi là **Nhu động (Peristalsis)**. Nhờ có nhu động, bạn vẫn có thể nuốt thức ăn ngay cả khi đang trồng cây chuối!",
+        "tags": [
+            "thực quản",
+            "esophagus",
+            "nhu động",
+            "peristalsis",
+            "co thắt cơ bắp",
+            "nuốt"
+        ],
+        "illustration_prompt": "cute educational diagram showing the wave-like muscular contractions (peristalsis) moving a bolus of food down the esophagus"
+    },
+    {
+        "id": 34,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Dạ dày (Stomach) có những chức năng chính nào?",
+        "answer": "Dạ dày hoạt động như một máy trộn và phòng thí nghiệm hóa học. Nó thực hiện: **1. Xoáy trộn thức ăn** (Tiêu hóa cơ học). **2. Tiết Axit mạnh** (Axít clohiđric) và **Enzyme** (Tiêu hóa hóa học), biến thức ăn thành một chất lỏng sền sệt gọi là **chất dưỡng chấp**.",
+        "tags": [
+            "dạ dày",
+            "stomach",
+            "xoáy trộn",
+            "axit clohiđric",
+            "enzyme",
+            "tiêu hóa hóa học",
+            "chất dưỡng chấp"
+        ],
+        "illustration_prompt": "cute educational illustration showing the stomach acid and muscle contractions churning food into chyme"
+    },
+    {
+        "id": 35,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Tại sao axit dạ dày không làm thủng dạ dày?",
+        "answer": "Axit dạ dày thực sự **rất mạnh**, nhưng dạ dày được bảo vệ bởi một lớp **chất nhầy dày và đặc** (Mucus). Lớp chất nhầy này tạo thành một rào cản, liên tục được tái tạo để ngăn axit chạm vào thành dạ dày.",
+        "tags": [
+            "axit dạ dày",
+            "bảo vệ",
+            "chất nhầy",
+            "mucus",
+            "lớp bảo vệ"
+        ],
+        "illustration_prompt": "cute educational cross-section showing the thick layer of mucus protecting the stomach lining from acid"
+    },
+    {
+        "id": 36,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Ruột non (Small Intestine) quan trọng như thế nào?",
+        "answer": "Ruột non là nơi **tiêu hóa hoàn tất** và là nơi xảy ra phần lớn quá trình **Hấp thụ chất dinh dưỡng**. Nó dài kinh ngạc (khoảng $6-7 \text{ mét}$ ở người lớn) và được bao phủ bởi các nếp gấp li ti gọi là **nhung mao**.",
+        "tags": [
+            "ruột non",
+            "small intestine",
+            "hấp thụ chất dinhỡng",
+            "tiêu hóa hoàn tất",
+            "nhung mao",
+            "villi",
+            "dài 6-7 mét"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the small intestine and a magnified view of the villi absorbing nutrients"
+    },
+    {
+        "id": 37,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Tuyến tụy (Pancreas) có vai trò gì trong tiêu hóa?",
+        "answer": "Tuyến tụy là một 'nhà máy' sản xuất **enzyme tiêu hóa** mạnh mẽ (như lipase, protease) giúp phá vỡ chất béo, protein và carbohydrate. Nó cũng tạo ra **insulin**, một hormone kiểm soát lượng đường trong máu.",
+        "tags": [
+            "tuyến tụy",
+            "pancreas",
+            "enzyme tiêu hóa",
+            "lipase protease",
+            "insulin",
+            "kiểm soát đường máu"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the pancreas and its duct releasing digestive enzymes into the small intestine"
+    },
+    {
+        "id": 38,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Gan (Liver) tạo ra chất gì quan trọng cho tiêu hóa chất béo?",
+        "answer": "Gan sản xuất **Mật (Bile)**. Mật không phải là enzyme mà là một chất lỏng màu xanh lá cây giúp **nhũ hóa (phá vỡ)** các giọt chất béo lớn thành các giọt nhỏ hơn, dễ dàng cho các enzyme tiêu hóa xử lý.",
+        "tags": [
+            "gan",
+            "liver",
+            "mật",
+            "bile",
+            "nhũ hóa",
+            "tiêu hóa chất béo",
+            "chất lỏng màu xanh lá"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the liver and showing how bile breaks down large fat globules into smaller ones"
+    },
+    {
+        "id": 39,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Ruột già (Large Intestine) làm gì với chất thải?",
+        "answer": "Ruột già là nơi **hấp thụ nước cuối cùng** và nơi chứa đựng chất thải không tiêu hóa được (phân). Ruột già cũng chứa hàng tỷ **vi khuẩn có lợi** giúp sản xuất một số **vitamin** quan trọng, như Vitamin K.",
+        "tags": [
+            "ruột già",
+            "large intestine",
+            "hấp thụ nước",
+            "chất thải",
+            "vi khuẩn có lợi",
+            "vitamin k"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the large intestine and showing water being absorbed from the waste material"
+    },
+    {
+        "id": 40,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Hệ thống hô hấp (Respiratory System) có vai trò gì?",
+        "answer": "Hệ hô hấp là hệ thống **trao đổi khí** của cơ thể. Vai trò của nó là đưa **Oxygen (O2)** từ không khí vào máu và loại bỏ **Carbon Dioxide (CO2)** (chất thải) ra khỏi cơ thể khi chúng ta thở ra.",
+        "tags": [
+            "hệ hô hấp",
+            "respiratory system",
+            "trao đổi khí",
+            "oxygen",
+            "carbon dioxide",
+            "thở ra hít vào"
+        ],
+        "illustration_prompt": "cute educational diagram of the human respiratory system"
+    },
+    {
+        "id": 41,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Cơ quan nào là 'động cơ' chính cho việc thở?",
+        "answer": "Đó là **Cơ hoành (Diaphragm)**, một cơ bắp lớn hình vòm nằm dưới phổi. Khi bạn hít vào, cơ hoành **co lại** và kéo xuống, tạo ra không gian để phổi nở ra và hút không khí vào.",
+        "tags": [
+            "cơ hoành",
+            "diaphragm",
+            "động cơ thở",
+            "cơ bắp lớn",
+            "co lại",
+            "hít vào"
+        ],
+        "illustration_prompt": "cute educational diagram showing the movement of the diaphragm during inhalation (downward movement)"
+    },
+    {
+        "id": 42,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Họng (Pharynx) và Thanh quản (Larynx) có vai trò gì?",
+        "answer": "Họng (Pharynx) là **ngã tư** nơi không khí và thức ăn đi qua. Thanh quản (Larynx) là **hộp giọng nói** của chúng ta, nó chứa dây thanh âm và có một 'cánh cửa' nhỏ gọi là nắp thanh quản (epiglottis) ngăn thức ăn đi vào phổi.",
+        "tags": [
+            "họng",
+            "pharynx",
+            "thanh quản",
+            "larynx",
+            "hộp giọng nói",
+            "nắp thanh quản",
+            "ngã tư"
+        ],
+        "illustration_prompt": "cute educational diagram showing the pharynx and larynx, highlighting the epiglottis closing the airway when swallowing"
+    },
+    {
+        "id": 43,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Phổi (Lungs) hoạt động như thế nào?",
+        "answer": "Phổi là những cơ quan xốp, giống như bọt biển, chứa hàng triệu túi khí nhỏ gọi là **Phế nang (Alveoli)**. Chức năng chính của chúng là **hút không khí** (chứa O2) và **đẩy không khí** (chứa CO2) ra ngoài.",
+        "tags": [
+            "phổi",
+            "lungs",
+            "phế nang",
+            "alveoli",
+            "hút không khí",
+            "đẩy không khí"
+        ],
+        "illustration_prompt": "cute educational illustration showing the two lungs inflating and deflating within the rib cage"
+    },
+    {
+        "id": 44,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Phế nang (Alveoli) là gì?",
+        "answer": "Phế nang là những **túi khí nhỏ xíu, hình bong bóng** nằm ở cuối đường hô hấp trong phổi. Chúng là nơi xảy ra quá trình **trao đổi khí**: Oxygen đi vào máu và Carbon Dioxide đi ra khỏi máu để được thở ra.",
+        "tags": [
+            "phế nang",
+            "alveoli",
+            "túi khí nhỏ",
+            "trao đổi khí",
+            "oxygen",
+            "carbon dioxide"
+        ],
+        "illustration_prompt": "cute educational diagram showing a magnified view of an alveolus surrounded by capillaries, illustrating gas exchange"
+    },
+    {
+        "id": 45,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Dây thanh âm (Vocal Cords) hoạt động như thế nào để tạo ra giọng nói?",
+        "answer": "Dây thanh âm là hai dải cơ nhỏ, đàn hồi trong thanh quản. Khi bạn nói hoặc hát, luồng **không khí đi ra** từ phổi sẽ **làm chúng rung lên** (vibrates). Sự rung động này tạo ra âm thanh, sau đó được lưỡi và miệng định hình thành lời nói.",
+        "tags": [
+            "dây thanh âm",
+            "vocal cords",
+            "thanh quản",
+            "rung lên",
+            "tạo ra âm thanh",
+            "luồng không khí"
+        ],
+        "illustration_prompt": "cute educational illustration showing the vocal cords in the larynx vibrating as air passes through"
+    },
+    {
+        "id": 46,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Động mạch (Artery) và Tĩnh mạch (Vein) đưa máu đến và đi khỏi phế nang như thế nào?",
+        "answer": "**Động mạch phổi** mang máu **nghèo O2** (giàu CO2) từ tim đến phế nang. Sau khi máu nhận O2 và thải CO2, **Tĩnh mạch phổi** sẽ mang máu **giàu O2** trở lại tim để tim bơm máu đi khắp cơ thể.",
+        "tags": [
+            "động mạch",
+            "tĩnh mạch",
+            "phế nang",
+            "máu nghèo o2",
+            "máu giàu o2",
+            "trao đổi khí"
+        ],
+        "illustration_prompt": "cute educational diagram showing the pulmonary artery and pulmonary vein exchange gases with the alveoli"
+    },
+    {
+        "id": 47,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Hiện tượng Nấc cụt (Hiccups) là gì?",
+        "answer": "Nấc cụt là những cơn co thắt **không tự chủ và đột ngột** của **cơ hoành**. Mỗi cơn co thắt khiến dây thanh âm của bạn đóng lại một cách đột ngột, tạo ra âm thanh 'nấc' đặc trưng. Thường do ăn quá nhanh hoặc uống đồ có ga.",
+        "tags": [
+            "nấc cụt",
+            "hiccups",
+            "co thắt cơ hoành",
+            "không tự chủ",
+            "dây thanh âm đóng",
+            "ăn quá nhanh"
+        ],
+        "illustration_prompt": "cute educational illustration showing the diaphragm twitching involuntarily, causing a hiccup sound"
+    },
+    {
+        "id": 48,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Lớp lông (Cilia) trong đường hô hấp có tác dụng gì?",
+        "answer": "Cilia là những sợi lông nhỏ xíu, giống như bàn chải, lót bên trong khí quản và phế quản. Chúng **quét chất nhầy** (chất dính giữ bụi và vi trùng) lên trên và ra khỏi phổi để chúng ta có thể ho hoặc hắt hơi ra ngoài. Đây là cơ chế **làm sạch** của phổi.",
+        "tags": [
+            "lông mao",
+            "cilia",
+            "quét chất nhầy",
+            "làm sạch",
+            "bụi và vi trùng",
+            "khí quản"
+        ],
+        "illustration_prompt": "cute educational microscopic illustration showing cilia waving in a synchronized motion to push mucus upwards"
+    },
+    {
+        "id": 49,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Hít vào (Inhale) và Thở ra (Exhale) khác nhau như thế nào?",
+        "answer": "**Hít vào**: Cơ hoành co lại, tạo không gian, không khí giàu O2 **đi vào** phổi. **Thở ra**: Cơ hoành thư giãn, đẩy lên, bóp phổi lại, không khí giàu CO2 **đi ra** khỏi phổi. Cả hai đều được điều khiển bởi sự thay đổi **áp suất**.",
+        "tags": [
+            "hít vào",
+            "thở ra",
+            "inhale",
+            "exhale",
+            "cơ hoành co lại",
+            "áp suất",
+            "o2 co2"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the position of the diaphragm and rib cage during inhalation (expanded) vs. exhalation (compressed)"
+    },
+    {
+        "id": 50,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Hiện tượng ợ nóng (Heartburn) là gì?",
+        "answer": "Ợ nóng xảy ra khi **cơ vòng** (cơ van) ở cuối thực quản không đóng chặt, cho phép một ít **axit dạ dày trào ngược** lên thực quản. Nó gây ra cảm giác nóng rát (nhưng không liên quan đến tim!).",
+        "tags": [
+            "ợ nóng",
+            "heartburn",
+            "axit trào ngược",
+            "cơ vòng",
+            "thực quản",
+            "nóng rát"
+        ],
+        "illustration_prompt": "cute educational illustration showing stomach acid splashing back up into the esophagus"
+    },
+    {
+        "id": 51,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Vì sao lá lách (Spleen) không phải là một phần của hệ tiêu hóa?",
+        "answer": "Lá lách là một phần của **Hệ miễn dịch và Hệ tuần hoàn**, chứ không phải tiêu hóa. Nó hoạt động như một bộ lọc máu, **loại bỏ các tế bào máu cũ và bị hư hỏng** (giống như một 'nghĩa địa' hồng cầu) và lưu trữ máu.",
+        "tags": [
+            "lá lách",
+            "spleen",
+            "hệ miễn dịch",
+            "hệ tuần hoàn",
+            "bộ lọc máu",
+            "loại bỏ tế bào máu cũ"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the spleen's location near the stomach and its function as a blood filter"
+    },
+    {
+        "id": 52,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Lỗ ruột thừa (Appendix) có chức năng gì?",
+        "answer": "Trong quá khứ, ruột thừa được cho là không có chức năng. Tuy nhiên, các nhà khoa học hiện tin rằng ruột thừa có thể hoạt động như một **kho lưu trữ 'vi khuẩn tốt'**, giúp hệ tiêu hóa phục hồi nhanh hơn sau bệnh tật.",
+        "tags": [
+            "ruột thừa",
+            "appendix",
+            "vi khuẩn tốt",
+            "kho lưu trữ",
+            "phục hồi tiêu hóa"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the appendix connected to the large intestine"
+    },
+    {
+        "id": 53,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Khi bạn Ngáp (Yawn), điều gì đang xảy ra?",
+        "answer": "Ngáp là một hành động chưa được hiểu rõ hoàn toàn, nhưng một giả thuyết phổ biến là nó giúp **làm mát bộ não** bằng cách tăng lưu lượng máu. Nó cũng có thể là một cách để **hít sâu** và đưa nhiều O2 vào phổi hơn.",
+        "tags": [
+            "ngáp",
+            "yawn",
+            "làm mát bộ não",
+            "tăng lưu lượng máu",
+            "hít sâu",
+            "o2"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person yawning widely, with an arrow indicating air flowing in to cool the brain"
+    },
+    {
+        "id": 54,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Tại sao một số người bị Dị ứng thực phẩm (Food Allergies)?",
+        "answer": "Dị ứng xảy ra khi **hệ miễn dịch** của cơ thể nhầm lẫn một loại thực phẩm (như đậu phộng hoặc sữa) là **kẻ xâm nhập nguy hiểm**. Phản ứng thái quá này dẫn đến các triệu chứng như phát ban, sưng tấy hoặc khó thở.",
+        "tags": [
+            "dị ứng thực phẩm",
+            "food allergies",
+            "hệ miễn dịch",
+            "kẻ xâm nhập",
+            "phản ứng thái quá",
+            "đậu phộng sữa"
+        ],
+        "illustration_prompt": "cute educational illustration showing the immune system overreacting to a harmless food particle"
+    },
+    {
+        "id": 55,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Sự khác biệt giữa hít thở bằng mũi và bằng miệng?",
+        "answer": "**Thở bằng mũi** tốt hơn vì lông mũi và chất nhầy giúp **lọc bụi** và vi khuẩn. Mũi cũng **làm ấm và làm ẩm** không khí trước khi nó đi vào phổi, giúp phổi làm việc dễ dàng hơn. Thở bằng miệng thường chỉ dùng khi bạn đang nói hoặc bị nghẹt mũi.",
+        "tags": [
+            "hít thở bằng mũi",
+            "thở bằng miệng",
+            "lọc bụi",
+            "làm ấm và làm ẩm",
+            "khí quản"
+        ],
+        "illustration_prompt": "cute educational illustration comparing nasal breathing (filtering) vs. mouth breathing (less filtering)"
+    },
+    {
+        "id": 56,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Sản phẩm chất thải chính của quá trình tiêu hóa là gì?",
+        "answer": "Sản phẩm chất thải chính là **Phân (Feces)**. Đó là những vật liệu mà cơ thể **không thể tiêu hóa được** (như chất xơ), các tế bào cũ và một lượng lớn vi khuẩn. Nó được lưu trữ trong trực tràng trước khi được thải ra ngoài.",
+        "tags": [
+            "chất thải tiêu hóa",
+            "phân",
+            "feces",
+            "chất xơ",
+            "vi khuẩn",
+            "trực tràng"
+        ],
+        "illustration_prompt": "cute educational illustration showing the colon leading to the rectum for waste storage and elimination"
+    },
+    {
+        "id": 57,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Vì sao chúng ta Ho (Cough) hoặc Hắt hơi (Sneeze)?",
+        "answer": "Ho và hắt hơi là những **phản xạ bảo vệ** của cơ thể. Chúng là những luồng không khí mạnh mẽ được sử dụng để **đẩy những thứ không mong muốn** (như bụi, vi trùng, chất nhầy) ra khỏi đường hô hấp (Ho: đường dưới; Hắt hơi: đường trên/mũi).",
+        "tags": [
+            "ho",
+            "hắt hơi",
+            "cough",
+            "sneeze",
+            "phản xạ bảo vệ",
+            "đẩy bụi vi trùng",
+            "luồng không khí mạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a burst of air expelling germs and dust from a person's mouth and nose"
+    },
+    {
+        "id": 58,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Dạ dày 'gầm gừ' (Stomach Growling) có nghĩa là gì?",
+        "answer": "Tiếng 'gầm gừ' này thực ra là âm thanh của **co thắt cơ** khi thức ăn và chất lỏng được đẩy qua ruột. Nó xảy ra to nhất khi **dạ dày trống rỗng** vì không có thức ăn để làm giảm âm thanh của các cơn co thắt đó.",
+        "tags": [
+            "dạ dày gầm gừ",
+            "stomach growling",
+            "co thắt cơ",
+            "ruột",
+            "dạ dày trống rỗng",
+            "tiếng ồn"
+        ],
+        "illustration_prompt": "cute educational illustration showing the stomach and intestines making loud noise as muscle contractions push air and liquid through an empty space"
+    },
+    {
+        "id": 59,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Tại sao uống nước lại quan trọng cho tiêu hóa?",
+        "answer": "Nước là **chất bôi trơn** cho toàn bộ hệ tiêu hóa. Nó giúp **hòa tan chất béo và chất xơ** để cơ thể hấp thụ dễ dàng hơn. Nước cũng rất cần thiết trong ruột già để ngăn ngừa táo bón và giúp chất thải di chuyển trơn tru.",
+        "tags": [
+            "uống nước",
+            "quan trọng cho tiêu hóa",
+            "chất bôi trơn",
+            "hòa tan chất béo",
+            "ngăn ngừa táo bón"
+        ],
+        "illustration_prompt": "cute educational illustration showing a glass of water helping food move smoothly through the intestines"
+    },
+    {
+        "id": 60,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tiêu hóa & Hô hấp",
+        "question": "Bề mặt phổi (Phế nang) rộng đến mức nào?",
+        "answer": "Bề mặt của tất cả các phế nang cộng lại **rất lớn**, khoảng **$70 \text{ mét vuông}$**—tương đương với một **sân tennis**! Kích thước khổng lồ này giúp phổi có thể hấp thụ O2 và thải CO2 rất nhanh chóng và hiệu quả.",
+        "tags": [
+            "bề mặt phổi",
+            "phế nang",
+            "rộng 70 mét vuông",
+            "sân tennis",
+            "hấp thụ o2",
+            "hiệu quả"
+        ],
+        "illustration_prompt": "cute educational comparison illustrating the surface area of all human alveoli being equal to the size of a tennis court"
+    },
+    {
+        "id": 61,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Hệ tuần hoàn (Circulatory System) có vai trò gì?",
+        "answer": "Hệ tuần hoàn là **hệ thống vận chuyển** của cơ thể, giống như đường cao tốc. Nó có vai trò chính là **bơm máu** đi khắp nơi, mang theo **Oxygen và chất dinh dưỡng** đến các tế bào, đồng thời thu gom **Carbon Dioxide và chất thải**.",
+        "tags": [
+            "hệ tuần hoàn",
+            "circulatory system",
+            "vận chuyển",
+            "oxygen",
+            "chất dinh dưỡng",
+            "chất thải"
+        ],
+        "illustration_prompt": "cute educational diagram of the human circulatory system showing blood flow through the body"
+    },
+    {
+        "id": 62,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tim (Heart) là gì và hoạt động như thế nào?",
+        "answer": "Tim là một cơ quan cơ bắp, có kích thước bằng **nắm tay** của bạn, hoạt động như một **máy bơm** không ngừng nghỉ. Tim đập khoảng **$100.000$ lần** mỗi ngày để đẩy máu đi qua các mạch máu.",
+        "tags": [
+            "tim",
+            "heart",
+            "máy bơm",
+            "nắm tay",
+            "đập 100000 lần"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of the human heart actively pumping blood"
+    },
+    {
+        "id": 63,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tim được chia thành bao nhiêu ngăn (Chambers) chính?",
+        "answer": "Tim có **bốn ngăn** chính. Hai ngăn trên gọi là **Tâm nhĩ (Atria)** (nơi máu đi vào tim), và hai ngăn dưới gọi là **Tâm thất (Ventricles)** (nơi máu được bơm ra khỏi tim, Tâm thất trái là ngăn bơm máu mạnh nhất).",
+        "tags": [
+            "ngăn tim",
+            "chambers",
+            "tâm nhĩ",
+            "atria",
+            "tâm thất",
+            "ventricles",
+            "bốn ngăn"
+        ],
+        "illustration_prompt": "cute educational diagram of the heart showing the four chambers clearly labeled"
+    },
+    {
+        "id": 64,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Van Tim (Valves) có vai trò gì?",
+        "answer": "Van tim giống như những **cánh cửa một chiều** bên trong tim. Chúng mở ra để máu chảy qua và sau đó **đóng lại ngay lập tức** để **ngăn máu chảy ngược** vào ngăn trước. Âm thanh 'lub-dub' của tim chính là tiếng van đóng lại.",
+        "tags": [
+            "van tim",
+            "valves",
+            "cánh cửa một chiều",
+            "ngăn máu chảy ngược",
+            "lub-dub"
+        ],
+        "illustration_prompt": "cute educational diagram illustrating a heart valve opening and closing to prevent backflow of blood"
+    },
+    {
+        "id": 65,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Mạch máu nào mang máu GIÀU Oxygen đi từ tim đến cơ thể?",
+        "answer": "Đó là **Động mạch (Artery)**. Động mạch có thành **dày và đàn hồi** vì chúng phải chịu áp lực cao khi tim đẩy máu ra. Động mạch lớn nhất là **Động mạch chủ (Aorta)**, bắt đầu từ Tâm thất trái.",
+        "tags": [
+            "động mạch",
+            "artery",
+            "máu giàu oxygen",
+            "thành dày",
+            "động mạch chủ",
+            "aorta"
+        ],
+        "illustration_prompt": "cute educational diagram highlighting the Aorta branching out from the left ventricle of the heart"
+    },
+    {
+        "id": 66,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Mạch máu nào mang máu NGHÈO Oxygen trở về tim?",
+        "answer": "Đó là **Tĩnh mạch (Vein)**. Tĩnh mạch có thành mỏng hơn động mạch và chứa **van** bên trong. Các van này đặc biệt quan trọng để ngăn máu chảy ngược xuống dưới do trọng lực, đặc biệt là ở chân.",
+        "tags": [
+            "tĩnh mạch",
+            "vein",
+            "máu nghèo oxygen",
+            "thành mỏng",
+            "van tĩnh mạch",
+            "trọng lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing a vein with a one-way valve to prevent blood from flowing backward"
+    },
+    {
+        "id": 67,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Mao mạch (Capillaries) là gì và có vai trò gì?",
+        "answer": "Mao mạch là những **mạch máu nhỏ nhất** trong cơ thể, chỉ mỏng bằng một sợi tóc. Chúng là nơi xảy ra quá trình **Trao đổi Chất**: Oxygen và chất dinh dưỡng **đi ra** khỏi máu vào tế bào, còn CO2 và chất thải **đi vào** máu.",
+        "tags": [
+            "mao mạch",
+            "capillaries",
+            "mạch máu nhỏ nhất",
+            "trao đổi chất",
+            "oxygen co2",
+            "mỏng như tóc"
+        ],
+        "illustration_prompt": "cute educational microscopic diagram showing a capillary bed surrounding cells, illustrating O2 leaving and CO2 entering"
+    },
+    {
+        "id": 68,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Hồng cầu (Red Blood Cells) có chức năng gì?",
+        "answer": "Hồng cầu là những **chiếc xe tải giao hàng** nhỏ bé. Chúng chứa một loại protein gọi là **Hemoglobin**, có khả năng **bắt và vận chuyển Oxygen** từ phổi đến mọi tế bào và mang một phần CO2 trở lại phổi.",
+        "tags": [
+            "hồng cầu",
+            "red blood cells",
+            "hemoglobin",
+            "vận chuyển oxygen",
+            "chất thải co2"
+        ],
+        "illustration_prompt": "cute educational illustration showing a biconcave red blood cell carrying oxygen molecules"
+    },
+    {
+        "id": 69,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Bạch cầu (White Blood Cells) có chức năng gì?",
+        "answer": "Bạch cầu là **đội quân bảo vệ** hay **cảnh sát** của cơ thể. Chúng có chức năng chính là **chống lại mầm bệnh** (vi khuẩn, virus) và vật lạ xâm nhập, bảo vệ cơ thể khỏi bị nhiễm trùng và bệnh tật.",
+        "tags": [
+            "bạch cầu",
+            "white blood cells",
+            "đội quân bảo vệ",
+            "chống lại mầm bệnh",
+            "vi khuẩn virus",
+            "nhiễm trùng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a large white blood cell 'eating' or engulfing a smaller bacterium"
+    },
+    {
+        "id": 70,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tiểu cầu (Platelets) có vai trò gì khi bạn bị thương?",
+        "answer": "Tiểu cầu là những mảnh tế bào nhỏ giúp **cầm máu**. Khi bạn bị đứt tay, chúng nhanh chóng di chuyển đến vết thương và kết hợp với các protein để tạo thành một **cục máu đông** (Blood Clot), giống như một miếng băng dán tự nhiên.",
+        "tags": [
+            "tiểu cầu",
+            "platelets",
+            "cầm máu",
+            "cục máu đông",
+            "blood clot",
+            "vết thương"
+        ],
+        "illustration_prompt": "cute educational illustration showing platelets aggregating to form a clot over a small break in a blood vessel"
+    },
+    {
+        "id": 71,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Huyết tương (Plasma) là gì?",
+        "answer": "Huyết tương là **thành phần lỏng** (chủ yếu là nước) của máu. Nó chiếm hơn **một nửa** lượng máu và là chất lỏng mà trong đó hồng cầu, bạch cầu và tiểu cầu được vận chuyển. Huyết tương còn mang theo hormone và chất dinh dưỡng.",
+        "tags": [
+            "huyết tương",
+            "plasma",
+            "thành phần lỏng",
+            "chủ yếu là nước",
+            "vận chuyển hormone",
+            "chất dinh dưỡng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a tube of blood separating into its components: plasma (top), white blood cells/platelets (middle), and red blood cells (bottom)"
+    },
+    {
+        "id": 72,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Máu thay đổi màu sắc như thế nào?",
+        "answer": "Máu không bao giờ có màu xanh! Khi máu **giàu Oxygen** (từ phổi), nó có màu **đỏ tươi** (trong động mạch). Khi máu **nghèo Oxygen** (sau khi đi nuôi cơ thể), nó có màu **đỏ thẫm** (trong tĩnh mạch).",
+        "tags": [
+            "máu thay đổi màu",
+            "máu đỏ tươi",
+            "máu đỏ thẫm",
+            "giàu oxygen",
+            "nghèo oxygen",
+            "không màu xanh"
+        ],
+        "illustration_prompt": "cute educational diagram showing blood being bright red when it leaves the heart and darker red when it returns"
+    },
+    {
+        "id": 73,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Huyết áp (Blood Pressure) là gì?",
+        "answer": "Huyết áp là **lực mà máu tạo ra** lên thành động mạch khi nó được tim bơm đi. Có hai con số: số trên là áp suất khi tim co bóp (**tâm thu**), số dưới là áp suất khi tim nghỉ (**tâm trương**).",
+        "tags": [
+            "huyết áp",
+            "blood pressure",
+            "lực của máu",
+            "thành động mạch",
+            "tâm thu",
+            "tâm trương"
+        ],
+        "illustration_prompt": "cute educational illustration showing the blood pushing against the walls of an artery, representing blood pressure"
+    },
+    {
+        "id": 74,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Mạch (Pulse) là gì và bạn có thể cảm nhận nó ở đâu?",
+        "answer": "Mạch là **sự giãn nở** nhịp nhàng của động mạch khi máu được tim bơm ra. Bạn có thể cảm nhận được nó ở bất cứ nơi nào một động mạch lớn chạy gần da, phổ biến nhất là ở **cổ tay** và **cổ**.",
+        "tags": [
+            "mạch",
+            "pulse",
+            "giãn nở động mạch",
+            "nhịp nhàng",
+            "cổ tay",
+            "cổ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a finger pressing on a person's wrist to feel their pulse"
+    },
+    {
+        "id": 75,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Vòng tuần hoàn phổi (Pulmonary Circulation) là gì?",
+        "answer": "Đây là vòng tuần hoàn **ngắn**. Tim bơm máu **nghèo O2** đến **Phổi** (để thải CO2 và lấy O2), sau đó máu **giàu O2** lại trở về **Tim**. Nó giống như một chuyến 'tái nạp năng lượng' cho máu.",
+        "tags": [
+            "tuần hoàn phổi",
+            "pulmonary circulation",
+            "máu nghèo o2",
+            "máu giàu o2",
+            "phổi",
+            "tái nạp năng lượng"
+        ],
+        "illustration_prompt": "cute educational diagram focusing only on the short loop of blood flow from the heart to the lungs and back"
+    },
+    {
+        "id": 76,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Vòng tuần hoàn hệ thống (Systemic Circulation) là gì?",
+        "answer": "Đây là vòng tuần hoàn **dài** và phức tạp. Tim bơm máu **giàu O2** đi đến **tất cả các bộ phận** của cơ thể (trừ phổi), cung cấp Oxygen và dinh dưỡng, rồi sau đó máu **nghèo O2** trở về Tim.",
+        "tags": [
+            "tuần hoàn hệ thống",
+            "systemic circulation",
+            "vòng tuần hoàn dài",
+            "máu giàu o2",
+            "tất cả bộ phận cơ thể"
+        ],
+        "illustration_prompt": "cute educational diagram focusing only on the long loop of blood flow from the heart to the rest of the body and back"
+    },
+    {
+        "id": 77,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Điều gì xảy ra khi tim đập nhanh (Tachycardia)?",
+        "answer": "Tim đập nhanh là khi tim đập **quá nhanh** ($>100 \text{ nhịp/phút}$) khi nghỉ ngơi. Điều này có thể xảy ra khi bạn **tập thể dục**, **sợ hãi** hoặc **căng thẳng**. Đôi khi, nhịp tim nhanh bất thường có thể là dấu hiệu của bệnh lý tim mạch.",
+        "tags": [
+            "tim đập nhanh",
+            "tachycardia",
+            "tập thể dục",
+            "sợ hãi",
+            "căng thẳng",
+            "nhịp tim"
+        ],
+        "illustration_prompt": "cute educational illustration showing a heart beating very rapidly, emphasizing its speed"
+    },
+    {
+        "id": 78,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Làm thế nào để giữ cho trái tim của bạn khỏe mạnh?",
+        "answer": "Giữ tim khỏe mạnh đòi hỏi: **Tập thể dục thường xuyên** (như chạy, bơi) để làm tim mạnh hơn, **Ăn uống lành mạnh** (ít chất béo và đường), và **Ngủ đủ giấc** để tim được nghỉ ngơi.",
+        "tags": [
+            "tim khỏe mạnh",
+            "tập thể dục",
+            "ăn uống lành mạnh",
+            "ngủ đủ giấc",
+            "ít chất béo và đường"
+        ],
+        "illustration_prompt": "cute educational illustration showing a smiling heart lifting weights or jogging"
+    },
+    {
+        "id": 79,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Hemoglobin (Huyết sắc tố) là gì?",
+        "answer": "Hemoglobin là một **protein giàu sắt** (iron-rich protein) được tìm thấy bên trong hồng cầu. Sắt là thứ cho phép hemoglobin **bắt và nhả Oxygen** một cách hiệu quả, và nó cũng là thứ khiến máu có màu đỏ.",
+        "tags": [
+            "hemoglobin",
+            "huyết sắc tố",
+            "protein giàu sắt",
+            "vận chuyển oxygen",
+            "màu đỏ của máu"
+        ],
+        "illustration_prompt": "cute educational diagram showing a hemoglobin molecule inside a red blood cell, attaching to oxygen"
+    },
+    {
+        "id": 80,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Xơ vữa động mạch (Atherosclerosis) là gì?",
+        "answer": "Xơ vữa động mạch là một bệnh lý nguy hiểm, nơi **chất béo** (cholesterol) và các chất khác tích tụ lại thành **mảng bám** bên trong thành động mạch. Điều này làm cho động mạch **hẹp lại và cứng hơn**, cản trở lưu lượng máu.",
+        "tags": [
+            "xơ vữa động mạch",
+            "atherosclerosis",
+            "mảng bám",
+            "chất béo cholesterol",
+            "hẹp động mạch",
+            "cản trở máu"
+        ],
+        "illustration_prompt": "cute educational cross-section diagram showing plaque buildup narrowing the inside of an artery"
+    },
+    {
+        "id": 81,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Vì sao tĩnh mạch ở cánh tay lại có vẻ màu xanh lam?",
+        "answer": "Tĩnh mạch có vẻ màu xanh lam không phải vì máu có màu xanh, mà vì **ánh sáng**. Lớp da và mô của chúng ta hấp thụ ánh sáng đỏ, nhưng **phản xạ** ánh sáng xanh trở lại mắt, khiến tĩnh mạch trông có màu xanh lam dưới bề mặt da.",
+        "tags": [
+            "tĩnh mạch màu xanh",
+            "ánh sáng phản xạ",
+            "không màu xanh lam",
+            "màu đỏ thẫm",
+            "ảo ảnh quang học"
+        ],
+        "illustration_prompt": "cute educational diagram showing how light waves interact with the skin and veins, making the veins appear blue"
+    },
+    {
+        "id": 82,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Hệ tuần hoàn có vai trò gì trong việc kiểm soát nhiệt độ cơ thể?",
+        "answer": "Hệ tuần hoàn hoạt động như một hệ thống **điều hòa nhiệt độ**. Khi bạn nóng, máu chảy **gần da** hơn để thải nhiệt. Khi bạn lạnh, máu chảy **sâu hơn** và xa da hơn để giữ nhiệt bên trong cơ thể.",
+        "tags": [
+            "kiểm soát nhiệt độ",
+            "điều hòa nhiệt độ",
+            "thải nhiệt",
+            "giữ nhiệt",
+            "máu gần da"
+        ],
+        "illustration_prompt": "cute educational illustration showing blood vessels near the skin dilating (opening) to release heat when the body is hot"
+    },
+    {
+        "id": 83,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tiếng tim đập 'lub-dub' thực sự là tiếng gì?",
+        "answer": "Tiếng 'lub-dub' là âm thanh của **van tim đóng lại**. Tiếng **'lub'** là tiếng đóng của hai van lớn giữa tâm nhĩ và tâm thất. Tiếng **'dub'** là tiếng đóng của các van ở cửa ra của tim (van động mạch chủ và van động mạch phổi).",
+        "tags": [
+            "tiếng tim đập",
+            "lub dub",
+            "van tim đóng lại",
+            "âm thanh",
+            "tâm nhĩ tâm thất"
+        ],
+        "illustration_prompt": "cute educational diagram showing the heart valves closing to produce the 'lub' and 'dub' sounds"
+    },
+    {
+        "id": 84,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Thiếu máu (Anemia) là gì?",
+        "answer": "Thiếu máu là tình trạng cơ thể không có đủ **hồng cầu khỏe mạnh** hoặc không đủ **Hemoglobin**. Điều này khiến cơ thể **không nhận đủ Oxygen**, dẫn đến các triệu chứng như mệt mỏi, yếu ớt và da nhợt nhạt.",
+        "tags": [
+            "thiếu máu",
+            "anemia",
+            "không đủ hồng cầu",
+            "không đủ hemoglobin",
+            "không đủ oxygen",
+            "mệt mỏi"
+        ],
+        "illustration_prompt": "cute educational illustration showing a blood vessel with too few red blood cells compared to a healthy one"
+    },
+    {
+        "id": 85,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Hệ thống bạch huyết (Lymphatic System) liên quan gì đến hệ tuần hoàn?",
+        "answer": "Hệ thống bạch huyết hoạt động cùng với tuần hoàn. Nó thu thập **chất lỏng bị rò rỉ** ra khỏi mao mạch (gọi là bạch huyết), **lọc** nó qua các hạch bạch huyết (để loại bỏ vi trùng) và trả lại chất lỏng sạch đó vào máu.",
+        "tags": [
+            "hệ thống bạch huyết",
+            "lymphatic system",
+            "chất lỏng bị rò rỉ",
+            "lọc vi trùng",
+            "hạch bạch huyết"
+        ],
+        "illustration_prompt": "cute educational diagram showing the lymphatic vessels running parallel to the circulatory system, filtering fluid"
+    },
+    {
+        "id": 86,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Nhịp tim khi nghỉ ngơi khỏe mạnh là bao nhiêu?",
+        "answer": "Đối với trẻ em và người lớn, nhịp tim khi nghỉ ngơi (khi bạn thư giãn) thường là **$60-100$ nhịp mỗi phút**. Vận động viên có thể có nhịp tim thấp hơn ($40-60$) vì tim họ đã được rèn luyện và bơm máu hiệu quả hơn.",
+        "tags": [
+            "nhịp tim nghỉ ngơi",
+            "resting heart rate",
+            "60-100 nhịp",
+            "vận động viên",
+            "tim hiệu quả"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person calmly sitting and their heart rate monitor displaying a healthy range"
+    },
+    {
+        "id": 87,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Vì sao mạch máu cần phải có tính 'Đàn hồi'?",
+        "answer": "Các động mạch cần phải đàn hồi để **mở rộng** khi tim bơm máu mạnh vào và sau đó **co lại** để giúp đẩy máu đi tiếp. Tính đàn hồi này đảm bảo lưu lượng máu liên tục và ổn định.",
+        "tags": [
+            "mạch máu đàn hồi",
+            "elasticity",
+            "mở rộng co lại",
+            "lưu lượng máu liên tục",
+            "áp lực"
+        ],
+        "illustration_prompt": "cute educational diagram showing an artery wall stretching (expanding) as blood pulses through it"
+    },
+    {
+        "id": 88,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tầm quan trọng của Chất Xơ (Fiber) đối với tim là gì?",
+        "answer": "Chất xơ (có trong rau, trái cây, ngũ cốc) giúp **giảm Cholesterol xấu** (LDL) trong máu. Cholesterol xấu có thể tích tụ trong động mạch, vì vậy, giảm nó giúp **ngăn ngừa xơ vữa động mạch** và giữ cho trái tim khỏe mạnh.",
+        "tags": [
+            "chất xơ",
+            "fiber",
+            "giảm cholesterol xấu",
+            "ngăn ngừa xơ vữa động mạch",
+            "rau trái cây"
+        ],
+        "illustration_prompt": "cute educational illustration showing foods high in fiber (oats, apples) guarding the heart from fatty cholesterol"
+    },
+    {
+        "id": 89,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tiêm chủng (Vaccination) giúp hệ tuần hoàn như thế nào?",
+        "answer": "Tiêm chủng giúp **bạch cầu** của bạn học cách **chống lại** một loại virus hoặc vi khuẩn cụ thể mà không cần phải trải qua căn bệnh đó. Điều này giúp hệ tuần hoàn (vận chuyển bạch cầu) và hệ miễn dịch luôn sẵn sàng bảo vệ bạn.",
+        "tags": [
+            "tiêm chủng",
+            "vaccination",
+            "bạch cầu",
+            "chống lại virus",
+            "hệ miễn dịch",
+            "bảo vệ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a vaccine needle introducing a safe 'training material' to a white blood cell"
+    },
+    {
+        "id": 90,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Tuần hoàn",
+        "question": "Tổng chiều dài các mạch máu trong cơ thể người là bao nhiêu?",
+        "answer": "Tổng chiều dài của tất cả các động mạch, tĩnh mạch và mao mạch trong cơ thể người là một con số khổng lồ—khoảng **$96.000 \text{ km}$**! Điều đó đủ để quấn quanh Trái Đất khoảng **hai lần rưỡi**!",
+        "tags": [
+            "tổng chiều dài mạch máu",
+            "96000 km",
+            "quấn quanh trái đất",
+            "mao mạch",
+            "thông tin thú vị"
+        ],
+        "illustration_prompt": "cute educational illustration showing a simplified human body with a long, winding blood vessel being compared to the circumference of the Earth"
+    },
+    {
+        "id": 91,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Hệ thần kinh (Nervous System) có vai trò gì?",
+        "answer": "Hệ thần kinh là **mạng lưới giao tiếp siêu tốc** của cơ thể. Nó nhận thông tin từ thế giới (giác quan), **xử lý** thông tin đó trong não và **gửi lệnh** đến cơ bắp và các cơ quan để phản ứng.",
+        "tags": [
+            "hệ thần kinh",
+            "nervous system",
+            "giao tiếp siêu tốc",
+            "xử lý thông tin",
+            "gửi lệnh",
+            "giác quan"
+        ],
+        "illustration_prompt": "cute educational illustration showing the nervous system as a network of wires connecting the brain to the entire body"
+    },
+    {
+        "id": 92,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Não (Brain) là gì và nó nặng khoảng bao nhiêu?",
+        "answer": "Não là **trung tâm chỉ huy** của cơ thể, nơi xảy ra tất cả suy nghĩ, cảm xúc và trí nhớ. Não người trưởng thành nặng khoảng **1,4 kg** (khoảng 3 lbs), nhưng nó sử dụng đến 20% tổng lượng Oxygen và năng lượng của cơ thể!",
+        "tags": [
+            "não",
+            "brain",
+            "trung tâm chỉ huy",
+            "trí nhớ",
+            "suy nghĩ",
+            "nặng 1.4 kg",
+            "tiêu thụ năng lượng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of the human brain with different functional areas highlighted"
+    },
+    {
+        "id": 93,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Nơ-ron (Neuron) là gì?",
+        "answer": "Nơ-ron là **tế bào cơ bản** của hệ thần kinh, giống như những sợi dây điện tí hon. Chúng chuyên gửi và nhận **thông điệp điện và hóa học** (xung thần kinh) đi khắp cơ thể với tốc độ cực nhanh, lên tới $270 \text{ km/h}$!",
+        "tags": [
+            "nơ-ron",
+            "neuron",
+            "tế bào cơ bản",
+            "xung thần kinh",
+            "thông điệp điện",
+            "tốc độ nhanh"
+        ],
+        "illustration_prompt": "cute educational diagram of a neuron, showing the cell body, dendrites, and axon with an electrical signal traveling down"
+    },
+    {
+        "id": 94,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Synapse (Khe khớp thần kinh) có vai trò gì?",
+        "answer": "Synapse là **khoảng trống nhỏ** hoặc **khe nối** giữa hai nơ-ron. Khi một thông điệp điện đến cuối nơ-ron, nó sẽ giải phóng **Chất dẫn truyền thần kinh** (Neurotransmitters) để 'nhảy' qua khe và tiếp tục truyền thông điệp đến nơ-ron tiếp theo.",
+        "tags": [
+            "synapse",
+            "khe khớp thần kinh",
+            "khoảng trống nhỏ",
+            "chất dẫn truyền thần kinh",
+            "neurotransmitters",
+            "truyền thông điệp"
+        ],
+        "illustration_prompt": "cute educational diagram showing two neurons connecting at a synapse, with neurotransmitters crossing the gap"
+    },
+    {
+        "id": 95,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Tủy sống (Spinal Cord) có chức năng gì?",
+        "answer": "Tủy sống là một **đường cao tốc thông tin** được bảo vệ bởi cột sống. Nó mang thông điệp **từ não đi xuống** cơ thể và thông tin cảm giác **từ cơ thể đi lên** não. Nó cũng là trung tâm điều khiển cho các **phản xạ** tức thì.",
+        "tags": [
+            "tủy sống",
+            "spinal cord",
+            "đường cao tốc thông tin",
+            "cột sống",
+            "thông điệp cảm giác",
+            "phản xạ"
+        ],
+        "illustration_prompt": "cute educational illustration showing the spinal cord running down the spine, acting as a communication cable"
+    },
+    {
+        "id": 96,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Phản xạ (Reflex) là gì?",
+        "answer": "Phản xạ là một **phản ứng tự động, siêu nhanh** của cơ thể, không cần phải suy nghĩ. Ví dụ: Rút tay lại khi chạm vào vật nóng. Phản xạ được điều khiển bởi tủy sống chứ **không phải não**, giúp tiết kiệm thời gian quý báu.",
+        "tags": [
+            "phản xạ",
+            "reflex",
+            "phản ứng tự động",
+            "siêu nhanh",
+            "tủy sống",
+            "rút tay khỏi vật nóng"
+        ],
+        "illustration_prompt": "cute educational diagram showing the reflex arc: hand touching fire, signal going to spinal cord, and instant signal back to muscle"
+    },
+    {
+        "id": 97,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Tiểu não (Cerebellum) có vai trò gì?",
+        "answer": "Tiểu não, nằm ở phía sau dưới của não, chịu trách nhiệm về **phối hợp vận động, thăng bằng** và **tư thế**. Nó giúp các chuyển động của bạn diễn ra mượt mà, chính xác và nhịp nhàng (như đi xe đạp hoặc ném bóng).",
+        "tags": [
+            "tiểu não",
+            "cerebellum",
+            "phối hợp vận động",
+            "thăng bằng",
+            "tư thế",
+            "mượt mà"
+        ],
+        "illustration_prompt": "cute educational illustration highlighting the location of the cerebellum and showing a figure balancing on one leg"
+    },
+    {
+        "id": 98,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Hệ thần kinh tự chủ (Autonomic Nervous System) có chức năng gì?",
+        "answer": "Đây là hệ thống 'phi công tự động'. Nó điều khiển tất cả các chức năng mà bạn **không cần suy nghĩ** (vô thức), như **nhịp tim, hơi thở, và tiêu hóa**. Nó chia thành hệ Giao cảm ('Chiến đấu hoặc Bỏ chạy') và Đối giao cảm ('Nghỉ ngơi và Tiêu hóa').",
+        "tags": [
+            "thần kinh tự chủ",
+            "autonomic nervous system",
+            "không cần suy nghĩ",
+            "nhịp tim",
+            "hơi thở",
+            "giao cảm đối giao cảm"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person relaxing (parasympathetic) versus a person running away from danger (sympathetic)"
+    },
+    {
+        "id": 99,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Vùng dưới đồi (Hypothalamus) có vai trò gì?",
+        "answer": "Vùng dưới đồi là một phần nhỏ nhưng mạnh mẽ của não. Nó là **trung tâm kiểm soát** các chức năng cơ bản như **nhiệt độ cơ thể**, cảm giác **đói và khát**, và điều chỉnh **giấc ngủ**.",
+        "tags": [
+            "vùng dưới đồi",
+            "hypothalamus",
+            "trung tâm kiểm soát",
+            "nhiệt độ cơ thể",
+            "đói khát",
+            "giấc ngủ"
+        ],
+        "illustration_prompt": "cute educational diagram highlighting the hypothalamus in the brain and showing icons for temperature and thirst regulation"
+    },
+    {
+        "id": 100,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Thùy trán (Frontal Lobe) của não chịu trách nhiệm về điều gì?",
+        "answer": "Thùy trán là phần **lớn nhất** và nằm ở phía trước. Nó là nơi xử lý **suy nghĩ phức tạp**, **lập kế hoạch**, **ra quyết định**, và kiểm soát **tính cách** của bạn. Nó giống như 'giám đốc điều hành' của bộ não.",
+        "tags": [
+            "thùy trán",
+            "frontal lobe",
+            "suy nghĩ phức tạp",
+            "lập kế hoạch",
+            "ra quyết định",
+            "tính cách"
+        ],
+        "illustration_prompt": "cute educational diagram of the brain highlighting the frontal lobe with symbols for planning and decision-making"
+    },
+    {
+        "id": 101,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Thùy chẩm (Occipital Lobe) chịu trách nhiệm về điều gì?",
+        "answer": "Thùy chẩm nằm ở **phía sau** của não và là trung tâm **thị giác**. Nó nhận thông tin từ mắt và **giải mã** nó để bạn biết bạn đang nhìn thấy gì (màu sắc, hình dạng, chuyển động).",
+        "tags": [
+            "thùy chẩm",
+            "occipital lobe",
+            "phía sau não",
+            "trung tâm thị giác",
+            "giải mã thông tin",
+            "mắt"
+        ],
+        "illustration_prompt": "cute educational diagram of the brain highlighting the occipital lobe with a symbol of an eye and visual processing"
+    },
+    {
+        "id": 102,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Thùy thái dương (Temporal Lobe) có vai trò gì?",
+        "answer": "Thùy thái dương nằm ở hai bên thái dương của bạn. Nó chịu trách nhiệm chính về **thính giác** (nghe), **ngôn ngữ** (hiểu lời nói) và đóng vai trò lớn trong việc hình thành **ký ức**.",
+        "tags": [
+            "thùy thái dương",
+            "temporal lobe",
+            "thính giác",
+            "ngôn ngữ",
+            "hình thành ký ức",
+            "nghe"
+        ],
+        "illustration_prompt": "cute educational diagram of the brain highlighting the temporal lobe with a symbol of an ear and sound waves"
+    },
+    {
+        "id": 103,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Thùy đỉnh (Parietal Lobe) làm gì?",
+        "answer": "Thùy đỉnh nằm phía trên và chịu trách nhiệm xử lý thông tin **cảm giác** từ cơ thể (như chạm, đau, nhiệt độ) và giúp bạn nhận thức được **vị trí** của cơ thể mình trong không gian.",
+        "tags": [
+            "thùy đỉnh",
+            "parietal lobe",
+            "xử lý cảm giác",
+            "chạm đau nhiệt độ",
+            "vị trí trong không gian",
+            "nhận thức"
+        ],
+        "illustration_prompt": "cute educational diagram of the brain highlighting the parietal lobe with symbols for touch and body awareness"
+    },
+    {
+        "id": 104,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Tại sao giấc ngủ (Sleep) lại quan trọng đối với bộ não?",
+        "answer": "Giấc ngủ là thời gian để não **tự dọn dẹp và sắp xếp**. Trong khi ngủ, não **củng cố ký ức** (biến những gì bạn học thành ký ức dài hạn) và **loại bỏ chất thải** tích tụ trong ngày, giúp bạn sẵn sàng cho ngày hôm sau.",
+        "tags": [
+            "giấc ngủ",
+            "sleep",
+            "tự dọn dẹp",
+            "củng cố ký ức",
+            "loại bỏ chất thải",
+            "sắp xếp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a brain with small broom sweeping away clutter and filing memory documents while a person is sleeping"
+    },
+    {
+        "id": 105,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Bao Myelin (Myelin Sheath) có vai trò gì trong nơ-ron?",
+        "answer": "Bao Myelin là lớp chất béo **cách điện** bao bọc xung quanh sợi trục (axon) của nơ-ron, giống như vỏ bọc nhựa của dây điện. Nó giúp **tăng tốc độ** truyền xung thần kinh lên gấp nhiều lần, đảm bảo thông điệp đến đích gần như ngay lập tức.",
+        "tags": [
+            "bao myelin",
+            "myelin sheath",
+            "lớp cách điện",
+            "tăng tốc độ truyền",
+            "sợi trục",
+            "axon"
+        ],
+        "illustration_prompt": "cute educational diagram showing a magnified section of an axon wrapped in a segmented myelin sheath"
+    },
+    {
+        "id": 106,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Cảm giác Đau (Pain) có lợi ích gì?",
+        "answer": "Mặc dù khó chịu, đau đớn là một **cơ chế bảo vệ** quan trọng. Nó là tín hiệu cảnh báo của não rằng **có điều gì đó không ổn** (ví dụ: bị thương, bị cháy) để bạn có thể phản ứng và rút lui khỏi mối nguy hiểm.",
+        "tags": [
+            "cảm giác đau",
+            "pain",
+            "cơ chế bảo vệ",
+            "tín hiệu cảnh báo",
+            "mối nguy hiểm",
+            "rút lui"
+        ],
+        "illustration_prompt": "cute educational illustration showing a hand quickly moving away from a hot stove, with a nerve signal indicating 'Danger'"
+    },
+    {
+        "id": 107,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Thần kinh thị giác (Optic Nerve) làm gì?",
+        "answer": "Thần kinh thị giác giống như một **cáp dữ liệu** nối mắt với não. Nó mang **thông tin hình ảnh** (dạng xung điện) từ các tế bào cảm thụ ánh sáng trong mắt đến thùy chẩm để được xử lý và 'biến' thành hình ảnh bạn thấy.",
+        "tags": [
+            "thần kinh thị giác",
+            "optic nerve",
+            "cáp dữ liệu",
+            "thông tin hình ảnh",
+            "thùy chẩm",
+            "mắt"
+        ],
+        "illustration_prompt": "cute educational diagram showing the optic nerve extending from the back of the eye to the visual cortex in the occipital lobe"
+    },
+    {
+        "id": 108,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Làm thế nào để hệ thần kinh học được những điều mới?",
+        "answer": "Học tập xảy ra khi các nơ-ron tạo ra **các kết nối (Synapse) mới** hoặc **tăng cường** các kết nối đã có. Càng luyện tập một kỹ năng (chơi piano, học từ mới), đường dẫn thần kinh đó càng trở nên **mạnh mẽ và nhanh chóng** hơn.",
+        "tags": [
+            "học điều mới",
+            "kết nối synapse",
+            "luyện tập",
+            "đường dẫn thần kinh",
+            "mạnh mẽ hơn",
+            "nơ-ron"
+        ],
+        "illustration_prompt": "cute educational illustration showing two neurons forming a stronger, thicker connection after repeated learning"
+    },
+    {
+        "id": 109,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Màng não (Meninges) là gì?",
+        "answer": "Màng não là **ba lớp mô bảo vệ** bao bọc xung quanh **não và tủy sống**. Chúng giúp giữ hình dạng cho não, cố định não và quan trọng nhất là bảo vệ não khỏi nhiễm trùng và chấn thương bên ngoài.",
+        "tags": [
+            "màng não",
+            "meninges",
+            "ba lớp mô",
+            "bảo vệ",
+            "não và tủy sống",
+            "chấn thương"
+        ],
+        "illustration_prompt": "cute educational cross-section diagram showing the three layers of the meninges protecting the brain"
+    },
+    {
+        "id": 110,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Chất xám (Gray Matter) và Chất trắng (White Matter) là gì?",
+        "answer": "**Chất xám** là nơi xử lý thông tin, bao gồm các **thân nơ-ron** và synapse. **Chất trắng** là các **sợi trục** của nơ-ron được bao bọc bởi Myelin (màu trắng), có nhiệm vụ kết nối và truyền thông tin giữa các khu vực của chất xám.",
+        "tags": [
+            "chất xám",
+            "gray matter",
+            "chất trắng",
+            "white matter",
+            "thân nơ-ron",
+            "sợi trục",
+            "myelin"
+        ],
+        "illustration_prompt": "cute educational diagram highlighting the gray matter (outer) and white matter (inner) in a cross-section of the brain"
+    },
+    {
+        "id": 111,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Điều gì kiểm soát sự thăng bằng (Balance) của chúng ta?",
+        "answer": "Sự thăng bằng được kiểm soát chủ yếu bởi **Tiểu não** (phối hợp vận động) và **Ốc tai (Cochlea)** bên trong tai. Các chất lỏng và tế bào lông trong tai trong liên tục gửi tín hiệu về vị trí đầu của bạn đến não.",
+        "tags": [
+            "thăng bằng",
+            "balance",
+            "tiểu não",
+            "ốc tai",
+            "tai trong",
+            "vị trí đầu"
+        ],
+        "illustration_prompt": "cute educational illustration showing the inner ear structure (cochlea and semicircular canals) responsible for balance"
+    },
+    {
+        "id": 112,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Khi bạn Hết hơi (Run out of breath), tín hiệu nào cảnh báo não?",
+        "answer": "Não được cảnh báo không phải do thiếu O2 mà do sự tích tụ **Carbon Dioxide (CO2)** trong máu. Khi nồng độ CO2 tăng cao, trung tâm hô hấp trong **Thân não** (Brainstem) sẽ gửi tín hiệu gấp để bạn thở nhanh và sâu hơn.",
+        "tags": [
+            "hết hơi",
+            "carbon dioxide",
+            "tích tụ co2",
+            "thân não",
+            "trung tâm hô hấp",
+            "thở nhanh"
+        ],
+        "illustration_prompt": "cute educational diagram showing the brainstem sensing high levels of CO2 in the blood"
+    },
+    {
+        "id": 113,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Sự khác biệt giữa Ký ức ngắn hạn và Ký ức dài hạn?",
+        "answer": "**Ký ức ngắn hạn** giữ thông tin tạm thời (như số điện thoại vừa nhìn thấy), kéo dài vài giây. **Ký ức dài hạn** là những thông tin được lưu trữ vĩnh viễn (như tên của bạn). **Hồi hải mã (Hippocampus)** là khu vực quan trọng chuyển ký ức ngắn hạn thành dài hạn.",
+        "tags": [
+            "ký ức ngắn hạn",
+            "ký ức dài hạn",
+            "hippocampus",
+            "hồi hải mã",
+            "thông tin tạm thời",
+            "lưu trữ vĩnh viễn"
+        ],
+        "illustration_prompt": "cute educational illustration showing the hippocampus (in the shape of a seahorse) working as a librarian to file memories from short-term to long-term storage"
+    },
+    {
+        "id": 114,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Vì sao đầu bạn bị 'quay cuồng' sau khi bạn quay vòng vòng nhanh?",
+        "answer": "Khi bạn quay, **chất lỏng** trong các ống bán khuyên (cơ quan thăng bằng) của tai trong cũng quay. Khi bạn dừng lại đột ngột, chất lỏng tiếp tục di chuyển, khiến não nhận được tín hiệu mâu thuẫn về vị trí của cơ thể, gây ra cảm giác chóng mặt.",
+        "tags": [
+            "quay cuồng",
+            "chóng mặt",
+            "ống bán khuyên",
+            "tai trong",
+            "chất lỏng",
+            "tín hiệu mâu thuẫn"
+        ],
+        "illustration_prompt": "cute educational diagram showing fluid movement in the semicircular canals of the inner ear during and after spinning"
+    },
+    {
+        "id": 115,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Chất dẫn truyền thần kinh (Neurotransmitters) là gì?",
+        "answer": "Chúng là những **hóa chất đặc biệt** được nơ-ron giải phóng vào khe synapse. Chúng hoạt động như những 'người đưa thư' mang thông điệp từ nơ-ron này sang nơ-ron khác, ảnh hưởng đến **tâm trạng, giấc ngủ và sự tập trung** của bạn.",
+        "tags": [
+            "chất dẫn truyền thần kinh",
+            "neurotransmitters",
+            "hóa chất đặc biệt",
+            "người đưa thư",
+            "tâm trạng",
+            "tập trung"
+        ],
+        "illustration_prompt": "cute educational illustration showing small molecules (neurotransmitters) being released from one neuron and fitting into a receptor on the next neuron"
+    },
+    {
+        "id": 116,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Phần nào của não điều khiển Hít thở (Breathing) không tự chủ?",
+        "answer": "Đó là **Hành não (Medulla Oblongata)**, một phần của Thân não (Brainstem). Hành não tự động kiểm soát nhịp thở, nhịp tim và tiêu hóa. Đây là một trong những phần quan trọng nhất của bộ não, vì nó giữ cho bạn sống mà không cần phải suy nghĩ.",
+        "tags": [
+            "hành não",
+            "medulla oblongata",
+            "thân não",
+            "kiểm soát hít thở",
+            "tự động",
+            "quan trọng nhất"
+        ],
+        "illustration_prompt": "cute educational diagram highlighting the Medulla Oblongata at the base of the brainstem and spinal cord"
+    },
+    {
+        "id": 117,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Tại sao một cú đánh vào đầu lại nguy hiểm?",
+        "answer": "Mặc dù hộp sọ bảo vệ não, nhưng một cú đánh mạnh có thể gây ra **Chấn động (Concussion)**, khiến não **va đập** vào thành hộp sọ. Điều này có thể làm tổn thương nơ-ron, làm gián đoạn giao tiếp và gây mất trí nhớ tạm thời.",
+        "tags": [
+            "chấn thương đầu",
+            "chấn động",
+            "concussion",
+            "não va đập",
+            "hộp sọ",
+            "mất trí nhớ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cushioned brain inside the skull, with a blow causing the brain to momentarily hit the inner wall"
+    },
+    {
+        "id": 118,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Các dây thần kinh (Nerves) trong cánh tay và chân là gì?",
+        "answer": "Các dây thần kinh này là **một bó sợi trục nơ-ron** được bao bọc bởi mô liên kết. Chúng tạo thành các 'cáp' lớn thuộc **Hệ thần kinh ngoại biên (PNS)**, mang thông tin cảm giác (từ da) và thông tin vận động (từ não) đi khắp nơi.",
+        "tags": [
+            "dây thần kinh",
+            "nerves",
+            "bó sợi trục",
+            "hệ thần kinh ngoại biên",
+            "pns",
+            "thông tin vận động cảm giác"
+        ],
+        "illustration_prompt": "cute educational illustration showing a cross-section of a peripheral nerve bundle, like a bundle of electrical cables"
+    },
+    {
+        "id": 119,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Hệ thống thần kinh có chức năng gì trong việc kiểm soát hormone?",
+        "answer": "Hệ thần kinh, đặc biệt là **Vùng dưới đồi (Hypothalamus)**, hoạt động chặt chẽ với **Tuyến yên (Pituitary Gland)** (tuyến chính của hormone). Vùng dưới đồi gửi tín hiệu thần kinh và hóa học để điều khiển khi nào Tuyến yên nên giải phóng hormone vào máu.",
+        "tags": [
+            "kiểm soát hormone",
+            "vùng dưới đồi",
+            "tuyến yên",
+            "hypothalamus",
+            "pituitary gland",
+            "tín hiệu hóa học"
+        ],
+        "illustration_prompt": "cute educational diagram showing the close relationship between the hypothalamus and the pituitary gland in the brain"
+    },
+    {
+        "id": 120,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Vì sao bạn không thể cù (tickle) chính mình?",
+        "answer": "Bộ não của bạn, cụ thể là **Tiểu não**, biết trước bạn sẽ tự làm gì. Nó **dự đoán** cảm giác và **hủy bỏ** phản ứng từ vùng xử lý cảm giác. Phải là một bất ngờ từ người khác, bộ não mới phản ứng và bạn mới cảm thấy buồn cười!",
+        "tags": [
+            "tự cù",
+            "tickle",
+            "tiểu não",
+            "dự đoán",
+            "hủy bỏ phản ứng",
+            "cảm giác bất ngờ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a brain with a big red 'CANCEL' stamp over a signal from a hand attempting to tickle the body"
+    },
+    {
+        "id": 121,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Con người có bao nhiêu giác quan (Senses) chính?",
+        "answer": "Chúng ta thường nói đến **năm giác quan** chính: **Thị giác (Sight)**, **Thính giác (Hearing)**, **Khứu giác (Smell)**, **Vị giác (Taste)** và **Xúc giác (Touch)**. Tuy nhiên, chúng ta còn có giác quan về **Thăng bằng** và **Vị trí cơ thể**!",
+        "tags": [
+            "giác quan",
+            "five senses",
+            "thị giác",
+            "thính giác",
+            "khứu giác",
+            "vị giác",
+            "xúc giác",
+            "thăng bằng"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person using all five senses"
+    },
+    {
+        "id": 122,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Hệ Thần kinh",
+        "question": "Mắt (Eye) hoạt động như một chiếc máy ảnh như thế nào?",
+        "answer": "Mắt thu thập **ánh sáng** qua **đồng tử** và **thấu kính** (Lens). Ánh sáng sau đó được chiếu lên **võng mạc (Retina)** ở phía sau mắt. Võng mạc giống như phim ảnh, nơi các tế bào đặc biệt biến ánh sáng thành **tín hiệu điện** để não đọc.",
+        "tags": [
+            "mắt",
+            "eye",
+            "máy ảnh",
+            "ánh sáng",
+            "thấu kính",
+            "võng mạc",
+            "retina",
+            "tín hiệu điện"
+        ],
+        "illustration_prompt": "cute educational diagram of the human eye showing the cornea, lens, and retina"
+    },
+    {
+        "id": 123,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tế bào Hình que (Rods) và Hình nón (Cones) trên võng mạc khác nhau như thế nào?",
+        "answer": "Tế bào **Hình que** giúp bạn nhìn trong **ánh sáng mờ** (như ban đêm) và chỉ thấy **đen/trắng**. Tế bào **Hình nón** giúp bạn nhìn trong **ánh sáng mạnh** và là thứ cho phép bạn thấy **màu sắc** rực rỡ.",
+        "tags": [
+            "tế bào hình que",
+            "rods",
+            "tế bào hình nón",
+            "cones",
+            "ánh sáng mờ",
+            "màu sắc",
+            "võng mạc"
+        ],
+        "illustration_prompt": "cute educational illustration comparing rod and cone cells and their functions in vision"
+    },
+    {
+        "id": 124,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tai (Ear) thu nhận âm thanh bằng cách nào?",
+        "answer": "Tai ngoài thu thập **sóng âm** và dẫn chúng đến **Màng nhĩ (Eardrum)**, làm màng nhĩ rung lên. Sự rung động này được ba chiếc xương nhỏ nhất trong cơ thể truyền đến **Ốc tai (Cochlea)**. Ốc tai biến rung động thành **tín hiệu thần kinh** để não nghe.",
+        "tags": [
+            "tai",
+            "ear",
+            "sóng âm",
+            "màng nhĩ",
+            "eardrum",
+            "ốc tai",
+            "cochlea",
+            "tín hiệu thần kinh"
+        ],
+        "illustration_prompt": "cute educational diagram of the human ear structure, showing the outer, middle, and inner ear, including the eardrum and cochlea"
+    },
+    {
+        "id": 125,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Giác quan nào có liên kết mạnh mẽ nhất với ký ức và cảm xúc?",
+        "answer": "Đó là **Khứu giác (Smell)**. Bộ não có một cấu trúc đặc biệt (hệ limbic) khiến trung tâm xử lý mùi (olfactory bulb) nằm rất gần khu vực lưu trữ **ký ức (hippocampus)** và **cảm xúc (amygdala)**. Đó là lý do một mùi hương có thể khiến bạn nhớ lại một kỷ niệm cũ.",
+        "tags": [
+            "khứu giác",
+            "smell",
+            "ký ức",
+            "cảm xúc",
+            "hệ limbic",
+            "olfactory bulb",
+            "hippocampus"
+        ],
+        "illustration_prompt": "cute educational illustration showing the olfactory bulb's close proximity to the hippocampus and amygdala in the brain"
+    },
+    {
+        "id": 126,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Các nụ vị giác (Taste Buds) phân biệt bao nhiêu vị cơ bản?",
+        "answer": "Nụ vị giác chủ yếu phân biệt **năm vị cơ bản**: **Ngọt (Sweet)**, **Chua (Sour)**, **Mặn (Salty)**, **Đắng (Bitter)**, và **Umami** (vị ngon, thịt). Vị cay không phải là một vị, mà là một cảm giác **đau**!",
+        "tags": [
+            "nụ vị giác",
+            "taste buds",
+            "năm vị cơ bản",
+            "ngọt chua mặn đắng umami",
+            "vị cay",
+            "đau"
+        ],
+        "illustration_prompt": "cute educational diagram of the tongue showing a magnified view of taste buds"
+    },
+    {
+        "id": 127,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao thức ăn lại vô vị khi bạn bị cảm lạnh (nghẹt mũi)?",
+        "answer": "Khoảng **80%** hương vị của thức ăn thực chất đến từ **mùi** của nó (khứu giác). Khi bạn bị nghẹt mũi, không khí chứa mùi không thể đến được cơ quan khứu giác, khiến não của bạn chỉ nhận được một lượng thông tin rất ít từ nụ vị giác (chỉ vị cơ bản).",
+        "tags": [
+            "vô vị khi cảm lạnh",
+            "nghẹt mũi",
+            "khứu giác",
+            "mùi thức ăn",
+            "80 phần trăm",
+            "nụ vị giác"
+        ],
+        "illustration_prompt": "cute educational illustration showing smell molecules (aromas) being blocked from reaching the olfactory bulb when a nose is congested"
+    },
+    {
+        "id": 128,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Da (Skin) cảm nhận xúc giác (Touch) bằng cách nào?",
+        "answer": "Da chứa hàng triệu **Thụ thể cảm giác (Sensory Receptors)**. Những thụ thể này rất chuyên biệt, có những thụ thể chỉ cảm nhận **áp lực** (chạm), những thụ thể khác chỉ cảm nhận **nhiệt độ**, và những thụ thể khác cảm nhận **đau**.",
+        "tags": [
+            "da",
+            "skin",
+            "xúc giác",
+            "touch",
+            "thụ thể cảm giác",
+            "sensory receptors",
+            "áp lực",
+            "nhiệt độ",
+            "đau"
+        ],
+        "illustration_prompt": "cute educational cross-section diagram of the skin showing different sensory receptors (pressure, heat, pain) embedded in the layers"
+    },
+    {
+        "id": 129,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao một số bộ phận của cơ thể lại nhạy cảm hơn khi chạm vào?",
+        "answer": "Các bộ phận như **đầu ngón tay** và **môi** nhạy cảm hơn vì chúng có **mật độ thụ thể cảm giác** (Sensory Receptor Density) **cao hơn** và cũng có nhiều không gian hơn trong não dành để xử lý những thông tin cảm giác đó.",
+        "tags": [
+            "bộ phận nhạy cảm",
+            "ngón tay",
+            "môi",
+            "mật độ thụ thể cảm giác",
+            "xử lý của não"
+        ],
+        "illustration_prompt": "cute educational illustration showing a density map of sensory receptors on the hand versus the back"
+    },
+    {
+        "id": 130,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Giác quan thứ sáu (Sense of Balance) nằm ở đâu?",
+        "answer": "Giác quan thăng bằng (còn gọi là **Cân bằng/Equilibrium**) nằm trong **Tai trong (Inner Ear)**, trong ba ống chứa đầy chất lỏng gọi là **Ống bán khuyên (Semicircular Canals)**. Chúng cho não biết đầu của bạn đang nghiêng, quay hoặc di chuyển như thế nào.",
+        "tags": [
+            "giác quan thứ sáu",
+            "sense of balance",
+            "tai trong",
+            "inner ear",
+            "ống bán khuyên",
+            "semicircular canals",
+            "thăng bằng"
+        ],
+        "illustration_prompt": "cute educational diagram of the inner ear focusing on the semicircular canals and their role in balance"
+    },
+    {
+        "id": 131,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao đồng tử (Pupil) của mắt lại co lại và giãn ra?",
+        "answer": "Đồng tử là lỗ đen ở giữa mắt, và kích thước của nó được kiểm soát bởi cơ vòng. Nó co lại (nhỏ lại) trong **ánh sáng mạnh** để bảo vệ võng mạc và giãn ra (lớn lên) trong **ánh sáng mờ** để thu thập càng nhiều ánh sáng càng tốt.",
+        "tags": [
+            "đồng tử",
+            "pupil",
+            "co lại",
+            "giãn ra",
+            "ánh sáng mạnh",
+            "ánh sáng mờ",
+            "võng mạc"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the pupil size in bright light (small) and dim light (large)"
+    },
+    {
+        "id": 132,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Việc chớp mắt (Blinking) có vai trò gì?",
+        "answer": "Chớp mắt là một phản xạ tự động và nhanh. Nó là cách để mắt **tự làm sạch** bụi và các vật lạ nhỏ. Quan trọng hơn, nó **phân phối nước mắt** đều khắp bề mặt mắt, giữ cho mắt luôn ẩm và khỏe mạnh.",
+        "tags": [
+            "chớp mắt",
+            "blinking",
+            "phản xạ tự động",
+            "tự làm sạch",
+            "phân phối nước mắt",
+            "giữ mắt ẩm"
+        ],
+        "illustration_prompt": "cute educational illustration showing an eye blinking, with a tear drop washing away a speck of dust"
+    },
+    {
+        "id": 133,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Thấu kính (Lens) của mắt có chức năng gì?",
+        "answer": "Thấu kính nằm sau đồng tử và có vai trò **tập trung ánh sáng** chính xác lên võng mạc. Cơ bắp có thể làm thấu kính **thay đổi hình dạng** (như tự động lấy nét) để bạn có thể nhìn rõ cả vật ở gần và vật ở xa.",
+        "tags": [
+            "thấu kính",
+            "lens",
+            "tập trung ánh sáng",
+            "võng mạc",
+            "thay đổi hình dạng",
+            "tự động lấy nét"
+        ],
+        "illustration_prompt": "cute educational diagram showing the lens changing shape to focus on near vs. far objects"
+    },
+    {
+        "id": 134,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao có người bị Mù màu (Color Blindness)?",
+        "answer": "Mù màu thường là một tình trạng **di truyền** do có sự cố với các tế bào **Hình nón** (Cones) trong võng mạc. Thông thường, một loại hình nón bị thiếu hoặc bị lỗi, khiến người đó không thể phân biệt được một số màu nhất định (phổ biến nhất là đỏ và xanh lá cây).",
+        "tags": [
+            "mù màu",
+            "color blindness",
+            "di truyền",
+            "tế bào hình nón",
+            "võng mạc",
+            "đỏ và xanh lá cây"
+        ],
+        "illustration_prompt": "cute educational illustration showing a color vision test plate (Ishihara plate) as seen by a normal person vs a color blind person"
+    },
+    {
+        "id": 135,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao lại có Sáp tai (Earwax)?",
+        "answer": "Sáp tai (Cerumen) được sản xuất tự nhiên trong ống tai. Nó không phải là chất bẩn, mà là chất có vai trò **bảo vệ**! Nó **bẫy bụi bẩn, vi khuẩn** và các vật thể nhỏ khác, ngăn chúng đi sâu vào tai giữa và tai trong, sau đó tự làm sạch ra ngoài.",
+        "tags": [
+            "sáp tai",
+            "earwax",
+            "cerumen",
+            "bảo vệ",
+            "bẫy bụi bẩn",
+            "vi khuẩn",
+            "tự làm sạch"
+        ],
+        "illustration_prompt": "cute educational diagram showing the outer ear canal and earwax protecting the inner structures"
+    },
+    {
+        "id": 136,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Lưỡi (Tongue) ngoài vị giác còn có chức năng gì?",
+        "answer": "Lưỡi là một khối **cơ bắp** mạnh mẽ. Ngoài việc chứa nụ vị giác, nó còn giúp **di chuyển thức ăn** xung quanh miệng để nhai, **nhào trộn thức ăn** với nước bọt, và giúp chúng ta **nói** bằng cách định hình âm thanh.",
+        "tags": [
+            "lưỡi",
+            "tongue",
+            "cơ bắp mạnh mẽ",
+            "di chuyển thức ăn",
+            "nhào trộn",
+            "nói"
+        ],
+        "illustration_prompt": "cute educational illustration showing the tongue moving food around the mouth during the chewing process"
+    },
+    {
+        "id": 137,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Giác quan Vị trí cơ thể (Proprioception) là gì?",
+        "answer": "Proprioception là **giác quan 'tàng hình'** cho phép bạn biết **vị trí của các bộ phận cơ thể** của mình (như cánh tay hoặc chân) mà **không cần nhìn** chúng. Đây là lý do bạn có thể nhắm mắt và vẫn chạm được ngón tay vào mũi.",
+        "tags": [
+            "giác quan vị trí cơ thể",
+            "proprioception",
+            "giác quan tàng hình",
+            "vị trí bộ phận cơ thể",
+            "không cần nhìn",
+            "cơ bắp khớp"
+        ],
+        "illustration_prompt": "cute educational illustration showing a person touching their nose with their eyes closed, relying on proprioception"
+    },
+    {
+        "id": 138,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao nước mắt (Tears) lại chảy ra?",
+        "answer": "Nước mắt có ba vai trò chính: **1. Làm sạch** (loại bỏ bụi). **2. Bảo vệ** (chứa kháng thể chống vi khuẩn). **3. Cảm xúc** (một phản ứng phức tạp của não khi bạn buồn hoặc vui). Chúng được sản xuất bởi **tuyến lệ** (Lacrimal Gland).",
+        "tags": [
+            "nước mắt",
+            "tears",
+            "làm sạch",
+            "bảo vệ",
+            "cảm xúc",
+            "tuyến lệ",
+            "lacrimal gland"
+        ],
+        "illustration_prompt": "cute educational illustration showing the lacrimal gland producing tears and washing the surface of the eye"
+    },
+    {
+        "id": 139,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Cơ quan Khứu giác (Smell) nằm ở đâu?",
+        "answer": "Các thụ thể mùi (Olfactory Receptors) nằm trong một vùng mô nhỏ gọi là **Biểu mô khứu giác** (Olfactory Epithelium), nằm ở **phía trên** của khoang mũi (chứ không phải ở lỗ mũi!). Tại đây, chúng gửi tín hiệu đến **Hành khứu giác** (Olfactory Bulb) trong não.",
+        "tags": [
+            "cơ quan khứu giác",
+            "smell organ",
+            "biểu mô khứu giác",
+            "khoang mũi",
+            "hành khứu giác",
+            "olfactory bulb"
+        ],
+        "illustration_prompt": "cute educational cross-section of the head showing the olfactory epithelium high up in the nasal cavity"
+    },
+    {
+        "id": 140,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao bạn bị Ù tai (Tinnitus)?",
+        "answer": "Ù tai là cảm giác nghe thấy tiếng chuông, tiếng vo ve hoặc tiếng rít **không có nguồn âm thanh bên ngoài**. Nó thường xảy ra do **tổn thương** các tế bào lông nhỏ trong **ốc tai** (thường do tiếp xúc với tiếng ồn lớn), khiến chúng gửi tín hiệu sai đến não.",
+        "tags": [
+            "ù tai",
+            "tinnitus",
+            "tiếng chuông vo ve",
+            "tổn thương",
+            "ốc tai",
+            "tiếng ồn lớn"
+        ],
+        "illustration_prompt": "cute educational illustration showing damaged hair cells in the cochlea sending random, incorrect signals to the brain"
+    },
+    {
+        "id": 141,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Hệ thống thần kinh có thể thích nghi với mùi như thế nào (Adaptation)?",
+        "answer": "Khi bạn ở trong một môi trường có mùi mạnh trong một thời gian (ví dụ: một cửa hàng nước hoa), bạn sẽ **ngừng ngửi thấy** mùi đó. Đây là **sự thích nghi khứu giác**, nơi các tế bào thần kinh trở nên **ít nhạy cảm** hơn với mùi liên tục để chúng sẵn sàng nhận biết bất kỳ mùi mới nào.",
+        "tags": [
+            "thích nghi khứu giác",
+            "adaptation",
+            "ngừng ngửi thấy mùi",
+            "ít nhạy cảm",
+            "môi trường mùi mạnh"
+        ],
+        "illustration_prompt": "cute educational illustration showing the olfactory receptors reducing their signal strength after continuous exposure to the same odor molecule"
+    },
+    {
+        "id": 142,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao chúng ta có thể nghe được âm thanh trầm và bổng khác nhau?",
+        "answer": "Điều này xảy ra trong **Ốc tai**. **Âm thanh bổng** (High Pitch) làm rung các tế bào lông ở **đầu** ốc tai, trong khi **âm thanh trầm** (Low Pitch) làm rung các tế bào lông ở **sâu bên trong** ốc tai. Não giải mã vị trí rung động để xác định cao độ.",
+        "tags": [
+            "âm thanh trầm bổng",
+            "high low pitch",
+            "ốc tai",
+            "vị trí rung động",
+            "tế bào lông"
+        ],
+        "illustration_prompt": "cute educational diagram showing different frequencies (pitches) of sound waves vibrating different parts of the cochlea"
+    },
+    {
+        "id": 143,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Giác quan nào giúp chúng ta tránh xa vật nóng?",
+        "answer": "Đó là **Xúc giác (Touch)**, cụ thể là các **Thụ thể đau (Pain Receptors)** và **Thụ thể nhiệt (Thermoreceptors)** trong da. Khi bạn chạm vào vật nóng, chúng gửi tín hiệu khẩn cấp đến tủy sống, kích hoạt **Phản xạ** rút tay ra ngay lập tức.",
+        "tags": [
+            "tránh xa vật nóng",
+            "xúc giác",
+            "thụ thể đau",
+            "thụ thể nhiệt",
+            "phản xạ",
+            "tủy sống"
+        ],
+        "illustration_prompt": "cute educational diagram of the skin's nerve endings detecting heat and sending a warning signal"
+    },
+    {
+        "id": 144,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Điều gì quyết định màu Mắt (Eye Color) của bạn?",
+        "answer": "Màu mắt được quyết định bởi số lượng **Melanin** (sắc tố) có trong **Mống mắt (Iris)**. Càng có nhiều melanin, màu mắt càng tối (nâu). Ít melanin hơn dẫn đến màu mắt sáng hơn (xanh lá cây, xanh dương). Đây là một đặc điểm **di truyền**.",
+        "tags": [
+            "màu mắt",
+            "eye color",
+            "melanin",
+            "mống mắt",
+            "iris",
+            "di truyền"
+        ],
+        "illustration_prompt": "cute educational diagram of the iris of the eye, showing how varying amounts of melanin result in different eye colors"
+    },
+    {
+        "id": 145,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Vì sao hai mắt lại nhìn hơi khác nhau?",
+        "answer": "Hai mắt của bạn được đặt cách nhau một chút. Điều này tạo ra **Thị sai (Binocular Disparity)**, nghĩa là mỗi mắt nhìn thấy một góc hơi khác. Não kết hợp hai hình ảnh này lại để tạo ra **chiều sâu** (Depth Perception), giúp bạn ước tính khoảng cách.",
+        "tags": [
+            "hai mắt khác nhau",
+            "thị sai",
+            "binocular disparity",
+            "chiều sâu",
+            "depth perception",
+            "khoảng cách"
+        ],
+        "illustration_prompt": "cute educational illustration showing two slightly different views from the left and right eye converging into a single 3D image in the brain"
+    },
+    {
+        "id": 146,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tai giữa (Middle Ear) có chức năng gì?",
+        "answer": "Tai giữa là một khoang chứa đầy không khí, nơi ba xương nhỏ nhất của cơ thể (**xương búa, xương đe, xương bàn đạp**) cư trú. Chúng có vai trò **khuếch đại** (làm lớn hơn) rung động từ màng nhĩ và truyền nó đến ốc tai.",
+        "tags": [
+            "tai giữa",
+            "middle ear",
+            "xương búa xương đe xương bàn đạp",
+            "khuếch đại rung động",
+            "ốc tai"
+        ],
+        "illustration_prompt": "cute educational diagram of the middle ear showing the three tiny bones (ossicles) amplifying sound vibrations"
+    },
+    {
+        "id": 147,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao thức ăn có vị Ngọt?",
+        "answer": "Các thụ thể vị giác ngọt trên lưỡi được kích hoạt khi chúng tiếp xúc với **đường (Glucose)**. Vị ngọt giúp cơ thể nhận ra **nguồn năng lượng** dễ tiêu hóa (carbohydrate), điều quan trọng đối với sự sống sót.",
+        "tags": [
+            "vị ngọt",
+            "sweet taste",
+            "đường glucose",
+            "nguồn năng lượng",
+            "carbohydrate",
+            "thụ thể vị giác"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sugar molecule docking into a sweet taste receptor on the tongue"
+    },
+    {
+        "id": 148,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao đôi khi bạn thấy 'Sao' (Seeing Stars) sau khi bị đánh vào đầu?",
+        "answer": "Khi bạn bị đánh mạnh vào đầu, bộ não bị rung lắc và **Thùy chẩm** (trung tâm thị giác) có thể bị kích thích. Sự kích thích bất thường này khiến não 'bị lừa' và tạo ra những ánh sáng lấp lánh (như 'sao'), ngay cả khi không có ánh sáng thực.",
+        "tags": [
+            "thấy sao",
+            "seeing stars",
+            "thùy chẩm",
+            "trung tâm thị giác",
+            "kích thích bất thường",
+            "rung lắc não"
+        ],
+        "illustration_prompt": "cute educational illustration showing the occipital lobe flashing with random signals after a bump to the head"
+    },
+    {
+        "id": 149,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Khi bạn bị say xe (Motion Sickness), giác quan nào bị rối loạn?",
+        "answer": "Say xe xảy ra do **mâu thuẫn** giữa các giác quan. Mắt bạn (thị giác) thấy mọi thứ tĩnh lặng (bên trong xe), nhưng tai trong của bạn (giác quan thăng bằng) lại cảm nhận được **chuyển động** (rung lắc). Sự mâu thuẫn này khiến não bối rối, gây buồn nôn và chóng mặt.",
+        "tags": [
+            "say xe",
+            "motion sickness",
+            "mâu thuẫn giác quan",
+            "tai trong",
+            "giác quan thăng bằng",
+            "buồn nôn",
+            "chóng mặt"
+        ],
+        "illustration_prompt": "cute educational diagram showing the inner ear sensing movement while the eyes see a static environment inside a car, leading to confusion in the brain"
+    },
+    {
+        "id": 150,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Giác quan",
+        "question": "Tại sao việc gãi (Scratching) lại khiến cơn ngứa (Itch) giảm đi?",
+        "answer": "Ngứa là một tín hiệu cảm giác khó chịu. Gãi không thực sự loại bỏ nguyên nhân gây ngứa, nhưng nó tạo ra một cảm giác **đau nhẹ** (hoặc kích thích xúc giác mạnh) thay thế. Cảm giác đau này **lấn át** tín hiệu ngứa, chiếm lấy sự chú ý của hệ thần kinh và giúp bạn cảm thấy đỡ hơn trong chốc lát.",
+        "tags": [
+            "ngứa",
+            "itch",
+            "gãi",
+            "scratching",
+            "đau nhẹ",
+            "lấn át tín hiệu",
+            "hệ thần kinh"
+        ],
+        "illustration_prompt": "cute educational illustration showing a strong scratching signal overriding a weak itching signal on a nerve pathway"
+    },
+    {
+        "id": 151,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Điều gì khiến cơ thể chúng ta lớn lên?",
+        "answer": "Sự lớn lên của cơ thể được điều khiển bởi một chất hóa học đặc biệt gọi là **Hormone tăng trưởng (Growth Hormone - GH)**, được tiết ra từ **Tuyến yên (Pituitary Gland)** trong não. GH hoạt động như một loại 'phân bón' tự nhiên, kích thích xương và mô tạo ra các tế bào mới.",
+        "tags": [
+            "lớn lên",
+            "growth",
+            "hormone tăng trưởng",
+            "growth hormone",
+            "tuyến yên",
+            "tế bào mới"
+        ],
+        "illustration_prompt": "cute educational illustration showing the pituitary gland releasing growth hormone that travels to the bones"
+    },
+    {
+        "id": 152,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Xương của bạn dài ra như thế nào khi bạn lớn lên?",
+        "answer": "Xương dài ra ở những khu vực đặc biệt gọi là **Tấm tăng trưởng (Growth Plates)** (hay sụn tiếp hợp), nằm ở hai đầu xương dài. Tấm này tạo ra tế bào sụn mới, sau đó được biến đổi thành **xương cứng**, dần dần làm xương dài ra. ",
+        "tags": [
+            "xương dài ra",
+            "tấm tăng trưởng",
+            "growth plates",
+            "sụn tiếp hợp",
+            "xương cứng",
+            "tế bào sụn"
+        ],
+        "illustration_prompt": "cute educational diagram of a long bone showing the growth plate (epiphyseal plate) and how it makes the bone longer"
+    },
+    {
+        "id": 153,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao giấc ngủ (Sleep) lại quan trọng cho sự phát triển?",
+        "answer": "Hầu hết **Hormone tăng trưởng** được giải phóng vào cơ thể trong khi bạn **ngủ sâu**. Ngủ đủ giấc không chỉ giúp cơ thể nghỉ ngơi mà còn cung cấp thời gian và hóa chất cần thiết để xương, cơ bắp và các cơ quan phát triển và tự sửa chữa.",
+        "tags": [
+            "giấc ngủ",
+            "sleep",
+            "quan trọng cho phát triển",
+            "hormone tăng trưởng",
+            "ngủ sâu",
+            "tự sửa chữa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a sleeping child with growth hormone molecules being released from the brain"
+    },
+    {
+        "id": 154,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Dinh dưỡng nào là quan trọng nhất cho xương và răng?",
+        "answer": "Chất dinh dưỡng quan trọng nhất là **Canxi (Calcium)**. Canxi hoạt động như vật liệu xây dựng chính, làm cho xương và răng của bạn **cứng và chắc khỏe**. **Vitamin D** cũng rất cần thiết, vì nó giúp cơ thể hấp thụ Canxi từ thức ăn.",
+        "tags": [
+            "dinh dưỡng",
+            "xương răng",
+            "canxi",
+            "calcium",
+            "vitamin d",
+            "cứng chắc khỏe",
+            "vật liệu xây dựng"
+        ],
+        "illustration_prompt": "cute educational illustration showing milk, cheese, and sun (Vitamin D) strengthening bones"
+    },
+    {
+        "id": 155,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Điều gì xảy ra với Tấm tăng trưởng (Growth Plates) khi chúng ta ngừng cao?",
+        "answer": "Khi bạn đạt đến chiều cao trưởng thành (thường là khoảng 16 tuổi đối với nữ và sau 18 tuổi đối với nam), các tấm tăng trưởng sẽ **hóa xương hoàn toàn** (đóng lại). Lúc này, sụn đã được thay thế hoàn toàn bằng xương cứng, và **xương không thể dài thêm** được nữa.",
+        "tags": [
+            "ngừng cao",
+            "tấm tăng trưởng đóng lại",
+            "hóa xương",
+            "chiều cao trưởng thành",
+            "xương không dài thêm"
+        ],
+        "illustration_prompt": "cute educational diagram showing a closed, fully ossified growth plate at the end of a bone"
+    },
+    {
+        "id": 156,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Vì sao trẻ em có 2 bộ Răng?",
+        "answer": "Bộ răng đầu tiên (răng sữa/răng em bé) chỉ có **$20$ chiếc** và nhỏ hơn để phù hợp với hàm nhỏ của trẻ. Khi lớn lên, hàm rộng ra và cần một bộ răng lớn hơn và khỏe hơn, đó là **$32$ chiếc răng vĩnh viễn** (bao gồm cả răng khôn).",
+        "tags": [
+            "hai bộ răng",
+            "răng sữa",
+            "răng vĩnh viễn",
+            "20 chiếc",
+            "32 chiếc",
+            "hàm rộng ra"
+        ],
+        "illustration_prompt": "cute educational diagram comparing the smaller set of baby teeth with the larger set of adult teeth in the jaw"
+    },
+    {
+        "id": 157,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Răng sữa (Baby Teeth) rụng đi bằng cách nào?",
+        "answer": "Khi đến tuổi rụng răng, **răng vĩnh viễn** đang phát triển ngay bên dưới nướu sẽ **đẩy và hòa tan** dần dần chân răng (rễ) của răng sữa. Điều này khiến răng sữa bị lung lay và rụng ra, tạo chỗ cho răng vĩnh viễn mọc lên.",
+        "tags": [
+            "răng sữa rụng",
+            "răng vĩnh viễn đẩy lên",
+            "hòa tan chân răng",
+            "răng lung lay",
+            "răng vĩnh viễn mọc"
+        ],
+        "illustration_prompt": "cute educational diagram showing an adult tooth growing beneath a baby tooth and pushing its root out"
+    },
+    {
+        "id": 158,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tuổi dậy thì (Puberty) là gì?",
+        "answer": "Tuổi dậy thì là giai đoạn cơ thể trải qua những thay đổi lớn do hormone, chuyển từ một đứa trẻ thành một người lớn có khả năng sinh sản. Đây là thời điểm xảy ra **Tăng trưởng vượt bậc (Growth Spurt)** và sự phát triển của các đặc điểm giới tính thứ cấp.",
+        "tags": [
+            "tuổi dậy thì",
+            "puberty",
+            "giai đoạn thay đổi",
+            "hormone",
+            "tăng trưởng vượt bậc",
+            "đặc điểm giới tính"
+        ],
+        "illustration_prompt": "cute educational illustration symbolizing the growth spurt and physical changes happening during puberty"
+    },
+    {
+        "id": 159,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tăng trưởng vượt bậc (Growth Spurt) là gì?",
+        "answer": "Tăng trưởng vượt bậc là giai đoạn **tốc độ tăng chiều cao và cân nặng diễn ra rất nhanh**. Nó thường bắt đầu ở độ tuổi 9-14 và là dấu hiệu rõ ràng nhất của tuổi dậy thì. Trong thời gian này, bạn có thể cao thêm nhiều centimet chỉ trong vài tháng!",
+        "tags": [
+            "tăng trưởng vượt bậc",
+            "growth spurt",
+            "tốc độ tăng nhanh",
+            "chiều cao cân nặng",
+            "tuổi dậy thì"
+        ],
+        "illustration_prompt": "cute educational graph showing a sharp upward curve representing the growth spurt during teenage years"
+    },
+    {
+        "id": 160,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Hormone sinh dục (Sex Hormones) có vai trò gì trong tuổi dậy thì?",
+        "answer": "Hai loại hormone chính là **Testosterone** (ở nam) và **Estrogen** (ở nữ). Chúng chịu trách nhiệm cho hầu hết các thay đổi vật lý: phát triển cơ bắp, thay đổi giọng nói, lông cơ thể, và sự phát triển của các cơ quan sinh sản.",
+        "tags": [
+            "hormone sinh dục",
+            "sex hormones",
+            "testosterone",
+            "estrogen",
+            "thay đổi vật lý",
+            "đặc điểm giới tính"
+        ],
+        "illustration_prompt": "cute educational illustration symbolizing the effects of testosterone and estrogen on male and female bodies during puberty"
+    },
+    {
+        "id": 161,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Khối lượng cơ bắp (Muscle Mass) phát triển như thế nào?",
+        "answer": "Cơ bắp phát triển bằng cách tạo ra **sợi cơ lớn hơn** và **kết nối thần kinh mạnh mẽ hơn**. Điều này đặc biệt được thúc đẩy bởi **Protein** trong chế độ ăn uống và việc **tập luyện** (hoạt động thể chất), đặc biệt là sau khi bắt đầu tuổi dậy thì.",
+        "tags": [
+            "khối lượng cơ bắp",
+            "muscle mass",
+            "sợi cơ lớn hơn",
+            "protein",
+            "tập luyện",
+            "hoạt động thể chất"
+        ],
+        "illustration_prompt": "cute educational illustration showing a muscle cell being rebuilt and enlarged by protein molecules and exercise"
+    },
+    {
+        "id": 162,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao da và tóc thường trở nên dầu hơn trong tuổi dậy thì?",
+        "answer": "Sự gia tăng của **hormone sinh dục** (đặc biệt là testosterone) trong tuổi dậy thì kích thích các **tuyến bã nhờn** (Sebaceous Glands) trong da sản xuất nhiều **dầu (sebum)** hơn. Điều này có thể dẫn đến mụn trứng cá và làm tóc dầu hơn.",
+        "tags": [
+            "da dầu",
+            "tóc dầu",
+            "hormone sinh dục",
+            "tuyến bã nhờn",
+            "sebum",
+            "mụn trứng cá"
+        ],
+        "illustration_prompt": "cute educational microscopic illustration showing an overactive sebaceous gland releasing too much oil onto the skin surface"
+    },
+    {
+        "id": 163,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Thời kỳ sơ sinh (Infancy) là giai đoạn nào?",
+        "answer": "Thời kỳ sơ sinh là giai đoạn từ khi **sinh ra đến khoảng 2 tuổi**. Đây là thời gian tăng trưởng nhanh nhất trong đời (bé có thể tăng gấp ba lần cân nặng khi sinh) và là giai đoạn phát triển **kỹ năng vận động** cơ bản (bò, đi) và **ngôn ngữ**.",
+        "tags": [
+            "thời kỳ sơ sinh",
+            "infancy",
+            "sinh ra đến 2 tuổi",
+            "tăng trưởng nhanh nhất",
+            "kỹ năng vận động",
+            "ngôn ngữ"
+        ],
+        "illustration_prompt": "cute educational illustration showing a baby learning to crawl and then walk"
+    },
+    {
+        "id": 164,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Phát triển não (Brain Development) diễn ra mạnh mẽ nhất khi nào?",
+        "answer": "Bộ não phát triển nhanh chóng từ khi sinh ra cho đến **khoảng 5-6 tuổi**, đạt gần 90% kích thước trưởng thành. Trong giai đoạn này, não tạo ra hàng nghìn tỷ **kết nối thần kinh** (synapse) giúp trẻ học tập và khám phá thế giới.",
+        "tags": [
+            "phát triển não",
+            "brain development",
+            "sinh ra đến 6 tuổi",
+            "kết nối thần kinh",
+            "synapse",
+            "học tập khám phá"
+        ],
+        "illustration_prompt": "cute educational diagram showing the rapid increase in brain connectivity (synapses) in the first five years of life"
+    },
+    {
+        "id": 165,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao con trai và con gái trải qua tuổi dậy thì vào thời điểm khác nhau?",
+        "answer": "Trung bình, **con gái bắt đầu dậy thì sớm hơn** (khoảng 8-13 tuổi) và kết thúc sớm hơn. **Con trai** thường bắt đầu muộn hơn (khoảng 9-14 tuổi) và tiếp tục phát triển thêm vài năm nữa. Sự khác biệt này là do **thời điểm giải phóng hormone sinh dục**.",
+        "tags": [
+            "tuổi dậy thì khác nhau",
+            "thời điểm giải phóng hormone",
+            "con gái sớm hơn",
+            "con trai muộn hơn"
+        ],
+        "illustration_prompt": "cute educational timeline comparing the average start and end ages of puberty for boys and girls"
+    },
+    {
+        "id": 166,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Vai trò của Protein đối với sự phát triển cơ thể là gì?",
+        "answer": "Protein là **'vật liệu xây dựng'** chính của cơ thể, tạo nên cơ bắp, da, tóc và enzyme. Nó rất cần thiết để **xây dựng lại và sửa chữa** các mô bị tổn thương, đặc biệt quan trọng trong thời kỳ tăng trưởng nhanh và sau khi tập thể dục.",
+        "tags": [
+            "protein",
+            "vật liệu xây dựng",
+            "xây dựng cơ bắp",
+            "sửa chữa mô",
+            "tăng trưởng nhanh",
+            "enzyme"
+        ],
+        "illustration_prompt": "cute educational illustration showing protein molecules being used as building blocks for muscle fibers"
+    },
+    {
+        "id": 167,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Điều gì xảy ra với các tế bào cũ khi cơ thể lớn lên?",
+        "answer": "Cơ thể chúng ta không chỉ tạo ra tế bào mới, mà còn **thay thế** hàng tỷ tế bào cũ mỗi ngày (chẳng hạn như tế bào da, máu và một số tế bào ruột). Quá trình này được gọi là **Chương trình chết tế bào (Apoptosis)**, giúp đảm bảo cơ thể luôn hoạt động với các tế bào khỏe mạnh.",
+        "tags": [
+            "tế bào cũ",
+            "thay thế tế bào",
+            "apoptosis",
+            "chương trình chết tế bào",
+            "tế bào khỏe mạnh",
+            "tái tạo"
+        ],
+        "illustration_prompt": "cute educational microscopic illustration showing an old cell being broken down and replaced by a new, healthy cell"
+    },
+    {
+        "id": 168,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Vì sao các vận động viên lại cần Tập luyện sức mạnh (Strength Training)?",
+        "answer": "Tập luyện sức mạnh giúp cơ bắp tạo ra các sợi cơ dày hơn, không chỉ làm tăng **sức mạnh** mà còn giúp **bảo vệ xương và khớp**. Nó cũng giúp cải thiện khả năng phối hợp thần kinh-cơ và tư thế.",
+        "tags": [
+            "tập luyện sức mạnh",
+            "strength training",
+            "sợi cơ dày hơn",
+            "bảo vệ xương khớp",
+            "cải thiện tư thế"
+        ],
+        "illustration_prompt": "cute educational illustration showing a young person safely lifting a small weight, focusing on muscle engagement"
+    },
+    {
+        "id": 169,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Thị giác (Sight) của em bé phát triển như thế nào?",
+        "answer": "Khi mới sinh, thị giác của em bé rất mờ. Thị giác cải thiện nhanh chóng, và đến **6-8 tháng tuổi**, em bé có thể nhìn thấy màu sắc, độ sâu và khoảng cách gần như người lớn. Việc tiếp xúc với môi trường xung quanh giúp thúc đẩy sự phát triển này.",
+        "tags": [
+            "thị giác em bé",
+            "sight development",
+            "6-8 tháng tuổi",
+            "màu sắc",
+            "độ sâu",
+            "tiếp xúc môi trường"
+        ],
+        "illustration_prompt": "cute educational illustration showing a baby's improving vision over time, from blurry to clear focus"
+    },
+    {
+        "id": 170,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao một số người cần đeo Niềng răng (Braces)?",
+        "answer": "Niềng răng được sử dụng để **di chuyển răng** từ từ vào vị trí thẳng hàng và sửa chữa các vấn đề về **khớp cắn** (cách hai hàm răng khép lại). Điều này là quan trọng để nhai dễ hơn, nói rõ hơn và giữ răng khỏe mạnh lâu dài.",
+        "tags": [
+            "niềng răng",
+            "braces",
+            "di chuyển răng",
+            "vị trí thẳng hàng",
+            "khớp cắn",
+            "nhai nói rõ hơn"
+        ],
+        "illustration_prompt": "cute educational diagram showing braces gently pulling misaligned teeth into a straight line"
+    },
+    {
+        "id": 171,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Sự phát triển của Lông cơ thể (Body Hair) có ý nghĩa gì?",
+        "answer": "Lông cơ thể (ở nách, vùng kín) là một trong những đặc điểm giới tính thứ cấp do hormone sinh dục gây ra. Trong quá khứ, nó giúp giữ ấm. Ngày nay, nó có vai trò trong việc giữ **mùi cơ thể** (pheromones) và **giảm ma sát** giữa da.",
+        "tags": [
+            "lông cơ thể",
+            "body hair",
+            "đặc điểm giới tính thứ cấp",
+            "hormone",
+            "giảm ma sát",
+            "mùi cơ thể"
+        ],
+        "illustration_prompt": "cute educational illustration showing the areas of the body where hair grows during puberty (armpits, etc.)"
+    },
+    {
+        "id": 172,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Điều gì quyết định Chiều cao (Height) cuối cùng của bạn?",
+        "answer": "Chiều cao là sự kết hợp của nhiều yếu tố, nhưng yếu tố chính là **Di truyền (Genetics)**, chiếm khoảng 80%. 20% còn lại bị ảnh hưởng bởi **Dinh dưỡng** (đặc biệt là Canxi và Protein) và **Sức khỏe tổng thể** (ngủ đủ, ít bệnh tật).",
+        "tags": [
+            "chiều cao",
+            "height",
+            "di truyền",
+            "genetics",
+            "dinh dưỡng",
+            "sức khỏe tổng thể",
+            "canxi protein"
+        ],
+        "illustration_prompt": "cute educational illustration showing a DNA strand next to food and a sleeping figure, symbolizing the factors affecting height"
+    },
+    {
+        "id": 173,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao giọng nói (Voice) của con trai thay đổi trong tuổi dậy thì?",
+        "answer": "Giọng nói thay đổi (vỡ giọng) là do sự gia tăng của hormone **Testosterone** làm cho **hộp giọng (Thanh quản)** và các **dây thanh âm** trở nên dày hơn và dài hơn. Điều này làm giảm cao độ của giọng nói, khiến nó trở nên trầm hơn.",
+        "tags": [
+            "giọng nói thay đổi",
+            "voice change",
+            "vỡ giọng",
+            "testosterone",
+            "thanh quản",
+            "dây thanh âm",
+            "trầm hơn"
+        ],
+        "illustration_prompt": "cute educational cross-section illustration showing the lengthening and thickening of the vocal cords in the larynx during male puberty"
+    },
+    {
+        "id": 174,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tầm quan trọng của Chất sắt (Iron) đối với sự phát triển là gì?",
+        "answer": "Sắt là thành phần chính của **Hemoglobin** trong máu, giúp **vận chuyển Oxygen** đi khắp cơ thể. Thiếu sắt (thiếu máu) khiến trẻ em và thanh thiếu niên dễ bị mệt mỏi, ảnh hưởng trực tiếp đến sự phát triển và khả năng tập trung học tập.",
+        "tags": [
+            "chất sắt",
+            "iron",
+            "hemoglobin",
+            "vận chuyển oxygen",
+            "thiếu máu",
+            "mệt mỏi",
+            "tập trung"
+        ],
+        "illustration_prompt": "cute educational illustration showing iron molecules reinforcing a red blood cell to carry oxygen"
+    },
+    {
+        "id": 175,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Lão hóa (Aging) là gì?",
+        "answer": "Lão hóa là quá trình tự nhiên mà cơ thể dần dần **chậm lại** và **tự sửa chữa kém hiệu quả** hơn theo thời gian. Các tế bào của chúng ta mất khả năng tái tạo nhanh chóng, dẫn đến những thay đổi như da nhăn, tóc bạc và xương yếu hơn.",
+        "tags": [
+            "lão hóa",
+            "aging",
+            "chậm lại",
+            "sửa chữa kém hiệu quả",
+            "da nhăn",
+            "tái tạo tế bào"
+        ],
+        "illustration_prompt": "cute educational illustration symbolizing a clock slowing down inside the body, representing the aging process"
+    },
+    {
+        "id": 176,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao chúng ta có thể Ngứa ran (Tingling) khi tay hoặc chân bị 'ngủ'?",
+        "answer": "Cảm giác ngứa ran (dị cảm) xảy ra khi bạn đặt áp lực lên một dây thần kinh và **cắt đứt tạm thời** nguồn cung cấp máu của nó. Khi bạn di chuyển và máu quay trở lại, dây thần kinh bị 'đánh thức' và gửi một loạt tín hiệu lẫn lộn đến não.",
+        "tags": [
+            "ngứa ran",
+            "tingling",
+            "dị cảm",
+            "cắt đứt dây thần kinh",
+            "cung cấp máu tạm thời",
+            "đánh thức dây thần kinh"
+        ],
+        "illustration_prompt": "cute educational diagram showing a compressed nerve and the resulting disorganized signals (tingling) being sent to the brain"
+    },
+    {
+        "id": 177,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Vai trò của Vitamin C đối với sự phát triển là gì?",
+        "answer": "Vitamin C rất quan trọng trong việc tạo ra **Collagen** – một loại protein giống như keo dán, cần thiết cho **da, gân, dây chằng** và **mạch máu** khỏe mạnh. Nó cũng là một chất chống oxy hóa giúp bảo vệ tế bào.",
+        "tags": [
+            "vitamin c",
+            "collagen",
+            "keo dán",
+            "da gân dây chằng",
+            "mạch máu",
+            "chất chống oxy hóa"
+        ],
+        "illustration_prompt": "cute educational illustration showing a Vitamin C molecule helping to construct a strong collagen fiber"
+    },
+    {
+        "id": 178,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tại sao cân nặng của trẻ em lại tăng vọt (Weight Gain) trong tuổi dậy thì?",
+        "answer": "Tăng cân là một phần bình thường của quá trình dậy thì vì cơ thể cần **nhiều năng lượng** để hỗ trợ tăng trưởng nhanh. Con trai tăng cơ bắp, trong khi con gái tăng mỡ cơ thể để chuẩn bị cho chức năng sinh sản. Đây là sự phân bổ trọng lượng cơ thể mới.",
+        "tags": [
+            "tăng cân",
+            "weight gain",
+            "tuổi dậy thì",
+            "tăng cơ bắp",
+            "tăng mỡ cơ thể",
+            "hỗ trợ tăng trưởng"
+        ],
+        "illustration_prompt": "cute educational diagram showing a balanced weight distribution change in a growing teenager"
+    },
+    {
+        "id": 179,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Xương có phát triển sau khi Tấm tăng trưởng đóng lại không?",
+        "answer": "Mặc dù xương không còn dài ra được nữa, chúng vẫn tiếp tục **đổi mới** và trở nên **dày hơn** (mật độ xương) cho đến khoảng tuổi 25-30. Sau đó, xương trải qua quá trình **tái tạo** liên tục, phá vỡ xương cũ và tạo ra xương mới, nhưng tốc độ tái tạo chậm lại theo tuổi tác.",
+        "tags": [
+            "xương tái tạo",
+            "tấm tăng trưởng đóng",
+            "dày hơn",
+            "mật độ xương",
+            "quá trình tái tạo"
+        ],
+        "illustration_prompt": "cute educational microscopic illustration showing bone cells (osteoclasts and osteoblasts) constantly remodeling the bone structure"
+    },
+    {
+        "id": 180,
+        "category": "Cơ thể người (cơ bản)",
+        "sub_category": "Phát triển cơ thể",
+        "question": "Tính cách (Personality) có phát triển và thay đổi khi chúng ta lớn không?",
+        "answer": "Tính cách **phát triển** mạnh mẽ trong suốt thời thơ ấu và thanh thiếu niên. Mặc dù một số đặc điểm cơ bản là di truyền, nhưng những trải nghiệm, học hỏi và môi trường xung quanh sẽ định hình cách bạn suy nghĩ, cảm nhận và tương tác với thế giới khi bạn lớn lên. **Não bộ vẫn đang phát triển** cho đến khoảng 25 tuổi!",
+        "tags": [
+            "tính cách",
+            "personality",
+            "thay đổi",
+            "di truyền",
+            "trải nghiệm",
+            "môi trường",
+            "não bộ phát triển"
+        ],
+        "illustration_prompt": "cute educational illustration showing a growing brain interacting with different life experiences and emotions"
+    }
+]
