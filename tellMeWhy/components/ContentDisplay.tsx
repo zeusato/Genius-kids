@@ -57,7 +57,7 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
             </div>
 
             {/* Content Area - Scrollable */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+            <div className="flex-1 overflow-y-auto md:overflow-hidden p-6 space-y-6">
                 {/* Question Block */}
                 <div className="bg-gradient-to-br from-brand-100 to-purple-100 rounded-2xl p-6 border-l-4 border-brand-500 shadow-sm">
                     <div className="flex items-start gap-3">
