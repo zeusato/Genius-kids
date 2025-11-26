@@ -5,7 +5,7 @@ import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText } f
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy') => void;
+    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle') => void;
     onLogout: () => void;
 }
 
@@ -167,6 +167,40 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                             </span>
                             <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
                                 Tự nhiên
+                            </span>
+                        </div>
+                    </div>
+                </button>
+
+                {/* Sphinx Riddle Mode */}
+                <button
+                    onClick={() => onSelectMode('riddle')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-indigo-400 hover:scale-105 animate-in fade-in slide-in-from-left duration-700"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-violet-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="relative z-10">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <span className="text-5xl">🦁</span>
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">
+                            Nhân Sư
+                        </h2>
+
+                        <p className="text-slate-600 text-lg">
+                            Giải đố cùng Nhân sư nhận phần thưởng
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">
+                                Việt Nam
+                            </span>
+                            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">
+                                Nước ngoài
+                            </span>
+                            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">
+                                3 độ khó
                             </span>
                         </div>
                     </div>

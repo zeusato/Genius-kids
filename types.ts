@@ -85,6 +85,7 @@ export interface StudentProfile {
   history: TestResult[];
   gameHistory: GameResult[];
   shopDailyPhotos: ShopDailyPhoto[];
+  sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data
 }
 
 export enum QuestionType {
@@ -130,4 +131,49 @@ export interface TestConfig {
   topics: string[];
   durationMinutes: number;
   questionCount: number;
+}
+
+// ===== Sphinx Riddle System =====
+
+export enum RiddleDifficulty {
+  EASY = 'easy',
+  MEDIUM = 'medium',
+  HARD = 'hard',
+}
+
+export enum RiddleCategory {
+  VN_RIDDLE = 'vn_riddle',
+  EN_RIDDLE = 'en_riddle',
+  MIX = 'mix',
+}
+
+export interface RiddleData {
+  rID: string;
+  category: 'vn_riddle' | 'en_riddle';
+  difficulty: RiddleDifficulty;
+  question: string;
+  answer: string;
+  answer_explain: string;
+  note?: string;
+}
+
+export interface SphinxProfile {
+  answeredRiddleIds: string[]; // Array of rID that user has answered correctly
+  penaltyActive: boolean; // If true, next reward will be skipped
+}
+
+export interface SphinxReward {
+  stars: number;
+  cardWon: boolean;
+  card?: {
+    id: string;
+    name: string;
+    imagePath: string;
+    rarity: Rarity;
+  };
+}
+
+export enum PenaltyType {
+  LOSE_STAR = 'lose_star',
+  SKIP_NEXT_REWARD = 'skip_next_reward',
 }

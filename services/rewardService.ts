@@ -118,3 +118,197 @@ export const processGameReward = (
         },
     };
 };
+
+// ===== Sphinx Riddle Rewards =====
+
+import { RiddleDifficulty, SphinxReward, PenaltyType } from '../types';
+import { hasPenalty, clearPenalty, setPenalty } from './sphinxRiddleService';
+
+// Calculate stars based on difficulty
+export const calculateSphinxStars = (difficulty: RiddleDifficulty): number => {
+    switch (difficulty) {
+        case RiddleDifficulty.EASY:
+            return 1;
+        case RiddleDifficulty.MEDIUM:
+            return 2;
+        case RiddleDifficulty.HARD:
+            return 3;
+        default:
+            return 0;
+    }
+};
+
+// Calculate gacha chance based on difficulty
+export const getSphinxGachaChance = (difficulty: RiddleDifficulty): number => {
+    switch (difficulty) {
+        case RiddleDifficulty.EASY:
+            return 0.20; // 20%
+        case RiddleDifficulty.MEDIUM:
+            return 0.30; // 30%
+        case RiddleDifficulty.HARD:
+            return 0.50; // 50%
+        default:
+            return 0;
+    }
+};
+
+// Random penalty selection
+export const getRandomPenalty = (): PenaltyType => {
+    return Math.random() < 0.5 ? PenaltyType.LOSE_STAR : PenaltyType.SKIP_NEXT_REWARD;
+};
+
+// Process Sphinx reward after correct answer
+export const processSphinxReward = (
+    profile: StudentProfile,
+    difficulty: RiddleDifficulty,
+    studentId: string
+): { updatedProfile: StudentProfile; reward: SphinxReward } => {
+    // First check if there's an active penalty
+    const penaltyCheck = checkAndConsumePenalty(profile, studentId);
+
+    if (penaltyCheck.shouldSkipReward) {
+        // Penalty is active, skip all rewards
+        return {
+            updatedProfile: penaltyCheck.updatedProfile,
+            reward: {
+                stars: 0,
+                cardWon: false,
+                card: undefined,
+            },
+        };
+    }
+
+    let updatedProfile = { ...profile };
+    const stars = calculateSphinxStars(difficulty);
+
+    // Award stars
+    updatedProfile = awardStars(updatedProfile, stars);
+
+    // Try gacha based on difficulty
+    const gachaChance = getSphinxGachaChance(difficulty);
+    let cardWon = false;
+    let cardData = undefined;
+
+    if (Math.random() < gachaChance) {
+        const gachaRes = gachaImage(updatedProfile.ownedImageIds);
+        if (gachaRes) {
+            const { image } = gachaRes;
+            updatedProfile = awardImage(updatedProfile, image.id);
+            cardWon = true;
+            cardData = {
+                id: image.id,
+                name: image.name,
+                imagePath: image.imagePath,
+                rarity: image.rarity,
+            };
+        }
+    }
+
+    return {
+        updatedProfile,
+        reward: {
+            stars,
+            cardWon,
+            card: cardData,
+        },
+    };
+};
+
+// Process Sphinx penalty after wrong answer
+export const processSphinxPenalty = (
+    profile: StudentProfile,
+    studentId: string
+): { updatedProfile: StudentProfile; penaltyType: PenaltyType } => {
+    let updatedProfile = { ...profile };
+    const penaltyType = getRandomPenalty();
+
+    if (penaltyType === PenaltyType.LOSE_STAR) {
+        // Deduct 1 star (minimum 0)
+        updatedProfile = {
+            ...updatedProfile,
+            stars: Math.max(0, updatedProfile.stars - 1),
+        };
+    } else {
+        // Mark penalty active for next reward
+        setPenalty(studentId);
+    }
+
+    return {
+        updatedProfile,
+        penaltyType,
+    };
+};
+
+// Check and consume penalty for any reward-giving activity
+export const checkAndConsumePenalty = (
+    profile: StudentProfile,
+    studentId: string
+): { shouldSkipReward: boolean; updatedProfile: StudentProfile } => {
+    if (hasPenalty(studentId)) {
+        // Clear the penalty
+        clearPenalty(studentId);
+
+        // Return indication to skip reward
+        return {
+            shouldSkipReward: true,
+            updatedProfile: profile,
+        };
+    }
+
+    return {
+        shouldSkipReward: false,
+        updatedProfile: profile,
+    };
+};
+
+// Updated processTestReward to check penalty
+export const processTestRewardWithPenalty = (
+    profile: StudentProfile,
+    studentId: string,
+    score: number,
+    totalQuestions: number
+): { updatedProfile: StudentProfile; reward: TestReward; rewardSkipped: boolean } => {
+    // Check for active penalty
+    const penaltyCheck = checkAndConsumePenalty(profile, studentId);
+
+    if (penaltyCheck.shouldSkipReward) {
+        return {
+            updatedProfile: penaltyCheck.updatedProfile,
+            reward: { stars: 0, image: null },
+            rewardSkipped: true,
+        };
+    }
+
+    // Process reward normally
+    const result = processTestReward(profile, score, totalQuestions);
+    return {
+        ...result,
+        rewardSkipped: false,
+    };
+};
+
+// Updated processGameReward to check penalty
+export const processGameRewardWithPenalty = (
+    profile: StudentProfile,
+    studentId: string,
+    medal: 'bronze' | 'silver' | 'gold' | null
+): { updatedProfile: StudentProfile; reward: TestReward; rewardSkipped: boolean } => {
+    // Check for active penalty
+    const penaltyCheck = checkAndConsumePenalty(profile, studentId);
+
+    if (penaltyCheck.shouldSkipReward) {
+        return {
+            updatedProfile: penaltyCheck.updatedProfile,
+            reward: { stars: 0, image: null },
+            rewardSkipped: true,
+        };
+    }
+
+    // Process reward normally
+    const result = processGameReward(profile, medal);
+    return {
+        ...result,
+        rewardSkipped: false,
+    };
+};
+

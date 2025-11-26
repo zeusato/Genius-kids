@@ -1,0 +1,4502 @@
+[
+    {
+        "rID": "EN-001",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a face and two hands, but no arms or legs. What am I?",
+        "answer": "Clock",
+        "answer_explain": "A clock has a 'face' and two hands (hour and minute hands) to tell time.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-002",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have to be broken before you can use me. What am I?",
+        "answer": "Egg",
+        "answer_explain": "You must break the eggshell to cook or use the egg inside.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-003",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am full of holes but I can still hold water. What am I?",
+        "answer": "Sponge",
+        "answer_explain": "A sponge is porous (full of holes) but absorbs and holds water well.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-004",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What comes down but never goes up?",
+        "answer": "Rain",
+        "answer_explain": "Rain falls from the sky but does not go back up as rain.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-005",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am tall when I am young, and I am short when I am old. What am I?",
+        "answer": "Candle",
+        "answer_explain": "A candle burns down and gets shorter as it is used.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-006",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has a neck but no head?",
+        "answer": "Bottle",
+        "answer_explain": "The narrow top part of a bottle is called a neck.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-007",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What gets wetter as it dries?",
+        "answer": "Towel",
+        "answer_explain": "A towel absorbs water to dry something else, so it becomes wet itself.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-008",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has hands but cannot clap?",
+        "answer": "Clock",
+        "answer_explain": "A clock has hands to point to numbers but cannot clap them.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-009",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have keys but no locks. I have a space but no room. You can enter, but can’t go outside. What am I?",
+        "answer": "Keyboard",
+        "answer_explain": "A computer keyboard has keys (buttons), a space bar, and an 'Enter' key.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-010",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has a thumb and four fingers, but is not alive?",
+        "answer": "Glove",
+        "answer_explain": "A glove is shaped like a hand but is an object.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-011",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have legs but cannot walk. What am I?",
+        "answer": "Table, Chair",
+        "answer_explain": "Furniture like tables and chairs have parts called legs for support.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-012",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has one eye but cannot see?",
+        "answer": "Needle",
+        "answer_explain": "The hole in a needle is called an 'eye'.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-013",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I can travel all around the world while staying in a corner. What am I?",
+        "answer": "Stamp",
+        "answer_explain": "A postage stamp stays in the corner of an envelope while the letter travels.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-014",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What kind of band never plays music?",
+        "answer": "Rubber band",
+        "answer_explain": "A rubber band is an elastic loop, not a musical group.",
+        "note": "Đáp án là cụm danh từ, 2 từ."
+    },
+    {
+        "rID": "EN-015",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has many teeth but cannot bite?",
+        "answer": "Comb",
+        "answer_explain": "The prongs of a comb are called teeth.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-016",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has words, but never speaks?",
+        "answer": "Book",
+        "answer_explain": "A book contains written words but cannot talk.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-017",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What goes up but never comes down?",
+        "answer": "Age",
+        "answer_explain": "Your age only increases as you get older.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-018",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
+        "answer": "Map",
+        "answer_explain": "A map depicts these places but is just a drawing on paper.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-019",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What begins with T, ends with T, and has T in it?",
+        "answer": "Teapot",
+        "answer_explain": "The word 'Teapot' starts and ends with the letter T, and contains tea (sound of T).",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-020",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What are two things you can never eat for breakfast?",
+        "answer": "Lunch, Dinner",
+        "answer_explain": "Lunch and Dinner are names of meals eaten at other times of the day.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-021",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What can you catch but not throw?",
+        "answer": "Cold",
+        "answer_explain": "You can 'catch a cold' (get sick), but it's not an object you can throw.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-022",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What is orange and sounds like a parrot?",
+        "answer": "Carrot",
+        "answer_explain": "The word 'Carrot' rhymes with 'Parrot'.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-023",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What goes up when rain comes down?",
+        "answer": "Umbrella",
+        "answer_explain": "You open (put up) an umbrella when it rains.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-024",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am an animal. I have a long trunk. I have big ears. What am I?",
+        "answer": "Elephant",
+        "answer_explain": "Simple description of an elephant's features.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-025",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have no legs. I slither on the ground. I have a forked tongue. What am I?",
+        "answer": "Snake",
+        "answer_explain": "Description of a snake's movement and tongue.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-026",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am the king of the jungle. I have a big mane. I roar. What am I?",
+        "answer": "Lion",
+        "answer_explain": "Common characteristics of a lion.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-027",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a very long neck. I eat leaves from high trees. What am I?",
+        "answer": "Giraffe",
+        "answer_explain": "The giraffe is known for its long neck used to reach high leaves.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-028",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am black and white. I look like a horse. What am I?",
+        "answer": "Zebra",
+        "answer_explain": "Zebras are horse-like animals with black and white stripes.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-029",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I swim in the ocean. I have sharp teeth and a fin on my back. What am I?",
+        "answer": "Shark",
+        "answer_explain": "Sharks are ocean predators with dorsal fins.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-030",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have wings but I am not a bird. I sleep during the day and fly at night. What am I?",
+        "answer": "Bat",
+        "answer_explain": "Bats are nocturnal mammals that can fly.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-031",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am green. I hop. I eat flies. I say 'Ribbit'. What am I?",
+        "answer": "Frog",
+        "answer_explain": "Characteristics and sound of a frog.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "VN-032",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I give you milk. I say 'Moo'. I eat grass. What am I?",
+        "answer": "Cow",
+        "answer_explain": "Cows are farm animals known for giving milk and mooing.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-033",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have soft fur. I have long ears. I like carrots. What am I?",
+        "answer": "Rabbit",
+        "answer_explain": "Rabbits are known for long ears and eating carrots.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-034",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What can you break, even if you never pick it up or touch it?",
+        "answer": "Promise",
+        "answer_explain": "You 'break a promise' by not keeping your word.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-035",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has a bark but no bite?",
+        "answer": "Tree",
+        "answer_explain": "The outer layer of a tree is called 'bark'.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-036",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What is full of holes but still holds water?",
+        "answer": "Sponge",
+        "answer_explain": "A sponge absorbs water despite being porous.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-037",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "If you drop me, I’m sure to crack, but give me a smile and I’ll always smile back. What am I?",
+        "answer": "Mirror",
+        "answer_explain": "A mirror breaks easily but reflects your smile.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-038",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What runs around the whole yard without moving?",
+        "answer": "Fence",
+        "answer_explain": "A fence surrounds (runs around) a yard but is stationary.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-039",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I come out at night without being called, and I am lost in the day without being stolen. What am I?",
+        "answer": "Star",
+        "answer_explain": "Stars appear at night and disappear (are lost) when the sun rises.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-040",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What flies without wings?",
+        "answer": "Time, Cloud",
+        "answer_explain": "Expressions 'Time flies' or clouds moving in the wind.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-041",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a spine but no bones. What am I?",
+        "answer": "Book",
+        "answer_explain": "The back edge of a book is called the spine.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-042",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What is white when it’s dirty?",
+        "answer": "Blackboard",
+        "answer_explain": "A blackboard gets white marks from chalk when it is used (dirty).",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-043",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I make a loud sound when I’m changing. When I do change, I get bigger but weigh less. What am I?",
+        "answer": "Popcorn",
+        "answer_explain": "Popcorn pops loudly, expands, and becomes light and fluffy.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-044",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What kind of room has no doors or windows?",
+        "answer": "Mushroom",
+        "answer_explain": "Wordplay on 'room' in 'Mushroom'.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-045",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has a head and a tail but no body?",
+        "answer": "Coin",
+        "answer_explain": "A coin has a 'heads' side and a 'tails' side.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-046",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "Where does today come before yesterday?",
+        "answer": "Dictionary",
+        "answer_explain": "In alphabetical order, 'T' (Today) comes before 'Y' (Yesterday).",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-047",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What belongs to you, but other people use it more than you?",
+        "answer": "Name",
+        "answer_explain": "People call you by your name more than you call yourself.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-048",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What is easier to get into than out of?",
+        "answer": "Trouble",
+        "answer_explain": "It is easy to get into trouble but hard to fix it.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-049",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am light as a feather, yet the strongest person can't hold me for five minutes. What am I?",
+        "answer": "Breath",
+        "answer_explain": "You cannot hold your breath for very long.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-050",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What gets bigger the more you take away?",
+        "answer": "Hole",
+        "answer_explain": "Digging (taking away earth) makes the hole larger.",
+        "note": "Đáp án là danh từ, 1 từ."
+    },
+    {
+        "rID": "EN-051",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I provide light and heat. I appear in the day and disappear at night. What am I?",
+        "answer": "Sun",
+        "answer_explain": "The Sun is the star that gives Earth light and heat during the day.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-052",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have four legs but cannot walk. You sleep on me at night. What am I?",
+        "answer": "Bed",
+        "answer_explain": "A bed is furniture with legs used for sleeping.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-053",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a tongue but cannot speak. I have no legs but I walk with you. What am I?",
+        "answer": "Shoe",
+        "answer_explain": "A shoe has a part called a 'tongue' and protects your feet while walking.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-054",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have many teeth but I cannot eat. I move up and down to close your jacket. What am I?",
+        "answer": "Zipper",
+        "answer_explain": "A zipper has interlocking metal or plastic parts called teeth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-055",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a ring but no finger. You use me to call your friends. What am I?",
+        "answer": "Telephone, Phone",
+        "answer_explain": "A telephone 'rings' when someone calls.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-056",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a bank but no money. I run but have no legs. What am I?",
+        "answer": "River",
+        "answer_explain": "A river has 'banks' (sides) and the water 'runs' (flows).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-057",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have eyes but cannot see. I grow underground and you can make fries from me. What am I?",
+        "answer": "Potato",
+        "answer_explain": "The buds on a potato are called 'eyes'.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-058",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "What has a bottom at the top?",
+        "answer": "Leg",
+        "answer_explain": "Your leg has a 'bottom' (your bottom/buttocks) at the top of it.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-059",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am white and cold. I fall from the sky in winter. What am I?",
+        "answer": "Snow",
+        "answer_explain": "Snow is frozen water that falls in cold weather.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-060",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am yellow and curved. Monkeys love to eat me. What am I?",
+        "answer": "Banana",
+        "answer_explain": "Bananas are yellow fruits associated with monkeys.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-061",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am red and round. I grow on trees. You can eat me or make juice. What am I?",
+        "answer": "Apple",
+        "answer_explain": "Apples are common red, round fruits.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-062",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am man's best friend. I bark and wag my tail. What am I?",
+        "answer": "Dog",
+        "answer_explain": "Dogs are known as man's best friend.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-063",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have soft fur and whiskers. I like to chase mice and say 'Meow'. What am I?",
+        "answer": "Cat",
+        "answer_explain": "Common characteristics of a cat.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-064",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am yellow and black. I make honey and I can sting. What am I?",
+        "answer": "Bee",
+        "answer_explain": "Bees produce honey.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-065",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have eight legs. I spin a web to catch flies. What am I?",
+        "answer": "Spider",
+        "answer_explain": "Spiders are arachnids with 8 legs that make webs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-066",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I carry my house on my back. I move very slowly. What am I?",
+        "answer": "Snail",
+        "answer_explain": "Snails have shells on their backs and move slowly.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-067",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a bird but I cannot fly. I wear a tuxedo and swim in cold water. What am I?",
+        "answer": "Penguin",
+        "answer_explain": "Penguins are flightless birds with black and white feathers (tuxedo pattern).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-068",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a mane and I run fast. People ride on my back. What am I?",
+        "answer": "Horse",
+        "answer_explain": "Horses are ridden by people and have manes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-069",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have feathers and I lay eggs. I wake up early and say 'Cluck'. What am I?",
+        "answer": "Chicken, Hen",
+        "answer_explain": "Chickens/Hens lay eggs and cluck.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-070",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am pink and I like to play in the mud. I have a curly tail. What am I?",
+        "answer": "Pig",
+        "answer_explain": "Pigs are often pink, like mud, and have curly tails.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-071",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I live in the water. I breathe with gills and swim with fins. What am I?",
+        "answer": "Fish",
+        "answer_explain": "Fish are aquatic animals with gills and fins.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-072",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have seven colors. I appear in the sky after the rain. What am I?",
+        "answer": "Rainbow",
+        "answer_explain": "A rainbow is a meteorological phenomenon with 7 colors.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-073",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I follow you when it is sunny. I look like you but black. I disappear in the dark. What am I?",
+        "answer": "Shadow",
+        "answer_explain": "A shadow is cast by a body intercepting light.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-074",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am hot and bright. I give you heat but if you touch me, I will burn you. What am I?",
+        "answer": "Fire",
+        "answer_explain": "Fire produces heat and can cause burns.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-075",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am clear and wet. You drink me when you are thirsty. What am I?",
+        "answer": "Water",
+        "answer_explain": "Water is the essential liquid for life.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-076",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You use me to cut food. I have a handle and a sharp edge. What am I?",
+        "answer": "Knife",
+        "answer_explain": "A knife is a tool used for cutting.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-077",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You use me to eat soup. I am round and deep. What am I?",
+        "answer": "Spoon",
+        "answer_explain": "A spoon is a utensil for eating liquids like soup.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-078",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a handle and I hold water, tea, or coffee. What am I?",
+        "answer": "Cup, Mug",
+        "answer_explain": "A cup is used for drinking beverages.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-079",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I keep your food cold. I am in the kitchen and have a door. What am I?",
+        "answer": "Refrigerator, Fridge",
+        "answer_explain": "A refrigerator is an appliance to keep food cool.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-080",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I wash your clothes. I fill with water and spin around. What am I?",
+        "answer": "Washing machine",
+        "answer_explain": "A washing machine cleans clothes.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-081",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a screen and keys. You use me to browse the internet or play games. What am I?",
+        "answer": "Computer, Laptop",
+        "answer_explain": "A computer is an electronic device for processing data.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-082",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You wear me on your head to protect you from the sun. What am I?",
+        "answer": "Hat, Cap",
+        "answer_explain": "A hat is a head covering.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-083",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You wear me on your eyes to help you see better. What am I?",
+        "answer": "Glasses",
+        "answer_explain": "Glasses correct vision.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-084",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You wear me over your shirt to stay warm outside. I have a zipper or buttons. What am I?",
+        "answer": "Jacket, Coat",
+        "answer_explain": "A jacket/coat is outer clothing for warmth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-085",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I fly in the air. I have a tail and a long string. You hold me on windy days. What am I?",
+        "answer": "Kite",
+        "answer_explain": "A kite is a toy flown in the wind.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-086",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am round and colorful. I float in the air. If you poke me with a pin, I pop! What am I?",
+        "answer": "Balloon",
+        "answer_explain": "A balloon is an inflatable rubber bag.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-087",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am cold and sweet. You lick me. I come in a cone. What am I?",
+        "answer": "Ice cream",
+        "answer_explain": "Ice cream is a frozen dessert.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-088",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am sweet and baked. You eat me on your birthday. I have candles on top. What am I?",
+        "answer": "Cake",
+        "answer_explain": "Cake is a sweet food associated with birthdays.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-089",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a yellow fruit. I taste sour. You make lemonade with me. What am I?",
+        "answer": "Lemon",
+        "answer_explain": "Lemons are sour yellow citrus fruits.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-090",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a red fruit with small seeds on the outside. I am sweet and juicy. What am I?",
+        "answer": "Strawberry",
+        "answer_explain": "Strawberries are red fruits with exterior seeds.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-091",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have black and white keys. You play me with your fingers to make music. What am I?",
+        "answer": "Piano",
+        "answer_explain": "A piano is a musical instrument with a keyboard.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-092",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have six strings and a long neck. You strum me to make music. What am I?",
+        "answer": "Guitar",
+        "answer_explain": "A guitar is a stringed instrument.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-093",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You hit me with sticks to make a beat. I am round. What am I?",
+        "answer": "Drum",
+        "answer_explain": "A drum is a percussion instrument.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-094",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am made of wax. I come in many colors. You use me to draw. What am I?",
+        "answer": "Crayon",
+        "answer_explain": "Crayons are wax sticks for coloring.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-095",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have lead inside. You write with me. If you make a mistake, you can erase it. What am I?",
+        "answer": "Pencil",
+        "answer_explain": "Pencils are writing instruments with erasable graphite.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-096",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have two blades and two handles. You use me to cut paper. What am I?",
+        "answer": "Scissors",
+        "answer_explain": "Scissors are a cutting tool.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-097",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am sticky. You use me to stick pieces of paper together. What am I?",
+        "answer": "Glue",
+        "answer_explain": "Glue is an adhesive.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-098",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a door, windows, and a roof. You live inside me with your family. What am I?",
+        "answer": "House",
+        "answer_explain": "A house is a building for human habitation.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-099",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am round and black. I am on a car, a bus, or a bike. I go round and round. What am I?",
+        "answer": "Wheel, Tire",
+        "answer_explain": "Wheels allow vehicles to move.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-100",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a vegetable. I have yellow kernels and green leaves. You eat me on the cob. What am I?",
+        "answer": "Corn",
+        "answer_explain": "Corn grows in ears covered by green husks.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-101",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have a long tail and I like to climb trees. I eat bananas. What am I?",
+        "answer": "Monkey",
+        "answer_explain": "Monkeys are known for climbing trees and eating bananas.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-102",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am big and brown. I sleep in a cave in winter. I like honey. What am I?",
+        "answer": "Bear",
+        "answer_explain": "Bears hibernate in caves during winter and are often depicted eating honey.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-103",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am orange with black stripes. I am a big cat. I roar. What am I?",
+        "answer": "Tiger",
+        "answer_explain": "Tigers are large wild cats with orange fur and black stripes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-104",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have webbed feet and I say 'Quack'. I like to swim in the pond. What am I?",
+        "answer": "Duck",
+        "answer_explain": "Ducks are birds that swim and make a quacking sound.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-105",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have big eyes and I sleep during the day. I fly at night and say 'Hoot'. What am I?",
+        "answer": "Owl",
+        "answer_explain": "Owls are nocturnal birds known for their large eyes and hooting sound.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-106",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I come out at night. I change my shape. Sometimes I am full, sometimes I am a crescent. What am I?",
+        "answer": "Moon",
+        "answer_explain": "The Moon appears at night and goes through phases (full, crescent).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-107",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am green and I grow on the ground in the garden. You have to mow me. What am I?",
+        "answer": "Grass",
+        "answer_explain": "Grass grows on lawns and needs mowing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-108",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have colorful petals. Bees like to visit me. I smell good. What am I?",
+        "answer": "Flower",
+        "answer_explain": "Flowers have petals, fragrance, and attract bees.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-109",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You use me to clean your teeth. I have a handle and bristles. What am I?",
+        "answer": "Toothbrush",
+        "answer_explain": "A toothbrush is a tool used for oral hygiene.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-110",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You put me on your toothbrush. I make bubbles in your mouth. What am I?",
+        "answer": "Toothpaste",
+        "answer_explain": "Toothpaste is used with a toothbrush to clean teeth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-111",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am soft and fluffy. You put your head on me when you sleep. What am I?",
+        "answer": "Pillow",
+        "answer_explain": "A pillow supports the head during sleep.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-112",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You use me to wash your hands. I make bubbles and smell nice. What am I?",
+        "answer": "Soap",
+        "answer_explain": "Soap is used for washing and cleaning.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-113",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have four prongs. You use me to pick up food to eat. What am I?",
+        "answer": "Fork",
+        "answer_explain": "A fork is a utensil with prongs used for eating.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-114",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am round and flat. You put your food on me at dinner. What am I?",
+        "answer": "Plate",
+        "answer_explain": "A plate is a flat dish for serving food.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-115",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am round with cheese and tomato sauce. You cut me into triangle slices. What am I?",
+        "answer": "Pizza",
+        "answer_explain": "Pizza is a popular round food topped with cheese and sauce.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-116",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am white. You drink me. I come from a cow. What am I?",
+        "answer": "Milk",
+        "answer_explain": "Milk is a white liquid produced by cows.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-117",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am yellow or white. I am made from milk. Mice like to eat me in cartoons. What am I?",
+        "answer": "Cheese",
+        "answer_explain": "Cheese is a dairy product often associated with mice.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-118",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a fruit. I am orange. You peel me to eat me. I have the same name as my color. What am I?",
+        "answer": "Orange",
+        "answer_explain": "An orange is a fruit that is also the name of the color orange.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-119",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I run on tracks. I have many cars attached. I say 'Choo choo'. What am I?",
+        "answer": "Train",
+        "answer_explain": "Trains travel on tracks and make a chugging sound.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-120",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have big wings and I fly high in the sky. I carry people to other countries. What am I?",
+        "answer": "Airplane",
+        "answer_explain": "Airplanes are aircraft used for long-distance travel.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-121",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I float on water. I can have sails or an engine. What am I?",
+        "answer": "Boat",
+        "answer_explain": "Boats are watercraft used for travel on water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-122",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have four wheels and an engine. You drive me on the road. Families have me. What am I?",
+        "answer": "Car",
+        "answer_explain": "Cars are common 4-wheeled vehicles for family transport.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-123",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am big and yellow. I stop to pick up children and take them to school. What am I?",
+        "answer": "Bus",
+        "answer_explain": "School buses are typically large and yellow.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-124",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "We are white and hard. We are in your mouth. You use us to chew food. What are we?",
+        "answer": "Teeth",
+        "answer_explain": "Teeth are used for biting and chewing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-125",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am in the middle of your face. You use me to smell flowers. What am I?",
+        "answer": "Nose",
+        "answer_explain": "The nose is the organ of smell.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-126",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am on the side of your head. You use me to hear sounds. What am I?",
+        "answer": "Ear",
+        "answer_explain": "Ears are the organs of hearing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-127",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You wear me on your feet under your shoes to keep your feet warm. What am I?",
+        "answer": "Socks",
+        "answer_explain": "Socks are clothing worn on the feet inside shoes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-128",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You wear me around your neck when it is cold outside. What am I?",
+        "answer": "Scarf",
+        "answer_explain": "A scarf is worn around the neck for warmth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-129",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I take pictures of you. I have a lens and a button. What am I?",
+        "answer": "Camera",
+        "answer_explain": "Cameras are used to take photographs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-130",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You watch cartoons on me. I have a big screen and a remote control. What am I?",
+        "answer": "Television",
+        "answer_explain": "Televisions display video content like cartoons.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-131",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I move very slowly. I have a hard shell on my back. I can swim or walk. What am I?",
+        "answer": "Turtle",
+        "answer_explain": "Turtles have hard shells and move slowly.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-132",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I live in the ocean. I am the biggest animal in the world. I spout water from my head. What am I?",
+        "answer": "Whale",
+        "answer_explain": "Blue whales are the largest animals and have blowholes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-133",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a beautiful insect with colorful wings. I used to be a caterpillar. What am I?",
+        "answer": "Butterfly",
+        "answer_explain": "Caterpillars transform into butterflies.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-134",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I live in the ocean. I am very smart and friendly. I like to jump out of the water. What am I?",
+        "answer": "Dolphin",
+        "answer_explain": "Dolphins are intelligent marine mammals known for jumping.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-135",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a pink bird with long thin legs. I often stand on one leg. What am I?",
+        "answer": "Flamingo",
+        "answer_explain": "Flamingos are pink birds known for standing on one leg.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-136",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have many pages. You write your homework in me. What am I?",
+        "answer": "Notebook",
+        "answer_explain": "Notebooks are used for writing notes and homework.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-137",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I have drawers and a flat top. You sit at me to do your work. What am I?",
+        "answer": "Desk",
+        "answer_explain": "A desk is a piece of furniture used for working or studying.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-138",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You put your trash and garbage inside me to keep the room clean. What am I?",
+        "answer": "Trash can",
+        "answer_explain": "A trash can is a container for waste.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-139",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a small round fruit. I can be purple or green. I grow in bunches. What am I?",
+        "answer": "Grapes",
+        "answer_explain": "Grapes grow in bunches and come in purple or green varieties.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-140",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am red and round. I am used to make ketchup and salads. What am I?",
+        "answer": "Tomato",
+        "answer_explain": "Tomatoes are red and the main ingredient in ketchup.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-141",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I blow the leaves on the trees. You cannot see me, but you can feel me. What am I?",
+        "answer": "Wind",
+        "answer_explain": "Wind is moving air, invisible but felt.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-142",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I grow on trees. I am green in summer and orange or brown in autumn. What am I?",
+        "answer": "Leaf",
+        "answer_explain": "Leaves change color from green to brown in autumn.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-143",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am very tall and made of rock. I often have snow on my top. What am I?",
+        "answer": "Mountain",
+        "answer_explain": "Mountains are high landforms often capped with snow.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-144",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a toy. I am soft and cuddly. I look like a bear. What am I?",
+        "answer": "Teddy bear",
+        "answer_explain": "A teddy bear is a soft toy in the shape of a bear.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-145",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I look like a small person. Girls often play with me and dress me up. What am I?",
+        "answer": "Doll",
+        "answer_explain": "Dolls are toys resembling humans.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-146",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am made of metal. You put me in a lock to open the door. What am I?",
+        "answer": "Key",
+        "answer_explain": "Keys are used to unlock doors.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-147",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am round. You can kick me, throw me, or bounce me. What am I?",
+        "answer": "Ball",
+        "answer_explain": "A ball is a round object used in many sports.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-148",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am made of glass. You look through me to see outside your house. What am I?",
+        "answer": "Window",
+        "answer_explain": "Windows are glass openings in walls to see outside.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-149",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "You open me to walk into a room. I have a handle and hinges. What am I?",
+        "answer": "Door",
+        "answer_explain": "Doors are entrances to rooms or buildings.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-150",
+        "category": "en_riddle",
+        "difficulty": "easy",
+        "question": "I am a day of the week. I come after Monday and before Wednesday. What am I?",
+        "answer": "Tuesday",
+        "answer_explain": "Tuesday is the day between Monday and Wednesday.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-151",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I come once in a minute, twice in a moment, but never in a thousand years. What am I?",
+        "answer": "Letter M",
+        "answer_explain": "The letter 'M' appears once in the word 'Minute', twice in 'Moment', and not at all in 'Thousand years'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-152",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am not alive, but I grow. I don't have lungs, but I need air. I don't have a mouth, but water kills me. What am I?",
+        "answer": "Fire",
+        "answer_explain": "Fire grows as it burns, needs oxygen (air) to exist, and is extinguished by water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-153",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am so fragile that if you say my name, you break me. What am I?",
+        "answer": "Silence",
+        "answer_explain": "Speaking breaks silence.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-154",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What word becomes shorter when you add two letters to it?",
+        "answer": "Short",
+        "answer_explain": "Adding 'er' to 'Short' makes the word 'Shorter'.",
+        "note": "Đáp án là tính từ, 1 từ"
+    },
+    {
+        "rID": "EN-155",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I start with an E, end with an E, but I only contain one letter. What am I?",
+        "answer": "Envelope",
+        "answer_explain": "The word 'Envelope' starts and ends with E, and it contains a letter (mail) inside.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-156",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "The more of this there is, the less you see. What is it?",
+        "answer": "Darkness",
+        "answer_explain": "Darkness reduces visibility.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-157",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+        "answer": "Echo",
+        "answer_explain": "An echo repeats sound (speaks/hears) and travels through air/wind.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-158",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What goes up and down but doesn't move?",
+        "answer": "Staircase",
+        "answer_explain": "A staircase leads up and down but stays in one place.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-159",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "If you have me, you want to share me. If you share me, you haven't kept me. What am I?",
+        "answer": "Secret",
+        "answer_explain": "Telling (sharing) a secret means it is no longer a secret kept by you.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-160",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What can fill a room but takes up no space?",
+        "answer": "Light",
+        "answer_explain": "Light illuminates a room without occupying physical volume.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-161",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am always in front of you, but you will never see me. What am I?",
+        "answer": "Future",
+        "answer_explain": "The future is always ahead in time but has not happened yet.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-162",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "Where does Friday come before Thursday?",
+        "answer": "Dictionary",
+        "answer_explain": "In alphabetical order, F (Friday) comes before T (Thursday).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-163",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have branches, but no fruit, trunk or leaves. What am I?",
+        "answer": "Bank",
+        "answer_explain": "A bank has branches (locations) but is not a tree.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-164",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "The more you take, the more you leave behind. What are they?",
+        "answer": "Footsteps",
+        "answer_explain": "When you walk (take steps), you leave footsteps behind you.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-165",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "People make me, save me, change me, raise me. What am I?",
+        "answer": "Money",
+        "answer_explain": "Common phrases: make money, save money, change money, raise money.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-166",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "Everyone has seen it, but will never see it again. What is it?",
+        "answer": "Yesterday",
+        "answer_explain": "Yesterday has passed and cannot be experienced again.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-167",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What goes through a door but never comes in or goes out?",
+        "answer": "Keyhole",
+        "answer_explain": "A keyhole allows sight or a key through it, but the hole itself doesn't move.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-168",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What question can you never answer 'yes' to?",
+        "answer": "Are you asleep?",
+        "answer_explain": "If you are asleep, you cannot answer.",
+        "note": "Đáp án là câu hỏi, 3 từ"
+    },
+    {
+        "rID": "EN-169",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What can you keep after giving to someone?",
+        "answer": "Word",
+        "answer_explain": "Keeping your word (promise) means fulfilling it after giving it.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-170",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I shave every day, but my beard stays the same. What am I?",
+        "answer": "Barber",
+        "answer_explain": "A barber shaves other people's beards.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-171",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What is black when you buy it, red when you use it, and grey when you throw it away?",
+        "answer": "Charcoal",
+        "answer_explain": "Charcoal is black, burns red, and turns to grey ash.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-172",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am an odd number. Take away a letter and I become even. What number am I?",
+        "answer": "Seven",
+        "answer_explain": "SEVEN is odd. Remove 'S' and it becomes EVEN.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-173",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What word is spelled wrong in the dictionary?",
+        "answer": "Wrong",
+        "answer_explain": "The word 'Wrong' is spelled W-R-O-N-G.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-174",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What is the end of everything?",
+        "answer": "Letter G",
+        "answer_explain": "The letter 'G' is at the end of the word 'Everything'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-175",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What enters the water black and comes out red?",
+        "answer": "Lobster",
+        "answer_explain": "A lobster is dark/black when alive but turns red when cooked in boiling water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-176",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What is cut on a table, but is never eaten?",
+        "answer": "Deck of cards",
+        "answer_explain": "You 'cut' a deck of cards before dealing.",
+        "note": "Đáp án là cụm danh từ, 3 từ"
+    },
+    {
+        "rID": "EN-177",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What kind of tree can you carry in your hand?",
+        "answer": "Palm",
+        "answer_explain": "A palm is a type of tree and also a part of your hand.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-178",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "Which letter of the alphabet has the most water?",
+        "answer": "Letter C",
+        "answer_explain": "The letter 'C' sounds like 'Sea'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-179",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What has four wheels and flies?",
+        "answer": "Garbage truck",
+        "answer_explain": "A garbage truck has wheels and carries flies (insects) attracted to the trash.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-180",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What can you hold in your right hand, but never in your left hand?",
+        "answer": "Left hand",
+        "answer_explain": "Physically impossible to hold your left hand with your left hand.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-181",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What kind of coat is best put on wet?",
+        "answer": "Coat of paint",
+        "answer_explain": "Paint is applied (put on) while wet.",
+        "note": "Đáp án là cụm danh từ, 3 từ"
+    },
+    {
+        "rID": "EN-182",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What loses its head in the morning and gets it back at night?",
+        "answer": "Pillow",
+        "answer_explain": "You put your head on a pillow at night and take it off in the morning.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-183",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What is bought by the yard and worn by the foot?",
+        "answer": "Carpet",
+        "answer_explain": "Carpet is measured in yards and people walk on it with their feet.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-184",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I can be cracked, made, told, and played. What am I?",
+        "answer": "Joke",
+        "answer_explain": "Common phrases: crack a joke, make a joke, tell a joke, play a joke.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-185",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "Poor people have it. Rich people need it. If you eat it you die. What is it?",
+        "answer": "Nothing",
+        "answer_explain": "Poor have nothing, rich need nothing, eating nothing leads to starvation.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-186",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a needle but I do not sew. I point the way you should go. What am I?",
+        "answer": "Compass",
+        "answer_explain": "A compass has a magnetic needle to indicate direction.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-187",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have an eye but I cannot see. I am stronger than any man. What am I?",
+        "answer": "Storm",
+        "answer_explain": "A storm (hurricane/cyclone) has a calm center called an 'eye'.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-188",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have many teeth but no mouth. I help you build things. What am I?",
+        "answer": "Saw",
+        "answer_explain": "A saw has a serrated edge called teeth used for cutting wood.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-189",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have two legs but I cannot walk. You wear me to cover your legs. What am I?",
+        "answer": "Pants, Trousers",
+        "answer_explain": "Pants have two 'legs' (pant legs).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-190",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "You take off my skin and I won't cry, but you might. What am I?",
+        "answer": "Onion",
+        "answer_explain": "Peeling an onion releases gas that makes people's eyes water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-191",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "To keep me, I must be given to you. When I am heavy, I am hard to bear. What am I?",
+        "answer": "Anchor",
+        "answer_explain": "An anchor is 'cast' (given) to the water to hold a ship.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-192",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "The man who makes it doesn't want it. The man who buys it doesn't need it. The man who uses it doesn't see it. What is it?",
+        "answer": "Coffin",
+        "answer_explain": "A coffin is for the dead.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-193",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "Take off my head and I scratch your back. Take off my tail and I turn red. What am I?",
+        "answer": "Match",
+        "answer_explain": "A match stick. Scratch the head to light it. Without the head, it's a stick (scratch back? - metaphorical). A better explanation: Striking a match makes it red.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-194",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have three eyes in a row. One is red, one is yellow, one is green. What am I?",
+        "answer": "Traffic light",
+        "answer_explain": "Traffic lights have three colored lights arranged vertically.",
+        "note": "Đáp án là cụm danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-195",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am red when I am green. What am I?",
+        "answer": "Blackberry",
+        "answer_explain": "A blackberry fruit is red when it is unripe (green).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-196",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "answer": "Lock",
+        "question": "I have no voice, but I can tell you a secret. I have no hands, but I can open a door. What am I?",
+        "answer_explain": "A lock protects secrets and opens doors with a key.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-197",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am loud but I have no mouth. I can be heard from miles away. I usually come after a flash. What am I?",
+        "answer": "Thunder",
+        "answer_explain": "Thunder is the sound caused by lightning.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-198",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What is black and white and read all over?",
+        "answer": "Newspaper",
+        "answer_explain": "Pun on 'Red' and 'Read'. Newspapers are black ink on white paper.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-199",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "What connects two people but touches only one?",
+        "answer": "Wedding ring",
+        "answer_explain": "A wedding ring symbolizes connection but is worn by one person (symbolically). Or a **Phone call**.",
+        "note": "Đáp án là cụm danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-200",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I can taste better than I can smell. I can't talk but I can tell. What am I?",
+        "answer": "Tongue",
+        "answer_explain": "The tongue tastes food. It helps you talk/tell things.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-201",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have leaves but no branches. I have dates but no fruit. What am I?",
+        "answer": "Calendar",
+        "answer_explain": "A calendar has pages (leaves) and dates (days), but it's not a tree or a fruit.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-202",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a head like a cat, feet like a cat, but I am not a cat. What am I?",
+        "answer": "Kitten",
+        "answer_explain": "A kitten is a young cat, distinct from an adult 'cat' in riddles.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-203",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a foot but no leg. What am I?",
+        "answer": "Ruler",
+        "answer_explain": "A ruler is one foot long (12 inches) but has no limbs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-204",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have many stories but I cannot speak. What am I?",
+        "answer": "Building",
+        "answer_explain": "A building has levels called 'stories'.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-205",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have ears but I cannot hear. What am I?",
+        "answer": "Corn",
+        "answer_explain": "Corn grows in 'ears'.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-206",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a head but no brain. What am I?",
+        "answer": "Lettuce",
+        "answer_explain": "A head of lettuce.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-207",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a head but no face. I am made of metal. What am I?",
+        "answer": "Nail",
+        "answer_explain": "A nail has a flat top called a head.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-208",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a head and a claw but I am not an animal. What am I?",
+        "answer": "Hammer",
+        "answer_explain": "A hammer has a striking head and a claw for pulling nails.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-209",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a lip but no mouth. What am I?",
+        "answer": "Cup",
+        "answer_explain": "The rim of a cup is called a lip.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-210",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a tongue but cannot speak. I can be rung. What am I?",
+        "answer": "Bell",
+        "answer_explain": "The clapper inside a bell is called a tongue.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-211",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a mouth but I never eat. I live in the mountain. What am I?",
+        "answer": "Cave",
+        "answer_explain": "The entrance to a cave is called a mouth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-212",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a mouth and I spit fire. What am I?",
+        "answer": "Volcano",
+        "answer_explain": "The opening of a volcano is a mouth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-213",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have three feet but no legs. What am I?",
+        "answer": "Yardstick",
+        "answer_explain": "A yardstick measures 3 feet (1 yard).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-214",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I go over the river but I don't get wet. What am I?",
+        "answer": "Bridge",
+        "answer_explain": "A bridge spans over water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-215",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I go through the mountain but I don't move. What am I?",
+        "answer": "Tunnel",
+        "answer_explain": "A tunnel is a passage through a mountain.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-216",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have eyes (dots) but cannot see. I am a cube. What am I?",
+        "answer": "Dice",
+        "answer_explain": "The dots on a die are sometimes called eyes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-217",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a heart but no organs. What am I?",
+        "answer": "Artichoke",
+        "answer_explain": "The edible center of an artichoke is called the heart.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-218",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have cloves (teeth) but no mouth. What am I?",
+        "answer": "Garlic",
+        "answer_explain": "Segments of a garlic bulb are called cloves.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-219",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have teeth but no mouth. I gather leaves. What am I?",
+        "answer": "Rake",
+        "answer_explain": "A rake has tines (teeth) for collecting leaves.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-220",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have veins but no blood. What am I?",
+        "answer": "Leaf",
+        "answer_explain": "Leaves have a network of veins.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-221",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a bed but I never sleep. I have 4 wheels. What am I?",
+        "answer": "Truck",
+        "answer_explain": "The back cargo area of a truck is called a bed.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-222",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a drum but I cannot play music. What am I?",
+        "answer": "Ear",
+        "answer_explain": "The eardrum is a part of the ear.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-223",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a pupil but I am not a teacher. What am I?",
+        "answer": "Eye",
+        "answer_explain": "The pupil is the center of the eye.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-224",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have pupils but no eyes. What am I?",
+        "answer": "School",
+        "answer_explain": "Pupils are students in a school.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-225",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I make a racket but I don't play tennis. What am I?",
+        "answer": "Noise",
+        "answer_explain": "'Making a racket' implies making a loud noise.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-226",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a place for kings and tennis. What am I?",
+        "answer": "Court",
+        "answer_explain": "Royal court and Tennis court.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-227",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am in a deck of cards and on a baseball field. What am I?",
+        "answer": "Diamond",
+        "answer_explain": "Diamond suit in cards and the baseball diamond (field shape).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-228",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a weapon and a playing card suit. What am I?",
+        "answer": "Club",
+        "answer_explain": "A club is a heavy stick and a suit in cards.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-229",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have blades but no handle. I cool you down. What am I?",
+        "answer": "Fan",
+        "answer_explain": "Electric fans have blades.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-230",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am on a fish and in a music class. What am I?",
+        "answer": "Scale",
+        "answer_explain": "Fish scales and musical scales.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-231",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a place to drink and a piece of soap. What am I?",
+        "answer": "Bar",
+        "answer_explain": "A bar (pub) and a bar of soap.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-232",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am on a tree and on a dog. What am I?",
+        "answer": "Bark",
+        "answer_explain": "Tree bark and a dog's bark.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-233",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am made of fruit and I stop traffic. What am I?",
+        "answer": "Jam",
+        "answer_explain": "Fruit jam and Traffic jam.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-234",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a fruit and a day on the calendar. What am I?",
+        "answer": "Date",
+        "answer_explain": "A date is a fruit and a calendar day.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-235",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am in the alphabet and in the mail. What am I?",
+        "answer": "Letter",
+        "answer_explain": "Letters A-Z and letters you send.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-236",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am on a finger and on a phone. What am I?",
+        "answer": "Ring",
+        "answer_explain": "Jewelry ring and telephone ring.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-237",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I tell time but I have no voice. What am I?",
+        "answer": "Watch",
+        "answer_explain": "A wristwatch tells time (also 'watch' means to look).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-238",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am worn around the neck and I mean equal score. What am I?",
+        "answer": "Tie",
+        "answer_explain": "Necktie and a tie game.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-239",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am on a gift and I shoot arrows. What am I?",
+        "answer": "Bow",
+        "answer_explain": "A ribbon bow and a bow and arrow.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-240",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am in the ocean and I say hello. What am I?",
+        "answer": "Wave",
+        "answer_explain": "Ocean waves and waving your hand.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-241",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a bird and a machine that lifts. What am I?",
+        "answer": "Crane",
+        "answer_explain": "A crane bird and a construction crane.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-242",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am an insect and a sport. What am I?",
+        "answer": "Cricket",
+        "answer_explain": "Cricket insect and the game Cricket.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-243",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a military vehicle and a home for fish. What am I?",
+        "answer": "Tank",
+        "answer_explain": "Army tank and Fish tank.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-244",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am on a beach and on a turtle. What am I?",
+        "answer": "Shell",
+        "answer_explain": "Seashell and Turtle shell.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-245",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a stone and a type of music. What am I?",
+        "answer": "Rock",
+        "answer_explain": "Rock stone and Rock music.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-246",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a season and a metal coil. What am I?",
+        "answer": "Spring",
+        "answer_explain": "Spring season and a metal spring.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-247",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a season and a drop. What am I?",
+        "answer": "Fall",
+        "answer_explain": "Fall (Autumn) and to fall down.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-248",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am an insect and a plane action. What am I?",
+        "answer": "Fly",
+        "answer_explain": "A fly (insect) and to fly (action).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-249",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a car gear and a green place. What am I?",
+        "answer": "Park",
+        "answer_explain": "To park a car (P gear) and a park with trees.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-250",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a toy and a dance. What am I?",
+        "answer": "Ball",
+        "answer_explain": "A ball (toy) and a Ball (formal dance event).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-251",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have steps but I cannot walk. I help you reach the roof or a high shelf. What am I?",
+        "answer": "Ladder",
+        "answer_explain": "A ladder has steps (rungs) and is used for climbing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-252",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I go up and down but I have no feet. I am a box with buttons inside. What am I?",
+        "answer": "Elevator",
+        "answer_explain": "An elevator is a moving box that carries people between floors.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-253",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a long handle and bristles. I sweep the dust off the floor. What am I?",
+        "answer": "Broom",
+        "answer_explain": "A broom is a cleaning tool used for sweeping.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-254",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I make a loud noise. I suck up dirt and dust from the carpet. What am I?",
+        "answer": "Vacuum cleaner",
+        "answer_explain": "A vacuum cleaner uses suction to clean floors.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-255",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I get very hot. You use me to make your wrinkled clothes flat and smooth. What am I?",
+        "answer": "Iron",
+        "answer_explain": "An iron uses heat to press clothes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-256",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am in the kitchen. I get very hot inside. You bake cakes and roast chicken in me. What am I?",
+        "answer": "Oven",
+        "answer_explain": "An oven is a kitchen appliance for baking and roasting.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-257",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I heat up food very fast. I go 'beep' when I am done. What am I?",
+        "answer": "Microwave",
+        "answer_explain": "A microwave oven heats food quickly and alerts when finished.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-258",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I make bread hot, brown, and crunchy. What am I?",
+        "answer": "Toaster",
+        "answer_explain": "A toaster is used to toast bread.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-259",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have sharp blades inside. I mix fruit and milk to make smoothies. What am I?",
+        "answer": "Blender",
+        "answer_explain": "A blender mixes ingredients into liquid form.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-260",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I sit on the stove. I whistle when the water inside me boils. What am I?",
+        "answer": "Kettle",
+        "answer_explain": "A whistling kettle signals when water boils.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-261",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am flat and round. You cook eggs and pancakes in me on the stove. What am I?",
+        "answer": "Frying pan",
+        "answer_explain": "A frying pan is used for frying food.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-262",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am deep and have a lid. You cook soup or pasta in me. What am I?",
+        "answer": "Pot",
+        "answer_explain": "A pot is a deep cooking vessel.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-263",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I sit on your bedside table. I wake you up in the morning with a loud sound. What am I?",
+        "answer": "Alarm clock",
+        "answer_explain": "An alarm clock is designed to wake people up.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-264",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have many buttons with numbers and symbols. I help you do math problems quickly. What am I?",
+        "answer": "Calculator",
+        "answer_explain": "A calculator is an electronic device for mathematics.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-265",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am sticky and clear. I hold paper together but I am not glue. I come on a roll. What am I?",
+        "answer": "Tape",
+        "answer_explain": "Adhesive tape is used to stick things together.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-266",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I use metal pins to hold papers together. I make a clicking sound. What am I?",
+        "answer": "Stapler",
+        "answer_explain": "A stapler drives staples through paper to fasten them.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-267",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a small piece of metal wire. I hold papers together without making holes. What am I?",
+        "answer": "Paper clip",
+        "answer_explain": "A paper clip holds sheets of paper together temporarily.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-268",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I make your pencil point sharp again. You put your pencil inside me and turn. What am I?",
+        "answer": "Sharpener",
+        "answer_explain": "A pencil sharpener shaves the wood to reveal the lead.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-269",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have straps and zippers. You carry books and your lunch in me to school. What am I?",
+        "answer": "Backpack",
+        "answer_explain": "A backpack is a bag carried on the back.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-270",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I keep your sandwich and apple safe until lunchtime. What am I?",
+        "answer": "Lunchbox",
+        "answer_explain": "A lunchbox is a container for carrying a meal.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-271",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am white and dusty. Teachers write with me on the blackboard. What am I?",
+        "answer": "Chalk",
+        "answer_explain": "Chalk is a soft white rock used for writing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-272",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a ball with a map of the whole world on me. I can spin. What am I?",
+        "answer": "Globe",
+        "answer_explain": "A globe is a spherical model of Earth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-273",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I wave in the wind. Every country has one with different colors and shapes. What am I?",
+        "answer": "Flag",
+        "answer_explain": "A flag is a symbol of a country.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-274",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a house made of cloth. You sleep in me when you go camping. What am I?",
+        "answer": "Tent",
+        "answer_explain": "A tent is a portable shelter used for camping.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-275",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a warm bag you zip yourself into when you sleep in a tent. What am I?",
+        "answer": "Sleeping bag",
+        "answer_explain": "A sleeping bag keeps you warm outdoors.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-276",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I keep you warm outside at night. You roast marshmallows over me. What am I?",
+        "answer": "Campfire",
+        "answer_explain": "A campfire provides heat and light for campers.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-277",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I help you see in the dark. I have a battery and a bulb. I fit in your hand. What am I?",
+        "answer": "Flashlight",
+        "answer_explain": "A flashlight is a portable electric light.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-278",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have two tubes with glass lenses. I help you see things that are far away clearly. What am I?",
+        "answer": "Binoculars",
+        "answer_explain": "Binoculars magnify distant objects.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-279",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am long and have a big lens. I help you look at the stars and the moon. What am I?",
+        "answer": "Telescope",
+        "answer_explain": "A telescope is used to observe astronomical objects.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-280",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I pick up metal things like paper clips. I have a north and south pole. What am I?",
+        "answer": "Magnet",
+        "answer_explain": "A magnet attracts iron and has magnetic poles.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-281",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I give power to your toys and remote control. I have a plus and a minus end. What am I?",
+        "answer": "Battery",
+        "answer_explain": "A battery stores electrical energy.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-282",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have many buttons. I change the channel on the TV without touching it. What am I?",
+        "answer": "Remote control",
+        "answer_explain": "A remote control operates electronics from a distance.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-283",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "You wear me on your ears to listen to music so no one else can hear. What am I?",
+        "answer": "Headphones",
+        "answer_explain": "Headphones are personal listening devices.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-284",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am tall and have a trunk but no nose. I have leaves but no hair. What am I?",
+        "answer": "Tree",
+        "answer_explain": "A tree has a trunk and leaves.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-285",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am green and I jump. I start as a tadpole. I live near water. What am I?",
+        "answer": "Frog",
+        "answer_explain": "A frog is an amphibian that grows from a tadpole.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-286",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am the tallest animal. I have a long neck to eat leaves from high trees. What am I?",
+        "answer": "Giraffe",
+        "answer_explain": "Giraffes are known for their height and long necks.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-287",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have black and white stripes. I look like a horse but I live in Africa. What am I?",
+        "answer": "Zebra",
+        "answer_explain": "Zebras have distinctive black and white stripes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-288",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a big bird but I cannot fly. I run very fast and lay huge eggs. What am I?",
+        "answer": "Ostrich",
+        "answer_explain": "Ostriches are large flightless birds known for speed and big eggs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-289",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have a hard shell and no legs. I move by sliding on my stomach. What am I?",
+        "answer": "Snail",
+        "answer_explain": "Snails have shells and move on a muscular foot.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-290",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I have eight legs and eight eyes. I spin a web to catch my dinner. What am I?",
+        "answer": "Spider",
+        "answer_explain": "Spiders are arachnids that create webs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-291",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am yellow and sweet. Bees make me from flowers. Bears love to eat me. What am I?",
+        "answer": "Honey",
+        "answer_explain": "Honey is produced by bees and loved by bears.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-292",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a large fruit. I am green on the outside and red on the inside with black seeds. What am I?",
+        "answer": "Watermelon",
+        "answer_explain": "Watermelons are large fruits with distinct green rinds and red flesh.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-293",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a vegetable. I am long and orange. Rabbits love to eat me. What am I?",
+        "answer": "Carrot",
+        "answer_explain": "Carrots are orange root vegetables.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-294",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a vegetable. I make you cry when you cut me. I have many layers. What am I?",
+        "answer": "Onion",
+        "answer_explain": "Onions release a gas that causes tearing when cut.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-295",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a tropical fruit. I have a hard prickly skin and sweet yellow meat inside. I wear a green crown. What am I?",
+        "answer": "Pineapple",
+        "answer_explain": "Pineapples have rough skin and a crown of leaves.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-296",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am small and red. I have seeds on my skin. I am very sweet. What am I?",
+        "answer": "Strawberry",
+        "answer_explain": "Strawberries are the only fruit with seeds on the outside.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-297",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am brown on the outside and white on the inside. I have milk inside me. I grow on palm trees. What am I?",
+        "answer": "Coconut",
+        "answer_explain": "Coconuts have a hard shell, white meat, and water/milk inside.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-298",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am a yellow fruit. I am sour. You use me to make a refreshing drink in summer. What am I?",
+        "answer": "Lemon",
+        "answer_explain": "Lemons are sour and used to make lemonade.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-299",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am white and you drink me. I make your bones strong. I come from a cow. What am I?",
+        "answer": "Milk",
+        "answer_explain": "Milk is rich in calcium and comes from dairy cows.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-300",
+        "category": "en_riddle",
+        "difficulty": "medium",
+        "question": "I am cold and sweet. I come in a cone or a cup. I melt if you don't eat me fast. What am I?",
+        "answer": "Ice cream",
+        "answer_explain": "Ice cream is a frozen dessert that melts.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-301",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+        "answer": "Echo",
+        "answer_explain": "An echo is a sound reflection that requires air (wind) to travel.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-302",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "The more you take, the more you leave behind. What are they?",
+        "answer": "Footsteps",
+        "answer_explain": "When you walk (take steps), you leave tracks (footsteps) behind.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-303",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
+        "answer": "Map",
+        "answer_explain": "A map depicts geography but is just paper/digital.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-304",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What has a bottom at the top?",
+        "answer": "Leg",
+        "answer_explain": "Your leg is attached to your bottom (buttocks) at the top.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-305",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What can run but never walks, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?",
+        "answer": "River",
+        "answer_explain": "Metaphorical parts of a river: run (flow), mouth (end), head (source), bed (bottom).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-306",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have keys but no locks. I have a space but no room. You can enter, but can’t go outside. What am I?",
+        "answer": "Keyboard",
+        "answer_explain": "Computer keyboard has keys, space bar, and enter key.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-307",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "The person who makes it has no need of it; the person who buys it has no use for it. The person who uses it can neither see nor feel it. What is it?",
+        "answer": "Coffin",
+        "answer_explain": "A coffin is made for the dead, who cannot see or feel it.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-308",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What has to be broken before you can use it?",
+        "answer": "Egg",
+        "answer_explain": "An eggshell must be cracked to use the egg inside.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-309",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+        "answer": "Candle",
+        "answer_explain": "A candle melts and gets shorter as it burns.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-310",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What month of the year has 28 days?",
+        "answer": "All of them",
+        "answer_explain": "Every month has at least 28 days.",
+        "note": "Đáp án là cụm từ, 3 từ"
+    },
+    {
+        "rID": "EN-311",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is full of holes but still holds water?",
+        "answer": "Sponge",
+        "answer_explain": "A sponge is porous but absorbent.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-312",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What question can you never answer yes to?",
+        "answer": "Are you asleep?",
+        "answer_explain": "If you are asleep, you cannot answer.",
+        "note": "Đáp án là câu hỏi, 3 từ"
+    },
+    {
+        "rID": "EN-313",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is always in front of you but can’t be seen?",
+        "answer": "The future",
+        "answer_explain": "The future hasn't happened yet, so it's invisible.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-314",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What can you break, even if you never pick it up or touch it?",
+        "answer": "Promise",
+        "answer_explain": "Breaking a promise is a figure of speech.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-315",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What goes up but never comes down?",
+        "answer": "Age",
+        "answer_explain": "You only get older, never younger.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-316",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "A man who was outside in the rain without an umbrella or hat didn’t get a single hair on his head wet. Why?",
+        "answer": "He was bald",
+        "answer_explain": "He had no hair to get wet.",
+        "note": "Đáp án là mệnh đề, 3 từ"
+    },
+    {
+        "rID": "EN-317",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What gets wet while drying?",
+        "answer": "Towel",
+        "answer_explain": "A towel absorbs water to dry something else, becoming wet itself.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-318",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What can you keep after giving to someone?",
+        "answer": "Your word",
+        "answer_explain": "Keeping your word means fulfilling a promise you gave.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-319",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I shave every day, but my beard stays the same. What am I?",
+        "answer": "Barber",
+        "answer_explain": "A barber shaves other people.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-320",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "You see me once in June, twice in November, and not at all in May. What am I?",
+        "answer": "Letter E",
+        "answer_explain": "The letter 'e' appears once in 'June', twice in 'November', zero times in 'May'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-321",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have no life, but I can die. What am I?",
+        "answer": "Battery",
+        "answer_explain": "A battery 'dies' when it runs out of power.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-322",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What gets sharper the more you use it?",
+        "answer": "Brain",
+        "answer_explain": "Using your brain improves its function (makes it sharp).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-323",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am invisible, but you can see through me. I am air, but I am not wind. I am necessary for life, but I am not water. What am I?",
+        "answer": "Oxygen",
+        "answer_explain": "Oxygen is the essential gas for life.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-324",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What has many needles, but doesn’t sew?",
+        "answer": "Pine tree",
+        "answer_explain": "Pine trees have leaves called needles.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-325",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What has a head and a tail but no body?",
+        "answer": "Coin",
+        "answer_explain": "A coin has a 'heads' side and a 'tails' side.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-326",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What has 13 hearts, but no other organs?",
+        "answer": "Deck of cards",
+        "answer_explain": "A deck of cards has 13 cards in the Hearts suit.",
+        "note": "Đáp án là danh từ, 3 từ"
+    },
+    {
+        "rID": "EN-327",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What gets bigger the more you take away?",
+        "answer": "Hole",
+        "answer_explain": "Digging (taking away earth) makes a hole larger.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-328",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is black when you buy it, red when you use it, and grey when you throw it away?",
+        "answer": "Charcoal",
+        "answer_explain": "Charcoal is black, turns red when burning, and grey ash when done.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-329",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What kind of room has no doors or windows?",
+        "answer": "Mushroom",
+        "answer_explain": "A mushroom contains the word 'room' but is a fungus.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-330",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is the end of everything?",
+        "answer": "Letter G",
+        "answer_explain": "The letter 'g' is the last letter of the word 'everything'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-331",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What enters the water black and comes out red?",
+        "answer": "Lobster",
+        "answer_explain": "Lobsters turn red when cooked in boiling water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-332",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What connects two people but touches only one?",
+        "answer": "Wedding ring",
+        "answer_explain": "A wedding ring symbolizes connection between two, but is worn on one person's finger.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-333",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is cut on a table, but is never eaten?",
+        "answer": "Deck of cards",
+        "answer_explain": "In card games, you 'cut' the deck on the table.",
+        "note": "Đáp án là danh từ, 3 từ"
+    },
+    {
+        "rID": "EN-334",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What goes up when rain comes down?",
+        "answer": "Umbrella",
+        "answer_explain": "You open (put up) an umbrella when it rains.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-335",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have a little house in which I live all alone. It has no doors or windows, and if I want to go out I must break through the wall. What am I?",
+        "answer": "Chick",
+        "answer_explain": "A chick living inside an egg must break the shell (wall) to hatch.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-336",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a seed with three letters in my name. Take away the last two and I still sound the same. What am I?",
+        "answer": "Pea",
+        "answer_explain": "The word 'Pea' sounds like the letter 'P'.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-337",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "David's father has three sons: Snap, Crackle, and _____?",
+        "answer": "David",
+        "answer_explain": "The riddle states 'David's father', so David is the third son.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-338",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What 4-letter word can be written forward, backward or upside down, and can still be read from left to right?",
+        "answer": "NOON",
+        "answer_explain": "The word NOON is a palindrome and ambigram (looks same upside down).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-339",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What is at the end of a rainbow?",
+        "answer": "Letter W",
+        "answer_explain": "The letter 'W' is at the end of the word 'rainbow'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-340",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I can be long, or I can be short; I can be grown, and I can be bought; I can be painted, or left bare; I can be round, or square. What am I?",
+        "answer": "Fingernails",
+        "answer_explain": "Description of fingernails (painted, grown, cut/short).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-341",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What starts with a P, ends with an E, and has thousands of letters?",
+        "answer": "Post Office",
+        "answer_explain": "A Post Office contains thousands of mail letters.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-342",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the beginning of the end, and the end of time and space. I am essential to creation, and I surround every place. What am I?",
+        "answer": "Letter E",
+        "answer_explain": "The letter 'E' is the first letter of 'End', last of 'Time/Space'.",
+        "note": "Đáp án là chữ cái"
+    },
+    {
+        "rID": "EN-343",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "A man pushes his car to a hotel and tells the owner he's bankrupt. Why?",
+        "answer": "Playing Monopoly",
+        "answer_explain": "In the board game Monopoly, landing on a hotel with your car piece can bankrupt you.",
+        "note": "Đáp án là cụm từ, 2 từ"
+    },
+    {
+        "rID": "EN-344",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "You walk into a room that contains a match, a kerosene lamp, a candle and a fireplace. What would you light first?",
+        "answer": "The match",
+        "answer_explain": "You must light the match first to light anything else.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-345",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "A cowboy rides into town on Friday, stays for three days and leaves on Friday. How did he do it?",
+        "answer": "Horse named Friday",
+        "answer_explain": "Friday is the name of his horse.",
+        "note": "Đáp án là cụm từ, 3 từ"
+    },
+    {
+        "rID": "EN-346",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I never was, am always to be, No one ever saw me, nor ever will, And yet I am the confidence of all. What am I?",
+        "answer": "Tomorrow",
+        "answer_explain": "Tomorrow is always in the future and never exists in the present.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-347",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I go in hard. I come out soft. You blow me hard. What am I?",
+        "answer": "Chewing gum",
+        "answer_explain": "Gum is hard at first, soft after chewing, and you blow bubbles with it.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-348",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am an instrument you can hear, but you cannot touch or see me. What am I?",
+        "answer": "Voice",
+        "answer_explain": "The human voice is an instrument of sound.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-349",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I’m found in socks, scarves and mittens; and often in the paws of playful kittens. What am I?",
+        "answer": "Yarn",
+        "answer_explain": "Yarn is used to knit clothes and is a toy for cats.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-350",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "What falls, but never breaks? What breaks, but never falls?",
+        "answer": "Night and Day",
+        "answer_explain": "Night falls; Day breaks (dawn).",
+        "note": "Đáp án là cụm từ, 3 từ"
+    },
+    {
+        "rID": "EN-351",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a liquid metal. I am silver in color and very toxic. I am used in old thermometers. What am I?",
+        "answer": "Mercury",
+        "answer_explain": "Mercury is the only metal that is liquid at room temperature.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-352",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a gas that plants need to grow. Humans breathe me out. What am I?",
+        "answer": "Carbon dioxide",
+        "answer_explain": "Humans exhale carbon dioxide, which plants use for photosynthesis.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-353",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a rock that can float on water. I am formed from volcanic lava. What am I?",
+        "answer": "Pumice",
+        "answer_explain": "Pumice is a light, porous volcanic rock that floats.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-354",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a mythical creature. I look like a horse with a single horn on my forehead. What am I?",
+        "answer": "Unicorn",
+        "answer_explain": "Unicorns are legendary creatures resembling horses with a horn.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-355",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a mythical creature. I breathe fire and have scales. I often guard treasures in stories. What am I?",
+        "answer": "Dragon",
+        "answer_explain": "Dragons are large reptile-like legendary creatures.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-356",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large reptile. I live in water and on land. I have sharp teeth and a long tail. I am not an alligator. What am I?",
+        "answer": "Crocodile",
+        "answer_explain": "Crocodiles are distinct from alligators by their snout shape and tooth visibility.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-357",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a natural disaster. I am a giant wave caused by an underwater earthquake. What am I?",
+        "answer": "Tsunami",
+        "answer_explain": "Tsunamis are massive sea waves caused by seismic activity.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-358",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a sudden shaking of the ground. I can destroy buildings and split the earth. What am I?",
+        "answer": "Earthquake",
+        "answer_explain": "An earthquake is the shaking of the Earth's surface.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-359",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a bright flash of electricity in the sky during a storm. I come before thunder. What am I?",
+        "answer": "Lightning",
+        "answer_explain": "Lightning is an electrostatic discharge during a storm.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-360",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a musical instrument made of brass. You blow into me and I have three valves. What am I?",
+        "answer": "Trumpet",
+        "answer_explain": "The trumpet is a brass instrument with valves.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-361",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a tool with two metal jaws. I am used to grip things or cut wire. What am I?",
+        "answer": "Pliers",
+        "answer_explain": "Pliers are hand tools used to hold objects firmly.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-362",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a tool used to turn screws. I have a handle and a metal shaft. What am I?",
+        "answer": "Screwdriver",
+        "answer_explain": "A screwdriver is used for installing or removing screws.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-363",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a fastener with a spiral ridge. You use a screwdriver to put me into wood. What am I?",
+        "answer": "Screw",
+        "answer_explain": "A screw is a metal fastener with a threaded shank.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-364",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a material made from sand. I am transparent and can break easily. What am I?",
+        "answer": "Glass",
+        "answer_explain": "Glass is made from melted silica (sand).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-365",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the fourth planet from the sun. I am known as the Red Planet. What am I?",
+        "answer": "Mars",
+        "answer_explain": "Mars appears red due to iron oxide on its surface.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-366",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a planet with beautiful rings made of ice and rock. What am I?",
+        "answer": "Saturn",
+        "answer_explain": "Saturn is famous for its prominent ring system.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-367",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a hard hat worn by knights long ago. I protect the head in battle. What am I?",
+        "answer": "Helmet",
+        "answer_explain": "A helmet is protective gear for the head.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-368",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a metal suit worn by knights for protection. What am I?",
+        "answer": "Armor",
+        "answer_explain": "Armor is a protective covering used to prevent injury in combat.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-369",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a red beetle with black spots. I can fly. What am I?",
+        "answer": "Ladybug",
+        "answer_explain": "Ladybugs are small beetles with distinct red and black markings.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-370",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a machine that orbits the Earth. I send signals for TV and GPS. What am I?",
+        "answer": "Satellite",
+        "answer_explain": "Satellites are artificial objects placed in orbit.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-371",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a tool used to turn nuts and bolts. I have adjustable jaws. What am I?",
+        "answer": "Wrench",
+        "answer_explain": "A wrench (or spanner) provides grip to turn objects.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-372",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a shiny headwear made of gold and jewels. Kings and Queens wear me. What am I?",
+        "answer": "Crown",
+        "answer_explain": "A crown is a symbol of monarchy worn on the head.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-373",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a liquid with a nice smell. People spray me on their skin. What am I?",
+        "answer": "Perfume",
+        "answer_explain": "Perfume is a mixture of fragrant essential oils.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-374",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I make your hair soft and smooth after you wash it. What am I?",
+        "answer": "Conditioner",
+        "answer_explain": "Hair conditioner is used to improve hair texture.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-375",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large pad you sleep on. I am usually placed on a bed frame. What am I?",
+        "answer": "Mattress",
+        "answer_explain": "A mattress is a large rectangular pad for supporting a lying person.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-376",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I hang from the ceiling and have many lights. I am made of crystal or glass. What am I?",
+        "answer": "Chandelier",
+        "answer_explain": "A chandelier is a decorative ceiling-mounted light fixture.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-377",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a machine that washes plates, cups, and forks. What am I?",
+        "answer": "Dishwasher",
+        "answer_explain": "A dishwasher automatically cleans dishware and cutlery.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-378",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I allow computers to connect without wires. What am I?",
+        "answer": "Wi-Fi",
+        "answer_explain": "Wi-Fi is a wireless networking technology.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-379",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a machine that looks like a human. I can do work for people. What am I?",
+        "answer": "Robot",
+        "answer_explain": "A robot is a machine capable of carrying out complex actions.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-380",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have a root but I am not a plant. I have a crown but I am not a king. I am in your mouth. What am I?",
+        "answer": "Tooth",
+        "answer_explain": "A tooth has parts called the root and the crown.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-381",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am an organ inside your chest. I pump blood to your body. What am I?",
+        "answer": "Heart",
+        "answer_explain": "The heart is the organ responsible for pumping blood.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-382",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a pair of spongy organs in your chest. I help you breathe air. What am I?",
+        "answer": "Lungs",
+        "answer_explain": "Lungs are the primary organs of the respiratory system.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-383",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the bone structure that protects your brain. What am I?",
+        "answer": "Skull",
+        "answer_explain": "The skull is the bony structure that forms the head.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-384",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a red liquid that flows through your veins. What am I?",
+        "answer": "Blood",
+        "answer_explain": "Blood circulates in the veins and arteries.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-385",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a job. I fly airplanes and travel the world. What am I?",
+        "answer": "Pilot",
+        "answer_explain": "A pilot operates the flying controls of an aircraft.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-386",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a job. I cook food in a restaurant. I wear a white hat. What am I?",
+        "answer": "Chef",
+        "answer_explain": "A chef is a professional cook.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-387",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a job. I treat sick animals. What am I?",
+        "answer": "Veterinarian, Vet",
+        "answer_explain": "A veterinarian is a doctor for animals.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-388",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a job. I put out fires and rescue people. What am I?",
+        "answer": "Firefighter",
+        "answer_explain": "Firefighters are trained to extinguish fires.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-389",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a direction. I am opposite to North. What am I?",
+        "answer": "South",
+        "answer_explain": "South is one of the cardinal directions.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-390",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the largest continent in the world. China and India are in me. What am I?",
+        "answer": "Asia",
+        "answer_explain": "Asia is the largest continent by land area.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-391",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the largest ocean on Earth. What am I?",
+        "answer": "Pacific Ocean",
+        "answer_explain": "The Pacific is the largest of the world's oceans.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-392",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a unit of time. I have 60 minutes. What am I?",
+        "answer": "Hour",
+        "answer_explain": "An hour consists of 60 minutes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-393",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a unit of time. I have 7 days. What am I?",
+        "answer": "Week",
+        "answer_explain": "A week consists of 7 days.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-394",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. I teach you about the past and old civilizations. What am I?",
+        "answer": "History",
+        "answer_explain": "History is the study of past events.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-395",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. I teach you about shapes like triangles and circles. What am I?",
+        "answer": "Geometry",
+        "answer_explain": "Geometry is the branch of math dealing with shapes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-396",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a fruit with many red seeds inside. I have a tough skin. What am I?",
+        "answer": "Pomegranate",
+        "answer_explain": "Pomegranates are known for their jewel-like seeds (arils).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-397",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a green vegetable that looks like a small tree. What am I?",
+        "answer": "Broccoli",
+        "answer_explain": "Broccoli florets resemble small trees.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-398",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a drink made from mixed fruits blended together. What am I?",
+        "answer": "Smoothie",
+        "answer_explain": "A smoothie is a thick, blended beverage.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-399",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a holiday in October where people wear scary costumes. What am I?",
+        "answer": "Halloween",
+        "answer_explain": "Halloween is celebrated on October 31st with costumes.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-400",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have a frame but no picture. I have a net but catch no fish. I am used in soccer. What am I?",
+        "answer": "Goal",
+        "answer_explain": "A soccer goal has a frame and a net.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-401",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a professional who designs buildings and houses. I draw plans for construction. What am I?",
+        "answer": "Architect",
+        "answer_explain": "An architect designs structures and prepares blueprints.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-402",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a doctor who fixes your teeth. I help you keep your smile healthy. What am I?",
+        "answer": "Dentist",
+        "answer_explain": "A dentist specializes in oral health and teeth.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-403",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a person who fixes cars and engines when they break down. What am I?",
+        "answer": "Mechanic",
+        "answer_explain": "A mechanic repairs vehicles and machinery.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-404",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I travel to space in a rocket. I wear a special suit to survive. What am I?",
+        "answer": "Astronaut",
+        "answer_explain": "Astronauts are trained to travel and work in space.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-405",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I defend people in court. I know the laws very well. What am I?",
+        "answer": "Lawyer",
+        "answer_explain": "A lawyer provides legal advice and represents clients.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-406",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a scientific tool. I use lenses to make very small things look bigger, like bacteria. What am I?",
+        "answer": "Microscope",
+        "answer_explain": "A microscope magnifies minute objects not visible to the naked eye.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-407",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a device used to measure body temperature. I have mercury or a digital sensor inside. What am I?",
+        "answer": "Thermometer",
+        "answer_explain": "A thermometer measures temperature.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-408",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a structure in a park that shoots water into the air. I am decorative. What am I?",
+        "answer": "Fountain",
+        "answer_explain": "A fountain jets water into the air for effect.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-409",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a tall tower with a bright light at the top. I warn ships about dangerous rocks. What am I?",
+        "answer": "Lighthouse",
+        "answer_explain": "A lighthouse guides maritime navigation.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-410",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a giant wall built across a river to hold back water and create electricity. What am I?",
+        "answer": "Dam",
+        "answer_explain": "A dam creates a reservoir and is often used for hydropower.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-411",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a huge floating mountain of ice in the ocean. Most of me is underwater. What am I?",
+        "answer": "Iceberg",
+        "answer_explain": "An iceberg is a large piece of freshwater ice floating in open water.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-412",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a sudden, rapid flow of snow down a mountain slope. I can be very dangerous. What am I?",
+        "answer": "Avalanche",
+        "answer_explain": "An avalanche is a rapid descent of snow.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-413",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a long period of time when there is no rain. Plants dry up because of me. What am I?",
+        "answer": "Drought",
+        "answer_explain": "A drought is a prolonged period of abnormally low rainfall.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-414",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I happen when water covers dry land. I occur after heavy rain or when a river overflows. What am I?",
+        "answer": "Flood",
+        "answer_explain": "A flood is an overflow of water onto normally dry land.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-415",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a huge system of stars, gas, and dust held together by gravity. The Milky Way is one. What am I?",
+        "answer": "Galaxy",
+        "answer_explain": "A galaxy is a gravitationally bound system of stars.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-416",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the largest planet in the solar system. I have a Great Red Spot. What am I?",
+        "answer": "Jupiter",
+        "answer_explain": "Jupiter is a gas giant and the largest planet.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-417",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the invisible force that pulls you towards the ground so you don't float away. What am I?",
+        "answer": "Gravity",
+        "answer_explain": "Gravity is the force of attraction between mass.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-418",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a smooth, shiny, round gem found inside an oyster. What am I?",
+        "answer": "Pearl",
+        "answer_explain": "Pearls are produced within the soft tissue of a shelled mollusk.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-419",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a yellow precious metal. People use me to make rings and coins. What am I?",
+        "answer": "Gold",
+        "answer_explain": "Gold is a valuable chemical element (Au).",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-420",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a grey metal. I am very strong but I can rust if I get wet. What am I?",
+        "answer": "Iron",
+        "answer_explain": "Iron is a metal that oxidizes (rusts) when exposed to moisture.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-421",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I have a long handle and a broad blade. You use me to dig holes or move soil. What am I?",
+        "answer": "Shovel",
+        "answer_explain": "A shovel is a tool for digging, lifting, and moving bulk materials.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-422",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a machine in the office. I make exact copies of paper documents. What am I?",
+        "answer": "Photocopier",
+        "answer_explain": "A photocopier makes paper copies of documents.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-423",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a small plastic card. You use me to pay for things instead of cash. What am I?",
+        "answer": "Credit card",
+        "answer_explain": "A credit card allows payment without physical money.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-424",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "You wear me on your eyes to protect them from bright sunlight. What am I?",
+        "answer": "Sunglasses",
+        "answer_explain": "Sunglasses protect eyes from UV rays and glare.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-425",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the grey gas that comes from a fire. I rise into the air. What am I?",
+        "answer": "Smoke",
+        "answer_explain": "Smoke is a collection of particulates emitted by combustion.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-426",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am moving stairs. I carry people up and down in a shopping mall. What am I?",
+        "answer": "Escalator",
+        "answer_explain": "An escalator is a moving staircase conveyor.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-427",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large, expensive boat. People use me for racing or luxury holidays. What am I?",
+        "answer": "Yacht",
+        "answer_explain": "A yacht is a recreational boat used for pleasure or sports.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-428",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am made of cloth. You wear me on your back to fall slowly from an airplane. What am I?",
+        "answer": "Parachute",
+        "answer_explain": "A parachute creates drag to slow down descent.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-429",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large book full of facts about many subjects. I am organized alphabetically. What am I?",
+        "answer": "Encyclopedia",
+        "answer_explain": "An encyclopedia is a reference work providing summaries of knowledge.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-430",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a book where you write your personal thoughts and secrets every day. What am I?",
+        "answer": "Diary",
+        "answer_explain": "A diary is a record of discrete entries describing life events.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-431",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a small document with your photo. You need me to travel to other countries. What am I?",
+        "answer": "Passport",
+        "answer_explain": "A passport acts as identification for international travel.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-432",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the bags and suitcases you take with you when you travel. What am I?",
+        "answer": "Luggage",
+        "answer_explain": "Luggage consists of bags used to carry belongings.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-433",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a piece of paper that allows you to enter a cinema, bus, or concert. What am I?",
+        "answer": "Ticket",
+        "answer_explain": "A ticket serves as proof of payment for admission.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-434",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a paper you get after buying something. I show how much you paid. What am I?",
+        "answer": "Receipt",
+        "answer_explain": "A receipt is a written acknowledgment of payment.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-435",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a list of food and drinks available in a restaurant. You read me to order. What am I?",
+        "answer": "Menu",
+        "answer_explain": "A menu is a list of options at a restaurant.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-436",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a set of instructions for cooking a specific meal. I list ingredients and steps. What am I?",
+        "answer": "Recipe",
+        "answer_explain": "A recipe explains how to prepare a dish.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-437",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "We are the different foods you need to make a dish. We are listed in a recipe. What are we?",
+        "answer": "Ingredients",
+        "answer_explain": "Ingredients are the substances used to make a dish.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-438",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a dish made from beaten eggs fried in a pan. You can add cheese or ham. What am I?",
+        "answer": "Omelet",
+        "answer_explain": "An omelet is a dish made from eggs.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-439",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a Japanese dish made of vinegared rice and raw fish. What am I?",
+        "answer": "Sushi",
+        "answer_explain": "Sushi is a traditional Japanese dish.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-440",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am an Italian food made from flour and water. I come in shapes like spaghetti or macaroni. What am I?",
+        "answer": "Pasta",
+        "answer_explain": "Pasta is a staple food of traditional Italian cuisine.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-441",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a glass tank where pet fish live. What am I?",
+        "answer": "Aquarium",
+        "answer_explain": "An aquarium is a transparent tank for water-dwelling animals.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-442",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large place where sports are played. Thousands of people sit around to watch. What am I?",
+        "answer": "Stadium",
+        "answer_explain": "A stadium is a venue for outdoor sports or concerts.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-443",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a building where plays and musical performances are shown on a stage. What am I?",
+        "answer": "Theater",
+        "answer_explain": "A theater is a structure where theatrical works are performed.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-444",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a place where airplanes land and take off. People come here to travel. What am I?",
+        "answer": "Airport",
+        "answer_explain": "An airport is an aerodrome with facilities for flights.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-445",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a place where trains stop to let passengers on and off. What am I?",
+        "answer": "Station",
+        "answer_explain": "A train station is a railway facility.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-446",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a shop where you buy medicine. What am I?",
+        "answer": "Pharmacy",
+        "answer_explain": "A pharmacy is a retail shop for drugs and medicine.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-447",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a shop where bread and cakes are baked and sold. What am I?",
+        "answer": "Bakery",
+        "answer_explain": "A bakery produces and sells flour-based food baked in an oven.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-448",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a giant structure in Egypt. I have a square base and triangular sides. What am I?",
+        "answer": "Pyramid",
+        "answer_explain": "The Pyramids are ancient masonry structures in Egypt.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-449",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a figure of a person or animal carved from stone or metal. What am I?",
+        "answer": "Statue",
+        "answer_explain": "A statue is a free-standing sculpture.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-450",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a large hole in the ground from which we dig out coal or gold. What am I?",
+        "answer": "Mine",
+        "answer_explain": "A mine is an excavation in the earth for extracting minerals.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-451",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a cloud that sits on the ground. I make it hard to see when you drive. What am I?",
+        "answer": "Fog",
+        "answer_explain": "Fog is a thick cloud of tiny water droplets suspended in the atmosphere at or near the earth's surface.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-452",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I happen when the moon passes between the sun and the earth, blocking the light. What am I?",
+        "answer": "Eclipse",
+        "answer_explain": "A solar eclipse occurs when the moon obscures the sun.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-453",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the rising and falling of the ocean level. I am caused by the moon's gravity. What am I?",
+        "answer": "Tide",
+        "answer_explain": "Tides are the rise and fall of sea levels caused by the moon.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-454",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am invisible energy. I flow through wires to power your lights and TV. What am I?",
+        "answer": "Electricity",
+        "answer_explain": "Electricity is the flow of electric charge used as power.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-455",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I cannot be seen, but I can be heard. I travel in waves to your ears. What am I?",
+        "answer": "Sound",
+        "answer_explain": "Sound is a vibration that propagates as an acoustic wave.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-456",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "Everyone gives me, but few people take me. I am wise words to help you. What am I?",
+        "answer": "Advice",
+        "answer_explain": "Advice is guidance offered to someone, often not followed.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-457",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am easy to get into, but hard to get out of. I usually mean a bad situation. What am I?",
+        "answer": "Trouble",
+        "answer_explain": "Trouble implies difficulties or problems.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-458",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I happen in your head while you sleep. I can be scary or happy. What am I?",
+        "answer": "Dream",
+        "answer_explain": "A dream is a succession of images, ideas, emotions, and sensations during sleep.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-459",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the time when the sun is down. I arrive without luggage and leave without saying goodbye. What am I?",
+        "answer": "Night",
+        "answer_explain": "Night is the period of darkness in each twenty-four hours.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-460",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I hang by the window. I am made of cloth. I block the light or give you privacy. What am I?",
+        "answer": "Curtain",
+        "answer_explain": "Curtains are pieces of cloth used to cover windows.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-461",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a thick cloth you use on your bed to keep warm. I have no voice but I can comfort you. What am I?",
+        "answer": "Blanket",
+        "answer_explain": "A blanket is a large piece of woolen or similar material used as a bed covering.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-462",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I hold flowers and water. I am often made of glass or ceramic. Be careful not to drop me. What am I?",
+        "answer": "Vase",
+        "answer_explain": "A vase is an open container used for holding cut flowers.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-463",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am art created with paint and a brush. I hang on a wall for people to look at. What am I?",
+        "answer": "Painting",
+        "answer_explain": "A painting is a picture executed in paints.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-464",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am low land between hills or mountains. A river often runs through me. What am I?",
+        "answer": "Valley",
+        "answer_explain": "A valley is a low area of land between hills or mountains.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-465",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a ball of ice and dust that flies through space. I have a long tail. What am I?",
+        "answer": "Comet",
+        "answer_explain": "A comet is a celestial object consisting of a nucleus of ice and dust.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-466",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a bright streak of light in the sky. People call me a 'shooting star' but I am a rock. What am I?",
+        "answer": "Meteor",
+        "answer_explain": "A meteor is a small body of matter from outer space that enters the earth's atmosphere.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-467",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a group of stars that make a pattern or picture in the sky. What am I?",
+        "answer": "Constellation",
+        "answer_explain": "A constellation is a group of stars forming a recognizable pattern.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-468",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the line where the earth meets the sky. You can never reach me. What am I?",
+        "answer": "Horizon",
+        "answer_explain": "The horizon is the line at which the earth's surface and the sky appear to meet.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-469",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I work in a school. I write on a board and help you learn new things. What am I?",
+        "answer": "Teacher",
+        "answer_explain": "A teacher is a person who teaches, especially in a school.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-470",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I wear a uniform and a badge. I protect the city and catch criminals. What am I?",
+        "answer": "Police officer",
+        "answer_explain": "A police officer enforces the law.",
+        "note": "Đáp án là danh từ, 2 từ"
+    },
+    {
+        "rID": "EN-471",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I grow crops and raise animals for food. I drive a tractor. What am I?",
+        "answer": "Farmer",
+        "answer_explain": "A farmer operates a farm.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-472",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I work in a laboratory. I do experiments to discover new things. What am I?",
+        "answer": "Scientist",
+        "answer_explain": "A scientist conducts scientific research.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-473",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I work in a court. I hold a gavel and decide if someone is guilty. What am I?",
+        "answer": "Judge",
+        "answer_explain": "A judge is a public official appointed to decide cases in a court of law.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-474",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I wear a green uniform. I fight to protect my country. What am I?",
+        "answer": "Soldier",
+        "answer_explain": "A soldier serves in an army.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-475",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I build things with wood. I make tables, chairs, and houses. What am I?",
+        "answer": "Carpenter",
+        "answer_explain": "A carpenter works with timber to construct and maintain buildings/furniture.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-476",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come to your house when water pipes leak. I fix toilets and sinks. What am I?",
+        "answer": "Plumber",
+        "answer_explain": "A plumber installs and repairs piping systems.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-477",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am an organ in your body. I digest your food. What am I?",
+        "answer": "Stomach",
+        "answer_explain": "The stomach digests food.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-478",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the frame of your body. I am made of many bones. What am I?",
+        "answer": "Skeleton",
+        "answer_explain": "The skeleton is the internal framework of bone.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-479",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I help you move and lift heavy things. You build me when you exercise. What am I?",
+        "answer": "Muscle",
+        "answer_explain": "Muscles allow movement and provide strength.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-480",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I cover your whole body. I protect you from germs. What am I?",
+        "answer": "Skin",
+        "answer_explain": "Skin is the outer covering of the body.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-481",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the joint in the middle of your arm. I help you bend your arm. What am I?",
+        "answer": "Elbow",
+        "answer_explain": "The elbow is the joint between the forearm and the upper arm.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-482",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am the joint in the middle of your leg. You scrape me when you fall. What am I?",
+        "answer": "Knee",
+        "answer_explain": "The knee is the joint between the thigh and the lower leg.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-483",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a small round object on your shirt. You push me through a hole to close your clothes. What am I?",
+        "answer": "Button",
+        "answer_explain": "Buttons fasten clothing by being pushed through a buttonhole.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-484",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I cover your arm. I can be long or short. What am I?",
+        "answer": "Sleeve",
+        "answer_explain": "A sleeve is the part of a garment that covers the arm.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-485",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a string used to tie your sneakers. What am I?",
+        "answer": "Shoelace",
+        "answer_explain": "A shoelace is a cord passed through eyelets to fasten a shoe.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-486",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am very thin. You put me through the eye of a needle to sew. What am I?",
+        "answer": "Thread",
+        "answer_explain": "Thread is a long, thin strand of cotton used in sewing.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-487",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come from sheep. People use me to knit warm sweaters. What am I?",
+        "answer": "Wool",
+        "answer_explain": "Wool is the textile fiber obtained from sheep.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-488",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come from a plant. I am white and soft. T-shirts are made of me. What am I?",
+        "answer": "Cotton",
+        "answer_explain": "Cotton is a soft, fluffy staple fiber.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-489",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come from a worm. I am very smooth and expensive. What am I?",
+        "answer": "Silk",
+        "answer_explain": "Silk is a fine, strong, soft fiber produced by silkworms.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-490",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come from cow skin. I am tough. Shoes and belts are made of me. What am I?",
+        "answer": "Leather",
+        "answer_explain": "Leather is a material made from the skin of an animal.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-491",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a material. I am not natural. Bottles and toys are made of me. I last a long time. What am I?",
+        "answer": "Plastic",
+        "answer_explain": "Plastic is a synthetic material.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-492",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I come from trees. You use me to build houses and make paper. What am I?",
+        "answer": "Wood",
+        "answer_explain": "Wood is the hard fibrous material forming the trunk of trees.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-493",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. I am all about numbers, addition, and subtraction. What am I?",
+        "answer": "Math, Mathematics",
+        "answer_explain": "Mathematics is the abstract science of number, quantity, and space.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-494",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. You do experiments and learn about nature and biology. What am I?",
+        "answer": "Science",
+        "answer_explain": "Science involves the study of the physical and natural world.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-495",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. You use paint, brushes, and crayons to create things. What am I?",
+        "answer": "Art",
+        "answer_explain": "Art class involves creative expression through visual media.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-496",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a subject at school. You learn to sing and play instruments. What am I?",
+        "answer": "Music",
+        "answer_explain": "Music class involves studying and performing music.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-497",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a place where people go to exercise and lift weights. What am I?",
+        "answer": "Gym",
+        "answer_explain": "A gym is a place equipped for physical exercise.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-498",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a noisy insect. I chirp at night. I am named after a sport played with a bat. What am I?",
+        "answer": "Cricket",
+        "answer_explain": "A cricket is an insect; Cricket is also a sport.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-499",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a heavy metal box. Soldiers drive me in war. I have tracks instead of wheels. What am I?",
+        "answer": "Tank",
+        "answer_explain": "A tank is an armored fighting vehicle.",
+        "note": "Đáp án là danh từ, 1 từ"
+    },
+    {
+        "rID": "EN-500",
+        "category": "en_riddle",
+        "difficulty": "hard",
+        "question": "I am a hard covering on an animal like a turtle or a crab. You can find me on the beach. What am I?",
+        "answer": "Shell",
+        "answer_explain": "A shell is a hard outer layer used for protection.",
+        "note": "Đáp án là danh từ, 1 từ"
+    }
+]

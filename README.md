@@ -1,6 +1,6 @@
 # MathGenius Kids 🎓
 
-**MathGenius Kids** là ứng dụng web tương tác giúp trẻ em tiểu học (Lớp 1 - 5) học toán một cách vui vẻ và hiệu quả. Ứng dụng kết hợp các bài tập toán học với giao diện sinh động, hệ thống khen thưởng và theo dõi tiến độ.
+**MathGenius Kids** là ứng dụng web tương tác giúp trẻ em tiểu học (Lớp 1 - 5) học toán một cách vui vẻ và hiệu quả. Ứng dụng kết hợp các bài tập toán học với giao diện sinh động, hệ thống khen thưởng, trò chơi giáo dục, và nhiều tính năng hấp dẫn khác.
 
 ![MathGenius Kids Banner](public/OG.png)
 
@@ -21,30 +21,73 @@
     *   Mỗi bé có avatar, lịch sử học tập và thành tích riêng
     *   Dễ dàng chuyển đổi giữa các hồ sơ
 
-### 📚 **Nội Dung Học Tập**
+### 📚 **Các Chế Độ Học Tập**
+
+#### 📖 **Ôn Luyện (Study Mode)**
 *   **Đa Dạng Chủ Đề:** 
     *   Toán lớp 1-5 với nội dung phù hợp từng cấp độ
-    *   Bài tập Cộng, Trừ, Nhân, Chia, Phân số, Hình học, v.v.
-    *   Bài tập ứng dụng thực tế
+    *   Bài tập Cộng, Trừ, Nhân, Chia, Phân số, Hình học, Đo lường, v.v.
+    *   Bài tập ứng dụng thực tế và bài toán có lời văn
 *   **Nhiều Dạng Câu Hỏi:**
     *   📋 Trắc nghiệm (chọn 1 đáp án)
     *   ☑️ Chọn nhiều đáp án đúng
+    *   ❌ Chọn đáp án sai
     *   ✍️ Tự nhập kết quả
     *   ⌨️ Luyện gõ phím (kết hợp học toán và tin học)
 *   **⌨️ Hỗ Trợ Gõ Tiếng Việt:** 
     *   Tích hợp hướng dẫn gõ Telex ngay trong bài tập
     *   Luyện tập gõ chữ Việt có dấu chính xác
+*   **📄 Xuất PDF:** 
+    *   Tạo đề thi ra giấy để bé làm offline
+    *   In bài tập về làm thêm tại nhà
 
-### 🎮 **Trò Chơi Giáo Dục**
-*   **Trò chơi toán học:** Học qua chơi với nhiều mini-game hấp dẫn
+#### 🎮 **Trò Chơi Giáo Dục (Games)**
 *   **Memory Match:** Rèn luyện trí nhớ kết hợp luyện tính
 *   **Speed Math:** Thi đấu giải toán với thời gian
-*   **Nhận thưởng:** Hoàn thành game nhận sao và ảnh sưu tập
+*   **Pattern Recognition:** Tìm quy luật số
+*   **Nhận Thưởng:** Hoàn thành game nhận sao và thẻ bài gacha
+
+#### 📚 **1000 Câu Hỏi Vì Sao (Tell Me Why)**
+*   **Tri Thức Rộng:** Khám phá kiến thức qua hàng ngàn câu hỏi "Vì sao?"
+*   **Nhiều Chủ Đề:**
+    *   🐾 Động vật
+    *   🔬 Khoa học
+    *   🌳 Tự nhiên
+    *   👥 Con người
+    *   🌍 Trái đất
+    *   và nhiều hơn nữa...
+*   **Học Mọi Lúc:** Đọc và học thêm kiến thức ngoài toán học
+
+#### 🦁 **Giải Đố Nhân Sư (Sphinx Riddle)** 🆕
+*   **Câu Đố Thú Vị:** 
+    *   Bộ câu đố Việt Nam (tiếng Việt)
+    *   Bộ câu đố Nước ngoài (tiếng Anh)
+    *   Chế độ Mix: Random từ cả hai bộ
+*   **3 Mức Độ Khó:**
+    *   Dễ: 1⭐ + 20% cơ hội nhận thẻ bài
+    *   Trung bình: 2⭐ + 30% cơ hội nhận thẻ bài
+    *   Khó: 3⭐ + 50% cơ hội nhận thẻ bài
+*   **Hệ Thống Phạt:**
+    *   Trả lời sai → Random: Mất 1 sao HOẶC bỏ qua phần thưởng kế tiếp
+    *   Phạt "bỏ qua thưởng" áp dụng cho MỌI hoạt động (ôn luyện, game, giải đố)
+*   **Trả Lời Linh Hoạt:**
+    *   Không phân biệt hoa thường
+    *   Chấp nhận cả "con chó" và "chó"
+    *   Hỗ trợ nhiều đáp án đúng
+*   **Theo Dõi Tiến Độ:** Câu đố đã giải không xuất hiện lại
+*   **Chúc Mừng:** Thông báo đặc biệt khi giải hết pool câu đố
 
 ### 🏆 **Động Lực & Khen Thưởng**
-*   **Hệ Thống Sao:** Làm bài tốt nhận sao, tích sao mua avatar
-*   **Album Sưu Tập:** Thu thập hình ảnh đẹp qua gacha sau mỗi bài
-*   **Thống Kê Tiến Độ:** 
+*   **Hệ Thống Sao ⭐:** 
+    *   Làm bài tốt nhận sao
+    *   Tích sao mua avatar và theme
+    *   Giải đố Nhân Sư nhận thêm sao
+*   **Album Sưu Tập 🎴:** 
+    *   Thu thập thẻ bài đẹp qua gacha
+    *   Nhiều bộ sưu tập: Pokemon, Dragon Ball, và nhiều hơn nữa
+    *   4 độ hiếm: Common, Uncommon, Rare, Epic, Legendary
+    *   Xem và quản lý bộ sưu tập trong Album
+*   **Thống Kê Tiến Độ 📊:** 
     *   Biểu đồ hiển thị kết quả theo thời gian
     *   Xem lại bài làm và đáp án đúng
     *   Theo dõi điểm số và thời gian hoàn thành
@@ -53,18 +96,25 @@
     *   🎉 Lời khen ngợi động viên sau mỗi bài
     *   ⭐ Huy hiệu thành tích khi đạt điểm cao
 
-### 🛍️ **Shop & Tùy Chỉnh**
-*   **Cửa Hàng Avatar:** Mua avatar đẹp bằng sao kiếm được
-*   **Đa Dạng Lựa Chọn:** Nhiều avatar cute và đáng yêu
-*   **Thay Đổi Giao Diện:** Tùy chỉnh avatar theo sở thích
+### 🛍️ **Cửa Hàng (Shop)**
+*   **Mua Avatar:** 
+    *   Nhiều avatar cute và đáng yêu
+    *   Dùng sao kiếm được để mua
+*   **Mua Theme:** 
+    *   Đổi màu sắc giao diện
+    *   Cá nhân hóa trải nghiệm học tập
+*   **Gacha Thử:** Xem trước thẻ bài có thể nhận được
+*   **Làm Tươi Hàng:** Cửa hàng cập nhật hàng ngày
 
 ### 📊 **Tiện Ích Cho Phụ Huynh**
 *   **Theo Dõi Tiến Độ:** Xem biểu đồ thống kê hiểu mức độ tiến bộ của bé
-*   **Lịch Sử Chi Tiết:** Xem lại tất cả bài kiểm tra đã làm
-*   **Xuất PDF:** 
-    *   Tạo đề thi ra giấy để bé làm offline
-    *   In bài tập về làm thêm tại nhà
-*   **Quản Lý Hồ Sơ:** Tạo, sửa, xóa hồ sơ học sinh dễ dàng
+*   **Lịch Sử Chi Tiết:** 
+    *   Xem lại tất cả bài kiểm tra đã làm
+    *   Xem chi tiết từng câu trả lời
+    *   Theo dõi lịch sử chơi game
+*   **Quản Lý Hồ Sơ:** 
+    *   Tạo, sửa, xóa hồ sơ học sinh dễ dàng
+    *   Mỗi bé có dữ liệu riêng biệt
 
 ## 🎯 Phù Hợp Với
 
@@ -72,6 +122,7 @@
 ✅ Phụ huynh muốn theo dõi con học  
 ✅ Giáo viên tạo đề thi nhanh  
 ✅ Bé muốn học toán vui vẻ  
+✅ Bé thích giải đố và thu thập thẻ bài  
 
 ## 🚀 Bắt Đầu Sử Dụng
 
@@ -79,7 +130,14 @@
 1. Truy cập: **[https://zeusato.github.io/Genius-kids/](https://zeusato.github.io/Genius-kids/)**
 2. Nhấn "Tải App" để cài như ứng dụng (khuyên dùng!)
 3. Tạo hồ sơ cho bé
-4. Bắt đầu học toán! 🎉
+4. Chọn chế độ học tập:
+   - 📖 **Ôn Luyện** để làm bài tập toán
+   - 🎮 **Games** để chơi game học toán
+   - 📚 **1000 Câu Hỏi** để khám phá tri thức
+   - 🦁 **Nhân Sư** để giải đố nhận thưởng
+   - 🛍️ **Cửa Hàng** để mua avatar/theme
+   - 🎴 **Album** để xem bộ sưu tập thẻ bài
+5. Bắt đầu học và vui chơi! 🎉
 
 ### Developers (Chạy local)
 
@@ -98,34 +156,82 @@ npm run dev
 
 # Build production
 npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
 ## 🛠️ Công Nghệ
 
-*   **React 19** + TypeScript
+*   **React 19** + TypeScript - Framework chính
 *   **Vite** - Build tool siêu nhanh
-*   **React Router** - Điều hướng mượt mà
-*   **Tailwind CSS** - Giao diện đẹp
-*   **PWA** với Workbox - App offline
-*   **Recharts** - Biểu đồ thống kê
-*   **jsPDF** - Xuất PDF
+*   **React Router** - Điều hướng mượt mà (SPA)
+*   **Tailwind CSS** - Styling hiện đại
+*   **PWA** với Workbox - Ứng dụng offline-first
+*   **Recharts** - Biểu đồ thống kê đẹp
+*   **jsPDF** - Xuất đề thi PDF
 *   **Web Audio API** - Âm thanh tương tác
+*   **LocalStorage** - Lưu trữ dữ liệu người dùng
 
 ## 📂 Cấu Trúc Dự Án
 
 ```
-src/
-├── pages/              # Các trang chính
-├── components/         # UI components
-│   ├── study/          # Components học tập
-│   └── shared/         # Components dùng chung
-├── contexts/           # React Context (state global)
-├── services/           # Logic nghiệp vụ
-│   └── generators/     # Sinh câu hỏi toán
-└── utils/              # Tiện ích (PDF, sound, v.v.)
+mathgenius-kids/
+├── public/                 # Static assets
+│   ├── album/              # Hình ảnh thẻ bài gacha
+│   ├── avatars/            # Avatar images
+│   └── icons/              # App icons
+├── riddle/                 # Dữ liệu câu đố Nhân Sư
+│   └── data/
+│       ├── vnRiddle.json   # Câu đố tiếng Việt
+│       └── enRiddle.json   # Câu đố tiếng Anh
+├── src/
+│   ├── pages/              # Các trang chính
+│   │   ├── HomePage.tsx
+│   │   ├── ModeSelectionPage.tsx
+│   │   ├── StudyPage.tsx
+│   │   ├── GamePage.tsx
+│   │   ├── TellMeWhyPage.tsx
+│   │   ├── SphinxRiddlePage.tsx  # 🆕
+│   │   ├── ShopPage.tsx
+│   │   ├── AlbumPage.tsx
+│   │   └── ProfilePage.tsx
+│   ├── components/         # UI components
+│   │   ├── study/          # Components học tập
+│   │   ├── SphinxRiddleScreen.tsx  # 🆕
+│   │   ├── RiddleModal.tsx         # 🆕
+│   │   ├── GachaModal.tsx
+│   │   └── ...
+│   ├── contexts/           # React Context (state global)
+│   │   └── StudentContext.tsx
+│   ├── services/           # Business logic layer
+│   │   ├── generators/     # Sinh câu hỏi toán từng lớp
+│   │   ├── mathEngine.ts   # Engine sinh đề toán
+│   │   ├── profileService.ts
+│   │   ├── rewardService.ts
+│   │   ├── albumService.ts
+│   │   ├── sphinxRiddleService.ts  # 🆕
+│   │   ├── tellMeWhyService.ts
+│   │   └── ...
+│   └── utils/              # Utilities
+│       ├── pdfGenerator.ts
+│       ├── soundManager.ts
+│       └── ...
+├── types.ts                # TypeScript type definitions
+└── App.tsx                 # Root component với routing
 ```
 
 ## 🆕 Cập Nhật Gần Đây
+
+### v2.1 - Sphinx Riddle Module 🦁
+*   ✅ Module "Giải Đố Nhân Sư" hoàn toàn mới
+*   ✅ 2 bộ câu đố: Việt Nam (tiếng Việt) + Nước ngoài (tiếng Anh)
+*   ✅ 3 mức độ khó với phần thưởng tăng dần
+*   ✅ Hệ thống trả lời linh hoạt (partial matching)
+*   ✅ Hệ thống phạt đa dạng (mất sao hoặc bỏ qua thưởng)
+*   ✅ Tích hợp gacha thẻ bài khi giải đúng
+*   ✅ UI/UX đẹp mắt với animations
+*   ✅ Tracking câu đố đã giải
 
 ### v2.0 - UI/UX Overhaul
 *   ✅ Refactor toàn bộ routing với React Router
@@ -135,11 +241,31 @@ src/
 *   ✅ Có thể bookmark các trang
 
 ### Tính năng trước đó
+*   ✅ Album Gacha với nhiều bộ sưu tập (Pokemon, Dragon Ball)
 *   ✅ Hệ thống PWA với auto-update
 *   ✅ Luyện gõ Telex tích hợp
-*   ✅ Album gacha sưu tập hình
-*   ✅ Shop avatar với sao
+*   ✅ Module "1000 Câu Hỏi Vì Sao"
+*   ✅ Shop avatar & theme
 *   ✅ Nhiều trò chơi giáo dục
+*   ✅ Hỗ trợ toàn bộ lớp 1-5
+
+## 📊 Thống Kê Dự Án
+
+*   **1000+** câu hỏi "Vì sao?" về nhiều chủ đề
+*   **500+** câu đố Nhân Sư (tiếng Việt + tiếng Anh)
+*   **100+** thẻ bài gacha để sưu tập
+*   **50+** chủ đề toán học từ lớp 1-5
+*   **Hàng ngàn** câu hỏi toán được sinh tự động
+*   **5** chế độ học tập khác nhau
+
+## 🎨 Điểm Nổi Bật Thiết Kế
+
+*   🎨 **Giao diện thân thiện:** Màu sắc tươi sáng, phù hợp trẻ em
+*   ✨ **Animations mượt mà:** Transitions đẹp mắt tạo cảm giác chuyên nghiệp
+*   📱 **Responsive Design:** Hoạt động tốt trên mọi thiết bị
+*   🎭 **Gamification:** Động lực học tập qua sao, thẻ bài, và avatar
+*   🔊 **Sound Effects:** Âm thanh vui nhộn tăng tính tương tác
+*   🌈 **Theme System:** Người dùng tùy chỉnh màu sắc theo sở thích
 
 ## 🤝 Đóng Góp
 
@@ -147,13 +273,33 @@ Mọi đóng góp đều được hoan nghênh! Hãy:
 *   🐛 Báo lỗi qua [Issues](https://github.com/zeusato/Genius-kids/issues)
 *   💡 Đề xuất tính năng mới
 *   🔧 Gửi Pull Request
+*   ⭐ Đánh dấu sao nếu thấy hữu ích!
+
+### Hướng dẫn đóng góp:
+1. Fork repository
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
 
 ## 📝 License
 
-MIT License - Tự do sử dụng cho mục đích giáo dục.
+MIT License - Tự do sử dụng cho mục đích giáo dục và phi lợi nhuận.
+
+## 🙏 Credits
+
+*   **Câu hỏi toán:** Được tạo dựa trên chương trình Toán tiểu học Việt Nam
+*   **1000 Câu Hỏi Vì Sao:** Tổng hợp từ nhiều nguồn tri thức
+*   **Câu Đố Nhân Sư:** Sưu tầm và biên soạn từ các nguồn văn hóa dân gian
+*   **Hình Ảnh Gacha:** Pokemon, Dragon Ball và các nhân vật nổi tiếng
+*   **Icons & Images:** Various open-source resources
 
 ---
 
-*Được phát triển với ❤️ cho các bé yêu toán học.*
+*Được phát triển với ❤️ cho các bé yêu toán học và khám phá tri thức.*
 
 **Hãy cho ⭐ nếu bạn thấy hữu ích!**
+
+📧 **Liên hệ:** Create an issue hoặc discussion trên GitHub
+
+🌐 **Live Demo:** [https://zeusato.github.io/Genius-kids/](https://zeusato.github.io/Genius-kids/)

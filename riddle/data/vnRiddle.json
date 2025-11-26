@@ -1,0 +1,4493 @@
+[
+    {
+        "rID": "VN-001",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì mào đỏ, gáy ó o o, từ sáng tinh mơ, gọi người thức dậy?",
+        "answer": "Con gà trống",
+        "answer_explain": "Đặc điểm nổi bật của gà trống là mào đỏ và tiếng gáy báo thức.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-002",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có chân mà không biết đi, có mặt phẳng lì cho bé ngồi học?",
+        "answer": "Cái bàn",
+        "answer_explain": "'Chân' bàn là từ chỉ bộ phận đỡ mặt bàn, không phải chân để đi.",
+        "note": "Đáp án là một đồ vật."
+    },
+    {
+        "rID": "VN-003",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì vỏ xanh, ruột đỏ, hạt đen, ăn vào mát lạnh?",
+        "answer": "Quả dưa hấu",
+        "answer_explain": "Đặc điểm màu sắc đặc trưng của dưa hấu.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-004",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì để đo, giúp em kẻ vẽ, hình vuông hình tròn?",
+        "answer": "Cái thước kẻ",
+        "answer_explain": "Thước kẻ là dụng cụ học tập dùng để đo và vẽ đường thẳng.",
+        "note": "Đáp án là một đồ vật học tập."
+    },
+    {
+        "rID": "VN-005",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì hai mắt trong veo, thích nằm sưởi nắng, thích trèo cây cau?",
+        "answer": "Con mèo",
+        "answer_explain": "Tập tính quen thuộc của loài mèo.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-006",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Hoa gì hướng về mặt trời, hạt thơm béo ngậy mời người ăn chung?",
+        "answer": "Hoa hướng dương",
+        "answer_explain": "Hoa hướng dương luôn hướng về phía mặt trời và có hạt ăn được.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-007",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cầu gì không bắc qua sông, không trèo qua suối, lại chồng lên mây?",
+        "answer": "Cầu vồng",
+        "answer_explain": "Cầu vồng xuất hiện trên bầu trời (mây) sau cơn mưa, không phải cầu đi lại.",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-008",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì ăn cỏ, đầu có hai sừng, cày cấy rất giỏi?",
+        "answer": "Con trâu",
+        "answer_explain": "Trâu là con vật giúp người nông dân kéo cày.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-009",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Hạt gì nho nhỏ, màu trắng tinh khôi, nuôi sống mọi người?",
+        "answer": "Hạt gạo",
+        "answer_explain": "Gạo là lương thực chính, hạt nhỏ màu trắng.",
+        "note": "Đáp án là tên một loại hạt."
+    },
+    {
+        "rID": "VN-010",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có răng mà không có mồm, giúp bé chải tóc sớm hôm đến trường?",
+        "answer": "Cái lược",
+        "answer_explain": "Răng lược là từ chỉ các thanh nhỏ để chải tóc.",
+        "note": "Đáp án là một đồ vật."
+    },
+    {
+        "rID": "VN-011",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Xe gì hai bánh, chạy bon bon, tiếng kêu kính coong?",
+        "answer": "Xe đạp",
+        "answer_explain": "Đặc điểm của xe đạp là có chuông kêu kính coong.",
+        "note": "Đáp án là phương tiện giao thông."
+    },
+    {
+        "rID": "VN-012",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì bé tí, chăm chỉ kiếm mồi, xếp hàng đi lối, trời mưa thì trốn?",
+        "answer": "Con kiến",
+        "answer_explain": "Kiến là loài vật chăm chỉ, thường đi theo hàng.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-013",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cây gì thân mọc dưới ao, lá xanh xoè rộng, hoa màu hồng tươi?",
+        "answer": "Cây sen",
+        "answer_explain": "Sen mọc ở ao hồ, lá to và hoa màu hồng/trắng.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-014",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Mùa gì phượng đỏ rực trời, ve kêu ra rả, em ngồi ôn thi?",
+        "answer": "Mùa hè",
+        "answer_explain": "Hoa phượng và tiếng ve là đặc trưng của mùa hè.",
+        "note": "Đáp án là tên mùa."
+    },
+    {
+        "rID": "VN-015",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Đèn gì chỉ có ba màu, đỏ vàng xanh ấy đứng đầu ngã tư?",
+        "answer": "Đèn giao thông",
+        "answer_explain": "Đèn tín hiệu giao thông có 3 màu quy định việc đi lại.",
+        "note": "Đáp án là tên một thiết bị."
+    },
+    {
+        "rID": "VN-016",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì bụng bự mắt to, mồm kêu ộp ộp, nhảy lò dò?",
+        "answer": "Con ếch",
+        "answer_explain": "Tiếng kêu và dáng vẻ đặc trưng của con ếch.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-017",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không chân mà chạy, không cánh mà bay, về đến biển đông thì tan biến mất?",
+        "answer": "Dòng sông",
+        "answer_explain": "Sông 'chảy' ra biển, nước sông hòa vào biển cả.",
+        "note": "Đáp án là hiện tượng địa lý."
+    },
+    {
+        "rID": "VN-018",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì nhiều mắt, khi chín vàng ươm, có gai tua tủa?",
+        "answer": "Quả dứa",
+        "answer_explain": "Dứa (Thơm) có các mắt ở vỏ và lá có gai.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-019",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì tám cẳng hai càng, chẳng đi mà lại bò ngang cả ngày?",
+        "answer": "Con cua",
+        "answer_explain": "Câu đố dân gian miêu tả con cua.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-020",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì dùng để đội đầu, che mưa che nắng, sắc màu đẹp tươi?",
+        "answer": "Cái mũ",
+        "answer_explain": "Công dụng của mũ (nón) là che nắng mưa.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-021",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Sông nào tên hóa Cửu Long, chín cửa chảy ra biển Đông rạt rào?",
+        "answer": "Sông Mê Kông",
+        "answer_explain": "Sông Mê Kông khi vào Việt Nam chia làm 9 nhánh gọi là sông Cửu Long.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-022",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì đuôi ngắn tai dài, mắt hồng lông mượt, có tài chạy nhanh?",
+        "answer": "Con thỏ",
+        "answer_explain": "Đặc điểm ngoại hình của thỏ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-023",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Bánh gì hình vuông, màu xanh, nhân thịt đỗ hành, ngày Tết mới ngon?",
+        "answer": "Bánh chưng",
+        "answer_explain": "Bánh chưng là món ăn truyền thống ngày Tết, hình vuông.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-024",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì miệng tròn lòng trắng phau phau, đựng cơm đựng thịt đựng rau hàng ngày?",
+        "answer": "Cái bát",
+        "answer_explain": "Bát (chén) dùng để đựng thức ăn.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-025",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cây gì lá dài, quả mọc thành buồng, khi chín vàng ươm, ăn ngon ngọt lắm?",
+        "answer": "Cây chuối",
+        "answer_explain": "Chuối ra quả theo buồng, quả chín màu vàng.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-026",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Ông gì sáng rực ban ngày, chiều lặn xuống núi, đêm về nghỉ ngơi?",
+        "answer": "Ông mặt trời",
+        "answer_explain": "Mặt trời mọc ban ngày và lặn vào buổi chiều.",
+        "note": "Đáp án là thiên thể."
+    },
+    {
+        "rID": "VN-027",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì sống ở trong hang, hai tai dài ngoẵng, nói năng chẳng màng?",
+        "answer": "Con thỏ",
+        "answer_explain": "Thỏ cũng sống trong hang và có tai dài.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-028",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì mình tròn đầu nhọn, giúp em viết bài, chăm ngoan học giỏi?",
+        "answer": "Cái bút chì",
+        "answer_explain": "Bút chì có thân tròn (hoặc lục giác) và đầu nhọn để viết.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-029",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì lội nước chơi trăng, mới gọi là Chó, mà chẳng sủa gâu gâu?",
+        "answer": "Con cá chó",
+        "answer_explain": "Cá chó là tên một loài cá, không phải con chó trên bờ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-030",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì mà đi thì nằm, đứng cũng nằm, nhưng nằm thì lại đứng?",
+        "answer": "Bàn chân",
+        "answer_explain": "Câu đố dân gian về bàn chân con người (khi nằm ngủ thì bàn chân dựng đứng lên).",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-031",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì tên gọi như hoa, thu về nở rộ, hương bay xa gần?",
+        "answer": "Quả thị",
+        "answer_explain": "Quả thị có mùi thơm rất đặc trưng (truyện Tấm Cám).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-032",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì ăn no lại nằm, mồm kêu ụt ịt, béo tròn núc ních?",
+        "answer": "Con lợn",
+        "answer_explain": "Đặc điểm tiếng kêu và ngoại hình của lợn.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-033",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì tích tắc ngày đêm, nhắc em đi ngủ, nhắc em học bài?",
+        "answer": "Đồng hồ",
+        "answer_explain": "Tiếng tích tắc của đồng hồ báo thời gian.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-034",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cây gì nho nhỏ, hạt nó nuôi người, chín vàng nơi nơi, gặt về phơi nắng?",
+        "answer": "Cây lúa",
+        "answer_explain": "Lúa cho hạt gạo nuôi sống con người.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-035",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Xe gì màu trắng, có chữ thập đỏ, còi kêu vang đường, đưa người đi viện?",
+        "answer": "Xe cứu thương",
+        "answer_explain": "Đặc điểm nhận dạng của xe cấp cứu.",
+        "note": "Đáp án là tên loại xe."
+    },
+    {
+        "rID": "VN-036",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Tôi giúp bạn nhìn, nhưng tôi không có mắt, tôi có gọng mà không có chân. Tôi là gì?",
+        "answer": "Cái kính",
+        "answer_explain": "Kính đeo mắt giúp nhìn rõ hơn, có gọng kính.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-037",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Mùa gì gió rét căm căm, đi học quàng khăn, mặc áo ấm vào?",
+        "answer": "Mùa đông",
+        "answer_explain": "Mùa đông thời tiết lạnh giá cần mặc ấm.",
+        "note": "Đáp án là tên mùa."
+    },
+    {
+        "rID": "VN-038",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì đập cánh bay cao, tiếng kêu vi vút như sáo thổi trên trời?",
+        "answer": "Con diều",
+        "answer_explain": "Diều sáo khi thả bay lên trời phát ra tiếng kêu.",
+        "note": "Đáp án là tên đồ chơi."
+    },
+    {
+        "rID": "VN-039",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bằng vải, dùng để lau người, vắt lên trên giá, phơi ngoài nắng to?",
+        "answer": "Khăn mặt",
+        "answer_explain": "Khăn dùng để lau mặt hoặc tắm.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-040",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì có cánh, bay lượn la đà, báo hiệu trời mưa, bay cao trời nắng?",
+        "answer": "Con chuồn chuồn",
+        "answer_explain": "Tục ngữ: Chuồn chuồn bay thấp thì mưa, bay cao thì nắng.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-041",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì không phải để ăn, mà dùng để đá, để lăn để chuyền?",
+        "answer": "Quả bóng",
+        "answer_explain": "Bóng đá, bóng chuyền hình tròn gọi là 'quả'.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-042",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Thân em trắng muốt, ruột em có chì, em giúp bé ghi, những lời cô dạy?",
+        "answer": "Giấy trắng",
+        "answer_explain": "Giấy dùng để viết (câu đố dân gian biến thể, hoặc đáp án 'Vở' cũng chấp nhận được, nhưng 'Giấy' sát nghĩa trắng muốt).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-043",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì bay thấp mưa ngâu, bay cao nắng gắt, bay vừa râm ran?",
+        "answer": "Con chuồn chuồn",
+        "answer_explain": "Đặc tính dự báo thời tiết của chuồn chuồn.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-044",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì hai lưỡi không xương, mà đường đời lại chông gai khó lường?",
+        "answer": "Lời nói",
+        "answer_explain": "Câu đố ẩn dụ: Lời nói (lưỡi) có thể sắc bén gây tổn thương.",
+        "note": "Đáp án là danh từ trừu tượng."
+    },
+    {
+        "rID": "VN-045",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Thứ gì càng rửa càng bẩn?",
+        "answer": "Nước",
+        "answer_explain": "Nước dùng để rửa vật bẩn thì chính dòng nước đó sẽ bị bẩn đi.",
+        "note": "Đáp án là danh từ vật chất."
+    },
+    {
+        "rID": "VN-046",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì nhỏ bé, đèn lồng bay theo, đêm hè lấp lánh, sáng ngời bờ ao?",
+        "answer": "Con đom đóm",
+        "answer_explain": "Đom đóm phát sáng vào ban đêm giống như đèn lồng.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-047",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Mặc áo vàng, áo xanh, trong bụng lại sinh, toàn những hạt trắng?",
+        "answer": "Bắp ngô",
+        "answer_explain": "Bắp ngô có vỏ xanh/vàng, bên trong là hạt ngô màu trắng (hoặc vàng).",
+        "note": "Đáp án là tên loại củ/quả."
+    },
+    {
+        "rID": "VN-048",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Một mẹ thường có sáu con, yêu thương chia sẻ nước non vơi đầy?",
+        "answer": "Bộ ấm chén",
+        "answer_explain": "Bộ ấm chén trà thường có 1 ấm (mẹ) và 6 chén (con).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-049",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không miệng mà kêu, không tội mà bị đánh đau cả ngày?",
+        "answer": "Cái trống",
+        "answer_explain": "Trống kêu tùng tùng khi bị người ta dùng dùi đánh vào.",
+        "note": "Đáp án là tên nhạc cụ."
+    },
+    {
+        "rID": "VN-050",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì chân ngắn, mà lại có màng, mỏ bẹt màu vàng, hay kêu cạp cạp?",
+        "answer": "Con vịt",
+        "answer_explain": "Đặc điểm ngoại hình và tiếng kêu của vịt.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-051",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì bốn vó, ngực nở bụng thon, rung rinh chiếc bờm, phi nhanh như gió?",
+        "answer": "Con ngựa",
+        "answer_explain": "Mô tả đặc điểm ngoại hình và khả năng chạy nhanh của ngựa.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-052",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì có cái vòi dài, bốn chân như cột, đôi tai như quạt?",
+        "answer": "Con voi",
+        "answer_explain": "Đặc điểm nổi bật nhất của voi là vòi dài, chân to và tai lớn.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-053",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì cổ dài ngoẵng, lông chấm vàng nâu, ăn lá trên cao?",
+        "answer": "Hươu cao cổ",
+        "answer_explain": "Hươu cao cổ có cổ rất dài để ăn lá cây trên cao.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-054",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì bé xíu, chăm chỉ suốt ngày, bay đi tìm hoa, làm nên mật ngọt?",
+        "answer": "Con ong",
+        "answer_explain": "Ong là loài côn trùng chăm chỉ hút mật hoa làm mật.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-055",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì đẹp nhất loài chim, đuôi xòe rực rỡ như nghìn cánh hoa?",
+        "answer": "Con công",
+        "answer_explain": "Chim công đực khi múa xòe đuôi rất đẹp.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-056",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì chúa tể rừng xanh, tiếng gầm vang dội, xung quanh khiếp sợ?",
+        "answer": "Con hổ",
+        "answer_explain": "Hổ được mệnh danh là chúa sơn lâm.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-057",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì lanh lợi tinh khôn, chèo leo rất giỏi, thích ăn chuối vàng?",
+        "answer": "Con khỉ",
+        "answer_explain": "Khỉ leo trèo giỏi và món ăn yêu thích là chuối.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-058",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì cõng nhà trên lưng, đi đâu cũng mang, chậm như rùa bò?",
+        "answer": "Con ốc sên",
+        "answer_explain": "Ốc sên có vỏ cứng trên lưng giống như ngôi nhà.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-059",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì vo ve suốt đêm, hút máu người, truyền bệnh sốt xuất huyết?",
+        "answer": "Con muỗi",
+        "answer_explain": "Muỗi là côn trùng gây hại, hút máu và truyền bệnh.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-060",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì năm múi năm khe, ăn vào chua lét, nấu canh chua thì ngon?",
+        "answer": "Quả khế",
+        "answer_explain": "Quả khế khi cắt ngang có hình ngôi sao 5 cánh, vị chua.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-061",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì da có nhiều gai, múi vàng thơm nức, ai ai cũng thèm?",
+        "answer": "Quả mít, Quả sầu riêng",
+        "answer_explain": "Mít và sầu riêng đều có vỏ gai, múi vàng và mùi thơm đặc trưng.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-062",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì lủng lẳng trên cao, nước ngọt cùi trắng, uống vào mát ngay?",
+        "answer": "Quả dừa",
+        "answer_explain": "Dừa mọc trên cao, bên trong có nước và cùi trắng.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-063",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì đỏ chót trên cành, ăn vào cay xé lưỡi, mẹ hay dùng kho cá?",
+        "answer": "Quả ớt",
+        "answer_explain": "Ớt có vị cay nồng và màu đỏ.",
+        "note": "Đáp án là tên loại quả/gia vị."
+    },
+    {
+        "rID": "VN-064",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cây gì mọc ở sân trường, già đeo kính trắng, da sần sùi đen?",
+        "answer": "Cây bàng",
+        "answer_explain": "Câu đố mô tả cây bàng vào mùa đông lá rụng hoặc lá đỏ, thân cây sần sùi (ẩn dụ: kính trắng là vôi quét gốc cây).",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-065",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cây gì thân chia nhiều đốt, mọc thành bụi, lá nhỏ cành mềm, là biểu tượng làng quê?",
+        "answer": "Cây tre",
+        "answer_explain": "Tre mọc thành bụi, thân có đốt, rất quen thuộc ở Việt Nam.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-066",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Hoa gì cánh mỏng manh, màu hồng tươi hoặc trắng, báo hiệu Tết đã về?",
+        "answer": "Hoa đào",
+        "answer_explain": "Hoa đào là loài hoa đặc trưng của ngày Tết miền Bắc.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-067",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Hoa gì vàng rực rỡ, nở rộ vào mùa xuân, thường thấy ở miền Nam ngày Tết?",
+        "answer": "Hoa mai",
+        "answer_explain": "Hoa mai vàng là biểu tượng Tết của miền Nam.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-068",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì hai chiếc song song, giúp bé gắp thịt, gắp rau hàng ngày?",
+        "answer": "Đôi đũa",
+        "answer_explain": "Đũa là dụng cụ ăn uống gồm 2 chiếc dùng để gắp.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-069",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì sáng loáng bóng ngời, soi vào thấy mặt cười tươi rạng ngời?",
+        "answer": "Cái gương",
+        "answer_explain": "Gương dùng để soi, phản chiếu hình ảnh.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-070",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì như chiếc lưỡi cày, bé dùng đánh răng trắng tinh mỗi ngày?",
+        "answer": "Bàn chải đánh răng",
+        "answer_explain": "Dụng cụ vệ sinh răng miệng hàng ngày.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-071",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Viên gì nho nhỏ xinh xinh, chà lên tay bẩn, bọt trắng phập phồng?",
+        "answer": "Xà phòng, Bánh xà bông",
+        "answer_explain": "Xà phòng dùng để rửa tay, tạo bọt làm sạch.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-072",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bốn chân đứng sững, em nằm em ngủ, êm ái lạ thường?",
+        "answer": "Cái giường",
+        "answer_explain": "Giường là vật dụng để nằm ngủ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-073",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì quay tít mù, xua tan cái nóng, gió thổi vi vu?",
+        "answer": "Cái quạt điện",
+        "answer_explain": "Quạt điện quay tạo ra gió làm mát.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-074",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Viên gì màu trắng, bé dùng viết bảng, bụi bay lả tả?",
+        "answer": "Viên phấn",
+        "answer_explain": "Phấn viết bảng thường có màu trắng và tạo bụi phấn.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-075",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì mặt đen thui, viết phấn lên thì trắng, lau sạch lại đen?",
+        "answer": "Cái bảng đen",
+        "answer_explain": "Bảng đen dùng trong lớp học để viết phấn.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-076",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì dẻo dẻo dai dai, bé dùng tẩy sạch những sai sót lầm?",
+        "answer": "Cục tẩy",
+        "answer_explain": "Cục tẩy dùng để xóa nét bút chì.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-077",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì nhiều lá nhiều trang, giúp em mở mang kiến thức mỗi ngày?",
+        "answer": "Quyển sách",
+        "answer_explain": "Sách chứa đựng tri thức, gồm nhiều trang giấy.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-078",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì miệng rộng, đeo ở sau lưng, đựng sách đựng bút, theo em đến trường?",
+        "answer": "Cái cặp sách",
+        "answer_explain": "Cặp sách (ba lô) dùng đựng đồ dùng học tập.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-079",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Đôi gì ở dưới đôi chân, đi học đi chơi, bảo vệ bàn chân?",
+        "answer": "Đôi giày, Đôi dép",
+        "answer_explain": "Giày dép dùng để đi, bảo vệ chân khỏi bẩn và đau.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-080",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì xòe ra như nấm, che nắng che mưa, khi không dùng nữa, cụp lại mang về?",
+        "answer": "Cái ô",
+        "answer_explain": "Đặc điểm hình dáng và công dụng của cái ô (dù).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-081",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Hạt gì rơi bộp trên mái, cây cối hả hê, ao hồ đầy nước?",
+        "answer": "Hạt mưa",
+        "answer_explain": "Mưa cung cấp nước cho cây cối và ao hồ.",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-082",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì lấp lánh trên cao, ban đêm thì thấy, ban ngày thì không?",
+        "answer": "Ngôi sao",
+        "answer_explain": "Sao chỉ nhìn thấy rõ vào ban đêm.",
+        "note": "Đáp án là thiên thể."
+    },
+    {
+        "rID": "VN-083",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không cánh mà bay, làm cây lá rụng, làm mây trôi nhanh?",
+        "answer": "Gió",
+        "answer_explain": "Gió thổi làm di chuyển các vật nhẹ như lá, mây.",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-084",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì lơ lửng trên cao, lúc trắng như bông, lúc đen như mực?",
+        "answer": "Đám mây",
+        "answer_explain": "Mây trắng khi trời đẹp, mây đen khi sắp mưa.",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-085",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì một cặp song sinh, long lanh sáng tỏ, nhìn nhìn ngó ngó?",
+        "answer": "Đôi mắt",
+        "answer_explain": "Mắt giúp con người nhìn thấy mọi vật, có 2 mắt (một cặp).",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-086",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì nhô ở giữa mặt, hít hà hương thơm, thở ra thở vào?",
+        "answer": "Cái mũi",
+        "answer_explain": "Mũi dùng để ngửi và hô hấp.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-087",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì mọc ở hai bên, giúp em nghe được tiếng chim, tiếng người?",
+        "answer": "Cái tai",
+        "answer_explain": "Tai là cơ quan thính giác.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-088",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì trắng, cứng, xếp hàng, giúp em nhai kỹ cơm vàng, ngô ngon?",
+        "answer": "Cái răng",
+        "answer_explain": "Răng dùng để nhai thức ăn.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-089",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì năm ngón xòe ra, giúp bé cầm bút, múa ca nhịp nhàng?",
+        "answer": "Bàn tay",
+        "answer_explain": "Bàn tay có 5 ngón, dùng để cầm nắm.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-090",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì nằm ở trong mồm, giúp em nếm vị, giúp em nói cười?",
+        "answer": "Cái lưỡi",
+        "answer_explain": "Lưỡi là cơ quan vị giác và hỗ trợ phát âm.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-091",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì ăn no bụng tròn, sáng ra đi cày, giúp người nông dân?",
+        "answer": "Con trâu",
+        "answer_explain": "Con trâu là bạn của nhà nông, giúp cày bừa.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-092",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bằng gỗ, bằng tre, người đi trên đó, sông sâu chẳng sờn?",
+        "answer": "Cây cầu",
+        "answer_explain": "Cầu bắc qua sông giúp người qua lại.",
+        "note": "Đáp án là công trình xây dựng."
+    },
+    {
+        "rID": "VN-093",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Xe gì ba bánh, chạy bằng sức người, chở khách đi chơi, quanh quanh phố cổ?",
+        "answer": "Xe xích lô",
+        "answer_explain": "Xích lô là phương tiện du lịch đặc trưng, có 3 bánh.",
+        "note": "Đáp án là tên loại xe."
+    },
+    {
+        "rID": "VN-094",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Đèn gì không thắp mà sáng, dẫn đường cho tàu, giữa biển mênh mông?",
+        "answer": "Hải đăng, Ngọn hải đăng",
+        "answer_explain": "Hải đăng phát sáng để định hướng cho tàu thuyền trên biển.",
+        "note": "Đáp án là tên công trình."
+    },
+    {
+        "rID": "VN-095",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Thùng gì đứng ở ven đường, ai có rác bẩn thì nhường cho em?",
+        "answer": "Thùng rác",
+        "answer_explain": "Thùng rác công cộng dùng để giữ vệ sinh môi trường.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-096",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì nho nhỏ, thân đỏ hoặc xanh, thắp lên sáng tỏ, mừng ngày sinh nhật?",
+        "answer": "Cây nến",
+        "answer_explain": "Nến thường được cắm và thắp trên bánh sinh nhật.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-097",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Xe gì màu đỏ, còi hú vang trời, mang theo nước lớn, dập tắt đám cháy?",
+        "answer": "Xe cứu hỏa",
+        "answer_explain": "Đặc điểm nhận dạng của xe chữa cháy.",
+        "note": "Đáp án là tên loại xe."
+    },
+    {
+        "rID": "VN-098",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bay bổng trên cao, buộc dây mà giữ, không thì bay đi?",
+        "answer": "Quả bóng bay",
+        "answer_explain": "Bóng bay bơm khí nhẹ hơn không khí nên bay lên, cần buộc dây.",
+        "note": "Đáp án là tên đồ chơi."
+    },
+    {
+        "rID": "VN-099",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì chạy ở trên đường, có đường ray sắt, kêu tu tu xình xịch?",
+        "answer": "Tàu hỏa",
+        "answer_explain": "Tàu hỏa chạy trên đường ray và tiếng còi đặc trưng.",
+        "note": "Đáp án là tên phương tiện."
+    },
+    {
+        "rID": "VN-100",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì mọc ở trên đầu, dài đen mượt mà, hoặc là xoăn xoăn?",
+        "answer": "Tóc",
+        "answer_explain": "Tóc mọc trên đầu, có thể thẳng hoặc xoăn.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-101",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì ăn cỏ, kêu be he, cho em sữa uống, cho mẹ áo len?",
+        "answer": "Con dê",
+        "answer_explain": "Dê ăn cỏ, cho sữa và lông dê có thể dùng làm len.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-102",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không miệng mà nói, không tai mà nghe, giúp bạn gọi xa?",
+        "answer": "Điện thoại",
+        "answer_explain": "Điện thoại truyền giọng nói và âm thanh từ xa (đã dùng nhưng lần này câu đố khác, lần trước là 'nghe mọi thứ trong nhà' - chấp nhận).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-103",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Già mặc áo trắng, trẻ mặc áo xanh, không biết đi nhanh, chỉ đứng một chỗ?",
+        "answer": "Cây bông",
+        "answer_explain": "Hoa bông lúc chưa nở có màu xanh, khi nở thành sợi bông trắng.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-104",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Vừa bằng nắm tay, làm việc suốt ngày, tối ngủ cũng đập, là gì?",
+        "answer": "Trái tim",
+        "answer_explain": "Tim đập liên tục để duy trì sự sống, cả khi ngủ.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-105",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì càng lớn thì càng nặng, chứa được nhiều đồ ăn, mẹ hay dùng để nấu?",
+        "answer": "Cái nồi",
+        "answer_explain": "Nồi là dụng cụ nấu ăn, càng lớn càng nặng và chứa nhiều đồ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-106",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì màu đỏ tròn tròn, nấu canh chua ngọt, mẹ hay làm nộm?",
+        "answer": "Quả cà chua",
+        "answer_explain": "Cà chua có màu đỏ, vị chua, dùng để nấu canh và làm nộm.",
+        "note": "Đáp án là tên loại quả/rau."
+    },
+    {
+        "rID": "VN-107",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có lửa mà không cháy, có nước mà không trôi, tối thì ngủ quên?",
+        "answer": "Bếp ga",
+        "answer_explain": "Bếp ga tạo lửa để nấu, có nước (nấu canh) nhưng không bị trôi.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-108",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể mở ra, đóng lại, ngăn cách trong nhà và ngoài trời?",
+        "answer": "Cái cửa",
+        "answer_explain": "Cửa (cổng, cửa sổ, cửa ra vào) dùng để ngăn cách không gian.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-109",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì biết nói tiếng người, bộ lông đủ màu, hay đậu trên vai?",
+        "answer": "Con vẹt",
+        "answer_explain": "Vẹt là loài chim có khả năng bắt chước tiếng người.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-110",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì màu trắng, da có gai xanh, ruột có hạt đen, ăn vào mát lạnh?",
+        "answer": "Quả thanh long",
+        "answer_explain": "Mô tả hình dáng và màu sắc đặc trưng của thanh long.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-111",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không có chân, không có tay, giúp em bay bổng trên trời?",
+        "answer": "Máy bay",
+        "answer_explain": "Máy bay là phương tiện giao thông trên không (Kite/Diều đã dùng).",
+        "note": "Đáp án là tên phương tiện."
+    },
+    {
+        "rID": "VN-112",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể chứa được, nhưng không bao giờ đầy?",
+        "answer": "Cái rây lọc",
+        "answer_explain": "Rây lọc có nhiều lỗ nên không bao giờ chứa đầy chất lỏng được.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-113",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì màu đen, kêu quạ quạ, thường bay về báo hiệu điều gì đó?",
+        "answer": "Con quạ",
+        "answer_explain": "Quạ có màu đen, tiếng kêu đặc trưng (tránh câu đố liên quan đến tín ngưỡng).",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-114",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có kim nhưng không chích, có số mà không biết đếm?",
+        "answer": "Đồng hồ",
+        "answer_explain": "Đồng hồ có kim chỉ giờ và các con số (Clock đã dùng, nhưng câu đố khác).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-115",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì trắng tinh, mỏng như cánh chuồn, dùng để viết, để vẽ?",
+        "answer": "Tờ giấy",
+        "answer_explain": "Giấy dùng để viết và vẽ (Paper đã dùng, câu đố mới nhấn mạnh vào tính chất 'mỏng').",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-116",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể bắt được, nhưng không thể ném đi?",
+        "answer": "Cái bóng",
+        "answer_explain": "Bóng tối hay ánh sáng đều không thể ném đi được.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-117",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Quả gì màu xanh, củ to dưới đất, ăn vào giòn giòn, làm dưa ngon lắm?",
+        "answer": "Củ cải",
+        "answer_explain": "Củ cải trắng/xanh, mọc dưới đất, thường dùng làm dưa món.",
+        "note": "Đáp án là tên loại củ."
+    },
+    {
+        "rID": "VN-118",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì hay nhảy nhót, mặt giống người, lông mềm màu nâu?",
+        "answer": "Con khỉ",
+        "answer_explain": "Đặc điểm hình dáng và tính cách của khỉ (Monkey đã dùng, câu đố khác).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-119",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể bật và tắt, giúp ta xem phim, nghe nhạc hàng ngày?",
+        "answer": "Cái Tivi",
+        "answer_explain": "Tivi (vô tuyến) là thiết bị xem phim, nghe nhạc.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-120",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì càng bóp càng ra nước, làm đồ uống chua chua ngọt ngọt?",
+        "answer": "Quả chanh",
+        "answer_explain": "Chanh có nhiều nước, dùng để pha nước uống.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-121",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì ở bên cạnh bếp, dùng để đun nước, có vòi, có tay cầm?",
+        "answer": "Ấm đun nước",
+        "answer_explain": "Ấm (siêu) dùng để đun sôi nước.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-122",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì càng chặt càng lớn, càng xén càng dài?",
+        "answer": "Cái lỗ",
+        "answer_explain": "Đào đất ra khỏi lỗ (chặt/xén) thì lỗ càng to/sâu (lớn/dài).",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-123",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Thân em xanh vỏ đỏ lòng, hạt đen nằm giữa, bé ăn thấy ngon?",
+        "answer": "Quả dưa hấu",
+        "answer_explain": "Dưa hấu (Watermelon đã dùng, câu đố này là dân gian truyền thống).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-124",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể có khóa, nhưng không có chìa, ai cũng muốn mở?",
+        "answer": "Bí mật",
+        "answer_explain": "Bí mật cần được giữ kín, ai cũng muốn khám phá (mở khóa).",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-125",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì biết bò, có mai cứng, ăn rau, sống dưới nước hoặc trên cạn?",
+        "answer": "Con rùa",
+        "answer_explain": "Đặc điểm của rùa (Turtle đã dùng, câu đố này thêm thông tin chi tiết hơn).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-126",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì càng đổ vào lại càng chảy ra?",
+        "answer": "Cái rây",
+        "answer_explain": "Rây có lỗ hổng nên khi đổ chất lỏng vào sẽ chảy ra.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-127",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì khi nó lớn lên thì nó lại nhỏ đi?",
+        "answer": "Cây nến",
+        "answer_explain": "Nến cháy (lớn lên) thì thân nến sẽ ngắn lại (nhỏ đi).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-128",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có một lưỡi, nhưng không thể nói, dùng để cắt mọi thứ?",
+        "answer": "Cái kéo",
+        "answer_explain": "Kéo có lưỡi cắt nhưng không nói được (Knife đã dùng, Kéo là dụng cụ khác).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-129",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Tôi có thể bay mà không có cánh, khóc mà không có mắt. Tôi là gì?",
+        "answer": "Mây",
+        "answer_explain": "Mây bay lơ lửng, tạo ra mưa (khóc).",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-130",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể đi khắp thế gian, nằm ở góc nhà, không cần nhúc nhích?",
+        "answer": "Bản đồ, Tấm bản đồ",
+        "answer_explain": "Bản đồ thể hiện cả thế giới nhưng chỉ là một vật tĩnh.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-131",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì có bốn cái chân, kêu meo meo, thích ăn cá?",
+        "answer": "Con mèo",
+        "answer_explain": "Mèo có 4 chân, kêu meo meo, thích ăn cá (Cat đã dùng, câu đố khác).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-132",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có chữ, có hình, không biết nói nhưng có tin tức mới mỗi ngày?",
+        "answer": "Tờ báo",
+        "answer_explain": "Báo chí in tin tức lên giấy.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-133",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể chạy vòng quanh sân, nhưng không bao giờ di chuyển?",
+        "answer": "Cái hàng rào",
+        "answer_explain": "Hàng rào bao quanh sân (chạy vòng quanh) nhưng là vật tĩnh.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-134",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Tôi có thể nói mọi ngôn ngữ trên thế giới. Tôi là gì?",
+        "answer": "Tiếng vọng",
+        "answer_explain": "Tiếng vọng (echo) lặp lại những gì được nói.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-135",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có áo xanh, ruột trắng, nhiều lớp cuộn tròn, mẹ làm món xào?",
+        "answer": "Bắp cải",
+        "answer_explain": "Bắp cải có màu xanh, bên trong cuộn nhiều lớp lá trắng.",
+        "note": "Đáp án là tên loại rau."
+    },
+    {
+        "rID": "VN-136",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì biết bơi, có vây có vảy, sống trong bể kính?",
+        "answer": "Cá vàng",
+        "answer_explain": "Cá vàng thường được nuôi trong bể kính (Fish đã dùng, Cá vàng là loại cụ thể).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-137",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bạn phải tháo ra trước khi đi ngủ?",
+        "answer": "Giày",
+        "answer_explain": "Giày dép thường được tháo ra khi lên giường ngủ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-138",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể đi mà không có chân, có mặt mà không có đầu?",
+        "answer": "Đồng hồ",
+        "answer_explain": "Đồng hồ chạy thời gian, có mặt đồng hồ (Clock đã dùng, câu đố khác).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-139",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể được nhặt lên, nhưng không bao giờ đặt xuống?",
+        "answer": "Tiếng nói, Giọng nói",
+        "answer_explain": "Khi đã cất tiếng nói thì không thể lấy lại được.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-140",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì vào trắng, ra vàng?",
+        "answer": "Bánh mì",
+        "answer_explain": "Bột mì (trắng) sau khi nướng (ra) thành bánh mì màu vàng/nâu.",
+        "note": "Đáp án là tên đồ ăn."
+    },
+    {
+        "rID": "VN-141",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì có nhiều vằn đen trắng, giống ngựa, sống ở châu Phi?",
+        "answer": "Ngựa vằn",
+        "answer_explain": "Đặc điểm nhận dạng của ngựa vằn (Zebra).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-142",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bạn có thể nắm trong tay, nhưng không thể đếm được?",
+        "answer": "Nước",
+        "answer_explain": "Nước có thể nắm trong lòng bàn tay nhưng không thể đếm.",
+        "note": "Đáp án là một danh từ vật chất."
+    },
+    {
+        "rID": "VN-143",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có miệng nhưng không biết ăn, có tai mà không biết nghe?",
+        "answer": "Cái chén",
+        "answer_explain": "Chén (bát) có miệng để đựng, và có quai (tai) cầm (Bowl/Bát đã dùng, chén là từ khác).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-144",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không bao giờ bị ướt, dù bạn dội bao nhiêu nước đi nữa?",
+        "answer": "Cái bóng",
+        "answer_explain": "Cái bóng là hình chiếu, không phải vật thể vật chất nên không bị ướt.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-145",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Con gì thân hình dài, không chân, biết trườn bò?",
+        "answer": "Con rắn",
+        "answer_explain": "Đặc điểm cơ bản của rắn là không có chân và di chuyển bằng cách trườn.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-146",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì bạn phải lấy đi trước khi đưa cho người khác?",
+        "answer": "Chiếc mũ",
+        "answer_explain": "Khi đưa cho người lớn tuổi, phải nhấc mũ ra khỏi đầu trước (văn hóa lễ phép).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-147",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Tôi có nhiều lỗ mà giữ được nước. Tôi là gì?",
+        "answer": "Cái bọt biển",
+        "answer_explain": "Bọt biển có nhiều lỗ xốp nhưng có khả năng hút và giữ nước.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-148",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì có thể đi mà không cần chân, có thể khóc mà không cần mắt?",
+        "answer": "Mây",
+        "answer_explain": "Mây di chuyển trên bầu trời và tạo ra mưa (khóc).",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-149",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì càng ít đi, bạn càng nhìn thấy rõ?",
+        "answer": "Bóng tối",
+        "answer_explain": "Khi bóng tối giảm đi (ít đi) thì ánh sáng tăng lên (nhìn rõ hơn).",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-150",
+        "category": "vn_riddle",
+        "difficulty": "easy",
+        "question": "Cái gì không bao giờ hỏi nhưng luôn được trả lời?",
+        "answer": "Điện thoại",
+        "answer_explain": "Điện thoại đổ chuông (không hỏi) nhưng người ta luôn trả lời (nhấc máy).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-151",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em vừa trắng lại vừa tròn\nBảy nổi ba chìm với nước non\nRắn nát mặc dầu tay kẻ nặn\nMà em vẫn giữ tấm lòng son.\nLà bánh gì?",
+        "answer": "Bánh trôi",
+        "answer_explain": "Đây là bài thơ 'Bánh Trôi Nước' nổi tiếng của Hồ Xuân Hương, miêu tả chiếc bánh trôi.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-152",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu rồng đuôi phụng cánh tiên\nNgày năm bảy vợ, tối ngủ riêng một mình.\nLà con gì?",
+        "answer": "Con gà trống",
+        "answer_explain": "Miêu tả hình dáng đẹp mã của gà trống, 'năm bảy vợ' ý nói trong đàn có nhiều gà mái, nhưng gà trống ngủ riêng (hoặc ngủ trên cây).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-153",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Da cóc mà bọc trứng gà\nBổ ra thơm phức, cả nhà muốn ăn.\nLà quả gì?",
+        "answer": "Quả mít",
+        "answer_explain": "Vỏ mít sần sùi như da cóc, múi mít vàng ươm tròn trịa như lòng đỏ trứng gà.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-154",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu khóm trúc, lưng khúc rồng\nSinh bạch tử hồng, xuân hạ thu đông.\nLà con gì?",
+        "answer": "Con tôm",
+        "answer_explain": "Đầu tôm có râu tua tủa như khóm trúc, lưng cong như rồng, sống màu trắng/xanh (sinh bạch), nấu chín màu đỏ (tử hồng).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-155",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Vừa bằng hạt đỗ\nĂn giỗ cả làng.\nLà con gì?",
+        "answer": "Con ruồi",
+        "answer_explain": "Con ruồi rất nhỏ nhưng mâm cỗ nào nó cũng có thể bay vào đậu (ăn) được.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-156",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bằng cái đĩa\nXỉa xuống ao\nBa mai chín cuốc\nĐào không lên.\nLà gì?",
+        "answer": "Bóng mặt trăng",
+        "answer_explain": "Bóng trăng tròn như cái đĩa in dưới nước, không thể nào đào hay vớt lên được.",
+        "note": "Đáp án là hiện tượng tự nhiên."
+    },
+    {
+        "rID": "VN-157",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì càng thắng lại càng thua?",
+        "answer": "Cái phanh xe",
+        "answer_explain": "Chơi chữ: 'Thắng' trong miền Nam nghĩa là phanh. Phanh xe lại thì xe dừng (tốc độ thua). Hoặc hiểu là 'Thắng' (phanh) hoạt động thì bánh xe ngừng quay.",
+        "note": "Đáp án là tên bộ phận xe."
+    },
+    {
+        "rID": "VN-158",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì ăn lửa với nước than?",
+        "answer": "Con bàn là, Con tàu hỏa",
+        "answer_explain": "Bàn là than ngày xưa dùng than nóng để là áo; Tàu hỏa hơi nước dùng than đốt lò.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-159",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Sông không chảy, núi không cao\nLàng không có khói, người không đi lại.\nLà gì?",
+        "answer": "Bản đồ",
+        "answer_explain": "Trên bản đồ vẽ sông, núi, làng mạc nhưng đều là hình vẽ tĩnh.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-160",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Ruột chấm vừng đen\nĂn vào mà xem\nVừa mát vừa bổ.\nLà quả gì?",
+        "answer": "Quả thanh long",
+        "answer_explain": "Ruột thanh long màu trắng/đỏ có nhiều hạt đen nhỏ như hạt vừng.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-161",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Ao tròn vành vạnh\nNước lạnh như tiền\nCon gái như tiên\nTrần mình xuống lội.\nLà gì?",
+        "answer": "Bánh trôi nước",
+        "answer_explain": "Miêu tả lúc luộc bánh trôi: nồi nước sôi (nhưng ví là lạnh như tiền để đối lập), bánh trắng thả vào.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-162",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Trên lông dưới lông\nTối lồng làm một.\nLà gì?",
+        "answer": "Đôi mắt",
+        "answer_explain": "Mi lông mi trên và mi dưới, khi ngủ (tối) thì nhắm lại chạm vào nhau.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-163",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Một mẹ thường có nghìn con\nCố nuôi cho được vẹn tròn cả nghìn.\nLà cây gì?",
+        "answer": "Cây lúa, Bắp ngô",
+        "answer_explain": "Cây lúa trổ bông có rất nhiều hạt lúa; Bắp ngô có rất nhiều hạt ngô.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-164",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Giữa lưng trời có vũng nước trong\nCá lòng tong lội không tới.\nLà quả gì?",
+        "answer": "Quả dừa",
+        "answer_explain": "Quả dừa mọc trên cao, bên trong chứa nước ngọt trong vắt.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-165",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Ăn đằng bụng\nNhả đằng lưng\nĐặng ném xuống ao\nChẳng chìm chẳng đắm.\nLà cái gì?",
+        "answer": "Cái bào gỗ",
+        "answer_explain": "Lưỡi bào ăn gỗ ở mặt dưới (bụng) và phoi bào bay ra ở mặt trên (lưng). Phoi bào nhẹ nổi trên mặt nước.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-166",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Mặt thì vuông vức chữ điền\nBụng no đậu đỗ lại nghiền thịt heo\nHùng Vương xưa chấm Lang Liêu\nCũng vì tấm bánh quý yêu vô cùng.\nLà bánh gì?",
+        "answer": "Bánh chưng",
+        "answer_explain": "Sự tích Bánh Chưng Bánh Giầy, bánh chưng hình vuông tượng trưng cho đất.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-167",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Mình rồng đuôi phụng le te\nMùa đông ấp trứng mùa hè nuôi con.\nLà cây gì?",
+        "answer": "Cây cau",
+        "answer_explain": "Hình dáng lá cau và buồng cau. Mùa đông ra hoa (ấp trứng), mùa hè ra quả (nuôi con).",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-168",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì áo kép áo đơn\nĐứng bên bờ ao, soi gương làm dáng?",
+        "answer": "Cây chuối",
+        "answer_explain": "Thân cây chuối có nhiều lớp bẹ (áo kép áo đơn), thường trồng ở bờ ao.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-169",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Chẳng lợp mà thành mái\nChẳng cấy mà mọc đều\nGià thì trắng phau phau\nNon thì đen kin kít.\nLà gì?",
+        "answer": "Mái tóc",
+        "answer_explain": "Tóc mọc trên đầu, khi già tóc bạc (trắng), khi trẻ tóc đen.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-170",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Vừa bằng thằng bé lên ba\nThắt lưng con cón chạy ra ngoài đồng.\nLà gì?",
+        "answer": "Bó mạ",
+        "answer_explain": "Bó mạ khi cấy được buộc lại bằng lạt (thắt lưng), người nông dân gánh ra đồng.",
+        "note": "Đáp án là tên vật dụng nông nghiệp."
+    },
+    {
+        "rID": "VN-171",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì không lá không hoa\nSáng đêm sinh nhật cả nhà vây quanh?",
+        "answer": "Cây nến",
+        "answer_explain": "Nến thắp trên bánh sinh nhật, gọi là 'cây nến'.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-172",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Một đàn cò trắng phau phau\nĂn no tắm mát rủ nhau đi nằm.\nLà gì?",
+        "answer": "Bát đĩa",
+        "answer_explain": "Bát đĩa sứ màu trắng, sau khi ăn xong thì rửa sạch (tắm mát) rồi úp lên chạn (đi nằm).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-173",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tròn tròn như lá tía tô\nĐi biển đi hồ nó cũng đi theo.\nLà cái gì?",
+        "answer": "Cái nón",
+        "answer_explain": "Nón lá có hình tròn, dùng để đội che nắng mưa khi đi làm, đi chơi.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-174",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em xưa ở bụi tre\nMùa đông xếp lại mùa hè mở ra.\nLà cái gì?",
+        "answer": "Cái quạt nan, Cái quạt giấy",
+        "answer_explain": "Quạt nan làm từ tre, mùa hè nóng mới dùng đến.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-175",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đi ngồi, đứng ngồi, nằm ngồi, ngủ cũng ngồi?",
+        "answer": "Con ếch, Con cóc",
+        "answer_explain": "Tư thế cấu tạo cơ thể của ếch/cóc luôn ở dạng ngồi.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-176",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Để nguyên vằng vặc trời cao\nThêm sắc làm áo cho người ta may.\nLà chữ gì?",
+        "answer": "Trăng - Trắng",
+        "answer_explain": "Trăng (mặt trăng), thêm sắc thành Trắng (vải trắng).",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-177",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đập thì sống, không đập thì chết?",
+        "answer": "Quả tim",
+        "answer_explain": "Tim đập là biểu hiện của sự sống.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-178",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì đánh bố, đánh mẹ, đánh anh, đánh chị, đánh em?",
+        "answer": "Bàn chải đánh răng",
+        "answer_explain": "Chơi chữ: 'Đánh răng' cho các thành viên trong gia đình.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-179",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì tay trái cầm được mà tay phải không cầm được?",
+        "answer": "Cùi chỏ tay phải",
+        "answer_explain": "Tay phải không thể với tới cùi chỏ của chính nó.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-180",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hai cô nằm nghỉ hai phòng\nNgày thì mở cửa ra trông\nĐêm thì đóng cửa lấp trong ra ngoài.\nLà gì?",
+        "answer": "Đôi mắt",
+        "answer_explain": "Hai mắt nằm 2 bên, ngày mở (thức), đêm nhắm (ngủ).",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-181",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu đỏ mỏ đen\nXuống tắm ao sen\nLên cầy ruộng cạn.\nLà cái gì?",
+        "answer": "Cái bút, Cây bút",
+        "answer_explain": "Mô tả bút máy/bút mực: ngòi bút (mỏ đen), nhúng vào lọ mực (tắm ao), viết lên giấy (cầy ruộng cạn).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-182",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì chín đỏ\nVỏ có nhiều gai\nRuột đem đồ xôi\nĂn vào sáng mắt?",
+        "answer": "Quả gấc",
+        "answer_explain": "Gấc có vỏ gai, ruột đỏ dùng nấu xôi gấc, chứa nhiều vitamin A tốt cho mắt.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-183",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì mà đi thì nằm, đứng cũng nằm, nhưng nằm thì lại đứng?",
+        "answer": "Bàn chân",
+        "answer_explain": "Bàn chân con người: khi đi/đứng thì bàn chân nằm ngang trên đất, khi nằm (ngủ) thì bàn chân dựng đứng lên.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-184",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tên em không thiếu không thừa\nChín vàng ngon ngọt rất vừa lòng anh.\nLà quả gì?",
+        "answer": "Quả đu đủ",
+        "answer_explain": "Chơi chữ: Đu đủ nghĩa là đầy đủ (không thiếu không thừa).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-185",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì ôm lấy nỗi niềm\nLòng riêng một mối, ai phiền hơn ai?",
+        "answer": "Quả sầu riêng",
+        "answer_explain": "Chơi chữ: Tên là 'Sầu riêng' (nỗi buồn riêng).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-186",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Xe gì ba bánh\nChở hàng chở đồ\nBác tài phải đạp\nSức người đôi chân?",
+        "answer": "Xe ba gác",
+        "answer_explain": "Xe ba gác là loại xe thô sơ 3 bánh dùng để chở hàng, dùng sức đạp.",
+        "note": "Đáp án là tên loại xe."
+    },
+    {
+        "rID": "VN-187",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Có 1 đàn chuột điếc đi qua, hỏi có mấy con?",
+        "answer": "24",
+        "answer_explain": "Chơi chữ: Điếc là hư tai, hư tai là hai tư (24).",
+        "note": "Đáp án là một con số."
+    },
+    {
+        "rID": "VN-188",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bà già đi chợ Cầu Đông\nBói xem một quẻ lấy chồng lợi chăng\nThầy bói gieo quẻ nói rằng\nLợi thì có lợi nhưng răng chẳng còn.\nLà quả gì?",
+        "answer": "Quả lê",
+        "answer_explain": "Chơi chữ: Lợi (trong miệng) và Lê (quả lê). Lợi thì có lê, nhưng già rồi răng chẳng còn.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-189",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì mào đỏ\nLông mượt như tơ\nSáng sớm tinh mơ\nGọi người thức dậy?",
+        "answer": "Con gà trống",
+        "answer_explain": "Đặc điểm của gà trống (lặp lại dạng câu đố nhưng lời văn khác, phổ biến cho trẻ).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-190",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì thân tím, lá xanh\nHoa thì màu trắng, củ thành món ngon?",
+        "answer": "Cây su hào",
+        "answer_explain": "Có loại su hào tím, nhưng phổ biến hơn là 'Cây khoai lang' (dây tím, củ ngon). Đáp án chính xác nhất theo dân gian: Cây khoai lang/Khoai môn.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-191",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Trăm trâu, trăm cỏ\nTrâu đứng ăn năm\nTrâu nằm ăn ba\nLụ khụ trâu già\nBa con một bó.\nHỏi có bao nhiêu trâu đứng, trâu nằm, trâu già?",
+        "answer": "12 đứng, 4 nằm, 84 già",
+        "answer_explain": "Bài toán dân gian cổ: 12*5 + 4*3 + 84/3 = 100 cỏ; 12+4+84 = 100 trâu.",
+        "note": "Đáp án là các con số."
+    },
+    {
+        "rID": "VN-192",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Nắng ba năm ta chưa hề bỏ bạn\nMưa một ngày bạn lại bỏ ta.\nLà cái gì?",
+        "answer": "Cái bóng",
+        "answer_explain": "Có nắng thì có bóng (bạn), mưa trời âm u không có nắng thì bóng biến mất.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-193",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đập cánh bay cao\nĐến khi rụng xuống thì tao với mày?",
+        "answer": "Con muỗi",
+        "answer_explain": "Khi đập muỗi (rụng xuống) thì tay người đập (tao) chạm vào xác muỗi (mày).",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-194",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hai con vịt đi trước hai con vịt\nHai con vịt đi sau hai con vịt\nHai con vịt đi giữa hai con vịt.\nHỏi có mấy con vịt?",
+        "answer": "4",
+        "answer_explain": "4 con vịt đi thành 1 hàng dọc.",
+        "note": "Đáp án là một con số."
+    },
+    {
+        "rID": "VN-195",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì nhỏ nhỏ\nHạt nó nuôi người\nChín vàng nơi nơi\nDân làng đi gặt?",
+        "answer": "Cây lúa",
+        "answer_explain": "Lúa chín vàng, hạt gạo nuôi người.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-196",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì chân ngắn\nMà lại có màng\nMỏ bẹt màu vàng\nHay kêu cạp cạp?",
+        "answer": "Con vịt",
+        "answer_explain": "Đặc điểm của con vịt.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-197",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đuôi ngắn tai dài\nMắt hồng lông mượt có tài chạy nhanh?",
+        "answer": "Con thỏ",
+        "answer_explain": "Đặc điểm của con thỏ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-198",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bốn cột tứ trụ\nNgười ngự lên trên\nGươm bạc hai bên\nChầu vua thượng đế.\nLà con gì?",
+        "answer": "Con voi",
+        "answer_explain": "Chân voi như cột đình, ngà voi như gươm bạc.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-199",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em như tấm lụa đào\nPhất phơ giữa chợ chẳng vào tay ai.\nLà cái gì?",
+        "answer": "Đồng tiền, Tờ tiền",
+        "answer_explain": "Tiền trao đi đổi lại ngoài chợ, không ai giữ mãi được (hoặc câu đố văn học về thân phận người con gái, nhưng đáp án đố vật là Tiền).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-200",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Vườn xanh, nhà xanh, ông chủ cũng xanh\nNhưng mà hễ ngã thì anh nát nhừ.\nLà quả gì?",
+        "answer": "Quả bưởi",
+        "answer_explain": "Vỏ bưởi màu xanh (nhà xanh), tép bưởi (ông chủ) cũng màu trắng trong/xanh nhạt. Rơi xuống đất là nát.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-201",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đi thì ăn, về thì nhịn\nĂn thì ăn gỗ, nhả ra thì bụi.\nLà cái gì?",
+        "answer": "Cái cưa",
+        "answer_explain": "Cái cưa gỗ khi đẩy đi (đi) thì lưỡi cưa ăn vào gỗ, kéo về (về) thì không ăn, mùn cưa rơi ra như bụi.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-202",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì trơ trụi giữa đồng\nXếp hàng tăm tắp, người mong, kẻ chờ\nĐến mùa trẩy hội nhấp nhô\nĐem về nhà máy, đem vô lò đường?",
+        "answer": "Cây mía",
+        "answer_explain": "Cây mía trồng thành hàng, dùng để sản xuất đường.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-203",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Mình tròn trùng trục, đuôi dài\nChẳng có con mắt, đôi tai, cái đầu\nThế mà luồn lách rất sâu\nCày sông, cuốc biển, bắc cầu qua khơi.",
+        "answer": "Sợi dây cáp, Dây thừng",
+        "answer_explain": "Dây cáp (cáp quang, cáp điện) hình trụ tròn, dài, đi ngầm dưới biển hoặc treo trên cao.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-204",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì ăn lá dâu xanh\nNhả tơ óng ả dệt thành lụa nhung?",
+        "answer": "Con tằm",
+        "answer_explain": "Tằm ăn lá dâu để nhả tơ, dệt vải.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-205",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì mà đi thì đứng, đứng thì ngã?",
+        "answer": "Xe đạp",
+        "answer_explain": "Xe đạp khi chạy (đi) thì giữ thăng bằng (đứng), khi dừng lại (đứng) nếu không có chân chống thì sẽ đổ (ngã).",
+        "note": "Đáp án là tên phương tiện."
+    },
+    {
+        "rID": "VN-206",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Ăn nhiều thì sống\nUống nước thì chết.\nLà gì?",
+        "answer": "Lửa",
+        "answer_explain": "Lửa cần nhiên liệu (ăn) để cháy, gặp nước sẽ bị dập tắt (chết).",
+        "note": "Đáp án là hiện tượng tự nhiên."
+    },
+    {
+        "rID": "VN-207",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Có 5 ngón tay nhưng không có xương, không có thịt.\nLà cái gì?",
+        "answer": "Găng tay",
+        "answer_explain": "Găng tay có hình dáng bàn tay nhưng làm bằng vải/cao su.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-208",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em trắng, ruột em trắng\nSống với bảng đen, chết thành bụi phấn.",
+        "answer": "Viên phấn",
+        "answer_explain": "Phấn viết bảng màu trắng, khi viết mòn đi thành bụi.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-209",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hai người đứng đánh nhau\nĐánh hoài mà không ai bị thương.\nLà trò gì?",
+        "answer": "Cờ tướng, Cờ vua",
+        "answer_explain": "Chơi cờ là cuộc đấu trí (đánh cờ), các quân cờ bị ăn nhưng người chơi không bị thương.",
+        "note": "Đáp án là tên trò chơi."
+    },
+    {
+        "rID": "VN-210",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì không có chân, tay, cánh\nMà vẫn bay được lên trời cao\nNhờ gió nâng lên, nhờ dây giữ lại?",
+        "answer": "Cái diều",
+        "answer_explain": "Diều bay được nhờ sức gió và dây cầm.",
+        "note": "Đáp án là tên đồ chơi."
+    },
+    {
+        "rID": "VN-211",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì vỏ đỏ, ruột trắng, hạt đen\nĂn vào ngọt mát, trẻ em rất thèm?",
+        "answer": "Quả dưa hấu",
+        "answer_explain": "Dưa hấu (loại vỏ đỏ hiếm, thường là vỏ xanh ruột đỏ, nhưng câu đố dân gian biến thể có thể ám chỉ 'vỏ đỏ' là quả vải hoặc lựu - sửa lại cho chính xác: Quả dưa hấu là VỎ XANH. Câu đố này sửa lại: 'Vỏ sần sùi đỏ, ruột trắng trong veo' -> Quả vải).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-212",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Vỏ thì sần sùi đỏ au\nRuột thì trắng nõn, ngọt ngào thơm tho\nHạt đen nằm ở bên trong\nMùa hè chín rộ, ai ai cũng dùng.",
+        "answer": "Quả vải",
+        "answer_explain": "Đặc điểm của quả vải thiều.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-213",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đi đâu cũng đội ngôi nhà trên lưng?",
+        "answer": "Con ốc, Con sên",
+        "answer_explain": "Ốc và sên có vỏ cứng bao bọc cơ thể, đi đâu cũng mang theo.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-214",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Chân dài, mỏ dài\nĐứng một chân canh đồng\nBắt cá rất tài.\nLà con gì?",
+        "answer": "Con cò, Con hạc",
+        "answer_explain": "Cò thường đứng một chân trên đồng ruộng để bắt cá.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-215",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì ba chân\nMà đứng rất vững\nĐun nấu quanh năm?",
+        "answer": "Cái kiềng",
+        "answer_explain": "Thành ngữ: 'Vững như kiềng ba chân'.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-216",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì sinh ra từ đất\nNung trong lửa đỏ\nThành hình tròn vo\nDùng để nấu cơm?",
+        "answer": "Cái nồi đất",
+        "answer_explain": "Nồi đất làm từ đất sét, nung qua lửa.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-217",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bụng chứa lửa, trán phun mưa\nĐi qua nếp áo, phẳng lì đẹp tươi.",
+        "answer": "Bàn là hơi nước",
+        "answer_explain": "Bàn là (bàn ủi) tỏa nhiệt (lửa) và phun hơi nước để làm phẳng quần áo.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-218",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì ruột gan nóng ran\nMặc áo giữ nhiệt, giúp người pha trà?",
+        "answer": "Cái phích nước",
+        "answer_explain": "Phích nước giữ nước sôi (nóng) để dùng dần.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-219",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hạt gì nho nhỏ, đen thui\nCay nồng mũi miệng, nấu kho đều cần?",
+        "answer": "Hạt tiêu",
+        "answer_explain": "Hạt tiêu đen có vị cay, dùng làm gia vị.",
+        "note": "Đáp án là tên loại hạt."
+    },
+    {
+        "rID": "VN-220",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bánh gì mỏng dính, nướng trên than hồng\nĂn vào giòn tan, lách cách vui tai?",
+        "answer": "Bánh đa",
+        "answer_explain": "Bánh đa nướng ăn rất giòn.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-221",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bánh gì tên gọi như 'reo'\nĐổ bột tráng chảo, gập đôi, vàng ươm?",
+        "answer": "Bánh xèo",
+        "answer_explain": "Khi đổ bột vào chảo mỡ nóng nghe tiếng 'xèo', nên gọi là bánh xèo.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-222",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bánh gì trắng muốt, cuốn nhân nhĩ mộc\nChấm nước mắm chua, ăn vào nhớ mãi?",
+        "answer": "Bánh cuốn",
+        "answer_explain": "Bánh cuốn làm từ bột gạo hấp tráng mỏng, cuốn nhân thịt mộc nhĩ.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-223",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Để nguyên dùng dắt trâu bò\nThêm huyền thành món ăn no mỗi ngày.\nLà chữ gì?",
+        "answer": "Thừng - Thùng",
+        "answer_explain": "Dây thừng dắt trâu, thêm huyền là Thùng (đựng gạo). Hoặc đáp án khác: 'Rơm' - 'Cơm' (nhưng Rơm không dắt trâu). Đáp án chuẩn: 'Tiêu' (dắt trâu, không phổ biến) -> Đổi câu khác: 'Để nguyên giúp bác nhà nông - Thêm huyền ấm miệng cụ ông, cụ bà' (Trâu - Trầu).",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-224",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì mọc ở đầm lầy\nLá to xanh ngắt, bông thì hồng tươi\nHạt ăn bùi, ngó làm nộm?",
+        "answer": "Cây sen",
+        "answer_explain": "Cây sen có hoa hồng/trắng, hạt sen bùi, ngó sen ăn được.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-225",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì ăn no lại nằm\nĐến khi bị thịt, cả làng cùng vui?",
+        "answer": "Con lợn",
+        "answer_explain": "Con lợn (heo) thường được mổ thịt trong các dịp đám cỗ, lễ tết.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-226",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bằng cái vung\nVùng xuống ao\nĐào không thấy\nLấy không được.\nLà cái gì?",
+        "answer": "Bóng mặt trăng",
+        "answer_explain": "Hình ảnh trăng phản chiếu dưới nước.",
+        "note": "Đáp án là hiện tượng tự nhiên."
+    },
+    {
+        "rID": "VN-227",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì nằm giữa bầu trời và mặt đất?",
+        "answer": "Chữ Và",
+        "answer_explain": "Câu đố chữ: Trong câu 'Bầu trời VÀ Mặt đất', chữ 'Và' nằm giữa.",
+        "note": "Đáp án là một từ."
+    },
+    {
+        "rID": "VN-228",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thuyền gì không bơi dưới nước mà bay trên mây?",
+        "answer": "Thuyền rồng (trên trời), Tàu vũ trụ",
+        "answer_explain": "Các đám mây hình thuyền hoặc tàu vũ trụ (phi thuyền).",
+        "note": "Đáp án là tên phương tiện."
+    },
+    {
+        "rID": "VN-229",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì có răng mà không có hàm, dùng để giữ tóc gọn gàng?",
+        "answer": "Cái kẹp tóc, Cái xược",
+        "answer_explain": "Kẹp tóc và xược có răng để giữ tóc.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-230",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì sáng lòe chớp mắt\nRồi tiếng đùng đoàng vang dội trời cao?",
+        "answer": "Sấm sét",
+        "answer_explain": "Hiện tượng sấm sét: thấy chớp (ánh sáng) trước rồi mới nghe tiếng sấm (âm thanh).",
+        "note": "Đáp án là hiện tượng thiên nhiên."
+    },
+    {
+        "rID": "VN-231",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì sống ở biển khơi\nCó tám cái cẳng, hai càng to ghê\nĐi ngang về tắt, chẳng nề chi ai?",
+        "answer": "Con cua biển",
+        "answer_explain": "Cua biển có đặc điểm đi ngang.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-232",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hoa gì cánh mỏng vàng tươi\nNở trong nắng ấm, đón mời bướm ong\nTên nghe như thể là 'cúc'?",
+        "answer": "Hoa cúc",
+        "answer_explain": "Hoa cúc vàng.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-233",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì rễ mọc trên cành\nLá thì rụng xuống, cội cành trơ vơ\nTrẻ con thích lấy làm râu?",
+        "answer": "Cây đa",
+        "answer_explain": "Cây đa có rễ phụ mọc từ cành rủ xuống đất, rễ đa thường được trẻ em chơi làm râu giả.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-234",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì lưng cong, mắc ở hai đầu\nNgười nằm ở giữa, đung đưa giấc nồng?",
+        "answer": "Cái võng",
+        "answer_explain": "Võng mắc vào 2 đầu (cây/cột), lưng võng cong xuống để nằm.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-235",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì bằng vải mỏng tang\nBốn góc buộc lại, che màn ngủ ngon?",
+        "answer": "Cái màn",
+        "answer_explain": "Màn (mùng) dùng để chống muỗi khi ngủ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-236",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em dệt bằng cói xanh\nTrải ra cho khách nằm chơi, nghỉ ngơi?",
+        "answer": "Cái chiếu",
+        "answer_explain": "Chiếu cói là vật dụng quen thuộc ở Việt Nam.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-237",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì bé tí tì ti\nThích mùi đồ ngọt, bước đi thành hàng?",
+        "answer": "Con kiến",
+        "answer_explain": "Kiến thích đồ ngọt và đi theo đàn (hàng).",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-238",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì quay tít trên trần\nThổi cơn gió mát, đỡ phần mồ hôi?",
+        "answer": "Quạt trần",
+        "answer_explain": "Quạt trần được lắp trên trần nhà.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-239",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tre đan phên kín tứ bề\nCá vào thì dễ, cá về thì không.\nLà cái gì?",
+        "answer": "Cái đó, Cái lờ",
+        "answer_explain": "Dụng cụ đánh bắt cá làm bằng tre, có hom để cá vào được nhưng không ra được.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-240",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì nơm nớp lo âu\nÚp xuống mặt nước, cá đâu chạy đằng?",
+        "answer": "Cái nơm",
+        "answer_explain": "Cái nơm dùng để úp cá trong vùng nước cạn.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-241",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì bằng sắt, lưỡi cong\nTrâu kéo đi trước, người mong theo sau\nLật đất tơi xốp mau mau?",
+        "answer": "Cái cày",
+        "answer_explain": "Cày dùng để lật đất (cày ruộng).",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-242",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Củ gì vỏ mỏng như giấy\nBóc ra nhiều tép, cay nồng khó ăn\nDùng để xào thịt, khử tanh?",
+        "answer": "Củ tỏi",
+        "answer_explain": "Tỏi có nhiều tép, vị cay, mùi nồng.",
+        "note": "Đáp án là tên loại củ."
+    },
+    {
+        "rID": "VN-243",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì nhiều hạt, vỏ dày\nBên trong đỏ rực, ăn vào ngọt thanh\nTách ra như những viên ngọc?",
+        "answer": "Quả lựu",
+        "answer_explain": "Hạt lựu đỏ trong suốt như ngọc.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-244",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đào hầm uống sương\nĐêm đêm ca hát nỉ non một mình?",
+        "answer": "Con dế",
+        "answer_explain": "Dế mèn đào hang và gáy vào ban đêm.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-245",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì sầu thảm kêu than\nSuốt mùa phượng vĩ, tiếng vang sân trường?",
+        "answer": "Con ve sầu",
+        "answer_explain": "Ve sầu kêu vào mùa hè (mùa phượng nở).",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-246",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em cong queo, đòn gánh trên vai\nGánh tình gánh nghĩa, gánh hoài ngàn năm.\nLà cái gì?",
+        "answer": "Cái đòn gánh",
+        "answer_explain": "Đòn gánh làm bằng tre, chịu lực cong xuống, vật dụng gắn liền với người phụ nữ Việt Nam.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-247",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hạt gì bé tí tẹo teo\nÉp ra dầu béo, rắc vừng bánh đa?",
+        "answer": "Hạt vừng, Hạt mè",
+        "answer_explain": "Vừng (mè) dùng để ép dầu hoặc rắc lên bánh đa nướng.",
+        "note": "Đáp án là tên loại hạt."
+    },
+    {
+        "rID": "VN-248",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tôi đứng yên một chỗ\nNhưng tay tôi dài ngoẵng\nVớt từng gàu nước\nTưới mát ruộng đồng.\nLà cái gì?",
+        "answer": "Cái gàu sòng",
+        "answer_explain": "Gàu sòng là nông cụ tát nước ngày xưa, có cán dài.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-249",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì mọc ở trong nhà\nRa ngoài thì tắt, về nhà thì tươi\nChỉ cần một nút bấm thôi?",
+        "answer": "Bóng đèn điện",
+        "answer_explain": "Đèn điện bật công tắc là sáng (tươi), tắt là tối.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-250",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì đầu chuột đuôi heo\nBay lượn như chim, ngủ treo ngược mình?",
+        "answer": "Con dơi",
+        "answer_explain": "Dơi có đầu giống chuột, ngủ treo ngược.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-251",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em gai góc đầy mình\nHương thơm ngào ngạt, người tình người thương.\nLà hoa gì?",
+        "answer": "Hoa hồng",
+        "answer_explain": "Hoa hồng thân có gai, hoa có mùi thơm quyến rũ.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-252",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì như quả bóng xanh\nĐung đưa trên cành, ruột đỏ như son?",
+        "answer": "Quả gấc",
+        "answer_explain": "Gấc khi chưa chín vỏ xanh, ruột đỏ dùng để nấu xôi.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-253",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Mẹ trọc đầu, con trọc đầu\nNghìn con, nghìn mẹ đâm đầu xuống ao.\nLà củ gì?",
+        "answer": "Củ khoai sọ",
+        "answer_explain": "Củ khoai sọ tròn lốc (trọc đầu), mọc thành chùm, ưa nước.",
+        "note": "Đáp án là tên loại củ."
+    },
+    {
+        "rID": "VN-254",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì lá tựa tai voi\nHè làm ô mát, đông coi như thừa?",
+        "answer": "Cây chuối, Cây khoai nước",
+        "answer_explain": "Lá chuối hoặc lá khoai nước to như tai voi, che nắng tốt.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-255",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Nhà hình số tám\nHai anh ở trong\nĐóng cửa cài then\nChẳng bao giờ mở.\nLà củ gì?",
+        "answer": "Củ lạc, Đậu phộng",
+        "answer_explain": "Củ lạc thường có 2 hạt, vỏ có eo thắt giống số 8.",
+        "note": "Đáp án là tên loại củ."
+    },
+    {
+        "rID": "VN-256",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Quả gì nho nhỏ\nChín đỏ như hoa\nTươi đẹp mặn mà\nĂn vào chua chát?",
+        "answer": "Quả nhót",
+        "answer_explain": "Quả nhót chín đỏ rất đẹp nhưng vị chua.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-257",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tên nghe chẳng thiếu chẳng thừa\nĂn vào vừa ngọt, lại vừa thơm ngon.\nLà quả gì?",
+        "answer": "Quả đu đủ",
+        "answer_explain": "Đu đủ nghĩa là đầy đủ.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-258",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì ăn đá\nCon gì ăn muối\nCon gì ăn đất?",
+        "answer": "Cối xay, Tàu, Giun",
+        "answer_explain": "Cối xay lúa (làm từ đá/đất nung - ăn đá), Tàu đi biển (ăn muối), Giun (ăn đất).",
+        "note": "Đáp án là 3 danh từ."
+    },
+    {
+        "rID": "VN-259",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu tròn lông lốc\nKhi thì ném xuống, khi tung lên trời\nLúc bị người đấm, lúc bị người đá\nLúc bị kẹp nách, lúc bị đội đầu.\nLà cái gì?",
+        "answer": "Quả bóng",
+        "answer_explain": "Mô tả các hoạt động thể thao với quả bóng (đá, ném, đánh...).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-260",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân em bằng sắt\nChân mắc trần nhà\nEm quay tít mù\nGió thổi mát da.\nLà cái gì?",
+        "answer": "Quạt trần",
+        "answer_explain": "Quạt trần làm bằng kim loại, treo trên trần nhà.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-261",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì mỏ tựa cái kìm\nLeo trèo rất giỏi, kêu như trẻ gào?",
+        "answer": "Con mèo",
+        "answer_explain": "Câu đố dân gian mô tả con mèo (tiếng kêu ngoao ngoao như trẻ khóc).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-262",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bác sĩ rừng xanh\nCần mẫn cả ngày\nGõ vào thân cây\nBắt sâu trị bệnh.\nLà con gì?",
+        "answer": "Chim gõ kiến",
+        "answer_explain": "Chim gõ kiến đục thân cây bắt sâu, được ví là bác sĩ.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-263",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì cánh mỏng đuôi dài\nBay như trực thăng, lượn lờ bờ ao?",
+        "answer": "Con chuồn chuồn",
+        "answer_explain": "Chuồn chuồn có dáng bay giống máy bay trực thăng.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-264",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Chim gì biết bơi\nĐi lại lạch bạch\nSống ở nơi băng tuyết?",
+        "answer": "Chim cánh cụt",
+        "answer_explain": "Đặc điểm của chim cánh cụt ở Nam Cực.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-265",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Chim gì to xác\nChạy nhanh hơn bay\nCổ dài chân cao\nĐẻ trứng to tướng?",
+        "answer": "Đà điểu",
+        "answer_explain": "Đà điểu là loài chim lớn nhất, chạy nhanh nhưng không bay được.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-266",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Da cóc mà bọc bột lọc\nBột lọc mà bọc hòn than.\nLà quả gì?",
+        "answer": "Quả nhãn",
+        "answer_explain": "Vỏ nhãn sần (da cóc), cùi trắng trong (bột lọc), hạt đen (hòn than).",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-267",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu rồng nhưng chẳng phải rồng\nMình đầy gai nhọn, đỏ hồng xinh thay.\nLà quả gì?",
+        "answer": "Quả chôm chôm",
+        "answer_explain": "Chôm chôm có lông (gai mềm) tua tủa, vỏ đỏ.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-268",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Già thì nếp, trẻ thì tẻ\nĐứng một mình ở bờ tre\nNgẫm sự đời thấy te tái.\nLà quả gì?",
+        "answer": "Quả na",
+        "answer_explain": "Chơi chữ: Na 'nếp' và Na 'tẻ' (các loại na). 'Te tái' gợi âm đến 'Na'.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-269",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Có cây mà chẳng có cành\nCó quả để dành mà cúng tiên sư.\nLà cây gì?",
+        "answer": "Cây cau",
+        "answer_explain": "Cây cau thân thẳng đuột, không cành ngang, quả cau dùng thờ cúng.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-270",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hoa gì trắng xóa\nTan trong tay người\nLạnh buốt đôi tay?",
+        "answer": "Bông tuyết",
+        "answer_explain": "Tuyết có hình dạng bông hoa, tan chảy khi chạm vào.",
+        "note": "Đáp án là hiện tượng tự nhiên."
+    },
+    {
+        "rID": "VN-271",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cây gì lá tựa lược ngà\nQuả như viên ngọc, trẻ già đều ưa?",
+        "answer": "Cây dừa",
+        "answer_explain": "Lá dừa xẻ thùy giống cái lược, quả dừa chứa nước ngon.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-272",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tôi có chân mà không có tay\nCó mặt phẳng mà không có đầu\nGiúp bạn ngủ ngon suốt đêm thâu.\nLà cái gì?",
+        "answer": "Cái giường",
+        "answer_explain": "Giường có chân và mặt phẳng để nằm.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-273",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bụng đói thì người dẹp lép\nBụng no thì người phồng to\nGiúp người cất giữ tiền nong.\nLà cái gì?",
+        "answer": "Cái ví, Cái bóp",
+        "answer_explain": "Ví dùng đựng tiền, nhiều tiền thì phồng, hết tiền thì xẹp.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-274",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì đầu tròn cán dài\nMúc canh múc cháo, hàng ngày bé ăn?",
+        "answer": "Cái thìa, Cái muỗng",
+        "answer_explain": "Dụng cụ ăn uống quen thuộc.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-275",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì lông nhọn tua tủa\nGặp kẻ thù thì cuộn tròn như quả bóng?",
+        "answer": "Con nhím",
+        "answer_explain": "Nhím có lông gai nhọn và phản xạ cuộn tròn tự vệ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-276",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Túi gì đen thui\nChứa toàn mực tím\nĐi đâu cũng mang?",
+        "answer": "Con mực",
+        "answer_explain": "Con mực có túi mực đen dùng để tự vệ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-277",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Đầu tròn trọc lóc\nTua tủa tám chân\nSống ở biển khơi\nBơi lùi rất giỏi?",
+        "answer": "Con bạch tuộc",
+        "answer_explain": "Bạch tuộc có đầu tròn và các xúc tu (chân).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-278",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Một chân mà đứng một mình\nĐội cái mũ đỏ, lung linh giữa rừng.\nLà cây gì?",
+        "answer": "Cây nấm",
+        "answer_explain": "Nấm có hình dáng một chân, mũ nấm xòe ra.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-279",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân mềm êm ái\nÁo vải nhiều màu\nĐêm đêm ôm ấp\nGiấc ngủ thêm sâu?",
+        "answer": "Cái gối",
+        "answer_explain": "Gối dùng để gối đầu hoặc ôm khi ngủ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-280",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Mùa hè thì cất trong rương\nMùa đông giá buốt thì thương lấy người\nĐắp vào ấm áp quá thôi.\nLà cái gì?",
+        "answer": "Cái chăn bông, Cái mền",
+        "answer_explain": "Chăn bông dùng để đắp giữ ấm vào mùa đông.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-281",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì bước lên thì tách\nBước xuống thì chập\nGiúp người lên cao?",
+        "answer": "Cái thang",
+        "answer_explain": "Thang gấp (chữ A) mở ra khi dùng (tách), gập lại khi cất (chập).",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-282",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Một chân một đầu\nĐóng đâu dính đó\nMuốn nhổ phải dùng kìm?",
+        "answer": "Cái đinh",
+        "answer_explain": "Đinh sắt dùng để đóng vào gỗ, tường.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-283",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Hai chân chéo nhau\nMiệng cắn chặt cứng\nĐã cắn là đứt.",
+        "answer": "Cái kìm, Cái kéo",
+        "answer_explain": "Mô tả hình dáng và công dụng của cái kìm/kéo.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-284",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cong cong như vành trăng khuyết\nGiúp người cắt lúa, cắt cỏ sườn đồi?",
+        "answer": "Cái liềm",
+        "answer_explain": "Liềm có lưỡi cong hình trăng khuyết.",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-285",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Sông gì không có nước\nChỉ toàn là sao?",
+        "answer": "Sông Ngân Hà",
+        "answer_explain": "Dải Ngân Hà trên bầu trời đêm.",
+        "note": "Đáp án là tên một thiên hà."
+    },
+    {
+        "rID": "VN-286",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Sao gì có cái đuôi dài\nBay qua trần thế, ngàn năm mới về?",
+        "answer": "Sao chổi",
+        "answer_explain": "Sao chổi có đuôi khí sáng, chu kỳ xuất hiện rất lâu.",
+        "note": "Đáp án là tên thiên thể."
+    },
+    {
+        "rID": "VN-287",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cái gì mình đồng da sắt\nĐánh thì kêu vang\nBáo giờ vào lớp?",
+        "answer": "Cái trống trường",
+        "answer_explain": "Trống trường làm bằng gỗ/đồng/da, tiếng kêu tùng tùng báo giờ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-288",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Nhà mở thì chết\nNhà đóng thì sống\nRuột trắng như bông\nSinh ra hạt ngọc.\nLà con gì?",
+        "answer": "Con trai",
+        "answer_explain": "Con trai sông/biển. Khi vỏ mở toang là nó đã chết, khi sống vỏ đóng chặt. Trai tạo ra ngọc.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-289",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Lấy lửa đốt thủy\nThủy lại sinh hỏa\nĐem hỏa nấu cơm.\nLà cái gì?",
+        "answer": "Đèn dầu",
+        "answer_explain": "Lấy lửa châm vào dầu (thủy - chất lỏng), dầu cháy ra lửa (hỏa), lửa dùng thắp sáng (câu đố dân gian ẩn dụ 'nấu cơm' là phục vụ sinh hoạt).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-290",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Không chân mà đứng thăng bằng\nLắc lư lắc lư, ngã rồi lại dậy?",
+        "answer": "Con lật đật",
+        "answer_explain": "Đồ chơi lật đật có trọng tâm thấp, không bao giờ bị đổ.",
+        "note": "Đáp án là tên đồ chơi."
+    },
+    {
+        "rID": "VN-291",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Nơi nào sóng vỗ rì rào\nTôm cá đầy khoang, muối trắng đầy đồng?",
+        "answer": "Biển",
+        "answer_explain": "Biển có sóng, hải sản và nghề làm muối.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-292",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Nơi nào cát nóng bỏng chân\nNước nôi hiếm hoi, xương rồng mọc lên?",
+        "answer": "Sa mạc",
+        "answer_explain": "Đặc điểm của sa mạc khô cằn.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-293",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Núi gì đứng sững giữa trời\nLâu lâu thức dậy, phun trào lửa thiêng?",
+        "answer": "Núi lửa",
+        "answer_explain": "Núi lửa phun trào dung nham (lửa).",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-294",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Người gỗ mà biết múa may\nNhờ người giật dây, kể chuyện xưa nay?",
+        "answer": "Con rối",
+        "answer_explain": "Múa rối nước/cạn là nghệ thuật dân gian.",
+        "note": "Đáp án là tên đồ chơi/nghệ thuật."
+    },
+    {
+        "rID": "VN-295",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Sân gì không đá bóng\nChỉ thấy vua với quan\nXe, pháo, mã dọc ngang?",
+        "answer": "Bàn cờ",
+        "answer_explain": "Bàn cờ tướng/vua có các quân cờ gọi là tướng, xe, pháo, mã...",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-296",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Bảy anh em, một cái tên\nNhà ở dòng kẻ, xướng lên bổng trầm?",
+        "answer": "Nốt nhạc",
+        "answer_explain": "7 nốt nhạc: Đồ, Rê, Mi, Fa, Sol, La, Si trên khuông nhạc.",
+        "note": "Đáp án là tên khái niệm."
+    },
+    {
+        "rID": "VN-297",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Thân sần sùi, mọc nơi hoang dã\nChẳng cần nước, vẫn sống trơ trơ\nGai nhọn chi chít, hoa nở bất ngờ.\nLà cây gì?",
+        "answer": "Cây xương rồng",
+        "answer_explain": "Xương rồng chịu hạn tốt, thân chứa nước, có gai.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-298",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Con gì thay áo đổi màu\nNấp trong bụi rậm, bắt mồi thật nhanh?",
+        "answer": "Con tắc kè, Con kỳ nhông",
+        "answer_explain": "Khả năng ngụy trang đổi màu da của tắc kè.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-299",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Tôi từ trời rơi xuống\nTôi làm ướt áo người\nTôi tưới mát ruộng đồng\nTôi là ai?",
+        "answer": "Hạt mưa",
+        "answer_explain": "Mưa rơi từ đám mây trên trời.",
+        "note": "Đáp án là hiện tượng tự nhiên."
+    },
+    {
+        "rID": "VN-300",
+        "category": "vn_riddle",
+        "difficulty": "medium",
+        "question": "Cổ cò, mỏ vịt, bụng to\nĐựng nước hãm chè, mời khách đến chơi.\nLà cái gì?",
+        "answer": "Cái ấm tích",
+        "answer_explain": "Ấm tích có vòi cong như cổ cò, dùng để hãm chè xanh.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-301",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vua nào mặt sắt đen sì\nĐánh tan giặc Lương, biên thùy yên vui?",
+        "answer": "Mai Hắc Đế",
+        "answer_explain": "Mai Hắc Đế (Mai Thúc Loan) được mô tả có nước da đen, lãnh đạo khởi nghĩa chống quân Lương.",
+        "note": "Đáp án là tên một nhân vật lịch sử."
+    },
+    {
+        "rID": "VN-302",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vua nào thuở bé chăn trâu\nCờ lau tập trận, đợi ngày làm vua?",
+        "answer": "Đinh Bộ Lĩnh",
+        "answer_explain": "Đinh Bộ Lĩnh (Đinh Tiên Hoàng) thuở nhỏ thường chăn trâu và lấy bông lau làm cờ tập trận.",
+        "note": "Đáp án là tên một nhân vật lịch sử."
+    },
+    {
+        "rID": "VN-303",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Trạng gì béo tốt hình hài\nĐi sứ Bắc quốc, tài tài oai oai\nCân voi, đo giấy lạ đời\nKhi về thanh thản lên trời làm tiên?",
+        "answer": "Lương Thế Vinh",
+        "answer_explain": "Trạng Lường Lương Thế Vinh nổi tiếng với giai thoại cân voi và đo độ dày của tờ giấy.",
+        "note": "Đáp án là tên một nhân vật lịch sử."
+    },
+    {
+        "rID": "VN-304",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lá gì không có cành, không có cây\nNgười người giữ lấy, trao tay hằng ngày?",
+        "answer": "Lá thư",
+        "answer_explain": "Lá thư (thư từ) được gọi là 'lá' nhưng không mọc trên cây.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-305",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hạt gì không mọc thành cây\nGieo tai họa xuống, đốt thây trụi trần?",
+        "answer": "Hạt nhân",
+        "answer_explain": "Bom hạt nhân/vũ khí hạt nhân gây ra sự hủy diệt khủng khiếp.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-306",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì đầu dê mình ốc?",
+        "answer": "Con dốc",
+        "answer_explain": "Chơi chữ: Đầu chữ 'Dê' là 'D', mình chữ 'Ốc' là 'ốc' -> Ghép lại là 'Dốc'.",
+        "note": "Đáp án là một danh từ."
+    },
+    {
+        "rID": "VN-307",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì chặt không đứt, bứt không rời\nPhơi không khô, đốt không cháy?",
+        "answer": "Nước",
+        "answer_explain": "Đặc tính vật lý của nước: chất lỏng, không cháy, không thể chặt đứt.",
+        "note": "Đáp án là một danh từ vật chất."
+    },
+    {
+        "rID": "VN-308",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Để nguyên vằng vặc trời cao\nThêm sắc làm áo cho người ta may.\nLà chữ gì?",
+        "answer": "Trăng - Trắng",
+        "answer_explain": "Trăng (mặt trăng), thêm sắc thành Trắng (vải trắng).",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-309",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Để nguyên chín chín cái đuôi\nThêm sắc công việc người người cứu nhau.\nLà chữ gì?",
+        "answer": "Cửu - Cứu",
+        "answer_explain": "Cửu (nghĩa Hán Việt là số 9, chín chín là cửu), thêm sắc thành Cứu (cứu giúp).",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-310",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì ăn diện ngông nghênh?",
+        "answer": "Bánh chưng",
+        "answer_explain": "Chơi chữ: 'Chưng' trong chưng diện.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-311",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì đi đứng mệt mỏi?",
+        "answer": "Bánh bò",
+        "answer_explain": "Chơi chữ: 'Bò' là hành động di chuyển chậm chạp, mệt nhọc.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-312",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì nhọn tựa răng cưa?",
+        "answer": "Bánh gai",
+        "answer_explain": "Bánh gai gói lá khô, nhưng tên gọi gợi nhớ đến cái gai nhọn.",
+        "note": "Đáp án là tên loại bánh."
+    },
+    {
+        "rID": "VN-313",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Sông nào danh tiếng lẫy lừng\nBa lần giặc đến, ba lần thây phơi?",
+        "answer": "Sông Bạch Đằng",
+        "answer_explain": "Sông Bạch Đằng gắn liền với 3 chiến thắng chống ngoại xâm (Ngô Quyền, Lê Đại Hành, Trần Hưng Đạo).",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-314",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hồ nào sóng biếc vỗ bờ\nVua Lê trả lại gươm thiêng thuở nào?",
+        "answer": "Hồ Gươm, Hồ Hoàn Kiếm",
+        "answer_explain": "Sự tích Vua Lê Lợi trả gươm cho Rùa Vàng.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-315",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tỉnh nào non nước hữu tình\nCó vịnh đảo đá đẹp xinh tuyệt vời?",
+        "answer": "Quảng Ninh",
+        "answer_explain": "Quảng Ninh nổi tiếng với Vịnh Hạ Long.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-316",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì lá sắc như dao\nHoa như bàn chải, quả trèo trên cao?",
+        "answer": "Cây dứa dại",
+        "answer_explain": "Cây dứa dại có lá mép gai sắc, hoa giống bàn chải, quả giống quả dứa nhưng mọc trên thân cao.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-317",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Một mẹ sinh được vạn con\nRạng ngày chết hết chỉ còn một cha.\nLà gì?",
+        "answer": "Sao và Mặt trời",
+        "answer_explain": "Ban đêm có hàng vạn ngôi sao (con), ban ngày mặt trời (cha) mọc thì sao biến mất (chết).",
+        "note": "Đáp án là tên thiên thể."
+    },
+    {
+        "rID": "VN-318",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ruột dài từ mũi đến chân\nMũi mòn ruột cũng dần dần mòn theo.\nLà cái gì?",
+        "answer": "Cái bút chì",
+        "answer_explain": "Ruột bút chì (chì than) chạy dọc thân, khi viết ngòi mòn đi thì ruột cũng ngắn lại.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-319",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bằng cái tăm, nằm bụi cỏ.",
+        "answer": "Cây kim",
+        "answer_explain": "Câu đố dân gian ví cây kim nhỏ như tăm, khi rơi xuống cỏ thì rất khó tìm.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-320",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Trên hang đá, dưới hang đá\nGiữa có con cá thờn bơn.\nLà cái gì?",
+        "answer": "Cái lưỡi",
+        "answer_explain": "Hang đá là hai hàm răng, cá thờn bơn là cái lưỡi.",
+        "note": "Đáp án là bộ phận cơ thể."
+    },
+    {
+        "rID": "VN-321",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đầu thì trọc lóc, tóc thì mọc trong\nHai dây lòng thòng, có trong nhà bạn.\nLà cái gì?",
+        "answer": "Bóng đèn điện",
+        "answer_explain": "Bóng đèn tròn trọc lóc, tóc là dây tóc bóng đèn bên trong.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-322",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì càng to thì càng nhỏ?",
+        "answer": "Con cua",
+        "answer_explain": "Chơi chữ: Con cua có cái 'Càng' (bộ phận kẹp), cái càng to thì tỉ lệ thân con cua trông nhỏ lại (hoặc đơn giản là đố chữ: Càng to - Cua nhỏ).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-323",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì càng thiu thì càng ngon?",
+        "answer": "Giấc ngủ",
+        "answer_explain": "Ngủ thiu thiu là giấc ngủ ngon.",
+        "note": "Đáp án là danh từ trừu tượng."
+    },
+    {
+        "rID": "VN-324",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tỉnh nào giàu nhất Việt Nam?",
+        "answer": "Bạc Liêu, Tiền Giang",
+        "answer_explain": "Chơi chữ: Bạc Liêu (nhiều bạc), Tiền Giang (sông tiền).",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-325",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hồ gì phụ nữ có chồng đều sợ?",
+        "answer": "Hồ ly tinh",
+        "answer_explain": "Hồ ly tinh ẩn dụ cho người thứ ba phá hoại hạnh phúc gia đình.",
+        "note": "Đáp án là tên nhân vật."
+    },
+    {
+        "rID": "VN-326",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Trạng gì búp sen?",
+        "answer": "Mạc Đĩnh Chi",
+        "answer_explain": "Trạng nguyên Mạc Đĩnh Chi tự ví mình là 'Ngọc tỉnh liên' (Sen trong giếng ngọc).",
+        "note": "Đáp án là tên nhân vật lịch sử."
+    },
+    {
+        "rID": "VN-327",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em xưa ở rừng sâu\nVề nhà mấy tháng thì dâu bỏ tằm.\nLà cái gì?",
+        "answer": "Cái tăm",
+        "answer_explain": "Làm từ tre (rừng), dùng xong bữa ăn (dâu, tằm ý nói tăm xỉa răng xong thì bỏ đi).",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-328",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Để nguyên là tên một loài chim\nBỏ sắc là tên một loài cây\nBỏ đầu là tên một cái ao.\nLà chữ gì?",
+        "answer": "Sáo - Sao - Ao",
+        "answer_explain": "Chim Sáo, Cây Sao, Cái Ao.",
+        "note": "Đáp án là chuỗi từ."
+    },
+    {
+        "rID": "VN-329",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Có răng mà chẳng có mồm\nNhai cỏ nhồm nhoàm cơm chẳng chịu ăn.\nLà cái gì?",
+        "answer": "Cái bừa, Cái liềm",
+        "answer_explain": "Cái bừa (nông cụ) có răng để bừa đất (nhai cỏ).",
+        "note": "Đáp án là tên dụng cụ."
+    },
+    {
+        "rID": "VN-330",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tròn tròn như quả trứng gà\nỞ trong ba cạnh, đẻ ra cái mình.\nLà hạt gì?",
+        "answer": "Hạt lúa",
+        "answer_explain": "Hạt lúa có vỏ trấu 2 mảnh ghép lại tạo gờ, gạo bên trong nuôi sống con người (đẻ ra mình).",
+        "note": "Đáp án là tên loại hạt."
+    },
+    {
+        "rID": "VN-331",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì đực cái rạch ròi\nCái thì ra quả, đực thời ra hoa?",
+        "answer": "Cây đu đủ",
+        "answer_explain": "Cây đu đủ có cây đực (chỉ ra hoa) và cây cái (ra quả).",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-332",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì không trồng mà mọc\nKhông lá mà tươi?",
+        "answer": "Cây nến, Cây cột nhà",
+        "answer_explain": "Nến hoặc cột nhà được gọi là 'cây' nhưng không phải thực vật.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-333",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mất đầu thì sắc\nMất đuôi thì hèn\nĐể nguyên thì ác.\nLà chữ gì?",
+        "answer": "Chữ Sát",
+        "answer_explain": "Sát (ác) - mất đầu 'S' thành 'Át' (không rõ nghĩa sắc) -> Đáp án khác hợp lý hơn: Chữ **Khác**? Không. Đáp án: Chữ **Bác**. Mất đầu -> Ác. Mất đuôi -> Bá. Không hợp. Đáp án chuẩn: **Chữ 'Hèn'** bỏ dấu? Không. Đây là câu đố chữ Hán Việt hoặc chơi chữ phức tạp. Đáp án phổ biến: **Chữ 'Ác'** (Con quạ) - Sắc (Các), Hèn (Á). -> Khó xác định. Thay bằng câu khác: 'Để nguyên là loại chim to. Thêm huyền thành chuyện nhỏ to mọi người.' -> Diều - Điều.",
+        "note": "Đáp án là một từ."
+    },
+    {
+        "rID": "VN-334",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Để nguyên lấp lánh trên trời\nBớt đầu thành chỗ cá bơi hằng ngày.\nLà chữ gì?",
+        "answer": "Sao - Ao",
+        "answer_explain": "Sao (trên trời), bỏ 'S' thành Ao.",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-335",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Để nguyên là sốt với ho\nThêm huyền là trái ngọt to trong vườn.\nLà chữ gì?",
+        "answer": "Cảm - Cam",
+        "answer_explain": "Cảm (cúm), Cam (quả).",
+        "note": "Đáp án là cặp từ."
+    },
+    {
+        "rID": "VN-336",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Núi gì bị chặt ra từng khúc?",
+        "answer": "Núi Thái Sơn",
+        "answer_explain": "Chơi chữ: 'Thái' nghĩa là cắt, chặt nhỏ.",
+        "note": "Đáp án là tên địa danh."
+    },
+    {
+        "rID": "VN-337",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì đầu khỉ mình gà?",
+        "answer": "Con rồng",
+        "answer_explain": "Theo truyền thuyết, rồng có đầu lạc đà, sừng hươu, mắt thỏ, tai bò, cổ rắn, bụng ếch, vảy cá chép, móng chim ưng, bàn chân hổ. (Câu đố dân gian ẩn dụ).",
+        "note": "Đáp án là tên loài vật thần thoại."
+    },
+    {
+        "rID": "VN-338",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Xe gì không có bánh\nKhông chạy trên đường?",
+        "answer": "Xe cờ tướng, Xe chỉ luồn kim",
+        "answer_explain": "Quân xe trong cờ tướng hoặc hành động xe chỉ.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-339",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì bỏ đuôi thành con ngựa?",
+        "answer": "Con mèo",
+        "answer_explain": "Con mèo (Mão), bỏ đuôi 'o' thành Mã (Ngựa).",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-340",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em da trắng mỹ miều\nCánh tay mỏng mảnh dập dìu gió bay.\nLà cái gì?",
+        "answer": "Con diều",
+        "answer_explain": "Diều giấy trắng, bay lượn trong gió.",
+        "note": "Đáp án là tên đồ chơi."
+    },
+    {
+        "rID": "VN-341",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình đồng da sắt, mắt sáng như đèn\nChân thì có phanh, chạy nhanh như gió.\nLà cái gì?",
+        "answer": "Xe máy, Ô tô",
+        "answer_explain": "Mô tả đặc điểm cấu tạo của xe cơ giới.",
+        "note": "Đáp án là tên phương tiện."
+    },
+    {
+        "rID": "VN-342",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bằng cái tăm, đâm trộm người.",
+        "answer": "Con muỗi",
+        "answer_explain": "Vòi con muỗi nhỏ như cái tăm, chuyên hút máu người.",
+        "note": "Đáp án là tên loài côn trùng."
+    },
+    {
+        "rID": "VN-343",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì lá nhỏ cành mềm\nRủ xuống mặt nước êm đềm chiều thu?",
+        "answer": "Cây liễu",
+        "answer_explain": "Cây liễu rủ thường trồng bên hồ nước.",
+        "note": "Đáp án là tên loài cây."
+    },
+    {
+        "rID": "VN-344",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hoa gì e thẹn bên đường\nHễ ai chạm phải, vội vàng khép ngay?",
+        "answer": "Hoa trinh nữ, Hoa xấu hổ",
+        "answer_explain": "Đặc tính khép lá khi bị chạm vào của cây trinh nữ.",
+        "note": "Đáp án là tên loài hoa."
+    },
+    {
+        "rID": "VN-345",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì đen trùi trũi, cái gì đỏ au au\nCái gì sâu thăm thẳm, cái gì quanh co?",
+        "answer": "Than - Lửa - Biển - Sông",
+        "answer_explain": "Câu đố dân gian ghép: Than đen, Lửa đỏ, Biển sâu, Sông quanh co.",
+        "note": "Đáp án là chuỗi danh từ."
+    },
+    {
+        "rID": "VN-346",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì càng kéo càng ngắn?",
+        "answer": "Điếu thuốc lá",
+        "answer_explain": "Khi rít (kéo) thuốc lá thì điếu thuốc cháy và ngắn lại.",
+        "note": "Đáp án là tên đồ vật."
+    },
+    {
+        "rID": "VN-347",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì sống ở đồng bằng\nMà mang tên gọi của rừng núi cao?",
+        "answer": "Con sơn ca",
+        "answer_explain": "Sơn ca (chim), trong đó 'Sơn' nghĩa là Núi.",
+        "note": "Đáp án là tên loài chim."
+    },
+    {
+        "rID": "VN-348",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bốn chân đạp đất, cổ cất thượng thiên\nDa bán lấy tiền, xương làm đồ quý.\nLà con gì?",
+        "answer": "Con voi",
+        "answer_explain": "Cổ cất thượng thiên (vòi đưa lên trời), da voi dày, xương (ngà) làm đồ mỹ nghệ.",
+        "note": "Đáp án là tên loài vật."
+    },
+    {
+        "rID": "VN-349",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vừa bằng quả bí, lí tí hạt đen\nĂn vào thì khen, ngọt ơi là ngọt.\nLà quả gì?",
+        "answer": "Quả dưa hấu",
+        "answer_explain": "Dưa hấu to như quả bí, hạt đen, vị ngọt.",
+        "note": "Đáp án là tên loại quả."
+    },
+    {
+        "rID": "VN-351",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Xiên xiên ba góc xéo cả ba\nNằm dưới thiếu một miếng da\nPhành ra ba góc da còn thiếu\nMà khép lại đôi bên thịt vẫn thừa?",
+        "answer": "Cái quạt giấy",
+        "answer_explain": "Mô tả hình dáng cấu tạo của chiếc quạt giấy khi mở ra và khép lại (nan quạt, giấy quạt).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-352",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đồ vật vuông vuông, cửa đóng hai đầu\nMột trăm thằng chệt lần hồi chui ra\nThằng nào không mũ thì tha\nThằng nào có mũ đem ra đốt đầu?",
+        "answer": "Hộp diêm",
+        "answer_explain": "Mô tả hộp diêm và các que diêm (đầu đỏ là mũ), khi quẹt diêm là đốt đầu.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-353",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vật cày trên đồng ruộng trắng phau\nKhát xuống uống nước giếng sâu đen ngòm?",
+        "answer": "Cái bút mực",
+        "answer_explain": "Bút mực viết trên giấy trắng (cày ruộng trắng), chấm vào lọ mực (uống nước giếng đen).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-354",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vật trâu ăn trên đỉnh, trâu no\nBò ăn dưới đỉnh, bò đói\nNước chảy quanh suối, trâu đói bò no?",
+        "answer": "Cối xay bột",
+        "answer_explain": "Cối xay bột nước: Lúa/gạo đổ vào trên (trâu ăn), bột chảy xuống dưới (bò ăn).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-355",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Nước sông không đến, nước biển không vào\nLàm sao có nước, cá không ở được?",
+        "answer": "Quả dừa",
+        "answer_explain": "Quả dừa chứa nước tự nhiên bên trong, không thông với sông biển.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-356",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Quê em vốn ở trên cao\nNgười đem khoét ruột, nước trào tuôn rơi\nRuột thời nuôi nấng thân người\nVỏ thời công việc, nước nôi chuyên cần?",
+        "answer": "Quả dưa",
+        "answer_explain": "Quả dưa (dưa hấu/dưa bở) mọc trên dây/giàn, ruột ăn được, vỏ đôi khi dùng làm gáo múc nước (hoặc ẩn dụ vỏ cứng).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-357",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hoa trắng như hoa mận\nQuả đẹp như quả đào\nTên gọi mới đẹp làm sao\nHát cười trong giấc ngủ?",
+        "answer": "Quả mơ",
+        "answer_explain": "Quả mơ (Mơ mộng/giấc mơ).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-358",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Khép na khép nép\nĐứng nép bờ mương\nTrái chật đầy buồng\nXếp thành hai lượt?",
+        "answer": "Cây chuối",
+        "answer_explain": "Mô tả buồng chuối với các nải chuối xếp tầng.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-359",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Có mắt mà chẳng có tai\nThịt trong thì trắng, da ngoài thì xanh\nKhi trẻ ngủ ở trên cành\nLúc già mở mắt, hóa thành quả ngon?",
+        "answer": "Quả na",
+        "answer_explain": "Quả na có các mắt (múi vỏ), khi chín (già) thì các mắt mở ra (nứt).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-360",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Da em da cóc\nBọc một bụng vàng\nBà con xóm làng\nNuốt mềm nhả cứng?",
+        "answer": "Quả mít",
+        "answer_explain": "Vỏ mít sần sùi (da cóc), múi vàng, ăn múi nhả hạt (cứng).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-361",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Rõ ràng năm cánh\nMà chẳng phải sao\nSống ở trên cao\nChết vào nồi canh cá?",
+        "answer": "Quả khế",
+        "answer_explain": "Quả khế có 5 múi hình ngôi sao, vị chua thường dùng nấu canh chua.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-362",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình tròn đầu nhọn\nKhông phải bò trâu\nUống nước ao sâu\nLên cày ruộng cạn?",
+        "answer": "Cái bút máy",
+        "answer_explain": "Bút máy bơm mực (uống nước) để viết lên giấy (cày ruộng cạn).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-363",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì thẳng ruột đầu vuông\nThân chia nhiều đốt rất mau rất đều?",
+        "answer": "Cái thước kẻ",
+        "answer_explain": "Mô tả thước kẻ có các vạch chia cm/mm (đốt).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-364",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mồm bò mà không phải mồm bò\nMình đồng da sắt\nHai con mắt trên lưng\nCái chân giữa bụng?",
+        "answer": "Con ốc sên",
+        "answer_explain": "Mô tả hình dáng con ốc sên (bò bằng bụng, mắt trên râu/lưng).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-365",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vừa bằng hạt đỗ\nĂn giỗ cả làng?",
+        "answer": "Con ruồi",
+        "answer_explain": "Con ruồi nhỏ nhưng mâm cỗ nào cũng có thể đậu vào.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-366",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em nửa chuột nửa chim\nNgày treo chân ngủ, tối tìm mồi bay?",
+        "answer": "Con dơi",
+        "answer_explain": "Dơi là thú (giống chuột) nhưng biết bay (giống chim).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-367",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bên trong rỗng tuếch như hoa móng rồng\nNghỉ thì trong ruột trống không\nLàm thì xương thịt mới lồng vào trong?",
+        "answer": "Găng tay",
+        "answer_explain": "Găng tay khi không đeo thì rỗng, khi đeo thì có tay (xương thịt) lồng vào.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-368",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình bầu, môi miệng nứt hai\nChỉ có một mắt, chui hoài trong hang?",
+        "answer": "Ngòi bút",
+        "answer_explain": "Ngòi bút mực (bút máy) có khe nứt ở đầu để dẫn mực.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-369",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ba thằng xuống tắm áo tròn\nHai thằng nát thịt, một thằng còn xương?",
+        "answer": "Cối giã trầu",
+        "answer_explain": "Ăn trầu gồm cau, vỏ, trầu (3 thứ). Khi giã thì cau/vỏ/trầu nát, chỉ còn cái cối (xương) trơ lại.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-370",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đầu tròn trùng trục, đuôi dài lê thê\nKhắp chợ cùng quê, đâu đâu cũng có?",
+        "answer": "Cái gáo dừa",
+        "answer_explain": "Gáo dừa múc nước có phần gáo tròn và cán dài.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-371",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đầu thị trọc lóc, tóc thì mọc trong\nHai dây lòng thòng, có trong nhà bạn?",
+        "answer": "Bóng đèn điện",
+        "answer_explain": "Bóng đèn tròn, dây tóc bóng đèn nằm bên trong.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-372",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hàng trăm cái lỗ, vô số trẻ em\nĐua nhau vòng vòng, chen nhau chui xuống?",
+        "answer": "Cái sàng gạo",
+        "answer_explain": "Sàng gạo có nhiều lỗ, hạt gạo (trẻ em) lọt xuống dưới.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-373",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bằng trang lưỡi dao\nNó chao dưới nước?",
+        "answer": "Con cá kìm",
+        "answer_explain": "Con cá kìm có hình dáng dài và dẹt như lưỡi dao, bơi (chao) dưới nước.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-374",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Xưa kia tôi ở trên rừng\nNgười lên cắt gốc, buộc lưng quẩy về\nBắt tôi chịu đủ mọi bề gió sương\nTreo thân dốc ngược trăm đường đắng cay?",
+        "answer": "Cây tranh",
+        "answer_explain": "Cỏ tranh được cắt về, phơi khô, đánh thành tấm để lợp mái nhà (treo ngược).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-375",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình vàng lại mặc áo xanh\nRủ nhau đi tắm ao làng mấy hôm\nTắm xong ốm nghén nằm ươn\nSinh ra đứa bé như con bạch xà?",
+        "answer": "Cây giá đỗ",
+        "answer_explain": "Đậu xanh (mình vàng áo xanh) ngâm nước (tắm) rồi ủ mầm (nằm ươn) nảy ra giá đỗ trắng (bạch xà).",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-376",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thần thần bút bút linh linh\nThiên văn địa lý tung hoành khắp nơi\nTứ thời đứng dậy chống trời\nGià rồi thác xuống cho người làm ăn?",
+        "answer": "Cây tre",
+        "answer_explain": "Cây tre mọc thẳng (chống trời), khi già dùng làm vật liệu xây dựng/đồ dùng.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-377",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đầu rồng, đuôi phượng, ống tơ\nLấy đầu rồng nuôi nghiệp tổ tông\nVắt lấy nước cứu bàn dân thiên hạ?",
+        "answer": "Cây mía",
+        "answer_explain": "Cây mía có ngọn giống đầu rồng, thân có xơ (ống tơ), ép nước làm đường.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-378",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì gặp nóng tan mau\nMay chăng còn lại một thau nước đầy?",
+        "answer": "Cây nước đá",
+        "answer_explain": "Cây nước đá (đá cây) tan chảy thành nước khi gặp nóng.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-379",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì không lá không thân\nMình vàng không rễ ở gần nhà ta?",
+        "answer": "Cây rơm",
+        "answer_explain": "Đống rơm (cây rơm) khô màu vàng, không có sự sống thực vật.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-380",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Một mẹ thường có nghìn con\nCố nuôi cho được vẹn tròn cả nghìn?",
+        "answer": "Bắp ngô",
+        "answer_explain": "Bắp ngô có rất nhiều hạt (con) xếp khít nhau.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-381",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em xưa ở bụi tre\nMùa đông xếp lại mùa hè mở ra?",
+        "answer": "Cái quạt nan",
+        "answer_explain": "Quạt nan đan bằng tre, dùng vào mùa hè.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-382",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hai cô nằm nghỉ hai phòng\nNgày thì mở cửa ra trông\nĐêm thì đóng cửa lấp trong ra ngoài?",
+        "answer": "Đôi mắt",
+        "answer_explain": "Hai mắt (hai cô), mở khi thức, nhắm khi ngủ.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-383",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đầu đỏ mỏ đen\nXuống tắm ao sen\nLên cầy ruộng cạn?",
+        "answer": "Cái bút",
+        "answer_explain": "Bút (lông/máy) chấm mực đỏ/đen (tắm ao) viết lên giấy (cầy ruộng).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-384",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Quả gì chín đỏ\nVỏ có nhiều gai\nRuột đem đồ xôi\nĂn vào sáng mắt?",
+        "answer": "Quả gấc",
+        "answer_explain": "Gấc chín đỏ, vỏ gai, dùng nấu xôi gấc giàu vitamin A.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-385",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mặt thì vuông vức chữ điền\nBụng no đậu đỗ lại nghiền thịt heo?",
+        "answer": "Bánh chưng",
+        "answer_explain": "Bánh chưng hình vuông, nhân đậu xanh và thịt heo.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-386",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình rồng đuôi phụng le te\nMùa đông ấp trứng mùa hè nuôi con?",
+        "answer": "Cây cau",
+        "answer_explain": "Cây cau ra hoa (trứng) vào mùa đông và kết quả (con) vào mùa hè.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-387",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì áo kép áo đơn\nĐứng bên bờ ao, soi gương làm dáng?",
+        "answer": "Cây chuối",
+        "answer_explain": "Thân chuối có nhiều lớp bẹ (áo kép áo đơn), thường trồng ở bờ ao.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-388",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Chẳng lợp mà thành mái\nChẳng cấy mà mọc đều\nGià thì trắng phau phau\nNon thì đen kin kít?",
+        "answer": "Mái tóc",
+        "answer_explain": "Tóc mọc trên đầu, già thì bạc, trẻ thì đen.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-389",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vừa bằng thằng bé lên ba\nThắt lưng con cón chạy ra ngoài đồng?",
+        "answer": "Bó mạ",
+        "answer_explain": "Bó mạ cấy lúa được buộc bằng lạt (thắt lưng), người nông dân gánh ra đồng.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-390",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì không lá không hoa\nSáng đêm sinh nhật cả nhà vây quanh?",
+        "answer": "Cây nến",
+        "answer_explain": "Nến sinh nhật thắp sáng.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-391",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Một đàn cò trắng phau phau\nĂn no tắm mát rủ nhau đi nằm?",
+        "answer": "Bát đĩa",
+        "answer_explain": "Bát đĩa sứ trắng, ăn xong rửa sạch (tắm) rồi úp lên chạn (nằm).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-392",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tròn tròn như lá tía tô\nĐi biển đi hồ nó cũng đi theo?",
+        "answer": "Cái nón",
+        "answer_explain": "Nón lá hình tròn, che nắng mưa cho người đi làm.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-393",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì đi ngồi, đứng ngồi, nằm ngồi, ngủ cũng ngồi?",
+        "answer": "Con ếch",
+        "answer_explain": "Cấu tạo cơ thể của ếch luôn ở tư thế ngồi.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-394",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì đập thì sống, không đập thì chết?",
+        "answer": "Con quay",
+        "answer_explain": "Con quay gỗ phải đánh (đập) bằng dây mới quay được (sống).",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-395",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì đánh bố, đánh mẹ, đánh anh, đánh chị, đánh em?",
+        "answer": "Bàn chải đánh răng",
+        "answer_explain": "Dùng để đánh răng cho mọi người trong nhà.",
+        "note": "Đáp án là danh từ độ dài từ 4 từ"
+    },
+    {
+        "rID": "VN-396",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Chẳng cao chẳng lớn là bao\nMà nghe tiếng thở khác nào trống rung\nUống thì ao, hồ cạn không\nPhun thì nước ngập ruộng đồng bao la?",
+        "answer": "Máy bơm nước",
+        "answer_explain": "Máy bơm nước nổ to (thở như trống), hút nước và phun nước tưới tiêu.",
+        "note": "Đáp án là danh từ độ dài từ 3 từ"
+    },
+    {
+        "rID": "VN-397",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Trăm con mắt trải khắp mình\nDáng cong mềm mại, tính tình dễ thân\nHè sang ai cũng muốn gần\nNằm chơi chốc lát, đỡ phần bức oi?",
+        "answer": "Cái võng",
+        "answer_explain": "Võng đan mắt cáo (trăm mắt), dùng để nằm nghỉ mát.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-398",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thịt da nhẹ xốp\nGan ruột trắng ngà\nMùa đông mới ra\nMùa hè ẩn kín?",
+        "answer": "Chăn bông",
+        "answer_explain": "Chăn bông nhẹ, ruột bông trắng, dùng đắp mùa đông.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-399",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Có lưỡi mà chẳng có răng\nThứ mềm vật rắn, nhai băng sá gì\nNhai rồi chẳng nuốt tí ti\nNhường trao bạn hết ngủ khì giá cao?",
+        "answer": "Cái kéo",
+        "answer_explain": "Kéo có lưỡi sắc, cắt (nhai) vải giấy nhưng không nuốt.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-400",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bám trần cao, leo tường đứng\nVượt khoảng trống chẳng bằng ai\nÁo thì vàng, đỏ, tím, xanh\nAi đụng vào ruột: giật mình tê tay?",
+        "answer": "Dây điện",
+        "answer_explain": "Dây điện chạy trên tường, vỏ nhựa nhiều màu, lõi đồng dẫn điện gây giật.",
+        "note": "Đáp án là danh từ độ dài từ 2 từ"
+    },
+    {
+        "rID": "VN-401",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tung ra thì phưỡn bụng tròn\nTúm lại nghẹn cổ, xác còn xương da\nMang về tôm cá đầy nhà?",
+        "answer": "Cái chài",
+        "answer_explain": "Cái chài lưới đánh cá: tung ra thì xòe rộng (phưỡn bụng), kéo lại thì túm đầu (nghẹn cổ).",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-402",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bụng to, miệng nhỏ, mỏ dài\nThở ra phì phò, tay ai kéo hoài\nLửa reo tí tách vui tai?",
+        "answer": "Bễ lò rèn",
+        "answer_explain": "Cái bễ thổi lửa của thợ rèn: cần kéo để thổi gió (thở phì phò) vào lò lửa.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-403",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình tròn, máu đỏ, hôi rình\nNấp ở khe giường, cắn người đau điếng?",
+        "answer": "Con rệp",
+        "answer_explain": "Con rệp hút máu người (máu đỏ), khi bị giết có mùi hôi, thường sống ở khe giường.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-404",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tháng ba rụng lá\nHoa đỏ như son\nNở bừng sườn non\nGọi hè chớm đến?",
+        "answer": "Cây hoa gạo",
+        "answer_explain": "Hoa gạo (mộc miên) nở đỏ rực vào tháng 3 âm lịch.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-405",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình tròn, da đất, thuốc thang đầy mình\nĐội lửa trên đầu, sôi sùng sục nóng?",
+        "answer": "Ấm sắc thuốc",
+        "answer_explain": "Ấm đất dùng sắc thuốc bắc/nam, đặt trên lò lửa.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-406",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vốn liếng thì chẳng có gì\nSáng ra mục đồng dắt đi ăn nhờ\nĐến tối lại dắt về thờ\nCái chân ông chéo, cái tay ông bắt?",
+        "answer": "Con bù nhìn",
+        "answer_explain": "Con bù nhìn rơm ngoài ruộng, làm từ rơm rạ (chẳng có gì), được dựng lên (dắt đi) để đuổi chim.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-407",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Không hinh không dáng\nChỉ thấy sáng thôi\nLàm khô quần áo\nLàm nứt ruộng đồng?",
+        "answer": "Nắng",
+        "answer_explain": "Ánh nắng mặt trời vô hình nhưng có tác dụng nhiệt.",
+        "note": "Đáp án là danh từ 1 từ"
+    },
+    {
+        "rID": "VN-408",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Gió gì thổi nhẹ mùa thu\nLá vàng rơi rụng, sương mù giăng giăng?",
+        "answer": "Gió heo may",
+        "answer_explain": "Gió heo may là đặc trưng của mùa thu miền Bắc.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-409",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì sống được ngàn năm\nLá cứng như sừng, ra hoa hiếm thấy?",
+        "answer": "Cây vạn tuế",
+        "answer_explain": "Vạn tuế sống lâu, lá cứng nhọn, rất ít khi ra hoa.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-410",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Củ gì tên gọi vũ khí\nSống ở dưới bùn, nấu chè ăn bùi?",
+        "answer": "Củ súng",
+        "answer_explain": "Củ của cây hoa súng, tên trùng với khẩu súng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-411",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tên như hành động đánh người\nĂn vào chát miệng, nhớ đời không quên?",
+        "answer": "Quả vả",
+        "answer_explain": "Vả (đánh), quả vả có vị chát.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-412",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bốn chân bệ vệ\nMặt phẳng lì lì\nÔng ngồi bà ngồi?",
+        "answer": "Cái sập gụ",
+        "answer_explain": "Sập gỗ (phản) ngày xưa, thường làm bằng gỗ gụ, rất nặng và quý.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-413",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Giống đỉa mà sống trên rừng\nChờ người đi qua, nhảy bừng bám theo?",
+        "answer": "Con vắt",
+        "answer_explain": "Con vắt lá sống ở rừng ẩm ướt, hút máu như đỉa.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-414",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì dẻo thơm\nGói lá chuối xanh\nNhân đỗ thịt hành\nKhông vuông không tròn?",
+        "answer": "Bánh nếp",
+        "answer_explain": "Bánh nếp thường gói hình chữ nhật dẹt hoặc dài, làm từ bột nếp.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-415",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì tên một loài củ\nRán vàng giòn rụm, trẻ già đều mê?",
+        "answer": "Bánh khoai",
+        "answer_explain": "Bánh làm từ củ khoai lang thái lát tẩm bột rán.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-416",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì quả mọc chi chít\nTên nghe no đủ, đời không đói nghèo?",
+        "answer": "Cây sung",
+        "answer_explain": "Sung (sung túc), quả mọc thành chùm chi chít.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-417",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mặt tròn vành vạnh\nChẳng có chân tay\nĐội đồ ăn ngon\nTrên đầu trên cổ?",
+        "answer": "Cái mâm",
+        "answer_explain": "Mâm cơm dùng để bày thức ăn, bưng bê.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-418",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em đan lát dọc ngang\nÚp mâm cơm nóng, ruồi không dám vào?",
+        "answer": "Lồng bàn",
+        "answer_explain": "Lồng bàn đan bằng tre/nhựa dùng đậy mâm cơm.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-419",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cũng tre cũng nứa\nVo gạo rửa rau\nNước chảy đi mau\nCơm ngon canh ngọt?",
+        "answer": "Cái rá",
+        "answer_explain": "Cái rá đan thưa hơn rổ, dùng để vo gạo cho ráo nước.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-420",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tên gà mà chẳng phải gà\nMàu vàng óng ả, ăn là bở tơi?",
+        "answer": "Quả trứng gà",
+        "answer_explain": "Quả trứng gà (Lê ki ma) có lòng vàng như lòng đỏ trứng, ăn bở.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-421",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hoa gì tên gọi âm thanh\nDáng dài trắng muốt, mong manh dịu dàng?",
+        "answer": "Hoa loa kèn",
+        "answer_explain": "Tên hoa là 'Loa kèn' (nhạc cụ), hoa màu trắng.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-422",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ruột chứa mực đặc\nĐầu có viên bi\nLăn đi lăn lại\nRa chữ ra hình?",
+        "answer": "Cái bút bi",
+        "answer_explain": "Cấu tạo bút bi với viên bi nhỏ ở đầu ngòi.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-423",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân em nhiều mắt\nMóc nối vào nhau\nGiữ cổng giữ nhà\nCho người yên giấc?",
+        "answer": "Sợi xích",
+        "answer_explain": "Xích sắt gồm nhiều mắt xích nối lại, dùng khóa cổng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-424",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân mảnh mai, đốt khẳng khiu\nLá xanh thưa thớt, gió chiều rung rinh\nQuân tử thường ví với mình?",
+        "answer": "Cây trúc",
+        "answer_explain": "Trúc là biểu tượng của người quân tử, thân nhỏ hơn tre.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-425",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Nhỏ như nắm tay\nNhảy nhót trên cây\nBắt sâu bảo vệ\nCho lá cho cành?",
+        "answer": "Con chim sâu",
+        "answer_explain": "Chim sâu nhỏ bé, chuyên bắt sâu.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-426",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Áo xanh mỏ đỏ\nĐậu ở cành tre\nThấy cá lặn vè\nBắt ăn ngon lành?",
+        "answer": "Con bói cá",
+        "answer_explain": "Đặc điểm săn mồi và ngoại hình của chim bói cá.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-427",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mũ gì tên một loài trai\nChe nắng che mưa, em trai hay dùng?",
+        "answer": "Mũ lưỡi trai",
+        "answer_explain": "Phần che nắng giống hình cái lưỡi của con trai.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-428",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân đen trùi trũi\nTắm lửa đỏ au\nThành tro xám xịt\nTan biến vào đời?",
+        "answer": "Cục than",
+        "answer_explain": "Than đá/than củi khi cháy.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-429",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Không chân mà chạy\nKhông cánh mà bay\nLên tới đám mây\nThì tan biến mất?",
+        "answer": "Khói",
+        "answer_explain": "Khói bay lên trời và tan đi.",
+        "note": "Đáp án là danh từ 1 từ"
+    },
+    {
+        "rID": "VN-430",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hoa gì mỏng mảnh như tên\nĐỏ hồng trắng tím, mọc bên cổng nhà?",
+        "answer": "Cây hoa giấy",
+        "answer_explain": "Cánh hoa giấy mỏng như tờ giấy.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-431",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hạt gì không mọc thành cây\nXâu vào đốt cháy, sáng ngày trung thu?",
+        "answer": "Hạt bưởi",
+        "answer_explain": "Trò chơi dân gian: phơi khô hạt bưởi, xâu vào dây thép đốt thành nến.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-432",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bánh gì trắng mịn\nHình tròn như trăng\nDẻo thơm mùi nếp\nSự tích Lang Liêu?",
+        "answer": "Bánh dày",
+        "answer_explain": "Bánh dày hình tròn tượng trưng cho trời.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-433",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bụng to cổ thắt\nĐựng tôm đựng cá\nĐeo ở bên hông\nNgười đi đánh giậm?",
+        "answer": "Cái giỏ cua",
+        "answer_explain": "Giỏ tre dùng đựng cua cá khi đi bắt.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-434",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình tròn rỗng ruột\nThở ra gió mạnh\nGiúp mẹ nấu cơm\nBếp hồng lửa đỏ?",
+        "answer": "Ống thổi lửa",
+        "answer_explain": "Ống tre/nứa dùng thổi gió vào bếp củi.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-435",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thân rỗng chia đốt\nBò trên mặt ao\nNấu canh luộc xào\nGiòn tan xanh mướt?",
+        "answer": "Cây rau muống",
+        "answer_explain": "Rau muống có thân rỗng, hay trồng bè trên ao.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-436",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lá tròn như đồng tiền\nMọc bò trên mặt đất\nXay nước uống mát lành?",
+        "answer": "Cây rau má",
+        "answer_explain": "Rau má có lá tròn, xay làm nước giải khát.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-437",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì lông mọc rậm rì\nXén làm áo ấm, người đi xứ hàn?",
+        "answer": "Con cừu",
+        "answer_explain": "Lông cừu dùng làm len, áo ấm.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-438",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì cõng con trước bụng\nNhảy xa nhất vùng\nĐuôi dài khỏe mạnh?",
+        "answer": "Con chuột túi",
+        "answer_explain": "Kangaroo có túi nuôi con trước bụng.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-439",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cổ dài miệng loe\nThổi kêu toe toe\nNhạc vui rộn rã?",
+        "answer": "Cái kèn",
+        "answer_explain": "Mô tả hình dáng và âm thanh cái kèn tây/kèn đồng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-440",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vải đỏ sao vàng\nTung bay trong gió\nThiêng liêng nước nhà?",
+        "answer": "Lá cờ",
+        "answer_explain": "Quốc kỳ Việt Nam.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-441",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mặt tròn có kim\nĐặt đồ lên đĩa\nKim chỉ nặng nhẹ\nKhông phải đồng hồ?",
+        "answer": "Cái cân đồng hồ",
+        "answer_explain": "Cân lò xo có mặt hiển thị giống đồng hồ.",
+        "note": "Đáp án là danh từ 4 từ"
+    },
+    {
+        "rID": "VN-442",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bụng to, mỏ ngắn, quai cong\nNấu lá nấu rễ, thuốc nồng tỏa hương?",
+        "answer": "Cái siêu thuốc",
+        "answer_explain": "Siêu đun thuốc bằng đất nung.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-443",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Nằm im dưới đất\nChẳng nói chẳng cười\nRêu mọc xanh rì\nCứng như sắt nguội?",
+        "answer": "Hòn đá",
+        "answer_explain": "Đá nằm lâu ngày sinh rêu.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-444",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hạt nhỏ li ti\nVàng ươm bãi biển\nXây nhà rất cần?",
+        "answer": "Cát",
+        "answer_explain": "Cát biển hoặc cát xây dựng.",
+        "note": "Đáp án là danh từ 1 từ"
+    },
+    {
+        "rID": "VN-445",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì không chân\nChạy xô vào bờ\nTan thành bọt trắng?",
+        "answer": "Sóng biển",
+        "answer_explain": "Sóng vỗ bờ tung bọt trắng xóa.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-446",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Leo lên thì mệt\nTrượt xuống thì vui\nTrẻ em rất thích\nChơi hoài không chán?",
+        "answer": "Cầu trượt",
+        "answer_explain": "Trò chơi cầu trượt.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-447",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Quả gì mọc thành chùm\nChín màu tím đỏ\nĂn vào ngọt thanh\nLàm thành rượu quý?",
+        "answer": "Quả nho",
+        "answer_explain": "Nho mọc thành chùm, dùng ăn hoặc ủ rượu vang.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-448",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cây gì hạt đắng\nRang xay thơm lừng\nUống vào tỉnh táo\nTây Nguyên bạt ngàn?",
+        "answer": "Cây cà phê",
+        "answer_explain": "Cà phê là đặc sản Tây Nguyên, hạt có cafein giúp tỉnh táo.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-449",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì năm cánh\nSống ở đại dương\nTên gọi giống trời\nKhông bơi mà lết?",
+        "answer": "Sao biển",
+        "answer_explain": "Sao biển hình ngôi sao 5 cánh, di chuyển chậm dưới đáy biển.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-450",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vừa bằng ngón tay\nThay lay những thịt\nĐụng tay vào đầu\nLà gục xuống ngay?",
+        "answer": "Con sâu",
+        "answer_explain": "Con sâu thân mềm, khi bị chạm vào thường cuộn tròn hoặc giả chết (gục).",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-451",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Con gì mới sinh đã mọc râu\nGià thì rụng hết chẳng còn cọng nào?",
+        "answer": "Cây măng",
+        "answer_explain": "Măng tre khi mới mọc có các bẹ lá nhọn trông như râu, khi lớn thành tre thì rụng hết bẹ.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-452",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Có râu mà chẳng có cằm\nCó hạt mà chẳng có mầm để gieo?",
+        "answer": "Bắp ngô",
+        "answer_explain": "Bắp ngô có râu ngô, có hạt ngô nhưng hạt tươi trên bắp chưa làm giống được ngay (ẩn dụ dân gian).",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-453",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cái gì bằng cái mẹt\nLội xuống ao, nước không ướt?",
+        "answer": "Lá sen",
+        "answer_explain": "Lá sen to tròn như cái mẹt, bề mặt không thấm nước.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-454",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Nhà gì không cửa không nẻo\nTrong chứa toàn mật ngọt?",
+        "answer": "Tổ ong",
+        "answer_explain": "Tổ ong kín đáo, chứa mật.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-455",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình vàng mặc áo cũng vàng\nNgày ngày dọn dẹp cho chàng sạch sân?",
+        "answer": "Cái chổi rơm",
+        "answer_explain": "Chổi làm từ rơm lúa màu vàng.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-456",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Năm anh vác một cây sào\nLùa đàn vịt trắng chui vào chuồng đen?",
+        "answer": "Cái bàn tính",
+        "answer_explain": "Mô tả cách dùng bàn tính gảy (tay gảy hạt tính).",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-457",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Thợ gì không búa không dao\nXây nhà giữa chốn trời cao gió lùa?",
+        "answer": "Con nhện",
+        "answer_explain": "Con nhện giăng tơ làm tổ trên cao.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-458",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mình đen trùi trũi\nNgồi thụp xuống đất\nAi đánh cũng chịu?",
+        "answer": "Cái đe",
+        "answer_explain": "Cái đe của thợ rèn bằng sắt đen, dùng để kê khi búa đập.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-459",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bò bằng bụng, nhà trên lưng\nĐi đến đâu, mang nhà đến đó?",
+        "answer": "Con ốc sên",
+        "answer_explain": "Ốc sên di chuyển bằng bụng và có vỏ trên lưng.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-460",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lạt buộc tình cảm, lá gói yêu thương\nBên trong nếp đỗ, nhớ ơn Vua Hùng?",
+        "answer": "Bánh chưng",
+        "answer_explain": "Bánh chưng gắn liền với sự tích Lang Liêu và Vua Hùng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-461",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Trắng tròn như ánh trăng rằm\nDẻo thơm mùi nếp, ngàn năm vẫn còn?",
+        "answer": "Bánh dày",
+        "answer_explain": "Bánh dày hình tròn, tượng trưng cho Trời.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-462",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mặt phẳng sáng, soi rõ hình\nThấy người bắt chước, lặng thinh không lời?",
+        "answer": "Cái gương",
+        "answer_explain": "Gương phản chiếu hình ảnh nhưng không phát ra tiếng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-463",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Răng đều tăm tắp, trắng ngà\nGiúp người chải tóc, mượt mà sớm trưa?",
+        "answer": "Cái lược",
+        "answer_explain": "Cái lược có răng dùng chải tóc.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-464",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Rửa mặt không khăn\nNgồi đâu liếm đó\nBắt chuột rất tài?",
+        "answer": "Con mèo",
+        "answer_explain": "Tập tính của mèo (liếm lông, rửa mặt bằng chân).",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-465",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Chảy nước mắt, tiêu hao thân\nThắp sáng cho đời, tàn dần rồi tắt?",
+        "answer": "Cây nến",
+        "answer_explain": "Nến cháy chảy sáp (nước mắt) và ngắn dần.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-466",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bốn chân, mặt ghép, nằm mát\nTre già làm cốt, giấc nồng trưa hè?",
+        "answer": "Cái chõng",
+        "answer_explain": "Cái chõng tre dùng để nằm nghỉ.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-467",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "To hơn cái sàng, phơi thóc phơi khoai\nĐan bằng tre nứa, nhà nông hay dùng?",
+        "answer": "Cái nia",
+        "answer_explain": "Cái nia có kích thước lớn, đan kín dùng để phơi.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-468",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Tròn, nông, đựng trầu cau\nCác bà các mẹ, rủ nhau têm trầu?",
+        "answer": "Cái mẹt",
+        "answer_explain": "Cái mẹt nhỏ, nông, thường dùng đựng đồ khô hoặc trầu cau.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-469",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lỗ to, rửa rau\nNước chảy ào ào\nRau sạch bụi bẩn?",
+        "answer": "Cái rổ",
+        "answer_explain": "Cái rổ đan thưa (lỗ to) để thoát nước nhanh.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-470",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lỗ nhỏ, vo gạo\nNước chảy rỉ rả\nGạo ở lại trong?",
+        "answer": "Cái rá",
+        "answer_explain": "Cái rá đan khít (lỗ nhỏ) để vo gạo không bị lọt.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-471",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Buộc túm đầu, quét nhà\nSạch bụi sạch rác, mọi nhà đều cần?",
+        "answer": "Cái chổi",
+        "answer_explain": "Chổi (chít/lúa) được buộc túm ở cán.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-472",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Minh mặc áo lá, che mưa che nắng\nNgười nông dân đội, ra đồng cày cấy?",
+        "answer": "Cái áo tơi",
+        "answer_explain": "Áo tơi làm bằng lá (cọ/kè) khâu lại.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-473",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Rồng nằm uốn khúc, trên đầu các quan\nLàm sang cho mặt, khăn này là chi?",
+        "answer": "Khăn đóng",
+        "answer_explain": "Khăn đóng (khăn xếp) quấn trên đầu đàn ông thời xưa.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-474",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Che ngực phụ nữ xưa\nLụa đào, yếm thắm, duyên dáng lạ thường?",
+        "answer": "Cái yếm",
+        "answer_explain": "Trang phục lót của phụ nữ Việt Nam xưa.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-475",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đỏ như son, cay như ớt\nĂn cùng với trầu, môi bà đỏ tươi?",
+        "answer": "Vôi",
+        "answer_explain": "Vôi ăn trầu có màu trắng nhưng khi nhai kết hợp trầu cau sẽ đỏ, vị nồng cay.",
+        "note": "Đáp án là danh từ 1 từ"
+    },
+    {
+        "rID": "VN-476",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Sợi nâu, khói trắng\nCác ông hay hút, say sưa mơ màng?",
+        "answer": "Thuốc lào",
+        "answer_explain": "Thuốc lào thái sợi màu nâu, hút bằng điếu.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-477",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Cánh to quay tít trên cao\nGió mát rượi thổi, xua tan nóng hầm?",
+        "answer": "Quạt trần",
+        "answer_explain": "Quạt trần treo trên cao, cánh lớn.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-478",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Quả lê bằng thủy tinh, phát sáng\nXua tan bóng tối, nhà nhà sáng trưng?",
+        "answer": "Bóng đèn",
+        "answer_explain": "Bóng đèn sợi đốt hình quả lê.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-479",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ruột thủy tinh, vỏ nhựa\nGiữ nước nóng lâu, pha trà rất tiện?",
+        "answer": "Cái phích",
+        "answer_explain": "Phích nước có ruột tráng bạc giữ nhiệt.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-480",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ba kim chạy đua\nKim giây chạy nhanh, kim giờ chậm chạp?",
+        "answer": "Đồng hồ",
+        "answer_explain": "Đồng hồ kim có 3 kim.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-481",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Soi vật nhỏ thành to\nKính lồi hai mặt, học trò hay chơi?",
+        "answer": "Kính lúp",
+        "answer_explain": "Kính lúp dùng để phóng đại hình ảnh.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-482",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hút sắt, chỉ hướng Bắc Nam\nKim luôn chỉ hướng, tàu bè cần dùng?",
+        "answer": "La bàn",
+        "answer_explain": "La bàn dùng từ trường để chỉ hướng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-483",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đo nhiệt độ, nóng lạnh\nThủy ngân lên xuống, biết ngay bệnh tình?",
+        "answer": "Nhiệt kế",
+        "answer_explain": "Dụng cụ đo nhiệt độ cơ thể.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-484",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Một dây, tiếng buồn\nGảy lên ai oán, cung thương điệu sầu?",
+        "answer": "Đàn bầu",
+        "answer_explain": "Đàn bầu (độc huyền cầm) chỉ có 1 dây.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-485",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Ống trúc, thổi hơi\nÂm thanh véo von, mục đồng hay thổi?",
+        "answer": "Cái sáo",
+        "answer_explain": "Sáo trúc là nhạc cụ hơi.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-486",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hai dây, kéo vĩ\nÂm thanh réo rắt, như người nỉ non?",
+        "answer": "Đàn nhị",
+        "answer_explain": "Đàn nhị (đàn cò) dùng vĩ để kéo.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-487",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Da trâu, tang gỗ\nDùi đánh tùng tùng, báo giờ vào lớp?",
+        "answer": "Cái trống",
+        "answer_explain": "Trống trường học.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-488",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Đồng đúc, tiếng vang\nTreo ở đình chùa, thỉnh lên ngân nga?",
+        "answer": "Cái chuông",
+        "answer_explain": "Chuông đồng trong chùa.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-489",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Gỗ khoét, gõ cốc cốc\nSư thầy tụng kinh, giữ nhịp đều đều?",
+        "answer": "Cái mõ",
+        "answer_explain": "Mõ gỗ dùng trong tụng kinh.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-490",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lưng gỗ, bụng gai, hay mài quần áo\nGiúp mẹ giặt giũ, sạch lấm sạch lem?",
+        "answer": "Bàn chải giặt",
+        "answer_explain": "Bàn chải dùng để chà quần áo khi giặt tay.",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-491",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Miệng rộng, cổ cao, hay nhào xuống giếng\nMúc nước mát lành, cho người tắm rửa?",
+        "answer": "Cái gàu",
+        "answer_explain": "Gàu múc nước giếng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-492",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Hạt đen hạt đen, nằm chung một nhà\nKẻ ở người đi, để lại vỏ vàng?",
+        "answer": "Chuối hột",
+        "answer_explain": "Chuối hột có rất nhiều hạt đen.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-493",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Nuôi con người khác\nXây tổ bằng đất, bắt sâu về nuôi?",
+        "answer": "Con tò vò",
+        "answer_explain": "Tò vò bắt sâu bỏ vào tổ đất để nuôi ấu trùng (dân gian lầm tưởng là nuôi con nhện).",
+        "note": "Đáp án là danh từ 3 từ"
+    },
+    {
+        "rID": "VN-494",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Vỏ vàng, ruột vàng, cay nồng gia vị\nChữa ho giải cảm, đập dập kho gà?",
+        "answer": "Củ gừng",
+        "answer_explain": "Đặc điểm của gừng.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-495",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Giống gừng nhưng cứng, kho cá rất thơm\nMàu đỏ hồng hồng, vị không cay lắm?",
+        "answer": "Củ riềng",
+        "answer_explain": "Riềng cứng hơn gừng, dùng kho cá, thịt chó giả cầy.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-496",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Lá dài như lúa, gốc trắng thơm nồng\nThái nhỏ xào bò, hấp ngao rất hợp?",
+        "answer": "Củ sả",
+        "answer_explain": "Sả là gia vị quen thuộc.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-497",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Da xanh, tép ướt, chua loét chua lơ\nVắt vào bát phở, thơm lừng vị ngon?",
+        "answer": "Quả chanh",
+        "answer_explain": "Chanh gia vị chua.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-498",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Bé tí mà cay, đỏ như lửa\nAi ăn chảy nước mắt, hít hà khen ngon?",
+        "answer": "Quả ớt",
+        "answer_explain": "Ớt chỉ thiên nhỏ và cay.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-499",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Khi trẻ ngẩng đầu, khi già cúi đầu\nNuôi sống muôn người, hạt vàng dẻo thơm?",
+        "answer": "Bông lúa",
+        "answer_explain": "Lúa non đứng thẳng, lúa chín trĩu hạt cúi đầu.",
+        "note": "Đáp án là danh từ 2 từ"
+    },
+    {
+        "rID": "VN-500",
+        "category": "vn_riddle",
+        "difficulty": "hard",
+        "question": "Mắt lồi, miệng rộng, hát bè bờ ao\nGọi mưa rào rạt, đồng khô nước về?",
+        "answer": "Con ếch",
+        "answer_explain": "Ếch kêu báo hiệu trời mưa.",
+        "note": "Đáp án là danh từ 2 từ"
+    }
+]

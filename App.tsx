@@ -10,6 +10,7 @@ import { ProfilePage } from '@/src/pages/ProfilePage';
 import { ShopPage } from '@/src/pages/ShopPage';
 import { AlbumPage } from '@/src/pages/AlbumPage';
 import { TellMeWhyPage } from '@/src/pages/TellMeWhyPage';
+import { SphinxRiddlePage } from '@/src/pages/SphinxRiddlePage';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/updateService';
@@ -206,6 +207,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <TellMeWhyPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/riddle"
+            element={
+              <ProtectedRoute>
+                <SphinxRiddlePage />
               </ProtectedRoute>
             }
           />
