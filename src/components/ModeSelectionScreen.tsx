@@ -121,7 +121,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </h2>
 
                         <p className="text-slate-600 text-lg">
-                            Học toán qua các trò chơi vui nhộn
+                            Học qua các trò chơi vui nhộn
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2 justify-center">
@@ -155,7 +155,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </h2>
 
                         <p className="text-slate-600 text-lg">
-                            Khám phá tri thức qua câu hỏi vì sao
+                            Khám phá tri thức
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2 justify-center">
@@ -185,7 +185,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </div>
 
                         <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                            Nhân Sư
+                            Sphinx Riddle
                         </h2>
 
                         <p className="text-slate-600 text-lg">
@@ -208,7 +208,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
             </div>
 
             <div className="mt-12 text-center text-slate-500 animate-in fade-in duration-1000 delay-300">
-                <p className="text-sm">🎯 Chọn chế độ phù hợp để bắt đầu học toán!</p>
+                <p className="text-sm">🎯 Chọn chế độ phù hợp để bắt đầu!</p>
             </div>
         </div>
     );
