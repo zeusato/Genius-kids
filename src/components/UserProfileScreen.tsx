@@ -4,6 +4,7 @@ import { getAllAvatars, getAvatarById } from '../../services/avatarService';
 import { getAllThemes, getThemeById, applyTheme } from '../../services/themeService';
 import { getProfileStats, getDailyStarsEarned } from '../../services/profileService';
 import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info } from 'lucide-react';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface UserProfileScreenProps {
     student: StudentProfile;
@@ -63,7 +64,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     <span>Quay lại</span>
                 </button>
                 <h1 className="text-2xl font-bold text-slate-800">Hồ sơ của bạn</h1>
-                <div className="w-24"></div>
+                <MusicControls />
             </div>
 
             {/* Avatar Section */}

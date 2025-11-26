@@ -7,6 +7,7 @@ import { initializeTheme } from '@/services/themeService';
 import { Plus, CheckCircle, Download } from 'lucide-react';
 import { useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface HomePageProps {
     onInstallClick?: () => void;
@@ -116,16 +117,24 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                 {/* Spacer when version check not shown */}
                 {!showVersionCheck && <div />}
 
-                {/* Install Button - Right */}
-                {canInstall && (
-                    <button
-                        onClick={onInstallClick}
-                        className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 bg-white border border-brand-500 text-brand-600 rounded-lg shadow-md hover:bg-brand-50 hover:shadow-lg transition-all font-semibold h-[44px] animate-bounce"
-                    >
-                        <Download size={18} className="flex-shrink-0" />
-                        <span className="hidden sm:inline whitespace-nowrap">Tải App</span>
-                    </button>
-                )}
+                {/* Right side controls */}
+                <div className="flex items-center gap-3">
+                    {/* Music Controls */}
+                    <div className="pointer-events-auto">
+                        <MusicControls />
+                    </div>
+
+                    {/* Install Button */}
+                    {canInstall && (
+                        <button
+                            onClick={onInstallClick}
+                            className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 bg-white border border-brand-500 text-brand-600 rounded-lg shadow-md hover:bg-brand-50 hover:shadow-lg transition-all font-semibold h-[44px] animate-bounce"
+                        >
+                            <Download size={18} className="flex-shrink-0" />
+                            <span className="hidden sm:inline whitespace-nowrap">Tải App</span>
+                        </button>
+                    )}
+                </div>
             </div>
 
             <div className="text-center space-y-2">

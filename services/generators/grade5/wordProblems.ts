@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,25 +13,32 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 50): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateG5WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
 
-    // 1. Sum-difference-ratio (40%)
-    if (type < 0.4) {
-        // Two numbers with known sum and difference
-        const diff = randomInt(10, 40) * 2; // Even diff for integer results
+    // 0. Simple motion problems (15%)
+    if (type < 0.15) {
+        const speed = randomInt(50, 95);
+        const time = randomInt(2, 5);
+        const distance = speed * time;
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Một xe chạy với vận tốc ${speed}km/h trong ${time} giờ. Hỏi xe đi được bao nhiêu km?`,
+            correctAnswer: `${formatNumber(distance)}km`,
+            options: shuffleArray([
+                `${formatNumber(distance)}km`,
+                ...generateWrongAnswersWithSameUnits(distance, 3, 50).map(n => `${formatNumber(n)}km`)
+            ]),
+            explanation: `Quãng đường = Vận tốc × Thời gian = ${speed} × ${time} = ${formatNumber(distance)}km`
+        };
+    }
+
+    // 1. Sum-difference-ratio (15%)
+    else if (type < 0.30) {
+        const diff = randomInt(10, 40) * 2;
         const smaller = randomInt(50, 150);
         const larger = smaller + diff;
         const sum = larger + smaller;
@@ -44,8 +52,8 @@ export const generateG5WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 2. Motion problems - meeting (35%)
-    else if (type < 0.75) {
+    // 2. Motion problems - meeting (10%)
+    else if (type < 0.40) {
         const speed1 = randomInt(40, 60);
         const speed2 = randomInt(30, 50);
         const time = randomInt(2, 4);
@@ -65,11 +73,10 @@ export const generateG5WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 3. Work rate problems (25%)
-    else {
+    // 3. Work rate problems (10%)
+    else if (type < 0.50) {
         const days1 = randomInt(6, 12);
         const days2 = randomInt(8, 15);
-        // Calculate combined work rate
         const combinedRate = 1 / days1 + 1 / days2;
         const daysTogether = Math.round(1 / combinedRate);
 
@@ -84,6 +91,110 @@ export const generateG5WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 `${days1} ngày`
             ]),
             explanation: `Một ngày người 1 làm: 1/${days1} công việc\\nMột ngày người 2 làm: 1/${days2} công việc\\nMột ngày cả hai làm: 1/${days1} + 1/${days2} công việc\\nThời gian ≈ ${daysTogether} ngày`
+        };
+    }
+
+    // 4. Age problems (15%) - NEW!
+    else if (type < 0.65) {
+        const currentChildAge = randomInt(8, 15);
+        const currentParentAge = randomInt(32, 48);
+        const ageGap = currentParentAge - currentChildAge;
+
+        // Tìm số năm nữa để tuổi ba/mẹ gấp X lần tuổi con
+        const multiplier = randomInt(2, 3);
+        const yearsLater = Math.floor((ageGap - currentChildAge * multiplier) / (multiplier - 1));
+
+        // Đảm bảo yearsLater > 0
+        const validYears = yearsLater > 0 ? yearsLater : randomInt(3, 8);
+        const futureChildAge = currentChildAge + validYears;
+        const futureParentAge = currentParentAge + validYears;
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Hiện nay ba ${currentParentAge} tuổi, con ${currentChildAge} tuổi. Hỏi ${validYears} năm nữa, tổng số tuổi của hai ba con là bao nhiêu?`,
+            correctAnswer: `${futureChildAge + futureParentAge} tuổi`,
+            options: shuffleArray([
+                `${futureChildAge + futureParentAge} tuổi`,
+                ...generateWrongAnswersWithSameUnits(futureChildAge + futureParentAge, 3, 10).map(n => `${n} tuổi`)
+            ]),
+            explanation: `Sau ${validYears} năm: Ba ${futureParentAge} tuổi, con ${futureChildAge} tuổi.\\nTổng = ${futureParentAge} + ${futureChildAge} = ${futureChildAge + futureParentAge} tuổi`
+        };
+    }
+
+    // 5. Division with remainder (15%) - NEW!
+    else if (type < 0.80) {
+        const divisor = randomInt(8, 15);
+        const quotient = randomInt(10, 25);
+        const remainder = randomInt(1, divisor - 1);
+        const dividend = quotient * divisor + remainder;
+
+        const questionType = Math.random() < 0.5 ? 'quotient' : 'remainder';
+
+        if (questionType === 'quotient') {
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `Chia ${formatNumber(dividend)} cho ${divisor}. Thương là bao nhiêu?`,
+                correctAnswer: formatNumber(quotient),
+                options: shuffleArray([
+                    formatNumber(quotient),
+                    ...generateWrongAnswersWithSameUnits(quotient, 3, 5).map(n => formatNumber(n))
+                ]),
+                explanation: `${formatNumber(dividend)} : ${divisor} = ${quotient} (dư ${remainder})`
+            };
+        } else {
+            return {
+                type: QuestionType.SingleChoice,
+                questionText: `Chia ${formatNumber(dividend)} viên kẹo đều cho ${divisor} bạn. Hỏi còn thừa bao nhiêu viên?`,
+                correctAnswer: `${remainder} viên`,
+                options: shuffleArray([
+                    `${remainder} viên`,
+                    `${remainder + 1} viên`,
+                    `${remainder - 1 > 0 ? remainder - 1 : divisor - 1} viên`,
+                    `${quotient} viên`
+                ]),
+                explanation: `${formatNumber(dividend)} : ${divisor} = ${quotient} dư ${remainder}.\\nVậy còn thừa ${remainder} viên.`
+            };
+        }
+    }
+
+    // 6. Percentage (10%) - NEW!
+    else if (type < 0.90) {
+        const total = randomInt(200, 800);
+        const percent = [10, 20, 25, 50, 75][randomInt(0, 4)];
+        const result = Math.floor(total * percent / 100);
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Một trường có ${formatNumber(total)} học sinh, trong đó ${percent}% là học sinh nữ. Hỏi có bao nhiêu học sinh nữ?`,
+            correctAnswer: `${formatNumber(result)} học sinh`,
+            options: shuffleArray([
+                `${formatNumber(result)} học sinh`,
+                ...generateWrongAnswersWithSameUnits(result, 3, 20).map(n => `${formatNumber(n)} học sinh`)
+            ]),
+            explanation: `Số học sinh nữ = ${formatNumber(total)} × ${percent}% = ${formatNumber(total)} × ${percent}/100 = ${formatNumber(result)} học sinh`
+        };
+    }
+
+    // 7. Work capacity (10%) - NEW!
+    else {
+        const initialWorkers = randomInt(8, 16);
+        const initialDays = randomInt(15, 24);
+        const newDays = randomInt(10, initialDays - 2);
+
+        // Công việc tổng = công nhân × ngày
+        const totalWork = initialWorkers * initialDays;
+        const newWorkers = Math.ceil(totalWork / newDays);
+        const additionalWorkers = newWorkers - initialWorkers;
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Một đội có ${initialWorkers} công nhân làm xong công việc trong ${initialDays} ngày. Nếu muốn hoàn thành trong ${newDays} ngày thì cần thêm bao nhiêu người?`,
+            correctAnswer: `${additionalWorkers} người`,
+            options: shuffleArray([
+                `${additionalWorkers} người`,
+                ...generateWrongAnswersWithSameUnits(additionalWorkers, 3, 5).map(n => `${Math.max(0, n)} người`)
+            ]),
+            explanation: `Tổng công việc = ${initialWorkers} × ${initialDays} = ${totalWork} (công/người)\\nCần số người = ${totalWork} : ${newDays} = ${newWorkers} người\\nCần thêm = ${newWorkers} - ${initialWorkers} = ${additionalWorkers} người`
         };
     }
 };

@@ -23,19 +23,42 @@ const roundToDecimals = (num: number, decimals: number): number => {
 
 const generateUniqueWrongAnswers = (correct: number, count: number = 3, decimals: number = 2): number[] => {
     const wrongs = new Set<number>();
-    const offsets = [0.1, -0.1, 0.2, -0.2, 1, -1, 0.5, -0.5, 2, -2];
 
-    for (const offset of offsets) {
-        if (wrongs.size >= count) break;
-        const val = roundToDecimals(correct + offset, decimals);
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
+    // Lấy phần nguyên và phần thập phân
+    const integerPart = Math.floor(correct);
+    const decimalPart = correct - integerPart;
+
+    // Nếu phần nguyên >= 10, đảm bảo cùng hàng đơn vị
+    if (integerPart >= 10) {
+        const unitDigit = integerPart % 10;
+
+        // Tạo đáp án sai: thay đổi hàng chục (offset bội số của 10) + thay đổi phần thập phân
+        const attempts = 50;
+        let iter = 0;
+
+        while (wrongs.size < count && iter < attempts) {
+            iter++;
+            // Random offset cho hàng chục: ±10, ±20, ±30...
+            const tensOffset = (randomInt(-3, 3) * 10);
+            // Random offset cho phần thập phân: ±0.1, ±0.2...
+            const decimalOffset = roundToDecimals(randomInt(-9, 9) / 10, 1);
+
+            const newInteger = integerPart + tensOffset;
+            const newDecimal = roundToDecimals(decimalPart + decimalOffset, decimals);
+
+            // Đảm bảo: cùng hàng đơn vị, phần thập phân hợp lệ, khác correct
+            if (newInteger >= 0 && newInteger % 10 === unitDigit && newDecimal >= 0 && newDecimal < 1) {
+                const val = roundToDecimals(newInteger + newDecimal, decimals);
+                if (val !== correct && val > 0) {
+                    wrongs.add(val);
+                }
+            }
         }
     }
 
-    // Fallback: generate random if not enough
+    // Fallback hoặc nếu số < 10: dùng offset nhỏ
     while (wrongs.size < count) {
-        const offset = (randomInt(-20, 20) / 10);
+        const offset = roundToDecimals((randomInt(-20, 20) / 10), decimals);
         const val = roundToDecimals(correct + offset, decimals);
         if (val !== correct && val > 0) {
             wrongs.add(val);

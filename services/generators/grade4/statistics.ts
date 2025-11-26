@@ -93,15 +93,21 @@ export const generateStatistics = (): Omit<Question, 'id' | 'topicId'> => {
     else {
         const idx1 = 0;
         const idx2 = 1;
-        const diff = Math.abs(values[idx1] - values[idx2]);
+        const val1 = values[idx1];
+        const val2 = values[idx2];
+
+        // Đảm bảo luôn hỏi số lớn hơn số nhỏ
+        const largerIdx = val1 > val2 ? idx1 : idx2;
+        const smallerIdx = val1 > val2 ? idx2 : idx1;
+        const diff = Math.abs(val1 - val2);
 
         return {
             type: QuestionType.SingleChoice,
-            questionText: `Theo biểu đồ, ${cat.theme.toLowerCase()} của ${cat.items[idx1]} hơn ${cat.items[idx2]} bao nhiêu?`,
+            questionText: `Theo biểu đồ, ${cat.theme.toLowerCase()} của ${cat.items[largerIdx]} hơn ${cat.items[smallerIdx]} bao nhiêu?`,
             visualSvg: createBarChartSVG(data),
             correctAnswer: diff.toString(),
             options: shuffleArray([diff.toString(), (diff + 1).toString(), (diff - 1).toString(), (diff + 2).toString()]),
-            explanation: `${cat.items[idx1]} có ${values[idx1]}, ${cat.items[idx2]} có ${values[idx2]}. Chênh lệch: ${Math.abs(values[idx1] - values[idx2])}.`
+            explanation: `${cat.items[largerIdx]} có ${values[largerIdx]}, ${cat.items[smallerIdx]} có ${values[smallerIdx]}. Chênh lệch: ${diff}.`
         };
     }
 };

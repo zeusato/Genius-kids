@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 10): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
     const types = ['length', 'mass', 'time', 'area'];
@@ -48,7 +39,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, Math.max(5, result / 2))]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, Math.floor(Math.max(5, result / 2))).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
@@ -60,7 +51,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, conv.factor * 5)]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, conv.factor * 5).map(n => formatNumber(n))]),
                 explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
@@ -84,7 +75,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 10)]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, 10).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
@@ -96,7 +87,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 500)]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, 500).map(n => formatNumber(n))]),
                 explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
@@ -120,7 +111,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${val} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: result.toString(),
-                options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 3)]),
+                options: shuffleArray([result.toString(), ...generateWrongAnswersWithSameUnits(result, 3, 3).map(n => formatNumber(n))]),
                 explanation: `${conv.factor} ${conv.from} = 1 ${conv.to}. Vậy ${val} ${conv.from} = ${result} ${conv.to}.`
             };
         } else {
@@ -132,7 +123,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${val} ${conv.to} = ... ${conv.from}`,
                 correctAnswer: result.toString(),
-                options: shuffleArray([result.toString(), ...generateWrongAnswers(result, 3, 30)]),
+                options: shuffleArray([result.toString(), ...generateWrongAnswersWithSameUnits(result, 3, 30).map(n => formatNumber(n))]),
                 explanation: `1 ${conv.to} = ${conv.factor} ${conv.from}. Vậy ${val} ${conv.to} = ${result} ${conv.from}.`
             };
         }
@@ -156,7 +147,7 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.from} = ... ${conv.to}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 10)]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, 10).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(conv.factor)} ${conv.from} = 1 ${conv.to}. Vậy ${formatNumber(val)} ${conv.from} = ${formatNumber(result)} ${conv.to}.`
             };
         } else {
@@ -168,9 +159,10 @@ export const generateUnits = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Đổi đơn vị: ${formatNumber(val)} ${conv.to} = ... ${conv.from}`,
                 correctAnswer: formatNumber(result),
-                options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 100)]),
+                options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, 100).map(n => formatNumber(n))]),
                 explanation: `1 ${conv.to} = ${formatNumber(conv.factor)} ${conv.from}. Vậy ${formatNumber(val)} ${conv.to} = ${formatNumber(result)} ${conv.from}.`
             };
         }
     }
 };
+

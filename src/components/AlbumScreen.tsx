@@ -3,6 +3,7 @@ import { StudentProfile, Rarity, AlbumImage } from '../../types';
 import { getAllCollections } from '../../services/albumService';
 import { getRarityColor, getRarityName } from '../../services/albumService';
 import { ArrowLeft, Lock, X, Download } from 'lucide-react';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface AlbumScreenProps {
     student: StudentProfile;
@@ -51,7 +52,7 @@ export const AlbumScreen: React.FC<AlbumScreenProps> = ({
                     <span>Quay lại</span>
                 </button>
                 <h1 className="text-3xl font-bold text-slate-800">📚 Album sưu tập</h1>
-                <div className="w-24"></div>
+                <MusicControls />
             </div>
 
             {/* Collections */}

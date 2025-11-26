@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Trophy, Clock, Target } from 'lucide-react';
 import { Card } from './Card';
+import { MusicControls } from '@/src/components/MusicControls';
 import { soundManager } from '../../utils/sound';
 import {
     MemoryCard,
@@ -149,6 +150,7 @@ export const MemoryMatchGame: React.FC<MemoryMatchGameProps> = ({ difficulty, on
                             <span className="font-bold text-lg">{formatTime(time)}</span>
                         </div>
                     </div>
+                    <MusicControls />
                 </div>
             </div>
 

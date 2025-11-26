@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 50): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -40,7 +31,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Lan có ${formatNumber(a)} viên bi, Hoa có ${formatNumber(b)} viên bi. Hỏi cả hai bạn có tất cả bao nhiêu viên bi?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 100)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 100).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(answer)} viên bi`
             };
         } else if (op === 'subtract') {
@@ -51,7 +42,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Cửa hàng có ${formatNumber(a)} quyển vở, đã bán ${formatNumber(b)} quyển. Hỏi còn lại bao nhiêu quyển vở?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 100)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 100).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(answer)} quyển vở`
             };
         } else if (op === 'multiply') {
@@ -62,7 +53,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Có ${a} hộp, mỗi hộp có ${b} cái kẹo. Hỏi cả thảy có bao nhiêu cái kẹo?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 30)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 30).map(n => formatNumber(n))]),
                 explanation: `${a} × ${b} = ${formatNumber(answer)} cái kẹo`
             };
         } else {
@@ -93,7 +84,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Có ${boxes} hộp, mỗi hộp ${perBox} cái kẹo. Ngoài ra còn ${extra} cái lẻ. Hỏi cả thảy có bao nhiêu cái kẹo?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 50)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
                 explanation: `Bước 1: ${boxes} × ${perBox} = ${boxes * perBox}\\nBước 2: ${boxes * perBox} + ${extra} = ${formatNumber(answer)}`
             };
         } else if (combo === 'multiply-subtract') {
@@ -105,7 +96,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Cửa hàng có ${boxes} thùng, mỗi thùng ${perBox} chai nước. Đã bán ${formatNumber(sold)} chai. Hỏi còn lại bao nhiêu chai?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 50)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
                 explanation: `Bước 1: ${boxes} × ${perBox} = ${boxes * perBox}\\nBước 2: ${boxes * perBox} - ${formatNumber(sold)} = ${formatNumber(answer)}`
             };
         } else {
@@ -135,7 +126,7 @@ export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Một quyển vở giá ${formatNumber(a * 1000)} đồng. Hỏi ${b} quyển vở giá bao nhiêu?`,
             correctAnswer: formatNumber(answer * 1000),
-            options: shuffleArray([formatNumber(answer * 1000), ...generateWrongAnswers(answer * 1000, 3, 5000)]),
+            options: shuffleArray([formatNumber(answer * 1000), ...generateWrongAnswersWithSameUnits(answer * 1000, 3, 5000).map(n => formatNumber(n))]),
             explanation: `${formatNumber(a * 1000)} × ${b} = ${formatNumber(answer * 1000)} đồng`
         };
     }

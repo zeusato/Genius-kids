@@ -44,6 +44,14 @@ import { generateG5Geometry } from './generators/grade5/geometry';
 import { generateG5Measurements } from './generators/grade5/measurements';
 import { generateG5WordProblems } from './generators/grade5/wordProblems';
 
+// Grade 2 - refactored generators
+import { generateG2AddSubNoCarry } from './generators/grade2/addSubNoCarry';
+import { generateG2AddSubCarry } from './generators/grade2/addSubCarry';
+
+// Grade 4 - refactored generators
+import { generateG4Patterns } from './generators/grade4/patterns';
+import { generateTypingPractice } from './generators/grade4/typingPractice';
+
 // --- Utility Functions ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -68,6 +76,46 @@ const generateWrongAnswers = (correct: number, count: number, range: number = 10
   }
   return Array.from(wrongs).map(String);
 };
+
+// Helper to generate wrong answers WITH SAME UNIT DIGIT (for grade 3-5)
+// This prevents students from guessing by mental math on unit digits  
+export const generateWrongAnswersWithSameUnits = (
+  correct: number,
+  count: number,
+  range: number = 100
+): number[] => {
+  // For answers < 10, use regular generation
+  if (correct < 10) {
+    return generateWrongAnswers(correct, count, Math.min(range, 5)).map(s => parseInt(s));
+  }
+
+  const unitDigit = correct % 10;
+  const wrongs = new Set<number>();
+  let attempts = 0;
+  const maxAttempts = count * 50;
+
+  while (wrongs.size < count && attempts < maxAttempts) {
+    attempts++;
+    // Generate offset as multiple of 10 to preserve unit digit
+    const offsetMultiplier = randomInt(1, Math.max(1, Math.floor(range / 10)));
+    const offset = offsetMultiplier * 10;
+    const isNegative = Math.random() > 0.5;
+    const val = correct + (isNegative ? -offset : offset);
+
+    // Ensure: different, same unit digit, >= 0
+    if (val !== correct && val >= 0 && val % 10 === unitDigit) {
+      wrongs.add(val);
+    }
+  }
+
+  // Fallback if not enough
+  if (wrongs.size < count) {
+    return generateWrongAnswers(correct, count, range).map(s => parseInt(s));
+  }
+
+  return Array.from(wrongs);
+};
+
 
 // Helper to create a "select wrong answer" question
 // Takes 3 correct expressions/values and 1 wrong one
@@ -181,72 +229,8 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g1_word_problems': generateG1WordProblems,
 
   // --- Grade 2 Generators ---
-
-  'g2_add_sub_no_carry': () => {
-    const isAdd = Math.random() > 0.5;
-    let a, b, ans;
-
-    if (isAdd) {
-      // a + b < 100, unit digits sum < 10
-      const a_units = randomInt(0, 8);
-      const b_units = randomInt(0, 9 - a_units);
-      const a_tens = randomInt(1, 8);
-      const b_tens = randomInt(0, 9 - a_tens);
-      a = a_tens * 10 + a_units;
-      b = b_tens * 10 + b_units;
-      ans = a + b;
-    } else {
-      // a - b, no borrow. a_units >= b_units
-      const a_tens = randomInt(2, 9);
-      const b_tens = randomInt(1, a_tens);
-      const a_units = randomInt(1, 9);
-      const b_units = randomInt(0, a_units);
-      a = a_tens * 10 + a_units;
-      b = b_tens * 10 + b_units;
-      ans = a - b;
-    }
-
-    return {
-      type: QuestionType.SingleChoice,
-      questionText: `${a} ${isAdd ? '+' : '-'} ${b} = ?`,
-      correctAnswer: ans.toString(),
-      options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 5)]),
-      explanation: `Thực hiện tính từ hàng đơn vị trước, sau đó đến hàng chục.`
-    };
-  },
-
-  'g2_add_sub_carry': () => {
-    const isAdd = Math.random() > 0.5;
-    let a, b, ans;
-
-    if (isAdd) {
-      // a + b < 100, unit digits sum >= 10
-      const a_units = randomInt(1, 9);
-      const b_units = randomInt(10 - a_units, 9); // Ensure carry
-      const a_tens = randomInt(1, 7);
-      const b_tens = randomInt(0, 8 - a_tens); // Ensure sum < 100
-      a = a_tens * 10 + a_units;
-      b = b_tens * 10 + b_units;
-      ans = a + b;
-    } else {
-      // a - b, borrow needed. a_units < b_units
-      const a_tens = randomInt(2, 9);
-      const b_tens = randomInt(1, a_tens - 1);
-      const a_units = randomInt(0, 8);
-      const b_units = randomInt(a_units + 1, 9); // Ensure borrow
-      a = a_tens * 10 + a_units;
-      b = b_tens * 10 + b_units;
-      ans = a - b;
-    }
-
-    return {
-      type: QuestionType.SingleChoice,
-      questionText: `${a} ${isAdd ? '+' : '-'} ${b} = ?`,
-      correctAnswer: ans.toString(),
-      options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 10)]),
-      explanation: isAdd ? `Hàng đơn vị cộng lại lớn hơn 10, nhớ 1 sang hàng chục.` : `Hàng đơn vị không trừ được, mượn 1 chục.`
-    };
-  },
+  'g2_add_sub_no_carry': generateG2AddSubNoCarry,
+  'g2_add_sub_carry': generateG2AddSubCarry,
 
   'g2_units_measure': generateG2Units,
   'g2_arithmetic_advanced': generateG2Arithmetic,
@@ -288,78 +272,10 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g4_geometry_2d': generateGeometryG4,
 
 
-  'g4_patterns': () => {
-    const start = randomInt(1, 50);
-    const diff = randomInt(2, 15);
-    const seq = [start, start + diff, start + diff * 2, start + diff * 3, start + diff * 4];
-
-    const hiddenIndex = randomInt(0, 4);
-    const correctAnswer = seq[hiddenIndex];
-
-    const displaySeq = seq.map((val, idx) => idx === hiddenIndex ? '...' : val);
-
-    return {
-      type: QuestionType.ManualInput,
-      questionText: `Điền số còn thiếu vào dãy số: ${displaySeq.join(', ')}`,
-      correctAnswer: correctAnswer.toString(),
-      explanation: `Dãy số tăng dần với khoảng cách là ${diff}.`
-    };
-  },
+  'g4_patterns': generateG4Patterns,
 
 
-  'typing_practice': () => {
-    const texts = [
-      "Học thầy không tày học bạn.",
-      "Có công mài sắt, có ngày nên kim.",
-      "Con mèo mà trèo cây cau, hỏi thăm chú chuột đi đâu vắng nhà.",
-      "Bầu ơi thương lấy bí cùng, tuy rằng khác giống nhưng chung một giàn.",
-      "Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra.",
-      "Trên trời mây trắng như bông, ở giữa cánh đồng bông trắng như mây.",
-      "Lá lành đùm lá rách.",
-      "Cái cò đi đón cơn mưa, tối tăm mù mịt ai đưa cò về.",
-      "Trăm hay không bằng tay quen.",
-      "Đi một ngày đàng, học một sàng khôn.",
-      "Ăn quả nhớ kẻ trồng cây.",
-      "Uống nước nhớ nguồn.",
-      "Gần mực thì đen, gần đèn thì sáng.",
-      "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.",
-      "Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.",
-      "Chị ngã em nâng.",
-      "Máu chảy ruột mềm.",
-      "Anh em như thể tay chân.",
-      "Khôn ngoan đối đáp người ngoài, gà cùng một mẹ chớ hoài đá nhau.",
-      "Nhiễu điều phủ lấy giá gương, người trong một nước phải thương nhau cùng.",
-      "Thất bại là mẹ thành công.",
-      "Cái nết đánh chết cái đẹp.",
-      "Tốt gỗ hơn tốt nước sơn.",
-      "Đói cho sạch, rách cho thơm.",
-      "Giấy rách phải giữ lấy lề.",
-      "Thương người như thể thương thân.",
-      "Một con ngựa đau cả tàu bỏ cỏ.",
-      "Có chí thì nên.",
-      "Lửa thử vàng, gian nan thử sức.",
-      "Nước chảy đá mòn.",
-      "Kiến tha lâu cũng đầy tổ.",
-      "Học, học nữa, học mãi.",
-      "Tiên học lễ, hậu học văn.",
-      "Muốn biết phải hỏi, muốn giỏi phải học.",
-      "Dốt đến đâu học lâu cũng biết.",
-      "Không thầy đố mày làm nên.",
-      "Trọng thầy mới được làm thầy.",
-      "Nhất tự vi sư, bán tự vi sư.",
-      "Ăn vóc học hay.",
-      "Văn hay chữ tốt."
-    ];
-
-    const text = texts[randomInt(0, texts.length - 1)];
-
-    return {
-      type: QuestionType.Typing,
-      questionText: "Hãy gõ lại chính xác đoạn văn bản dưới đây:",
-      correctAnswer: text,
-      explanation: `Luyện tập thường xuyên để gõ nhanh hơn nhé!`
-    };
-  }
+  'typing_practice': generateTypingPractice
 };
 
 export const generateQuestions = (topicIds: string[], count: number): Question[] => {

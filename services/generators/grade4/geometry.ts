@@ -1,4 +1,5 @@
 import { Question, QuestionType } from '../../../types';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 // --- Utility Functions (Duplicated for now, should be shared utils later) ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 10): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) { // Ensure positive for geometry
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 // --- SVG Helpers ---
 
@@ -123,7 +114,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                 questionText: `Một hình vuông có cạnh ${side}m. ${isArea ? 'Diện tích' : 'Chu vi'} hình đó là bao nhiêu?`,
                 visualSvg: createSquareSVG(side, `${side}m`),
                 correctAnswer: ans.toString(),
-                options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 20)]),
+                options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 20).map(String)]),
                 explanation: isArea ? `Diện tích = Cạnh x Cạnh (${side} x ${side})` : `Chu vi = Cạnh x 4 (${side} x 4)`
             };
         } else {
@@ -135,7 +126,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                 questionText: `Một hình chữ nhật có chiều dài ${h}m và chiều rộng ${w}m. ${isArea ? 'Diện tích' : 'Chu vi'} là?`,
                 visualSvg: createRectSVG(h, w, `${h}m`, `${w}m`),
                 correctAnswer: ans.toString(),
-                options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 20)]),
+                options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 20).map(String)]),
                 explanation: isArea ? `Diện tích = Dài x Rộng` : `Chu vi = (Dài + Rộng) x 2`
             };
         }
@@ -155,7 +146,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Một hình vuông có chu vi là ${perimeter}m. Diện tích của hình vuông đó là bao nhiêu?`,
                 correctAnswer: area.toString(),
-                options: shuffleArray([area.toString(), ...generateWrongAnswers(area, 3, 20)]),
+                options: shuffleArray([area.toString(), ...generateWrongAnswersWithSameUnits(area, 3, 20).map(String)]),
                 explanation: `Bước 1: Tìm cạnh = Chu vi : 4 = ${perimeter} : 4 = ${side}m.\nBước 2: Diện tích = ${side} x ${side} = ${area}m².`
             };
         } else {
@@ -170,7 +161,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                     type: QuestionType.SingleChoice,
                     questionText: `Một hình chữ nhật có diện tích ${area}m², chiều dài ${h}m. Chiều rộng là bao nhiêu?`,
                     correctAnswer: w.toString(),
-                    options: shuffleArray([w.toString(), ...generateWrongAnswers(w, 3, 5)]),
+                    options: shuffleArray([w.toString(), ...generateWrongAnswersWithSameUnits(w, 3, 5).map(String)]),
                     explanation: `Chiều rộng = Diện tích : Chiều dài = ${area} : ${h} = ${w}m.`
                 };
             } else {
@@ -179,7 +170,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                     type: QuestionType.SingleChoice,
                     questionText: `Một hình chữ nhật có chu vi ${perimeter}m, chiều rộng ${w}m. Chiều dài là bao nhiêu?`,
                     correctAnswer: h.toString(),
-                    options: shuffleArray([h.toString(), ...generateWrongAnswers(h, 3, 5)]),
+                    options: shuffleArray([h.toString(), ...generateWrongAnswersWithSameUnits(h, 3, 5).map(String)]),
                     explanation: `Bước 1: Nửa chu vi = ${perimeter} : 2 = ${w + h}m.\nBước 2: Chiều dài = Nửa chu vi - Chiều rộng = ${w + h} - ${w} = ${h}m.`
                 };
             }
@@ -226,7 +217,7 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Bác An muốn lát nền một căn phòng hình chữ nhật kích thước ${finalW_dm / 10}m x ${finalH_dm / 10}m bằng các viên gạch hình vuông cạnh ${tileSide}dm. Hỏi bác cần bao nhiêu viên gạch? (Diện tích mạch vữa không đáng kể)`,
                 correctAnswer: count.toString(),
-                options: shuffleArray([count.toString(), ...generateWrongAnswers(count, 3, 50)]),
+                options: shuffleArray([count.toString(), ...generateWrongAnswersWithSameUnits(count, 3, 50).map(String)]),
                 explanation: `Diện tích phòng = ${finalW_dm}dm x ${finalH_dm}dm = ${finalW_dm * finalH_dm}dm².\nDiện tích 1 viên gạch = ${tileSide} x ${tileSide} = ${tileArea_dm2}dm².\nSố gạch = ${finalW_dm * finalH_dm} : ${tileArea_dm2} = ${count} viên.`
             };
         } else {
@@ -265,10 +256,11 @@ export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
             questionText: `Hình vẽ bên dưới được tạo bởi hai hình chữ nhật ghép lại. Hình lớn cao ${hA}cm rộng ${wA}cm, hình nhỏ cao ${hB}cm rộng ${wB}cm. Tính ${isArea ? 'diện tích' : 'chu vi'} của toàn bộ hình?`,
             visualSvg: createCompositeSVG(hA, wA, hB, wB),
             correctAnswer: ans.toString(),
-            options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 15)]),
+            options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 15).map(String)]),
             explanation: isArea
                 ? `Chia hình thành 2 hình chữ nhật: Hình 1 (${hA}x${wA}) và Hình 2 (${hB}x${wB}).\nTổng diện tích = ${hA * wA} + ${hB * wB} = ${area} cm²`
                 : `Chu vi = Tổng độ dài các cạnh bao quanh hình.\nHoặc dùng mẹo: Chu vi hình này bằng chu vi hình chữ nhật bao quanh (Cao ${hA}, Rộng ${wA + wB}).`
         };
     }
 };
+

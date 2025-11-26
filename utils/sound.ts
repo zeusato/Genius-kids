@@ -1,6 +1,8 @@
 // Sound Manager using Web Audio API
 // No external dependencies or files required
 
+import { musicManager } from '@/services/musicManager';
+
 class SoundManager {
     private audioCtx: AudioContext | null = null;
     private isMuted: boolean = false;
@@ -40,7 +42,9 @@ class SoundManager {
     // Play a tone
     private playTone(freq: number, type: OscillatorType, duration: number, startTime: number = 0) {
         const ctx = this.getContext();
-        if (!ctx || this.isMuted) return;
+
+        // Check both isMuted and global sound setting from musicManager
+        if (!ctx || this.isMuted || !musicManager.isSoundEnabled()) return;
 
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();

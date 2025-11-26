@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -10,18 +11,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
-};
-
-const generateWrongAnswers = (correct: number, count: number, range: number = 100): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val >= 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
 };
 
 export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
@@ -38,7 +27,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `${formatNumber(a)} + ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 200)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 200).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(answer)}`
             };
         } else {
@@ -49,7 +38,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `${formatNumber(a)} - ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 200)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 200).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(answer)}`
             };
         }
@@ -66,7 +55,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `${formatNumber(a)} + ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 300)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 300).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(answer)}`
             };
         } else {
@@ -77,7 +66,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `${formatNumber(a)} - ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 300)]),
+                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 300).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(answer)}`
             };
         }
@@ -91,7 +80,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${nums.map(formatNumber).join(' + ')} = ?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 400)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 400).map(n => formatNumber(n))]),
             explanation: `${nums.map(formatNumber).join(' + ')} = ${formatNumber(answer)}`
         };
     }
@@ -106,7 +95,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(a)} + ${b} + ${c} = ? (Tính nhanh)`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 50)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
             explanation: `${b} + ${c} = 100, nên ${formatNumber(a)} + 100 = ${formatNumber(answer)}`
         };
     }
@@ -120,7 +109,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(a)} + ... = ${formatNumber(answer)}`,
             correctAnswer: formatNumber(b),
-            options: shuffleArray([formatNumber(b), ...generateWrongAnswers(b, 3, 200)]),
+            options: shuffleArray([formatNumber(b), ...generateWrongAnswersWithSameUnits(b, 3, 200).map(n => formatNumber(n))]),
             explanation: `${formatNumber(answer)} - ${formatNumber(a)} = ${formatNumber(b)}`
         };
     }
@@ -142,7 +131,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${sc.context} ${formatNumber(initial)} ${sc.unit}. ${sc.action1} ${formatNumber(add)} ${sc.unit}, ${sc.action2} ${formatNumber(sub)} ${sc.unit}. Hỏi còn lại bao nhiêu ${sc.unit}?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 500)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 500).map(n => formatNumber(n))]),
             explanation: `${formatNumber(initial)} + ${formatNumber(add)} - ${formatNumber(sub)} = ${formatNumber(answer)}`
         };
     }

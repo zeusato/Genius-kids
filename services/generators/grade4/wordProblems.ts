@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 100): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -38,7 +29,7 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Cửa hàng có ${formatNumber(initial)} quyển vở. Sáng nhập thêm ${formatNumber(add)} quyển, chiều bán ra ${formatNumber(sub)} quyển. Hỏi cửa hàng còn lại bao nhiêu quyển vở?`,
             correctAnswer: formatNumber(result),
-            options: shuffleArray([formatNumber(result), ...generateWrongAnswers(result, 3, 500)]),
+            options: shuffleArray([formatNumber(result), ...generateWrongAnswersWithSameUnits(result, 3, 500).map(n => formatNumber(n))]),
             explanation: `Bước 1: Sau khi nhập thêm: ${formatNumber(initial)} + ${formatNumber(add)} = ${formatNumber(initial + add)}\nBước 2: Sau khi bán: ${formatNumber(initial + add)} - ${formatNumber(sub)} = ${formatNumber(result)}`
         };
     }
@@ -54,7 +45,7 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Có ${formatNumber(boxes)} thùng, mỗi thùng ${perBox} chai nước. Ngoài ra còn ${extra} chai lẻ. Hỏi cả thảy có bao nhiêu chai nước?`,
             correctAnswer: formatNumber(total),
-            options: shuffleArray([formatNumber(total), ...generateWrongAnswers(total, 3, 50)]),
+            options: shuffleArray([formatNumber(total), ...generateWrongAnswersWithSameUnits(total, 3, 50).map(n => formatNumber(n))]),
             explanation: `Bước 1: Số chai trong thùng: ${formatNumber(boxes)} × ${perBox} = ${formatNumber(boxes * perBox)}\nBước 2: Tổng cộng: ${formatNumber(boxes * perBox)} + ${extra} = ${formatNumber(total)}`
         };
     }
@@ -87,7 +78,7 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Mẹ có ${formatNumber(money)} đồng. Mẹ mua sách hết ${formatNumber(buy1)} đồng, mua vở hết ${formatNumber(buy2)} đồng. Hỏi mẹ còn lại bao nhiêu tiền?`,
             correctAnswer: formatNumber(change),
-            options: shuffleArray([formatNumber(change), ...generateWrongAnswers(change, 3, 5000)]),
+            options: shuffleArray([formatNumber(change), ...generateWrongAnswersWithSameUnits(change, 3, 5000).map(n => formatNumber(n))]),
             explanation: `Bước 1: Tổng tiền mua: ${formatNumber(buy1)} + ${formatNumber(buy2)} = ${formatNumber(buy1 + buy2)}\nBước 2: Tiền còn lại: ${formatNumber(money)} - ${formatNumber(buy1 + buy2)} = ${formatNumber(change)}`
         };
     }

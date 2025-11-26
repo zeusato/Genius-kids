@@ -5,6 +5,7 @@ import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
 import { SoundMemoryGame } from './SoundMemory/SoundMemoryGame';
 import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
 import { DragonQuestGame } from './DragonQuest/DragonQuestGame';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface GamesMenuProps {
     onBack: () => void;
@@ -93,7 +94,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                         Games
                     </h1>
 
-                    <div className="w-24" /> {/* Spacer */}
+                    <MusicControls />
                 </div>
 
                 {/* Difficulty Selector */}

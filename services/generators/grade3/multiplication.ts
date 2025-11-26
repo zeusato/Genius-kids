@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 10): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -36,7 +27,7 @@ export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
             type: QuestionType.SingleChoice,
             questionText: `${a} × ${b} = ?`,
             correctAnswer: answer.toString(),
-            options: shuffleArray([answer.toString(), ...generateWrongAnswers(answer, 3, 10)]),
+            options: shuffleArray([answer.toString(), ...generateWrongAnswersWithSameUnits(answer, 3, 10).map(String)]),
             explanation: `${a} × ${b} = ${answer}`
         };
     }
@@ -50,7 +41,7 @@ export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(a)} × ${b} = ?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, Math.min(100, answer / 5))]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, Math.floor(Math.min(100, answer / 5))).map(n => formatNumber(n))]),
             explanation: `${formatNumber(a)} × ${b} = ${formatNumber(answer)}`
         };
     }
@@ -64,7 +55,7 @@ export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(a)} × ${b} = ?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 100)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 100).map(n => formatNumber(n))]),
             explanation: `${formatNumber(a)} × ${b} = ${formatNumber(answer)}`
         };
     }
@@ -79,7 +70,7 @@ export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
             type: QuestionType.SingleChoice,
             questionText: `${mult} × ${n} = ? (Tính nhanh)`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, mult)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, mult).map(n => formatNumber(n))]),
             explanation: `${mult} × ${n} = ${formatNumber(answer)}`
         };
     }
@@ -100,7 +91,7 @@ export const generateG3Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
             type: QuestionType.SingleChoice,
             questionText: `${sc.context} ${boxes} ${sc.item}, mỗi ${sc.item} có ${perBox} ${sc.unit}. Hỏi cả thảy có bao nhiêu ${sc.unit}?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, 50)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
             explanation: `${boxes} × ${perBox} = ${formatNumber(answer)} ${sc.unit}`
         };
     }

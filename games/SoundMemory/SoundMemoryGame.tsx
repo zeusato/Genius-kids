@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, RotateCcw, Volume2, Trophy, Target } from 'lucide-react';
 import { MemoryButton } from './MemoryButton';
+import { MusicControls } from '@/src/components/MusicControls';
 import {
     Difficulty,
     DIFFICULTY_CONFIG,
@@ -9,6 +10,8 @@ import {
     playNote
 } from './soundEngine';
 import { soundManager } from '../../utils/sound';
+
+import { useMusicControls } from '@/src/contexts/MusicContext';
 
 interface SoundMemoryGameProps {
     difficulty: Difficulty;
@@ -23,6 +26,13 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
     onExit,
     onComplete
 }) => {
+    const { playTrack, resumeRouteMusic } = useMusicControls();
+
+    // Stop music on mount (Sound Memory requires focus on sound effects)
+    useEffect(() => {
+        playTrack(null);
+        return () => resumeRouteMusic();
+    }, []);
     const config = DIFFICULTY_CONFIG[difficulty];
 
     const [gameState, setGameState] = useState<GameState>('idle');
@@ -218,6 +228,7 @@ export const SoundMemoryGame: React.FC<SoundMemoryGameProps> = ({
                             <span className="font-bold text-lg text-slate-700">{score}</span>
                         </div>
                     </div>
+                    <MusicControls />
                 </div>
             </div>
 

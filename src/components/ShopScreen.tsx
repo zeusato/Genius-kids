@@ -14,6 +14,7 @@ import { ArrowLeft, ShoppingBag, Star, CheckCircle } from 'lucide-react';
 import { Sparkles } from 'lucide-react';
 import { useStudentActions } from '@/src/contexts/StudentContext';
 import { GachaPreviewModal } from './GachaPreviewModal';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface ShopScreenProps {
     student: StudentProfile;
@@ -129,9 +130,12 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
                     <ShoppingBag size={32} className="text-yellow-600" />
                     Cửa hàng
                 </h1>
-                <div className="flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-lg">
-                    <Star size={20} className="text-yellow-600 fill-yellow-600" />
-                    <span className="font-bold text-yellow-800">{student.stars}</span>
+                <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-lg">
+                        <Star size={20} className="text-yellow-600 fill-yellow-600" />
+                        <span className="font-bold text-yellow-800">{student.stars}</span>
+                    </div>
+                    <MusicControls />
                 </div>
             </div>
 

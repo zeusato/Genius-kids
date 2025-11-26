@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 10): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateG3Division = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -37,7 +28,7 @@ export const generateG3Division = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(dividend)} : ${divisor} = ?`,
             correctAnswer: quotient.toString(),
-            options: shuffleArray([quotient.toString(), ...generateWrongAnswers(quotient, 3, 10)]),
+            options: shuffleArray([quotient.toString(), ...generateWrongAnswersWithSameUnits(quotient, 3, 10).map(String)]),
             explanation: `${formatNumber(dividend)} : ${divisor} = ${quotient}`
         };
     }
@@ -73,7 +64,7 @@ export const generateG3Division = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `${formatNumber(dividend)} : ${divisor} = ?`,
             correctAnswer: formatNumber(quotient),
-            options: shuffleArray([formatNumber(quotient), ...generateWrongAnswers(quotient, 3, 50)]),
+            options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 50).map(n => formatNumber(n))]),
             explanation: `${formatNumber(dividend)} : ${divisor} = ${formatNumber(quotient)}`
         };
     }
@@ -94,7 +85,7 @@ export const generateG3Division = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Có ${formatNumber(dividend)} ${sc.total} ${sc.action} cho ${divisor} ${sc.group}. Hỏi mỗi ${sc.group} được bao nhiêu ${sc.total}?`,
             correctAnswer: quotient.toString(),
-            options: shuffleArray([quotient.toString(), ...generateWrongAnswers(quotient, 3, 10)]),
+            options: shuffleArray([quotient.toString(), ...generateWrongAnswersWithSameUnits(quotient, 3, 10).map(String)]),
             explanation: `${formatNumber(dividend)} : ${divisor} = ${quotient}`
         };
     }

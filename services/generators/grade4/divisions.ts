@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 100): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -39,7 +30,7 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(dividend)} : ${divisor} = ?`,
                 correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswers(quotient, 3, 1000)]),
+                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 1000).map(n => formatNumber(n))]),
                 explanation: `Chia từng chữ số của ${formatNumber(dividend)} cho ${divisor} từ trái sang phải.`
             };
         } else {
@@ -51,7 +42,7 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(dividend)} : ${divisor} = ?`,
                 correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswers(quotient, 3, 500)]),
+                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 500).map(n => formatNumber(n))]),
                 explanation: `Chia ${formatNumber(dividend)} cho ${divisor} theo từng bước, tìm thương từng chữ số.`
             };
         }
@@ -71,7 +62,7 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Khi chia ${formatNumber(dividend)} cho ${divisor}, thương là bao nhiêu?`,
                 correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswers(quotient, 3, 100)]),
+                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 100).map(n => formatNumber(n))]),
                 explanation: `${formatNumber(dividend)} : ${divisor} = ${formatNumber(quotient)} (dư ${remainder})`
             };
         } else {
@@ -98,7 +89,7 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tìm x biết: x : ${divisor} = ${formatNumber(quotient)}`,
                 correctAnswer: formatNumber(dividend),
-                options: shuffleArray([formatNumber(dividend), ...generateWrongAnswers(dividend, 3, 5000)]),
+                options: shuffleArray([formatNumber(dividend), ...generateWrongAnswersWithSameUnits(dividend, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `x = ${formatNumber(quotient)} × ${divisor} = ${formatNumber(dividend)}`
             };
         } else {
@@ -110,7 +101,7 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tìm x biết: ${formatNumber(dividend)} : x = ${formatNumber(quotient)}`,
                 correctAnswer: divisor.toString(),
-                options: shuffleArray([divisor.toString(), ...generateWrongAnswers(divisor, 3, 20)]),
+                options: shuffleArray([divisor.toString(), ...generateWrongAnswersWithSameUnits(divisor, 3, 20).map(n => formatNumber(n))]),
                 explanation: `x = ${formatNumber(dividend)} : ${formatNumber(quotient)} = ${divisor}`
             };
         }
@@ -135,8 +126,9 @@ export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Chia ${formatNumber(total)} ${sc.total} đều cho ${perGroup} ${sc.group}. Hỏi mỗi ${sc.group} được bao nhiêu ${sc.total}?`,
             correctAnswer: formatNumber(groups),
-            options: shuffleArray([formatNumber(groups), ...generateWrongAnswers(groups, 3, 10)]),
+            options: shuffleArray([formatNumber(groups), ...generateWrongAnswersWithSameUnits(groups, 3, 10).map(n => formatNumber(n))]),
             explanation: `Mỗi ${sc.group} được: ${formatNumber(total)} : ${perGroup} = ${formatNumber(groups)} ${sc.total}`
         };
     }
 };
+

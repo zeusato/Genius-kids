@@ -105,25 +105,61 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 4. Decimal - read/write (25%)
+    // 4. Decimal place value expansion (25%)
     else if (type < 0.75) {
-        const whole = randomInt(0, 99);
-        const decimal = randomInt(1, 99);
-        const value = parseFloat(`${whole}.${decimal < 10 ? '0' + decimal : decimal}`);
+        // Tạo số thập phân 2 chữ số (VD: 23,45)
+        const tens = randomInt(1, 9);
+        const ones = randomInt(0, 9);
+        const tenths = randomInt(0, 9);
+        const hundredths = randomInt(1, 9); // Đảm bảo có chữ số hàng phần trăm
 
-        const wordForm = `${whole} phẩy ${decimal < 10 ? 'không ' + decimal : decimal}`;
+        const value = tens * 10 + ones + tenths * 0.1 + hundredths * 0.01;
+
+        // Phân tích đúng
+        const parts = [];
+        if (tens > 0) parts.push(`${tens} × 10`);
+        if (ones > 0) parts.push(`${ones} × 1`);
+        if (tenths > 0) parts.push(`${tenths} × 0,1`);
+        if (hundredths > 0) parts.push(`${hundredths} × 0,01`);
+
+        const correctExpansion = parts.join(' + ');
+
+        // Tạo đáp án sai
+        // Sai 1: Nhầm hàng phần thập phân (4×1 thay vì 4×0,1)
+        const wrong1Parts = [];
+        if (tens > 0) wrong1Parts.push(`${tens} × 10`);
+        if (ones > 0) wrong1Parts.push(`${ones} × 1`);
+        if (tenths > 0) wrong1Parts.push(`${tenths} × 1`); // SAI: nhầm hàng
+        if (hundredths > 0) wrong1Parts.push(`${hundredths} × 0,1`); // SAI: nhầm hàng
+        const wrong1 = wrong1Parts.join(' + ');
+
+        // Sai 2: Đổi chỗ giá trị
+        const wrong2Parts = [];
+        if (tens > 0) wrong2Parts.push(`${ones} × 10`); // SAI: đổi chỗ
+        if (ones > 0) wrong2Parts.push(`${tens} × 1`); // SAI: đổi chỗ
+        if (tenths > 0) wrong2Parts.push(`${tenths} × 0,1`);
+        if (hundredths > 0) wrong2Parts.push(`${hundredths} × 0,01`);
+        const wrong2 = wrong2Parts.join(' + ');
+
+        // Sai 3: Thiếu một hạng tử
+        const wrong3Parts = [];
+        if (tens > 0) wrong3Parts.push(`${tens} × 10`);
+        // Bỏ qua ones
+        if (tenths > 0) wrong3Parts.push(`${tenths} × 0,1`);
+        if (hundredths > 0) wrong3Parts.push(`${hundredths} × 0,01`);
+        const wrong3 = wrong3Parts.join(' + ');
 
         return {
             type: QuestionType.SingleChoice,
-            questionText: `Viết số: ${wordForm}`,
-            correctAnswer: formatDecimal(value, 2),
+            questionText: `Phân tích giá trị các chữ số trong số ${formatDecimal(value, 2)}?`,
+            correctAnswer: correctExpansion,
             options: shuffleArray([
-                formatDecimal(value, 2),
-                formatDecimal(value + 0.1, 2),
-                formatDecimal(value - 0.1, 2),
-                formatDecimal(value + 1, 2)
+                correctExpansion,
+                wrong1,
+                wrong2,
+                wrong3
             ]),
-            explanation: `${wordForm} = ${formatDecimal(value, 2)}`
+            explanation: `Số ${formatDecimal(value, 2)} có:\n- ${tens} ở hàng chục (${tens}×10)\n- ${ones} ở hàng đơn vị (${ones}×1)\n- ${tenths} ở hàng phần mười (${tenths}×0,1)\n- ${hundredths} ở hàng phần trăm (${hundredths}×0,01)`
         };
     }
 

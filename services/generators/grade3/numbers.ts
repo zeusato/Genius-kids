@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 100): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val >= 0 && val <= 10000) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateG3Numbers = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -56,7 +47,7 @@ export const generateG3Numbers = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Viết số: ${wordForm}`,
             correctAnswer: formatNumber(num),
-            options: shuffleArray([formatNumber(num), ...generateWrongAnswers(num, 3, 500)]),
+            options: shuffleArray([formatNumber(num), ...generateWrongAnswersWithSameUnits(num, 3, 500).map(n => formatNumber(n))]),
             explanation: `${wordForm} = ${formatNumber(num)}`
         };
     }
@@ -108,7 +99,7 @@ export const generateG3Numbers = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Làm tròn ${formatNumber(num)} đến ${roundToThousand ? 'hàng nghìn' : 'hàng trăm'}?`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, roundToThousand ? 1000 : 100)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, roundToThousand ? 1000 : 100).map(n => formatNumber(n))]),
             explanation: `${formatNumber(num)} làm tròn đến ${roundToThousand ? 'hàng nghìn' : 'hàng trăm'} = ${formatNumber(answer)}`
         };
     }
@@ -124,7 +115,7 @@ export const generateG3Numbers = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Tìm số tiếp theo: ${sequence.map(formatNumber).join(', ')}, ...`,
             correctAnswer: formatNumber(answer),
-            options: shuffleArray([formatNumber(answer), ...generateWrongAnswers(answer, 3, step)]),
+            options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, step).map(n => formatNumber(n))]),
             explanation: `Quy luật: mỗi số cách nhau ${formatNumber(step)}. Số tiếp theo: ${formatNumber(answer)}`
         };
     }

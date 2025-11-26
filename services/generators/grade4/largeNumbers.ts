@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber, capitalize, numberToVietnamese } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 1000): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val >= 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateLargeNumbers = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -75,7 +66,7 @@ export const generateLargeNumbers = (): Omit<Question, 'id' | 'topicId'> => {
             correctAnswer: formatNumber(rounded),
             options: shuffleArray([
                 formatNumber(rounded),
-                ...generateWrongAnswers(rounded, 3, rt.to * 5)
+                ...generateWrongAnswersWithSameUnits(rounded, 3, rt.to * 5).map(n => formatNumber(n))
             ]),
             explanation: `Xét chữ số hàng ngay sau ${rt.name}. Nếu ≥5 thì làm tròn lên, <5 thì làm tròn xuống.`
         };

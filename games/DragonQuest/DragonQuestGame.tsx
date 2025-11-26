@@ -22,6 +22,9 @@ import {
     BOSS_DIALOGUES
 } from './dragonQuestEngine';
 import { SpeedQuestion } from '../SpeedMath/speedMathEngine';
+import { MusicControls } from '@/src/components/MusicControls';
+import { useMusicControls } from '@/src/contexts/MusicContext';
+import { MusicTrack } from '@/services/musicConfig';
 
 // Import components
 import {
@@ -42,6 +45,13 @@ interface DragonQuestGameProps {
 type GamePhase = 'intro' | 'playing' | 'rolling' | 'moving' | 'combat' | 'buff' | 'teleport' | 'boss' | 'gameover';
 
 export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, onBack, onComplete }) => {
+    const { playTrack, resumeRouteMusic } = useMusicControls();
+
+    // Play Dragon Quest music on mount
+    useEffect(() => {
+        playTrack(MusicTrack.DRAGON_QUEST);
+        return () => resumeRouteMusic();
+    }, []);
     // Game State
     const [gamePhase, setGamePhase] = useState<GamePhase>('intro');
     const [playerHP, setPlayerHP] = useState(3);
@@ -85,14 +95,34 @@ export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, on
 
         // Wait for dice animation to complete (1.5s) before moving player
         setTimeout(() => {
-            const newPosition = Math.min(playerPosition + value, mapTiles.length - 1);
-            setPlayerPosition(newPosition);
+            const targetPosition = Math.min(playerPosition + value, mapTiles.length - 1);
+            const stepsToMove = targetPosition - playerPosition;
 
-            // Wait for movement animation then trigger tile event
-            setTimeout(() => {
+            // If no movement needed (already at target), just finish
+            if (stepsToMove === 0) {
                 movingRef.current = false;
-                handleTileEvent(newPosition);
-            }, 800);
+                handleTileEvent(targetPosition);
+                return;
+            }
+
+            let currentStep = 0;
+
+            // Move step by step with animation
+            const moveInterval = setInterval(() => {
+                currentStep++;
+                setPlayerPosition(prev => prev + 1);
+
+                // Check if we've reached the target
+                if (currentStep >= stepsToMove) {
+                    clearInterval(moveInterval);
+
+                    // Wait a bit then trigger tile event
+                    setTimeout(() => {
+                        movingRef.current = false;
+                        handleTileEvent(targetPosition);
+                    }, 400);
+                }
+            }, 350); // 350ms per step - smooth but not too slow
         }, 1700); // 1500ms dice roll + 200ms buffer
     };
 
@@ -400,7 +430,7 @@ export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, on
                     </div>
                 </div>
 
-                <div className="w-10" /> {/* Spacer */}
+                <MusicControls />
             </div>
 
             {/* Game Board - Fullscreen */}

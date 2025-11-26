@@ -2,6 +2,7 @@ import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
 import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText } from 'lucide-react';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
@@ -28,6 +29,11 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                     <ShoppingBag size={20} />
                     <span className="hidden sm:inline">Cửa hàng</span>
                 </button>
+
+                {/* Music Controls - Center */}
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                    <MusicControls />
+                </div>
 
                 {/* Right Side: Profile + Logout */}
                 <div className="flex items-center gap-2">

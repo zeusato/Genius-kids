@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Heart, Clock, Trophy, Play, RotateCcw, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
 import { SpeedDifficulty, SpeedQuestion, generateSpeedQuestion } from './speedMathEngine';
+import { MusicControls } from '@/src/components/MusicControls';
+import { useMusicControls } from '@/src/contexts/MusicContext';
+import { MusicTrack } from '@/services/musicConfig';
 
 interface SpeedMathGameProps {
     difficulty: string; // 'easy' | 'medium' | 'hard'
@@ -10,6 +13,13 @@ interface SpeedMathGameProps {
 }
 
 export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack, onComplete }) => {
+    const { playTrack, resumeRouteMusic } = useMusicControls();
+
+    // Play Speed Math music on mount
+    useEffect(() => {
+        playTrack(MusicTrack.SPEED_MATH);
+        return () => resumeRouteMusic();
+    }, []);
     // Game State
     const [gameState, setGameState] = useState<'intro' | 'playing' | 'gameover'>('intro');
     const [score, setScore] = useState(0);
@@ -328,7 +338,7 @@ export const SpeedMathGame: React.FC<SpeedMathGameProps> = ({ difficulty, onBack
                         <span className="font-black text-yellow-700 text-xl">{score}</span>
                     </div>
                 </div>
-                <div className="w-10" /> {/* Spacer */}
+                <MusicControls />
             </div>
 
             {/* Timer Bar */}

@@ -16,6 +16,7 @@ import { TreeMenu } from './components/TreeMenu';
 import { ContentDisplay } from './components/ContentDisplay';
 import { SearchBox } from './components/SearchBox';
 import { UnlockModal } from './components/UnlockModal';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface TellMeWhyScreenProps {
     student: StudentProfile;
@@ -189,6 +190,7 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
                             <span className="text-2xl">⭐</span>
                             <span className="font-bold text-lg">{student.stars}</span>
                         </div>
+                        <MusicControls />
 
                         {/* Mobile menu toggle */}
                         <button

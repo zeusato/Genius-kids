@@ -11,6 +11,7 @@ import {
 } from '@/services/sphinxRiddleService';
 import riddlePageImg from '@/riddle/imgSource/riddle_page.png';
 import './SphinxRiddleScreen.css';
+import { MusicControls } from '@/src/components/MusicControls';
 
 interface SphinxRiddleScreenProps {
     student: StudentProfile;
@@ -94,6 +95,7 @@ export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
                     <span className="student-name">{student.name}</span>
                     <span className="student-stars">⭐ {student.stars}</span>
                 </div>
+                <MusicControls />
             </div>
 
             <div className="sphinx-main-content">

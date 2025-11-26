@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 10000): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -39,7 +30,7 @@ export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(a)} × ${b} = ?`,
                 correctAnswer: formatNumber(ans),
-                options: shuffleArray([formatNumber(ans), ...generateWrongAnswers(ans, 3)]),
+                options: shuffleArray([formatNumber(ans), ...generateWrongAnswersWithSameUnits(ans, 3, 10000).map(n => formatNumber(n))]),
                 explanation: `Nhân từng chữ số của ${formatNumber(a)} với ${b} từ phải sang trái, nhớ sang hàng bên trái.`
             };
         } else {
@@ -51,7 +42,7 @@ export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(a)} × ${b} = ?`,
                 correctAnswer: formatNumber(ans),
-                options: shuffleArray([formatNumber(ans), ...generateWrongAnswers(ans, 3)]),
+                options: shuffleArray([formatNumber(ans), ...generateWrongAnswersWithSameUnits(ans, 3, 10000).map(n => formatNumber(n))]),
                 explanation: `Nhân ${formatNumber(a)} với từng chữ số của ${b}, sau đó cộng các kết quả theo đúng hàng.`
             };
         }
@@ -74,7 +65,7 @@ export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Tính nhanh: ${formatNumber(a)} × ${b} = ?`,
             correctAnswer: formatNumber(ans),
-            options: shuffleArray([formatNumber(ans), ...generateWrongAnswers(ans, 3)]),
+            options: shuffleArray([formatNumber(ans), ...generateWrongAnswersWithSameUnits(ans, 3, 10000).map(n => formatNumber(n))]),
             explanation: `Dùng mẹo: ${trick.hint}. Ta có ${formatNumber(a)} × ${b} = ${formatNumber(ans)}.`
         };
     }
@@ -89,7 +80,7 @@ export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Tìm x biết: x × ${b} = ${formatNumber(product)}`,
             correctAnswer: formatNumber(x),
-            options: shuffleArray([formatNumber(x), ...generateWrongAnswers(x, 3, 1000)]),
+            options: shuffleArray([formatNumber(x), ...generateWrongAnswersWithSameUnits(x, 3, 1000).map(n => formatNumber(n))]),
             explanation: `x = ${formatNumber(product)} : ${b} = ${formatNumber(x)}`
         };
     }
@@ -111,7 +102,7 @@ export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
             type: QuestionType.SingleChoice,
             questionText: `Có ${formatNumber(boxes)} ${sc.unit}, mỗi ${sc.unit} có ${perBox} ${sc.item}. Hỏi cả thảy có bao nhiêu ${sc.item}?`,
             correctAnswer: formatNumber(total),
-            options: shuffleArray([formatNumber(total), ...generateWrongAnswers(total, 3, 500)]),
+            options: shuffleArray([formatNumber(total), ...generateWrongAnswersWithSameUnits(total, 3, 500).map(n => formatNumber(n))]),
             explanation: `Tổng số ${sc.item} = ${formatNumber(boxes)} × ${perBox} = ${formatNumber(total)}`
         };
     }

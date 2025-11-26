@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,17 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 5000): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val >= 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(n => formatNumber(n));
-};
+// Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -38,7 +29,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(a)} + ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(ans),
-                options: shuffleArray([formatNumber(ans), ...generateWrongAnswers(ans, 3)]),
+                options: shuffleArray([formatNumber(ans), ...generateWrongAnswersWithSameUnits(ans, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `Đặt tính theo cột dọc và cộng từ phải sang trái, nhớ sang hàng bên trái khi cần.`
             };
         } else {
@@ -49,7 +40,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tính: ${formatNumber(a)} - ${formatNumber(b)} = ?`,
                 correctAnswer: formatNumber(ans),
-                options: shuffleArray([formatNumber(ans), ...generateWrongAnswers(ans, 3)]),
+                options: shuffleArray([formatNumber(ans), ...generateWrongAnswersWithSameUnits(ans, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `Đặt tính theo cột dọc và trừ từ phải sang trái, mượn từ hàng bên trái khi cần.`
             };
         }
@@ -68,7 +59,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tìm x biết: x + ${formatNumber(a)} = ${formatNumber(b)}`,
                 correctAnswer: formatNumber(x),
-                options: shuffleArray([formatNumber(x), ...generateWrongAnswers(x, 3)]),
+                options: shuffleArray([formatNumber(x), ...generateWrongAnswersWithSameUnits(x, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `x = ${formatNumber(b)} - ${formatNumber(a)} = ${formatNumber(x)}`
             };
         } else if (xType === 1) {
@@ -80,7 +71,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tìm x biết: x - ${formatNumber(a)} = ${formatNumber(b)}`,
                 correctAnswer: formatNumber(x),
-                options: shuffleArray([formatNumber(x), ...generateWrongAnswers(x, 3)]),
+                options: shuffleArray([formatNumber(x), ...generateWrongAnswersWithSameUnits(x, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `x = ${formatNumber(b)} + ${formatNumber(a)} = ${formatNumber(x)}`
             };
         } else {
@@ -92,7 +83,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Tìm x biết: ${formatNumber(a)} - x = ${formatNumber(b)}`,
                 correctAnswer: formatNumber(x),
-                options: shuffleArray([formatNumber(x), ...generateWrongAnswers(x, 3)]),
+                options: shuffleArray([formatNumber(x), ...generateWrongAnswersWithSameUnits(x, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `x = ${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(x)}`
             };
         }
@@ -135,7 +126,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Cửa hàng có ${formatNumber(a)} ${item}. Nhập thêm ${formatNumber(b)} ${item}. Hỏi cửa hàng có tất cả bao nhiêu ${item}?`,
                 correctAnswer: formatNumber(total),
-                options: shuffleArray([formatNumber(total), ...generateWrongAnswers(total, 3, 5000)]),
+                options: shuffleArray([formatNumber(total), ...generateWrongAnswersWithSameUnits(total, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `Tổng số ${item} = ${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(total)}`
             };
         } else {
@@ -146,7 +137,7 @@ export const generateAddSub = (): Omit<Question, 'id' | 'topicId'> => {
                 type: QuestionType.SingleChoice,
                 questionText: `Kho có ${formatNumber(total)} ${item}. Đã bán ${formatNumber(sold)} ${item}. Hỏi còn lại bao nhiêu ${item}?`,
                 correctAnswer: formatNumber(remain),
-                options: shuffleArray([formatNumber(remain), ...generateWrongAnswers(remain, 3, 5000)]),
+                options: shuffleArray([formatNumber(remain), ...generateWrongAnswersWithSameUnits(remain, 3, 5000).map(n => formatNumber(n))]),
                 explanation: `Số ${item} còn lại = ${formatNumber(total)} - ${formatNumber(sold)} = ${formatNumber(remain)}`
             };
         }

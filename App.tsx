@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { StudentProvider } from '@/src/contexts/StudentContext';
+import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
 import { HomePage } from '@/src/pages/HomePage';
 import { ModeSelectionPage } from '@/src/pages/ModeSelectionPage';
@@ -141,96 +142,98 @@ export default function App() {
   };
 
   return (
-    <StudentProvider>
-      <BrowserRouter basename="/Genius-kids">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                onInstallClick={handleInstallClick}
-                canInstall={!isStandalone}
-                showVersionCheck={versionCheckComplete}
-              />
-            }
-          />
-          <Route
-            path="/mode"
-            element={
-              <ProtectedRoute>
-                <ModeSelectionPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/study/*"
-            element={
-              <ProtectedRoute>
-                <StudyPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/game"
-            element={
-              <ProtectedRoute>
-                <GamePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <ProfilePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/shop"
-            element={
-              <ProtectedRoute>
-                <ShopPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/album"
-            element={
-              <ProtectedRoute>
-                <AlbumPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/tellmewhy"
-            element={
-              <ProtectedRoute>
-                <TellMeWhyPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/riddle"
-            element={
-              <ProtectedRoute>
-                <SphinxRiddlePage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+    <BrowserRouter basename="/Genius-kids">
+      <StudentProvider>
+        <MusicProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  onInstallClick={handleInstallClick}
+                  canInstall={!isStandalone}
+                  showVersionCheck={versionCheckComplete}
+                />
+              }
+            />
+            <Route
+              path="/mode"
+              element={
+                <ProtectedRoute>
+                  <ModeSelectionPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/study/*"
+              element={
+                <ProtectedRoute>
+                  <StudyPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/game"
+              element={
+                <ProtectedRoute>
+                  <GamePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/shop"
+              element={
+                <ProtectedRoute>
+                  <ShopPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/album"
+              element={
+                <ProtectedRoute>
+                  <AlbumPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tellmewhy"
+              element={
+                <ProtectedRoute>
+                  <TellMeWhyPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/riddle"
+              element={
+                <ProtectedRoute>
+                  <SphinxRiddlePage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
 
-        {/* Global Modals */}
-        <GlobalModals />
+          {/* Global Modals */}
+          <GlobalModals />
 
-        {showInstallInstructions && (
-          <InstallInstructionsModal onClose={() => setShowInstallInstructions(false)} />
-        )}
+          {showInstallInstructions && (
+            <InstallInstructionsModal onClose={() => setShowInstallInstructions(false)} />
+          )}
 
-        {showUpdateNotification && (
-          <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
-        )}
-      </BrowserRouter>
-    </StudentProvider>
+          {showUpdateNotification && (
+            <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
+          )}
+        </MusicProvider>
+      </StudentProvider>
+    </BrowserRouter>
   );
 }
