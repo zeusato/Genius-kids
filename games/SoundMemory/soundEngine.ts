@@ -61,5 +61,5 @@ export const generateSequence = (length: number, gridSize: number): number[] => 
 
 export const playNote = (index: number) => {
     const freq = BUTTON_FREQUENCIES[index % BUTTON_FREQUENCIES.length];
-    soundManager.playNote(freq, 0.4);
+    soundManager.playNote(freq, 0.6);
 };

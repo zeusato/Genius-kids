@@ -100,19 +100,38 @@ export function TopicSelection({ onStartTest, onExport, onBack }: TopicSelection
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {gradeTopics.map(topic => (
-                                <div
-                                    key={topic.id}
-                                    onClick={() => toggleTopic(topic.id)}
-                                    className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${selectedTopics.includes(topic.id) ? 'border-brand-500 bg-brand-50 ring-2 ring-brand-200' : 'border-gray-100 bg-white hover:border-brand-200'}`}
-                                >
-                                    <div className="flex justify-between items-start">
-                                        <h4 className="font-bold text-slate-800">{topic.title}</h4>
-                                        {selectedTopics.includes(topic.id) && <CheckCircle size={20} className="text-brand-500" />}
-                                    </div>
-                                    <p className="text-sm text-slate-500 mt-1">{topic.description}</p>
-                                </div>
-                            ))}
+                            {gradeTopics.map((topic, index) => {
+                                // Check if this is the first typing topic
+                                const isTypingTopic = topic.id.includes('typing');
+                                const prevTopic = index > 0 ? gradeTopics[index - 1] : null;
+                                const isFirstTypingTopic = isTypingTopic && (!prevTopic || !prevTopic.id.includes('typing'));
+
+                                return (
+                                    <React.Fragment key={topic.id}>
+                                        {isFirstTypingTopic && (
+                                            <div className="col-span-full my-4">
+                                                <div className="relative flex items-center">
+                                                    <div className="flex-grow border-t-2 border-dashed border-gray-300"></div>
+                                                    <span className="flex-shrink mx-4 text-sm font-bold text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
+                                                        ⌨️ LUYỆN GÕ PHÍM
+                                                    </span>
+                                                    <div className="flex-grow border-t-2 border-dashed border-gray-300"></div>
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div
+                                            onClick={() => toggleTopic(topic.id)}
+                                            className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${selectedTopics.includes(topic.id) ? 'border-brand-500 bg-brand-50 ring-2 ring-brand-200' : 'border-gray-100 bg-white hover:border-brand-200'}`}
+                                        >
+                                            <div className="flex justify-between items-start">
+                                                <h4 className="font-bold text-slate-800">{topic.title}</h4>
+                                                {selectedTopics.includes(topic.id) && <CheckCircle size={20} className="text-brand-500" />}
+                                            </div>
+                                            <p className="text-sm text-slate-500 mt-1">{topic.description}</p>
+                                        </div>
+                                    </React.Fragment>
+                                );
+                            })}
                         </div>
                     </section>
 

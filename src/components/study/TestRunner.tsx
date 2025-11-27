@@ -305,7 +305,7 @@ export function TestRunner({ questions, durationMinutes, onFinish, onExit }: Tes
                                 className="w-full text-2xl p-4 border-b-4 border-brand-200 focus:border-brand-500 focus:outline-none bg-gray-50 rounded-t-lg transition-colors"
                                 autoFocus
                             />
-                            <p className="text-slate-500 mt-2 text-sm">* Nhập số hoặc chữ cái tương ứng</p>
+                            <p className="text-slate-500 mt-2 text-sm">* Nhập đáp án (dạng số)</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

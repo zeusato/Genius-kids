@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { generateUniqueWrongAnswers } from './decimalOps';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -64,8 +65,8 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 2. Compare large numbers (15%)
-    else if (type < 0.35) {
+    // 2. Compare large numbers (10%)
+    else if (type < 0.3) {
         const num1 = randomInt(100000, 9999999);
         const num2 = randomInt(100000, 9999999);
         const operators = ['>', '<', '='];
@@ -80,8 +81,8 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 3. Expanded form (15%)
-    else if (type < 0.5) {
+    // 3. Expanded form (10%)
+    else if (type < 0.4) {
         const num = randomInt(10000, 999999);
         const digits = num.toString().split('').map(Number);
         const place = Math.pow(10, digits.length - 1);
@@ -105,8 +106,8 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 4. Decimal place value expansion (25%)
-    else if (type < 0.75) {
+    // 4. Decimal place value expansion (20%)
+    else if (type < 0.6) {
         // Tạo số thập phân 2 chữ số (VD: 23,45)
         const tens = randomInt(1, 9);
         const ones = randomInt(0, 9);
@@ -163,8 +164,8 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 5. Decimal structure with visualization (25%)
-    else {
+    // 5. Decimal structure with visualization (20%)
+    else if (type < 0.8) {
         const tenths = randomInt(1, 9);
         const value = tenths / 10;
 
@@ -180,6 +181,32 @@ export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
                 formatDecimal(1 - value, 1)
             ]),
             explanation: `${tenths} phần trên 10 = ${tenths}/10 = ${formatDecimal(value, 1)}`
+        };
+    }
+
+    // 6. Convert Fraction to Decimal (20%)
+    else {
+        // Only use denominators that result in terminating decimals: 2, 4, 5, 8, 10, 20, 25, 40, 50
+        const validDens = [2, 4, 5, 8, 10, 20, 25, 40, 50];
+        const den = validDens[randomInt(0, validDens.length - 1)];
+        const num = randomInt(1, den - 1);
+
+        const decimalVal = num / den;
+
+        // Use helper to generate distractors with same unit digit logic if possible
+        // But generateUniqueWrongAnswers takes a number and returns numbers.
+        // We need to format them.
+        const wrongAnswers = generateUniqueWrongAnswers(decimalVal, 3, 3);
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Chuyển phân số ${num}/${den} thành số thập phân?`,
+            correctAnswer: formatDecimal(decimalVal, 3),
+            options: shuffleArray([
+                formatDecimal(decimalVal, 3),
+                ...wrongAnswers.map(w => formatDecimal(w, 3))
+            ]),
+            explanation: `${num}/${den} = ${num} : ${den} = ${formatDecimal(decimalVal, 3)}`
         };
     }
 };

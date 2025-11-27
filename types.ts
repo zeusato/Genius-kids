@@ -120,6 +120,40 @@ export interface TestResult {
   id: string;
   date: string; // ISO string
   score: number;
+  correctAnswer?: string; // For single choice / manual / select wrong
+  correctAnswers?: string[]; // For multiple select
+  userAnswer?: string | string[];
+  explanation: string;
+}
+
+export interface Topic {
+  id: string;
+  title: string;
+  grade: Grade;
+  description: string;
+}
+
+export interface TestResult {
+  id: string;
+  date: string; // ISO string
+  score: number;
+  correctAnswer?: string; // For single choice / manual / select wrong
+  correctAnswers?: string[]; // For multiple select
+  userAnswer?: string | string[];
+  explanation: string;
+}
+
+export interface Topic {
+  id: string;
+  title: string;
+  grade: Grade;
+  description: string;
+}
+
+export interface TestResult {
+  id: string;
+  date: string; // ISO string
+  score: number;
   totalQuestions: number;
   durationSeconds: number;
   topicIds: string[];

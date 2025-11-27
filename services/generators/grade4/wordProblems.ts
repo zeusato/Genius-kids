@@ -18,8 +18,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
 
-    // 1. Two-step addition/subtraction - 25%
-    if (type < 0.25) {
+    // 1. Two-step addition/subtraction - 20%
+    if (type < 0.2) {
         const initial = randomInt(1000, 10000);
         const add = randomInt(500, 5000);
         const sub = randomInt(200, add - 100);
@@ -34,8 +34,8 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 2. Multiplication + Addition - 25%
-    else if (type < 0.5) {
+    // 2. Multiplication + Addition - 20%
+    else if (type < 0.4) {
         const boxes = randomInt(10, 50);
         const perBox = randomInt(12, 48);
         const extra = randomInt(5, 20);
@@ -50,8 +50,8 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 3. Division + Subtraction - 25%
-    else if (type < 0.75) {
+    // 3. Division + Subtraction - 20%
+    else if (type < 0.6) {
         const total = randomInt(500, 5000);
         const groups = randomInt(5, 20);
         const perGroup = Math.floor(total / groups);
@@ -67,8 +67,8 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
         };
     }
 
-    // 4. Multi-step with different operations - 25%
-    else {
+    // 4. Multi-step with different operations - 20%
+    else if (type < 0.8) {
         const money = randomInt(50000, 500000);
         const buy1 = randomInt(10000, money / 3);
         const buy2 = randomInt(10000, money / 3);
@@ -80,6 +80,47 @@ export const generateWordProblems = (): Omit<Question, 'id' | 'topicId'> => {
             correctAnswer: formatNumber(change),
             options: shuffleArray([formatNumber(change), ...generateWrongAnswersWithSameUnits(change, 3, 5000).map(n => formatNumber(n))]),
             explanation: `Bước 1: Tổng tiền mua: ${formatNumber(buy1)} + ${formatNumber(buy2)} = ${formatNumber(buy1 + buy2)}\nBước 2: Tiền còn lại: ${formatNumber(money)} - ${formatNumber(buy1 + buy2)} = ${formatNumber(change)}`
+        };
+    }
+
+    // 5. Sum and Difference - 20%
+    else {
+        // Generate two numbers first to ensure they are integers and positive
+        const num1 = randomInt(50, 500); // Larger number
+        const num2 = randomInt(10, num1 - 10); // Smaller number
+
+        const sum = num1 + num2;
+        const diff = num1 - num2;
+
+        const correctStr = `${num1} và ${num2}`;
+
+        // Distractors
+        const options = new Set<string>();
+        options.add(correctStr);
+
+        // Distractor 1: Same sum, different numbers (e.g., num1+10, num2-10)
+        options.add(`${num1 + 10} và ${num2 - 10}`);
+
+        // Distractor 2: Wrong calculation (e.g., sum/2 and diff/2 ?)
+        // Or just random numbers close to result
+        options.add(`${num1 + 5} và ${num2 + 5}`); // Sum + 10
+        options.add(`${num1 - 5} và ${num2 + 5}`); // Diff - 10
+
+        // Ensure unique options
+        while (options.size < 4) {
+            const r1 = num1 + randomInt(-20, 20);
+            const r2 = num2 + randomInt(-20, 20);
+            if (r1 > r2 && r1 > 0 && r2 > 0) {
+                options.add(`${r1} và ${r2}`);
+            }
+        }
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: `Tổng của hai số là ${sum}. Hiệu của hai số là ${diff}. Tìm hai số đó?`,
+            correctAnswer: correctStr,
+            options: shuffleArray(Array.from(options)),
+            explanation: `Số lớn = (Tổng + Hiệu) : 2 = (${sum} + ${diff}) : 2 = ${num1}\nSố bé = (Tổng - Hiệu) : 2 = (${sum} - ${diff}) : 2 = ${num2}`
         };
     }
 };

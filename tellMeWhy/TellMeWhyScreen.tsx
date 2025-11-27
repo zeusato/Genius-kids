@@ -178,10 +178,10 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
                             <ArrowLeft size={24} />
                         </button>
                         <div>
-                            <h1 className="text-2xl font-bold text-brand-600">
+                            <h1 className="text-lg sm:text-2xl font-bold text-brand-600 whitespace-nowrap">
                                 1000 Câu hỏi Vì sao?
                             </h1>
-                            <p className="text-sm text-slate-500">Bách khoa toàn thư tri thức</p>
+                            <p className="text-xs sm:text-sm text-slate-500">Bách khoa toàn thư tri thức</p>
                         </div>
                     </div>
 
@@ -190,7 +190,8 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
                             <span className="text-2xl">⭐</span>
                             <span className="font-bold text-lg">{student.stars}</span>
                         </div>
-                        <MusicControls />
+                        {/* Music Controls - Single button, shows on all screen sizes */}
+                        <MusicControls hideSound />
 
                         {/* Mobile menu toggle */}
                         <button

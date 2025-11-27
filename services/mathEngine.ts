@@ -51,6 +51,10 @@ import { generateG2AddSubCarry } from './generators/grade2/addSubCarry';
 // Grade 4 - refactored generators
 import { generateG4Patterns } from './generators/grade4/patterns';
 import { generateTypingPractice } from './generators/grade4/typingPractice';
+import { generateG4Parentheses } from './generators/grade4/parentheses';
+
+// Grade 5 - refactored generators
+import { generateG5Parentheses } from './generators/grade5/parentheses';
 
 // --- Utility Functions ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -174,7 +178,7 @@ export const TOPICS: Topic[] = [
   { id: 'g2_units_measure', title: 'Đại lượng (Độ dài, Khối lượng, Dung tích)', grade: Grade.Grade2, description: 'Đổi đơn vị, xem cân, đo độ dài' },
   { id: 'g2_time_calendar', title: 'Thời gian & Lịch', grade: Grade.Grade2, description: 'Xem đồng hồ, đọc lịch ngày tháng' },
   { id: 'g2_geometry_basic', title: 'Hình học (Phẳng & Khối)', grade: Grade.Grade2, description: 'Nhận diện hình, đếm hình' },
-  { id: 'g2_typing', title: 'Luyện gõ phím', grade: Grade.Grade2, description: 'Luyện gõ 10 ngón và chính tả' },
+
 
   // Grade 3
   { id: 'g3_numbers', title: 'Số và phép tính (1000-10000)', grade: Grade.Grade3, description: 'Đọc, viết, so sánh số 4 chữ số' },
@@ -184,7 +188,7 @@ export const TOPICS: Topic[] = [
   { id: 'g3_geometry', title: 'Hình học cơ bản', grade: Grade.Grade3, description: 'Đoạn thẳng, góc vuông, chu vi' },
   { id: 'g3_measurements', title: 'Đo lường', grade: Grade.Grade3, description: 'Độ dài, khối lượng, dung tích, thời gian' },
   { id: 'g3_word_problems', title: 'Toán lời văn', grade: Grade.Grade3, description: 'Bài toán 1-2 bước' },
-  { id: 'g3_typing', title: 'Luyện gõ phím', grade: Grade.Grade3, description: 'Luyện gõ 10 ngón và chính tả' },
+
 
   // Grade 4
   { id: 'g4_large_numbers', title: 'Số lớn', grade: Grade.Grade4, description: 'Đọc, viết, so sánh, làm tròn số lớn' },
@@ -199,7 +203,8 @@ export const TOPICS: Topic[] = [
   { id: 'g4_statistics', title: 'Thống kê', grade: Grade.Grade4, description: 'Đọc biểu đồ, bảng số liệu' },
   { id: 'g4_word_problems', title: 'Toán lời văn', grade: Grade.Grade4, description: 'Bài toán 2-3 bước' },
   { id: 'g4_patterns', title: 'Tìm quy luật dãy số', grade: Grade.Grade4, description: 'Điền số còn thiếu vào vị trí bất kỳ' },
-  { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade4, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g4_parentheses', title: 'Phép toán có ngoặc', grade: Grade.Grade4, description: 'Tính, tìm số, tìm dấu, so sánh biểu thức có ngoặc đơn' },
+
 
   // Grade 5
   { id: 'g5_numbers', title: 'Số tự nhiên & Số thập phân', grade: Grade.Grade5, description: 'Đọc, viết, so sánh số lớn và số thập phân' },
@@ -209,6 +214,13 @@ export const TOPICS: Topic[] = [
   { id: 'g5_geometry', title: 'Hình học nâng cao', grade: Grade.Grade5, description: 'Hình bình hành, hình tròn, thể tích' },
   { id: 'g5_measurements', title: 'Đo lường nâng cao', grade: Grade.Grade5, description: 'Đổi đơn vị, vận tốc, quãng đường' },
   { id: 'g5_word_problems', title: 'Toán lời văn nâng cao', grade: Grade.Grade5, description: 'Tổng-hiệu-tỉ, chuyển động, năng suất' },
+  { id: 'g5_parentheses', title: 'Phép toán có ngoặc nâng cao', grade: Grade.Grade5, description: 'Phép toán phức tạp với số lớn (3-4 chữ số) và ngoặc đơn' },
+
+  // ===== LUYỆN GỌ PHÍM =====
+  // Typing practice topics for all grades
+  { id: 'g2_typing', title: 'Luyện gõ phím', grade: Grade.Grade2, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'g3_typing', title: 'Luyện gõ phím', grade: Grade.Grade3, description: 'Luyện gõ 10 ngón và chính tả' },
+  { id: 'typing_practice', title: 'Tập đánh máy (Văn bản)', grade: Grade.Grade4, description: 'Luyện gõ 10 ngón và chính tả' },
   { id: 'g5_typing', title: 'Luyện gõ phím', grade: Grade.Grade5, description: 'Luyện gõ 10 ngón và chính tả' },
 ];
 
@@ -256,6 +268,7 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g5_geometry': generateG5Geometry,
   'g5_measurements': generateG5Measurements,
   'g5_word_problems': generateG5WordProblems,
+  'g5_parentheses': generateG5Parentheses,
   'g5_typing': generateTypingGrade5,
 
   // --- Grade 4 Generators ---
@@ -273,7 +286,7 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
 
 
   'g4_patterns': generateG4Patterns,
-
+  'g4_parentheses': generateG4Parentheses,
 
   'typing_practice': generateTypingPractice
 };

@@ -33,11 +33,11 @@ const COLORS = [
 ];
 
 const SHAPES = [
-    { name: 'Hình tròn', svg: '<circle cx="50" cy="50" r="40" fill="currentColor" />' },
-    { name: 'Hình vuông', svg: '<rect x="10" y="10" width="80" height="80" fill="currentColor" />' },
-    { name: 'Hình tam giác', svg: '<polygon points="50,10 90,90 10,90" fill="currentColor" />' },
-    { name: 'Hình chữ nhật', svg: '<rect x="10" y="25" width="80" height="50" fill="currentColor" />' },
-    { name: 'Hình sao', svg: '<polygon points="50,10 61,35 90,35 66,55 75,80 50,65 25,80 34,55 10,35 39,35" fill="currentColor" />' } // Star
+    { name: 'Hình tròn', svg: '<circle cx="50" cy="50" r="40" fill="#3b82f6" />' }, // Blue
+    { name: 'Hình vuông', svg: '<rect x="10" y="10" width="80" height="80" fill="#22c55e" />' }, // Green
+    { name: 'Hình tam giác', svg: '<polygon points="50,10 90,90 10,90" fill="#f97316" />' }, // Orange
+    { name: 'Hình chữ nhật', svg: '<rect x="10" y="25" width="80" height="50" fill="#a855f7" />' }, // Purple
+    { name: 'Hình sao', svg: '<polygon points="50,10 61,35 90,35 66,55 75,80 50,65 25,80 34,55 10,35 39,35" fill="#eab308" />' } // Yellow/Gold
 ];
 
 // --- GENERATORS ---

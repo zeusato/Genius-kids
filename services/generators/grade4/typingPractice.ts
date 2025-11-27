@@ -45,8 +45,15 @@ const TYPING_TEXTS = [
     "Văn hay chữ tốt."
 ];
 
+// Normalize Vietnamese text to NFC form (composed characters)
+// This ensures diacritics are in the correct position for Vietnamese IME
+const normalizeVietnamese = (text: string): string => {
+    return text.normalize('NFC');
+};
+
 export const generateTypingPractice = (): Omit<Question, 'id' | 'topicId'> => {
-    const text = TYPING_TEXTS[randomInt(0, TYPING_TEXTS.length - 1)];
+    const rawText = TYPING_TEXTS[randomInt(0, TYPING_TEXTS.length - 1)];
+    const text = normalizeVietnamese(rawText);
 
     return {
         type: QuestionType.Typing,

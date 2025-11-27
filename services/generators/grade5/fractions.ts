@@ -114,8 +114,8 @@ export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
         }
     }
 
-    // 4. Convert fraction to decimal (25%) - only use denominators 2, 4, 5, 8, 10, 20
-    else {
+    // 4. Convert fraction to decimal (20%)
+    else if (type < 0.90) {
         const validDens = [2, 4, 5, 8, 10, 20];
         const den = validDens[randomInt(0, 5)];
         const num = randomInt(1, den - 1);
@@ -132,6 +132,55 @@ export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
                 formatDecimal(num / 10, 4)
             ]),
             explanation: `${num}/${den} = ${num} : ${den} = ${formatDecimal(decimal, 4)}`
+        };
+    }
+
+    // 5. Mixed Fraction + Decimal Operations (10%)
+    else {
+        // Fraction that converts to nice decimal
+        const validDens = [2, 4, 5, 10, 20];
+        const den = validDens[randomInt(0, 4)];
+        const num = randomInt(1, den - 1);
+        const fracVal = num / den;
+
+        // Simple decimal
+        const decVal = randomInt(1, 9) / 10; // 0.1 to 0.9
+
+        const isAdd = Math.random() > 0.5;
+        const result = isAdd ? fracVal + decVal : Math.abs(fracVal - decVal); // Ensure positive
+
+        // If subtract and result is 0, regenerate or just accept 0
+        // To keep it simple, let's force addition or ensure subtraction is valid
+        // Actually Math.abs handles it, but let's format question correctly
+
+        let qText = '';
+        let ans = 0;
+
+        if (isAdd) {
+            qText = `${num}/${den} + ${formatDecimal(decVal, 1)} = ?`;
+            ans = result;
+        } else {
+            // Ensure larger first
+            if (fracVal > decVal) {
+                qText = `${num}/${den} - ${formatDecimal(decVal, 1)} = ?`;
+                ans = fracVal - decVal;
+            } else {
+                qText = `${formatDecimal(decVal, 1)} - ${num}/${den} = ?`;
+                ans = decVal - fracVal;
+            }
+        }
+
+        return {
+            type: QuestionType.SingleChoice,
+            questionText: qText,
+            correctAnswer: formatDecimal(ans, 2),
+            options: shuffleArray([
+                formatDecimal(ans, 2),
+                formatDecimal(ans + 0.1, 2),
+                formatDecimal(ans + 0.5, 2),
+                formatDecimal(ans * 2, 2)
+            ]),
+            explanation: `Đổi ${num}/${den} = ${formatDecimal(fracVal, 2)}\n${qText.replace('?', formatDecimal(ans, 2))}`
         };
     }
 };

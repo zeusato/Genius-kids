@@ -19,28 +19,23 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-brand-50 via-purple-50 to-fun-yellow/20 relative">
-            {/* Top Bar */}
+            {/* Top Bar - Simplified without Music Controls */}
             <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 bg-white/10 backdrop-blur-md border-b border-white/20">
                 {/* Shop Button */}
                 <button
                     onClick={() => onSelectMode('shop')}
-                    className="flex items-center gap-2 px-4 py-2 min-w-[100px] min-h-[40px] bg-yellow-100 hover:bg-yellow-200 text-yellow-800 rounded-xl shadow-sm transition-all font-semibold justify-center"
+                    className="flex items-center gap-2 px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 rounded-xl shadow-sm transition-all font-semibold justify-center"
                 >
                     <ShoppingBag size={20} />
                     <span className="hidden sm:inline">Cửa hàng</span>
                 </button>
-
-                {/* Music Controls - Center */}
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                    <MusicControls />
-                </div>
 
                 {/* Right Side: Profile + Logout */}
                 <div className="flex items-center gap-2">
                     {/* Profile Button */}
                     <button
                         onClick={() => onSelectMode('profile')}
-                        className="flex items-center gap-2 px-4 py-2 min-w-[100px] min-h-[40px] bg-brand-100 hover:bg-brand-200 text-brand-800 rounded-xl shadow-sm transition-all justify-center"
+                        className="flex items-center gap-2 px-4 py-2 bg-brand-100 hover:bg-brand-200 text-brand-800 rounded-xl shadow-sm transition-all justify-center"
                     >
                         {avatar && (
                             avatar.isEmoji ? (
@@ -56,11 +51,16 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                     {/* Logout Button */}
                     <button
                         onClick={onLogout}
-                        className="flex items-center gap-2 px-4 py-2 min-w-[100px] min-h-[40px] bg-red-100 hover:bg-red-200 text-red-800 rounded-xl shadow-sm transition-all justify-center"
+                        className="flex items-center gap-2 px-4 py-2 bg-red-100 hover:bg-red-200 text-red-800 rounded-xl shadow-sm transition-all justify-center"
                     >
                         <LogOut size={20} />
                     </button>
                 </div>
+            </div>
+
+            {/* Floating Music Controls - Right Side, Vertical Stack */}
+            <div className="fixed right-4 top-20 z-40">
+                <MusicControls vertical />
             </div>
 
             {/* Main Content */}

@@ -49,8 +49,8 @@ export const getRandomRiddle = (riddles: RiddleData[]): RiddleData | null => {
 
 // Flexible answer checking with partial matching
 export const checkAnswer = (userAnswer: string, correctAnswer: string): boolean => {
-    // Normalize both answers: lowercase, trim, remove extra spaces
-    const normalize = (str: string) => str.toLowerCase().trim().replace(/\s+/g, ' ');
+    // Normalize both answers: NFC (compose diacritics), lowercase, trim, remove extra spaces
+    const normalize = (str: string) => str.normalize('NFC').toLowerCase().trim().replace(/\s+/g, ' ');
 
     const normalizedUser = normalize(userAnswer);
     const normalizedCorrect = normalize(correctAnswer);
