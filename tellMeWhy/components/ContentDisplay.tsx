@@ -24,7 +24,7 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
 }) => {
     if (!questionData) {
         return (
-            <div className="h-full flex items-center justify-center bg-gradient-to-br from-brand-50 to-purple-50 rounded-lg">
+            <div className="h-full min-h-[60vh] md:min-h-0 flex items-center justify-center bg-gradient-to-br from-brand-50 to-purple-50 rounded-lg">
                 <div className="text-center text-slate-400 space-y-4">
                     <div className="text-6xl">📖</div>
                     <p className="text-xl font-semibold">Chọn một câu hỏi để bắt đầu</p>
