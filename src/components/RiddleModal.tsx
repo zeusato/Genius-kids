@@ -38,10 +38,43 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
     const [rewardInfo, setRewardInfo] = useState<{ stars: number; card?: any } | null>(null);
     const [penaltyInfo, setPenaltyInfo] = useState<PenaltyType | null>(null);
 
+    const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
+
     useEffect(() => {
         // Set random invitation dialogue
         setInvitationDialogue(getRandomDialogue('invitation'));
     }, []);
+
+    const getUnlockCost = (diff: RiddleDifficulty): number => {
+        switch (diff) {
+            case RiddleDifficulty.EASY: return 3;
+            case RiddleDifficulty.MEDIUM: return 4;
+            case RiddleDifficulty.HARD: return 5;
+            default: return 5;
+        }
+    };
+
+    const handleUnlockAnswer = () => {
+        const cost = getUnlockCost(difficulty);
+        if (student.stars < cost) {
+            alert(`Bạn cần ${cost} sao để xem đáp án!`);
+            return;
+        }
+
+        // Deduct stars
+        const updatedProfile = {
+            ...student,
+            stars: student.stars - cost
+        };
+
+        // Update profile
+        updateProfile(updatedProfile);
+        if (onProfileUpdate) {
+            onProfileUpdate(updatedProfile);
+        }
+
+        setIsAnswerRevealed(true);
+    };
 
     const handleSubmit = () => {
         if (!userAnswer.trim()) {
@@ -195,7 +228,7 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
                         </div>
 
                         <div className={`riddle-result-content ${isCorrect ? 'correct' : 'wrong'}`}>
-                            {isCorrect && (
+                            {(isCorrect || isAnswerRevealed) && (
                                 <>
                                     <div className="correct-answer">
                                         <strong>Đáp án:</strong> {riddle.answer}
@@ -208,9 +241,28 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
                                 </>
                             )}
 
-                            {!isCorrect && (
+                            {!isCorrect && !isAnswerRevealed && (
                                 <div className="wrong-message">
                                     <p>Hãy thử suy nghĩ kỹ hơn và thử lại nhé!</p>
+                                    <div className="unlock-answer-section" style={{ marginTop: '15px', textAlign: 'center' }}>
+                                        <p style={{ fontSize: '0.9em', marginBottom: '10px' }}>Bạn có muốn xem đáp án không?</p>
+                                        <button
+                                            className="unlock-answer-btn"
+                                            onClick={handleUnlockAnswer}
+                                            style={{
+                                                background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                                border: 'none',
+                                                borderRadius: '20px',
+                                                padding: '8px 16px',
+                                                color: '#fff',
+                                                fontWeight: 'bold',
+                                                cursor: 'pointer',
+                                                boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+                                            }}
+                                        >
+                                            🔓 Xem đáp án ({getUnlockCost(difficulty)} ⭐)
+                                        </button>
+                                    </div>
                                 </div>
                             )}
 
