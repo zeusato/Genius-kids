@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Brain, ArrowLeft, Music, Timer } from 'lucide-react';
+import { Brain, ArrowLeft, Music, Timer, Car } from 'lucide-react';
 import { Difficulty } from './memoryMatchEngine';
 import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
 import { SoundMemoryGame } from './SoundMemory/SoundMemoryGame';
 import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
 import { DragonQuestGame } from './DragonQuest/DragonQuestGame';
+import { MathRacingGame } from './MathRacing/MathRacingGame';
 import { MusicControls } from '@/src/components/MusicControls';
+import CarIcon from './MathRacing/CarIcon.png';
 
 interface GamesMenuProps {
     onBack: () => void;
@@ -13,7 +15,7 @@ interface GamesMenuProps {
 }
 
 export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
-    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | null>(null);
+    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
     if (activeGame === 'memory') {
@@ -73,6 +75,15 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                     onGameComplete('dragon-quest', score, maxScore, medal);
                     setActiveGame(null);
                 }}
+            />
+        );
+    }
+
+    if (activeGame === 'math-racing') {
+        return (
+            <MathRacingGame
+                difficulty={getSoundDifficulty(difficulty)}
+                onExit={() => setActiveGame(null)}
             />
         );
     }
@@ -214,30 +225,53 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    {/* Dragon Quest Card */}
+                    <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow mt-8">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-red-600 to-orange-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform">
+                                <span className="text-6xl">🐉</span>
+                            </div>
 
-                {/* Dragon Quest Card */}
-                <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow mt-8">
-                    <div className="flex flex-col md:flex-row items-center gap-8">
-                        <div className="w-32 h-32 bg-gradient-to-br from-red-600 to-orange-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform">
-                            <span className="text-6xl">🐉</span>
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-slate-800 mb-3">
+                                    Đại Chiến Rồng Thần
+                                </h3>
+                                <p className="text-slate-600 text-lg mb-6">
+                                    Phiêu lưu trên bản đồ, thu thập buff và đánh bại rồng thần!
+                                </p>
+
+                                <button
+                                    onClick={() => setActiveGame('dragon-quest')}
+                                    className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    🐉 Chơi ngay!
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                    {/* Math Racing Card (New) */}
+                    <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform overflow-hidden p-4">
+                                <img src={CarIcon} alt="Math Racing" className="w-full h-full object-contain" />
+                            </div>
 
-                        <div className="flex-1 text-center md:text-left">
-                            <h3 className="text-3xl font-bold text-slate-800 mb-3">
-                                Đại Chiến Rồng Thần
-                            </h3>
-                            <p className="text-slate-600 text-lg mb-6">
-                                Phiêu lưu trên bản đồ, thu thập buff và đánh bại rồng thần!
-                            </p>
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-slate-800 mb-3">
+                                    Đường Đua Thần Tốc
+                                </h3>
+                                <p className="text-slate-600 text-lg mb-6">
+                                    Lái xe tránh chướng ngại vật và chọn đáp án đúng. Rèn luyện phản xạ và tính nhẩm nhanh!
+                                </p>
 
-                            <button
-                                onClick={() => setActiveGame('dragon-quest')}
-                                className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
-                            >
-                                🐉 Chơi ngay!
-                            </button>
+                                <button
+                                    onClick={() => setActiveGame('math-racing')}
+                                    className="px-8 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    🏎️ Chơi ngay!
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

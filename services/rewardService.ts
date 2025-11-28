@@ -1,4 +1,4 @@
-import { StudentProfile } from '../types';
+import { StudentProfile, Rarity } from '../types';
 import { gachaImage, shouldReceiveImage } from './albumService';
 
 // Calculate stars earned from test results
@@ -44,7 +44,7 @@ export const awardImage = (profile: StudentProfile, imageId: string): StudentPro
 // Complete reward flow after test
 export interface TestReward {
     stars: number;
-    image: { id: string; name: string; imagePath: string; rarity: string } | null;
+    image: { id: string; collectionId: string; name: string; imagePath: string; rarity: Rarity } | null;
 }
 
 export const processTestReward = (
@@ -67,6 +67,7 @@ export const processTestReward = (
             updatedProfile = awardImage(updatedProfile, image.id);
             gachaResult = {
                 id: image.id,
+                collectionId: image.collectionId,
                 name: image.name,
                 imagePath: image.imagePath,
                 rarity: image.rarity,
@@ -86,23 +87,25 @@ export const processTestReward = (
 // Complete reward flow after game
 export const processGameReward = (
     profile: StudentProfile,
-    medal: 'bronze' | 'silver' | 'gold' | null
+    medal: 'bronze' | 'silver' | 'gold' | null,
+    customStars?: number
 ): { updatedProfile: StudentProfile; reward: TestReward } => {
     let updatedProfile = { ...profile };
-    const stars = calculateGameStars(medal);
+    const stars = customStars !== undefined ? customStars : calculateGameStars(medal);
 
     // Award stars
     updatedProfile = awardStars(updatedProfile, stars);
 
-    // Try gacha for image (30% chance)
+    // Try gacha for image (30% chance) - ONLY if medal is earned (Win)
     let gachaResult = null;
-    if (shouldReceiveImage()) {
+    if (medal && shouldReceiveImage()) {
         const gachaRes = gachaImage(updatedProfile.ownedImageIds);
         if (gachaRes) {
             const { image } = gachaRes;
             updatedProfile = awardImage(updatedProfile, image.id);
             gachaResult = {
                 id: image.id,
+                collectionId: image.collectionId,
                 name: image.name,
                 imagePath: image.imagePath,
                 rarity: image.rarity,

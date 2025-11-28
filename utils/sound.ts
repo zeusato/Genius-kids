@@ -139,3 +139,12 @@ class SoundManager {
 }
 
 export const soundManager = new SoundManager();
+
+export const playSound = (sound: 'ding' | 'buzz' | 'click' | 'complete') => {
+    switch (sound) {
+        case 'ding': soundManager.playCorrect(); break;
+        case 'buzz': soundManager.playWrong(); break;
+        case 'click': soundManager.playClick(); break;
+        case 'complete': soundManager.playComplete(); break;
+    }
+};

@@ -42,6 +42,7 @@
     *   In bài tập về làm thêm tại nhà
 
 #### 🎮 **Trò Chơi Giáo Dục (Games)**
+*   **Math Racing:** Lái xe tránh chướng ngại vật và giải toán nhanh
 *   **Memory Match:** Rèn luyện trí nhớ kết hợp luyện tính
 *   **Speed Math:** Thi đấu giải toán với thời gian
 *   **Pattern Recognition:** Tìm quy luật số
@@ -213,7 +214,7 @@ mathgenius-kids/
 │   │   ├── sphinxRiddleService.ts  # 🆕
 │   │   ├── tellMeWhyService.ts
 │   │   └── ...
-│   └── utils/              # Utilities
+│   ├── utils/              # Utilities
 │       ├── pdfGenerator.ts
 │       ├── soundManager.ts
 │       └── ...
@@ -222,6 +223,12 @@ mathgenius-kids/
 ```
 
 ## 🆕 Cập Nhật Gần Đây
+
+### v2.3 - Math Racing & Gacha Update 🏎️
+*   ✅ **Game Mới:** Đường Đua Thần Tốc (Math Racing) - Lái xe giải toán cực vui!
+*   ✅ **Cải Tiến Gacha:** Chỉ nhận thẻ bài khi chiến thắng game.
+*   ✅ **Hệ Thống Thưởng:** Huy chương Vàng/Bạc/Đồng dựa trên số mạng còn lại.
+*   ✅ **UI Mới:** Icon xe đua 3D đẹp mắt trong menu game.
 
 ### v2.2 - Nâng Cấp Nội Dung & Trải Nghiệm 🚀
 *   ✅ **Toán Lớp 5 Chuyên Sâu:** Bổ sung các dạng bài về số thập phân, hình học nâng cao và giải toán có lời văn.
