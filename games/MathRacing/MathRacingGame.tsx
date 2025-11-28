@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { RacingTrack } from './RacingTrack';
 import { RacingCar } from './RacingCar';
 import { FallingItem, ItemType } from './FallingItem';
-import { ArrowLeft, ArrowRight, Heart, Star, RotateCcw, Play, Home } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Heart, Star, RotateCcw, Play, Home, X } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { playSound } from '@/utils/sound';
 import { processGameReward } from '@/services/rewardService';
@@ -423,167 +423,177 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
 
 
     return (
-        <div
-            className="fixed inset-0 bg-slate-900 z-50 flex flex-col"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-        >
-            {/* Header / HUD */}
-            <div className="absolute top-0 left-0 w-full z-50 p-4 flex justify-between items-start pointer-events-none">
-                <div className="flex flex-col gap-2">
-                    <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border-2 border-slate-200">
-                        <p className="text-xs text-slate-500 font-bold uppercase">Điểm số</p>
-                        <p className="text-2xl font-black text-brand-600">{score}</p>
-                    </div>
-                    <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border-2 border-slate-200">
-                        <p className="text-xs text-slate-500 font-bold uppercase">Tiến độ</p>
-                        <p className="text-lg font-bold text-slate-700">{questionCount} / {TARGET_QUESTIONS}</p>
-                    </div>
-                </div>
-
-                <div className="flex gap-1">
-                    {[...Array(3)].map((_, i) => (
-                        <Heart
-                            key={i}
-                            className={`w-8 h-8 ${i < lives ? 'text-red-500 fill-red-500' : 'text-slate-400 fill-slate-800/20'}`}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            {/* Game Area */}
-            <div className="flex-1 relative">
-                <RacingTrack>
-                    {/* Static Question Display (Sky Area) */}
-                    {status === 'playing' && currentQuestionText && (
-                        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 animate-in fade-in zoom-in duration-300">
-                            <div className="bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl shadow-2xl border-4 border-brand-400 transform hover:scale-105 transition-transform">
-                                <p className="text-4xl md:text-5xl font-black text-slate-800 tracking-wider drop-shadow-sm">
-                                    {currentQuestionText}
-                                </p>
-                            </div>
+        <div className="fixed inset-0 bg-slate-900 z-50 flex justify-center items-center">
+            <div
+                className="relative w-full max-w-[480px] h-full bg-slate-900 flex flex-col shadow-2xl overflow-hidden"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+            >
+                {/* Header / HUD */}
+                <div className="absolute top-0 left-0 w-full z-50 p-4 flex justify-between items-start pointer-events-none">
+                    <div className="flex flex-col gap-2">
+                        <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border-2 border-slate-200">
+                            <p className="text-xs text-slate-500 font-bold uppercase">Điểm số</p>
+                            <p className="text-2xl font-black text-brand-600">{score}</p>
                         </div>
-                    )}
-
-                    {/* Items */}
-                    {items.map(item => (
-                        <FallingItem
-                            key={item.id}
-                            lane={item.lane}
-                            yPosition={item.yPosition}
-                            content={item.content}
-                            type={item.type}
-                        />
-                    ))}
-
-                    {/* Player Car */}
-                    <RacingCar lane={lane} />
-                </RacingTrack>
-            </div>
-
-            {/* Controls Overlay (for desktop clickers or visual hint) */}
-            <div className="absolute bottom-4 left-0 w-full flex justify-between px-8 pointer-events-auto z-50 md:hidden">
-                <button onClick={moveLeft} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
-                    <ArrowLeft className="text-white w-8 h-8" />
-                </button>
-                <button onClick={moveRight} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
-                    <ArrowRight className="text-white w-8 h-8" />
-                </button>
-            </div>
-
-            {/* Menus */}
-            {status === 'menu' && !showGacha && (
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-in zoom-in">
-                        <h1 className="text-3xl font-black text-brand-600 mb-2">Đường Đua Thần Tốc</h1>
-                        <p className="text-slate-500 mb-8">Lái xe chọn đáp án đúng để về đích!</p>
-
-                        <div className="space-y-4">
-                            <button
-                                onClick={startGame}
-                                className="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold text-xl shadow-lg shadow-brand-200 flex items-center justify-center gap-2"
-                            >
-                                <Play fill="currentColor" /> Bắt đầu
-                            </button>
-                            <button
-                                onClick={onExit}
-                                className="w-full py-4 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold"
-                            >
-                                Thoát
-                            </button>
+                        <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border-2 border-slate-200">
+                            <p className="text-xs text-slate-500 font-bold uppercase">Tiến độ</p>
+                            <p className="text-lg font-bold text-slate-700">{questionCount} / {TARGET_QUESTIONS}</p>
                         </div>
                     </div>
-                </div>
-            )}
 
-            {(status === 'gameover' || status === 'victory') && !showGacha && (
-                <div className="absolute inset-0 bg-black/70 backdrop-blur-md z-[60] flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-in zoom-in border-4 border-brand-100">
-                        {status === 'victory' ? (
-                            <>
-                                <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
-                                    <Star size={48} className="text-yellow-500 fill-yellow-500 animate-spin-slow" />
-                                </div>
-                                <h2 className="text-4xl font-black text-slate-800 mb-2">Về Đích!</h2>
-                                <p className="text-slate-500 mb-6 font-medium">Bạn đã hoàn thành chặng đua xuất sắc.</p>
-                            </>
-                        ) : (
-                            <>
-                                <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
-                                    <Heart size={48} className="text-red-500 fill-red-500 animate-pulse" />
-                                </div>
-                                <h2 className="text-4xl font-black text-slate-800 mb-2">Hết Xăng!</h2>
-                                <p className="text-slate-500 mb-6 font-medium">Đừng nản chí, hãy thử lại nhé.</p>
-                            </>
-                        )}
-
-                        <div className="grid grid-cols-2 gap-4 mb-8">
-                            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                                <p className="text-xs text-slate-500 uppercase font-bold mb-1">Điểm số</p>
-                                <p className="text-3xl font-black text-brand-600">{score}</p>
-                            </div>
-                            <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
-                                <p className="text-xs text-yellow-600 uppercase font-bold mb-1">Sao thưởng</p>
-                                <div className="flex items-center justify-center gap-1">
-                                    <p className="text-3xl font-black text-yellow-500">{earnedStars}</p>
-                                    <Star size={24} className="text-yellow-500 fill-yellow-500" />
-                                </div>
-                            </div>
+                    <div className="flex items-start gap-3 pointer-events-auto">
+                        <div className="flex gap-1 mt-1">
+                            {[...Array(3)].map((_, i) => (
+                                <Heart
+                                    key={i}
+                                    className={`w-8 h-8 ${i < lives ? 'text-red-500 fill-red-500' : 'text-slate-400 fill-slate-800/20'}`}
+                                />
+                            ))}
                         </div>
+                        <button
+                            onClick={onExit}
+                            className="bg-white/90 backdrop-blur p-2 rounded-xl shadow-lg border-2 border-slate-200 text-slate-600 hover:bg-red-50 hover:text-red-500 transition-colors"
+                        >
+                            <X size={24} />
+                        </button>
+                    </div>
+                </div>
 
-                        {gachaReward && (
-                            <div className="mb-6 p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl border border-purple-200 animate-pulse">
-                                <p className="text-purple-700 font-bold flex items-center justify-center gap-2">
-                                    <span>🎁</span> Có quà bí mật đang chờ!
-                                </p>
+                {/* Game Area */}
+                <div className="flex-1 relative">
+                    <RacingTrack>
+                        {/* Static Question Display (Sky Area) */}
+                        {status === 'playing' && currentQuestionText && (
+                            <div className="absolute top-36 left-1/2 -translate-x-1/2 z-30 animate-in fade-in zoom-in duration-300 w-full px-4 flex justify-center">
+                                <div className="bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl shadow-2xl border-4 border-brand-400 transform hover:scale-105 transition-transform">
+                                    <p className="text-4xl md:text-5xl font-black text-slate-800 tracking-wider drop-shadow-sm whitespace-nowrap">
+                                        {currentQuestionText}
+                                    </p>
+                                </div>
                             </div>
                         )}
 
-                        <div className="space-y-3">
-                            <button
-                                onClick={() => handleAction('restart')}
-                                className="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold text-xl shadow-lg shadow-brand-200 flex items-center justify-center gap-2 transition-transform active:scale-95"
-                            >
-                                <RotateCcw /> Chơi lại
-                            </button>
-                            <button
-                                onClick={() => handleAction('exit')}
-                                className="w-full py-4 bg-white hover:bg-slate-50 text-slate-600 border-2 border-slate-200 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors"
-                            >
-                                <Home size={20} /> Thoát
-                            </button>
+                        {/* Items */}
+                        {items.map(item => (
+                            <FallingItem
+                                key={item.id}
+                                lane={item.lane}
+                                yPosition={item.yPosition}
+                                content={item.content}
+                                type={item.type}
+                            />
+                        ))}
+
+                        {/* Player Car */}
+                        <RacingCar lane={lane} />
+                    </RacingTrack>
+                </div>
+
+                {/* Controls Overlay (for desktop clickers or visual hint) */}
+                <div className="absolute bottom-4 left-0 w-full flex justify-between px-8 pointer-events-auto z-50 md:hidden">
+                    <button onClick={moveLeft} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
+                        <ArrowLeft className="text-white w-8 h-8" />
+                    </button>
+                    <button onClick={moveRight} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
+                        <ArrowRight className="text-white w-8 h-8" />
+                    </button>
+                </div>
+
+                {/* Menus */}
+                {status === 'menu' && !showGacha && (
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+                        <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-in zoom-in">
+                            <h1 className="text-3xl font-black text-brand-600 mb-2">Đường Đua Thần Tốc</h1>
+                            <p className="text-slate-500 mb-8">Lái xe chọn đáp án đúng để về đích!</p>
+
+                            <div className="space-y-4">
+                                <button
+                                    onClick={startGame}
+                                    className="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold text-xl shadow-lg shadow-brand-200 flex items-center justify-center gap-2"
+                                >
+                                    <Play fill="currentColor" /> Bắt đầu
+                                </button>
+                                <button
+                                    onClick={onExit}
+                                    className="w-full py-4 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold"
+                                >
+                                    Thoát
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
 
-            {showGacha && gachaReward && (
-                <GachaModal
-                    image={gachaReward.image}
-                    isNew={gachaReward.isNew}
-                    onClose={handleGachaClose}
-                />
-            )}
+                {(status === 'gameover' || status === 'victory') && !showGacha && (
+                    <div className="absolute inset-0 bg-black/70 backdrop-blur-md z-[60] flex items-center justify-center p-4">
+                        <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-in zoom-in border-4 border-brand-100">
+                            {status === 'victory' ? (
+                                <>
+                                    <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                                        <Star size={48} className="text-yellow-500 fill-yellow-500 animate-spin-slow" />
+                                    </div>
+                                    <h2 className="text-4xl font-black text-slate-800 mb-2">Về Đích!</h2>
+                                    <p className="text-slate-500 mb-6 font-medium">Bạn đã hoàn thành chặng đua xuất sắc.</p>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                                        <Heart size={48} className="text-red-500 fill-red-500 animate-pulse" />
+                                    </div>
+                                    <h2 className="text-4xl font-black text-slate-800 mb-2">Hết Xăng!</h2>
+                                    <p className="text-slate-500 mb-6 font-medium">Đừng nản chí, hãy thử lại nhé.</p>
+                                </>
+                            )}
+
+                            <div className="grid grid-cols-2 gap-4 mb-8">
+                                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                    <p className="text-xs text-slate-500 uppercase font-bold mb-1">Điểm số</p>
+                                    <p className="text-3xl font-black text-brand-600">{score}</p>
+                                </div>
+                                <div className="bg-yellow-50 p-4 rounded-2xl border border-yellow-100">
+                                    <p className="text-xs text-yellow-600 uppercase font-bold mb-1">Sao thưởng</p>
+                                    <div className="flex items-center justify-center gap-1">
+                                        <p className="text-3xl font-black text-yellow-500">{earnedStars}</p>
+                                        <Star size={24} className="text-yellow-500 fill-yellow-500" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {gachaReward && (
+                                <div className="mb-6 p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl border border-purple-200 animate-pulse">
+                                    <p className="text-purple-700 font-bold flex items-center justify-center gap-2">
+                                        <span>🎁</span> Có quà bí mật đang chờ!
+                                    </p>
+                                </div>
+                            )}
+
+                            <div className="space-y-3">
+                                <button
+                                    onClick={() => handleAction('restart')}
+                                    className="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-bold text-xl shadow-lg shadow-brand-200 flex items-center justify-center gap-2 transition-transform active:scale-95"
+                                >
+                                    <RotateCcw /> Chơi lại
+                                </button>
+                                <button
+                                    onClick={() => handleAction('exit')}
+                                    className="w-full py-4 bg-white hover:bg-slate-50 text-slate-600 border-2 border-slate-200 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-colors"
+                                >
+                                    <Home size={20} /> Thoát
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {showGacha && gachaReward && (
+                    <GachaModal
+                        image={gachaReward.image}
+                        isNew={gachaReward.isNew}
+                        onClose={handleGachaClose}
+                    />
+                )}
+            </div>
         </div>
     );
 };
