@@ -6,7 +6,7 @@ import { TellMeWhyScreen } from '@/tellMeWhy/TellMeWhyScreen';
 export function TellMeWhyPage() {
     const navigate = useNavigate();
     const { currentStudent } = useStudent();
-    const { updateStudent } = useStudentActions();
+    const { updateStudent, readFact } = useStudentActions();
 
     if (!currentStudent) {
         navigate('/');
@@ -26,6 +26,7 @@ export function TellMeWhyPage() {
             student={currentStudent}
             onBack={handleBack}
             onUpdateStars={handleUpdateStars}
+            onReadFact={readFact}
         />
     );
 }

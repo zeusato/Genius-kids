@@ -1,7 +1,7 @@
 import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
-import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText, Trophy } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 interface ModeSelectionScreenProps {
@@ -211,6 +211,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </div>
                     </div>
                 </button>
+
             </div>
 
             <div className="mt-12 text-center text-slate-500 animate-in fade-in duration-1000 delay-300">

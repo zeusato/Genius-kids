@@ -17,12 +17,14 @@ interface SphinxRiddleScreenProps {
     student: StudentProfile;
     onBack: () => void;
     onProfileUpdate?: (updatedProfile: StudentProfile) => void;
+    onSolveRiddle?: (category: string, difficulty: string) => void;
 }
 
 export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
     student,
     onBack,
     onProfileUpdate,
+    onSolveRiddle,
 }) => {
     const [selectedCategory, setSelectedCategory] = useState<RiddleCategory>(RiddleCategory.VN_RIDDLE);
     const [selectedDifficulty, setSelectedDifficulty] = useState<RiddleDifficulty>(RiddleDifficulty.EASY);
@@ -171,6 +173,7 @@ export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
                     onClose={handleCloseModal}
                     onProfileUpdate={onProfileUpdate}
                     onGachaReward={handleGachaReward}
+                    onSolveRiddle={onSolveRiddle}
                 />
             )}
 

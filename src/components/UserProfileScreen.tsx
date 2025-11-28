@@ -3,7 +3,7 @@ import { StudentProfile } from '../../types';
 import { getAllAvatars, getAvatarById } from '../../services/avatarService';
 import { getAllThemes, getThemeById, applyTheme } from '../../services/themeService';
 import { getProfileStats, getDailyStarsEarned } from '../../services/profileService';
-import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info } from 'lucide-react';
+import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info, Trophy } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 interface UserProfileScreenProps {
@@ -12,6 +12,7 @@ interface UserProfileScreenProps {
     onBack: () => void;
     onOpenAlbum: () => void;
     onDelete: () => void;
+    onNavigateToHallOfFame: () => void;
 }
 
 export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
@@ -20,6 +21,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
     onBack,
     onOpenAlbum,
     onDelete,
+    onNavigateToHallOfFame,
 }) => {
     const [isEditingName, setIsEditingName] = useState(false);
     const [newName, setNewName] = useState(student.name);
@@ -120,10 +122,10 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                 )}
             </div>
 
-            {/* Name Section */}
+            {/* Name & Hall of Fame Section */}
             <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-                <div className="flex items-center justify-between">
-                    <div className="flex-1">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="flex-1 w-full">
                         <h2 className="text-xl font-bold text-slate-800 mb-2">Tên</h2>
                         {isEditingName ? (
                             <div className="flex gap-2">
@@ -151,18 +153,32 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                                 </button>
                             </div>
                         ) : (
-                            <p className="text-2xl font-bold text-brand-600">{student.name}</p>
+                            <div className="flex items-center gap-4">
+                                <p className="text-2xl font-bold text-brand-600">{student.name}</p>
+                                <button
+                                    onClick={() => setIsEditingName(true)}
+                                    className="p-2 text-gray-400 hover:text-brand-500 hover:bg-brand-50 rounded-lg transition-all"
+                                >
+                                    <Edit2 size={18} />
+                                </button>
+                            </div>
                         )}
                     </div>
-                    {!isEditingName && (
+
+                    <div className="w-full md:w-auto border-t md:border-t-0 md:border-l border-gray-100 pt-4 md:pt-0 md:pl-6 flex justify-center md:justify-end">
                         <button
-                            onClick={() => setIsEditingName(true)}
-                            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-all ml-4"
+                            onClick={onNavigateToHallOfFame}
+                            className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl hover:scale-105 transition-all group"
                         >
-                            <Edit2 size={16} />
-                            Sửa
+                            <div className="p-2 bg-white/20 rounded-lg group-hover:rotate-12 transition-transform">
+                                <Trophy size={24} className="text-white" />
+                            </div>
+                            <div className="text-left">
+                                <p className="text-xs font-medium text-yellow-100 uppercase tracking-wider">Thành tích</p>
+                                <p className="text-lg font-bold">Bảng Vàng</p>
+                            </div>
                         </button>
-                    )}
+                    </div>
                 </div>
             </div>
 

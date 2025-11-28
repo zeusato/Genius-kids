@@ -7,7 +7,7 @@ import { StudentProfile } from '@/types';
 export const SphinxRiddlePage: React.FC = () => {
     const navigate = useNavigate();
     const { currentStudent: selectedStudent } = useStudent();
-    const { setStudent } = useStudentActions();
+    const { setStudent, solveRiddle } = useStudentActions();
 
     const handleBack = () => {
         navigate('/mode');
@@ -28,6 +28,7 @@ export const SphinxRiddlePage: React.FC = () => {
             student={selectedStudent}
             onBack={handleBack}
             onProfileUpdate={handleProfileUpdate}
+            onSolveRiddle={solveRiddle}
         />
     );
 };

@@ -60,7 +60,7 @@ export function TopicSelection({ onStartTest, onExport, onBack }: TopicSelection
     };
 
     const handleBlurCount = () => {
-        if (questionCount < 1) setQuestionCount(1);
+        if (questionCount < 20) setQuestionCount(20);
         if (questionCount > 100) setQuestionCount(100);
     }
 
@@ -148,7 +148,7 @@ export function TopicSelection({ onStartTest, onExport, onBack }: TopicSelection
                                         <span className="text-sm text-slate-300 mr-2 whitespace-nowrap">Số câu:</span>
                                         <input
                                             type="number"
-                                            min="1"
+                                            min="20"
                                             max="100"
                                             value={questionCount}
                                             onChange={handleQuestionCountChange}

@@ -22,12 +22,14 @@ interface TellMeWhyScreenProps {
     student: StudentProfile;
     onBack: () => void;
     onUpdateStars: (newStars: number) => void;
+    onReadFact: (category: string) => void;
 }
 
 export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
     student,
     onBack,
-    onUpdateStars
+    onUpdateStars,
+    onReadFact
 }) => {
     const [profile, setProfile] = useState<TellMeWhyProfile>(() =>
         loadTellMeWhyProfile(student.id)
@@ -42,6 +44,13 @@ export const TellMeWhyScreen: React.FC<TellMeWhyScreenProps> = ({
     useEffect(() => {
         saveTellMeWhyProfile(student.id, profile);
     }, [profile, student.id]);
+
+    // Track read fact
+    useEffect(() => {
+        if (selectedQuestion) {
+            onReadFact(selectedQuestion.category);
+        }
+    }, [selectedQuestion]);
 
     // Keyboard navigation: Arrow keys for previous/next
     useEffect(() => {

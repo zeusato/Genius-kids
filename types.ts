@@ -68,24 +68,7 @@ export interface GameResult {
   maxScore: number;
   durationSeconds: number;
   starsEarned: number; // 1-3 based on medal
-}
-
-export interface StudentProfile {
-  id: string;
-  name: string;
-  age: number;
-  grade: Grade;
-  avatarId: number; // deprecated, keep for migration
-  currentAvatarId: string; // new avatar system
-  currentThemeId: string;
-  stars: number; // currency
-  ownedAvatarIds: string[];
-  ownedThemeIds: string[];
-  ownedImageIds: string[];
-  history: TestResult[];
-  gameHistory: GameResult[];
-  shopDailyPhotos: ShopDailyPhoto[];
-  sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data
+  difficulty?: string; // 'easy', 'medium', 'hard'
 }
 
 export enum QuestionType {
@@ -103,40 +86,6 @@ export interface Question {
   questionText: string;
   visualSvg?: string; // XML string for SVG rendering
   options?: string[]; // For multiple choice / select
-  correctAnswer?: string; // For single choice / manual / select wrong
-  correctAnswers?: string[]; // For multiple select
-  userAnswer?: string | string[];
-  explanation: string;
-}
-
-export interface Topic {
-  id: string;
-  title: string;
-  grade: Grade;
-  description: string;
-}
-
-export interface TestResult {
-  id: string;
-  date: string; // ISO string
-  score: number;
-  correctAnswer?: string; // For single choice / manual / select wrong
-  correctAnswers?: string[]; // For multiple select
-  userAnswer?: string | string[];
-  explanation: string;
-}
-
-export interface Topic {
-  id: string;
-  title: string;
-  grade: Grade;
-  description: string;
-}
-
-export interface TestResult {
-  id: string;
-  date: string; // ISO string
-  score: number;
   correctAnswer?: string; // For single choice / manual / select wrong
   correctAnswers?: string[]; // For multiple select
   userAnswer?: string | string[];
@@ -210,4 +159,72 @@ export interface SphinxReward {
 export enum PenaltyType {
   LOSE_STAR = 'lose_star',
   SKIP_NEXT_REWARD = 'skip_next_reward',
+}
+
+// ===== Achievement System =====
+
+export interface UserStats {
+  // General
+  totalTests: number;
+  totalQuestions: number;
+  totalStarsEarned: number;
+  totalTimeSeconds: number;
+
+  // Streaks & Performance
+  currentCorrectStreak: number;
+  maxCorrectStreak: number;
+  perfectTests: number; // 100% score
+
+  // Topic Mastery (Map<topicId, count>)
+  topicCorrectCount: Record<string, number>;
+
+  // Games
+  totalGamesPlayed: number;
+  gameWins: Record<string, number>; // key: "gameType_difficulty" (e.g., "memory_easy")
+
+  // Collection & Shop
+  totalCards: number;
+  legendaryCards: number;
+  starsSpent: number;
+  avatarsOwned: number;
+  themesOwned: number;
+
+  // Sphinx Riddle
+  riddlesSolved: number;
+  riddlesSolvedByCategory: Record<string, number>; // vn_riddle, en_riddle
+  riddlesSolvedByDifficulty: Record<string, number>; // easy, medium, hard
+
+  // Tell Me Why
+  factsRead: number;
+  factsReadByCategory: Record<string, number>;
+
+  // Typing
+  maxTypingScore: number;
+}
+
+export interface AchievementProgress {
+  id: string;
+  unlockedTiers: ('bronze' | 'silver' | 'gold')[];
+  currentValue: number; // Snapshot for UI display
+  unlockedAt: string; // ISO date
+}
+
+export interface StudentProfile {
+  id: string;
+  name: string;
+  age: number;
+  grade: Grade;
+  avatarId: number; // deprecated, keep for migration
+  currentAvatarId: string; // new avatar system
+  currentThemeId: string;
+  stars: number; // currency
+  ownedAvatarIds: string[];
+  ownedThemeIds: string[];
+  ownedImageIds: string[];
+  history: TestResult[];
+  gameHistory: GameResult[];
+  shopDailyPhotos: ShopDailyPhoto[];
+  sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data
+  stats?: UserStats; // Optional for migration
+  achievements?: AchievementProgress[]; // Optional for migration
 }

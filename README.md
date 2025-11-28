@@ -223,6 +223,13 @@ mathgenius-kids/
 
 ## 🆕 Cập Nhật Gần Đây
 
+### v2.2 - Nâng Cấp Nội Dung & Trải Nghiệm 🚀
+*   ✅ **Toán Lớp 5 Chuyên Sâu:** Bổ sung các dạng bài về số thập phân, hình học nâng cao và giải toán có lời văn.
+*   ✅ **Trợ Giúp Giải Đố:** Tính năng "Xem Đáp Án" trong Giải Đố Nhân Sư (dùng sao để mở).
+*   ✅ **Cải Thiện Gacha:** Thêm nút "Quay Thử" trong Shop để xem trước vận may.
+*   ✅ **Tối Ưu Hóa:** Sửa lỗi âm thanh trên iOS và cải thiện giao diện trên điện thoại.
+*   ✅ **Luyện Gõ:** Bài tập gõ phím phù hợp hơn cho từng độ tuổi.
+
 ### v2.1 - Sphinx Riddle Module 🦁
 *   ✅ Module "Giải Đố Nhân Sư" hoàn toàn mới
 *   ✅ 2 bộ câu đố: Việt Nam (tiếng Việt) + Nước ngoài (tiếng Anh)

@@ -2,6 +2,7 @@ import { StudentProfile, Grade, GameResult, TestResult } from '../types';
 import { getDefaultAvatarId, getRandomUnusedAvatar } from './avatarService';
 import { getDefaultThemeId } from './themeService';
 import { initializeShopDailyPhotos } from './shopService';
+import { initializeStats } from './achievementService';
 
 const STORAGE_KEY = 'math_profiles';
 
@@ -25,19 +26,19 @@ export const saveProfiles = (profiles: StudentProfile[]): void => {
 };
 
 // Create new profile with defaults
-export const createProfile = (name: string, grade: Grade): StudentProfile => {
+export const createProfile = (name: string, grade: Grade, age?: number, avatarId?: string): StudentProfile => {
     // Get all existing profiles to avoid avatar collisions
     const existingProfiles = getAllProfiles();
     const usedAvatarIds = existingProfiles.map(p => p.currentAvatarId);
 
     // Random unused avatar, or any random if all are used
-    const defaultAvatarId = getRandomUnusedAvatar(usedAvatarIds);
+    const defaultAvatarId = avatarId || getRandomUnusedAvatar(usedAvatarIds);
     const defaultThemeId = getDefaultThemeId();
 
-    return {
+    const newProfile: StudentProfile = {
         id: Date.now().toString(),
         name,
-        age: grade + 6, // Rough estimate
+        age: age || (grade + 6), // Rough estimate if not provided
         grade,
         avatarId: 0, // deprecated
         currentAvatarId: defaultAvatarId,
@@ -49,7 +50,12 @@ export const createProfile = (name: string, grade: Grade): StudentProfile => {
         history: [],
         gameHistory: [],
         shopDailyPhotos: initializeShopDailyPhotos(),
+        achievements: [],
     };
+
+    newProfile.stats = initializeStats(newProfile);
+
+    return newProfile;
 };
 
 // Update profile
@@ -82,7 +88,7 @@ export const getProfileById = (profileId: string): StudentProfile | undefined =>
 // Migrate old profile format to new format
 export const migrateProfile = (oldProfile: any): StudentProfile => {
     // Check if already migrated
-    if (oldProfile.currentAvatarId && oldProfile.stars !== undefined) {
+    if (oldProfile.currentAvatarId && oldProfile.stars !== undefined && oldProfile.stats) {
         return oldProfile as StudentProfile;
     }
 
@@ -90,7 +96,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
     const defaultAvatarId = 'avatar_01';
     const defaultThemeId = getDefaultThemeId();
 
-    return {
+    const migratedProfile: StudentProfile = {
         id: oldProfile.id || Date.now().toString(),
         name: oldProfile.name || 'Student',
         age: oldProfile.age || 8,
@@ -105,7 +111,14 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         history: oldProfile.history || [],
         gameHistory: oldProfile.gameHistory || [],
         shopDailyPhotos: [],
+        achievements: oldProfile.achievements || [],
     };
+
+    if (!migratedProfile.stats) {
+        migratedProfile.stats = initializeStats(migratedProfile);
+    }
+
+    return migratedProfile;
 };
 
 // Get statistics for profile

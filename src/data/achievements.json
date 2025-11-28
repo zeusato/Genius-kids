@@ -1,0 +1,757 @@
+[
+    {
+        "id": "first_step",
+        "type": "total_tests",
+        "title": "Bước Đi Đầu Tiên",
+        "description": "Hoàn thành bài kiểm tra đầu tiên",
+        "icon": "Footprints",
+        "tiers": [
+            {
+                "tier": "gold",
+                "value": 1,
+                "rewardStars": 5
+            }
+        ]
+    },
+    {
+        "id": "dedicated_student",
+        "type": "total_tests",
+        "title": "Học Sinh Chăm Chỉ",
+        "description": "Hoàn thành nhiều bài kiểm tra",
+        "icon": "BookOpen",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "question_master",
+        "type": "total_questions",
+        "title": "Vua Giải Toán",
+        "description": "Trả lời đúng tổng số câu hỏi",
+        "icon": "Brain",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 100,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 500,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 1000,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "perfect_score",
+        "type": "perfect_tests",
+        "title": "Điểm 10 Tròn Trĩnh",
+        "description": "Đạt 100% điểm trong bài kiểm tra",
+        "icon": "Award",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 1,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 10,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "sharp_shooter",
+        "type": "correct_streak",
+        "title": "Xạ Thủ Toán Học",
+        "description": "Trả lời đúng liên tiếp không sai câu nào",
+        "icon": "Target",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 30,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "addition_ace",
+        "type": "topic_mastery",
+        "topicId": "addition",
+        "title": "Thần Đồng Phép Cộng",
+        "description": "Làm đúng các bài toán cộng",
+        "icon": "Plus",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 50,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 200,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 500,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "subtraction_specialist",
+        "type": "topic_mastery",
+        "topicId": "subtraction",
+        "title": "Chuyên Gia Phép Trừ",
+        "description": "Làm đúng các bài toán trừ",
+        "icon": "Minus",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 50,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 200,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 500,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "multiplication_master",
+        "type": "topic_mastery",
+        "topicId": "multiplication",
+        "title": "Bậc Thầy Phép Nhân",
+        "description": "Làm đúng các bài toán nhân",
+        "icon": "X",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 50,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 200,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 500,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "division_doctor",
+        "type": "topic_mastery",
+        "topicId": "division",
+        "title": "Tiến Sĩ Phép Chia",
+        "description": "Làm đúng các bài toán chia",
+        "icon": "Divide",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 50,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 200,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 500,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "geometry_genius",
+        "type": "topic_mastery",
+        "topicId": "geometry",
+        "title": "Thiên Tài Hình Học",
+        "description": "Giải đúng các bài toán hình học",
+        "icon": "Triangle",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 30,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 100,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 300,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "fraction_fanatic",
+        "type": "topic_mastery",
+        "topicId": "fractions",
+        "title": "Phù Thủy Phân Số",
+        "description": "Giải đúng các bài toán phân số",
+        "icon": "PieChart",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 30,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 100,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 300,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "game_enthusiast",
+        "type": "total_games",
+        "title": "Game Thủ Nhí",
+        "description": "Chơi game giáo dục",
+        "icon": "Gamepad2",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "memory_master_easy",
+        "type": "game_win",
+        "gameType": "memory",
+        "difficulty": "easy",
+        "title": "Siêu Trí Nhớ (Dễ)",
+        "description": "Chiến thắng game Lật Hình mức Dễ",
+        "icon": "Grid",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 15
+            }
+        ]
+    },
+    {
+        "id": "memory_master_hard",
+        "type": "game_win",
+        "gameType": "memory",
+        "difficulty": "hard",
+        "title": "Siêu Trí Nhớ (Khó)",
+        "description": "Chiến thắng game Lật Hình mức Khó",
+        "icon": "Grid",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "pattern_pro_easy",
+        "type": "game_win",
+        "gameType": "pattern",
+        "difficulty": "easy",
+        "title": "Thám Tử Quy Luật (Dễ)",
+        "description": "Chiến thắng game Tìm Quy Luật mức Dễ",
+        "icon": "Search",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 15
+            }
+        ]
+    },
+    {
+        "id": "pattern_pro_hard",
+        "type": "game_win",
+        "gameType": "pattern",
+        "difficulty": "hard",
+        "title": "Thám Tử Quy Luật (Khó)",
+        "description": "Chiến thắng game Tìm Quy Luật mức Khó",
+        "icon": "Search",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "speed_math_king",
+        "type": "game_win",
+        "gameType": "speed",
+        "title": "Vua Tốc Độ",
+        "description": "Đạt điểm cao trong Speed Math",
+        "icon": "Timer",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "star_collector",
+        "type": "total_stars_earned",
+        "title": "Triệu Phú Sao",
+        "description": "Tích lũy tổng số sao",
+        "icon": "Star",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 100,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 1000,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 5000,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "card_collector",
+        "type": "total_cards",
+        "title": "Nhà Sưu Tập",
+        "description": "Sở hữu thẻ bài Gacha",
+        "icon": "Layers",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "legendary_luck",
+        "type": "rarity_count",
+        "rarity": "legendary",
+        "title": "Bàn Tay Vàng",
+        "description": "Sở hữu thẻ bài Legendary",
+        "icon": "Crown",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 1,
+                "rewardStars": 15
+            },
+            {
+                "tier": "silver",
+                "value": 5,
+                "rewardStars": 25
+            },
+            {
+                "tier": "gold",
+                "value": 10,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "shopaholic",
+        "type": "stars_spent",
+        "title": "Tín Đồ Mua Sắm",
+        "description": "Tiêu xài sao trong cửa hàng",
+        "icon": "ShoppingBag",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 100,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 500,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 2000,
+                "rewardStars": 20
+            }
+        ]
+    },
+    {
+        "id": "avatar_fan",
+        "type": "avatars_owned",
+        "title": "Người Mẫu Ảnh",
+        "description": "Sở hữu nhiều Avatar",
+        "icon": "Smile",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 3,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 10,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 20,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "theme_changer",
+        "type": "themes_owned",
+        "title": "Nhà Thiết Kế",
+        "description": "Sở hữu nhiều Giao diện (Theme)",
+        "icon": "Palette",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 2,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 5,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 10,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "riddle_solver",
+        "type": "riddles_solved",
+        "title": "Thám Tử Lừng Danh",
+        "description": "Giải đúng câu đố Nhân Sư",
+        "icon": "HelpCircle",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "vn_culture",
+        "type": "riddles_solved_category",
+        "category": "vn_riddle",
+        "title": "Trạng Nguyên Đất Việt",
+        "description": "Giải đúng câu đố Việt Nam",
+        "icon": "MapPin",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "global_mind",
+        "type": "riddles_solved_category",
+        "category": "en_riddle",
+        "title": "Công Dân Toàn Cầu",
+        "description": "Giải đúng câu đố Tiếng Anh",
+        "icon": "Globe",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "hard_thinker",
+        "type": "riddles_solved_difficulty",
+        "difficulty": "hard",
+        "title": "Bộ Óc Thiên Tài",
+        "description": "Giải đúng câu đố mức Khó",
+        "icon": "Zap",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "knowledge_seeker",
+        "type": "facts_read",
+        "title": "Bác Học Nhí",
+        "description": "Đọc các câu hỏi 'Vì sao'",
+        "icon": "Book",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 50,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 100,
+                "rewardStars": 20
+            }
+        ]
+    },
+    {
+        "id": "animal_lover",
+        "type": "facts_read_category",
+        "category": "animals",
+        "title": "Yêu Động Vật",
+        "description": "Đọc câu hỏi về Động vật",
+        "icon": "Cat",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 30,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 20
+            }
+        ]
+    },
+    {
+        "id": "science_fan",
+        "type": "facts_read_category",
+        "category": "science",
+        "title": "Nhà Khoa Học Tương Lai",
+        "description": "Đọc câu hỏi về Khoa học",
+        "icon": "FlaskConical",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 10,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 30,
+                "rewardStars": 10
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 20
+            }
+        ]
+    },
+    {
+        "id": "typing_tycoon",
+        "type": "typing_score",
+        "title": "Bàn Phím Vàng",
+        "description": "Đạt điểm cao trong bài luyện gõ",
+        "icon": "Keyboard",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 100,
+                "rewardStars": 5
+            },
+            {
+                "tier": "silver",
+                "value": 500,
+                "rewardStars": 15
+            },
+            {
+                "tier": "gold",
+                "value": 1000,
+                "rewardStars": 30
+            }
+        ]
+    }
+]

@@ -17,11 +17,7 @@ export function ProfilePage() {
         navigate('/mode');
     };
 
-    const handleOpenAlbum = () => {
-        navigate('/album');
-    };
-
-    const handleDelete = () => {
+    const handleDeleteProfile = () => {
         deleteStudent(currentStudent.id);
         navigate('/');
     };
@@ -31,8 +27,9 @@ export function ProfilePage() {
             student={currentStudent}
             onUpdateProfile={updateStudent}
             onBack={handleBack}
-            onOpenAlbum={handleOpenAlbum}
-            onDelete={handleDelete}
+            onOpenAlbum={() => navigate('/album')}
+            onDelete={handleDeleteProfile}
+            onNavigateToHallOfFame={() => navigate('/hall-of-fame')}
         />
     );
 }

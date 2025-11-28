@@ -20,6 +20,7 @@ interface RiddleModalProps {
     onClose: () => void;
     onProfileUpdate?: (updatedProfile: StudentProfile) => void;
     onGachaReward?: (card: any) => void;
+    onSolveRiddle?: (category: string, difficulty: string) => void;
 }
 
 export const RiddleModal: React.FC<RiddleModalProps> = ({
@@ -29,6 +30,7 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
     onClose,
     onProfileUpdate,
     onGachaReward,
+    onSolveRiddle,
 }) => {
     const [userAnswer, setUserAnswer] = useState('');
     const [showResult, setShowResult] = useState(false);
@@ -96,6 +98,11 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
             updateProfile(updatedProfile);
             if (onProfileUpdate) {
                 onProfileUpdate(updatedProfile);
+            }
+
+            // Trigger achievement check
+            if (onSolveRiddle) {
+                onSolveRiddle(riddle.category, difficulty);
             }
 
             // Set reward info for display

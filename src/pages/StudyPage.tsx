@@ -13,7 +13,7 @@ import { soundManager } from '@/utils/sound';
 export function StudyPage() {
     const navigate = useNavigate();
     const { currentStudent } = useStudent();
-    const { updateStudent, setGachaResult } = useStudentActions();
+    const { updateStudent, setGachaResult, addTestResult } = useStudentActions();
 
     const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
     const [testDuration, setTestDuration] = useState<number>(20);
@@ -58,8 +58,16 @@ export function StudyPage() {
             return { ...q, userAnswer };
         });
 
+        // Calculate typing score (count correct typing answers)
+        let typingScore = 0;
+        processedQuestions.forEach(q => {
+            if (q.type === QuestionType.Typing && q.userAnswer === q.correctAnswer) {
+                typingScore++;
+            }
+        });
+
         // Process rewards using reward service
-        const { updatedProfile, reward } = processTestReward(
+        const { reward } = processTestReward(
             currentStudent,
             score,
             activeTestQuestions.length
@@ -85,30 +93,21 @@ export function StudyPage() {
 
         setLastResult(result);
 
-        // Add result to history
-        let finalProfile = {
-            ...updatedProfile,
-            history: [...updatedProfile.history, result]
-        };
-
         // Handle gacha result
+        let gachaImage: AlbumImage | undefined;
         if (reward.image) {
             const isNew = !currentStudent.ownedImageIds.includes(reward.image.id);
+            gachaImage = reward.image as AlbumImage;
+
             setGachaResult({
-                image: reward.image as AlbumImage,
+                image: gachaImage,
                 isNew
             });
-
-            // Duplicate reward: +10 bonus stars
-            if (!isNew) {
-                finalProfile = {
-                    ...finalProfile,
-                    stars: finalProfile.stars + 10
-                };
-            }
         }
 
-        updateStudent(finalProfile);
+        // Add result via context (handles history, stats, achievements, stars, gacha unlock)
+        addTestResult(result, gachaImage, typingScore);
+
         navigate('/study/result');
     };
 

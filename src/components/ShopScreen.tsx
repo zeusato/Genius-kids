@@ -30,7 +30,7 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
     const [previewResult, setPreviewResult] = useState<{ image: any; isNew: boolean } | null>(null);
     const [showPreviewModal, setShowPreviewModal] = useState(false);
     const [activeTab, setActiveTab] = useState<'avatars' | 'themes' | 'photos' | 'gacha'>('avatars');
-    const { setGachaResult } = useStudentActions();
+    const { setGachaResult, buyAvatar, buyTheme, buyPhoto, spinGacha } = useStudentActions();
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
     const shopAvatars = getShopAvatars();
@@ -47,61 +47,58 @@ export const ShopScreen: React.FC<ShopScreenProps> = ({
             // Use existing photos from profile
             setDailyPhotos(student.shopDailyPhotos || []);
         }
-    }, [student.id]); // Only run when student ID changes
+    }, [student.id, student.shopDailyPhotos]); // Update when photos change
 
     const handlePurchaseAvatar = (avatarId: string, cost: number) => {
-        const result = purchaseAvatar(student, avatarId, cost);
-        if (result) {
-            onUpdateProfile(result);
-            showMessage('Đã mua avatar thành công! ✨', 'success');
-        } else {
-            if (student.ownedAvatarIds.includes(avatarId)) {
-                showMessage('Bạn đã sở hữu avatar này rồi!', 'error');
-            } else {
-                showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
-            }
+        if (student.ownedAvatarIds.includes(avatarId)) {
+            showMessage('Bạn đã sở hữu avatar này rồi!', 'error');
+            return;
         }
+        if (student.stars < cost) {
+            showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
+            return;
+        }
+
+        buyAvatar(avatarId, cost);
+        showMessage('Đã mua avatar thành công! ✨', 'success');
     };
 
     const handlePurchaseTheme = (themeId: string, cost: number) => {
-        const result = purchaseTheme(student, themeId, cost);
-        if (result) {
-            onUpdateProfile(result);
-            showMessage('Đã mua theme thành công! 🎨', 'success');
-        } else {
-            if (student.ownedThemeIds.includes(themeId)) {
-                showMessage('Bạn đã sở hữu theme này rồi!', 'error');
-            } else {
-                showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
-            }
+        if (student.ownedThemeIds.includes(themeId)) {
+            showMessage('Bạn đã sở hữu theme này rồi!', 'error');
+            return;
         }
+        if (student.stars < cost) {
+            showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
+            return;
+        }
+
+        buyTheme(themeId, cost);
+        showMessage('Đã mua theme thành công! 🎨', 'success');
     };
 
     const handlePurchasePhoto = (imageId: string, rarity: any) => {
-        const result = purchasePhoto(student, imageId, rarity);
-        if (result) {
-            onUpdateProfile(result);
-            setDailyPhotos(result.shopDailyPhotos);
-            showMessage('Đã mua ảnh thành công! 🖼️', 'success');
-        } else {
-            if (student.ownedImageIds.includes(imageId)) {
-                showMessage('Bạn đã sở hữu ảnh này rồi!', 'error');
-            } else {
-                const cost = getPhotoPrice(rarity);
-                showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
-            }
+        if (student.ownedImageIds.includes(imageId)) {
+            showMessage('Bạn đã sở hữu ảnh này rồi!', 'error');
+            return;
         }
+        const cost = getPhotoPrice(rarity);
+        if (student.stars < cost) {
+            showMessage('Không đủ sao! Cần thêm ' + (cost - student.stars) + ' ⭐', 'error');
+            return;
+        }
+
+        buyPhoto(imageId, cost, rarity);
+        showMessage('Đã mua ảnh thành công! 🖼️', 'success');
     };
 
     const handlePurchaseGacha = () => {
-        const result = purchaseGachaSpin(student);
-        if (result) {
-            onUpdateProfile(result.updatedProfile);
-            setGachaResult(result.gachaResult);
-            showMessage('✨ Quay gacha thành công!', 'success');
-        } else {
+        if (student.stars < 50) {
             showMessage('Không đủ sao! Cần 50 ⭐ để quay gacha', 'error');
+            return;
         }
+        spinGacha();
+        showMessage('✨ Quay gacha thành công!', 'success');
     };
     const handlePreviewGacha = () => {
         const result = previewGachaSpin();

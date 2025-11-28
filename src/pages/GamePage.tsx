@@ -8,7 +8,7 @@ import { GameResult } from '@/types';
 export function GamePage() {
     const navigate = useNavigate();
     const { currentStudent } = useStudent();
-    const { updateStudent, setGachaResult } = useStudentActions();
+    const { addGameResult, setGachaResult } = useStudentActions();
 
     if (!currentStudent) {
         navigate('/');
@@ -16,7 +16,7 @@ export function GamePage() {
     }
 
     const handleGameComplete = (gameId: string, score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
-        const { updatedProfile, reward } = processGameReward(currentStudent, medal);
+        const { reward } = processGameReward(currentStudent, medal);
 
         // Create game result entry
         const gameResult: GameResult = {
@@ -26,21 +26,18 @@ export function GamePage() {
             score,
             maxScore,
             starsEarned: reward.stars,
-            durationSeconds: 0 // Games don't track time
+            durationSeconds: 0, // Games don't track time
+            difficulty: 'easy' // Default or passed from game
         };
 
-        // Add to gameHistory
-        const profileWithHistory = {
-            ...updatedProfile,
-            gameHistory: [...updatedProfile.gameHistory, gameResult]
-        };
-
+        let gachaImage: any = undefined;
         if (reward.image) {
             const isNew = !currentStudent.ownedImageIds.includes(reward.image.id);
+            gachaImage = reward.image;
             setGachaResult({ image: reward.image as any, isNew });
         }
 
-        updateStudent(profileWithHistory);
+        addGameResult(gameResult, gachaImage);
     };
 
     const handleBack = () => {
