@@ -466,7 +466,9 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                     >
                         <div className="flex items-center gap-1">
                             <Lightbulb size={20} />
-                            <span className="text-xs bg-yellow-500 text-white px-1 rounded-full">-5</span>
+                            <span className="text-xs bg-yellow-500 text-white px-2 rounded-full flex items-center gap-1">
+                                -5 <Star size={10} className="fill-white" />
+                            </span>
                         </div>
                         <span className="text-xs">Gợi ý</span>
                     </button>
