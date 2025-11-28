@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
@@ -19,6 +20,20 @@ import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/
 import { initializeTheme } from '@/services/themeService';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { X, Download } from 'lucide-react';
+
+// Initialize Google Analytics
+ReactGA.initialize('G-KS48DHBY4L');
+
+// Component to track page views
+const PageViewTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+  }, [location]);
+
+  return null;
+};
 
 // Simple Button and Card components used by InstallInstructions
 const Button = ({ onClick, children, variant = 'primary', className = '' }: any) => {
@@ -144,6 +159,7 @@ export default function App() {
 
   return (
     <BrowserRouter basename="/Genius-kids">
+      <PageViewTracker />
       <StudentProvider>
         <MusicProvider>
           <Routes>
