@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Brain, ArrowLeft, Music, Timer, Car } from 'lucide-react';
+import { Brain, ArrowLeft, Music, Timer, Car, Grid3x3 } from 'lucide-react';
 import { Difficulty } from './memoryMatchEngine';
 import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
 import { SoundMemoryGame } from './SoundMemory/SoundMemoryGame';
 import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
 import { DragonQuestGame } from './DragonQuest/DragonQuestGame';
 import { MathRacingGame } from './MathRacing/MathRacingGame';
+import { SudokuGame } from './Sudoku/SudokuGame';
 import { MusicControls } from '@/src/components/MusicControls';
 import CarIcon from './MathRacing/CarIcon.png';
 
@@ -15,7 +16,7 @@ interface GamesMenuProps {
 }
 
 export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
-    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | null>(null);
+    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
     if (activeGame === 'memory') {
@@ -83,6 +84,14 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
         return (
             <MathRacingGame
                 difficulty={getSoundDifficulty(difficulty)}
+                onExit={() => setActiveGame(null)}
+            />
+        );
+    }
+
+    if (activeGame === 'sudoku') {
+        return (
+            <SudokuGame
                 onExit={() => setActiveGame(null)}
             />
         );
@@ -250,7 +259,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                             </div>
                         </div>
                     </div>
-                    {/* Math Racing Card (New) */}
+                    {/* Math Racing Card */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
                         <div className="flex flex-col md:flex-row items-center gap-8">
                             <div className="w-32 h-32 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform overflow-hidden p-4">
@@ -270,6 +279,31 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                                     className="px-8 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
                                     🏎️ Chơi ngay!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Sudoku Card (New) */}
+                    <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-[#8b4513] to-[#d2b48c] rounded-3xl flex items-center justify-center shadow-lg transform hover:-rotate-6 transition-transform">
+                                <Grid3x3 size={64} className="text-white" />
+                            </div>
+
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-slate-800 mb-3">
+                                    Sudoku Logic
+                                </h3>
+                                <p className="text-slate-600 text-lg mb-6">
+                                    Điền số vào ô trống sao cho mỗi hàng, cột và ô vuông 3x3 đều chứa đủ các số từ 1 đến 9.
+                                </p>
+
+                                <button
+                                    onClick={() => setActiveGame('sudoku')}
+                                    className="px-8 py-4 bg-gradient-to-r from-[#8b4513] to-[#d2b48c] text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    🧩 Chơi ngay!
                                 </button>
                             </div>
                         </div>

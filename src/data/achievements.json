@@ -753,5 +753,106 @@
                 "rewardStars": 30
             }
         ]
+    },
+    {
+        "id": "racing_champion",
+        "type": "game_win",
+        "gameType": "math_racing",
+        "title": "Tay Đua Kiệt Xuất",
+        "description": "Chiến thắng Đường Đua Thần Tốc",
+        "icon": "Car",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "speed_demon",
+        "type": "game_score",
+        "gameType": "math_racing",
+        "title": "Tốc Độ Ánh Sáng",
+        "description": "Đạt điểm cao trong Đường Đua",
+        "icon": "Zap",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 1000,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 5000,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 10000,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "sudoku_solver",
+        "type": "game_win",
+        "gameType": "sudoku",
+        "title": "Bậc Thầy Sudoku",
+        "description": "Giải thành công Sudoku",
+        "icon": "Grid3x3",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 10
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 20
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 30
+            }
+        ]
+    },
+    {
+        "id": "sudoku_master_hard",
+        "type": "game_win",
+        "gameType": "sudoku",
+        "difficulty": "hard",
+        "title": "Vua Logic (Khó)",
+        "description": "Giải Sudoku mức Khó",
+        "icon": "BrainCircuit",
+        "tiers": [
+            {
+                "tier": "bronze",
+                "value": 5,
+                "rewardStars": 15
+            },
+            {
+                "tier": "silver",
+                "value": 20,
+                "rewardStars": 30
+            },
+            {
+                "tier": "gold",
+                "value": 50,
+                "rewardStars": 50
+            }
+        ]
     }
 ]

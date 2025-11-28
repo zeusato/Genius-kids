@@ -181,6 +181,7 @@ export interface UserStats {
   // Games
   totalGamesPlayed: number;
   gameWins: Record<string, number>; // key: "gameType_difficulty" (e.g., "memory_easy")
+  gameHighScores: Record<string, number>; // New field
 
   // Collection & Shop
   totalCards: number;

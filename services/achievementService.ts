@@ -1,4 +1,3 @@
-
 import { StudentProfile, UserStats, AchievementProgress, GameResult, TestResult } from '../types';
 import achievementsData from '../src/data/achievements.json';
 import { getAllImages } from './albumService';
@@ -38,6 +37,7 @@ export const initializeStats = (profile: StudentProfile): UserStats => {
         topicCorrectCount: {},
         totalGamesPlayed: 0,
         gameWins: {},
+        gameHighScores: {}, // Initialize
         totalCards: 0,
         legendaryCards: 0,
         starsSpent: 0,
@@ -141,13 +141,17 @@ export const checkAchievements = (profile: StudentProfile): { unlocked: Achievem
             case 'perfect_tests': currentValue = stats.perfectTests; break;
             case 'correct_streak': currentValue = stats.maxCorrectStreak; break;
             case 'topic_mastery':
-                if (ach.topicId) currentValue = stats.topicCorrectCount[ach.topicId] || 0;
+                if (ach.topicId) currentValue = stats.topicCorrectCount?.[ach.topicId] || 0;
                 break;
             case 'total_games': currentValue = stats.totalGamesPlayed; break;
             case 'game_win':
                 // key format: gameType or gameType_difficulty
                 const key = ach.difficulty ? `${ach.gameType}_${ach.difficulty}` : ach.gameType;
-                if (key) currentValue = stats.gameWins[key] || 0;
+                if (key) currentValue = stats.gameWins?.[key] || 0;
+                break;
+            case 'game_score':
+                // High score for a specific game
+                if (ach.gameType) currentValue = stats.gameHighScores?.[ach.gameType] || 0;
                 break;
             case 'total_stars_earned': currentValue = stats.totalStarsEarned; break;
             case 'total_cards': currentValue = realTotalCards; break;
@@ -159,14 +163,14 @@ export const checkAchievements = (profile: StudentProfile): { unlocked: Achievem
             case 'themes_owned': currentValue = realThemesOwned; break;
             case 'riddles_solved': currentValue = stats.riddlesSolved; break;
             case 'riddles_solved_category':
-                if (ach.category) currentValue = stats.riddlesSolvedByCategory[ach.category] || 0;
+                if (ach.category) currentValue = stats.riddlesSolvedByCategory?.[ach.category] || 0;
                 break;
             case 'riddles_solved_difficulty':
-                if (ach.difficulty) currentValue = stats.riddlesSolvedByDifficulty[ach.difficulty] || 0;
+                if (ach.difficulty) currentValue = stats.riddlesSolvedByDifficulty?.[ach.difficulty] || 0;
                 break;
             case 'facts_read': currentValue = stats.factsRead; break;
             case 'facts_read_category':
-                if (ach.category) currentValue = stats.factsReadByCategory[ach.category] || 0;
+                if (ach.category) currentValue = stats.factsReadByCategory?.[ach.category] || 0;
                 break;
             case 'typing_score': currentValue = stats.maxTypingScore; break;
         }
@@ -203,6 +207,14 @@ export type StatUpdateAction =
 
 export const updateStats = (stats: UserStats, action: StatUpdateAction): UserStats => {
     const newStats = { ...stats };
+
+    // Ensure maps exist if they are undefined (migration safety)
+    if (!newStats.topicCorrectCount) newStats.topicCorrectCount = {};
+    if (!newStats.gameWins) newStats.gameWins = {};
+    if (!newStats.gameHighScores) newStats.gameHighScores = {};
+    if (!newStats.riddlesSolvedByCategory) newStats.riddlesSolvedByCategory = {};
+    if (!newStats.riddlesSolvedByDifficulty) newStats.riddlesSolvedByDifficulty = {};
+    if (!newStats.factsReadByCategory) newStats.factsReadByCategory = {};
 
     switch (action.type) {
         case 'TEST_COMPLETE':
@@ -248,10 +260,16 @@ export const updateStats = (stats: UserStats, action: StatUpdateAction): UserSta
             // Update generic game wins
             newStats.gameWins[action.gameResult.gameType] = (newStats.gameWins[action.gameResult.gameType] || 0) + 1;
 
-            // Update difficulty-specific game wins if difficulty is present
+            // Update difficulty-specific game wins
             if (action.gameResult.difficulty) {
                 const key = `${action.gameResult.gameType}_${action.gameResult.difficulty}`;
                 newStats.gameWins[key] = (newStats.gameWins[key] || 0) + 1;
+            }
+
+            // Update High Score
+            const currentHigh = newStats.gameHighScores[action.gameResult.gameType] || 0;
+            if (action.gameResult.score > currentHigh) {
+                newStats.gameHighScores[action.gameResult.gameType] = action.gameResult.score;
             }
             break;
 
