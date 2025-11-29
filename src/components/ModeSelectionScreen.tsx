@@ -1,12 +1,12 @@
 import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
-import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText, Trophy } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText, Trophy, Cpu } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle') => void;
+    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding') => void;
     onLogout: () => void;
 }
 
@@ -207,6 +207,40 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                             </span>
                             <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">
                                 3 độ khó
+                            </span>
+                        </div>
+                    </div>
+                </button>
+
+                {/* Kid Coder Mode (Proposal) */}
+                <button
+                    onClick={() => onSelectMode('coding')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-cyan-400 hover:scale-105 animate-in fade-in slide-in-from-right duration-700"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="relative z-10">
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Cpu size={48} className="text-white" />
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-cyan-600 transition-colors">
+                            Lập Trình Nhí
+                        </h2>
+
+                        <p className="text-slate-600 text-lg">
+                            Học tư duy máy tính và logic
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold">
+                                Robot
+                            </span>
+                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold">
+                                Thuật toán
+                            </span>
+                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold">
+                                Sáng tạo
                             </span>
                         </div>
                     </div>

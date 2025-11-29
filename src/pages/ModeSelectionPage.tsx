@@ -13,13 +13,14 @@ export function ModeSelectionPage() {
         return null;
     }
 
-    const handleSelectMode = (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle') => {
+    const handleSelectMode = (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding') => {
         if (mode === 'study') navigate('/study');
         else if (mode === 'game') navigate('/game');
         else if (mode === 'profile') navigate('/profile');
         else if (mode === 'shop') navigate('/shop');
         else if (mode === 'tellmewhy') navigate('/tellmewhy');
         else if (mode === 'riddle') navigate('/riddle');
+        else if (mode === 'coding') alert("Tính năng 'Lập Trình Nhí' đang được phát triển! \n(Kid Coder feature coming soon)");
     };
 
     const handleLogout = () => {

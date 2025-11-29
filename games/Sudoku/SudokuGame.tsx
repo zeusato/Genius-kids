@@ -417,70 +417,72 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     }
 
     return (
-        <div className="fixed inset-0 bg-[#fdf6e3] z-50 flex flex-col items-center p-4 bg-wood-pattern overflow-hidden">
-            {/* Header */}
-            <div className="w-full max-w-lg flex justify-between items-center mb-4 bg-[#deb887] p-3 rounded-xl border-2 border-[#8b4513] shadow-lg">
+        <div className="fixed inset-0 bg-[#fdf6e3] z-50 flex flex-col items-center p-2 sm:p-4 bg-wood-pattern overflow-hidden h-screen w-screen">
+            {/* Header - Fixed height */}
+            <div className="w-full max-w-lg flex justify-between items-center mb-2 shrink-0 bg-[#deb887] p-2 rounded-xl border-2 border-[#8b4513] shadow-lg">
                 <button onClick={onExit} className="p-2 bg-[#fdf6e3] rounded-lg text-[#8b4513] hover:bg-white border border-[#d2b48c]">
-                    <ArrowLeft />
+                    <ArrowLeft size={20} />
                 </button>
-                <div className="flex items-center gap-2 bg-[#5d4037] px-4 py-1 rounded-lg border border-[#3e2723]">
-                    <Timer className="text-white w-5 h-5" />
-                    <span className="text-xl font-mono font-bold text-white">{formatTime(timer)}</span>
+                <div className="flex items-center gap-2 bg-[#5d4037] px-3 py-1 rounded-lg border border-[#3e2723]">
+                    <Timer className="text-white w-4 h-4" />
+                    <span className="text-lg font-mono font-bold text-white">{formatTime(timer)}</span>
                 </div>
-                <div className="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-lg border border-yellow-300">
+                <div className="flex items-center gap-1 bg-yellow-100 px-2 py-1 rounded-lg border border-yellow-300">
                     <span className="font-bold text-yellow-600">{currentStudent?.stars || 0}</span>
-                    <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                 </div>
             </div>
 
-            {/* Board */}
-            <div className="w-full max-w-lg aspect-square bg-[#8b4513] p-2 rounded-lg shadow-2xl mb-4">
-                <div className="w-full h-full bg-[#deb887] grid grid-cols-9 grid-rows-9 border-2 border-[#8b4513]">
-                    {grid.map((row, r) => row.map((_, c) => renderCell(r, c)))}
+            {/* Board Container - Flexible height */}
+            <div className="flex-1 w-full min-h-0 flex items-center justify-center py-2">
+                <div className="aspect-square h-full max-h-full w-auto max-w-full bg-[#8b4513] p-2 rounded-lg shadow-2xl">
+                    <div className="w-full h-full bg-[#deb887] grid grid-cols-9 grid-rows-9 border-2 border-[#8b4513]">
+                        {grid.map((row, r) => row.map((_, c) => renderCell(r, c)))}
+                    </div>
                 </div>
             </div>
 
-            {/* Controls */}
-            <div className="w-full max-w-lg flex flex-col gap-3">
+            {/* Controls - Fixed height / Shrinkable if needed */}
+            <div className="w-full max-w-lg flex flex-col gap-2 shrink-0 mt-2">
                 {/* Tools */}
                 <div className="flex justify-between gap-2">
                     <button
                         onClick={() => setIsNoteMode(!isNoteMode)}
-                        className={`flex-1 py-3 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 transition-all
+                        className={`flex-1 py-2 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 transition-all
                             ${isNoteMode ? 'bg-brand-500 text-white border-brand-700' : 'bg-[#fdf6e3] text-[#8b4513] border-[#d2b48c]'}
                         `}
                     >
-                        <Pencil size={20} />
-                        <span className="text-xs">Ghi chú</span>
+                        <Pencil size={18} />
+                        <span className="text-[10px] sm:text-xs">Ghi chú</span>
                     </button>
                     <button
                         onClick={handleErase}
-                        className="flex-1 py-3 bg-[#fdf6e3] text-[#8b4513] rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-[#d2b48c] active:border-b-0 active:translate-y-1"
+                        className="flex-1 py-2 bg-[#fdf6e3] text-[#8b4513] rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-[#d2b48c] active:border-b-0 active:translate-y-1"
                     >
-                        <Eraser size={20} />
-                        <span className="text-xs">Xóa</span>
+                        <Eraser size={18} />
+                        <span className="text-[10px] sm:text-xs">Xóa</span>
                     </button>
                     <button
                         onClick={handleHint}
-                        className="flex-1 py-3 bg-yellow-100 text-yellow-700 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-yellow-300 active:border-b-0 active:translate-y-1"
+                        className="flex-1 py-2 bg-yellow-100 text-yellow-700 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-yellow-300 active:border-b-0 active:translate-y-1"
                     >
                         <div className="flex items-center gap-1">
-                            <Lightbulb size={20} />
-                            <span className="text-xs bg-yellow-500 text-white px-2 rounded-full flex items-center gap-1">
-                                -5 <Star size={10} className="fill-white" />
+                            <Lightbulb size={18} />
+                            <span className="text-[10px] sm:text-xs bg-yellow-500 text-white px-1.5 rounded-full flex items-center gap-0.5">
+                                -5 <Star size={8} className="fill-white" />
                             </span>
                         </div>
-                        <span className="text-xs">Gợi ý</span>
+                        <span className="text-[10px] sm:text-xs">Gợi ý</span>
                     </button>
                 </div>
 
                 {/* Numpad */}
-                <div className="grid grid-cols-9 gap-1">
+                <div className="grid grid-cols-9 gap-1 h-12 sm:h-14">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
                         <button
                             key={num}
                             onClick={() => handleNumberInput(num)}
-                            className="aspect-[4/5] bg-[#deb887] text-[#5d4037] rounded-lg font-black text-2xl shadow-[0_3px_0_#8b4513] active:shadow-none active:translate-y-[3px] border border-[#d2b48c] transition-all"
+                            className="h-full bg-[#deb887] text-[#5d4037] rounded-lg font-black text-xl sm:text-2xl shadow-[0_3px_0_#8b4513] active:shadow-none active:translate-y-[3px] border border-[#d2b48c] transition-all flex items-center justify-center"
                         >
                             {num}
                         </button>

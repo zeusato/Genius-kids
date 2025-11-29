@@ -4,29 +4,29 @@ export const generateSudoku = (difficulty: Difficulty) => {
     // 1. Initialize empty 9x9 grid
     const grid = Array.from({ length: 9 }, () => Array(9).fill(0));
 
-    // 2. Fill diagonal 3x3 boxes (independent)
+    // 2. Fill diagonal 3x3 boxes (independent) to randomize
     fillDiagonal(grid);
 
-    // 3. Solve the rest
+    // 3. Solve to get a complete valid board
     solveSudoku(grid);
 
     // 4. Clone for solution
     const solvedGrid = grid.map(row => [...row]);
 
-    // 5. Remove elements based on difficulty
-    // Easy: 38-45 clues (remove 36-43)
-    // Medium: 30-36 clues (remove 45-51)
-    // Hard: 24-29 clues (remove 52-57)
+    // 5. Remove elements based on difficulty with Uniqueness Check
+    // Easy: Keep ~40-45 clues
+    // Medium: Keep ~30-36 clues
+    // Hard: Keep ~24-29 clues
     let attempts = 5;
-    let removeCount = 0;
+    let targetClues = 0;
 
     switch (difficulty) {
-        case 'easy': removeCount = 40; break;
-        case 'medium': removeCount = 50; break;
-        case 'hard': removeCount = 56; break;
+        case 'easy': targetClues = 45; break;
+        case 'medium': targetClues = 35; break;
+        case 'hard': targetClues = 28; break;
     }
 
-    removeKDigits(grid, removeCount);
+    removeCellsWithUniquenessCheck(grid, targetClues);
 
     return { initialGrid: grid, solvedGrid };
 };
@@ -92,7 +92,11 @@ const solveSudoku = (grid: number[][]): boolean => {
 
     if (isEmpty) return true;
 
-    for (let num = 1; num <= 9; num++) {
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // Shuffle for randomness if needed, but for solving specifically we usually just need one solution.
+    // For generating, we already randomized the diagonal boxes.
+
+    for (let num of nums) {
         if (isSafe(grid, row, col, num)) {
             grid[row][col] = num;
             if (solveSudoku(grid)) return true;
@@ -102,23 +106,77 @@ const solveSudoku = (grid: number[][]): boolean => {
     return false;
 };
 
-const removeKDigits = (grid: number[][], k: number) => {
-    let count = k;
-    while (count !== 0) {
-        let cellId = Math.floor(Math.random() * 81);
-        let i = Math.floor(cellId / 9);
-        let j = cellId % 9;
-        if (grid[i][j] !== 0) {
-            // Backup
-            let backup = grid[i][j];
-            grid[i][j] = 0;
+// Count solutions (stops if > 1)
+const countSolutions = (grid: number[][], count = { val: 0 }): boolean => {
+    let row = -1;
+    let col = -1;
+    let isEmpty = true;
 
-            // Check if unique solution exists (simplified: just ensure it's still solvable, 
-            // true uniqueness check is expensive but for kids game this is usually fine)
-            // Ideally we should check for uniqueness here.
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (grid[i][j] === 0) {
+                row = i;
+                col = j;
+                isEmpty = false;
+                break;
+            }
+        }
+        if (!isEmpty) break;
+    }
 
-            // For now, just remove.
-            count--;
+    if (isEmpty) {
+        count.val++;
+        return true; // Found a solution
+    }
+
+    for (let num = 1; num <= 9; num++) {
+        if (count.val > 1) return false; // Optimization: Stop if we already found more than 1 solution
+
+        if (isSafe(grid, row, col, num)) {
+            grid[row][col] = num;
+            countSolutions(grid, count);
+            grid[row][col] = 0; // Backtrack
+        }
+    }
+    return false; // This return value isn't strictly used for the count, but keeps signature consistent
+};
+
+const removeCellsWithUniquenessCheck = (grid: number[][], targetClues: number) => {
+    let attempts = targetClues * 2; // Safety break
+
+    // Create a list of all cell positions
+    let cells: number[] = [];
+    for (let i = 0; i < 81; i++) cells.push(i);
+
+    // Shuffle cells to remove randomly
+    for (let i = cells.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cells[i], cells[j]] = [cells[j], cells[i]];
+    }
+
+    let cluesCount = 81;
+
+    for (let i = 0; i < 81; i++) {
+        if (cluesCount <= targetClues) break;
+
+        let cellId = cells[i];
+        let row = Math.floor(cellId / 9);
+        let col = cellId % 9;
+
+        if (grid[row][col] !== 0) {
+            let backup = grid[row][col];
+            grid[row][col] = 0;
+
+            // Check if solution is still unique
+            let count = { val: 0 };
+            countSolutions(grid, count);
+
+            if (count.val !== 1) {
+                // Not unique, put it back
+                grid[row][col] = backup;
+            } else {
+                cluesCount--;
+            }
         }
     }
 };
