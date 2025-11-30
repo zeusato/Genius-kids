@@ -31,8 +31,12 @@ export const KidCoderLevelSelect: React.FC<KidCoderLevelSelectProps> = ({ onSele
     // Check if a level-lesson is unlocked
     const isUnlocked = (levelId: number, lessonId: number): boolean => {
         const key = `${levelId}-${lessonId}`;
+
         // If already completed, always unlocked
         if (progress.has(key)) return true;
+
+        // Level 1, Lesson 1 is ALWAYS unlocked (entry point)
+        if (levelId === 1 && lessonId === 1) return true;
 
         // Check if previous lesson is completed
         if (lessonId > 1) {
