@@ -59,6 +59,27 @@
     *   và nhiều hơn nữa...
 *   **Học Mọi Lúc:** Đọc và học thêm kiến thức ngoài toán học
 
+#### 🌌 **Khám Phá Hệ Mặt Trời (Solar System)** 🆕
+*   **Mô Phỏng 3D Tương Tác:**
+    *   Hệ Mặt Trời 2.5D với các hành tinh quay theo quỹ đạo thực
+    *   Vành đai tiểu hành tinh với hiệu ứng hạt động
+    *   Galaxy background và hiệu ứng ánh sáng chân thực
+*   **Khám Phá Chi Tiết:**
+    *   Click vào hành tinh để xem thông tin chi tiết
+    *   3D models chuẩn thiên văn (GLB format)
+    *   Thông tin: Nhiệt độ, khoảng cách, đường kính, trọng lực
+    *   Sự thật thú vị về từng hành tinh
+*   **Tương Tác Linh Hoạt:**
+    *   Zoom in/out để quan sát
+    *   Pan (kéo) để di chuyển vùng nhìn
+    *   Dropdown menu chọn nhanh thiên thể
+    *   Hỗ trợ cả desktop (chuột) và mobile (chạm)
+*   **Giao Diện "Vũ Trụ":**
+    *   Design hiện đại với theme cosmic
+    *   Gradient cards với màu sắc phân biệt
+    *   Backdrop blur và glow effects
+    *   Responsive trên mọi thiết bị
+
 #### 🦁 **Giải Đố Nhân Sư (Sphinx Riddle)** 🆕
 *   **Câu Đố Thú Vị:** 
     *   Bộ câu đố Việt Nam (tiếng Việt)
@@ -136,6 +157,7 @@
    - 🎮 **Games** để chơi game học toán
    - 📚 **1000 Câu Hỏi** để khám phá tri thức
    - 🦁 **Nhân Sư** để giải đố nhận thưởng
+   - 🌌 **Hệ Mặt Trời** để khám phá vũ trụ
    - 🛍️ **Cửa Hàng** để mua avatar/theme
    - 🎴 **Album** để xem bộ sưu tập thẻ bài
 5. Bắt đầu học và vui chơi! 🎉
@@ -168,6 +190,7 @@ npm run deploy
 *   **Vite** - Build tool siêu nhanh
 *   **React Router** - Điều hướng mượt mà (SPA)
 *   **Tailwind CSS** - Styling hiện đại
+*   **Three.js** + React Three Fiber - 3D graphics cho Solar System
 *   **PWA** với Workbox - Ứng dụng offline-first
 *   **Recharts** - Biểu đồ thống kê đẹp
 *   **jsPDF** - Xuất đề thi PDF
@@ -194,11 +217,17 @@ mathgenius-kids/
 │   │   ├── GamePage.tsx
 │   │   ├── TellMeWhyPage.tsx
 │   │   ├── SphinxRiddlePage.tsx  # 🆕
+│   │   ├── SolarSystemPage.tsx   # 🆕
 │   │   ├── ShopPage.tsx
 │   │   ├── AlbumPage.tsx
 │   │   └── ProfilePage.tsx
 │   ├── components/         # UI components
 │   │   ├── study/          # Components học tập
+│   │   ├── solar/          # 🆕 Solar System components
+│   │   │   ├── SolarSystem.tsx
+│   │   │   ├── Planet.tsx
+│   │   │   ├── Planet3D.tsx
+│   │   │   └── PlanetDetail.tsx
 │   │   ├── SphinxRiddleScreen.tsx  # 🆕
 │   │   ├── RiddleModal.tsx         # 🆕
 │   │   ├── GachaModal.tsx
@@ -223,6 +252,16 @@ mathgenius-kids/
 ```
 
 ## 🆕 Cập Nhật Gần Đây
+
+### v2.4 - Solar System Mode 🌌 (Tháng 11/2025)
+*   ✅ **Chế Độ Mới:** Khám Phá Hệ Mặt Trời - Mô phỏng 3D tương tác
+*   ✅ **Hành Tinh 3D:** Models GLB chuẩn thiên văn cho 8 hành tinh + Mặt Trời
+*   ✅ **Vành Đai Tiểu Hành Tinh:** Particle system với 200+ asteroids động
+*   ✅ **Pan & Zoom:** Zoom vào và kéo để khám phá chi tiết
+*   ✅ **Dropdown Menu:** Chọn nhanh thiên thể muốn xem
+*   ✅ **Modal Chi Tiết:** UI hiện đại với thông tin khoa học và sự thật thú vị
+*   ✅ **Responsive Design:** Hoạt động mượt trên cả desktop và mobile
+*   ✅ **Tech Stack:** Tích hợp Three.js + React Three Fiber cho graphics 3D
 
 ### v2.3 - Math Racing & Gacha Update 🏎️
 *   ✅ **Game Mới:** Đường Đua Thần Tốc (Math Racing) - Lái xe giải toán cực vui!
