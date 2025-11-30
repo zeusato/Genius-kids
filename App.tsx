@@ -15,6 +15,7 @@ import { TellMeWhyPage } from '@/src/pages/TellMeWhyPage';
 import { SphinxRiddlePage } from '@/src/pages/SphinxRiddlePage';
 import { HallOfFamePage } from '@/src/pages/HallOfFamePage';
 import { KidCoderPage } from '@/src/pages/KidCoderPage';
+import { SolarSystemPage } from '@/src/pages/SolarSystemPage';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/updateService';
@@ -251,6 +252,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <KidCoderPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/solar-system"
+              element={
+                <ProtectedRoute>
+                  <SolarSystemPage />
                 </ProtectedRoute>
               }
             />
