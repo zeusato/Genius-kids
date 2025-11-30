@@ -12,6 +12,11 @@ import { CURRICULUM } from '@/services/kidCoderGenerator';
 export const KidCoderLevelSelect: React.FC<KidCoderLevelSelectProps> = ({ onSelectLevel, onExit }) => {
     const { currentStudent } = useStudent();
 
+    // Scroll to top on mount
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const progress = useMemo(() => {
         if (!currentStudent?.gameHistory) return new Set<string>();
 
@@ -88,7 +93,7 @@ export const KidCoderLevelSelect: React.FC<KidCoderLevelSelectProps> = ({ onSele
                             </div>
 
                             {level.lessons > 0 ? (
-                                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <div className="grid grid-cols-5 gap-2">
                                     {Array.from({ length: level.lessons }, (_, i) => i + 1).map((lesson) => {
                                         const unlocked = isUnlocked(level.id, lesson);
                                         const completed = progress.has(`${level.id}-${lesson}`);
@@ -99,7 +104,7 @@ export const KidCoderLevelSelect: React.FC<KidCoderLevelSelectProps> = ({ onSele
                                                 onClick={() => unlocked && onSelectLevel(level.id, lesson)}
                                                 disabled={!unlocked}
                                                 className={`
-                                                    relative aspect-square rounded-xl flex flex-col items-center justify-center gap-2 transition-all
+                                                    relative aspect-square rounded-xl flex flex-col items-center justify-center gap-1 transition-all
                                                     ${unlocked
                                                         ? 'bg-slate-700 hover:bg-slate-600 cursor-pointer border-2 border-transparent hover:border-cyan-400'
                                                         : 'bg-slate-900/50 cursor-not-allowed opacity-50'}
@@ -107,21 +112,21 @@ export const KidCoderLevelSelect: React.FC<KidCoderLevelSelectProps> = ({ onSele
                                                 `}
                                             >
                                                 {completed && (
-                                                    <div className="absolute top-2 right-2 text-green-500">
-                                                        <CheckCircle size={16} />
+                                                    <div className="absolute top-1 right-1 text-green-500">
+                                                        <CheckCircle size={14} />
                                                     </div>
                                                 )}
 
                                                 {!unlocked && (
-                                                    <div className="absolute top-2 left-2">
-                                                        <Lock className="text-slate-500" size={18} />
+                                                    <div className="absolute top-1 left-1">
+                                                        <Lock className="text-slate-500" size={14} />
                                                     </div>
                                                 )}
 
-                                                <span className={`text-2xl font-bold ${unlocked ? 'text-white' : 'text-slate-600'}`}>
+                                                <span className="text-[10px] text-slate-500 uppercase font-bold">Bài</span>
+                                                <span className={`text-xl font-bold ${unlocked ? 'text-white' : 'text-slate-600'}`}>
                                                     {lesson}
                                                 </span>
-                                                <span className="text-xs text-slate-500 uppercase font-bold">Bài</span>
                                             </button>
                                         );
                                     })}

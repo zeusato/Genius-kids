@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { ArrowLeft, Play, RotateCcw, Trash2, ArrowUp, CornerUpLeft, CornerUpRight, MapPin, Bot, Star, Flag, Sword, Skull, Key, Lock, Box, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Play, RotateCcw, Trash2, ArrowUp, CornerUpLeft, CornerUpRight, MapPin, Bot, Star, Flag, Sword, Skull, Key, Lock, Box, AlertTriangle, Delete, Info, X } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { playSound } from '@/utils/sound';
 import { generateLevel, LevelData, Direction, Position, CommandType, CURRICULUM } from '@/services/kidCoderGenerator';
@@ -42,11 +42,13 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
     const [currentStep, setCurrentStep] = useState(-1);
     const [failedStep, setFailedStep] = useState<number | null>(null); // Track which step caused failure
     const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
+    const [showHelp, setShowHelp] = useState(false);
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     // Init Level
     useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to top on load
         startLevel(levelId, lessonId);
     }, [levelId, lessonId]);
 
@@ -129,7 +131,7 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                             setFilledTraps(prev => [...prev, destKey]);
 
                             // If trap, collect the star on it
-                            if (destCell === 'trap' && !collectedLocations.includes(destKey)) {
+                            if (destCell === 'trap' && !collectedLocations.includes(destKey) && !isStageCompleted) {
                                 setCollectedLocations(prev => [...prev, destKey]);
                                 playSound('ding'); // Star collected sound
                             }
@@ -189,7 +191,7 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
         // Collect Star
         if (levelData && levelData.grid[newPos.row][newPos.col] === 'star') {
             const locKey = `${newPos.row}-${newPos.col}`;
-            if (!collectedLocations.includes(locKey)) {
+            if (!collectedLocations.includes(locKey) && !isStageCompleted) {
                 setCollectedLocations(prev => [...prev, locKey]);
                 playSound('ding');
             }
@@ -284,6 +286,7 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
     const handleAddCommand = (cmd: CommandType) => {
         if (isRunning || gameStatus !== 'playing') return;
         setProgram([...program, cmd]);
+        setFailedStep(null); // Reset failed step
         playSound('ding');
     };
 
@@ -292,11 +295,22 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
         const newProg = [...program];
         newProg.splice(index, 1);
         setProgram(newProg);
+        setFailedStep(null); // Reset failed step
     };
 
     const handleClearProgram = () => {
         if (isRunning || gameStatus !== 'playing') return;
         setProgram([]);
+        setFailedStep(null); // Reset failed step
+        playSound('click');
+    };
+
+    const handleBackspace = () => {
+        if (isRunning || gameStatus !== 'playing' || program.length === 0) return;
+        const newProg = [...program];
+        newProg.pop();
+        setProgram(newProg);
+        setFailedStep(null); // Reset failed step
         playSound('click');
     };
 
@@ -358,9 +372,9 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
     if (!levelData) return <div>Loading...</div>;
 
     return (
-        <div className="fixed inset-0 bg-slate-900 z-50 flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen bg-slate-900 z-50 flex flex-col items-center justify-start md:justify-center p-4">
             {/* Header */}
-            <div className="w-full max-w-4xl flex justify-between items-center mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div className="w-full max-w-4xl flex justify-between items-center mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 sticky top-0 z-30 shadow-lg">
                 <button onClick={onExit} className="p-2 bg-slate-700 rounded-lg text-white hover:bg-slate-600">
                     <ArrowLeft />
                 </button>
@@ -385,9 +399,9 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                 </div>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl h-full max-h-[80vh]">
+            <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl h-auto md:h-[80vh]">
                 {/* Game Board */}
-                <div className="flex-1 bg-slate-800 rounded-2xl p-4 shadow-2xl flex items-center justify-center border-4 border-slate-700 relative overflow-hidden">
+                <div className="w-full md:flex-1 bg-slate-800 rounded-2xl p-4 shadow-2xl flex items-center justify-center border-4 border-slate-700 relative overflow-hidden min-h-[350px]">
                     <div
                         className="grid gap-1 bg-slate-900 p-2 rounded-xl"
                         style={{
@@ -500,9 +514,9 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                         <div className="text-6xl mb-4">💥</div>
                                         <h2 className="text-3xl font-bold text-slate-800 mb-2">Thất bại!</h2>
                                         <p className="text-slate-600 mb-6">
-                                            {collectedLocations.length < (levelData.requiredStars || 0)
-                                                ? "Chưa thu thập đủ sao!"
-                                                : "Robot đã gặp sự cố."}
+                                            {gameStatus === 'lost' && failedStep !== null
+                                                ? "Robot đã gặp sự cố."
+                                                : "Chưa về đến đích!"}
                                         </p>
                                         <button onClick={handleReset} className="w-full py-3 bg-slate-500 text-white rounded-xl font-bold text-lg hover:bg-slate-600 shadow-lg">
                                             Thử lại
@@ -515,46 +529,57 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                 </div>
 
                 {/* Control Panel */}
-                <div className="w-full md:w-80 flex flex-col gap-4 h-full">
+                <div className="w-full md:w-80 flex flex-col gap-4 h-auto md:h-full">
                     {/* Program Queue */}
                     <div className="flex-1 bg-slate-800 rounded-2xl p-4 border border-slate-700 flex flex-col min-h-0">
                         <div className="flex justify-between items-center mb-2">
                             <h3 className="text-slate-400 font-bold text-sm uppercase tracking-wider">Chương trình chính</h3>
-                            <button
-                                onClick={handleClearProgram}
-                                disabled={isRunning || program.length === 0}
-                                className="text-slate-500 hover:text-red-400 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                                title="Xóa tất cả"
-                            >
-                                <Trash2 size={18} />
-                            </button>
+                            <div className="flex gap-2">
+                                <button
+                                    onClick={handleBackspace}
+                                    disabled={isRunning || program.length === 0}
+                                    className="text-slate-500 hover:text-yellow-400 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                    title="Xóa lệnh cuối"
+                                >
+                                    <Delete size={18} />
+                                </button>
+                                <button
+                                    onClick={handleClearProgram}
+                                    disabled={isRunning || program.length === 0}
+                                    className="text-slate-500 hover:text-red-400 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                    title="Xóa tất cả"
+                                >
+                                    <Trash2 size={18} />
+                                </button>
+                            </div>
                         </div>
-                        <div className="flex-1 bg-slate-900/50 rounded-xl p-2 overflow-y-auto space-y-2 min-h-[200px]">
+                        <div className="flex-1 bg-slate-900/50 rounded-xl p-2 overflow-y-auto md:overflow-y-auto overflow-x-auto flex md:flex-col gap-2 min-h-[80px] md:min-h-[200px]">
                             {program.length === 0 && (
-                                <div className="text-slate-600 text-center mt-10 text-sm italic">
-                                    Kéo lệnh vào đây...
+                                <div className="text-slate-600 text-center mt-4 md:mt-10 text-sm italic w-full">
+                                    Chọn lệnh bên dưới...
                                 </div>
                             )}
                             {program.map((cmd, idx) => (
                                 <div
                                     key={idx}
                                     className={`
-                                        flex items-center gap-3 p-3 rounded-lg border-l-4 transition-all
+                                        flex items-center justify-center md:justify-start gap-3 p-2 md:p-3 rounded-lg border-l-4 transition-all min-w-[60px] md:min-w-0
                                         ${idx === failedStep ? 'bg-red-500/30 border-red-500 text-red-200' :
                                             idx === currentStep ? 'bg-yellow-500/20 border-yellow-500 text-yellow-200' :
                                                 'bg-slate-700 border-slate-500 text-white'}
                                     `}
                                 >
-                                    <span className="font-mono text-slate-500 text-xs w-4">{idx + 1}</span>
+                                    <span className="font-mono text-slate-500 text-xs w-4 hidden md:inline">{idx + 1}</span>
                                     {idx === failedStep && <AlertTriangle size={16} className="text-red-500" />}
-                                    {cmd === 'forward' && <><ArrowUp size={18} /> Đi thẳng</>}
-                                    {cmd === 'left' && <><CornerUpLeft size={18} /> Rẽ trái</>}
-                                    {cmd === 'right' && <><CornerUpRight size={18} /> Rẽ phải</>}
-                                    {cmd === 'jump' && <><ArrowUp size={18} className="text-orange-400" /> Nhảy</>}
-                                    {cmd === 'fight' && <><Sword size={18} className="text-red-400" /> Chiến đấu</>}
+                                    {cmd === 'forward' && <><ArrowUp size={18} /> <span className="hidden md:inline">Đi thẳng</span></>}
+                                    {cmd === 'left' && <><CornerUpLeft size={18} /> <span className="hidden md:inline">Rẽ trái</span></>}
+                                    {cmd === 'right' && <><CornerUpRight size={18} /> <span className="hidden md:inline">Rẽ phải</span></>}
+                                    {cmd === 'jump' && <><ArrowUp size={18} className="text-orange-400" /> <span className="hidden md:inline">Nhảy</span></>}
+                                    {cmd === 'fight' && <><Sword size={18} className="text-red-400" /> <span className="hidden md:inline">Chiến đấu</span></>}
+                                    {cmd === 'push' && <><Box size={18} className="text-purple-400" /> <span className="hidden md:inline">Đẩy</span></>}
 
                                     {!isRunning && (
-                                        <button onClick={() => handleRemoveCommand(idx)} className="ml-auto text-slate-500 hover:text-red-400">
+                                        <button onClick={() => handleRemoveCommand(idx)} className="ml-auto text-slate-500 hover:text-red-400 hidden md:block">
                                             <Trash2 size={16} />
                                         </button>
                                     )}
@@ -565,71 +590,80 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
 
                     {/* Command Palette */}
                     <div className="bg-slate-800 rounded-2xl p-4 border border-slate-700">
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="flex justify-between items-center mb-2 md:hidden">
+                            <span className="text-slate-400 text-xs font-bold uppercase">Lệnh</span>
+                            <button
+                                onClick={() => setShowHelp(true)}
+                                className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 text-xs font-bold"
+                            >
+                                <Info size={14} /> Hướng dẫn
+                            </button>
+                        </div>
+                        <div className="grid grid-cols-6 md:grid-cols-3 gap-2">
                             {levelData.allowedCommands.includes('forward') && (
                                 <button
                                     onClick={() => handleAddCommand('forward')}
                                     disabled={isRunning}
-                                    title="Đi thẳng - Di chuyển robot 1 ô về phía trước"
-                                    className="p-4 bg-blue-500 hover:bg-blue-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-blue-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Đi thẳng"
+                                    className="p-3 md:p-4 bg-blue-500 hover:bg-blue-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-blue-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <ArrowUp size={24} />
-                                    <span className="text-xs font-bold">Đi thẳng</span>
+                                    <span className="text-xs font-bold hidden md:inline">Đi thẳng</span>
                                 </button>
                             )}
                             {levelData.allowedCommands.includes('left') && (
                                 <button
                                     onClick={() => handleAddCommand('left')}
                                     disabled={isRunning}
-                                    title="Rẽ trái - Quay robot sang trái 90°"
-                                    className="p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Rẽ trái"
+                                    className="p-3 md:p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <CornerUpLeft size={24} />
-                                    <span className="text-xs font-bold">Trái</span>
+                                    <span className="text-xs font-bold hidden md:inline">Trái</span>
                                 </button>
                             )}
                             {levelData.allowedCommands.includes('right') && (
                                 <button
                                     onClick={() => handleAddCommand('right')}
                                     disabled={isRunning}
-                                    title="Rẽ phải - Quay robot sang phải 90°"
-                                    className="p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Rẽ phải"
+                                    className="p-3 md:p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <CornerUpRight size={24} />
-                                    <span className="text-xs font-bold">Phải</span>
+                                    <span className="text-xs font-bold hidden md:inline">Phải</span>
                                 </button>
                             )}
                             {levelData.allowedCommands.includes('jump') && (
                                 <button
                                     onClick={() => handleAddCommand('jump')}
                                     disabled={isRunning}
-                                    title="Nhảy - Nhảy qua 1 ô (vượt qua nước)"
-                                    className="p-4 bg-orange-500 hover:bg-orange-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-orange-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Nhảy"
+                                    className="p-3 md:p-4 bg-orange-500 hover:bg-orange-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-orange-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <ArrowUp size={24} className="mb-[-10px]" />
                                     <ArrowUp size={16} />
-                                    <span className="text-xs font-bold mt-1">Nhảy</span>
+                                    <span className="text-xs font-bold mt-1 hidden md:inline">Nhảy</span>
                                 </button>
                             )}
                             {levelData.allowedCommands.includes('fight') && (
                                 <button
                                     onClick={() => handleAddCommand('fight')}
                                     disabled={isRunning}
-                                    title="Chiến đấu - Đánh bại quái vật ở ô phía trước"
-                                    className="p-4 bg-red-500 hover:bg-red-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-red-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Chiến đấu"
+                                    className="p-3 md:p-4 bg-red-500 hover:bg-red-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-red-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <Sword size={24} />
-                                    <span className="text-xs font-bold mt-1">Chiến đấu</span>
+                                    <span className="text-xs font-bold mt-1 hidden md:inline">Chiến đấu</span>
                                 </button>
                             )}
                             {levelData.allowedCommands.includes('push') && (
                                 <button
                                     onClick={() => handleAddCommand('push')}
                                     disabled={isRunning}
-                                    className="p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="p-3 md:p-4 bg-purple-500 hover:bg-purple-600 active:translate-y-1 text-white rounded-xl shadow-lg shadow-purple-900/20 flex flex-col items-center gap-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <Box size={24} />
-                                    <span className="text-xs font-bold mt-1">Đẩy</span>
+                                    <span className="text-xs font-bold mt-1 hidden md:inline">Đẩy</span>
                                 </button>
                             )}
                         </div>
@@ -647,6 +681,72 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                     </div>
                 </div>
             </div>
+
+            {/* Help Modal */}
+            {showHelp && (
+                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4 animate-in fade-in">
+                    <div className="bg-slate-800 rounded-2xl border border-slate-700 w-full max-w-md overflow-hidden shadow-2xl">
+                        <div className="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-900/50">
+                            <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                                <Info className="text-cyan-400" size={20} />
+                                Hướng dẫn lệnh
+                            </h3>
+                            <button onClick={() => setShowHelp(false)} className="text-slate-400 hover:text-white">
+                                <X size={24} />
+                            </button>
+                        </div>
+                        <div className="p-4 space-y-3 max-h-[60vh] overflow-y-auto">
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-blue-500 rounded-lg text-white"><ArrowUp size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Đi thẳng</div>
+                                    <div className="text-slate-400 text-sm">Robot tiến 1 bước về phía trước.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-purple-500 rounded-lg text-white"><CornerUpLeft size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Rẽ trái</div>
+                                    <div className="text-slate-400 text-sm">Robot quay sang trái 90 độ.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-purple-500 rounded-lg text-white"><CornerUpRight size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Rẽ phải</div>
+                                    <div className="text-slate-400 text-sm">Robot quay sang phải 90 độ.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-orange-500 rounded-lg text-white"><ArrowUp size={20} className="mb-[-10px]" /><ArrowUp size={14} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Nhảy</div>
+                                    <div className="text-slate-400 text-sm">Nhảy qua 1 ô (dùng để vượt nước).</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-red-500 rounded-lg text-white"><Sword size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Chiến đấu</div>
+                                    <div className="text-slate-400 text-sm">Đánh bại quái vật đứng trước mặt.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-xl">
+                                <div className="p-2 bg-purple-500 rounded-lg text-white"><Box size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Đẩy</div>
+                                    <div className="text-slate-400 text-sm">Đẩy hộp về phía trước 1 ô.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="p-4 border-t border-slate-700 bg-slate-900/50 text-center">
+                            <button onClick={() => setShowHelp(false)} className="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-bold transition-colors">
+                                Đã hiểu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
