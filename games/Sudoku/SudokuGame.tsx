@@ -435,7 +435,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
 
             {/* Board Container - Flexible height */}
             <div className="flex-1 w-full min-h-0 flex items-center justify-center py-2">
-                <div className="aspect-square h-full max-h-full w-auto max-w-full bg-[#8b4513] p-2 rounded-lg shadow-2xl">
+                <div className="aspect-square max-h-full max-w-full portrait:w-full portrait:h-auto landscape:h-full landscape:w-auto bg-[#8b4513] p-2 rounded-lg shadow-2xl">
                     <div className="w-full h-full bg-[#deb887] grid grid-cols-9 grid-rows-9 border-2 border-[#8b4513]">
                         {grid.map((row, r) => row.map((_, c) => renderCell(r, c)))}
                     </div>
