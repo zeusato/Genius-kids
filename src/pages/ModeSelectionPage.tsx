@@ -20,7 +20,7 @@ export function ModeSelectionPage() {
         else if (mode === 'shop') navigate('/shop');
         else if (mode === 'tellmewhy') navigate('/tellmewhy');
         else if (mode === 'riddle') navigate('/riddle');
-        else if (mode === 'coding') alert("Tính năng 'Lập Trình Nhí' đang được phát triển! \n(Kid Coder feature coming soon)");
+        else if (mode === 'coding') navigate('/coding');
     };
 
     const handleLogout = () => {
