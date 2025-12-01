@@ -13,7 +13,7 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
-    addStudent: (name: string, age: number, grade: Grade, avatarId: number) => void;
+    addStudent: (name: string, grade: Grade, age?: number, avatarId?: string) => void;
     setStudent: (student: StudentProfile | null) => void;
     selectStudent: (id: string) => void;
     updateStudent: (student: StudentProfile) => void;
@@ -66,13 +66,11 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         setCurrentStudentId(id);
     }, []);
 
-    const addStudent = useCallback((name: string, age: number, grade: Grade, avatarId: number) => {
-        // Convert avatarId to string if needed, or use a mapping. 
-        // Assuming avatarId passed here is legacy number, but createProfile expects string ID.
-        // We'll just pass it as string for now or let createProfile handle default.
-        const newStudent = createProfile(name, grade, age, `avatar_${avatarId}`);
+    const addStudent = useCallback((name: string, grade: Grade, age?: number, avatarId?: string) => {
+        const newStudent = createProfile(name, grade, age, avatarId);
         setStudents(prev => [...prev, newStudent]);
-        setCurrentStudentId(newStudent.id);
+        // We don't auto-select here to let the user choose from the list
+        // setCurrentStudentId(newStudent.id); 
     }, []);
 
     const updateStudent = useCallback((updated: StudentProfile) => {

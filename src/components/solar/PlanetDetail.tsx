@@ -9,22 +9,26 @@ interface PlanetDetailProps {
 }
 
 export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) => {
+    const [showInfographic, setShowInfographic] = React.useState(false);
+
+    const getInfographicPath = (planetId: string) => {
+        const map: Record<string, string> = {
+            'mercury': 'Mercury.png',
+            'venus': 'Vernus.png', // Typo in file
+            'earth': 'Earth.png',
+            'mars': 'Mars.png',
+            'jupiter': 'Jupiter.png',
+            'saturn': 'Sarturn.png', // Typo in file
+            'uranus': 'Uranus.png',
+            'neptune': 'Neptune.png',
+            'sun': 'sun.png',
+            'asteroid-belt': 'asteroidBelt.png'
+        };
+        return `/Genius-kids/infographic/${map[planetId] || 'Earth.png'}`;
+    };
+
     return (
-        <div className="absolute inset-0 z-40 flex items-center justify-center p-2 sm:p-6 md:p-12 animate-in fade-in zoom-in-95 duration-500">
-            {/* Backdrop with stars effect */}
-            <div
-                className="absolute inset-0 bg-black/90 backdrop-blur-md"
-                onClick={onClose}
-                style={{
-                    backgroundImage: `radial-gradient(2px 2px at 20% 30%, white, transparent),
-                                     radial-gradient(2px 2px at 60% 70%, white, transparent),
-                                     radial-gradient(1px 1px at 50% 50%, white, transparent),
-                                     radial-gradient(1px 1px at 80% 10%, white, transparent),
-                                     radial-gradient(2px 2px at 90% 60%, white, transparent)`,
-                    backgroundSize: '200px 200px',
-                    backgroundPosition: '0 0, 40px 60px, 130px 270px, 70px 100px, 150px 50px'
-                }}
-            />
+        <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-6 md:p-12 animate-in fade-in zoom-in-95 duration-500">
 
             {/* Content Container - redesigned with cosmic theme */}
             <div className="relative w-full max-w-6xl h-full max-h-[90vh] rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_100px_rgba(59,130,246,0.3)]"
@@ -53,7 +57,7 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                 </div>
 
                 {/* Right Side: Info - Redesigned with better typography */}
-                <div className="w-full md:w-1/2 h-auto md:h-full p-4 sm:p-6 md:p-8 overflow-y-auto custom-scrollbar text-white">
+                <div className="w-full md:w-1/2 h-auto md:h-full p-4 sm:p-6 md:p-8 overflow-y-auto custom-scrollbar text-white flex flex-col">
                     {/* Title */}
                     <div className="mb-4 md:mb-6">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
@@ -66,6 +70,18 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                     <p className="text-sm sm:text-base text-slate-300 mb-4 md:mb-6 leading-relaxed">
                         {planet.description}
                     </p>
+
+                    {/* Action Buttons */}
+                    <div className="mb-6">
+                        <button
+                            onClick={() => setShowInfographic(true)}
+                            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 group"
+                        >
+                            <span className="text-xl">📊</span>
+                            <span>Xem Infographic</span>
+                            <Move size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
 
                     {/* Stats Grid - Compact & Modern */}
                     <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 md:mb-6">
@@ -103,7 +119,7 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                     </div>
 
                     {/* Fun Facts - Compact */}
-                    <div>
+                    <div className="flex-1">
                         <h3 className="text-lg sm:text-xl font-bold mb-3 flex items-center gap-2">
                             <span className="text-2xl">💡</span>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">
@@ -121,6 +137,28 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                     </div>
                 </div>
             </div>
+
+            {/* Infographic Modal */}
+            {showInfographic && (
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+                    <div className="absolute inset-0" onClick={() => setShowInfographic(false)} />
+
+                    <button
+                        onClick={() => setShowInfographic(false)}
+                        className="absolute top-4 right-4 z-[210] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all backdrop-blur-sm border border-white/20"
+                    >
+                        <X size={24} />
+                    </button>
+
+                    <div className="relative z-[205] w-full h-full p-4 md:p-8 flex items-center justify-center pointer-events-none">
+                        <img
+                            src={getInfographicPath(planet.id)}
+                            alt={`${planet.name} Infographic`}
+                            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-auto"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

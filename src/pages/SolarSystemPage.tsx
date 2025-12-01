@@ -208,14 +208,20 @@ export function SolarSystemPage() {
             />
 
             {/* Detail Overlay */}
-            {
-                selectedPlanet && (
-                    <PlanetDetail
-                        planet={selectedPlanet}
-                        onClose={handleCloseDetail}
-                    />
-                )
-            }
+            {selectedPlanet && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                    {/* Click outside to close (optional, but good UX) */}
+                    <div className="absolute inset-0" onClick={handleCloseDetail} />
+
+                    {/* Modal Content */}
+                    <div className="relative z-10 w-full h-full pointer-events-auto">
+                        <PlanetDetail
+                            planet={selectedPlanet}
+                            onClose={handleCloseDetail}
+                        />
+                    </div>
+                </div>
+            )}
         </div >
     );
 }

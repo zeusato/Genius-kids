@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StudentProfile, Grade } from '@/types';
-import { getAllProfiles, createProfile, saveProfiles } from '@/services/profileService';
 import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
 import { Plus, CheckCircle, Download } from 'lucide-react';
-import { useStudentActions } from '@/src/contexts/StudentContext';
+import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
 import { MusicControls } from '@/src/components/MusicControls';
 
@@ -30,8 +29,8 @@ const Card = ({ children, className = '' }: any) => {
 
 export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomePageProps) {
     const navigate = useNavigate();
-    const { setStudent } = useStudentActions();
-    const [profiles, setProfiles] = useState<StudentProfile[]>([]);
+    const { students: profiles } = useStudent();
+    const { setStudent, addStudent, updateStudent } = useStudentActions();
     const [isCreating, setIsCreating] = useState(false);
     const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
 
@@ -42,8 +41,6 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        const loadedProfiles = getAllProfiles();
-        setProfiles(loadedProfiles);
         initializeTheme();
     }, []);
 
@@ -66,8 +63,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
 
     // Add stars to selected profile by ID
     const handleAddStars = (profileId: string, amount: number) => {
-        const allProfiles = getAllProfiles();
-        const profileToUpdate = allProfiles.find(p => p.id === profileId);
+        const profileToUpdate = profiles.find(p => p.id === profileId);
         if (!profileToUpdate) return;
 
         const updatedProfile = {
@@ -75,12 +71,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
             stars: profileToUpdate.stars + amount
         };
 
-        const updatedProfiles = allProfiles.map(p =>
-            p.id === updatedProfile.id ? updatedProfile : p
-        );
-
-        saveProfiles(updatedProfiles);
-        setProfiles(updatedProfiles);
+        updateStudent(updatedProfile);
         if (selectedProfile?.id === profileId) {
             setSelectedProfile(updatedProfile);
         }
@@ -89,10 +80,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     const handleCreate = () => {
         if (!newProfile.name) return;
 
-        const profile = createProfile(newProfile.name, newProfile.grade);
-        const updated = [...profiles, profile];
-        setProfiles(updated);
-        saveProfiles(updated);
+        addStudent(newProfile.name, newProfile.grade);
         setIsCreating(false);
     };
 
