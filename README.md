@@ -42,11 +42,13 @@
     *   In bài tập về làm thêm tại nhà
 
 #### 🎮 **Trò Chơi Giáo Dục (Games)**
-*   **Math Racing:** Lái xe tránh chướng ngại vật và giải toán nhanh
-*   **Memory Match:** Rèn luyện trí nhớ kết hợp luyện tính
-*   **Speed Math:** Thi đấu giải toán với thời gian
-*   **Pattern Recognition:** Tìm quy luật số
-*   **Nhận Thưởng:** Hoàn thành game nhận sao và thẻ bài gacha
+*   **🧠 Ghép Thẻ Hình Ảnh (Memory Match):** Lật thẻ tìm cặp hình ảnh giống nhau, rèn luyện trí nhớ và sự tinh mắt
+*   **🎵 Giai Điệu Vui Nhộn (Sound Memory):** Lắng nghe và ghi nhớ chuỗi âm thanh, thử thách trí nhớ thính giác
+*   **⚡ Đua Tốc Độ (Speed Math):** Trả lời nhanh các câu hỏi Toán, Tiếng Việt và Tự nhiên xã hội trước khi hết giờ
+*   **🐉 Đại Chiến Rồng Thần (Dragon Quest):** Phiêu lưu trên bản đồ 2.5D, thu thập buff và đánh bại rồng thần
+*   **🏎️ Đường Đua Thần Tốc (Math Racing):** Lái xe tránh chướng ngại vật, chọn đáp án đúng, rèn luyện phản xạ và tính nhẩm
+*   **🧩 Sudoku Logic:** Điền số vào ô trống với logic logic, phát triển tư duy logic và kiên nhẫn
+*   **🏆 Nhận Thưởng:** Hoàn thành game nhận sao và thẻ bài gacha theo mức độ thành tích
 
 #### 📚 **1000 Câu Hỏi Vì Sao (Tell Me Why)**
 *   **Tri Thức Rộng:** Khám phá kiến thức qua hàng ngàn câu hỏi "Vì sao?"
@@ -209,6 +211,14 @@ mathgenius-kids/
 │   └── data/
 │       ├── vnRiddle.json   # Câu đố tiếng Việt
 │       └── enRiddle.json   # Câu đố tiếng Anh
+├── games/                  # 🎮 Các trò chơi giáo dục
+│   ├── MemoryMatch/        # Ghép thẻ hình ảnh
+│   ├── SoundMemory/        # Giai điệu vui nhộn (🆕)
+│   ├── SpeedMath/          # Đua tốc độ
+│   ├── DragonQuest/        # Đại chiến rồng thần (🆕)
+│   ├── MathRacing/         # Đường đua thần tốc
+│   ├── Sudoku/             # Sudoku logic (🆕)
+│   └── GamesMenu.tsx       # Menu chọn game
 ├── src/
 │   ├── pages/              # Các trang chính
 │   │   ├── HomePage.tsx
@@ -252,6 +262,13 @@ mathgenius-kids/
 ```
 
 ## 🆕 Cập Nhật Gần Đây
+
+### v2.5 - Game Collection Update 🎮 (Tháng 12/2025)
+*   ✅ **Game Mới:** Sudoku Logic - Phát triển tư duy logic với trò chơi Sudoku cổ điển
+*   ✅ **Game Mới:** Giai Điệu Vui Nhộn - Thử thách trí nhớ thính giác với chuỗi âm thanh
+*   ✅ **Game Mới:** Đại Chiến Rồng Thần - Phiêu lưu RPG với đồ họa 2.5D
+*   ✅ **Cải Tiến UI:** Menu games được tối ưu với icon hiện đại và mô tả rõ ràng
+*   ✅ **Tổng Cộng 6 Games:** Đa dạng thể loại từ trí nhớ, logic đến phản xạ và toán học
 
 ### v2.4 - Solar System Mode 🌌 (Tháng 11/2025)
 *   ✅ **Chế Độ Mới:** Khám Phá Hệ Mặt Trời - Mô phỏng 3D tương tác
@@ -298,9 +315,9 @@ mathgenius-kids/
 *   ✅ Hệ thống PWA với auto-update
 *   ✅ Luyện gõ Telex tích hợp
 *   ✅ Module "1000 Câu Hỏi Vì Sao"
-*   ✅ Shop avatar & theme
-*   ✅ Nhiều trò chơi giáo dục
-*   ✅ Hỗ trợ toàn bộ lớp 1-5
+*   ✅ Shop avatar & theme với hệ thống sao
+*   ✅ 3 games đầu tiên: Memory Match, Speed Math, Math Racing
+*   ✅ Hỗ trợ toàn bộ lớp 1-5 với đa dạng dạng câu hỏi
 
 ## 📊 Thống Kê Dự Án
 
@@ -309,6 +326,7 @@ mathgenius-kids/
 *   **100+** thẻ bài gacha để sưu tập
 *   **50+** chủ đề toán học từ lớp 1-5
 *   **Hàng ngàn** câu hỏi toán được sinh tự động
+*   **6** trò chơi giáo dục đa dạng
 *   **5** chế độ học tập khác nhau
 
 ## 🎨 Điểm Nổi Bật Thiết Kế

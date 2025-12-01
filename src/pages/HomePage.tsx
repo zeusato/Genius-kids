@@ -130,7 +130,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                     onClick={handleTitleClick}
                     className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm cursor-pointer select-none"
                 >
-                    MathGenius Kids
+                    Genius Kids
                 </h1>
                 <p className="text-xl text-slate-500">Học toán thật vui!</p>
             </div>
