@@ -11,6 +11,21 @@ interface PlanetDetailProps {
 export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) => {
     const [showInfographic, setShowInfographic] = React.useState(false);
 
+    // Auto-rotate logic for mobile
+    const [isPortrait, setIsPortrait] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkOrientation = () => {
+            // Check if device is portrait and likely mobile (width < 768px or just aspect ratio)
+            // Using window.innerWidth < window.innerHeight is a good proxy for portrait
+            setIsPortrait(window.innerWidth < window.innerHeight);
+        };
+
+        checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+        return () => window.removeEventListener('resize', checkOrientation);
+    }, []);
+
     const getInfographicPath = (planetId: string) => {
         const map: Record<string, string> = {
             'mercury': 'Mercury.png',
@@ -140,7 +155,8 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
 
             {/* Infographic Modal */}
             {showInfographic && (
-                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+                <div className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+                    {/* Click outside to close */}
                     <div className="absolute inset-0" onClick={() => setShowInfographic(false)} />
 
                     <button
@@ -150,11 +166,25 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                         <X size={24} />
                     </button>
 
-                    <div className="relative z-[205] w-full h-full p-4 md:p-8 flex items-center justify-center pointer-events-none">
+                    <div
+                        className="absolute top-1/2 left-1/2 flex items-center justify-center pointer-events-none transition-all duration-500 ease-in-out origin-center"
+                        style={isPortrait ? {
+                            width: '100vh',
+                            height: '100vw',
+                            transform: 'translate(-50%, -50%) rotate(90deg)',
+                            maxWidth: 'none',
+                            maxHeight: 'none'
+                        } : {
+                            width: '100%',
+                            height: '100%',
+                            transform: 'translate(-50%, -50%)',
+                            padding: '1rem'
+                        }}
+                    >
                         <img
                             src={getInfographicPath(planet.id)}
                             alt={`${planet.name} Infographic`}
-                            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-auto"
+                            className="w-full h-full object-contain pointer-events-auto"
                         />
                     </div>
                 </div>
