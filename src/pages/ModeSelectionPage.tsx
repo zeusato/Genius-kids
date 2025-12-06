@@ -13,7 +13,7 @@ export function ModeSelectionPage() {
         return null;
     }
 
-    const handleSelectMode = (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding' | 'solar-system') => {
+    const handleSelectMode = (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding' | 'science') => {
         if (mode === 'study') navigate('/study');
         else if (mode === 'game') navigate('/game');
         else if (mode === 'profile') navigate('/profile');
@@ -21,7 +21,7 @@ export function ModeSelectionPage() {
         else if (mode === 'tellmewhy') navigate('/tellmewhy');
         else if (mode === 'riddle') navigate('/riddle');
         else if (mode === 'coding') navigate('/coding');
-        else if (mode === 'solar-system') navigate('/solar-system');
+        else if (mode === 'science') navigate('/science');
     };
 
     const handleLogout = () => {

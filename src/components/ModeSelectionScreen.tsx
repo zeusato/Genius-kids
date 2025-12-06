@@ -6,7 +6,7 @@ import { MusicControls } from '@/src/components/MusicControls';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding' | 'solar-system') => void;
+    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding' | 'science') => void;
     onLogout: () => void;
 }
 
@@ -246,35 +246,35 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                     </div>
                 </button>
 
-                {/* Solar System Mode */}
+                {/* Science Mode */}
                 <button
-                    onClick={() => onSelectMode('solar-system')}
-                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-cyan-400 hover:scale-105 animate-in fade-in slide-in-from-right duration-700"
+                    onClick={() => onSelectMode('science')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-emerald-400 hover:scale-105 animate-in fade-in slide-in-from-right duration-700"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-900 to-blue-900 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-cyan-900 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
                     <div className="relative z-10">
-                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg border-2 border-white/20">
-                            <span className="text-5xl">🪐</span>
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg border-2 border-white/20">
+                            <span className="text-5xl">🔬</span>
                         </div>
 
-                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-cyan-300 transition-colors">
-                            Vũ Trụ
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-emerald-300 transition-colors">
+                            Khoa Học
                         </h2>
 
-                        <p className="text-slate-600 text-lg group-hover:text-cyan-100">
-                            Khám phá hệ mặt trời và các hành tinh
+                        <p className="text-slate-600 text-lg group-hover:text-emerald-100">
+                            Hệ mặt trời, Bảng tuần hoàn và nhiều hơn nữa
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2 justify-center">
-                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
+                            <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
+                                Vũ trụ
+                            </span>
+                            <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
+                                Hóa học
+                            </span>
+                            <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
                                 3D
-                            </span>
-                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
-                                Tương tác
-                            </span>
-                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold group-hover:bg-white/20 group-hover:text-white">
-                                Kiến thức
                             </span>
                         </div>
                     </div>
