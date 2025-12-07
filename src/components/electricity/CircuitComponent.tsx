@@ -10,6 +10,9 @@ interface CircuitComponentProps {
     onPortClick?: (port: 'input' | 'output') => void;
     onDragStart?: (e: React.MouseEvent) => void;
     isDragging?: boolean;
+    onTouchStart?: (e: React.TouchEvent) => void;
+    onTouchMove?: (e: React.TouchEvent) => void;
+    onTouchEnd?: (e: React.TouchEvent) => void;
 }
 
 export const CircuitComponent: React.FC<CircuitComponentProps> = ({
@@ -20,7 +23,10 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
     onToggle,
     onPortClick,
     onDragStart,
-    isDragging
+    isDragging,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd
 }) => {
     const definition = COMPONENTS[component.type];
 
@@ -114,6 +120,9 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
             }}
             onClick={handleClick}
             onMouseDown={handleMouseDown}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
         >
             {/* Icon */}
             <span className={`text-2xl select-none ${component.type === 'fan' && isOn ? 'animate-spin' : ''}`}>
@@ -135,11 +144,15 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
             {/* Input port (blue/left) */}
             {definition.hasInput && (
                 <>
-                    <button
-                        className="port-button absolute -left-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-blue-500 border-2 border-white hover:scale-125 hover:bg-blue-400 transition-all z-10"
+                    {/* Hit area container (40x40) */}
+                    <div
+                        className="absolute -left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-20 cursor-pointer"
                         onClick={(e) => handlePortClick(e, 'input')}
                         title="Đầu vào (−)"
-                    />
+                    >
+                        {/* Visual Dot */}
+                        <div className="w-5 h-5 rounded-full bg-blue-500 border-2 border-white hover:scale-125 hover:bg-blue-400 transition-all shadow-sm" />
+                    </div>
                     {component.type === 'battery' && (
                         <span className="absolute left-1 top-1/2 -translate-y-[55%] text-lg font-bold text-white select-none pointer-events-none drop-shadow-md">
                             −
@@ -151,11 +164,15 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
             {/* Output port (red/right) */}
             {definition.hasOutput && (
                 <>
-                    <button
-                        className="port-button absolute -right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-red-500 border-2 border-white hover:scale-125 hover:bg-red-400 transition-all z-10"
+                    {/* Hit area container (40x40) */}
+                    <div
+                        className="absolute -right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-20 cursor-pointer"
                         onClick={(e) => handlePortClick(e, 'output')}
                         title="Đầu ra (+)"
-                    />
+                    >
+                        {/* Visual Dot */}
+                        <div className="w-5 h-5 rounded-full bg-red-500 border-2 border-white hover:scale-125 hover:bg-red-400 transition-all shadow-sm" />
+                    </div>
                     {component.type === 'battery' && (
                         <span className="absolute right-1 top-1/2 -translate-y-[55%] text-lg font-bold text-white select-none pointer-events-none drop-shadow-md">
                             +

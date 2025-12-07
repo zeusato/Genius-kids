@@ -47,6 +47,8 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [hoveredWireId, setHoveredWireId] = useState<string | null>(null);
     const canvasRef = useRef<HTMLDivElement>(null);
+    const longPressTimer = useRef<NodeJS.Timeout | null>(null);
+    const touchStartPos = useRef<{ x: number, y: number } | null>(null);
 
     // Auto-sync state to parent whenever components or wires change
     useEffect(() => {
@@ -78,10 +80,19 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         e.preventDefault();
         const type = e.dataTransfer.getData('componentType') as ComponentType;
         if (!type || type === 'wire') return;
+        addComponent(type, e.clientX, e.clientY);
+    }, [components, wires, onChange]);
 
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left - 32;
-        const y = e.clientY - rect.top - 32;
+    // Handle mobile drop from toolbar
+    const handleMobileDrop = useCallback((type: ComponentType, clientX: number, clientY: number) => {
+        addComponent(type, clientX, clientY);
+    }, [components, wires, onChange]);
+
+    const addComponent = (type: ComponentType, clientX: number, clientY: number) => {
+        if (!canvasRef.current) return;
+        const rect = canvasRef.current.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
 
         saveToHistory();
 
@@ -98,7 +109,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         const newComponents = [...components, newComponent];
         setComponents(newComponents);
         onChange?.({ components: newComponents, wires });
-    }, [components, wires, onChange]);
+    };
 
     // Handle drag over
     const handleDragOver = (e: React.DragEvent) => {
@@ -141,6 +152,70 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
             setDraggingId(null);
             onChange?.({ components, wires });
         }
+    };
+
+    // --- Touch Handlers (Long Press to Drag) ---
+    const handleTouchStart = (id: string, e: React.TouchEvent) => {
+        if (readOnly || !canvasRef.current) return;
+        const touch = e.touches[0];
+        touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+
+        // Start 500ms timer for long press
+        longPressTimer.current = setTimeout(() => {
+            const component = components.find(c => c.id === id);
+            if (component) {
+                setDraggingId(id);
+                const rect = canvasRef.current!.getBoundingClientRect();
+                setDragOffset({
+                    x: touch.clientX - rect.left - component.x,
+                    y: touch.clientY - rect.top - component.y
+                });
+                // Vibrate to indicate drag mode
+                if (navigator.vibrate) navigator.vibrate(50);
+            }
+        }, 500);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        // If dragging, move component
+        if (draggingId && canvasRef.current) {
+            e.preventDefault(); // Prevent scroll logic
+            const touch = e.touches[0];
+            const rect = canvasRef.current.getBoundingClientRect();
+            const newX = touch.clientX - rect.left - dragOffset.x;
+            const newY = touch.clientY - rect.top - dragOffset.y;
+
+            setComponents(prev => prev.map(c =>
+                c.id === draggingId
+                    ? { ...c, x: Math.max(0, Math.min(newX, rect.width - 64)), y: Math.max(0, Math.min(newY, rect.height - 64)) }
+                    : c
+            ));
+        } else {
+            // Check if moved too much -> Cancel long press
+            if (touchStartPos.current) {
+                const touch = e.touches[0];
+                const dx = touch.clientX - touchStartPos.current.x;
+                const dy = touch.clientY - touchStartPos.current.y;
+                if (dx * dx + dy * dy > 100) { // Moved > 10px
+                    if (longPressTimer.current) {
+                        clearTimeout(longPressTimer.current);
+                        longPressTimer.current = null;
+                    }
+                }
+            }
+        }
+    };
+
+    const handleTouchEnd = () => {
+        if (longPressTimer.current) {
+            clearTimeout(longPressTimer.current);
+            longPressTimer.current = null;
+        }
+        if (draggingId) {
+            setDraggingId(null);
+            onChange?.({ components, wires });
+        }
+        touchStartPos.current = null;
     };
 
     // Handle port click for wire creation
@@ -437,6 +512,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                 <div className="w-32 flex-shrink-0">
                     <ComponentToolbar
                         onDragStart={() => { }}
+                        onMobileDrop={handleMobileDrop}
                         disabled={false}
                     />
                 </div>
@@ -508,10 +584,14 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                     onDragOver={handleDragOver}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
+                    // Attach global touch handlers to canvas too (for stopping drag)
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
                     onMouseLeave={handleMouseUp}
                     onClick={() => {
                         setSelectedId(null);
                         setWireStart(null);
+                        setHoveredWireId(null);
                     }}
                 >
                     {/* Grid background */}
@@ -591,7 +671,11 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                                 <g
                                     key={wire.id}
                                     onMouseEnter={() => setHoveredWireId(wire.id)}
-                                    onMouseLeave={() => setHoveredWireId(null)}
+                                    // onMouseLeave={() => setHoveredWireId(null)} // Disable leave for easier touch
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setHoveredWireId(hoveredWireId === wire.id ? null : wire.id);
+                                    }}
                                     style={{ cursor: 'pointer', pointerEvents: 'auto' }}
                                 >
                                     {/* Invisible wider stroke for easier hovering */}
@@ -668,6 +752,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                             onToggle={() => handleToggleSwitch(component.id)}
                             onPortClick={(port) => handlePortClick(component.id, port)}
                             onDragStart={(e) => handleComponentDragStart(component.id, e)}
+                            onTouchStart={(e) => handleTouchStart(component.id, e)}
                             isDragging={draggingId === component.id}
                         />
                     ))}
