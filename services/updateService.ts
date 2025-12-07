@@ -15,6 +15,8 @@ export const UPDATE_AVAILABLE_EVENT = 'app-update-available';
 // Custom event để thông báo đã check xong (dù có hay không có update)
 export const UPDATE_CHECK_COMPLETE_EVENT = 'app-update-check-complete';
 
+const UPDATE_SUCCESS_KEY = 'update-success';
+
 /**
  * Tính SHA-256 hash từ string content
  */
@@ -82,6 +84,9 @@ function setLocalHash(hash: string): void {
     localStorage.setItem(LAST_CHECK_KEY, Date.now().toString());
 }
 
+// Biến lưu trữ hash mới nhất tìm thấy
+let latestRemoteHash: string | null = null;
+
 /**
  * Kiểm tra xem có bản cập nhật mới hay không
  * @returns true nếu có update, false nếu không có hoặc lỗi
@@ -89,10 +94,19 @@ function setLocalHash(hash: string): void {
 export async function checkForUpdates(): Promise<boolean> {
     console.log('[UpdateService] Checking for updates...');
 
+    // Skip check in development mode
+    if (import.meta.env.DEV) {
+        console.log('[UpdateService] Development mode, skipping update check');
+        return false;
+    }
+
     const remoteHash = await fetchRemoteHash();
     if (!remoteHash) {
         return false;
     }
+
+    // Cache the new hash
+    latestRemoteHash = remoteHash;
 
     const localHash = getLocalHash();
 
@@ -123,13 +137,16 @@ export async function checkForUpdates(): Promise<boolean> {
 
 /**
  * Áp dụng update: clear cache và reload trang
+ * @param onProgress Callback báo cáo tiến độ (0-100)
  */
-export async function applyUpdate(): Promise<void> {
+export async function applyUpdate(onProgress?: (percent: number, step: string) => void): Promise<void> {
     console.log('[UpdateService] Applying update...');
+    onProgress?.(10, 'Đang chuẩn bị...');
 
     try {
         // Clear tất cả cache của service worker
         if ('caches' in window) {
+            onProgress?.(30, 'Đang xóa dữ liệu cũ...');
             const cacheNames = await caches.keys();
             await Promise.all(
                 cacheNames.map(cacheName => caches.delete(cacheName))
@@ -139,6 +156,7 @@ export async function applyUpdate(): Promise<void> {
 
         // Unregister service worker cũ và đăng ký lại
         if ('serviceWorker' in navigator) {
+            onProgress?.(60, 'Đang cập nhật Service Worker...');
             const registrations = await navigator.serviceWorker.getRegistrations();
             for (const registration of registrations) {
                 await registration.unregister();
@@ -146,11 +164,24 @@ export async function applyUpdate(): Promise<void> {
             console.log('[UpdateService] Unregistered service workers');
         }
 
-        // Fetch hash mới và lưu trước khi reload
-        const newHash = await fetchRemoteHash();
+        // Use the cached remote hash if available, otherwise fetch again
+        onProgress?.(80, 'Đang xác thực phiên bản...');
+        const newHash = latestRemoteHash || await fetchRemoteHash();
+
         if (newHash) {
+            console.log('[UpdateService] Saving new hash:', newHash);
             setLocalHash(newHash);
+        } else {
+            console.warn('[UpdateService] Could not retrieve new hash before applying update');
         }
+
+        // Đánh dấu update thành công để lần mở sau hiển thị thông báo
+        localStorage.setItem(UPDATE_SUCCESS_KEY, 'true');
+
+        onProgress?.(100, 'Hoàn tất! Đang khởi động lại...');
+
+        // Đợi một chút để UI kịp hiển thị 100%
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         // Reload trang để load code mới
         window.location.reload();
@@ -159,6 +190,19 @@ export async function applyUpdate(): Promise<void> {
         // Vẫn reload dù có lỗi
         window.location.reload();
     }
+}
+
+/**
+ * Kiểm tra xem lần mở app này có phải sau khi update thành công không
+ * Nếu có, xóa cờ và trả về true
+ */
+export function checkUpdateSuccess(): boolean {
+    const isSuccess = localStorage.getItem(UPDATE_SUCCESS_KEY) === 'true';
+    if (isSuccess) {
+        localStorage.removeItem(UPDATE_SUCCESS_KEY);
+        return true;
+    }
+    return false;
 }
 
 /**

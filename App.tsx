@@ -6,10 +6,10 @@ import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
-import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/updateService';
+import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT, checkUpdateSuccess } from '@/services/updateService';
 import { initializeTheme } from '@/services/themeService';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
-import { X, Download, Loader2 } from 'lucide-react';
+import { X, Download, Loader2, CheckCircle } from 'lucide-react';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('@/src/pages/HomePage').then(module => ({ default: module.HomePage })));
@@ -85,6 +85,39 @@ const InstallInstructionsModal = ({ onClose }: { onClose: () => void }) => (
   </div>
 );
 
+// Update Success Toast Component
+const UpdateSuccessToast = ({ onClose }: { onClose: () => void }) => {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 5000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[70] animate-slideDown">
+      <div className="bg-green-500 text-white px-6 py-4 rounded-full shadow-lg flex items-center gap-3">
+        <CheckCircle size={24} className="text-white" />
+        <div>
+          <h3 className="font-bold text-lg">Cập nhật thành công!</h3>
+          <p className="text-green-100 text-sm">Chào mừng bạn đến với phiên bản mới.</p>
+        </div>
+        <button
+          onClick={onClose}
+          className="ml-2 bg-white/20 hover:bg-white/30 p-1 rounded-full transition-colors"
+        >
+          <X size={16} />
+        </button>
+      </div>
+      <style>{`
+                @keyframes slideDown {
+                    from { transform: translate(-50%, -100%); opacity: 0; }
+                    to { transform: translate(-50%, 0); opacity: 1; }
+                }
+                .animate-slideDown { animation: slideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+            `}</style>
+    </div>
+  );
+};
+
 // Global Modals Component
 function GlobalModals() {
   const { gachaResult } = useStudent();
@@ -109,6 +142,7 @@ export default function App() {
   const [isStandalone, setIsStandalone] = useState(false);
   const [showUpdateNotification, setShowUpdateNotification] = useState(false);
   const [versionCheckComplete, setVersionCheckComplete] = useState(false);
+  const [showUpdateSuccess, setShowUpdateSuccess] = useState(false);
 
   useEffect(() => {
     // Check if standalone
@@ -132,6 +166,11 @@ export default function App() {
     import('@/services/updateService').then(({ initUpdateService }) => {
       initUpdateService().catch(err => console.error('Failed to init update service:', err));
     });
+
+    // Check for update success flag
+    if (checkUpdateSuccess()) {
+      setShowUpdateSuccess(true);
+    }
 
     // Listen for update available event
     const handleUpdateAvailable = () => {
@@ -310,6 +349,10 @@ export default function App() {
 
             {showUpdateNotification && (
               <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
+            )}
+
+            {showUpdateSuccess && (
+              <UpdateSuccessToast onClose={() => setShowUpdateSuccess(false)} />
             )}
           </Suspense>
         </MusicProvider>

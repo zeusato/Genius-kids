@@ -9,15 +9,20 @@ interface UpdateNotificationProps {
 export const UpdateNotification: React.FC<UpdateNotificationProps> = ({ onDismiss }) => {
     const [isVisible, setIsVisible] = useState(true);
     const [isUpdating, setIsUpdating] = useState(false);
+    const [updateProgress, setUpdateProgress] = useState(0);
+    const [updateStatus, setUpdateStatus] = useState('');
 
     // Auto dismiss sau 30 giây
+    // Auto dismiss sau 30 giây (chỉ khi chưa bấm update)
     useEffect(() => {
+        if (isUpdating) return;
+
         const timer = setTimeout(() => {
             handleDismiss();
         }, 30000);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [isUpdating]);
 
     const handleDismiss = () => {
         setIsVisible(false);
@@ -28,7 +33,10 @@ export const UpdateNotification: React.FC<UpdateNotificationProps> = ({ onDismis
 
     const handleUpdate = async () => {
         setIsUpdating(true);
-        await applyUpdate();
+        await applyUpdate((percent, status) => {
+            setUpdateProgress(percent);
+            setUpdateStatus(status);
+        });
     };
 
     if (!isVisible) return null;
@@ -101,8 +109,17 @@ export const UpdateNotification: React.FC<UpdateNotificationProps> = ({ onDismis
 
                 {/* Progress indicator khi đang update */}
                 {isUpdating && (
-                    <div className="h-1 bg-brand-100">
-                        <div className="h-full bg-gradient-to-r from-brand-500 to-brand-600 animate-pulse" style={{ width: '70%' }} />
+                    <div className="px-6 pb-6 animate-fadeIn">
+                        <div className="flex justify-between text-xs text-brand-600 mb-2 font-medium">
+                            <span>{updateStatus}</span>
+                            <span>{updateProgress}%</span>
+                        </div>
+                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div
+                                className="h-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-300 ease-out"
+                                style={{ width: `${updateProgress}%` }}
+                            />
+                        </div>
                     </div>
                 )}
             </div>
