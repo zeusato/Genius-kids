@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
-import { HomePage } from '@/src/pages/HomePage';
-import { ModeSelectionPage } from '@/src/pages/ModeSelectionPage';
-import { StudyPage } from '@/src/pages/StudyPage';
-import { GamePage } from '@/src/pages/GamePage';
-import { ProfilePage } from '@/src/pages/ProfilePage';
-import { ShopPage } from '@/src/pages/ShopPage';
-import { AlbumPage } from '@/src/pages/AlbumPage';
-import { TellMeWhyPage } from '@/src/pages/TellMeWhyPage';
-import { SphinxRiddlePage } from '@/src/pages/SphinxRiddlePage';
-import { HallOfFamePage } from '@/src/pages/HallOfFamePage';
-import { KidCoderPage } from '@/src/pages/KidCoderPage';
-import { SolarSystemPage } from '@/src/pages/SolarSystemPage';
-import { ScienceMenuPage } from '@/src/pages/ScienceMenuPage';
-import { PeriodicTablePage } from '@/src/pages/PeriodicTablePage';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT } from '@/services/updateService';
 import { initializeTheme } from '@/services/themeService';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
-import { X, Download } from 'lucide-react';
+import { X, Download, Loader2 } from 'lucide-react';
+
+// Lazy load pages for performance
+const HomePage = React.lazy(() => import('@/src/pages/HomePage').then(module => ({ default: module.HomePage })));
+const ModeSelectionPage = React.lazy(() => import('@/src/pages/ModeSelectionPage').then(module => ({ default: module.ModeSelectionPage })));
+const StudyPage = React.lazy(() => import('@/src/pages/StudyPage').then(module => ({ default: module.StudyPage })));
+const GamePage = React.lazy(() => import('@/src/pages/GamePage').then(module => ({ default: module.GamePage })));
+const ProfilePage = React.lazy(() => import('@/src/pages/ProfilePage').then(module => ({ default: module.ProfilePage })));
+const ShopPage = React.lazy(() => import('@/src/pages/ShopPage').then(module => ({ default: module.ShopPage })));
+const AlbumPage = React.lazy(() => import('@/src/pages/AlbumPage').then(module => ({ default: module.AlbumPage })));
+const TellMeWhyPage = React.lazy(() => import('@/src/pages/TellMeWhyPage').then(module => ({ default: module.TellMeWhyPage })));
+const SphinxRiddlePage = React.lazy(() => import('@/src/pages/SphinxRiddlePage').then(module => ({ default: module.SphinxRiddlePage })));
+const HallOfFamePage = React.lazy(() => import('@/src/pages/HallOfFamePage').then(module => ({ default: module.HallOfFamePage })));
+const KidCoderPage = React.lazy(() => import('@/src/pages/KidCoderPage').then(module => ({ default: module.KidCoderPage })));
+const SolarSystemPage = React.lazy(() => import('@/src/pages/SolarSystemPage').then(module => ({ default: module.SolarSystemPage })));
+const ScienceMenuPage = React.lazy(() => import('@/src/pages/ScienceMenuPage').then(module => ({ default: module.ScienceMenuPage })));
+const PeriodicTablePage = React.lazy(() => import('@/src/pages/PeriodicTablePage').then(module => ({ default: module.PeriodicTablePage })));
+const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').then(module => ({ default: module.ElectricityPage })));
 
 // Initialize Google Analytics
 ReactGA.initialize('G-KS48DHBY4L');
@@ -34,6 +37,7 @@ const PageViewTracker = () => {
 
   useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+    window.scrollTo(0, 0); // Scroll to top on route change
   }, [location]);
 
   return null;
@@ -166,133 +170,148 @@ export default function App() {
       <PageViewTracker />
       <StudentProvider>
         <MusicProvider>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  onInstallClick={handleInstallClick}
-                  canInstall={!isStandalone}
-                  showVersionCheck={versionCheckComplete}
-                />
-              }
-            />
-            <Route
-              path="/mode"
-              element={
-                <ProtectedRoute>
-                  <ModeSelectionPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/study/*"
-              element={
-                <ProtectedRoute>
-                  <StudyPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/game"
-              element={
-                <ProtectedRoute>
-                  <GamePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <ProfilePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/shop"
-              element={
-                <ProtectedRoute>
-                  <ShopPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/album"
-              element={
-                <ProtectedRoute>
-                  <AlbumPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/tellmewhy"
-              element={
-                <ProtectedRoute>
-                  <TellMeWhyPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/riddle"
-              element={
-                <ProtectedRoute>
-                  <SphinxRiddlePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/hall-of-fame"
-              element={
-                <ProtectedRoute>
-                  <HallOfFamePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/coding"
-              element={
-                <ProtectedRoute>
-                  <KidCoderPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/science"
-              element={
-                <ProtectedRoute>
-                  <ScienceMenuPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/science/solar-system"
-              element={
-                <ProtectedRoute>
-                  <SolarSystemPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/science/periodic-table"
-              element={
-                <ProtectedRoute>
-                  <PeriodicTablePage />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
+          <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-cyan-50">
+              <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
+              <span className="ml-3 text-lg font-bold text-blue-600">Đang tải...</span>
+            </div>
+          }>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <HomePage
+                    onInstallClick={handleInstallClick}
+                    canInstall={!isStandalone}
+                    showVersionCheck={versionCheckComplete}
+                  />
+                }
+              />
+              <Route
+                path="/mode"
+                element={
+                  <ProtectedRoute>
+                    <ModeSelectionPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/study/*"
+                element={
+                  <ProtectedRoute>
+                    <StudyPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/game"
+                element={
+                  <ProtectedRoute>
+                    <GamePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/shop"
+                element={
+                  <ProtectedRoute>
+                    <ShopPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/album"
+                element={
+                  <ProtectedRoute>
+                    <AlbumPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/tellmewhy"
+                element={
+                  <ProtectedRoute>
+                    <TellMeWhyPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/riddle"
+                element={
+                  <ProtectedRoute>
+                    <SphinxRiddlePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/hall-of-fame"
+                element={
+                  <ProtectedRoute>
+                    <HallOfFamePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/coding"
+                element={
+                  <ProtectedRoute>
+                    <KidCoderPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science"
+                element={
+                  <ProtectedRoute>
+                    <ScienceMenuPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science/solar-system"
+                element={
+                  <ProtectedRoute>
+                    <SolarSystemPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science/periodic-table"
+                element={
+                  <ProtectedRoute>
+                    <PeriodicTablePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science/electricity"
+                element={
+                  <ProtectedRoute>
+                    <ElectricityPage />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
 
-          {/* Global Modals */}
-          <GlobalModals />
+            {/* Global Modals */}
+            <GlobalModals />
 
-          {showInstallInstructions && (
-            <InstallInstructionsModal onClose={() => setShowInstallInstructions(false)} />
-          )}
+            {showInstallInstructions && (
+              <InstallInstructionsModal onClose={() => setShowInstallInstructions(false)} />
+            )}
 
-          {showUpdateNotification && (
-            <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
-          )}
+            {showUpdateNotification && (
+              <UpdateNotification onDismiss={() => setShowUpdateNotification(false)} />
+            )}
+          </Suspense>
         </MusicProvider>
       </StudentProvider>
     </BrowserRouter>

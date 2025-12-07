@@ -116,7 +116,7 @@ export function SolarSystemPage() {
             {/* UI Controls */}
             <div className="absolute top-4 left-4 z-50 flex gap-4">
                 <button
-                    onClick={() => navigate('/mode')}
+                    onClick={() => navigate('/science')}
                     className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
                 >
                     <ArrowLeft size={24} />

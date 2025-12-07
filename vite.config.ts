@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => {
           ]
         },
         workbox: {
-          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB (tăng từ 2MB mặc định)
+          maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
           runtimeCaching: [
             {

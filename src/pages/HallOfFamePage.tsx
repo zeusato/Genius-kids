@@ -41,7 +41,7 @@ export function HallOfFamePage() {
                 {/* Header */}
                 <header className="flex items-center justify-between mb-8">
                     <button
-                        onClick={() => navigate('/')}
+                        onClick={() => navigate('/profile')}
                         className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-slate-200 text-slate-600 font-bold hover:bg-slate-50"
                     >
                         <ArrowLeft size={20} /> Quay lại
@@ -95,8 +95,8 @@ export function HallOfFamePage() {
                             key={tab.id}
                             onClick={() => setFilter(tab.id as any)}
                             className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all ${filter === tab.id
-                                    ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
-                                    : 'bg-white text-slate-500 hover:bg-slate-50 border border-slate-200'
+                                ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
+                                : 'bg-white text-slate-500 hover:bg-slate-50 border border-slate-200'
                                 }`}
                         >
                             <tab.icon size={18} />
