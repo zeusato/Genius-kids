@@ -166,7 +166,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                     <h2 className="text-2xl font-bold mb-6 text-center">Tạo hồ sơ mới</h2>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-bold text-slate-600 mb-1">Tên của bé</label>
+                            <label className="block text-sm font-bold text-slate-600 mb-1">Tên của bé:</label>
                             <input
                                 type="text"
                                 value={newProfile.name}

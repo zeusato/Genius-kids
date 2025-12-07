@@ -61,6 +61,21 @@ export default defineConfig(({ mode }) => {
                   statuses: [0, 200]
                 }
               }
+            },
+            {
+              // Cache 3D models (.glb, .gltf)
+              urlPattern: /\.(?:glb|gltf)$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: '3d-models-cache',
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
             }
           ]
         },
