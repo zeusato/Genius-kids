@@ -27,6 +27,7 @@ const SolarSystemPage = React.lazy(() => import('@/src/pages/SolarSystemPage').t
 const ScienceMenuPage = React.lazy(() => import('@/src/pages/ScienceMenuPage').then(module => ({ default: module.ScienceMenuPage })));
 const PeriodicTablePage = React.lazy(() => import('@/src/pages/PeriodicTablePage').then(module => ({ default: module.PeriodicTablePage })));
 const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').then(module => ({ default: module.ElectricityPage })));
+const CellBiologyPage = React.lazy(() => import('@/src/pages/science/CellBiologyPage').then(module => ({ default: module.CellBiologyPage })));
 
 // Initialize Google Analytics
 ReactGA.initialize('G-KS48DHBY4L');
@@ -335,6 +336,14 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <ElectricityPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science/cell-biology"
+                element={
+                  <ProtectedRoute>
+                    <CellBiologyPage />
                   </ProtectedRoute>
                 }
               />

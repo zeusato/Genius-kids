@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Atom, Globe, Zap } from 'lucide-react';
+import { ArrowLeft, Atom, Globe, Zap, Microscope } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 export const ScienceMenuPage: React.FC = () => {
@@ -104,6 +104,31 @@ export const ScienceMenuPage: React.FC = () => {
                                     className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
                                     ⚡ Khám phá ngay!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Cell Biology Card */}
+                    <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border border-white/10 hover:border-white/20">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-lg transform hover:-rotate-6 transition-transform ring-2 ring-purple-400/50">
+                                <Microscope size={64} className="text-white" />
+                            </div>
+
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-white mb-3">
+                                    Khám Phá Tế Bào
+                                </h3>
+                                <p className="text-white/70 text-lg mb-6">
+                                    Soi kính hiển vi vào thế giới vi mô! Khám phá tế bào động vật, thực vật và vi khuẩn.
+                                </p>
+
+                                <button
+                                    onClick={() => navigate('/science/cell-biology')}
+                                    className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    🧬 Khám phá ngay!
                                 </button>
                             </div>
                         </div>
