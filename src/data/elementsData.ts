@@ -34,6 +34,7 @@ export interface ElementData {
     boilingPoint?: number;
     density?: number;
     state: 'solid' | 'liquid' | 'gas' | 'unknown';
+    infographicPath: string; // Relative path to infographic image in Supabase Storage
 }
 
 // Category colors for neon effect
@@ -76,7 +77,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -259.16,
         boilingPoint: -252.87,
         density: 0.00008988,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Hydrogen.jpeg'
     },
     {
         atomicNumber: 2,
@@ -101,7 +102,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -272.2,
         boilingPoint: -268.93,
         density: 0.0001785,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Helium.jpeg'
     },
 
     // ===== PERIOD 2 =====
@@ -128,7 +129,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 180.54,
         boilingPoint: 1342,
         density: 0.534,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Lithium.jpeg'
     },
     {
         atomicNumber: 4,
@@ -153,7 +154,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1287,
         boilingPoint: 2469,
         density: 1.85,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Beryllium.jpeg'
     },
     {
         atomicNumber: 5,
@@ -178,7 +179,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 2076,
         boilingPoint: 3927,
         density: 2.34,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Boron.jpeg'
     },
     {
         atomicNumber: 6,
@@ -203,7 +204,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 3550,
         boilingPoint: 4027,
         density: 2.267,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Carbon.jpeg'
     },
     {
         atomicNumber: 7,
@@ -228,7 +229,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -210.1,
         boilingPoint: -195.79,
         density: 0.0012506,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Nitrogen.jpeg'
     },
     {
         atomicNumber: 8,
@@ -253,7 +254,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -218.79,
         boilingPoint: -182.96,
         density: 0.001429,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Oxygen.jpeg'
     },
     {
         atomicNumber: 9,
@@ -278,7 +279,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -219.67,
         boilingPoint: -188.11,
         density: 0.001696,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Fluorine.jpeg'
     },
     {
         atomicNumber: 10,
@@ -303,7 +304,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -248.59,
         boilingPoint: -246.08,
         density: 0.0008999,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Neon.jpeg'
     },
 
     // ===== PERIOD 3 =====
@@ -330,7 +331,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 97.794,
         boilingPoint: 882.94,
         density: 0.971,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Sodium.jpeg'
     },
     {
         atomicNumber: 12,
@@ -355,7 +356,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 650,
         boilingPoint: 1090,
         density: 1.738,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Magnesium.jpeg'
     },
     {
         atomicNumber: 13,
@@ -380,7 +381,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 660.32,
         boilingPoint: 2519,
         density: 2.70,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Aluminum.jpeg'
     },
     {
         atomicNumber: 14,
@@ -405,7 +406,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1414,
         boilingPoint: 3265,
         density: 2.3296,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Silicon.jpeg'
     },
     {
         atomicNumber: 15,
@@ -430,7 +431,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 44.15,
         boilingPoint: 280.5,
         density: 1.82,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Phosphorus.jpeg'
     },
     {
         atomicNumber: 16,
@@ -455,7 +456,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 115.21,
         boilingPoint: 444.6,
         density: 2.067,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Sulfur.jpeg'
     },
     {
         atomicNumber: 17,
@@ -480,7 +481,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -101.5,
         boilingPoint: -34.04,
         density: 0.003214,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Chlorine.jpeg'
     },
     {
         atomicNumber: 18,
@@ -505,7 +506,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: -189.34,
         boilingPoint: -185.85,
         density: 0.0017837,
-        state: 'gas'
+        state: 'gas', infographicPath: 'element/Argon.jpeg'
     },
 
     // ===== PERIOD 4 (19-36) =====
@@ -532,7 +533,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 63.5,
         boilingPoint: 759,
         density: 0.862,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Potassium.jpeg'
     },
     {
         atomicNumber: 20,
@@ -557,7 +558,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 842,
         boilingPoint: 1484,
         density: 1.54,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Calcium.jpeg'
     },
     {
         atomicNumber: 21,
@@ -582,7 +583,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1541,
         boilingPoint: 2836,
         density: 2.989,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Scandium.jpeg'
     },
     {
         atomicNumber: 22,
@@ -607,7 +608,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1668,
         boilingPoint: 3287,
         density: 4.54,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Titanium.jpeg'
     },
     {
         atomicNumber: 23,
@@ -632,7 +633,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1910,
         boilingPoint: 3407,
         density: 6.11,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Vanadium.jpeg'
     },
     {
         atomicNumber: 24,
@@ -657,7 +658,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1907,
         boilingPoint: 2671,
         density: 7.15,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Chromium.jpeg'
     },
     {
         atomicNumber: 25,
@@ -682,7 +683,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1246,
         boilingPoint: 2061,
         density: 7.44,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Manganese.jpeg'
     },
     {
         atomicNumber: 26,
@@ -707,7 +708,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1538,
         boilingPoint: 2862,
         density: 7.874,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Iron.jpeg'
     },
     {
         atomicNumber: 27,
@@ -732,7 +733,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1495,
         boilingPoint: 2927,
         density: 8.86,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Cobalt.jpeg'
     },
     {
         atomicNumber: 28,
@@ -757,7 +758,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1455,
         boilingPoint: 2913,
         density: 8.912,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Nickel.jpeg'
     },
     {
         atomicNumber: 29,
@@ -782,7 +783,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 1084.62,
         boilingPoint: 2562,
         density: 8.96,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Copper.png'
     },
     {
         atomicNumber: 30,
@@ -807,7 +808,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         meltingPoint: 419.53,
         boilingPoint: 907,
         density: 7.134,
-        state: 'solid'
+        state: 'solid', infographicPath: 'element/Zinc.png'
     },
     // ===== Elements 31-36 (Ga-Kr) =====
     {
@@ -817,7 +818,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Gali là kim loại mềm với điểm nóng chảy thấp (29.76°C), có thể tan chảy trong tay.',
         facts: ['Gali tan chảy khi nắm trong tay vì điểm nóng chảy chỉ 29.76°C.', 'Chip LED và điện thoại di động sử dụng gali.', 'Gali không tồn tại tự do trong tự nhiên.'],
-        discoveryYear: 1875, meltingPoint: 29.76, boilingPoint: 2204, density: 5.907, state: 'solid'
+        discoveryYear: 1875, meltingPoint: 29.76, boilingPoint: 2204, density: 5.907, state: 'solid', infographicPath: 'element/Gallium.png'
     },
     {
         atomicNumber: 32, symbol: 'Ge', name: 'Gecmani', nameEn: 'Germanium',
@@ -826,7 +827,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#38D9A9', glowColor: '#38D9A980',
         description: 'Gecmani là á kim quan trọng trong công nghệ bán dẫn. Transistor đầu tiên được làm từ germanium.',
         facts: ['Transistor đầu tiên (1947) được làm từ germanium.', 'Gecmani được đặt tên theo nước Đức.', 'Cáp quang và hệ thống hồng ngoại sử dụng germanium.'],
-        discoveryYear: 1886, meltingPoint: 938.25, boilingPoint: 2833, density: 5.323, state: 'solid'
+        discoveryYear: 1886, meltingPoint: 938.25, boilingPoint: 2833, density: 5.323, state: 'solid', infographicPath: 'element/Germanium.png'
     },
     {
         atomicNumber: 33, symbol: 'As', name: 'Asen', nameEn: 'Arsenic',
@@ -835,7 +836,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#38D9A9', glowColor: '#38D9A980',
         description: 'Asen là á kim nổi tiếng vì độc tính. Trong lịch sử, nó được gọi là "vua của các chất độc".',
         facts: ['Asen từng được dùng làm thuốc độc vì không màu, không mùi, không vị.', 'Màu xanh Paris thời Victoria chứa asen độc.', 'Một lượng nhỏ asen được thêm vào hợp kim chì.'],
-        discoveryYear: 1250, meltingPoint: 817, boilingPoint: 614, density: 5.776, state: 'solid'
+        discoveryYear: 1250, meltingPoint: 817, boilingPoint: 614, density: 5.776, state: 'solid', infographicPath: 'element/Arsenic.png'
     },
     {
         atomicNumber: 34, symbol: 'Se', name: 'Selen', nameEn: 'Selenium',
@@ -844,7 +845,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#4DABF7', glowColor: '#4DABF780',
         description: 'Selen là phi kim có tính dẫn điện thay đổi theo ánh sáng. Nó là vi chất dinh dưỡng thiết yếu.',
         facts: ['Selen được đặt theo tên Mặt Trăng (Selene).', 'Tế bào quang điện đầu tiên sử dụng selen.', 'Dầu gội trị gàu thường chứa selenium sulfide.'],
-        discoveryYear: 1817, meltingPoint: 221, boilingPoint: 685, density: 4.809, state: 'solid'
+        discoveryYear: 1817, meltingPoint: 221, boilingPoint: 685, density: 4.809, state: 'solid', infographicPath: 'element/Selenium.png'
     },
     {
         atomicNumber: 35, symbol: 'Br', name: 'Brom', nameEn: 'Bromine',
@@ -853,7 +854,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#748FFC', glowColor: '#748FFC80',
         description: 'Brom là halogen duy nhất tồn tại dạng lỏng ở nhiệt độ phòng. Nó có màu nâu đỏ và mùi hăng.',
         facts: ['Brom là một trong hai nguyên tố lỏng ở nhiệt độ phòng (cùng với thủy ngân).', 'Tên brom có nghĩa là "hôi thối" trong tiếng Hy Lạp.', 'Chất chống cháy thường chứa brom.'],
-        discoveryYear: 1826, meltingPoint: -7.2, boilingPoint: 58.8, density: 3.122, state: 'liquid'
+        discoveryYear: 1826, meltingPoint: -7.2, boilingPoint: 58.8, density: 3.122, state: 'liquid', infographicPath: 'element/Bromine.png'
     },
     {
         atomicNumber: 36, symbol: 'Kr', name: 'Kripton', nameEn: 'Krypton',
@@ -862,7 +863,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#DA77F2', glowColor: '#DA77F280',
         description: 'Kripton là khí hiếm không màu, phát sáng trắng khi có điện. Tên của nó có nghĩa là "ẩn giấu".',
         facts: ['Superman yếu đuối trước Kryptonite, nhưng kripton thật hoàn toàn vô hại.', 'Đèn flash máy ảnh tốc độ cao sử dụng khí kripton.', 'Từ 1960-1983, mét được định nghĩa dựa trên bước sóng ánh sáng kripton.'],
-        discoveryYear: 1898, meltingPoint: -157.36, boilingPoint: -153.22, density: 0.003733, state: 'gas'
+        discoveryYear: 1898, meltingPoint: -157.36, boilingPoint: -153.22, density: 0.003733, state: 'gas', infographicPath: 'element/Krypton.png'
     },
     // ===== Period 5 (37-54) =====
     {
@@ -872,7 +873,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FF6B6B', glowColor: '#FF6B6B80',
         description: 'Rubidi là kim loại kiềm mềm nhất và phản ứng mạnh nhất. Đồng hồ nguyên tử rubidi cực kỳ chính xác.',
         facts: ['Rubidi được đặt tên theo màu đỏ đậm của vạch quang phổ.', 'Đồng hồ nguyên tử rubidi dùng trong GPS.', 'Rubidi bốc cháy ngay khi tiếp xúc không khí ẩm.'],
-        discoveryYear: 1861, meltingPoint: 39.31, boilingPoint: 688, density: 1.532, state: 'solid'
+        discoveryYear: 1861, meltingPoint: 39.31, boilingPoint: 688, density: 1.532, state: 'solid', infographicPath: 'element/Rubidium.png'
     },
     {
         atomicNumber: 38, symbol: 'Sr', name: 'Stronti', nameEn: 'Strontium',
@@ -881,7 +882,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFA94D', glowColor: '#FFA94D80',
         description: 'Stronti là kim loại kiềm thổ mềm. Hợp chất của nó tạo màu đỏ tươi trong pháo hoa.',
         facts: ['Pháo hoa màu đỏ sáng sử dụng hợp chất stronti.', 'Strontium-90 là sản phẩm phóng xạ nguy hiểm.', 'Stronti được đặt tên theo làng Strontian ở Scotland.'],
-        discoveryYear: 1790, meltingPoint: 777, boilingPoint: 1382, density: 2.64, state: 'solid'
+        discoveryYear: 1790, meltingPoint: 777, boilingPoint: 1382, density: 2.64, state: 'solid', infographicPath: 'element/Strontium.png'
     },
     {
         atomicNumber: 39, symbol: 'Y', name: 'Ytri', nameEn: 'Yttrium',
@@ -890,7 +891,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Ytri là kim loại chuyển tiếp màu bạc, được dùng trong LED trắng và laser YAG.',
         facts: ['Ytri được đặt tên theo làng Ytterby ở Thụy Điển.', 'TV màn hình CRT sử dụng ytri để tạo màu đỏ.', 'Laser YAG dùng trong phẫu thuật mắt.'],
-        discoveryYear: 1794, meltingPoint: 1526, boilingPoint: 3345, density: 4.469, state: 'solid'
+        discoveryYear: 1794, meltingPoint: 1526, boilingPoint: 3345, density: 4.469, state: 'solid', infographicPath: 'element/Yttrium.png'
     },
     {
         atomicNumber: 40, symbol: 'Zr', name: 'Zirconi', nameEn: 'Zirconium',
@@ -899,7 +900,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Zirconi là kim loại sáng bóng, chống ăn mòn, được dùng trong lò phản ứng hạt nhân.',
         facts: ['Cubic zirconia (CZ) là zirconi dioxide - kim cương nhân tạo phổ biến.', 'Vỏ thanh nhiên liệu hạt nhân làm từ hợp kim zirconi.', 'Răng sứ zirconia ngày càng phổ biến.'],
-        discoveryYear: 1789, meltingPoint: 1855, boilingPoint: 4409, density: 6.506, state: 'solid'
+        discoveryYear: 1789, meltingPoint: 1855, boilingPoint: 4409, density: 6.506, state: 'solid', infographicPath: 'element/Zirconium.png'
     },
     {
         atomicNumber: 41, symbol: 'Nb', name: 'Niobi', nameEn: 'Niobium',
@@ -908,7 +909,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Niobi là kim loại mềm, dẻo, được dùng trong hợp kim siêu dẫn và thép đặc biệt.',
         facts: ['Niobi được đặt theo Niobe trong thần thoại Hy Lạp.', 'Nam châm MRI chứa hợp kim niobi-titan.', 'Brazil sản xuất khoảng 90% niobi thế giới.'],
-        discoveryYear: 1801, meltingPoint: 2477, boilingPoint: 4744, density: 8.57, state: 'solid'
+        discoveryYear: 1801, meltingPoint: 2477, boilingPoint: 4744, density: 8.57, state: 'solid', infographicPath: 'element/Niobium.png'
     },
     {
         atomicNumber: 42, symbol: 'Mo', name: 'Molypden', nameEn: 'Molybdenum',
@@ -917,7 +918,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Molypden là kim loại có điểm nóng chảy rất cao, được dùng trong thép hợp kim.',
         facts: ['Molypden từng bị nhầm với chì.', 'Thép molypden được dùng trong vũ khí và xe bọc thép.', 'Molypden là vi chất quan trọng cho enzyme.'],
-        discoveryYear: 1781, meltingPoint: 2623, boilingPoint: 4639, density: 10.22, state: 'solid'
+        discoveryYear: 1781, meltingPoint: 2623, boilingPoint: 4639, density: 10.22, state: 'solid', infographicPath: 'element/Molybdenum.png'
     },
     {
         atomicNumber: 43, symbol: 'Tc', name: 'Tecneti', nameEn: 'Technetium',
@@ -926,7 +927,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Tecneti là nguyên tố nhân tạo đầu tiên. Tất cả các đồng vị đều phóng xạ.',
         facts: ['Tecneti có nghĩa là "nhân tạo" trong tiếng Hy Lạp.', 'Tecneti-99m dùng phổ biến trong chẩn đoán y khoa.', 'Không có tecneti ổn định trong tự nhiên.'],
-        discoveryYear: 1937, meltingPoint: 2157, boilingPoint: 4265, density: 11.5, state: 'solid'
+        discoveryYear: 1937, meltingPoint: 2157, boilingPoint: 4265, density: 11.5, state: 'solid', infographicPath: 'element/Technetium.png'
     },
     {
         atomicNumber: 44, symbol: 'Ru', name: 'Rutheni', nameEn: 'Ruthenium',
@@ -935,7 +936,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Rutheni là kim loại nhóm platin, cứng, chống ăn mòn.',
         facts: ['Rutheni được đặt tên theo Ruthenia (tên Latin của Nga).', 'Rutheni được thêm vào platin để tăng độ cứng.', 'Bút Parker "51" sử dụng ngòi bút rutheni.'],
-        discoveryYear: 1844, meltingPoint: 2334, boilingPoint: 4150, density: 12.37, state: 'solid'
+        discoveryYear: 1844, meltingPoint: 2334, boilingPoint: 4150, density: 12.37, state: 'solid', infographicPath: 'element/Ruthenium.png'
     },
     {
         atomicNumber: 45, symbol: 'Rh', name: 'Rhodi', nameEn: 'Rhodium',
@@ -944,7 +945,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Rhodi là một trong những kim loại quý hiếm và đắt nhất thế giới.',
         facts: ['Rhodi có thể đắt hơn vàng 5-10 lần.', 'Bộ chuyển đổi xúc tác trong xe hơi chứa rhodi.', 'Rhodi được mạ lên đồ trang sức để tăng độ sáng.'],
-        discoveryYear: 1803, meltingPoint: 1964, boilingPoint: 3695, density: 12.41, state: 'solid'
+        discoveryYear: 1803, meltingPoint: 1964, boilingPoint: 3695, density: 12.41, state: 'solid', infographicPath: 'element/Rhodium.png'
     },
     {
         atomicNumber: 46, symbol: 'Pd', name: 'Paladi', nameEn: 'Palladium',
@@ -953,7 +954,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Paladi là kim loại nhóm platin, có thể hấp thụ hydro gấp 900 lần thể tích.',
         facts: ['Paladi hấp thụ hydro gấp 900 lần thể tích.', 'Paladi được đặt tên theo tiểu hành tinh Pallas.', 'Nhiều bộ chuyển đổi xúc tác dùng paladi.'],
-        discoveryYear: 1803, meltingPoint: 1554.9, boilingPoint: 2963, density: 12.02, state: 'solid'
+        discoveryYear: 1803, meltingPoint: 1554.9, boilingPoint: 2963, density: 12.02, state: 'solid', infographicPath: 'element/Palladium.png'
     },
     {
         atomicNumber: 47, symbol: 'Ag', name: 'Bạc', nameEn: 'Silver',
@@ -962,7 +963,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Bạc là kim loại quý có độ dẫn điện và dẫn nhiệt cao nhất trong tất cả các kim loại.',
         facts: ['Bạc dẫn điện tốt nhất trong tất cả các kim loại.', 'Bạc có tính kháng khuẩn tự nhiên.', 'Phim ảnh truyền thống sử dụng bạc halide.'],
-        discoveryYear: -5000, meltingPoint: 961.78, boilingPoint: 2162, density: 10.501, state: 'solid'
+        discoveryYear: -5000, meltingPoint: 961.78, boilingPoint: 2162, density: 10.501, state: 'solid', infographicPath: 'element/Silver.png'
     },
     {
         atomicNumber: 48, symbol: 'Cd', name: 'Cadimi', nameEn: 'Cadmium',
@@ -971,7 +972,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Cadimi là kim loại mềm, màu bạc xanh, độc hại. Nó được dùng trong pin NiCd.',
         facts: ['Pin NiCd từng phổ biến trước pin lithium-ion.', 'Cadimi rất độc và gây bệnh Itai-itai ở Nhật Bản.', 'Màu vàng cadmium được Van Gogh sử dụng.'],
-        discoveryYear: 1817, meltingPoint: 321.07, boilingPoint: 767, density: 8.69, state: 'solid'
+        discoveryYear: 1817, meltingPoint: 321.07, boilingPoint: 767, density: 8.69, state: 'solid', infographicPath: 'element/Cadmium.png'
     },
     {
         atomicNumber: 49, symbol: 'In', name: 'Indi', nameEn: 'Indium',
@@ -980,7 +981,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Indi là kim loại mềm, dẻo, được dùng trong màn hình cảm ứng và LCD.',
         facts: ['Indi được đặt tên theo màu chàm (indigo).', 'Màn hình cảm ứng sử dụng indi tin oxide (ITO).', 'Indi mềm có thể để lại vết trên giấy như bút chì.'],
-        discoveryYear: 1863, meltingPoint: 156.6, boilingPoint: 2072, density: 7.31, state: 'solid'
+        discoveryYear: 1863, meltingPoint: 156.6, boilingPoint: 2072, density: 7.31, state: 'solid', infographicPath: 'element/Indium.png'
     },
     {
         atomicNumber: 50, symbol: 'Sn', name: 'Thiếc', nameEn: 'Tin',
@@ -989,7 +990,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Thiếc là kim loại mềm, màu bạc, được dùng từ thời đồ đồng trong hàn và đồ hộp.',
         facts: ['Lon đồ hộp được phủ thiếc để chống gỉ.', 'Hợp kim đồng-thiếc mở ra Thời đại Đồ Đồng.', 'Thiếc tạo "tiếng kêu thiếc" khi bẻ cong.'],
-        discoveryYear: -3500, meltingPoint: 231.93, boilingPoint: 2602, density: 7.287, state: 'solid'
+        discoveryYear: -3500, meltingPoint: 231.93, boilingPoint: 2602, density: 7.287, state: 'solid', infographicPath: 'element/Tin.png'
     },
     {
         atomicNumber: 51, symbol: 'Sb', name: 'Antimon', nameEn: 'Antimony',
@@ -998,7 +999,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#38D9A9', glowColor: '#38D9A980',
         description: 'Antimon là á kim màu bạc, giòn. Nó được dùng trong hợp kim chì và chất chống cháy.',
         facts: ['Phụ nữ Ai Cập cổ đại dùng antimon làm kẻ mắt.', 'Pin axit chì chứa hợp kim chì-antimon.', 'Ký hiệu Sb từ tên Latin Stibium.'],
-        discoveryYear: -3000, meltingPoint: 630.63, boilingPoint: 1587, density: 6.685, state: 'solid'
+        discoveryYear: -3000, meltingPoint: 630.63, boilingPoint: 1587, density: 6.685, state: 'solid', infographicPath: 'element/Antimony.png'
     },
     {
         atomicNumber: 52, symbol: 'Te', name: 'Telu', nameEn: 'Tellurium',
@@ -1007,7 +1008,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#38D9A9', glowColor: '#38D9A980',
         description: 'Telu là á kim hiếm, được đặt tên theo Trái Đất (Tellus). Nó được dùng trong pin mặt trời.',
         facts: ['Telu hiếm hơn vàng trong vỏ Trái Đất.', 'Người tiếp xúc telu thường có hơi thở mùi tỏi.', 'Pin mặt trời cadmium telluride rất phổ biến.'],
-        discoveryYear: 1782, meltingPoint: 449.51, boilingPoint: 988, density: 6.232, state: 'solid'
+        discoveryYear: 1782, meltingPoint: 449.51, boilingPoint: 988, density: 6.232, state: 'solid', infographicPath: 'element/Tellurium.png'
     },
     {
         atomicNumber: 53, symbol: 'I', name: 'Iot', nameEn: 'Iodine',
@@ -1016,7 +1017,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#748FFC', glowColor: '#748FFC80',
         description: 'Iot là halogen rắn, màu tím đen, bốc hơi thành khí tím. Nó thiết yếu cho tuyến giáp.',
         facts: ['Iot được thêm vào muối ăn để ngăn bệnh bướu cổ.', 'Dung dịch iot (thuốc đỏ) là chất khử trùng phổ biến.', 'Tên iot có nghĩa là "màu tím" trong tiếng Hy Lạp.'],
-        discoveryYear: 1811, meltingPoint: 113.7, boilingPoint: 184.3, density: 4.93, state: 'solid'
+        discoveryYear: 1811, meltingPoint: 113.7, boilingPoint: 184.3, density: 4.93, state: 'solid', infographicPath: 'element/Iodine.png'
     },
     {
         atomicNumber: 54, symbol: 'Xe', name: 'Xenon', nameEn: 'Xenon',
@@ -1025,7 +1026,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#DA77F2', glowColor: '#DA77F280',
         description: 'Xenon là khí hiếm nặng, phát sáng xanh dương khi có điện. Nó được dùng trong đèn pha xe hơi.',
         facts: ['Xenon có nghĩa là "xa lạ" trong tiếng Hy Lạp.', 'Đèn pha HID (xenon) sáng hơn đèn halogen.', 'Xenon được dùng làm thuốc gây mê an toàn.'],
-        discoveryYear: 1898, meltingPoint: -111.75, boilingPoint: -108.12, density: 0.005887, state: 'gas'
+        discoveryYear: 1898, meltingPoint: -111.75, boilingPoint: -108.12, density: 0.005887, state: 'gas', infographicPath: 'element/Xenon.png'
     },
     // ===== Period 6 (55-86) =====
     {
@@ -1035,7 +1036,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FF6B6B', glowColor: '#FF6B6B80',
         description: 'Xesi là kim loại kiềm mềm nhất, phản ứng mãnh liệt. Đồng hồ nguyên tử xesi định nghĩa giây.',
         facts: ['Giây được định nghĩa dựa trên dao động của nguyên tử xesi-133.', 'Xesi phản ứng mãnh liệt với nước, thậm chí với băng đá.', 'Xesi có điểm nóng chảy 28°C, gần tan trong tay.'],
-        discoveryYear: 1860, meltingPoint: 28.44, boilingPoint: 671, density: 1.873, state: 'solid'
+        discoveryYear: 1860, meltingPoint: 28.44, boilingPoint: 671, density: 1.873, state: 'solid', infographicPath: 'element/Cesium.png'
     },
     {
         atomicNumber: 56, symbol: 'Ba', name: 'Bari', nameEn: 'Barium',
@@ -1044,7 +1045,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFA94D', glowColor: '#FFA94D80',
         description: 'Bari là kim loại kiềm thổ mềm. Bari sulfat dùng trong chụp X-quang đường tiêu hóa.',
         facts: ['Tên bari có nghĩa là "nặng" trong tiếng Hy Lạp.', 'Bệnh nhân phải uống "bữa ăn bari" để chụp X-quang dạ dày.', 'Pháo hoa màu xanh lá sáng sử dụng hợp chất bari.'],
-        discoveryYear: 1808, meltingPoint: 727, boilingPoint: 1845, density: 3.594, state: 'solid'
+        discoveryYear: 1808, meltingPoint: 727, boilingPoint: 1845, density: 3.594, state: 'solid', infographicPath: 'element/Barium.png'
     },
     // Lanthanides (57-71)
     {
@@ -1054,7 +1055,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Lantan là nguyên tố đầu tiên của nhóm đất hiếm. Nó được dùng trong pin NiMH và thấu kính máy ảnh.',
         facts: ['Tên lantan có nghĩa là "ẩn giấu" vì khó tách biệt.', 'Pin NiMH trong xe hybrid chứa hợp kim lantan.', 'Thấu kính máy ảnh cao cấp sử dụng thủy tinh lantan.'],
-        discoveryYear: 1839, meltingPoint: 920, boilingPoint: 3464, density: 6.145, state: 'solid'
+        discoveryYear: 1839, meltingPoint: 920, boilingPoint: 3464, density: 6.145, state: 'solid', infographicPath: 'element/Lanthanum.png'
     },
     {
         atomicNumber: 58, symbol: 'Ce', name: 'Xeri', nameEn: 'Cerium',
@@ -1063,7 +1064,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Xeri là nguyên tố đất hiếm phổ biến nhất, dùng trong bộ chuyển đổi xúc tác và đá lửa bật lửa.',
         facts: ['Xeri được đặt tên theo tiểu hành tinh Ceres.', 'Đá lửa bật lửa (ferrocerium) chứa xeri.', 'Xeri oxide được dùng để đánh bóng thủy tinh và gương.'],
-        discoveryYear: 1803, meltingPoint: 799, boilingPoint: 3443, density: 6.77, state: 'solid'
+        discoveryYear: 1803, meltingPoint: 799, boilingPoint: 3443, density: 6.77, state: 'solid', infographicPath: 'element/Cerium.png'
     },
     {
         atomicNumber: 59, symbol: 'Pr', name: 'Praseodymi', nameEn: 'Praseodymium',
@@ -1072,7 +1073,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Praseodymi là nguyên tố đất hiếm màu vàng lục, dùng trong nam châm và kính thợ hàn.',
         facts: ['Tên có nghĩa là "sinh đôi xanh lá" trong tiếng Hy Lạp.', 'Nam châm neodymium-praseodymium là nam châm vĩnh cửu mạnh nhất.', 'Kính thợ hàn sử dụng praseodymi để lọc tia UV.'],
-        discoveryYear: 1885, meltingPoint: 931, boilingPoint: 3520, density: 6.773, state: 'solid'
+        discoveryYear: 1885, meltingPoint: 931, boilingPoint: 3520, density: 6.773, state: 'solid', infographicPath: 'element/Praseodymium.png'
     },
     {
         atomicNumber: 60, symbol: 'Nd', name: 'Neodymi', nameEn: 'Neodymium',
@@ -1081,7 +1082,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Neodymi tạo ra nam châm vĩnh cửu mạnh nhất thế giới, có trong ổ cứng, tai nghe và động cơ điện.',
         facts: ['Nam châm neodymium mạnh có thể gây thương tích nếu bất cẩn.', 'Mỗi động cơ xe điện Tesla chứa 1-2 kg neodymium.', 'Laser neodymium được dùng trong phẫu thuật và công nghiệp.'],
-        discoveryYear: 1885, meltingPoint: 1024, boilingPoint: 3074, density: 7.007, state: 'solid'
+        discoveryYear: 1885, meltingPoint: 1024, boilingPoint: 3074, density: 7.007, state: 'solid', infographicPath: 'element/Neodymium.jpeg'
     },
     {
         atomicNumber: 61, symbol: 'Pm', name: 'Prometi', nameEn: 'Promethium',
@@ -1090,7 +1091,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Prometi là nguyên tố đất hiếm duy nhất không có đồng vị ổn định. Nó phóng xạ và hiếm.',
         facts: ['Prometi được đặt theo thần Prometheus đã mang lửa cho loài người.', 'Prometi từng dùng trong sơn phát sáng của kim đồng hồ.', 'Tất cả prometi đều phóng xạ, chỉ được tạo trong lò phản ứng.'],
-        discoveryYear: 1945, meltingPoint: 1042, boilingPoint: 3000, density: 7.26, state: 'solid'
+        discoveryYear: 1945, meltingPoint: 1042, boilingPoint: 3000, density: 7.26, state: 'solid', infographicPath: 'element/Promethium.jpeg'
     },
     {
         atomicNumber: 62, symbol: 'Sm', name: 'Samari', nameEn: 'Samarium',
@@ -1099,7 +1100,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Samari được dùng trong nam châm samaria-coban chịu nhiệt cao, dùng trong hàng không vũ trụ.',
         facts: ['Samari được đặt tên theo khoáng vật samarskite.', 'Nam châm samari-coban chịu được nhiệt độ cao hơn neodymium.', 'Samari-153 được dùng điều trị đau xương do ung thư.'],
-        discoveryYear: 1879, meltingPoint: 1072, boilingPoint: 1900, density: 7.52, state: 'solid'
+        discoveryYear: 1879, meltingPoint: 1072, boilingPoint: 1900, density: 7.52, state: 'solid', infographicPath: 'element/Samarium.jpeg'
     },
     {
         atomicNumber: 63, symbol: 'Eu', name: 'Europi', nameEn: 'Europium',
@@ -1108,7 +1109,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Europi là nguyên tố đất hiếm phản ứng mạnh nhất, dùng tạo màu đỏ trong TV và tiền giấy chống giả.',
         facts: ['Europi được đặt tên theo châu Âu.', 'Tiền Euro và USD có sợi phát sáng chứa europi.', 'TV CRT và LED sử dụng europi để tạo màu đỏ.'],
-        discoveryYear: 1901, meltingPoint: 822, boilingPoint: 1529, density: 5.243, state: 'solid'
+        discoveryYear: 1901, meltingPoint: 822, boilingPoint: 1529, density: 5.243, state: 'solid', infographicPath: 'element/Europium.jpeg'
     },
     {
         atomicNumber: 64, symbol: 'Gd', name: 'Gadolini', nameEn: 'Gadolinium',
@@ -1117,7 +1118,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Gadolini có từ tính mạnh, được dùng làm chất cản quang MRI và trong lò phản ứng hạt nhân.',
         facts: ['Gadolini được đặt theo nhà hóa học Johan Gadolin.', 'Chất cản quang MRI thường chứa gadolini.', 'Gadolini có khả năng hấp thụ neutron cao, dùng trong lò phản ứng.'],
-        discoveryYear: 1880, meltingPoint: 1313, boilingPoint: 3273, density: 7.895, state: 'solid'
+        discoveryYear: 1880, meltingPoint: 1313, boilingPoint: 3273, density: 7.895, state: 'solid', infographicPath: 'element/Gadolinium.jpeg'
     },
     {
         atomicNumber: 65, symbol: 'Tb', name: 'Terbi', nameEn: 'Terbium',
@@ -1126,7 +1127,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Terbi được dùng trong phosphor xanh lá cho đèn huỳnh quang và màn hình.',
         facts: ['Terbi được đặt tên theo làng Ytterby ở Thụy Điển.', 'Terbi tạo màu xanh lá trong đèn huỳnh quang compact.', 'Hợp kim terbi-sắt co giãn mạnh trong từ trường.'],
-        discoveryYear: 1843, meltingPoint: 1356, boilingPoint: 3230, density: 8.229, state: 'solid'
+        discoveryYear: 1843, meltingPoint: 1356, boilingPoint: 3230, density: 8.229, state: 'solid', infographicPath: 'element/Terbium.jpeg'
     },
     {
         atomicNumber: 66, symbol: 'Dy', name: 'Dysprosi', nameEn: 'Dysprosium',
@@ -1135,7 +1136,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Dysprosi được thêm vào nam châm neodymium để hoạt động ở nhiệt độ cao hơn.',
         facts: ['Tên có nghĩa là "khó tiếp cận" trong tiếng Hy Lạp.', 'Dysprosi giúp nam châm neodymium chịu nhiệt tốt hơn.', 'Đèn halogen kim loại-halide sử dụng dysprosi.'],
-        discoveryYear: 1886, meltingPoint: 1412, boilingPoint: 2567, density: 8.55, state: 'solid'
+        discoveryYear: 1886, meltingPoint: 1412, boilingPoint: 2567, density: 8.55, state: 'solid', infographicPath: 'element/Dysprosium.jpeg'
     },
     {
         atomicNumber: 67, symbol: 'Ho', name: 'Holmi', nameEn: 'Holmium',
@@ -1144,7 +1145,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Holmi có từ tính mạnh nhất trong các nguyên tố tự nhiên, dùng trong nam châm và laser y tế.',
         facts: ['Holmi được đặt tên theo Stockholm (Holmia).', 'Holmi có mômen từ cao nhất trong các nguyên tố.', 'Laser holmi dùng trong phẫu thuật mắt và tán sỏi.'],
-        discoveryYear: 1878, meltingPoint: 1474, boilingPoint: 2700, density: 8.795, state: 'solid'
+        discoveryYear: 1878, meltingPoint: 1474, boilingPoint: 2700, density: 8.795, state: 'solid', infographicPath: 'element/Holmium.jpeg'
     },
     {
         atomicNumber: 68, symbol: 'Er', name: 'Erbi', nameEn: 'Erbium',
@@ -1153,7 +1154,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Erbi được dùng trong bộ khuếch đại cáp quang và laser thẩm mỹ.',
         facts: ['Erbi được đặt tên theo làng Ytterby.', 'Bộ khuếch đại cáp quang internet dùng erbi.', 'Laser erbi dùng trong điều trị da liễu và nha khoa.'],
-        discoveryYear: 1843, meltingPoint: 1529, boilingPoint: 2868, density: 9.066, state: 'solid'
+        discoveryYear: 1843, meltingPoint: 1529, boilingPoint: 2868, density: 9.066, state: 'solid', infographicPath: 'element/Erbium.jpeg'
     },
     {
         atomicNumber: 69, symbol: 'Tm', name: 'Tuli', nameEn: 'Thulium',
@@ -1162,7 +1163,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Tuli là một trong những nguyên tố đất hiếm hiếm nhất, dùng trong thiết bị X-quang di động.',
         facts: ['Tuli được đặt theo Thule, tên cổ của Scandinavia.', 'Tuli-170 dùng trong thiết bị X-quang di động.', 'Tuli là nguyên tố đất hiếm ít phổ biến thứ hai.'],
-        discoveryYear: 1879, meltingPoint: 1545, boilingPoint: 1950, density: 9.321, state: 'solid'
+        discoveryYear: 1879, meltingPoint: 1545, boilingPoint: 1950, density: 9.321, state: 'solid', infographicPath: 'element/Thulium.jpeg'
     },
     {
         atomicNumber: 70, symbol: 'Yb', name: 'Ytterbi', nameEn: 'Ytterbium',
@@ -1171,7 +1172,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Ytterbi được dùng trong thép không gỉ, laser và đồng hồ nguyên tử.',
         facts: ['Ytterbi là nguyên tố thứ tư được đặt tên theo làng Ytterby.', 'Đồng hồ nguyên tử ytterbi chính xác gấp 100 lần đồng hồ xesi.', 'Ytterbi được thêm vào thép không gỉ để tăng độ bền.'],
-        discoveryYear: 1878, meltingPoint: 824, boilingPoint: 1196, density: 6.965, state: 'solid'
+        discoveryYear: 1878, meltingPoint: 824, boilingPoint: 1196, density: 6.965, state: 'solid', infographicPath: 'element/Ytterbium.jpeg'
     },
     {
         atomicNumber: 71, symbol: 'Lu', name: 'Luteti', nameEn: 'Lutetium',
@@ -1180,7 +1181,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Luteti là nguyên tố đất hiếm cuối cùng, đắt nhất và cứng nhất, dùng trong PET scan.',
         facts: ['Luteti được đặt theo Lutetia, tên Latin của Paris.', 'Luteti-177 được dùng điều trị ung thư tuyến tiền liệt.', 'Luteti được dùng trong máy quét PET.'],
-        discoveryYear: 1907, meltingPoint: 1663, boilingPoint: 3402, density: 9.84, state: 'solid'
+        discoveryYear: 1907, meltingPoint: 1663, boilingPoint: 3402, density: 9.84, state: 'solid', infographicPath: 'element/Lutetium.jpeg'
     },
     // Continue Period 6 (72-86)
     {
@@ -1190,7 +1191,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Hafni là kim loại chuyển tiếp chịu nhiệt cao, dùng trong thanh điều khiển lò hạt nhân và chip.',
         facts: ['Hafni được đặt tên theo Copenhagen (Hafnia).', 'Thanh điều khiển lò hạt nhân dùng hafni vì hấp thụ neutron tốt.', 'Chip Intel 45nm sử dụng hafni dioxide.'],
-        discoveryYear: 1923, meltingPoint: 2233, boilingPoint: 4603, density: 13.31, state: 'solid'
+        discoveryYear: 1923, meltingPoint: 2233, boilingPoint: 4603, density: 13.31, state: 'solid', infographicPath: 'element/Hafnium.png'
     },
     {
         atomicNumber: 73, symbol: 'Ta', name: 'Tantali', nameEn: 'Tantalum',
@@ -1199,7 +1200,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Tantali là kim loại rất cứng, chống ăn mòn, dùng trong tụ điện và cấy ghép y tế.',
         facts: ['Tantali được đặt theo vua Tantalus trong thần thoại.', 'Điện thoại thông minh chứa tụ tantali.', 'Tantali không gây dị ứng, lý tưởng cho cấy ghép.'],
-        discoveryYear: 1802, meltingPoint: 3017, boilingPoint: 5458, density: 16.654, state: 'solid'
+        discoveryYear: 1802, meltingPoint: 3017, boilingPoint: 5458, density: 16.654, state: 'solid', infographicPath: 'element/Tantalum.png'
     },
     {
         atomicNumber: 74, symbol: 'W', name: 'Vonfram', nameEn: 'Tungsten',
@@ -1208,7 +1209,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Vonfram (Wolfram) có điểm nóng chảy cao nhất (3422°C) trong tất cả kim loại.',
         facts: ['Dây tóc bóng đèn sợi đốt làm từ vonfram.', 'Ký hiệu W từ tên Wolfram trong tiếng Đức.', 'Mũi khoan cứng nhất dùng hợp kim vonfram carbide.'],
-        discoveryYear: 1783, meltingPoint: 3422, boilingPoint: 5555, density: 19.25, state: 'solid'
+        discoveryYear: 1783, meltingPoint: 3422, boilingPoint: 5555, density: 19.25, state: 'solid', infographicPath: 'element/Tungsten.png'
     },
     {
         atomicNumber: 75, symbol: 'Re', name: 'Rheni', nameEn: 'Rhenium',
@@ -1217,7 +1218,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Rheni là một trong những nguyên tố hiếm nhất, dùng trong động cơ phản lực siêu nhiệt.',
         facts: ['Rheni được đặt tên theo sông Rhine.', 'Rheni là nguyên tố ổn định cuối cùng được phát hiện (1925).', 'Cánh tuabin động cơ phản lực dùng hợp kim rheni-niken.'],
-        discoveryYear: 1925, meltingPoint: 3186, boilingPoint: 5596, density: 21.02, state: 'solid'
+        discoveryYear: 1925, meltingPoint: 3186, boilingPoint: 5596, density: 21.02, state: 'solid', infographicPath: 'element/Rhenium.png'
     },
     {
         atomicNumber: 76, symbol: 'Os', name: 'Osmi', nameEn: 'Osmium',
@@ -1226,7 +1227,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Osmi là nguyên tố đặc nhất trong tự nhiên (22.59 g/cm³), dùng trong đầu bút máy.',
         facts: ['Osmi đặc hơn mọi nguyên tố khác.', 'Tên osmi có nghĩa là "mùi" vì oxide của nó có mùi hăng.', 'Ngòi bút máy cao cấp sử dụng hợp kim osmi-iridi.'],
-        discoveryYear: 1803, meltingPoint: 3033, boilingPoint: 5012, density: 22.59, state: 'solid'
+        discoveryYear: 1803, meltingPoint: 3033, boilingPoint: 5012, density: 22.59, state: 'solid', infographicPath: 'element/Osmium.png'
     },
     {
         atomicNumber: 77, symbol: 'Ir', name: 'Iridi', nameEn: 'Iridium',
@@ -1235,7 +1236,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Iridi là kim loại chống ăn mòn nhất, dùng trong bugi và bằng chứng tiểu hành tinh hủy diệt khủng long.',
         facts: ['Lớp iridi 66 triệu năm tuổi là bằng chứng tiểu hành tinh diệt khủng long.', 'Bugi iridi bền hơn bugi platin.', 'Kilogram nguyên bản được làm từ hợp kim platin-iridi.'],
-        discoveryYear: 1803, meltingPoint: 2446, boilingPoint: 4428, density: 22.56, state: 'solid'
+        discoveryYear: 1803, meltingPoint: 2446, boilingPoint: 4428, density: 22.56, state: 'solid', infographicPath: 'element/Iridium.png'
     },
     {
         atomicNumber: 78, symbol: 'Pt', name: 'Platin', nameEn: 'Platinum',
@@ -1244,7 +1245,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Platin là kim loại quý đắt tiền, dùng trong trang sức, xúc tác và điều trị ung thư.',
         facts: ['Platin hiếm gấp 30 lần vàng.', 'Bộ chuyển đổi xúc tác ô tô chứa platin, paladi hoặc rhodi.', 'Cisplatin (hợp chất platin) là thuốc hóa trị liệu ung thư.'],
-        discoveryYear: 1735, meltingPoint: 1768.3, boilingPoint: 3825, density: 21.45, state: 'solid'
+        discoveryYear: 1735, meltingPoint: 1768.3, boilingPoint: 3825, density: 21.45, state: 'solid', infographicPath: 'element/Platinum.png'
     },
     {
         atomicNumber: 79, symbol: 'Au', name: 'Vàng', nameEn: 'Gold',
@@ -1253,7 +1254,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Vàng là kim loại quý không bị oxy hóa, màu vàng đặc trưng, dùng trong trang sức và điện tử.',
         facts: ['Tất cả vàng trên Trái Đất đến từ va chạm sao neutron.', 'Vàng dẻo đến mức 1 gram có thể dát thành 1 m².', 'iPhone chứa khoảng 0.034 gram vàng.'],
-        discoveryYear: -6000, meltingPoint: 1064.18, boilingPoint: 2856, density: 19.282, state: 'solid'
+        discoveryYear: -6000, meltingPoint: 1064.18, boilingPoint: 2856, density: 19.282, state: 'solid', infographicPath: 'element/Gold.png'
     },
     {
         atomicNumber: 80, symbol: 'Hg', name: 'Thủy ngân', nameEn: 'Mercury',
@@ -1262,7 +1263,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Thủy ngân là kim loại duy nhất ở thể lỏng ở nhiệt độ phòng. Nó độc nhưng từng dùng rộng rãi.',
         facts: ['Thủy ngân là kim loại duy nhất lỏng ở nhiệt độ phòng.', 'Nhiệt kế thủy ngân đang bị loại bỏ vì độc hại.', 'Tên Mercury đặt theo thần Hermes vì nó "chạy" nhanh.'],
-        discoveryYear: -1500, meltingPoint: -38.83, boilingPoint: 356.73, density: 13.534, state: 'liquid'
+        discoveryYear: -1500, meltingPoint: -38.83, boilingPoint: 356.73, density: 13.534, state: 'liquid', infographicPath: 'element/Mercury.png'
     },
     {
         atomicNumber: 81, symbol: 'Tl', name: 'Tali', nameEn: 'Thallium',
@@ -1271,7 +1272,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Tali là kim loại mềm, độc, từng được dùng làm thuốc chuột và thuốc độc hoàn hảo.',
         facts: ['Tali từng được gọi là "thuốc độc hoàn hảo" vì không mùi vị.', 'Tali được đặt tên theo vạch xanh lá (thallos) trong quang phổ.', 'Tali-201 dùng trong chẩn đoán tim mạch.'],
-        discoveryYear: 1861, meltingPoint: 304, boilingPoint: 1473, density: 11.85, state: 'solid'
+        discoveryYear: 1861, meltingPoint: 304, boilingPoint: 1473, density: 11.85, state: 'solid', infographicPath: 'element/Thallium.png'
     },
     {
         atomicNumber: 82, symbol: 'Pb', name: 'Chì', nameEn: 'Lead',
@@ -1280,7 +1281,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Chì là kim loại nặng, mềm, độc, từng dùng rộng rãi nhưng nay bị hạn chế vì gây hại.',
         facts: ['Người La Mã dùng ống nước chì, có thể góp phần suy yếu đế chế.', 'Xăng pha chì bị cấm vì gây ngộ độc não.', 'Chì vẫn dùng trong tấm chắn X-quang và pin axit.'],
-        discoveryYear: -7000, meltingPoint: 327.46, boilingPoint: 1749, density: 11.342, state: 'solid'
+        discoveryYear: -7000, meltingPoint: 327.46, boilingPoint: 1749, density: 11.342, state: 'solid', infographicPath: 'element/Lead.png'
     },
     {
         atomicNumber: 83, symbol: 'Bi', name: 'Bitmut', nameEn: 'Bismuth',
@@ -1289,7 +1290,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#69DB7C', glowColor: '#69DB7C80',
         description: 'Bitmut tạo tinh thể cầu vồng tuyệt đẹp và là nguyên tố nặng nhất không phóng xạ đáng kể.',
         facts: ['Tinh thể bitmut có màu cầu vồng do lớp oxide bề mặt.', 'Pepto-Bismol (thuốc dạ dày) chứa bismuth subsalicylate.', 'Bitmut nở ra khi đông đặc, giống nước.'],
-        discoveryYear: 1753, meltingPoint: 271.5, boilingPoint: 1564, density: 9.807, state: 'solid'
+        discoveryYear: 1753, meltingPoint: 271.5, boilingPoint: 1564, density: 9.807, state: 'solid', infographicPath: 'element/Bismuth.png'
     },
     {
         atomicNumber: 84, symbol: 'Po', name: 'Poloni', nameEn: 'Polonium',
@@ -1298,7 +1299,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#38D9A9', glowColor: '#38D9A980',
         description: 'Poloni là nguyên tố phóng xạ cực độc do Marie Curie phát hiện, đặt tên theo quê hương Ba Lan.',
         facts: ['Marie Curie đặt tên poloni theo quê hương Ba Lan.', 'Poloni-210 được dùng đầu độc cựu điệp viên Litvinenko 2006.', 'Poloni phát ra nhiệt lượng lớn, từng nghiên cứu cho vệ tinh.'],
-        discoveryYear: 1898, meltingPoint: 254, boilingPoint: 962, density: 9.32, state: 'solid'
+        discoveryYear: 1898, meltingPoint: 254, boilingPoint: 962, density: 9.32, state: 'solid', infographicPath: 'element/Polonium.png'
     },
     {
         atomicNumber: 85, symbol: 'At', name: 'Astatin', nameEn: 'Astatine',
@@ -1307,7 +1308,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#748FFC', glowColor: '#748FFC80',
         description: 'Astatin là nguyên tố tự nhiên hiếm nhất trên Trái Đất, tại một thời điểm chỉ có < 1 gram.',
         facts: ['Tên astatin có nghĩa là "không ổn định".', 'Chỉ có dưới 30 gram astatin trong toàn bộ vỏ Trái Đất.', 'Astatin-211 đang được nghiên cứu điều trị ung thư.'],
-        discoveryYear: 1940, meltingPoint: 302, boilingPoint: 337, density: 7, state: 'solid'
+        discoveryYear: 1940, meltingPoint: 302, boilingPoint: 337, density: 7, state: 'solid', infographicPath: 'element/Astatine.png'
     },
     {
         atomicNumber: 86, symbol: 'Rn', name: 'Radon', nameEn: 'Radon',
@@ -1316,7 +1317,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#DA77F2', glowColor: '#DA77F280',
         description: 'Radon là khí hiếm phóng xạ không màu, không mùi, nguyên nhân số 2 gây ung thư phổi sau hút thuốc.',
         facts: ['Radon là nguyên nhân ung thư phổi thứ hai sau hút thuốc.', 'Radon tích tụ trong tầng hầm nhà ở.', 'Radon từng dùng trong spa "chữa bệnh" thời xưa.'],
-        discoveryYear: 1900, meltingPoint: -71, boilingPoint: -61.7, density: 0.00973, state: 'gas'
+        discoveryYear: 1900, meltingPoint: -71, boilingPoint: -61.7, density: 0.00973, state: 'gas', infographicPath: 'element/Radon.png'
     },
     // ===== Period 7 (87-118) =====
     {
@@ -1326,7 +1327,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FF6B6B', glowColor: '#FF6B6B80',
         description: 'Franxi là kim loại kiềm hiếm và phóng xạ nhất, chỉ tồn tại vài giây trước khi phân rã.',
         facts: ['Franxi được đặt tên theo nước Pháp.', 'Tại bất kỳ thời điểm nào chỉ có khoảng 30 gram franxi trên Trái Đất.', 'Franxi-223 có chu kỳ bán rã chỉ 22 phút.'],
-        discoveryYear: 1939, meltingPoint: 27, boilingPoint: 677, density: 1.87, state: 'solid'
+        discoveryYear: 1939, meltingPoint: 27, boilingPoint: 677, density: 1.87, state: 'solid', infographicPath: 'element/Francium.png'
     },
     {
         atomicNumber: 88, symbol: 'Ra', name: 'Radi', nameEn: 'Radium',
@@ -1335,7 +1336,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFA94D', glowColor: '#FFA94D80',
         description: 'Radi là nguyên tố phóng xạ phát sáng xanh, do vợ chồng Curie phát hiện.',
         facts: ['Radi phát sáng xanh nhạt trong bóng tối.', 'Marie Curie chết vì phơi nhiễm radi.', 'Radi từng dùng trong sơn phát sáng đồng hồ, gây chết nhiều công nhân.'],
-        discoveryYear: 1898, meltingPoint: 696, boilingPoint: 1737, density: 5.5, state: 'solid'
+        discoveryYear: 1898, meltingPoint: 696, boilingPoint: 1737, density: 5.5, state: 'solid', infographicPath: 'element/Radium.png'
     },
     // Actinides (89-103)
     {
@@ -1345,7 +1346,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Actini là nguyên tố đầu tiên của nhóm actinide, phát sáng xanh do phóng xạ.',
         facts: ['Actini phát sáng xanh trong bóng tối.', 'Actini-225 đang được nghiên cứu điều trị ung thư.', 'Actini hiếm đến mức 1 tấn quặng uranium chỉ chứa 0.2 mg.'],
-        discoveryYear: 1899, meltingPoint: 1050, boilingPoint: 3200, density: 10.07, state: 'solid'
+        discoveryYear: 1899, meltingPoint: 1050, boilingPoint: 3200, density: 10.07, state: 'solid', infographicPath: 'element/Actinium.jpeg'
     },
     {
         atomicNumber: 90, symbol: 'Th', name: 'Thori', nameEn: 'Thorium',
@@ -1354,7 +1355,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Thori là nguyên tố phóng xạ phổ biến, đang được nghiên cứu làm nhiên liệu hạt nhân thay thế uranium.',
         facts: ['Thori được đặt theo thần Thor của Bắc Âu.', 'Lò phản ứng thori an toàn hơn và ít chất thải hơn uranium.', 'Thori phổ biến hơn uranium 3-4 lần trong vỏ Trái Đất.'],
-        discoveryYear: 1829, meltingPoint: 1750, boilingPoint: 4788, density: 11.72, state: 'solid'
+        discoveryYear: 1829, meltingPoint: 1750, boilingPoint: 4788, density: 11.72, state: 'solid', infographicPath: 'element/Thorium.jpeg'
     },
     {
         atomicNumber: 91, symbol: 'Pa', name: 'Protactini', nameEn: 'Protactinium',
@@ -1363,7 +1364,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Protactini là nguyên tố actinide hiếm, độc và phóng xạ cao.',
         facts: ['Tên có nghĩa là "cha của actini" vì phân rã thành actini.', 'Protactini là một trong những nguyên tố độc nhất.', 'Rất ít protactini tồn tại - khoảng 1-2 kg được tách ra từ trước đến nay.'],
-        discoveryYear: 1913, meltingPoint: 1572, boilingPoint: 4000, density: 15.37, state: 'solid'
+        discoveryYear: 1913, meltingPoint: 1572, boilingPoint: 4000, density: 15.37, state: 'solid', infographicPath: 'element/Protactinium.jpeg'
     },
     {
         atomicNumber: 92, symbol: 'U', name: 'Urani', nameEn: 'Uranium',
@@ -1372,7 +1373,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Urani là nhiên liệu chính cho lò phản ứng hạt nhân và bom nguyên tử.',
         facts: ['Uranium-235 là đồng vị dùng trong lò phản ứng và bom hạt nhân.', 'Urani được đặt tên theo hành tinh Uranus.', '1 kg uranium chứa năng lượng tương đương 3 triệu kg than.'],
-        discoveryYear: 1789, meltingPoint: 1135, boilingPoint: 4131, density: 18.95, state: 'solid'
+        discoveryYear: 1789, meltingPoint: 1135, boilingPoint: 4131, density: 18.95, state: 'solid', infographicPath: 'element/Uranium.jpeg'
     },
     {
         atomicNumber: 93, symbol: 'Np', name: 'Neptuni', nameEn: 'Neptunium',
@@ -1381,7 +1382,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Neptuni là nguyên tố siêu urani đầu tiên được tổng hợp, đặt tên theo sao Hải Vương.',
         facts: ['Neptuni được đặt tên theo sao Hải Vương (Neptune).', 'Neptuni là sản phẩm phụ trong lò phản ứng hạt nhân.', 'Neptuni-237 có chu kỳ bán rã 2.14 triệu năm.'],
-        discoveryYear: 1940, meltingPoint: 644, boilingPoint: 3902, density: 20.25, state: 'solid'
+        discoveryYear: 1940, meltingPoint: 644, boilingPoint: 3902, density: 20.25, state: 'solid', infographicPath: 'element/Neptunium.jpeg'
     },
     {
         atomicNumber: 94, symbol: 'Pu', name: 'Plutoni', nameEn: 'Plutonium',
@@ -1390,7 +1391,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Plutoni là nguyên tố dùng trong bom nguyên tử và lò phản ứng, cực kỳ độc.',
         facts: ['Bom nguyên tử thả xuống Nagasaki dùng plutoni.', 'Plutoni-238 cấp năng lượng cho tàu Voyager đã bay 40+ năm.', 'Plutoni tự nóng lên vì phóng xạ - 1 kg plutoni ấm khi cầm.'],
-        discoveryYear: 1940, meltingPoint: 640, boilingPoint: 3228, density: 19.84, state: 'solid'
+        discoveryYear: 1940, meltingPoint: 640, boilingPoint: 3228, density: 19.84, state: 'solid', infographicPath: 'element/Plutonium.jpeg'
     },
     {
         atomicNumber: 95, symbol: 'Am', name: 'Americi', nameEn: 'Americium',
@@ -1399,7 +1400,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Americi được dùng trong đầu báo khói gia đình, là nguyên tố nhân tạo phổ biến nhất.',
         facts: ['Hầu hết đầu báo khói chứa americi-241.', 'Americi được đặt tên theo châu Mỹ.', 'Americi được tạo ra trong Manhattan Project thời WWII.'],
-        discoveryYear: 1944, meltingPoint: 1176, boilingPoint: 2011, density: 13.69, state: 'solid'
+        discoveryYear: 1944, meltingPoint: 1176, boilingPoint: 2011, density: 13.69, state: 'solid', infographicPath: 'element/Americium.jpeg'
     },
     {
         atomicNumber: 96, symbol: 'Cm', name: 'Curi', nameEn: 'Curium',
@@ -1408,7 +1409,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Curi được đặt tên theo vợ chồng Marie và Pierre Curie, phát sáng đỏ trong bóng tối.',
         facts: ['Curi được đặt tên vinh danh vợ chồng Curie.', 'Curi phát sáng đỏ trong bóng tối do phóng xạ.', 'Curi-244 được dùng trong máy phân tích hạt alpha trên Sao Hỏa.'],
-        discoveryYear: 1944, meltingPoint: 1345, boilingPoint: 3110, density: 13.51, state: 'solid'
+        discoveryYear: 1944, meltingPoint: 1345, boilingPoint: 3110, density: 13.51, state: 'solid', infographicPath: 'element/Curium.jpeg'
     },
     {
         atomicNumber: 97, symbol: 'Bk', name: 'Berkeli', nameEn: 'Berkelium',
@@ -1417,7 +1418,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Berkeli được đặt tên theo Berkeley, California, nơi nó được tạo ra.',
         facts: ['Berkeli được đặt tên theo thành phố Berkeley.', 'Chỉ vài gram berkeli được tạo ra từ trước đến nay.', 'Berkeli là bước đệm để tạo ra các nguyên tố nặng hơn.'],
-        discoveryYear: 1949, meltingPoint: 986, boilingPoint: 2627, density: 14.79, state: 'solid'
+        discoveryYear: 1949, meltingPoint: 986, boilingPoint: 2627, density: 14.79, state: 'solid', infographicPath: 'element/Berkelium.jpeg'
     },
     {
         atomicNumber: 98, symbol: 'Cf', name: 'Californi', nameEn: 'Californium',
@@ -1426,7 +1427,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Californi là nguyên tố actinide đắt nhất, phát neutron mạnh, dùng khởi động lò phản ứng.',
         facts: ['1 gram californi có giá khoảng 27 triệu USD.', 'Californi dùng để khởi động lò phản ứng hạt nhân.', 'Californi dùng phát hiện vàng và dầu mỏ qua quét neutron.'],
-        discoveryYear: 1950, meltingPoint: 900, boilingPoint: 1470, density: 15.1, state: 'solid'
+        discoveryYear: 1950, meltingPoint: 900, boilingPoint: 1470, density: 15.1, state: 'solid', infographicPath: 'element/Californium.jpeg'
     },
     {
         atomicNumber: 99, symbol: 'Es', name: 'Einsteini', nameEn: 'Einsteinium',
@@ -1435,7 +1436,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Einsteini được phát hiện trong vụ thử bom nhiệt hạch đầu tiên, đặt tên theo Albert Einstein.',
         facts: ['Einsteini được phát hiện trong tàn tích bom nhiệt hạch 1952.', 'Einsteini được đặt tên vinh danh Albert Einstein.', 'Einsteini phát sáng xanh do phóng xạ mạnh.'],
-        discoveryYear: 1952, meltingPoint: 860, boilingPoint: 996, density: 8.84, state: 'solid'
+        discoveryYear: 1952, meltingPoint: 860, boilingPoint: 996, density: 8.84, state: 'solid', infographicPath: 'element/Einsteinium.jpeg'
     },
     {
         atomicNumber: 100, symbol: 'Fm', name: 'Fermi', nameEn: 'Fermium',
@@ -1444,7 +1445,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Fermi được đặt tên theo Enrico Fermi, nhà vật lý hạt nhân tiên phong.',
         facts: ['Fermi được đặt tên theo Enrico Fermi.', 'Fermi cũng được phát hiện trong tàn tích bom nhiệt hạch.', 'Fermium-257 có chu kỳ bán rã 100 ngày.'],
-        discoveryYear: 1952, meltingPoint: 1527, boilingPoint: undefined, density: 9.7, state: 'solid'
+        discoveryYear: 1952, meltingPoint: 1527, boilingPoint: undefined, density: 9.7, state: 'solid', infographicPath: 'element/Fermium.jpeg'
     },
     {
         atomicNumber: 101, symbol: 'Md', name: 'Mendelevi', nameEn: 'Mendelevium',
@@ -1453,7 +1454,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Mendelevi được đặt tên theo Dmitri Mendeleev, cha đẻ của bảng tuần hoàn.',
         facts: ['Mendelevi được đặt tên vinh danh Dmitri Mendeleev.', 'Chỉ khoảng 17 nguyên tử mendelevi được tạo ra lần đầu.', 'Mendelevi là actinide cuối cùng có thể nghiên cứu hóa học.'],
-        discoveryYear: 1955, meltingPoint: 827, boilingPoint: undefined, density: 10.3, state: 'solid'
+        discoveryYear: 1955, meltingPoint: 827, boilingPoint: undefined, density: 10.3, state: 'solid', infographicPath: 'element/Mendelevium.jpeg'
     },
     {
         atomicNumber: 102, symbol: 'No', name: 'Nobeli', nameEn: 'Nobelium',
@@ -1462,7 +1463,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Nobeli được đặt tên theo Alfred Nobel, người sáng lập giải Nobel.',
         facts: ['Nobeli được đặt tên theo Alfred Nobel.', 'Nobeli-259 có chu kỳ bán rã 58 phút.', 'Nobeli là một trong những nguyên tố ít được biết đến nhất.'],
-        discoveryYear: 1958, meltingPoint: 827, boilingPoint: undefined, density: 9.9, state: 'solid'
+        discoveryYear: 1958, meltingPoint: 827, boilingPoint: undefined, density: 9.9, state: 'solid', infographicPath: 'element/Nobelium.jpeg'
     },
     {
         atomicNumber: 103, symbol: 'Lr', name: 'Lawrenci', nameEn: 'Lawrencium',
@@ -1471,7 +1472,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#E599F7', glowColor: '#E599F780',
         description: 'Lawrenci là actinide cuối cùng, đặt tên theo Ernest Lawrence, phát minh máy gia tốc.',
         facts: ['Lawrenci được đặt tên theo Ernest O. Lawrence.', 'Lawrenci là nguyên tố actinide cuối cùng.', 'Lawrenci-266 có chu kỳ bán rã 11 giờ.'],
-        discoveryYear: 1961, meltingPoint: 1627, boilingPoint: undefined, density: 14.4, state: 'solid'
+        discoveryYear: 1961, meltingPoint: 1627, boilingPoint: undefined, density: 14.4, state: 'solid', infographicPath: 'element/Lawrencium.jpeg'
     },
     // Transactinides (104-118)
     {
@@ -1481,7 +1482,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Rutherfordi được đặt tên theo Ernest Rutherford, cha đẻ của vật lý hạt nhân.',
         facts: ['Rutherfordi được đặt tên theo Ernest Rutherford.', 'Đồng vị bền nhất có chu kỳ bán rã 1.3 giờ.', 'Rutherfordi được tạo ra bằng cách bắn phá plutoni.'],
-        discoveryYear: 1969, meltingPoint: 2100, boilingPoint: 5500, density: 23.2, state: 'solid'
+        discoveryYear: 1969, meltingPoint: 2100, boilingPoint: 5500, density: 23.2, state: 'solid', infographicPath: 'element/Rutherfordium.png'
     },
     {
         atomicNumber: 105, symbol: 'Db', name: 'Dubni', nameEn: 'Dubnium',
@@ -1490,7 +1491,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Dubni được đặt tên theo thành phố Dubna, Nga, nơi đặt phòng thí nghiệm hạt nhân.',
         facts: ['Dubni được đặt tên theo Dubna, Nga.', 'Dubni từng gây tranh cãi giữa Mỹ và Liên Xô về quyền phát hiện.', 'Đồng vị bền nhất có chu kỳ bán rã 28 giờ.'],
-        discoveryYear: 1970, meltingPoint: undefined, boilingPoint: undefined, density: 29.3, state: 'solid'
+        discoveryYear: 1970, meltingPoint: undefined, boilingPoint: undefined, density: 29.3, state: 'solid', infographicPath: 'element/Dubnium.png'
     },
     {
         atomicNumber: 106, symbol: 'Sg', name: 'Seaborgi', nameEn: 'Seaborgium',
@@ -1499,7 +1500,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Seaborgi được đặt tên theo Glenn Seaborg, người phát hiện nhiều nguyên tố siêu urani.',
         facts: ['Seaborgi được đặt tên khi Glenn Seaborg còn sống.', 'Seaborg là người duy nhất có nguyên tố mang tên khi còn sống.', 'Đồng vị bền nhất có chu kỳ bán rã 14 phút.'],
-        discoveryYear: 1974, meltingPoint: undefined, boilingPoint: undefined, density: 35, state: 'solid'
+        discoveryYear: 1974, meltingPoint: undefined, boilingPoint: undefined, density: 35, state: 'solid', infographicPath: 'element/Seaborgium.png'
     },
     {
         atomicNumber: 107, symbol: 'Bh', name: 'Bohri', nameEn: 'Bohrium',
@@ -1508,7 +1509,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Bohri được đặt tên theo Niels Bohr, nhà vật lý lượng tử tiên phong.',
         facts: ['Bohri được đặt tên theo Niels Bohr.', 'Đồng vị bền nhất có chu kỳ bán rã 61 giây.', 'Bohri được tạo ra bằng cách bắn phá bismuth.'],
-        discoveryYear: 1981, meltingPoint: undefined, boilingPoint: undefined, density: 37.1, state: 'solid'
+        discoveryYear: 1981, meltingPoint: undefined, boilingPoint: undefined, density: 37.1, state: 'solid', infographicPath: 'element/Bohrium.png'
     },
     {
         atomicNumber: 108, symbol: 'Hs', name: 'Hassi', nameEn: 'Hassium',
@@ -1517,7 +1518,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#FFD43B', glowColor: '#FFD43B80',
         description: 'Hassi được đặt tên theo bang Hesse, Đức, nơi đặt GSI Helmholtz.',
         facts: ['Hassi được đặt tên theo bang Hesse, Đức.', 'Đồng vị bền nhất có chu kỳ bán rã 10 giây.', 'Hassi được dự đoán có tính chất tương tự osmi.'],
-        discoveryYear: 1984, meltingPoint: undefined, boilingPoint: undefined, density: 40.7, state: 'solid'
+        discoveryYear: 1984, meltingPoint: undefined, boilingPoint: undefined, density: 40.7, state: 'solid', infographicPath: 'element/Hassium.png'
     },
     {
         atomicNumber: 109, symbol: 'Mt', name: 'Meitneri', nameEn: 'Meitnerium',
@@ -1526,7 +1527,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Meitneri được đặt tên theo Lise Meitner, nhà vật lý đồng phát hiện phân hạch hạt nhân.',
         facts: ['Meitneri được đặt tên theo Lise Meitner.', 'Đồng vị bền nhất có chu kỳ bán rã 7.6 giây.', 'Meitner bị bỏ qua khi trao giải Nobel cho phân hạch hạt nhân.'],
-        discoveryYear: 1982, meltingPoint: undefined, boilingPoint: undefined, density: 37.4, state: 'solid'
+        discoveryYear: 1982, meltingPoint: undefined, boilingPoint: undefined, density: 37.4, state: 'solid', infographicPath: 'element/Meitnerium.png'
     },
     {
         atomicNumber: 110, symbol: 'Ds', name: 'Darmstadti', nameEn: 'Darmstadtium',
@@ -1535,7 +1536,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Darmstadti được đặt tên theo thành phố Darmstadt, Đức.',
         facts: ['Darmstadti được đặt tên theo Darmstadt, Đức.', 'Đồng vị bền nhất có chu kỳ bán rã 14 giây.', 'Darmstadti được dự đoán có màu giống platin.'],
-        discoveryYear: 1994, meltingPoint: undefined, boilingPoint: undefined, density: 34.8, state: 'solid'
+        discoveryYear: 1994, meltingPoint: undefined, boilingPoint: undefined, density: 34.8, state: 'solid', infographicPath: 'element/Darmstadtium.png'
     },
     {
         atomicNumber: 111, symbol: 'Rg', name: 'Roentgeni', nameEn: 'Roentgenium',
@@ -1544,7 +1545,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Roentgeni được đặt tên theo Wilhelm Röntgen, người phát hiện tia X.',
         facts: ['Roentgeni được đặt tên theo Wilhelm Röntgen.', 'Đồng vị bền nhất có chu kỳ bán rã 26 giây.', 'Roentgeni được dự đoán có màu vàng như vàng.'],
-        discoveryYear: 1994, meltingPoint: undefined, boilingPoint: undefined, density: 28.7, state: 'solid'
+        discoveryYear: 1994, meltingPoint: undefined, boilingPoint: undefined, density: 28.7, state: 'solid', infographicPath: 'element/Roentgenium.png'
     },
     {
         atomicNumber: 112, symbol: 'Cn', name: 'Copernici', nameEn: 'Copernicium',
@@ -1553,7 +1554,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Copernici được đặt tên theo Nicolaus Copernicus, nhà thiên văn học.',
         facts: ['Copernici được đặt tên theo Copernicus.', 'Copernici có thể là chất khí ở nhiệt độ phòng.', 'Đồng vị bền nhất có chu kỳ bán rã 29 giây.'],
-        discoveryYear: 1996, meltingPoint: undefined, boilingPoint: undefined, density: 23.7, state: 'unknown'
+        discoveryYear: 1996, meltingPoint: undefined, boilingPoint: undefined, density: 23.7, state: 'unknown', infographicPath: 'element/Copernicium.png'
     },
     {
         atomicNumber: 113, symbol: 'Nh', name: 'Nihoni', nameEn: 'Nihonium',
@@ -1562,7 +1563,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Nihoni được đặt tên theo Nhật Bản (Nihon), nguyên tố đầu tiên phát hiện ở châu Á.',
         facts: ['Nihoni là nguyên tố đầu tiên được phát hiện ở châu Á.', 'Nihon có nghĩa là Nhật Bản trong tiếng Nhật.', 'Đồng vị bền nhất có chu kỳ bán rã 20 giây.'],
-        discoveryYear: 2004, meltingPoint: undefined, boilingPoint: undefined, density: 16, state: 'solid'
+        discoveryYear: 2004, meltingPoint: undefined, boilingPoint: undefined, density: 16, state: 'solid', infographicPath: 'element/Nihonium.png'
     },
     {
         atomicNumber: 114, symbol: 'Fl', name: 'Flerovi', nameEn: 'Flerovium',
@@ -1571,7 +1572,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Flerovi được đặt tên theo Georgy Flyorov và phòng thí nghiệm Flerov.',
         facts: ['Flerovi được đặt tên theo Georgy Flyorov.', 'Flerovi có thể là chất khí hoặc lỏng ở nhiệt độ phòng.', 'Đồng vị bền nhất có chu kỳ bán rã 2.6 giây.'],
-        discoveryYear: 1999, meltingPoint: undefined, boilingPoint: undefined, density: 14, state: 'unknown'
+        discoveryYear: 1999, meltingPoint: undefined, boilingPoint: undefined, density: 14, state: 'unknown', infographicPath: 'element/Flerovium.png'
     },
     {
         atomicNumber: 115, symbol: 'Mc', name: 'Moscovi', nameEn: 'Moscovium',
@@ -1580,7 +1581,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Moscovi được đặt tên theo vùng Moscow, Nga.',
         facts: ['Moscovi được đặt tên theo vùng Moscow.', 'Đồng vị bền nhất có chu kỳ bán rã 0.65 giây.', 'Moscovi nổi tiếng trong thuyết âm mưu về UFO (không có cơ sở).'],
-        discoveryYear: 2003, meltingPoint: undefined, boilingPoint: undefined, density: 13.5, state: 'solid'
+        discoveryYear: 2003, meltingPoint: undefined, boilingPoint: undefined, density: 13.5, state: 'solid', infographicPath: 'element/Moscovium.png'
     },
     {
         atomicNumber: 116, symbol: 'Lv', name: 'Livermori', nameEn: 'Livermorium',
@@ -1589,7 +1590,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Livermori được đặt tên theo phòng thí nghiệm Lawrence Livermore.',
         facts: ['Livermori được đặt tên theo Livermore National Lab.', 'Đồng vị bền nhất có chu kỳ bán rã 60 ms.', 'Livermori là nguyên tố nặng nhất trong nhóm 16.'],
-        discoveryYear: 2000, meltingPoint: undefined, boilingPoint: undefined, density: 12.9, state: 'solid'
+        discoveryYear: 2000, meltingPoint: undefined, boilingPoint: undefined, density: 12.9, state: 'solid', infographicPath: 'element/Livermorium.png'
     },
     {
         atomicNumber: 117, symbol: 'Ts', name: 'Tennessine', nameEn: 'Tennessine',
@@ -1598,7 +1599,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#868E96', glowColor: '#868E9680',
         description: 'Tennessine được đặt tên theo bang Tennessee, Mỹ.',
         facts: ['Tennessine được đặt tên theo bang Tennessee.', 'Tennessine là halogen nặng nhất.', 'Đồng vị bền nhất có chu kỳ bán rã 51 ms.'],
-        discoveryYear: 2010, meltingPoint: undefined, boilingPoint: undefined, density: 7.2, state: 'solid'
+        discoveryYear: 2010, meltingPoint: undefined, boilingPoint: undefined, density: 7.2, state: 'solid', infographicPath: 'element/Tennessine.png'
     },
     {
         atomicNumber: 118, symbol: 'Og', name: 'Oganesson', nameEn: 'Oganesson',
@@ -1607,7 +1608,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#DA77F2', glowColor: '#DA77F280',
         description: 'Oganesson là nguyên tố nặng nhất, đặt tên theo nhà vật lý Yuri Oganessian còn sống.',
         facts: ['Oganesson được đặt tên khi Yuri Oganessian còn sống.', 'Oganesson có thể là chất rắn, không phải khí như các khí hiếm khác.', 'Chỉ khoảng 5 nguyên tử oganesson từng được tạo ra.'],
-        discoveryYear: 2006, meltingPoint: undefined, boilingPoint: undefined, density: 4.9, state: 'unknown'
+        discoveryYear: 2006, meltingPoint: undefined, boilingPoint: undefined, density: 4.9, state: 'unknown', infographicPath: 'element/Oganesson.png'
     },
 ];
 

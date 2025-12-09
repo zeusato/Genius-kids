@@ -1,10 +1,8 @@
-import React, { Suspense } from 'react';
-import { X, Atom, Thermometer, Scale, Calendar, Lightbulb, Image as ImageIcon, Circle } from 'lucide-react';
+import React, { Suspense, useState, useEffect } from 'react';
+import { X, Atom, Thermometer, Scale, Calendar, Lightbulb, Image as ImageIcon, Move } from 'lucide-react';
 import { ElementData, CATEGORY_COLORS } from '@/src/data/elementsData';
 import { Atom3D } from './Atom3D';
-
-// Flag to control infographic button visibility
-const SHOW_INFOGRAPHIC_BUTTON = false;
+import { getInfographicUrl } from '@/src/lib/supabase';
 
 interface ElementDetailProps {
     element: ElementData;
@@ -34,16 +32,28 @@ const stateNames: Record<string, string> = {
 
 export const ElementDetail: React.FC<ElementDetailProps> = ({ element, onClose }) => {
     const categoryStyle = CATEGORY_COLORS[element.category];
+    const [showInfographic, setShowInfographic] = useState(false);
+    const [isPortrait, setIsPortrait] = useState(false);
+
+    // Detect portrait mode for mobile rotation
+    useEffect(() => {
+        const checkOrientation = () => {
+            setIsPortrait(window.innerWidth < window.innerHeight);
+        };
+        checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+        return () => window.removeEventListener('resize', checkOrientation);
+    }, []);
 
     // Calculate particle counts
     const protons = element.atomicNumber;
     const electrons = element.atomicNumber; // Neutral atom
     const neutrons = Math.round(element.atomicMass - protons);
-    const totalElectrons = element.electronShells.reduce((sum, n) => sum + n, 0);
 
-    const handleInfographicClick = () => {
-        // TODO: Implement infographic modal when images are available
-        console.log('Infographic clicked for:', element.symbol);
+    // Get infographic URL from Supabase Storage
+    const getElementInfographicPath = () => {
+        // Use infographicPath from element data (e.g., 'infographic/element/Hydrogen.jpeg')
+        return getInfographicUrl(element.infographicPath);
     };
 
     return (
@@ -105,44 +115,61 @@ export const ElementDetail: React.FC<ElementDetailProps> = ({ element, onClose }
 
                 {/* Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4 sm:p-6">
-                    {/* Left: 3D Model */}
-                    <div className="relative h-[300px] sm:h-[400px] rounded-2xl overflow-hidden bg-black/50 border border-white/10">
-                        <Suspense fallback={
-                            <div className="w-full h-full flex items-center justify-center text-white/50">
-                                <Atom className="animate-spin" size={48} />
-                            </div>
-                        }>
-                            <Atom3D element={element} />
-                        </Suspense>
-
-                        {/* Particle counts overlay - compact top */}
-                        <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
-                            <div className="flex items-center gap-1" title="Protons">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                                <span className="text-red-400 text-xs font-semibold">{protons}p</span>
-                            </div>
-                            <div className="flex items-center gap-1" title="Neutrons">
-                                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                                <span className="text-blue-400 text-xs font-semibold">{neutrons}n</span>
-                            </div>
-                            <div className="flex items-center gap-1" title="Electrons">
-                                <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
-                                <span className="text-cyan-400 text-xs font-semibold">{electrons}e⁻</span>
-                            </div>
-                        </div>
-
-                        {/* Electron shells overlay - compact bottom */}
-                        <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2">
-                            <div className="flex items-center justify-between gap-2 text-xs">
-                                <div className="flex items-center gap-1">
-                                    <span className="text-white/50">Lớp:</span>
-                                    <span className="text-cyan-400 font-mono font-semibold">
-                                        {element.electronShells.join(' · ')}
-                                    </span>
+                    {/* Left: 3D Model + Infographic Button */}
+                    <div className="flex flex-col gap-3">
+                        <div className="relative h-[300px] sm:h-[400px] rounded-2xl overflow-hidden bg-black/50 border border-white/10">
+                            <Suspense fallback={
+                                <div className="w-full h-full flex items-center justify-center text-white/50">
+                                    <Atom className="animate-spin" size={48} />
                                 </div>
-                                <span className="text-white/40 font-mono hidden sm:inline">{element.electronConfig}</span>
+                            }>
+                                <Atom3D element={element} />
+                            </Suspense>
+
+                            {/* Particle counts overlay - compact top */}
+                            <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                                <div className="flex items-center gap-1" title="Protons">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                                    <span className="text-red-400 text-xs font-semibold">{protons}p</span>
+                                </div>
+                                <div className="flex items-center gap-1" title="Neutrons">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                                    <span className="text-blue-400 text-xs font-semibold">{neutrons}n</span>
+                                </div>
+                                <div className="flex items-center gap-1" title="Electrons">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
+                                    <span className="text-cyan-400 text-xs font-semibold">{electrons}e⁻</span>
+                                </div>
+                            </div>
+
+                            {/* Electron shells overlay - compact bottom */}
+                            <div className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2">
+                                <div className="flex items-center justify-between gap-2 text-xs">
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-white/50">Lớp:</span>
+                                        <span className="text-cyan-400 font-mono font-semibold">
+                                            {element.electronShells.join(' · ')}
+                                        </span>
+                                    </div>
+                                    <span className="text-white/40 font-mono hidden sm:inline">{element.electronConfig}</span>
+                                </div>
                             </div>
                         </div>
+
+                        {/* Infographic Button */}
+                        <button
+                            onClick={() => setShowInfographic(true)}
+                            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                            style={{
+                                backgroundColor: `${categoryStyle.color}20`,
+                                color: categoryStyle.color,
+                                border: `2px solid ${categoryStyle.color}`,
+                            }}
+                        >
+                            <ImageIcon size={20} />
+                            <span>Xem Infographic</span>
+                            <Move size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
                     </div>
 
                     {/* Right: Info */}
@@ -249,25 +276,67 @@ export const ElementDetail: React.FC<ElementDetailProps> = ({ element, onClose }
                                 ))}
                             </ul>
                         </div>
-
-                        {/* Infographic Button (Hidden by default) */}
-                        {SHOW_INFOGRAPHIC_BUTTON && (
-                            <button
-                                onClick={handleInfographicClick}
-                                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all"
-                                style={{
-                                    backgroundColor: `${categoryStyle.color}20`,
-                                    color: categoryStyle.color,
-                                    border: `2px solid ${categoryStyle.color}`,
-                                }}
-                            >
-                                <ImageIcon size={20} />
-                                Xem Infographic
-                            </button>
-                        )}
                     </div>
                 </div>
             </div>
+
+            {/* Infographic Modal */}
+            {showInfographic && (
+                <div
+                    className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-md animate-in fade-in duration-300"
+                    onClick={() => setShowInfographic(false)}
+                >
+                    {/* Close Button */}
+                    <button
+                        onClick={() => setShowInfographic(false)}
+                        className="absolute top-4 right-4 z-[210] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all backdrop-blur-sm border border-white/20"
+                    >
+                        <X size={24} />
+                    </button>
+
+                    {/* Tap hint */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[210] text-white/50 text-sm">
+                        Chạm để đóng
+                    </div>
+
+                    {/* Infographic Image Container */}
+                    <div
+                        className="absolute top-1/2 left-1/2 flex items-center justify-center pointer-events-none transition-all duration-500 ease-in-out origin-center"
+                        style={isPortrait ? {
+                            width: '100vh',
+                            height: '100vw',
+                            transform: 'translate(-50%, -50%) rotate(90deg)',
+                            maxWidth: 'none',
+                            maxHeight: 'none'
+                        } : {
+                            width: '100%',
+                            height: '100%',
+                            transform: 'translate(-50%, -50%)',
+                            padding: '1rem'
+                        }}
+                    >
+                        {getElementInfographicPath() ? (
+                            <img
+                                src={getElementInfographicPath()}
+                                alt={`${element.name} Infographic`}
+                                className="w-full h-full object-contain pointer-events-auto"
+                                onError={(e) => {
+                                    // Fallback to jpeg if png fails
+                                    const img = e.target as HTMLImageElement;
+                                    if (img.src.endsWith('.png')) {
+                                        img.src = img.src.replace('.png', '.jpeg');
+                                    }
+                                }}
+                            />
+                        ) : (
+                            <div className="text-white/50 text-center p-8">
+                                <p className="text-lg mb-2">⚠️ Không thể tải infographic</p>
+                                <p className="text-sm">Vui lòng kiểm tra cấu hình Supabase</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
