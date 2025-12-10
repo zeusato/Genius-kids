@@ -20,7 +20,7 @@ export const CellMembrane: React.FC<CellMembraneProps> = ({ type, color, childre
 
     if (type === 'plant') {
         return (
-            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] transition-all duration-700 group">
+            <div className="relative w-[70vw] h-[70vw] max-w-[300px] max-h-[300px] sm:max-w-[350px] sm:max-h-[350px] md:max-w-[450px] md:max-h-[450px] transition-all duration-700 group">
                 {/* Cell Wall (Outer hard shell) - Subtle glow pulse */}
                 <div
                     className="absolute inset-[-12px] border-[10px] border-green-800/70 rounded-[30%] z-0 animate-[pulse_4s_ease-in-out_infinite]"
@@ -54,7 +54,7 @@ export const CellMembrane: React.FC<CellMembraneProps> = ({ type, color, childre
 
     if (type === 'bacteria') {
         return (
-            <div className="relative w-[180px] h-[320px] sm:w-[220px] sm:h-[400px] transition-all duration-700 animate-float-slow group">
+            <div className="relative w-[45vw] h-[80vw] max-w-[180px] max-h-[320px] sm:max-w-[220px] sm:max-h-[400px] transition-all duration-700 animate-float-slow group">
                 {/* 1. Capsule (Mucus layer) */}
                 <div className="absolute inset-[-10px] bg-amber-500/10 rounded-full blur-md z-0 animate-pulse" />
 
@@ -83,7 +83,7 @@ export const CellMembrane: React.FC<CellMembraneProps> = ({ type, color, childre
 
     // Default: Animal Cell
     return (
-        <div className="relative w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] transition-all duration-1000 ease-in-out group">
+        <div className="relative w-[70vw] h-[70vw] max-w-[280px] max-h-[280px] sm:max-w-[320px] sm:max-h-[320px] md:max-w-[400px] md:max-h-[400px] transition-all duration-1000 ease-in-out group">
             {/* 1. Glassy Skin/Membrane - CLIPPED BACKGROUND */}
             <div
                 className="absolute inset-0 border-2 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] bg-black/40 backdrop-blur-sm overflow-hidden animate-morph z-10"

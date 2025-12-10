@@ -51,15 +51,15 @@ export const CellBiologyPage: React.FC = () => {
                     className="absolute left-4 top-4 flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all backdrop-blur-md pointer-events-auto border border-white/10 hover:border-white/20"
                 >
                     <ArrowLeft size={20} />
-                    <span className="hidden sm:inline">
-                        {viewMode === 'microscope' ? 'Chọn mẫu vật khác' : 'Quay lại'}
+                    <span className="hidden sm:inline text-sm">
+                        {viewMode === 'microscope' ? 'Đổi mẫu' : 'Quay lại'}
                     </span>
                 </button>
 
                 {/* Title - Centered */}
-                <div className="absolute left-1/2 top-4 -translate-x-1/2 flex items-center gap-2 px-6 py-2 bg-black/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
-                    <Microscope className="text-purple-400" size={24} />
-                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                <div className="absolute left-1/2 top-4 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
+                    <Microscope className="text-purple-400" size={18} />
+                    <h1 className="text-sm sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 whitespace-nowrap">
                         {viewMode === 'lab' ? 'Chọn Mẫu Vật' : selectedCell.name}
                     </h1>
                 </div>
@@ -76,33 +76,35 @@ export const CellBiologyPage: React.FC = () => {
                         <div className="absolute bottom-0 w-full h-1/3 bg-slate-900 border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]" />
                     </div>
 
-                    <h2 className="text-3xl font-bold mb-12 text-white/80 tracking-wide drop-shadow-md">
+                    <h2 className="text-lg sm:text-3xl font-bold mb-6 sm:mb-12 text-white/80 tracking-wide drop-shadow-md text-center px-4">
                         Chọn một lam kính để soi
                     </h2>
 
-                    {/* Slides Container */}
-                    <div className="flex gap-8 items-end perspective-[1000px]">
+                    {/* Slides Container - Vertical stack on mobile, horizontal centered on desktop */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-8 items-center sm:items-end sm:justify-center perspective-[1000px] px-4 w-full">
                         {CELL_DATA.map((cell) => (
                             <button
                                 key={cell.id}
                                 onClick={() => handleSlideSelect(cell.id)}
-                                className="group relative w-32 h-48 bg-white/5 border border-white/10 hover:border-purple-400/50 rounded-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] flex flex-col items-center justify-end pb-4 overflow-hidden"
+                                className="group relative w-full max-w-xs sm:w-32 h-20 sm:h-48 bg-white/5 border border-white/10 hover:border-purple-400/50 active:border-purple-400/50 rounded-lg backdrop-blur-sm transition-all duration-300 sm:hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] active:shadow-[0_0_30px_rgba(168,85,247,0.3)] flex flex-row sm:flex-col items-center justify-start sm:justify-end px-4 sm:px-0 sm:pb-4 overflow-hidden gap-4 sm:gap-0"
                             >
                                 {/* Glass Shine */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity" />
 
                                 {/* Specimen Sample Look */}
                                 <div className={`
-                                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full blur-sm opacity-80 group-hover:blur-none group-hover:scale-110 transition-all duration-500
+                                    relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full blur-sm opacity-80 group-hover:blur-none group-active:blur-none group-hover:scale-110 group-active:scale-110 transition-all duration-500 flex-shrink-0
                                     ${cell.id === 'animal' ? 'bg-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.4)]' : ''}
                                     ${cell.id === 'plant' ? 'bg-green-500/30 shadow-[0_0_20px_rgba(34,197,94,0.4)]' : ''}
                                     ${cell.id === 'bacteria' ? 'bg-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.4)]' : ''}
                                 `} />
 
-                                <span className="relative font-bold text-sm text-white/60 group-hover:text-purple-300 transition-colors uppercase tracking-wider">
-                                    {cell.name.replace('Tế Bào ', '')}
-                                </span>
-                                <span className="text-[10px] text-white/30 uppercase">{cell.id} Sample</span>
+                                <div className="flex flex-col items-start sm:items-center">
+                                    <span className="relative font-bold text-sm text-white/60 group-hover:text-purple-300 group-active:text-purple-300 transition-colors uppercase tracking-wider">
+                                        {cell.name.replace('Tế Bào ', '')}
+                                    </span>
+                                    <span className="text-[10px] text-white/30 uppercase">{cell.id} Sample</span>
+                                </div>
                             </button>
                         ))}
                     </div>
@@ -137,11 +139,12 @@ export const CellBiologyPage: React.FC = () => {
                             />
                         </div>
 
-                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected, NEXT TO INFO PANEL */}
+                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected */}
+                        {/* On mobile: fills the visible area above bottom sheet, On desktop: next to panel */}
                         {selectedOrganelle && (selectedOrganelle.id === 'nucleus' || selectedOrganelle.id === 'nucleoid') && (
-                            <div className="hidden md:flex absolute right-[420px] top-1/2 -translate-y-1/2 w-28 h-72 animate-in fade-in slide-in-from-right duration-700">
+                            <div className="fixed sm:absolute inset-x-0 sm:inset-x-auto top-16 sm:top-1/2 bottom-[70vh] sm:bottom-auto sm:right-[420px] sm:-translate-y-1/2 sm:w-28 sm:h-72 flex items-center justify-center animate-in fade-in slide-in-from-top sm:slide-in-from-right duration-700 z-40 pointer-events-none">
                                 <DNAHelix
-                                    className="w-full h-full"
+                                    className="w-full h-full max-w-[200px] sm:max-w-none"
                                     color={selectedOrganelle.color}
                                 />
                             </div>

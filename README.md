@@ -1,6 +1,6 @@
 # MathGenius Kids 🎓
 
-**MathGenius Kids** là ứng dụng web tương tác giúp trẻ em tiểu học (Lớp 1 - 5) học toán một cách vui vẻ và hiệu quả. Ứng dụng kết hợp các bài tập toán học với giao diện sinh động, hệ thống khen thưởng, trò chơi giáo dục, và nhiều tính năng hấp dẫn khác.
+**MathGenius Kids** là ứng dụng web tương tác giúp trẻ em tiểu học (Lớp 1 - 5) học toán, khoa học và lập trình một cách vui vẻ và hiệu quả. Ứng dụng kết hợp các bài tập toán học với giao diện sinh động, hệ thống khen thưởng, trò chơi giáo dục, phòng thí nghiệm khoa học ảo, và nhiều tính năng hấp dẫn khác.
 
 ![MathGenius Kids Banner](public/OG.png)
 
@@ -47,7 +47,8 @@
 *   **⚡ Đua Tốc Độ (Speed Math):** Trả lời nhanh các câu hỏi Toán, Tiếng Việt và Tự nhiên xã hội trước khi hết giờ
 *   **🐉 Đại Chiến Rồng Thần (Dragon Quest):** Phiêu lưu trên bản đồ 2.5D, thu thập buff và đánh bại rồng thần
 *   **🏎️ Đường Đua Thần Tốc (Math Racing):** Lái xe tránh chướng ngại vật, chọn đáp án đúng, rèn luyện phản xạ và tính nhẩm
-*   **🧩 Sudoku Logic:** Điền số vào ô trống với logic logic, phát triển tư duy logic và kiên nhẫn
+*   **🧩 Sudoku Logic:** Điền số vào ô trống với logic, phát triển tư duy logic và kiên nhẫn
+*   **🤖 KidCoder (Lập Trình Vui):** 🆕 Lập trình điều khiển robot bằng các khối lệnh trực quan, học tư duy giải thuật từ nhỏ với 5+ level và 50+ bài học
 *   **🏆 Nhận Thưởng:** Hoàn thành game nhận sao và thẻ bài gacha theo mức độ thành tích
 
 #### 📚 **1000 Câu Hỏi Vì Sao (Tell Me Why)**
@@ -61,7 +62,10 @@
     *   và nhiều hơn nữa...
 *   **Học Mọi Lúc:** Đọc và học thêm kiến thức ngoài toán học
 
-#### 🌌 **Khám Phá Hệ Mặt Trời (Solar System)** 🆕
+#### 🔬 **Góc Khoa Học (Science Hub)** 🆕
+Trung tâm khám phá khoa học với 3 phòng thí nghiệm ảo tương tác:
+
+##### 🌌 **Khám Phá Hệ Mặt Trời**
 *   **Mô Phỏng 3D Tương Tác:**
     *   Hệ Mặt Trời 2.5D với các hành tinh quay theo quỹ đạo thực
     *   Vành đai tiểu hành tinh với hiệu ứng hạt động
@@ -76,11 +80,33 @@
     *   Pan (kéo) để di chuyển vùng nhìn
     *   Dropdown menu chọn nhanh thiên thể
     *   Hỗ trợ cả desktop (chuột) và mobile (chạm)
+
+##### ⚛️ **Bảng Tuần Hoàn Tương Tác** 🆕
+*   **118 Nguyên Tố Đầy Đủ:**
+    *   Bảng tuần hoàn chuẩn quốc tế với 7 chu kỳ và 18 nhóm
+    *   Màu sắc phân biệt theo loại nguyên tố
+    *   Tìm kiếm nhanh theo tên, ký hiệu hoặc số nguyên tử
+*   **Chi Tiết Nguyên Tố:**
+    *   Mô hình nguyên tử 3D tương tác với electron chuyển động
+    *   Thông tin: Khối lượng, điểm nóng chảy, điểm sôi, độ âm điện
+    *   Sự thật thú vị và ứng dụng thực tế
 *   **Giao Diện "Vũ Trụ":**
-    *   Design hiện đại với theme cosmic
-    *   Gradient cards với màu sắc phân biệt
-    *   Backdrop blur và glow effects
-    *   Responsive trên mọi thiết bị
+    *   Design hiện đại với theme cosmic dark
+    *   Responsive hoàn hảo trên mọi thiết bị
+
+##### ⚡ **Phòng Thí Nghiệm Điện** 🆕
+*   **Học Theo Bài (8 Bài Học):**
+    *   Từ cơ bản đến nâng cao: Electron, Mạch hở, Pin, Công tắc...
+    *   Lý thuyết đi kèm bài tập thực hành
+    *   Quiz trắc nghiệm kiểm tra kiến thức
+*   **Thử Thách Lắp Mạch:**
+    *   Các nhiệm vụ lắp mạch với độ khó tăng dần
+    *   Nhận sao thưởng khi hoàn thành
+*   **Chế Độ Tự Do (Sandbox):**
+    *   Kéo thả linh kiện: Pin, đèn, công tắc, dây dẫn
+    *   Tự do sáng tạo mạch điện của riêng mình
+    *   Xem electron chạy trong mạch kín
+    *   Đèn sáng thực khi mạch hoạt động đúng
 
 #### 🦁 **Giải Đố Nhân Sư (Sphinx Riddle)** 🆕
 *   **Câu Đố Thú Vị:** 
@@ -111,6 +137,12 @@
     *   Nhiều bộ sưu tập: Pokemon, Dragon Ball, và nhiều hơn nữa
     *   4 độ hiếm: Common, Uncommon, Rare, Epic, Legendary
     *   Xem và quản lý bộ sưu tập trong Album
+*   **🏆 Bảng Vàng Thành Tích (Hall of Fame):** 🆕
+    *   Hệ thống huy hiệu đa dạng theo 3 nhóm: Học tập, Trò chơi, Sưu tập
+    *   Mỗi thành tích có nhiều cấp bậc (Bronze, Silver, Gold...)
+    *   Nhận sao thưởng khi mở khóa huy hiệu mới
+    *   Theo dõi tiến độ từng thành tích chi tiết
+    *   Thống kê tổng huy hiệu và sao từ thành tích
 *   **Thống Kê Tiến Độ 📊:** 
     *   Biểu đồ hiển thị kết quả theo thời gian
     *   Xem lại bài làm và đáp án đúng
@@ -147,6 +179,8 @@
 ✅ Giáo viên tạo đề thi nhanh  
 ✅ Bé muốn học toán vui vẻ  
 ✅ Bé thích giải đố và thu thập thẻ bài  
+✅ Bé yêu thích khám phá khoa học  
+✅ Bé muốn học lập trình từ sớm  
 
 ## 🚀 Bắt Đầu Sử Dụng
 
@@ -156,12 +190,13 @@
 3. Tạo hồ sơ cho bé
 4. Chọn chế độ học tập:
    - 📖 **Ôn Luyện** để làm bài tập toán
-   - 🎮 **Games** để chơi game học toán
+   - 🎮 **Games** để chơi game học toán và lập trình
    - 📚 **1000 Câu Hỏi** để khám phá tri thức
    - 🦁 **Nhân Sư** để giải đố nhận thưởng
-   - 🌌 **Hệ Mặt Trời** để khám phá vũ trụ
+   - 🔬 **Khoa Học** để khám phá vũ trụ, nguyên tố và mạch điện
    - 🛍️ **Cửa Hàng** để mua avatar/theme
    - 🎴 **Album** để xem bộ sưu tập thẻ bài
+   - 🏆 **Thành Tích** để xem huy hiệu và tiến độ
 5. Bắt đầu học và vui chơi! 🎉
 
 ### Developers (Chạy local)
@@ -215,9 +250,12 @@ mathgenius-kids/
 │   ├── MemoryMatch/        # Ghép thẻ hình ảnh
 │   ├── SoundMemory/        # Giai điệu vui nhộn (🆕)
 │   ├── SpeedMath/          # Đua tốc độ
-│   ├── DragonQuest/        # Đại chiến rồng thần (🆕)
+│   ├── DragonQuest/        # Đại chiến rồng thần
 │   ├── MathRacing/         # Đường đua thần tốc
-│   ├── Sudoku/             # Sudoku logic (🆕)
+│   ├── Sudoku/             # Sudoku logic
+│   ├── KidCoder/           # 🆕 Lập trình vui
+│   │   ├── KidCoderGame.tsx
+│   │   └── KidCoderLevelSelect.tsx
 │   └── GamesMenu.tsx       # Menu chọn game
 ├── src/
 │   ├── pages/              # Các trang chính
@@ -226,32 +264,32 @@ mathgenius-kids/
 │   │   ├── StudyPage.tsx
 │   │   ├── GamePage.tsx
 │   │   ├── TellMeWhyPage.tsx
-│   │   ├── SphinxRiddlePage.tsx  # 🆕
-│   │   ├── SolarSystemPage.tsx   # 🆕
+│   │   ├── SphinxRiddlePage.tsx
+│   │   ├── ScienceMenuPage.tsx     # 🆕 Menu khoa học
+│   │   ├── SolarSystemPage.tsx
+│   │   ├── PeriodicTablePage.tsx   # 🆕 Bảng tuần hoàn
+│   │   ├── ElectricityPage.tsx     # 🆕 Điện & mạch điện
+│   │   ├── HallOfFamePage.tsx      # 🆕 Bảng vàng thành tích
 │   │   ├── ShopPage.tsx
 │   │   ├── AlbumPage.tsx
 │   │   └── ProfilePage.tsx
 │   ├── components/         # UI components
 │   │   ├── study/          # Components học tập
-│   │   ├── solar/          # 🆕 Solar System components
-│   │   │   ├── SolarSystem.tsx
-│   │   │   ├── Planet.tsx
-│   │   │   ├── Planet3D.tsx
-│   │   │   └── PlanetDetail.tsx
-│   │   ├── SphinxRiddleScreen.tsx  # 🆕
-│   │   ├── RiddleModal.tsx         # 🆕
-│   │   ├── GachaModal.tsx
+│   │   ├── solar/          # Solar System components
+│   │   ├── periodic/       # 🆕 Periodic Table components
+│   │   ├── electricity/    # 🆕 Electricity Lab components
+│   │   ├── achievements/   # 🆕 Achievement cards
 │   │   └── ...
 │   ├── contexts/           # React Context (state global)
 │   │   └── StudentContext.tsx
+│   ├── data/               # 🆕 Static data
+│   │   ├── elementsData.ts     # 118 nguyên tố
+│   │   └── electricityData.ts  # Bài học điện
 │   ├── services/           # Business logic layer
 │   │   ├── generators/     # Sinh câu hỏi toán từng lớp
 │   │   ├── mathEngine.ts   # Engine sinh đề toán
-│   │   ├── profileService.ts
-│   │   ├── rewardService.ts
-│   │   ├── albumService.ts
-│   │   ├── sphinxRiddleService.ts  # 🆕
-│   │   ├── tellMeWhyService.ts
+│   │   ├── kidCoderGenerator.ts  # 🆕 Sinh level KidCoder
+│   │   ├── achievementService.ts # 🆕 Quản lý thành tích
 │   │   └── ...
 │   ├── utils/              # Utilities
 │       ├── pdfGenerator.ts
@@ -262,6 +300,21 @@ mathgenius-kids/
 ```
 
 ## 🆕 Cập Nhật Gần Đây
+
+### v2.6 - Science Hub & KidCoder 🔬🤖 (Tháng 12/2025 - Mới nhất!)
+*   ✅ **Góc Khoa Học:** Trung tâm khám phá khoa học với 3 phòng thí nghiệm:
+    *   🌌 Hệ Mặt Trời 3D (cập nhật từ v2.4)
+    *   ⚛️ Bảng Tuần Hoàn tương tác với 118 nguyên tố
+    *   ⚡ Phòng Thí Nghiệm Điện với chế độ học, thử thách và sandbox
+*   ✅ **Game KidCoder:** Lập trình block-based với robot:
+    *   5+ level với 50+ bài học
+    *   Các lệnh: Đi thẳng, Rẽ trái/phải, Nhảy, Chiến đấu, Đẩy hộp
+    *   Thu thập sao và chìa khóa, tránh quái vật và nước
+*   ✅ **Bảng Vàng Thành Tích:** Hệ thống huy hiệu hoàn chỉnh:
+    *   Huy hiệu theo 3 nhóm: Học tập, Trò chơi, Sưu tập
+    *   Nhiều cấp bậc với sao thưởng
+    *   UI design đẹp mắt với animations
+*   ✅ **Tổng Cộng 7 Games:** Thêm KidCoder vào bộ sưu tập
 
 ### v2.5 - Game Collection Update 🎮 (Tháng 12/2025)
 *   ✅ **Game Mới:** Sudoku Logic - Phát triển tư duy logic với trò chơi Sudoku cổ điển
@@ -323,11 +376,14 @@ mathgenius-kids/
 
 *   **1000+** câu hỏi "Vì sao?" về nhiều chủ đề
 *   **500+** câu đố Nhân Sư (tiếng Việt + tiếng Anh)
+*   **118** nguyên tố hóa học với mô hình 3D
 *   **100+** thẻ bài gacha để sưu tập
 *   **50+** chủ đề toán học từ lớp 1-5
+*   **50+** bài học lập trình KidCoder
+*   **8** bài học về điện và mạch điện
 *   **Hàng ngàn** câu hỏi toán được sinh tự động
-*   **6** trò chơi giáo dục đa dạng
-*   **5** chế độ học tập khác nhau
+*   **7** trò chơi giáo dục đa dạng
+*   **6** chế độ học tập khác nhau
 
 ## 🎨 Điểm Nổi Bật Thiết Kế
 
