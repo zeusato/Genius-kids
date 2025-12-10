@@ -7,15 +7,15 @@ import { StudentProfile } from '@/types';
 export const SphinxRiddlePage: React.FC = () => {
     const navigate = useNavigate();
     const { currentStudent: selectedStudent } = useStudent();
-    const { setStudent, solveRiddle } = useStudentActions();
+    const { updateStudent, solveRiddle } = useStudentActions();
 
     const handleBack = () => {
         navigate('/mode');
     };
 
     const handleProfileUpdate = (updatedProfile: StudentProfile) => {
-        // Update the student context with new profile data
-        setStudent(updatedProfile);
+        // Update the student context with new profile data (including ownedImageIds)
+        updateStudent(updatedProfile);
     };
 
     if (!selectedStudent) {

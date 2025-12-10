@@ -105,7 +105,7 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
             className={`
                 absolute w-16 h-16 rounded-xl
                 flex flex-col items-center justify-center
-                transition-all duration-200
+                ${isDragging ? '' : 'transition-all duration-200'}
                 ${styles.bg} ${styles.glow}
                 ${isSelected ? 'ring-2 ring-cyan-400 ring-offset-2 ring-offset-slate-900' : ''}
                 ${isConnecting ? 'ring-2 ring-cyan-400 animate-pulse' : ''}

@@ -506,10 +506,10 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
     };
 
     return (
-        <div className="flex gap-4 h-full">
+        <div className="flex flex-col-reverse md:flex-row gap-4 h-full">
             {/* Toolbar - hidden for lesson exercises */}
             {!readOnly && !hideToolbar && (
-                <div className="w-32 flex-shrink-0">
+                <div className="w-full md:w-32 flex-shrink-0">
                     <ComponentToolbar
                         onDragStart={() => { }}
                         onMobileDrop={handleMobileDrop}
@@ -521,8 +521,8 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
             {/* Canvas */}
             <div className="flex-1 flex flex-col gap-3">
                 {/* Control bar */}
-                <div className="flex items-center justify-between bg-gradient-to-r from-sky-100 to-blue-100 rounded-lg px-4 py-2 border border-sky-200">
-                    <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between bg-gradient-to-r from-sky-100 to-blue-100 rounded-lg px-4 py-2 border border-sky-200 overflow-x-auto">
+                    <div className="flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
                         <button
                             onClick={handleTogglePower}
                             className={`
@@ -546,7 +546,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
 
                         {wireStart && (
                             <span className="text-sm px-3 py-1 rounded-full bg-cyan-100 text-cyan-700 border border-cyan-300 animate-pulse font-medium">
-                                🔗 Đang nối dây...
+                                Nối dây...
                             </span>
                         )}
                     </div>

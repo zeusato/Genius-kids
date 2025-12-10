@@ -110,8 +110,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
                     totalCards: updatedStudent.ownedImageIds.length
                 });
             } else {
-                // Duplicate reward (handled in component usually, but we can add stars here if needed)
-                // For now assuming component handles star calculation including duplicate bonus
+                // Duplicate card - award 10 bonus stars
+                updatedStudent.stars += 10;
             }
         }
 
@@ -151,6 +151,9 @@ export function StudentProvider({ children }: { children: ReactNode }) {
                     isNew: true,
                     totalCards: updatedStudent.ownedImageIds.length
                 });
+            } else {
+                // Duplicate card - award 10 bonus stars
+                updatedStudent.stars += 10;
             }
         }
 

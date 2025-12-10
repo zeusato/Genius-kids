@@ -58,10 +58,11 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
 
     return (
         <div className="flex flex-col gap-2 p-3 bg-slate-800/50 rounded-xl border border-white/10">
-            <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-1">
+            <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-1 hidden md:block">
                 Linh kiện
             </h3>
-            <div className="grid grid-cols-2 gap-2">
+            {/* Mobile: horizontal scroll, Desktop: 2-column grid */}
+            <div className="flex md:grid md:grid-cols-2 gap-2 overflow-x-auto md:overflow-visible pb-1 md:pb-0">
                 {componentTypes.map(type => {
                     const component = COMPONENTS[type];
                     return (
@@ -79,6 +80,7 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
                                 bg-slate-700/50 border border-white/10
                                 hover:bg-slate-600/50 hover:border-cyan-500/50
                                 transition-all cursor-grab active:cursor-grabbing
+                                flex-shrink-0 w-16 md:w-auto
                                 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
                             `}
                             title={component.description}
@@ -92,7 +94,7 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
                 })}
             </div>
 
-            <div className="mt-2 pt-2 border-t border-white/10">
+            <div className="mt-2 pt-2 border-t border-white/10 hidden md:block">
                 <p className="text-white/40 text-[10px] text-center">
                     Kéo thả vào canvas
                 </p>

@@ -87,14 +87,14 @@ export const getProfileById = (profileId: string): StudentProfile | undefined =>
 
 // Migrate old profile format to new format
 export const migrateProfile = (oldProfile: any): StudentProfile => {
-    // Check if already migrated
+    // Check if already migrated (has all critical fields)
     if (oldProfile.currentAvatarId && oldProfile.stars !== undefined && oldProfile.stats) {
         return oldProfile as StudentProfile;
     }
 
-    // Old format - migrate
-    const defaultAvatarId = 'avatar_01';
-    const defaultThemeId = getDefaultThemeId();
+    // Old format - migrate but PRESERVE existing data
+    const defaultAvatarId = oldProfile.currentAvatarId || 'avatar_01';
+    const defaultThemeId = oldProfile.currentThemeId || getDefaultThemeId();
 
     const migratedProfile: StudentProfile = {
         id: oldProfile.id || Date.now().toString(),
@@ -104,13 +104,15 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         avatarId: oldProfile.avatarId || 0, // keep for compatibility
         currentAvatarId: defaultAvatarId,
         currentThemeId: defaultThemeId,
-        stars: 0, // Start with 0 stars
-        ownedAvatarIds: [defaultAvatarId],
-        ownedThemeIds: [defaultThemeId],
-        ownedImageIds: [],
+        stars: oldProfile.stars ?? 0, // Preserve stars if exists
+        // IMPORTANT: Preserve owned items from old profile
+        ownedAvatarIds: oldProfile.ownedAvatarIds?.length > 0 ? oldProfile.ownedAvatarIds : [defaultAvatarId],
+        ownedThemeIds: oldProfile.ownedThemeIds?.length > 0 ? oldProfile.ownedThemeIds : [defaultThemeId],
+        ownedImageIds: oldProfile.ownedImageIds || [], // Preserve collection!
         history: oldProfile.history || [],
         gameHistory: oldProfile.gameHistory || [],
-        shopDailyPhotos: [],
+        shopDailyPhotos: oldProfile.shopDailyPhotos || [],
+        sphinxProfile: oldProfile.sphinxProfile,
         achievements: oldProfile.achievements || [],
     };
 

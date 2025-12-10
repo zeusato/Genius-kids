@@ -195,8 +195,7 @@ export const processSphinxReward = (
     if (Math.random() < gachaChance) {
         const gachaRes = gachaImage(updatedProfile.ownedImageIds);
         if (gachaRes) {
-            const { image } = gachaRes;
-            updatedProfile = awardImage(updatedProfile, image.id);
+            const { image, isNew } = gachaRes;
             cardWon = true;
             cardData = {
                 id: image.id,
@@ -204,6 +203,14 @@ export const processSphinxReward = (
                 imagePath: image.imagePath,
                 rarity: image.rarity,
             };
+
+            if (isNew) {
+                // New card - add to collection
+                updatedProfile = awardImage(updatedProfile, image.id);
+            } else {
+                // Duplicate card - award 10 bonus stars
+                updatedProfile = awardStars(updatedProfile, 10);
+            }
         }
     }
 
