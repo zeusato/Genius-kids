@@ -298,7 +298,6 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
         if (difficulty === 'hard') finalStars = stars === 3 ? 10 : stars === 2 ? 6 : 4;
 
         const newStars = currentStudent.stars + finalStars;
-        let newOwnedImages = [...currentStudent.ownedImageIds];
         let rewardImage: AlbumImage | null = null;
 
         // Gacha Logic
@@ -307,16 +306,14 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
             const dummyReward = processGameReward(currentStudent, 'gold', 0); // Just to get image
             if (dummyReward.reward.image) {
                 rewardImage = dummyReward.reward.image;
-                if (!newOwnedImages.includes(rewardImage.id)) {
-                    newOwnedImages.push(rewardImage.id);
-                }
+                // Don't add to ownedImageIds here - addGameResult will handle it
             }
         }
 
+        // Update stars only (don't update ownedImageIds - addGameResult handles that)
         updateStudent({
             ...currentStudent,
-            stars: newStars,
-            ownedImageIds: newOwnedImages
+            stars: newStars
         });
 
         setEarnedStars(finalStars);
@@ -325,7 +322,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
             setGachaReward({ image: rewardImage, isNew });
         }
 
-        // Save Result
+        // Save Result - addGameResult handles card saving to ownedImageIds
         addGameResult({
             id: Date.now().toString(),
             date: new Date().toISOString(),

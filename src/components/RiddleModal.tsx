@@ -7,7 +7,6 @@ import {
     getRandomDialogue,
 } from '@/services/sphinxRiddleService';
 import { processSphinxReward, processSphinxPenalty } from '@/services/rewardService';
-import { updateProfile } from '@/services/profileService';
 import questionModalImg from '@/riddle/imgSource/Question_modal.png';
 import correctModalImg from '@/riddle/imgSource/Correct_modal.png';
 import wrongModalImg from '@/riddle/imgSource/Wrong_modal.png';
@@ -69,8 +68,7 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
             stars: student.stars - cost
         };
 
-        // Update profile
-        updateProfile(updatedProfile);
+        // Update profile via context (handles localStorage sync)
         if (onProfileUpdate) {
             onProfileUpdate(updatedProfile);
         }
@@ -94,8 +92,8 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
             // Process reward
             const { updatedProfile, reward } = processSphinxReward(student, difficulty, student.id);
 
-            // Update profile in localStorage and trigger context update
-            updateProfile(updatedProfile);
+            // Update profile via context (handles localStorage sync)
+            // Don't call updateProfile() from profileService - it causes race condition
             if (onProfileUpdate) {
                 onProfileUpdate(updatedProfile);
             }
@@ -124,8 +122,7 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
             // Process penalty
             const { updatedProfile, penaltyType } = processSphinxPenalty(student, student.id);
 
-            // Update profile in localStorage and trigger context update
-            updateProfile(updatedProfile);
+            // Update profile via context (handles localStorage sync)
             if (onProfileUpdate) {
                 onProfileUpdate(updatedProfile);
             }

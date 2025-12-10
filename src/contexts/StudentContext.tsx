@@ -21,6 +21,8 @@ interface StudentActionsType {
     addTestResult: (result: TestResult, gachaImage?: AlbumImage, typingScore?: number) => void;
     addGameResult: (result: GameResult, gachaImage?: AlbumImage) => void;
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
+    /** Centralized function to save gacha card. Called when GachaModal closes. */
+    saveGachaCard: (imageId: string, isNew: boolean) => void;
     buyAvatar: (avatarId: string, cost: number) => void;
     buyTheme: (themeId: string, cost: number) => void;
     buyPhoto: (imageId: string, cost: number, rarity: string) => void;
@@ -165,6 +167,34 @@ export function StudentProvider({ children }: { children: ReactNode }) {
 
         if (unlocked.length > 0) {
             setAchievementQueue(prev => [...prev, ...unlocked]);
+        }
+
+        updateStudent(updatedStudent);
+    }, [currentStudent, updateStudent]);
+
+    // Centralized function to save gacha card - called when GachaModal closes
+    const saveGachaCard = useCallback((imageId: string, isNew: boolean) => {
+        if (!currentStudent) return;
+
+        let updatedStudent = { ...currentStudent };
+
+        if (isNew) {
+            // New card - add to collection
+            if (!updatedStudent.ownedImageIds.includes(imageId)) {
+                updatedStudent.ownedImageIds = [...updatedStudent.ownedImageIds, imageId];
+
+                // Update stats
+                if (!updatedStudent.stats) updatedStudent.stats = initializeStats(updatedStudent);
+                updatedStudent.stats = updateStats(updatedStudent.stats, {
+                    type: 'GAIN_CARD',
+                    isLegendary: false, // We don't have rarity info here, stats already updated elsewhere if needed
+                    isNew: true,
+                    totalCards: updatedStudent.ownedImageIds.length
+                });
+            }
+        } else {
+            // Duplicate card - award 10 bonus stars
+            updatedStudent.stars += 10;
         }
 
         updateStudent(updatedStudent);
@@ -374,6 +404,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         addTestResult,
         addGameResult,
         setGachaResult,
+        saveGachaCard,
         buyAvatar,
         buyTheme,
         buyPhoto,

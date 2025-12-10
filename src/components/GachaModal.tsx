@@ -6,10 +6,18 @@ interface GachaModalProps {
     image: AlbumImage;
     isNew: boolean;
     onClose: () => void;
+    /**
+     * Callback to save the card. Called when user closes the modal.
+     * - If isNew: should add imageId to ownedImageIds
+     * - If duplicate: should add 10 bonus stars
+     * This centralizes the save logic in GachaModal.
+     */
+    onSaveCard?: (imageId: string, isNew: boolean) => void;
 }
 
-export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose }) => {
+export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose, onSaveCard }) => {
     const [stage, setStage] = useState<'box' | 'spinning' | 'reveal'>('box');
+    const [hasSaved, setHasSaved] = useState(false);
 
     useEffect(() => {
         // Auto transition from box to spinning if needed
@@ -22,6 +30,16 @@ export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose })
                 setStage('reveal');
             }, 1500);
         }
+    };
+
+    // Handle close and save
+    const handleClose = () => {
+        // Save only once when modal closes
+        if (!hasSaved && onSaveCard) {
+            onSaveCard(image.id, isNew);
+            setHasSaved(true);
+        }
+        onClose();
     };
 
     const getRarityColor = (rarity: Rarity) => {
@@ -52,7 +70,7 @@ export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose })
                 {/* Close button */}
                 {stage === 'reveal' && (
                     <button
-                        onClick={onClose}
+                        onClick={handleClose}
                         className="absolute -top-12 right-0 p-2 bg-white/20 hover:bg-white/30 rounded-full shadow-lg transition-all hover:scale-110 z-20"
                     >
                         <X size={28} className="text-white" />
@@ -178,7 +196,7 @@ export const GachaModal: React.FC<GachaModalProps> = ({ image, isNew, onClose })
 
                                 {/* Close button */}
                                 <button
-                                    onClick={onClose}
+                                    onClick={handleClose}
                                     className="mt-4 px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:-translate-y-1"
                                 >
                                     {isNew ? 'Tuyệt vời!' : 'Đóng'}

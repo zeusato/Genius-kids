@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Gamepad2, Zap, Check } from 'lucide-react';
+import { ArrowLeft, BookOpen, Gamepad2, Zap, Check, Star } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 import { LESSONS, CircuitData, CircuitComponentData } from '@/src/data/electricityData';
 import { PlaygroundView } from '@/src/components/electricity/PlaygroundView';
 import { CircuitCanvas } from '@/src/components/electricity/CircuitCanvas';
+import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 
 type Mode = 'menu' | 'lessons' | 'lesson-detail' | 'playground' | 'sandbox';
 
@@ -143,6 +144,8 @@ const QuizOptions: React.FC<QuizOptionsProps> = ({
 
 export const ElectricityPage: React.FC = () => {
     const navigate = useNavigate();
+    const { currentStudent } = useStudent();
+    const { updateStudent } = useStudentActions();
     const [mode, setMode] = useState<Mode>('menu');
     const [selectedLessonId, setSelectedLessonId] = useState<number | null>(null);
     const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
@@ -156,8 +159,14 @@ export const ElectricityPage: React.FC = () => {
     }, []);
 
     const handleLessonComplete = (stars: number) => {
-        console.log('Earned stars:', stars);
-        // TODO: Save to student profile
+        if (!currentStudent || stars <= 0) return;
+
+        // Add stars to student profile
+        updateStudent({
+            ...currentStudent,
+            stars: currentStudent.stars + stars
+        });
+        console.log(`✅ Added ${stars} stars to profile!`);
     };
 
     const renderMenu = () => (

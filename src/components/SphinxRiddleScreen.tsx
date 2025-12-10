@@ -18,6 +18,8 @@ interface SphinxRiddleScreenProps {
     onBack: () => void;
     onProfileUpdate?: (updatedProfile: StudentProfile) => void;
     onSolveRiddle?: (category: string, difficulty: string) => void;
+    /** Callback to save gacha card - called when GachaModal closes */
+    onSaveCard?: (imageId: string, isNew: boolean) => void;
 }
 
 export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
@@ -25,6 +27,7 @@ export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
     onBack,
     onProfileUpdate,
     onSolveRiddle,
+    onSaveCard,
 }) => {
     const [selectedCategory, setSelectedCategory] = useState<RiddleCategory>(RiddleCategory.VN_RIDDLE);
     const [selectedDifficulty, setSelectedDifficulty] = useState<RiddleDifficulty>(RiddleDifficulty.EASY);
@@ -182,6 +185,7 @@ export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
                     image={gachaCard}
                     isNew={!student.ownedImageIds.includes(gachaCard.id)}
                     onClose={handleCloseGacha}
+                    onSaveCard={onSaveCard}
                 />
             )}
 
