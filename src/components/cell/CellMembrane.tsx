@@ -7,39 +7,66 @@ interface CellMembraneProps {
 }
 
 export const CellMembrane: React.FC<CellMembraneProps> = ({ type, color, children }) => {
-    // Custom styles for dynamic membrane
-    const membraneStyle = {
-        boxShadow: `
-            inset 0 0 60px ${color}40, 
-            inset 0 0 20px ${color}80, 
-            0 0 20px ${color}40, 
-            0 0 60px ${color}20
-        `,
-        borderColor: `${color}60`
+    // Enhanced vibrant styles for kids
+    const getMembraneStyle = () => {
+        if (type === 'animal') {
+            return {
+                boxShadow: `
+                    inset 0 0 80px #F43F5E60, 
+                    inset 0 0 40px #F43F5EA0, 
+                    0 0 40px #F43F5E50, 
+                    0 0 80px #F43F5E30,
+                    0 0 120px #F43F5E20
+                `,
+                borderColor: '#F43F5E80'
+            };
+        }
+        if (type === 'plant') {
+            return {
+                boxShadow: `
+                    inset 0 0 80px #10B98160, 
+                    inset 0 0 40px #10B981A0, 
+                    0 0 40px #10B98150, 
+                    0 0 80px #10B98130,
+                    0 0 120px #10B98120
+                `,
+                borderColor: '#10B98180'
+            };
+        }
+        return {
+            boxShadow: `
+                inset 0 0 80px #F59E0B60, 
+                inset 0 0 40px #F59E0BA0, 
+                0 0 40px #F59E0B50, 
+                0 0 80px #F59E0B30,
+                0 0 120px #F59E0B20
+            `,
+            borderColor: '#F59E0B80'
+        };
     };
+
+    const membraneStyle = getMembraneStyle();
 
     if (type === 'plant') {
         return (
-            <div className="relative w-[70vw] h-[70vw] max-w-[300px] max-h-[300px] sm:max-w-[350px] sm:max-h-[350px] md:max-w-[450px] md:max-h-[450px] transition-all duration-700 group">
-                {/* Cell Wall (Outer hard shell) - Subtle glow pulse */}
+            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] transition-all duration-700 group">
+                {/* Cell Wall (Outer hard shell) - More vibrant green */}
                 <div
-                    className="absolute inset-[-12px] border-[10px] border-green-800/70 rounded-[30%] z-0 animate-[pulse_4s_ease-in-out_infinite]"
+                    className="absolute inset-[-12px] border-[10px] border-emerald-600/80 rounded-[30%] z-0 animate-[pulse_4s_ease-in-out_infinite]"
                     style={{
-                        boxShadow: `0 0 0 8px #16653430, inset 0 0 50px #16653450, 0 0 30px #16653420`
+                        boxShadow: `0 0 0 8px #10B98150, inset 0 0 60px #10B98160, 0 0 40px #10B98140, 0 0 80px #10B98130`
                     }}
                 />
 
-                {/* Cell Membrane (Inner soft shell) - CLIPPED for breathing effect */}
+                {/* Cell Membrane (Inner soft shell) - Brighter glow */}
                 <div
-                    className="absolute inset-0 border-2 rounded-[35%] bg-black/40 backdrop-blur-sm overflow-hidden animate-morph z-10 transition-all duration-1000 ease-in-out"
+                    className="absolute inset-0 border-3 border-emerald-400/60 rounded-[35%] bg-gradient-to-br from-emerald-950/60 to-green-950/80 backdrop-blur-sm overflow-hidden animate-morph z-10 transition-all duration-1000 ease-in-out"
                     style={membraneStyle}
                 >
-                    {/* Cytoplasm Particles Background */}
-                    <div className="absolute inset-0 opacity-30">
-                        <div className="w-full h-full bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-white/10 to-transparent" />
-                    </div>
+                    {/* Cytoplasm - more colorful */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-green-500/10" />
                     {/* Glossy reflection */}
-                    <div className="absolute top-[8%] left-[12%] w-[25%] h-[15%] bg-gradient-to-br from-white/15 to-transparent rounded-full blur-lg pointer-events-none" />
+                    <div className="absolute top-[8%] left-[12%] w-[25%] h-[15%] bg-gradient-to-br from-white/25 to-transparent rounded-full blur-lg pointer-events-none" />
                 </div>
 
                 {/* Content Layer - UNCLIPPED FOREGROUND */}
@@ -54,49 +81,53 @@ export const CellMembrane: React.FC<CellMembraneProps> = ({ type, color, childre
 
     if (type === 'bacteria') {
         return (
-            <div className="relative w-[45vw] h-[80vw] max-w-[180px] max-h-[320px] sm:max-w-[220px] sm:max-h-[400px] transition-all duration-700 animate-float-slow group">
-                {/* 1. Capsule (Mucus layer) */}
-                <div className="absolute inset-[-10px] bg-amber-500/10 rounded-full blur-md z-0 animate-pulse" />
-
-                {/* 2. Glassy Skin/Body - BACKGROUND LAYER (z-10) */}
+            <div className="relative w-[180px] h-[320px] sm:w-[220px] sm:h-[400px] transition-all duration-700 animate-float-slow group">
+                {/* Capsule (Mucus layer) - More visible glow */}
                 <div
-                    className="absolute inset-0 border-2 rounded-full bg-black/20 overflow-hidden z-10"
+                    className="absolute inset-[-15px] rounded-full z-0 animate-pulse"
+                    style={{
+                        background: 'radial-gradient(ellipse at center, rgba(245,158,11,0.25) 0%, transparent 70%)',
+                        boxShadow: '0 0 60px rgba(245,158,11,0.3)'
+                    }}
+                />
+
+                {/* Glassy Skin/Body - BACKGROUND LAYER */}
+                <div
+                    className="absolute inset-0 border-3 border-amber-500/60 rounded-full bg-gradient-to-br from-amber-950/60 to-orange-950/80 overflow-hidden z-10"
                     style={membraneStyle}
                 >
-                    {/* Internal Fog */}
-                    <div className="absolute inset-0 opacity-30 bg-gradient-to-t from-black/50 to-transparent" />
+                    {/* Internal warm glow */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-orange-500/15 via-transparent to-amber-500/10" />
                 </div>
 
-                {/* 3. Content Layer (Organelles + Flagellum) - FOREGROUND (z-20) */}
-                {/* Placing Logic: Above Skin to avoid Blur, Below Gloss for Sheen */}
+                {/* Content Layer (Organelles + Flagellum) - FOREGROUND */}
                 <div className="absolute inset-0 z-20 flex items-center justify-center">
                     {children}
                 </div>
 
-                {/* 4. Gloss/Reflection - OVERLAY (z-30) */}
+                {/* Gloss/Reflection - OVERLAY */}
                 <div className="absolute inset-0 rounded-full z-30 pointer-events-none overflow-hidden">
-                    <div className="absolute top-[5%] left-[10%] w-[30%] h-[15%] bg-gradient-to-br from-white/40 to-transparent rounded-full blur-md opacity-80" />
+                    <div className="absolute top-[5%] left-[10%] w-[30%] h-[15%] bg-gradient-to-br from-white/50 to-transparent rounded-full blur-md opacity-90" />
                 </div>
             </div>
         );
     }
 
-    // Default: Animal Cell
+    // Default: Animal Cell - More vibrant red/pink
     return (
-        <div className="relative w-[70vw] h-[70vw] max-w-[280px] max-h-[280px] sm:max-w-[320px] sm:max-h-[320px] md:max-w-[400px] md:max-h-[400px] transition-all duration-1000 ease-in-out group">
-            {/* 1. Glassy Skin/Membrane - CLIPPED BACKGROUND */}
+        <div className="relative w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] transition-all duration-1000 ease-in-out group">
+            {/* Glassy Skin/Membrane - CLIPPED BACKGROUND with vibrant glow */}
             <div
-                className="absolute inset-0 border-2 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] bg-black/40 backdrop-blur-sm overflow-hidden animate-morph z-10"
+                className="absolute inset-0 border-3 border-rose-500/60 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] bg-gradient-to-br from-rose-950/50 to-pink-950/70 backdrop-blur-sm overflow-hidden animate-morph z-10"
                 style={membraneStyle}
             >
-                <div className="absolute inset-0 opacity-30">
-                    <div className="w-full h-full bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-white/10 to-transparent" />
-                </div>
+                {/* Internal warm glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-transparent to-pink-500/10" />
                 {/* Internal Reflection */}
-                <div className="absolute top-[10%] left-[10%] w-[30%] h-[20%] bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl pointer-events-none" />
+                <div className="absolute top-[10%] left-[10%] w-[30%] h-[20%] bg-gradient-to-br from-white/30 to-transparent rounded-full blur-xl pointer-events-none" />
             </div>
 
-            {/* 2. Content Layer - UNCLIPPED FOREGROUND (Organelles + Labels) */}
+            {/* Content Layer - UNCLIPPED FOREGROUND (Organelles + Labels) */}
             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                 {/* Enable pointer events for children (organelles) */}
                 <div className="w-full h-full relative pointer-events-auto">

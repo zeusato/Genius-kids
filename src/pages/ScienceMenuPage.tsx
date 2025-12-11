@@ -133,6 +133,8 @@ export const ScienceMenuPage: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
                 {/* Footer note */}

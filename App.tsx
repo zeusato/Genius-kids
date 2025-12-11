@@ -29,6 +29,7 @@ const PeriodicTablePage = React.lazy(() => import('@/src/pages/PeriodicTablePage
 const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').then(module => ({ default: module.ElectricityPage })));
 const CellBiologyPage = React.lazy(() => import('@/src/pages/science/CellBiologyPage').then(module => ({ default: module.CellBiologyPage })));
 
+
 // Initialize Google Analytics
 ReactGA.initialize('G-KS48DHBY4L');
 
@@ -347,6 +348,7 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+
             </Routes>
 
             {/* Global Modals */}

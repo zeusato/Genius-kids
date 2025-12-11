@@ -51,15 +51,15 @@ export const CellBiologyPage: React.FC = () => {
                     className="absolute left-4 top-4 flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all backdrop-blur-md pointer-events-auto border border-white/10 hover:border-white/20"
                 >
                     <ArrowLeft size={20} />
-                    <span className="hidden sm:inline text-sm">
-                        {viewMode === 'microscope' ? 'Đổi mẫu' : 'Quay lại'}
+                    <span className="hidden sm:inline">
+                        {viewMode === 'microscope' ? 'Chọn mẫu vật khác' : 'Quay lại'}
                     </span>
                 </button>
 
                 {/* Title - Centered */}
-                <div className="absolute left-1/2 top-4 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-1.5 sm:py-2 bg-black/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
-                    <Microscope className="text-purple-400" size={18} />
-                    <h1 className="text-sm sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 whitespace-nowrap">
+                <div className="absolute left-1/2 top-4 -translate-x-1/2 flex items-center gap-2 px-6 py-2 bg-black/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
+                    <Microscope className="text-purple-400" size={24} />
+                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                         {viewMode === 'lab' ? 'Chọn Mẫu Vật' : selectedCell.name}
                     </h1>
                 </div>
@@ -69,49 +69,72 @@ export const CellBiologyPage: React.FC = () => {
             {viewMode === 'lab' && (
                 <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ${isZooming ? 'scale-[3] opacity-0' : isZoomingOut ? 'scale-[3] opacity-0' : 'scale-100 opacity-100'}`}>
 
-                    {/* Background Lab Environment */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 -z-10">
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_0%,_var(--tw-gradient-stops))] from-blue-500 via-transparent to-transparent" />
-                        {/* Table Surface */}
-                        <div className="absolute bottom-0 w-full h-1/3 bg-slate-900 border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]" />
+                    {/* Background - More colorful gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-indigo-950 via-purple-950 to-slate-950 -z-10">
+                        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-pink-500 via-transparent to-transparent" />
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_80%,_var(--tw-gradient-stops))] from-cyan-500 via-transparent to-transparent" />
+                        {/* Floating particles */}
+                        <div className="absolute inset-0 overflow-hidden">
+                            <div className="absolute w-2 h-2 bg-pink-400 rounded-full top-[20%] left-[15%] animate-pulse opacity-60" />
+                            <div className="absolute w-3 h-3 bg-cyan-400 rounded-full top-[40%] right-[20%] animate-bounce opacity-50" />
+                            <div className="absolute w-2 h-2 bg-purple-400 rounded-full bottom-[30%] left-[25%] animate-ping opacity-40" />
+                            <div className="absolute w-4 h-4 bg-green-400 rounded-full top-[60%] right-[10%] animate-pulse opacity-30" />
+                        </div>
                     </div>
 
-                    <h2 className="text-lg sm:text-3xl font-bold mb-6 sm:mb-12 text-white/80 tracking-wide drop-shadow-md text-center px-4">
-                        Chọn một lam kính để soi
+                    <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 tracking-wide drop-shadow-lg animate-pulse">
+                        🔬 Chọn Mẫu Vật Để Soi!
                     </h2>
+                    <p className="text-white/60 mb-10 text-lg">Nhấp vào mẫu vật bạn muốn khám phá</p>
 
-                    {/* Slides Container - Vertical stack on mobile, horizontal centered on desktop */}
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-8 items-center sm:items-end sm:justify-center perspective-[1000px] px-4 w-full">
-                        {CELL_DATA.map((cell) => (
+                    {/* Slides Container - More vibrant cards */}
+                    <div className="flex gap-6 items-center perspective-[1000px]">
+                        {CELL_DATA.map((cell, index) => (
                             <button
                                 key={cell.id}
                                 onClick={() => handleSlideSelect(cell.id)}
-                                className="group relative w-full max-w-xs sm:w-32 h-20 sm:h-48 bg-white/5 border border-white/10 hover:border-purple-400/50 active:border-purple-400/50 rounded-lg backdrop-blur-sm transition-all duration-300 sm:hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] active:shadow-[0_0_30px_rgba(168,85,247,0.3)] flex flex-row sm:flex-col items-center justify-start sm:justify-end px-4 sm:px-0 sm:pb-4 overflow-hidden gap-4 sm:gap-0"
+                                className={`
+                                    group relative w-40 h-56 rounded-2xl transition-all duration-300 
+                                    hover:-translate-y-6 hover:scale-105 hover:rotate-2
+                                    flex flex-col items-center justify-center gap-3
+                                    border-2 shadow-2xl overflow-hidden
+                                    ${cell.id === 'animal' ? 'bg-gradient-to-br from-rose-500/80 to-red-600/80 border-rose-400 hover:shadow-[0_0_40px_rgba(244,63,94,0.5)]' : ''}
+                                    ${cell.id === 'plant' ? 'bg-gradient-to-br from-emerald-500/80 to-green-600/80 border-emerald-400 hover:shadow-[0_0_40px_rgba(16,185,129,0.5)]' : ''}
+                                    ${cell.id === 'bacteria' ? 'bg-gradient-to-br from-amber-500/80 to-orange-600/80 border-amber-400 hover:shadow-[0_0_40px_rgba(245,158,11,0.5)]' : ''}
+                                `}
+                                style={{ animationDelay: `${index * 100}ms` }}
                             >
-                                {/* Glass Shine */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity" />
+                                {/* Glass shine effect */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                                {/* Specimen Sample Look */}
-                                <div className={`
-                                    relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full blur-sm opacity-80 group-hover:blur-none group-active:blur-none group-hover:scale-110 group-active:scale-110 transition-all duration-500 flex-shrink-0
-                                    ${cell.id === 'animal' ? 'bg-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.4)]' : ''}
-                                    ${cell.id === 'plant' ? 'bg-green-500/30 shadow-[0_0_20px_rgba(34,197,94,0.4)]' : ''}
-                                    ${cell.id === 'bacteria' ? 'bg-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.4)]' : ''}
-                                `} />
+                                {/* Cell Icon/Emoji */}
+                                <div className="text-6xl group-hover:scale-125 group-hover:animate-bounce transition-transform duration-300">
+                                    {cell.id === 'animal' && '🔴'}
+                                    {cell.id === 'plant' && '🌿'}
+                                    {cell.id === 'bacteria' && '🦠'}
+                                </div>
 
-                                <div className="flex flex-col items-start sm:items-center">
-                                    <span className="relative font-bold text-sm text-white/60 group-hover:text-purple-300 group-active:text-purple-300 transition-colors uppercase tracking-wider">
-                                        {cell.name.replace('Tế Bào ', '')}
-                                    </span>
-                                    <span className="text-[10px] text-white/30 uppercase">{cell.id} Sample</span>
+                                {/* Cell Name */}
+                                <span className="relative font-bold text-lg text-white drop-shadow-lg">
+                                    {cell.name.replace('Tế Bào ', '')}
+                                </span>
+
+                                {/* Subtitle */}
+                                <span className="text-xs text-white/70 bg-white/10 px-3 py-1 rounded-full">
+                                    Nhấp để soi 👆
+                                </span>
+
+                                {/* Sparkle on hover */}
+                                <div className="absolute top-2 right-2 text-2xl opacity-0 group-hover:opacity-100 group-hover:animate-spin transition-opacity">
+                                    ✨
                                 </div>
                             </button>
                         ))}
                     </div>
 
-                    {/* Microscope Illustration (Abstract/Iconic Background) */}
-                    <div className="absolute pointer-events-none opacity-5 blur-[2px] scale-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
-                        <Microscope size={400} />
+                    {/* Fun microscope icon */}
+                    <div className="absolute pointer-events-none opacity-10 scale-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+                        <Microscope size={400} className="text-purple-300" />
                     </div>
                 </div>
             )}
@@ -120,12 +143,47 @@ export const CellBiologyPage: React.FC = () => {
             {viewMode === 'microscope' && (
                 <main className={`relative z-10 w-full h-screen flex flex-col items-center justify-center pt-20 transition-all duration-700 ${isZoomingOut ? 'scale-[0.3] opacity-0' : 'animate-in fade-in zoom-in duration-1000'}`}>
 
-                    {/* Viewport Vignette Effect (Microscope Lens Look) */}
-                    <div className="absolute inset-0 pointer-events-none radial-vignette z-50 opacity-50" />
+                    {/* Dynamic Background Based on Cell Type */}
+                    <div className={`absolute inset-0 -z-10 transition-colors duration-1000
+                        ${selectedCell.id === 'animal' ? 'bg-gradient-to-br from-slate-950 via-rose-950/30 to-slate-950' : ''}
+                        ${selectedCell.id === 'plant' ? 'bg-gradient-to-br from-slate-950 via-emerald-950/30 to-slate-950' : ''}
+                        ${selectedCell.id === 'bacteria' ? 'bg-gradient-to-br from-slate-950 via-amber-950/30 to-slate-950' : ''}
+                    `}>
+                        {/* Floating particles matching cell type */}
+                        <div className="absolute inset-0 overflow-hidden opacity-40">
+                            <div className={`absolute w-3 h-3 rounded-full top-[15%] left-[10%] animate-pulse
+                                ${selectedCell.id === 'animal' ? 'bg-rose-400' : ''}
+                                ${selectedCell.id === 'plant' ? 'bg-emerald-400' : ''}
+                                ${selectedCell.id === 'bacteria' ? 'bg-amber-400' : ''}
+                            `} />
+                            <div className={`absolute w-2 h-2 rounded-full top-[30%] right-[15%] animate-bounce
+                                ${selectedCell.id === 'animal' ? 'bg-pink-400' : ''}
+                                ${selectedCell.id === 'plant' ? 'bg-green-400' : ''}
+                                ${selectedCell.id === 'bacteria' ? 'bg-orange-400' : ''}
+                            `} />
+                            <div className={`absolute w-4 h-4 rounded-full bottom-[25%] left-[20%] animate-ping opacity-30
+                                ${selectedCell.id === 'animal' ? 'bg-red-400' : ''}
+                                ${selectedCell.id === 'plant' ? 'bg-teal-400' : ''}
+                                ${selectedCell.id === 'bacteria' ? 'bg-yellow-400' : ''}
+                            `} />
+                            <div className={`absolute w-2 h-2 rounded-full bottom-[40%] right-[25%] animate-pulse
+                                ${selectedCell.id === 'animal' ? 'bg-rose-300' : ''}
+                                ${selectedCell.id === 'plant' ? 'bg-lime-400' : ''}
+                                ${selectedCell.id === 'bacteria' ? 'bg-amber-300' : ''}
+                            `} />
+                        </div>
+                    </div>
 
-                    {/* Floating Title in Background - CENTERED ON SCREEN */}
+                    {/* Viewport Vignette Effect (Microscope Lens Look) */}
+                    <div className="absolute inset-0 pointer-events-none radial-vignette z-50 opacity-40" />
+
+                    {/* Floating Title in Background - CENTERED ON SCREEN with color */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                        <h2 className="text-6xl md:text-8xl font-bold text-white/5 uppercase tracking-[0.5em] md:tracking-[1em] whitespace-nowrap">
+                        <h2 className={`text-6xl md:text-8xl font-bold uppercase tracking-[0.5em] md:tracking-[1em] whitespace-nowrap
+                            ${selectedCell.id === 'animal' ? 'text-rose-500/10' : ''}
+                            ${selectedCell.id === 'plant' ? 'text-emerald-500/10' : ''}
+                            ${selectedCell.id === 'bacteria' ? 'text-amber-500/10' : ''}
+                        `}>
                             {selectedCell.id}
                         </h2>
                     </div>
@@ -139,12 +197,11 @@ export const CellBiologyPage: React.FC = () => {
                             />
                         </div>
 
-                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected */}
-                        {/* On mobile: fills the visible area above bottom sheet, On desktop: next to panel */}
+                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected, NEXT TO INFO PANEL */}
                         {selectedOrganelle && (selectedOrganelle.id === 'nucleus' || selectedOrganelle.id === 'nucleoid') && (
-                            <div className="fixed sm:absolute inset-x-0 sm:inset-x-auto top-16 sm:top-1/2 bottom-[70vh] sm:bottom-auto sm:right-[420px] sm:-translate-y-1/2 sm:w-28 sm:h-72 flex items-center justify-center animate-in fade-in slide-in-from-top sm:slide-in-from-right duration-700 z-40 pointer-events-none">
+                            <div className="hidden md:flex absolute right-[420px] top-1/2 -translate-y-1/2 w-28 h-72 animate-in fade-in slide-in-from-right duration-700">
                                 <DNAHelix
-                                    className="w-full h-full max-w-[200px] sm:max-w-none"
+                                    className="w-full h-full"
                                     color={selectedOrganelle.color}
                                 />
                             </div>
