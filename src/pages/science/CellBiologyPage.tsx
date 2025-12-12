@@ -59,7 +59,7 @@ export const CellBiologyPage: React.FC = () => {
                 {/* Title - Centered */}
                 <div className="absolute left-1/2 top-4 -translate-x-1/2 flex items-center gap-2 px-6 py-2 bg-black/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl">
                     <Microscope className="text-purple-400" size={24} />
-                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 whitespace-nowrap">
                         {viewMode === 'lab' ? 'Chọn Mẫu Vật' : selectedCell.name}
                     </h1>
                 </div>
@@ -88,16 +88,16 @@ export const CellBiologyPage: React.FC = () => {
                     <p className="text-white/60 mb-10 text-lg">Nhấp vào mẫu vật bạn muốn khám phá</p>
 
                     {/* Slides Container - More vibrant cards */}
-                    <div className="flex gap-6 items-center perspective-[1000px]">
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center perspective-[1000px] py-8 overflow-visible">
                         {CELL_DATA.map((cell, index) => (
                             <button
                                 key={cell.id}
                                 onClick={() => handleSlideSelect(cell.id)}
                                 className={`
-                                    group relative w-40 h-56 rounded-2xl transition-all duration-300 
-                                    hover:-translate-y-6 hover:scale-105 hover:rotate-2
-                                    flex flex-col items-center justify-center gap-3
-                                    border-2 shadow-2xl overflow-hidden
+                                    group relative w-48 h-24 md:w-40 md:h-56 rounded-2xl transition-all duration-300 
+                                    hover:-translate-y-2 md:hover:-translate-y-6 hover:scale-105 md:hover:rotate-2
+                                    flex flex-row md:flex-col items-center justify-center gap-3 px-4 md:px-0
+                                    border-2 shadow-2xl overflow-hidden shrink-0
                                     ${cell.id === 'animal' ? 'bg-gradient-to-br from-rose-500/80 to-red-600/80 border-rose-400 hover:shadow-[0_0_40px_rgba(244,63,94,0.5)]' : ''}
                                     ${cell.id === 'plant' ? 'bg-gradient-to-br from-emerald-500/80 to-green-600/80 border-emerald-400 hover:shadow-[0_0_40px_rgba(16,185,129,0.5)]' : ''}
                                     ${cell.id === 'bacteria' ? 'bg-gradient-to-br from-amber-500/80 to-orange-600/80 border-amber-400 hover:shadow-[0_0_40px_rgba(245,158,11,0.5)]' : ''}
@@ -108,7 +108,7 @@ export const CellBiologyPage: React.FC = () => {
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                 {/* Cell Icon/Emoji */}
-                                <div className="text-6xl group-hover:scale-125 group-hover:animate-bounce transition-transform duration-300">
+                                <div className="text-4xl md:text-6xl group-hover:scale-125 group-hover:animate-bounce transition-transform duration-300">
                                     {cell.id === 'animal' && '🔴'}
                                     {cell.id === 'plant' && '🌿'}
                                     {cell.id === 'bacteria' && '🦠'}
@@ -119,8 +119,8 @@ export const CellBiologyPage: React.FC = () => {
                                     {cell.name.replace('Tế Bào ', '')}
                                 </span>
 
-                                {/* Subtitle */}
-                                <span className="text-xs text-white/70 bg-white/10 px-3 py-1 rounded-full">
+                                {/* Subtitle - hidden on mobile */}
+                                <span className="hidden md:inline text-xs text-white/70 bg-white/10 px-3 py-1 rounded-full">
                                     Nhấp để soi 👆
                                 </span>
 
@@ -197,14 +197,25 @@ export const CellBiologyPage: React.FC = () => {
                             />
                         </div>
 
-                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected, NEXT TO INFO PANEL */}
+                        {/* DNA Helix Animation - Shows when Nucleus/Nucleoid is selected */}
                         {selectedOrganelle && (selectedOrganelle.id === 'nucleus' || selectedOrganelle.id === 'nucleoid') && (
-                            <div className="hidden md:flex absolute right-[420px] top-1/2 -translate-y-1/2 w-28 h-72 animate-in fade-in slide-in-from-right duration-700">
-                                <DNAHelix
-                                    className="w-full h-full"
-                                    color={selectedOrganelle.color}
-                                />
-                            </div>
+                            <>
+                                {/* Mobile: Show in center of canvas area - Fixed position relative to viewport */}
+                                {/* Top of model = bottom of header (approx 70px). Horizontal center = screen/2 - model/2 (2.5rem) */}
+                                <div className="flex md:hidden fixed left-[calc(50%-2.5rem)] top-[70px] w-20 h-32 animate-in fade-in zoom-in duration-700 z-50 pointer-events-none">
+                                    <DNAHelix
+                                        className="w-full h-full"
+                                        color={selectedOrganelle.color}
+                                    />
+                                </div>
+                                {/* Desktop: Show next to info panel */}
+                                <div className="hidden md:flex absolute right-[420px] top-1/2 -translate-y-1/2 w-28 h-72 animate-in fade-in slide-in-from-right duration-700">
+                                    <DNAHelix
+                                        className="w-full h-full"
+                                        color={selectedOrganelle.color}
+                                    />
+                                </div>
+                            </>
                         )}
                     </div>
 
@@ -222,6 +233,13 @@ export const CellBiologyPage: React.FC = () => {
                 }
                 .perspective-[1000px] {
                     perspective: 1000px;
+                }
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
                 }
             `}</style>
         </div>
