@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Atom, Globe, Zap, Microscope } from 'lucide-react';
+import { ArrowLeft, Atom, Globe, Zap, Microscope, Dna } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 export const ScienceMenuPage: React.FC = () => {
@@ -34,6 +34,8 @@ export const ScienceMenuPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-6">
+
+
                     {/* Solar System Card */}
                     <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border border-white/10 hover:border-white/20">
                         <div className="flex flex-col md:flex-row items-center gap-8">
@@ -134,6 +136,32 @@ export const ScienceMenuPage: React.FC = () => {
                         </div>
                     </div>
 
+
+
+                    {/* Evolution Tree Card - NEW */}
+                    <div className="bg-gradient-to-r from-teal-900/50 to-emerald-900/50 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border border-white/10 hover:border-white/20">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform ring-2 ring-teal-400/50">
+                                <Dna size={64} className="text-white animate-pulse" />
+                            </div>
+
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-white mb-3">
+                                    Cây Tiến Hóa
+                                </h3>
+                                <p className="text-white/70 text-lg mb-6">
+                                    Hành trình vĩ đại từ nguồn gốc sự sống đến thế giới động vật đa dạng ngày nay.
+                                </p>
+
+                                <button
+                                    onClick={() => navigate('/science/evolution')}
+                                    className="px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    🌿 Khám phá ngay!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 

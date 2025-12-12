@@ -28,6 +28,7 @@ const ScienceMenuPage = React.lazy(() => import('@/src/pages/ScienceMenuPage').t
 const PeriodicTablePage = React.lazy(() => import('@/src/pages/PeriodicTablePage').then(module => ({ default: module.PeriodicTablePage })));
 const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').then(module => ({ default: module.ElectricityPage })));
 const CellBiologyPage = React.lazy(() => import('@/src/pages/science/CellBiologyPage').then(module => ({ default: module.CellBiologyPage })));
+const EvolutionTreePage = React.lazy(() => import('@/src/pages/science/EvolutionTreePage').then(module => ({ default: module.EvolutionTreePage })));
 
 
 // Initialize Google Analytics
@@ -345,6 +346,14 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <CellBiologyPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/science/evolution"
+                element={
+                  <ProtectedRoute>
+                    <EvolutionTreePage />
                   </ProtectedRoute>
                 }
               />
