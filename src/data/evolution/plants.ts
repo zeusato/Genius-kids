@@ -21,6 +21,7 @@ export const plantae: EvolutionNode = {
             description: 'Nhóm tảo lục nước ngọt được coi là họ hàng gần nhất còn sống của thực vật trên cạn.',
             era: 'Precambrian',
             traits: ['Sống nước ngọt', 'Cấu trúc gen giống cây', 'Tiền thân của cây'],
+            infographicUrl: 'evolution/Green algae (Charophytes).jpeg',
             children: [
                 {
                     id: 'green_algae_plants',
@@ -31,6 +32,7 @@ export const plantae: EvolutionNode = {
                     description: 'Bước chuyển mình quan trọng từ đại dương lên vùng ven bờ.',
                     era: '500+ triệu năm trước',
                     traits: ['Chưa có rễ lá', 'Quang hợp mạnh'],
+                    infographicUrl: 'evolution/Green algae (Simple).jpeg',
                     children: []
                 }
             ]
@@ -44,6 +46,7 @@ export const plantae: EvolutionNode = {
             description: 'Cuộc xâm lăng vĩ đại của sự sống lên mặt đất khô cằn. Chúng phát triển lớp sáp bảo vệ và nuôi phôi thai.',
             era: 'Ordovician (470 triệu năm trước)',
             traits: ['Sống trên cạn', 'Có phôi đa bào', 'Lớp cutin chống mất nước'],
+            infographicUrl: 'evolution/Embryophytes.jpeg',
             children: [
                 {
                     id: 'mosses',
@@ -54,6 +57,7 @@ export const plantae: EvolutionNode = {
                     description: 'Những người tiên phong nhỏ bé. Chưa có mạch dẫn nước nên phải sống bám sát đất ẩm ướt.',
                     era: 'Ordovician',
                     traits: ['Không có mạch dẫn', 'Không rễ thật', 'Thụ tinh cần nước'],
+                    infographicUrl: 'evolution/Bryophytes.jpeg',
                     children: []
                 },
                 {
@@ -65,6 +69,7 @@ export const plantae: EvolutionNode = {
                     description: 'Phát minh ra "hệ thống ống nước" (mạch dẫn) giúp cây mọc cao đón nắng. Thống trị Trái Đất thời cổ đại (Kỷ Carbon).',
                     era: 'Devonian (360 triệu năm trước)',
                     traits: ['Có mạch dẫn (Xylem/Phloem)', 'Sinh sản bằng bào tử', 'Lá chét cuộn tròn'],
+                    infographicUrl: 'evolution/Pteridophytes.jpeg',
                     children: []
                 },
                 {
@@ -76,6 +81,7 @@ export const plantae: EvolutionNode = {
                     description: 'Kỷ nguyên của Hạt! Hạt giúp phôi sống sót qua mùa khô lạnh. "Trần" vì hạt nằm lộ trên nón thông, không được quả bao bọc.',
                     era: 'Carboniferous (300 triệu năm trước)',
                     traits: ['Hạt trần (không quả)', 'Thụ phấn nhờ gió', 'Lá kim chịu hạn'],
+                    infographicUrl: 'evolution/Gymnosperms.jpeg',
                     children: [
                         {
                             id: 'conifers',
@@ -86,6 +92,7 @@ export const plantae: EvolutionNode = {
                             description: 'Nhóm thực vật hạt trần phổ biến nhất, xanh quanh năm, chịu được khí hậu lạnh.',
                             era: 'Triassic',
                             traits: ['Nón đực & nón cái', 'Gỗ mềm', 'Nhựa thơm'],
+                            infographicUrl: 'evolution/Conifers.jpeg',
                             children: [
                                 {
                                     id: 'pine_spruce_fir_examples',
@@ -95,7 +102,8 @@ export const plantae: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Các loài cây lá kim điển hình, tạo nên những cánh rừng Taiga bạt ngàn.',
                                     era: 'Hiện đại',
-                                    traits: ['Lá kim', 'Hình tháp']
+                                    traits: ['Lá kim', 'Hình tháp'],
+                                    infographicUrl: 'evolution/Pine, Spruce, Fir.jpeg'
                                 }
                             ]
                         }
@@ -110,6 +118,7 @@ export const plantae: EvolutionNode = {
                     description: 'Nhóm thực vật thành công nhất hiện nay. Hoa thu hút côn trùng thụ phấn, quả bảo vệ và phát tán hạt.',
                     era: 'Cretaceous (140 triệu năm trước)',
                     traits: ['Có Hoa sặc sỡ', 'Có Quả che hạt', 'Thụ phấn kép'],
+                    infographicUrl: 'evolution/Angiosperms.jpeg',
                     children: [
                         {
                             id: 'flowering_plants_monocots',
@@ -120,6 +129,7 @@ export const plantae: EvolutionNode = {
                             description: 'Nhóm cây mà hạt mầm chỉ có 1 chiếc lá đầu tiên. Gân lá thường song song.',
                             era: 'Cretaceous',
                             traits: ['1 lá mầm', 'Rễ chùm', 'Hoa mẫu 3'],
+                            infographicUrl: 'evolution/Monocots.jpeg',
                             children: [
                                 {
                                     id: 'rice_corn_wheat_examples',
@@ -129,7 +139,8 @@ export const plantae: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Nguồn lương thực chính của nhân loại (Ngũ cốc).',
                                     era: 'Hiện đại',
-                                    traits: ['Rễ chùm', 'Thân thảo']
+                                    traits: ['Rễ chùm', 'Thân thảo'],
+                                    infographicUrl: 'evolution/cereals (rice, corn, wheat).jpeg'
                                 },
                                 {
                                     id: 'orchids_lilies_examples',
@@ -139,7 +150,8 @@ export const plantae: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Các loài hoa đẹp, cấu trúc phức tạp, thường thụ phấn nhờ côn trùng chuyên biệt.',
                                     era: 'Hiện đại',
-                                    traits: ['Hoa đẹp', 'Giả hành']
+                                    traits: ['Hoa đẹp', 'Giả hành'],
+                                    infographicUrl: 'evolution/Orchids & Lilies.jpeg'
                                 }
                             ]
                         },
@@ -152,6 +164,7 @@ export const plantae: EvolutionNode = {
                             description: 'Nhóm cây mà hạt mầm có 2 chiếc lá. Gân lá thường hình mạng lưới.',
                             era: 'Cretaceous',
                             traits: ['2 lá mầm', 'Rễ cọc', 'Hoa mẫu 4 hoặc 5'],
+                            infographicUrl: 'evolution/Dicots (Eudicots).jpeg',
                             children: [
                                 {
                                     id: 'beans_roses_sunflowers_examples',
@@ -161,7 +174,8 @@ export const plantae: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Rất đa dạng, từ cây bụi gai góc đến hoa hướng dương rực rỡ.',
                                     era: 'Hiện đại',
-                                    traits: ['Gân lá mạng', 'Thân gỗ hoặc thảo']
+                                    traits: ['Gân lá mạng', 'Thân gỗ hoặc thảo'],
+                                    infographicUrl: 'evolution/Beans, Roses, Sunflowers.jpeg'
                                 },
                                 {
                                     id: 'apple_mango_orange_examples',
@@ -171,7 +185,8 @@ export const plantae: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Các loại cây ăn quả thân gỗ lâu năm.',
                                     era: 'Hiện đại',
-                                    traits: ['Thân gỗ', 'Qủa mọng/hạch']
+                                    traits: ['Thân gỗ', 'Qủa mọng/hạch'],
+                                    infographicUrl: 'evolution/Fruit Trees.jpeg'
                                 }
                             ]
                         }

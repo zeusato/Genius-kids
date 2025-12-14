@@ -21,6 +21,7 @@ export const fungi: EvolutionNode = {
             description: 'Nhóm nấm cổ xưa nhất, sống chủ yếu dưới nước. Đặc biệt vì bào tử của chúng có roi bơi được.',
             era: 'Tiền Cambri',
             traits: ['Bào tử có roi bơi', 'Sống dưới nước', 'Ký sinh hoặc hoại sinh'],
+            infographicUrl: 'evolution/Chytrids.jpeg',
             children: [
                 {
                     id: 'chytrid_example',
@@ -30,7 +31,8 @@ export const fungi: EvolutionNode = {
                     color: '#92400e', // Amber-800
                     description: 'Thủ phạm gây ra sự suy giảm số lượng lưỡng cư (ếch nhái) trên toàn cầu.',
                     era: 'Cổ đại',
-                    traits: ['Gây bệnh cho da ếch', 'Kích thước hiển vi']
+                    traits: ['Gây bệnh cho da ếch', 'Kích thước hiển vi'],
+                    infographicUrl: 'evolution/Chytrid Example.jpeg'
                 }
             ]
         },
@@ -43,6 +45,7 @@ export const fungi: EvolutionNode = {
             description: 'Những kẻ "xâm chiếm" nhanh chóng. Chúng tạo ra mạng lưới sợi nấm chằng chịt, thường gặp trên thực phẩm để lâu.',
             era: 'Cổ sinh',
             traits: ['Hệ sợi nấm phát triển mạnh', 'Sinh sản vô tính nhanh', 'Ưa ẩm'],
+            infographicUrl: 'evolution/Molds.jpeg',
             children: [
                 {
                     id: 'zygomycetes_simple',
@@ -53,6 +56,7 @@ export const fungi: EvolutionNode = {
                     description: 'Loại mốc đen hoặc trắng xốp thường thấy trên bánh mì cũ.',
                     era: 'Hiện đại',
                     traits: ['Bào tử tiếp hợp', 'Phân hủy tinh bột'],
+                    infographicUrl: 'evolution/Zygomycetes.jpeg',
                     children: [
                         {
                             id: 'bread_mold_example',
@@ -63,6 +67,7 @@ export const fungi: EvolutionNode = {
                             description: 'Rhizopus stolonifer - Kẻ thù của tiệm bánh.',
                             era: 'Hiện đại',
                             traits: ['Mọc rất nhanh', 'Bào tử màu đen'],
+                            infographicUrl: 'evolution/Bread Mold.jpeg',
                             children: [
                                 {
                                     id: 'rhizopus_example',
@@ -72,7 +77,8 @@ export const fungi: EvolutionNode = {
                                     color: '#431407', // Orange-950
                                     description: 'Có thể được dùng để lên men tempeh hoặc sản xuất axit hữu cơ.',
                                     era: 'Hiện đại',
-                                    traits: ['Ứng dụng công nghiệp', 'Phân hủy mạnh']
+                                    traits: ['Ứng dụng công nghiệp', 'Phân hủy mạnh'],
+                                    infographicUrl: 'evolution/Rhizopus.jpeg'
                                 }
                             ]
                         }
@@ -87,6 +93,7 @@ export const fungi: EvolutionNode = {
                     description: 'Nhóm nấm lớn nhất, sinh bào tử trong các túi nhỏ gọi là "ascus". Bao gồm cả nấm cục đắt tiền.',
                     era: 'Hiện đại',
                     traits: ['Bào tử túi', 'Đa dạng nhất', 'Nhiều loài ăn được'],
+                    infographicUrl: 'evolution/Ascomycetes.jpeg',
                     children: [
                         {
                             id: 'penicillium_example',
@@ -97,6 +104,7 @@ export const fungi: EvolutionNode = {
                             description: 'Người hùng y học: Nơi chiết xuất ra thuốc kháng sinh Penicillin đầu tiên.',
                             era: 'Hiện đại',
                             traits: ['Kháng khuẩn', 'Làm phô mai xanh'],
+                            infographicUrl: 'evolution/Penicillium.jpeg',
                             children: [
                                 {
                                     id: 'blue_mold_example',
@@ -106,7 +114,8 @@ export const fungi: EvolutionNode = {
                                     color: '#431407',
                                     description: 'Alexander Fleming đã tình cờ phát hiện ra kháng sinh từ loại nấm này.',
                                     era: 'Hiện đại',
-                                    traits: ['Màu xanh đặc trưng', 'Vị đắng nhẹ']
+                                    traits: ['Màu xanh đặc trưng', 'Vị đắng nhẹ'],
+                                    infographicUrl: 'evolution/Blue Mold.jpeg'
                                 }
                             ]
                         },
@@ -119,6 +128,7 @@ export const fungi: EvolutionNode = {
                             description: 'Những viên kim cương đen của ẩm thực. Sống cộng sinh dưới rễ cây.',
                             era: 'Hiện đại',
                             traits: ['Cực kỳ đắt đỏ', 'Hương vị tuyệt hảo', 'Sống dưới đất'],
+                            infographicUrl: 'evolution/Morels & Truffles.jpeg',
                             children: [
                                 {
                                     id: 'truffle_example',
@@ -128,7 +138,8 @@ export const fungi: EvolutionNode = {
                                     color: '#431407',
                                     description: 'Phải dùng chó hoặc lợn để đánh hơi và tìm kiếm.',
                                     era: 'Hiện đại',
-                                    traits: ['Vua của các loại nấm', 'Giá trị kinh tế cao']
+                                    traits: ['Vua của các loại nấm', 'Giá trị kinh tế cao'],
+                                    infographicUrl: 'evolution/Truffle.jpeg'
                                 }
                             ]
                         }
@@ -145,6 +156,7 @@ export const fungi: EvolutionNode = {
             description: 'Những cây dù của rừng thẳm. Có mũ nấm, chân nấm và phiến nấm chứa bào tử.',
             era: 'Cổ sinh',
             traits: ['Mũ nấm rõ rệt', 'Sinh sản hữu tính', 'Phân hủy gỗ'],
+            infographicUrl: 'evolution/Mushrooms (Basidiomycota).jpeg',
             children: [
                 {
                     id: 'basidiomycota_simple',
@@ -155,6 +167,7 @@ export const fungi: EvolutionNode = {
                     description: 'Nhóm nấm quen thuộc nhất trong bữa ăn hàng ngày.',
                     era: 'Hiện đại',
                     traits: ['Bào tử đảm', 'Thể quả lớn'],
+                    infographicUrl: 'evolution/Basidiomycetes.jpeg',
                     children: [
                         {
                             id: 'button_mushroom_example',
@@ -165,6 +178,7 @@ export const fungi: EvolutionNode = {
                             description: 'Loại nấm được trồng phổ biến nhất thế giới.',
                             era: 'Hiện đại',
                             traits: ['Dễ trồng', 'Thơm ngon'],
+                            infographicUrl: 'evolution/Button Mushroom.jpeg',
                             children: [
                                 {
                                     id: 'agaricus_example',
@@ -174,7 +188,8 @@ export const fungi: EvolutionNode = {
                                     color: '#451a03',
                                     description: 'Nấm mỡ trắng, nấm nâu đều thuộc chi này.',
                                     era: 'Hiện đại',
-                                    traits: ['Mũ tròn', 'Phiến nâu']
+                                    traits: ['Mũ tròn', 'Phiến nâu'],
+                                    infographicUrl: 'evolution/Agaricus.jpeg'
                                 }
                             ]
                         },
@@ -187,6 +202,7 @@ export const fungi: EvolutionNode = {
                             description: 'Mọc như những chiếc kệ bám trên thân cây gỗ mục. Rất dai và cứng.',
                             era: 'Hiện đại',
                             traits: ['Dai như gỗ', 'Sống lâu năm'],
+                            infographicUrl: 'evolution/Bracket Fungi.jpeg',
                             children: [
                                 {
                                     id: 'polypore_example',
@@ -196,7 +212,8 @@ export const fungi: EvolutionNode = {
                                     color: '#451a03',
                                     description: 'Dùng làm thuốc, có vân màu đẹp mắt như đuôi gà tây.',
                                     era: 'Hiện đại',
-                                    traits: ['Dược liệu', 'Phân hủy gỗ mạnh']
+                                    traits: ['Dược liệu', 'Phân hủy gỗ mạnh'],
+                                    infographicUrl: 'evolution/Polypore.jpeg'
                                 }
                             ]
                         },
@@ -209,6 +226,7 @@ export const fungi: EvolutionNode = {
                             description: 'Tròn như quả bóng, khi già chạm vào sẽ "phun" ra đám mây bào tử như khói.',
                             era: 'Hiện đại',
                             traits: ['Kín, không mũ', 'Phát tán nhờ gió'],
+                            infographicUrl: 'evolution/Puffball.jpeg',
                             children: [
                                 {
                                     id: 'puffball_detail_example',
@@ -218,7 +236,8 @@ export const fungi: EvolutionNode = {
                                     color: '#451a03',
                                     description: 'Có thể to bằng quả bóng đá, bên trong trắng tinh ăn được khi còn non.',
                                     era: 'Hiện đại',
-                                    traits: ['Kích thước lớn', 'Ăn được khi non']
+                                    traits: ['Kích thước lớn', 'Ăn được khi non'],
+                                    infographicUrl: 'evolution/Giant Puffball.jpeg'
                                 }
                             ]
                         }
@@ -235,6 +254,7 @@ export const fungi: EvolutionNode = {
             description: 'Nấm đơn bào quan trọng nhất với loài người. Không có sợi nấm.',
             era: 'Cổ đại',
             traits: ['Đơn bào', 'Lên men đường', 'Sinh sản nảy chồi'],
+            infographicUrl: 'evolution/Yeasts.jpeg',
             children: [
                 {
                     id: 'baker_yeast_example',
@@ -244,7 +264,8 @@ export const fungi: EvolutionNode = {
                     color: '#a16207', // Yellow-800
                     description: 'Saccharomyces cerevisiae - Thợ làm bánh và nấu bia tài ba.',
                     era: 'Hiện đại',
-                    traits: ['Làm nở bánh', 'Lên men rượu bia', 'Mô hình nghiên cứu Gen']
+                    traits: ['Làm nở bánh', 'Lên men rượu bia', 'Mô hình nghiên cứu Gen'],
+                    infographicUrl: "evolution/Baker's Yeast.jpeg"
                 }
             ]
         }

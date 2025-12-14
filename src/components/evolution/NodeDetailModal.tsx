@@ -59,7 +59,7 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
 
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors z-10"
+                        className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors z-20"
                     >
                         <X size={20} />
                     </button>

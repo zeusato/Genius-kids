@@ -17,10 +17,25 @@ const getAllNodeIds = (node: IEvolutionNode): string[] => {
     return ids;
 };
 
+// Canvas Constants
+const CANVAS_WIDTH = 4000;
+const CANVAS_HEIGHT = 3000;
+const INITIAL_SCALE = 0.8;
+
 export const EvolutionTreePage: React.FC = () => {
     const navigate = useNavigate();
     const [selectedNode, setSelectedNode] = useState<IEvolutionNode | null>(null);
     const transformRef = useRef<ReactZoomPanPinchRef>(null);
+
+    // Calculate initial center position based on screen size
+    const getInitialPosition = () => {
+        if (typeof window === 'undefined') return { x: -1000, y: -1000 };
+        const x = (window.innerWidth - CANVAS_WIDTH * INITIAL_SCALE) / 2;
+        const y = (window.innerHeight - CANVAS_HEIGHT * INITIAL_SCALE) / 2;
+        return { x, y };
+    };
+
+    const [initialPos] = useState(getInitialPosition());
 
     // Drill-down State
     interface HistoryState {
@@ -30,7 +45,6 @@ export const EvolutionTreePage: React.FC = () => {
     const [currentRoot, setCurrentRoot] = useState<IEvolutionNode>(EVOLUTION_TREE_DATA);
     const [history, setHistory] = useState<HistoryState[]>([]);
 
-    // Expansion State
     // Expansion State
     const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set(['life_origin']));
 
@@ -154,9 +168,9 @@ export const EvolutionTreePage: React.FC = () => {
             {/* Main Canvas */}
             <TransformWrapper
                 ref={transformRef}
-                initialScale={0.8}
-                initialPositionX={-1000}
-                initialPositionY={-1000}
+                initialScale={INITIAL_SCALE}
+                initialPositionX={initialPos.x}
+                initialPositionY={initialPos.y}
                 minScale={0.2}
                 maxScale={2}
                 limitToBounds={false}
@@ -167,7 +181,7 @@ export const EvolutionTreePage: React.FC = () => {
                     <>
                         {/* Control Bar (Floating) */}
                         <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2 pointer-events-auto">
-                            <button onClick={() => transformRef.current?.setTransform(-1000, -1000, 0.8)} title="Căn Giữa" className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur border border-white/10 transition-colors mb-2">
+                            <button onClick={() => transformRef.current?.setTransform(initialPos.x, initialPos.y, INITIAL_SCALE)} title="Căn Giữa" className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur border border-white/10 transition-colors mb-2">
                                 <Target size={20} />
                             </button>
                             {history.length > 0 && (
