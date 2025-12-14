@@ -9,6 +9,7 @@ export const animalia: EvolutionNode = {
     era: 'Precambrian',
     color: '#f43f5e', // Rose
     traits: ['Đa bào', 'Dị dưỡng', 'Hệ thần kinh'],
+    infographicUrl: 'evolution/Animals.jpeg',
     drillable: true,
     children: [
         {

@@ -45,6 +45,21 @@ export const ElementDetail: React.FC<ElementDetailProps> = ({ element, onClose }
         return () => window.removeEventListener('resize', checkOrientation);
     }, []);
 
+    // Handle ESC key
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                if (showInfographic) {
+                    setShowInfographic(false);
+                } else {
+                    onClose();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [showInfographic, onClose]);
+
     // Calculate particle counts
     const protons = element.atomicNumber;
     const electrons = element.atomicNumber; // Neutral atom

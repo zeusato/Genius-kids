@@ -9,6 +9,7 @@ export const plantae: EvolutionNode = {
     era: 'Paleozoic (470 triệu năm trước)',
     color: '#15803d', // Green-700
     traits: ['Đa bào nhân thực', 'Quang hợp tự dưỡng', 'Vách tế bào Cellulose'],
+    infographicUrl: 'evolution/Plants.jpeg',
     drillable: true,
     children: [
         {

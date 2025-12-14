@@ -9,6 +9,7 @@ export const fungi: EvolutionNode = {
     era: 'Proterozoic (1.5 tỷ năm trước)',
     color: '#d97706', // Amber-600
     traits: ['Thành tế bào Chitin', 'Dị dưỡng hoại sinh', 'Sinh sản bằng bào tử'],
+    infographicUrl: 'evolution/Fungi Kingdom.jpeg',
     drillable: true,
     children: [
         {

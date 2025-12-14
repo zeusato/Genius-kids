@@ -17,7 +17,7 @@ export const EVOLUTION_TREE_DATA: EvolutionNode = {
     era: 'Hadean / Archean',
     color: '#0ea5e9', // Sky blue
     traits: ['Hóa học tiền sinh học'],
-    imageUrl: 'https://images.unsplash.com/photo-1476231682828-37edb4c367a7?q=80&w=2071&auto=format&fit=crop',
+    infographicUrl: 'evolution/Origin of life.jpeg', // Note: file on disk is "Origin of life.jpeg"
     children: [
         {
             id: 'luca',
@@ -28,6 +28,7 @@ export const EVOLUTION_TREE_DATA: EvolutionNode = {
             era: 'Archean',
             color: '#0891b2', // Cyan-700
             traits: ['DNA/RNA', 'Màng tế bào', 'Tổng hợp protein'],
+            infographicUrl: 'evolution/LUCA.jpeg',
             milestone: {
                 label: 'Sự Sống Đầu Tiên',
                 year: '3.5 - 3.8 tỷ năm trước'
@@ -44,6 +45,7 @@ export const EVOLUTION_TREE_DATA: EvolutionNode = {
                     era: 'Proterozoic',
                     color: '#8b5cf6', // Violet
                     traits: ['Nhân thực', 'Bào quan phức tạp'],
+                    infographicUrl: 'evolution/Eukarya.jpeg',
                     milestone: {
                         label: 'Xuất Hiện Nhân',
                         year: '2.7 tỷ năm trước'

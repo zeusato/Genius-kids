@@ -26,6 +26,21 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
         return () => window.removeEventListener('resize', checkOrientation);
     }, []);
 
+    // Handle ESC key
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                if (showInfographic) {
+                    setShowInfographic(false);
+                } else {
+                    onClose();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [showInfographic, onClose]);
+
     const getInfographicPath = (planetId: string) => {
         const map: Record<string, string> = {
             'mercury': 'Mercury.png',

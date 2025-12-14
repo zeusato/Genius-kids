@@ -480,6 +480,7 @@ export const archaea: EvolutionNode = {
     era: 'Archean (3.8 tỷ năm trước)',
     color: '#475569', // Slate-600
     traits: ['Màng lipid Ether (chịu nhiệt)', 'Không gây bệnh', 'Hóa tự dưỡng'],
+    infographicUrl: 'evolution/Archaea.jpeg',
     drillable: true,
     children: [
         {
@@ -491,6 +492,7 @@ export const archaea: EvolutionNode = {
             description: 'Nhóm cổ khuẩn đa dạng nhất, bao gồm những loài sinh ra khí Metan và những loài yêu thích muối.',
             era: 'Cổ đại',
             traits: ['Sinh Metan', 'Ưa mặn', 'Đa dạng sinh thái'],
+            infographicUrl: 'evolution/Euryarchaeota.jpeg',
             children: [
                 {
                     id: 'methanogens',
@@ -501,6 +503,7 @@ export const archaea: EvolutionNode = {
                     description: 'Chúng tạo ra khí Metan (biogas) bằng cách phân giải chất hữu cơ trong điều kiện không có oxy.',
                     era: 'Cổ đại',
                     traits: ['Kỵ khí tuyệt đối', 'Tạo khí Metan', 'Sống trong ruột bò, đầm lầy'],
+                    infographicUrl: 'evolution/Methanogens.jpeg',
                     children: [
                         {
                             id: 'methanobacteriales',
@@ -511,6 +514,7 @@ export const archaea: EvolutionNode = {
                             description: 'Thường sống trong bùn thải và ruột động vật.',
                             era: 'Hiện đại',
                             traits: ['Hình que ngắn', 'Vách giả peptidoglycan'],
+                            infographicUrl: 'evolution/Methanobacteriales.jpeg',
                             children: [
                                 {
                                     id: 'methanobrevibacter_example',
@@ -520,7 +524,8 @@ export const archaea: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Cư dân phổ biến trong ruột người, giúp tiêu hóa carbohydrate phức tạp.',
                                     era: 'Hiện đại',
-                                    traits: ['Lợi khuẩn ruột', 'Sinh metan']
+                                    traits: ['Lợi khuẩn ruột', 'Sinh metan'],
+                                    infographicUrl: 'evolution/Methanobrevibacter smithii.jpeg'
                                 }
                             ]
                         },
@@ -533,6 +538,7 @@ export const archaea: EvolutionNode = {
                             description: 'Có thể sử dụng nhiều loại thức ăn khác nhau để tạo metan.',
                             era: 'Hiện đại',
                             traits: ['Đa năng', 'Tế bào xếp gói'],
+                            infographicUrl: 'evolution/Methanosarcinales.jpeg',
                             children: [
                                 {
                                     id: 'methanosarcina_example',
@@ -542,7 +548,8 @@ export const archaea: EvolutionNode = {
                                     color: '#052e16',
                                     description: 'Có thể sống ở cả môi trường nước ngọt và nước mặn.',
                                     era: 'Hiện đại',
-                                    traits: ['Chịu mặn', 'Tạo khí sinh học']
+                                    traits: ['Chịu mặn', 'Tạo khí sinh học'],
+                                    infographicUrl: 'evolution/Methanosarcina.jpeg'
                                 }
                             ]
                         }
@@ -557,6 +564,7 @@ export const archaea: EvolutionNode = {
                     description: 'Sống vui vẻ trong những hồ nước mặn đến mức làm chết cá. Chúng tạo nên màu hồng rực rỡ cho các ruộng muối.',
                     era: 'Hiện đại',
                     traits: ['Cần muối nồng độ cao', 'Quang hợp bằng Rhodopsin'],
+                    infographicUrl: 'evolution/Extreme Halophiles.jpeg',
                     children: [
                         {
                             id: 'halobacteriales',
@@ -567,6 +575,7 @@ export const archaea: EvolutionNode = {
                             description: 'Có cơ chế bơm ion đặc biệt để không bị mất nước trong môi trường muối.',
                             era: 'Hiện đại',
                             traits: ['Bơm Kali vào tế bào', 'Hiếu khí'],
+                            infographicUrl: 'evolution/Halobacteriales.jpeg',
                             children: [
                                 {
                                     id: 'halobacterium_example',
@@ -576,7 +585,8 @@ export const archaea: EvolutionNode = {
                                     color: '#831843',
                                     description: 'Được tìm thấy trong các tinh thể muối cổ đại hàng triệu năm tuổi.',
                                     era: 'Cổ đại',
-                                    traits: ['Màu hồng tím', 'Bất tử trong muối']
+                                    traits: ['Màu hồng tím', 'Bất tử trong muối'],
+                                    infographicUrl: 'evolution/Halobacterium.jpeg'
                                 }
                             ]
                         }
@@ -593,6 +603,7 @@ export const archaea: EvolutionNode = {
             description: 'Những tín đồ của nhiệt độ cao. Được tìm thấy nhiều nhất ở các suối nước nóng Yellowstone.',
             era: 'Rất cổ đại',
             traits: ['Ưa nhiệt cực đại', 'Ưa axit', 'Màng tế bào đặc biệt'],
+            infographicUrl: 'evolution/Crenarchaeota.jpeg',
             children: [
                 {
                     id: 'thermophiles_acidophiles',
@@ -603,6 +614,7 @@ export const archaea: EvolutionNode = {
                     description: 'Sống trong môi trường như nồi lẩu chua cay: vừa nóng vừa axit.',
                     era: 'Cổ đại',
                     traits: ['Chịu nhiệt >80°C', 'pH thấp'],
+                    infographicUrl: 'evolution/Thermoacidophiles.jpeg',
                     children: [
                         {
                             id: 'sulfolobales',
@@ -613,6 +625,7 @@ export const archaea: EvolutionNode = {
                             description: 'Sử dụng lưu huỳnh để tạo năng lượng, sống ở suối nước nóng có lưu huỳnh.',
                             era: 'Hiện đại',
                             traits: ['Oxy hóa lưu huỳnh', 'Lỗ châm (Pits)'],
+                            infographicUrl: 'evolution/Sulfolobales.jpeg',
                             children: [
                                 {
                                     id: 'sulfolobus_example',
@@ -622,7 +635,8 @@ export const archaea: EvolutionNode = {
                                     color: '#881337',
                                     description: 'Mô hình nghiên cứu quan trọng về sự sao chép DNA ở nhiệt độ cao.',
                                     era: 'Hiện đại',
-                                    traits: ['Virus ký sinh độc lạ', 'Hình cầu']
+                                    traits: ['Virus ký sinh độc lạ', 'Hình cầu'],
+                                    infographicUrl: 'evolution/Sulfolobus.jpeg'
                                 }
                             ]
                         },
@@ -635,6 +649,7 @@ export const archaea: EvolutionNode = {
                             description: 'Có hình dạng thay đổi linh hoạt, thường là hình que dài.',
                             era: 'Hiện đại',
                             traits: ['Kỵ khí', 'Khử lưu huỳnh'],
+                            infographicUrl: 'evolution/Thermoproteales.jpeg',
                             children: [
                                 {
                                     id: 'thermoproteus_example',
@@ -644,7 +659,8 @@ export const archaea: EvolutionNode = {
                                     color: '#881337',
                                     description: 'Sống ở các lỗ phun khí núi lửa dưới đáy biển.',
                                     era: 'Hiện đại',
-                                    traits: ['Cực kỳ ưa nhiệt', 'Chạy bằng Hydro']
+                                    traits: ['Cực kỳ ưa nhiệt', 'Chạy bằng Hydro'],
+                                    infographicUrl: 'evolution/Thermoproteus.jpeg'
                                 }
                             ]
                         }
@@ -661,6 +677,7 @@ export const archaea: EvolutionNode = {
             description: 'Nhóm cổ khuẩn "mát mẻ" hơn, sống đầy rẫy trong đại dương và đất, không cần môi trường cực đoan.',
             era: 'Trung sinh',
             traits: ['Oxy hóa Amoniac', 'Sống ôn hòa', 'Chu trình Nitơ'],
+            infographicUrl: 'evolution/Thaumarchaeota.jpeg',
             children: [
                 {
                     id: 'ammonia_oxidizing_archaea',
@@ -671,6 +688,7 @@ export const archaea: EvolutionNode = {
                     description: 'Đóng vai trò quan trọng trong việc làm sạch nước biển bằng cách tiêu thụ amoniac.',
                     era: 'Hiện đại',
                     traits: ['Hóa tự dưỡng', 'Tạo Nitrit'],
+                    infographicUrl: 'evolution/Ammonia Oxidizers.jpeg',
                     children: [
                         {
                             id: 'nitrosopumilales',
@@ -681,6 +699,7 @@ export const archaea: EvolutionNode = {
                             description: 'Nhóm sinh vật phổ biến nhất trong các đại dương.',
                             era: 'Hiện đại',
                             traits: ['Có mặt khắp đại dương', 'Quan trọng toàn cầu'],
+                            infographicUrl: 'evolution/Nitrosopumilales.jpeg',
                             children: [
                                 {
                                     id: 'nitrosopumilus_example',
@@ -690,7 +709,8 @@ export const archaea: EvolutionNode = {
                                     color: '#042f2e',
                                     description: 'Sát thủ diệt Amoniac của biển cả, nguồn thức ăn cơ sở cho sinh vật phù du.',
                                     era: 'Hiện đại',
-                                    traits: ['Làm sạch biển', 'Kích thước nhỏ']
+                                    traits: ['Làm sạch biển', 'Kích thước nhỏ'],
+                                    infographicUrl: 'evolution/Nitrosopumilus maritimus.jpeg'
                                 }
                             ]
                         }
@@ -717,6 +737,7 @@ export const archaea: EvolutionNode = {
                     description: 'Được tìm thấy gần "Lâu đài Loki" (một miệng phun thủy nhiệt). Chứa nhiều gen mà trước đây nghĩ chỉ con người mới có.',
                     era: 'Gần đây',
                     traits: ['Hệ khung xương tế bào', 'Tiền thân nhân thực'],
+                    infographicUrl: 'evolution/Lokiarchaeota.jpeg',
                     children: [
                         {
                             id: 'lokiarchaeum_example',
@@ -726,7 +747,8 @@ export const archaea: EvolutionNode = {
                             color: '#2e1065',
                             description: 'Bằng chứng sống động nhất cho thấy chúng ta tiến hóa từ Cổ khuẩn.',
                             era: 'Hiện đại',
-                            traits: ['Mắt xích thiếu hụt', 'Chưa nuôi cấy được']
+                            traits: ['Mắt xích thiếu hụt', 'Chưa nuôi cấy được'],
+                            infographicUrl: 'evolution/Lokiarchaeum.jpeg'
                         }
                     ]
                 }

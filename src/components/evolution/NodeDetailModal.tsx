@@ -21,6 +21,21 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
         return () => window.removeEventListener('resize', checkOrientation);
     }, []);
 
+    // Handle ESC key
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                if (showInfographic) {
+                    setShowInfographic(false);
+                } else {
+                    onClose();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [showInfographic, onClose]);
+
     if (!node) return null;
 
     return (
@@ -32,7 +47,7 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
             <div className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
 
                 {/* Header Image/Banner */}
-                <div className="h-40 relative bg-gradient-to-r from-indigo-500 to-purple-600 overflow-hidden">
+                <div className="h-28 relative bg-gradient-to-r from-indigo-500 to-purple-600 overflow-hidden flex flex-col justify-end p-6">
                     {node.imageUrl ? (
                         <div className="absolute inset-0">
                             <img src={node.imageUrl} alt={node.label} className="w-full h-full object-cover opacity-60 mix-blend-overlay" />
@@ -49,17 +64,19 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
                         <X size={20} />
                     </button>
 
-                    <div className="absolute bottom-4 left-6">
-                        <span className="text-white/60 text-xs uppercase tracking-widest bg-white/10 px-2 py-1 rounded mb-2 inline-block">
-                            {node.era}
-                        </span>
-                        <h2 className="text-3xl font-bold text-white mb-0 flex items-center gap-3">
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-2 mb-1">
+                            <span className="text-white/60 text-[10px] uppercase tracking-widest bg-white/10 px-2 py-0.5 rounded">
+                                {node.era}
+                            </span>
+                            <span className="text-white/50 text-xs capitalize">• {node.englishLabel}</span>
+                        </div>
+                        <h2 className="text-2xl font-bold text-white mb-0 flex items-center gap-2">
                             {node.label}
                             {node.milestone && (
-                                <span className="text-yellow-400 text-lg" title={node.milestone.label}>★</span>
+                                <span className="text-yellow-400 text-sm" title={node.milestone.label}>★</span>
                             )}
                         </h2>
-                        <p className="text-white/70 text-sm capitalize">{node.englishLabel}</p>
                     </div>
                 </div>
 
