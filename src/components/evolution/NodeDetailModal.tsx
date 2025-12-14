@@ -1,6 +1,7 @@
 import React from 'react';
 import { EvolutionNode } from '@/src/data/evolutionData';
-import { X, ExternalLink, Scroll, Clock, Dna } from 'lucide-react';
+import { X, ExternalLink, Scroll, Clock, Dna, Image as ImageIcon } from 'lucide-react';
+import { getInfographicUrl } from '@/src/lib/supabase';
 
 interface NodeDetailModalProps {
     node: EvolutionNode | null;
@@ -8,6 +9,18 @@ interface NodeDetailModalProps {
 }
 
 export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose }) => {
+    const [showInfographic, setShowInfographic] = React.useState(false);
+    const [isPortrait, setIsPortrait] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkOrientation = () => {
+            setIsPortrait(window.innerWidth < window.innerHeight);
+        };
+        checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+        return () => window.removeEventListener('resize', checkOrientation);
+    }, []);
+
     if (!node) return null;
 
     return (
@@ -46,7 +59,7 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
                                 <span className="text-yellow-400 text-lg" title={node.milestone.label}>★</span>
                             )}
                         </h2>
-                        <p className="text-white/70 text-sm capitalize">{node.type}</p>
+                        <p className="text-white/70 text-sm capitalize">{node.englishLabel}</p>
                     </div>
                 </div>
 
@@ -63,7 +76,7 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
                                 <Dna size={16} /> Đặc Điểm Nổi Bật
                             </h3>
                             <ul className="space-y-3">
-                                {node.traits.map((trait, idx) => (
+                                {(node.traits || []).map((trait, idx) => (
                                     <li key={idx} className="flex items-center gap-3 text-slate-300">
                                         <div className="w-2 h-2 rounded-full bg-purple-500" />
                                         {trait}
@@ -94,14 +107,65 @@ export const NodeDetailModal: React.FC<NodeDetailModalProps> = ({ node, onClose 
                     </div>
 
                     {/* Infographic Button */}
-                    <div className="mt-8 flex justify-center">
-                        <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1 font-bold">
-                            <Scroll size={20} />
-                            Xem Infographic Chi Tiết
-                        </button>
-                    </div>
+                    {node.infographicUrl && (
+                        <div className="mt-8 flex justify-center">
+                            <button
+                                onClick={() => setShowInfographic(true)}
+                                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1 font-bold"
+                            >
+                                <ImageIcon size={20} />
+                                Xem Infographic Chi Tiết
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
+
+            {/* Infographic Modal Overlay */}
+            {showInfographic && node.infographicUrl && (
+                <div
+                    className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-md animate-in fade-in duration-300"
+                    onClick={() => setShowInfographic(false)}
+                >
+                    {/* Close Button */}
+                    <button
+                        onClick={() => setShowInfographic(false)}
+                        className="absolute top-4 right-4 z-[210] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all backdrop-blur-sm border border-white/20"
+                    >
+                        <X size={24} />
+                    </button>
+
+                    {/* Infographic Image Container */}
+                    <div
+                        className="absolute top-1/2 left-1/2 flex items-center justify-center pointer-events-none transition-all duration-500 ease-in-out origin-center"
+                        style={isPortrait ? {
+                            width: '100vh',
+                            height: '100vw',
+                            transform: 'translate(-50%, -50%) rotate(90deg)',
+                            maxWidth: 'none',
+                            maxHeight: 'none'
+                        } : {
+                            width: '100%',
+                            height: '100%',
+                            transform: 'translate(-50%, -50%)',
+                            padding: '1rem'
+                        }}
+                    >
+                        <img
+                            src={getInfographicUrl(node.infographicUrl)}
+                            alt={`${node.label} Infographic`}
+                            className="w-full h-full object-contain pointer-events-auto"
+                            onError={(e) => {
+                                // Fallback to jpeg if png fails (just a safety precaution)
+                                const img = e.target as HTMLImageElement;
+                                if (img.src.endsWith('.png')) {
+                                    img.src = img.src.replace('.png', '.jpeg');
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

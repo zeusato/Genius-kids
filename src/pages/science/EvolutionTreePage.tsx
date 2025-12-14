@@ -167,7 +167,7 @@ export const EvolutionTreePage: React.FC = () => {
                     <>
                         {/* Control Bar (Floating) */}
                         <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2 pointer-events-auto">
-                            <button onClick={() => transformRef.current?.centerView(0.8, 1000, "easeOut")} title="Căn Giữa" className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur border border-white/10 transition-colors mb-2">
+                            <button onClick={() => transformRef.current?.setTransform(-1000, -1000, 0.8)} title="Căn Giữa" className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur border border-white/10 transition-colors mb-2">
                                 <Target size={20} />
                             </button>
                             {history.length > 0 && (
@@ -219,16 +219,7 @@ export const EvolutionTreePage: React.FC = () => {
                     </>
                 )}
             </TransformWrapper>
-            {/* Time Scale Footer (Fixed) */}
-            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent z-40 flex items-end justify-center pb-1 pointer-events-none">
-                <div className="flex gap-20 text-[10px] text-white/30 uppercase tracking-[0.2em] font-mono">
-                    <span>Hadean</span>
-                    <span>Archean</span>
-                    <span>Proterozoic</span>
-                    <span>Phanerozoic</span>
-                    <span>Present</span>
-                </div>
-            </div>
+
 
             {/* Detail Modal */}
             <NodeDetailModal

@@ -184,14 +184,14 @@ export const EvolutionNode: React.FC<EvolutionNodeProps> = ({
 
                     {/* Visual Hint for Drill Down */}
                     {node.drillable && onDrillDown && hasChildren && depth !== 0 && (
-                        <div className="flex items-center gap-1 text-[9px] text-blue-300/80 mt-1 opacity-80 animate-pulse">
+                        <div className="flex items-center gap-1 text-[10px] text-yellow-300 font-bold tracking-wide mt-1 animate-pulse drop-shadow-md">
                             <span>Khám phá</span>
-                            <ChevronRight size={10} />
+                            <ChevronRight size={12} strokeWidth={3} />
                         </div>
                     )}
 
-                    {hasChildren && !onDrillDown && (
-                        <div className={`absolute -right-2 top-1/2 -translate-y-1/2 bg-white text-slate-900 rounded-full p-0.5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                    {hasChildren && !node.drillable && (
+                        <div className={`absolute -right-3 top-1/2 -translate-y-1/2 bg-white text-slate-900 rounded-full p-1 shadow-md transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
                             <ChevronRight size={14} />
                         </div>
                     )}

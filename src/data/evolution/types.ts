@@ -11,9 +11,10 @@ export interface EvolutionNode {
     id: string;
     label: string;
     englishLabel?: string;
-    type: 'root' | 'domain' | 'kingdom' | 'phylum' | 'class' | 'order' | 'family';
-    description: string;
+    type: 'root' | 'domain' | 'kingdom' | 'phylum' | 'class' | 'order' | 'family' | 'genus' | 'species' | 'branch' | 'milestone';
+    description?: string;
     imageUrl?: string;
+    expanded?: boolean;
     infographicUrl?: string;
 
     // Advanced feature props

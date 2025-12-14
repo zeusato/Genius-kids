@@ -720,306 +720,380 @@ export const animalia: EvolutionNode = {
                     ]
                 },
                 {
-                    id: 'amphibians',
-                    label: 'Lưỡng Cư',
-                    englishLabel: 'Amphibians',
-                    type: 'class',
-                    description: 'Động vật bốn chân đầu tiên, chuyển tiếp giữa nước và cạn.',
-                    era: 'Devonian',
-                    color: '#9f1239',
-                    traits: ['Sống hai môi trường', 'Da trần ẩm ướt'],
-                    milestone: {
-                        label: 'Chinh Phục Đất Liền',
-                        year: '370 triệu năm trước'
-                    },
+                    id: 'tetrapods',
+                    label: 'Động vật bốn chi',
+                    englishLabel: 'Tetrapods',
+                    type: 'clade',
+                    description: 'Tất cả động vật có chân (hoặc tổ tiên có chân) đã chinh phục đất liền.',
+                    era: 'Devonian (365 triệu năm trước)',
+                    color: '#9f1239', // Rose-800
+                    traits: ['4 chi', 'Ngón chân'],
                     children: [
                         {
-                            id: 'frogs_toads',
-                            label: 'Ếch & Cóc',
-                            englishLabel: 'Frogs & Toads',
-                            type: 'order',
-                            description: 'Nhóm lưỡng cư không đuôi, chân sau phát triển để nhảy.',
-                            era: 'Triassic',
-                            color: '#be123c',
-                            traits: ['Không đuôi', 'Nhảy']
-                        },
-                        {
-                            id: 'salamanders_newts',
-                            label: 'Kỳ Giông & Sa Giông',
-                            englishLabel: 'Salamanders & Newts',
-                            type: 'order',
-                            description: 'Lưỡng cư có đuôi và hình dáng giống thằn lằn.',
-                            era: 'Jurassic',
+                            id: 'amphibians',
+                            label: 'Lưỡng Cư',
+                            englishLabel: 'Amphibians',
+                            type: 'class',
+                            description: 'Những người tiên phong lên cạn nhưng vẫn lệ thuộc vào nước để sinh sản.',
+                            era: 'Devonian',
                             color: '#9f1239',
-                            traits: ['Có đuôi', 'Tái sinh chi']
-                        },
-                        {
-                            id: 'caecilians',
-                            label: 'Lưỡng Cư Không Chân',
-                            englishLabel: 'Caecilians',
-                            type: 'order',
-                            description: 'Sống dưới đất, hình dáng giống giun hoặc rắn.',
-                            era: 'Jurassic',
-                            color: '#881337',
-                            traits: ['Không chân', 'Mắt tiêu giảm']
-                        }
-                    ]
-                },
-                {
-                    id: 'reptiles',
-                    label: 'Bò Sát',
-                    englishLabel: 'Reptiles',
-                    type: 'class',
-                    description: 'Động vật có màng ối, da khô vảy sừng, thích nghi hoàn toàn với đời sống trên cạn.',
-                    era: 'Carboniferous',
-                    color: '#881337',
-                    traits: ['Màng ối', 'Da vảy', 'Biến nhiệt'],
-                    milestone: {
-                        label: 'Trứng Có Vỏ',
-                        year: '310 triệu năm trước'
-                    },
-                    children: [
-                        {
-                            id: 'turtles',
-                            label: 'Rùa',
-                            englishLabel: 'Turtles',
-                            type: 'order',
-                            description: 'Có mai cứng bảo vệ cơ thể. Sống trên cạn hoặc dưới nước.',
-                            era: 'Triassic',
-                            color: '#9f1239',
-                            traits: ['Mai cứng', 'Không răng']
-                        },
-                        {
-                            id: 'lizards_snakes',
-                            label: 'Thằn Lằn & Rắn',
-                            englishLabel: 'Lizards & Snakes',
-                            type: 'order',
-                            description: 'Nhóm bò sát đa dạng nhất. Rắn không chân, thằn lằn có 4 chân.',
-                            era: 'Jurassic',
-                            color: '#be123c',
-                            traits: ['Hàm linh hoạt', 'Lột xác']
-                        },
-                        {
-                            id: 'crocodilians',
-                            label: 'Cá Sấu',
-                            englishLabel: 'Crocodilians',
-                            type: 'order',
-                            description: 'Bò sát lớn sống bán thủy sinh. Họ hàng gần nhất của chim.',
-                            era: 'Cretaceous',
-                            color: '#701a2e',
-                            traits: ['Tim 4 ngăn', 'Săn mồi']
-                        },
-                        {
-                            id: 'tuatara',
-                            label: 'Tuatara',
-                            englishLabel: 'Tuatara',
-                            type: 'order',
-                            description: 'Hóa thạch sống, chỉ còn tìm thấy ở New Zealand.',
-                            era: 'Triassic',
-                            color: '#500724',
-                            traits: ['Mắt thứ 3', 'Sống lâu']
-                        }
-                    ]
-                },
-                {
-                    id: 'birds',
-                    label: 'Chim',
-                    englishLabel: 'Birds',
-                    type: 'class',
-                    description: 'Hậu duệ trực tiếp của khủng long. Có lông vũ, hằng nhiệt và bay đập cánh.',
-                    era: 'Jurassic',
-                    color: '#4c0519',
-                    traits: ['Lông vũ', 'Hằng nhiệt', 'Xương rỗng'],
-                    milestone: {
-                        label: 'Chinh Phục Bầu Trời',
-                        year: '150 triệu năm trước'
-                    },
-                    children: [
-                        {
-                            id: 'flightless_birds',
-                            label: 'Chim Không Bay',
-                            englishLabel: 'Flightless Birds',
-                            type: 'order',
-                            description: 'Đà điểu, Kiwi, Cánh cụt. Thích nghi chạy hoặc bơi.',
-                            era: 'Cretaceous',
-                            color: '#881337',
-                            traits: ['Cánh tiêu giảm', 'Chân khỏe']
-                        },
-                        {
-                            id: 'water_birds',
-                            label: 'Chim Nước',
-                            englishLabel: 'Water Birds',
-                            type: 'order',
-                            description: 'Vịt, Ngan, Thiên nga. Chân có màng bơi, lông không thấm nước.',
-                            era: 'Cretaceous',
-                            color: '#0ea5e9',
-                            traits: ['Chân màng', 'Lông không thấm nước']
-                        },
-                        {
-                            id: 'shorebirds',
-                            label: 'Chim Biển & Lội',
-                            englishLabel: 'Shorebirds',
-                            type: 'order',
-                            description: 'Hải âu, Cò, Sếu. Chân dài hoặc cánh dài, sống gần nước.',
-                            era: 'Paleogene',
-                            color: '#38bdf8',
-                            traits: ['Mỏ dài', 'Di cư xa']
-                        },
-                        {
-                            id: 'birds_of_prey',
-                            label: 'Chim Săn Mồi',
-                            englishLabel: 'Birds of Prey',
-                            type: 'order',
-                            description: 'Đại bàng, Ưng, Kền kền. Móng vuốt sắc nhọn, thị lực cực tốt.',
-                            era: 'Paleogene',
-                            color: '#be123c',
-                            traits: ['Mỏ quặp', 'Móng vuốt']
-                        },
-                        {
-                            id: 'owls',
-                            label: 'Cú',
-                            englishLabel: 'Owls',
-                            type: 'order',
-                            description: 'Săn mồi ban đêm. Bay không tiếng động, thính giác siêu nhạy.',
-                            era: 'Paleogene',
-                            color: '#701a2e',
-                            traits: ['Săn đêm', 'Quay đầu 270°']
-                        },
-                        {
-                            id: 'woodpeckers',
-                            label: 'Gõ Kiến',
-                            englishLabel: 'Woodpeckers',
-                            type: 'order',
-                            description: 'Mỏ cứng như đục, lưỡi dài dính, chân bám thân cây.',
-                            era: 'Paleogene',
-                            color: '#9f1239',
-                            traits: ['Mỏ cứng', 'Leo trèo']
-                        },
-                        {
-                            id: 'parrots',
-                            label: 'Vẹt',
-                            englishLabel: 'Parrots',
-                            type: 'order',
-                            description: 'Thông minh nhất loài chim. Mỏ khoằm, chân linh hoạt, biết bắt chước.',
-                            era: 'Paleogene',
-                            color: '#22c55e',
-                            traits: ['Thông minh', 'Mỏ khỏe']
-                        },
-                        {
-                            id: 'songbirds',
-                            label: 'Chim Hót',
-                            englishLabel: 'Songbirds',
-                            type: 'order',
-                            description: 'Nhóm đông nhất (Sẻ, Họa mi...). Có cơ quan phát âm phát triển.',
-                            era: 'Paleogene',
-                            color: '#fb7185',
-                            traits: ['Hót hay', 'Đa dạng']
-                        }
-                    ]
-                },
-                {
-                    id: 'mammals',
-                    label: 'Thú (Có Vú)',
-                    englishLabel: 'Mammals',
-                    type: 'class',
-                    description: 'Động vật hằng nhiệt, nuôi con bằng sữa, có lông mao. Hệ thần kinh phát triển cao nhất.',
-                    era: 'Triassic',
-                    color: '#f43f5e',
-                    traits: ['Lông mao', 'Tuyến sữa', 'Não bộ phát triển'],
-                    milestone: {
-                        label: 'Kỷ Nguyên Của Thú',
-                        year: '66 triệu năm trước'
-                    },
-                    children: [
-                        {
-                            id: 'monotremes',
-                            label: 'Thú Đẻ Trứng',
-                            englishLabel: 'Monotremes',
-                            type: 'order',
-                            description: 'Nhóm thú nguyên thủy nhất (Thú mỏ vịt, Thú lông nhím). Đẻ trứng nhưng nuôi con bằng sữa.',
-                            era: 'Cretaceous',
-                            color: '#9f1239',
-                            traits: ['Đẻ trứng', 'Có huyệt']
-                        },
-                        {
-                            id: 'marsupials',
-                            label: 'Thú Có Túi',
-                            englishLabel: 'Marsupials',
-                            type: 'order',
-                            description: 'Chuột túi, Koala. Con non sinh ra chưa phát triển hoàn thiện, lớn lên trong túi mẹ.',
-                            era: 'Cretaceous',
-                            color: '#be123c',
-                            traits: ['Có túi', 'Con non yếu']
-                        },
-                        {
-                            id: 'placental_mammals',
-                            label: 'Thú Nhau Thai',
-                            englishLabel: 'Placental Mammals',
-                            type: 'order',
-                            description: 'Nhóm phát triển nhất. Con non phát triển hoàn thiện trong tử cung nhờ nhau thai.',
-                            era: 'Cretaceous',
-                            color: '#e11d48',
-                            traits: ['Nhau thai', 'Phát triển hoàn thiện'],
+                            traits: ['Sống hai môi trường', 'Da trần ẩm ướt'],
                             children: [
                                 {
-                                    id: 'primates',
-                                    label: 'Linh Trưởng',
-                                    englishLabel: 'Primates',
-                                    type: 'family',
-                                    description: 'Khỉ, Vượn, Người. Não bộ lớn, tay cầm nắm linh hoạt, mắt hướng về phía trước.',
-                                    era: 'Paleogene',
-                                    color: '#fb7185',
-                                    traits: ['Thông minh', 'Đối ngón cái']
-                                },
-                                {
-                                    id: 'rodents',
-                                    label: 'Gặm Nhấm',
-                                    englishLabel: 'Rodents',
-                                    type: 'family',
-                                    description: 'Chuột, Sóc, Nhím. Răng cửa phát triển liên tục để gặm.',
-                                    era: 'Paleogene',
-                                    color: '#f43f5e',
-                                    traits: ['Răng cửa lớn', 'Sinh sản nhanh']
-                                },
-                                {
-                                    id: 'bats',
-                                    label: 'Dơi',
-                                    englishLabel: 'Bats',
-                                    type: 'family',
-                                    description: 'Thú duy nhất biết bay thực sự. Định vị bằng siêu âm.',
-                                    era: 'Paleogene',
-                                    color: '#e11d48',
-                                    traits: ['Biết bay', 'Siêu âm']
-                                },
-                                {
-                                    id: 'carnivores',
-                                    label: 'Thú Ăn Thịt',
-                                    englishLabel: 'Carnivores',
-                                    type: 'family',
-                                    description: 'Chó, Mèo, Gấu, Hổ. Răng nanh và vuốt sắc nhọn để săn mồi.',
-                                    era: 'Paleogene',
+                                    id: 'frogs_toads',
+                                    label: 'Ếch & Cóc',
+                                    englishLabel: 'Frogs & Toads',
+                                    type: 'order',
+                                    description: 'Nhóm lưỡng cư không đuôi, chân sau phát triển để nhảy.',
+                                    era: 'Triassic',
                                     color: '#be123c',
-                                    traits: ['Răng nanh', 'Săn mồi']
+                                    traits: ['Không đuôi', 'Nhảy']
                                 },
                                 {
-                                    id: 'hoofed_mammals',
-                                    label: 'Thú Móng Guốc',
-                                    englishLabel: 'Hoofed Mammals',
-                                    type: 'family',
-                                    description: 'Ngựa, Bò, Hươu. Chân có móng guốc, thường ăn thực vật.',
-                                    era: 'Paleogene',
+                                    id: 'salamanders_newts',
+                                    label: 'Kỳ Giông & Sa Giông',
+                                    englishLabel: 'Salamanders & Newts',
+                                    type: 'order',
+                                    description: 'Lưỡng cư có đuôi và hình dáng giống thằn lằn.',
+                                    era: 'Jurassic',
                                     color: '#9f1239',
-                                    traits: ['Móng guốc', 'Ăn cỏ']
+                                    traits: ['Có đuôi', 'Tái sinh chi']
                                 },
                                 {
-                                    id: 'whales_dolphins',
-                                    label: 'Cá Voi & Heo',
-                                    englishLabel: 'Whales & Dolphins',
-                                    type: 'family',
-                                    description: 'Thú trở lại sống dưới nước. Chi trước biến thành vây, cơ thể hình thoi.',
-                                    era: 'Paleogene',
+                                    id: 'caecilians',
+                                    label: 'Lưỡng Cư Không Chân',
+                                    englishLabel: 'Caecilians',
+                                    type: 'order',
+                                    description: 'Sống dưới đất, hình dáng giống giun hoặc rắn.',
+                                    era: 'Jurassic',
                                     color: '#881337',
-                                    traits: ['Sống dưới nước', 'Lỗ thở']
+                                    traits: ['Không chân', 'Mắt tiêu giảm']
+                                }
+                            ]
+                        },
+                        {
+                            id: 'amniotes',
+                            label: 'Động vật màng ối',
+                            englishLabel: 'Amniotes',
+                            type: 'clade',
+                            description: 'Sự đổi mới vĩ đại: Trứng có vỏ hoặc màng ối giúp động vật sinh sản hoàn toàn trên cạn khô ráo.',
+                            era: 'Carboniferous (312 triệu năm trước)',
+                            color: '#881337', // Rose-900
+                            traits: ['Trứng có màng ối', 'Da không thấm nước'],
+                            children: [
+                                {
+                                    id: 'synapsids',
+                                    label: 'Synapsids (Nhánh Thú)',
+                                    englishLabel: 'Synapsids',
+                                    type: 'clade',
+                                    description: 'Nhánh dẫn đến động vật có vú ngày nay. Xương sọ có 1 hố thái dương.',
+                                    era: 'Carboniferous',
+                                    color: '#f43f5e', // Rose-500
+                                    traits: ['1 hố thái dương', 'Răng phân hóa'],
+                                    children: [
+                                        {
+                                            id: 'mammals',
+                                            label: 'Thú (Có Vú)',
+                                            englishLabel: 'Mammals',
+                                            type: 'class',
+                                            description: 'Động vật hằng nhiệt, nuôi con bằng sữa, có lông mao. Hệ thần kinh phát triển cao nhất.',
+                                            era: 'Triassic',
+                                            color: '#fb7185',
+                                            traits: ['Lông mao', 'Tuyến sữa', 'Não bộ phát triển'],
+                                            children: [
+                                                {
+                                                    id: 'monotremes',
+                                                    label: 'Thú Đẻ Trứng',
+                                                    englishLabel: 'Monotremes',
+                                                    type: 'order',
+                                                    description: 'Nhóm thú nguyên thủy nhất (Thú mỏ vịt). Đẻ trứng nhưng nuôi con bằng sữa.',
+                                                    era: 'Cretaceous',
+                                                    color: '#9f1239',
+                                                    traits: ['Đẻ trứng', 'Có huyệt']
+                                                },
+                                                {
+                                                    id: 'marsupials',
+                                                    label: 'Thú Có Túi',
+                                                    englishLabel: 'Marsupials',
+                                                    type: 'order',
+                                                    description: 'Chuột túi, Koala. Con non lớn lên trong túi mẹ.',
+                                                    era: 'Cretaceous',
+                                                    color: '#be123c',
+                                                    traits: ['Có túi', 'Con non yếu']
+                                                },
+                                                {
+                                                    id: 'placental_mammals',
+                                                    label: 'Thú Nhau Thai',
+                                                    englishLabel: 'Placental Mammals',
+                                                    type: 'order',
+                                                    description: 'Nhóm phát triển nhất. Con non phát triển trong tử cung.',
+                                                    era: 'Cretaceous',
+                                                    color: '#e11d48',
+                                                    traits: ['Nhau thai', 'Phát triển hoàn thiện'],
+                                                    children: [
+                                                        {
+                                                            id: 'primates',
+                                                            label: 'Linh Trưởng',
+                                                            englishLabel: 'Primates',
+                                                            type: 'family',
+                                                            description: 'Khỉ, Vượn, Người. Thông minh và khéo léo.',
+                                                            era: 'Paleogene',
+                                                            color: '#fb7185',
+                                                            traits: ['Thông minh', 'Đối ngón cái']
+                                                        },
+                                                        {
+                                                            id: 'rodents',
+                                                            label: 'Gặm Nhấm',
+                                                            englishLabel: 'Rodents',
+                                                            type: 'family',
+                                                            description: 'Chuột, Sóc.',
+                                                            era: 'Paleogene',
+                                                            color: '#f43f5e',
+                                                            traits: ['Răng cửa lớn']
+                                                        },
+                                                        {
+                                                            id: 'bats',
+                                                            label: 'Dơi',
+                                                            englishLabel: 'Bats',
+                                                            type: 'family',
+                                                            description: 'Thú biết bay.',
+                                                            era: 'Paleogene',
+                                                            color: '#e11d48',
+                                                            traits: ['Biết bay', 'Siêu âm']
+                                                        },
+                                                        {
+                                                            id: 'carnivores',
+                                                            label: 'Thú Ăn Thịt',
+                                                            englishLabel: 'Carnivores',
+                                                            type: 'family',
+                                                            description: 'Chó, Mèo, Gấu, Hổ.',
+                                                            era: 'Paleogene',
+                                                            color: '#be123c',
+                                                            traits: ['Răng nanh', 'Săn mồi']
+                                                        },
+                                                        {
+                                                            id: 'hoofed_mammals',
+                                                            label: 'Thú Móng Guốc',
+                                                            englishLabel: 'Hoofed Mammals',
+                                                            type: 'family',
+                                                            description: 'Ngựa, Bò, Hươu.',
+                                                            era: 'Paleogene',
+                                                            color: '#9f1239',
+                                                            traits: ['Móng guốc', 'Ăn cỏ']
+                                                        },
+                                                        {
+                                                            id: 'whales_dolphins',
+                                                            label: 'Cá Voi & Heo',
+                                                            englishLabel: 'Whales & Dolphins',
+                                                            type: 'family',
+                                                            description: 'Thú trở lại sống dưới nước.',
+                                                            era: 'Paleogene',
+                                                            color: '#881337',
+                                                            traits: ['Sống dưới nước', 'Lỗ thở']
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 'sauropsids',
+                                    label: 'Sauropsids (Nhánh Bò Sát)',
+                                    englishLabel: 'Sauropsids',
+                                    type: 'clade',
+                                    description: 'Tổ tiên của tất cả các loài bò sát và chim hiện đại.',
+                                    era: 'Carboniferous',
+                                    color: '#b91c1c', // Red-700
+                                    traits: ['Mặt kìm', 'Biến nhiệt (chủ yếu)'],
+                                    children: [
+                                        {
+                                            id: 'reptiles_phylo',
+                                            label: 'Bò Sát',
+                                            englishLabel: 'Reptiles',
+                                            type: 'class',
+                                            description: 'Động vật biến nhiệt, da khô có vảy.',
+                                            era: 'Carboniferous',
+                                            color: '#991b1b', // Red-800
+                                            traits: ['Da vảy', 'Trứng vỏ dai'],
+                                            children: [
+                                                {
+                                                    id: 'testudines',
+                                                    label: 'Rùa',
+                                                    englishLabel: 'Testudines',
+                                                    type: 'order',
+                                                    description: 'Nhóm bò sát cổ xưa với chiếc mai đặc trưng bảo vệ cơ thể.',
+                                                    era: 'Triassic',
+                                                    color: '#7f1d1d', // Red-900
+                                                    traits: ['Mai cứng', 'Không răng', 'Sống lâu'],
+                                                    children: [
+                                                        {
+                                                            id: 'turtles',
+                                                            label: 'Các loài Rùa',
+                                                            englishLabel: 'Turtles',
+                                                            type: 'family',
+                                                            description: 'Bao gồm rùa cạn, rùa nước ngọt và rùa biển.',
+                                                            era: 'Triassic',
+                                                            color: '#ef4444',
+                                                            traits: ['Mai sừng', 'Chậm chạp']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'lepidosauria',
+                                                    label: 'Lepidosauria (Thằn lằn & Rắn)',
+                                                    englishLabel: 'Lepidosauria',
+                                                    type: 'superorder',
+                                                    description: 'Nhóm bò sát lớn nhất hiện nay. Da có vảy chồng lên nhau và lột xác định kỳ.',
+                                                    era: 'Triassic',
+                                                    color: '#dc2626', // Red-600
+                                                    traits: ['Lột xác', 'Hàm linh hoạt'],
+                                                    children: [
+                                                        {
+                                                            id: 'tuatara',
+                                                            label: 'Tuatara',
+                                                            englishLabel: 'Tuatara',
+                                                            type: 'order',
+                                                            description: 'Hóa thạch sống duy nhất còn lại ở New Zealand. Có con mắt thứ 3.',
+                                                            era: 'Triassic',
+                                                            color: '#7f1d1d',
+                                                            traits: ['Mắt giữa', 'Sống đêm']
+                                                        },
+                                                        {
+                                                            id: 'lizards_snakes',
+                                                            label: 'Thằn Lằn & Rắn',
+                                                            englishLabel: 'Squamata',
+                                                            type: 'order',
+                                                            description: 'Rất đa dạng. Rắn đã mất chân trong quá trình tiến hóa để thích nghi chui rúc.',
+                                                            era: 'Jurassic',
+                                                            color: '#ef4444',
+                                                            traits: ['Lưỡi chẻ', 'Khớp hàm lỏng']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'archosauria',
+                                                    label: 'Archosauria (Thằn lằn chúa)',
+                                                    englishLabel: 'Archosauria',
+                                                    type: 'clade',
+                                                    description: 'Nhóm bò sát "thống trị" bao gồm cá sấu, khủng long và chim.',
+                                                    era: 'Triassic',
+                                                    color: '#b91c1c',
+                                                    traits: ['Tim 4 ngăn', 'Răng trong huyệt'],
+                                                    children: [
+                                                        {
+                                                            id: 'crocodilians',
+                                                            label: 'Cá Sấu',
+                                                            englishLabel: 'Crocodilians',
+                                                            type: 'order',
+                                                            description: 'Những kẻ săn mồi lưỡng cư hung dữ, ít thay đổi suốt hàng triệu năm.',
+                                                            era: 'Cretaceous',
+                                                            color: '#7f1d1d',
+                                                            traits: ['Da giáp', 'Săn mồi']
+                                                        },
+                                                        {
+                                                            id: 'dinosaurs',
+                                                            label: 'Khủng Long',
+                                                            englishLabel: 'Dinosaurs',
+                                                            type: 'superorder',
+                                                            description: 'Nhóm động vật thống trị Trái Đất trong kỷ Jura và Phấn trắng.',
+                                                            era: 'Triassic',
+                                                            color: '#f87171', // Red-400
+                                                            traits: ['Chân đứng thẳng', 'Đa dạng kích thước'],
+                                                            children: [
+                                                                {
+                                                                    id: 'ornithischia',
+                                                                    label: 'Khủng long hông chim',
+                                                                    englishLabel: 'Ornithischia',
+                                                                    type: 'order',
+                                                                    description: 'Khủng long ăn thực vật như Triceratops (Ba sừng) hay Stegosaurus (Kiếm).',
+                                                                    era: 'Jurassic',
+                                                                    color: '#fca5a5',
+                                                                    traits: ['Ăn cỏ', 'Hông giống chim']
+                                                                },
+                                                                {
+                                                                    id: 'saurischia',
+                                                                    label: 'Khủng long hông thằn lằn',
+                                                                    englishLabel: 'Saurischia',
+                                                                    type: 'order',
+                                                                    description: 'Bao gồm những gã khổng lồ cổ dài và những kẻ săn mồi hung bạo.',
+                                                                    era: 'Triassic',
+                                                                    color: '#f87171',
+                                                                    traits: ['Hông thằn lằn', 'Cổ dài hoặc ăn thịt'],
+                                                                    children: [
+                                                                        {
+                                                                            id: 'sauropods',
+                                                                            label: 'Khủng long cổ dài',
+                                                                            englishLabel: 'Sauropods',
+                                                                            type: 'suborder',
+                                                                            description: 'Động vật trên cạn lớn nhất lịch sử. Cổ dài, đuôi dài, đi bằng 4 chân.',
+                                                                            era: 'Jurassic',
+                                                                            color: '#fca5a5',
+                                                                            traits: ['Khổng lồ', 'Ăn thực vật']
+                                                                        },
+                                                                        {
+                                                                            id: 'theropods',
+                                                                            label: 'Khủng long chân thú (Theropods)',
+                                                                            englishLabel: 'Theropods',
+                                                                            type: 'suborder',
+                                                                            description: 'Nhóm khủng long ăn thịt đứng bằng 2 chân (T-Rex, Velociraptor). Một nhánh nhỏ đã tiến hóa thành Chim.',
+                                                                            era: 'Jurassic',
+                                                                            color: '#ef4444',
+                                                                            traits: ['Đi 2 chân', 'Ăn thịt', 'Lông vũ'],
+                                                                            children: [
+                                                                                {
+                                                                                    id: 'birds',
+                                                                                    label: 'Chim',
+                                                                                    englishLabel: 'Birds (Avian Dinosaurs)',
+                                                                                    type: 'class',
+                                                                                    description: "Loài khủng long duy nhất còn sống sót sau thảm họa thiên thạch.",
+                                                                                    era: 'Jurassic',
+                                                                                    color: '#4c0519', // Rose-950
+                                                                                    traits: ['Lông vũ', 'Hằng nhiệt', 'Bay'],
+                                                                                    children: [
+                                                                                        {
+                                                                                            id: 'flightless_birds',
+                                                                                            label: 'Chim Không Bay',
+                                                                                            englishLabel: 'Flightless Birds',
+                                                                                            type: 'order',
+                                                                                            description: 'Đà điểu, Cánh cụt.',
+                                                                                            era: 'Cretaceous',
+                                                                                            color: '#881337',
+                                                                                            traits: ['Chân khỏe']
+                                                                                        },
+                                                                                        {
+                                                                                            id: 'birds_of_prey',
+                                                                                            label: 'Chim Săn Mồi',
+                                                                                            englishLabel: 'Birds of Prey',
+                                                                                            type: 'order',
+                                                                                            description: 'Đại bàng, Ưng.',
+                                                                                            era: 'Paleogene',
+                                                                                            color: '#be123c',
+                                                                                            traits: ['Móng vuốt']
+                                                                                        },
+                                                                                        {
+                                                                                            id: 'songbirds',
+                                                                                            label: 'Chim Hót',
+                                                                                            englishLabel: 'Songbirds',
+                                                                                            type: 'order',
+                                                                                            description: 'Sẻ, Họa mi.',
+                                                                                            era: 'Paleogene',
+                                                                                            color: '#fb7185',
+                                                                                            traits: ['Hót hay']
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }
