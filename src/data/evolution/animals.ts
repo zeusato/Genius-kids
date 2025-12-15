@@ -14,6 +14,7 @@ export const animalia: EvolutionNode = {
     children: [
         {
             id: 'invertebrates',
+            infographicUrl: 'evolution/Invertebrates.jpeg',
             label: 'Không Xương Sống',
             englishLabel: 'Invertebrates',
             type: 'phylum',
@@ -24,16 +25,18 @@ export const animalia: EvolutionNode = {
             children: [
                 {
                     id: 'porifera',
-                    label: 'Bọt Biển',
-                    englishLabel: 'Sponges',
+                    infographicUrl: 'evolution/No true tissues (Sponges).jpeg',
+                    label: 'Không có mô thật (bọt biển)',
+                    englishLabel: 'No true tisues (Sponges)',
                     type: 'class',
                     description: 'Động vật đa bào nguyên thủy nhất. Cơ thể rỗng, có nhiều lỗ nhỏ để lọc nước.',
                     era: 'Ediacaran',
-                    color: '#fda4af',
+                    color: '#fb7185',
                     traits: ['Không mô thật', 'Hệ thống kênh nước'],
                     children: [
                         {
                             id: 'calcarea',
+                            infographicUrl: 'evolution/Calcarea.jpeg',
                             label: 'Bọt Biển Đá Vôi',
                             englishLabel: 'Calcarea',
                             type: 'order',
@@ -44,6 +47,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'asconoid',
+                                    infographicUrl: 'evolution/Asconoid Calcarea.jpeg',
                                     label: 'Kiểu Ống Đơn',
                                     englishLabel: 'Asconoid',
                                     type: 'family',
@@ -54,6 +58,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'syconoid_calc',
+                                    infographicUrl: 'evolution/Syconoid Calcarea.jpeg',
                                     label: 'Kiểu Gấp Nếp',
                                     englishLabel: 'Syconoid',
                                     type: 'family',
@@ -64,6 +69,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'leuconoid_calc',
+                                    infographicUrl: 'evolution/Leuconoid Calcarea.jpeg',
                                     label: 'Kiểu Nhiều Buồng',
                                     englishLabel: 'Leuconoid',
                                     type: 'family',
@@ -76,6 +82,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'demospongiae',
+                            infographicUrl: 'evolution/Demospongiae.jpeg',
                             label: 'Bọt Biển Thường',
                             englishLabel: 'Demospongiae',
                             type: 'order',
@@ -86,6 +93,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'leuconoid_demo',
+                                    infographicUrl: 'evolution/Leuconoid Demospongiae.jpeg',
                                     label: 'Kiểu Nhiều Buồng',
                                     englishLabel: 'Leuconoid',
                                     type: 'family',
@@ -98,6 +106,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'hexactinellida',
+                            infographicUrl: 'evolution/Hexactinellida.jpeg',
                             label: 'Bọt Biển Thủy Tinh',
                             englishLabel: 'Hexactinellida',
                             type: 'order',
@@ -108,6 +117,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'syconoid_hex',
+                                    infographicUrl: 'evolution/Syconoid Hexactinellida.jpeg',
                                     label: 'Kiểu Gấp Nếp',
                                     englishLabel: 'Syconoid',
                                     type: 'family',
@@ -118,6 +128,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'leuconoid_hex',
+                                    infographicUrl: 'evolution/Leuconoid Hexactinellida.jpeg',
                                     label: 'Kiểu Nhiều Buồng',
                                     englishLabel: 'Leuconoid',
                                     type: 'family',
@@ -130,6 +141,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'homoscleromorpha',
+                            infographicUrl: 'evolution/Homoscleromorpha.jpeg',
                             label: 'Bọt Biển Homoscleromorpha',
                             englishLabel: 'Homoscleromorpha',
                             type: 'order',
@@ -140,6 +152,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'leuconoid_homo',
+                                    infographicUrl: 'evolution/Leuconoid Homoscleromorpha.jpeg',
                                     label: 'Kiểu Nhiều Buồng',
                                     englishLabel: 'Leuconoid',
                                     type: 'family',
@@ -153,492 +166,550 @@ export const animalia: EvolutionNode = {
                     ]
                 },
                 {
-                    id: 'cnidaria',
-                    label: 'Ruột Khoang',
-                    englishLabel: 'Cnidarians',
-                    type: 'class',
-                    description: 'Động vật đối xứng tỏa tròn, có tế bào gai chuyên biệt để săn mồi và tự vệ.',
+                    id: 'eumetazoa',
+                    infographicUrl: 'evolution/Eumetazoa.jpeg',
+                    label: 'Có mô thật',
+                    englishLabel: 'Eumetazoa (true tissues)',
+                    type: 'clade',
+                    description: 'Động vật có các mô được tổ chức rõ ràng thành các lớp mầm.',
                     era: 'Ediacaran',
-                    color: '#f472b6',
-                    traits: ['Đối xứng tỏa tròn', 'Cnidocyte (Gai)'],
+                    color: '#f472b6', // Pink-400
+                    traits: ['Mô thật', 'Tổ chức cơ thể'],
                     children: [
                         {
-                            id: 'hydrozoa',
-                            label: 'Thủy Tức',
-                            englishLabel: 'Hydrozoa',
-                            type: 'order',
-                            description: 'Thường sống thành tập đoàn (như Sứa Bồ Đào Nha). Một số sống đơn độc nước ngọt (Hydra).',
-                            era: 'Cambrian',
-                            color: '#f472b6',
-                            traits: ['Dạng polyp/medusa', 'Tập đoàn']
-                        },
-                        {
-                            id: 'scyphozoa',
-                            label: 'Sứa Thực Sự',
-                            englishLabel: 'Scyphozoa',
-                            type: 'order',
-                            description: 'Giai đoạn sứa (medusa) chiếm ưu thế. Di chuyển bằng cách co bóp dù.',
-                            era: 'Cambrian',
-                            color: '#db2777',
-                            traits: ['Dạng sứa lớn', 'Trôi nổi']
-                        },
-                        {
-                            id: 'anthozoa',
-                            label: 'San Hô & Hải Quỳ',
-                            englishLabel: 'Anthozoa',
-                            type: 'order',
-                            description: 'Chỉ có dạng polyp, sống cố định. San hô tạo rạn đá vôi.',
-                            era: 'Cambrian',
-                            color: '#be185d',
-                            traits: ['Chỉ có Polyp', 'Tạo rạn']
-                        },
-                        {
-                            id: 'cubozoa',
-                            label: 'Sứa Hộp',
-                            englishLabel: 'Cubozoa',
-                            type: 'order',
-                            description: 'Sứa có dù hình hộp, nọc độc rất mạnh. Bơi giỏi và có mắt phức tạp.',
-                            era: 'Carboniferous',
-                            color: '#9d174d',
-                            traits: ['Dù hình hộp', 'Độc tính cao']
-                        }
-                    ]
-                },
-                {
-                    id: 'worms_simple',
-                    label: 'Các Loài Giun',
-                    englishLabel: 'Worms',
-                    type: 'class',
-                    description: 'Nhóm động vật không xương sống có cơ thể dài, mềm. Gồm 3 ngành chính.',
-                    era: 'Cambrian',
-                    color: '#e879f9',
-                    traits: ['Cơ thể mềm', 'Đối xứng hai bên', 'Không chân'],
-                    children: [
-                        {
-                            id: 'flatworms',
-                            label: 'Giun Dẹp',
-                            englishLabel: 'Flatworms',
-                            type: 'order',
-                            description: 'Cơ thể dẹt theo hướng lưng bụng. Chưa có hậu môn và hệ tuần hoàn.',
+                            id: 'radiata',
+                            infographicUrl: 'evolution/Radiata.jpeg',
+                            label: 'Đối xứng tỏa tròn',
+                            englishLabel: 'Radiata (radial symmetry)',
+                            type: 'clade',
+                            description: 'Cơ thể có tính đối xứng tỏa tròn, thường có hai lớp mầm (diploblastic).',
                             era: 'Ediacaran',
-                            color: '#f0abfc',
-                            traits: ['Dẹt', 'Ruột túi'],
+                            color: '#f9a8d4', // Pink-300
+                            traits: ['Đối xứng tỏa tròn', 'Hai lớp mầm'],
                             children: [
                                 {
-                                    id: 'planarians',
-                                    label: 'Sán Lông',
-                                    englishLabel: 'Planarians',
-                                    type: 'family',
-                                    description: 'Sống tự do, có khả năng tái sinh mạnh mẽ.',
+                                    id: 'cnidaria',
+                                    infographicUrl: 'evolution/Cnidarians.jpeg',
+                                    label: 'Ruột Khoang',
+                                    englishLabel: 'Cnidarians',
+                                    type: 'class',
+                                    description: 'Động vật đối xứng tỏa tròn, có tế bào gai chuyên biệt để săn mồi và tự vệ.',
+                                    era: 'Ediacaran',
+                                    color: '#f472b6',
+                                    traits: ['Đối xứng tỏa tròn', 'Cnidocyte (Gai)'],
+                                    children: [
+                                        {
+                                            id: 'hydrozoa',
+                                            infographicUrl: 'evolution/Hydrozoa.jpeg',
+                                            label: 'Thủy Tức',
+                                            englishLabel: 'Hydrozoa',
+                                            type: 'order',
+                                            description: 'Thường sống thành tập đoàn (như Sứa Bồ Đào Nha). Một số sống đơn độc nước ngọt (Hydra).',
+                                            era: 'Cambrian',
+                                            color: '#f472b6',
+                                            traits: ['Dạng polyp/medusa', 'Tập đoàn']
+                                        },
+                                        {
+                                            id: 'scyphozoa',
+                                            infographicUrl: 'evolution/Scyphozoa.jpeg',
+                                            label: 'Sứa Thực Sự',
+                                            englishLabel: 'Scyphozoa',
+                                            type: 'order',
+                                            description: 'Giai đoạn sứa (medusa) chiếm ưu thế. Di chuyển bằng cách co bóp dù.',
+                                            era: 'Cambrian',
+                                            color: '#db2777',
+                                            traits: ['Dạng sứa lớn', 'Trôi nổi']
+                                        },
+                                        {
+                                            id: 'anthozoa',
+                                            infographicUrl: 'evolution/Anthozoa.jpeg',
+                                            label: 'San Hô & Hải Quỳ',
+                                            englishLabel: 'Anthozoa',
+                                            type: 'order',
+                                            description: 'Chỉ có dạng polyp, sống cố định. San hô tạo rạn đá vôi.',
+                                            era: 'Cambrian',
+                                            color: '#be185d',
+                                            traits: ['Chỉ có Polyp', 'Tạo rạn']
+                                        },
+                                        {
+                                            id: 'cubozoa',
+                                            infographicUrl: 'evolution/Cubozoa.jpeg',
+                                            label: 'Sứa Hộp',
+                                            englishLabel: 'Cubozoa',
+                                            type: 'order',
+                                            description: 'Sứa có dù hình hộp, nọc độc rất mạnh. Bơi giỏi và có mắt phức tạp.',
+                                            era: 'Carboniferous',
+                                            color: '#9d174d',
+                                            traits: ['Dù hình hộp', 'Độc tính cao']
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'bilateria',
+                            infographicUrl: 'evolution/Bilateria (bilateral symmetry).jpeg',
+                            label: 'Đối xứng hai bên',
+                            englishLabel: 'Bilateria (bilateral symmetry)',
+                            type: 'clade',
+                            description: 'Cơ thể đối xứng hai bên, thường có đầu và đuôi rõ rệt, ba lớp mầm (triploblastic).',
+                            era: 'Ediacaran',
+                            color: '#e879f9', // Fuchsia-400
+                            traits: ['Đối xứng hai bên', 'Ba lớp mầm'],
+                            children: [
+                                {
+                                    id: 'protostomes',
+                                    infographicUrl: 'evolution/Protostomes.jpeg',
+                                    label: 'Miệng nguyên sinh',
+                                    englishLabel: 'Protostomes',
+                                    type: 'clade',
+                                    description: 'Trong phát triển phôi, miệng hình thành trước hậu môn.',
                                     era: 'Cambrian',
-                                    color: '#f5d0fe',
-                                    traits: ['Tái sinh', 'Tự do']
+                                    color: '#d946ef', // Fuchsia-500
+                                    traits: ['Miệng trước', 'Phát triển xác định'],
+                                    children: [
+                                        {
+                                            id: 'worms_simple',
+                                            infographicUrl: 'evolution/Worms.jpeg',
+                                            label: 'Các Loài Giun',
+                                            englishLabel: 'Worms',
+                                            type: 'class',
+                                            description: 'Nhóm động vật không xương sống có cơ thể dài, mềm. Gồm 3 ngành chính.',
+                                            era: 'Cambrian',
+                                            color: '#e879f9',
+                                            traits: ['Cơ thể mềm', 'Đối xứng hai bên', 'Không chân'],
+                                            children: [
+                                                {
+                                                    id: 'flatworms',
+                                                    infographicUrl: 'evolution/Flatworms.jpeg',
+                                                    label: 'Giun Dẹp',
+                                                    englishLabel: 'Flatworms',
+                                                    type: 'order',
+                                                    description: 'Cơ thể dẹt theo hướng lưng bụng. Chưa có hậu môn và hệ tuần hoàn.',
+                                                    era: 'Ediacaran',
+                                                    color: '#f0abfc',
+                                                    traits: ['Dẹt', 'Ruột túi'],
+                                                    children: [
+                                                        {
+                                                            id: 'planarians',
+                                                            infographicUrl: 'evolution/Planarians.jpeg',
+                                                            label: 'Sán Lông',
+                                                            englishLabel: 'Planarians',
+                                                            type: 'family',
+                                                            description: 'Sống tự do, có khả năng tái sinh mạnh mẽ.',
+                                                            era: 'Cambrian',
+                                                            color: '#f5d0fe',
+                                                            traits: ['Tái sinh', 'Tự do']
+                                                        },
+                                                        {
+                                                            id: 'tapeworms',
+                                                            infographicUrl: 'evolution/Tapeworms.jpeg',
+                                                            label: 'Sán Dây',
+                                                            englishLabel: 'Tapeworms',
+                                                            type: 'family',
+                                                            description: 'Ký sinh trong ruột động vật. Cơ thể gồm nhiều đốt.',
+                                                            era: 'Permian',
+                                                            color: '#e879f9',
+                                                            traits: ['Ký sinh', 'Nhiều đốt']
+                                                        },
+                                                        {
+                                                            id: 'flukes',
+                                                            infographicUrl: 'evolution/Flukes.jpeg',
+                                                            label: 'Sán Lá',
+                                                            englishLabel: 'Flukes',
+                                                            type: 'family',
+                                                            description: 'Hình lá, ký sinh trong gan hoặc máu.',
+                                                            era: 'Devonian',
+                                                            color: '#d946ef',
+                                                            traits: ['Ký sinh', 'Hình lá']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'roundworms',
+                                                    infographicUrl: 'evolution/Roundworms.jpeg',
+                                                    label: 'Giun Tròn',
+                                                    englishLabel: 'Roundworms',
+                                                    type: 'order',
+                                                    description: 'Cơ thể hình ống, tiết diện tròn. Có ống tiêu hóa hoàn chỉnh.',
+                                                    era: 'Cambrian',
+                                                    color: '#d946ef',
+                                                    traits: ['Hình ống', 'Tiêu hóa hoàn chỉnh'],
+                                                    children: [
+                                                        {
+                                                            id: 'pinworms',
+                                                            infographicUrl: 'evolution/Pinworms.jpeg',
+                                                            label: 'Giun Kim',
+                                                            englishLabel: 'Pinworms',
+                                                            type: 'family',
+                                                            description: 'Ký sinh phổ biến ở ruột người, đặc biệt là trẻ em.',
+                                                            era: 'Unknown',
+                                                            color: '#e879f9',
+                                                            traits: ['Ký sinh ruột']
+                                                        },
+                                                        {
+                                                            id: 'hookworms',
+                                                            infographicUrl: 'evolution/Hookworms.jpeg',
+                                                            label: 'Giun Móc',
+                                                            englishLabel: 'Hookworms',
+                                                            type: 'family',
+                                                            description: 'Ký sinh hút máu, xâm nhập qua da.',
+                                                            era: 'Unknown',
+                                                            color: '#c026d3',
+                                                            traits: ['Hút máu', 'Móc bám']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'segmented_worms',
+                                                    infographicUrl: 'evolution/Segmented Worms.jpeg',
+                                                    label: 'Giun Đốt',
+                                                    englishLabel: 'Segmented Worms',
+                                                    type: 'order',
+                                                    description: 'Cơ thể phân đốt thực sự. Có hệ tuần hoàn kín.',
+                                                    era: 'Cambrian',
+                                                    color: '#c026d3',
+                                                    traits: ['Phân đốt', 'Tuần hoàn kín'],
+                                                    children: [
+                                                        {
+                                                            id: 'earthworms',
+                                                            infographicUrl: 'evolution/Earthworms.jpeg',
+                                                            label: 'Giun Đất',
+                                                            englishLabel: 'Earthworms',
+                                                            type: 'family',
+                                                            description: 'Sống trong đất, cải tạo đất tơi xốp.',
+                                                            era: 'Triassic',
+                                                            color: '#e879f9',
+                                                            traits: ['Có ích', 'Sống đất']
+                                                        },
+                                                        {
+                                                            id: 'leeches',
+                                                            infographicUrl: 'evolution/Leeches.jpeg',
+                                                            label: 'Đỉa',
+                                                            englishLabel: 'Leeches',
+                                                            type: 'family',
+                                                            description: 'Sống dưới nước, hút máu hoặc ăn thịt.',
+                                                            era: 'Jurassic',
+                                                            color: '#d946ef',
+                                                            traits: ['Hút máu', 'Giác bám']
+                                                        },
+                                                        {
+                                                            id: 'polychaetes',
+                                                            infographicUrl: 'evolution/Polychaetes.jpeg',
+                                                            label: 'Giun Nhiều Tơ',
+                                                            englishLabel: 'Polychaetes',
+                                                            type: 'family',
+                                                            description: 'Sống ở biển, màu sắc sặc sỡ, di chuyển hoạt bát.',
+                                                            era: 'Cambrian',
+                                                            color: '#a21caf',
+                                                            traits: ['Sống biển', 'Nhiều tơ']
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            id: 'mollusca',
+                                            infographicUrl: 'evolution/Mollusks.jpeg',
+                                            label: 'Thân Mềm',
+                                            englishLabel: 'Mollusks',
+                                            type: 'class',
+                                            description: 'Động vật không xương sống có cơ thể mềm, thường được bảo vệ bởi vỏ đá vôi.',
+                                            era: 'Cambrian',
+                                            color: '#d946ef',
+                                            traits: ['Cơ thể mềm', 'Vỏ đá vôi', 'Chân cơ'],
+                                            children: [
+                                                {
+                                                    id: 'gastropods',
+                                                    infographicUrl: 'evolution/Gastropods.jpeg',
+                                                    label: 'Chân Bụng',
+                                                    englishLabel: 'Gastropods',
+                                                    type: 'order',
+                                                    description: 'Nhóm lớn nhất (Ốc sên, Ốc biển). Di chuyển bằng chân bụng bò sát mặt đất.',
+                                                    era: 'Cambrian',
+                                                    color: '#f0abfc',
+                                                    traits: ['Vỏ xoắn', 'Chân bụng'],
+                                                    children: [
+                                                        {
+                                                            id: 'snails',
+                                                            infographicUrl: 'evolution/Snails.jpeg',
+                                                            label: 'Ốc',
+                                                            englishLabel: 'Snails',
+                                                            type: 'family',
+                                                            description: 'Có vỏ xoắn ốc bảo vệ cơ thể.',
+                                                            era: 'Cambrian',
+                                                            color: '#f5d0fe',
+                                                            traits: ['Có vỏ']
+                                                        },
+                                                        {
+                                                            id: 'slugs',
+                                                            infographicUrl: 'evolution/Slugs.jpeg',
+                                                            label: 'Sên Trần',
+                                                            englishLabel: 'Slugs',
+                                                            type: 'family',
+                                                            description: 'Vỏ tiêu biến hoặc rất nhỏ. Cơ thể tiết nhiều chất nhầy.',
+                                                            era: 'Carboniferous',
+                                                            color: '#e879f9',
+                                                            traits: ['Không vỏ', 'Nhầy']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'bivalves',
+                                                    infographicUrl: 'evolution/Bivalves.jpeg',
+                                                    label: 'Hai Mảnh Vỏ',
+                                                    englishLabel: 'Bivalves',
+                                                    type: 'order',
+                                                    description: 'Ngao, Sò, Trai, Hến. Vỏ gồm 2 mảnh khép lại.',
+                                                    era: 'Cambrian',
+                                                    color: '#d946ef',
+                                                    traits: ['2 mảnh vỏ', 'Lọc thức ăn'],
+                                                    children: [
+                                                        {
+                                                            id: 'clams_oysters',
+                                                            infographicUrl: 'evolution/Clams & Oysters.jpeg',
+                                                            label: 'Trai & Hàu',
+                                                            englishLabel: 'Clams & Oysters',
+                                                            type: 'family',
+                                                            description: 'Sống cố định hoặc vùi mình trong cát.',
+                                                            era: 'Cambrian',
+                                                            color: '#c026d3',
+                                                            traits: ['Cố định', 'Tạo ngọc']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'cephalopods',
+                                                    infographicUrl: 'evolution/Cephalopods.jpeg',
+                                                    label: 'Chân Đầu',
+                                                    englishLabel: 'Cephalopods',
+                                                    type: 'order',
+                                                    description: 'Nhóm thông minh nhất (Bạch tuộc, Mực). Chân biến đổi thành xúc tu quanh đầu.',
+                                                    era: 'Cambrian',
+                                                    color: '#c026d3',
+                                                    traits: ['Thông minh', 'Xúc tu', 'Phun mực'],
+                                                    children: [
+                                                        {
+                                                            id: 'octopuses',
+                                                            infographicUrl: 'evolution/Octopuses.jpeg',
+                                                            label: 'Bạch Tuộc',
+                                                            englishLabel: 'Octopuses',
+                                                            type: 'family',
+                                                            description: 'Không có vỏ, 8 xúc tu, trí tuệ rất cao.',
+                                                            era: 'Jurassic',
+                                                            color: '#a21caf',
+                                                            traits: ['8 xúc tu', 'Ngụy trang']
+                                                        },
+                                                        {
+                                                            id: 'squids',
+                                                            infographicUrl: 'evolution/Squids.jpeg',
+                                                            label: 'Mực',
+                                                            englishLabel: 'Squids',
+                                                            type: 'family',
+                                                            description: 'Bơi nhanh, vỏ tiêu biến thành mai mực bên trong.',
+                                                            era: 'Jurassic',
+                                                            color: '#86198f',
+                                                            traits: ['10 xúc tu', 'Phản lực']
+                                                        },
+                                                        {
+                                                            id: 'nautilus',
+                                                            infographicUrl: 'evolution/Nautilus.jpeg',
+                                                            label: 'Ốc Anh Vũ',
+                                                            englishLabel: 'Nautilus',
+                                                            type: 'family',
+                                                            description: 'Hóa thạch sống, vẫn giữ vỏ ngoài cuộn tròn.',
+                                                            era: 'Cambrian',
+                                                            color: '#701a75',
+                                                            traits: ['Vỏ ngoài', 'Sống sâu']
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            id: 'arthropoda',
+                                            infographicUrl: 'evolution/Arthropods.jpeg',
+                                            label: 'Chân Khớp',
+                                            englishLabel: 'Arthropods',
+                                            type: 'class',
+                                            description: 'Ngành động vật lớn nhất. Cơ thể phân đốt, có bộ xương ngoài bằng chitin và các chi phân đốt.',
+                                            era: 'Cambrian',
+                                            color: '#c026d3',
+                                            traits: ['Bộ xương ngoài', 'Chân khớp', 'Lột xác'],
+                                            milestone: {
+                                                label: 'Lên Cạn',
+                                                year: '450 triệu năm trước'
+                                            },
+                                            children: [
+                                                {
+                                                    id: 'insects',
+                                                    infographicUrl: 'evolution/Insects.jpeg',
+                                                    label: 'Côn Trùng',
+                                                    englishLabel: 'Insects',
+                                                    type: 'order',
+                                                    description: 'Nhóm động vật đa dạng nhất hành tinh. Cơ thể chia 3 phần (đầu, ngực, bụng), có 6 chân.',
+                                                    era: 'Devonian',
+                                                    color: '#e879f9',
+                                                    traits: ['6 chân', 'Có cánh'],
+                                                    children: [
+                                                        {
+                                                            id: 'butterflies_beetles_bees',
+                                                            infographicUrl: 'evolution/Butterflies, Beetle, Bees.jpeg',
+                                                            label: 'Bướm / Bọ / Ong',
+                                                            englishLabel: 'Butterflies / Beetles / Bees',
+                                                            type: 'family',
+                                                            description: 'Đại diện tiêu biểu cho sự đa dạng của côn trùng.',
+                                                            era: 'Carboniferous',
+                                                            color: '#f0abfc',
+                                                            traits: ['Biến thái', 'Thụ phấn']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'arachnids',
+                                                    infographicUrl: 'evolution/Arachnids.jpeg',
+                                                    label: 'Hình Nhện',
+                                                    englishLabel: 'Arachnids',
+                                                    type: 'order',
+                                                    description: 'Nhện, Bọ cạp, Ve. Có 8 chân, không có râu và cánh.',
+                                                    era: 'Silurian',
+                                                    color: '#d946ef',
+                                                    traits: ['8 chân', 'Phổi sách'],
+                                                    children: [
+                                                        {
+                                                            id: 'spiders_scorpions_ticks',
+                                                            infographicUrl: 'evolution/Spiders, Scorpions, Ticks.jpeg',
+                                                            label: 'Nhện / Bọ cạp / Ve',
+                                                            englishLabel: 'Spiders / Scorpions / Ticks',
+                                                            type: 'family',
+                                                            description: 'Săn mồi hoặc ký sinh. Thường có nọc độc.',
+                                                            era: 'Devonian',
+                                                            color: '#e879f9',
+                                                            traits: ['Tơ nhện', 'Nọc độc']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'crustaceans',
+                                                    infographicUrl: 'evolution/Crustaceans.jpeg',
+                                                    label: 'Giáp Xác',
+                                                    englishLabel: 'Crustaceans',
+                                                    type: 'order',
+                                                    description: 'Tôm, Cua. Chủ yếu sống dưới nước, hô hấp bằng mang.',
+                                                    era: 'Cambrian',
+                                                    color: '#c026d3',
+                                                    traits: ['2 đôi râu', 'Vỏ kitin-canxi'],
+                                                    children: [
+                                                        {
+                                                            id: 'crabs_shrimps_lobsters',
+                                                            infographicUrl: 'evolution/Crabs, Shrimps.jpeg',
+                                                            label: 'Cua / Tôm',
+                                                            englishLabel: 'Crabs / Shrimps',
+                                                            type: 'family',
+                                                            description: 'Nguồn thức ăn quan trọng. Có 10 chân (thập chân).',
+                                                            era: 'Jurassic',
+                                                            color: '#d946ef',
+                                                            traits: ['10 chân', 'Càng lớn']
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    id: 'myriapods',
+                                                    infographicUrl: 'evolution/Myriapods.jpeg',
+                                                    label: 'Nhiều Chân',
+                                                    englishLabel: 'Myriapods',
+                                                    type: 'order',
+                                                    description: 'Rết, Cuốn chiếu. Cơ thể dài, có rất nhiều đôi chân.',
+                                                    era: 'Silurian',
+                                                    color: '#a21caf',
+                                                    traits: ['Nhiều chân', 'Thở bằng khí quản'],
+                                                    children: [
+                                                        {
+                                                            id: 'centipedes_millipedes',
+                                                            infographicUrl: 'evolution/Centipedes, Millipedes.jpeg',
+                                                            label: 'Rết / Cuốn Chiếu',
+                                                            englishLabel: 'Centipedes / Millipedes',
+                                                            type: 'family',
+                                                            description: 'Rết ăn thịt có độc, Cuốn chiếu ăn thực vật.',
+                                                            era: 'Silurian',
+                                                            color: '#c026d3',
+                                                            traits: ['Nhiều đốt', 'Sống nơi ẩm']
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
-                                    id: 'tapeworms',
-                                    label: 'Sán Dây',
-                                    englishLabel: 'Tapeworms',
-                                    type: 'family',
-                                    description: 'Ký sinh trong ruột động vật. Cơ thể gồm nhiều đốt.',
-                                    era: 'Permian',
-                                    color: '#e879f9',
-                                    traits: ['Ký sinh', 'Nhiều đốt']
-                                },
-                                {
-                                    id: 'flukes',
-                                    label: 'Sán Lá',
-                                    englishLabel: 'Flukes',
-                                    type: 'family',
-                                    description: 'Hình lá, ký sinh trong gan hoặc máu.',
-                                    era: 'Devonian',
-                                    color: '#d946ef',
-                                    traits: ['Ký sinh', 'Hình lá']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'roundworms',
-                            label: 'Giun Tròn',
-                            englishLabel: 'Roundworms',
-                            type: 'order',
-                            description: 'Cơ thể hình ống, tiết diện tròn. Có ống tiêu hóa hoàn chỉnh.',
-                            era: 'Cambrian',
-                            color: '#d946ef',
-                            traits: ['Hình ống', 'Tiêu hóa hoàn chỉnh'],
-                            children: [
-                                {
-                                    id: 'pinworms',
-                                    label: 'Giun Kim',
-                                    englishLabel: 'Pinworms',
-                                    type: 'family',
-                                    description: 'Ký sinh phổ biến ở ruột người, đặc biệt là trẻ em.',
-                                    era: 'Unknown',
-                                    color: '#e879f9',
-                                    traits: ['Ký sinh ruột']
-                                },
-                                {
-                                    id: 'hookworms',
-                                    label: 'Giun Móc',
-                                    englishLabel: 'Hookworms',
-                                    type: 'family',
-                                    description: 'Ký sinh hút máu, xâm nhập qua da.',
-                                    era: 'Unknown',
-                                    color: '#c026d3',
-                                    traits: ['Hút máu', 'Móc bám']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'segmented_worms',
-                            label: 'Giun Đốt',
-                            englishLabel: 'Segmented Worms',
-                            type: 'order',
-                            description: 'Cơ thể phân đốt thực sự. Có hệ tuần hoàn kín.',
-                            era: 'Cambrian',
-                            color: '#c026d3',
-                            traits: ['Phân đốt', 'Tuần hoàn kín'],
-                            children: [
-                                {
-                                    id: 'earthworms',
-                                    label: 'Giun Đất',
-                                    englishLabel: 'Earthworms',
-                                    type: 'family',
-                                    description: 'Sống trong đất, cải tạo đất tơi xốp.',
-                                    era: 'Triassic',
-                                    color: '#e879f9',
-                                    traits: ['Có ích', 'Sống đất']
-                                },
-                                {
-                                    id: 'leeches',
-                                    label: 'Đỉa',
-                                    englishLabel: 'Leeches',
-                                    type: 'family',
-                                    description: 'Sống dưới nước, hút máu hoặc ăn thịt.',
-                                    era: 'Jurassic',
-                                    color: '#d946ef',
-                                    traits: ['Hút máu', 'Giác bám']
-                                },
-                                {
-                                    id: 'polychaetes',
-                                    label: 'Giun Nhiều Tơ',
-                                    englishLabel: 'Polychaetes',
-                                    type: 'family',
-                                    description: 'Sống ở biển, màu sắc sặc sỡ, di chuyển hoạt bát.',
+                                    id: 'deuterostomes',
+                                    infographicUrl: 'evolution/Deuterostomes.jpeg',
+                                    label: 'Miệng thứ sinh',
+                                    englishLabel: 'Deuterostomes',
+                                    type: 'clade',
+                                    description: 'Trong phát triển phôi, hậu môn hình thành trước miệng. Phôi bào phát triển không xác định.',
                                     era: 'Cambrian',
-                                    color: '#a21caf',
-                                    traits: ['Sống biển', 'Nhiều tơ']
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    id: 'mollusca',
-                    label: 'Thân Mềm',
-                    englishLabel: 'Mollusks',
-                    type: 'class',
-                    description: 'Động vật không xương sống có cơ thể mềm, thường được bảo vệ bởi vỏ đá vôi.',
-                    era: 'Cambrian',
-                    color: '#d946ef',
-                    traits: ['Cơ thể mềm', 'Vỏ đá vôi', 'Chân cơ'],
-                    children: [
-                        {
-                            id: 'gastropods',
-                            label: 'Chân Bụng',
-                            englishLabel: 'Gastropods',
-                            type: 'order',
-                            description: 'Nhóm lớn nhất (Ốc sên, Ốc biển). Di chuyển bằng chân bụng bò sát mặt đất.',
-                            era: 'Cambrian',
-                            color: '#f0abfc',
-                            traits: ['Vỏ xoắn', 'Chân bụng'],
-                            children: [
-                                {
-                                    id: 'snails',
-                                    label: 'Ốc',
-                                    englishLabel: 'Snails',
-                                    type: 'family',
-                                    description: 'Có vỏ xoắn ốc bảo vệ cơ thể.',
-                                    era: 'Cambrian',
-                                    color: '#f5d0fe',
-                                    traits: ['Có vỏ']
-                                },
-                                {
-                                    id: 'slugs',
-                                    label: 'Sên Trần',
-                                    englishLabel: 'Slugs',
-                                    type: 'family',
-                                    description: 'Vỏ tiêu biến hoặc rất nhỏ. Cơ thể tiết nhiều chất nhầy.',
-                                    era: 'Carboniferous',
-                                    color: '#e879f9',
-                                    traits: ['Không vỏ', 'Nhầy']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'bivalves',
-                            label: 'Hai Mảnh Vỏ',
-                            englishLabel: 'Bivalves',
-                            type: 'order',
-                            description: 'Ngao, Sò, Trai, Hến. Vỏ gồm 2 mảnh khép lại.',
-                            era: 'Cambrian',
-                            color: '#d946ef',
-                            traits: ['2 mảnh vỏ', 'Lọc thức ăn'],
-                            children: [
-                                {
-                                    id: 'clams_oysters',
-                                    label: 'Trai & Hàu',
-                                    englishLabel: 'Clams & Oysters',
-                                    type: 'family',
-                                    description: 'Sống cố định hoặc vùi mình trong cát.',
-                                    era: 'Cambrian',
-                                    color: '#c026d3',
-                                    traits: ['Cố định', 'Tạo ngọc']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'cephalopods',
-                            label: 'Chân Đầu',
-                            englishLabel: 'Cephalopods',
-                            type: 'order',
-                            description: 'Nhóm thông minh nhất (Bạch tuộc, Mực). Chân biến đổi thành xúc tu quanh đầu.',
-                            era: 'Cambrian',
-                            color: '#c026d3',
-                            traits: ['Thông minh', 'Xúc tu', 'Phun mực'],
-                            children: [
-                                {
-                                    id: 'octopuses',
-                                    label: 'Bạch Tuộc',
-                                    englishLabel: 'Octopuses',
-                                    type: 'family',
-                                    description: 'Không có vỏ, 8 xúc tu, trí tuệ rất cao.',
-                                    era: 'Jurassic',
-                                    color: '#a21caf',
-                                    traits: ['8 xúc tu', 'Ngụy trang']
-                                },
-                                {
-                                    id: 'squids',
-                                    label: 'Mực',
-                                    englishLabel: 'Squids',
-                                    type: 'family',
-                                    description: 'Bơi nhanh, vỏ tiêu biến thành mai mực bên trong.',
-                                    era: 'Jurassic',
-                                    color: '#86198f',
-                                    traits: ['10 xúc tu', 'Phản lực']
-                                },
-                                {
-                                    id: 'nautilus',
-                                    label: 'Ốc Anh Vũ',
-                                    englishLabel: 'Nautilus',
-                                    type: 'family',
-                                    description: 'Hóa thạch sống, vẫn giữ vỏ ngoài cuộn tròn.',
-                                    era: 'Cambrian',
-                                    color: '#701a75',
-                                    traits: ['Vỏ ngoài', 'Sống sâu']
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    id: 'arthropoda',
-                    label: 'Chân Khớp',
-                    englishLabel: 'Arthropods',
-                    type: 'class',
-                    description: 'Ngành động vật lớn nhất. Cơ thể phân đốt, có bộ xương ngoài bằng chitin và các chi phân đốt.',
-                    era: 'Cambrian',
-                    color: '#c026d3',
-                    traits: ['Bộ xương ngoài', 'Chân khớp', 'Lột xác'],
-                    milestone: {
-                        label: 'Lên Cạn',
-                        year: '450 triệu năm trước'
-                    },
-                    children: [
-                        {
-                            id: 'insects',
-                            label: 'Côn Trùng',
-                            englishLabel: 'Insects',
-                            type: 'order',
-                            description: 'Nhóm động vật đa dạng nhất hành tinh. Cơ thể chia 3 phần (đầu, ngực, bụng), có 6 chân.',
-                            era: 'Devonian',
-                            color: '#e879f9',
-                            traits: ['6 chân', 'Có cánh'],
-                            children: [
-                                {
-                                    id: 'butterflies_beetles_bees',
-                                    label: 'Bướm / Bọ / Ong',
-                                    englishLabel: 'Butterflies / Beetles / Bees',
-                                    type: 'family',
-                                    description: 'Đại diện tiêu biểu cho sự đa dạng của côn trùng.',
-                                    era: 'Carboniferous',
-                                    color: '#f0abfc',
-                                    traits: ['Biến thái', 'Thụ phấn']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'arachnids',
-                            label: 'Hình Nhện',
-                            englishLabel: 'Arachnids',
-                            type: 'order',
-                            description: 'Nhện, Bọ cạp, Ve. Có 8 chân, không có râu và cánh.',
-                            era: 'Silurian',
-                            color: '#d946ef',
-                            traits: ['8 chân', 'Phổi sách'],
-                            children: [
-                                {
-                                    id: 'spiders_scorpions_ticks',
-                                    label: 'Nhện / Bọ cạp / Ve',
-                                    englishLabel: 'Spiders / Scorpions / Ticks',
-                                    type: 'family',
-                                    description: 'Săn mồi hoặc ký sinh. Thường có nọc độc.',
-                                    era: 'Devonian',
-                                    color: '#e879f9',
-                                    traits: ['Tơ nhện', 'Nọc độc']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'crustaceans',
-                            label: 'Giáp Xác',
-                            englishLabel: 'Crustaceans',
-                            type: 'order',
-                            description: 'Tôm, Cua. Chủ yếu sống dưới nước, hô hấp bằng mang.',
-                            era: 'Cambrian',
-                            color: '#c026d3',
-                            traits: ['2 đôi râu', 'Vỏ kitin-canxi'],
-                            children: [
-                                {
-                                    id: 'crabs_shrimps_lobsters',
-                                    label: 'Cua / Tôm',
-                                    englishLabel: 'Crabs / Shrimps',
-                                    type: 'family',
-                                    description: 'Nguồn thức ăn quan trọng. Có 10 chân (thập chân).',
-                                    era: 'Jurassic',
-                                    color: '#d946ef',
-                                    traits: ['10 chân', 'Càng lớn']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'myriapods',
-                            label: 'Nhiều Chân',
-                            englishLabel: 'Myriapods',
-                            type: 'order',
-                            description: 'Rết, Cuốn chiếu. Cơ thể dài, có rất nhiều đôi chân.',
-                            era: 'Silurian',
-                            color: '#a21caf',
-                            traits: ['Nhiều chân', 'Thở bằng khí quản'],
-                            children: [
-                                {
-                                    id: 'centipedes_millipedes',
-                                    label: 'Rết / Cuốn Chiếu',
-                                    englishLabel: 'Centipedes / Millipedes',
-                                    type: 'family',
-                                    description: 'Rết ăn thịt có độc, Cuốn chiếu ăn thực vật.',
-                                    era: 'Silurian',
-                                    color: '#c026d3',
-                                    traits: ['Nhiều đốt', 'Sống nơi ẩm']
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    id: 'echinodermata',
-                    label: 'Da Gai',
-                    englishLabel: 'Echinoderms',
-                    type: 'class',
-                    description: 'Động vật biển có hệ thống ống nước độc đáo. Ấu trùng đối xứng hai bên, trưởng thành đối xứng tỏa tròn.',
-                    era: 'Cambrian',
-                    color: '#a21caf',
-                    traits: ['Hệ thống ống nước', 'Đối xứng tỏa tròn'],
-                    children: [
-                        {
-                            id: 'sea_stars',
-                            label: 'Sao Biển',
-                            englishLabel: 'Sea Stars',
-                            type: 'order',
-                            description: 'Hình sao, thường có 5 cánh. Ăn thịt (san hô, thân mềm).',
-                            era: 'Ordovician',
-                            color: '#c026d3',
-                            traits: ['Hình sao', 'Tái sinh cánh'],
-                            children: [
-                                {
-                                    id: 'sea_star_example',
-                                    label: 'Sao Biển',
-                                    englishLabel: 'Sea Star',
-                                    type: 'family',
-                                    description: 'Di chuyển bằng chân ống.',
-                                    era: 'Ordovician',
-                                    color: '#d946ef',
-                                    traits: ['Chân ống']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'sea_urchins',
-                            label: 'Nhím Biển',
-                            englishLabel: 'Sea Urchins',
-                            type: 'order',
-                            description: 'Hình cầu, vỏ cứng có nhiều gai nhọn bảo vệ.',
-                            era: 'Ordovician',
-                            color: '#a21caf',
-                            traits: ['Gai nhọn', 'Khớp Aristote'],
-                            children: [
-                                {
-                                    id: 'sea_urchin_example',
-                                    label: 'Cầu Gai',
-                                    englishLabel: 'Sea Urchin',
-                                    type: 'family',
-                                    description: 'Ăn tảo. Một số loài có gai độc.',
-                                    era: 'Ordovician',
-                                    color: '#c026d3',
-                                    traits: ['Ăn tảo']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'sea_cucumbers',
-                            label: 'Hải Sâm',
-                            englishLabel: 'Sea Cucumbers',
-                            type: 'order',
-                            description: 'Cơ thể hình dưa chuột, vỏ tiêu biến. Sống ở đáy biển.',
-                            era: 'Ordovician',
-                            color: '#86198f',
-                            traits: ['Thân mềm', 'Tự vệ bằng ruột'],
-                            children: [
-                                {
-                                    id: 'sea_cucumber_example',
-                                    label: 'Dưa Chuột Biển',
-                                    englishLabel: 'Sea Cucumber',
-                                    type: 'family',
-                                    description: 'Lọc bùn đáy biển.',
-                                    era: 'Ordovician',
-                                    color: '#a21caf',
-                                    traits: ['Lọc bùn']
-                                }
-                            ]
-                        },
-                        {
-                            id: 'brittle_stars',
-                            label: 'Sao Giòn',
-                            englishLabel: 'Brittle Stars',
-                            type: 'order',
-                            description: 'Giống sao biển nhưng cánh mảnh và linh hoạt hơn.',
-                            era: 'Ordovician',
-                            color: '#701a75',
-                            traits: ['Cánh mảnh', 'Di chuyển nhanh'],
-                            children: [
-                                {
-                                    id: 'brittle_star_example',
-                                    label: 'Sao Đuôi Rắn',
-                                    englishLabel: 'Brittle Star',
-                                    type: 'family',
-                                    description: 'Dễ gãy cánh để trốn thoát.',
-                                    era: 'Ordovician',
-                                    color: '#86198f',
-                                    traits: ['Tự cắt cánh']
+                                    color: '#86198f', // Fuchsia-700
+                                    traits: ['Hậu môn trước', 'Phát triển không xác định'],
+                                    children: [
+                                        {
+                                            id: 'echinodermata',
+                                            infographicUrl: 'evolution/Echinoderms.jpeg',
+                                            label: 'Da Gai',
+                                            englishLabel: 'Echinoderms',
+                                            type: 'class',
+                                            description: 'Động vật biển có hệ thống ống nước độc đáo. Ấu trùng đối xứng hai bên, trưởng thành đối xứng tỏa tròn.',
+                                            era: 'Cambrian',
+                                            color: '#a21caf',
+                                            traits: ['Hệ thống ống nước', 'Đối xứng tỏa tròn'],
+                                            children: [
+                                                {
+                                                    id: 'sea_stars',
+                                                    infographicUrl: 'evolution/Sea Stars.jpeg',
+                                                    label: 'Sao Biển',
+                                                    englishLabel: 'Sea Stars',
+                                                    type: 'order',
+                                                    description: 'Hình sao, thường có 5 cánh. Ăn thịt (san hô, thân mềm). Di chuyển bằng chân ống.',
+                                                    era: 'Ordovician',
+                                                    color: '#c026d3',
+                                                    traits: ['Hình sao', 'Tái sinh cánh', 'Chân ống']
+                                                },
+                                                {
+                                                    id: 'sea_urchins',
+                                                    infographicUrl: 'evolution/Sea Urchins.jpeg',
+                                                    label: 'Nhím Biển (Cầu Gai)',
+                                                    englishLabel: 'Sea Urchins',
+                                                    type: 'order',
+                                                    description: 'Hình cầu, vỏ cứng có nhiều gai nhọn bảo vệ. Ăn tảo. Một số loài có gai độc.',
+                                                    era: 'Ordovician',
+                                                    color: '#a21caf',
+                                                    traits: ['Gai nhọn', 'Khớp Aristote', 'Ăn tảo']
+                                                },
+                                                {
+                                                    id: 'sea_cucumbers',
+                                                    infographicUrl: 'evolution/Sea Cucumbers.jpeg',
+                                                    label: 'Hải Sâm (Dưa Chuột Biển)',
+                                                    englishLabel: 'Sea Cucumbers',
+                                                    type: 'order',
+                                                    description: 'Cơ thể hình dưa chuột, vỏ tiêu biến. Sống ở đáy biển. Lọc bùn.',
+                                                    era: 'Ordovician',
+                                                    color: '#86198f',
+                                                    traits: ['Thân mềm', 'Tự vệ bằng ruột', 'Lọc bùn']
+                                                },
+                                                {
+                                                    id: 'brittle_stars',
+                                                    infographicUrl: 'evolution/Brittle Stars.jpeg',
+                                                    label: 'Sao Giòn (Sao Đuôi Rắn)',
+                                                    englishLabel: 'Brittle Stars',
+                                                    type: 'order',
+                                                    description: 'Giống sao biển nhưng cánh mảnh và linh hoạt hơn. Dễ gãy cánh để trốn thoát.',
+                                                    era: 'Ordovician',
+                                                    color: '#701a75',
+                                                    traits: ['Cánh mảnh', 'Di chuyển nhanh', 'Tự cắt cánh']
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -648,6 +719,7 @@ export const animalia: EvolutionNode = {
         },
         {
             id: 'vertebrates',
+            infographicUrl: 'evolution/Vertebrates.jpeg',
             label: 'Có Xương Sống',
             englishLabel: 'Vertebrates',
             type: 'phylum',
@@ -658,6 +730,7 @@ export const animalia: EvolutionNode = {
             children: [
                 {
                     id: 'fish_simple',
+                    infographicUrl: 'evolution/Fish.jpeg',
                     label: 'Cá',
                     englishLabel: 'Fish',
                     type: 'class',
@@ -668,6 +741,7 @@ export const animalia: EvolutionNode = {
                     children: [
                         {
                             id: 'jawless_fish',
+                            infographicUrl: 'evolution/Jawless Fish.jpeg',
                             label: 'Cá Không Hàm',
                             englishLabel: 'Jawless Fish',
                             type: 'order',
@@ -678,6 +752,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'cartilaginous_fish',
+                            infographicUrl: 'evolution/Cartilaginous Fish.jpeg',
                             label: 'Cá Sụn',
                             englishLabel: 'Cartilaginous Fish',
                             type: 'order',
@@ -688,6 +763,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'bony_fish',
+                            infographicUrl: 'evolution/Bony Fish.jpeg',
                             label: 'Cá Xương',
                             englishLabel: 'Bony Fish',
                             type: 'order',
@@ -698,6 +774,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'ray_finned_fish',
+                                    infographicUrl: 'evolution/Ray-finned Fish.jpeg',
                                     label: 'Cá Vây Tia',
                                     englishLabel: 'Ray-finned Fish',
                                     type: 'family',
@@ -708,6 +785,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'lobe_finned_fish',
+                                    infographicUrl: 'evolution/Lobe-finned Fish.jpeg',
                                     label: 'Cá Vây Thùy',
                                     englishLabel: 'Lobe-finned Fish',
                                     type: 'family',
@@ -722,6 +800,7 @@ export const animalia: EvolutionNode = {
                 },
                 {
                     id: 'tetrapods',
+                    infographicUrl: 'evolution/Tetrapods.jpeg',
                     label: 'Động vật bốn chi',
                     englishLabel: 'Tetrapods',
                     type: 'clade',
@@ -732,6 +811,7 @@ export const animalia: EvolutionNode = {
                     children: [
                         {
                             id: 'amphibians',
+                            infographicUrl: 'evolution/Amphibians.jpeg',
                             label: 'Lưỡng Cư',
                             englishLabel: 'Amphibians',
                             type: 'class',
@@ -742,6 +822,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'frogs_toads',
+                                    infographicUrl: 'evolution/Frogs & Toads.jpeg',
                                     label: 'Ếch & Cóc',
                                     englishLabel: 'Frogs & Toads',
                                     type: 'order',
@@ -752,6 +833,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'salamanders_newts',
+                                    infographicUrl: 'evolution/Salamanders & Newts.jpeg',
                                     label: 'Kỳ Giông & Sa Giông',
                                     englishLabel: 'Salamanders & Newts',
                                     type: 'order',
@@ -762,6 +844,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'caecilians',
+                                    infographicUrl: 'evolution/Caecilians.jpeg',
                                     label: 'Lưỡng Cư Không Chân',
                                     englishLabel: 'Caecilians',
                                     type: 'order',
@@ -774,6 +857,7 @@ export const animalia: EvolutionNode = {
                         },
                         {
                             id: 'amniotes',
+                            infographicUrl: 'evolution/Amniotes.jpeg',
                             label: 'Động vật màng ối',
                             englishLabel: 'Amniotes',
                             type: 'clade',
@@ -784,6 +868,7 @@ export const animalia: EvolutionNode = {
                             children: [
                                 {
                                     id: 'synapsids',
+                                    infographicUrl: 'evolution/Synapsids.jpeg',
                                     label: 'Synapsids (Nhánh Thú)',
                                     englishLabel: 'Synapsids',
                                     type: 'clade',
@@ -793,104 +878,162 @@ export const animalia: EvolutionNode = {
                                     traits: ['1 hố thái dương', 'Răng phân hóa'],
                                     children: [
                                         {
-                                            id: 'mammals',
-                                            label: 'Thú (Có Vú)',
-                                            englishLabel: 'Mammals',
-                                            type: 'class',
-                                            description: 'Động vật hằng nhiệt, nuôi con bằng sữa, có lông mao. Hệ thần kinh phát triển cao nhất.',
-                                            era: 'Triassic',
+                                            id: 'early_synapsids',
+                                            infographicUrl: 'evolution/Early synapsids.jpeg',
+                                            label: 'Synapsids cổ (nhóm tổ tiên)',
+                                            englishLabel: 'Early synapsids (pelycosaurs, simple)',
+                                            type: 'order',
+                                            description: 'Nhóm Synapsids sớm nhất, bao gồm Pelycosaurs (ví dụ Dimetrodon). Có màng da lớn trên lưng.',
+                                            era: 'Carboniferous',
                                             color: '#fb7185',
-                                            traits: ['Lông mao', 'Tuyến sữa', 'Não bộ phát triển'],
+                                            traits: ['Màng lưng', 'Biến nhiệt']
+                                        },
+                                        {
+                                            id: 'therapsids',
+                                            infographicUrl: 'evolution/Therapsids.jpeg',
+                                            label: 'Therapsids (thú bò sát)',
+                                            englishLabel: 'Therapsids (mammal-like reptiles, simple)',
+                                            type: 'clade',
+                                            description: 'Tổ tiên trực tiếp của động vật có vú.',
+                                            era: 'Permian',
+                                            color: '#f43f5e',
+                                            traits: ['Chân dưới thân', 'Răng chuyên hóa'],
                                             children: [
                                                 {
-                                                    id: 'monotremes',
-                                                    label: 'Thú Đẻ Trứng',
-                                                    englishLabel: 'Monotremes',
+                                                    id: 'dicynodonts',
+                                                    infographicUrl: 'evolution/Dicynodonts.jpeg',
+                                                    label: 'Dicynodonts (ăn cỏ, tuyệt chủng)',
+                                                    englishLabel: 'Dicynodonts (extinct herbivores)',
                                                     type: 'order',
-                                                    description: 'Nhóm thú nguyên thủy nhất (Thú mỏ vịt). Đẻ trứng nhưng nuôi con bằng sữa.',
-                                                    era: 'Cretaceous',
-                                                    color: '#9f1239',
-                                                    traits: ['Đẻ trứng', 'Có huyệt']
+                                                    description: 'Nhóm thú bò sát ăn cỏ rất thành công trước thời đại khủng long. Có 2 răng nanh lớn.',
+                                                    era: 'Permian',
+                                                    color: '#fb7185',
+                                                    traits: ['Ăn cỏ', 'Mỏ sừng', '2 răng nanh']
                                                 },
                                                 {
-                                                    id: 'marsupials',
-                                                    label: 'Thú Có Túi',
-                                                    englishLabel: 'Marsupials',
-                                                    type: 'order',
-                                                    description: 'Chuột túi, Koala. Con non lớn lên trong túi mẹ.',
-                                                    era: 'Cretaceous',
-                                                    color: '#be123c',
-                                                    traits: ['Có túi', 'Con non yếu']
-                                                },
-                                                {
-                                                    id: 'placental_mammals',
-                                                    label: 'Thú Nhau Thai',
-                                                    englishLabel: 'Placental Mammals',
-                                                    type: 'order',
-                                                    description: 'Nhóm phát triển nhất. Con non phát triển trong tử cung.',
-                                                    era: 'Cretaceous',
+                                                    id: 'cynodonts',
+                                                    infographicUrl: 'evolution/Cynodonts.jpeg',
+                                                    label: 'Cynodonts (nhánh dẫn tới thú có vú)',
+                                                    englishLabel: 'Cynodonts (line toward mammals)',
+                                                    type: 'clade',
+                                                    description: 'Nhóm chuyển tiếp từ bò sát sang thú. Bắt đầu có lông mao và máu nóng.',
+                                                    era: 'Triassic',
                                                     color: '#e11d48',
-                                                    traits: ['Nhau thai', 'Phát triển hoàn thiện'],
+                                                    traits: ['Lông mao', 'Máu nóng (sơ khai)'],
                                                     children: [
                                                         {
-                                                            id: 'primates',
-                                                            label: 'Linh Trưởng',
-                                                            englishLabel: 'Primates',
-                                                            type: 'family',
-                                                            description: 'Khỉ, Vượn, Người. Thông minh và khéo léo.',
-                                                            era: 'Paleogene',
+                                                            id: 'mammals',
+                                                            infographicUrl: 'evolution/Mammals.jpeg',
+                                                            label: 'Thú (Có Vú)',
+                                                            englishLabel: 'Mammals',
+                                                            type: 'class',
+                                                            description: 'Động vật hằng nhiệt, nuôi con bằng sữa, có lông mao. Hệ thần kinh phát triển cao nhất.',
+                                                            era: 'Triassic',
                                                             color: '#fb7185',
-                                                            traits: ['Thông minh', 'Đối ngón cái']
-                                                        },
-                                                        {
-                                                            id: 'rodents',
-                                                            label: 'Gặm Nhấm',
-                                                            englishLabel: 'Rodents',
-                                                            type: 'family',
-                                                            description: 'Chuột, Sóc.',
-                                                            era: 'Paleogene',
-                                                            color: '#f43f5e',
-                                                            traits: ['Răng cửa lớn']
-                                                        },
-                                                        {
-                                                            id: 'bats',
-                                                            label: 'Dơi',
-                                                            englishLabel: 'Bats',
-                                                            type: 'family',
-                                                            description: 'Thú biết bay.',
-                                                            era: 'Paleogene',
-                                                            color: '#e11d48',
-                                                            traits: ['Biết bay', 'Siêu âm']
-                                                        },
-                                                        {
-                                                            id: 'carnivores',
-                                                            label: 'Thú Ăn Thịt',
-                                                            englishLabel: 'Carnivores',
-                                                            type: 'family',
-                                                            description: 'Chó, Mèo, Gấu, Hổ.',
-                                                            era: 'Paleogene',
-                                                            color: '#be123c',
-                                                            traits: ['Răng nanh', 'Săn mồi']
-                                                        },
-                                                        {
-                                                            id: 'hoofed_mammals',
-                                                            label: 'Thú Móng Guốc',
-                                                            englishLabel: 'Hoofed Mammals',
-                                                            type: 'family',
-                                                            description: 'Ngựa, Bò, Hươu.',
-                                                            era: 'Paleogene',
-                                                            color: '#9f1239',
-                                                            traits: ['Móng guốc', 'Ăn cỏ']
-                                                        },
-                                                        {
-                                                            id: 'whales_dolphins',
-                                                            label: 'Cá Voi & Heo',
-                                                            englishLabel: 'Whales & Dolphins',
-                                                            type: 'family',
-                                                            description: 'Thú trở lại sống dưới nước.',
-                                                            era: 'Paleogene',
-                                                            color: '#881337',
-                                                            traits: ['Sống dưới nước', 'Lỗ thở']
+                                                            traits: ['Lông mao', 'Tuyến sữa', 'Não bộ phát triển'],
+                                                            children: [
+                                                                {
+                                                                    id: 'monotremes',
+                                                                    infographicUrl: 'evolution/Monotremes.jpeg',
+                                                                    label: 'Thú Đẻ Trứng',
+                                                                    englishLabel: 'Monotremes',
+                                                                    type: 'order',
+                                                                    description: 'Nhóm thú nguyên thủy nhất (Thú mỏ vịt). Đẻ trứng nhưng nuôi con bằng sữa.',
+                                                                    era: 'Cretaceous',
+                                                                    color: '#9f1239',
+                                                                    traits: ['Đẻ trứng', 'Có huyệt']
+                                                                },
+                                                                {
+                                                                    id: 'marsupials',
+                                                                    infographicUrl: 'evolution/Marsupials.jpeg',
+                                                                    label: 'Thú Có Túi',
+                                                                    englishLabel: 'Marsupials',
+                                                                    type: 'order',
+                                                                    description: 'Chuột túi, Koala. Con non lớn lên trong túi mẹ.',
+                                                                    era: 'Cretaceous',
+                                                                    color: '#be123c',
+                                                                    traits: ['Có túi', 'Con non yếu']
+                                                                },
+                                                                {
+                                                                    id: 'placental_mammals',
+                                                                    infographicUrl: 'evolution/Placental Mammals.jpeg',
+                                                                    label: 'Thú Nhau Thai',
+                                                                    englishLabel: 'Placental Mammals',
+                                                                    type: 'order',
+                                                                    description: 'Nhóm phát triển nhất. Con non phát triển trong tử cung.',
+                                                                    era: 'Cretaceous',
+                                                                    color: '#e11d48',
+                                                                    traits: ['Nhau thai', 'Phát triển hoàn thiện'],
+                                                                    children: [
+                                                                        {
+                                                                            id: 'primates',
+                                                                            infographicUrl: 'evolution/Primates.jpeg',
+                                                                            label: 'Linh Trưởng',
+                                                                            englishLabel: 'Primates',
+                                                                            type: 'family',
+                                                                            description: 'Khỉ, Vượn, Người. Thông minh và khéo léo.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#fb7185',
+                                                                            traits: ['Thông minh', 'Đối ngón cái']
+                                                                        },
+                                                                        {
+                                                                            id: 'rodents',
+                                                                            infographicUrl: 'evolution/Rodents.jpeg',
+                                                                            label: 'Gặm Nhấm',
+                                                                            englishLabel: 'Rodents',
+                                                                            type: 'family',
+                                                                            description: 'Chuột, Sóc.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#f43f5e',
+                                                                            traits: ['Răng cửa lớn']
+                                                                        },
+                                                                        {
+                                                                            id: 'bats',
+                                                                            infographicUrl: 'evolution/Bats.jpeg',
+                                                                            label: 'Dơi',
+                                                                            englishLabel: 'Bats',
+                                                                            type: 'family',
+                                                                            description: 'Thú biết bay.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#e11d48',
+                                                                            traits: ['Biết bay', 'Siêu âm']
+                                                                        },
+                                                                        {
+                                                                            id: 'carnivores',
+                                                                            infographicUrl: 'evolution/Carnivores.jpeg',
+                                                                            label: 'Thú Ăn Thịt',
+                                                                            englishLabel: 'Carnivores',
+                                                                            type: 'family',
+                                                                            description: 'Chó, Mèo, Gấu, Hổ.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#be123c',
+                                                                            traits: ['Răng nanh', 'Săn mồi']
+                                                                        },
+                                                                        {
+                                                                            id: 'hoofed_mammals',
+                                                                            infographicUrl: 'evolution/Hoofed Mammals.jpeg',
+                                                                            label: 'Thú Móng Guốc',
+                                                                            englishLabel: 'Hoofed Mammals',
+                                                                            type: 'family',
+                                                                            description: 'Ngựa, Bò, Hươu.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#9f1239',
+                                                                            traits: ['Móng guốc', 'Ăn cỏ']
+                                                                        },
+                                                                        {
+                                                                            id: 'whales_dolphins',
+                                                                            infographicUrl: 'evolution/Whales & Dolphins.jpeg',
+                                                                            label: 'Cá Voi & Heo',
+                                                                            englishLabel: 'Whales & Dolphins',
+                                                                            type: 'family',
+                                                                            description: 'Thú trở lại sống dưới nước.',
+                                                                            era: 'Paleogene',
+                                                                            color: '#881337',
+                                                                            traits: ['Sống dưới nước', 'Lỗ thở']
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
                                                         }
                                                     ]
                                                 }
@@ -900,6 +1043,7 @@ export const animalia: EvolutionNode = {
                                 },
                                 {
                                     id: 'sauropsids',
+                                    infographicUrl: 'evolution/Sauropsids.jpeg',
                                     label: 'Sauropsids (Nhánh Bò Sát)',
                                     englishLabel: 'Sauropsids',
                                     type: 'clade',
@@ -910,6 +1054,7 @@ export const animalia: EvolutionNode = {
                                     children: [
                                         {
                                             id: 'reptiles_phylo',
+                                            infographicUrl: 'evolution/Reptiles.jpeg',
                                             label: 'Bò Sát',
                                             englishLabel: 'Reptiles',
                                             type: 'class',
@@ -920,6 +1065,7 @@ export const animalia: EvolutionNode = {
                                             children: [
                                                 {
                                                     id: 'testudines',
+                                                    infographicUrl: 'evolution/Testudines.jpeg',
                                                     label: 'Rùa',
                                                     englishLabel: 'Testudines',
                                                     type: 'order',
@@ -930,6 +1076,7 @@ export const animalia: EvolutionNode = {
                                                     children: [
                                                         {
                                                             id: 'turtles',
+                                                            infographicUrl: 'evolution/Turtles.jpeg',
                                                             label: 'Các loài Rùa',
                                                             englishLabel: 'Turtles',
                                                             type: 'family',
@@ -942,6 +1089,7 @@ export const animalia: EvolutionNode = {
                                                 },
                                                 {
                                                     id: 'lepidosauria',
+                                                    infographicUrl: 'evolution/Lepidosauria.jpeg',
                                                     label: 'Lepidosauria (Thằn lằn & Rắn)',
                                                     englishLabel: 'Lepidosauria',
                                                     type: 'superorder',
@@ -952,6 +1100,7 @@ export const animalia: EvolutionNode = {
                                                     children: [
                                                         {
                                                             id: 'tuatara',
+                                                            infographicUrl: 'evolution/Tuatara.jpeg',
                                                             label: 'Tuatara',
                                                             englishLabel: 'Tuatara',
                                                             type: 'order',
@@ -962,6 +1111,7 @@ export const animalia: EvolutionNode = {
                                                         },
                                                         {
                                                             id: 'lizards_snakes',
+                                                            infographicUrl: 'evolution/Squamata.jpeg',
                                                             label: 'Thằn Lằn & Rắn',
                                                             englishLabel: 'Squamata',
                                                             type: 'order',
@@ -974,6 +1124,7 @@ export const animalia: EvolutionNode = {
                                                 },
                                                 {
                                                     id: 'archosauria',
+                                                    infographicUrl: 'evolution/Archosauria.jpeg',
                                                     label: 'Archosauria (Thằn lằn chúa)',
                                                     englishLabel: 'Archosauria',
                                                     type: 'clade',
@@ -984,6 +1135,7 @@ export const animalia: EvolutionNode = {
                                                     children: [
                                                         {
                                                             id: 'crocodilians',
+                                                            infographicUrl: 'evolution/Crocodilians.jpeg',
                                                             label: 'Cá Sấu',
                                                             englishLabel: 'Crocodilians',
                                                             type: 'order',
@@ -994,6 +1146,7 @@ export const animalia: EvolutionNode = {
                                                         },
                                                         {
                                                             id: 'dinosaurs',
+                                                            infographicUrl: 'evolution/Dinosaurs.jpeg',
                                                             label: 'Khủng Long',
                                                             englishLabel: 'Dinosaurs',
                                                             type: 'superorder',
@@ -1004,6 +1157,7 @@ export const animalia: EvolutionNode = {
                                                             children: [
                                                                 {
                                                                     id: 'ornithischia',
+                                                                    infographicUrl: 'evolution/Ornithischia.jpeg',
                                                                     label: 'Khủng long hông chim',
                                                                     englishLabel: 'Ornithischia',
                                                                     type: 'order',
@@ -1014,6 +1168,7 @@ export const animalia: EvolutionNode = {
                                                                 },
                                                                 {
                                                                     id: 'saurischia',
+                                                                    infographicUrl: 'evolution/Saurischia.jpeg',
                                                                     label: 'Khủng long hông thằn lằn',
                                                                     englishLabel: 'Saurischia',
                                                                     type: 'order',
@@ -1024,6 +1179,7 @@ export const animalia: EvolutionNode = {
                                                                     children: [
                                                                         {
                                                                             id: 'sauropods',
+                                                                            infographicUrl: 'evolution/Sauropods.jpeg',
                                                                             label: 'Khủng long cổ dài',
                                                                             englishLabel: 'Sauropods',
                                                                             type: 'suborder',
@@ -1034,6 +1190,7 @@ export const animalia: EvolutionNode = {
                                                                         },
                                                                         {
                                                                             id: 'theropods',
+                                                                            infographicUrl: 'evolution/Theropods.jpeg',
                                                                             label: 'Khủng long chân thú (Theropods)',
                                                                             englishLabel: 'Theropods',
                                                                             type: 'suborder',
@@ -1044,6 +1201,7 @@ export const animalia: EvolutionNode = {
                                                                             children: [
                                                                                 {
                                                                                     id: 'birds',
+                                                                                    infographicUrl: 'evolution/Birds.jpeg',
                                                                                     label: 'Chim',
                                                                                     englishLabel: 'Birds (Avian Dinosaurs)',
                                                                                     type: 'class',
@@ -1054,6 +1212,7 @@ export const animalia: EvolutionNode = {
                                                                                     children: [
                                                                                         {
                                                                                             id: 'flightless_birds',
+                                                                                            infographicUrl: 'evolution/Flightless.jpeg',
                                                                                             label: 'Chim Không Bay',
                                                                                             englishLabel: 'Flightless Birds',
                                                                                             type: 'order',
@@ -1064,6 +1223,7 @@ export const animalia: EvolutionNode = {
                                                                                         },
                                                                                         {
                                                                                             id: 'birds_of_prey',
+                                                                                            infographicUrl: 'evolution/Birds of Prey.jpeg',
                                                                                             label: 'Chim Săn Mồi',
                                                                                             englishLabel: 'Birds of Prey',
                                                                                             type: 'order',
@@ -1074,6 +1234,7 @@ export const animalia: EvolutionNode = {
                                                                                         },
                                                                                         {
                                                                                             id: 'songbirds',
+                                                                                            infographicUrl: 'evolution/Songbirds.jpeg',
                                                                                             label: 'Chim Hót',
                                                                                             englishLabel: 'Songbirds',
                                                                                             type: 'order',

@@ -11,7 +11,7 @@ export interface EvolutionNode {
     id: string;
     label: string;
     englishLabel?: string;
-    type: 'root' | 'domain' | 'kingdom' | 'phylum' | 'class' | 'order' | 'family' | 'genus' | 'species' | 'branch' | 'milestone';
+    type: 'root' | 'domain' | 'kingdom' | 'phylum' | 'class' | 'order' | 'family' | 'genus' | 'species' | 'branch' | 'milestone' | 'clade' | 'superorder' | 'suborder';
     description?: string;
     imageUrl?: string;
     expanded?: boolean;
