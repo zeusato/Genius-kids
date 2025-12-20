@@ -1,5 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { SudokuGame } from './games/Sudoku/SudokuGame';
+import GearsGamePage from './src/pages/games/GearsGame/GearsGamePage';
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
@@ -29,6 +31,7 @@ const PeriodicTablePage = React.lazy(() => import('@/src/pages/PeriodicTablePage
 const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').then(module => ({ default: module.ElectricityPage })));
 const CellBiologyPage = React.lazy(() => import('@/src/pages/science/CellBiologyPage').then(module => ({ default: module.CellBiologyPage })));
 const EvolutionTreePage = React.lazy(() => import('@/src/pages/science/EvolutionTreePage').then(module => ({ default: module.EvolutionTreePage })));
+const SpeedMathGame = React.lazy(() => import('./games/SpeedMath/SpeedMathGame').then(module => ({ default: module.SpeedMathGame })));
 
 
 // Initialize Google Analytics
@@ -309,6 +312,8 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="/games/speed-math" element={<ProtectedRoute><SpeedMathGame difficulty="easy" onBack={() => window.history.back()} onComplete={() => { }} /></ProtectedRoute>} />
+              <Route path="/games/gears" element={<ProtectedRoute><GearsGamePage /></ProtectedRoute>} />
               <Route
                 path="/science"
                 element={

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, ArrowLeft, Music, Timer, Car, Grid3x3 } from 'lucide-react';
+import { Brain, ArrowLeft, Music, Timer, Car, Grid3x3, Settings } from 'lucide-react';
 import { Difficulty } from './memoryMatchEngine';
 import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
 import { SoundMemoryGame } from './SoundMemory/SoundMemoryGame';
@@ -7,6 +7,8 @@ import { SpeedMathGame } from './SpeedMath/SpeedMathGame';
 import { DragonQuestGame } from './DragonQuest/DragonQuestGame';
 import { MathRacingGame } from './MathRacing/MathRacingGame';
 import { SudokuGame } from './Sudoku/SudokuGame';
+import GearsGamePage from '@/src/pages/games/GearsGame/GearsGamePage';
+import GuessDirectionGame from '@/src/pages/games/GearsGame/GuessDirectionGame';
 import { MusicControls } from '@/src/components/MusicControls';
 import CarIcon from './MathRacing/CarIcon.png';
 
@@ -16,7 +18,7 @@ interface GamesMenuProps {
 }
 
 export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
-    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | null>(null);
+    const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-build' | 'gears-guess' | 'gears-menu' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
     if (activeGame === 'memory') {
@@ -95,6 +97,57 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                 onExit={() => setActiveGame(null)}
             />
         );
+    }
+
+    // Gears Game - Mode Selection Menu
+    if (activeGame === 'gears-menu') {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                <button
+                    onClick={() => setActiveGame(null)}
+                    className="absolute top-4 left-4 z-50 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white"
+                >
+                    <ArrowLeft size={24} className="text-gray-800" />
+                </button>
+
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold text-white mb-2">Kỹ Sư Máy Móc</h1>
+                    <p className="text-gray-400 mb-8">Chọn chế độ chơi</p>
+
+                    <div className="flex gap-6">
+                        <button
+                            onClick={() => setActiveGame('gears-build')}
+                            className="bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-8 py-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                        >
+                            <Settings size={48} className="mx-auto mb-3" />
+                            <div className="text-xl font-bold">Lắp Bánh Răng</div>
+                            <p className="text-sm opacity-80 mt-1">Kết nối Nguồn → Đích</p>
+                        </button>
+
+                        <button
+                            onClick={() => setActiveGame('gears-guess')}
+                            className="bg-gradient-to-br from-cyan-400 to-blue-500 text-white px-8 py-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                        >
+                            <Brain size={48} className="mx-auto mb-3" />
+                            <div className="text-xl font-bold">Đoán Chiều Quay</div>
+                            <p className="text-sm opacity-80 mt-1">Dự đoán hướng chuyển động</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // Gears Game - Build Mode
+    if (activeGame === 'gears-build') {
+        const gearDifficulty = difficulty === Difficulty.Easy ? 'easy' : difficulty === Difficulty.Medium ? 'medium' : 'hard';
+        return <GearsGamePage difficulty={gearDifficulty} onBack={() => setActiveGame('gears-menu')} />;
+    }
+
+    // Gears Game - Guess Direction Mode
+    if (activeGame === 'gears-guess') {
+        const gearDifficulty = difficulty === Difficulty.Easy ? 'easy' : difficulty === Difficulty.Medium ? 'medium' : 'hard';
+        return <GuessDirectionGame difficulty={gearDifficulty} onBack={() => setActiveGame('gears-menu')} />;
     }
 
     return (
@@ -304,6 +357,31 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                                     className="px-8 py-4 bg-gradient-to-r from-[#8b4513] to-[#d2b48c] text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
                                     🧩 Chơi ngay!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Gears Game Card (New) */}
+                    <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="w-32 h-32 bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl flex items-center justify-center shadow-lg transform hover:rotate-6 transition-transform">
+                                <Settings size={64} className="text-white animate-spin-slow" />
+                            </div>
+
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-3xl font-bold text-slate-800 mb-3">
+                                    Kỹ Sư Máy Móc
+                                </h3>
+                                <p className="text-slate-600 text-lg mb-6">
+                                    Lắp ráp bánh răng, dây đai để vận hành cỗ máy. Trở thành kỹ sư tài ba!
+                                </p>
+
+                                <button
+                                    onClick={() => setActiveGame('gears-menu')}
+                                    className="px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                >
+                                    ⚙️ Chơi ngay!
                                 </button>
                             </div>
                         </div>
