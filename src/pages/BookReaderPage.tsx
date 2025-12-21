@@ -39,22 +39,34 @@ export function BookReaderPage() {
             const container = containerRef.current;
             if (!container) return;
 
-            const containerWidth = container.clientWidth - 100; // More padding for nav buttons
-            const containerHeight = container.clientHeight - 48;
+            const isMobile = window.innerWidth < 768;
+
+            // Less padding on mobile for maximum content space
+            const horizontalPadding = isMobile ? 48 : 100;
+            const verticalPadding = isMobile ? 16 : 48;
+
+            const containerWidth = container.clientWidth - horizontalPadding;
+            const containerHeight = container.clientHeight - verticalPadding;
 
             const aspectRatio = 16 / 9;
-            let width = containerWidth * 0.95; // Reduce by 5% to avoid clipping
+
+            // On mobile, use nearly full width
+            const scaleFactor = isMobile ? 0.98 : 0.95;
+
+            let width = containerWidth * scaleFactor;
             let height = width / aspectRatio;
 
             // If height exceeds container, constrain by height
-            if (height > containerHeight * 0.95) {
-                height = containerHeight * 0.95;
+            if (height > containerHeight * scaleFactor) {
+                height = containerHeight * scaleFactor;
                 width = height * aspectRatio;
             }
 
-            // Max reasonable size
-            width = Math.min(width, 1100);
-            height = Math.min(height, 619);
+            // Max reasonable size (only apply on desktop)
+            if (!isMobile) {
+                width = Math.min(width, 1100);
+                height = Math.min(height, 619);
+            }
 
             setDimensions({ width: Math.floor(width), height: Math.floor(height) });
         };
