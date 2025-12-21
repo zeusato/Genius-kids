@@ -1,12 +1,12 @@
 import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
-import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, BookText, Trophy, Cpu } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, Library, Trophy, Cpu } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'tellmewhy' | 'riddle' | 'coding' | 'science') => void;
+    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'library' | 'riddle' | 'coding' | 'science') => void;
     onLogout: () => void;
 }
 
@@ -144,35 +144,32 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                     </div>
                 </button>
 
-                {/* Tell Me Why Mode */}
+                {/* Thư Viện Mode */}
                 <button
-                    onClick={() => onSelectMode('tellmewhy')}
-                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-yellow-400 hover:scale-105 animate-in fade-in slide-in-from-bottom duration-500"
+                    onClick={() => onSelectMode('library')}
+                    className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-amber-400 hover:scale-105 animate-in fade-in slide-in-from-bottom duration-500"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-orange-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
                     <div className="relative z-10">
-                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                            <BookText size={48} className="text-white" />
+                        <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <Library size={48} className="text-white" />
                         </div>
 
-                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-yellow-600 transition-colors">
-                            1000 Câu hỏi
+                        <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-amber-600 transition-colors">
+                            Thư Viện
                         </h2>
 
                         <p className="text-slate-600 text-lg">
-                            Khám phá tri thức
+                            Đọc sách và khám phá tri thức
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2 justify-center">
-                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
-                                Động vật
+                            <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">
+                                Book World
                             </span>
-                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
-                                Khoa học
-                            </span>
-                            <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
-                                Tự nhiên
+                            <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">
+                                1000 Câu hỏi
                             </span>
                         </div>
                     </div>

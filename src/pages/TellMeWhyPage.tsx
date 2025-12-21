@@ -14,7 +14,7 @@ export function TellMeWhyPage() {
     }
 
     const handleBack = () => {
-        navigate('/mode');
+        navigate('/library');
     };
 
     const handleUpdateStars = (newStars: number) => {

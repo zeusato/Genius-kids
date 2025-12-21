@@ -32,6 +32,10 @@ const ElectricityPage = React.lazy(() => import('@/src/pages/ElectricityPage').t
 const CellBiologyPage = React.lazy(() => import('@/src/pages/science/CellBiologyPage').then(module => ({ default: module.CellBiologyPage })));
 const EvolutionTreePage = React.lazy(() => import('@/src/pages/science/EvolutionTreePage').then(module => ({ default: module.EvolutionTreePage })));
 const SpeedMathGame = React.lazy(() => import('./games/SpeedMath/SpeedMathGame').then(module => ({ default: module.SpeedMathGame })));
+const LibraryPage = React.lazy(() => import('@/src/pages/LibraryPage').then(module => ({ default: module.LibraryPage })));
+const BookWorldPage = React.lazy(() => import('@/src/pages/BookWorldPage').then(module => ({ default: module.BookWorldPage })));
+const BookReaderPage = React.lazy(() => import('@/src/pages/BookReaderPage').then(module => ({ default: module.BookReaderPage })));
+
 
 
 // Initialize Google Analytics
@@ -281,10 +285,34 @@ export default function App() {
                 }
               />
               <Route
-                path="/tellmewhy"
+                path="/library"
+                element={
+                  <ProtectedRoute>
+                    <LibraryPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/library/tellmewhy"
                 element={
                   <ProtectedRoute>
                     <TellMeWhyPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/library/books"
+                element={
+                  <ProtectedRoute>
+                    <BookWorldPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/library/books/:bookId"
+                element={
+                  <ProtectedRoute>
+                    <BookReaderPage />
                   </ProtectedRoute>
                 }
               />

@@ -228,4 +228,47 @@ export interface StudentProfile {
   sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data
   stats?: UserStats; // Optional for migration
   achievements?: AchievementProgress[]; // Optional for migration
+  // Book World data
+  readingProgress?: ReadingProgress[];
+  favoriteBookIds?: string[];
+  libraryFilter?: LibraryFilter;
+}
+
+// ===== Book World System =====
+
+export enum BookCategory {
+  STORY = 'story',           // Sách truyện
+  REFERENCE = 'reference',   // Sách tham khảo
+  SCIENCE = 'science',       // Sách khoa học
+}
+
+export enum AgeGroup {
+  PRESCHOOL_GRADE1 = 'preschool_grade1',  // Mầm non - Lớp 1
+  GRADE_2 = 'grade_2',
+  GRADE_3 = 'grade_3',
+  GRADE_4 = 'grade_4',
+  GRADE_5 = 'grade_5',
+}
+
+export interface Book {
+  id: string;
+  title: string;
+  author?: string;
+  description: string;
+  category: BookCategory;
+  ageGroups: AgeGroup[];     // Có thể phù hợp nhiều độ tuổi
+  totalPages: number;
+}
+
+export interface ReadingProgress {
+  bookId: string;
+  currentPage: number;
+  lastReadAt: string;        // ISO date
+  isCompleted: boolean;
+}
+
+export interface LibraryFilter {
+  categories: BookCategory[];
+  ageGroups: AgeGroup[];
+  favoritesOnly: boolean;
 }
