@@ -203,6 +203,7 @@ function BookCard({ book, isFavorite, progress, onClick, onToggleFavorite }: Boo
                 {book.author && (
                     <p className="text-slate-500 text-xs mt-1 line-clamp-1">{book.author}</p>
                 )}
+                <p className="text-slate-400 text-xs mt-1 line-clamp-2 min-h-[2.5em]">{book.description}</p>
                 <div className="mt-2">
                     <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold ${book.category === BookCategory.STORY ? 'bg-purple-100 text-purple-700' :
                         book.category === BookCategory.SCIENCE ? 'bg-blue-100 text-blue-700' :

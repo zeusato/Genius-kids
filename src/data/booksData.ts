@@ -20,6 +20,22 @@ export const BOOKS_DATA: Book[] = [
         ],
         totalPages: 12,
     },
+    {
+        id: 'Lop-hoc-rung-xanh',
+        title: 'Lớp học rừng xanh',
+        author: 'Mạnh Quyết',
+        description: 'Câu chuyện về sự chia sẻ, đoàn kết',
+        category: BookCategory.STORY,
+        ageGroups: [
+            AgeGroup.PRESCHOOL_GRADE1,
+            AgeGroup.GRADE_2,
+            AgeGroup.GRADE_3,
+            AgeGroup.GRADE_4,
+            AgeGroup.GRADE_5,
+        ],
+        totalPages: 16,
+        startPage: 0,
+    },
     // Add more books here...
 ];
 

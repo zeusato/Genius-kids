@@ -183,7 +183,10 @@ export function BookReaderPage() {
     );
 
     // Content pages
-    for (let i = 1; i <= book.totalPages; i++) {
+    const startPage = book.startPage ?? 1;
+    const endPage = startPage + book.totalPages - 1;
+
+    for (let i = startPage; i <= endPage; i++) {
         pages.push(
             <Page key={`page-${i}`}>
                 <div className="w-full h-full flex items-center justify-center bg-white p-2">
@@ -192,7 +195,7 @@ export function BookReaderPage() {
                         alt={`Trang ${i}`}
                         className="max-w-full max-h-full object-contain"
                         draggable={false}
-                        loading={i <= 2 ? 'eager' : 'lazy'}
+                        loading={i <= startPage + 1 ? 'eager' : 'lazy'}
                     />
                 </div>
             </Page>
