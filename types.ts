@@ -259,6 +259,7 @@ export interface Book {
   ageGroups: AgeGroup[];     // Có thể phù hợp nhiều độ tuổi
   totalPages: number;
   startPage?: number;        // Optional start page index (default 1)
+  version?: number;          // Cache busting version
 }
 
 export interface ReadingProgress {

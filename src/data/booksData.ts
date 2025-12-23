@@ -51,6 +51,7 @@ export const BOOKS_DATA: Book[] = [
         ],
         totalPages: 16,
         startPage: 0,
+        version: 2,
     },
     // Add more books here...
 ];

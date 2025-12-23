@@ -191,7 +191,7 @@ export function BookReaderPage() {
             <Page key={`page-${i}`}>
                 <div className="w-full h-full flex items-center justify-center bg-white p-2">
                     <img
-                        src={getPageImageUrl(book.id, i)}
+                        src={getPageImageUrl(book.id, i, book.version)}
                         alt={`Trang ${i}`}
                         className="max-w-full max-h-full object-contain"
                         draggable={false}

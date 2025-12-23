@@ -1,7 +1,7 @@
 import { Book, BookCategory, AgeGroup, ReadingProgress, LibraryFilter, Grade } from '@/types';
 
 // Base URL for jsDelivr CDN
-const BOOKS_CDN_BASE = 'https://cdn.jsdelivr.net/gh/zeusato/genius-kids-books@main';
+const BOOKS_CDN_BASE = 'https://cdn.jsdelivr.net/gh/zeusato/genius-kids-books@f244820b97d2b9867fc42664f3aecb02da38ac98';
 
 /**
  * Get cover image URL for a book
@@ -14,8 +14,9 @@ export function getBookCoverUrl(bookId: string): string {
  * Get page image URL for a book
  * Page numbers are 1-indexed (P1, P2, etc.)
  */
-export function getPageImageUrl(bookId: string, pageNumber: number): string {
-    return `${BOOKS_CDN_BASE}/books/${bookId}/P${pageNumber}.jpeg`;
+export function getPageImageUrl(bookId: string, pageNumber: number, version?: number): string {
+    const baseUrl = `${BOOKS_CDN_BASE}/books/${bookId}/P${pageNumber}.jpeg`;
+    return version ? `${baseUrl}?v=${version}` : baseUrl;
 }
 
 /**
