@@ -36,6 +36,22 @@ export const BOOKS_DATA: Book[] = [
         totalPages: 16,
         startPage: 0,
     },
+    {
+        id: 'Mo-di-choi-cong-vien',
+        title: 'Mỡ đi chơi công viên',
+        author: 'Mạnh Quyết',
+        description: 'Một ngày vui chơi của Mỡ và các bạn',
+        category: BookCategory.STORY,
+        ageGroups: [
+            AgeGroup.PRESCHOOL_GRADE1,
+            AgeGroup.GRADE_2,
+            AgeGroup.GRADE_3,
+            AgeGroup.GRADE_4,
+            AgeGroup.GRADE_5,
+        ],
+        totalPages: 16,
+        startPage: 0,
+    },
     // Add more books here...
 ];
 
