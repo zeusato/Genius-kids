@@ -1,7 +1,7 @@
 import { Book, BookCategory, AgeGroup, ReadingProgress, LibraryFilter, Grade } from '@/types';
 
 // Base URL for jsDelivr CDN
-const BOOKS_CDN_BASE = 'https://cdn.jsdelivr.net/gh/zeusato/genius-kids-books@f244820b97d2b9867fc42664f3aecb02da38ac98';
+const BOOKS_CDN_BASE = 'https://cdn.jsdelivr.net/gh/zeusato/genius-kids-books@main';
 
 /**
  * Get cover image URL for a book

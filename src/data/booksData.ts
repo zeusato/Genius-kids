@@ -49,9 +49,26 @@ export const BOOKS_DATA: Book[] = [
             AgeGroup.GRADE_4,
             AgeGroup.GRADE_5,
         ],
-        totalPages: 16,
+        totalPages: 13,
         startPage: 0,
         version: 2,
+    },
+    {
+        id: '3M',
+        title: 'Cuộc phiêu lưu của Mun và Mint',
+        author: 'Mạnh Quyết',
+        description: 'Một câu chuyện về lòng dũng cảm, sự quyết tâm và tình chị em.',
+        category: BookCategory.STORY,
+        ageGroups: [
+            AgeGroup.PRESCHOOL_GRADE1,
+            AgeGroup.GRADE_2,
+            AgeGroup.GRADE_3,
+            AgeGroup.GRADE_4,
+            AgeGroup.GRADE_5,
+        ],
+        totalPages: 36,
+        startPage: 0,
+        version: 1,
     },
     // Add more books here...
 ];
