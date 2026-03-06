@@ -96,7 +96,7 @@ export const AIChatWidget: React.FC = () => {
             {/* Chat Head Bubble - Always visible */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-[100] p-3 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-110 group animate-in zoom-in ${isOpen ? 'bg-slate-600 hover:bg-slate-700' : 'bg-brand-500 hover:bg-brand-600'}`}
+                className={`fixed bottom-6 right-6 z-[100] p-3 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-110 group animate-in zoom-in ${isOpen ? 'bg-slate-600 hover:bg-slate-700 hidden sm:block' : 'bg-brand-500 hover:bg-brand-600'}`}
             >
                 {isOpen ? <X size={32} /> : <Bot size={32} />}
                 {!isOpen && (
