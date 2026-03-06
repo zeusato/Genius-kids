@@ -232,6 +232,9 @@ export interface StudentProfile {
   readingProgress?: ReadingProgress[];
   favoriteBookIds?: string[];
   libraryFilter?: LibraryFilter;
+  // AI Agent Data
+  aiEnabled?: boolean;
+  chatHistory?: { role: 'user' | 'model', content: string }[];
 }
 
 // ===== Book World System =====

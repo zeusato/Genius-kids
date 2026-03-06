@@ -3,8 +3,9 @@ import { StudentProfile } from '../../types';
 import { getAllAvatars, getAvatarById } from '../../services/avatarService';
 import { getAllThemes, getThemeById, applyTheme } from '../../services/themeService';
 import { getProfileStats, getDailyStarsEarned } from '../../services/profileService';
-import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info, Trophy } from 'lucide-react';
+import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info, Trophy, Bot } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
+import { AIAgentSettingsModal } from './AIAgentSettingsModal';
 
 interface UserProfileScreenProps {
     student: StudentProfile;
@@ -28,6 +29,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
     const [showAvatarPicker, setShowAvatarPicker] = useState(false);
     const [showThemePicker, setShowThemePicker] = useState(false);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [showAIAgentSettings, setShowAIAgentSettings] = useState(false);
 
     const stats = getProfileStats(student);
     const dailyStars = getDailyStarsEarned(student);
@@ -66,7 +68,20 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     <span>Quay lại</span>
                 </button>
                 <h1 className="text-2xl font-bold text-slate-800">Hồ sơ của bạn</h1>
-                <MusicControls />
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setShowAIAgentSettings(true)}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg font-bold transition-all hover:scale-105 active:scale-95 shadow-sm ${student.aiEnabled
+                            ? 'bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-brand-200'
+                            : 'bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-orange-200'
+                            }`}
+                        title="Cài đặt AI - Bo Biết Tuốt"
+                    >
+                        <Bot size={20} className="animate-in zoom-in duration-200" />
+                        <span>Trợ lý AI</span>
+                    </button>
+                    <MusicControls />
+                </div>
             </div>
 
             {/* Avatar Section */}
@@ -380,6 +395,11 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                         </div>
                     </div>
                 </div>
+            )}
+
+            {/* AI Settings Modal */}
+            {showAIAgentSettings && (
+                <AIAgentSettingsModal onClose={() => setShowAIAgentSettings(false)} />
             )}
         </div>
     );

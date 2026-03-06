@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { StudentProfile, Grade } from '@/types';
 import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
-import { Plus, CheckCircle, Download } from 'lucide-react';
+import { Plus, CheckCircle, Download, Bot } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
 import { MusicControls } from '@/src/components/MusicControls';
+import { AIAgentSettingsModal } from '@/src/components/AIAgentSettingsModal';
 
 interface HomePageProps {
     onInstallClick?: () => void;
@@ -33,6 +34,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     const { setStudent, addStudent, updateStudent } = useStudentActions();
     const [isCreating, setIsCreating] = useState(false);
     const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
+    const [showAIAgentSettings, setShowAIAgentSettings] = useState(false);
 
     // DevTools secret feature
     const [showDevTools, setShowDevTools] = useState(false);
@@ -107,6 +109,15 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
 
                 {/* Right side controls */}
                 <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setShowAIAgentSettings(true)}
+                        className="pointer-events-auto flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg shadow-sm hover:scale-105 transition-all font-bold h-[44px]"
+                        title="Cài đặt AI - Bo Biết Tuốt"
+                    >
+                        <Bot size={18} />
+                        <span className="hidden sm:inline">Trợ lý AI</span>
+                    </button>
+
                     {/* Music Controls */}
                     <div className="pointer-events-auto">
                         <MusicControls />
@@ -203,6 +214,13 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                     profiles={profiles}
                     onAddStars={handleAddStars}
                     onClose={() => setShowDevTools(false)}
+                />
+            )}
+
+            {/* AI Settings Modal */}
+            {showAIAgentSettings && (
+                <AIAgentSettingsModal
+                    onClose={() => setShowAIAgentSettings(false)}
                 />
             )}
         </div>

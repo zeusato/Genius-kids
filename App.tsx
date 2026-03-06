@@ -8,6 +8,7 @@ import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
+import { AIChatWidget } from '@/src/components/AIChatWidget';
 import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT, checkUpdateSuccess } from '@/services/updateService';
 import { initializeTheme } from '@/services/themeService';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
@@ -341,7 +342,7 @@ export default function App() {
                 }
               />
               <Route path="/games/speed-math" element={<ProtectedRoute><SpeedMathGame difficulty="easy" onBack={() => window.history.back()} onComplete={() => { }} /></ProtectedRoute>} />
-              <Route path="/games/gears" element={<ProtectedRoute><GearsGamePage /></ProtectedRoute>} />
+              <Route path="/games/gears" element={<ProtectedRoute><GearsGamePage difficulty="easy" onBack={() => window.history.back()} /></ProtectedRoute>} />
               <Route
                 path="/science"
                 element={
@@ -395,6 +396,9 @@ export default function App() {
 
             {/* Global Modals */}
             <GlobalModals />
+
+            {/* AI Chat Widget */}
+            <AIChatWidget />
 
             {showInstallInstructions && (
               <InstallInstructionsModal onClose={() => setShowInstallInstructions(false)} />
