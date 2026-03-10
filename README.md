@@ -52,7 +52,15 @@ Cung cấp các phòng thí nghiệm ảo và mô hình trực quan để giải
 
 ### 2.4. Phân Hệ Xã Hội & Logic
 *   **1000 Câu Hỏi Vì Sao:** Cơ sở dữ liệu tri thức về tự nhiên, xã hội và con người.
-*   **Giải Đố Nhân Sư:** Các câu đố dân gian và logic giúp rèn luyện tư duy ngôn ngữ và suy luận.
+*   **Giải Đố Nhân Sư:** Các câu đố dân gia và logic giúp rèn luyện tư duy ngôn ngữ và suy luận.
+
+### 2.5. Trợ Lý Học Tập AI (AI Learning Assistant) 🤖 [MỚI]
+Hệ thống tích hợp **"Bo Biết Tuốt"** - một trợ lý ảo thông minh được phát triển dựa trên mô hình AI tiên tiến, đóng vai trò như một người bạn đồng hành trong học tập.
+
+*   **🤖 Tương Tác Thân Thiện:** Bo xưng hô gần gũi, gọi tên học sinh, có giọng văn khích lệ và phù hợp với tâm lý lứa tuổi tiểu học.
+*   **📚 Giải Đáp Kiến Thức:** Hỗ trợ giải bài tập toán (hướng dẫn từng bước), giải thích các hiện tượng khoa học, lịch sử và văn hóa.
+*   **🛡️ An Toàn Tuyệt Đối:** Hệ thống lọc nội dung nghiêm ngặt, chỉ trả lời các vấn đề liên quan đến giáo dục, kiên quyết từ chối nội dung độc hại.
+*   **🧪 Hỗ Trợ Công Thức & Markdown:** Hiển thị công thức toán học chuyên nghiệp (LaTeX) và định dạng văn bản trực quan.
 
 ---
 
@@ -81,6 +89,9 @@ Dự án được xây dựng trên nền tảng công nghệ web hiện đại,
 
 *   **Frontend Framework:** React 19 + TypeScript (Đảm bảo Type safety và maintainability).
 *   **Build Tool:** Vite (Tốc độ build và HMR siêu tốc).
+*   **Trí Tuệ Nhân Tạo (AI):**
+    *   **Google Gemini 2.5 Flash API:** Xử lý ngôn ngữ tự nhiên, tư duy logic và giải đáp kiến thức.
+    *   **KaTeX & Remark-math:** Hiển thị công thức toán học và định dạng Markdown chuyên nghiệp.
 *   **Đồ Họa & 3D:**
     *   Three.js + React Three Fiber: Xử lý các mô hình 3D phức tạp (Hệ mặt trời, Nguyên tử).
     *   Tailwind CSS: Xây dựng giao diện Responsive, hiện đại theo triết lý "Utility-first".
@@ -134,6 +145,8 @@ Dành cho nhà phát triển muốn đóng góp hoặc chạy cục bộ.
     npm run dev
     ```
     Truy cập `http://localhost:5173` để xem ứng dụng.
+
+    *Lưu ý: Để sử dụng tính năng AI, bạn cần cấu hình Gemini API Key trong phần "Hồ sơ" của ứng dụng.*
 
 4.  **Đóng Gói (Build Production):**
     ```bash
