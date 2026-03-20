@@ -375,6 +375,7 @@ export const generateTestWithFallback = async (
   profile: StudentProfile,
   topicIds: string[],
   count: number,
+  isStoryMode: boolean,
   apiKey?: string,
   onProgress?: (status: string) => void
 ): Promise<Question[]> => {
@@ -386,7 +387,7 @@ export const generateTestWithFallback = async (
       if (onProgress) onProgress("Đang nhờ Bo Biết Tuốt sinh đề thi...");
       
       // Bỏ try-catch ở đây để quăng lỗi ra ngoài giao diện (StudyPage) xử lý cho người dùng thấy
-      const aiQuestionsRaw = await generateAiQuiz(profile.grade, selectedTopics, count, apiKey);
+      const aiQuestionsRaw = await generateAiQuiz(profile.grade, selectedTopics, count, apiKey, isStoryMode);
       
       const aiQuestions: Question[] = await Promise.all(aiQuestionsRaw.map(async (q, index) => {
          const type = q.type as QuestionType || QuestionType.SingleChoice;

@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { useStudent } from '@/src/contexts/StudentContext';
 import { getTopicsByGrade } from '@/services/mathEngine';
-import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer, AlertTriangle } from 'lucide-react';
+import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer, AlertTriangle, Sparkles } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface TopicSelectionProps {
-    onStartTest: (topicIds: string[], count: number) => void;
+    onStartTest: (topicIds: string[], count: number, isStoryMode: boolean) => void;
     onExport: (topics: string[], count: number) => Promise<void>;
     onBack: () => void;
     isGenerating?: boolean;
@@ -35,6 +35,7 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const [questionCount, setQuestionCount] = useState<number>(20);
     const [isExporting, setIsExporting] = useState(false);
+    const [isStoryMode, setIsStoryMode] = useState(false);
 
     if (!currentStudent) return null;
 
@@ -144,13 +145,17 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                         <div className="fixed bottom-6 left-4 right-4 md:left-auto md:right-auto md:max-w-5xl md:w-full mx-auto z-50 animate-bounce-in">
                             <div className="bg-slate-800 text-white p-4 rounded-xl shadow-2xl flex flex-col md:flex-row justify-between items-center gap-4 border border-slate-700">
                                 <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
-                                    <div className="font-medium pl-2 whitespace-nowrap">
-                                        Đã chọn {selectedTopics.length} chủ đề
+                                    <div className="flex items-center gap-2 bg-purple-900/50 px-3 py-1.5 rounded-lg border border-purple-500/30 cursor-pointer hover:bg-purple-800/50 transition-colors" onClick={() => setIsStoryMode(!isStoryMode)} title="Sinh câu hỏi dạng thám hiểm/phiêu lưu kỳ thú qua AI">
+                                        <Sparkles size={16} className={isStoryMode ? "text-yellow-400" : "text-gray-400"} />
+                                        <span className={`text-sm font-bold hidden sm:inline ${isStoryMode ? 'text-purple-200' : 'text-gray-400'}`}>Cốt truyện</span>
+                                        <div className={`w-8 h-4 rounded-full relative transition-colors ${isStoryMode ? 'bg-purple-500' : 'bg-gray-600'}`}>
+                                            <div className={`w-3 h-3 bg-white rounded-full absolute top-0.5 transition-all ${isStoryMode ? 'left-4' : 'left-0.5'}`}></div>
+                                        </div>
                                     </div>
                                     <div className="h-8 w-px bg-slate-600 hidden md:block"></div>
-                                    <div className="flex items-center gap-2 bg-slate-700 px-3 py-1 rounded-lg">
+                                    <div className="flex items-center gap-2 bg-slate-700 px-3 py-1.5 rounded-lg">
                                         <Settings size={16} className="text-slate-300" />
-                                        <span className="text-sm text-slate-300 mr-2 whitespace-nowrap">Số câu:</span>
+                                        <span className="text-sm text-slate-300 mr-2 whitespace-nowrap hidden sm:inline">Số câu:</span>
                                         <input
                                             type="number"
                                             min="20"
@@ -158,7 +163,7 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                                             value={questionCount}
                                             onChange={handleQuestionCountChange}
                                             onBlur={handleBlurCount}
-                                            className="w-16 bg-slate-600 border border-slate-500 rounded px-2 py-1 text-center text-white focus:outline-none focus:border-brand-500 font-bold"
+                                            className="w-14 sm:w-16 bg-slate-600 border border-slate-500 rounded px-2 py-1 text-center text-white focus:outline-none focus:border-brand-500 font-bold"
                                         />
                                     </div>
                                 </div>
@@ -167,8 +172,8 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                                     <Button variant="secondary" className="py-2 text-sm flex-1 md:flex-none whitespace-nowrap" onClick={handleExportClick} disabled={isExporting}>
                                         <Printer size={18} className="mr-2" /> {isExporting ? 'Đang tạo...' : 'In đề'}
                                     </Button>
-                                    <Button variant="success" className="py-2 flex-1 md:flex-none whitespace-nowrap min-w-[160px]" onClick={() => onStartTest(selectedTopics, questionCount)}>
-                                        Bắt đầu ({questionCount}p) <ChevronRight className="ml-2" />
+                                    <Button variant="success" className="py-2 flex-1 md:flex-none whitespace-nowrap min-w-[160px]" onClick={() => onStartTest(selectedTopics, questionCount, isStoryMode)}>
+                                        Bắt đầu <ChevronRight className="ml-2" />
                                     </Button>
                                 </div>
                             </div>

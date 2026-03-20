@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Bot, X, ArrowLeft, Send, Loader2, Maximize2, Minimize2, Trash2 } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { generateAiResponse } from '@/services/aiService';
@@ -10,6 +11,7 @@ import 'katex/dist/katex.min.css';
 export const AIChatWidget: React.FC = () => {
     const { currentStudent } = useStudent();
     const { updateStudent } = useStudentActions();
+    const location = useLocation();
 
     const [isOpen, setIsOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -25,8 +27,7 @@ export const AIChatWidget: React.FC = () => {
         } else {
             setMessages([{ role: 'model', content: `Chào ${currentStudent?.name || 'bạn'}! Mình là Bo Biết Tuốt 🤖. ${currentStudent?.name || 'Bạn'} có câu hỏi nào về học tập hay khoa học cần mình giúp không nè?` }]);
         }
-    }, [currentStudent?.id]); // Only change on user switch, to avoid jumping if history updates behind the scenes? Wait, we update history so it will trigger. 
-    // Actually we only want to load it initially. Let's just track currentStudent.id
+    }, [currentStudent?.id]); 
 
     // Auto-scroll to bottom when messages change
     useEffect(() => {
@@ -35,7 +36,8 @@ export const AIChatWidget: React.FC = () => {
         }
     }, [messages, isOpen]);
 
-    if (!currentStudent || !currentStudent.aiEnabled) {
+    // Check if user is taking a test, if so hide everything to prevent cheating
+    if (!currentStudent || !currentStudent.aiEnabled || location.pathname.includes('/test')) {
         return null;
     }
 

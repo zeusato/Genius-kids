@@ -27,7 +27,7 @@ export function StudyPage() {
         return null;
     }
 
-    const handleStartTest = async (topicIds: string[], count: number) => {
+    const handleStartTest = async (topicIds: string[], count: number, isStoryMode: boolean = false) => {
         setIsGenerating(true);
         setGeneratingError("");
         const apiKey = localStorage.getItem('mathgenius_gemini_key') || undefined;
@@ -37,6 +37,7 @@ export function StudyPage() {
                 currentStudent,
                 topicIds,
                 count,
+                isStoryMode,
                 apiKey,
                 (status) => setGeneratingStatus(status)
             );
