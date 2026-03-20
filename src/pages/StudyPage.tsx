@@ -5,7 +5,7 @@ import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { TopicSelection } from '@/src/components/study/TopicSelection';
 import { TestRunner } from '@/src/components/study/TestRunner';
 import { ResultScreen } from '@/src/components/study/ResultScreen';
-import { generateQuestions } from '@/services/mathEngine';
+import { generateQuestions, generateTestWithFallback } from '@/services/mathEngine';
 import { exportTestToPDF } from '@/utils/pdfExport';
 import { processTestReward } from '@/services/rewardService';
 import { soundManager } from '@/utils/sound';
@@ -18,17 +18,48 @@ export function StudyPage() {
     const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
     const [testDuration, setTestDuration] = useState<number>(20);
     const [lastResult, setLastResult] = useState<TestResult | null>(null);
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [generatingStatus, setGeneratingStatus] = useState("");
+    const [generatingError, setGeneratingError] = useState("");
 
     if (!currentStudent) {
         navigate('/');
         return null;
     }
 
-    const handleStartTest = (topicIds: string[], count: number) => {
+    const handleStartTest = async (topicIds: string[], count: number) => {
+        setIsGenerating(true);
+        setGeneratingError("");
+        const apiKey = localStorage.getItem('mathgenius_gemini_key') || undefined;
+
+        try {
+            const questions = await generateTestWithFallback(
+                currentStudent,
+                topicIds,
+                count,
+                apiKey,
+                (status) => setGeneratingStatus(status)
+            );
+            
+            setActiveTestQuestions(questions);
+            setTestDuration(count); 
+            navigate('/study/test');
+            setIsGenerating(false);
+            setGeneratingStatus("");
+        } catch (error: any) {
+            console.error("AI Generation Error:", error);
+            // Bắt lỗi hiển thị lên UI để debug, không tắt khung loading
+            setGeneratingError(error.message || "Lỗi không xác định từ AI.");
+        } 
+    };
+
+    const handleForceLocalTest = (topicIds: string[], count: number) => {
         const questions = generateQuestions(topicIds, count);
         setActiveTestQuestions(questions);
-        setTestDuration(count); // 1 minute per question
+        setTestDuration(count);
         navigate('/study/test');
+        setIsGenerating(false);
+        setGeneratingError("");
     };
 
     const handleExportPDF = async (topics: string[], count: number) => {
@@ -132,6 +163,14 @@ export function StudyPage() {
                         onStartTest={handleStartTest}
                         onExport={handleExportPDF}
                         onBack={handleBackToMode}
+                        isGenerating={isGenerating}
+                        generatingStatus={generatingStatus}
+                        generatingError={generatingError}
+                        onForceLocal={(topicIds, count) => handleForceLocalTest(topicIds, count)}
+                        onCancel={() => {
+                            setIsGenerating(false);
+                            setGeneratingError("");
+                        }}
                     />
                 }
             />

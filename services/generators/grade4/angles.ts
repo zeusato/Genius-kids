@@ -13,7 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 // Create SVG for angle
-const createAngleSVG = (degrees: number) => {
+export const createAngleSVG = (degrees: number) => {
     const cx = 200;
     const cy = 150;
     const r = 100;

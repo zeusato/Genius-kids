@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Question, QuestionType } from '@/types';
 import { soundManager } from '@/utils/sound';
 import { Clock, X, CheckSquare, Type, Keyboard } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
+import 'katex/dist/katex.min.css';
 
 interface TestRunnerProps {
     questions: Question[];
@@ -283,7 +288,21 @@ export function TestRunner({ questions, durationMinutes, onFinish, onExit }: Tes
                     </div>
 
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-800 leading-relaxed mb-8">
-                        {currentQ.questionText}
+                        <ReactMarkdown 
+                            remarkPlugins={[remarkMath, remarkGfm]} 
+                            rehypePlugins={[rehypeKatex]}
+                            components={{ 
+                                p: 'span',
+                                table: ({node, ...props}: any) => <div className="overflow-x-auto w-full my-6"><table className="w-full border-collapse border-2 border-slate-300 bg-white text-slate-700 shadow-sm text-lg md:text-xl" {...props} /></div>,
+                                thead: ({node, ...props}: any) => <thead className="bg-slate-100 text-slate-800 font-bold border-b-2 border-slate-300" {...props} />,
+                                tbody: ({node, ...props}: any) => <tbody className="divide-y divide-slate-200" {...props} />,
+                                tr: ({node, ...props}: any) => <tr className="hover:bg-brand-50 transition-colors" {...props} />,
+                                th: ({node, ...props}: any) => <th className="px-4 py-3 border border-slate-300 text-center" {...props} />,
+                                td: ({node, ...props}: any) => <td className="px-4 py-3 border border-slate-300 text-center" {...props} />
+                            }}
+                        >
+                            {currentQ.questionText}
+                        </ReactMarkdown>
                     </h2>
 
                     {currentQ.visualSvg && (
@@ -329,7 +348,20 @@ export function TestRunner({ questions, durationMinutes, onFinish, onExit }: Tes
                                                 : String.fromCharCode(65 + idx)
                                             }
                                         </span>
-                                        {opt}
+                                        <div className="flex-1 text-left">
+                                            <ReactMarkdown 
+                                                remarkPlugins={[remarkMath, remarkGfm]} 
+                                                rehypePlugins={[rehypeKatex]}
+                                                components={{ 
+                                                    p: 'span',
+                                                    table: ({node, ...props}: any) => <table className="w-full text-sm border-collapse border border-slate-300 my-2" {...props} />,
+                                                    th: ({node, ...props}: any) => <th className="border border-slate-300 px-2 py-1 bg-slate-100" {...props} />,
+                                                    td: ({node, ...props}: any) => <td className="border border-slate-300 px-2 py-1 text-center" {...props} />
+                                                }}
+                                            >
+                                                {opt}
+                                            </ReactMarkdown>
+                                        </div>
                                     </button>
                                 );
                             })}

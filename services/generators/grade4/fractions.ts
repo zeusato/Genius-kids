@@ -13,7 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 // Create SVG for fraction visualization
-const createFractionSVG = (numerator: number, denominator: number) => {
+export const createFractionSVG = (numerator: number, denominator: number) => {
     const partWidth = 250 / denominator;
     let parts = '';
 

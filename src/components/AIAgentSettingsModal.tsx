@@ -125,8 +125,8 @@ export const AIAgentSettingsModal: React.FC<AIAgentSettingsModalProps> = ({ onCl
                             <p className="text-xs text-slate-500">Hiển thị bong bóng chat trên màn hình</p>
                         </div>
                         <div className="relative inline-flex items-center">
-                            <div className={`w-11 h-6 bg-slate-200 rounded-full transition-all ${isAiEnabled && apiKey.trim() ? 'bg-brand-500' : ''}`}>
-                                <div className={`absolute top-[2px] left-[2px] bg-white border-slate-300 border rounded-full h-5 w-5 transition-all ${isAiEnabled && apiKey.trim() ? 'translate-x-full border-white' : ''}`}></div>
+                            <div className={`w-11 h-6 rounded-full transition-colors duration-300 ${isAiEnabled && apiKey.trim() ? 'bg-green-500' : 'bg-slate-200'}`}>
+                                <div className={`absolute top-[2px] bg-white border rounded-full h-5 w-5 transition-all duration-300 shadow-sm ${isAiEnabled && apiKey.trim() ? 'left-[22px] border-green-500' : 'left-[2px] border-slate-300'}`}></div>
                             </div>
                         </div>
                     </div>

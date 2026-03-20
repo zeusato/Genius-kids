@@ -178,6 +178,24 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                                 </button>
                             </div>
                         )}
+                        
+                        <div className="mt-6">
+                            <h2 className="text-xl font-bold text-slate-800 mb-2">Cấp Lớp</h2>
+                            <div className="flex items-center gap-4">
+                                <select 
+                                    value={student.grade}
+                                    onChange={(e) => onUpdateProfile({...student, grade: parseInt(e.target.value) as any})}
+                                    className="px-4 py-2 border-2 border-brand-300 rounded-lg focus:border-brand-500 focus:outline-none bg-white font-semibold text-slate-700 w-48 cursor-pointer"
+                                >
+                                    <option value={1}>Lớp 1</option>
+                                    <option value={2}>Lớp 2</option>
+                                    <option value={3}>Lớp 3</option>
+                                    <option value={4}>Lớp 4</option>
+                                    <option value={5}>Lớp 5</option>
+                                </select>
+                                <p className="text-sm text-slate-500 italic block">Nội dung học sẽ được tối ưu theo lớp của bé.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="w-full md:w-auto border-t md:border-t-0 md:border-l border-gray-100 pt-4 md:pt-0 md:pl-6 flex justify-center md:justify-end">

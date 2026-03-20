@@ -17,7 +17,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 
 // --- SVG Helpers ---
 
-const createRectSVG = (w: number, h: number, labelW: string, labelH: string, color: string = "#fef3c7", stroke: string = "#d97706") => {
+export const createRectSVG = (w: number, h: number, labelW: string, labelH: string, color: string = "#fef3c7", stroke: string = "#d97706") => {
     // Scale logic to fit box with more padding for labels
     const svgW = 400;
     const svgH = 250;
@@ -38,11 +38,11 @@ const createRectSVG = (w: number, h: number, labelW: string, labelH: string, col
     `;
 };
 
-const createSquareSVG = (side: number, label: string) => {
+export const createSquareSVG = (side: number, label: string) => {
     return createRectSVG(side, side, label, label, "#dcfce7", "#16a34a");
 };
 
-const createCompositeSVG = (hA: number, wA: number, hB: number, wB: number) => {
+export const createCompositeSVG = (hA: number, wA: number, hB: number, wB: number) => {
     const svgW = 400;
     const svgH = 250;
 

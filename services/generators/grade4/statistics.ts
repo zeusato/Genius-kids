@@ -13,7 +13,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 // Create simple bar chart SVG
-const createBarChartSVG = (data: { label: string, value: number }[]) => {
+export const createBarChartSVG = (data: { label: string, value: number }[]) => {
     const maxValue = Math.max(...data.map(d => d.value));
     const barWidth = 50;
     const gap = 20;

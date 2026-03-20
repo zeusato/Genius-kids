@@ -1,0 +1,273 @@
+[
+    {
+        "id": "q01",
+        "topicId": "so_lon",
+        "type": "input",
+        "questionText": "Viết số 'Hai trăm ba mươi lăm nghìn không trăm linh bảy' bằng chữ số.",
+        "correctAnswer": "235007",
+        "explanation": "Để viết số 'Hai trăm ba mươi lăm nghìn không trăm linh bảy', ta phân tích như sau:\n- 'Hai trăm ba mươi lăm nghìn' là 235 000.\n- 'Không trăm linh bảy' là 007.\nGhép lại ta được số 235007."
+    },
+    {
+        "id": "q02",
+        "topicId": "so_lon",
+        "type": "single",
+        "questionText": "Số nào dưới đây lớn nhất?",
+        "options": [
+            "98 765",
+            "102 345",
+            "99 999",
+            "100 000"
+        ],
+        "correctAnswer": "102 345",
+        "explanation": "Để so sánh các số, ta so sánh số chữ số trước. Số nào có nhiều chữ số hơn thì lớn hơn. Nếu số chữ số bằng nhau, ta so sánh từ trái sang phải.\n- 98 765 (5 chữ số)\n- 102 345 (6 chữ số)\n- 99 999 (5 chữ số)\n- 100 000 (6 chữ số)\nTrong các số có 6 chữ số, ta so sánh 102 345 và 100 000. Chữ số hàng trăm nghìn đều là 1. Chữ số hàng chục nghìn của 102 345 là 0, của 100 000 là 0. Chữ số hàng nghìn của 102 345 là 2, của 100 000 là 0. Vì 2 > 0 nên 102 345 là số lớn nhất."
+    },
+    {
+        "id": "q03",
+        "topicId": "so_lon",
+        "type": "single",
+        "questionText": "Làm tròn số 45 678 đến hàng nghìn, ta được số nào?",
+        "options": [
+            "45 000",
+            "46 000",
+            "45 700",
+            "40 000"
+        ],
+        "correctAnswer": "46 000",
+        "explanation": "Để làm tròn số 45 678 đến hàng nghìn, ta xét chữ số hàng trăm là 6.\nVì 6 lớn hơn hoặc bằng 5, ta làm tròn lên. Tức là, ta cộng thêm 1 vào chữ số hàng nghìn (5 + 1 = 6) và thay các chữ số phía sau bằng 0.\nVậy, 45 678 làm tròn đến hàng nghìn là 46 000."
+    },
+    {
+        "id": "q04",
+        "topicId": "cong_tru_so_lon",
+        "type": "input",
+        "questionText": "Tính: 34 567 + 12 345",
+        "correctAnswer": "46912",
+        "explanation": "Ta thực hiện phép cộng theo cột:\n   34567\n+  12345\n---------\n   46912\n- Hàng đơn vị: 7 + 5 = 12, viết 2 nhớ 1.\n- Hàng chục: 6 + 4 + 1 (nhớ) = 11, viết 1 nhớ 1.\n- Hàng trăm: 5 + 3 + 1 (nhớ) = 9, viết 9.\n- Hàng nghìn: 4 + 2 = 6, viết 6.\n- Hàng chục nghìn: 3 + 1 = 4, viết 4.\nKết quả là 46 912."
+    },
+    {
+        "id": "q05",
+        "topicId": "cong_tru_so_lon",
+        "type": "single",
+        "questionText": "Một cửa hàng bán được 12 500 kg gạo trong tháng 1. Tháng 2 bán ít hơn tháng 1 là 1 250 kg. Hỏi cả hai tháng cửa hàng bán được bao nhiêu kg gạo?",
+        "options": [
+            "11 250 kg",
+            "23 750 kg",
+            "25 000 kg",
+            "26 250 kg"
+        ],
+        "correctAnswer": "23 750 kg",
+        "explanation": "Bước 1: Tính số kg gạo bán được trong tháng 2.\nTháng 2 bán được: 12 500 - 1 250 = 11 250 (kg)\nBước 2: Tính tổng số kg gạo bán được trong cả hai tháng.\nCả hai tháng bán được: 12 500 + 11 250 = 23 750 (kg)\nĐáp số: 23 750 kg gạo."
+    },
+    {
+        "id": "q06",
+        "topicId": "nhan_so_lon",
+        "type": "input",
+        "questionText": "Tính: 2 345 x 6",
+        "correctAnswer": "14070",
+        "explanation": "Ta thực hiện phép nhân theo cột:\n   2345\nx     6\n--------\n  14070\n- 6 x 5 = 30, viết 0 nhớ 3.\n- 6 x 4 = 24, 24 + 3 (nhớ) = 27, viết 7 nhớ 2.\n- 6 x 3 = 18, 18 + 2 (nhớ) = 20, viết 0 nhớ 2.\n- 6 x 2 = 12, 12 + 2 (nhớ) = 14, viết 14.\nKết quả là 14 070."
+    },
+    {
+        "id": "q07",
+        "topicId": "nhan_so_lon",
+        "type": "single",
+        "questionText": "Mỗi hộp có 12 cây bút chì. Một cửa hàng nhập về 150 hộp. Hỏi cửa hàng nhập về bao nhiêu cây bút chì?",
+        "options": [
+            "1 620 cây",
+            "1 800 cây",
+            "1 500 cây",
+            "1 380 cây"
+        ],
+        "correctAnswer": "1 800 cây",
+        "explanation": "Để tìm tổng số cây bút chì, ta lấy số bút chì trong mỗi hộp nhân với số hộp.\nTổng số cây bút chì: 150 x 12 = 1 800 (cây)\nĐáp số: 1 800 cây bút chì.",
+        "visualRequest": {
+            "type": "draw_objects",
+            "data": {
+                "objectType": "pencil",
+                "count": 12
+            }
+        }
+    },
+    {
+        "id": "q08",
+        "topicId": "chia_so_lon",
+        "type": "input",
+        "questionText": "Tính: 5 678 : 5. Viết kết quả phép chia và số dư (nếu có). (Ví dụ: 1000 dư 2)",
+        "correctAnswer": "1135 dư 3",
+        "explanation": "Ta thực hiện phép chia:\n- 5 chia 5 được 1, viết 1. 1 nhân 5 bằng 5, 5 trừ 5 bằng 0.\n- Hạ 6. 6 chia 5 được 1, viết 1. 1 nhân 5 bằng 5, 6 trừ 5 bằng 1.\n- Hạ 7. Được 17. 17 chia 5 được 3, viết 3. 3 nhân 5 bằng 15, 17 trừ 15 bằng 2.\n- Hạ 8. Được 28. 28 chia 5 được 5, viết 5. 5 nhân 5 bằng 25, 28 trừ 25 bằng 3.\nVậy, 5 678 chia 5 được 1135 và số dư là 3."
+    },
+    {
+        "id": "q09",
+        "topicId": "chia_so_lon",
+        "type": "single",
+        "questionText": "Một số chia cho 8 được thương là 125 và số dư là 3. Tìm số đó.",
+        "options": [
+            "1000",
+            "1003",
+            "997",
+            "1008"
+        ],
+        "correctAnswer": "1003",
+        "explanation": "Theo công thức của phép chia có dư: Số bị chia = Thương x Số chia + Số dư.\nSố đó là: 125 x 8 + 3 = 1000 + 3 = 1003.\nĐáp số: 1003."
+    },
+    {
+        "id": "q10",
+        "topicId": "don_vi_do_dai_luong",
+        "type": "single",
+        "questionText": "Điền số thích hợp vào chỗ trống: 5 km 250 m = ___ m",
+        "options": [
+            "525 m",
+            "5 250 m",
+            "5 025 m",
+            "52 500 m"
+        ],
+        "correctAnswer": "5 250 m",
+        "explanation": "Ta biết 1 km = 1 000 m.\nVậy, 5 km = 5 x 1 000 m = 5 000 m.\n5 km 250 m = 5 000 m + 250 m = 5 250 m."
+    },
+    {
+        "id": "q11",
+        "topicId": "don_vi_do_dai_luong",
+        "type": "single",
+        "questionText": "Điền số thích hợp vào chỗ trống: 2 giờ 15 phút = ___ phút",
+        "options": [
+            "120 phút",
+            "135 phút",
+            "150 phút",
+            "215 phút"
+        ],
+        "correctAnswer": "135 phút",
+        "explanation": "Ta biết 1 giờ = 60 phút.\nVậy, 2 giờ = 2 x 60 phút = 120 phút.\n2 giờ 15 phút = 120 phút + 15 phút = 135 phút.",
+        "visualRequest": {
+            "type": "draw_objects",
+            "data": {
+                "objectType": "clock",
+                "count": 1
+            }
+        }
+    },
+    {
+        "id": "q12",
+        "topicId": "goc",
+        "type": "single",
+        "questionText": "Trong các mô tả sau, góc nào là góc tù?",
+        "options": [
+            "Góc có số đo bằng 90 độ.",
+            "Góc có số đo bằng 45 độ.",
+            "Góc có số đo bằng 120 độ.",
+            "Góc có số đo bằng 180 độ."
+        ],
+        "correctAnswer": "Góc có số đo bằng 120 độ.",
+        "explanation": "Góc vuông là góc có số đo bằng 90 độ.\nGóc nhọn là góc có số đo lớn hơn 0 độ và nhỏ hơn 90 độ.\nGóc tù là góc có số đo lớn hơn 90 độ và nhỏ hơn 180 độ.\nGóc bẹt là góc có số đo bằng 180 độ.\nVậy, góc có số đo 120 độ là góc tù."
+    },
+    {
+        "id": "q13",
+        "topicId": "duong_thang",
+        "type": "single",
+        "questionText": "Trong một hình chữ nhật, hai cạnh đối diện có mối quan hệ như thế nào?",
+        "options": [
+            "Vuông góc với nhau",
+            "Cắt nhau",
+            "Song song với nhau",
+            "Trùng nhau"
+        ],
+        "correctAnswer": "Song song với nhau",
+        "explanation": "Trong hình chữ nhật, các cặp cạnh đối diện (ví dụ: cạnh trên và cạnh dưới, hoặc cạnh trái và cạnh phải) luôn song song và bằng nhau. Các cạnh kề nhau thì vuông góc với nhau."
+    },
+    {
+        "id": "q14",
+        "topicId": "hinh_hoc_phang_ghep_hinh",
+        "type": "single",
+        "questionText": "Một hình vuông có cạnh dài 15 cm. Chu vi của hình vuông đó là bao nhiêu?",
+        "options": [
+            "15 cm",
+            "30 cm",
+            "60 cm",
+            "225 cm"
+        ],
+        "correctAnswer": "60 cm",
+        "explanation": "Công thức tính chu vi hình vuông là: Chu vi = Cạnh x 4.\nChu vi hình vuông đó là: 15 cm x 4 = 60 cm."
+    },
+    {
+        "id": "q15",
+        "topicId": "hinh_hoc_phang_ghep_hinh",
+        "type": "single",
+        "questionText": "Một hình chữ nhật có chiều dài 20 cm, chiều rộng 10 cm. Diện tích của hình chữ nhật đó là bao nhiêu?",
+        "options": [
+            "30 cm$$^2$$",
+            "60 cm$$^2$$",
+            "200 cm$$^2$$",
+            "20 cm$$^2$$"
+        ],
+        "correctAnswer": "200 cm$$^2$$",
+        "explanation": "Công thức tính diện tích hình chữ nhật là: Diện tích = Chiều dài x Chiều rộng.\nDiện tích hình chữ nhật đó là: 20 cm x 10 cm = 200 cm$$^2$$."
+    },
+    {
+        "id": "q16",
+        "topicId": "phan_so_co_ban",
+        "type": "single",
+        "questionText": "Trong một rổ có 5 quả cam, bạn An đã ăn 2 quả. Hỏi phân số chỉ số cam bạn An đã ăn là bao nhiêu?",
+        "options": [
+            "$$\\frac{1}{5}$$",
+            "$$\\frac{2}{5}$$",
+            "$$\\frac{3}{5}$$",
+            "$$\\frac{5}{2}$$"
+        ],
+        "correctAnswer": "$$\\frac{2}{5}$$",
+        "explanation": "Phân số biểu thị một phần của tổng thể. Tổng số quả cam là 5 (mẫu số), số quả cam đã ăn là 2 (tử số).\nVậy, phân số chỉ số cam bạn An đã ăn là $$\\frac{2}{5}$$ (hai phần năm).",
+        "visualRequest": {
+            "type": "draw_objects",
+            "data": {
+                "objectType": "orange",
+                "count": 5
+            }
+        }
+    },
+    {
+        "id": "q17",
+        "topicId": "thong_ke",
+        "type": "single",
+        "questionText": "Dưới đây là bảng số liệu về số lượng sách mà các bạn trong tổ 1 đã đọc trong tháng:\n- An: 5 quyển\n- Bình: 7 quyển\n- Chi: 4 quyển\n- Dũng: 6 quyển\nDựa vào bảng số liệu trên, bạn nào đã đọc nhiều sách nhất?",
+        "options": [
+            "An",
+            "Bình",
+            "Chi",
+            "Dũng"
+        ],
+        "correctAnswer": "Bình",
+        "explanation": "Quan sát bảng số liệu:\n- An đọc 5 quyển.\n- Bình đọc 7 quyển.\n- Chi đọc 4 quyển.\n- Dũng đọc 6 quyển.\nSố lượng sách nhiều nhất là 7 quyển, tương ứng với bạn Bình. Vậy, Bình là bạn đã đọc nhiều sách nhất."
+    },
+    {
+        "id": "q18",
+        "topicId": "tim_quy_luat_day_so",
+        "type": "single",
+        "questionText": "Điền số thích hợp vào chỗ trống để hoàn thành dãy số sau: 3, 6, 9, ___, 15, 18.",
+        "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+        ],
+        "correctAnswer": "12",
+        "explanation": "Quan sát dãy số, ta thấy mỗi số sau bằng số trước cộng thêm 3:\n- 3 + 3 = 6\n- 6 + 3 = 9\n- Vậy, số tiếp theo là: 9 + 3 = 12.\n- Kiểm tra lại: 12 + 3 = 15; 15 + 3 = 18.\nDãy số là dãy số cách đều 3 đơn vị. Số cần điền là 12."
+    },
+    {
+        "id": "q19",
+        "topicId": "phep_toan_co_ngoac",
+        "type": "input",
+        "questionText": "Tính giá trị biểu thức: (120 + 80) : 4",
+        "correctAnswer": "50",
+        "explanation": "Theo quy tắc tính giá trị biểu thức, ta thực hiện phép tính trong ngoặc trước.\nBước 1: Tính tổng trong ngoặc: 120 + 80 = 200.\nBước 2: Lấy kết quả chia cho 4: 200 : 4 = 50.\nVậy, giá trị biểu thức là 50."
+    },
+    {
+        "id": "q20",
+        "topicId": "toan_loi_van",
+        "type": "single",
+        "questionText": "Một đội công nhân sửa đường trong 3 ngày. Ngày thứ nhất sửa được 125 m. Ngày thứ hai sửa được gấp đôi ngày thứ nhất. Ngày thứ ba sửa ít hơn ngày thứ hai 50 m. Hỏi cả 3 ngày đội công nhân sửa được bao nhiêu mét đường?",
+        "options": [
+            "350 m",
+            "500 m",
+            "625 m",
+            "575 m"
+        ],
+        "correctAnswer": "575 m",
+        "explanation": "Bước 1: Tính số mét đường sửa được trong ngày thứ hai.\nNgày thứ hai sửa được: 125 x 2 = 250 (m)\nBước 2: Tính số mét đường sửa được trong ngày thứ ba.\nNgày thứ ba sửa được: 250 - 50 = 200 (m)\nBước 3: Tính tổng số mét đường sửa được trong cả 3 ngày.\nCả 3 ngày sửa được: 125 + 250 + 200 = 575 (m)\nĐáp số: 575 m đường."
+    }
+]

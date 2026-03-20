@@ -28,6 +28,7 @@
     "react-zoom-pan-pinch": "^3.7.0",
     "recharts": "^3.4.1",
     "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "styled-jsx": "^5.1.7",
     "three": "^0.181.2",

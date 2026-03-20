@@ -1,13 +1,18 @@
 import React, { useState, useMemo } from 'react';
 import { useStudent } from '@/src/contexts/StudentContext';
 import { getTopicsByGrade } from '@/services/mathEngine';
-import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer } from 'lucide-react';
+import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer, AlertTriangle } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface TopicSelectionProps {
     onStartTest: (topicIds: string[], count: number) => void;
     onExport: (topics: string[], count: number) => Promise<void>;
     onBack: () => void;
+    isGenerating?: boolean;
+    generatingStatus?: string;
+    generatingError?: string;
+    onForceLocal?: (topicIds: string[], count: number) => void;
+    onCancel?: () => void;
 }
 
 const Button = ({ onClick, children, variant = 'primary', className = '', disabled = false }: any) => {
@@ -25,7 +30,7 @@ const Card = ({ children, className = '' }: any) => {
     return <div className={`bg-white p-6 rounded-2xl shadow-md border border-gray-100 ${className}`}>{children}</div>;
 };
 
-export function TopicSelection({ onStartTest, onExport, onBack }: TopicSelectionProps) {
+export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, generatingStatus, generatingError, onForceLocal, onCancel }: TopicSelectionProps) {
     const { currentStudent } = useStudent();
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const [questionCount, setQuestionCount] = useState<number>(20);
@@ -216,6 +221,36 @@ export function TopicSelection({ onStartTest, onExport, onBack }: TopicSelection
                     </Card>
                 </div>
             </div>
+
+            {isGenerating && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-white/80 backdrop-blur-sm animate-in fade-in duration-200">
+                    <div className="bg-white p-8 rounded-3xl shadow-2xl flex flex-col items-center max-w-sm w-full border-2 border-brand-100 animate-in zoom-in-95">
+                        {generatingError ? (
+                            <>
+                                <div className="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mb-6">
+                                    <AlertTriangle size={32} />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">Lỗi tạo đề AI</h3>
+                                <div className="text-red-500 font-medium text-center text-sm mb-6 w-full max-h-32 overflow-y-auto bg-red-50 p-3 rounded-lg border border-red-100">{generatingError}</div>
+                                <div className="flex w-full gap-3">
+                                    <Button variant="secondary" className="flex-1 py-2 text-sm" onClick={onCancel}>
+                                        Hủy
+                                    </Button>
+                                    <Button variant="primary" className="flex-1 py-2 text-sm" onClick={() => onForceLocal?.(selectedTopics, questionCount)}>
+                                        Dùng Đề Local
+                                    </Button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="w-16 h-16 border-4 border-brand-100 border-t-brand-500 rounded-full animate-spin mb-6"></div>
+                                <h3 className="text-xl font-bold text-slate-800 mb-2 text-center">Đang chuẩn bị đề thi...</h3>
+                                <p className="text-brand-600 font-medium text-center animate-pulse">{generatingStatus || "Vui lòng đợi một chút nhé!"}</p>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

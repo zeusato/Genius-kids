@@ -1,4 +1,5 @@
-import { Grade, Question, Topic, QuestionType } from '../types';
+import { Grade, Question, Topic, QuestionType, StudentProfile } from '../types';
+import { generateAiQuiz } from './aiService';
 import { generateG2Units } from './generators/grade2/units';
 import { generateG2Time } from './generators/grade2/time';
 import { generateG2Geometry } from './generators/grade2/geometry';
@@ -369,3 +370,133 @@ export const generateQuestions = (topicIds: string[], count: number): Question[]
 };
 
 export const getTopicsByGrade = (grade: Grade) => TOPICS.filter(t => t.grade === grade);
+
+export const generateTestWithFallback = async (
+  profile: StudentProfile,
+  topicIds: string[],
+  count: number,
+  apiKey?: string,
+  onProgress?: (status: string) => void
+): Promise<Question[]> => {
+  const allTopics = getTopicsByGrade(profile.grade);
+  const selectedTopics = allTopics.filter(t => topicIds.includes(t.id));
+
+  // 1. Dùng AI nếu có API Key
+  if (apiKey && profile.aiEnabled) {
+      if (onProgress) onProgress("Đang nhờ Bo Biết Tuốt sinh đề thi...");
+      
+      // Bỏ try-catch ở đây để quăng lỗi ra ngoài giao diện (StudyPage) xử lý cho người dùng thấy
+      const aiQuestionsRaw = await generateAiQuiz(profile.grade, selectedTopics, count, apiKey);
+      
+      const aiQuestions: Question[] = await Promise.all(aiQuestionsRaw.map(async (q, index) => {
+         const type = q.type as QuestionType || QuestionType.SingleChoice;
+
+         // Validation to prevent UI crashes downstream
+         if (!q.questionText || typeof q.questionText !== 'string' || q.questionText.trim() === '') {
+            throw new Error(`AI sinh câu số ${index + 1} thiếu nội dung (questionText).`);
+         }
+         if (!q.correctAnswer || typeof q.correctAnswer !== 'string' || q.correctAnswer.trim() === '') {
+            throw new Error(`AI sinh câu số ${index + 1} thiếu đáp án đúng (correctAnswer).`);
+         }
+         if (type === QuestionType.SingleChoice) {
+             if (!q.options || !Array.isArray(q.options) || q.options.length < 2) {
+                 throw new Error(`AI sinh câu trắc nghiệm số ${index + 1} nhưng thiếu mảng đáp án (options).`);
+             }
+             if (!q.options.includes(q.correctAnswer)) {
+                 // Auto-fix if correct answer is somehow not in the options array
+                 q.options[Math.floor(Math.random() * q.options.length)] = q.correctAnswer;
+             }
+         }
+
+         const parsedQ: Question = {
+            id: q.id || Math.random().toString(36).substring(7),
+            topicId: q.topicId || topicIds[0] || 'ai_topic',
+            type: type,
+            questionText: q.questionText || '',
+            options: q.options,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation || ''
+         };
+         
+         if (q.visualRequest) {
+            if (q.visualRequest.type === 'draw_objects') {
+                const { objectType, count: objCount } = q.visualRequest.data || {};
+                if (objCount) {
+                    const emojiMap: Record<string, string> = { 
+                        apple: '🍎', star: '⭐', circle: '🔴', triangle: '🔺', square: '🟩', 
+                        orange: '🍊', candy: '🍬', car: '🚗', dog: '🐶', cat: '🐱', 
+                        clock: '⏰', pencil: '✏️', book: '📚', bear: '🧸', ball: '⚽'
+                    };
+                    const emoji = emojiMap[objectType] || '🔴';
+                    const items = Array(Math.min(objCount, 50)).fill(emoji).join(' ');
+                    parsedQ.visualSvg = `<div style="font-size: 48px; text-align: center; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">${items.split(' ').map(e => `<span>${e}</span>`).join('')}</div>`;
+                }
+            } else if (q.visualRequest.type === 'draw_fraction') {
+                const { numerator, denominator } = q.visualRequest.data || {};
+                if (numerator !== undefined && denominator !== undefined) {
+                    const partWidth = 250 / denominator;
+                    let parts = '';
+                    for (let i = 0; i < denominator; i++) {
+                        const x = 25 + i * partWidth;
+                        const fillColor = i < numerator ? '#3b82f6' : '#e5e7eb';
+                        parts += `<rect x="${x}" y="50" width="${partWidth - 2}" height="80" fill="${fillColor}" stroke="#0f172a" stroke-width="2" />`;
+                    }
+                    parsedQ.visualSvg = `<svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">${parts}</svg>`;
+                }
+            } else if (q.visualRequest.type === 'draw_angle') {
+                const degrees = q.visualRequest.data?.degrees;
+                if (degrees !== undefined) {
+                    const cx = 200, cy = 150, r = 100;
+                    const a1 = 0, a2 = (degrees * Math.PI) / 180;
+                    const x2 = cx + r * Math.cos(a2), y2 = cy - r * Math.sin(a2);
+                    const largeArc = degrees > 180 ? 1 : 0;
+                    parsedQ.visualSvg = `
+                    <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="${cx - 120}" y1="${cy}" x2="${cx + 120}" y2="${cy}" stroke="#334155" stroke-width="3" />
+                      <line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#334155" stroke-width="3" />
+                      <path d="M ${cx + r} ${cy} A ${r / 2} ${r / 2} 0 ${largeArc} 0 ${cx + (r / 2) * Math.cos(a2)} ${cy - (r / 2) * Math.sin(a2)}" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4"/>
+                      <text x="${cx + 60}" y="${cy - 20}" font-size="20" fill="#0f172a">${degrees}°</text>
+                      <circle cx="${cx}" cy="${cy}" r="4" fill="#0f172a" />
+                    </svg>`;
+                }
+            } else if (q.visualRequest.type === 'draw_geometry') {
+                const { shape, side, w, h, label, labelW, labelH, hA, wA, hB, wB } = q.visualRequest.data || {};
+                const mod = await import('./generators/grade4/geometry');
+                if (shape === 'square') {
+                    parsedQ.visualSvg = mod.createSquareSVG(side || 10, label || `${side}cm`);
+                } else if (shape === 'rectangle') {
+                    parsedQ.visualSvg = mod.createRectSVG(w || 10, h || 20, labelW || `${w}cm`, labelH || `${h}cm`);
+                } else if (shape === 'composite') {
+                    parsedQ.visualSvg = mod.createCompositeSVG(hA || 8, wA || 4, hB || 3, wB || 5);
+                }
+            } else if (q.visualRequest.type === 'draw_chart') {
+                const { items } = q.visualRequest.data || {};
+                if (items && Array.isArray(items)) {
+                    const mod = await import('./generators/grade4/statistics');
+                    parsedQ.visualSvg = mod.createBarChartSVG(items);
+                }
+            } else if (q.visualRequest.type === 'draw_circle') {
+                const { radius } = q.visualRequest.data || {};
+                if (radius !== undefined) {
+                    const mod = await import('./generators/grade5/geometry');
+                    parsedQ.visualSvg = mod.createCircleSVG(radius);
+                }
+            }
+         }
+
+         return parsedQ;
+      }));
+
+      if (aiQuestions.length > 0) {
+        return aiQuestions;
+      }
+      
+      throw new Error("AI trả về danh sách rỗng (Không có câu hỏi nào).");
+  } 
+  
+  // 2. Tự động Fallback dùng Local nếu KHÔNG bật AI chatbot
+  if (onProgress) onProgress("Đang sinh đề thi từ Local...");
+  await new Promise(resolve => setTimeout(resolve, 500));
+  
+  return generateQuestions(topicIds, count);
+};

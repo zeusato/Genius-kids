@@ -84,3 +84,101 @@ export const generateAiResponse = async (
         throw new Error(error.message || "Không thể kết nối với Bo. Vui lòng thử lại sau!");
     }
 };
+
+/**
+ * Sinh đề thi tự động bằng AI, trả về mảng JSON câu hỏi.
+ */
+export const generateAiQuiz = async (
+    grade: number,
+    topics: { id: string, title: string, description: string }[],
+    count: number,
+    apiKey: string
+): Promise<any[]> => {
+    if (!apiKey) {
+        throw new Error("Vui lòng cung cấp API Key để sử dụng AI.");
+    }
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+    const topicsText = topics.map(t => `- ${t.title}: ${t.description}`).join('\n');
+
+    const prompt = `Đóng vai: Bạn là giáo viên cực kỳ sáng tạo ra đề thi Toán cho học sinh Lớp ${grade}.
+Yêu cầu sinh đề: Hãy tạo một đề thi gồm ĐÚNG ${count} câu hỏi thuộc các chủ đề sau:
+${topicsText}
+
+QUY TẮC ĐẦU RA BẮT BUỘC:
+1. Bạn CHỈ ĐƯỢC PHÉP trả về MẢNG JSON THUẦN TÚY (Array of Objects). Không giải thích, không bọc \`\`\`json.
+2. Mỗi object trong mảng đại diện cho 1 câu hỏi, tuân thủ chặt chẽ cấu trúc JSON sau:
+{
+  "id": "chuỗi_random_id",
+  "topicId": "sử_dụng_ĐÚNG_id_của_chủ_đề_câu_hỏi_này_thuộc_về_như_đã_liệt_kê",
+  "type": "single", (hoặc "input")
+  "questionText": "nội dung câu hỏi...",
+  "options": ["đáp án 1", "đáp án 2", "đáp án 3", "đáp án 4"], (tuỳ chọn, BẮT BUỘC CÓ MẢNG 4 CHI TIẾT nếu type là single)
+  "correctAnswer": "đáp án đúng NGHIÊM NGẶT khớp chính xác 1 trong 4 options bên trên",
+  "explanation": "giải thích chi tiết cách giải...",
+  "visualRequest": { "type": "draw_objects", "data": { "objectType": "apple", "count": 3 } }
+}
+(Ghi chú: thuộc tính visualRequest là tùy chọn, nhưng BẮT BUỘC trong các chủ đề yêu cầu hình ảnh trực quan)
+3. KaTeX: Các phân số, số mũ, công thức phức tạp phải bọc trong cặp $$ (VD: $$\\frac{1}{2}$$).
+4. HÌNH ẢNH TRỰC QUAN LÀ BẮT BUỘC (visualRequest): Rất quan trọng với trẻ em!
+NẾU chủ đề là Đếm số, Cộng/Trừ (Lớp 1-2), Phân số (Lớp 4-5), Góc (Lớp 4), Chia kẹo quả... thì BẠN TUYỆT ĐỐI PHẢI ĐƯA VÀO thuộc tính \`visualRequest\`.
+Hệ thống hỗ trợ 6 loại hình ảnh sau:
+- Đếm/Đồ vật: { "type": "draw_objects", "data": { "objectType": "apple", "count": 3 } }
+(Hỗ trợ: apple, star, circle, triangle, square, orange, candy, car, dog, cat, clock, pencil, book, bear, ball)
+- Phân số (Lớp 4, 5): { "type": "draw_fraction", "data": { "numerator": 2, "denominator": 5 } }
+- Đo/Biểu diễn Góc (Lớp 4): { "type": "draw_angle", "data": { "degrees": 90 } }
+- Hình Học phẳng (Chu vi, Diện tích Lớp 4): { "type": "draw_geometry", "data": { "shape": "square", "side": 15, "label": "15cm" } }
+HOẶC hình chữ nhật: { "type": "draw_geometry", "data": { "shape": "rectangle", "w": 10, "h": 20, "labelW": "10m", "labelH": "20m" } }
+HOẶC hình ghép: { "type": "draw_geometry", "data": { "shape": "composite", "hA": 8, "wA": 4, "hB": 3, "wB": 5 } }
+- Biểu đồ cột (Thống kê Lớp 4): { "type": "draw_chart", "data": { "items": [{ "label": "Toán", "value": 10 }, { "label": "Văn", "value": 8 }] } }
+- Hình Tròn (Lớp 5): { "type": "draw_circle", "data": { "radius": 5 } }
+Ví dụ: Câu hỏi "Diện tích hình chữ nhật dài 20m rộng 10m" -> Dùng "draw_geometry", tham số "rectangle".
+Hệ thống sẽ render hình học siêu to dựa vào parameter này! ĐỪNG QUÊN nếu đề bài nói về đồ vật, phân số, góc, hình học hay biểu đồ!`;
+
+    const requestBody = {
+        contents: [{
+            role: 'user',
+            parts: [{ text: prompt }]
+        }],
+        generationConfig: {
+            temperature: 0.7,
+            response_mime_type: "application/json", // Ép Gemini trả JSON
+        }
+    };
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Đã có lỗi kết nối đến API (Mã lỗi: ${response.status}).`);
+        }
+
+        const data = await response.json();
+        
+        if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+            const textResponse = data.candidates[0].content.parts[0].text;
+            // Xoá code block markdown nếu AI vẫn cố tình trả về
+            const cleanedText = textResponse.replace(/```json|```/gi, '').trim();
+            const jsonArray = JSON.parse(cleanedText);
+            
+            if (!Array.isArray(jsonArray)) {
+                throw new Error("AI không trả về định dạng mảng (Array).");
+            }
+            console.log("=== RAW AI JSON RESPONSE ===", jsonArray);
+            return jsonArray;
+        } else {
+            throw new Error("Lỗi đọc dữ liệu từ AI.");
+        }
+    } catch (error: any) {
+        console.error("Lỗi parse JSON từ AI:", error);
+        throw new Error(error.message || "Không thể kết nối với AI để sinh đề lúc này.");
+    }
+};

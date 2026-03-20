@@ -33,7 +33,7 @@ const createParallelogramSVG = (base: number, height: number): string => {
 };
 
 // SVG for circle
-const createCircleSVG = (radius: number): string => {
+export const createCircleSVG = (radius: number): string => {
     return `
     <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
       <circle cx="150" cy="150" r="${radius * 10}" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
