@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => {
         },
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}'],
           runtimeCaching: [
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -56,21 +56,6 @@ export default defineConfig(({ mode }) => {
                 expiration: {
                   maxEntries: 10,
                   maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-                },
-                cacheableResponse: {
-                  statuses: [0, 200]
-                }
-              }
-            },
-            {
-              // Cache 3D models (.glb, .gltf)
-              urlPattern: /\.(?:glb|gltf)$/,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: '3d-models-cache',
-                expiration: {
-                  maxEntries: 50,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
                 },
                 cacheableResponse: {
                   statuses: [0, 200]
@@ -89,7 +74,6 @@ export default defineConfig(({ mode }) => {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
     },
-    assetsInclude: ['**/*.glb'],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

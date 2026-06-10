@@ -54,7 +54,7 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
             'sun': 'sun.png',
             'asteroid-belt': 'asteroidBelt.png'
         };
-        return `/Genius-kids/infographic/${map[planetId] || 'Earth.png'}`;
+        return `${import.meta.env.BASE_URL}infographic/${map[planetId] || 'Earth.png'}`;
     };
 
     return (

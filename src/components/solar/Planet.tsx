@@ -32,6 +32,14 @@ export const Planet: React.FC<PlanetProps> = ({ data, isSelected, onSelect }) =>
                 onSelect(data.id);
             }}
         >
+            {/* Vùng chạm mở rộng ≥48px cho ngón tay trẻ em (hành tinh nhỏ như Sao Thủy chỉ 12px) */}
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{
+                    width: `${Math.max(data.size, 48)}px`,
+                    height: `${Math.max(data.size, 48)}px`
+                }}
+            />
             {/* Ring for Saturn */}
             {data.ring && (
                 <div
@@ -48,8 +56,14 @@ export const Planet: React.FC<PlanetProps> = ({ data, isSelected, onSelect }) =>
                 />
             )}
 
-            {/* Planet Name Label (only show on hover or if large enough) */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-white/80 whitespace-nowrap font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            {/* Planet Name Label — luôn hiển thị để trẻ học tên (label cũng là vùng chạm) */}
+            <div
+                className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[11px] text-white/90 whitespace-nowrap font-semibold px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-sm cursor-pointer"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onSelect(data.id);
+                }}
+            >
                 {data.name}
             </div>
         </div>

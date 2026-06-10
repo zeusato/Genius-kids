@@ -8,16 +8,19 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "textures": "node scripts/convert-textures.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
+    "@react-three/postprocessing": "^3.0.4",
     "@supabase/supabase-js": "^2.87.1",
     "framer-motion": "^12.23.26",
     "jspdf": "^3.0.4",
     "katex": "^0.16.35",
     "lucide-react": "^0.554.0",
+    "maath": "^0.10.8",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -43,6 +46,7 @@
     "@types/uuid": "^10.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "gh-pages": "^6.3.0",
+    "sharp": "^0.34.5",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "vite-plugin-pwa": "^1.1.0"

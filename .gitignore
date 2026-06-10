@@ -24,6 +24,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Texture pipeline download cache (scripts/convert-textures.mjs)
+.texture-src
+
 # Environment variables
 .env
 .env.test

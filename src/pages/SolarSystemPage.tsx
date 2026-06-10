@@ -1,117 +1,102 @@
-import React, { useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown } from 'lucide-react';
-import { SolarSystem } from '../components/solar/SolarSystem';
+import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, Pause } from 'lucide-react';
 import { PlanetDetail } from '../components/solar/PlanetDetail';
+import { Legacy2DView } from '../components/solar/Legacy2DView';
+import { Scene3D } from '../components/solar/scene3d/Scene3D';
+import { createSimClock, Scene3DApi } from '../components/solar/scene3d/core';
 import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA } from '../data/solarData';
 import { MusicControls } from '../components/MusicControls';
-import galaxyBg from '../assets/galaxy.png';
+
+function supportsWebGL(): boolean {
+    try {
+        const canvas = document.createElement('canvas');
+        return !!(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+    } catch {
+        return false;
+    }
+}
+
+function lookupBody(id: string): PlanetData | null {
+    if (id === 'sun') return SUN_DATA;
+    if (id === 'asteroid-belt') return ASTEROID_BELT_DATA;
+    return SOLAR_SYSTEM_DATA.find(p => p.id === id) ?? null;
+}
+
+// Tốc độ mô phỏng: ⏸ dừng / 🐢 1x / 🐇 5x / 🚀 20x — dạy chu kỳ quỹ đạo trực quan
+const SPEED_OPTIONS: { value: number; label: string; title: string }[] = [
+    { value: 1, label: '🐢', title: 'Tốc độ thường' },
+    { value: 5, label: '🐇', title: 'Nhanh gấp 5 lần' },
+    { value: 20, label: '🚀', title: 'Nhanh gấp 20 lần' }
+];
 
 export function SolarSystemPage() {
     const navigate = useNavigate();
     const [selectedPlanet, setSelectedPlanet] = useState<PlanetData | null>(null);
-    const [zoomLevel, setZoomLevel] = useState<number>(1);
-    const [viewOffset, setViewOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+    const [focusedId, setFocusedId] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [isPanning, setIsPanning] = useState<boolean>(false);
-    const [dragStart, setDragStart] = useState<{ x: number; y: number } | null>(null);
+    const [speed, setSpeed] = useState<number>(1);
+    const [contextLost, setContextLost] = useState<boolean>(false);
+
+    // Đồng hồ mô phỏng — ref thuần, UI ghi timeScale trực tiếp, không re-render mỗi frame
+    const clockRef = useRef(createSimClock());
+    const sceneApiRef = useRef<Scene3DApi | null>(null);
+
+    // Fallback 2D: thiết bị không có WebGL hoặc ?view=2d
+    const use2D = useMemo(
+        () =>
+            new URLSearchParams(window.location.search).get('view') === '2d' ||
+            !supportsWebGL(),
+        []
+    );
 
     const handlePlanetSelect = (planetId: string) => {
-        if (planetId === 'sun') {
-            setSelectedPlanet(SUN_DATA);
-        } else if (planetId === 'asteroid-belt') {
-            setSelectedPlanet(ASTEROID_BELT_DATA);
-        } else {
-            const planet = SOLAR_SYSTEM_DATA.find(p => p.id === planetId);
-            if (planet) {
-                setSelectedPlanet(planet);
-            }
-        }
         setIsMenuOpen(false);
+        // Vành đai không có điểm bay tới cụ thể → mở thẻ ngay; 2D giữ hành vi cũ
+        if (use2D || planetId === 'asteroid-belt') {
+            setSelectedPlanet(lookupBody(planetId));
+            return;
+        }
+        // 3D: bay camera tới trước (NASA Eyes pattern), tới nơi mới mở thẻ
+        setFocusedId(planetId);
+    };
+
+    const handleFocusComplete = (planetId: string) => {
+        setSelectedPlanet(lookupBody(planetId));
     };
 
     const handleCloseDetail = () => {
         setSelectedPlanet(null);
+        setFocusedId(null);
+        // Khôi phục tốc độ người dùng đã chọn (fly-to đã đặt timeScale = 0)
+        clockRef.current.timeScale = speed;
     };
 
-    const handleZoomIn = () => {
-        setZoomLevel(prev => Math.min(prev + 0.2, 3));
+    const handleSpeedChange = (value: number) => {
+        setSpeed(value);
+        clockRef.current.timeScale = value;
     };
 
-    const handleZoomOut = () => {
-        setZoomLevel(prev => Math.max(prev - 0.2, 0.5));
-    };
-
-    // Pan handlers
-    const handleMouseDown = (e: React.MouseEvent) => {
-        if (selectedPlanet) return; // Don't pan when detail is open
-        setIsPanning(true);
-        setDragStart({ x: e.clientX - viewOffset.x, y: e.clientY - viewOffset.y });
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!isPanning || !dragStart) return;
-        const newX = e.clientX - dragStart.x;
-        const newY = e.clientY - dragStart.y;
-
-        // Apply boundary limits (max 1000px in any direction)
-        const maxOffset = 1000;
-        setViewOffset({
-            x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
-            y: Math.max(-maxOffset, Math.min(maxOffset, newY))
-        });
-    };
-
-    const handleMouseUp = () => {
-        setIsPanning(false);
-        setDragStart(null);
-    };
-
-    // Touch handlers for mobile
-    const handleTouchStart = (e: React.TouchEvent) => {
-        if (selectedPlanet) return;
-        const touch = e.touches[0];
-        setIsPanning(true);
-        setDragStart({ x: touch.clientX - viewOffset.x, y: touch.clientY - viewOffset.y });
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        if (!isPanning || !dragStart) return;
-        const touch = e.touches[0];
-        const newX = touch.clientX - dragStart.x;
-        const newY = touch.clientY - dragStart.y;
-
-        const maxOffset = 1000;
-        setViewOffset({
-            x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
-            y: Math.max(-maxOffset, Math.min(maxOffset, newY))
-        });
-    };
-
-    const handleTouchEnd = () => {
-        setIsPanning(false);
-        setDragStart(null);
-    };
+    const isPaused = speed === 0;
 
     return (
-        <div
-            className="w-full h-screen bg-black overflow-hidden relative"
-            style={{ cursor: isPanning ? 'grabbing' : (zoomLevel > 1 ? 'grab' : 'default') }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-        >
-            {/* Background Stars */}
-            <img
-                src={galaxyBg}
-                alt="Galaxy Background"
-                className="absolute inset-0 w-full h-full object-cover opacity-80 pointer-events-none"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
+        <div className="w-full h-screen bg-black overflow-hidden relative">
+            {/* Scene chính */}
+            {use2D ? (
+                <Legacy2DView selectedPlanet={selectedPlanet} onPlanetSelect={handlePlanetSelect} />
+            ) : (
+                <div className="absolute inset-0">
+                    <Scene3D
+                        focusedId={focusedId}
+                        onPlanetSelect={handlePlanetSelect}
+                        onFocusComplete={handleFocusComplete}
+                        clock={clockRef.current}
+                        paused={!!selectedPlanet}
+                        apiRef={sceneApiRef}
+                        onContextLost={() => setContextLost(true)}
+                    />
+                </div>
+            )}
 
             {/* UI Controls */}
             <div className="absolute top-4 left-4 z-50 flex gap-4">
@@ -132,10 +117,8 @@ export function SolarSystemPage() {
                         <ChevronDown size={16} className={`transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} />
                     </button>
 
-                    {/* Dropdown Menu */}
                     {isMenuOpen && (
                         <div className="absolute top-full left-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl overflow-hidden max-h-96 overflow-y-auto">
-                            {/* Sun */}
                             <button
                                 onClick={() => handlePlanetSelect('sun')}
                                 className="w-full px-4 py-3 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3 border-b border-white/10"
@@ -144,7 +127,6 @@ export function SolarSystemPage() {
                                 <span className="font-semibold">Mặt Trời</span>
                             </button>
 
-                            {/* Planets */}
                             {SOLAR_SYSTEM_DATA.map((planet) => (
                                 <button
                                     key={planet.id}
@@ -162,7 +144,6 @@ export function SolarSystemPage() {
                                 </button>
                             ))}
 
-                            {/* Asteroid Belt */}
                             <button
                                 onClick={() => handlePlanetSelect('asteroid-belt')}
                                 className="w-full px-4 py-3 text-left text-white hover:bg-white/10 transition-colors flex items-center gap-3"
@@ -179,41 +160,71 @@ export function SolarSystemPage() {
                 <MusicControls />
             </div>
 
-            {/* Zoom Controls */}
-            {
-                !selectedPlanet && (
-                    <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2">
+            {/* Điều khiển thời gian — chỉ ở chế độ 3D, ẩn khi modal mở */}
+            {!use2D && !selectedPlanet && (
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 px-2 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                    <button
+                        onClick={() => handleSpeedChange(0)}
+                        title="Tạm dừng"
+                        className={`p-2.5 rounded-full transition-all text-white ${isPaused ? 'bg-white/30' : 'hover:bg-white/15'}`}
+                    >
+                        <Pause size={18} />
+                    </button>
+                    {SPEED_OPTIONS.map((opt) => (
                         <button
-                            onClick={handleZoomIn}
-                            className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                            key={opt.value}
+                            onClick={() => handleSpeedChange(opt.value)}
+                            title={opt.title}
+                            className={`px-2.5 py-1.5 rounded-full text-lg leading-none transition-all ${speed === opt.value ? 'bg-white/30' : 'hover:bg-white/15'}`}
                         >
-                            <ZoomIn size={24} />
+                            {opt.label}
                         </button>
-                        <button
-                            onClick={handleZoomOut}
-                            className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
-                        >
-                            <ZoomOut size={24} />
-                        </button>
-                    </div>
-                )
-            }
+                    ))}
+                </div>
+            )}
 
-            {/* Main 3D Scene */}
-            <SolarSystem
-                selectedPlanet={selectedPlanet}
-                onPlanetSelect={handlePlanetSelect}
-                zoomLevel={zoomLevel}
-                viewOffset={viewOffset}
-            />
+            {/* Zoom buttons — giữ song song với pinch/wheel cho dễ khám phá */}
+            {!use2D && !selectedPlanet && (
+                <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2">
+                    <button
+                        onClick={() => sceneApiRef.current?.zoomIn()}
+                        className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                    >
+                        <ZoomIn size={24} />
+                    </button>
+                    <button
+                        onClick={() => sceneApiRef.current?.zoomOut()}
+                        className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                    >
+                        <ZoomOut size={24} />
+                    </button>
+                </div>
+            )}
+
+            {/* Ghi công nguồn ảnh (CC BY 4.0 yêu cầu hiển thị trong UI) + lưu ý tỷ lệ */}
+            {!selectedPlanet && (
+                <div className="absolute bottom-2 left-3 z-40 text-[10px] text-white/40 pointer-events-none leading-tight">
+                    <div>Hình ảnh: NASA · Solar System Scope (CC BY 4.0)</div>
+                    <div>Kích thước và tốc độ đã được điều chỉnh để dễ quan sát</div>
+                </div>
+            )}
+
+            {/* WebGL context lost — thực tế xảy ra trên tablet Android giá rẻ */}
+            {contextLost && (
+                <div
+                    className="fixed inset-0 z-[300] bg-black/90 flex flex-col items-center justify-center gap-4 cursor-pointer"
+                    onClick={() => window.location.reload()}
+                >
+                    <span className="text-5xl">🛸</span>
+                    <p className="text-white text-xl font-bold">Ôi! Tàu vũ trụ gặp trục trặc nhỏ.</p>
+                    <p className="text-white/70">Chạm vào màn hình để tải lại nhé!</p>
+                </div>
+            )}
 
             {/* Detail Overlay */}
             {selectedPlanet && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                    {/* Click outside to close (optional, but good UX) */}
                     <div className="absolute inset-0" onClick={handleCloseDetail} />
-
-                    {/* Modal Content */}
                     <div className="relative z-10 w-full h-full pointer-events-auto">
                         <PlanetDetail
                             planet={selectedPlanet}
@@ -222,6 +233,6 @@ export function SolarSystemPage() {
                     </div>
                 </div>
             )}
-        </div >
+        </div>
     );
 }
