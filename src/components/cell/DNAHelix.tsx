@@ -1,5 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { Sparkles } from '@react-three/drei';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 interface DNAHelixProps {
@@ -21,7 +23,8 @@ const createRibbonCurve = (offset: number, segments: number, height: number, rad
     return new THREE.CatmullRomCurve3(points);
 };
 
-// Two-color cylinder that connects two points (split in half)
+// Two-color cylinder that connects two points (split in half).
+// Materials emit HDR-bright color (toneMapped=false) so the Bloom pass makes them glow.
 const TwoColorCylinder: React.FC<{
     start: THREE.Vector3;
     end: THREE.Vector3;
@@ -33,7 +36,7 @@ const TwoColorCylinder: React.FC<{
     const direction = new THREE.Vector3().subVectors(end, start);
     const length = direction.length();
     const midpoint = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
-    const halfLength = length * 0.46;
+    const halfLength = length * 0.47;
 
     // Create quaternion for rotation
     const quaternion = useMemo(() => {
@@ -56,9 +59,22 @@ const TwoColorCylinder: React.FC<{
                 <meshStandardMaterial
                     color={color1}
                     emissive={color1}
-                    emissiveIntensity={0.4}
-                    metalness={0.5}
-                    roughness={0.2}
+                    emissiveIntensity={1.8}
+                    metalness={0.2}
+                    roughness={0.35}
+                    toneMapped={false}
+                />
+            </mesh>
+            {/* Glowing nucleotide bead where the two bases meet */}
+            <mesh position={[midpoint.x, midpoint.y, midpoint.z]}>
+                <sphereGeometry args={[radius * 1.35, 12, 12]} />
+                <meshStandardMaterial
+                    color="#ffffff"
+                    emissive="#ffffff"
+                    emissiveIntensity={1.4}
+                    metalness={0.1}
+                    roughness={0.4}
+                    toneMapped={false}
                 />
             </mesh>
             {/* Second half - color2 */}
@@ -67,9 +83,10 @@ const TwoColorCylinder: React.FC<{
                 <meshStandardMaterial
                     color={color2}
                     emissive={color2}
-                    emissiveIntensity={0.4}
-                    metalness={0.5}
-                    roughness={0.2}
+                    emissiveIntensity={1.8}
+                    metalness={0.2}
+                    roughness={0.35}
+                    toneMapped={false}
                 />
             </mesh>
         </group>
@@ -98,12 +115,12 @@ const DNAModel: React.FC<{ primaryColor: string }> = ({ primaryColor }) => {
     const curve1 = useMemo(() => createRibbonCurve(0, segments, height, radius, twists), []);
     const curve2 = useMemo(() => createRibbonCurve(Math.PI, segments, height, radius, twists), []);
 
-    // Base pair color pairs (A-T, G-C pairings)
+    // Base pair color pairs (A-T, G-C pairings) — bright neon palette
     const basePairColorPairs = [
-        ['#FF1493', '#00CED1'], // Pink - Cyan
-        ['#FFD700', '#32CD32'], // Yellow - Green
-        ['#FF69B4', '#00BFFF'], // Hot Pink - Sky Blue
-        ['#FFA500', '#9370DB'], // Orange - Purple
+        ['#FF1493', '#00F5FF'], // Pink - Cyan
+        ['#FFE600', '#39FF6A'], // Yellow - Green
+        ['#FF5FA2', '#3CC8FF'], // Hot Pink - Sky Blue
+        ['#FF9A1F', '#B07CFF'], // Orange - Purple
     ];
 
     // Generate base pair positions with correct orientation
@@ -126,76 +143,104 @@ const DNAModel: React.FC<{ primaryColor: string }> = ({ primaryColor }) => {
     }, [curve1, curve2]);
 
     return (
-        <group ref={groupRef}>
-            {/* Lighting */}
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffffff" />
-            <directionalLight position={[-3, -3, 3]} intensity={0.6} color="#60A5FA" />
-            <pointLight position={[0, 0, 4]} intensity={0.6} color={primaryColor} />
+        <>
+            {/* Lighting (kept outside the spinning group so highlights stay stable) */}
+            <ambientLight intensity={0.45} />
+            <directionalLight position={[5, 5, 5]} intensity={0.9} color="#ffffff" />
+            <directionalLight position={[-3, -3, 3]} intensity={0.4} color="#60A5FA" />
+            <pointLight position={[0, 0, 4]} intensity={0.7} color={primaryColor} />
 
-            {/* Left Backbone Ribbon (Red/Orange) */}
-            <mesh>
-                <tubeGeometry args={[curve1, segments, 0.07, 16, false]} />
-                <meshStandardMaterial
-                    color="#F97316"
-                    emissive="#F97316"
-                    emissiveIntensity={0.25}
-                    metalness={0.7}
-                    roughness={0.15}
-                />
-            </mesh>
+            {/* Floating sparkle dust around the helix */}
+            <Sparkles
+                count={45}
+                scale={[2.6, 7, 2.6]}
+                size={2.4}
+                speed={0.35}
+                opacity={0.7}
+                color={primaryColor}
+            />
 
-            {/* Right Backbone Ribbon (Cyan/Blue) */}
-            <mesh>
-                <tubeGeometry args={[curve2, segments, 0.07, 16, false]} />
-                <meshStandardMaterial
-                    color="#0EA5E9"
-                    emissive="#0EA5E9"
-                    emissiveIntensity={0.25}
-                    metalness={0.7}
-                    roughness={0.15}
-                />
-            </mesh>
+            <group ref={groupRef}>
+                {/* Left Backbone Ribbon (Orange) */}
+                <mesh>
+                    <tubeGeometry args={[curve1, segments, 0.07, 16, false]} />
+                    <meshStandardMaterial
+                        color="#FF8A1F"
+                        emissive="#FF8A1F"
+                        emissiveIntensity={1.5}
+                        metalness={0.35}
+                        roughness={0.25}
+                        toneMapped={false}
+                    />
+                </mesh>
 
-            {/* Base Pairs - Two-color cylinders */}
-            {basePairData.map((bp, i) => (
-                <TwoColorCylinder
-                    key={i}
-                    start={bp.start}
-                    end={bp.end}
-                    color1={bp.color1}
-                    color2={bp.color2}
-                    radius={0.055}
-                />
-            ))}
+                {/* Right Backbone Ribbon (Cyan) */}
+                <mesh>
+                    <tubeGeometry args={[curve2, segments, 0.07, 16, false]} />
+                    <meshStandardMaterial
+                        color="#19C8FF"
+                        emissive="#19C8FF"
+                        emissiveIntensity={1.5}
+                        metalness={0.35}
+                        roughness={0.25}
+                        toneMapped={false}
+                    />
+                </mesh>
 
-            {/* End caps on backbones */}
-            {[curve1, curve2].map((curve, idx) => {
-                const color = idx === 0 ? '#F97316' : '#0EA5E9';
-                return (
-                    <group key={idx}>
-                        <mesh position={curve.getPoint(0)}>
-                            <sphereGeometry args={[0.09, 16, 16]} />
-                            <meshStandardMaterial color={color} metalness={0.7} roughness={0.15} />
-                        </mesh>
-                        <mesh position={curve.getPoint(1)}>
-                            <sphereGeometry args={[0.09, 16, 16]} />
-                            <meshStandardMaterial color={color} metalness={0.7} roughness={0.15} />
-                        </mesh>
-                    </group>
-                );
-            })}
-        </group>
+                {/* Base Pairs - Two-color cylinders */}
+                {basePairData.map((bp, i) => (
+                    <TwoColorCylinder
+                        key={i}
+                        start={bp.start}
+                        end={bp.end}
+                        color1={bp.color1}
+                        color2={bp.color2}
+                        radius={0.055}
+                    />
+                ))}
+
+                {/* End caps on backbones */}
+                {[curve1, curve2].map((curve, idx) => {
+                    const color = idx === 0 ? '#FF8A1F' : '#19C8FF';
+                    return (
+                        <group key={idx}>
+                            <mesh position={curve.getPoint(0)}>
+                                <sphereGeometry args={[0.1, 16, 16]} />
+                                <meshStandardMaterial
+                                    color={color}
+                                    emissive={color}
+                                    emissiveIntensity={1.8}
+                                    metalness={0.3}
+                                    roughness={0.2}
+                                    toneMapped={false}
+                                />
+                            </mesh>
+                            <mesh position={curve.getPoint(1)}>
+                                <sphereGeometry args={[0.1, 16, 16]} />
+                                <meshStandardMaterial
+                                    color={color}
+                                    emissive={color}
+                                    emissiveIntensity={1.8}
+                                    metalness={0.3}
+                                    roughness={0.2}
+                                    toneMapped={false}
+                                />
+                            </mesh>
+                        </group>
+                    );
+                })}
+            </group>
+        </>
     );
 };
 
 export const DNAHelix: React.FC<DNAHelixProps> = ({ className = '', color = '#A855F7' }) => {
     return (
         <div className={`relative ${className}`}>
-            {/* Subtle glow backdrop */}
+            {/* Glow backdrop */}
             <div
-                className="absolute inset-0 blur-3xl opacity-15 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at center, #38BDF8 0%, transparent 60%)` }}
+                className="absolute inset-0 blur-3xl opacity-30 pointer-events-none"
+                style={{ background: `radial-gradient(ellipse at center, #38BDF8 0%, ${color}55 35%, transparent 65%)` }}
             />
 
             {/* 3D Canvas */}
@@ -205,6 +250,17 @@ export const DNAHelix: React.FC<DNAHelixProps> = ({ className = '', color = '#A8
                 gl={{ antialias: true, alpha: true }}
             >
                 <DNAModel primaryColor={color} />
+
+                {/* Neon glow */}
+                <EffectComposer multisampling={0}>
+                    <Bloom
+                        mipmapBlur
+                        intensity={1.15}
+                        luminanceThreshold={0.35}
+                        luminanceSmoothing={0.4}
+                        levels={6}
+                    />
+                </EffectComposer>
             </Canvas>
 
             {/* Label */}

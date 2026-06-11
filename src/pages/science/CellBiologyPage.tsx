@@ -217,9 +217,13 @@ export const CellBiologyPage: React.FC = () => {
                         </div>
                     )}
 
-                    {/* DNA helix khi chọn nhân / vùng nhân */}
+                    {/* DNA helix khi chọn nhân / vùng nhân.
+                        Mobile: căn giữa vùng trống phía trên panel (bottom sheet 70vh).
+                        Desktop: cạnh trái panel bên phải. */}
                     {isDNA && (
-                        <div className="hidden md:flex absolute right-[420px] top-1/2 -translate-y-1/2 w-28 h-72 animate-in fade-in slide-in-from-right duration-700 pointer-events-none z-30">
+                        <div className="flex absolute z-30 pointer-events-none animate-in fade-in duration-700
+                            left-1/2 -translate-x-1/2 top-[68px] w-20 h-40 slide-in-from-bottom
+                            md:left-auto md:translate-x-0 md:right-[420px] md:top-1/2 md:-translate-y-1/2 md:w-28 md:h-72 md:slide-in-from-right">
                             <DNAHelix className="w-full h-full" color={selectedOrganelle!.color} />
                         </div>
                     )}
