@@ -12,7 +12,7 @@
 
 ## 2. Các Phân Hệ Giáo Dục (Core Modules)
 
-Hệ thống được chia thành 4 phân hệ chính, đảm bảo phủ rộng các lĩnh vực trong giáo dục STEM (Science, Technology, Engineering, Mathematics).
+Hệ thống được chia thành **6 phân hệ chính**, đảm bảo phủ rộng các lĩnh vực trong giáo dục STEM (Science, Technology, Engineering, Mathematics).
 
 ### 2.1. Phân Hệ Toán Học (Mathematics Engine)
 Đây là lõi của hệ thống, cung cấp chương trình học bám sát khung chương trình tiểu học (Lớp 1-5).
@@ -27,14 +27,23 @@ Hệ thống được chia thành 4 phân hệ chính, đảm bảo phủ rộng
 ### 2.2. Phân Hệ Khoa Học Tự Nhiên (Scientific Simulations) 🔬
 Cung cấp các phòng thí nghiệm ảo và mô hình trực quan để giải thích các khái niệm trừu tượng.
 
-*   **🧬 Cây Tiến Hóa Sinh Học (Evolutionary Tree):** [MỚI]
+*   **🧬 Cây Tiến Hóa Sinh Học (Evolutionary Tree):**
     *   Sơ đồ hóa lịch sử tiến hóa của sinh giới từ sinh vật đơn bào đến động vật có vú hiện đại.
     *   Cấu trúc phân cấp khoa học: Giới (Kingdom) -> Ngành (Phylum) -> Lớp (Class) -> Bộ (Order) -> Họ (Family).
     *   Tích hợp Infographic chi tiết cho từng mắt xích tiến hóa (Khủng long, Thú cổ, Chim, v.v.).
 
+*   **🔬 Sinh Học Tế Bào (Cell Biology):** [MỚI]
+    *   Khám phá cấu trúc tế bào động vật và thực vật với mô hình 3D tương tác.
+    *   Tìm hiểu về các bào quan: Nhân, Ti thể, Lục lạp, Màng tế bào...
+    *   So sánh sự khác biệt giữa tế bào động vật và thực vật.
+
 *   **🌌 Mô Phỏng Hệ Mặt Trời (Solar System 3D):**
     *   Sử dụng công nghệ WebGL (Three.js) để dựng lại mô hình 3D thời gian thực của các hành tinh.
     *   Cung cấp số liệu thiên văn chính xác: Chu kỳ quỹ đạo, đường kính, nhiệt độ bề mặt.
+
+*   **🌈 Hiện Tượng Cầu Vồng (Rainbow Mode):**
+    *   Mô phỏng trực quan quá trình hình thành cầu vồng qua khúc xạ ánh sáng.
+    *   Bảng thông tin giáo dục về quang học cơ bản.
 
 *   **⚛️ Bảng Tuần Hoàn Tương Tác (Interactive Periodic Table):**
     *   Hiển thị tính chất hóa lý của 118 nguyên tố.
@@ -44,13 +53,26 @@ Cung cấp các phòng thí nghiệm ảo và mô hình trực quan để giải
     *   Môi trường Sandbox cho phép kéo thả linh kiện (Pin, Đèn, Dây dẫn, Công tắc) để lắp ráp mạch điện.
     *   Mô phỏng dòng electron và các định luật vật lý cơ bản về mạch điện.
 
-### 2.3. Phân Hệ Tư Duy Máy Tính (Computer Science) 🤖
+### 2.3. Phân Hệ Games Giáo Dục 🎮
+Bao gồm **8 trò chơi** rèn luyện kỹ năng tư duy, phản xạ và logic:
+
+*   **🧠 Ghép Thẻ Hình Ảnh (Memory Match):** Lật thẻ tìm cặp hình ảnh giống nhau, rèn luyện trí nhớ.
+*   **🎵 Giai Điệu Vui Nhộn (Sound Memory):** Ghi nhớ chuỗi âm thanh, thử thách trí nhớ thính giác.
+*   **⏱️ Đua Tốc Độ (Speed Math):** Trả lời nhanh câu hỏi Toán, Tiếng Việt, Tự nhiên xã hội.
+*   **🐉 Đại Chiến Rồng Thần (Dragon Quest):** Board game phiêu lưu với buff, combat và boss fight.
+*   **🏎️ Đường Đua Thần Tốc (Math Racing):** Lái xe tránh chướng ngại vật và chọn đáp án đúng.
+*   **🧩 Sudoku Logic:** Điền số vào ô trống theo luật Sudoku cổ điển.
+*   **⚙️ Kỹ Sư Máy Móc (Gears Game):** [MỚI]
+    *   **Chế độ Lắp Ráp:** Kết nối bánh răng từ nguồn đến đích.
+    *   **Chế độ Đoán Chiều:** Dự đoán hướng quay của bánh răng trong hệ thống.
+
+### 2.4. Phân Hệ Tư Duy Máy Tính (Computer Science) 🤖
 *   **KidCoder (Visual Programming):**
     *   Môi trường lập trình kéo thả (Block-based coding) tương tự Scratch.
     *   Rèn luyện tư duy thuật toán: Tuần tự (Sequence), Vòng lặp (Loops), Điều kiện (Conditionals).
     *   Nhiệm vụ: Lập trình robot vượt chướng ngại vật thông qua các cấp độ tư duy tăng dần.
 
-### 2.4. Phân Hệ Xã Hội & Logic
+### 2.5. Phân Hệ Xã Hội & Logic
 *   **1000 Câu Hỏi Vì Sao:** Cơ sở dữ liệu tri thức về tự nhiên, xã hội và con người.
 *   **Giải Đố Nhân Sư:** Các câu đố dân gia và logic giúp rèn luyện tư duy ngôn ngữ và suy luận.
 
@@ -61,6 +83,11 @@ Hệ thống tích hợp **"Bo Biết Tuốt"** - một trợ lý ảo thông mi
 *   **📚 Giải Đáp Kiến Thức:** Hỗ trợ giải bài tập toán (hướng dẫn từng bước), giải thích các hiện tượng khoa học, lịch sử và văn hóa.
 *   **🛡️ An Toàn Tuyệt Đối:** Hệ thống lọc nội dung nghiêm ngặt, chỉ trả lời các vấn đề liên quan đến giáo dục, kiên quyết từ chối nội dung độc hại.
 *   **🧪 Hỗ Trợ Công Thức & Markdown:** Hiển thị công thức toán học chuyên nghiệp (LaTeX) và định dạng văn bản trực quan.
+
+### 2.6. Thư Viện Sách (Book World) 📚 [MỚI]
+*   **Kho sách điện tử:** Bộ sưu tập sách dành cho trẻ em với nhiều chủ đề.
+*   **Trình đọc sách tương tác:** Hiệu ứng lật trang chân thực như sách thật.
+*   **Hỗ trợ đa định dạng:** Xem sách theo trang với thanh điều hướng tiện lợi.
 
 ---
 
@@ -102,18 +129,28 @@ Dự án được xây dựng trên nền tảng công nghệ web hiện đại,
 ### Cấu Trúc Thư Mục (Directory Structure)
 
 ```
-mathgenius-kids/
+Genius-kids/
 ├── src/
-│   ├── data/               # Dữ liệu tĩnh & Cấu trúc cây (Evolution, Elements...)
-│   │   ├── evolution/      # Ontology Cây tiến hóa
-│   ├── services/           # Business Logic Layer
-│   │   ├── mathEngine.ts   # Thuật toán sinh đề toán
-│   │   ├── kidCoderGenerator.ts # Logic sinh màn chơi lập trình
+│   ├── data/               # Dữ liệu tĩnh (Evolution, Elements, Books...)
 │   ├── components/         # React Components (Presentation Layer)
-│   │   ├── solar/          # 3D Components
-│   │   ├── electricity/    # Circuit Components
+│   │   ├── solar/          # 3D Components cho Hệ Mặt Trời
+│   │   ├── electricity/    # Circuit Components cho Mạch Điện
+│   │   └── books/          # Book Reader Components
 │   └── pages/              # Application Views
-├── public/                 # Static Assets (Infographics, Models, Icons)
+│       ├── games/          # Game Pages (GearsGame...)
+│       └── science/        # Science Pages (CellBiology, Evolution...)
+├── games/                  # Game Modules
+│   ├── MemoryMatch/        # Ghép thẻ hình ảnh
+│   ├── SoundMemory/        # Giai điệu vui nhộn
+│   ├── SpeedMath/          # Đua tốc độ
+│   ├── DragonQuest/        # Đại chiến rồng thần
+│   ├── MathRacing/         # Đường đua thần tốc
+│   ├── Sudoku/             # Sudoku Logic
+│   └── KidCoder/           # Lập trình nhí
+├── tellMeWhy/              # 1000 Câu Hỏi Vì Sao (Data & Components)
+├── riddle/                 # Giải Đố Nhân Sư
+├── services/               # Business Logic Layer
+├── public/                 # Static Assets (Icons, Images, Audio)
 └── ...
 ```
 

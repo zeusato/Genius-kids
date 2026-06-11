@@ -1,0 +1,17 @@
+name: Keep Supabase Database Active
+
+on:
+  schedule:
+    # Tự động chạy vào lúc 00:00 UTC (07:00 giờ Việt Nam) vào ngày 1, 4, 7, 10, 13, 16, 19, 22, 25, 28 hàng tháng (khoảng mỗi 3 ngày)
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Cho phép kích hoạt chạy thử thủ công bất kỳ lúc nào từ tab Actions trên GitHub
+
+jobs:
+  ping-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API to keep database active
+        run: |
+          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
