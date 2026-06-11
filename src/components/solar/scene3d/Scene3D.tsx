@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerformanceMonitor, Preload } from '@react-three/drei';
-import { SOLAR_SYSTEM_DATA } from '../../../data/solarData';
+import { SOLAR_SYSTEM_DATA, MOON_DATA } from '../../../data/solarData';
 import { SimClock, BodyRegistry, Scene3DApi } from './core';
 import { Sun } from './Sun';
 import { PlanetMesh } from './PlanetMesh';
@@ -9,6 +9,8 @@ import { OrbitLines } from './OrbitLines';
 import { AsteroidBelt } from './AsteroidBelt';
 import { StarsBackground } from './StarsBackground';
 import { CameraRig } from './CameraRig';
+import { DwarfPlanetMesh } from './DwarfPlanetMesh';
+import { Comet } from './Comet';
 
 // Bloom chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
 const Effects = lazy(() => import('./Effects'));
@@ -78,6 +80,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
                         onSelect={onPlanetSelect}
                         registry={registry}
                         quality={quality}
+                        moons={MOON_DATA.filter((m) => m.parentId === planet.id)}
                     />
                 ))}
 
@@ -87,6 +90,8 @@ export const Scene3D: React.FC<Scene3DProps> = ({
                     onSelect={onPlanetSelect}
                     count={quality === 'high' ? 1500 : 600}
                 />
+                <DwarfPlanetMesh clock={clock} onSelect={onPlanetSelect} />
+                <Comet clock={clock} onSelect={onPlanetSelect} />
 
                 {quality === 'high' && (
                     <Suspense fallback={null}>

@@ -1,15 +1,19 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, Pause } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, Pause, Rocket } from 'lucide-react';
 import { PlanetDetail } from '../components/solar/PlanetDetail';
 import { Legacy2DView } from '../components/solar/Legacy2DView';
 import { SolarCollection } from '../components/solar/SolarCollection';
 import { TrueScaleOverlay } from '../components/solar/TrueScaleOverlay';
+import { TourCard } from '../components/solar/TourCard';
+import { BodyInfoCard, InfoBodyView } from '../components/solar/BodyInfoCard';
+import { SOLAR_TOUR } from '../data/solarTour';
 import { useStudent } from '../contexts/StudentContext';
 import { COLLECTIBLE_BODY_IDS } from '../data/solarQuizData';
 import { Scene3D } from '../components/solar/scene3d/Scene3D';
 import { createSimClock, Scene3DApi, supportsWebGL } from '../components/solar/scene3d/core';
-import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA } from '../data/solarData';
+import { playBlip } from '../components/solar/sfx';
+import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA, MOON_DATA, PLUTO_INFO, COMET_INFO } from '../data/solarData';
 import { MusicControls } from '../components/MusicControls';
 
 function lookupBody(id: string): PlanetData | null {
@@ -28,12 +32,16 @@ const SPEED_OPTIONS: { value: number; label: string; title: string }[] = [
 export function SolarSystemPage() {
     const navigate = useNavigate();
     const [selectedPlanet, setSelectedPlanet] = useState<PlanetData | null>(null);
+    const [selectedInfo, setSelectedInfo] = useState<InfoBodyView | null>(null); // vệ tinh / hành tinh lùn / sao chổi
     const [focusedId, setFocusedId] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [speed, setSpeed] = useState<number>(1);
     const [contextLost, setContextLost] = useState<boolean>(false);
     const [showCollection, setShowCollection] = useState<boolean>(false);
     const [showTrueScale, setShowTrueScale] = useState<boolean>(false);
+    const [tourIndex, setTourIndex] = useState<number | null>(null); // null = không tour
+    const [tourReady, setTourReady] = useState<boolean>(false);      // camera đã bay tới chặng
+    const touring = tourIndex !== null;
     const { currentStudent } = useStudent();
     const badgeCount = COLLECTIBLE_BODY_IDS.filter(
         id => currentStudent?.solarBadges?.includes(id)
@@ -53,6 +61,15 @@ export function SolarSystemPage() {
 
     const handlePlanetSelect = (planetId: string) => {
         setIsMenuOpen(false);
+        playBlip();
+        // Vệ tinh / hành tinh lùn / sao chổi: chấm nhỏ → mở thẻ info nhẹ ngay (không fly-to)
+        const moon = MOON_DATA.find(m => m.id === planetId);
+        if (moon) {
+            setSelectedInfo({ ...moon, kindLabel: `Vệ tinh của ${moon.parentName}` });
+            return;
+        }
+        if (planetId === 'pluto') { setSelectedInfo(PLUTO_INFO); return; }
+        if (planetId === 'comet') { setSelectedInfo(COMET_INFO); return; }
         // Vành đai không có điểm bay tới cụ thể → mở thẻ ngay; 2D giữ hành vi cũ
         if (use2D || planetId === 'asteroid-belt') {
             setSelectedPlanet(lookupBody(planetId));
@@ -63,7 +80,43 @@ export function SolarSystemPage() {
     };
 
     const handleFocusComplete = (planetId: string) => {
+        // Trong tour: bay tới nơi → hiện thẻ thuyết minh (không mở modal chi tiết)
+        if (tourIndex !== null) {
+            setTourReady(true);
+            return;
+        }
         setSelectedPlanet(lookupBody(planetId));
+    };
+
+    // Tour điều khiển focusedId theo chặng
+    useEffect(() => {
+        if (tourIndex === null) return;
+        setTourReady(false);
+        setFocusedId(SOLAR_TOUR[tourIndex].id);
+    }, [tourIndex]);
+
+    const startTour = () => {
+        setSelectedPlanet(null);
+        setShowCollection(false);
+        setShowTrueScale(false);
+        setIsMenuOpen(false);
+        setTourIndex(0);
+    };
+
+    const nextTour = () => {
+        if (tourIndex === null) return;
+        if (tourIndex >= SOLAR_TOUR.length - 1) {
+            exitTour();
+            return;
+        }
+        setTourIndex(tourIndex + 1);
+    };
+
+    const exitTour = () => {
+        setTourIndex(null);
+        setTourReady(false);
+        setFocusedId(null);
+        clockRef.current.timeScale = speed;
     };
 
     const handleCloseDetail = () => {
@@ -92,7 +145,7 @@ export function SolarSystemPage() {
                         onPlanetSelect={handlePlanetSelect}
                         onFocusComplete={handleFocusComplete}
                         clock={clockRef.current}
-                        paused={!!selectedPlanet || showTrueScale}
+                        paused={!!selectedPlanet || !!selectedInfo || showTrueScale}
                         apiRef={sceneApiRef}
                         onContextLost={() => setContextLost(true)}
                     />
@@ -108,8 +161,8 @@ export function SolarSystemPage() {
                     <ArrowLeft size={24} />
                 </button>
 
-                {/* Planet Selection Dropdown */}
-                <div className="relative">
+                {/* Planet Selection Dropdown — ẩn khi đang tour */}
+                {!touring && <div className="relative">
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="flex items-center gap-2 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
@@ -154,16 +207,26 @@ export function SolarSystemPage() {
                             </button>
                         </div>
                     )}
-                </div>
+                </div>}
             </div>
 
             <div className="absolute top-4 right-4 z-50">
                 <MusicControls />
             </div>
 
-            {/* Bộ sưu tập huy hiệu + Kích thước thật */}
-            {!selectedPlanet && (
+            {/* Bộ sưu tập huy hiệu + Kích thước thật + Du hành */}
+            {!selectedPlanet && !touring && (
                 <div className="absolute top-20 left-4 z-50 flex flex-col gap-2">
+                    {!use2D && (
+                        <button
+                            onClick={startTour}
+                            title="Tour có thuyết minh"
+                            className="flex items-center gap-2 px-3.5 py-2.5 bg-gradient-to-r from-blue-500/80 to-purple-600/80 backdrop-blur-md border border-white/20 rounded-full text-white hover:from-blue-400/80 hover:to-purple-500/80 transition-all shadow-lg"
+                        >
+                            <Rocket size={16} />
+                            <span className="text-xs font-bold">Du hành</span>
+                        </button>
+                    )}
                     <button
                         onClick={() => setShowCollection(true)}
                         title="Bộ sưu tập huy hiệu"
@@ -183,8 +246,8 @@ export function SolarSystemPage() {
                 </div>
             )}
 
-            {/* Điều khiển thời gian — chỉ ở chế độ 3D, ẩn khi modal mở */}
-            {!use2D && !selectedPlanet && (
+            {/* Điều khiển thời gian — chỉ ở chế độ 3D, ẩn khi modal mở / khi tour */}
+            {!use2D && !selectedPlanet && !touring && (
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 px-2 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
                     <button
                         onClick={() => handleSpeedChange(0)}
@@ -207,7 +270,7 @@ export function SolarSystemPage() {
             )}
 
             {/* Zoom buttons — giữ song song với pinch/wheel cho dễ khám phá */}
-            {!use2D && !selectedPlanet && (
+            {!use2D && !selectedPlanet && !touring && (
                 <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2">
                     <button
                         onClick={() => sceneApiRef.current?.zoomIn()}
@@ -225,7 +288,7 @@ export function SolarSystemPage() {
             )}
 
             {/* Ghi công nguồn ảnh (CC BY 4.0 yêu cầu hiển thị trong UI) + lưu ý tỷ lệ */}
-            {!selectedPlanet && (
+            {!selectedPlanet && !touring && (
                 <div className="absolute bottom-2 left-3 z-40 text-[10px] text-white/40 pointer-events-none leading-tight">
                     <div>Hình ảnh: NASA · Solar System Scope (CC BY 4.0)</div>
                     <div>Kích thước và tốc độ đã được điều chỉnh để dễ quan sát</div>
@@ -249,6 +312,16 @@ export function SolarSystemPage() {
 
             {/* Kích thước thật */}
             {showTrueScale && <TrueScaleOverlay onClose={() => setShowTrueScale(false)} />}
+
+            {/* Tour có thuyết minh */}
+            {touring && tourIndex !== null && (
+                <TourCard index={tourIndex} ready={tourReady} onNext={nextTour} onExit={exitTour} />
+            )}
+
+            {/* Thẻ thông tin vệ tinh / hành tinh lùn / sao chổi */}
+            {selectedInfo && (
+                <BodyInfoCard body={selectedInfo} onClose={() => setSelectedInfo(null)} />
+            )}
 
             {/* Detail Overlay */}
             {selectedPlanet && (

@@ -11,6 +11,7 @@ export enum MusicTrack {
     SPEED_MATH = 'SPEED_MATH',
     SPHINX_RIDDLE = 'SPHINX_RIDDLE',
     TELL_ME_WHY = 'TELL_ME_WHY',
+    SCIENCE = 'SCIENCE',
 }
 
 // Mapping from track to file path (relative to public/)
@@ -20,6 +21,8 @@ export const MUSIC_FILES: Record<MusicTrack, string> = {
     [MusicTrack.SPEED_MATH]: '/Genius-kids/sound/timeAttack-Wonder in the Air.mp3',
     [MusicTrack.SPHINX_RIDDLE]: '/Genius-kids/sound/sphinxRiddle-Mystic Sands.mp3',
     [MusicTrack.TELL_ME_WHY]: '/Genius-kids/sound/1000q.mp3',
+    // Khám phá khoa học (hệ mặt trời, tế bào, bảng tuần hoàn...) — nhạc nền êm dịu, bay bổng
+    [MusicTrack.SCIENCE]: '/Genius-kids/sound/timeAttack-Wonder in the Air.mp3',
 };
 
 /**
@@ -43,6 +46,10 @@ export function getMusicTrackForRoute(pathname: string): MusicTrack {
     }
     if (normalizedPath.includes('tellmewhy')) {
         return MusicTrack.TELL_ME_WHY;
+    }
+    // Các mục khám phá khoa học (hệ mặt trời, tế bào...) dùng nhạc nền êm dịu, bay bổng
+    if (normalizedPath.includes('science')) {
+        return MusicTrack.SCIENCE;
     }
 
     // Default routes use main theme

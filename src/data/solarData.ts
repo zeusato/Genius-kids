@@ -82,6 +82,166 @@ export const ASTEROID_BELT_DATA: PlanetData = {
     gradientColors: ['#D4A373', '#8B7355', '#5D4037']
 };
 
+// Vệ tinh (mặt trăng) quay quanh hành tinh — chấm nhỏ trong scene, chạm xem thẻ info.
+export interface MoonData {
+    id: string;
+    name: string;
+    nameEn: string;
+    parentId: string;       // hành tinh chủ (khớp SOLAR_SYSTEM_DATA.id)
+    parentName: string;
+    diameter: string;
+    description: string;
+    facts: string[];
+    funFact: string;
+    color: string;
+    gradientColors: string[];
+    // tham số dựng 3D — tương đối theo bán kính hành tinh chủ
+    relOrbit: number;       // bán kính quỹ đạo = relOrbit × bán kính hành tinh
+    size: number;           // bán kính vệ tinh (scene units)
+    periodSec: number;      // chu kỳ quay quanh hành tinh (giây, ở tốc độ 1x)
+    tilt: number;           // độ nghiêng mặt phẳng quỹ đạo
+}
+
+export const MOON_DATA: MoonData[] = [
+    {
+        id: 'moon', name: 'Mặt Trăng', nameEn: 'Moon', parentId: 'earth', parentName: 'Trái Đất',
+        diameter: '3.475 km',
+        description: 'Vệ tinh tự nhiên duy nhất của Trái Đất, người bạn đồng hành ta thấy mỗi đêm.',
+        facts: [
+            'Mặt Trăng luôn quay cùng một mặt về phía Trái Đất.',
+            'Cách Trái Đất 384.400 km — lọt vừa khoảng 30 Trái Đất xếp hàng.',
+            'Là nơi duy nhất ngoài Trái Đất con người từng đặt chân (Apollo, 1969).'
+        ],
+        funFact: 'Dấu chân các nhà du hành trên Mặt Trăng sẽ còn nguyên hàng triệu năm vì ở đó không có gió!',
+        color: '#BDBDBD', gradientColors: ['#EEEEEE', '#9E9E9E', '#616161'],
+        relOrbit: 2.6, size: 0.16, periodSec: 9, tilt: 0.18
+    },
+    {
+        id: 'io', name: 'Io', nameEn: 'Io', parentId: 'jupiter', parentName: 'Sao Mộc',
+        diameter: '3.643 km',
+        description: 'Vệ tinh núi lửa dữ dội nhất Hệ Mặt Trời, vàng cam như một chiếc pizza.',
+        facts: [
+            'Có hàng trăm núi lửa đang hoạt động, phun cao hàng chục km.',
+            'Màu vàng cam là do lưu huỳnh phủ khắp bề mặt.',
+            'Bị lực hấp dẫn khổng lồ của Sao Mộc "nhào nặn" liên tục.'
+        ],
+        funFact: 'Io là thế giới núi lửa hoạt động mạnh nhất mà con người từng biết!',
+        color: '#FBC02D', gradientColors: ['#FFF59D', '#FBC02D', '#E65100'],
+        relOrbit: 1.5, size: 0.12, periodSec: 4, tilt: 0.05
+    },
+    {
+        id: 'europa', name: 'Europa', nameEn: 'Europa', parentId: 'jupiter', parentName: 'Sao Mộc',
+        diameter: '3.122 km',
+        description: 'Vệ tinh băng giá với đại dương nước lỏng ẩn dưới lớp vỏ băng nứt nẻ.',
+        facts: [
+            'Bên dưới lớp băng có thể là đại dương nhiều nước gấp đôi mọi đại dương Trái Đất.',
+            'Bề mặt băng phẳng, chằng chịt vết nứt màu nâu đỏ.',
+            'Tàu Europa Clipper của NASA đang trên đường tới (đến nơi năm 2030).'
+        ],
+        funFact: 'Các nhà khoa học hy vọng đại dương ngầm của Europa có thể có sự sống!',
+        color: '#E8E0D0', gradientColors: ['#FFFDE7', '#E0E0D1', '#B0A99F'],
+        relOrbit: 1.95, size: 0.11, periodSec: 6, tilt: 0.08
+    },
+    {
+        id: 'ganymede', name: 'Ganymede', nameEn: 'Ganymede', parentId: 'jupiter', parentName: 'Sao Mộc',
+        diameter: '5.268 km',
+        description: 'Vệ tinh LỚN NHẤT Hệ Mặt Trời — còn to hơn cả hành tinh Sao Thủy!',
+        facts: [
+            'Lớn hơn cả Sao Thủy, là mặt trăng to nhất trong hệ.',
+            'Là mặt trăng duy nhất có từ trường riêng.',
+            'Cũng giấu một đại dương nước mặn bên dưới lớp băng.'
+        ],
+        funFact: 'Nếu Ganymede quay quanh Mặt Trời thay vì Sao Mộc, nó hẳn đã được gọi là một hành tinh!',
+        color: '#9E8C7A', gradientColors: ['#C5B9A5', '#8D7B6A', '#5D4F42'],
+        relOrbit: 2.45, size: 0.17, periodSec: 9, tilt: 0.06
+    },
+    {
+        id: 'callisto', name: 'Callisto', nameEn: 'Callisto', parentId: 'jupiter', parentName: 'Sao Mộc',
+        diameter: '4.821 km',
+        description: 'Vệ tinh nhiều hố thiên thạch nhất, bề mặt cổ xưa gần như không đổi suốt 4 tỷ năm.',
+        facts: [
+            'Là thiên thể có nhiều hố va chạm nhất Hệ Mặt Trời.',
+            'Bề mặt gần như không thay đổi trong khoảng 4 tỷ năm.',
+            'Là một trong 4 mặt trăng Galileo phát hiện năm 1610.'
+        ],
+        funFact: 'Bốn mặt trăng lớn của Sao Mộc được tìm ra bằng một kính thiên văn tí hon năm 1610!',
+        color: '#6E635A', gradientColors: ['#9E938A', '#6E635A', '#42392F'],
+        relOrbit: 3.0, size: 0.15, periodSec: 13, tilt: 0.1
+    },
+    {
+        id: 'titan', name: 'Titan', nameEn: 'Titan', parentId: 'saturn', parentName: 'Sao Thổ',
+        diameter: '5.150 km',
+        description: 'Vệ tinh lớn nhất của Sao Thổ, thế giới duy nhất khác có sông, hồ và mưa.',
+        facts: [
+            'Là mặt trăng duy nhất có khí quyển dày (màu cam mù mịt).',
+            'Có sông, hồ và mưa — nhưng bằng khí mê-tan lỏng, không phải nước!',
+            'Tàu bay Dragonfly của NASA sẽ tới khám phá (phóng năm 2028).'
+        ],
+        funFact: 'Titan là nơi duy nhất ngoài Trái Đất có chất lỏng chảy trên bề mặt!',
+        color: '#E8A23D', gradientColors: ['#FFD699', '#E8A23D', '#A8651A'],
+        relOrbit: 2.9, size: 0.18, periodSec: 11, tilt: 0.12
+    }
+];
+
+// Thiên thể phụ hiển thị bằng thẻ info nhẹ (không texture/Canvas riêng): vệ tinh, hành tinh lùn, sao chổi
+export interface InfoBody {
+    id: string;
+    name: string;
+    kindLabel: string;      // "Hành tinh lùn", "Sao chổi"...
+    diameter: string;
+    description: string;
+    facts: string[];
+    funFact: string;
+    color: string;
+    gradientColors: string[];
+}
+
+// Sao Diêm Vương — hành tinh lùn ở Vành đai Kuiper, quỹ đạo elip dẹt ngoài Sao Hải Vương
+export const PLUTO_INFO: InfoBody = {
+    id: 'pluto', name: 'Sao Diêm Vương', kindLabel: 'Hành tinh lùn',
+    diameter: '2.377 km (nhỏ hơn Mặt Trăng)',
+    description: 'Hành tinh lùn lạnh giá ở rìa Hệ Mặt Trời, từng được coi là hành tinh thứ chín.',
+    facts: [
+        'Năm 2006 được xếp lại thành "hành tinh lùn" — một bài học hay về cách khoa học luôn cập nhật.',
+        'Một năm ở đây dài tới 248 năm Trái Đất; quỹ đạo dẹt nên có lúc còn gần Mặt Trời hơn Sao Hải Vương.',
+        'Có 5 mặt trăng; lớn nhất là Charon, to gần bằng nửa Sao Diêm Vương.'
+    ],
+    funFact: 'Tàu New Horizons (2015) chụp được một "trái tim" băng khổng lồ trên bề mặt Sao Diêm Vương!',
+    color: '#C9B29B', gradientColors: ['#E6D5C3', '#C9B29B', '#8C7A66']
+};
+
+export const COMET_INFO: InfoBody = {
+    id: 'comet', name: 'Sao Chổi', kindLabel: 'Sao chổi',
+    diameter: 'Nhân vài km',
+    description: 'Quả cầu tuyết bẩn bằng băng và bụi, mọc đuôi phát sáng khi tới gần Mặt Trời.',
+    facts: [
+        'Đuôi sao chổi luôn hướng RA XA Mặt Trời, dù nó đang bay tới hay bay đi.',
+        'Đuôi chỉ xuất hiện khi tới gần Mặt Trời, lúc băng tan thành hơi và bụi.',
+        'Quỹ đạo rất dẹt, nên sao chổi lúc lao sát Mặt Trời, lúc bay ra tận rìa hệ.'
+    ],
+    funFact: 'Sao chổi Halley ghé thăm khoảng 76 năm một lần — lần tới là năm 2061, khi các bé đã lớn!',
+    color: '#A7E8FF', gradientColors: ['#E0FBFF', '#A7E8FF', '#5FB8E0']
+};
+
+// Pluto dùng cùng công thức tỷ lệ với hành tinh
+export const PLUTO_PHYSICAL: PlanetPhysical = {
+    au: 39.5, diameterKm: 2377, periodYears: 248, rotationHours: -153.3, axialTiltDeg: 122, eccentricity: 0.244
+};
+
+// So sánh kích thước với vật quen thuộc / với Trái Đất (cho trẻ dễ hình dung)
+export const SIZE_COMPARE: Record<string, string> = {
+    sun: 'Mặt Trời to đến mức chứa được hơn 1 triệu Trái Đất bên trong!',
+    mercury: 'Sao Thủy chỉ nhỉnh hơn Mặt Trăng của chúng ta một chút thôi.',
+    venus: 'Sao Kim gần bằng Trái Đất — như một người chị em song sinh.',
+    earth: 'Trái Đất là "thước đo" để so sánh tất cả các hành tinh khác.',
+    mars: 'Sao Hỏa chỉ bằng khoảng một nửa Trái Đất.',
+    jupiter: 'Sao Mộc khổng lồ — chứa được hơn 1.300 Trái Đất bên trong!',
+    saturn: 'Không tính vành đai, Sao Thổ vẫn chứa được khoảng 760 Trái Đất.',
+    uranus: 'Sao Thiên Vương to bằng khoảng 4 Trái Đất xếp cạnh nhau.',
+    neptune: 'Sao Hải Vương cũng cỡ 4 Trái Đất, chỉ hơi nhỏ hơn Sao Thiên Vương.',
+    'asteroid-belt': 'Gộp tất cả tiểu hành tinh lại vẫn còn nhẹ hơn Mặt Trăng!'
+};
+
 export const SOLAR_SYSTEM_DATA: PlanetData[] = [
     {
         id: 'mercury',

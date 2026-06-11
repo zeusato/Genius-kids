@@ -3,12 +3,13 @@ import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Html, useTexture } from '@react-three/drei';
 import { damp3 } from 'maath/easing';
-import { PlanetData } from '../../../data/solarData';
+import { PlanetData, MoonData } from '../../../data/solarData';
 import { SHARED_SPHERE, texUrl, SimClock, BodyRegistry } from './core';
 import { orbitRadius, planetRadius, hitRadius, scenePeriodSeconds, spinPeriodSeconds } from './scale';
 import { AtmosphereRim, ATMOSPHERE_COLORS } from './AtmosphereRim';
 import { EarthSurface } from './EarthSurface';
 import { SaturnRings, UranusRings } from './PlanetRings';
+import { MoonMesh } from './MoonMesh';
 
 interface PlanetMeshProps {
     data: PlanetData;
@@ -16,9 +17,10 @@ interface PlanetMeshProps {
     onSelect: (id: string) => void;
     registry: React.MutableRefObject<BodyRegistry>;
     quality: 'high' | 'low';
+    moons?: MoonData[];
 }
 
-export const PlanetMesh: React.FC<PlanetMeshProps> = ({ data, clock, onSelect, registry, quality }) => {
+export const PlanetMesh: React.FC<PlanetMeshProps> = ({ data, clock, onSelect, registry, quality, moons }) => {
     const phys = data.physical!;
     const orbitGroupRef = useRef<THREE.Group>(null);
     const tiltGroupRef = useRef<THREE.Group>(null);
@@ -144,6 +146,11 @@ export const PlanetMesh: React.FC<PlanetMeshProps> = ({ data, clock, onSelect, r
                     {data.name}
                 </button>
             </Html>
+
+            {/* Vệ tinh quay quanh hành tinh — nằm trong group quỹ đạo nên theo hành tinh quanh Mặt Trời */}
+            {moons?.map((m) => (
+                <MoonMesh key={m.id} moon={m} parentRadius={r} clock={clock} onSelect={onSelect} />
+            ))}
         </group>
     );
 };

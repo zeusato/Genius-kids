@@ -3,6 +3,7 @@ import { X, Sparkles } from 'lucide-react';
 import { PlanetData } from '../../data/solarData';
 import { SOLAR_QUIZ, BADGE_STAR_REWARD } from '../../data/solarQuizData';
 import { useStudent, useStudentActions } from '../../contexts/StudentContext';
+import { playSuccess } from './sfx';
 
 interface SolarQuizProps {
     planet: PlanetData;
@@ -34,6 +35,7 @@ export const SolarQuiz: React.FC<SolarQuizProps> = ({ planet, onClose }) => {
         if (correctPicked || finished) return;
         if (index === question.correctIndex) {
             setCorrectPicked(true);
+            playSuccess();
             setTimeout(() => {
                 if (questionIndex + 1 < questions.length) {
                     setQuestionIndex(questionIndex + 1);

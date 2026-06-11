@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlanetData } from '../../data/solarData';
+import { PlanetData, SIZE_COMPARE } from '../../data/solarData';
 import { X, Thermometer, Ruler, Move, Zap, Target } from 'lucide-react';
 import { Planet3D } from './Planet3D';
 import { SpeakButton } from './SpeakButton';
@@ -171,6 +171,33 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                             <div className="text-sm sm:text-base font-bold text-white">{planet.gravity}</div>
                         </div>
                     </div>
+
+                    {/* So sánh với Trái Đất + vật quen thuộc */}
+                    {SIZE_COMPARE[planet.id] && (
+                        <div className="mb-4 md:mb-6 bg-white/5 rounded-xl p-3 sm:p-4 border border-white/10">
+                            <h3 className="flex items-center gap-2 text-cyan-300 font-bold uppercase text-xs tracking-wider mb-3">
+                                <Ruler size={14} /> So sánh với Trái Đất
+                            </h3>
+                            {planet.physical && planet.id !== 'earth' && (() => {
+                                const ratio = planet.physical.diameterKm / 12756;
+                                const px = Math.min(Math.max(ratio, 0.28), 4.2) * 22;
+                                const g = `radial-gradient(circle at 30% 30%, ${planet.gradientColors[0]}, ${planet.gradientColors[1]}, ${planet.gradientColors[2] || planet.gradientColors[1]})`;
+                                return (
+                                    <div className="flex items-center justify-center gap-6 mb-3" style={{ minHeight: 96 }}>
+                                        <div className="flex flex-col items-center gap-1.5">
+                                            <div className="rounded-full" style={{ width: 22, height: 22, background: 'radial-gradient(circle at 30% 30%, #81D4FA, #29B6F6, #01579B)' }} />
+                                            <span className="text-[10px] text-white/60">Trái Đất</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-1.5">
+                                            <div className="rounded-full" style={{ width: px, height: px, background: g }} />
+                                            <span className="text-[10px] text-white/80 font-semibold">{planet.name}</span>
+                                        </div>
+                                    </div>
+                                );
+                            })()}
+                            <p className="text-sm text-slate-200 text-center leading-relaxed">{SIZE_COMPARE[planet.id]}</p>
+                        </div>
+                    )}
 
                     {/* Fun Facts - Compact */}
                     <div className="flex-1">
