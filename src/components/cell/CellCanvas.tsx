@@ -98,7 +98,7 @@ export const CellCanvas: React.FC<CellCanvasProps> = ({ cellType, onOrganelleCli
                 <button
                     className="absolute inset-0 w-full h-full cursor-default -z-10"
                     onClick={() => {
-                        const cyto = cellType.organelles.find(o => o.id === 'cytoplasms');
+                        const cyto = cellType.organelles.find(o => o.id === 'cytoplasm');
                         if (cyto) onOrganelleClick(cyto);
                     }}
                     aria-label="Cytoplasm"

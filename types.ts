@@ -237,6 +237,8 @@ export interface StudentProfile {
   chatHistory?: { role: 'user' | 'model', content: string }[];
   // Solar System exploration: huy hiệu thiên thể đã thu thập (id: sun, mercury, ..., asteroid-belt)
   solarBadges?: string[];
+  // Cell explorer: huy hiệu loại tế bào đã chinh phục (id: animal, plant, bacteria)
+  cellBadges?: string[];
 }
 
 // ===== Book World System =====
