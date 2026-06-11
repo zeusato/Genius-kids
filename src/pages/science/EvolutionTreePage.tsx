@@ -3,6 +3,7 @@ import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from 'reac
 import { EVOLUTION_TREE_DATA, EvolutionNode as IEvolutionNode } from '@/src/data/evolutionData';
 import { EvolutionNode } from '@/src/components/evolution/EvolutionNode';
 import { NodeDetailModal } from '@/src/components/evolution/NodeDetailModal';
+import { EvolutionParticles } from '@/src/components/evolution/EvolutionParticles';
 import { ArrowLeft, ZoomIn, ZoomOut, Maximize2, Minimize2, Target } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -49,8 +50,7 @@ export const EvolutionTreePage: React.FC = () => {
     const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set(['life_origin']));
 
     // Animation State
-    const [isZooming, setIsZooming] = useState(false);
-    const [isZoomingOut, setIsZoomingOut] = useState(false);
+    const [transition, setTransition] = useState<'none' | 'zoom-in' | 'zoom-out'>('none');
 
     // Update expandedIds when root changes to ensure the new root is expanded
     React.useEffect(() => {
@@ -79,7 +79,7 @@ export const EvolutionTreePage: React.FC = () => {
     };
 
     const handleDrillDown = (node: IEvolutionNode, parentNode?: IEvolutionNode) => {
-        setIsZooming(true);
+        setTransition('zoom-in');
 
         setTimeout(() => {
             // Snapshot current state before drilling
@@ -87,7 +87,6 @@ export const EvolutionTreePage: React.FC = () => {
 
             let newRoot = node;
             if (parentNode) {
-                // Create a "Focused View" where the Parent is the Root, but it only shows the target node
                 newRoot = {
                     ...parentNode,
                     children: [node],
@@ -95,41 +94,52 @@ export const EvolutionTreePage: React.FC = () => {
             }
 
             setCurrentRoot(newRoot);
-            // Clear unnecessary expansions for the new view to keep it clean
             setExpandedIds(new Set([newRoot.id, node.id]));
 
             if (transformRef.current) {
                 transformRef.current.resetTransform(0);
             }
-            setIsZooming(false);
-        }, 700);
+            // Start fade-in of new scene
+            requestAnimationFrame(() => {
+                setTransition('none');
+            });
+        }, 800);
     };
 
     const handleNavigateUp = (index: number) => {
-        setIsZoomingOut(true);
+        setTransition('zoom-out');
 
         setTimeout(() => {
             if (index === -1) {
-                // Reset to global root
                 setCurrentRoot(EVOLUTION_TREE_DATA);
                 setHistory([]);
-                setExpandedIds(new Set(['life_origin'])); // Reset expansion default
+                setExpandedIds(new Set(['life_origin']));
             } else {
                 const targetState = history[index];
                 setHistory(history.slice(0, index));
                 setCurrentRoot(targetState.root);
-                setExpandedIds(targetState.expandedIds); // Restore snapshot
+                setExpandedIds(targetState.expandedIds);
             }
 
             if (transformRef.current) {
                 transformRef.current.resetTransform(0);
             }
-            setIsZoomingOut(false);
-        }, 700);
+            requestAnimationFrame(() => {
+                setTransition('none');
+            });
+        }, 800);
     };
+
+    // Derive era from current root for particle palette
+    const currentEra = currentRoot.era;
 
     return (
         <div className="h-screen w-screen overflow-hidden bg-slate-950 font-sans relative">
+            {/* Living particle background */}
+            <div className="absolute inset-0 z-0">
+                <EvolutionParticles era={currentEra} />
+            </div>
+
             {/* Header Controls */}
             <div className="absolute top-0 left-0 right-0 z-50 p-4 pointer-events-none flex justify-between items-start">
                 <button
@@ -143,26 +153,49 @@ export const EvolutionTreePage: React.FC = () => {
                 <div className="flex flex-col items-center pointer-events-auto">
                     {/* Breadcrumbs */}
                     <div className="flex items-center gap-2 mb-4 bg-slate-900/50 p-2 rounded-xl backdrop-blur-sm border border-white/10 z-50">
-                        {history.map((state, index) => (
-                            <div key={state.root.id} className="flex items-center gap-2">
+                        {/* Global root link */}
+                        {history.length > 0 && (
+                            <div className="flex items-center gap-2">
                                 <button
-                                    onClick={() => handleNavigateUp(index)}
+                                    onClick={() => handleNavigateUp(-1)}
                                     className="text-white/60 hover:text-white text-xs font-medium transition-colors"
                                 >
-                                    {state.root.label}
+                                    🌍 Gốc
                                 </button>
                                 <span className="text-white/20">/</span>
                             </div>
-                        ))}
+                        )}
+                        {history.map((state, index) => {
+                            const displayLabel = state.root.children && state.root.children.length === 1
+                                ? state.root.children[0].label
+                                : state.root.label;
+                            return (
+                                <div key={state.root.id} className="flex items-center gap-2">
+                                    <button
+                                        onClick={() => handleNavigateUp(index)}
+                                        className="text-white/60 hover:text-white text-xs font-medium transition-colors"
+                                    >
+                                        {displayLabel}
+                                    </button>
+                                    <span className="text-white/20">/</span>
+                                </div>
+                            );
+                        })}
                         <span className="text-white text-xs font-bold px-2 py-1 bg-white/10 rounded-lg">
-                            {currentRoot.label}
+                            {currentRoot.children && currentRoot.children.length === 1
+                                ? currentRoot.children[0].label
+                                : currentRoot.label}
                         </span>
                     </div>
 
                     <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400 drop-shadow-lg text-center mb-1">
-                        Cây Tiến Hóa
+                        🧬 Cây Tiến Hóa
                     </h1>
+                    <p className="text-white/40 text-xs">Nhấp vào sinh vật để khám phá</p>
                 </div>
+
+                {/* Spacer for right side */}
+                <div className="w-24" />
             </div>
 
             {/* Main Canvas */}
@@ -205,17 +238,14 @@ export const EvolutionTreePage: React.FC = () => {
                         </div>
 
                         <TransformComponent wrapperClass="w-full h-full" contentClass="w-full h-full">
-                            {/* Infinite Grid Background */}
-                            <div className={`min-w-[4000px] min-h-[3000px] flex items-center justify-center relative bg-[#0B0F19] transition-all duration-700 ease-in-out ${isZooming ? 'scale-[2] opacity-0' : isZoomingOut ? 'scale-50 opacity-0' : 'scale-100 opacity-100'}`}>
-                                {/* Ambient Background Effects */}
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950/50 to-slate-950 pointer-events-none" />
-                                <div className="absolute inset-0 opacity-20"
-                                    style={{
-                                        backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-                                        backgroundSize: '40px 40px'
-                                    }}
-                                />
-
+                            <div
+                                className={`min-w-[4000px] min-h-[3000px] flex items-center justify-center relative transition-all ease-in-out
+                                    ${transition === 'zoom-in' ? 'scale-[2] opacity-0 blur-sm' : ''}
+                                    ${transition === 'zoom-out' ? 'scale-50 opacity-0 blur-sm' : ''}
+                                    ${transition === 'none' ? 'scale-100 opacity-100 blur-0' : ''}
+                                `}
+                                style={{ transitionDuration: '800ms' }}
+                            >
                                 {/* The Root of the Tree */}
                                 <div className="relative z-10">
                                     <EvolutionNode
@@ -234,12 +264,16 @@ export const EvolutionTreePage: React.FC = () => {
                 )}
             </TransformWrapper>
 
-
             {/* Detail Modal */}
             <NodeDetailModal
                 node={selectedNode}
                 onClose={() => setSelectedNode(null)}
             />
+
+            {/* Hint at bottom */}
+            <div className="absolute bottom-3 left-4 z-40 text-[10px] text-white/30 pointer-events-none">
+                Kéo để di chuyển · Cuộn để phóng to/thu nhỏ · Nhấp vào sinh vật để xem chi tiết
+            </div>
         </div>
     );
 };
