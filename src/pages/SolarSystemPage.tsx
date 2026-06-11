@@ -3,19 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, Pause } from 'lucide-react';
 import { PlanetDetail } from '../components/solar/PlanetDetail';
 import { Legacy2DView } from '../components/solar/Legacy2DView';
+import { SolarCollection } from '../components/solar/SolarCollection';
+import { TrueScaleOverlay } from '../components/solar/TrueScaleOverlay';
+import { useStudent } from '../contexts/StudentContext';
+import { COLLECTIBLE_BODY_IDS } from '../data/solarQuizData';
 import { Scene3D } from '../components/solar/scene3d/Scene3D';
-import { createSimClock, Scene3DApi } from '../components/solar/scene3d/core';
+import { createSimClock, Scene3DApi, supportsWebGL } from '../components/solar/scene3d/core';
 import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA } from '../data/solarData';
 import { MusicControls } from '../components/MusicControls';
-
-function supportsWebGL(): boolean {
-    try {
-        const canvas = document.createElement('canvas');
-        return !!(canvas.getContext('webgl2') || canvas.getContext('webgl'));
-    } catch {
-        return false;
-    }
-}
 
 function lookupBody(id: string): PlanetData | null {
     if (id === 'sun') return SUN_DATA;
@@ -37,6 +32,12 @@ export function SolarSystemPage() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [speed, setSpeed] = useState<number>(1);
     const [contextLost, setContextLost] = useState<boolean>(false);
+    const [showCollection, setShowCollection] = useState<boolean>(false);
+    const [showTrueScale, setShowTrueScale] = useState<boolean>(false);
+    const { currentStudent } = useStudent();
+    const badgeCount = COLLECTIBLE_BODY_IDS.filter(
+        id => currentStudent?.solarBadges?.includes(id)
+    ).length;
 
     // Đồng hồ mô phỏng — ref thuần, UI ghi timeScale trực tiếp, không re-render mỗi frame
     const clockRef = useRef(createSimClock());
@@ -91,7 +92,7 @@ export function SolarSystemPage() {
                         onPlanetSelect={handlePlanetSelect}
                         onFocusComplete={handleFocusComplete}
                         clock={clockRef.current}
-                        paused={!!selectedPlanet}
+                        paused={!!selectedPlanet || showTrueScale}
                         apiRef={sceneApiRef}
                         onContextLost={() => setContextLost(true)}
                     />
@@ -160,6 +161,28 @@ export function SolarSystemPage() {
                 <MusicControls />
             </div>
 
+            {/* Bộ sưu tập huy hiệu + Kích thước thật */}
+            {!selectedPlanet && (
+                <div className="absolute top-20 left-4 z-50 flex flex-col gap-2">
+                    <button
+                        onClick={() => setShowCollection(true)}
+                        title="Bộ sưu tập huy hiệu"
+                        className="flex items-center gap-2 px-3.5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                    >
+                        <span className="text-lg leading-none">🏆</span>
+                        <span className="text-xs font-bold">{badgeCount}/{COLLECTIBLE_BODY_IDS.length}</span>
+                    </button>
+                    <button
+                        onClick={() => setShowTrueScale(true)}
+                        title="So sánh kích thước thật theo NASA"
+                        className="flex items-center gap-2 px-3.5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                    >
+                        <span className="text-lg leading-none">🌍</span>
+                        <span className="text-xs font-bold">Kích thước thật</span>
+                    </button>
+                </div>
+            )}
+
             {/* Điều khiển thời gian — chỉ ở chế độ 3D, ẩn khi modal mở */}
             {!use2D && !selectedPlanet && (
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 px-2 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
@@ -220,6 +243,12 @@ export function SolarSystemPage() {
                     <p className="text-white/70">Chạm vào màn hình để tải lại nhé!</p>
                 </div>
             )}
+
+            {/* Bộ sưu tập */}
+            {showCollection && <SolarCollection onClose={() => setShowCollection(false)} />}
+
+            {/* Kích thước thật */}
+            {showTrueScale && <TrueScaleOverlay onClose={() => setShowTrueScale(false)} />}
 
             {/* Detail Overlay */}
             {selectedPlanet && (

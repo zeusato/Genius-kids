@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useRef, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { PerformanceMonitor, Preload } from '@react-three/drei';
 import { SOLAR_SYSTEM_DATA } from '../../../data/solarData';
 import { SimClock, BodyRegistry, Scene3DApi } from './core';
@@ -12,6 +12,15 @@ import { CameraRig } from './CameraRig';
 
 // Bloom chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
 const Effects = lazy(() => import('./Effects'));
+
+// Tim của mô phỏng: tăng clock.t mỗi frame (priority -1 → chạy TRƯỚC mọi useFrame
+// đọc clock.t để tính vị trí quỹ đạo). Clamp delta tránh nhảy vọt khi tab bị ẩn lâu.
+function ClockTicker({ clock }: { clock: SimClock }) {
+    useFrame((_, delta) => {
+        clock.t += Math.min(delta, 0.1) * clock.timeScale;
+    }, -1);
+    return null;
+}
 
 interface Scene3DProps {
     focusedId: string | null;
@@ -55,6 +64,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
         >
             <color attach="background" args={['#030615']} />
             <ambientLight intensity={0.15} />
+            <ClockTicker clock={clock} />
 
             <Suspense fallback={null}>
                 <StarsBackground quality={quality} />

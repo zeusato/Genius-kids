@@ -1,7 +1,10 @@
 import React from 'react';
 import { PlanetData } from '../../data/solarData';
-import { X, Thermometer, Ruler, Move, Zap } from 'lucide-react';
+import { X, Thermometer, Ruler, Move, Zap, Target } from 'lucide-react';
 import { Planet3D } from './Planet3D';
+import { SpeakButton } from './SpeakButton';
+import { SolarQuiz } from './SolarQuiz';
+import { useStudent } from '../../contexts/StudentContext';
 
 interface PlanetDetailProps {
     planet: PlanetData;
@@ -10,6 +13,9 @@ interface PlanetDetailProps {
 
 export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) => {
     const [showInfographic, setShowInfographic] = React.useState(false);
+    const [showQuiz, setShowQuiz] = React.useState(false);
+    const { currentStudent } = useStudent();
+    const hasBadge = !!currentStudent?.solarBadges?.includes(planet.id);
 
     // Auto-rotate logic for mobile
     const [isPortrait, setIsPortrait] = React.useState(false);
@@ -30,7 +36,9 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
     React.useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
-                if (showInfographic) {
+                if (showQuiz) {
+                    setShowQuiz(false);
+                } else if (showInfographic) {
                     setShowInfographic(false);
                 } else {
                     onClose();
@@ -39,7 +47,7 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [showInfographic, onClose]);
+    }, [showInfographic, showQuiz, onClose]);
 
     const getInfographicPath = (planetId: string) => {
         const map: Record<string, string> = {
@@ -90,9 +98,18 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                 <div className="w-full md:w-1/2 h-auto md:h-full p-4 sm:p-6 md:p-8 overflow-y-auto custom-scrollbar text-white flex flex-col">
                     {/* Title */}
                     <div className="mb-4 md:mb-6">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
-                            {planet.name}
-                        </h1>
+                        <div className="flex items-center gap-3">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
+                                {planet.name}
+                            </h1>
+                            {hasBadge && (
+                                <span className="text-2xl" title="Bé đã có huy hiệu này!">🏅</span>
+                            )}
+                            {/* Đọc to cho bé chưa đọc thạo (tự ẩn nếu máy không có giọng tiếng Việt) */}
+                            <div className="ml-auto">
+                                <SpeakButton planet={planet} />
+                            </div>
+                        </div>
                         <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
                     </div>
 
@@ -102,14 +119,21 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                     </p>
 
                     {/* Action Buttons */}
-                    <div className="mb-6">
+                    <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         <button
                             onClick={() => setShowInfographic(true)}
-                            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 group"
+                            className="py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 group"
                         >
                             <span className="text-xl">📊</span>
                             <span>Xem Infographic</span>
                             <Move size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                        <button
+                            onClick={() => setShowQuiz(true)}
+                            className="py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-orange-500/25 transition-all flex items-center justify-center gap-2"
+                        >
+                            <Target size={18} />
+                            <span>{hasBadge ? 'Thử thách lại' : 'Thử thách nhận huy hiệu'}</span>
                         </button>
                     </div>
 
@@ -167,6 +191,9 @@ export const PlanetDetail: React.FC<PlanetDetailProps> = ({ planet, onClose }) =
                     </div>
                 </div>
             </div>
+
+            {/* Quiz Thử thách */}
+            {showQuiz && <SolarQuiz planet={planet} onClose={() => setShowQuiz(false)} />}
 
             {/* Infographic Modal */}
             {showInfographic && (

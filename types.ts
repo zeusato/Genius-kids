@@ -235,6 +235,8 @@ export interface StudentProfile {
   // AI Agent Data
   aiEnabled?: boolean;
   chatHistory?: { role: 'user' | 'model', content: string }[];
+  // Solar System exploration: huy hiệu thiên thể đã thu thập (id: sun, mercury, ..., asteroid-belt)
+  solarBadges?: string[];
 }
 
 // ===== Book World System =====
