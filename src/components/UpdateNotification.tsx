@@ -70,7 +70,7 @@ export const UpdateNotification: React.FC<UpdateNotificationProps> = ({ onDismis
                         <AlertCircle className="text-brand-500 flex-shrink-0 mt-1" size={20} />
                         <div className="text-sm text-slate-600 leading-relaxed">
                             <p className="mb-2">
-                                Đã có phiên bản mới của ứng dụng. Cập nhật ngay để trải nghiệm các tính năng và cải tiến mới nhất!
+                                Phiên bản mới đã được tải sẵn về máy. Chỉ mất vài giây để kích hoạt và trải nghiệm các tính năng mới nhất!
                             </p>
                             <p className="text-xs text-slate-500">
                                 💡 Dữ liệu cá nhân và tiến độ học tập của bạn sẽ được giữ nguyên.

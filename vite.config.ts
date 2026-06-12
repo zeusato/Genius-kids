@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
         }
       }),
       VitePWA({
-        registerType: 'autoUpdate',
+        registerType: 'prompt',
         includeAssets: ['Logo.png', 'OG.png'],
         manifest: {
           name: 'MathGenius Kids',

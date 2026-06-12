@@ -2,17 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './src/index.css';
-import { registerSW } from 'virtual:pwa-register';
 
-// Register service worker
-const updateSW = registerSW({
-  onNeedRefresh() {
-    // Auto-update when new version is available
-  },
-  onOfflineReady() {
-    console.log('App ready to work offline');
-  },
-});
+// Service worker được đăng ký trong services/updateService.ts (initUpdateService, gọi từ App)
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

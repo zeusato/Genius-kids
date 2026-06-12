@@ -1,7 +1,6 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sparkles } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 interface DNAHelixProps {
@@ -237,12 +236,6 @@ const DNAModel: React.FC<{ primaryColor: string }> = ({ primaryColor }) => {
 export const DNAHelix: React.FC<DNAHelixProps> = ({ className = '', color = '#A855F7' }) => {
     return (
         <div className={`relative ${className}`}>
-            {/* Glow backdrop */}
-            <div
-                className="absolute inset-0 blur-3xl opacity-30 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at center, #38BDF8 0%, ${color}55 35%, transparent 65%)` }}
-            />
-
             {/* 3D Canvas */}
             <Canvas
                 camera={{ position: [0, 0, 5.5], fov: 40 }}
@@ -250,17 +243,6 @@ export const DNAHelix: React.FC<DNAHelixProps> = ({ className = '', color = '#A8
                 gl={{ antialias: true, alpha: true }}
             >
                 <DNAModel primaryColor={color} />
-
-                {/* Neon glow */}
-                <EffectComposer multisampling={0}>
-                    <Bloom
-                        mipmapBlur
-                        intensity={1.15}
-                        luminanceThreshold={0.35}
-                        luminanceSmoothing={0.4}
-                        levels={6}
-                    />
-                </EffectComposer>
             </Canvas>
 
             {/* Label */}
