@@ -27,6 +27,17 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
         return currentStudent.gameHistory.some(g => g.gameType === 'kidcoder' && g.difficulty === stageKey);
     }, [currentStudent, levelId, lessonId]);
 
+    // Đã nhận thưởng sao của stage này chưa (chống farm sao bằng cách chơi lại)
+    const stageStarsAlreadyEarned = useMemo(() => {
+        if (!currentStudent?.gameHistory) return false;
+        const stageKey = `${levelId}-${lessonId}`;
+        return currentStudent.gameHistory.some(g => g.gameType === 'kidcoder' && g.difficulty === stageKey && (g.starsEarned ?? 0) > 0);
+    }, [currentStudent, levelId, lessonId]);
+
+    // Giới hạn khối lệnh để được thưởng sao: optimalSteps là lời giải tối ưu THẬT
+    // (đã được solver trong generator xác minh) nên limit này luôn khả thi để pass.
+    const blockLimit = (levelData?.optimalSteps ?? 0) + 5;
+
     // Robot State
     const [robotPos, setRobotPos] = useState<Position>({ row: 0, col: 0 });
     const [robotDir, setRobotDir] = useState<Direction>('E');
@@ -43,6 +54,10 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
     const [failedStep, setFailedStep] = useState<number | null>(null); // Track which step caused failure
     const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
     const [showHelp, setShowHelp] = useState(false);
+
+    // Vượt giới hạn khối => vẫn pass được level nhưng không được thưởng sao
+    const overLimit = program.length > blockLimit;
+    const willEarnStars = !overLimit && !stageStarsAlreadyEarned;
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -151,10 +166,28 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
             else if (robotDir === 'W') newPos.col--;
         } else if (cmd === 'jump') {
             isJump = true;
-            if (robotDir === 'N') newPos.row -= 2;
-            else if (robotDir === 'S') newPos.row += 2;
-            else if (robotDir === 'E') newPos.col += 2;
-            else if (robotDir === 'W') newPos.col -= 2;
+            let midPos = { ...robotPos };
+            if (robotDir === 'N') { midPos.row--; newPos.row -= 2; }
+            else if (robotDir === 'S') { midPos.row++; newPos.row += 2; }
+            else if (robotDir === 'E') { midPos.col++; newPos.col += 2; }
+            else if (robotDir === 'W') { midPos.col--; newPos.col -= 2; }
+
+            // Chỉ nhảy qua được nước/bẫy/ô trống - không vượt được vật cản đặc
+            if (levelData &&
+                midPos.row >= 0 && midPos.row < levelData.gridSize &&
+                midPos.col >= 0 && midPos.col < levelData.gridSize) {
+                const midCell = levelData.grid[midPos.row][midPos.col];
+                const midKey = `${midPos.row}-${midPos.col}`;
+                const midBlocked =
+                    midCell === 'wall' ||
+                    (midCell === 'monster' && !defeatedMonsters.includes(midKey)) ||
+                    (midCell === 'gate' && !collectedKeys) ||
+                    boxPositions.some(b => b.row === midPos.row && b.col === midPos.col);
+                if (midBlocked) {
+                    handleCrash();
+                    return;
+                }
+            }
         } else if (cmd === 'fight') {
             let targetPos = { ...robotPos };
             if (robotDir === 'N') targetPos.row--;
@@ -234,6 +267,9 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                 return false;
             }
         }
+
+        // Gate blocks movement until key is collected
+        if (cell === 'gate' && !stateRef.current.collectedKeys) return false;
 
         // Boxes block movement
         const hasBox = stateRef.current.boxPositions.some(b => b.row === pos.row && b.col === pos.col);
@@ -324,6 +360,9 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
             setRobotDir(levelData.startDir);
             setCollectedLocations([]);
             setDefeatedMonsters([]);
+            setCollectedKeys(false);
+            setBoxPositions(levelData.boxPositions || []);
+            setFilledTraps([]);
             setCurrentStep(-1);
         }
     };
@@ -353,7 +392,8 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
             score: 100,
             maxScore: 100,
             difficulty: `${levelId}-${lessonId}`,
-            starsEarned: 3
+            // Chỉ thưởng sao khi giải trong giới hạn khối và chưa từng nhận thưởng stage này
+            starsEarned: willEarnStars ? 3 : 0
         });
 
         onComplete(levelId, lessonId);
@@ -393,8 +433,13 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                     )}
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="bg-slate-900 px-3 py-1 rounded text-cyan-400 font-mono">
-                        {program.length} / {levelData.optimalSteps + 5} Blocks
+                    <div
+                        title={overLimit
+                            ? `Vượt giới hạn ${blockLimit} khối - hoàn thành sẽ không được thưởng sao!`
+                            : `Hoàn thành trong ${blockLimit} khối để được thưởng 3 sao`}
+                        className={`px-3 py-1 rounded font-mono cursor-help ${overLimit ? 'bg-red-900/60 text-red-400 animate-pulse' : 'bg-slate-900 text-cyan-400'}`}
+                    >
+                        {program.length} / {blockLimit} Blocks
                     </div>
                 </div>
             </div>
@@ -427,7 +472,8 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                 else if (cell === 'end') tooltip = levelData.keyPosition && !collectedKeys ? 'Đích - cần chìa khóa để hoàn thành! 🔑' : 'Đích - về đây để hoàn thành! 🏁';
                                 else if (cell === 'star' && !isCollected && !isStageCompleted) tooltip = 'Sao - điểm thưởng ⭐';
                                 else if (cell === 'monster' && !isDefeated) tooltip = 'Quái vật - dùng lệnh "Chiến đấu" để đánh bại 💀';
-                                else if (isKey) tooltip = 'Chìa khóa - cần để mở đích 🔑';
+                                else if (isKey) tooltip = 'Chìa khóa - cần để mở cổng và đích 🔑';
+                                else if (cell === 'gate') tooltip = collectedKeys ? 'Cổng đã mở - đi qua được ✅' : 'Cổng khóa - cần chìa khóa để đi qua 🔒';
                                 else if (hasBox) tooltip = 'Hộp - dùng lệnh "Đẩy" để di chuyển 📦';
                                 else if (cell === 'trap') tooltip = isFilled ? 'Nước đã lấp - có thể đi qua và lấy sao' : 'Nước có sao - đẩy hộp vào để lấp nước 💧⭐';
 
@@ -439,7 +485,8 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                             relative rounded-lg flex items-center justify-center w-full h-full cursor-help
                                             ${cell === 'wall' ? 'bg-slate-700 shadow-inner' :
                                                 (cell === 'water' || cell === 'trap') ? 'bg-blue-500/30 border border-blue-500/50' :
-                                                    'bg-slate-800/50 border border-slate-700/50'}
+                                                    cell === 'gate' ? 'bg-amber-500/20 border border-amber-500/50' :
+                                                        'bg-slate-800/50 border border-slate-700/50'}
                                         `}
                                     >
                                         {cell === 'wall' && <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>}
@@ -458,6 +505,11 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                         {cell === 'star' && !isCollected && !isStageCompleted && <Star className="text-yellow-400 w-6 h-6 animate-spin-slow" />}
                                         {cell === 'monster' && !isDefeated && <Skull className="text-red-500 w-6 h-6 animate-pulse" />}
                                         {cell === 'key' && !collectedKeys && <Key className="text-yellow-400 w-6 h-6 animate-bounce" />}
+                                        {cell === 'gate' && (
+                                            collectedKeys
+                                                ? <Lock className="text-green-400 opacity-40 w-6 h-6" />
+                                                : <Lock className="text-amber-400 w-6 h-6 animate-pulse" />
+                                        )}
                                         {cell === 'trap' && (
                                             <>
                                                 {/* Water background */}
@@ -504,10 +556,30 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                     <>
                                         <div className="text-6xl mb-4">🎉</div>
                                         <h2 className="text-3xl font-bold text-slate-800 mb-2">Hoàn thành!</h2>
-                                        <p className="text-slate-600 mb-6">Bạn đã lập trình thành công.</p>
-                                        <button onClick={handleNextLevel} className="w-full py-3 bg-green-500 text-white rounded-xl font-bold text-lg hover:bg-green-600 shadow-lg">
-                                            Màn tiếp theo
-                                        </button>
+                                        {willEarnStars ? (
+                                            <p className="text-slate-600 mb-6">
+                                                Bạn đã lập trình thành công với {program.length}/{blockLimit} khối và được thưởng{' '}
+                                                <span className="font-bold text-yellow-500">3 sao ⭐</span>!
+                                            </p>
+                                        ) : overLimit ? (
+                                            <p className="text-slate-600 mb-6">
+                                                Bạn dùng <span className="font-bold text-red-500">{program.length} khối</span> — vượt giới hạn{' '}
+                                                <span className="font-bold">{blockLimit} khối</span> nên không được thưởng sao.
+                                                Thử giải gọn hơn nhé!
+                                            </p>
+                                        ) : (
+                                            <p className="text-slate-600 mb-6">Bạn đã lập trình thành công.</p>
+                                        )}
+                                        <div className="flex gap-3">
+                                            {overLimit && !stageStarsAlreadyEarned && (
+                                                <button onClick={handleReset} className="flex-1 py-3 bg-amber-500 text-white rounded-xl font-bold text-lg hover:bg-amber-600 shadow-lg">
+                                                    Giải lại gọn hơn
+                                                </button>
+                                            )}
+                                            <button onClick={handleNextLevel} className="flex-1 py-3 bg-green-500 text-white rounded-xl font-bold text-lg hover:bg-green-600 shadow-lg">
+                                                Màn tiếp theo
+                                            </button>
+                                        </div>
                                     </>
                                 ) : (
                                     <>
@@ -736,6 +808,13 @@ export const KidCoderGame: React.FC<KidCoderGameProps> = ({ initialLevel, initia
                                 <div>
                                     <div className="text-white font-bold">Đẩy</div>
                                     <div className="text-slate-400 text-sm">Đẩy hộp về phía trước 1 ô.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl">
+                                <div className="p-2 bg-yellow-500 rounded-lg text-white"><Star size={20} /></div>
+                                <div>
+                                    <div className="text-white font-bold">Thưởng sao</div>
+                                    <div className="text-slate-400 text-sm">Hoàn thành trong giới hạn khối lệnh (bộ đếm góc phải) để được thưởng 3 sao. Dùng quá giới hạn vẫn qua màn nhưng không có sao!</div>
                                 </div>
                             </div>
                         </div>
