@@ -1,22 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Volume2, Square } from 'lucide-react';
 import { PlanetData } from '../../data/solarData';
-import { hasVietnameseVoice, onVoicesChanged, speakVietnamese, cancelSpeech } from './speech';
+import { canSpeakVietnamese, onSpeechAvailabilityChanged, speakVietnamese, cancelSpeech } from './speech';
 
-// Đọc to mô tả + sự thật thú vị bằng giọng tiếng Việt. Máy không có giọng vi-VN → nút tự ẩn.
+// Đọc to mô tả + sự thật thú vị bằng giọng tiếng Việt.
+// Máy không có giọng vi-VN → phát audio tạo sẵn (public/audio/vi/body-<id>.mp3).
 export const SpeakButton: React.FC<{ planet: PlanetData }> = ({ planet }) => {
-    const [available, setAvailable] = useState(hasVietnameseVoice());
+    const audioId = planet.id ? `body-${planet.id}` : undefined;
+    const [available, setAvailable] = useState(canSpeakVietnamese(audioId));
     const [speaking, setSpeaking] = useState(false);
     const speakingRef = useRef(false);
 
     useEffect(() => {
-        setAvailable(hasVietnameseVoice());
-        return onVoicesChanged(() => setAvailable(hasVietnameseVoice()));
-    }, []);
+        setAvailable(canSpeakVietnamese(audioId));
+        return onSpeechAvailabilityChanged(() => setAvailable(canSpeakVietnamese(audioId)));
+    }, [audioId]);
 
     // Đổi thiên thể hoặc rời modal → ngừng đọc
+    // (audio Google TTS bị pause không tự bắn onend nên phải reset state thủ công)
     useEffect(() => {
-        return () => { if (speakingRef.current) cancelSpeech(); };
+        return () => {
+            if (speakingRef.current) {
+                cancelSpeech();
+                speakingRef.current = false;
+                setSpeaking(false);
+            }
+        };
     }, [planet.id]);
 
     if (!available) return null;
@@ -30,7 +39,7 @@ export const SpeakButton: React.FC<{ planet: PlanetData }> = ({ planet }) => {
         }
         const text = `${planet.name}. ${planet.description} Sự thật thú vị: ${planet.facts.join('. ')}`;
         const done = () => { speakingRef.current = false; setSpeaking(false); };
-        if (speakVietnamese(text, { onEnd: done, onError: done })) {
+        if (speakVietnamese(text, { audioId, onEnd: done, onError: done })) {
             speakingRef.current = true;
             setSpeaking(true);
         }

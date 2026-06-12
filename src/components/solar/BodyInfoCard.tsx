@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { SpeakButton } from './SpeakButton';
 
 export interface InfoBodyView {
+    id: string; // khớp với file audio tạo sẵn body-<id>.mp3
     name: string;
     kindLabel: string;
     diameter: string;
@@ -27,7 +28,7 @@ export const BodyInfoCard: React.FC<BodyInfoCardProps> = ({ body, onClose }) => 
     }, [onClose]);
 
     const g = `radial-gradient(circle at 30% 30%, ${body.gradientColors[0]}, ${body.gradientColors[1]}, ${body.gradientColors[2] || body.gradientColors[1]})`;
-    const speakable = { name: body.name, description: body.description, facts: body.facts } as any;
+    const speakable = { id: body.id, name: body.name, description: body.description, facts: body.facts } as any;
 
     return (
         <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={onClose}>

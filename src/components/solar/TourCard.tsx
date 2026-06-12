@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, ChevronRight, Volume2, RotateCcw } from 'lucide-react';
 import { SOLAR_TOUR } from '../../data/solarTour';
-import { hasVietnameseVoice, speakVietnamese, cancelSpeech } from './speech';
+import { canSpeakVietnamese, speakVietnamese, cancelSpeech } from './speech';
 
 interface TourCardProps {
     index: number;            // chặng hiện tại (đã bay tới nơi)
@@ -17,11 +17,12 @@ export const TourCard: React.FC<TourCardProps> = ({ index, ready, onNext, onExit
     const total = SOLAR_TOUR.length;
     const isLast = index === total - 1;
     const [speaking, setSpeaking] = useState(false);
-    const canSpeak = hasVietnameseVoice();
+    const audioId = `tour-${index}`; // file tạo sẵn theo THỨ TỰ chặng (xem generate-solar-audio.mjs)
+    const canSpeak = canSpeakVietnamese(audioId);
 
     const speak = () => {
         const done = () => setSpeaking(false);
-        if (speakVietnamese(stop.narration, { onEnd: done, onError: done })) setSpeaking(true);
+        if (speakVietnamese(stop.narration, { audioId, onEnd: done, onError: done })) setSpeaking(true);
     };
 
     // Tự đọc khi vừa bay tới chặng mới
@@ -69,7 +70,7 @@ export const TourCard: React.FC<TourCardProps> = ({ index, ready, onNext, onExit
                         </button>
                     )}
                     <button
-                        onClick={() => { cancelSpeech(); onNext(); }}
+                        onClick={() => { cancelSpeech(); setSpeaking(false); onNext(); }}
                         disabled={!ready}
                         className="ml-auto flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white shadow-lg disabled:opacity-50 transition-all"
                     >
