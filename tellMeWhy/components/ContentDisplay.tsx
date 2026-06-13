@@ -2,6 +2,15 @@ import React from 'react';
 import { Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { QuestionData } from '../types';
 import { MarkdownText, renderAnswerText } from './MarkdownText';
+import { SpeakButton } from '@/src/components/shared/SpeakButton';
+
+// Bỏ ký hiệu markdown để đọc cho tự nhiên (đậm **, tiêu đề #, link, code `...`).
+const toPlainText = (md: string): string =>
+    (md || '')
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // [text](url) → text
+        .replace(/[*_`#>]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
 
 interface ContentDisplayProps {
     questionData: QuestionData | null;
@@ -63,9 +72,12 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                     <div className="flex items-start gap-3">
                         <span className="text-3xl flex-shrink-0">❓</span>
                         <div className="flex-1">
-                            <h3 className="text-sm font-semibold text-brand-600 uppercase tracking-wide mb-2">
-                                Câu hỏi
-                            </h3>
+                            <div className="flex items-center justify-between gap-2 mb-2">
+                                <h3 className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
+                                    Câu hỏi
+                                </h3>
+                                <SpeakButton text={toPlainText(questionData.question)} lang="vi-VN" size={18} title="Nghe câu hỏi" />
+                            </div>
                             <p className="text-2xl font-bold text-slate-800 leading-relaxed">
                                 <MarkdownText text={questionData.question} />
                             </p>
@@ -78,9 +90,12 @@ export const ContentDisplay: React.FC<ContentDisplayProps> = ({
                     <div className="flex items-start gap-3">
                         <span className="text-3xl flex-shrink-0">💡</span>
                         <div className="flex-1">
-                            <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wide mb-2">
-                                Câu trả lời
-                            </h3>
+                            <div className="flex items-center justify-between gap-2 mb-2">
+                                <h3 className="text-sm font-semibold text-green-600 uppercase tracking-wide">
+                                    Câu trả lời
+                                </h3>
+                                <SpeakButton text={toPlainText(questionData.answer)} lang="vi-VN" size={18} title="Nghe câu trả lời" />
+                            </div>
                             <div className="text-lg text-slate-700 leading-relaxed">
                                 {renderAnswerText(questionData.answer)}
                             </div>

@@ -1,10 +1,10 @@
 // Tiện ích Text-to-Speech dùng chung cho toàn app.
 //
-// Thứ tự ưu tiên khi đọc:
-//   1. Audio tạo sẵn tự động bằng slug (chỉ vi-VN) — same-origin, chạy offline 100%.
-//   2. Web Speech API — giọng hệ điều hành (vi-VN / en-US).
-//   3. Audio tạo sẵn thủ công (chỉ vi-VN, qua opts.audioId).
-//   4. Google Translate TTS — fallback online khi không có giọng hệ thống.
+// Thứ tự ưu tiên khi đọc (theo yêu cầu):
+//   1. TTS của thiết bị — Web Speech API, giọng hệ điều hành (vi-VN / en-US).
+//   2. Google Translate TTS — service online (dev qua proxy /api/tts).
+//   3. MP3 built-in — audio tạo sẵn (chỉ vi-VN): khớp theo slug nội dung HOẶC opts.audioId.
+//      (Bước 3 chạy được cả khi offline → dùng làm lưới an toàn cuối cùng.)
 
 import pregeneratedSlugs from '@/src/data/pregeneratedSlugs.json';
 
@@ -25,6 +25,53 @@ function getAudioSlug(text: string): string {
 
 let playToken = 0; // tăng lên để vô hiệu hóa audio đang phát khi cancel/đọc mới
 let currentAudio: HTMLAudioElement | null = null;
+let keepAliveTimer: number | null = null;
+
+// Chrome tự ngắt Web Speech sau ~15s với câu dài → pause()+resume() định kỳ để duy trì.
+function startKeepAlive(): void {
+    stopKeepAlive();
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    keepAliveTimer = window.setInterval(() => {
+        const ss = window.speechSynthesis;
+        if (!ss || !ss.speaking) { stopKeepAlive(); return; }
+        ss.pause();
+        ss.resume();
+    }, 9000);
+}
+
+function stopKeepAlive(): void {
+    if (keepAliveTimer != null) {
+        window.clearInterval(keepAliveTimer);
+        keepAliveTimer = null;
+    }
+}
+
+/**
+ * Cắt văn bản dài thành các đoạn ngắn (<= maxLen) theo ranh giới câu → từ.
+ * Tránh lỗi Chrome "nuốt" utterance quá dài (vd câu trả lời dài trong Tell Me Why).
+ * Không dùng lookbehind regex để tương thích Safari cũ.
+ */
+function chunkText(text: string, maxLen = 180): string[] {
+    const clean = (text || '').replace(/\s+/g, ' ').trim();
+    if (clean.length <= maxLen) return clean ? [clean] : [];
+    const chunks: string[] = [];
+    let rest = clean;
+    while (rest.length > maxLen) {
+        const head = rest.slice(0, maxLen + 1);
+        let cut = -1;
+        for (const re of [/[.!?…]\s/g, /[,;:]\s/g, /\s/g]) {
+            let m: RegExpExecArray | null, last = -1;
+            re.lastIndex = 0;
+            while ((m = re.exec(head))) last = m.index + 1;
+            if (last > 0) { cut = last; break; }
+        }
+        if (cut <= 0) cut = maxLen; // không có điểm ngắt → cắt cứng
+        chunks.push(rest.slice(0, cut).trim());
+        rest = rest.slice(cut).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks;
+}
 
 /** Tìm giọng phù hợp ngôn ngữ (vi-VN / en-US). Trả về null nếu thiết bị không có. */
 export function getVoice(lang: SpeechLang = 'vi-VN'): SpeechSynthesisVoice | null {
@@ -65,6 +112,7 @@ export function onSpeechAvailabilityChanged(cb: () => void): () => void {
 
 export function cancelSpeech(): void {
     playToken++;
+    stopKeepAlive();
     if (currentAudio) {
         currentAudio.pause();
         currentAudio = null;
@@ -99,11 +147,14 @@ function playPregeneratedAudio(
 /**
  * Fallback TTS qua Google Translate — dùng khi thiết bị không có giọng phù hợp.
  *
+ * Endpoint translate_tts chỉ nhận ~200 ký tự/lần → văn bản dài (vd câu trả lời
+ * trong Tell Me Why) được CẮT thành nhiều đoạn và phát tuần tự bằng nhiều <audio>.
+ *
+ * Quy ước lỗi: nếu ĐOẠN ĐẦU lỗi (offline/bị chặn) → gọi onError để caller rơi
+ * xuống MP3 built-in. Các đoạn sau lỗi thì bỏ qua đoạn đó và đọc tiếp.
+ *
  * Nhận `capturedToken` từ caller (không tự tăng playToken) để hoạt động đúng
  * cả trong speak() đơn lẫn giữa chuỗi speakSequence().
- *
- * Văn bản truyền đi được mã hoá UTF-8 qua encodeURIComponent — tiếng Việt có
- * dấu sẽ được encode đúng chuẩn (vd: "đại ca" → "%C4%91%E1%BA%A1i%20ca").
  */
 function playGoogleTTS(
     text: string,
@@ -113,22 +164,33 @@ function playGoogleTTS(
 ): boolean {
     if (typeof Audio === 'undefined') return false;
     const tl = lang.split('-')[0]; // 'vi-VN' → 'vi', 'en-US' → 'en'
-    const qs = `ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=tw-ob`;
-    
-    // Dev: qua Vite proxy để tránh 403.
-    // Prod: gọi thẳng Google (do các câu tĩnh đã có pre-generate, fallback rất ít khi xảy ra).
-    const url = (import.meta as any).env?.DEV
-        ? `/api/tts?${qs}`
-        : `https://translate.google.com/translate_tts?${qs}`;
-        
-    const audio = new Audio(url);
-    currentAudio = audio;
-    const cleanup = (cb?: () => void) => () => {
-        if (capturedToken === playToken) { currentAudio = null; cb?.(); }
+    const isDev = !!(import.meta as any).env?.DEV;
+    const chunks = chunkText(text, 180);
+    if (chunks.length === 0) { opts.onEnd?.(); return true; }
+
+    let i = 0;
+    const playNext = () => {
+        if (capturedToken !== playToken) return; // đã huỷ
+        if (i >= chunks.length) { currentAudio = null; opts.onEnd?.(); return; }
+        const isFirst = i === 0;
+        const chunk = chunks[i++];
+        const qs = `ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${tl}&client=tw-ob`;
+        // Dev: qua Vite proxy để tránh 403. Prod: gọi thẳng Google.
+        const url = isDev ? `/api/tts?${qs}` : `https://translate.google.com/translate_tts?${qs}`;
+        const audio = new Audio(url);
+        currentAudio = audio;
+        const onFail = () => {
+            if (capturedToken !== playToken) return;
+            currentAudio = null;
+            if (isFirst) opts.onError?.(); // đoạn đầu hỏng → để caller dùng MP3
+            else playNext();               // đoạn sau hỏng → đọc tiếp đoạn kế
+        };
+        audio.onended = () => { if (capturedToken === playToken) playNext(); };
+        audio.onerror = onFail;
+        audio.play().catch(onFail);
     };
-    audio.onended = cleanup(opts.onEnd);
-    audio.onerror = cleanup(opts.onError);
-    audio.play().catch(cleanup(opts.onError));
+
+    playNext();
     return true;
 }
 
@@ -141,38 +203,74 @@ export interface SpeakOptions {
     onError?: () => void;
 }
 
+/**
+ * Đọc MỘT phần theo đúng thứ tự ưu tiên: thiết bị → Google → MP3 built-in.
+ * `token` là playToken đã capture (caller tự gọi cancelSpeech trước). Không tự cancel.
+ * `onDone` được gọi khi phần này đọc xong (hoặc đã thử hết cách) — chỉ khi token còn hiệu lực.
+ * Trả về true nếu đã bắt đầu phát được bằng một cách nào đó.
+ */
+function startChain(
+    text: string,
+    lang: SpeechLang,
+    audioId: string | undefined,
+    rate: number,
+    pitch: number,
+    token: number,
+    onDone: () => void,
+): boolean {
+    const finish = () => { if (token === playToken) onDone(); };
+
+    // 3 (lưới an toàn cuối): MP3 built-in — khớp slug nội dung hoặc audioId thủ công (chỉ vi-VN).
+    const tryMp3 = (): boolean => {
+        if (lang === 'vi-VN') {
+            const slug = getAudioSlug(text);
+            if (PREGENERATED_VI_SLUGS.has(slug)) return playPregeneratedAudio(slug, { onEnd: finish, onError: finish }, token);
+            if (audioId) return playPregeneratedAudio(audioId, { onEnd: finish, onError: finish }, token);
+        }
+        finish();
+        return false;
+    };
+
+    // 1. TTS của thiết bị (Web Speech).
+    const voice = getVoice(lang);
+    if (voice && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        const chunks = chunkText(text);
+        if (chunks.length === 0) { finish(); return true; }
+        const lastDone = () => { stopKeepAlive(); finish(); };
+        // Hoãn 1 nhịp sau cancel() để Chrome không "nuốt" utterance đầu tiên.
+        window.setTimeout(() => {
+            if (token !== playToken) return;
+            const ss = window.speechSynthesis;
+            chunks.forEach((chunk, idx) => {
+                const u = new SpeechSynthesisUtterance(chunk);
+                u.voice = voice;
+                u.lang = voice.lang;
+                u.rate = rate;
+                u.pitch = pitch;
+                if (idx === chunks.length - 1) { u.onend = lastDone; u.onerror = lastDone; }
+                ss.speak(u);
+            });
+            if (chunks.length > 1) startKeepAlive(); // câu dài → giữ cho Chrome không tự ngắt
+        }, 60);
+        return true;
+    }
+
+    // 2. Google TTS; nếu lỗi (offline/bị chặn) → rơi xuống MP3 built-in.
+    if (typeof Audio !== 'undefined') {
+        return playGoogleTTS(text, lang, token, { onEnd: finish, onError: () => { tryMp3(); } });
+    }
+
+    // Không có Audio API → thử MP3 (gần như không xảy ra).
+    return tryMp3();
+}
+
 /** Đọc một đoạn text bằng ngôn ngữ chỉ định. Trả về true nếu đã bắt đầu đọc. */
 export function speak(text: string, opts: SpeakOptions = {}): boolean {
     cancelSpeech(); // dừng mọi thứ đang đọc — playToken đã tăng sau đây
-    const capturedToken = playToken;
-
+    const token = playToken;
     const lang = opts.lang ?? 'vi-VN';
-    
-    // 1. Ưu tiên phát file âm thanh tạo sẵn (chỉ vi-VN) để đảm bảo chất lượng cao nhất
-    if (lang === 'vi-VN') {
-        const slug = getAudioSlug(text);
-        if (PREGENERATED_VI_SLUGS.has(slug)) {
-            return playPregeneratedAudio(slug, opts, capturedToken);
-        }
-    }
-    
-    const voice = getVoice(lang);
-    if (!voice) {
-        // Fallback 1: audio tạo sẵn thủ công (chỉ vi-VN).
-        if (lang === 'vi-VN' && opts.audioId) return playPregeneratedAudio(opts.audioId, opts, capturedToken);
-        // Fallback 2: Google Translate TTS (mọi ngôn ngữ, cần kết nối mạng).
-        return playGoogleTTS(text, lang, capturedToken, opts);
-    }
-
-    const u = new SpeechSynthesisUtterance(text);
-    u.voice = voice;
-    u.lang = voice.lang;
-    u.rate = opts.rate ?? 0.8;   // chậm rãi, phù hợp trẻ nhỏ
-    u.pitch = opts.pitch ?? 1.05;
-    if (opts.onEnd) u.onend = opts.onEnd;
-    if (opts.onError) u.onerror = opts.onError;
-    window.speechSynthesis.speak(u);
-    return true;
+    const onDone = () => { opts.onEnd ? opts.onEnd() : opts.onError?.(); };
+    return startChain(text, lang, opts.audioId, opts.rate ?? 0.8, opts.pitch ?? 1.05, token, onDone);
 }
 
 /** Danh sách giọng đã tải xong chưa (Chrome/Android tải bất đồng bộ). */
@@ -199,9 +297,9 @@ export function speakSequence(
     opts: { gapMs?: number; rate?: number; pitch?: number; onEnd?: () => void } = {}
 ): void {
     cancelSpeech();
-    
+
     const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
-    const gap = opts.gapMs ?? 300;       // khoảng nghỉ giữa các phần (ms)
+    const gap = opts.gapMs ?? 200;       // khoảng nghỉ giữa các phần (ms)
     const rate = opts.rate ?? 0.8;       // chậm rãi cho trẻ
     const pitch = opts.pitch ?? 1.05;
     let i = 0;
@@ -212,33 +310,8 @@ export function speakSequence(
         const p = parts[i++];
         const lang = p.lang ?? 'vi-VN';
         const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
-
-        // 1. Ưu tiên phát file âm thanh tạo sẵn (chỉ vi-VN) để đảm bảo chất lượng cao nhất
-        if (lang === 'vi-VN') {
-            const slug = getAudioSlug(p.text);
-            if (PREGENERATED_VI_SLUGS.has(slug)) {
-                const started = playPregeneratedAudio(slug, { onEnd: advance, onError: advance }, token);
-                if (started) return;
-            }
-        }
-
-        const voice = getVoice(lang);
-        if (!voice) {
-            // Thiếu giọng hệ thống → fallback Google Translate TTS.
-            // Nếu phát không được (offline hoàn toàn) thì bỏ qua và đọc phần tiếp.
-            const started = playGoogleTTS(p.text, lang, token, { onEnd: advance, onError: advance });
-            if (!started) advance();
-            return;
-        }
-
-        const u = new SpeechSynthesisUtterance(p.text);
-        u.voice = voice;
-        u.lang = voice.lang;
-        u.rate = rate;
-        u.pitch = pitch;
-        u.onend = advance;
-        u.onerror = advance;
-        window.speechSynthesis.speak(u);
+        // Mỗi phần đi qua đúng chuỗi ưu tiên: thiết bị → Google → MP3 built-in.
+        startChain(p.text, lang, undefined, rate, pitch, token, advance);
     };
 
     // Chờ một nhịp sau cancel để tránh lỗi Chrome "nuốt" câu đầu tiên.

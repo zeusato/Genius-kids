@@ -118,15 +118,15 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ tokens, cardGradie
                     </button>
                 )}
 
-                <div ref={stripRef} onScroll={updateEdges} className="no-scrollbar overflow-x-auto px-2 py-1">
-                    <div className="flex gap-2 w-max mx-auto">
+                <div ref={stripRef} onScroll={updateEdges} className="no-scrollbar overflow-x-auto px-7 py-4">
+                    <div className="flex gap-3 w-max mx-auto">
                         {tokens.map((t, i) => (
                             <button
                                 key={t.id}
                                 data-idx={i}
                                 onClick={() => { soundManager.playClick(); setIndex(i); }}
                                 aria-label={t.big || t.label || t.id}
-                                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shrink-0 flex items-center justify-center font-extrabold shadow ring-4 transition-all ${i === index ? 'ring-brand-500 scale-110' : 'ring-black/5 hover:ring-brand-200'} ${t.kind === 'color' ? '' : 'bg-white text-brand-600'}`}
+                                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shrink-0 flex items-center justify-center font-extrabold transition-all ${i === index ? 'scale-110 -translate-y-1 shadow-2xl z-10' : 'shadow-md hover:-translate-y-0.5 hover:shadow-lg'} ${t.kind === 'color' ? '' : 'bg-white text-brand-600'}`}
                                 style={t.kind === 'color' ? { backgroundColor: t.hex } : undefined}
                             >
                                 {t.kind !== 'color' && <span className="text-2xl sm:text-3xl">{t.big}</span>}

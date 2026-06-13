@@ -15,12 +15,12 @@ const learnTokens: PreschoolToken[] = ALPHABET_DATA.map(l => ({
     sub: l.lower,
     emoji: l.emoji,
     enText: l.upper,
-    viText: `Chữ ${l.upper}`,
+    viText: l.exampleVi,
     label: `${l.exampleEn} – ${l.exampleVi}`,
-    // Đọc tách rõ: chữ cái → (nghỉ) → từ minh họa, mỗi phần cách nhau bởi khoảng nghỉ.
+    // Đọc: chữ cái (Anh) → (nghỉ) → từ minh họa (Anh) → (nghỉ) → từ minh họa (Việt).
+    // KHÔNG đọc tên chữ cái bằng tiếng Việt (không ai dịch chữ cái).
     speakParts: [
         { text: l.upper, lang: 'en-US' },
-        { text: `Chữ ${l.upper}`, lang: 'vi-VN' },
         { text: l.exampleEn, lang: 'en-US' },
         { text: l.exampleVi, lang: 'vi-VN' },
     ],
