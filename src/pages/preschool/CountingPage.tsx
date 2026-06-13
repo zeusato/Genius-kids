@@ -4,6 +4,8 @@ import { PreschoolShell, ActivityHub, type ActivityDef } from '@/src/components/
 import { FlashcardDeck } from '@/src/components/preschool/FlashcardDeck';
 import { ListenAndPick } from '@/src/components/preschool/ListenAndPick';
 import { CountObjects } from '@/src/components/preschool/CountObjects';
+import { AdditionGame } from '@/src/components/preschool/AdditionGame';
+import { CompareGame } from '@/src/components/preschool/CompareGame';
 import type { PreschoolToken } from '@/src/components/preschool/types';
 
 const GAME_TYPE = 'preschool-counting';
@@ -31,6 +33,8 @@ const ACTIVITIES: ActivityDef[] = [
     { id: 'learn', title: 'Học đếm 1 đến 10', desc: 'Nhìn số, đếm vật, nghe đọc', emoji: '🔢', gradient: 'from-teal-500 to-emerald-500' },
     { id: 'count', title: 'Đếm đồ vật', desc: 'Đếm rồi chọn số đúng', emoji: '🐟', gradient: 'from-emerald-500 to-green-500' },
     { id: 'pick', title: 'Nghe và chọn số', desc: 'Nghe rồi chạm đúng số', emoji: '👂', gradient: 'from-cyan-500 to-teal-500' },
+    { id: 'add', title: 'Học phép cộng', desc: 'Cộng trong phạm vi 10, nhiều trò vui', emoji: '➕', gradient: 'from-green-500 to-teal-500' },
+    { id: 'compare', title: 'So sánh', desc: 'Lớn–nhỏ, nhiều–ít, dài–ngắn...', emoji: '⚖️', gradient: 'from-emerald-500 to-cyan-500' },
 ];
 
 export function CountingPage() {
@@ -53,6 +57,12 @@ export function CountingPage() {
             )}
             {activity === 'pick' && (
                 <ListenAndPick tokens={quizTokens} instructionVi="Hãy chọn số" gameType={GAME_TYPE} onBack={back} />
+            )}
+            {activity === 'add' && (
+                <AdditionGame rounds={12} gameType="preschool-addition" onBack={back} />
+            )}
+            {activity === 'compare' && (
+                <CompareGame rounds={12} gameType="preschool-compare" onBack={back} />
             )}
         </PreschoolShell>
     );

@@ -346,14 +346,14 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                                 <Palette size={48} className="text-white" />
                             </div>
                             <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-fuchsia-600 transition-colors">
-                                Màu Sắc
+                                Màu Sắc & Hình Dạng
                             </h2>
                             <p className="text-slate-600 text-lg">
-                                Màu sắc Tiếng Anh – Việt
+                                Màu sắc và hình dạng Anh – Việt
                             </p>
                             <div className="mt-6 flex flex-wrap gap-2 justify-center">
                                 <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">Học màu</span>
-                                <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">Tô màu</span>
+                                <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">Hình dạng</span>
                                 <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">🔊 Đọc to</span>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import { PreschoolShell, ActivityHub, type ActivityDef } from '@/src/components/
 import { FlashcardDeck } from '@/src/components/preschool/FlashcardDeck';
 import { ListenAndPick } from '@/src/components/preschool/ListenAndPick';
 import { MatchPairs, type MatchPair } from '@/src/components/preschool/MatchPairs';
+import { WordStartGame } from '@/src/components/preschool/WordStartGame';
 import type { PreschoolToken } from '@/src/components/preschool/types';
 
 const GAME_TYPE = 'preschool-alphabet';
@@ -45,6 +46,7 @@ const ACTIVITIES: ActivityDef[] = [
     { id: 'learn', title: 'Học bảng chữ cái', desc: 'Lật thẻ A–Z, nghe phát âm', emoji: '📖', gradient: 'from-pink-500 to-rose-500' },
     { id: 'pick', title: 'Nghe và chọn chữ', desc: 'Nghe rồi chạm đúng chữ', emoji: '👂', gradient: 'from-rose-500 to-fuchsia-500' },
     { id: 'match', title: 'Ghép chữ hoa – thường', desc: 'Nối chữ A với chữ a', emoji: '🧩', gradient: 'from-fuchsia-500 to-purple-500' },
+    { id: 'word', title: 'Từ bắt đầu bằng chữ...', desc: 'Chọn từ theo chữ cái, chạm để nghe', emoji: '🔤', gradient: 'from-purple-500 to-indigo-500' },
 ];
 
 export function AlphabetPage() {
@@ -67,6 +69,9 @@ export function AlphabetPage() {
             )}
             {activity === 'match' && (
                 <MatchPairs pairs={matchPairs} pairCount={5} instructionVi="Hãy ghép chữ hoa với chữ thường!" gameType={GAME_TYPE} onBack={back} />
+            )}
+            {activity === 'word' && (
+                <WordStartGame rounds={10} gameType="preschool-word" onBack={back} />
             )}
         </PreschoolShell>
     );

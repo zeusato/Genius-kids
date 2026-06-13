@@ -1,15 +1,14 @@
 /**
  * Service quản lý việc kiểm tra và cập nhật phiên bản ứng dụng PWA
- * Dùng cơ chế chuẩn của vite-plugin-pwa / Workbox (registerType: 'prompt'):
- * - Service worker mới được phát hiện qua registration.update() định kỳ
- * - Workbox tự tải ngầm CHỈ những file thay đổi so với cache hiện tại (diff update)
- * - onNeedRefresh chỉ bắn ra khi bản mới đã tải xong toàn bộ, nằm chờ kích hoạt
- * - applyUpdate gửi SKIP_WAITING + reload => cập nhật gần như tức thì
+ * - Kiểm tra hash của index.html từ server
+ * - Chạy định kỳ mỗi 3-5 phút
+ * - Tự động kiểm tra khi có kết nối mạng
+ * - Clear cache và reload khi có bản cập nhật
  */
 
-import { registerSW } from 'virtual:pwa-register';
-
 const UPDATE_CHECK_INTERVAL = 4 * 60 * 1000; // 4 phút
+const LOCAL_HASH_KEY = 'app-version-hash';
+const LAST_CHECK_KEY = 'app-last-check';
 
 // Custom event để thông báo có update
 export const UPDATE_AVAILABLE_EVENT = 'app-update-available';
@@ -18,52 +17,181 @@ export const UPDATE_CHECK_COMPLETE_EVENT = 'app-update-check-complete';
 
 const UPDATE_SUCCESS_KEY = 'update-success';
 
-// Key của cơ chế cũ (so hash index.html) - dọn dẹp cho client đã cài bản trước
-const LEGACY_KEYS = ['app-version-hash', 'app-last-check'];
-
-// Hàm do registerSW trả về: gửi SKIP_WAITING cho SW đang chờ và reload khi SW mới nắm quyền
-let updateServiceWorker: ((reloadPage?: boolean) => Promise<void>) | null = null;
-
-// Đã có bản mới tải xong nằm chờ kích hoạt
-let updateReady = false;
-
-function dispatchCheckComplete(upToDate: boolean): void {
-    window.dispatchEvent(new CustomEvent(UPDATE_CHECK_COMPLETE_EVENT, { detail: { upToDate } }));
-}
-
-function dispatchUpdateAvailable(): void {
-    window.dispatchEvent(new CustomEvent(UPDATE_AVAILABLE_EVENT));
+/**
+ * Tính SHA-256 hash từ string content
+ */
+async function calculateHash(content: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(content);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
 }
 
 /**
- * Áp dụng update: bản mới đã nằm sẵn trong cache, chỉ cần kích hoạt SW mới và reload
+ * Fetch index.html từ server và tính hash
+ */
+async function fetchRemoteHash(): Promise<string | null> {
+    try {
+        // Kiểm tra kết nối mạng
+        if (!navigator.onLine) {
+            console.log('[UpdateService] Offline, skip check');
+            return null;
+        }
+
+        // Fetch index.html với cache-busting
+        const timestamp = Date.now();
+        const basePath = (import.meta as any).env?.BASE_URL || '/';
+        const url = `${window.location.origin}${basePath}index.html?t=${timestamp}`;
+
+        const response = await fetch(url, {
+            cache: 'no-cache',
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
+        });
+
+        if (!response.ok) {
+            console.warn('[UpdateService] Failed to fetch index.html:', response.status);
+            return null;
+        }
+
+        const content = await response.text();
+        const hash = await calculateHash(content);
+
+        console.log('[UpdateService] Remote hash:', hash);
+        return hash;
+    } catch (error) {
+        console.error('[UpdateService] Error fetching remote hash:', error);
+        return null;
+    }
+}
+
+/**
+ * Lấy hash đã lưu trong localStorage
+ */
+function getLocalHash(): string | null {
+    return localStorage.getItem(LOCAL_HASH_KEY);
+}
+
+/**
+ * Lưu hash vào localStorage
+ */
+function setLocalHash(hash: string): void {
+    localStorage.setItem(LOCAL_HASH_KEY, hash);
+    localStorage.setItem(LAST_CHECK_KEY, Date.now().toString());
+}
+
+// Biến lưu trữ hash mới nhất tìm thấy
+let latestRemoteHash: string | null = null;
+
+/**
+ * Kiểm tra xem có bản cập nhật mới hay không
+ * @returns true nếu có update, false nếu không có hoặc lỗi
+ */
+export async function checkForUpdates(): Promise<boolean> {
+    console.log('[UpdateService] Checking for updates...');
+
+    // Skip check in development mode
+    if (import.meta.env.DEV) {
+        console.log('[UpdateService] Development mode, skipping update check');
+        return false;
+    }
+
+    const remoteHash = await fetchRemoteHash();
+    if (!remoteHash) {
+        return false;
+    }
+
+    // Cache the new hash
+    latestRemoteHash = remoteHash;
+
+    const localHash = getLocalHash();
+
+    // Lần đầu tiên chạy app, lưu hash và không cần update
+    if (!localHash) {
+        console.log('[UpdateService] First run, saving hash');
+        setLocalHash(remoteHash);
+        // Dispatch event để thông báo đã check xong
+        window.dispatchEvent(new CustomEvent(UPDATE_CHECK_COMPLETE_EVENT, { detail: { upToDate: true } }));
+        return false;
+    }
+
+    // So sánh hash
+    if (remoteHash !== localHash) {
+        console.log('[UpdateService] Update available!');
+        console.log('[UpdateService] Local:', localHash);
+        console.log('[UpdateService] Remote:', remoteHash);
+        // Dispatch event để thông báo đã check xong
+        window.dispatchEvent(new CustomEvent(UPDATE_CHECK_COMPLETE_EVENT, { detail: { upToDate: false } }));
+        return true;
+    }
+
+    console.log('[UpdateService] App is up to date');
+    // Dispatch event để thông báo đã check xong
+    window.dispatchEvent(new CustomEvent(UPDATE_CHECK_COMPLETE_EVENT, { detail: { upToDate: true } }));
+    return false;
+}
+
+/**
+ * Áp dụng update: clear cache và reload trang
  * @param onProgress Callback báo cáo tiến độ (0-100)
  */
 export async function applyUpdate(onProgress?: (percent: number, step: string) => void): Promise<void> {
     console.log('[UpdateService] Applying update...');
-    onProgress?.(40, 'Đang kích hoạt phiên bản mới...');
-
-    // Đánh dấu update thành công để lần mở sau hiển thị thông báo
-    localStorage.setItem(UPDATE_SUCCESS_KEY, 'true');
-
-    onProgress?.(100, 'Hoàn tất! Đang khởi động lại...');
-
-    // Đợi một chút để UI kịp hiển thị 100%
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    // Lưới an toàn: nếu vì lý do gì đó SW không kích hoạt được thì vẫn reload
-    // (reload thành công thì timer chết theo trang, không chạy lần hai)
-    window.setTimeout(() => window.location.reload(), 5000);
+    onProgress?.(20, 'Đang xác thực và chuẩn bị kích hoạt...');
 
     try {
-        if (updateServiceWorker) {
-            // Gửi SKIP_WAITING; trang tự reload khi SW mới nhận quyền điều khiển
-            await updateServiceWorker(true);
-        } else {
-            window.location.reload();
+        // Gửi SKIP_WAITING tới service worker mới đang chờ (nếu có) để kích hoạt
+        if ('serviceWorker' in navigator) {
+            const registration = await navigator.serviceWorker.getRegistration();
+            if (registration) {
+                if (registration.waiting) {
+                    onProgress?.(60, 'Đang kích hoạt phiên bản mới...');
+                    // Gửi message SKIP_WAITING cho service worker đang chờ
+                    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    // Đợi một chút để SW mới nắm quyền và dọn dẹp cache cũ không dùng
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                } else if (registration.active) {
+                    // Nếu chưa có SW waiting, yêu cầu update để tải các tệp thay đổi (diff update)
+                    onProgress?.(50, 'Đang kiểm tra và tải các tệp thay đổi...');
+                    await registration.update();
+                    // Đợi một chút để SW tải xong và chuyển sang trạng thái waiting
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    if (registration.waiting) {
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }
+            }
         }
+
+        // Use the cached remote hash if available, otherwise fetch again
+        onProgress?.(80, 'Đang lưu phiên bản mới...');
+        const newHash = latestRemoteHash || await fetchRemoteHash();
+
+        if (newHash) {
+            console.log('[UpdateService] Saving new hash:', newHash);
+            setLocalHash(newHash);
+        } else {
+            console.warn('[UpdateService] Could not retrieve new hash before applying update');
+        }
+
+        // Đánh dấu update thành công để lần mở sau hiển thị thông báo
+        localStorage.setItem(UPDATE_SUCCESS_KEY, 'true');
+
+        onProgress?.(100, 'Hoàn tất! Đang khởi động lại...');
+
+        // Đợi một chút để UI kịp hiển thị 100%
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        // Reload trang để load code mới
+        window.location.reload();
     } catch (error) {
         console.error('[UpdateService] Error applying update:', error);
+        // Lưới an toàn: vẫn reload trang
         window.location.reload();
     }
 }
@@ -82,63 +210,62 @@ export function checkUpdateSuccess(): boolean {
 }
 
 /**
+ * Bắt đầu kiểm tra định kỳ
+ */
+let checkInterval: number | null = null;
+
+export function startPeriodicCheck(): void {
+    if (checkInterval) {
+        console.log('[UpdateService] Periodic check already running');
+        return;
+    }
+
+    console.log(`[UpdateService] Starting periodic check every ${UPDATE_CHECK_INTERVAL / 60000} minutes`);
+
+    checkInterval = window.setInterval(async () => {
+        const hasUpdate = await checkForUpdates();
+        if (hasUpdate) {
+            // Dispatch custom event để UI hiển thị notification
+            window.dispatchEvent(new CustomEvent(UPDATE_AVAILABLE_EVENT));
+        }
+    }, UPDATE_CHECK_INTERVAL);
+}
+
+/**
+ * Dừng kiểm tra định kỳ
+ */
+export function stopPeriodicCheck(): void {
+    if (checkInterval) {
+        clearInterval(checkInterval);
+        checkInterval = null;
+        console.log('[UpdateService] Stopped periodic check');
+    }
+}
+
+/**
  * Khởi tạo update service
- * - Đăng ký service worker (Workbox)
- * - Check update ngay khi load + định kỳ + khi có mạng trở lại
+ * - Check ngay khi load
+ * - Bắt đầu periodic check
+ * - Listen network online event
  */
 export async function initUpdateService(): Promise<void> {
     console.log('[UpdateService] Initializing...');
 
-    // Dọn key của cơ chế update cũ
-    LEGACY_KEYS.forEach(key => localStorage.removeItem(key));
+    // Check ngay khi load
+    const hasUpdate = await checkForUpdates();
+    if (hasUpdate) {
+        window.dispatchEvent(new CustomEvent(UPDATE_AVAILABLE_EVENT));
+    }
 
-    updateServiceWorker = registerSW({
-        immediate: true,
-        onNeedRefresh() {
-            // Bản mới đã tải xong về cache, chỉ chờ người dùng đồng ý kích hoạt
-            console.log('[UpdateService] Update downloaded and ready to activate');
-            updateReady = true;
-            dispatchCheckComplete(false);
-            dispatchUpdateAvailable();
-        },
-        onOfflineReady() {
-            // Lần cài đầu tiên: precache xong toàn bộ => chắc chắn là bản mới nhất
-            console.log('[UpdateService] App ready to work offline');
-            dispatchCheckComplete(true);
-        },
-        onRegisteredSW(_swUrl, registration) {
-            console.log('[UpdateService] Service worker registered');
-            if (!registration) return;
+    // Bắt đầu periodic check
+    startPeriodicCheck();
 
-            const check = async () => {
-                // Đã có bản chờ kích hoạt thì không cần check nữa
-                if (updateReady || !navigator.onLine || registration.installing) return;
-                try {
-                    await registration.update();
-                    // Check xong mà không có SW mới đang cài/chờ => đang ở bản mới nhất
-                    if (!registration.installing && !registration.waiting) {
-                        dispatchCheckComplete(true);
-                    }
-                } catch (error) {
-                    console.warn('[UpdateService] Update check failed:', error);
-                }
-            };
-
-            // Check ngay khi load
-            check();
-
-            // Check định kỳ
-            console.log(`[UpdateService] Starting periodic check every ${UPDATE_CHECK_INTERVAL / 60000} minutes`);
-            window.setInterval(check, UPDATE_CHECK_INTERVAL);
-
-            // Check khi có kết nối mạng trở lại
-            window.addEventListener('online', () => {
-                console.log('[UpdateService] Network online, checking for updates...');
-                check();
-            });
-        },
-        onRegisterError(error) {
-            console.error('[UpdateService] Service worker registration failed:', error);
+    // Listen khi có kết nối mạng trở lại
+    window.addEventListener('online', async () => {
+        console.log('[UpdateService] Network online, checking for updates...');
+        const hasUpdate = await checkForUpdates();
+        if (hasUpdate) {
+            window.dispatchEvent(new CustomEvent(UPDATE_AVAILABLE_EVENT));
         }
     });
 
