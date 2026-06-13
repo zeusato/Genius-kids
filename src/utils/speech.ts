@@ -99,12 +99,15 @@ function playGoogleTTS(
     if (typeof Audio === 'undefined') return false;
     const tl = lang.split('-')[0]; // 'vi-VN' → 'vi', 'en-US' → 'en'
     const qs = `ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=tw-ob`;
-    // Dev: qua Vite proxy để tránh 403 (Google chặn Referer từ localhost).
-    // Prod: gọi thẳng Google (Referer từ domain deploy không bị chặn).
-    const url = (import.meta as any).env?.DEV
-        ? `/api/tts?${qs}`
-        : `https://translate.google.com/translate_tts?${qs}`;
-    const audio = new Audio(url);
+    
+    // Gọi thẳng Google Translate TTS và sử dụng referrerPolicy = 'no-referrer'
+    // để tránh bị 403 Forbidden do Referer bị chặn trên cả Dev và Production.
+    const url = `https://translate.google.com/translate_tts?${qs}`;
+    
+    const audio = document.createElement('audio');
+    audio.referrerPolicy = 'no-referrer';
+    audio.src = url;
+    
     currentAudio = audio;
     const cleanup = (cb?: () => void) => () => {
         if (capturedToken === playToken) { currentAudio = null; cb?.(); }
