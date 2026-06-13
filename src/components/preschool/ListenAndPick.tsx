@@ -52,7 +52,6 @@ export const ListenAndPick: React.FC<ListenAndPickProps> = ({
     const questionParts: { text: string; lang: SpeechLang }[] = [
         { text: instructionVi, lang: 'vi-VN' },
         { text: round.target.enText, lang: 'en-US' },
-        { text: round.target.viText, lang: 'vi-VN' },
     ];
 
     const reset = () => {

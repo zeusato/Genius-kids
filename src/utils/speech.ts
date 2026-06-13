@@ -1,8 +1,11 @@
 // Tiện ích Text-to-Speech dùng chung cho toàn app.
-// Ưu tiên 1: giọng hệ điều hành theo ngôn ngữ yêu cầu (Web Speech API) — hỗ trợ vi-VN + en-US.
-// Fallback (chỉ tiếng Việt): audio tạo sẵn bằng Google Translate TTS cho máy không cài tiếng Việt
-//            (scripts/generate-solar-audio.mjs sinh ra public/audio/vi/<audioId>.mp3).
-//            Phát file same-origin nên không bị chặn và được service worker precache (chạy offline).
+//
+// Thứ tự ưu tiên khi đọc:
+//   1. Web Speech API — giọng hệ điều hành (vi-VN / en-US).
+//   2. Audio tạo sẵn (chỉ vi-VN, qua opts.audioId) — same-origin, offline-friendly.
+//   3. Google Translate TTS — fallback online cho bất kỳ ngôn ngữ nào khi thiết bị
+//      không cài giọng phù hợp. URL: translate.google.com/translate_tts?ie=UTF-8&
+//      q=<encodeURIComponent(text)>&tl=<vi|en>&client=tw-ob
 
 export type SpeechLang = 'vi-VN' | 'en-US';
 
@@ -78,6 +81,40 @@ function playPregeneratedAudio(
     return true;
 }
 
+/**
+ * Fallback TTS qua Google Translate — dùng khi thiết bị không có giọng phù hợp.
+ *
+ * Nhận `capturedToken` từ caller (không tự tăng playToken) để hoạt động đúng
+ * cả trong speak() đơn lẫn giữa chuỗi speakSequence().
+ *
+ * Văn bản truyền đi được mã hoá UTF-8 qua encodeURIComponent — tiếng Việt có
+ * dấu sẽ được encode đúng chuẩn (vd: "đại ca" → "%C4%91%E1%BA%A1i%20ca").
+ */
+function playGoogleTTS(
+    text: string,
+    lang: SpeechLang,
+    capturedToken: number,
+    opts: { onEnd?: () => void; onError?: () => void }
+): boolean {
+    if (typeof Audio === 'undefined') return false;
+    const tl = lang.split('-')[0]; // 'vi-VN' → 'vi', 'en-US' → 'en'
+    const qs = `ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=tw-ob`;
+    // Dev: qua Vite proxy để tránh 403 (Google chặn Referer từ localhost).
+    // Prod: gọi thẳng Google (Referer từ domain deploy không bị chặn).
+    const url = (import.meta as any).env?.DEV
+        ? `/api/tts?${qs}`
+        : `https://translate.google.com/translate_tts?${qs}`;
+    const audio = new Audio(url);
+    currentAudio = audio;
+    const cleanup = (cb?: () => void) => () => {
+        if (capturedToken === playToken) { currentAudio = null; cb?.(); }
+    };
+    audio.onended = cleanup(opts.onEnd);
+    audio.onerror = cleanup(opts.onError);
+    audio.play().catch(cleanup(opts.onError));
+    return true;
+}
+
 export interface SpeakOptions {
     lang?: SpeechLang;       // mặc định vi-VN
     audioId?: string;        // file audio tạo sẵn (chỉ vi) dùng khi máy không có giọng
@@ -89,15 +126,16 @@ export interface SpeakOptions {
 
 /** Đọc một đoạn text bằng ngôn ngữ chỉ định. Trả về true nếu đã bắt đầu đọc. */
 export function speak(text: string, opts: SpeakOptions = {}): boolean {
-    cancelSpeech(); // dừng mọi thứ đang đọc
+    cancelSpeech(); // dừng mọi thứ đang đọc — playToken đã tăng sau đây
+    const capturedToken = playToken;
 
     const lang = opts.lang ?? 'vi-VN';
     const voice = getVoice(lang);
     if (!voice) {
-        // Không có giọng hệ thống: chỉ tiếng Việt mới có audio tạo sẵn để fallback.
+        // Fallback 1: audio tạo sẵn same-origin (chỉ vi-VN).
         if (lang === 'vi-VN' && opts.audioId) return playPregeneratedAudio(opts.audioId, opts);
-        opts.onError?.();
-        return false;
+        // Fallback 2: Google Translate TTS (mọi ngôn ngữ, cần kết nối mạng).
+        return playGoogleTTS(text, lang, capturedToken, opts);
     }
 
     const u = new SpeechSynthesisUtterance(text);
@@ -127,7 +165,8 @@ export function speakVietnamese(
 
 /**
  * Đọc lần lượt nhiều phần (vd: tiếng Anh rồi tiếng Việt) — dùng cho mục mầm non.
- * Nếu một phần không đọc được (thiếu giọng) thì bỏ qua phần đó để chuỗi không bị kẹt.
+ * Nếu thiết bị không có giọng hệ thống cho một phần, tự động fallback sang
+ * Google Translate TTS thay vì bỏ qua, giúp trẻ luôn nghe được đủ nội dung.
  */
 export function speakSequence(
     parts: { text: string; lang?: SpeechLang }[],
@@ -136,24 +175,33 @@ export function speakSequence(
     cancelSpeech();
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) { opts.onEnd?.(); return; }
 
-    const token = playToken; // nếu có cancel/đọc mới giữa chừng thì dừng chuỗi
-    const gap = opts.gapMs ?? 450;       // khoảng nghỉ giữa các phần (tách chữ với từ minh họa)
+    const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
+    const gap = opts.gapMs ?? 450;       // khoảng nghỉ giữa các phần (ms)
     const rate = opts.rate ?? 0.8;       // chậm rãi cho trẻ
     const pitch = opts.pitch ?? 1.05;
     let i = 0;
 
     const playNext = () => {
-        if (token !== playToken) return;          // đã bị hủy
+        if (token !== playToken) return;          // đã bị huỷ bởi cancel/đọc mới
         if (i >= parts.length) { opts.onEnd?.(); return; }
         const p = parts[i++];
-        const voice = getVoice(p.lang ?? 'vi-VN');
-        if (!voice) { playNext(); return; }       // thiếu giọng → bỏ qua phần này, đọc phần kế
+        const lang = p.lang ?? 'vi-VN';
+        const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
+
+        const voice = getVoice(lang);
+        if (!voice) {
+            // Thiếu giọng hệ thống → fallback Google Translate TTS.
+            // Nếu phát không được (offline hoàn toàn) thì bỏ qua và đọc phần tiếp.
+            const started = playGoogleTTS(p.text, lang, token, { onEnd: advance, onError: advance });
+            if (!started) advance();
+            return;
+        }
+
         const u = new SpeechSynthesisUtterance(p.text);
         u.voice = voice;
         u.lang = voice.lang;
         u.rate = rate;
         u.pitch = pitch;
-        const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
         u.onend = advance;
         u.onerror = advance;
         window.speechSynthesis.speak(u);

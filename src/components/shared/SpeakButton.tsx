@@ -45,19 +45,30 @@ export const SpeakButton: React.FC<SpeakButtonProps> = ({
 }) => {
     const [speaking, setSpeaking] = useState(false);
     const speakingRef = useRef(false);
+    const mountedRef = useRef(true);
+
+    // Đánh dấu unmount để tránh setState trên component đã bị huỷ.
+    useEffect(() => {
+        mountedRef.current = true;
+        return () => { mountedRef.current = false; };
+    }, []);
 
     const start = () => {
-        const done = () => { speakingRef.current = false; setSpeaking(false); };
+        const done = () => {
+            if (!mountedRef.current) return;
+            speakingRef.current = false;
+            setSpeaking(false);
+        };
         if (parts && parts.length > 0) {
             speakSequence(parts, { rate, pitch, gapMs, onEnd: done });
             speakingRef.current = true;
-            setSpeaking(true);
+            if (mountedRef.current) setSpeaking(true);
             return;
         }
         if (text) {
             if (speak(text, { lang, audioId, rate, pitch, onEnd: done, onError: done })) {
                 speakingRef.current = true;
-                setSpeaking(true);
+                if (mountedRef.current) setSpeaking(true);
             }
         }
     };
@@ -65,7 +76,7 @@ export const SpeakButton: React.FC<SpeakButtonProps> = ({
     const stop = () => {
         cancelSpeech();
         speakingRef.current = false;
-        setSpeaking(false);
+        if (mountedRef.current) setSpeaking(false);
     };
 
     const toggle = () => (speaking ? stop() : start());
@@ -81,7 +92,14 @@ export const SpeakButton: React.FC<SpeakButtonProps> = ({
         };
         tryStart();
         const off = onSpeechAvailabilityChanged(tryStart);
-        return () => { off(); if (speakingRef.current) stop(); };
+        return () => {
+            fired = true; // ngăn tryStart chạy sau cleanup
+            off();
+            if (speakingRef.current) {
+                cancelSpeech();
+                speakingRef.current = false;
+            }
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [autoPlayKey]);
 
