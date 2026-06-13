@@ -36,6 +36,9 @@ const SpeedMathGame = React.lazy(() => import('./games/SpeedMath/SpeedMathGame')
 const LibraryPage = React.lazy(() => import('@/src/pages/LibraryPage').then(module => ({ default: module.LibraryPage })));
 const BookWorldPage = React.lazy(() => import('@/src/pages/BookWorldPage').then(module => ({ default: module.BookWorldPage })));
 const BookReaderPage = React.lazy(() => import('@/src/pages/BookReaderPage').then(module => ({ default: module.BookReaderPage })));
+const AlphabetPage = React.lazy(() => import('@/src/pages/preschool/AlphabetPage').then(module => ({ default: module.AlphabetPage })));
+const CountingPage = React.lazy(() => import('@/src/pages/preschool/CountingPage').then(module => ({ default: module.CountingPage })));
+const ColorsPage = React.lazy(() => import('@/src/pages/preschool/ColorsPage').then(module => ({ default: module.ColorsPage })));
 
 
 
@@ -388,6 +391,32 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <EvolutionTreePage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* ===== Mầm non ===== */}
+              <Route
+                path="/preschool/alphabet"
+                element={
+                  <ProtectedRoute>
+                    <AlphabetPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/preschool/counting"
+                element={
+                  <ProtectedRoute>
+                    <CountingPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/preschool/colors"
+                element={
+                  <ProtectedRoute>
+                    <ColorsPage />
                   </ProtectedRoute>
                 }
               />

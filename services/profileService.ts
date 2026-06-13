@@ -38,7 +38,8 @@ export const createProfile = (name: string, grade: Grade, age?: number, avatarId
     const newProfile: StudentProfile = {
         id: Date.now().toString(),
         name,
-        age: age || (grade + 6), // Rough estimate if not provided
+        // Lưu ý: Grade.Preschool = 0 là falsy → dùng ?? và xử lý riêng mầm non (~4 tuổi).
+        age: age ?? (grade === Grade.Preschool ? 4 : grade + 6), // Rough estimate if not provided
         grade,
         avatarId: 0, // deprecated
         currentAvatarId: defaultAvatarId,
@@ -100,7 +101,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         id: oldProfile.id || Date.now().toString(),
         name: oldProfile.name || 'Student',
         age: oldProfile.age || 8,
-        grade: oldProfile.grade || Grade.Grade2,
+        grade: oldProfile.grade ?? Grade.Grade2, // ?? để grade 0 (Mầm non) không bị nuốt thành Lớp 2
         avatarId: oldProfile.avatarId || 0, // keep for compatibility
         currentAvatarId: defaultAvatarId,
         currentThemeId: defaultThemeId,

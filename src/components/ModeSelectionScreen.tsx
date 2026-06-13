@@ -1,12 +1,15 @@
 import React from 'react';
 import { StudentProfile } from '../../types';
 import { getAvatarById } from '../../services/avatarService';
-import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, Library, Trophy, Cpu } from 'lucide-react';
+import { ShoppingBag, User as UserIcon, LogOut, Gamepad2, BookOpen, Library, Trophy, Cpu, Languages, ListOrdered, Palette } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
+import { isPreschool } from '@/src/utils/grade';
+
+export type SelectableMode = 'study' | 'game' | 'profile' | 'shop' | 'library' | 'riddle' | 'coding' | 'science' | 'alphabet' | 'counting' | 'colors';
 
 interface ModeSelectionScreenProps {
     student: StudentProfile;
-    onSelectMode: (mode: 'study' | 'game' | 'profile' | 'shop' | 'library' | 'riddle' | 'coding' | 'science') => void;
+    onSelectMode: (mode: SelectableMode) => void;
     onLogout: () => void;
 }
 
@@ -16,6 +19,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
     onLogout,
 }) => {
     const avatar = getAvatarById(student.currentAvatarId);
+    const preschool = isPreschool(student.grade);
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-brand-50 via-purple-50 to-fun-yellow/20 relative">
@@ -77,6 +81,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
                 {/* Study Mode */}
+                {!preschool && (
                 <button
                     onClick={() => onSelectMode('study')}
                     className="group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-brand-400 hover:scale-105 animate-in fade-in slide-in-from-left duration-500"
@@ -109,6 +114,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </div>
                     </div>
                 </button>
+                )}
 
                 {/* Game Mode */}
                 <button
@@ -175,6 +181,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                     </div>
                 </button>
 
+                {!preschool && (<>
                 {/* Sphinx Riddle Mode */}
                 <button
                     onClick={() => onSelectMode('riddle')}
@@ -242,6 +249,7 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </div>
                     </div>
                 </button>
+                </>)}
 
                 {/* Science Mode */}
                 <button
@@ -276,6 +284,81 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </div>
                     </div>
                 </button>
+
+                {/* ===== Mầm non: 3 module làm quen ===== */}
+                {preschool && (<>
+                    {/* Bảng chữ cái Tiếng Anh */}
+                    <button
+                        onClick={() => onSelectMode('alphabet')}
+                        className="order-first group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-pink-400 hover:scale-105 animate-in fade-in slide-in-from-left duration-500"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 to-rose-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative z-10">
+                            <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <Languages size={48} className="text-white" />
+                            </div>
+                            <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-pink-600 transition-colors">
+                                Bảng Chữ Cái
+                            </h2>
+                            <p className="text-slate-600 text-lg">
+                                Làm quen chữ cái Tiếng Anh A–Z
+                            </p>
+                            <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                                <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">Học chữ</span>
+                                <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">Nghe & chọn</span>
+                                <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">🔊 Đọc to</span>
+                            </div>
+                        </div>
+                    </button>
+
+                    {/* Số đếm Tiếng Anh - Việt */}
+                    <button
+                        onClick={() => onSelectMode('counting')}
+                        className="order-first group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-teal-400 hover:scale-105 animate-in fade-in slide-in-from-bottom duration-500"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-teal-100 to-emerald-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative z-10">
+                            <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <ListOrdered size={48} className="text-white" />
+                            </div>
+                            <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-teal-600 transition-colors">
+                                Số Đếm
+                            </h2>
+                            <p className="text-slate-600 text-lg">
+                                Đếm số Tiếng Anh – Việt
+                            </p>
+                            <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                                <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold">1 → 10</span>
+                                <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold">Đếm vật</span>
+                                <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold">🔊 Đọc to</span>
+                            </div>
+                        </div>
+                    </button>
+
+                    {/* Màu sắc Tiếng Anh - Việt */}
+                    <button
+                        onClick={() => onSelectMode('colors')}
+                        className="order-first group relative bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-fuchsia-400 hover:scale-105 animate-in fade-in slide-in-from-right duration-500"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-100 to-violet-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative z-10">
+                            <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-fuchsia-500 to-violet-500 rounded-full flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <Palette size={48} className="text-white" />
+                            </div>
+                            <h2 className="text-3xl font-bold text-slate-800 mb-3 group-hover:text-fuchsia-600 transition-colors">
+                                Màu Sắc
+                            </h2>
+                            <p className="text-slate-600 text-lg">
+                                Màu sắc Tiếng Anh – Việt
+                            </p>
+                            <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                                <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">Học màu</span>
+                                <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">Tô màu</span>
+                                <span className="px-3 py-1 bg-fuchsia-100 text-fuchsia-700 rounded-full text-sm font-semibold">🔊 Đọc to</span>
+                            </div>
+                        </div>
+                    </button>
+                </>)}
 
             </div>
 

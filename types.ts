@@ -1,4 +1,5 @@
 export enum Grade {
+  Preschool = 0, // Mầm non (dưới Lớp 1)
   Grade1 = 1,
   Grade2 = 2,
   Grade3 = 3,
@@ -239,6 +240,12 @@ export interface StudentProfile {
   solarBadges?: string[];
   // Cell explorer: huy hiệu loại tế bào đã chinh phục (id: animal, plant, bacteria)
   cellBadges?: string[];
+  // Preschool (Mầm non): các mục đã hoàn thành/thành thạo trong từng module mầm non.
+  preschoolProgress?: {
+    alphabet?: string[]; // id chữ cái đã học (a-z)
+    counting?: string[]; // id số đã học
+    colors?: string[];   // id màu đã học
+  };
 }
 
 // ===== Book World System =====

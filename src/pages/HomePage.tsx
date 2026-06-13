@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StudentProfile, Grade } from '@/types';
+import { getGradeLabel } from '@/src/utils/grade';
 import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
 import { Plus, CheckCircle, Download, Bot } from 'lucide-react';
@@ -161,7 +162,7 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-slate-800 group-hover:text-brand-600">{p.name}</h3>
-                                    <p className="text-slate-500 font-medium">Lớp {p.grade}</p>
+                                    <p className="text-slate-500 font-medium">{getGradeLabel(p.grade)}</p>
                                 </div>
                             </button>
                         );
@@ -187,15 +188,15 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-bold text-slate-600 mb-1">Lớp</label>
-                            <div className="grid grid-cols-5 gap-2">
-                                {[1, 2, 3, 4, 5].map(g => (
+                            <label className="block text-sm font-bold text-slate-600 mb-1">Cấp lớp</label>
+                            <div className="grid grid-cols-3 gap-2">
+                                {[Grade.Preschool, Grade.Grade1, Grade.Grade2, Grade.Grade3, Grade.Grade4, Grade.Grade5].map(g => (
                                     <button
                                         key={g}
-                                        onClick={() => setNewProfile({ ...newProfile, grade: g as Grade })}
-                                        className={`p-2 rounded-lg font-bold border-2 ${newProfile.grade === g ? 'bg-brand-500 text-white border-brand-600' : 'bg-white border-gray-200 text-slate-500'}`}
+                                        onClick={() => setNewProfile({ ...newProfile, grade: g })}
+                                        className={`p-2 rounded-lg font-bold border-2 text-sm ${newProfile.grade === g ? 'bg-brand-500 text-white border-brand-600' : 'bg-white border-gray-200 text-slate-500'}`}
                                     >
-                                        {g}
+                                        {getGradeLabel(g)}
                                     </button>
                                 ))}
                             </div>

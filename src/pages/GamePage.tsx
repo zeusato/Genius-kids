@@ -44,5 +44,5 @@ export function GamePage() {
         navigate('/mode');
     };
 
-    return <GamesMenu onBack={handleBack} onGameComplete={handleGameComplete} />;
+    return <GamesMenu grade={currentStudent.grade} onBack={handleBack} onGameComplete={handleGameComplete} />;
 }

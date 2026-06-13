@@ -24,6 +24,8 @@ export function getPageImageUrl(bookId: string, pageNumber: number, version?: nu
  */
 export function getDefaultAgeGroupsForGrade(grade: Grade): AgeGroup[] {
     switch (grade) {
+        case Grade.Preschool:
+            return [AgeGroup.PRESCHOOL_GRADE1];
         case Grade.Grade1:
             return [AgeGroup.PRESCHOOL_GRADE1];
         case Grade.Grade2:

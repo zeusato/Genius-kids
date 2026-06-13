@@ -10,14 +10,18 @@ import { SudokuGame } from './Sudoku/SudokuGame';
 import GearsGamePage from '@/src/pages/games/GearsGame/GearsGamePage';
 import GuessDirectionGame from '@/src/pages/games/GearsGame/GuessDirectionGame';
 import { MusicControls } from '@/src/components/MusicControls';
+import { Grade } from '@/types';
+import { isPreschool } from '@/src/utils/grade';
 import CarIcon from './MathRacing/CarIcon.png';
 
 interface GamesMenuProps {
+    grade?: Grade;
     onBack: () => void;
     onGameComplete: (gameId: string, score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
-export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) => {
+export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameComplete }) => {
+    const preschool = isPreschool(grade);
     const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-build' | 'gears-guess' | 'gears-menu' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
 
@@ -173,7 +177,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                 {/* Difficulty Selector */}
                 <div className="bg-white rounded-2xl p-6 shadow-lg mb-8">
                     <h2 className="text-xl font-bold text-slate-800 mb-4">Chọn độ khó:</h2>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className={`grid gap-4 ${preschool ? 'grid-cols-2' : 'grid-cols-3'}`}>
                         <button
                             onClick={() => setDifficulty(Difficulty.Easy)}
                             className={`px-6 py-4 rounded-xl font-bold transition-all ${difficulty === Difficulty.Easy
@@ -198,17 +202,19 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                             <div className="text-sm opacity-75">Nâng cao</div>
                         </button>
 
-                        <button
-                            onClick={() => setDifficulty(Difficulty.Hard)}
-                            className={`px-6 py-4 rounded-xl font-bold transition-all ${difficulty === Difficulty.Hard
-                                ? 'bg-red-500 text-white shadow-lg scale-105'
-                                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                }`}
-                        >
-                            <div className="text-2xl mb-1">🔥</div>
-                            <div>Khó</div>
-                            <div className="text-sm opacity-75">Thử thách</div>
-                        </button>
+                        {!preschool && (
+                            <button
+                                onClick={() => setDifficulty(Difficulty.Hard)}
+                                className={`px-6 py-4 rounded-xl font-bold transition-all ${difficulty === Difficulty.Hard
+                                    ? 'bg-red-500 text-white shadow-lg scale-105'
+                                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                    }`}
+                            >
+                                <div className="text-2xl mb-1">🔥</div>
+                                <div>Khó</div>
+                                <div className="text-sm opacity-75">Thử thách</div>
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -263,6 +269,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                         </div>
                     </div>
 
+                    {!preschool && (<>
                     {/* Speed Math Card */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
                         <div className="flex flex-col md:flex-row items-center gap-8">
@@ -386,6 +393,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ onBack, onGameComplete }) 
                             </div>
                         </div>
                     </div>
+                    </>)}
                 </div>
             </div>
         </div>

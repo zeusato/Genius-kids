@@ -277,3 +277,13 @@
         d: path("M30,0 Q50,30 30,60 T30,120 T30,180");
     }
 }
+
+/* Ẩn thanh cuộn cho dải chọn nhanh (mục mầm non) */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

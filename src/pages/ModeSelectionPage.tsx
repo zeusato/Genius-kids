@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
-import { ModeSelectionScreen } from '@/src/components/ModeSelectionScreen';
+import { ModeSelectionScreen, type SelectableMode } from '@/src/components/ModeSelectionScreen';
 
 export function ModeSelectionPage() {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ export function ModeSelectionPage() {
         return null;
     }
 
-    const handleSelectMode = (mode: 'study' | 'game' | 'profile' | 'shop' | 'library' | 'riddle' | 'coding' | 'science') => {
+    const handleSelectMode = (mode: SelectableMode) => {
         if (mode === 'study') navigate('/study');
         else if (mode === 'game') navigate('/game');
         else if (mode === 'profile') navigate('/profile');
@@ -22,6 +22,9 @@ export function ModeSelectionPage() {
         else if (mode === 'riddle') navigate('/riddle');
         else if (mode === 'coding') navigate('/coding');
         else if (mode === 'science') navigate('/science');
+        else if (mode === 'alphabet') navigate('/preschool/alphabet');
+        else if (mode === 'counting') navigate('/preschool/counting');
+        else if (mode === 'colors') navigate('/preschool/colors');
     };
 
     const handleLogout = () => {

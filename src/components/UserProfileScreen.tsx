@@ -187,6 +187,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                                     onChange={(e) => onUpdateProfile({...student, grade: parseInt(e.target.value) as any})}
                                     className="px-4 py-2 border-2 border-brand-300 rounded-lg focus:border-brand-500 focus:outline-none bg-white font-semibold text-slate-700 w-48 cursor-pointer"
                                 >
+                                    <option value={0}>Mầm non</option>
                                     <option value={1}>Lớp 1</option>
                                     <option value={2}>Lớp 2</option>
                                     <option value={3}>Lớp 3</option>
