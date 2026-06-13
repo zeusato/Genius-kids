@@ -201,7 +201,7 @@ export function speakSequence(
     cancelSpeech();
     
     const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
-    const gap = opts.gapMs ?? 450;       // khoảng nghỉ giữa các phần (ms)
+    const gap = opts.gapMs ?? 300;       // khoảng nghỉ giữa các phần (ms)
     const rate = opts.rate ?? 0.8;       // chậm rãi cho trẻ
     const pitch = opts.pitch ?? 1.05;
     let i = 0;
