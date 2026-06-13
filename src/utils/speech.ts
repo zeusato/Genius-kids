@@ -1,13 +1,27 @@
 // Tiện ích Text-to-Speech dùng chung cho toàn app.
 //
 // Thứ tự ưu tiên khi đọc:
-//   1. Web Speech API — giọng hệ điều hành (vi-VN / en-US).
-//   2. Audio tạo sẵn (chỉ vi-VN, qua opts.audioId) — same-origin, offline-friendly.
-//   3. Google Translate TTS — fallback online cho bất kỳ ngôn ngữ nào khi thiết bị
-//      không cài giọng phù hợp. URL: translate.google.com/translate_tts?ie=UTF-8&
-//      q=<encodeURIComponent(text)>&tl=<vi|en>&client=tw-ob
+//   1. Audio tạo sẵn tự động bằng slug (chỉ vi-VN) — same-origin, chạy offline 100%.
+//   2. Web Speech API — giọng hệ điều hành (vi-VN / en-US).
+//   3. Audio tạo sẵn thủ công (chỉ vi-VN, qua opts.audioId).
+//   4. Google Translate TTS — fallback online khi không có giọng hệ thống.
+
+import pregeneratedSlugs from '@/src/data/pregeneratedSlugs.json';
 
 export type SpeechLang = 'vi-VN' | 'en-US';
+
+const PREGENERATED_VI_SLUGS = new Set(pregeneratedSlugs);
+
+function getAudioSlug(text: string): string {
+    return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Loại bỏ dấu tiếng Việt
+        .replace(/[đĐ]/g, 'd')
+        .replace(/[^a-z0-9\s-]/g, '') // Chỉ giữ chữ, số, khoảng trắng, gạch ngang
+        .trim()
+        .replace(/\s+/g, '-');
+}
 
 let playToken = 0; // tăng lên để vô hiệu hóa audio đang phát khi cancel/đọc mới
 let currentAudio: HTMLAudioElement | null = null;
@@ -62,10 +76,11 @@ export function cancelSpeech(): void {
 
 function playPregeneratedAudio(
     audioId: string,
-    opts: { onEnd?: () => void; onError?: () => void }
+    opts: { onEnd?: () => void; onError?: () => void },
+    customToken?: number
 ): boolean {
     if (typeof Audio === 'undefined') return false;
-    const token = ++playToken;
+    const token = customToken !== undefined ? customToken : ++playToken;
     const base = (import.meta as any).env?.BASE_URL || '/';
     const audio = new Audio(`${base}audio/vi/${audioId}.mp3`);
     currentAudio = audio;
@@ -100,14 +115,13 @@ function playGoogleTTS(
     const tl = lang.split('-')[0]; // 'vi-VN' → 'vi', 'en-US' → 'en'
     const qs = `ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=tw-ob`;
     
-    // Gọi thẳng Google Translate TTS và sử dụng referrerPolicy = 'no-referrer'
-    // để tránh bị 403 Forbidden do Referer bị chặn trên cả Dev và Production.
-    const url = `https://translate.google.com/translate_tts?${qs}`;
-    
-    const audio = document.createElement('audio');
-    audio.referrerPolicy = 'no-referrer';
-    audio.src = url;
-    
+    // Dev: qua Vite proxy để tránh 403.
+    // Prod: gọi thẳng Google (do các câu tĩnh đã có pre-generate, fallback rất ít khi xảy ra).
+    const url = (import.meta as any).env?.DEV
+        ? `/api/tts?${qs}`
+        : `https://translate.google.com/translate_tts?${qs}`;
+        
+    const audio = new Audio(url);
     currentAudio = audio;
     const cleanup = (cb?: () => void) => () => {
         if (capturedToken === playToken) { currentAudio = null; cb?.(); }
@@ -133,10 +147,19 @@ export function speak(text: string, opts: SpeakOptions = {}): boolean {
     const capturedToken = playToken;
 
     const lang = opts.lang ?? 'vi-VN';
+    
+    // 1. Ưu tiên phát file âm thanh tạo sẵn (chỉ vi-VN) để đảm bảo chất lượng cao nhất
+    if (lang === 'vi-VN') {
+        const slug = getAudioSlug(text);
+        if (PREGENERATED_VI_SLUGS.has(slug)) {
+            return playPregeneratedAudio(slug, opts, capturedToken);
+        }
+    }
+    
     const voice = getVoice(lang);
     if (!voice) {
-        // Fallback 1: audio tạo sẵn same-origin (chỉ vi-VN).
-        if (lang === 'vi-VN' && opts.audioId) return playPregeneratedAudio(opts.audioId, opts);
+        // Fallback 1: audio tạo sẵn thủ công (chỉ vi-VN).
+        if (lang === 'vi-VN' && opts.audioId) return playPregeneratedAudio(opts.audioId, opts, capturedToken);
         // Fallback 2: Google Translate TTS (mọi ngôn ngữ, cần kết nối mạng).
         return playGoogleTTS(text, lang, capturedToken, opts);
     }
@@ -176,8 +199,7 @@ export function speakSequence(
     opts: { gapMs?: number; rate?: number; pitch?: number; onEnd?: () => void } = {}
 ): void {
     cancelSpeech();
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) { opts.onEnd?.(); return; }
-
+    
     const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
     const gap = opts.gapMs ?? 450;       // khoảng nghỉ giữa các phần (ms)
     const rate = opts.rate ?? 0.8;       // chậm rãi cho trẻ
@@ -190,6 +212,15 @@ export function speakSequence(
         const p = parts[i++];
         const lang = p.lang ?? 'vi-VN';
         const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
+
+        // 1. Ưu tiên phát file âm thanh tạo sẵn (chỉ vi-VN) để đảm bảo chất lượng cao nhất
+        if (lang === 'vi-VN') {
+            const slug = getAudioSlug(p.text);
+            if (PREGENERATED_VI_SLUGS.has(slug)) {
+                const started = playPregeneratedAudio(slug, { onEnd: advance, onError: advance }, token);
+                if (started) return;
+            }
+        }
 
         const voice = getVoice(lang);
         if (!voice) {
