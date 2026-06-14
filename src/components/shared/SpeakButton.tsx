@@ -81,19 +81,32 @@ export const SpeakButton: React.FC<SpeakButtonProps> = ({
 
     const toggle = () => (speaking ? stop() : start());
 
-    // Tự đọc khi nội dung đổi. Nếu giọng chưa tải xong thì đợi 'voiceschanged' rồi đọc.
+    // Tự đọc khi nội dung đổi.
+    // - Đã có giọng → đọc ngay (ưu tiên giọng thiết bị, chất lượng tốt nhất).
+    // - Giọng đang tải bất đồng bộ (Chrome/Android) → đợi 'voiceschanged' rồi đọc.
+    // - Sau 1.2s vẫn không có giọng nào (vd máy không hỗ trợ TTS) → vẫn đọc; startChain
+    //   tự fallback sang MP3/Google. Tránh kẹt autoPlay vĩnh viễn trên máy không có giọng.
     useEffect(() => {
         if (!autoPlay) return;
         let fired = false;
-        const tryStart = () => {
-            if (fired || !voicesReady()) return;
+        let timer = 0;
+        let off = () => { };
+        const fire = () => {
+            if (fired) return;
             fired = true;
+            window.clearTimeout(timer);
+            off();
             start();
         };
+        const tryStart = () => {
+            if (!fired && voicesReady()) fire();
+        };
+        off = onSpeechAvailabilityChanged(tryStart);
+        timer = window.setTimeout(fire, 600); // lưới an toàn
         tryStart();
-        const off = onSpeechAvailabilityChanged(tryStart);
         return () => {
-            fired = true; // ngăn tryStart chạy sau cleanup
+            fired = true; // ngăn fire/tryStart chạy sau cleanup
+            window.clearTimeout(timer);
             off();
             if (speakingRef.current) {
                 cancelSpeech();
