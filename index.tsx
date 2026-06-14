@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './src/index.css';
 
-// Service worker được đăng ký trong services/updateService.ts (initUpdateService, gọi từ App)
+// Service worker (PWA) được đăng ký trong services/updateService.ts qua registerSW(),
+// initUpdateService() được gọi từ App.tsx.
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

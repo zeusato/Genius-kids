@@ -1,10 +1,13 @@
 // Tiện ích Text-to-Speech dùng chung cho toàn app.
 //
-// Thứ tự ưu tiên khi đọc (theo yêu cầu):
+// Thứ tự ưu tiên khi đọc:
 //   1. TTS của thiết bị — Web Speech API, giọng hệ điều hành (vi-VN / en-US).
-//   2. Google Translate TTS — service online (dev qua proxy /api/tts).
-//   3. MP3 built-in — audio tạo sẵn (chỉ vi-VN): khớp theo slug nội dung HOẶC opts.audioId.
-//      (Bước 3 chạy được cả khi offline → dùng làm lưới an toàn cuối cùng.)
+//   2. MP3 built-in — audio tạo sẵn (chỉ vi-VN): khớp theo slug nội dung HOẶC opts.audioId.
+//      Đáng tin cậy & chạy offline → ưu tiên hơn Google trên production (GitHub Pages là
+//      hosting tĩnh, không có server proxy nên gọi thẳng Google TTS hay bị chặn 403).
+//   3. Google Translate TTS — service online, chỉ dùng cho nội dung KHÔNG có MP3 (vd câu
+//      trả lời động trong Tell Me Why). Dev: qua proxy /api/tts. Prod: qua VITE_TTS_PROXY
+//      nếu được cấu hình, nếu không gọi thẳng Google (best-effort, có thể bị 403).
 
 import pregeneratedSlugs from '@/src/data/pregeneratedSlugs.json';
 
@@ -132,15 +135,18 @@ function playPregeneratedAudio(
     const base = (import.meta as any).env?.BASE_URL || '/';
     const audio = new Audio(`${base}audio/vi/${audioId}.mp3`);
     currentAudio = audio;
-    audio.onended = () => {
-        if (token === playToken) { currentAudio = null; opts.onEnd?.(); }
+    // 'error' và rejection của play() có thể CÙNG kích hoạt → chỉ xử lý kết thúc đúng MỘT lần.
+    let settled = false;
+    const done = (ok: boolean) => {
+        if (settled) return;
+        settled = true;
+        if (token !== playToken) return;
+        currentAudio = null;
+        if (ok) opts.onEnd?.(); else opts.onError?.();
     };
-    audio.onerror = () => {
-        if (token === playToken) { currentAudio = null; opts.onError?.(); }
-    };
-    audio.play().catch(() => {
-        if (token === playToken) { currentAudio = null; opts.onError?.(); }
-    });
+    audio.onended = () => done(true);
+    audio.onerror = () => done(false);
+    audio.play().catch(() => done(false));
     return true;
 }
 
@@ -164,7 +170,10 @@ function playGoogleTTS(
 ): boolean {
     if (typeof Audio === 'undefined') return false;
     const tl = lang.split('-')[0]; // 'vi-VN' → 'vi', 'en-US' → 'en'
-    const isDev = !!(import.meta as any).env?.DEV;
+    const env = (import.meta as any).env || {};
+    const isDev = !!env.DEV;
+    // Proxy tự host tuỳ chọn cho prod (vd Cloudflare Worker) — nhận cùng query string như /api/tts.
+    const proxy: string | undefined = env.VITE_TTS_PROXY;
     const chunks = chunkText(text, 180);
     if (chunks.length === 0) { opts.onEnd?.(); return true; }
 
@@ -175,17 +184,29 @@ function playGoogleTTS(
         const isFirst = i === 0;
         const chunk = chunks[i++];
         const qs = `ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${tl}&client=tw-ob`;
-        // Dev: qua Vite proxy để tránh 403. Prod: gọi thẳng Google.
-        const url = isDev ? `/api/tts?${qs}` : `https://translate.google.com/translate_tts?${qs}`;
+        // Dev: qua Vite proxy (tránh 403). Prod: qua proxy tự host nếu có, nếu không gọi thẳng Google.
+        const url = isDev
+            ? `/api/tts?${qs}`
+            : proxy
+                ? `${proxy}?${qs}`
+                : `https://translate.google.com/translate_tts?${qs}`;
         const audio = new Audio(url);
         currentAudio = audio;
+        // 'error' và rejection của play() có thể CÙNG kích hoạt → mỗi đoạn chỉ xử lý 1 lần.
+        let settled = false;
         const onFail = () => {
+            if (settled) return;
+            settled = true;
             if (capturedToken !== playToken) return;
             currentAudio = null;
             if (isFirst) opts.onError?.(); // đoạn đầu hỏng → để caller dùng MP3
             else playNext();               // đoạn sau hỏng → đọc tiếp đoạn kế
         };
-        audio.onended = () => { if (capturedToken === playToken) playNext(); };
+        audio.onended = () => {
+            if (settled) return;
+            settled = true;
+            if (capturedToken === playToken) playNext();
+        };
         audio.onerror = onFail;
         audio.play().catch(onFail);
     };
@@ -220,18 +241,21 @@ function startChain(
 ): boolean {
     const finish = () => { if (token === playToken) onDone(); };
 
-    // 3 (lưới an toàn cuối): MP3 built-in — khớp slug nội dung hoặc audioId thủ công (chỉ vi-VN).
-    const tryMp3 = (): boolean => {
-        if (lang === 'vi-VN') {
-            const slug = getAudioSlug(text);
-            if (PREGENERATED_VI_SLUGS.has(slug)) return playPregeneratedAudio(slug, { onEnd: finish, onError: finish }, token);
-            if (audioId) return playPregeneratedAudio(audioId, { onEnd: finish, onError: finish }, token);
-        }
-        finish();
-        return false;
+    // Slug MP3 built-in cho nội dung tiếng Việt (khớp nội dung hoặc audioId thủ công).
+    const mp3Slug = (): string | null => {
+        if (lang !== 'vi-VN') return null;
+        const slug = getAudioSlug(text);
+        if (PREGENERATED_VI_SLUGS.has(slug)) return slug;
+        return audioId ?? null;
     };
 
-    // 1. TTS của thiết bị (Web Speech).
+    // Google TTS (online). Lỗi → finish (đã thử hết cách).
+    const tryGoogle = (): boolean => {
+        if (typeof Audio === 'undefined') { finish(); return false; }
+        return playGoogleTTS(text, lang, token, { onEnd: finish, onError: finish });
+    };
+
+    // 1. TTS của thiết bị (Web Speech) — chất lượng tốt nhất, chạy offline.
     const voice = getVoice(lang);
     if (voice && typeof window !== 'undefined' && 'speechSynthesis' in window) {
         const chunks = chunkText(text);
@@ -255,13 +279,15 @@ function startChain(
         return true;
     }
 
-    // 2. Google TTS; nếu lỗi (offline/bị chặn) → rơi xuống MP3 built-in.
-    if (typeof Audio !== 'undefined') {
-        return playGoogleTTS(text, lang, token, { onEnd: finish, onError: () => { tryMp3(); } });
+    // 2. MP3 built-in (chỉ vi-VN) — đáng tin cậy & chạy offline; ưu tiên hơn Google trên prod.
+    //    Nếu MP3 lỗi (thiếu file) → mới thử Google.
+    const slug = mp3Slug();
+    if (slug) {
+        return playPregeneratedAudio(slug, { onEnd: finish, onError: () => { tryGoogle(); } }, token);
     }
 
-    // Không có Audio API → thử MP3 (gần như không xảy ra).
-    return tryMp3();
+    // 3. Google TTS — chỉ dùng cho nội dung KHÔNG có MP3 (vd câu trả lời động).
+    return tryGoogle();
 }
 
 /** Đọc một đoạn text bằng ngôn ngữ chỉ định. Trả về true nếu đã bắt đầu đọc. */

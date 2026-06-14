@@ -10,6 +10,21 @@
   <meta property="og:description" content="Ứng dụng học toán vui nhộn cho bé từ lớp 1 đến lớp 5" />
   <meta property="og:image" content="/OG.png" />
   <meta property="og:url" content="https://zeusato.github.io/Genius-kids/" />
+  <!--
+    Khôi phục route SPA do 404.html chuyển hướng tới (GitHub Pages).
+    Giải mã đường dẫn từ query string "?/path" về lại URL thật trước khi React Router chạy.
+    Kỹ thuật theo https://github.com/rafgraph/spa-github-pages
+  -->
+  <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&');
+        }).join('?');
+        window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+      }
+    }(window.location));
+  </script>
 </head>
 
 <body class="bg-brand-50 text-slate-800 font-sans antialiased">

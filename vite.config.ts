@@ -46,6 +46,9 @@ export default defineConfig(({ mode }) => {
       }),
       VitePWA({
         registerType: 'prompt',
+        // Service worker được đăng ký thủ công qua registerSW() trong services/updateService.ts.
+        // injectRegister: false để plugin không tự chèn thêm script đăng ký (tránh đăng ký 2 lần).
+        injectRegister: false,
         includeAssets: ['Logo.png', 'OG.png'],
         manifest: {
           name: 'MathGenius Kids',

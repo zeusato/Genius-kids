@@ -36,6 +36,9 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          # URL của Cloudflare Worker proxy cho Google TTS (đặt ở Settings → Variables).
+          # Bỏ trống thì prod gọi thẳng Google (hay bị 403) và rơi xuống MP3/giọng thiết bị.
+          VITE_TTS_PROXY: ${{ vars.VITE_TTS_PROXY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

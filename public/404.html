@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Genius Kids</title>
+  <!--
+    SPA fallback cho GitHub Pages.
+    GitHub Pages là hosting tĩnh, không biết các route phía client (vd /preschool/alphabet)
+    nên khi truy cập thẳng / refresh sẽ trả về trang 404 này. Script dưới chuyển hướng về
+    trang gốc, mã hoá đường dẫn vào query string để index.html khôi phục lại đúng route.
+    Kỹ thuật theo https://github.com/rafgraph/spa-github-pages
+    pathSegmentsToKeep = 1 vì site phục vụ tại https://zeusato.github.io/Genius-kids/
+  -->
+  <script type="text/javascript">
+    var pathSegmentsToKeep = 1;
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+
+<body></body>
+
+</html>
