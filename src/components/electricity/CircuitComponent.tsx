@@ -9,6 +9,7 @@ interface CircuitComponentProps {
     onToggle?: () => void;
     onPortClick?: (port: 'input' | 'output') => void;
     onDragStart?: (e: React.MouseEvent) => void;
+    onDelete?: () => void;
     isDragging?: boolean;
     onTouchStart?: (e: React.TouchEvent) => void;
     onTouchMove?: (e: React.TouchEvent) => void;
@@ -23,56 +24,62 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
     onToggle,
     onPortClick,
     onDragStart,
+    onDelete,
     isDragging,
     onTouchStart,
     onTouchMove,
     onTouchEnd
 }) => {
     const definition = COMPONENTS[component.type];
+    const [hovered, setHovered] = React.useState(false);
+    const showDelete = !!onDelete && !isDragging && (hovered || isSelected);
 
     const isOn = component.isActive;
     const switchState = component.type === 'switch' ? component.state : null;
 
+    // Light "chip" when idle, bright + glow when active — reads cleanly on the
+    // light canvas and makes the on/off state obvious.
+    const OFF = 'bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300';
     const getComponentStyles = () => {
         switch (component.type) {
             case 'battery':
                 return {
-                    bg: 'bg-gradient-to-r from-red-500 to-slate-600',
-                    glow: isOn ? 'shadow-red-500/50' : ''
+                    bg: 'bg-gradient-to-br from-rose-400 to-red-500 border border-red-500',
+                    glow: isOn ? 'shadow-lg shadow-red-500/50' : 'shadow-sm'
                 };
             case 'bulb':
                 return {
-                    bg: isOn ? 'bg-yellow-400' : 'bg-slate-600',
-                    glow: isOn ? 'shadow-yellow-400/80 shadow-lg' : ''
+                    bg: isOn ? 'bg-gradient-to-br from-yellow-300 to-amber-400 border border-amber-400' : OFF,
+                    glow: isOn ? 'shadow-lg shadow-yellow-400/80' : ''
                 };
             case 'switch':
                 return {
-                    bg: switchState === 'on' ? 'bg-green-500' : 'bg-slate-600',
-                    glow: switchState === 'on' ? 'shadow-green-500/50' : ''
+                    bg: switchState === 'on' ? 'bg-gradient-to-br from-green-400 to-emerald-500 border border-emerald-500' : OFF,
+                    glow: switchState === 'on' ? 'shadow-md shadow-green-500/50' : ''
                 };
             case 'bell':
                 return {
-                    bg: isOn ? 'bg-yellow-500' : 'bg-slate-600',
-                    glow: isOn ? 'shadow-yellow-500/50' : ''
+                    bg: isOn ? 'bg-gradient-to-br from-yellow-400 to-amber-500 border border-amber-500' : OFF,
+                    glow: isOn ? 'shadow-md shadow-yellow-500/50' : ''
                 };
             case 'fan':
                 return {
-                    bg: isOn ? 'bg-cyan-500' : 'bg-slate-600',
-                    glow: isOn ? 'shadow-cyan-500/50' : ''
+                    bg: isOn ? 'bg-gradient-to-br from-cyan-400 to-sky-500 border border-cyan-500' : OFF,
+                    glow: isOn ? 'shadow-md shadow-cyan-500/50' : ''
                 };
             case 'candle':
                 // isActive = true means blown out (no flame)
                 return {
-                    bg: component.isActive ? 'bg-slate-500' : 'bg-orange-400',
-                    glow: component.isActive ? '' : 'shadow-orange-400/50'
+                    bg: component.isActive ? OFF : 'bg-gradient-to-br from-orange-300 to-orange-400 border border-orange-400',
+                    glow: component.isActive ? '' : 'shadow-md shadow-orange-400/50'
                 };
             case 'buzzer':
                 return {
-                    bg: isOn ? 'bg-purple-500' : 'bg-slate-600',
-                    glow: isOn ? 'shadow-purple-500/50' : ''
+                    bg: isOn ? 'bg-gradient-to-br from-purple-400 to-fuchsia-500 border border-purple-500' : OFF,
+                    glow: isOn ? 'shadow-md shadow-purple-500/50' : ''
                 };
             default:
-                return { bg: 'bg-slate-600', glow: '' };
+                return { bg: OFF, glow: '' };
         }
     };
 
@@ -93,9 +100,9 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
     };
 
     const handleMouseDown = (e: React.MouseEvent) => {
-        // Only start drag if not clicking on ports
+        // Only start drag if not clicking on ports or the delete button
         const target = e.target as HTMLElement;
-        if (!target.closest('.port-button')) {
+        if (!target.closest('.port-button') && !target.closest('.delete-button')) {
             onDragStart?.(e);
         }
     };
@@ -115,15 +122,34 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
             style={{
                 left: component.x,
                 top: component.y,
-                transform: `rotate(${component.rotation}deg)`,
-                zIndex: isDragging ? 100 : 1,
+                zIndex: isDragging || showDelete ? 100 : 1,
             }}
             onClick={handleClick}
             onMouseDown={handleMouseDown}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
         >
+            {/* Delete button */}
+            {showDelete && (
+                <button
+                    className="delete-button absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full bg-red-500 hover:bg-red-600 border-2 border-white text-white flex items-center justify-center shadow-md z-30 leading-none"
+                    onMouseDown={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
+                    onClick={(e) => { e.stopPropagation(); onDelete?.(); }}
+                    title="Xóa linh kiện"
+                >
+                    <span className="text-sm font-bold -mt-px">×</span>
+                </button>
+            )}
+
+            {/* Name label */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] font-medium text-slate-500 whitespace-nowrap pointer-events-none select-none">
+                {definition.name}
+            </div>
+
             {/* Icon */}
             <span className={`text-2xl select-none ${component.type === 'fan' && isOn ? 'animate-spin' : ''}`}>
                 {definition.icon}
@@ -131,7 +157,7 @@ export const CircuitComponent: React.FC<CircuitComponentProps> = ({
 
             {/* State indicator for switch */}
             {component.type === 'switch' && (
-                <span className="text-[10px] text-white font-semibold mt-0.5 select-none">
+                <span className={`text-[10px] font-bold mt-0.5 select-none ${switchState === 'on' ? 'text-white' : 'text-slate-500'}`}>
                     {switchState === 'on' ? 'BẬT' : 'TẮT'}
                 </span>
             )}

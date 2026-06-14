@@ -112,7 +112,6 @@ export interface CircuitComponentData {
     type: ComponentType;
     x: number;
     y: number;
-    rotation: number; // 0, 90, 180, 270
     state: 'on' | 'off'; // for switch
     isActive: boolean; // receiving power
 }
@@ -140,6 +139,7 @@ export interface LessonData {
     theory: {
         content: string;
         keyPoints: string[];
+        funFact?: string;   // "Em có biết?" enrichment / safety note
     };
     illustration: {
         type: 'animation' | 'diagram' | 'comparison';
@@ -165,7 +165,8 @@ export const LESSONS: LessonData[] = [
                 'Electron là hạt rất nhỏ mang điện âm (-)',
                 'Khi electron di chuyển → tạo ra dòng điện',
                 'Cần có nguồn (pin) để đẩy electron đi'
-            ]
+            ],
+            funFact: 'Electron nhỏ xíu nhưng tín hiệu điện chạy trong dây nhanh gần bằng tốc độ ánh sáng — bật công tắc là đèn sáng gần như tức thì!'
         },
         illustration: {
             type: 'animation',
@@ -187,7 +188,8 @@ export const LESSONS: LessonData[] = [
                 'Mạch kín = vòng liên tục từ (+) về (-) của pin',
                 'Mạch hở = có chỗ đứt, electron không chạy được',
                 'Đèn chỉ sáng khi ở trong mạch kín'
-            ]
+            ],
+            funFact: '⚠️ Nối thẳng cực (+) sang (−) của pin mà không qua thiết bị nào gọi là ĐOẢN MẠCH — pin sẽ nóng lên và hỏng rất nhanh. Đừng thử với pin thật nhé!'
         },
         illustration: {
             type: 'comparison',
@@ -208,7 +210,8 @@ export const LESSONS: LessonData[] = [
                 'Pin có 2 đầu: (+) dương và (-) âm',
                 'Electron đi từ (-) → qua mạch → về (+)',
                 'Pin cung cấp năng lượng cho dòng điện chạy'
-            ]
+            ],
+            funFact: 'Cục pin đầu tiên do nhà khoa học Volta chế tạo năm 1800. Đơn vị đo điện áp "Vôn (V)" được đặt theo tên ông đấy!'
         },
         illustration: {
             type: 'diagram',
@@ -229,7 +232,8 @@ export const LESSONS: LessonData[] = [
                 'Công tắc BẬT = mạch kín = có dòng điện',
                 'Công tắc TẮT = mạch hở = không có dòng điện',
                 'Luôn dùng công tắc để bật/tắt thiết bị điện'
-            ]
+            ],
+            funFact: '🦺 An toàn: hãy TẮT công tắc trước khi thay bóng đèn để không bị điện giật.'
         },
         illustration: {
             type: 'animation',
@@ -250,7 +254,8 @@ export const LESSONS: LessonData[] = [
                 'Nguồn: Pin cung cấp năng lượng',
                 'Dây dẫn: Đường cho electron chạy',
                 'Tải: Đèn biến điện thành ánh sáng'
-            ]
+            ],
+            funFact: 'Chiếc đèn pin trong nhà em cũng chỉ gồm pin + bóng đèn + công tắc thôi đấy!'
         },
         illustration: {
             type: 'diagram',
@@ -271,7 +276,8 @@ export const LESSONS: LessonData[] = [
                 'Các linh kiện nối thành 1 đường',
                 '1 đèn hỏng = cả dãy tắt',
                 'Càng nhiều đèn → mỗi đèn càng mờ'
-            ]
+            ],
+            funFact: 'Dây đèn nhấp nháy trang trí thường mắc nối tiếp — nên chỉ 1 bóng cháy là cả dây tối thui!'
         },
         illustration: {
             type: 'diagram',
@@ -292,7 +298,8 @@ export const LESSONS: LessonData[] = [
                 'Mỗi đèn có đường riêng đến pin',
                 '1 đèn hỏng ≠ ảnh hưởng đèn khác',
                 'Các đèn sáng đều như nhau'
-            ]
+            ],
+            funFact: 'Đèn trong nhà mắc song song, nên tắt phòng này thì phòng kia vẫn sáng bình thường.'
         },
         illustration: {
             type: 'diagram',
@@ -313,7 +320,8 @@ export const LESSONS: LessonData[] = [
                 'Đèn trang trí thường NỐI TIẾP',
                 'Đèn trong nhà thường SONG SONG',
                 'Chọn loại mạch phù hợp với mục đích'
-            ]
+            ],
+            funFact: '⚡ Điện trong nhà (220V) mạnh hơn pin rất nhiều — tuyệt đối không tự cắm vật lạ vào ổ điện nhé!'
         },
         illustration: {
             type: 'comparison',
@@ -482,11 +490,12 @@ export const CHALLENGES: ChallengeData[] = [
     },
 ];
 
-// Get random challenge by difficulty
-export function getRandomChallenge(difficulty?: 1 | 2 | 3): ChallengeData {
-    let pool = CHALLENGES;
-    if (difficulty) {
-        pool = CHALLENGES.filter(c => c.difficulty === difficulty);
+// Get random challenge by difficulty, avoiding an immediate repeat when possible
+export function getRandomChallenge(difficulty?: 1 | 2 | 3, excludeId?: string): ChallengeData {
+    let pool = difficulty ? CHALLENGES.filter(c => c.difficulty === difficulty) : CHALLENGES;
+    if (excludeId && pool.length > 1) {
+        const filtered = pool.filter(c => c.id !== excludeId);
+        if (filtered.length > 0) pool = filtered;
     }
     return pool[Math.floor(Math.random() * pool.length)];
 }

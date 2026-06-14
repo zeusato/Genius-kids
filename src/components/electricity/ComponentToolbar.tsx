@@ -7,6 +7,17 @@ interface ComponentToolbarProps {
     disabled?: boolean;
 }
 
+// Soft accent tile behind each icon so the palette reads as a designed icon set.
+const ACCENT: Record<string, string> = {
+    battery: 'bg-gradient-to-br from-emerald-100 to-emerald-200 ring-emerald-300',
+    bulb: 'bg-gradient-to-br from-amber-100 to-yellow-200 ring-amber-300',
+    switch: 'bg-gradient-to-br from-slate-100 to-slate-200 ring-slate-300',
+    bell: 'bg-gradient-to-br from-yellow-100 to-amber-200 ring-yellow-300',
+    fan: 'bg-gradient-to-br from-cyan-100 to-sky-200 ring-cyan-300',
+    candle: 'bg-gradient-to-br from-orange-100 to-orange-200 ring-orange-300',
+    buzzer: 'bg-gradient-to-br from-purple-100 to-fuchsia-200 ring-purple-300',
+};
+
 export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart, onMobileDrop, disabled }) => {
     // Exclude 'wire' from toolbar - wires are created by connecting ports
     const componentTypes: ComponentType[] = ['battery', 'bulb', 'switch', 'bell', 'fan', 'candle', 'buzzer'];
@@ -57,8 +68,8 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
     };
 
     return (
-        <div className="flex flex-col gap-2 p-3 bg-slate-800/50 rounded-xl border border-white/10">
-            <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-1 hidden md:block">
+        <div className="flex flex-col gap-2 p-3 bg-white/70 rounded-xl border border-sky-200 shadow-sm">
+            <h3 className="text-sky-700/80 text-xs font-semibold uppercase tracking-wider mb-1 hidden md:block">
                 Linh kiện
             </h3>
             {/* Mobile: horizontal scroll, Desktop: 2-column grid */}
@@ -76,17 +87,19 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
                             }}
                             disabled={disabled}
                             className={`
-                                flex flex-col items-center justify-center p-2 rounded-lg
-                                bg-slate-700/50 border border-white/10
-                                hover:bg-slate-600/50 hover:border-cyan-500/50
+                                group flex flex-col items-center justify-center gap-1 p-2 rounded-xl
+                                bg-white border border-sky-200
+                                hover:bg-sky-50 hover:border-sky-400 hover:shadow-md
                                 transition-all cursor-grab active:cursor-grabbing
                                 flex-shrink-0 w-16 md:w-auto
                                 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
                             `}
                             title={component.description}
                         >
-                            <span className="text-2xl mb-1">{component.icon}</span>
-                            <span className="text-white/70 text-[10px] text-center leading-tight">
+                            <span className={`w-10 h-10 flex items-center justify-center rounded-xl text-2xl ring-1 shadow-sm group-hover:scale-110 transition-transform ${ACCENT[type] ?? 'bg-slate-100 ring-slate-200'}`}>
+                                {component.icon}
+                            </span>
+                            <span className="text-slate-600 text-[10px] text-center leading-tight font-semibold">
                                 {component.name}
                             </span>
                         </button>
@@ -94,12 +107,9 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
                 })}
             </div>
 
-            <div className="mt-2 pt-2 border-t border-white/10 hidden md:block">
-                <p className="text-white/40 text-[10px] text-center">
-                    Kéo thả vào canvas
-                </p>
-                <p className="text-cyan-400/60 text-[10px] text-center mt-1">
-                    💡 Nhấn vào đầu nối để tạo dây
+            <div className="mt-1 pt-2 border-t border-sky-200 hidden md:block">
+                <p className="text-sky-600/80 text-[10px] text-center leading-snug">
+                    💡 Nhấn đầu nối để tạo dây
                 </p>
             </div>
             {/* Ghost Element for Touch Dragging */}
@@ -114,7 +124,7 @@ export const ComponentToolbar: React.FC<ComponentToolbarProps> = ({ onDragStart,
                         height: '64px'
                     }}
                 >
-                    <div className="w-full h-full bg-slate-700/50 border border-cyan-500 rounded-xl flex items-center justify-center text-3xl shadow-xl backdrop-blur-sm">
+                    <div className="w-full h-full bg-white border-2 border-sky-400 rounded-xl flex items-center justify-center text-3xl shadow-xl">
                         {COMPONENTS[draggingType].icon}
                     </div>
                 </div>

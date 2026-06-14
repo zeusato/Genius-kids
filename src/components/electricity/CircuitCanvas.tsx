@@ -1,40 +1,103 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { ComponentType, CircuitComponentData, WireData, CircuitData, COMPONENTS } from '@/src/data/electricityData';
+import { ComponentType, CircuitComponentData, WireData, CircuitData } from '@/src/data/electricityData';
 import { CircuitComponent } from './CircuitComponent';
 import { ComponentToolbar } from './ComponentToolbar';
+import { analyzeCircuit, statusFromAnalysis, POWERED_OFF_STATUS, CircuitStatus, LoadConnection } from './circuitEngine';
 import { Trash2, Undo2, Zap, ZapOff } from 'lucide-react';
 
 interface CircuitCanvasProps {
     initialCircuit?: CircuitData;
     onChange?: (circuit: CircuitData) => void;
-    onCircuitStatusChange?: (status: { isComplete: boolean; isPowered: boolean }) => void;
+    onCircuitStatusChange?: (status: CircuitStatus) => void;
     readOnly?: boolean;
     hideToolbar?: boolean;  // Hide component toolbar (for lesson exercises)
+    autoPower?: boolean;    // Start powered & stay live (challenge mode)
 }
 
 let componentIdCounter = 0;
 let wireIdCounter = 0;
+// Per-module-load base so ids stay unique even if the module hot-reloads while
+// React preserves the old component state (avoids duplicate-key collisions).
+const ID_BASE = Math.random().toString(36).slice(2, 7);
 
 interface HistoryState {
     components: CircuitComponentData[];
     wires: WireData[];
 }
 
+// Educational pill shown when 2+ loads are lit, so kids can see the topology
+// they actually built. Empty string => no pill.
+const CONNECTION_LABEL: Record<LoadConnection, string> = {
+    none: '',
+    single: '',
+    series: '🔗 Nối tiếp',
+    parallel: '🔀 Song song',
+    mixed: '🔧 Mạch hỗn hợp',
+};
+
+// Stable hash of a wire id → used to give each wire its own "lane" so
+// overlapping wires fan apart deterministically (separation survives re-renders).
+const hashId = (id: string): number => {
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = ((h << 5) - h + id.charCodeAt(i)) | 0;
+    return Math.abs(h);
+};
+
+interface Pt { x: number; y: number; }
+
+// Build a smooth cubic-Bézier wire that leaves each port horizontally (output→
+// right, input→left), like a node-editor. `seed` gives the wire a stable bow so
+// that wires sharing a route arc apart and (near-)horizontal runs curve around
+// whatever sits between the two ports instead of cutting straight through it.
+const buildWire = (from: Pt, to: Pt, fromPort: 'input' | 'output', toPort: 'input' | 'output', seed: number) => {
+    const fromDir = fromPort === 'output' ? 1 : -1;
+    const toDir = toPort === 'output' ? 1 : -1;
+    const dist = Math.hypot(to.x - from.x, to.y - from.y);
+    const handle = Math.max(34, Math.min(dist * 0.5, 130));
+
+    // Bow the curve only when the two ports sit at nearly the same height
+    // (otherwise the natural S-curve already separates them cleanly).
+    const aligned = Math.abs(to.y - from.y) < 36;
+    const bowMag = aligned ? 32 + (seed % 3) * 26 : (seed % 4) * 10; // 32/58/84 vs 0/10/20/30
+    const bow = bowMag * (seed % 2 === 0 ? 1 : -1);
+
+    const c1: Pt = { x: from.x + fromDir * handle, y: from.y + bow };
+    const c2: Pt = { x: to.x + toDir * handle, y: to.y + bow };
+
+    const path = `M ${from.x} ${from.y} C ${c1.x} ${c1.y} ${c2.x} ${c2.y} ${to.x} ${to.y}`;
+    const reversePath = `M ${to.x} ${to.y} C ${c2.x} ${c2.y} ${c1.x} ${c1.y} ${from.x} ${from.y}`;
+
+    // Midpoint at t=0.5 for the delete handle.
+    const mid: Pt = {
+        x: 0.125 * from.x + 0.375 * c1.x + 0.375 * c2.x + 0.125 * to.x,
+        y: 0.125 * from.y + 0.375 * c1.y + 0.375 * c2.y + 0.125 * to.y,
+    };
+
+    return { path, reversePath, mid };
+};
+
 export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
     initialCircuit,
     onChange,
     onCircuitStatusChange,
     readOnly = false,
-    hideToolbar = false
+    hideToolbar = false,
+    autoPower = false
 }) => {
     const [components, setComponents] = useState<CircuitComponentData[]>(
         initialCircuit?.components || []
     );
     const [wires, setWires] = useState<WireData[]>(initialCircuit?.wires || []);
     const [selectedId, setSelectedId] = useState<string | null>(null);
-    const [isCircuitComplete, setIsCircuitComplete] = useState(false);
-    const [isPowered, setIsPowered] = useState(false);
+    const [status, setStatus] = useState<CircuitStatus>(POWERED_OFF_STATUS);
+    const [isPowered, setIsPowered] = useState(autoPower);
     const [wireStates, setWireStates] = useState<Map<string, { isActive: boolean, isReverse: boolean }>>(new Map());
+
+    // Latest committed state, so post-drag / async recomputes never read stale closures.
+    const componentsRef = useRef(components);
+    const wiresRef = useRef(wires);
+    useEffect(() => { componentsRef.current = components; }, [components]);
+    useEffect(() => { wiresRef.current = wires; }, [wires]);
 
     // Undo history
     const [history, setHistory] = useState<HistoryState[]>([]);
@@ -55,10 +118,16 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         onChange?.({ components, wires });
     }, [components, wires]);
 
-    // Sync circuit status (isComplete, isPowered) to parent
+    // Sync rich circuit status to parent
     useEffect(() => {
-        onCircuitStatusChange?.({ isComplete: isCircuitComplete, isPowered });
-    }, [isCircuitComplete, isPowered, onCircuitStatusChange]);
+        onCircuitStatusChange?.(status);
+    }, [status, onCircuitStatusChange]);
+
+    // Challenge mode starts live: compute power once for any seeded circuit.
+    useEffect(() => {
+        if (autoPower) updateCircuitPower(componentsRef.current, wiresRef.current, true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Save state to history before changes
     const saveToHistory = () => {
@@ -97,11 +166,10 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         saveToHistory();
 
         const newComponent: CircuitComponentData = {
-            id: `comp_${++componentIdCounter}`,
+            id: `comp_${ID_BASE}_${++componentIdCounter}`,
             type,
             x: Math.max(0, Math.min(x, rect.width - 64)),
             y: Math.max(0, Math.min(y, rect.height - 64)),
-            rotation: 0,
             state: type === 'switch' ? 'off' : 'on',
             isActive: false,
         };
@@ -109,6 +177,9 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         const newComponents = [...components, newComponent];
         setComponents(newComponents);
         onChange?.({ components: newComponents, wires });
+
+        // Keep the live simulation in sync when adding mid-run.
+        if (isPowered) updateCircuitPower(newComponents, wires);
     };
 
     // Handle drag over
@@ -150,7 +221,9 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
     const handleMouseUp = () => {
         if (draggingId) {
             setDraggingId(null);
-            onChange?.({ components, wires });
+            onChange?.({ components: componentsRef.current, wires: wiresRef.current });
+            // Position changes can move a fan near/far from a candle.
+            if (isPowered) updateCircuitPower(componentsRef.current, wiresRef.current);
         }
     };
 
@@ -213,7 +286,8 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         }
         if (draggingId) {
             setDraggingId(null);
-            onChange?.({ components, wires });
+            onChange?.({ components: componentsRef.current, wires: wiresRef.current });
+            if (isPowered) updateCircuitPower(componentsRef.current, wiresRef.current);
         }
         touchStartPos.current = null;
     };
@@ -231,7 +305,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                 saveToHistory();
 
                 const newWire: WireData = {
-                    id: `wire_${++wireIdCounter}`,
+                    id: `wire_${ID_BASE}_${++wireIdCounter}`,
                     fromId: wireStart.id,
                     fromPort: wireStart.port,
                     toId: componentId,
@@ -272,8 +346,9 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         setWires([]);
         setSelectedId(null);
         setWireStart(null);
-        setIsCircuitComplete(false);
-        setIsPowered(false);
+        setStatus(POWERED_OFF_STATUS);
+        setIsPowered(autoPower); // challenge mode stays live after a reset
+        setWireStates(new Map());
         onChange?.({ components: [], wires: [] });
     };
 
@@ -291,158 +366,26 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
             updateCircuitPower(components, newWires);
         }
     };
-    // ========== ROBUST CIRCUIT ANALYSIS ==========
 
-    // Analyze circuit to determine active components and electron flow direction
-    const analyzeCircuit = (comps: CircuitComponentData[], wiresData: WireData[]) => {
-        const battery = comps.find(c => c.type === 'battery');
-        if (!battery) return { activeIds: new Set<string>(), wireAnalysis: new Map() };
+    // Delete a component and any wires attached to it
+    const deleteComponent = (id: string) => {
+        if (readOnly) return;
+        saveToHistory();
+        const newComponents = components.filter(c => c.id !== id);
+        const newWires = wires.filter(w => w.fromId !== id && w.toId !== id);
+        setComponents(newComponents);
+        setWires(newWires);
+        setSelectedId(null);
+        setWireStart(null);
+        onChange?.({ components: newComponents, wires: newWires });
 
-        // Adjacency list with port info
-        const adj = new Map<string, Array<{ id: string, wireId: string, myPort: string, otherPort: string }>>();
-        comps.forEach(c => adj.set(c.id, []));
-
-        wiresData.forEach(w => {
-            adj.get(w.fromId)?.push({ id: w.toId, wireId: w.id, myPort: w.fromPort, otherPort: w.toPort });
-            adj.get(w.toId)?.push({ id: w.fromId, wireId: w.id, myPort: w.toPort, otherPort: w.fromPort });
-        });
-
-        // BFS from Battery Input (Source of electrons / Negative terminal)
-        const distNeg = new Map<string, number>();
-        const qNeg: string[] = [battery.id];
-        distNeg.set(battery.id, 0);
-
-        let head = 0;
-        while (head < qNeg.length) {
-            const u = qNeg[head++];
-            const neighbors = adj.get(u) || [];
-
-            for (const edge of neighbors) {
-                // If starting from battery, MUST go through Input port (Negative)
-                if (u === battery.id && edge.myPort !== 'input') continue;
-
-                const v = edge.id;
-                const compV = comps.find(c => c.id === v);
-                if (compV?.type === 'switch' && compV.state === 'off') continue;
-
-                if (!distNeg.has(v)) {
-                    distNeg.set(v, distNeg.get(u)! + 1);
-                    qNeg.push(v);
-                }
-            }
+        if (isPowered) {
+            updateCircuitPower(newComponents, newWires);
         }
-
-        // BFS from Battery Output (Sink of electrons / Positive terminal)
-        const distPos = new Map<string, number>();
-        const qPos: string[] = [battery.id];
-        distPos.set(battery.id, 0);
-
-        head = 0;
-        while (head < qPos.length) {
-            const u = qPos[head++];
-            const neighbors = adj.get(u) || [];
-
-            for (const edge of neighbors) {
-                // If starting from battery, MUST go through Output port (Positive)
-                if (u === battery.id && edge.myPort !== 'output') continue;
-
-                const v = edge.id;
-                const compV = comps.find(c => c.id === v);
-                if (compV?.type === 'switch' && compV.state === 'off') continue;
-
-                if (!distPos.has(v)) {
-                    distPos.set(v, distPos.get(u)! + 1);
-                    qPos.push(v);
-                }
-            }
-        }
-
-        // Active Components: Reachable from BOTH Input and Output (Closed Loop)
-        const activeIds = new Set<string>();
-        comps.forEach(c => {
-            if (c.type === 'battery') return; // Handled later
-            // Load is active if it has path to Negative AND Positive terminals
-            if (distNeg.has(c.id) && distPos.has(c.id)) {
-                activeIds.add(c.id);
-            }
-        });
-
-        // Battery is active if any load is active (i.e., circuit is doing work)
-        const anyLoadActive = Array.from(activeIds).some(id => {
-            const c = comps.find(comp => comp.id === id);
-            return c && ['bulb', 'bell', 'fan', 'buzzer'].includes(c.type);
-        });
-        if (anyLoadActive) activeIds.add(battery.id);
-
-
-        // Wire Analysis
-        const wireAnalysis = new Map<string, { isActive: boolean, isReverse: boolean }>();
-        wiresData.forEach(w => {
-            const u = w.fromId;
-            const v = w.toId;
-
-            const isUActive = activeIds.has(u);
-            const isVActive = activeIds.has(v);
-
-            // Wire is active if connects two active components
-            if (isUActive && isVActive) {
-                let isReverse = false;
-
-                // Special handling for wires connected explicitly to Battery ports
-                const uComp = comps.find(c => c.id === u);
-                const vComp = comps.find(c => c.id === v);
-
-                const uIsBat = uComp?.type === 'battery';
-                const vIsBat = vComp?.type === 'battery';
-
-                if (uIsBat) {
-                    // u is Battery. Check port used by wire.
-                    if (w.fromPort === 'input') isReverse = false; // Bat(-) -> Out works normal
-                    else if (w.fromPort === 'output') isReverse = true; // Bat(+) -> Out needs reverse to show In
-                } else if (vIsBat) {
-                    // v is Battery. Wire to v.
-                    if (w.toPort === 'input') isReverse = true; // In -> Bat(-) needs reverse to show In? Wait.
-                    // Wire A->B. A=Comp, B=Bat(-).
-                    // Flow A->B. Electron enters Bat(-)? No. Electron LEAVES Bat(-).
-                    // So if connected to Bat(-), flow should be Bat->Comp.
-                    // Wire defined A->B. If B is Bat(-), flow is B->A. (Reverse).
-                    // Wait. If w.toPort is 'input' (-). Logic: electrons leave (-).
-                    // Path A->B. Flow B->A. So Reverse. TRUE.
-
-                    else if (w.toPort === 'output') isReverse = false;
-                    // Wire A->B. B=Bat(+).
-                    // Flow enters Bat(+). A->B. Normal. TRUE.
-                } else {
-                    // Standard components: Flow from Low Potential (Neg) to High Potential (Pos)
-                    // Score = distNeg - distPos
-
-                    const dNegU = distNeg.get(u) ?? 9999;
-                    const dPosU = distPos.get(u) ?? 9999;
-                    const scoreU = dNegU - dPosU;
-
-                    const dNegV = distNeg.get(v) ?? 9999;
-                    const dPosV = distPos.get(v) ?? 9999;
-                    const scoreV = dNegV - dPosV;
-
-                    // If scoreU < scoreV => flow u->v (Normal)
-                    // If scoreU > scoreV => flow v->u (Reverse)
-                    if (scoreU < scoreV) {
-                        isReverse = false;
-                    } else if (scoreU > scoreV) {
-                        isReverse = true;
-                    }
-                }
-
-                wireAnalysis.set(w.id, { isActive: true, isReverse });
-            } else {
-                wireAnalysis.set(w.id, { isActive: false, isReverse: false });
-            }
-        });
-
-        return { activeIds, wireAnalysis };
     };
-
-    // Update power state of components
+    // ========== CIRCUIT SIMULATION ==========
+    // Heavy graph analysis lives in ./circuitEngine. This just maps the result
+    // onto component/wire visuals and the candle "blow out" spatial effect.
     const updateCircuitPower = (
         comps: CircuitComponentData[],
         wiresData: WireData[],
@@ -452,40 +395,33 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
 
         // If power is OFF, reset everything
         if (!powerOn) {
-            setIsCircuitComplete(false);
+            setStatus(POWERED_OFF_STATUS);
             setComponents(comps.map(c => ({ ...c, isActive: false })));
             setWireStates(new Map());
             return;
         }
 
-        const { activeIds, wireAnalysis } = analyzeCircuit(comps, wiresData);
+        const analysis = analyzeCircuit(comps, wiresData);
 
-        // Update components
         const updatedComponents = comps.map(c => ({
             ...c,
-            isActive: activeIds.has(c.id)
+            isActive: analysis.activeIds.has(c.id),
         }));
 
-        const anyLoadActive = updatedComponents.some(
-            c => ['bulb', 'bell', 'fan', 'buzzer'].includes(c.type) && c.isActive
-        );
-        setIsCircuitComplete(anyLoadActive);
-
-        // Fan blows out nearby candles
+        // Fan blows out nearby candles (spatial, not electrical).
         const activeFan = updatedComponents.find(c => c.type === 'fan' && c.isActive);
         if (activeFan) {
             updatedComponents.forEach(c => {
                 if (c.type === 'candle') {
-                    const distance = Math.sqrt(Math.pow(activeFan.x - c.x, 2) + Math.pow(activeFan.y - c.y, 2));
-                    if (distance < 150) {
-                        c.isActive = true; // blown out
-                    }
+                    const distance = Math.hypot(activeFan.x - c.x, activeFan.y - c.y);
+                    if (distance < 150) c.isActive = true; // blown out
                 }
             });
         }
 
         setComponents(updatedComponents);
-        setWireStates(wireAnalysis);
+        setWireStates(analysis.wireStates);
+        setStatus(statusFromAnalysis(analysis, true));
     };
 
     // Toggle power
@@ -505,11 +441,13 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
         };
     };
 
+    const batteryCount = components.filter(c => c.type === 'battery').length;
+
     return (
-        <div className="flex flex-col-reverse md:flex-row gap-4 h-full">
+        <div className="flex flex-col-reverse md:flex-row gap-4 h-full min-h-0">
             {/* Toolbar - hidden for lesson exercises */}
             {!readOnly && !hideToolbar && (
-                <div className="w-full md:w-32 flex-shrink-0">
+                <div className="w-full md:w-32 flex-shrink-0 md:h-full md:min-h-0 md:overflow-y-auto">
                     <ComponentToolbar
                         onDragStart={() => { }}
                         onMobileDrop={handleMobileDrop}
@@ -519,10 +457,10 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
             )}
 
             {/* Canvas */}
-            <div className="flex-1 flex flex-col gap-3">
+            <div className="flex-1 flex flex-col gap-3 min-h-0 min-w-0">
                 {/* Control bar */}
-                <div className="flex items-center justify-between bg-gradient-to-r from-sky-100 to-blue-100 rounded-lg px-4 py-2 border border-sky-200 overflow-x-auto">
-                    <div className="flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
+                <div className="flex flex-wrap items-center justify-between gap-2 bg-gradient-to-r from-sky-100 to-blue-100 rounded-lg px-3 py-2 border border-sky-200">
+                    <div className="flex flex-wrap items-center gap-2">
                         <button
                             onClick={handleTogglePower}
                             className={`
@@ -537,12 +475,36 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                             {isPowered ? 'Đang chạy ⚡' : 'Bật nguồn'}
                         </button>
 
-                        <span className={`text-sm px-3 py-1 rounded-full font-medium ${isCircuitComplete
+                        <span className={`text-sm px-3 py-1 rounded-full font-medium ${status.hasClosedLoop
                             ? 'bg-green-100 text-green-700 border border-green-300'
                             : 'bg-red-100 text-red-700 border border-red-300'
                             }`}>
-                            {isCircuitComplete ? '✓ Mạch kín' : '✗ Mạch hở'}
+                            {status.hasClosedLoop ? '✓ Mạch kín' : '✗ Mạch hở'}
                         </span>
+
+                        {status.hasShortCircuit && (
+                            <span
+                                className="text-sm px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-300 font-medium animate-pulse"
+                                title="Pin bị nối thẳng (+) sang (−) mà không qua thiết bị nào — đừng làm vậy với pin thật nhé!"
+                            >
+                                ⚠ Đoản mạch!
+                            </span>
+                        )}
+
+                        {CONNECTION_LABEL[status.loadConnection] && (
+                            <span className="text-sm px-3 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-300 font-medium">
+                                {CONNECTION_LABEL[status.loadConnection]}
+                            </span>
+                        )}
+
+                        {batteryCount > 1 && (
+                            <span
+                                className="text-sm px-3 py-1 rounded-full bg-orange-100 text-orange-700 border border-orange-300 font-medium"
+                                title="Mạch chỉ hoạt động với 1 pin. Hãy xóa bớt pin thừa."
+                            >
+                                ⚠ Chỉ nên dùng 1 pin
+                            </span>
+                        )}
 
                         {wireStart && (
                             <span className="text-sm px-3 py-1 rounded-full bg-cyan-100 text-cyan-700 border border-cyan-300 animate-pulse font-medium">
@@ -576,7 +538,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                 <div
                     ref={canvasRef}
                     className={`
-                        relative flex-1 min-h-[400px] bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 rounded-xl border-2
+                        relative flex-1 min-h-[240px] bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 rounded-xl border-2
                         ${wireStart ? 'border-cyan-400 shadow-lg shadow-cyan-200/50' : 'border-blue-200'} 
                         overflow-hidden cursor-${draggingId ? 'grabbing' : 'default'}
                     `}
@@ -609,96 +571,56 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                             const from = getPortPosition(wire.fromId, wire.fromPort);
                             const to = getPortPosition(wire.toId, wire.toPort);
 
-                            // Get analysis state
+                            // Analysis state
                             const wireState = wireStates.get(wire.id);
                             const isWireActive = wireState?.isActive ?? false;
                             const isReverse = wireState?.isReverse ?? false;
 
-                            // Calculate orthogonal wire path to avoid going through components
-                            // Wire goes: horizontal from source -> vertical segment -> horizontal to target
-                            const deltaX = to.x - from.x;
-                            const deltaY = to.y - from.y;
-
-                            // Offset distance to go around components
-                            const offset = 25;
-
-                            // Determine path points based on port positions
-                            // From port: output (right) or input (left)
-                            // To port: output (right) or input (left)
-                            let pathPoints: string;
-
-                            if (wire.fromPort === 'output' && wire.toPort === 'input') {
-                                // Normal: output -> input (right to left)
-                                // Go right from source, then up/down, then left to target
-                                const midX = from.x + Math.max(offset, Math.abs(deltaX) / 2);
-                                pathPoints = `${from.x},${from.y} ${midX},${from.y} ${midX},${to.y} ${to.x},${to.y}`;
-                            } else if (wire.fromPort === 'input' && wire.toPort === 'output') {
-                                // Reverse: input -> output (left to right)
-                                const midX = from.x - Math.max(offset, Math.abs(deltaX) / 2);
-                                pathPoints = `${from.x},${from.y} ${midX},${from.y} ${midX},${to.y} ${to.x},${to.y}`;
-                            } else if (wire.fromPort === 'output' && wire.toPort === 'output') {
-                                // Both outputs: go right from both, meet in middle
-                                const maxX = Math.max(from.x, to.x) + offset;
-                                pathPoints = `${from.x},${from.y} ${maxX},${from.y} ${maxX},${to.y} ${to.x},${to.y}`;
-                            } else {
-                                // Both inputs: go left from both, meet in middle
-                                const minX = Math.min(from.x, to.x) - offset;
-                                pathPoints = `${from.x},${from.y} ${minX},${from.y} ${minX},${to.y} ${to.x},${to.y}`;
-                            }
-
-                            // Calculate wire midpoint for delete button
-                            const points = pathPoints.split(' ').map(p => {
-                                const [x, y] = p.split(',').map(Number);
-                                return { x, y };
-                            });
-                            // Midpoint is at the middle of the vertical segment (point 1 to point 2)
-                            const midX = (points[1].x + points[2].x) / 2;
-                            const midY = (points[1].y + points[2].y) / 2;
-                            // Calculate animation path based on analysis direction
-                            let animPath: string;
-                            if (!isReverse) {
-                                // Normal direction: follow pathPoints as-is
-                                animPath = `M${pathPoints.split(' ').map(p => p.replace(',', ' ')).join(' L ')}`;
-                            } else {
-                                // Reverse direction: reverse the points
-                                const reversedPoints = pathPoints.split(' ').reverse().join(' ');
-                                animPath = `M${reversedPoints.split(' ').map(p => p.replace(',', ' ')).join(' L ')}`;
-                            }
-
+                            const { path, reversePath, mid } = buildWire(from, to, wire.fromPort, wire.toPort, hashId(wire.id));
+                            const animPath = isReverse ? reversePath : path;
                             const isHovered = hoveredWireId === wire.id;
+                            const color = isHovered ? '#ef4444' : (isWireActive ? '#06b6d4' : '#94a3b8');
 
                             return (
                                 <g
                                     key={wire.id}
                                     onMouseEnter={() => setHoveredWireId(wire.id)}
-                                    // onMouseLeave={() => setHoveredWireId(null)} // Disable leave for easier touch
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setHoveredWireId(hoveredWireId === wire.id ? null : wire.id);
                                     }}
                                     style={{ cursor: 'pointer', pointerEvents: 'auto' }}
                                 >
-                                    {/* Invisible wider stroke for easier hovering */}
-                                    <polyline
-                                        points={pathPoints}
+                                    {/* Invisible wider stroke for easier hovering/tapping */}
+                                    <path
+                                        d={path}
                                         fill="none"
                                         stroke="transparent"
-                                        strokeWidth={15}
+                                        strokeWidth={16}
                                         style={{ pointerEvents: 'stroke' }}
                                     />
-                                    {/* Visible wire */}
-                                    <polyline
-                                        points={pathPoints}
+                                    {/* Soft casing so crossings read clearly */}
+                                    <path
+                                        d={path}
                                         fill="none"
-                                        stroke={isHovered ? '#ef4444' : (isWireActive ? '#22d3ee' : '#64748b')}
-                                        strokeWidth={isHovered ? 4 : 3}
+                                        stroke="white"
+                                        strokeOpacity={0.9}
+                                        strokeWidth={isHovered ? 7 : 6}
                                         strokeLinecap="round"
-                                        strokeLinejoin="round"
                                         style={{ pointerEvents: 'none' }}
+                                    />
+                                    {/* Visible wire */}
+                                    <path
+                                        d={path}
+                                        fill="none"
+                                        stroke={color}
+                                        strokeWidth={isHovered ? 4 : (isWireActive ? 3.5 : 2.5)}
+                                        strokeLinecap="round"
+                                        style={{ pointerEvents: 'none', transition: 'stroke 0.2s' }}
                                     />
                                     {/* Electron animation */}
                                     {isWireActive && !isHovered && (
-                                        <circle r="4" fill="#22d3ee">
+                                        <circle r="4.5" fill="#0891b2">
                                             <animateMotion
                                                 dur="1.5s"
                                                 repeatCount="indefinite"
@@ -706,7 +628,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                                             />
                                         </circle>
                                     )}
-                                    {/* Delete button on hover */}
+                                    {/* Delete button on hover/tap */}
                                     {isHovered && !readOnly && (
                                         <g
                                             onClick={(e) => {
@@ -715,17 +637,10 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                                             }}
                                             style={{ cursor: 'pointer' }}
                                         >
-                                            <circle
-                                                cx={midX}
-                                                cy={midY}
-                                                r={12}
-                                                fill="#ef4444"
-                                                stroke="white"
-                                                strokeWidth={2}
-                                            />
+                                            <circle cx={mid.x} cy={mid.y} r={12} fill="#ef4444" stroke="white" strokeWidth={2} />
                                             <text
-                                                x={midX}
-                                                y={midY + 1}
+                                                x={mid.x}
+                                                y={mid.y + 1}
                                                 textAnchor="middle"
                                                 dominantBaseline="middle"
                                                 fill="white"
@@ -752,6 +667,7 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
                             onToggle={() => handleToggleSwitch(component.id)}
                             onPortClick={(port) => handlePortClick(component.id, port)}
                             onDragStart={(e) => handleComponentDragStart(component.id, e)}
+                            onDelete={readOnly ? undefined : () => deleteComponent(component.id)}
                             onTouchStart={(e) => handleTouchStart(component.id, e)}
                             isDragging={draggingId === component.id}
                         />
@@ -759,10 +675,10 @@ export const CircuitCanvas: React.FC<CircuitCanvasProps> = ({
 
                     {/* Empty state */}
                     {components.length === 0 && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center text-white/30">
-                                <p className="text-lg mb-2">Kéo thả linh kiện vào đây</p>
-                                <p className="text-sm">Nhấn vào đầu xanh/đỏ để nối dây</p>
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div className="text-center text-sky-400">
+                                <p className="text-lg mb-2 font-medium">⚡ Kéo thả linh kiện vào đây</p>
+                                <p className="text-sm text-sky-500/70">Nhấn vào đầu xanh (−) rồi đầu đỏ (+) để nối dây</p>
                             </div>
                         </div>
                     )}

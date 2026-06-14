@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChallengeData, getRandomChallenge, CircuitData } from '@/src/data/electricityData';
+import { ChallengeData, getRandomChallenge, CircuitData, CHALLENGES, ComponentType } from '@/src/data/electricityData';
 import { CircuitCanvas } from './CircuitCanvas';
+import { analyzeCircuit, CircuitAnalysis } from './circuitEngine';
 import { RefreshCw, Check, Star, ArrowRight } from 'lucide-react';
 
 interface PlaygroundViewProps {
@@ -8,106 +9,113 @@ interface PlaygroundViewProps {
     onExit?: () => void;
 }
 
-// Validator functions for special challenges
-const validators: Record<string, (circuit: CircuitData, circuitStatus: { isComplete: boolean; isPowered: boolean }) => boolean> = {
-    // Default: just check if circuit works
-    validateBasicCircuit: (circuit, status) => status.isPowered && status.isComplete,
+const PROGRESS_KEY = 'electricity_completed_challenges';
 
-    // Bulb lights up
-    validateBulbOn: (circuit, status) => {
-        const bulb = circuit.components.find(c => c.type === 'bulb' && c.isActive);
-        return status.isPowered && status.isComplete && !!bulb;
+// --- Validator helpers (operate on the real electrical analysis) ---
+const litOfType = (circuit: CircuitData, analysis: CircuitAnalysis, type: ComponentType) =>
+    circuit.components.filter(c => c.type === type && analysis.litLoadIds.has(c.id));
+
+const litCount = (circuit: CircuitData, analysis: CircuitAnalysis, type: ComponentType) =>
+    litOfType(circuit, analysis, type).length;
+
+// Two loads are "independently controlled" if each has its own switch that the
+// other does not depend on (turning it off kills only that load).
+const hasIndependentPair = (circuit: CircuitData, analysis: CircuitAnalysis, typeA: ComponentType, typeB: ComponentType) => {
+    const as = litOfType(circuit, analysis, typeA);
+    const bs = litOfType(circuit, analysis, typeB);
+    for (const a of as) {
+        for (const b of bs) {
+            if (a.id === b.id) continue;
+            const ca = analysis.controllingSwitches.get(a.id) ?? [];
+            const cb = analysis.controllingSwitches.get(b.id) ?? [];
+            if (ca.length === 0 || cb.length === 0) continue;
+            const disjoint = ca.every(s => !cb.includes(s)) && cb.every(s => !ca.includes(s));
+            if (disjoint) return true;
+        }
+    }
+    return false;
+};
+
+// Validators now read the engine analysis, so they enforce the real goal:
+// series vs parallel, independent control, short-circuit-free, etc.
+const validators: Record<string, (circuit: CircuitData, analysis: CircuitAnalysis) => boolean> = {
+    validateBasicCircuit: (_c, a) => a.litLoadIds.size > 0,
+
+    validateBulbOn: (c, a) => litCount(c, a, 'bulb') >= 1,
+
+    validateSwitchControls: (c, a) => {
+        const bulbs = litOfType(c, a, 'bulb');
+        // A switch must actually gate the lit bulb.
+        return bulbs.some(b => (a.controllingSwitches.get(b.id) ?? []).length > 0);
     },
 
-    // Switch controls the bulb
-    validateSwitchControls: (circuit, status) => {
-        const bulb = circuit.components.find(c => c.type === 'bulb' && c.isActive);
-        const hasSwitch = circuit.components.some(c => c.type === 'switch');
-        return status.isPowered && status.isComplete && !!bulb && hasSwitch;
+    validateBellWorks: (c, a) => litCount(c, a, 'bell') >= 1,
+
+    validateSeriesBulbs: (c, a) => litCount(c, a, 'bulb') >= 2 && a.loadConnection === 'series',
+
+    validateParallelBulbs: (c, a) => litCount(c, a, 'bulb') >= 2 && a.loadConnection === 'parallel',
+
+    validateFanWorks: (c, a) => litCount(c, a, 'fan') >= 1,
+
+    // Fan must be running AND positioned near a candle (the blow-out effect).
+    validateCandleBlown: (c, a) => {
+        const fans = litOfType(c, a, 'fan');
+        const candles = c.components.filter(x => x.type === 'candle');
+        return fans.some(f => candles.some(cd => Math.hypot(f.x - cd.x, f.y - cd.y) < 150));
     },
 
-    // Bell rings
-    validateBellWorks: (circuit, status) => {
-        const bell = circuit.components.find(c => c.type === 'bell' && c.isActive);
-        return status.isPowered && status.isComplete && !!bell;
-    },
+    validateIndependentControl: (c, a) =>
+        litCount(c, a, 'bulb') >= 2 && hasIndependentPair(c, a, 'bulb', 'bulb'),
 
-    // Two bulbs in series
-    validateSeriesBulbs: (circuit, status) => {
-        const bulbs = circuit.components.filter(c => c.type === 'bulb' && c.isActive);
-        return status.isPowered && status.isComplete && bulbs.length >= 2;
-    },
+    validateAlarmSystem: (c, a) => litCount(c, a, 'bell') >= 1 && litCount(c, a, 'buzzer') >= 1,
 
-    // Two bulbs in parallel
-    validateParallelBulbs: (circuit, status) => {
-        const bulbs = circuit.components.filter(c => c.type === 'bulb' && c.isActive);
-        return status.isPowered && status.isComplete && bulbs.length >= 2;
-    },
+    validateSmartRoom: (c, a) =>
+        litCount(c, a, 'bulb') >= 1 && litCount(c, a, 'fan') >= 1 && hasIndependentPair(c, a, 'bulb', 'fan'),
 
-    // Fan spins when powered
-    validateFanWorks: (circuit, status) => {
-        const fan = circuit.components.find(c => c.type === 'fan' && c.isActive);
-        return status.isPowered && status.isComplete && !!fan;
-    },
+    validateBuzzerWorks: (c, a) => litCount(c, a, 'buzzer') >= 1,
 
-    // Fan blows out candle - candle isActive = true means blown out
-    validateCandleBlown: (circuit, status) => {
-        const candle = circuit.components.find(c => c.type === 'candle' && c.isActive);
-        const fan = circuit.components.find(c => c.type === 'fan' && c.isActive);
-        return status.isPowered && !!fan && !!candle;
-    },
+    validateBulbAndBell: (c, a) => litCount(c, a, 'bulb') >= 1 && litCount(c, a, 'bell') >= 1,
 
-    // Two bulbs controlled independently
-    validateIndependentControl: (circuit, status) => {
-        const bulbs = circuit.components.filter(c => c.type === 'bulb');
-        const switches = circuit.components.filter(c => c.type === 'switch');
-        // Need at least 2 bulbs and 2 switches
-        if (bulbs.length < 2 || switches.length < 2) return false;
-        // At least one bulb should be on
-        return status.isPowered && bulbs.some(b => b.isActive);
-    },
+    validateThreeBulbsSeries: (c, a) => litCount(c, a, 'bulb') >= 3 && a.loadConnection === 'series',
 
-    // Alarm system: bell AND buzzer work together
-    validateAlarmSystem: (circuit, status) => {
-        const bell = circuit.components.find(c => c.type === 'bell' && c.isActive);
-        const buzzer = circuit.components.find(c => c.type === 'buzzer' && c.isActive);
-        return status.isPowered && !!bell && !!buzzer;
-    },
+    validateComplexCircuit: (c, a) =>
+        litCount(c, a, 'bulb') >= 1 && litCount(c, a, 'fan') >= 1 && litCount(c, a, 'bell') >= 1,
+};
 
-    // Smart room: light AND fan both work with independent control
-    validateSmartRoom: (circuit, status) => {
-        const bulb = circuit.components.find(c => c.type === 'bulb' && c.isActive);
-        const fan = circuit.components.find(c => c.type === 'fan' && c.isActive);
-        const switches = circuit.components.filter(c => c.type === 'switch');
-        return status.isPowered && !!bulb && !!fan && switches.length >= 2;
-    },
+// Build a kid-friendly explanation of why a check failed.
+const explainFailure = (
+    challenge: ChallengeData,
+    circuit: CircuitData,
+    analysis: CircuitAnalysis,
+    hasAllRequired: boolean
+): string => {
+    if (!hasAllRequired) return 'Mạch còn thiếu linh kiện mà đề yêu cầu. Hãy kéo thêm vào nhé!';
+    if (!analysis.hasClosedLoop) return 'Mạch chưa kín. Hãy nối thành vòng: từ cực (+) qua thiết bị rồi về cực (−) của pin.';
+    if (analysis.litLoadIds.size === 0) {
+        if (analysis.hasShortCircuit) return 'Pin đang bị đoản mạch (nối thẳng + sang −). Hãy cho dòng điện đi qua thiết bị.';
+        return 'Mạch kín rồi nhưng chưa có thiết bị nào hoạt động — kiểm tra xem công tắc đã bật chưa.';
+    }
+    if (challenge.validator === 'validateSeriesBulbs' || challenge.validator === 'validateThreeBulbsSeries') {
+        if (analysis.loadConnection === 'parallel') return 'Các đèn đang mắc song song, nhưng đề yêu cầu mắc NỐI TIẾP (nối thành một hàng).';
+        if (analysis.loadConnection === 'mixed') return 'Mạch đang mắc hỗn hợp. Đề yêu cầu các đèn mắc NỐI TIẾP thành một hàng duy nhất.';
+    }
+    if (challenge.validator === 'validateParallelBulbs' && analysis.loadConnection === 'series') {
+        return 'Các đèn đang mắc nối tiếp, nhưng đề yêu cầu mắc SONG SONG (mỗi đèn một nhánh riêng).';
+    }
+    if (challenge.validator === 'validateIndependentControl' || challenge.validator === 'validateSmartRoom') {
+        return 'Mạch chạy rồi, nhưng mỗi thiết bị cần một công tắc riêng để điều khiển độc lập.';
+    }
+    return 'Mạch đang chạy nhưng chưa đúng yêu cầu của đề. Đọc lại gợi ý 💡 phía trên nhé!';
+};
 
-    // Buzzer works
-    validateBuzzerWorks: (circuit, status) => {
-        const buzzer = circuit.components.find(c => c.type === 'buzzer' && c.isActive);
-        return status.isPowered && status.isComplete && !!buzzer;
-    },
-
-    // Bulb AND bell work together
-    validateBulbAndBell: (circuit, status) => {
-        const bulb = circuit.components.find(c => c.type === 'bulb' && c.isActive);
-        const bell = circuit.components.find(c => c.type === 'bell' && c.isActive);
-        return status.isPowered && !!bulb && !!bell;
-    },
-
-    // Three bulbs in series
-    validateThreeBulbsSeries: (circuit, status) => {
-        const bulbs = circuit.components.filter(c => c.type === 'bulb' && c.isActive);
-        return status.isPowered && status.isComplete && bulbs.length >= 3;
-    },
-
-    // Complex circuit with bulb, fan, bell
-    validateComplexCircuit: (circuit, status) => {
-        const bulb = circuit.components.find(c => c.type === 'bulb' && c.isActive);
-        const fan = circuit.components.find(c => c.type === 'fan' && c.isActive);
-        const bell = circuit.components.find(c => c.type === 'bell' && c.isActive);
-        return status.isPowered && !!bulb && !!fan && !!bell;
-    },
+// Load persisted completed-challenge ids
+const loadCompleted = (): Set<string> => {
+    try {
+        const raw = localStorage.getItem(PROGRESS_KEY);
+        return new Set<string>(raw ? JSON.parse(raw) : []);
+    } catch {
+        return new Set();
+    }
 };
 
 export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) => {
@@ -115,41 +123,55 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) =>
     const [showResult, setShowResult] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const [wasAlreadyCompleted, setWasAlreadyCompleted] = useState(false); // For showing "no stars" message
-    const [completedCount, setCompletedCount] = useState(0);
-    const [totalStars, setTotalStars] = useState(0);
+    const [failReason, setFailReason] = useState('');
+    const [difficultyFilter, setDifficultyFilter] = useState<1 | 2 | 3 | undefined>(undefined);
     const [challengeKey, setChallengeKey] = useState(0);
-    const [completedChallenges] = useState<Set<string>>(new Set()); // Track completed challenge IDs
+
+    // Persisted progress
+    const completedChallenges = useRef<Set<string>>(loadCompleted());
+    const [completedCount, setCompletedCount] = useState(completedChallenges.current.size);
+    const [totalStars, setTotalStars] = useState(
+        CHALLENGES.filter(c => completedChallenges.current.has(c.id)).reduce((s, c) => s + c.difficulty, 0)
+    );
 
     // Circuit state from CircuitCanvas
     const circuitRef = useRef<CircuitData>({ components: [], wires: [] });
-    const [circuitStatus, setCircuitStatus] = useState({ isComplete: false, isPowered: false });
 
     useEffect(() => {
-        loadNewChallenge();
+        loadNewChallenge(difficultyFilter);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const loadNewChallenge = (difficulty?: 1 | 2 | 3) => {
-        const newChallenge = getRandomChallenge(difficulty);
+        const newChallenge = getRandomChallenge(difficulty, challenge?.id);
         setChallenge(newChallenge);
         circuitRef.current = { components: [], wires: [] };
-        setCircuitStatus({ isComplete: false, isPowered: false });
         setChallengeKey(prev => prev + 1);
         setShowResult(false);
         setIsCorrect(false);
+        setFailReason('');
+    };
+
+    const pickDifficulty = (difficulty?: 1 | 2 | 3) => {
+        setDifficultyFilter(difficulty);
+        const newChallenge = getRandomChallenge(difficulty);
+        setChallenge(newChallenge);
+        circuitRef.current = { components: [], wires: [] };
+        setChallengeKey(prev => prev + 1);
+        setShowResult(false);
+        setIsCorrect(false);
+        setFailReason('');
     };
 
     const handleCircuitChange = useCallback((circuit: CircuitData) => {
         circuitRef.current = circuit;
     }, []);
 
-    const handleCircuitStatusChange = useCallback((status: { isComplete: boolean; isPowered: boolean }) => {
-        setCircuitStatus(status);
-    }, []);
-
     const handleCheck = () => {
         if (!challenge) return;
 
         const circuit = circuitRef.current;
+        const analysis = analyzeCircuit(circuit.components, circuit.wires);
 
         // Count required components (handle duplicates like 2 bulbs)
         const requiredCounts: Record<string, number> = {};
@@ -166,44 +188,36 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) =>
             ([type, count]) => (actualCounts[type] || 0) >= count
         );
 
-        // Use custom validator if defined, otherwise use basic circuit check
         const validatorFn = challenge.validator && validators[challenge.validator]
             ? validators[challenge.validator]
             : validators.validateBasicCircuit;
 
-        const circuitWorks = validatorFn(circuit, circuitStatus);
-
-        const success = hasAllRequired && circuitWorks;
-
-        console.log('Validation:', {
-            hasAllRequired,
-            requiredCounts,
-            actualCounts,
-            circuitStatus,
-            circuitWorks,
-            success
-        });
+        const success = hasAllRequired && validatorFn(circuit, analysis);
 
         setIsCorrect(success);
         setShowResult(true);
 
         if (success) {
-            // Only award stars if not already completed
-            const alreadyCompleted = completedChallenges.has(challenge.id);
+            setFailReason('');
+            const alreadyCompleted = completedChallenges.current.has(challenge.id);
             setWasAlreadyCompleted(alreadyCompleted);
             if (!alreadyCompleted) {
-                completedChallenges.add(challenge.id);
+                completedChallenges.current.add(challenge.id);
+                try {
+                    localStorage.setItem(PROGRESS_KEY, JSON.stringify([...completedChallenges.current]));
+                } catch { /* ignore quota errors */ }
                 setCompletedCount(prev => prev + 1);
-                setTotalStars(prev => prev + (challenge?.difficulty || 1));
-                onComplete?.(challenge?.difficulty || 1);
+                setTotalStars(prev => prev + challenge.difficulty);
+                onComplete?.(challenge.difficulty);
             }
         } else {
             setWasAlreadyCompleted(false);
+            setFailReason(explainFailure(challenge, circuit, analysis, hasAllRequired));
         }
     };
 
     const handleNextChallenge = () => {
-        loadNewChallenge();
+        loadNewChallenge(difficultyFilter);
     };
 
     const renderStars = (count: number) => {
@@ -224,15 +238,13 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) =>
 
     return (
         <div className="h-full flex flex-col">
-            {/* Challenge header - compact */}
-            <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-lg px-3 py-2 mb-2 border border-orange-200 shadow-sm">
-                <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                        <span className="text-xl">🎯</span>
-                        <h3 className="font-bold text-orange-800 truncate">{challenge.title}</h3>
+            {/* Challenge header */}
+            <div className="shrink-0 bg-gradient-to-r from-orange-100 to-amber-100 rounded-lg px-3 py-2 mb-2 border border-orange-200 shadow-sm">
+                <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-center gap-2 flex-1 min-w-0 flex-wrap">
+                        <span className="text-xl shrink-0">🎯</span>
+                        <h3 className="font-bold text-orange-800">{challenge.title}</h3>
                         {renderStars(challenge.difficulty)}
-                        <span className="text-gray-600 text-sm hidden sm:inline">—</span>
-                        <p className="text-gray-600 text-sm truncate hidden sm:inline">{challenge.description}</p>
                     </div>
 
                     <button
@@ -243,37 +255,60 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) =>
                         <span className="hidden sm:inline">Đổi đề</span>
                     </button>
                 </div>
+                <p className="text-gray-600 text-sm mt-0.5">{challenge.description}</p>
                 {challenge.hint && (
-                    <p className="text-orange-600/80 text-xs mt-1 truncate">
+                    <p className="text-orange-600/90 text-xs mt-1">
                         💡 {challenge.hint}
                     </p>
                 )}
+
+                {/* Difficulty filter */}
+                <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                    <span className="text-orange-700/70 text-xs mr-0.5">Độ khó:</span>
+                    {([
+                        { val: undefined, label: 'Tất cả' },
+                        { val: 1, label: '⭐' },
+                        { val: 2, label: '⭐⭐' },
+                        { val: 3, label: '⭐⭐⭐' },
+                    ] as const).map(opt => (
+                        <button
+                            key={opt.label}
+                            onClick={() => pickDifficulty(opt.val)}
+                            className={`px-2 py-0.5 rounded-full text-xs font-medium border transition-all ${difficultyFilter === opt.val
+                                ? 'bg-orange-500 text-white border-orange-500'
+                                : 'bg-white text-orange-600 border-orange-200 hover:bg-orange-50'
+                                }`}
+                        >
+                            {opt.label}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             {/* Circuit canvas */}
-            <div className="flex-1 min-h-0">
+            <div className="flex-1 min-h-0 overflow-hidden">
                 <CircuitCanvas
                     key={challengeKey}
                     onChange={handleCircuitChange}
-                    onCircuitStatusChange={handleCircuitStatusChange}
+                    autoPower
                 />
             </div>
 
-            {/* Bottom controls - z-10 to stay above canvas */}
-            <div className="relative z-10 flex items-center justify-between mt-4 pt-4 border-t border-white/10 bg-gradient-to-t from-slate-900">
+            {/* Bottom controls */}
+            <div className="shrink-0 flex items-center justify-between gap-3 mt-3 pt-3 border-t border-orange-200">
                 <div className="flex items-center gap-4">
-                    <div className="text-white/50 text-sm">
-                        Đã hoàn thành: <span className="text-white font-semibold">{completedCount}</span>
+                    <div className="text-slate-500 text-sm">
+                        Đã hoàn thành: <span className="text-slate-800 font-semibold">{completedCount}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-yellow-400 text-sm">
-                        <Star size={16} className="fill-yellow-400" />
+                    <div className="flex items-center gap-1 text-amber-500 text-sm">
+                        <Star size={16} className="fill-amber-400 text-amber-400" />
                         <span className="font-semibold">{totalStars}</span>
                     </div>
                 </div>
 
                 <button
                     onClick={handleCheck}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl text-white font-semibold transition-all"
+                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 rounded-xl text-white font-semibold shadow-md shadow-green-600/20 transition-all"
                 >
                     <Check size={20} />
                     Kiểm tra
@@ -296,14 +331,12 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({ onComplete }) =>
                         <h3 className="text-2xl font-bold text-white mb-2">
                             {isCorrect ? 'Tuyệt vời!' : 'Chưa đúng!'}
                         </h3>
-                        <p className="text-white/70 mb-4">
+                        <p className="text-white/80 mb-4">
                             {isCorrect
                                 ? wasAlreadyCompleted
-                                    ? 'Bạn đã làm bài này rồi nên không nhận thêm sao.'
+                                    ? 'Bạn đã làm bài này rồi nên không nhận thêm sao — nhưng vẫn rất giỏi!'
                                     : `Bạn đã hoàn thành nhiệm vụ và nhận được ${challenge.difficulty} sao!`
-                                : circuitStatus.isPowered
-                                    ? 'Mạch đang chạy nhưng chưa đủ linh kiện yêu cầu.'
-                                    : 'Hãy bấm "Bật nguồn" để kiểm tra mạch hoạt động.'
+                                : failReason
                             }
                         </p>
 
