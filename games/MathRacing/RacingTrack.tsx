@@ -1,84 +1,67 @@
 import React from 'react';
+import { ROAD_LEFT, ROAD_RIGHT, DIVIDER_LEFT } from './lanes';
 
 interface RacingTrackProps {
     children?: React.ReactNode;
 }
 
+// Đường đua LÀN THẲNG + chiều sâu nhẹ: bầu trời/chân trời ở trên, mặt nhựa thẳng
+// ở giữa với vạch lề + vạch phân làn nét đứt CHẠY (tạo cảm giác tốc độ). Các làn
+// thẳng đứng nên xe & đáp án (dùng chung lanes.ts) luôn nằm đúng trên mặt đường.
 export const RacingTrack: React.FC<RacingTrackProps> = ({ children }) => {
+    const HORIZON = 22; // % chiều cao: ranh giới trời / mặt đất
+
     return (
         <div className="relative w-full h-full overflow-hidden bg-sky-300">
-            {/* Sky / Horizon */}
-            <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-sky-400 to-sky-200 z-0">
-                {/* Sun */}
-                <div className="absolute top-4 right-8 w-16 h-16 bg-yellow-400 rounded-full shadow-[0_0_40px_rgba(250,204,21,0.6)] animate-pulse"></div>
-
-                {/* Clouds */}
-                <div className="absolute top-10 left-10 w-24 h-8 bg-white/80 rounded-full blur-sm opacity-80 animate-[float_20s_linear_infinite]"></div>
-                <div className="absolute top-20 right-1/3 w-32 h-10 bg-white/60 rounded-full blur-sm opacity-60 animate-[float_25s_linear_infinite_reverse]"></div>
-            </div>
-
-            {/* 3D Container */}
+            {/* ===== Bầu trời ===== */}
             <div
-                className="absolute bottom-0 left-0 w-full h-2/3 z-10"
-                style={{
-                    perspective: '1000px',
-                    perspectiveOrigin: '50% 0%'
-                }}
+                className="absolute inset-x-0 top-0 bg-gradient-to-b from-sky-500 via-sky-400 to-sky-200"
+                style={{ height: `${HORIZON + 4}%` }}
             >
-                {/* The Road */}
-                <div
-                    className="relative w-full h-[200%] bg-emerald-600 origin-top"
-                    style={{
-                        transform: 'rotateX(60deg)',
-                        background: 'linear-gradient(to bottom, #10b981, #059669)'
-                    }}
-                >
-                    {/* Road Surface */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-full bg-slate-700 border-l-8 border-r-8 border-white/50">
-                        {/* Lane Markers */}
-                        <div className="absolute top-0 left-1/3 w-2 h-full bg-dashed-line opacity-50"></div>
-                        <div className="absolute top-0 right-1/3 w-2 h-full bg-dashed-line opacity-50"></div>
-
-                        {/* Moving Texture (simulates speed) */}
-                        <div className="absolute inset-0 bg-road-texture animate-road-scroll opacity-30"></div>
-                    </div>
-
-                    {/* Grass/Decorations on side (optional) */}
-                    <div className="absolute top-0 left-[10%] w-4 h-4 bg-red-400 rounded-full"></div>
-                </div>
-
-                {/* Game Elements Layer (Car, Obstacles) - Rendered flat on top of the 3D projection or inside? 
-                    Actually, for gameplay simplicity, we usually render the track 3D but keep game logic 2D mapped to it.
-                    However, to make items look like they are "on" the road, we might need to put them inside the 3D context 
-                    OR scale them based on Y position. 
-                    
-                    Let's try the "Scale based on Y" approach in the parent component for easier collision logic. 
-                    So this component just renders the static background track.
-                */}
+                {/* Mặt trời */}
+                <div className="absolute top-5 right-10 w-14 h-14 rounded-full bg-yellow-300 shadow-[0_0_55px_16px_rgba(253,224,71,0.65)] motion-safe:animate-pulse" />
+                {/* Mây */}
+                <div className="cloud absolute top-6 left-8 w-24 h-7 motion-safe:animate-[drift_22s_ease-in-out_infinite]" />
+                <div className="cloud absolute top-12 left-1/2 w-32 h-9 opacity-80 motion-safe:animate-[drift_30s_ease-in-out_infinite]" />
+                <div className="cloud absolute top-4 right-1/4 w-20 h-6 opacity-70 motion-safe:animate-[drift_26s_ease-in-out_infinite_reverse]" />
             </div>
 
-            {/* Overlay for Game Elements (passed as children) */}
-            <div className="absolute inset-0 z-20 pointer-events-none">
-                {children}
+            {/* ===== Cỏ hai bên ===== */}
+            <div
+                className="absolute inset-x-0 bottom-0 bg-gradient-to-b from-emerald-500 to-emerald-700"
+                style={{ top: `${HORIZON}%` }}
+            />
+
+            {/* ===== Mặt đường (thẳng, giữa) ===== */}
+            <div
+                className="absolute bottom-0"
+                style={{ top: `${HORIZON}%`, left: `${ROAD_LEFT}%`, right: `${100 - ROAD_RIGHT}%` }}
+            >
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-600 shadow-[inset_0_26px_38px_-20px_rgba(0,0,0,0.7)]" />
+                {/* Vạch lề trắng */}
+                <div className="absolute inset-y-0 left-0 w-1.5 bg-white/85" />
+                <div className="absolute inset-y-0 right-0 w-1.5 bg-white/85" />
             </div>
+
+            {/* ===== Vạch phân làn nét đứt (chạy theo tốc độ qua --road-dur) ===== */}
+            <div className="absolute bottom-0 inset-x-0 pointer-events-none" style={{ top: `${HORIZON}%` }}>
+                {DIVIDER_LEFT.map((l, i) => (
+                    <div key={i} className="lane-dash absolute inset-y-0 w-2 -translate-x-1/2" style={{ left: l }} />
+                ))}
+            </div>
+
+            {/* ===== Lớp game (xe, đáp án, hiệu ứng) ===== */}
+            <div className="absolute inset-0 z-20 pointer-events-none">{children}</div>
 
             <style>{`
-                .bg-dashed-line {
-                    background-image: linear-gradient(to bottom, white 50%, transparent 50%);
-                    background-size: 10px 100px;
+                .cloud { background: rgba(255,255,255,0.9); border-radius: 9999px; filter: blur(1px); }
+                @keyframes drift { 0%{transform:translateX(-12px)} 50%{transform:translateX(18px)} 100%{transform:translateX(-12px)} }
+                .lane-dash {
+                    background-image: repeating-linear-gradient(to bottom, rgba(253,224,21,0.95) 0 22px, transparent 22px 54px);
+                    animation: road-scroll var(--road-dur, 0.45s) linear infinite;
                 }
-                @keyframes road-scroll {
-                    from { background-position: 0 0; }
-                    to { background-position: 0 100px; }
-                }
-                .animate-road-scroll {
-                    animation: road-scroll 0.5s linear infinite;
-                }
-                @keyframes float {
-                    0% { transform: translateX(0px); }
-                    50% { transform: translateX(20px); }
-                    100% { transform: translateX(0px); }
-                }
+                @keyframes road-scroll { from { background-position-y: 0; } to { background-position-y: 54px; } }
+                @media (prefers-reduced-motion: reduce) { .lane-dash { animation: none; } }
             `}</style>
         </div>
     );

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { SudokuGame } from './games/Sudoku/SudokuGame';
 import GearsGamePage from './games/GearsGame/GearsGamePage';
+import { MathRacingGame as __PreviewRace } from './games/MathRacing/MathRacingGame'; // TEMP-PREVIEW
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
@@ -230,6 +231,8 @@ export default function App() {
             </div>
           }>
             <Routes>
+              {/* TEMP-PREVIEW */}
+              <Route path="/__race" element={<__PreviewRace difficulty="easy" onExit={() => { window.location.href = '/Genius-kids/__race'; }} />} />
               <Route
                 path="/"
                 element={
