@@ -137,7 +137,6 @@ Genius-kids/
 │   │   ├── electricity/    # Circuit Components cho Mạch Điện
 │   │   └── books/          # Book Reader Components
 │   └── pages/              # Application Views
-│       ├── games/          # Game Pages (GearsGame...)
 │       └── science/        # Science Pages (CellBiology, Evolution...)
 ├── games/                  # Game Modules
 │   ├── MemoryMatch/        # Ghép thẻ hình ảnh
@@ -146,6 +145,7 @@ Genius-kids/
 │   ├── DragonQuest/        # Đại chiến rồng thần
 │   ├── MathRacing/         # Đường đua thần tốc
 │   ├── Sudoku/             # Sudoku Logic
+│   ├── GearsGame/          # Kỹ sư máy móc (bánh răng)
 │   └── KidCoder/           # Lập trình nhí
 ├── tellMeWhy/              # 1000 Câu Hỏi Vì Sao (Data & Components)
 ├── riddle/                 # Giải Đố Nhân Sư

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { SudokuGame } from './games/Sudoku/SudokuGame';
-import GearsGamePage from './src/pages/games/GearsGame/GearsGamePage';
+import GearsGamePage from './games/GearsGame/GearsGamePage';
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
