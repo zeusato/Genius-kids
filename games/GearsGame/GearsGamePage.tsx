@@ -104,8 +104,10 @@ const GearsGamePage: React.FC<GearsGamePageProps> = ({ difficulty, onBack }) => 
         return null;
     };
 
+    const usedComponents = userGears.length + belts.length;
+
     const placeNewGear = (teeth: number, p: Point) => {
-        if (userGears.length >= level.maxGears) return;
+        if (usedComponents >= level.maxComponents) return;
         const r = teethToRadius(teeth);
         const others = allGears;
         const resolved = resolvePlacement(p.x, p.y, r, others, level.waterZones);
@@ -125,7 +127,7 @@ const GearsGamePage: React.FC<GearsGamePageProps> = ({ difficulty, onBack }) => 
         }
         const a = allGears.find((g) => g.id === beltMode.sourceId);
         const b = allGears.find((g) => g.id === id);
-        if (a && b && distance(a, b) <= level.maxBeltLength && belts.length < level.maxBelts) {
+        if (a && b && distance(a, b) <= level.maxBeltLength && belts.length < level.maxBelts && usedComponents < level.maxComponents) {
             setBelts((prev) => [...prev, { id: `b${idRef.current++}`, a: a.id, b: b.id, kind: beltKind }]);
         }
         setBeltMode({ active: false, sourceId: null });
@@ -198,8 +200,8 @@ const GearsGamePage: React.FC<GearsGamePageProps> = ({ difficulty, onBack }) => 
                     <div className="flex items-center gap-3">
                         <DifficultyPill difficulty={level.difficulty} />
                         <span className="text-gray-600 text-sm">
-                            ĐÍCH cần quay {targetArrow} · Gear {userGears.length}/{level.maxGears}
-                            {level.maxBelts > 0 ? ` · Belt ${belts.length}/${level.maxBelts}` : ''}
+                            ĐÍCH cần quay {targetArrow} · Linh kiện {usedComponents}/{level.maxComponents}
+                            {level.maxBelts > 0 ? ` · Đai ${belts.length}/${level.maxBelts}` : ''}
                         </span>
                     </div>
                     <div className="flex items-center gap-3">
@@ -277,7 +279,7 @@ const GearsGamePage: React.FC<GearsGamePageProps> = ({ difficulty, onBack }) => 
 
                 <div className="w-full py-3 flex items-center justify-center gap-4 bg-white border-t border-amber-200 flex-wrap">
                     {level.availableGearSizes.map((teeth) => {
-                        const disabled = userGears.length >= level.maxGears;
+                        const disabled = usedComponents >= level.maxComponents;
                         const active = armedTeeth === teeth;
                         return (
                             <button
@@ -299,11 +301,11 @@ const GearsGamePage: React.FC<GearsGamePageProps> = ({ difficulty, onBack }) => 
                                 aria-label="Công cụ dây đai"
                                 aria-pressed={beltMode.active}
                                 onClick={() => { setBeltMode((prev) => ({ active: !prev.active, sourceId: null })); setArmedTeeth(null); }}
-                                disabled={belts.length >= level.maxBelts}
-                                className={`p-3 rounded-xl shadow flex flex-col items-center transition-all ${belts.length >= level.maxBelts ? 'bg-gray-100 opacity-40 cursor-not-allowed' : beltMode.active ? 'bg-cyan-500 text-white' : 'bg-amber-100 hover:bg-amber-200 text-amber-700'}`}
+                                disabled={belts.length >= level.maxBelts || usedComponents >= level.maxComponents}
+                                className={`p-3 rounded-xl shadow flex flex-col items-center transition-all ${belts.length >= level.maxBelts || usedComponents >= level.maxComponents ? 'bg-gray-100 opacity-40 cursor-not-allowed' : beltMode.active ? 'bg-cyan-500 text-white' : 'bg-amber-100 hover:bg-amber-200 text-amber-700'}`}
                             >
                                 <Link size={20} />
-                                <span className="text-[10px] font-bold mt-1">Belt ({level.maxBelts - belts.length})</span>
+                                <span className="text-[10px] font-bold mt-1">Đai ({level.maxBelts - belts.length})</span>
                             </button>
                             {beltMode.active && (
                                 <div className="flex flex-col gap-1" role="group" aria-label="Loại dây đai">

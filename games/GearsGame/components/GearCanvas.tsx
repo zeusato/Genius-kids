@@ -127,7 +127,19 @@ const GearCanvas: React.FC<GearCanvasProps> = ({
 
                 {children}
 
-                {overlay && <div className="absolute inset-0 z-50">{overlay}</div>}
+                {/* Overlay là con của board (có pointer handler) nên phải CHẶN lan
+                    truyền, nếu không cú bấm trên modal sẽ nổi bọt xuống board →
+                    bắt đầu kéo bánh răng phía dưới / nuốt mất click nút. */}
+                {overlay && (
+                    <div
+                        className="absolute inset-0 z-50"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onPointerMove={(e) => e.stopPropagation()}
+                        onPointerUp={(e) => e.stopPropagation()}
+                    >
+                        {overlay}
+                    </div>
+                )}
             </div>
         </div>
     );

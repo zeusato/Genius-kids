@@ -14,7 +14,8 @@ import {
     PLAY,
     teethToRadius,
 } from './constants';
-import { distance } from './graph';
+import { areMeshing, distance } from './graph';
+import { simulate } from './simulate';
 import { makeRng, pick, randInt, Rng } from './rng';
 import {
     BeltSpec,
@@ -103,6 +104,153 @@ const createMeshedGear = (
     };
 };
 
+// ==================== BUILD MODE — ƯỚC LƯỢNG SỐ LINH KIỆN ====================
+// Để ngân sách "đủ chặt" tạo thử thách mà KHÔNG bao giờ vô nghiệm, ta dựng sẵn
+// một lời giải tham lam (ưu tiên bánh LỚN cho ít linh kiện, qua sông bằng 1 dây
+// đai), kiểm chứng bằng simulate, rồi lấy số linh kiện đó làm "mức tối thiểu".
+
+const PLAYER_TEETH = [16, 12, 8] as const; // cỡ người chơi có — thử LỚN trước
+
+/** Giao điểm hai đường tròn (tâm c1 bán kính r1) và (tâm c2 bán kính r2). */
+const circleIntersect = (
+    c1: { x: number; y: number },
+    r1: number,
+    c2: { x: number; y: number },
+    r2: number
+): Array<{ x: number; y: number }> => {
+    const dx = c2.x - c1.x;
+    const dy = c2.y - c1.y;
+    const d = Math.hypot(dx, dy);
+    if (d === 0 || d > r1 + r2 || d < Math.abs(r1 - r2)) return [];
+    const a = (r1 * r1 - r2 * r2 + d * d) / (2 * d);
+    const h2 = r1 * r1 - a * a;
+    if (h2 < 0) return [];
+    const h = Math.sqrt(h2);
+    const xm = c1.x + (a * dx) / d;
+    const ym = c1.y + (a * dy) / d;
+    const ox = (-dy * h) / d;
+    const oy = (dx * h) / d;
+    return [
+        { x: xm + ox, y: ym + oy },
+        { x: xm - ox, y: ym - oy },
+    ];
+};
+
+/** Bánh `g` phải CÁCH XA mọi bánh KHÔNG nằm trong `allowed` — xa hơn cả dải ăn
+ *  khớp (để không "dính răng" ngoài ý muốn ⇒ tránh vòng lẻ gây KẸT). */
+const clearOfOthers = (g: GearSpec, gears: GearSpec[], allowed: Set<string>): boolean => {
+    for (const o of gears) {
+        if (o.id === g.id || allowed.has(o.id)) continue;
+        const ideal = g.radius + o.radius;
+        const tol = Math.max(MESH_TOL_MIN, ideal * MESH_TOL_RATIO);
+        if (distance(g, o) < ideal + tol + PLACE_GAP) return false;
+    }
+    return true;
+};
+
+/** Một bánh răng (ưu tiên LỚN) ăn khớp `prev`, hướng về (tx,ty). null nếu bí. */
+const stepGear = (prev: GearSpec, tx: number, ty: number, gears: GearSpec[], zones: WaterZone[], id: string): GearSpec | null => {
+    const baseAngle = Math.atan2(ty - prev.y, tx - prev.x);
+    const allowed = new Set([prev.id]);
+    for (const teeth of PLAYER_TEETH) {
+        const radius = teethToRadius(teeth);
+        const meshDist = prev.radius + radius;
+        for (let a = 0; a < 25; a++) {
+            const angle = baseAngle + (a % 2 === 0 ? 1 : -1) * Math.ceil(a / 2) * 0.12;
+            const x = prev.x + meshDist * Math.cos(angle);
+            const y = prev.y + meshDist * Math.sin(angle);
+            if (!isValidPos(x, y, radius, gears, prev.id, zones)) continue;
+            const g: GearSpec = { id, role: 'gear', fixed: false, teeth, radius, x, y };
+            if (clearOfOthers(g, gears, allowed)) return g;
+        }
+    }
+    return null;
+};
+
+/** Bánh răng ăn khớp ĐỒNG THỜI `from` và `goal` (cố định) — nối kín chuỗi. */
+const bridgeGear = (from: GearSpec, goal: GearSpec, gears: GearSpec[], zones: WaterZone[], id: string): GearSpec | null => {
+    const allowed = new Set([from.id, goal.id]);
+    for (const teeth of PLAYER_TEETH) {
+        const radius = teethToRadius(teeth);
+        for (const p of circleIntersect(from, from.radius + radius, goal, goal.radius + radius)) {
+            if (!inBounds(p.x, p.y, radius) || inWater(p.x, p.y, radius, zones)) continue;
+            const g: GearSpec = { id, role: 'gear', fixed: false, teeth, radius, x: p.x, y: p.y };
+            if (clearOfOthers(g, gears, allowed)) return g;
+        }
+    }
+    return null;
+};
+
+/** Chuỗi ăn khớp từ `start` cho tới khi nối được `goal` (cố định). null nếu bí. */
+const chainTo = (start: GearSpec, goal: GearSpec, base: GearSpec[], zones: WaterZone[], idp: string): GearSpec[] | null => {
+    const placed: GearSpec[] = [];
+    let cur = start;
+    for (let i = 0; i < 10; i++) {
+        if (areMeshing(cur, goal)) return placed;
+        const bridge = bridgeGear(cur, goal, [...base, ...placed], zones, `${idp}b${i}`);
+        if (bridge) { placed.push(bridge); return placed; }
+        const next = stepGear(cur, goal.x, goal.y, [...base, ...placed], zones, `${idp}${i}`);
+        if (!next) return null;
+        placed.push(next);
+        cur = next;
+    }
+    return areMeshing(cur, goal) ? placed : null;
+};
+
+/** Lời giải tham khảo: bánh răng + dây đai tối thiểu để nối Nguồn→Đích. */
+export const estimateBuildSolution = (
+    motor: GearSpec,
+    target: GearSpec,
+    zones: WaterZone[],
+    maxBeltLength: number
+): { gears: GearSpec[]; belts: BeltSpec[] } | null => {
+    if (zones.length === 0) {
+        const chain = chainTo(motor, target, [motor, target], zones, 'g');
+        return chain ? { gears: chain, belts: [] } : null;
+    }
+    const river = zones[0];
+    const maxR = teethToRadius(16);
+    // 1) Chuỗi TRÁI: từ motor tiến NGANG về sát bờ trái sông.
+    const bankStopX = river.x - (maxR + 8);
+    const leftGears: GearSpec[] = [];
+    let cur = motor;
+    for (let i = 0; i < 8 && cur.x < bankStopX; i++) {
+        const g = stepGear(cur, river.x, motor.y, [motor, target, ...leftGears], zones, `l${i}`);
+        if (!g) break;
+        leftGears.push(g);
+        cur = g;
+    }
+    const beltL = cur;
+    // 2) Mỏ neo PHẢI: ngay ĐỐI DIỆN beltL bên kia sông ⇒ đai NGANG, ngắn,
+    //    chỉ vừa đủ bắc qua sông (không thừa để vượt bãi trống).
+    let beltR: GearSpec | null = null;
+    for (const teeth of PLAYER_TEETH) {
+        const radius = teethToRadius(teeth);
+        const x = river.x + river.width + radius + 6;
+        for (let dy = 0; dy <= 140 && !beltR; dy += 14) {
+            for (const sgn of dy === 0 ? [0] : [1, -1]) {
+                const y = clamp(beltL.y + sgn * dy, PLAY.top + radius, PLAY.bottom - radius);
+                if (
+                    isValidPos(x, y, radius, [motor, target, ...leftGears], null, zones) &&
+                    distance(beltL, { x, y }) <= maxBeltLength
+                ) {
+                    beltR = { id: 'ra', role: 'gear', fixed: false, teeth, radius, x, y };
+                    break;
+                }
+            }
+        }
+        if (beltR) break;
+    }
+    if (!beltR) return null;
+    // 3) Chuỗi PHẢI: từ mỏ neo phải leo tới đích.
+    const rightChain = chainTo(beltR, target, [motor, target, beltR, ...leftGears], zones, 'r');
+    if (!rightChain) return null;
+    return {
+        gears: [...leftGears, beltR, ...rightChain],
+        belts: [{ id: 'b0', a: beltL.id, b: beltR.id, kind: 'belt' }],
+    };
+};
+
 // ==================== BUILD MODE ====================
 export const generateBuildLevel = (difficulty: Difficulty, seed: number): BuildLevel => {
     const rng = makeRng(seed);
@@ -129,14 +277,36 @@ export const generateBuildLevel = (difficulty: Difficulty, seed: number): BuildL
         y: randInt(rng, PLAY.top + targetR + 10, PLAY.bottom - targetR - 10),
     };
 
-    let maxGears = 6;
-    let maxBelts = 0;
     const waterZones: WaterZone[] = [];
-
     if (difficulty !== 'easy') {
         const riverX = Math.floor(CANVAS.W * (0.4 + rng() * 0.15));
         waterZones.push({ id: 'river-1', x: riverX, y: PLAY.top, width: 60, height: PLAY.bottom - PLAY.top });
-        maxBelts = 2;
+    }
+
+    // Dây đai chỉ vừa đủ BẮC QUA chướng ngại (rộng sông + 2 bánh răng ở 2 bờ),
+    // KHÔNG phải đường tắt vượt bãi trống ⇒ người chơi vẫn phải lắp đủ bánh răng.
+    const maxRadius = teethToRadius(Math.max(...GEAR_SIZES));
+    const widestRiver = waterZones.length ? Math.max(...waterZones.map((z) => z.width)) : 0;
+    const maxBeltLength = waterZones.length > 0 ? widestRiver + 2 * maxRadius + 32 : 0;
+    // Mỗi địa hình chia cách (sông) cho đúng 1 dây đai.
+    const maxBelts = waterZones.length;
+
+    // Đệm theo độ khó: Dễ = tối thiểu +2, Trung bình +1, Khó = đúng tối thiểu.
+    const buffer = difficulty === 'easy' ? 2 : difficulty === 'medium' ? 1 : 0;
+
+    // Mặc định an toàn (hiếm khi dùng — chỉ khi không dựng nổi lời giải tham khảo).
+    let maxComponents = waterZones.length > 0 ? 8 : 7;
+    let targetDirection: 1 | -1 = rng() > 0.5 ? 1 : -1;
+
+    const sol = estimateBuildSolution(motor, target, waterZones, maxBeltLength);
+    if (sol) {
+        const s = simulate({ gears: [motor, target, ...sol.gears], belts: sol.belts }, { id: 'motor', dir: MOTOR.dir, speed: MOTOR.speed });
+        const t = s.runtime.get('target');
+        if (t && t.state === 'driven' && !s.jammed) {
+            // Chiều đích = chiều lời giải tạo ra ⇒ đảm bảo "đúng chiều" KHẢ THI ở mức tối thiểu.
+            targetDirection = t.dir === -1 ? -1 : 1;
+            maxComponents = sol.gears.length + sol.belts.length + buffer;
+        }
     }
 
     return {
@@ -145,11 +315,11 @@ export const generateBuildLevel = (difficulty: Difficulty, seed: number): BuildL
         difficulty,
         layout: { gears: [motor, target], belts: [] },
         waterZones,
-        targetDirection: rng() > 0.5 ? 1 : -1,
+        targetDirection,
         targetMinSpeed: undefined,
-        maxGears,
+        maxComponents,
         maxBelts,
-        maxBeltLength: 420,
+        maxBeltLength,
         availableGearSizes: [...GEAR_SIZES],
         fixedGearIds: [],
     };

@@ -78,7 +78,10 @@ export interface BuildLevel {
     waterZones: WaterZone[];
     targetDirection: 1 | -1;
     targetMinSpeed?: number;
-    maxGears: number;
+    /** Ngân sách linh kiện CHUNG (bánh răng + dây đai) — ≈ tối thiểu cần để
+     *  nối Nguồn→Đích đúng chiều, cộng đệm theo độ khó (tạo thử thách). */
+    maxComponents: number;
+    /** Số dây đai tối đa (0 = không cho dùng đai). Vẫn trừ vào maxComponents. */
     maxBelts: number;
     maxBeltLength: number;
     availableGearSizes: number[];
