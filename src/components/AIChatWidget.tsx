@@ -36,8 +36,16 @@ export const AIChatWidget: React.FC = () => {
         }
     }, [messages, isOpen]);
 
-    // Check if user is taking a test, if so hide everything to prevent cheating
-    if (!currentStudent || !currentStudent.aiEnabled || location.pathname.includes('/test')) {
+    // Check if user is taking a test, or is in a game screen, preschool activity, if so hide everything
+    const isGameOrTest = 
+        location.pathname.includes('/test') || 
+        location.pathname.includes('/game') || 
+        location.pathname.includes('/coding') || 
+        location.pathname.includes('/riddle') || 
+        location.pathname.includes('/preschool') || 
+        location.pathname.includes('/__race');
+
+    if (!currentStudent || !currentStudent.aiEnabled || isGameOrTest) {
         return null;
     }
 
