@@ -100,6 +100,8 @@ export interface Topic {
   description: string;
 }
 
+export type StudyMode = 'practice' | 'test';
+
 export interface TestResult {
   id: string;
   date: string; // ISO string
@@ -109,6 +111,7 @@ export interface TestResult {
   topicIds: string[];
   questions: Question[]; // Store full questions to review later
   starsEarned: number; // new field
+  mode?: StudyMode; // 'practice' (Luyện tập) | 'test' (Kiểm tra) — optional cho dữ liệu cũ
 }
 
 export interface TestConfig {

@@ -1,5 +1,8 @@
 import { Question, QuestionType } from '../../../types';
 import { capitalize } from '../utils';
+import { shapeSVG, shapesGridSVG } from '../svg';
+
+type ShapeKind = 'square' | 'circle' | 'triangle' | 'rectangle';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -11,15 +14,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-const createShapeSVG = (shape: string) => {
-    const shapes: { [key: string]: string } = {
-        'square': '<rect x="50" y="50" width="80" height="80" fill="#4ECDC4" stroke="#333" stroke-width="3"/>',
-        'circle': '<circle cx="90" cy="90" r="40" fill="#FF6B6B" stroke="#333" stroke-width="3"/>',
-        'triangle': '<polygon points="90,50 50,130 130,130" fill="#FFE66D" stroke="#333" stroke-width="3"/>',
-        'rectangle': '<rect x="40" y="60" width="100" height="60" fill="#95E1D3" stroke="#333" stroke-width="3"/>'
-    };
-    return `<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">${shapes[shape]}</svg>`;
-};
+const createShapeSVG = (shape: string) => shapeSVG(shape as ShapeKind);
 
 const shapeNames: { [key: string]: string } = {
     'square': 'hình vuông',
@@ -47,24 +42,14 @@ export const generateGeometry = (): Omit<Question, 'id' | 'topicId'> => {
         // Count shapes in picture
         const shape = shapes[randomInt(0, 3)];
         const count = randomInt(2, 5);
-        const svg = `
-      <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-        ${Array.from({ length: count }, (_, i) => {
-            const x = 40 + (i % 3) * 80;
-            const y = 40 + Math.floor(i / 3) * 80;
-            if (shape === 'square') return `<rect x="${x}" y="${y}" width="50" height="50" fill="#4ECDC4" stroke="#333" stroke-width="2"/>`;
-            if (shape === 'circle') return `<circle cx="${x + 25}" cy="${y + 25}" r="25" fill="#FF6B6B" stroke="#333" stroke-width="2"/>`;
-            if (shape === 'triangle') return `<polygon points="${x + 25},${y} ${x},${y + 50} ${x + 50},${y + 50}" fill="#FFE66D" stroke="#333" stroke-width="2"/>`;
-            return `<rect x="${x}" y="${y}" width="60" height="40" fill="#95E1D3" stroke="#333" stroke-width="2"/>`;
-        }).join('')}
-      </svg>
-    `;
+        // Đúng 4 đáp án gồm đáp án đúng (tránh bị cắt mất khi dedup ở generateQuestions).
+        const distractors = shuffleArray([1, 2, 3, 4, 5, 6].filter(n => n !== count)).slice(0, 3);
         return {
             type: QuestionType.SingleChoice,
             questionText: `Đếm xem có bao nhiêu ${shapeNames[shape]}?`,
-            visualSvg: svg,
+            visualSvg: shapesGridSVG(shape as ShapeKind, count),
             correctAnswer: count.toString(),
-            options: shuffleArray(['1', '2', '3', '4', '5']),
+            options: shuffleArray([count, ...distractors].map(String)),
             explanation: `Có ${count} ${shapeNames[shape]}.`
         };
     }

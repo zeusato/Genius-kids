@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Question, TestResult, QuestionType, AlbumImage } from '@/types';
+import { Question, TestResult, QuestionType, AlbumImage, StudyMode } from '@/types';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { TopicSelection } from '@/src/components/study/TopicSelection';
 import { TestRunner } from '@/src/components/study/TestRunner';
@@ -17,6 +17,8 @@ export function StudyPage() {
 
     const [activeTestQuestions, setActiveTestQuestions] = useState<Question[]>([]);
     const [testDuration, setTestDuration] = useState<number>(20);
+    const [testMode, setTestMode] = useState<StudyMode>('test');
+    const [ttsAutoRead, setTtsAutoRead] = useState<boolean>(false);
     const [lastResult, setLastResult] = useState<TestResult | null>(null);
     const [isGenerating, setIsGenerating] = useState(false);
     const [generatingStatus, setGeneratingStatus] = useState("");
@@ -27,7 +29,14 @@ export function StudyPage() {
         return null;
     }
 
-    const handleStartTest = async (topicIds: string[], count: number, isStoryMode: boolean = false) => {
+    const handleStartTest = async (
+        topicIds: string[],
+        count: number,
+        opts: { isStoryMode?: boolean; mode?: StudyMode; ttsAutoRead?: boolean } = {},
+    ) => {
+        const { isStoryMode = false, mode = 'test', ttsAutoRead: tts = false } = opts;
+        setTestMode(mode);
+        setTtsAutoRead(tts);
         setIsGenerating(true);
         setGeneratingError("");
         const apiKey = localStorage.getItem('mathgenius_gemini_key') || undefined;
@@ -113,7 +122,8 @@ export function StudyPage() {
             durationSeconds,
             topicIds: [],
             questions: processedQuestions,
-            starsEarned: reward.stars
+            starsEarned: reward.stars,
+            mode: testMode
         };
 
         // Play sound based on score
@@ -181,6 +191,8 @@ export function StudyPage() {
                     <TestRunner
                         questions={activeTestQuestions}
                         durationMinutes={testDuration}
+                        mode={testMode}
+                        ttsAutoRead={ttsAutoRead}
                         onFinish={handleTestFinish}
                         onExit={handleExitTest}
                     />

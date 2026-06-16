@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+import { rectSVG, squareSVG } from '../svg';
 
 // --- Utility Functions (Duplicated for now, should be shared utils later) ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,30 +18,10 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 
 // --- SVG Helpers ---
 
-export const createRectSVG = (w: number, h: number, labelW: string, labelH: string, color: string = "#fef3c7", stroke: string = "#d97706") => {
-    // Scale logic to fit box with more padding for labels
-    const svgW = 400;
-    const svgH = 250;
-    const maxW = 250; // Keep max width constrained to leave room for side labels if any (though rect usually has bottom/right labels)
-    const maxH = 150;
-    const scale = Math.min(maxW / w, maxH / h);
-    const drawW = w * scale;
-    const drawH = h * scale;
-    const startX = (svgW - drawW) / 2;
-    const startY = (svgH - drawH) / 2;
+// Dùng BỘ SVG DÙNG CHUNG (tỉ lệ đúng, nhãn rõ). Giữ chữ ký cũ cho mathEngine.
+export const createRectSVG = (w: number, h: number, _labelW?: string, _labelH?: string) => rectSVG(w, h, { color: 'yellow' });
 
-    return `
-      <svg width="${svgW}" height="${svgH}" viewBox="0 0 ${svgW} ${svgH}" xmlns="http://www.w3.org/2000/svg">
-        <rect x="${startX}" y="${startY}" width="${drawW}" height="${drawH}" fill="${color}" stroke="${stroke}" stroke-width="3" />
-        <text x="${startX + drawW / 2}" y="${startY + drawH + 25}" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#0f172a">${labelW}</text>
-        <text x="${startX + drawW + 15}" y="${startY + drawH / 2}" font-family="sans-serif" font-size="16" dominant-baseline="middle" fill="#0f172a">${labelH}</text>
-      </svg>
-    `;
-};
-
-export const createSquareSVG = (side: number, label: string) => {
-    return createRectSVG(side, side, label, label, "#dcfce7", "#16a34a");
-};
+export const createSquareSVG = (side: number, _label?: string) => squareSVG(side, { color: 'green' });
 
 export const createCompositeSVG = (hA: number, wA: number, hB: number, wB: number) => {
     const svgW = 400;

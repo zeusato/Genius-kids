@@ -1,4 +1,5 @@
 import { Question, QuestionType } from '../../../types';
+import { clockSVG } from '../svg';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -25,45 +26,8 @@ const generateWrongAnswers = (correct: number, count: number, range: number = 5)
 
 // --- SVG Helpers ---
 
-const createClockSVG = (hour: number, minute: number) => {
-    const cx = 100;
-    const cy = 100;
-    const r = 80;
-
-    // Hour hand angle: (hour % 12 + minute/60) * 30
-    const hAngle = (hour % 12 + minute / 60) * 30;
-    // Minute hand angle: minute * 6
-    const mAngle = minute * 6;
-
-    // Convert polar to cartesian
-    const toRad = (deg: number) => (deg - 90) * Math.PI / 180;
-
-    const hx = cx + 50 * Math.cos(toRad(hAngle));
-    const hy = cy + 50 * Math.sin(toRad(hAngle));
-
-    const mx = cx + 70 * Math.cos(toRad(mAngle));
-    const my = cy + 70 * Math.sin(toRad(mAngle));
-
-    let ticks = '';
-    for (let i = 1; i <= 12; i++) {
-        const angle = i * 30;
-        const tx = cx + 65 * Math.cos(toRad(angle));
-        const ty = cy + 65 * Math.sin(toRad(angle));
-        ticks += `<text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" font-size="14" font-family="sans-serif">${i}</text>`;
-    }
-
-    return `
-      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="${cx}" cy="${cy}" r="${r}" fill="white" stroke="black" stroke-width="3" />
-        ${ticks}
-        <!-- Hour Hand -->
-        <line x1="${cx}" y1="${cy}" x2="${hx}" y2="${hy}" stroke="black" stroke-width="4" stroke-linecap="round" />
-        <!-- Minute Hand -->
-        <line x1="${cx}" y1="${cy}" x2="${mx}" y2="${my}" stroke="black" stroke-width="2" stroke-linecap="round" />
-        <circle cx="${cx}" cy="${cy}" r="4" fill="black" />
-      </svg>
-    `;
-};
+// Đồng hồ dùng BỘ SVG DÙNG CHUNG (kim giờ đậm, kim phút đỏ, vạch phút, số rõ).
+const createClockSVG = (hour: number, minute: number) => clockSVG(hour, minute);
 
 const createCalendarSVG = (month: number, day: number, dayOfWeek: string) => {
     // Simple calendar page

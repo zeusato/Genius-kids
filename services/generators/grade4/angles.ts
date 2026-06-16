@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { capitalize } from '../utils';
+import { angleSVG } from '../svg';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,42 +13,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-// Create SVG for angle
-export const createAngleSVG = (degrees: number) => {
-    const cx = 200;
-    const cy = 150;
-    const r = 100;
-
-    const angle1Rad = 0;
-    const angle2Rad = (degrees * Math.PI) / 180;
-
-    const x1 = cx + r * Math.cos(angle1Rad);
-    const y1 = cy - r * Math.sin(angle1Rad);
-    const x2 = cx + r * Math.cos(angle2Rad);
-    const y2 = cy - r * Math.sin(angle2Rad);
-
-    const largeArc = degrees > 180 ? 1 : 0;
-
-    return `
-    <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <!-- Base line -->
-      <line x1="${cx - 120}" y1="${cy}" x2="${cx + 120}" y2="${cy}" stroke="#334155" stroke-width="3" />
-      
-      <!-- Angle line -->
-      <line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#334155" stroke-width="3" />
-      
-      <!-- Arc -->
-      <path d="M ${x1} ${y1} A ${r / 2} ${r / 2} 0 ${largeArc} 0 ${cx + (r / 2) * Math.cos(angle2Rad)} ${cy - (r / 2) * Math.sin(angle2Rad)}" 
-            fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4"/>
-      
-      <!-- Angle label -->
-      <text x="${cx + 60}" y="${cy - 20}" font-size="20" fill="#0f172a">${degrees}°</text>
-      
-      <!-- Vertex point -->
-      <circle cx="${cx}" cy="${cy}" r="4" fill="#0f172a" />
-    </svg>
-  `;
-};
+// Góc — dùng BỘ SVG DÙNG CHUNG (hai tia + cung + nhãn số đo).
+export const createAngleSVG = (degrees: number) => angleSVG(degrees);
 
 export const generateAngles = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();

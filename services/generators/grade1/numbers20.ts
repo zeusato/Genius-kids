@@ -90,18 +90,20 @@ export const generateNumbers20 = (): Omit<Question, 'id' | 'topicId'> => {
             const ones = num % 10;
 
             const correctAnswer = `${tens} chục ${ones} đơn vị`;
-            const wrong1 = `${ones} chục ${tens} đơn vị`;
-            const wrong2 = `${tens + 1} chục ${ones - 1 < 0 ? 0 : ones - 1} đơn vị`;
-            const wrong3 = `${num} chục 0 đơn vị`;
-            const wrong4 = `${tens} chục ${ones + 1} đơn vị`;
-
-            const uniqueOptions = Array.from(new Set([correctAnswer, wrong1, wrong2, wrong3, wrong4]));
+            const wrongCandidates = [
+                `${ones} chục ${tens} đơn vị`,
+                `${tens + 1} chục ${ones - 1 < 0 ? 0 : ones - 1} đơn vị`,
+                `${num} chục 0 đơn vị`,
+                `${tens} chục ${ones + 1} đơn vị`,
+            ];
+            // Luôn giữ đáp án đúng + 3 distractor (tránh shuffle-rồi-slice làm mất đáp án).
+            const wrongs = Array.from(new Set(wrongCandidates.filter(w => w !== correctAnswer))).slice(0, 3);
 
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Số ${num} có mấy chục mấy đơn vị?`,
                 correctAnswer: correctAnswer,
-                options: shuffleArray(uniqueOptions).slice(0, 4),
+                options: shuffleArray([correctAnswer, ...wrongs]),
                 explanation: `${num} = ${tens} chục ${ones} đơn vị`
             };
         } else if (type < 0.75) {

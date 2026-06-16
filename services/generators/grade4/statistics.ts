@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { capitalize } from '../utils';
+import { barChartSVG } from '../svg';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,37 +13,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-// Create simple bar chart SVG
-export const createBarChartSVG = (data: { label: string, value: number }[]) => {
-    const maxValue = Math.max(...data.map(d => d.value));
-    const barWidth = 50;
-    const gap = 20;
-    const chartHeight = 150;
-    const scale = chartHeight / (maxValue + 5);
-
-    let bars = '';
-    data.forEach((d, i) => {
-        const x = 30 + i * (barWidth + gap);
-        const h = d.value * scale;
-        const y = chartHeight - h + 20;
-
-        bars += `
-      <rect x="${x}" y="${y}" width="${barWidth}" height="${h}" fill="#3b82f6" stroke="#1e40af" stroke-width="2" />
-      <text x="${x + barWidth / 2}" y="${y - 5}" text-anchor="middle" font-size="14" font-weight="bold">${d.value}</text>
-      <text x="${x + barWidth / 2}" y="${chartHeight + 40}" text-anchor="middle" font-size="12">${d.label}</text>
-    `;
-    });
-
-    return `
-    <svg width="${30 + data.length * (barWidth + gap) + 20}" height="200" viewBox="0 0 ${30 + data.length * (barWidth + gap) + 20} 200" xmlns="http://www.w3.org/2000/svg">
-      <!-- Axes -->
-      <line x1="25" y1="20" x2="25" y2="${chartHeight + 20}" stroke="#0f172a" stroke-width="2" />
-      <line x1="20" y1="${chartHeight + 20}" x2="${30 + data.length * (barWidth + gap)}" y2="${chartHeight + 20}" stroke="#0f172a" stroke-width="2" />
-      
-      ${bars}
-    </svg>
-  `;
-};
+// Biểu đồ cột — dùng BỘ SVG DÙNG CHUNG (cột nhiều màu, có trị số & nhãn).
+export const createBarChartSVG = (data: { label: string, value: number }[]) => barChartSVG(data);
 
 export const generateStatistics = (): Omit<Question, 'id' | 'topicId'> => {
     const categories = [

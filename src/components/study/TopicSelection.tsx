@@ -1,11 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useStudent } from '@/src/contexts/StudentContext';
 import { getTopicsByGrade } from '@/services/mathEngine';
-import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer, AlertTriangle, Sparkles } from 'lucide-react';
+import { Grade, StudyMode } from '@/types';
+import { BookOpen, Trophy, BarChart2, CheckCircle, ChevronRight, ArrowLeft, Settings, Printer, AlertTriangle, Sparkles, Dumbbell, ClipboardCheck, Volume2, VolumeX } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface TopicSelectionProps {
-    onStartTest: (topicIds: string[], count: number, isStoryMode: boolean) => void;
+    onStartTest: (topicIds: string[], count: number, opts: { isStoryMode: boolean; mode: StudyMode; ttsAutoRead: boolean }) => void;
     onExport: (topics: string[], count: number) => Promise<void>;
     onBack: () => void;
     isGenerating?: boolean;
@@ -14,6 +15,9 @@ interface TopicSelectionProps {
     onForceLocal?: (topicIds: string[], count: number) => void;
     onCancel?: () => void;
 }
+
+const GRADE_LABEL = (g: Grade) => g === Grade.Preschool ? 'Mầm non' : `lớp ${g}`;
+const TTS_KEY = 'mathgenius_tts_autoread';
 
 const Button = ({ onClick, children, variant = 'primary', className = '', disabled = false }: any) => {
     const baseStyle = 'px-6 py-3 rounded-xl font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center';
@@ -36,6 +40,15 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
     const [questionCount, setQuestionCount] = useState<number>(20);
     const [isExporting, setIsExporting] = useState(false);
     const [isStoryMode, setIsStoryMode] = useState(false);
+    const [mode, setMode] = useState<StudyMode>('test');
+
+    // Lớp 1 & Mầm non: cho phép tự đọc đề (TTS). Mặc định BẬT; lưu lựa chọn.
+    const supportsTts = !!currentStudent && currentStudent.grade <= Grade.Grade1;
+    const [ttsAutoRead, setTtsAutoRead] = useState<boolean>(() => {
+        const saved = localStorage.getItem(TTS_KEY);
+        return saved !== null ? saved === 'true' : true; // mặc định BẬT cho lớp ≤ 1
+    });
+    useEffect(() => { localStorage.setItem(TTS_KEY, String(ttsAutoRead)); }, [ttsAutoRead]);
 
     if (!currentStudent) return null;
 
@@ -83,7 +96,7 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                     <div className="bg-brand-100 p-3 rounded-full text-2xl">🎓</div>
                     <div>
                         <h2 className="text-2xl font-bold text-slate-800">Chào, {currentStudent.name}!</h2>
-                        <p className="text-slate-500">Học sinh lớp {currentStudent.grade}</p>
+                        <p className="text-slate-500">Học sinh {GRADE_LABEL(currentStudent.grade)}</p>
                     </div>
                 </div>
                 <Button variant="outline" onClick={onBack} className="text-sm px-4 py-2">
@@ -93,6 +106,45 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-6">
+                    <Card>
+                        <h3 className="text-lg font-bold text-slate-800 mb-3">Chọn chế độ học</h3>
+                        <div className="grid grid-cols-2 gap-3">
+                            <button
+                                onClick={() => setMode('practice')}
+                                className={`p-4 rounded-xl border-2 text-left transition-all ${mode === 'practice' ? 'border-green-500 bg-green-50 ring-2 ring-green-200' : 'border-gray-200 hover:border-green-300'}`}
+                            >
+                                <div className="flex items-center gap-2 font-bold text-slate-800">
+                                    <Dumbbell size={18} className="text-green-600" /> Luyện tập
+                                </div>
+                                <p className="text-xs text-slate-500 mt-1">Báo đúng/sai & giải thích ngay, không tính giờ</p>
+                            </button>
+                            <button
+                                onClick={() => setMode('test')}
+                                className={`p-4 rounded-xl border-2 text-left transition-all ${mode === 'test' ? 'border-brand-500 bg-brand-50 ring-2 ring-brand-200' : 'border-gray-200 hover:border-brand-300'}`}
+                            >
+                                <div className="flex items-center gap-2 font-bold text-slate-800">
+                                    <ClipboardCheck size={18} className="text-brand-600" /> Kiểm tra
+                                </div>
+                                <p className="text-xs text-slate-500 mt-1">Tính giờ, chấm điểm khi nộp bài</p>
+                            </button>
+                        </div>
+
+                        {supportsTts && (
+                            <button
+                                onClick={() => setTtsAutoRead(v => !v)}
+                                className={`mt-3 w-full flex items-center justify-between p-3 rounded-xl border-2 transition-all ${ttsAutoRead ? 'border-amber-400 bg-amber-50' : 'border-gray-200'}`}
+                            >
+                                <span className="flex items-center gap-2 font-bold text-slate-700">
+                                    {ttsAutoRead ? <Volume2 size={18} className="text-amber-600" /> : <VolumeX size={18} className="text-slate-400" />}
+                                    Đọc đề cho bé nghe
+                                </span>
+                                <span className={`relative w-11 h-6 rounded-full transition-colors ${ttsAutoRead ? 'bg-amber-500' : 'bg-gray-300'}`}>
+                                    <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all ${ttsAutoRead ? 'left-[22px]' : 'left-0.5'}`} />
+                                </span>
+                            </button>
+                        )}
+                    </Card>
+
                     <section>
                         <div className="flex justify-between items-center mb-4">
                             <h3 className="text-xl font-bold flex items-center gap-2">
@@ -172,8 +224,8 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                                     <Button variant="secondary" className="py-2 text-sm flex-1 md:flex-none whitespace-nowrap" onClick={handleExportClick} disabled={isExporting}>
                                         <Printer size={18} className="mr-2" /> {isExporting ? 'Đang tạo...' : 'In đề'}
                                     </Button>
-                                    <Button variant="success" className="py-2 flex-1 md:flex-none whitespace-nowrap min-w-[160px]" onClick={() => onStartTest(selectedTopics, questionCount, isStoryMode)}>
-                                        Bắt đầu <ChevronRight className="ml-2" />
+                                    <Button variant="success" className="py-2 flex-1 md:flex-none whitespace-nowrap min-w-[160px]" onClick={() => onStartTest(selectedTopics, questionCount, { isStoryMode, mode, ttsAutoRead: supportsTts && ttsAutoRead })}>
+                                        {mode === 'practice' ? 'Luyện tập' : 'Bắt đầu'} <ChevronRight className="ml-2" />
                                     </Button>
                                 </div>
                             </div>

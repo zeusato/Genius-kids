@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { fractionBarSVG } from '../svg';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -12,23 +13,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArr;
 };
 
-// Create SVG for fraction visualization
-export const createFractionSVG = (numerator: number, denominator: number) => {
-    const partWidth = 250 / denominator;
-    let parts = '';
-
-    for (let i = 0; i < denominator; i++) {
-        const x = 25 + i * partWidth;
-        const fillColor = i < numerator ? '#3b82f6' : '#e5e7eb';
-        parts += `<rect x="${x}" y="50" width="${partWidth - 2}" height="80" fill="${fillColor}" stroke="#0f172a" stroke-width="2" />`;
-    }
-
-    return `
-    <svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
-      ${parts}
-    </svg>
-  `;
-};
+// Phân số minh hoạ — dùng BỘ SVG DÙNG CHUNG (thanh chia đều, tô phần tử số).
+export const createFractionSVG = (numerator: number, denominator: number) => fractionBarSVG(numerator, denominator);
 
 export const generateFractions = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();

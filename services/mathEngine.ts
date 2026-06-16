@@ -19,6 +19,10 @@ import { generateLength } from './generators/grade1/length';
 import { generateTime } from './generators/grade1/time';
 import { generateGeometry as generateG1Geometry } from './generators/grade1/geometry';
 import { generateWordProblems as generateG1WordProblems } from './generators/grade1/wordProblems';
+import { generateG1Clock } from './generators/grade1/clock';
+import { generatePreschoolCounting } from './generators/preschool/counting';
+import { generatePreschoolShapes } from './generators/preschool/shapes';
+import { generatePreschoolColors } from './generators/preschool/colors';
 import { generateLargeNumbers } from './generators/grade4/largeNumbers';
 import { generateAddSub } from './generators/grade4/additions';
 import { generateMultiplication } from './generators/grade4/multiplications';
@@ -37,6 +41,10 @@ import { generateG3Division } from './generators/grade3/division';
 import { generateG3Geometry } from './generators/grade3/geometry';
 import { generateG3Measurements } from './generators/grade3/measurements';
 import { generateG3WordProblems } from './generators/grade3/wordProblems';
+import { generateG3Fractions } from './generators/grade3/fractions';
+import { generateG3Area } from './generators/grade3/area';
+import { generateG3Statistics } from './generators/grade3/statistics';
+import { generateG3Money } from './generators/grade3/money';
 import { generateG5Numbers } from './generators/grade5/numbers';
 import { generateG5DecimalOps } from './generators/grade5/decimalOps';
 import { generateG5Ratios } from './generators/grade5/ratios';
@@ -44,18 +52,31 @@ import { generateG5Fractions } from './generators/grade5/fractions';
 import { generateG5Geometry } from './generators/grade5/geometry';
 import { generateG5Measurements } from './generators/grade5/measurements';
 import { generateG5WordProblems } from './generators/grade5/wordProblems';
+import { generateG5Statistics } from './generators/grade5/statistics';
+import { generateG5TimeOps } from './generators/grade5/timeOps';
 
 // Grade 2 - refactored generators
 import { generateG2AddSubNoCarry } from './generators/grade2/addSubNoCarry';
 import { generateG2AddSubCarry } from './generators/grade2/addSubCarry';
+import { generateG2Multiplication } from './generators/grade2/multiplication';
+import { generateG2Division } from './generators/grade2/division';
+import { generateG2Numbers1000 } from './generators/grade2/numbers1000';
+import { generateG2Money } from './generators/grade2/money';
 
 // Grade 4 - refactored generators
 import { generateG4Patterns } from './generators/grade4/patterns';
 import { generateTypingPractice } from './generators/grade4/typingPractice';
 import { generateG4Parentheses } from './generators/grade4/parentheses';
+import { generateG4Divisibility } from './generators/grade4/divisibility';
+import { generateG4Average } from './generators/grade4/average';
+import { generateG4ParaRhombus } from './generators/grade4/parallelogramRhombus';
+import { generateG4FractionOps } from './generators/grade4/fractionOps';
 
 // Grade 5 - refactored generators
 import { generateG5Parentheses } from './generators/grade5/parentheses';
+
+// Bộ SVG dùng chung (cho nhánh visualRequest của AI)
+import { fractionBarSVG, angleSVG } from './generators/svg';
 
 // --- Utility Functions ---
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -159,6 +180,11 @@ export const createMultipleSelectQuestion = (
 // --- Topic Registry ---
 
 export const TOPICS: Topic[] = [
+  // Preschool (Mầm non)
+  { id: 'mn_counting', title: 'Đếm số lượng', grade: Grade.Preschool, description: 'Đếm đồ vật trong phạm vi 10, so sánh nhiều ít' },
+  { id: 'mn_shapes', title: 'Nhận biết hình', grade: Grade.Preschool, description: 'Hình vuông, tròn, tam giác, chữ nhật' },
+  { id: 'mn_colors', title: 'Nhận biết màu sắc', grade: Grade.Preschool, description: 'Các màu cơ bản' },
+
   // Grade 1
   { id: 'g1_numbers_5', title: 'Số phạm vi 5', grade: Grade.Grade1, description: 'Đếm, so sánh, sắp xếp 1-5' },
   { id: 'g1_numbers_10', title: 'Số phạm vi 10', grade: Grade.Grade1, description: 'Đếm, so sánh, tách số 0-10' },
@@ -171,6 +197,7 @@ export const TOPICS: Topic[] = [
   { id: 'g1_time', title: 'Thời gian', grade: Grade.Grade1, description: 'Buổi trong ngày, ngày trong tuần' },
   { id: 'g1_geometry', title: 'Hình học trực quan', grade: Grade.Grade1, description: 'Nhận dạng hình cơ bản' },
   { id: 'g1_word_problems', title: 'Toán lời văn 1 bước', grade: Grade.Grade1, description: 'Thêm, bớt, tổng, còn lại' },
+  { id: 'g1_clock', title: 'Xem đồng hồ (giờ đúng)', grade: Grade.Grade1, description: 'Đọc giờ đúng trên mặt đồng hồ' },
 
   // Grade 2
   { id: 'g2_add_sub_no_carry', title: 'Cộng trừ không nhớ (Phạm vi 100)', grade: Grade.Grade2, description: 'Phép tính đơn giản không cần nhớ' },
@@ -179,6 +206,10 @@ export const TOPICS: Topic[] = [
   { id: 'g2_units_measure', title: 'Đại lượng (Độ dài, Khối lượng, Dung tích)', grade: Grade.Grade2, description: 'Đổi đơn vị, xem cân, đo độ dài' },
   { id: 'g2_time_calendar', title: 'Thời gian & Lịch', grade: Grade.Grade2, description: 'Xem đồng hồ, đọc lịch ngày tháng' },
   { id: 'g2_geometry_basic', title: 'Hình học (Phẳng & Khối)', grade: Grade.Grade2, description: 'Nhận diện hình, đếm hình' },
+  { id: 'g2_numbers_1000', title: 'Số đến 1000', grade: Grade.Grade2, description: 'Đọc, viết, so sánh, thứ tự, cấu tạo số' },
+  { id: 'g2_multiplication', title: 'Phép nhân (bảng 2, 3, 4, 5)', grade: Grade.Grade2, description: 'Ý nghĩa phép nhân và bảng nhân' },
+  { id: 'g2_division', title: 'Phép chia (bảng 2, 3, 4, 5)', grade: Grade.Grade2, description: 'Chia đều, bảng chia, quan hệ với phép nhân' },
+  { id: 'g2_money', title: 'Tiền Việt Nam', grade: Grade.Grade2, description: 'Nhận biết, đếm, đổi tiền, mua bán' },
 
 
   // Grade 3
@@ -189,6 +220,10 @@ export const TOPICS: Topic[] = [
   { id: 'g3_geometry', title: 'Hình học cơ bản', grade: Grade.Grade3, description: 'Đoạn thẳng, góc vuông, chu vi' },
   { id: 'g3_measurements', title: 'Đo lường', grade: Grade.Grade3, description: 'Độ dài, khối lượng, dung tích, thời gian' },
   { id: 'g3_word_problems', title: 'Toán lời văn', grade: Grade.Grade3, description: 'Bài toán 1-2 bước' },
+  { id: 'g3_fractions', title: 'Phân số (một phần mấy)', grade: Grade.Grade3, description: 'Nhận biết 1/2…1/9, tìm một phần của số' },
+  { id: 'g3_area', title: 'Chu vi & Diện tích', grade: Grade.Grade3, description: 'Chu vi, diện tích hình chữ nhật và hình vuông' },
+  { id: 'g3_statistics', title: 'Bảng số liệu & Biểu đồ', grade: Grade.Grade3, description: 'Đọc biểu đồ cột, so sánh, tính tổng' },
+  { id: 'g3_money', title: 'Tiền Việt Nam', grade: Grade.Grade3, description: 'Đếm tiền, mua bán, tiền thối, bài toán 2 bước' },
 
 
   // Grade 4
@@ -205,6 +240,10 @@ export const TOPICS: Topic[] = [
   { id: 'g4_word_problems', title: 'Toán lời văn', grade: Grade.Grade4, description: 'Bài toán 2-3 bước' },
   { id: 'g4_patterns', title: 'Tìm quy luật dãy số', grade: Grade.Grade4, description: 'Điền số còn thiếu vào vị trí bất kỳ' },
   { id: 'g4_parentheses', title: 'Phép toán có ngoặc', grade: Grade.Grade4, description: 'Tính, tìm số, tìm dấu, so sánh biểu thức có ngoặc đơn' },
+  { id: 'g4_divisibility', title: 'Dấu hiệu chia hết', grade: Grade.Grade4, description: 'Dấu hiệu chia hết cho 2, 3, 5, 9' },
+  { id: 'g4_average', title: 'Trung bình cộng', grade: Grade.Grade4, description: 'Tìm trung bình cộng, tìm số còn thiếu' },
+  { id: 'g4_para_rhombus', title: 'Diện tích bình hành & thoi', grade: Grade.Grade4, description: 'Diện tích hình bình hành, hình thoi' },
+  { id: 'g4_fraction_ops', title: 'Phép tính phân số', grade: Grade.Grade4, description: 'So sánh, cộng trừ khác mẫu, nhân phân số' },
 
 
   // Grade 5
@@ -216,6 +255,8 @@ export const TOPICS: Topic[] = [
   { id: 'g5_measurements', title: 'Đo lường nâng cao', grade: Grade.Grade5, description: 'Đổi đơn vị, vận tốc, quãng đường' },
   { id: 'g5_word_problems', title: 'Toán lời văn nâng cao', grade: Grade.Grade5, description: 'Tổng-hiệu-tỉ, chuyển động, năng suất' },
   { id: 'g5_parentheses', title: 'Phép toán có ngoặc nâng cao', grade: Grade.Grade5, description: 'Phép toán phức tạp với số lớn (3-4 chữ số) và ngoặc đơn' },
+  { id: 'g5_statistics', title: 'Thống kê & Biểu đồ', grade: Grade.Grade5, description: 'Đọc biểu đồ cột, biểu đồ hình quạt, tỉ lệ phần trăm' },
+  { id: 'g5_time_ops', title: 'Số đo thời gian', grade: Grade.Grade5, description: 'Cộng, trừ, đổi, nhân số đo thời gian' },
 
   // ===== LUYỆN GỌ PHÍM =====
   // Typing practice topics for all grades
@@ -228,6 +269,11 @@ export const TOPICS: Topic[] = [
 // --- Generators ---
 
 const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
+  // --- Preschool (Mầm non) Generators ---
+  'mn_counting': generatePreschoolCounting,
+  'mn_shapes': generatePreschoolShapes,
+  'mn_colors': generatePreschoolColors,
+
   // --- Grade 1 Generators ---
   'g1_numbers_5': generateNumbers5,
   'g1_numbers_10': generateNumbers10,
@@ -240,6 +286,7 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g1_time': generateTime,
   'g1_geometry': generateG1Geometry,
   'g1_word_problems': generateG1WordProblems,
+  'g1_clock': generateG1Clock,
 
   // --- Grade 2 Generators ---
   'g2_add_sub_no_carry': generateG2AddSubNoCarry,
@@ -249,6 +296,10 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g2_arithmetic_advanced': generateG2Arithmetic,
   'g2_time_calendar': generateG2Time,
   'g2_geometry_basic': generateG2Geometry,
+  'g2_numbers_1000': generateG2Numbers1000,
+  'g2_multiplication': generateG2Multiplication,
+  'g2_division': generateG2Division,
+  'g2_money': generateG2Money,
   'g2_typing': generateTypingGrade2,
 
   // --- Grade 3 Generators ---
@@ -259,6 +310,10 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g3_geometry': generateG3Geometry,
   'g3_measurements': generateG3Measurements,
   'g3_word_problems': generateG3WordProblems,
+  'g3_fractions': generateG3Fractions,
+  'g3_area': generateG3Area,
+  'g3_statistics': generateG3Statistics,
+  'g3_money': generateG3Money,
   'g3_typing': generateTypingGrade3,
 
   // --- Grade 5 Generators ---
@@ -270,6 +325,8 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'g5_measurements': generateG5Measurements,
   'g5_word_problems': generateG5WordProblems,
   'g5_parentheses': generateG5Parentheses,
+  'g5_statistics': generateG5Statistics,
+  'g5_time_ops': generateG5TimeOps,
   'g5_typing': generateTypingGrade5,
 
   // --- Grade 4 Generators ---
@@ -288,6 +345,10 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
 
   'g4_patterns': generateG4Patterns,
   'g4_parentheses': generateG4Parentheses,
+  'g4_divisibility': generateG4Divisibility,
+  'g4_average': generateG4Average,
+  'g4_para_rhombus': generateG4ParaRhombus,
+  'g4_fraction_ops': generateG4FractionOps,
 
   'typing_practice': generateTypingPractice
 };
@@ -435,30 +496,12 @@ export const generateTestWithFallback = async (
             } else if (q.visualRequest.type === 'draw_fraction') {
                 const { numerator, denominator } = q.visualRequest.data || {};
                 if (numerator !== undefined && denominator !== undefined) {
-                    const partWidth = 250 / denominator;
-                    let parts = '';
-                    for (let i = 0; i < denominator; i++) {
-                        const x = 25 + i * partWidth;
-                        const fillColor = i < numerator ? '#3b82f6' : '#e5e7eb';
-                        parts += `<rect x="${x}" y="50" width="${partWidth - 2}" height="80" fill="${fillColor}" stroke="#0f172a" stroke-width="2" />`;
-                    }
-                    parsedQ.visualSvg = `<svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">${parts}</svg>`;
+                    parsedQ.visualSvg = fractionBarSVG(numerator, denominator);
                 }
             } else if (q.visualRequest.type === 'draw_angle') {
                 const degrees = q.visualRequest.data?.degrees;
                 if (degrees !== undefined) {
-                    const cx = 200, cy = 150, r = 100;
-                    const a1 = 0, a2 = (degrees * Math.PI) / 180;
-                    const x2 = cx + r * Math.cos(a2), y2 = cy - r * Math.sin(a2);
-                    const largeArc = degrees > 180 ? 1 : 0;
-                    parsedQ.visualSvg = `
-                    <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="${cx - 120}" y1="${cy}" x2="${cx + 120}" y2="${cy}" stroke="#334155" stroke-width="3" />
-                      <line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="#334155" stroke-width="3" />
-                      <path d="M ${cx + r} ${cy} A ${r / 2} ${r / 2} 0 ${largeArc} 0 ${cx + (r / 2) * Math.cos(a2)} ${cy - (r / 2) * Math.sin(a2)}" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4"/>
-                      <text x="${cx + 60}" y="${cy - 20}" font-size="20" fill="#0f172a">${degrees}°</text>
-                      <circle cx="${cx}" cy="${cy}" r="4" fill="#0f172a" />
-                    </svg>`;
+                    parsedQ.visualSvg = angleSVG(degrees);
                 }
             } else if (q.visualRequest.type === 'draw_geometry') {
                 const { shape, side, w, h, label, labelW, labelH, hA, wA, hB, wB } = q.visualRequest.data || {};

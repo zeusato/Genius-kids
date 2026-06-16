@@ -1,5 +1,6 @@
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
+import { parallelogramSVG, circleSVG, box3dSVG, trapezoidSVG, triangleSVG } from '../svg';
 
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -18,92 +19,13 @@ const formatDecimal = (num: number, maxDecimals: number = 2): string => {
     return trimmed.replace('.', ',');
 };
 
-// SVG for parallelogram
-const createParallelogramSVG = (base: number, height: number): string => {
-    return `
-    <svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="50,150 ${50 + base * 15},150 ${50 + base * 15 + 30},50 80,50" 
-               fill="#dbeafe" stroke="#0ea5e9" stroke-width="3"/>
-      <line x1="${50 + base * 15}" y1="150" x2="${50 + base * 15}" y2="50" 
-            stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-      <text x="${50 + (base * 15) / 2}" y="175" text-anchor="middle" font-size="14">Đáy = ${base}cm</text>
-      <text x="${50 + base * 15 + 15}" y="100" text-anchor="start" font-size="14">h = ${height}cm</text>
-    </svg>
-  `;
-};
-
-// SVG for circle
-export const createCircleSVG = (radius: number): string => {
-    return `
-    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="150" cy="150" r="${radius * 10}" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
-      <line x1="150" y1="150" x2="${150 + radius * 10}" y2="150" stroke="#ef4444" stroke-width="2"/>
-      <text x="${150 + (radius * 10) / 2}" y="145" text-anchor="middle" font-size="14" fill="#ef4444">r = ${radius}cm</text>
-    </svg>
-  `;
-};
-
-// SVG for rectangular box
-const createBoxSVG = (length: number, width: number, height: number): string => {
-    return `
-    <svg width="350" height="250" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="50,150 200,150 200,80 50,80" fill="#dbeafe" stroke="#0ea5e9" stroke-width="2"/>
-      <polygon points="200,150 250,120 250,50 200,80" fill="#93c5fd" stroke="#0ea5e9" stroke-width="2"/>
-      <polygon points="50,80 200,80 250,50 100,50" fill="#60a5fa" stroke="#0ea5e9" stroke-width="2"/>
-      <text x="125" y="170" text-anchor="middle" font-size="14">Dài = ${length}cm</text>
-      <text x="230" y="90" text-anchor="middle" font-size="14">Rộng = ${width}cm</text>
-      <text x="30" y="120" text-anchor="end" font-size="14">Cao = ${height}cm</text>
-    </svg>
-  `;
-};
-
-// SVG for Trapezoid
-const createTrapezoidSVG = (top: number, bottom: number, height: number): string => {
-    // Scale for visualization (not exact)
-    const scale = 15;
-    const topW = top * scale;
-    const botW = bottom * scale;
-    const h = height * scale;
-    const offsetX = (botW - topW) / 2;
-
-    return `
-    <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="${50 + offsetX},50 ${50 + offsetX + topW},50 ${50 + botW},${50 + h} 50,${50 + h}" 
-               fill="#c7d2fe" stroke="#4f46e5" stroke-width="2"/>
-      <line x1="${50 + offsetX}" y1="50" x2="${50 + offsetX}" y2="${50 + h}" 
-            stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-      <text x="${50 + offsetX + topW / 2}" y="40" text-anchor="middle" font-size="14">Đáy bé = ${top}cm</text>
-      <text x="${50 + botW / 2}" y="${50 + h + 20}" text-anchor="middle" font-size="14">Đáy lớn = ${bottom}cm</text>
-      <text x="${50 + offsetX - 10}" y="${50 + h / 2}" text-anchor="end" font-size="14">h = ${height}cm</text>
-    </svg>
-  `;
-};
-
-// SVG for Triangle
-const createTriangleSVG = (base: number, height: number, s1?: number, s2?: number, s3?: number): string => {
-    // If s1, s2, s3 provided, it's for perimeter (generic triangle)
-    // If base, height provided, it's for area (show height)
-
-    if (s1 && s2 && s3) {
-        return `
-        <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="50,150 250,150 150,50" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-          <text x="150" y="170" text-anchor="middle" font-size="14">${s3}cm</text>
-          <text x="90" y="100" text-anchor="end" font-size="14">${s1}cm</text>
-          <text x="210" y="100" text-anchor="start" font-size="14">${s2}cm</text>
-        </svg>
-      `;
-    } else {
-        return `
-        <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="50,150 ${50 + base * 15},150 100,${150 - height * 15}" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-          <line x1="100" y1="${150 - height * 15}" x2="100" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-          <text x="${50 + base * 15 / 2}" y="170" text-anchor="middle" font-size="14">Đáy = ${base}cm</text>
-          <text x="95" y="${150 - height * 15 / 2}" text-anchor="end" font-size="14">h = ${height}cm</text>
-        </svg>
-      `;
-    }
-};
+// Các hàm vẽ dùng BỘ SVG DÙNG CHUNG (tỉ lệ đúng theo số đo, có nhãn, an toàn khung).
+const createParallelogramSVG = (base: number, height: number) => parallelogramSVG(base, height);
+export const createCircleSVG = (radius: number) => circleSVG(radius);
+const createBoxSVG = (length: number, width: number, height: number) => box3dSVG(length, width, height);
+const createTrapezoidSVG = (top: number, bottom: number, height: number) => trapezoidSVG(top, bottom, height);
+const createTriangleSVG = (base: number, height: number, s1?: number, s2?: number, s3?: number) =>
+    (s1 && s2 && s3) ? triangleSVG({ sides: [s1, s2, s3] }) : triangleSVG({ base, height });
 
 export const generateG5Geometry = (): Omit<Question, 'id' | 'topicId'> => {
     const type = Math.random();
@@ -330,9 +252,7 @@ export const generateG5Geometry = (): Omit<Question, 'id' | 'topicId'> => {
             return {
                 type: QuestionType.SingleChoice,
                 questionText: `Một hình chữ nhật có chiều dài ${l_m}m và chiều rộng ${w_dm}dm. Tính diện tích hình chữ nhật đó theo đơn vị dm²?`,
-                visualSvg: createBoxSVG(l_m * 10, w_dm, 0).replace('Cao = 0cm', '').replace('Dài', 'Dài (m)').replace('Rộng', 'Rộng (dm)'), // Hacky reuse or just no SVG? Let's use no SVG or generic
-                // Actually createBoxSVG is 3D. Let's use Parallelogram SVG but adapted? Or just no visual for this advanced type?
-                // Let's use no visual for now as it's a word problem focus
+                // Bài đổi đơn vị (m↔dm) — tập trung vào lời văn, không kèm hình để tránh nhãn sai đơn vị.
                 correctAnswer: `${area_dm2}dm²`,
                 options: shuffleArray([
                     `${area_dm2}dm²`,
