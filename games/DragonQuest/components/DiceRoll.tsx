@@ -1,85 +1,73 @@
-import React, { useState, useEffect } from 'react';
+// ============================================================================
+//  DiceRoll — xúc xắc mặt CHẤM BI (pips). Animation lăn do PARENT điều khiển
+//  (prop `rolling`) thay vì tự đặt mốc 1500ms ghép tay với parent như bản cũ.
+// ============================================================================
+
+import React, { useEffect, useState } from 'react';
 
 interface DiceRollProps {
     onRoll: () => void;
     value: number | null;
+    rolling: boolean;
     disabled: boolean;
 }
 
-export const DiceRoll: React.FC<DiceRollProps> = ({ onRoll, value, disabled }) => {
-    const [isRolling, setIsRolling] = useState(false);
-    const [displayValue, setDisplayValue] = useState<number | null>(null);
-    const [animationFrame, setAnimationFrame] = useState(0);
+// Ô sáng (3×3) cho từng mặt xúc xắc.
+const PIPS: Record<number, number[]> = {
+    1: [4],
+    2: [0, 8],
+    3: [0, 4, 8],
+    4: [0, 2, 6, 8],
+    5: [0, 2, 4, 6, 8],
+    6: [0, 2, 3, 5, 6, 8],
+};
 
-    // Animation effect for rolling numbers
+const DiceFace: React.FC<{ value: number }> = ({ value }) => {
+    const on = new Set(PIPS[value] ?? []);
+    return (
+        <div className="grid grid-cols-3 grid-rows-3 gap-0.5 w-full h-full p-1.5 md:p-2">
+            {Array.from({ length: 9 }).map((_, i) => (
+                <div key={i} className="flex items-center justify-center">
+                    {on.has(i) && <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-slate-800" />}
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export const DiceRoll: React.FC<DiceRollProps> = ({ onRoll, value, rolling, disabled }) => {
+    const [face, setFace] = useState(value ?? 1);
+
+    // Nhấp nháy mặt khi đang lăn (chỉ trực quan).
     useEffect(() => {
-        if (isRolling) {
-            const interval = setInterval(() => {
-                setDisplayValue(Math.floor(Math.random() * 6) + 1);
-                setAnimationFrame(prev => prev + 1);
-            }, 100);
-
-            return () => clearInterval(interval);
-        } else if (value !== null) {
-            setDisplayValue(value);
+        if (!rolling) {
+            if (value != null) setFace(value);
+            return;
         }
-    }, [isRolling, value]);
+        const iv = window.setInterval(() => setFace(Math.floor(Math.random() * 6) + 1), 90);
+        return () => window.clearInterval(iv);
+    }, [rolling, value]);
 
     const handleClick = () => {
-        if (disabled || isRolling) return;
-
-        setIsRolling(true);
-        setAnimationFrame(0);
-
-        setTimeout(() => {
-            onRoll();
-        }, 100);
-
-        setTimeout(() => {
-            setIsRolling(false);
-        }, 1500);
+        if (disabled || rolling) return;
+        onRoll();
     };
 
     return (
-        <div className="flex flex-col items-center gap-2 md:gap-3">
-            {/* Dice Display */}
+        <div className="flex flex-col items-center gap-1.5 md:gap-3">
             <div
-                className={`
-                    w-16 h-16 md:w-24 md:h-24
-                    bg-white
-                    rounded-xl md:rounded-2xl
-                    shadow-xl md:shadow-2xl
-                    flex items-center justify-center
-                    border-2 md:border-4 border-slate-800
-                    transition-all duration-300
-                    ${isRolling ? 'animate-spin' : ''}
-                    ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-105 md:hover:scale-110'}
-                `}
                 onClick={handleClick}
+                className={`w-12 h-12 md:w-20 md:h-20 bg-white rounded-xl md:rounded-2xl shadow-xl border-2 md:border-4 border-slate-800 transition-transform duration-300 ${rolling ? 'animate-spin' : ''} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:scale-105'}`}
             >
-                <div className="text-3xl md:text-6xl font-bold text-slate-800">
-                    {displayValue || '?'}
-                </div>
+                <DiceFace value={face} />
             </div>
 
-            {/* Roll Button */}
             <button
                 onClick={handleClick}
-                disabled={disabled || isRolling}
-                className={`
-                    px-2 py-1 md:px-6 md:py-3
-                    bg-gradient-to-r from-amber-500 to-orange-500
-                    text-white font-bold text-xs md:text-lg
-                    rounded-lg md:rounded-xl
-                    shadow-md md:shadow-lg
-                    transition-all duration-200
-                    ${disabled || isRolling
-                        ? 'opacity-50 cursor-not-allowed'
-                        : 'hover:scale-105 hover:shadow-xl active:scale-95'
-                    }
-                `}
+                disabled={disabled || rolling}
+                className={`px-2 py-1 md:px-5 md:py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-xs md:text-base rounded-lg md:rounded-xl shadow-md transition-all ${disabled || rolling ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 active:scale-95'}`}
             >
-                {isRolling ? 'Gieo...' : 'Gieo xúc xắc'}
+                {rolling ? 'Đang gieo...' : 'Gieo xúc xắc'}
             </button>
         </div>
     );

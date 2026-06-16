@@ -1,6 +1,9 @@
 export { GameBoard } from './GameBoard';
+export { GameHeader } from './GameHeader';
 export { DiceRoll } from './DiceRoll';
-export { CombatModal } from './CombatModal';
-export { BuffModal } from './BuffModal';
-export { BossModal } from './BossModal';
-export { TeleportModal } from './TeleportModal';
+export { QuestionPanel } from './QuestionPanel';
+export { EventModal } from './EventModal';
+export { TeleportOverlay } from './TeleportOverlay';
+export { VoiceButton } from './VoiceButton';
+export { GameFx } from './fx/GameFx';
+export { Confetti } from './fx/Confetti';

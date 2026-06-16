@@ -1,39 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Heart, Trophy, Play, RotateCcw } from 'lucide-react';
+// ============================================================================
+//  DragonQuestGame — component MỎNG: ghép useDragonQuest (luật + timing) với
+//  useGameTTS (đọc + ducking) và render 3 màn (intro / chơi / kết thúc). Toàn
+//  bộ luật chơi nằm ở engine thuần; UI ở components/. Xem docs upgrade plan.
+// ============================================================================
+
+import React, { useEffect, useRef } from 'react';
+import { Heart, Trophy, Play, RotateCcw } from 'lucide-react';
 import { soundManager } from '../../utils/sound';
-import {
-    DragonDifficulty,
-    TileType,
-    BuffType,
-    MapTile,
-    PlayerBuffs,
-    generateMap,
-    rollDice,
-    calculateTeleport,
-    getRandomBuff,
-    calculateBossQuestions,
-    getRandomDialogue,
-    generateQuestion,
-    getBuffName,
-    getBuffDescription,
-    getBuffIcon,
-    COMBAT_DIALOGUES,
-    BUFF_DIALOGUES,
-    BOSS_DIALOGUES
-} from './dragonQuestEngine';
-import { SpeedQuestion } from '../SpeedMath/speedMathEngine';
-import { MusicControls } from '@/src/components/MusicControls';
 import { useMusicControls } from '@/src/contexts/MusicContext';
 import { MusicTrack } from '@/services/musicConfig';
 
-// Import components
+import { useDragonQuest } from './hooks/useDragonQuest';
+import { useGameTTS, voiceSpeak } from './hooks/useGameTTS';
+import { getMedal } from './engine/reducer';
+import { MAX_SCORE } from './engine/constants';
+import { WIN_DIALOGUES, LOSE_DIALOGUES } from './engine/dialogue';
+import type { DragonDifficulty } from './engine/types';
+
 import {
-    GameBoard,
-    DiceRoll,
-    CombatModal,
-    BuffModal,
-    BossModal,
-    TeleportModal
+    GameHeader, GameBoard, DiceRoll, EventModal, TeleportOverlay, GameFx, Confetti, VoiceButton,
 } from './components';
 
 interface DragonQuestGameProps {
@@ -42,287 +27,54 @@ interface DragonQuestGameProps {
     onComplete: (score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 }
 
-type GamePhase = 'intro' | 'playing' | 'rolling' | 'moving' | 'combat' | 'buff' | 'teleport' | 'boss' | 'gameover';
+const sample = (pool: readonly string[]) => pool[Math.floor(Math.random() * pool.length)];
 
 export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, onBack, onComplete }) => {
     const { playTrack, resumeRouteMusic } = useMusicControls();
+    const { state, start, roll, answerCombat, answerBuff, answerBoss, resolveTeleport } =
+        useDragonQuest(difficulty as DragonDifficulty);
 
-    // Play Dragon Quest music on mount
+    useGameTTS(state);
+
+    // Nhạc nền Dragon Quest khi vào; trả nhạc theo route khi rời.
     useEffect(() => {
         playTrack(MusicTrack.DRAGON_QUEST);
         return () => resumeRouteMusic();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    // Game State
-    const [gamePhase, setGamePhase] = useState<GamePhase>('intro');
-    const [playerHP, setPlayerHP] = useState(3);
-    const [playerPosition, setPlayerPosition] = useState(0);
-    const [buffs, setBuffs] = useState<PlayerBuffs>({
-        holySword: 0,
-        holyGrail: 0,
-        flyingCloak: false
-    });
-    const [mapTiles, setMapTiles] = useState<MapTile[]>([]);
-    const [diceValue, setDiceValue] = useState<number | null>(null);
-    const [currentQuestion, setCurrentQuestion] = useState<SpeedQuestion | null>(null);
-    const [currentDialogue, setCurrentDialogue] = useState('');
-    const [bossQuestionsRemaining, setBossQuestionsRemaining] = useState(0);
-    const [score, setScore] = useState(0);
-    const [teleportInfo, setTeleportInfo] = useState<{ distance: number; newPosition: number; isBackward: boolean } | null>(null);
 
-    // Refs
-    const movingRef = useRef(false);
-
-    // --- GAME FLOW ---
-
-    const startGame = () => {
-        const newMap = generateMap();
-        setMapTiles(newMap);
-        setPlayerHP(3);
-        setPlayerPosition(0);
-        setBuffs({ holySword: 0, holyGrail: 0, flyingCloak: false });
-        setScore(0);
-        setDiceValue(null);
-        setGamePhase('playing');
-    };
-
-    const handleDiceRoll = () => {
-        if (movingRef.current || gamePhase !== 'playing') return;
-
-        const value = rollDice();
-        setDiceValue(value);
-        setGamePhase('moving');
-        movingRef.current = true;
-
-        // Wait for dice animation to complete (1.5s) before moving player
-        setTimeout(() => {
-            const targetPosition = Math.min(playerPosition + value, mapTiles.length - 1);
-            const stepsToMove = targetPosition - playerPosition;
-
-            // If no movement needed (already at target), just finish
-            if (stepsToMove === 0) {
-                movingRef.current = false;
-                handleTileEvent(targetPosition);
-                return;
-            }
-
-            let currentStep = 0;
-
-            // Move step by step with animation
-            const moveInterval = setInterval(() => {
-                currentStep++;
-                setPlayerPosition(prev => prev + 1);
-
-                // Check if we've reached the target
-                if (currentStep >= stepsToMove) {
-                    clearInterval(moveInterval);
-
-                    // Wait a bit then trigger tile event
-                    setTimeout(() => {
-                        movingRef.current = false;
-                        handleTileEvent(targetPosition);
-                    }, 400);
-                }
-            }, 350); // 350ms per step - smooth but not too slow
-        }, 1700); // 1500ms dice roll + 200ms buffer
-    };
-
-    const handleTileEvent = (position: number) => {
-        const tile = mapTiles[position];
-
-        switch (tile.type) {
-            case TileType.Combat:
-                const combatQuestion = generateQuestion(difficulty);
-                setCurrentQuestion(combatQuestion);
-                setCurrentDialogue(getRandomDialogue(COMBAT_DIALOGUES));
-                setGamePhase('combat');
-                break;
-
-            case TileType.Buff:
-                const buffQuestion = generateQuestion(difficulty);
-                setCurrentQuestion(buffQuestion);
-                setCurrentDialogue(getRandomDialogue(BUFF_DIALOGUES));
-                setGamePhase('buff');
-                break;
-
-            case TileType.Teleport:
-                const teleport = calculateTeleport(position, mapTiles.length);
-                setTeleportInfo(teleport);
-                setGamePhase('teleport');
-                break;
-
-            case TileType.Boss:
-                const bossQuestionCount = calculateBossQuestions(buffs.holySword);
-                setBossQuestionsRemaining(bossQuestionCount);
-                const bossQuestion = generateQuestion(difficulty);
-                setCurrentQuestion(bossQuestion);
-                setCurrentDialogue(getRandomDialogue(BOSS_DIALOGUES));
-                setGamePhase('boss');
-                break;
-
-            default:
-                // Normal tile - just continue
-                setGamePhase('playing');
-        }
-    };
-
-    const handleCombatAnswer = (isCorrect: boolean) => {
-        if (isCorrect) {
-            soundManager.playCorrect();
-            setScore(s => s + 10);
-            setGamePhase('playing');
-        } else {
-            soundManager.playWrong();
-            loseHP();
-        }
-    };
-
-    const handleBuffAnswer = (isCorrect: boolean) => {
-        if (isCorrect) {
-            soundManager.playCorrect();
-            const newBuff = getRandomBuff();
-            awardBuff(newBuff);
-            setScore(s => s + 15);
-        } else {
-            soundManager.playWrong();
-        }
-        setGamePhase('playing');
-    };
-
-    const handleBossAnswer = (isCorrect: boolean, isTimeout: boolean) => {
-        if (isCorrect) {
-            soundManager.playCorrect();
-            setScore(s => s + 20);
-
-            const remaining = bossQuestionsRemaining - 1;
-            if (remaining <= 0) {
-                // Victory!
-                endGame(true);
-            } else {
-                // Next question
-                setBossQuestionsRemaining(remaining);
-                const nextQuestion = generateQuestion(difficulty);
-                setCurrentQuestion(nextQuestion);
+    // Khi kết thúc: âm thanh + đọc thoại thắng/thua (một lần).
+    const announced = useRef(false);
+    useEffect(() => {
+        if (state.phase === 'gameover') {
+            if (!announced.current) {
+                announced.current = true;
+                soundManager.playComplete();
+                voiceSpeak(sample(state.result === 'win' ? WIN_DIALOGUES : LOSE_DIALOGUES));
             }
         } else {
-            soundManager.playWrong();
-            loseHP();
-
-            if (playerHP > 1) {
-                // Continue with next question if HP remains
-                const remaining = bossQuestionsRemaining - 1;
-                if (remaining <= 0) {
-                    endGame(true);
-                } else {
-                    setBossQuestionsRemaining(remaining);
-                    const nextQuestion = generateQuestion(difficulty);
-                    setCurrentQuestion(nextQuestion);
-                }
-            }
+            announced.current = false;
         }
-    };
+    }, [state.phase, state.result]);
 
-    const handleTeleportComplete = () => {
-        if (!teleportInfo) return;
-
-        // Check flying cloak protection
-        if (teleportInfo.isBackward && buffs.flyingCloak) {
-            // Protected! Don't move
-            setGamePhase('playing');
-        } else {
-            setPlayerPosition(teleportInfo.newPosition);
-            setTimeout(() => {
-                handleTileEvent(teleportInfo.newPosition);
-            }, 500);
-        }
-        setTeleportInfo(null);
-    };
-
-    const loseHP = () => {
-        const newHP = playerHP - 1;
-        setPlayerHP(newHP);
-
-        if (newHP <= 0) {
-            endGame(false);
-        } else {
-            // Continue game if in combat/buff, or stay in boss for next question
-            if (gamePhase === 'combat' || gamePhase === 'buff') {
-                setGamePhase('playing');
-            }
-        }
-    };
-
-    const awardBuff = (buff: BuffType) => {
-        setBuffs(prev => {
-            const newBuffs = { ...prev };
-
-            switch (buff) {
-                case BuffType.HolySword:
-                    if (newBuffs.holySword < 2) {
-                        newBuffs.holySword++;
-                    }
-                    break;
-
-                case BuffType.HolyGrail:
-                    if (newBuffs.holyGrail < 3) {
-                        newBuffs.holyGrail++;
-                        // Increase HP (max 3)
-                        setPlayerHP(hp => Math.min(3, hp + 1));
-                    }
-                    break;
-
-                case BuffType.FlyingCloak:
-                    newBuffs.flyingCloak = true;
-                    break;
-            }
-
-            return newBuffs;
-        });
-    };
-
-    const endGame = (victory: boolean) => {
-        setGamePhase('gameover');
-        soundManager.playComplete();
-    };
-
-    const getMedal = (): 'gold' | 'silver' | 'bronze' | null => {
-        if (gamePhase !== 'gameover' || playerHP <= 0) return null;
-
-        if (playerHP === 3) return 'gold';
-        if (playerHP === 2) return 'silver';
-        if (playerHP === 1) return 'bronze';
-        return null;
-    };
-
-    // --- RENDER SCREENS ---
-
-    if (gamePhase === 'intro') {
+    // --- MÀN INTRO ---
+    if (state.phase === 'intro') {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-yellow-400 flex items-center justify-center p-4">
-                <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center animate-in zoom-in duration-300">
-                    <div className="text-8xl mb-6">🐉</div>
-                    <h1 className="text-4xl font-black text-slate-800 mb-2">Đại Chiến Rồng Thần</h1>
-                    <p className="text-slate-500 text-lg mb-8">Phiêu lưu, thu thập buff và đánh bại rồng thần!</p>
+            <div className="min-h-[100dvh] bg-gradient-to-br from-red-600 via-orange-500 to-yellow-400 flex items-center justify-center p-4">
+                <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center animate-in zoom-in duration-300">
+                    <div className="text-7xl md:text-8xl mb-5">🐉</div>
+                    <h1 className="text-3xl md:text-4xl font-black text-slate-800 mb-2">Đại Chiến Rồng Thần</h1>
+                    <p className="text-slate-500 text-base md:text-lg mb-6">Phiêu lưu, thu thập buff và đánh bại rồng thần!</p>
 
-                    <div className="space-y-4 mb-8 text-left bg-slate-50 p-4 rounded-xl">
-                        <div className="flex items-center gap-3">
-                            <Heart className="text-red-500 fill-red-500" />
-                            <span className="font-bold text-slate-700">3 Mạng</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <Trophy className="text-yellow-500" />
-                            <span className="font-bold text-slate-700">Thu thập Buff</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <span className="text-2xl">🐉</span>
-                            <span className="font-bold text-slate-700">Đánh Boss cuối</span>
-                        </div>
+                    <div className="space-y-3 mb-7 text-left bg-slate-50 p-4 rounded-xl">
+                        <div className="flex items-center gap-3"><Heart className="text-red-500 fill-red-500" /><span className="font-bold text-slate-700">3 Mạng</span></div>
+                        <div className="flex items-center gap-3"><Trophy className="text-yellow-500" /><span className="font-bold text-slate-700">Thu thập Buff</span></div>
+                        <div className="flex items-center gap-3"><span className="text-2xl">🐉</span><span className="font-bold text-slate-700">Đánh Boss cuối</span></div>
                     </div>
 
-                    <div className="flex gap-4">
-                        <button onClick={onBack} className="flex-1 py-3 font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors">
-                            Quay lại
-                        </button>
-                        <button onClick={startGame} className="flex-[2] py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105">
+                    <div className="flex gap-3">
+                        <button onClick={onBack} className="flex-1 py-3 font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors">Quay lại</button>
+                        <button onClick={start} className="flex-[2] py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105">
                             <Play size={20} fill="currentColor" /> Bắt đầu
                         </button>
                     </div>
@@ -331,61 +83,49 @@ export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, on
         );
     }
 
-    if (gamePhase === 'gameover') {
-        const medal = getMedal();
-        const victory = playerHP > 0;
+    // --- MÀN KẾT THÚC ---
+    if (state.phase === 'gameover') {
+        const medal = getMedal(state);
+        const victory = state.result === 'win';
+        const winLine = victory ? 'Bạn đã đánh bại rồng thần!' : 'Bạn đã hết mạng.';
 
         return (
-            <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
-                <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center animate-in zoom-in duration-300">
-                    <div className="mb-6">
-                        {victory ? (
-                            <Trophy size={80} className="text-yellow-400 mx-auto animate-bounce" />
-                        ) : (
-                            <Heart size={80} className="text-red-500 mx-auto fill-red-500" />
-                        )}
+            <div className="min-h-[100dvh] bg-slate-900 flex items-center justify-center p-4">
+                {victory && <Confetti />}
+                <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center animate-in zoom-in duration-300 relative z-10">
+                    <div className="mb-5">
+                        {victory
+                            ? <Trophy size={80} className="text-yellow-400 mx-auto animate-bounce" />
+                            : <Heart size={80} className="text-red-500 mx-auto fill-red-500" />}
                     </div>
 
-                    <h2 className="text-3xl font-black text-slate-800 mb-2">
+                    <h2 className="text-3xl font-black text-slate-800 mb-1 flex items-center justify-center gap-2">
                         {victory ? 'Chiến thắng!' : 'Thất bại!'}
+                        <VoiceButton text={`${victory ? 'Chiến thắng!' : 'Thất bại!'} ${winLine}`} size={18} />
                     </h2>
-
-                    <p className="text-slate-500 mb-4 text-lg">
-                        {victory ? 'Bạn đã đánh bại rồng thần!' : 'Bạn đã hết mạng.'}
-                    </p>
+                    <p className="text-slate-500 mb-4 text-base md:text-lg">{winLine}</p>
 
                     {victory && medal && (
-                        <div className="flex items-center justify-center gap-2 my-4 bg-yellow-50 px-6 py-3 rounded-full">
-                            <span className="text-lg font-semibold text-slate-700">Nhận được:</span>
-                            <div className="flex">
-                                {[...Array(playerHP)].map((_, i) => (
-                                    <span key={i} className="text-2xl">⭐</span>
-                                ))}
-                            </div>
-                            <span className="text-lg font-bold text-yellow-600">
-                                +{playerHP} sao
-                            </span>
+                        <div className="flex items-center justify-center gap-2 my-4 bg-yellow-50 px-4 py-3 rounded-full">
+                            <span className="font-semibold text-slate-700">Nhận được:</span>
+                            <div className="flex">{Array.from({ length: state.hp }).map((_, i) => <span key={i} className="text-2xl">⭐</span>)}</div>
+                            <span className="font-bold text-yellow-600">+{state.hp} sao</span>
                         </div>
                     )}
 
-                    <div className="bg-slate-50 rounded-xl p-4 mb-8">
+                    <div className="bg-slate-50 rounded-xl p-4 mb-6">
                         <div className="text-sm text-slate-500 mb-1">Tổng điểm</div>
-                        <div className="text-5xl font-black text-brand-600">
-                            {score}
-                        </div>
+                        <div className="text-5xl font-black text-brand-600">{state.score}</div>
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex gap-3">
                         <button
-                            onClick={() => {
-                                onComplete(score, 300, medal);
-                                onBack();
-                            }}
+                            onClick={() => { onComplete(state.score, MAX_SCORE, medal); onBack(); }}
                             className="flex-1 py-3 font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors"
                         >
                             Thoát
                         </button>
-                        <button onClick={startGame} className="flex-[2] py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105">
+                        <button onClick={start} className="flex-[2] py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105">
                             <RotateCcw size={20} /> Chơi lại
                         </button>
                     </div>
@@ -394,99 +134,49 @@ export const DragonQuestGame: React.FC<DragonQuestGameProps> = ({ difficulty, on
         );
     }
 
-    // Playing State
+    // --- MÀN CHƠI ---
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50 flex flex-col">
-            {/* Header */}
-            <div className="bg-white p-4 shadow-sm flex justify-between items-center">
-                <button onClick={onBack} className="p-2 hover:bg-slate-100 rounded-full text-slate-500">
-                    <ArrowLeft />
-                </button>
+        <div className="h-[100dvh] flex flex-col bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50">
+            <GameHeader hp={state.hp} maxHp={state.maxHp} buffs={state.buffs} score={state.score} onBack={onBack} />
 
-                <div className="flex items-center gap-6">
-                    {/* HP */}
-                    <div className="flex items-center gap-2 bg-red-50 px-4 py-2 rounded-full border border-red-100">
-                        <Heart className="text-red-500 fill-red-500" size={20} />
-                        <span className="font-black text-red-700 text-xl">{playerHP}</span>
-                    </div>
-
-                    {/* Buffs */}
-                    {buffs.holySword > 0 && (
-                        <div className="flex items-center gap-1 bg-yellow-50 px-3 py-2 rounded-full border border-yellow-100">
-                            <span className="text-xl">{getBuffIcon(BuffType.HolySword)}</span>
-                            <span className="font-bold text-yellow-700">{buffs.holySword}</span>
-                        </div>
-                    )}
-                    {buffs.flyingCloak && (
-                        <div className="bg-blue-50 px-3 py-2 rounded-full border border-blue-100">
-                            <span className="text-xl">{getBuffIcon(BuffType.FlyingCloak)}</span>
-                        </div>
-                    )}
-
-                    {/* Score */}
-                    <div className="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full border border-purple-100">
-                        <Trophy className="text-purple-500" size={20} />
-                        <span className="font-black text-purple-700 text-xl">{score}</span>
-                    </div>
-                </div>
-
-                <MusicControls />
+            <div className="flex-1 min-h-0 p-2 md:p-4">
+                <GameBoard tiles={state.mapTiles} playerPosition={state.position} isMoving={state.phase === 'moving'} />
             </div>
 
-            {/* Game Board - Fullscreen */}
-            <div className="flex-1 flex items-center justify-center p-4 relative">
-                <GameBoard
-                    tiles={mapTiles}
-                    playerPosition={playerPosition}
-                    isMoving={gamePhase === 'moving'}
-                />
-
-                {/* Dice Roll - Fixed Bottom Right Corner */}
-                <div className="fixed bottom-2 right-2 z-50 w-24 lg:w-60">
-                    <div className="bg-white rounded-lg lg:rounded-2xl shadow-xl lg:shadow-2xl p-1.5 lg:p-4 border-2 lg:border-4 border-amber-400">
-                        <DiceRoll
-                            onRoll={handleDiceRoll}
-                            value={diceValue}
-                            disabled={movingRef.current || gamePhase !== 'playing'}
-                        />
-                    </div>
+            {/* Xúc xắc — góc dưới phải */}
+            <div className="fixed bottom-2 right-2 z-40">
+                <div className="bg-white rounded-lg md:rounded-2xl shadow-xl md:shadow-2xl p-1.5 md:p-3 border-2 md:border-4 border-amber-400">
+                    <DiceRoll
+                        onRoll={roll}
+                        value={state.dice}
+                        rolling={state.phase === 'rolling'}
+                        disabled={state.phase !== 'playing'}
+                    />
                 </div>
             </div>
 
-            {/* Modals */}
-            {gamePhase === 'combat' && currentQuestion && (
-                <CombatModal
-                    question={currentQuestion}
-                    dialogue={currentDialogue}
-                    onAnswer={handleCombatAnswer}
+            {/* Modal sự kiện */}
+            {state.phase === 'combat' && state.question && (
+                <EventModal variant="combat" question={state.question} dialogue={state.dialogue} onAnswer={answerCombat} />
+            )}
+            {state.phase === 'buff' && state.question && (
+                <EventModal variant="buff" question={state.question} dialogue={state.dialogue} onAnswer={answerBuff} />
+            )}
+            {state.phase === 'boss' && state.question && (
+                <EventModal variant="boss" question={state.question} dialogue={state.dialogue} questionsRemaining={state.bossLeft} onAnswer={answerBoss} />
+            )}
+            {state.phase === 'teleport' && state.teleport && (
+                <TeleportOverlay
+                    distance={state.teleport.distance}
+                    isBackward={state.teleport.isBackward}
+                    hasProtection={state.buffs.flyingCloak}
+                    dialogue={state.dialogue}
+                    onComplete={resolveTeleport}
                 />
             )}
 
-            {gamePhase === 'buff' && currentQuestion && (
-                <BuffModal
-                    question={currentQuestion}
-                    dialogue={currentDialogue}
-                    onAnswer={handleBuffAnswer}
-                />
-            )}
-
-            {gamePhase === 'boss' && currentQuestion && (
-                <BossModal
-                    question={currentQuestion}
-                    dialogue={currentDialogue}
-                    questionsRemaining={bossQuestionsRemaining}
-                    onAnswer={handleBossAnswer}
-                />
-            )}
-
-            {gamePhase === 'teleport' && teleportInfo && (
-                <TeleportModal
-                    distance={teleportInfo.distance}
-                    isBackward={teleportInfo.isBackward}
-                    hasProtection={buffs.flyingCloak}
-                    onComplete={handleTeleportComplete}
-                />
-            )}
+            {/* Hiệu ứng một-lần */}
+            <GameFx fx={state.fx} />
         </div>
     );
 };

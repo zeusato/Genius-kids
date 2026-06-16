@@ -1,5 +1,13 @@
-import React, { useMemo, useRef, useState, useEffect } from 'react';
-import { MapTile, TileType } from '../dragonQuestEngine';
+// ============================================================================
+//  GameBoard — bàn cờ rắn + CAMERA BÁM NHÂN VẬT. Bọc trong scroll container;
+//  mỗi khi nhân vật đổi ô, tự cuộn để giữ nhân vật ở giữa khung nhìn. Ô lớn hơn
+//  trên mobile (kích thước lấy từ engine/constants). Tôn trọng reduced-motion.
+// ============================================================================
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Crosshair } from 'lucide-react';
+import { MapTile, TileType } from '../engine/types';
+import { BOARD, MOBILE_BREAKPOINT } from '../engine/constants';
 import dragonImg from '../assets/dragon.png';
 
 interface GameBoardProps {
@@ -8,197 +16,141 @@ interface GameBoardProps {
     isMoving: boolean;
 }
 
-interface TilePosition {
-    x: number;
-    y: number;
-}
+interface TilePos { x: number; y: number; }
+
+const clamp = (min: number, max: number, v: number) => Math.max(min, Math.min(max, v));
+
+const prefersReducedMotion = () =>
+    typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+const TILE_ICON: Partial<Record<TileType, string>> = {
+    [TileType.Combat]: '⚔️',
+    [TileType.Buff]: '🍀',
+    [TileType.Teleport]: '🌀',
+};
+
+const TILE_COLOR: Record<TileType, string> = {
+    [TileType.Combat]: 'from-red-400 to-red-600',
+    [TileType.Buff]: 'from-green-400 to-emerald-600',
+    [TileType.Teleport]: 'from-blue-400 to-cyan-500',
+    [TileType.Boss]: 'from-orange-500 to-red-700',
+    [TileType.Normal]: 'from-slate-200 to-slate-400',
+};
 
 export const GameBoard: React.FC<GameBoardProps> = ({ tiles, playerPosition, isMoving }) => {
-    const boardRef = useRef<HTMLDivElement>(null);
-    const [boardWidth, setBoardWidth] = useState(400); // Default to mobile size
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const activeTileRef = useRef<HTMLDivElement>(null);
+    const [viewWidth, setViewWidth] = useState(360);
 
-    // Observe board width changes
     useEffect(() => {
-        if (!boardRef.current) return;
-
-        const resizeObserver = new ResizeObserver((entries) => {
-            for (const entry of entries) {
-                setBoardWidth(entry.contentRect.width);
-            }
+        const el = scrollRef.current;
+        if (!el) return;
+        const ro = new ResizeObserver(entries => {
+            for (const e of entries) setViewWidth(e.contentRect.width);
         });
-
-        resizeObserver.observe(boardRef.current);
-        return () => resizeObserver.disconnect();
+        ro.observe(el);
+        return () => ro.disconnect();
     }, []);
 
-    // Generate snake path layout (classic board game style)
-    const tilePositions = useMemo(() => {
-        return generateSnakePath(tiles.length, boardWidth);
-    }, [tiles.length, boardWidth]);
+    const isMobile = viewWidth < MOBILE_BREAKPOINT;
+    const geom = isMobile ? BOARD.mobile : BOARD.desktop;
+    const stepX = geom.tile + geom.gapX;
+    const stepY = geom.tile + geom.gapY;
 
-    const getTileIcon = (type: TileType) => {
-        switch (type) {
-            case TileType.Combat:
-                return '⚔️';
-            case TileType.Buff:
-                return '🍀';
-            case TileType.Teleport:
-                return '🌀';
-            case TileType.Boss:
-                return null; // Will use image
-            default:
-                return null;
-        }
+    // Số cột vừa bề rộng khung (tối thiểu 4, tối đa 10).
+    const cols = useMemo(
+        () => clamp(4, 10, Math.floor((viewWidth - geom.padding * 2 + geom.gapX) / stepX) || 4),
+        [viewWidth, geom.padding, geom.gapX, stepX],
+    );
+
+    const positions = useMemo<TilePos[]>(() => {
+        return tiles.map((_, i) => {
+            const row = Math.floor(i / cols);
+            const col = i % cols;
+            const actualCol = row % 2 === 0 ? col : cols - 1 - col; // rắn: hàng lẻ đảo chiều
+            return { x: geom.padding + actualCol * stepX, y: geom.padding + row * stepY };
+        });
+    }, [tiles, cols, geom.padding, stepX, stepY]);
+
+    const rows = Math.ceil(tiles.length / cols);
+    const boardW = geom.padding * 2 + (cols - 1) * stepX + geom.tile;
+    // chừa khoảng phía trên cho nhân vật đứng (vẽ phía trên ô) + phía dưới
+    const topPad = geom.tile;
+    const boardH = topPad + geom.padding * 2 + (rows - 1) * stepY + geom.tile;
+
+    // Camera: căn nhân vật vào giữa khung mỗi khi đổi ô.
+    const recenter = (smooth = true) => {
+        const c = scrollRef.current, t = activeTileRef.current;
+        if (!c || !t) return;
+        c.scrollTo({
+            top: t.offsetTop - c.clientHeight / 2 + t.offsetHeight / 2,
+            left: t.offsetLeft - c.clientWidth / 2 + t.offsetWidth / 2,
+            behavior: smooth && !prefersReducedMotion() ? 'smooth' : 'auto',
+        });
     };
 
-    const getTileColor = (type: TileType) => {
-        switch (type) {
-            case TileType.Combat:
-                return 'from-red-400 to-red-600';
-            case TileType.Buff:
-                return 'from-green-400 to-emerald-600';
-            case TileType.Teleport:
-                return 'from-blue-400 to-yellow-300';
-            case TileType.Boss:
-                return 'from-orange-500 to-red-700';
-            default:
-                return 'from-slate-200 to-slate-400';
-        }
-    };
+    useEffect(() => {
+        recenter(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [playerPosition, cols]);
 
-    // Calculate board height dynamically
-    const maxY = tilePositions.length > 0
-        ? Math.max(...tilePositions.map(p => p.y)) + 150
-        : 500;
+    const iconScale = geom.tile * 0.5;
 
     return (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="relative w-full h-full">
             <div
-                ref={boardRef}
-                className="relative p-4 md:p-6 lg:p-8 rounded-3xl bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 shadow-2xl w-full max-w-7xl border-4 border-amber-200/50"
-                style={{
-                    minHeight: `${maxY}px`,
-                }}
+                ref={scrollRef}
+                className="w-full h-full overflow-auto rounded-3xl bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 shadow-inner border-4 border-amber-200/50"
             >
-                {/* Parchment texture overlay */}
-                <div
-                    className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply rounded-3xl"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                        backgroundSize: '200px 200px'
-                    }}
-                />
-                {/* Inner border decoration */}
-                <div className="absolute inset-0 pointer-events-none rounded-3xl">
-                    <div className="absolute inset-2 border-2 border-yellow-600/20 rounded-2xl" />
-                </div>
+                <div className="relative mx-auto" style={{ width: boardW, height: boardH, paddingTop: topPad }}>
+                    {/* Đường nối các ô */}
+                    <svg className="absolute inset-0 pointer-events-none" width={boardW} height={boardH} style={{ zIndex: 1 }}>
+                        {tiles.map((_, i) => {
+                            if (i === tiles.length - 1) return null;
+                            const s = positions[i], e = positions[i + 1];
+                            const half = geom.tile / 2;
+                            return (
+                                <line key={i}
+                                    x1={s.x + half} y1={s.y + half + topPad}
+                                    x2={e.x + half} y2={e.y + half + topPad}
+                                    stroke="#d97706" strokeWidth="6" strokeDasharray="8,4" strokeLinecap="round" opacity="0.45" />
+                            );
+                        })}
+                    </svg>
 
-                {/* Corner decorations */}
-                <div className="absolute inset-0 opacity-15 pointer-events-none">
-                    {/* Top left corner */}
-                    <div className="absolute top-4 left-4 text-5xl md:text-6xl">🏰</div>
-                    <div className="absolute top-16 left-2 text-2xl md:text-3xl rotate-12">⚔️</div>
-
-                    {/* Top right corner */}
-                    <div className="absolute top-4 right-4 text-5xl md:text-6xl">🐉</div>
-                    <div className="absolute top-16 right-2 text-2xl md:text-3xl -rotate-12">🔥</div>
-
-                    {/* Bottom left corner */}
-                    <div className="absolute bottom-4 left-4 text-4xl md:text-5xl">🗡️</div>
-                    <div className="absolute bottom-16 left-6 text-2xl md:text-3xl">💎</div>
-
-                    {/* Bottom right corner */}
-                    <div className="absolute bottom-4 right-4 text-4xl md:text-5xl">👑</div>
-                    <div className="absolute bottom-16 right-6 text-2xl md:text-3xl">🏆</div>
-                </div>
-
-                {/* Path connectors */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-                    {tiles.map((_, index) => {
-                        if (index === tiles.length - 1) return null;
-                        const start = tilePositions[index];
-                        const end = tilePositions[index + 1];
-
-                        return (
-                            <line
-                                key={`connector-${index}`}
-                                x1={start.x + 40}
-                                y1={start.y + 40}
-                                x2={end.x + 40}
-                                y2={end.y + 40}
-                                stroke="#d97706"
-                                strokeWidth="6"
-                                strokeDasharray="8,4"
-                                strokeLinecap="round"
-                                opacity="0.5"
-                            />
-                        );
-                    })}
-                </svg>
-
-                {/* Tiles */}
-                <div className="relative" style={{ zIndex: 2 }}>
-                    {tiles.map((tile, index) => {
-                        const isCurrentTile = index === playerPosition;
-                        const icon = getTileIcon(tile.type);
-                        const colorClass = getTileColor(tile.type);
-                        const position = tilePositions[index];
-
+                    {/* Các ô */}
+                    {tiles.map((tile, i) => {
+                        const pos = positions[i];
+                        const isCurrent = i === playerPosition;
+                        const icon = TILE_ICON[tile.type];
                         return (
                             <div
                                 key={tile.id}
-                                className={`
-                                    absolute transition-all duration-500
-                                    ${isCurrentTile ? 'z-30' : 'z-10'}
-                                `}
-                                style={{
-                                    left: `${position.x}px`,
-                                    top: `${position.y}px`,
-                                }}
+                                ref={isCurrent ? activeTileRef : undefined}
+                                className="absolute"
+                                style={{ left: pos.x, top: pos.y + topPad, width: geom.tile, height: geom.tile, zIndex: isCurrent ? 30 : 10 }}
                             >
-                                {/* Tile */}
                                 <div
-                                    className={`
-                                        relative w-10 h-10 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br ${colorClass}
-                                        shadow-lg border-2 md:border-4 border-white
-                                        flex items-center justify-center
-                                        transition-all duration-300
-                                        ${isCurrentTile ? 'scale-125 shadow-2xl ring-2 md:ring-4 ring-yellow-400' : ''}
-                                    `}
-                                    style={{
-                                        transform: isCurrentTile ? 'translateY(-8px)' : 'translateY(0)',
-                                    }}
+                                    className={`relative w-full h-full rounded-2xl bg-gradient-to-br ${TILE_COLOR[tile.type]} shadow-lg border-2 md:border-4 border-white flex items-center justify-center transition-all duration-300 ${isCurrent ? 'ring-4 ring-yellow-400 scale-110' : ''}`}
                                 >
-                                    {/* Tile number */}
-                                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded-full shadow-md border-2 border-slate-300">
-                                        <span className="text-xs font-black text-slate-700">{index + 1}</span>
+                                    {/* Số thứ tự ô */}
+                                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-white px-1.5 rounded-full shadow border border-slate-300">
+                                        <span className="text-[10px] md:text-xs font-black text-slate-700">{i + 1}</span>
                                     </div>
 
-                                    {/* Tile icon or image */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        {tile.type === TileType.Boss ? (
-                                            <img
-                                                src={dragonImg}
-                                                alt="Dragon Boss"
-                                                className="w-8 h-8 md:w-16 md:h-16 object-contain drop-shadow-2xl"
-                                            />
-                                        ) : icon ? (
-                                            <span className="text-2xl md:text-4xl filter drop-shadow-lg">{icon}</span>
-                                        ) : null}
-                                    </div>
-
-                                    {/* Shadow effect */}
-                                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-black/20 rounded-full blur-md" />
+                                    {tile.type === TileType.Boss ? (
+                                        <img src={dragonImg} alt="Boss" className="object-contain drop-shadow-2xl"
+                                            style={{ width: geom.tile * 0.8, height: geom.tile * 0.8 }} />
+                                    ) : icon ? (
+                                        <span className="filter drop-shadow-lg" style={{ fontSize: iconScale }}>{icon}</span>
+                                    ) : null}
                                 </div>
 
-                                {/* Player character on current tile */}
-                                {isCurrentTile && (
-                                    <div className="absolute -top-8 md:-top-16 left-1/2 -translate-x-1/2 z-40">
-                                        <div className={`text-3xl md:text-5xl ${isMoving ? 'animate-bounce' : ''}`}>
-                                            🏇
-                                        </div>
-                                        {/* Shadow */}
-                                        <div className="absolute -bottom-2 md:-bottom-3 left-1/2 -translate-x-1/2 w-6 h-2 md:w-10 md:h-3 bg-black/30 rounded-full blur-sm" />
+                                {/* Nhân vật trên ô hiện tại */}
+                                {isCurrent && (
+                                    <div className="absolute left-1/2 -translate-x-1/2 z-40" style={{ top: -geom.tile * 0.85 }}>
+                                        <div className={isMoving ? 'animate-bounce' : 'animate-pulse'} style={{ fontSize: geom.tile * 0.7 }}>🏇</div>
+                                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-black/25 rounded-full blur-sm" />
                                     </div>
                                 )}
                             </div>
@@ -206,38 +158,20 @@ export const GameBoard: React.FC<GameBoardProps> = ({ tiles, playerPosition, isM
                     })}
                 </div>
             </div>
+
+            {/* Nút căn lại camera */}
+            <button
+                onClick={() => recenter(true)}
+                title="Về vị trí nhân vật"
+                className="absolute bottom-3 left-3 z-20 bg-white/90 hover:bg-white text-amber-700 rounded-full p-2 shadow-lg border-2 border-amber-300 transition-transform hover:scale-110"
+            >
+                <Crosshair size={20} />
+            </button>
+
+            {/* Chỉ báo tiến độ */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 bg-white/90 px-3 py-1 rounded-full shadow border-2 border-amber-300">
+                <span className="text-xs md:text-sm font-black text-amber-700">Ô {playerPosition + 1}/{tiles.length}</span>
+            </div>
         </div>
     );
 };
-
-// Generate classic snake path (like Candy Crush or Snakes & Ladders)
-function generateSnakePath(tileCount: number, boardWidth: number): TilePosition[] {
-    const positions: TilePosition[] = [];
-
-    // Dynamic calculation based on board width
-    // Detect mobile screens and adjust spacing accordingly
-    const isMobile = boardWidth < 768;
-    const paddingX = isMobile ? 20 : 50;
-    const paddingY = isMobile ? 25 : 50;
-    const spacingX = isMobile ? 75 : 90;
-    const spacingY = isMobile ? 55 : 100;
-
-    // Calculate optimal number of columns based on available width
-    const availableWidth = boardWidth - (paddingX * 2);
-    const cols = Math.max(4, Math.min(10, Math.floor(availableWidth / spacingX)));
-
-    for (let i = 0; i < tileCount; i++) {
-        const row = Math.floor(i / cols);
-        const col = i % cols;
-
-        // Snake pattern: reverse direction on odd rows
-        const actualCol = row % 2 === 0 ? col : cols - 1 - col;
-
-        const x = paddingX + actualCol * spacingX;
-        const y = paddingY + row * spacingY;
-
-        positions.push({ x, y });
-    }
-
-    return positions;
-}
