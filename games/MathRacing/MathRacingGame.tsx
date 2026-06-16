@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { RacingTrack } from './RacingTrack';
 import { RacingCar } from './RacingCar';
 import { FallingItem, ItemType } from './FallingItem';
+import { laneLeft } from './lanes';
 import { ArrowLeft, ArrowRight, Heart, Star, RotateCcw, Play, Home, X } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { playSound } from '@/utils/sound';
@@ -13,6 +14,7 @@ import { AlbumImage } from '@/types';
 // Types
 interface GameItem {
     id: number;
+    qid: number; // nhóm câu hỏi (để phân biệt khi nhiều câu cùng trên màn)
     lane: number;
     yPosition: number;
     content: string;
@@ -21,6 +23,13 @@ interface GameItem {
     isCorrect?: boolean;
     passed?: boolean; // To avoid double collision
     questionText?: string;
+}
+
+interface ScorePopup {
+    id: number;
+    lane: number;
+    text: string;
+    good: boolean;
 }
 
 interface Question {
@@ -48,6 +57,19 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
     const [items, setItems] = useState<GameItem[]>([]);
     const [questionCount, setQuestionCount] = useState(0);
     const [currentQuestionText, setCurrentQuestionText] = useState<string>('');
+    const [showInstructions, setShowInstructions] = useState(false);
+
+    // Juice / phản hồi
+    const [combo, setCombo] = useState(0);
+    const [flash, setFlash] = useState<null | 'good' | 'bad'>(null);
+    const [shake, setShake] = useState(false);
+    const [popups, setPopups] = useState<ScorePopup[]>([]);
+    const comboRef = useRef(0);
+    const rootRef = useRef<HTMLDivElement>(null);
+    const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const shakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const instructionsTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const popupId = useRef(0);
 
     // Reward State
     const [earnedStars, setEarnedStars] = useState(0);
@@ -70,7 +92,22 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
     // Constants
     const TARGET_QUESTIONS = difficulty === 'easy' ? 10 : difficulty === 'medium' ? 15 : 20;
     const BASE_SPEED = difficulty === 'easy' ? 0.3 : difficulty === 'medium' ? 0.4 : 0.5;
-    const SPAWN_DISTANCE = 40; // Spawn next when last item is at Y > 40
+    const MAX_SPEED = BASE_SPEED * 1.8; // tăng tốc dần — đúng tinh thần "thần tốc"
+    const SPAWN_DISTANCE = 62; // tách nhóm rõ hơn: chỉ ~1 nhóm trong vùng đua, nhóm kế ló ra từ chân trời
+
+    // Hiệu ứng chớp xanh/đỏ ngắn khi đúng/sai.
+    const triggerFlash = (kind: 'good' | 'bad') => {
+        setFlash(kind);
+        if (flashTimer.current) clearTimeout(flashTimer.current);
+        flashTimer.current = setTimeout(() => setFlash(null), 220);
+    };
+
+    // Bảng điểm bay lên rồi mờ dần tại làn vừa va chạm.
+    const spawnPopup = (lane: number, text: string, good: boolean) => {
+        const id = ++popupId.current;
+        setPopups((prev) => [...prev, { id, lane, text, good }]);
+        setTimeout(() => setPopups((prev) => prev.filter((p) => p.id !== id)), 750);
+    };
 
     useEffect(() => {
         statusRef.current = status;
@@ -162,6 +199,7 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
 
             answers.push({
                 id: idBase + i + 1,
+                qid: idBase,
                 lane: i,
                 yPosition: -20, // Start just above visible area
                 content: val.toString(),
@@ -272,6 +310,12 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
             return;
         }
 
+        // Đồng bộ tốc độ chạy của vạch đường với tốc độ xe (không re-render).
+        if (rootRef.current) {
+            const dur = Math.max(0.16, 0.5 * (BASE_SPEED / speedRef.current));
+            rootRef.current.style.setProperty('--road-dur', `${dur.toFixed(3)}s`);
+        }
+
         // Move Items
         const speed = speedRef.current * (deltaTime / 16); // Normalize to 60fps
         itemsRef.current = itemsRef.current.map(item => ({
@@ -306,24 +350,35 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                         item.passed = true;
                         hitOccurred = true;
 
-                        if (item.isCorrect) {
-                            // Correct!
-                            scoreRef.current += 10;
-                            setScore(scoreRef.current);
-                            playSound('ding');
+                        // Đánh dấu cả nhóm câu này đã qua.
+                        itemsRef.current.forEach(other => {
+                            if (other.qid === item.qid) other.passed = true;
+                        });
 
-                            // Mark all other items for THIS question as passed too
-                            itemsRef.current.forEach(other => {
-                                if (other.questionText === item.questionText) {
-                                    other.passed = true;
-                                }
-                            });
+                        if (item.isCorrect) {
+                            // Đúng! — cộng điểm + thưởng combo, tăng tốc dần.
+                            comboRef.current += 1;
+                            const bonus = Math.min(comboRef.current - 1, 5); // 0..5 thưởng thêm
+                            scoreRef.current += 10 + bonus;
+                            setScore(scoreRef.current);
+                            setCombo(comboRef.current);
+                            speedRef.current = Math.min(MAX_SPEED, speedRef.current + 0.015);
+                            playSound('ding');
+                            triggerFlash('good');
+                            spawnPopup(item.lane, bonus > 0 ? `+${10 + bonus}` : '+10', true);
 
                         } else {
-                            // Wrong!
+                            // Sai! — mất một mạng, reset combo, rung + chớp đỏ.
+                            comboRef.current = 0;
+                            setCombo(0);
                             livesRef.current -= 1;
                             setLives(livesRef.current);
                             playSound('buzz');
+                            triggerFlash('bad');
+                            setShake(true);
+                            if (shakeTimer.current) clearTimeout(shakeTimer.current);
+                            shakeTimer.current = setTimeout(() => setShake(false), 320);
+                            spawnPopup(item.lane, 'Sai!', false);
                             if (livesRef.current <= 0) {
                                 handleGameOver(false);
                                 return;
@@ -407,6 +462,17 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
         setGachaReward(null);
         setShowGacha(false);
         setPendingAction(null);
+        comboRef.current = 0;
+        setCombo(0);
+        setFlash(null);
+        setShake(false);
+        setPopups([]);
+
+        setShowInstructions(true);
+        if (instructionsTimer.current) clearTimeout(instructionsTimer.current);
+        instructionsTimer.current = setTimeout(() => {
+            setShowInstructions(false);
+        }, 5000);
 
         lastTimeRef.current = performance.now();
         requestRef.current = requestAnimationFrame(updateGame);
@@ -415,20 +481,37 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
     useEffect(() => {
         return () => {
             if (requestRef.current) cancelAnimationFrame(requestRef.current);
+            if (flashTimer.current) clearTimeout(flashTimer.current);
+            if (shakeTimer.current) clearTimeout(shakeTimer.current);
+            if (instructionsTimer.current) clearTimeout(instructionsTimer.current);
         };
     }, []);
 
     // --- Render ---
 
-
+    // Nhóm đáp án GẦN xe nhất là nhóm "đang chơi"; các nhóm khác (câu kế) làm mờ
+    // để trẻ không lẫn "đáp án nào của câu nào" khi dòng chảy liên tục.
+    const activeItems = items.filter((i) => !i.passed);
+    const currentQid = activeItems.length
+        ? activeItems.reduce((p, c) => (p.yPosition > c.yPosition ? p : c)).qid
+        : null;
 
     return (
         <div className="fixed inset-0 bg-slate-900 z-50 flex justify-center items-center">
             <div
-                className="relative w-full max-w-[480px] h-full bg-slate-900 flex flex-col shadow-2xl overflow-hidden"
+                ref={rootRef}
+                className={`relative w-full max-w-[480px] h-full bg-slate-900 flex flex-col shadow-2xl overflow-hidden ${shake ? 'rc-shake' : ''}`}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
+                <style>{`
+                    @keyframes rc-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
+                    .rc-shake { animation: rc-shake 0.3s ease-in-out; }
+                    @keyframes rc-popup { 0%{transform:translate(-50%,0) scale(0.6);opacity:0} 25%{transform:translate(-50%,-10px) scale(1.15);opacity:1} 100%{transform:translate(-50%,-70px) scale(1);opacity:0} }
+                    .rc-popup { animation: rc-popup 0.75s ease-out forwards; }
+                    @media (prefers-reduced-motion: reduce) { .rc-shake { animation: none; } }
+                `}</style>
+
                 {/* Header / HUD */}
                 <div className="absolute top-0 left-0 w-full z-50 p-4 flex justify-between items-start pointer-events-none">
                     <div className="flex flex-col gap-2">
@@ -440,6 +523,12 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                             <p className="text-xs text-slate-500 font-bold uppercase">Tiến độ</p>
                             <p className="text-lg font-bold text-slate-700">{questionCount} / {TARGET_QUESTIONS}</p>
                         </div>
+                        {/* Biểu tượng combo xếp dọc ở cột trái để tránh đè lên các phần tử khác */}
+                        {status === 'playing' && combo >= 2 && (
+                            <div className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-4 py-1.5 rounded-xl shadow-lg font-black text-sm flex items-center gap-1 justify-center motion-safe:animate-bounce">
+                                🔥 Combo x{combo}
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex items-start gap-3 pointer-events-auto">
@@ -453,6 +542,7 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                         </div>
                         <button
                             onClick={onExit}
+                            aria-label="Thoát game"
                             className="bg-white/90 backdrop-blur p-2 rounded-xl shadow-lg border-2 border-slate-200 text-slate-600 hover:bg-red-50 hover:text-red-500 transition-colors"
                         >
                             <X size={24} />
@@ -460,20 +550,25 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                     </div>
                 </div>
 
+                {/* Bảng câu hỏi hiện tại (nổi ở giữa header) */}
+                {status === 'playing' && currentQuestionText && (
+                    <div 
+                        className="absolute top-[80px] left-1/2 z-50 animate-in fade-in zoom-in duration-300 flex justify-center pointer-events-none"
+                        style={{ transform: 'translateX(-50%)' }}
+                    >
+                        <div className="bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-xl border-4 border-brand-400">
+                            <p className="text-2xl md:text-3xl font-black text-slate-800 tracking-wider drop-shadow-sm whitespace-nowrap">
+                                {currentQuestionText}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+
+
                 {/* Game Area */}
                 <div className="flex-1 relative">
                     <RacingTrack>
-                        {/* Static Question Display (Sky Area) */}
-                        {status === 'playing' && currentQuestionText && (
-                            <div className="absolute top-36 left-1/2 -translate-x-1/2 z-30 animate-in fade-in zoom-in duration-300 w-full px-4 flex justify-center">
-                                <div className="bg-white/90 backdrop-blur-md px-8 py-4 rounded-2xl shadow-2xl border-4 border-brand-400 transform hover:scale-105 transition-transform">
-                                    <p className="text-4xl md:text-5xl font-black text-slate-800 tracking-wider drop-shadow-sm whitespace-nowrap">
-                                        {currentQuestionText}
-                                    </p>
-                                </div>
-                            </div>
-                        )}
-
                         {/* Items */}
                         {items.map(item => (
                             <FallingItem
@@ -482,7 +577,19 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                                 yPosition={item.yPosition}
                                 content={item.content}
                                 type={item.type}
+                                dimmed={currentQid != null && item.qid !== currentQid}
                             />
+                        ))}
+
+                        {/* Bảng điểm bay lên khi va chạm */}
+                        {popups.map(p => (
+                            <div
+                                key={p.id}
+                                className="absolute z-40 -translate-x-1/2 font-black text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] pointer-events-none rc-popup"
+                                style={{ left: laneLeft(p.lane), bottom: '120px', color: p.good ? '#22c55e' : '#ef4444' }}
+                            >
+                                {p.text}
+                            </div>
                         ))}
 
                         {/* Player Car */}
@@ -490,15 +597,43 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                     </RacingTrack>
                 </div>
 
-                {/* Controls Overlay (for desktop clickers or visual hint) */}
-                <div className="absolute bottom-4 left-0 w-full flex justify-between px-8 pointer-events-auto z-50 md:hidden">
-                    <button onClick={moveLeft} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
-                        <ArrowLeft className="text-white w-8 h-8" />
-                    </button>
-                    <button onClick={moveRight} className="p-4 bg-white/20 backdrop-blur rounded-full active:bg-white/40">
-                        <ArrowRight className="text-white w-8 h-8" />
-                    </button>
-                </div>
+                {/* Chớp xanh/đỏ phản hồi đúng/sai */}
+                {flash && (
+                    <div
+                        className={`absolute inset-0 z-40 pointer-events-none ${flash === 'good' ? 'bg-emerald-400/25' : 'bg-red-500/30'}`}
+                        style={{ transition: 'opacity 0.2s', opacity: 1 }}
+                    />
+                )}
+
+                {/* Nút điều khiển (cảm ứng) */}
+                {status === 'playing' && (
+                    <div className="absolute bottom-5 left-0 w-full flex justify-between px-6 pointer-events-auto z-50 md:hidden">
+                        <button
+                            onClick={moveLeft}
+                            aria-label="Chuyển làn sang trái"
+                            className="w-16 h-16 flex items-center justify-center bg-white/25 backdrop-blur rounded-full border border-white/30 shadow-lg active:scale-90 active:bg-white/45 transition-transform"
+                        >
+                            <ArrowLeft className="text-white w-9 h-9" />
+                        </button>
+                        <button
+                            onClick={moveRight}
+                            aria-label="Chuyển làn sang phải"
+                            className="w-16 h-16 flex items-center justify-center bg-white/25 backdrop-blur rounded-full border border-white/30 shadow-lg active:scale-90 active:bg-white/45 transition-transform"
+                        >
+                            <ArrowRight className="text-white w-9 h-9" />
+                        </button>
+                    </div>
+                )}
+
+                {/* Gợi ý bàn phím cho máy tính */}
+                {status === 'playing' && showInstructions && (
+                    <div 
+                        className="hidden md:flex absolute bottom-5 left-1/2 z-50 items-center gap-2 bg-black/40 text-white/90 px-4 py-2 rounded-full text-sm font-bold pointer-events-none"
+                        style={{ transform: 'translateX(-50%)' }}
+                    >
+                        <ArrowLeft size={16} /> <ArrowRight size={16} /> Dùng phím mũi tên để đổi làn
+                    </div>
+                )}
 
                 {/* Menus */}
                 {status === 'menu' && !showGacha && (
@@ -531,7 +666,7 @@ export const MathRacingGame: React.FC<MathRacingGameProps> = ({ difficulty, onEx
                             {status === 'victory' ? (
                                 <>
                                     <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
-                                        <Star size={48} className="text-yellow-500 fill-yellow-500 animate-spin-slow" />
+                                        <Star size={48} className="text-yellow-500 fill-yellow-500 motion-safe:animate-spin" style={{ animationDuration: '4s' }} />
                                     </div>
                                     <h2 className="text-4xl font-black text-slate-800 mb-2">Về Đích!</h2>
                                     <p className="text-slate-500 mb-6 font-medium">Bạn đã hoàn thành chặng đua xuất sắc.</p>

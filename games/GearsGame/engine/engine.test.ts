@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { simulate, rotationDeg } from './simulate';
 import { evaluateBuildGoal, gradeGuess } from './goals';
-import { generateBuildLevel, generateGuessLevel } from './levelgen';
+import { generateBuildLevel, generateGuessLevel, estimateBuildSolution } from './levelgen';
 import { areMeshing } from './graph';
 import { GearSpec, GearLayout, MotorConfig, BuildLevel } from './types';
 
@@ -124,7 +124,7 @@ describe('goals', () => {
     const baseLevel: BuildLevel = {
         id: 't', seed: 1, difficulty: 'easy',
         layout: { gears: [], belts: [] }, waterZones: [],
-        targetDirection: 1, maxGears: 6, maxBelts: 0, maxBeltLength: 400, availableGearSizes: [12], fixedGearIds: [],
+        targetDirection: 1, maxComponents: 6, maxBelts: 0, maxBeltLength: 400, availableGearSizes: [12], fixedGearIds: [],
     };
 
     it('evaluateBuildGoal: target quay đúng chiều → thắng', () => {
@@ -177,4 +177,32 @@ describe('levelgen — tất định & nối thông', () => {
         expect(generateGuessLevel('hard', 9).layout.gears.length).toBeGreaterThanOrEqual(8);
         expect(generateGuessLevel('hard', 9).gearsToGuess).toContain('target');
     });
+});
+
+describe('build level — luôn GIẢI ĐƯỢC trong ngân sách & đúng chiều', () => {
+    const seeds = [1, 2, 3, 7, 8, 9, 13, 42, 55, 100, 256, 777, 999, 2024, 31337];
+    for (const difficulty of ['easy', 'medium', 'hard'] as const) {
+        for (const seed of seeds) {
+            it(`${difficulty} · seed ${seed}`, () => {
+                const lv = generateBuildLevel(difficulty, seed);
+                const motor = lv.layout.gears.find((g) => g.id === 'motor')!;
+                const target = lv.layout.gears.find((g) => g.id === 'target')!;
+
+                const sol = estimateBuildSolution(motor, target, lv.waterZones, lv.maxBeltLength);
+                expect(sol, 'phải dựng được lời giải tham khảo').not.toBeNull();
+
+                // Lời giải tham khảo phải nằm GỌN trong ngân sách linh kiện cho phép.
+                const used = sol!.gears.length + sol!.belts.length;
+                expect(used, 'lời giải vừa ngân sách').toBeLessThanOrEqual(lv.maxComponents);
+
+                // …và thực sự làm ĐÍCH quay ĐÚNG CHIỀU yêu cầu, không kẹt (⇒ hiện modal).
+                const sim = simulate({ gears: [motor, target, ...sol!.gears], belts: sol!.belts }, { id: 'motor', dir: 1, speed: 1 });
+                const t = sim.runtime.get('target')!;
+                expect(sim.jammed, 'không kẹt').toBe(false);
+                expect(t.state, 'đích phải quay').toBe('driven');
+                expect(t.dir, 'khớp chiều yêu cầu').toBe(lv.targetDirection);
+                expect(evaluateBuildGoal(sim, lv), 'thắng theo đúng luật').toBe(true);
+            });
+        }
+    }
 });
