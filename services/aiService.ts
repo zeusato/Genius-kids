@@ -1,3 +1,5 @@
+import { geminiGenerateContent } from './geminiClient';
+
 export interface AiChatMessage {
     role: 'user' | 'model';
     content: string;
@@ -29,8 +31,6 @@ export const generateAiResponse = async (
         throw new Error("Vui lòng cung cấp API Key để sử dụng AI (Cấu hình tại Hồ sơ cá nhân).");
     }
 
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-
     // Lấy 10 tin nhắn gần nhất để làm ngữ cảnh (tránh gửi quá dài)
     const recentHistory = history.slice(-10);
 
@@ -57,13 +57,7 @@ export const generateAiResponse = async (
     };
 
     try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        });
+        const response = await geminiGenerateContent(apiKey, requestBody);
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -98,8 +92,6 @@ export const generateAiQuiz = async (
     if (!apiKey) {
         throw new Error("Vui lòng cung cấp API Key để sử dụng AI.");
     }
-
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
     const topicsText = topics.map(t => `- ${t.title}: ${t.description}`).join('\n');
 
@@ -155,13 +147,7 @@ Hệ thống sẽ render hình học siêu to dựa vào parameter này! ĐỪNG
     };
 
     try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        });
+        const response = await geminiGenerateContent(apiKey, requestBody);
 
         if (!response.ok) {
             const errorText = await response.text();

@@ -2,6 +2,7 @@
 // và mở rộng thêm bằng Gemini nếu người dùng đã cài API key.
 
 import { BASE_WORD_BANK, type WordEntry } from '@/src/data/wordBankData';
+import { geminiGenerateContent } from './geminiClient';
 
 export type WordBank = Record<string, WordEntry[]>;
 
@@ -48,7 +49,6 @@ export const expandWordBankWithGemini = async (): Promise<WordBank | null> => {
     try { if (localStorage.getItem(EXPANDED_FLAG)) return null; } catch { return null; }
     inFlight = true;
     try {
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
         const prompt = `Tạo kho từ vựng tiếng Anh ĐƠN GIẢN cho trẻ mầm non học bảng chữ cái.
 Trả về một JSON object: key là chữ cái thường từ "a" đến "z"; value là mảng 8-10 object dạng {"word": "<từ tiếng Anh viết thường, MỘT từ, dễ, quen thuộc với trẻ nhỏ>", "emoji": "<một emoji minh hoạ phù hợp>"}.
 Chỉ dùng danh từ cụ thể dễ hình dung (con vật, đồ vật, trái cây, phương tiện...). KHÔNG dùng từ trừu tượng.
@@ -57,11 +57,7 @@ Mỗi từ PHẢI bắt đầu bằng đúng chữ cái của key. CHỈ trả J
             contents: [{ role: 'user', parts: [{ text: prompt }] }],
             generationConfig: { temperature: 0.8, response_mime_type: 'application/json' },
         };
-        const resp = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
+        const resp = await geminiGenerateContent(apiKey, body);
         if (!resp.ok) return null;
         const data = await resp.json();
         const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
