@@ -11,6 +11,8 @@ import { StarsBackground } from './StarsBackground';
 import { CameraRig } from './CameraRig';
 import { DwarfPlanetMesh } from './DwarfPlanetMesh';
 import { Comet } from './Comet';
+import { CustomPlanetMesh } from './CustomPlanetMesh';
+import { CustomPlanetDoc } from '../../planetmaker/planetStore';
 
 // Bloom chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
 const Effects = lazy(() => import('./Effects'));
@@ -32,6 +34,7 @@ interface Scene3DProps {
     paused: boolean; // modal đang mở → frameloop 'never', GPU nghỉ hoàn toàn
     apiRef: React.MutableRefObject<Scene3DApi | null>;
     onContextLost: () => void;
+    customPlanet?: CustomPlanetDoc | null; // hành tinh bé tạo trong Xưởng (null = ẩn)
 }
 
 // Scene 3D chính — thay thế CSS orrery. Mọi chuyển động per-frame đi qua ref
@@ -43,7 +46,8 @@ export const Scene3D: React.FC<Scene3DProps> = ({
     clock,
     paused,
     apiRef,
-    onContextLost
+    onContextLost,
+    customPlanet
 }) => {
     const registry = useRef<BodyRegistry>({});
     // Tier chất lượng: tụt fps → hạ dpr, tắt bloom/mây, giảm asteroid. Không tự nâng lại
@@ -92,6 +96,9 @@ export const Scene3D: React.FC<Scene3DProps> = ({
                 />
                 <DwarfPlanetMesh clock={clock} onSelect={onPlanetSelect} />
                 <Comet clock={clock} onSelect={onPlanetSelect} />
+                {customPlanet && (
+                    <CustomPlanetMesh doc={customPlanet} clock={clock} onSelect={onPlanetSelect} />
+                )}
 
                 {quality === 'high' && (
                     <Suspense fallback={null}>

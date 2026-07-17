@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Atom, Globe, Zap, Microscope, Dna, LucideIcon } from 'lucide-react';
+import { ArrowLeft, Atom, Globe, Zap, Microscope, Dna, Palette, LucideIcon } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 import { useStudent } from '@/src/contexts/StudentContext';
 import { isPreschool } from '@/src/utils/grade';
@@ -34,6 +34,20 @@ const SCIENCE_ITEMS: ScienceItem[] = [
         buttonGradient: 'from-blue-500 to-indigo-600',
         emoji: '🚀',
         route: '/science/solar-system',
+        allowPreschool: true,
+    },
+    {
+        id: 'planet-maker',
+        title: 'Xưởng Hành Tinh',
+        description: 'Tự tay nặn hành tinh của riêng bé — núi non, biển cả, rừng cây, núi lửa — rồi đưa lên Hệ Mặt Trời!',
+        icon: Palette,
+        iconHover: 'hover:rotate-6',
+        cardGradient: 'from-rose-900/50 to-orange-900/50',
+        iconGradient: 'from-rose-500 to-orange-500',
+        ring: 'ring-rose-400/50',
+        buttonGradient: 'from-rose-500 to-orange-500',
+        emoji: '🪐',
+        route: '/science/planet-maker',
         allowPreschool: true,
     },
     {

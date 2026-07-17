@@ -15,6 +15,7 @@ import { Scene3D } from '../components/solar/scene3d/Scene3D';
 import { createSimClock, Scene3DApi, supportsWebGL } from '../components/solar/scene3d/core';
 import { playBlip } from '../components/solar/sfx';
 import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA, MOON_DATA, PLUTO_INFO, COMET_INFO } from '../data/solarData';
+import { loadCustomPlanet, CustomPlanetDoc } from '../components/planetmaker/planetStore';
 import { MusicControls } from '../components/MusicControls';
 
 function lookupBody(id: string): PlanetData | null {
@@ -49,6 +50,13 @@ export function SolarSystemPage() {
         id => currentStudent?.solarBadges?.includes(id)
     ).length;
 
+    // Hành tinh bé tự nặn trong Xưởng Hành Tinh — chỉ hiện khi bé bật 🌌
+    const customPlanet = useMemo<CustomPlanetDoc | null>(
+        () => loadCustomPlanet(currentStudent?.id),
+        [currentStudent]
+    );
+    const shownCustomPlanet = customPlanet?.showInSolar ? customPlanet : null;
+
     // Đồng hồ mô phỏng — ref thuần, UI ghi timeScale trực tiếp, không re-render mỗi frame
     const clockRef = useRef(createSimClock());
     const sceneApiRef = useRef<Scene3DApi | null>(null);
@@ -64,6 +72,26 @@ export function SolarSystemPage() {
     const handlePlanetSelect = (planetId: string) => {
         setIsMenuOpen(false);
         playBlip();
+        // Hành tinh bé tự tạo → thẻ info nhẹ (không fly-to, không nằm trong registry)
+        if (planetId === 'custom-planet' && customPlanet) {
+            const treeCount = Math.floor(atob(customPlanet.trees).length / 2);
+            setSelectedInfo({
+                id: 'custom-planet',
+                name: customPlanet.name,
+                kindLabel: `Hành tinh do ${currentStudent?.name ?? 'bé'} tạo`,
+                diameter: 'Do bé quyết định!',
+                description: `${customPlanet.name} là hành tinh độc nhất vô nhị do chính tay ${currentStudent?.name ?? 'bé'} nặn ra trong Xưởng Hành Tinh — có núi non, biển cả${treeCount > 0 ? ` và ${treeCount} cây xanh` : ''}!`,
+                facts: [
+                    'Hành tinh này không có trong sách thiên văn nào — vì nó là của riêng bé!',
+                    'Muốn sửa núi non hay trồng thêm rừng, hãy quay lại Xưởng Hành Tinh nhé.',
+                    'Có thể ẩn/hiện hành tinh này bằng nút 🌌 trong phần Trang trí của Xưởng.'
+                ],
+                funFact: 'Biết đâu sau này bé sẽ đặt tên cho một hành tinh THẬT — Hiệp hội Thiên văn Quốc tế vẫn tổ chức thi đặt tên thiên thể đấy!',
+                color: customPlanet.cosmetics.atmosphere ?? '#7EC8E3',
+                gradientColors: ['#9FE38B', '#3FA7D6', '#20486B']
+            });
+            return;
+        }
         // Vệ tinh / hành tinh lùn / sao chổi: chấm nhỏ → mở thẻ info nhẹ ngay (không fly-to)
         const moon = MOON_DATA.find(m => m.id === planetId);
         if (moon) {
@@ -150,6 +178,7 @@ export function SolarSystemPage() {
                         paused={!!selectedPlanet || !!selectedInfo || showTrueScale || showCutaway}
                         apiRef={sceneApiRef}
                         onContextLost={() => setContextLost(true)}
+                        customPlanet={shownCustomPlanet}
                     />
                 </div>
             )}
@@ -207,6 +236,16 @@ export function SolarSystemPage() {
                                 <div className="w-3 h-3 rounded-full bg-amber-700 shadow-[0_0_10px_rgba(180,83,9,0.6)]"></div>
                                 <span className="text-sm">Vành Đai Tiểu Hành Tinh</span>
                             </button>
+
+                            {shownCustomPlanet && (
+                                <button
+                                    onClick={() => handlePlanetSelect('custom-planet')}
+                                    className="w-full px-4 py-3 text-left text-yellow-100 hover:bg-yellow-400/10 transition-colors flex items-center gap-3 border-t border-white/10"
+                                >
+                                    <span className="text-sm leading-none">⭐</span>
+                                    <span className="text-sm font-semibold">{shownCustomPlanet.name}</span>
+                                </button>
+                            )}
                         </div>
                     )}
                 </div>}
