@@ -10,8 +10,9 @@ jobs:
   ping-db:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase REST API to keep database active
+      - name: Ping Supabase Database to keep it active
         run: |
-          curl -i -X GET "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/" \
+          curl -i -X GET "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/keep_alive?select=id" \
           -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.VITE_SUPABASE_ANON_KEY }}"
+

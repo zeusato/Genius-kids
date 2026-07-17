@@ -5,6 +5,7 @@ import { PlanetDetail } from '../components/solar/PlanetDetail';
 import { Legacy2DView } from '../components/solar/Legacy2DView';
 import { SolarCollection } from '../components/solar/SolarCollection';
 import { TrueScaleOverlay } from '../components/solar/TrueScaleOverlay';
+import { PlanetCutaway } from '../components/solar/PlanetCutaway';
 import { TourCard } from '../components/solar/TourCard';
 import { BodyInfoCard, InfoBodyView } from '../components/solar/BodyInfoCard';
 import { SOLAR_TOUR } from '../data/solarTour';
@@ -39,6 +40,7 @@ export function SolarSystemPage() {
     const [contextLost, setContextLost] = useState<boolean>(false);
     const [showCollection, setShowCollection] = useState<boolean>(false);
     const [showTrueScale, setShowTrueScale] = useState<boolean>(false);
+    const [showCutaway, setShowCutaway] = useState<boolean>(false);
     const [tourIndex, setTourIndex] = useState<number | null>(null); // null = không tour
     const [tourReady, setTourReady] = useState<boolean>(false);      // camera đã bay tới chặng
     const touring = tourIndex !== null;
@@ -145,7 +147,7 @@ export function SolarSystemPage() {
                         onPlanetSelect={handlePlanetSelect}
                         onFocusComplete={handleFocusComplete}
                         clock={clockRef.current}
-                        paused={!!selectedPlanet || !!selectedInfo || showTrueScale}
+                        paused={!!selectedPlanet || !!selectedInfo || showTrueScale || showCutaway}
                         apiRef={sceneApiRef}
                         onContextLost={() => setContextLost(true)}
                     />
@@ -243,6 +245,14 @@ export function SolarSystemPage() {
                         <span className="text-lg leading-none">🌍</span>
                         <span className="text-xs font-bold">Kích thước thật</span>
                     </button>
+                    <button
+                        onClick={() => setShowCutaway(true)}
+                        title="Cắt hành tinh xem các lớp bên trong"
+                        className="flex items-center gap-2 px-3.5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                    >
+                        <span className="text-lg leading-none">🔪</span>
+                        <span className="text-xs font-bold">Cắt hành tinh</span>
+                    </button>
                 </div>
             )}
 
@@ -312,6 +322,9 @@ export function SolarSystemPage() {
 
             {/* Kích thước thật */}
             {showTrueScale && <TrueScaleOverlay onClose={() => setShowTrueScale(false)} />}
+
+            {/* Cắt hành tinh xem địa tầng */}
+            {showCutaway && <PlanetCutaway onClose={() => setShowCutaway(false)} />}
 
             {/* Tour có thuyết minh */}
             {touring && tourIndex !== null && (
