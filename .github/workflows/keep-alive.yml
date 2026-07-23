@@ -2,17 +2,41 @@ name: Keep Supabase Database Active
 
 on:
   schedule:
-    # Tự động chạy vào lúc 00:00 UTC (07:00 giờ Việt Nam) vào ngày 1, 4, 7, 10, 13, 16, 19, 22, 25, 28 hàng tháng (khoảng mỗi 3 ngày)
-    - cron: '0 0 */3 * *'
-  workflow_dispatch: # Cho phép kích hoạt chạy thử thủ công bất kỳ lúc nào từ tab Actions trên GitHub
+    # Chạy mỗi 2 ngày vào lúc 02:15 UTC (09:15 giờ VN) để đảm bảo không vượt quá 7 ngày pause của Supabase
+    - cron: '15 2 */2 * *'
+  workflow_dispatch: # Cho phép nhấn 'Run workflow' thủ công từ tab Actions trên GitHub
 
 jobs:
   ping-db:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase Database to keep it active
+      - name: Verify Secrets
         run: |
-          curl -i -X GET "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/keep_alive?select=id" \
-          -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
-          -H "Authorization: Bearer ${{ secrets.VITE_SUPABASE_ANON_KEY }}"
+          if [ -z "${{ secrets.VITE_SUPABASE_URL }}" ] || [ -z "${{ secrets.VITE_SUPABASE_ANON_KEY }}" ]; then
+            echo "❌ ERROR: VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY secret is missing in GitHub repository settings!"
+            exit 1
+          fi
+          echo "✅ Secrets are present."
 
+      - name: Ping Supabase REST API & Perform DB Write Activity
+        run: |
+          NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "Current UTC Time: $NOW"
+
+          echo "--- 1. Updating public.keep_alive row (Executing Postgres Transaction) ---"
+          curl -i -X PATCH "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/keep_alive?id=eq.1" \
+            -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=minimal" \
+            -d "{\"created_at\": \"$NOW\"}"
+
+          echo "--- 2. Querying public.keep_alive (Read Activity) ---"
+          curl -s -f -i -X GET "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/keep_alive?select=id,created_at" \
+            -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.VITE_SUPABASE_ANON_KEY }}"
+
+          echo "--- 3. Pinging Supabase Storage & Auth ---"
+          curl -s -f -i -X GET "${{ secrets.VITE_SUPABASE_URL }}/storage/v1/bucket" \
+            -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.VITE_SUPABASE_ANON_KEY }}"
