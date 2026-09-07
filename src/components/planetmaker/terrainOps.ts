@@ -9,9 +9,10 @@ export interface TerrainState {
     elevation: Float32Array; // độ cao so với mặt cầu chuẩn (bán kính 1)
     paint: Uint8Array;       // 0 = màu tự động, 1 = đá núi lửa, 2 = dung nham
     trees: number[];         // chỉ số đỉnh có cây
+    changed?: Set<number>;   // undefined requests a full renderer refresh
 }
 
-export type BrushTool = 'raise' | 'lower' | 'smooth' | 'forest' | 'volcano' | 'erase';
+export type BrushTool = 'raise' | 'lower' | 'smooth' | 'flatten' | 'forest' | 'volcano' | 'erase';
 
 export const ELEV_MIN = -0.15;
 export const ELEV_MAX = 0.2;
@@ -39,9 +40,9 @@ export function createTerrain(subdiv = 5): TerrainState {
     ];
 
     for (let s = 0; s < subdiv; s++) {
-        const midCache = new Map<number, number>();
+        const midCache = new Map<string, number>();
         const midpoint = (a: number, b: number): number => {
-            const key = a < b ? a * 65536 + b : b * 65536 + a;
+            const key = a < b ? `${a}:${b}` : `${b}:${a}`;
             const hit = midCache.get(key);
             if (hit !== undefined) return hit;
             const va = verts[a], vb = verts[b];
@@ -77,6 +78,21 @@ function distToPoint(t: TerrainState, i: number, px: number, py: number, pz: num
     return Math.hypot(dx, dy, dz);
 }
 
+const spatialCache = new WeakMap<TerrainState, Map<string, number[]>>();
+const neighborCache = new WeakMap<TerrainState, number[][]>();
+function candidates(t: TerrainState, x: number, y: number, z: number, radius: number) {
+    let grid = spatialCache.get(t);
+    if (!grid) { grid = new Map(); for (let i = 0; i < t.count; i++) { const key = `${Math.floor(t.dirs[i * 3] * 8)},${Math.floor(t.dirs[i * 3 + 1] * 8)},${Math.floor(t.dirs[i * 3 + 2] * 8)}`; const bucket = grid.get(key) || []; bucket.push(i); grid.set(key, bucket); } spatialCache.set(t, grid); }
+    const result: number[] = [];
+    for (let a = Math.floor((x - radius) * 8); a <= Math.floor((x + radius) * 8); a++) for (let b = Math.floor((y - radius) * 8); b <= Math.floor((y + radius) * 8); b++) for (let c = Math.floor((z - radius) * 8); c <= Math.floor((z + radius) * 8); c++) { const bucket = grid.get(`${a},${b},${c}`); if (bucket) result.push(...bucket); }
+    return result;
+}
+function neighbors(t: TerrainState) {
+    let result = neighborCache.get(t);
+    if (!result) { const sets = Array.from({ length: t.count }, () => new Set<number>()); for (let i = 0; i < t.index.length; i += 3) { const [a, b, c] = t.index.subarray(i, i + 3); sets[a].add(b).add(c); sets[b].add(a).add(c); sets[c].add(a).add(b); } result = sets.map(s => [...s]); neighborCache.set(t, result); }
+    return result;
+}
+
 // Hồ sơ núi lửa: sườn dốc lên, miệng lõm ở tâm (x = d/radius ∈ [0,1])
 function volcanoProfile(x: number): number {
     return (1 - x) - (x < 0.25 ? (0.25 - x) * 2.2 : 0);
@@ -88,37 +104,38 @@ export function applyBrush(
     px: number, py: number, pz: number,
     radius: number,
     strength: number,
-    seaLevel: number
+    seaLevel: number,
+    target = 0,
+    seed = 1
 ): void {
     // chuẩn hoá điểm chạm (raycast trả điểm trên mặt địa hình, bán kính ≠ 1)
     const pl = Math.hypot(px, py, pz) || 1;
     px /= pl; py /= pl; pz /= pl;
+    const selected = candidates(t, px, py, pz, tool === 'volcano' ? Math.max(radius, .22) : radius);
+    // Once initialized, the renderer consumes and clears this set each frame.
+    if (t.changed) selected.forEach(i => t.changed!.add(i));
 
     if (tool === 'smooth') {
-        // pass 1: trung bình trong vùng, pass 2: kéo về trung bình
-        let sum = 0, n = 0;
-        for (let i = 0; i < t.count; i++) {
-            if (distToPoint(t, i, px, py, pz) < radius) { sum += t.elevation[i]; n++; }
-        }
-        if (!n) return;
-        const avg = sum / n;
-        for (let i = 0; i < t.count; i++) {
+        const source = t.elevation.slice(), adjacent = neighbors(t);
+        for (const i of selected) {
             const d = distToPoint(t, i, px, py, pz);
             if (d >= radius) continue;
             const f = 1 - d / radius;
-            t.elevation[i] = clampE(t.elevation[i] + (avg - t.elevation[i]) * f * f * 0.6);
+            const avg = adjacent[i].reduce((sum, n) => sum + source[n], 0) / adjacent[i].length;
+            t.elevation[i] = clampE(source[i] + (avg - source[i]) * f * f * Math.min(1, strength * 80));
         }
         return;
     }
 
     if (tool === 'forest') {
         const treeSet = new Set(t.trees);
-        for (let i = 0; i < t.count && t.trees.length < MAX_TREES; i++) {
+        for (const i of selected) {
+            if (t.trees.length >= MAX_TREES) break;
             if (treeSet.has(i)) continue;
             if (t.elevation[i] < seaLevel + 0.004) continue;      // không trồng dưới nước
             if (t.paint[i] !== 0) continue;                        // không trồng trên núi lửa
             if (distToPoint(t, i, px, py, pz) >= radius) continue;
-            if (Math.random() > 0.16) continue;                    // mật độ thưa tự nhiên
+            if (hash3(i, seed, 3, 9) > 0.16) continue;
             t.trees.push(i);
             treeSet.add(i);
         }
@@ -127,7 +144,7 @@ export function applyBrush(
 
     if (tool === 'volcano') {
         const r = Math.max(radius, 0.22);
-        for (let i = 0; i < t.count; i++) {
+        for (const i of selected) {
             const d = distToPoint(t, i, px, py, pz);
             if (d >= r) continue;
             const x = d / r;
@@ -140,7 +157,7 @@ export function applyBrush(
     }
 
     if (tool === 'erase') {
-        for (let i = 0; i < t.count; i++) {
+        for (const i of selected) {
             const d = distToPoint(t, i, px, py, pz);
             if (d >= radius) continue;
             const f = 1 - d / radius;
@@ -153,11 +170,11 @@ export function applyBrush(
 
     // raise / lower
     const dir = tool === 'lower' ? -1 : 1;
-    for (let i = 0; i < t.count; i++) {
+    for (const i of selected) {
         const d = distToPoint(t, i, px, py, pz);
         if (d >= radius) continue;
         const f = 1 - d / radius;
-        t.elevation[i] = clampE(t.elevation[i] + dir * strength * f * f);
+        t.elevation[i] = tool === 'flatten' ? clampE(t.elevation[i] + (target - t.elevation[i]) * Math.min(1, strength * 80) * f * f) : clampE(t.elevation[i] + dir * strength * f * f);
     }
 }
 
@@ -190,8 +207,8 @@ function vhash(i: number): number {
     return x - Math.floor(x);
 }
 
-export function computeColors(t: TerrainState, seaLevel: number, out: Float32Array): void {
-    for (let i = 0; i < t.count; i++) {
+export function computeColors(t: TerrainState, seaLevel: number, out: Float32Array, selected?: Iterable<number>): void {
+    for (const i of selected || Array.from({ length: t.count }, (_, i) => i)) {
         let c: [number, number, number];
         if (t.paint[i] === 2) {
             c = C_LAVA;
@@ -231,6 +248,7 @@ export function makeSnap(t: TerrainState): TerrainSnap {
 }
 
 export function restoreSnap(t: TerrainState, s: TerrainSnap): void {
+    t.changed = undefined;
     t.elevation.set(s.elevation);
     t.paint.set(s.paint);
     t.trees = [...s.trees];
@@ -258,6 +276,7 @@ function valueNoise(px: number, py: number, pz: number, seed: number): number {
 }
 
 export function randomizeTerrain(t: TerrainState, seed: number, seaLevel: number): void {
+    t.changed = undefined;
     for (let i = 0; i < t.count; i++) {
         const x = t.dirs[i * 3], y = t.dirs[i * 3 + 1], z = t.dirs[i * 3 + 2];
         let n = 0, amp = 1, freq = 1.7, total = 0;
@@ -314,11 +333,14 @@ export function deserializeTerrain(t: TerrainState, data: { elevation: string; p
     try {
         const q = fromB64(data.elevation);
         if (q.length !== t.count) return false; // subdiv khác phiên bản cũ → bỏ
-        for (let i = 0; i < t.count; i++) t.elevation[i] = ((q[i] - 128) / 127) * Q_SCALE;
         const p = fromB64(data.paint);
-        if (p.length === t.count) t.paint.set(p);
         const tb = fromB64(data.trees);
-        t.trees = Array.from(new Uint16Array(tb.buffer, 0, Math.floor(tb.length / 2)));
+        if (p.length !== t.count || p.some(v => v > 2) || tb.length % 2 || tb.length > MAX_TREES * 2 || q.some(v => v < 32)) return false;
+        const trees = Array.from(new Uint16Array(tb.buffer));
+        if (trees.some(i => i >= t.count) || new Set(trees).size !== trees.length) return false;
+        for (let i = 0; i < t.count; i++) t.elevation[i] = ((q[i] - 128) / 127) * Q_SCALE;
+        t.paint.set(p);
+        t.trees = trees;
         return true;
     } catch {
         return false;

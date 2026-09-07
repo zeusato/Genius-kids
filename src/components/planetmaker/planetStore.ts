@@ -1,4 +1,5 @@
 // Lưu/đọc hành tinh tự tạo — 1 hành tinh mỗi học sinh, localStorage (~30KB/bé).
+import { createTerrain, deserializeTerrain } from './terrainOps';
 
 export interface PlanetCosmetics {
     atmosphere: string | null; // màu viền khí quyển, null = không có
@@ -17,6 +18,7 @@ export interface CustomPlanetDoc {
     cosmetics: PlanetCosmetics;
     showInSolar: boolean; // hiện trong scene Hệ Mặt Trời chính
     updatedAt: string;
+    settlement?: { name: string; buildings: number; residents: number; marker: [number, number, number] };
 }
 
 export const DEFAULT_COSMETICS: PlanetCosmetics = {
@@ -33,7 +35,7 @@ export function loadCustomPlanet(studentId?: string | null): CustomPlanetDoc | n
         const raw = localStorage.getItem(key(studentId || 'guest'));
         if (!raw) return null;
         const doc = JSON.parse(raw) as CustomPlanetDoc;
-        if (doc.version !== 1 || !doc.elevation) return null;
+        if (doc.version !== 1 || typeof doc.name !== 'string' || !doc.cosmetics || !Number.isFinite(doc.seaLevel) || typeof doc.showInSolar !== 'boolean' || !deserializeTerrain(createTerrain(5), doc)) return null;
         return doc;
     } catch {
         return null;
@@ -41,9 +43,5 @@ export function loadCustomPlanet(studentId?: string | null): CustomPlanetDoc | n
 }
 
 export function saveCustomPlanet(studentId: string | undefined | null, doc: CustomPlanetDoc): void {
-    try {
-        localStorage.setItem(key(studentId || 'guest'), JSON.stringify(doc));
-    } catch {
-        // localStorage đầy — bỏ qua, lần lưu sau thử lại
-    }
+    localStorage.setItem(key(studentId || 'guest'), JSON.stringify(doc));
 }

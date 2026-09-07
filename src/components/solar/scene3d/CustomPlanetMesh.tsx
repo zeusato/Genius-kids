@@ -88,7 +88,7 @@ export const CustomPlanetMesh: React.FC<CustomPlanetMeshProps> = ({ doc, clock, 
                         onClick={() => onSelect('custom-planet')}
                         className="pointer-events-auto px-2.5 py-1 rounded-full text-[11px] font-semibold text-yellow-100 bg-yellow-500/25 backdrop-blur-sm border border-yellow-300/40 whitespace-nowrap hover:bg-yellow-400/30 transition-colors select-none"
                     >
-                        ⭐ {doc.name}
+                        ⭐ {doc.name}{doc.settlement ? ` · 🏡 ${doc.settlement.buildings}` : ''}
                     </button>
                 </Html>
             </group>

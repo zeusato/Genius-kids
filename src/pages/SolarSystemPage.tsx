@@ -16,6 +16,7 @@ import { createSimClock, Scene3DApi, supportsWebGL } from '../components/solar/s
 import { playBlip } from '../components/solar/sfx';
 import { PlanetData, SOLAR_SYSTEM_DATA, SUN_DATA, ASTEROID_BELT_DATA, MOON_DATA, PLUTO_INFO, COMET_INFO } from '../data/solarData';
 import { loadCustomPlanet, CustomPlanetDoc } from '../components/planetmaker/planetStore';
+import { loadPublishedPlanet } from '../components/planetmaker/persistence/repository';
 import { MusicControls } from '../components/MusicControls';
 
 function lookupBody(id: string): PlanetData | null {
@@ -51,10 +52,15 @@ export function SolarSystemPage() {
     ).length;
 
     // Hành tinh bé tự nặn trong Xưởng Hành Tinh — chỉ hiện khi bé bật 🌌
-    const customPlanet = useMemo<CustomPlanetDoc | null>(
-        () => loadCustomPlanet(currentStudent?.id),
-        [currentStudent]
-    );
+    const [customPlanet, setCustomPlanet] = useState<CustomPlanetDoc | null>(null);
+    useEffect(() => {
+        let active = true;
+        setCustomPlanet(null);
+        loadPublishedPlanet(currentStudent?.id || 'guest').then(doc => {
+            if (active) setCustomPlanet(doc || loadCustomPlanet(currentStudent?.id));
+        }).catch(() => { if (active) setCustomPlanet(loadCustomPlanet(currentStudent?.id)); });
+        return () => { active = false; };
+    }, [currentStudent?.id]);
     const shownCustomPlanet = customPlanet?.showInSolar ? customPlanet : null;
 
     // Đồng hồ mô phỏng — ref thuần, UI ghi timeScale trực tiếp, không re-render mỗi frame
@@ -83,8 +89,8 @@ export function SolarSystemPage() {
                 description: `${customPlanet.name} là hành tinh độc nhất vô nhị do chính tay ${currentStudent?.name ?? 'bé'} nặn ra trong Xưởng Hành Tinh — có núi non, biển cả${treeCount > 0 ? ` và ${treeCount} cây xanh` : ''}!`,
                 facts: [
                     'Hành tinh này không có trong sách thiên văn nào — vì nó là của riêng bé!',
-                    'Muốn sửa núi non hay trồng thêm rừng, hãy quay lại Xưởng Hành Tinh nhé.',
-                    'Có thể ẩn/hiện hành tinh này bằng nút 🌌 trong phần Trang trí của Xưởng.'
+                    customPlanet.settlement ? `${customPlanet.settlement.name}: ${customPlanet.settlement.buildings} công trình, ${customPlanet.settlement.residents} cư dân. Ghé Xưởng Hành Tinh để xây tiếp!` : 'Muốn sửa núi non hay trồng thêm rừng, hãy quay lại Xưởng Hành Tinh nhé.',
+                    'Có thể ẩn/hiện hành tinh trong mục Màu trời & trang trí của Xưởng.'
                 ],
                 funFact: 'Biết đâu sau này bé sẽ đặt tên cho một hành tinh THẬT — Hiệp hội Thiên văn Quốc tế vẫn tổ chức thi đặt tên thiên thể đấy!',
                 color: customPlanet.cosmetics.atmosphere ?? '#7EC8E3',

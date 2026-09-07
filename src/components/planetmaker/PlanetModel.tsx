@@ -25,6 +25,7 @@ interface PlanetModelProps {
     cosmetics: PlanetCosmetics;
     dirtyRef: React.MutableRefObject<boolean>;
     spin?: boolean;
+    animate?: boolean;
     terrainEvents?: TerrainEvents;
     children?: React.ReactNode; // ví dụ vòng cọ preview của editor
 }
@@ -42,11 +43,11 @@ function treeHash(i: number): number {
 }
 
 // Mây tách component riêng để hook useTexture không bị điều kiện hoá
-const CloudsSphere: React.FC = () => {
+const CloudsSphere: React.FC<{ animate: boolean }> = ({ animate }) => {
     const tex = useTexture(texUrl('earth_clouds'));
     const ref = useRef<THREE.Mesh>(null);
     useFrame((_, delta) => {
-        if (ref.current) ref.current.rotation.y += delta * 0.02;
+        if (animate && ref.current) ref.current.rotation.y += delta * 0.02;
     });
     return (
         <mesh ref={ref} geometry={SHARED_SPHERE} scale={1.16} raycast={noRaycast} renderOrder={2}>
@@ -60,11 +61,11 @@ const MOON_ORBITS = [
     { r: 2.35, tilt: -0.2, speed: 0.22, size: 0.055, phase: 2.4 }
 ];
 
-const Moons: React.FC<{ count: number }> = ({ count }) => {
+const Moons: React.FC<{ count: number; animate: boolean }> = ({ count, animate }) => {
     const refs = useRef<(THREE.Group | null)[]>([]);
     useFrame((_, delta) => {
         refs.current.forEach((g, i) => {
-            if (g) g.rotation.y += delta * MOON_ORBITS[i].speed;
+            if (animate && g) g.rotation.y += delta * MOON_ORBITS[i].speed;
         });
     });
     return (
@@ -83,12 +84,17 @@ const Moons: React.FC<{ count: number }> = ({ count }) => {
 };
 
 export const PlanetModel: React.FC<PlanetModelProps> = ({
-    terrain, seaLevel, cosmetics, dirtyRef, spin, terrainEvents, children
+    terrain, seaLevel, cosmetics, dirtyRef, spin, animate = true, terrainEvents, children
 }) => {
     const spinRef = useRef<THREE.Group>(null);
     const trunkRef = useRef<THREE.InstancedMesh>(null);
     const canopyRef = useRef<THREE.InstancedMesh>(null);
     const seaRef = useRef(seaLevel);
+    const incident = useMemo(() => {
+        const faces = Array.from({ length: terrain.count }, () => [] as number[]);
+        for (let i = 0; i < terrain.index.length; i += 3) { faces[terrain.index[i]].push(i); faces[terrain.index[i + 1]].push(i); faces[terrain.index[i + 2]].push(i); }
+        return faces;
+    }, [terrain]);
 
     // Geometry địa hình: buffer cấp phát 1 lần, refresh ghi đè khi dirty
     const geometry = useMemo(() => {
@@ -100,6 +106,9 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
         const col = new THREE.BufferAttribute(new Float32Array(terrain.count * 3), 3);
         col.setUsage(THREE.DynamicDrawUsage);
         g.setAttribute('color', col);
+        g.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(terrain.count * 3), 3).setUsage(THREE.DynamicDrawUsage));
+        g.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 1.21);
+        terrain.changed = undefined;
         return g;
     }, [terrain]);
 
@@ -122,6 +131,7 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
     // Đổi mực nước → tô màu lại (không đổi vị trí đỉnh nhưng refresh chung cho gọn)
     useEffect(() => {
         seaRef.current = seaLevel;
+        terrain.changed = undefined;
         dirtyRef.current = true;
     }, [seaLevel, dirtyRef]);
 
@@ -133,17 +143,35 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
         const pos = geometry.getAttribute('position') as THREE.BufferAttribute;
         const col = geometry.getAttribute('color') as THREE.BufferAttribute;
         const posArr = pos.array as Float32Array;
-        for (let i = 0; i < terrain.count; i++) {
+        const selected = terrain.changed ? [...terrain.changed] : Array.from({ length: terrain.count }, (_, i) => i);
+        const moved: number[] = [];
+        for (const i of selected) {
             const r = 1 + terrain.elevation[i];
+            if (posArr[i * 3] !== Math.fround(terrain.dirs[i * 3] * r) || posArr[i * 3 + 1] !== Math.fround(terrain.dirs[i * 3 + 1] * r) || posArr[i * 3 + 2] !== Math.fround(terrain.dirs[i * 3 + 2] * r)) moved.push(i);
             posArr[i * 3] = terrain.dirs[i * 3] * r;
             posArr[i * 3 + 1] = terrain.dirs[i * 3 + 1] * r;
             posArr[i * 3 + 2] = terrain.dirs[i * 3 + 2] * r;
         }
-        computeColors(terrain, seaRef.current, col.array as Float32Array);
-        pos.needsUpdate = true;
-        col.needsUpdate = true;
-        geometry.computeVertexNormals();
-        geometry.computeBoundingSphere();
+        computeColors(terrain, seaRef.current, col.array as Float32Array, selected);
+        const upload = (attribute: THREE.BufferAttribute, indices: number[]) => {
+            if (!indices.length) return;
+            attribute.clearUpdateRanges(); indices.sort((a, b) => a - b);
+            if (indices.length > terrain.count / 4) { attribute.addUpdateRange(0, attribute.count * 3); attribute.needsUpdate = true; return; }
+            let first = indices[0], last = first;
+            for (let n = 1; n <= indices.length; n++) { const next = indices[n]; if (next === last + 1) { last = next; continue; } attribute.addUpdateRange(first * 3, (last - first + 1) * 3); first = last = next; }
+            attribute.needsUpdate = true;
+        };
+        const affected = new Set<number>();
+        for (const v of moved) for (const face of incident[v]) for (let k = 0; k < 3; k++) affected.add(terrain.index[face + k]);
+        const normal = geometry.getAttribute('normal') as THREE.BufferAttribute;
+        const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3(), sum = new THREE.Vector3();
+        for (const v of affected) {
+            sum.set(0, 0, 0);
+            for (const face of incident[v]) { a.fromBufferAttribute(pos, terrain.index[face]); b.fromBufferAttribute(pos, terrain.index[face + 1]); c.fromBufferAttribute(pos, terrain.index[face + 2]); c.sub(b); a.sub(b); sum.add(c.cross(a)); }
+            sum.normalize(); normal.setXYZ(v, sum.x, sum.y, sum.z);
+        }
+        upload(pos, moved); upload(col, selected); upload(normal, [...affected]);
+        terrain.changed = new Set();
 
         // Cây: matrix per-instance, cây chìm dưới nước thì scale 0 (bị "nhấn chìm")
         const trunk = trunkRef.current;
@@ -157,7 +185,7 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
                 _q.setFromUnitVectors(UP, _p);
                 const sc = e < seaRef.current + 0.002 ? 0 : 0.65 + treeHash(vi) * 0.5;
                 _s.setScalar(sc);
-                _m.compose(_p.clone().multiplyScalar(1 + e - 0.005), _q, _s);
+                _m.compose(_p.multiplyScalar(1 + e - 0.005), _q, _s);
                 trunk.setMatrixAt(k, _m);
                 canopy.setMatrixAt(k, _m);
             }
@@ -196,7 +224,7 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
                     <meshStandardMaterial color="#2F7A3A" roughness={0.9} metalness={0} />
                 </instancedMesh>
 
-                {cosmetics.clouds && <CloudsSphere />}
+                {cosmetics.clouds && <CloudsSphere animate={animate} />}
                 {cosmetics.rings && <SaturnRings radius={1} />}
             </group>
 
@@ -204,7 +232,7 @@ export const PlanetModel: React.FC<PlanetModelProps> = ({
             {cosmetics.atmosphere && (
                 <AtmosphereRim radius={1.14} color={cosmetics.atmosphere} strength={0.85} />
             )}
-            <Moons count={cosmetics.moons} />
+            <Moons count={cosmetics.moons} animate={animate} />
 
             {children}
         </group>
