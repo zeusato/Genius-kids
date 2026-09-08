@@ -1,4 +1,4 @@
-import { floorsOf, Region, simulate, SIZE } from './region';
+import { floorsOf, limitsOf, Region, simulate, SIZE } from './region';
 export interface WalkRoute { cells: number[]; phase: number; speed: number }
 export function pedestrianRoutes(r: Region, limit = 48): WalkRoute[] {
     const sim = simulate(r), routes: WalkRoute[] = [];
@@ -20,10 +20,15 @@ export function pedestrianRoutes(r: Region, limit = 48): WalkRoute[] {
     }
     return routes;
 }
-export function routePosition(route: WalkRoute, time: number) {
+export function vehicleRoutes(r: Region): WalkRoute[] {
+    const base = pedestrianRoutes(r, 24), count = limitsOf(r).vehicles;
+    if (!base.length) return [];
+    return Array.from({ length: count }, (_, i) => ({ cells: base[i % base.length].cells, phase: i * 5.37, speed: .85 + i % 3 * .08 }));
+}
+export function routePosition(route: WalkRoute, time: number, sideOffset = .23) {
     const p = (time * route.speed + route.phase) % (route.cells.length - 1), i = Math.floor(p), f = p - i, a = route.cells[i], b = route.cells[i + 1];
     const dx = b % SIZE - a % SIZE, dz = Math.floor(b / SIZE) - Math.floor(a / SIZE);
     // Keep pedestrians inside the road cell; taper the sidewalk offset at corners.
-    const offset = Math.sin(f * Math.PI) * .23;
+    const offset = Math.sin(f * Math.PI) * sideOffset;
     return { x: a % SIZE + .5 + dx * f + dz * offset, z: Math.floor(a / SIZE) + .5 + dz * f - dx * offset, yaw: Math.atan2(dx, dz) };
 }

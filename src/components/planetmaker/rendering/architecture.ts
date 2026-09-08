@@ -1,7 +1,7 @@
 import { Building, BUILDINGS, floorsOf, footprint, heightAt, port, Region } from '../engine/region';
 
 export type Shape = 'box' | 'cone' | 'sphere' | 'cylinder' | 'gable';
-export interface Instance { position: [number, number, number]; scale: [number, number, number]; yaw?: number; pitch?: number; color: string; id?: string }
+export interface Instance { position: [number, number, number]; scale: [number, number, number]; yaw?: number; pitch?: number; roll?: number; color: string; id?: string }
 export const emptyInstances = (): Record<Shape, Instance[]> => ({ box: [], cone: [], sphere: [], cylinder: [], gable: [] });
 export const buildingHeight = (b: Building) => BUILDINGS[b.type].h * floorsOf(b) + (b.type === 'observatory' ? 1.9 : 1.2);
 /** Parts are authored in building-local coordinates. Rotate the complete building once. */
@@ -9,9 +9,9 @@ export function buildingInstances(b: Building, shapes = emptyInstances()) {
     const s = BUILDINGS[b.type], [fw, fd] = footprint(b.type, b.yaw), cx = b.x + fw / 2 - 32, cz = b.z + fd / 2 - 32;
     const w = s.w, d = s.d, angle = b.yaw * Math.PI / 2, co = Math.cos(angle), si = Math.sin(angle), style = b.style ?? 0, floors = floorsOf(b);
     const cream = style === 1 ? '#e2edf0' : '#fff0d5', trim = style === 2 ? '#487f69' : style === 1 ? '#3a6075' : '#a35d48';
-    const add = (shape: Shape, x: number, y: number, z: number, scale: [number, number, number], color: string, yaw = 0, pitch = 0) => shapes[shape].push({ position: [cx + x * co + z * si, b.foundation + y, cz - x * si + z * co], scale, yaw: angle + yaw, pitch, color, id: b.id });
+    const add = (shape: Shape, x: number, y: number, z: number, scale: [number, number, number], color: string, yaw = 0, pitch = 0, roll = 0) => shapes[shape].push({ position: [cx + x * co + z * si, b.foundation + y, cz - x * si + z * co], scale, yaw: angle + yaw, pitch, roll, color, id: b.id });
     add('box', 0, .025, 0, [w, .15, d], '#c7b9a3');
-    if (['home', 'school', 'observatory'].includes(b.type)) {
+    if (['home', 'school', 'observatory', 'hospital', 'library', 'market', 'firestation', 'cafe'].includes(b.type)) {
         const bw = w - .36, bd = d - .38, h = s.h * floors;
         add('box', 0, h / 2 + .12, 0, [bw, h, bd], b.color);
         for (let level = 0; level < floors; level++) {
@@ -56,6 +56,29 @@ export function buildingInstances(b: Building, shapes = emptyInstances()) {
             add('cylinder', w / 2 - .12, 1.45, d / 2 - .15, [.055, 2.8, .055], '#eef0e5');
             add('box', w / 2 - .35, 2.58, d / 2 - .15, [.48, .34, .035], style === 2 ? '#75c298' : '#eb9f68');
         }
+        if (b.type === 'hospital') {
+            add('box', 0, h + .48, d / 2 - .06, [.85, .85, .13], '#f7f3df');
+            add('box', 0, h + .48, d / 2 + .02, [.18, .6, .06], '#db6866'); add('box', 0, h + .48, d / 2 + .02, [.6, .18, .06], '#db6866');
+            for (const x of [-1.2, 1.2]) add('box', x, .6, bd / 2 + .05, [.65, 1, .12], '#8ac7d1');
+        }
+        if (b.type === 'library') {
+            for (const x of [-1, 1]) add('cylinder', x, .8, bd / 2 + .08, [.2, 1.5, .2], cream);
+            add('box', 0, 1.5, bd / 2 + .11, [2.45, .3, .2], trim);
+            for (let i = 0; i < 5; i++) add('box', -.4 + i * .2, 1.55, bd / 2 + .24, [.12, .18 + i % 2 * .09, .05], ['#efcb85', '#9bced0', '#eaa98b'][i % 3]);
+        }
+        if (b.type === 'market' || b.type === 'cafe') {
+            for (let i = 0; i < 8; i++) add('box', (i - 3.5) * (bw / 8), 1.15, bd / 2 + .11, [bw / 8, .12, .3], i % 2 ? cream : trim, 0, .14);
+            if (b.type === 'market') for (const x of [-1.2, 1.2]) { add('box', x, .4, bd / 2 + .08, [.7, .55, .22], '#ac8059'); for (let i = 0; i < 3; i++) add('sphere', x + (i - 1) * .2, .75, bd / 2 + .08, [.18, .18, .18], i % 2 ? '#c9b964' : '#bf6d57'); }
+            else { add('cylinder', -.9, .55, bd / 2 + .08, [.34, .08, .34], cream); add('cylinder', -.9, .3, bd / 2 + .08, [.06, .5, .06], trim); add('cylinder', .7, 1.55, bd / 2 + .08, [.28, .3, .28], cream); }
+        }
+        if (b.type === 'firestation') {
+            for (const x of [-1.05, 1.05]) { add('box', x, .62, bd / 2 + .04, [1.1, 1.08, .14], '#43545d'); for (let i = 0; i < 4; i++) add('box', x, .3 + i * .2, bd / 2 + .13, [1.02, .035, .04], '#b4c3c7'); }
+            add('box', 0, 1.4, bd / 2 + .1, [1.4, .23, .15], '#f0c779');
+        }
+    } else if (b.type === 'wind') {
+        add('cylinder', 0, 1.8, 0, [.26, 3.5, .26], b.color);
+        add('box', 0, 3.5, 0, [.48, .36, .65], cream); add('sphere', 0, 3.5, .4, [.35, .35, .35], trim);
+        for (let i = 0; i < 3; i++) { const a = i * Math.PI * 2 / 3; add('box', Math.sin(a) * .5, 3.5 + Math.cos(a) * .5, .4, [.16, 1.12, .1], style === 2 ? '#8fb899' : cream, 0, 0, -a); }
     } else if (b.type === 'park') {
         add('box', 0, .14, 0, [w - .14, .14, d - .14], '#83b577');
         add('box', 0, .23, 0, [.6, .04, d - .2], '#e6d2aa');

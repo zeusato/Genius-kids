@@ -10,6 +10,8 @@ import { Batch } from './Instances';
 import { Shape, townInstances } from './architecture';
 import { BuildingPreview, Draft } from './BuildingPreview';
 import { Pedestrians } from './Pedestrians';
+import { Vehicles } from './Vehicles';
+import { environmentInstances, GRAPHICS } from './environment';
 export type { Draft } from './BuildingPreview';
 export interface RegionSceneProps {
     region: Region; version: number; dirty: React.MutableRefObject<Set<number>>; tool: RegionTool;
@@ -46,57 +48,27 @@ function TerrainTile({ region: r, tile, dirty, onDown, onMove }: Pick<RegionScen
     useFrame(() => { if (dirty.current.delete(tile)) update(); });
     return <mesh geometry={geometry} onPointerDown={onDown} onPointerMove={onMove} receiveShadow><meshStandardMaterial vertexColors roughness={1} /></mesh>;
 }
-function RoadTraffic({ r, version }: { r: Region; version: number }) {
-    const ref = useRef<THREE.InstancedMesh>(null);
-    const paths = useMemo(() => {
-        const sim = simulate(r), result: number[][] = [];
-        for (let g = 0; g < sim.networks.length && result.length < 8; g++) {
-            if (!sim.networks[g].homes) continue;
-            const start = sim.labels.findIndex(l => l === g); if (start < 0) continue;
-            let current = start, previous = -1; const path = [start];
-            for (let n = 0; n < 80; n++) {
-                const x = current % SIZE, z = Math.floor(current / SIZE), next = [[x - 1, z], [x, z + 1], [x + 1, z], [x, z - 1]].filter(([nx, nz]) => nx >= 0 && nz >= 0 && nx < SIZE && nz < SIZE).map(([nx, nz]) => nz * SIZE + nx).filter(i => sim.labels[i] === g);
-                if (!next.length) break;
-                const choices = next.filter(i => i !== previous); previous = current; current = (choices.length ? choices : next)[n % (choices.length || next.length)]; path.push(current);
-            }
-            if (path.length > 1) result.push([...path, ...path.slice(0, -1).reverse()]);
-        }
-        return result;
-    }, [r, version]);
-    const obj = useMemo(() => new THREE.Object3D(), []);
-    useFrame(({ clock }) => {
-        if (!ref.current) return; ref.current.count = paths.length;
-        paths.forEach((path, i) => {
-            const progress = (clock.elapsedTime * 1.2 + i * 7) % (path.length - 1), j = Math.floor(progress), f = progress - j, a = path[j], b = path[j + 1];
-            const x = (a % SIZE) * (1 - f) + (b % SIZE) * f + .5, z = Math.floor(a / SIZE) * (1 - f) + Math.floor(b / SIZE) * f + .5;
-            obj.position.set(x - 32, heightAt(r, x, z) + .23, z - 32); obj.rotation.y = Math.atan2(b % SIZE - a % SIZE, Math.floor(b / SIZE) - Math.floor(a / SIZE)); obj.updateMatrix(); ref.current!.setMatrixAt(i, obj.matrix);
-        });
-        ref.current.instanceMatrix.needsUpdate = true;
-    });
-    return <instancedMesh ref={ref} args={[undefined, undefined, 8]} frustumCulled={false} raycast={noRaycast}><boxGeometry args={[.32, .27, .58]} /><meshStandardMaterial color="#ffb661" /></instancedMesh>;
-}
 export function RegionScene(props: RegionSceneProps) {
     const { region: r, version, tool, draft, selected, cursor, radius, traffic, lowQuality } = props;
     const instances = useMemo(() => townInstances(r), [r, version]);
     const ground = useRef<THREE.Group>(null);
-    const trees = useMemo(() => r.trees.filter(t => heightAt(r, t.x, t.z) > r.seaLevel).map(t => ({ position: [t.x - 32, heightAt(r, t.x, t.z) + t.scale * .9, t.z - 32] as [number, number, number], scale: [t.scale, t.scale * 1.8, t.scale] as [number, number, number], color: r.preset === 'ice' ? '#bfd8d5' : '#448766' })), [r, version]);
-    const trunks = useMemo(() => trees.map(t => ({ ...t, position: [t.position[0], t.position[1] - t.scale[1] * .3, t.position[2]] as [number, number, number], scale: [.15, t.scale[1] * .55, .15] as [number, number, number], color: '#896447' })), [trees]);
-    const roads = useMemo(() => Array.from(r.roads).flatMap((v, i) => v ? [{ position: [i % SIZE + .5 - 32, heightAt(r, i % SIZE + .5, Math.floor(i / SIZE) + .5) + .035, Math.floor(i / SIZE) + .5 - 32] as [number, number, number], scale: [.98, .06, .98] as [number, number, number], color: '#9a9e9d' }] : []), [r, version]);
+    const quality = lowQuality ? 'light' : r.graphics || 'balanced';
+    const scenery = useMemo(() => environmentInstances(r, quality), [r, version, quality]);
     const focus = draft || r.buildings.find(b => b.id === selected), dims = focus ? footprint(focus.type, focus.yaw) : null;
     const valid = draft ? placement(r, draft.type, draft.x, draft.z, draft.yaw, draft.movingId) : null;
     const y = focus ? heightAt(r, focus.x + dims![0] / 2, focus.z + dims![1] / 2) : 0;
     return <>
         <color attach="background" args={['#c2dee2']} /><fog attach="fog" args={['#c2dee2', 95, 180]} />
         <ambientLight intensity={.8} /><hemisphereLight args={['#f4fbff', '#80947c', .9]} />
-        <directionalLight position={[25, 45, 20]} intensity={2.2} castShadow={!lowQuality} shadow-mapSize={[1024, 1024]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} shadow-camera-far={120} shadow-bias={-.001} />
+        <directionalLight key={quality} position={[25, 45, 20]} intensity={2.2} castShadow={quality !== 'light'} shadow-mapSize={[GRAPHICS[quality].shadow || 512, GRAPHICS[quality].shadow || 512]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} shadow-camera-far={120} shadow-bias={-.001} />
         <group ref={ground}>{Array.from({ length: 16 }, (_, tile) => <TerrainTile key={tile} tile={tile} region={r} dirty={props.dirty} onDown={props.onDown} onMove={props.onMove} />)}</group>
         <mesh rotation-x={-Math.PI / 2} position={[0, r.seaLevel, 0]} raycast={noRaycast}><planeGeometry args={[64, 64]} /><meshStandardMaterial color="#5bb9d0" transparent opacity={.72} roughness={.3} depthWrite={false} /></mesh>
         <mesh position={[0, -3.6, 0]} raycast={noRaycast}><boxGeometry args={[64, 1, 64]} /><meshStandardMaterial color="#7d8877" /></mesh>
-        <Batch shape="box" items={roads} /><Batch shape="box" items={trunks} /><Batch shape="cone" items={trees} />
+        {Object.entries(scenery).filter(([, items]) => items.length).map(([shape, items]) => <Batch key={shape} shape={shape as Shape} items={items} />)}
         {Object.entries(instances).map(([shape, items]) => <Batch key={shape} shape={shape as Shape} items={items} onSelect={tool === 'select' ? props.onSelect : undefined} />)}
         <Pedestrians region={r} version={version} animate={traffic} />
         {draft && <BuildingPreview region={r} draft={draft} ground={ground} onChange={props.onDraftChange} onDragState={props.onDragState} />}
-        {traffic && <RoadTraffic r={r} version={version} />}
+        <Vehicles region={r} version={version} animate={traffic} />
         {focus && dims && <group position={[focus.x + dims[0] / 2 - 32, y + .13, focus.z + dims[1] / 2 - 32]}>
             <mesh raycast={noRaycast} position={[0, .15, 0]}><boxGeometry args={[dims[0], .35, dims[1]]} /><meshBasicMaterial color={valid?.ok === false ? '#ef6a70' : '#e7ffab'} transparent opacity={.45} depthTest={false} /></mesh>
         </group>}

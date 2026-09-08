@@ -17,7 +17,7 @@ export function Batch({ shape, items, onSelect, onDown, opacity = 1, tint }: { s
     useLayoutEffect(() => {
         const mesh = ref.current; if (!mesh) return;
         const obj = new THREE.Object3D(), color = new THREE.Color();
-        items.forEach((v, i) => { obj.position.set(...v.position); obj.scale.set(...v.scale); obj.rotation.set(v.pitch || 0, v.yaw || 0, 0, 'YXZ'); obj.updateMatrix(); mesh.setMatrixAt(i, obj.matrix); mesh.setColorAt(i, color.set(tint || v.color)); });
+        items.forEach((v, i) => { obj.position.set(...v.position); obj.scale.set(...v.scale); obj.rotation.set(v.pitch || 0, v.yaw || 0, v.roll || 0, 'YXZ'); obj.updateMatrix(); mesh.setMatrixAt(i, obj.matrix); mesh.setColorAt(i, color.set(tint || v.color)); });
         mesh.count = items.length; mesh.instanceMatrix.needsUpdate = true; if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true; mesh.computeBoundingSphere();
     }, [items, capacity, tint]);
     useEffect(() => () => geometry.dispose(), [geometry]);

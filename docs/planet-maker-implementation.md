@@ -98,6 +98,23 @@ node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 3000 --strictPort
 - Trình duyệt local: kéo preview từ chồng lấn sang vị trí hợp lệ, camera giữ nguyên; thả trên bảng công cụ trả về vị trí trước; xem nhà 6 tầng Sinh thái và xoay mái; cư dân di chuyển trên đường. Chưa xác nhận cử chỉ cảm ứng trên thiết bị vật lý.
 - Viewport 390×844: kéo được preview sang vị trí hợp lệ; các lựa chọn tầng/kiến trúc/mái và nút xác nhận truy cập được, không tràn ngang, một Canvas. Đã trả viewport về mặc định. TypeScript và production build qua sau các sửa tương tác cuối; console trình duyệt không có lỗi JavaScript. Cảnh báo chunk lớn của build vẫn còn.
 
+## Quản lý thị trấn — 08/09/2026
+
+- Trong **Địa hình → Đổi loại địa hình…** hoặc **Tùy chọn → Đổi địa hình thị trấn**, chọn một trong 5 loại và mã địa hình. Mặc định giữ công trình, tầng, kiến trúc, đường và nền nhà; cây, đất và mực nước được sinh lại. Đường theo địa hình mới có thể ngập, cần kiểm tra tiện ích sau khi đổi. Tắt **Giữ công trình và đường** để bắt đầu lại; hộp xác nhận nêu số công trình sẽ bị xóa. Tên và dấu mốc vẫn giữ nguyên.
+- **Tùy chọn → Xóa thị trấn** mở hộp xác nhận có nút xuất bản sao. Sau khi xác nhận, trở về hành tinh, bỏ dấu mốc/tóm tắt thị trấn, xóa bản ghi vùng và 16 tile trong cùng giao dịch IndexedDB. Không xóa hành tinh.
+- Đổi địa hình dùng diff undo hiện có. Tạo/xóa thị trấn dùng tối đa 8 snapshot riêng và cùng timeline với nét cọ/công trình/hành tinh. Có thể hoàn tác/làm lại việc xóa hoặc tạo thị trấn trong phiên; lịch sử không lưu qua tải lại. Khi loại bỏ snapshot cũ, timeline không cho đi xuyên qua ranh giới thị trấn đã mất snapshot.
+- Hộp xác nhận dùng dialog có khóa focus; Escape/Hủy đóng hộp, không sửa dữ liệu. Trong lúc worker tạo địa hình, khóa lựa chọn/xác nhận và chặn undo nền; lỗi sinh địa hình giữ thị trấn cũ.
+- Kiểm chứng: **216 test / 10 file** qua, gồm giữ nền/công trình, tạo lại trắng, undo/redo qua xóa–tạo mới, giới hạn lịch sử, xóa metadata/tile và phục hồi checkpoint giữ nguyên hành tinh. TypeScript và production build/PWA qua; vẫn có cảnh báo chunk lớn sẵn có.
+- Kiểm tra trình duyệt: đổi Đồng cỏ sang Băng tuyết giữ đường rồi undo về Đồng cỏ (mã 42, 173 cây, 45 ô đường); Hủy xóa giữ nguyên thị trấn; xác nhận xóa trở về hành tinh và lưu thành công; Hoàn tác khôi phục thị trấn. Đã trả hồ sơ kiểm thử về thị trấn ban đầu sau khi kiểm tra.
+
+## Mở rộng danh mục, quy mô và đồ họa — 08/09/2026
+
+Đã tăng lên **14 loại công trình**, bổ sung bệnh viện, thư viện, chợ, trạm cứu hỏa, quán cà phê và điện gió. Xe minh họa có 6 mẫu, gom vào 2 instanced mesh. Trong Tùy chọn có giới hạn cây 0–5.000, đường 0–4.096 ô, xe 0–24; hạ giới hạn không xóa đối tượng hiện có. Cấu hình và loại công trình mới được lưu, undo, nhập/xuất cùng thị trấn; bản cũ mặc định 1.000 cây, 4.096 ô đường, 8 xe và Cân bằng.
+
+Ba mức Nhẹ/Cân bằng/Chi tiết điều chỉnh tán cây, vạch/viền đường, DPR và độ phân giải bóng. Đã tính ngân sách hình học từ chính renderer và ghi giới hạn phép tính, hướng LOD/chất liệu/địa hình tiếp theo trong [báo cáo nâng cấp đồ họa](planet-maker-graphics-upgrade.md). Script tái lập: `node scripts/planet-graphics-budget.cjs`.
+
+Kiểm chứng cập nhật: **226 test / 11 file** qua; TypeScript và production build/PWA qua. Browser đã kiểm tra danh mục, preview nhiều tầng, xe/cây/viền đường và việc giảm giới hạn không mất dữ liệu. Chưa xác nhận FPS ở mật độ tối đa trên tablet thật.
+
 ## Phần nghiệm thu còn cần thiết bị/người dùng
 
 Chức năng mốc 0–4 đã có, nhưng chưa chứng nhận đủ toàn bộ tiêu chí nghiệm thu trong bản nghiên cứu. Chưa đo p95 frame time/input latency 60 giây ở cảnh chuẩn 200 nhà/1.000 cây/300 đường; chưa thử tablet vật lý và pinch nhiều ngón trên màn hình cảm ứng; chưa khảo sát trẻ sử dụng. Việc 20 chu kỳ ổn định bộ đếm không thay cho phép đo RAM/GPU đầy đủ. Những mục này cần được ghi kết quả theo model máy và trình duyệt trước khi công bố hỗ trợ thiết bị hoặc đạt ngân sách FPS.

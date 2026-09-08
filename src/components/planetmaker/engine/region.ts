@@ -3,7 +3,14 @@ export const SIZE = 64;
 export const STRIDE = CELLS + 1;
 export const TILE = 32;
 export const MAX_BUILDINGS = 200;
-export const MAX_TREES = 1000;
+export const MAX_TREES = 5000;
+export const MAX_ROADS = SIZE * SIZE;
+export const MAX_VEHICLES = 24;
+export type GraphicsQuality = 'light' | 'balanced' | 'detailed';
+export interface TownLimits { trees: number; roads: number; vehicles: number }
+export const DEFAULT_LIMITS: TownLimits = { trees: 1000, roads: MAX_ROADS, vehicles: 8 };
+export const limitsOf = (r: Region): TownLimits => ({ ...DEFAULT_LIMITS, ...r.limits });
+export const roadCount = (r: Region) => r.roads.reduce((sum, v) => sum + v, 0);
 export type Preset = 'meadow' | 'coast' | 'hills' | 'desert' | 'ice';
 export const PRESETS: Record<Preset, string> = { meadow: '🌿 Đồng cỏ', coast: '🏖️ Ven biển', hills: '⛰️ Đồi núi', desert: '🏜️ Sa mạc', ice: '❄️ Băng tuyết' };
 export const BUILDINGS = {
@@ -15,9 +22,15 @@ export const BUILDINGS = {
     solar: { name: 'Điện mặt trời', icon: '☀️', w: 3, d: 2, h: .6, color: '#617dc4', water: 0, power: 0 },
     observatory: { name: 'Đài thiên văn', icon: '🔭', w: 3, d: 3, h: 2, color: '#c6abe9', water: 1, power: 2 },
     landing: { name: 'Bãi đáp', icon: '🚀', w: 4, d: 4, h: .35, color: '#91a8bc', water: 0, power: 1 },
+    hospital: { name: 'Bệnh viện', icon: '🏥', w: 4, d: 3, h: 1.7, color: '#e8e0cf', water: 4, power: 3 },
+    library: { name: 'Thư viện', icon: '📚', w: 3, d: 3, h: 1.6, color: '#d5b483', water: 1, power: 2 },
+    market: { name: 'Chợ', icon: '🛍️', w: 4, d: 3, h: 1.4, color: '#e6bb79', water: 2, power: 2 },
+    firestation: { name: 'Trạm cứu hỏa', icon: '🚒', w: 4, d: 3, h: 1.6, color: '#c97762', water: 3, power: 2 },
+    cafe: { name: 'Quán cà phê', icon: '☕', w: 3, d: 2, h: 1.4, color: '#dba58a', water: 2, power: 1 },
+    wind: { name: 'Điện gió', icon: '🌬️', w: 3, d: 3, h: 3.5, color: '#c9e0d9', water: 0, power: 0 },
 } as const;
 export type BuildingType = keyof typeof BUILDINGS;
-export const FLOOR_LIMITS: Record<BuildingType, number> = { home: 6, school: 4, observatory: 3, park: 1, farm: 1, water: 1, solar: 1, landing: 1 };
+export const FLOOR_LIMITS: Record<BuildingType, number> = { home: 6, school: 4, observatory: 3, park: 1, farm: 1, water: 1, solar: 1, landing: 1, hospital: 6, library: 4, market: 2, firestation: 3, cafe: 3, wind: 1 };
 export const STYLES = ['Cổ điển', 'Hiện đại', 'Sinh thái'] as const;
 export const floorsOf = (b: Pick<Building, 'floors'>) => b.floors ?? 1;
 export function buildingDemand(b: Building) { const s = BUILDINGS[b.type], floors = floorsOf(b); return { power: s.power * floors, water: s.water * floors }; }
@@ -28,6 +41,7 @@ export interface Region {
     id: string; name: string; preset: Preset; seed: number; generatorVersion: 1;
     marker: [number, number, number]; height: Float32Array; biome: Uint8Array; roads: Uint8Array;
     buildings: Building[]; trees: Tree[]; seaLevel: number; nextId: number; thumbnail?: string;
+    limits?: TownLimits; graphics?: GraphicsQuality;
 }
 export const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 export function random(seed: number) {
@@ -97,7 +111,7 @@ export function markTiles(x: number, z: number, radius: number, dirty: Set<numbe
 export function brush(r: Region, tool: RegionTool, x: number, z: number, radius: number, strength: number, target: number, strokeSeed: number) {
     const rng = random(strokeSeed);
     if (tool === 'forest') {
-        for (let n = 0; n < 12 && r.trees.length < MAX_TREES; n++) {
+        for (let n = 0; n < 12 && r.trees.length < limitsOf(r).trees; n++) {
             const angle = rng() * Math.PI * 2, dist = Math.sqrt(rng()) * radius, tx = x + Math.cos(angle) * dist, tz = z + Math.sin(angle) * dist;
             if (tx < .5 || tz < .5 || tx > SIZE - .5 || tz > SIZE - .5 || heightAt(r, tx, tz) <= r.seaLevel + .15 || r.biome[Math.round(tz * 2) * STRIDE + Math.round(tx * 2)] === 5 || r.buildings.some(b => covers(b, tx, tz, .3)) || r.roads[Math.floor(tz) * SIZE + Math.floor(tx)] || r.trees.some(t => Math.hypot(t.x - tx, t.z - tz) < .65)) continue;
             r.trees.push({ id: r.nextId++, x: tx, z: tz, scale: .6 + rng() * .5 });
@@ -130,6 +144,7 @@ export function roadAt(r: Region, x: number, z: number, erase = false) {
     x = Math.floor(x); z = Math.floor(z);
     if (x < 0 || z < 0 || x >= SIZE || z >= SIZE) return;
     if (erase) { r.roads[z * SIZE + x] = 0; return; }
+    if (r.roads[z * SIZE + x] || roadCount(r) >= limitsOf(r).roads) return;
     if (r.buildings.some(b => covers(b, x + .5, z + .5))) return;
     const hs = [heightAt(r, x, z), heightAt(r, x + 1, z), heightAt(r, x, z + 1), heightAt(r, x + 1, z + 1)];
     if (Math.min(...hs) <= r.seaLevel + .05 || Math.max(...hs) - Math.min(...hs) > .65) return;
@@ -142,7 +157,7 @@ export function roadLine(r: Region, ax: number, az: number, bx: number, bz: numb
     roadAt(r, x, z, erase);
     while (x !== bx || z !== bz) { if (Math.abs(bx - x) >= Math.abs(bz - z) && x !== bx) x += Math.sign(bx - x); else z += Math.sign(bz - z); roadAt(r, x, z, erase); }
 }
-export function cloneRegion(r: Region): Region { return { ...r, marker: [...r.marker], height: r.height.slice(), biome: r.biome.slice(), roads: r.roads.slice(), buildings: r.buildings.map(b => ({ ...b })), trees: r.trees.map(t => ({ ...t })) }; }
+export function cloneRegion(r: Region): Region { return { ...r, ...(r.limits ? { limits: { ...r.limits } } : {}), marker: [...r.marker], height: r.height.slice(), biome: r.biome.slice(), roads: r.roads.slice(), buildings: r.buildings.map(b => ({ ...b })), trees: r.trees.map(t => ({ ...t })) }; }
 export function simulate(r: Region) {
     const labels = new Int32Array(SIZE * SIZE).fill(-1);
     let group = 0;
@@ -168,6 +183,7 @@ export function simulate(r: Region) {
         if (g < 0) continue;
         const n = networks[g], s = buildingDemand(b); n.powerNeed += s.power; n.waterNeed += s.water;
         if (b.type === 'solar') n.power += 12;
+        if (b.type === 'wind') n.power += 18;
         if (b.type === 'water') n.water += 20;
         if (b.type === 'home') n.homes++;
         if (b.type === 'school') n.school = true;
@@ -183,7 +199,7 @@ export function simulate(r: Region) {
 }
 
 type Meta = Omit<Region, 'height' | 'biome' | 'roads'>;
-const metadata = (r: Region): Meta => { const { height, biome, roads, thumbnail, ...m } = r; return structuredClone(m); };
+const metadata = (r: Region): Meta => { const { height, biome, roads, thumbnail, ...m } = r; return structuredClone({ ...m, limits: r.limits, graphics: r.graphics }); };
 interface Patch { indices: number[]; before: number[]; after: number[] }
 interface Command { label: string; height: Patch; biome: Patch; roads: Patch; before: Meta; after: Meta; bytes: number }
 export class RegionHistory {
@@ -217,6 +233,8 @@ export function validateRegion(r: Region): void {
     if (!r || r.id !== 'region-1' || typeof r.name !== 'string' || r.name.length > 80 || !Object.hasOwn(PRESETS, r.preset) || r.generatorVersion !== 1 || !Number.isInteger(r.seed) || !Number.isSafeInteger(r.nextId) || r.nextId < 1 || !Number.isFinite(r.seaLevel) || r.seaLevel < -2 || r.seaLevel > 6 || !Array.isArray(r.marker) || r.marker.length !== 3 || !r.marker.every(Number.isFinite) || Math.abs(Math.hypot(...r.marker) - 1) > .01) bad();
     if (!(r.height instanceof Float32Array) || r.height.length !== STRIDE * STRIDE || r.height.some(h => !Number.isFinite(h) || h < -3 || h > 8) || !(r.biome instanceof Uint8Array) || r.biome.length !== r.height.length || r.biome.some(b => b > 5) || !(r.roads instanceof Uint8Array) || r.roads.length !== SIZE * SIZE || r.roads.some(v => v > 1)) bad();
     if (!Array.isArray(r.buildings) || r.buildings.length > MAX_BUILDINGS || !Array.isArray(r.trees) || r.trees.length > MAX_TREES) bad();
+    if (r.limits !== undefined && (!r.limits || !Number.isInteger(r.limits.trees) || r.limits.trees < 0 || r.limits.trees > MAX_TREES || !Number.isInteger(r.limits.roads) || r.limits.roads < 0 || r.limits.roads > MAX_ROADS || !Number.isInteger(r.limits.vehicles) || r.limits.vehicles < 0 || r.limits.vehicles > MAX_VEHICLES)) bad();
+    if (r.graphics !== undefined && !['light', 'balanced', 'detailed'].includes(r.graphics)) bad();
     const ids = new Set<string>();
     for (const b of r.buildings) {
         if (!b || typeof b.id !== 'string' || b.id.length > 100 || ids.has(b.id) || !Object.hasOwn(BUILDINGS, b.type) || ![b.x, b.z, b.yaw, b.roof].every(Number.isInteger) || b.yaw < 0 || b.yaw > 3 || b.roof < 0 || b.roof > 2 || !/^#[0-9a-f]{6}$/i.test(b.color) || !Number.isFinite(b.foundation) || b.foundation < -3 || b.foundation > 8) bad();

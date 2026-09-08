@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { IDBObjectStore } from 'fake-indexeddb';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import { cloneWorld, ConflictError, exportWorld, importWorld, loadPublishedPlanet, loadWorld, recoveryBackup, restoreCheckpoint, saveWorld } from './repository';
+import { cloneWorld, ConflictError, exportWorld, importWorld, loadPublishedPlanet, loadWorld, publish, recoveryBackup, restoreCheckpoint, saveWorld } from './repository';
 import { createTerrain, randomizeTerrain, serializeTerrain } from '../terrainOps';
 import { DEFAULT_COSMETICS } from '../planetStore';
 import { createRegion, markTiles, placeBuilding, STRIDE } from '../engine/region';
@@ -11,6 +11,23 @@ const storage = new Map<string, string>();
 beforeAll(() => { vi.stubGlobal('localStorage', { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, v: string) => storage.set(key, v) }); });
 afterEach(() => vi.restoreAllMocks());
 describe('transactional world repository', () => {
+    it('round-trips expanded buildings, limits and graphics through save and backup', async () => {
+        const w = await loadWorld('expanded-save', 'A'); w.region = createRegion('meadow', 42); w.region.height.fill(1);
+        w.region.limits = { trees: 5000, roads: 1234, vehicles: 24 }; w.region.graphics = 'detailed';
+        placeBuilding(w.region, { type: 'hospital', x: 10, z: 10, yaw: 1, roof: 0, color: '#e8e0cf', floors: 6, style: 2 });
+        w.revision = await saveWorld(w); const restored = await loadWorld('expanded-save', 'A'), imported = importWorld(exportWorld(restored), 'expanded-copy', 0);
+        expect(restored.region?.limits).toEqual(w.region.limits); expect(imported.region?.graphics).toBe('detailed'); expect(imported.region?.buildings).toEqual(w.region.buildings);
+    });
+    it('deletes town metadata and tiles, preserves the planet, and can restore the full town', async () => {
+        const w = await loadWorld('delete-town', 'A'), terrain = createTerrain();
+        w.region = createRegion('hills', 34); publish(w, terrain); w.revision = await saveWorld(w);
+        const before = cloneWorld(w); w.region = null; publish(w, terrain); w.revision = await saveWorld(w);
+        const loaded = await loadWorld('delete-town', 'A'); expect(loaded.region).toBeNull(); expect(loaded.doc.settlement).toBeUndefined();
+        expect(loaded.globe).toEqual(before.globe); expect(loaded.doc.name).toBe(before.doc.name);
+        const raw = JSON.parse(await recoveryBackup('delete-town')); expect(raw.records[1]).toEqual([]); expect(raw.records[2]).toEqual([]);
+        const restored = await restoreCheckpoint('delete-town'); expect(restored.region).toEqual(before.region);
+        expect(restored.doc.settlement).toEqual(before.doc.settlement);
+    });
     it('persists and exports floors and architectural style without changing legacy defaults', async () => { const w = await loadWorld('floors-save', 'A'); w.region = createRegion('meadow', 42); w.region.height.fill(1); placeBuilding(w.region, { type: 'home', x: 10, z: 10, yaw: 1, roof: 0, color: '#f2a879', floors: 6, style: 2 }); w.revision = await saveWorld(w); const restored = await loadWorld('floors-save', 'A'); const imported = importWorld(exportWorld(restored), 'floors-copy', 0); expect(restored.region?.buildings[0]).toMatchObject({ floors: 6, style: 2, yaw: 1 }); expect(imported.region?.buildings).toEqual(restored.region?.buildings); });
     it('migrates V1 once, preserves its raw backup and all authored fields', async () => {
         const t = createTerrain(); randomizeTerrain(t, 99, .02); const d = { version: 1, name: 'Hành tinh cũ', ...serializeTerrain(t), seaLevel: .02, cosmetics: { ...DEFAULT_COSMETICS, rings: true }, showInSolar: false, updatedAt: '2026-01-01' }, raw = JSON.stringify(d); storage.set('planet_maker_v1_legacy-a', raw);
