@@ -74,6 +74,7 @@ export interface GameResult {
   difficulty?: string; // 'easy', 'medium', 'hard'
   memory?: import('./games/MemoryMatch/engine/model').MemoryRecord;
   sound?: import('./games/SoundMemory/engine/game').SoundRecord;
+  dragon?: import('./games/DragonQuest/adventure/model').DragonRecord;
 }
 
 export enum QuestionType {
@@ -222,6 +223,7 @@ export interface StudentProfile {
   soundMemory?: import('./games/SoundMemory/progress/progress').SoundProgress;
   memoryMatch?: import('./games/MemoryMatch/progress/progress').MemoryProgress;
   kidCoder?: import('./games/KidCoder/progress/progress').KidCoderProgress;
+  dragonQuest?: import('./games/DragonQuest/adventure/progress').DragonProgress;
   id: string;
   name: string;
   age: number;

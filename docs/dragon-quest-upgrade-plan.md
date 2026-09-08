@@ -1,5 +1,7 @@
 # Phương án nâng cấp & refactor game "Đại Chiến Rồng Thần" (DragonQuest)
 
+> Kế hoạch tiếp theo ngày 08/09/2026: [remake 3D, gameplay và bộ câu hỏi AI](dragon-quest-remake-plan.md). Nội dung bên dưới ghi lại lần refactor tháng 6 đã triển khai; không phải trạng thái của remake mới.
+
 > Tổng hợp ngày 16/06/2026. **Trạng thái: ĐÃ TRIỂN KHAI.** Refactor toàn diện theo
 > đúng pattern 3 tầng của GearsGame (engine thuần / hook điều phối / component render).
 > Giữ NGUYÊN luật chơi & cân bằng cũ (50 ô, phân bố 40/20/15%, 3 mạng, công thức buff/boss).

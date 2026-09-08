@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "author": "Genius Kids procedural character workshop",
+  "models": [
+    {
+      "name": "dragon",
+      "bytes": 1249896,
+      "meshes": 18,
+      "triangles": 15884,
+      "clips": [
+        "idle",
+        "walk",
+        "cast",
+        "guard",
+        "hit",
+        "celebrate"
+      ]
+    },
+    {
+      "name": "hero",
+      "bytes": 613052,
+      "meshes": 10,
+      "triangles": 7216,
+      "clips": [
+        "idle",
+        "walk",
+        "cast",
+        "guard",
+        "hit",
+        "celebrate"
+      ]
+    },
+    {
+      "name": "fairy",
+      "bytes": 743092,
+      "meshes": 8,
+      "triangles": 8624,
+      "clips": [
+        "idle",
+        "walk",
+        "cast",
+        "guard",
+        "hit",
+        "celebrate"
+      ]
+    },
+    {
+      "name": "goblin",
+      "bytes": 619336,
+      "meshes": 6,
+      "triangles": 7208,
+      "clips": [
+        "idle",
+        "walk",
+        "cast",
+        "guard",
+        "hit",
+        "celebrate"
+      ]
+    }
+  ]
+}

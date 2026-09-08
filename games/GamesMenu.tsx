@@ -15,6 +15,7 @@ import { isPreschool } from '@/src/utils/grade';
 import CarIcon from './MathRacing/CarIcon.png';
 const MemoryAdventure = lazy(() => import('./MemoryMatch/MemoryAdventure'));
 const SoundAdventure = lazy(() => import('./SoundMemory/SoundAdventure'));
+const DragonAdventure = lazy(() => import('./DragonQuest/adventure/DragonAdventure'));
 
 interface GamesMenuProps {
     grade?: Grade;
@@ -28,6 +29,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
     const [legacyMemory, setLegacyMemory] = useState(import.meta.env.VITE_MEMORY_V2 === 'false');
     const [legacySound, setLegacySound] = useState(import.meta.env.VITE_SOUND_V2 === 'false');
+    const [legacyDragon, setLegacyDragon] = useState(import.meta.env.VITE_DRAGON_V2 === 'false');
 
     if (activeGame === 'memory') {
         if (!legacyMemory) return <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#faf8f0] text-[#306355]" role="status">Đang bày những chiếc thẻ…</div>}><MemoryAdventure initialPairs={difficulty / 2} onExit={() => setActiveGame(null)} onLegacy={() => setLegacyMemory(true)}/></Suspense>;
@@ -80,6 +82,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     }
 
     if (activeGame === 'dragon-quest') {
+        if (!legacyDragon) return <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#f4f2e8] text-[#244d45]" role="status">Rồng nhỏ đang chuẩn bị hành trình…</div>}><DragonAdventure onExit={() => setActiveGame(null)} onLegacy={() => setLegacyDragon(true)}/></Suspense>;
         return (
             <DragonQuestGame
                 difficulty={getSoundDifficulty(difficulty)}
@@ -313,7 +316,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
                                     Đại Chiến Rồng Thần
                                 </h3>
                                 <p className="text-slate-600 text-lg mb-6">
-                                    Phiêu lưu trên bản đồ, thu thập buff và đánh bại rồng thần!
+                                    Khám phá 5 vùng đất 3D, giải câu đố và đánh thức rồng hộ vệ!
                                 </p>
 
                                 <button

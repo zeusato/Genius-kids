@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect, useRef } from 'react';
 import { persistMission } from '../../games/KidCoder/progress/progress';
 import { persistMemory } from '../../games/MemoryMatch/progress/progress';
+import { persistDragon } from '../../games/DragonQuest/adventure/progress';
+import type { Session as DragonSession } from '../../games/DragonQuest/adventure/model';
 import { persistSound, persistComposition, clearSoundProfileData } from '../../games/SoundMemory/progress/progress';
 import type { SoundSession } from '../../games/SoundMemory/engine/game';
 import type { CompositionAction } from '../../games/SoundMemory/studio/model';
@@ -29,6 +31,7 @@ interface StudentActionsType {
     addGameResult: (result: GameResult, gachaImage?: AlbumImage) => void;
     completeKidCoder: (studentId: string, mission: Mission, program: ProgramNode[], seconds: number) => { ok: boolean; earned: number };
     completeMemoryGame: (studentId: string, session: MemorySession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    completeDragonGame: (studentId: string, session: DragonSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeSoundGame: (studentId: string, session: SoundSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     saveSoundComposition: (studentId: string, action: CompositionAction) => { ok: boolean; error?: string };
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
@@ -98,6 +101,14 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         // The game's result panel presents these awards together, without a second modal.
         return {ok:true,earned:result.earned,bonusStars:result.bonusStars,achievementNames:result.achievementNames};
     },[currentStudentId,setStudents]);
+
+    const completeDragonGame = useCallback((studentId: string, session: DragonSession) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current, result = persistDragon(snapshot, studentId, session, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: true, earned: result.earned, bonusStars: result.bonusStars, achievementNames: result.achievementNames };
+    }, [currentStudentId, setStudents]);
 
     const completeSoundGame = useCallback((studentId: string, session: SoundSession) => {
         if (studentId !== currentStudentId) return { ok: false, earned: 0 };
@@ -461,6 +472,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         addGameResult,
         completeKidCoder,
         completeMemoryGame,
+        completeDragonGame,
         completeSoundGame,
         saveSoundComposition,
         setGachaResult,

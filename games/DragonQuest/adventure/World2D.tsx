@@ -1,0 +1,16 @@
+import React from 'react';
+import { createMap, regionOf, TILE_STYLE } from './content';
+import type { WorldProps } from './World3D';
+
+export function DragonPortrait({color='#287768',className=''}:{color?:string;className?:string}){return <svg className={className} viewBox="0 0 200 180" aria-hidden="true"><path d="M59 103 10 58 23 117 55 130M141 103l49-45-13 59-32 13" fill={color} stroke="#234b48" strokeWidth="4" strokeLinejoin="round"/><path d="m18 70 37 45M181 70l-37 45" stroke="#b9d4b2" strokeWidth="5"/><ellipse cx="100" cy="132" rx="47" ry="41" fill={color}/><ellipse cx="100" cy="141" rx="24" ry="29" fill="#f4dca0"/><path d="m65 58-5-32 27 22m47 10 6-32-27 22" fill="#f2d187" stroke="#234b48" strokeWidth="3"/><rect x="49" y="46" width="102" height="81" rx="37" fill={color}/><ellipse cx="100" cy="104" rx="43" ry="24" fill="#b9d4b2"/><ellipse cx="76" cy="80" rx="11" ry="15" fill="#fffbee"/><ellipse cx="124" cy="80" rx="11" ry="15" fill="#fffbee"/><ellipse cx="79" cy="82" rx="6" ry="10" fill="#203e3b"/><ellipse cx="121" cy="82" rx="6" ry="10" fill="#203e3b"/><circle cx="81" cy="78" r="2" fill="white"/><circle cx="123" cy="78" r="2" fill="white"/><path d="M85 108q15 13 30 0" fill="none" stroke="#234b48" strokeWidth="3" strokeLinecap="round"/><circle cx="81" cy="98" r="3" fill="#618c77"/><circle cx="119" cy="98" r="3" fill="#618c77"/><ellipse cx="63" cy="167" rx="18" ry="9" fill={color}/><ellipse cx="137" cy="167" rx="18" ry="9" fill={color}/></svg>;}
+
+export default function World2D(props:WorldProps){
+ const s=props.session,map=s?.map||createMap(props.missionId,props.seed),region=regionOf(props.missionId),point=(n:{x:number;z:number})=>[300+n.x*48,225+n.z*39],hero=point(map.find(n=>n.id===s?.position)||map[0]);
+ return <svg className="dq-map2d" viewBox="0 0 600 430" role="img" aria-label={`Toàn bộ 50 ô của ${region.name}, di chuyển theo xúc xắc`}><rect x="17" y="65" width="566" height="310" rx="36" fill={region.rock}/><rect x="17" y="56" width="566" height="310" rx="36" fill={region.ground}/>
+  {map.slice(0,-1).map((n,i)=>{const a=point(n),b=point(map[i+1]);return <path key={n.id} d={`M${a}L${b}`} stroke="#b3a075" strokeWidth="5"/>;})}
+  {map.map(n=>{const [x,y]=point(n),style=TILE_STYLE[n.kind],current=s?.position===n.id,target=s&&['rolling','moving','landing'].includes(s.phase)&&s.target===n.index;return <g key={n.id} transform={`translate(${x} ${y})`} aria-label={`Ô ${n.index+1}: ${style.name}${current?', nhân vật đang ở đây':''}`}><rect x="-23" y="-25" width="46" height="50" rx="8" fill={target?'#ffe092':style.color} stroke={current?'#27765e':'#ffffff99'} strokeWidth={current?4:1}/><text y="-3" textAnchor="middle" fontSize="19" fontWeight="850" fill={style.ink}>{String(n.index+1).padStart(2,'0')}</text><text y="17" textAnchor="middle" fontSize="16" fill={style.ink}>{style.symbol}</text></g>;})}
+  <g transform={`translate(${hero[0]+17} ${hero[1]-20})`}><circle cy="-3" r="9" fill="#f5cfa7" stroke="#355c4b" strokeWidth="2"/><path d="m-10-8 9-16 11 16Z" fill={props.heroColor}/><path d="m-7 5-3 12h20L7 5Z" fill={props.heroColor}/></g>
+  <text x="42" y="404" fontSize="13" fill={region.color}>Xuất phát: ô 01 → zíc zắc → Boss: ô 50</text>
+ </svg>;
+}
+

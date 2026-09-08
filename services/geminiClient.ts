@@ -72,20 +72,21 @@ export const pickBest = (models: any[]): string | null => {
 };
 
 /** Trả về id model nên dùng (có cache). force=true để bỏ cache, khám phá lại. */
-export const resolveGeminiModel = async (apiKey: string, force = false): Promise<string> => {
+export const resolveGeminiModel = async (apiKey: string, force = false, signal?: AbortSignal): Promise<string> => {
+    signal?.throwIfAborted();
     if (!force) {
         if (memoModel) return memoModel;
         const cached = readCache();
         if (cached && Date.now() - cached.ts < CACHE_TTL) { memoModel = cached.model; return cached.model; }
     }
     try {
-        const res = await fetch(listUrl(apiKey));
+        const res = await fetch(listUrl(apiKey), { signal });
         if (res.ok) {
             const data = await res.json();
             const best = pickBest(data?.models);
             if (best) { writeCache(best); return best; }
         }
-    } catch { /* offline / bị chặn → dùng dự phòng */ }
+    } catch { signal?.throwIfAborted(); /* offline / bị chặn → dùng dự phòng */ }
     // Không khám phá được: ưu tiên cache cũ, rồi tới alias family-latest.
     return readCache()?.model || FAMILY_LATEST;
 };
@@ -95,20 +96,24 @@ export const resolveGeminiModel = async (apiKey: string, force = false): Promise
  * .ok / .json() như cũ). Tự chữa lành nếu model 404: khám phá lại + thử các
  * ứng viên dự phòng, cache model nào hoạt động.
  */
-export const geminiGenerateContent = async (apiKey: string, body: unknown): Promise<Response> => {
+export const geminiGenerateContent = async (apiKey: string, body: unknown, options: { signal?: AbortSignal; maxAttempts?: number } = {}): Promise<Response> => {
     if (!apiKey) throw new Error('Vui lòng cung cấp API Key để sử dụng AI.');
-
-    const primary = await resolveGeminiModel(apiKey);
+    options.signal?.throwIfAborted();
+    const primary = await resolveGeminiModel(apiKey, false, options.signal);
     const candidates = [primary, FAMILY_LATEST, SAFE_FALLBACK];
     const tried = new Set<string>();
+    const attemptLimit = Number.isFinite(options.maxAttempts) ? Math.max(1, Math.min(4, Math.floor(options.maxAttempts!))) : 4;
     const post = (model: string) => fetch(genUrl(model, apiKey), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
+        signal: options.signal,
     });
 
     let lastRes: Response | null = null;
     for (let i = 0; i < candidates.length; i++) {
+        options.signal?.throwIfAborted();
+        if (tried.size >= attemptLimit) break;
         const model = candidates[i];
         if (!model || tried.has(model)) continue;
         tried.add(model);
@@ -122,7 +127,7 @@ export const geminiGenerateContent = async (apiKey: string, body: unknown): Prom
         lastRes = res;
         // 404 ở model chính → thử khám phá lại 1 lần và chèn kết quả vào hàng đợi.
         if (i === 0) {
-            const fresh = await resolveGeminiModel(apiKey, true);
+            const fresh = await resolveGeminiModel(apiKey, true, options.signal);
             if (fresh && !tried.has(fresh)) candidates.splice(i + 1, 0, fresh);
         }
     }

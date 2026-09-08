@@ -193,6 +193,8 @@ class MusicManager {
             this.audio.volume = Math.max(0, Math.min(1, volume));
         }
     }
+
+    public getVolume(): number { return this.audio?.volume ?? 0.4; }
 }
 
 // Export singleton instance
