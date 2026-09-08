@@ -69,7 +69,11 @@ export interface GameResult {
   maxScore: number;
   durationSeconds: number;
   starsEarned: number; // 1-3 based on medal
+  /** Bounded reward dates when a mission's existing result is improved. */
+  starAwards?: { date: string; amount: number }[];
   difficulty?: string; // 'easy', 'medium', 'hard'
+  memory?: import('./games/MemoryMatch/engine/model').MemoryRecord;
+  sound?: import('./games/SoundMemory/engine/game').SoundRecord;
 }
 
 export enum QuestionType {
@@ -215,6 +219,9 @@ export interface AchievementProgress {
 }
 
 export interface StudentProfile {
+  soundMemory?: import('./games/SoundMemory/progress/progress').SoundProgress;
+  memoryMatch?: import('./games/MemoryMatch/progress/progress').MemoryProgress;
+  kidCoder?: import('./games/KidCoder/progress/progress').KidCoderProgress;
   id: string;
   name: string;
   age: number;

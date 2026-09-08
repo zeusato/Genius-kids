@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect, useRef } from 'react';
+import { persistMission } from '../../games/KidCoder/progress/progress';
+import { persistMemory } from '../../games/MemoryMatch/progress/progress';
+import { persistSound, persistComposition, clearSoundProfileData } from '../../games/SoundMemory/progress/progress';
+import type { SoundSession } from '../../games/SoundMemory/engine/game';
+import type { CompositionAction } from '../../games/SoundMemory/studio/model';
+import type { MemorySession } from '../../games/MemoryMatch/engine/model';
+import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
 import { StudentProfile, TestResult, GameResult, AlbumImage, AchievementProgress } from '../../types';
 import { getAllProfiles, saveProfiles, createProfile, updateProfile as updateProfileStorage, deleteProfile as deleteProfileStorage } from '../../services/profileService';
 import { updateStats, checkAchievements, initializeStats } from '../../services/achievementService';
@@ -20,6 +27,10 @@ interface StudentActionsType {
     deleteStudent: (id: string) => void;
     addTestResult: (result: TestResult, gachaImage?: AlbumImage, typingScore?: number) => void;
     addGameResult: (result: GameResult, gachaImage?: AlbumImage) => void;
+    completeKidCoder: (studentId: string, mission: Mission, program: ProgramNode[], seconds: number) => { ok: boolean; earned: number };
+    completeMemoryGame: (studentId: string, session: MemorySession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    completeSoundGame: (studentId: string, session: SoundSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    saveSoundComposition: (studentId: string, action: CompositionAction) => { ok: boolean; error?: string };
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
     /** Centralized function to save gacha card. Called when GachaModal closes. */
     saveGachaCard: (imageId: string, isNew: boolean) => void;
@@ -36,7 +47,15 @@ const StudentContext = createContext<StudentContextType | undefined>(undefined);
 const StudentActionsContext = createContext<StudentActionsType | undefined>(undefined);
 
 export function StudentProvider({ children }: { children: ReactNode }) {
-    const [students, setStudents] = useState<StudentProfile[]>([]);
+    const [students, setStudentsState] = useState<StudentProfile[]>([]);
+    // Synchronous snapshot also protects two completion callbacks before React's next render.
+    const studentsRef = useRef<StudentProfile[]>([]);
+    const persistedRef = useRef<StudentProfile[] | null>(null);
+    const setStudents = useCallback((action: React.SetStateAction<StudentProfile[]>) => {
+        const next = typeof action === 'function' ? action(studentsRef.current) : action;
+        studentsRef.current = next;
+        setStudentsState(next);
+    }, []);
     const [currentStudentId, setCurrentStudentId] = useState<string | null>(null);
     const [gachaResult, setGachaResult] = useState<{ image: AlbumImage; isNew: boolean } | null>(null);
     const [achievementQueue, setAchievementQueue] = useState<AchievementProgress[]>([]);
@@ -53,12 +72,48 @@ export function StudentProvider({ children }: { children: ReactNode }) {
 
     // Save to localStorage whenever students change
     useEffect(() => {
-        if (students.length > 0) {
+        if (students.length > 0 && students === studentsRef.current && students !== persistedRef.current) {
             saveProfiles(students);
+            persistedRef.current = students;
         }
     }, [students]);
 
     const currentStudent = students.find(s => s.id === currentStudentId) || null;
+
+    const completeKidCoder = useCallback((studentId: string, mission: Mission, program: ProgramNode[], seconds: number) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current;
+        const result = persistMission(snapshot, studentId, mission, program, seconds, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        if (result.unlocked.length) setAchievementQueue(prev => [...prev, ...result.unlocked]);
+        return { ok: true, earned: result.earned };
+    }, [currentStudentId, setStudents]);
+
+    const completeMemoryGame = useCallback((studentId:string,session:MemorySession) => {
+        if(studentId!==currentStudentId)return {ok:false,earned:0};
+        const snapshot=studentsRef.current,result=persistMemory(snapshot,studentId,session,saveProfiles);
+        if(!result.ok)return {ok:false,earned:0};
+        if(result.profiles!==snapshot){persistedRef.current=result.profiles;setStudents(result.profiles);}
+        // The game's result panel presents these awards together, without a second modal.
+        return {ok:true,earned:result.earned,bonusStars:result.bonusStars,achievementNames:result.achievementNames};
+    },[currentStudentId,setStudents]);
+
+    const completeSoundGame = useCallback((studentId: string, session: SoundSession) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current, result = persistSound(snapshot, studentId, session, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: true, earned: result.earned, bonusStars: result.bonusStars, achievementNames: result.achievementNames };
+    }, [currentStudentId, setStudents]);
+
+    const saveSoundComposition = useCallback((studentId: string, action: CompositionAction) => {
+        if (studentId !== currentStudentId) return { ok: false, error: 'Hồ sơ đã thay đổi.' };
+        const result = persistComposition(studentsRef.current, studentId, action, saveProfiles);
+        if (!result.ok) return { ok: false, error: result.error };
+        persistedRef.current = result.profiles; setStudents(result.profiles);
+        return { ok: true };
+    }, [currentStudentId, setStudents]);
 
     const setStudent = useCallback((student: StudentProfile | null) => {
         setCurrentStudentId(student ? student.id : null);
@@ -80,6 +135,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const deleteStudent = useCallback((id: string) => {
+        clearSoundProfileData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -403,6 +459,10 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         deleteStudent,
         addTestResult,
         addGameResult,
+        completeKidCoder,
+        completeMemoryGame,
+        completeSoundGame,
+        saveSoundComposition,
         setGachaResult,
         saveGachaCard,
         buyAvatar,

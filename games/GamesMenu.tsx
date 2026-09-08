@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Brain, ArrowLeft, Music, Timer, Car, Grid3x3, Settings } from 'lucide-react';
 import { Difficulty } from './memoryMatchEngine';
 import { MemoryMatchGame } from './MemoryMatch/MemoryMatchGame';
@@ -13,6 +13,8 @@ import { MusicControls } from '@/src/components/MusicControls';
 import { Grade } from '@/types';
 import { isPreschool } from '@/src/utils/grade';
 import CarIcon from './MathRacing/CarIcon.png';
+const MemoryAdventure = lazy(() => import('./MemoryMatch/MemoryAdventure'));
+const SoundAdventure = lazy(() => import('./SoundMemory/SoundAdventure'));
 
 interface GamesMenuProps {
     grade?: Grade;
@@ -24,8 +26,11 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     const preschool = isPreschool(grade);
     const [activeGame, setActiveGame] = useState<'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-build' | 'gears-guess' | 'gears-menu' | null>(null);
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.Easy);
+    const [legacyMemory, setLegacyMemory] = useState(import.meta.env.VITE_MEMORY_V2 === 'false');
+    const [legacySound, setLegacySound] = useState(import.meta.env.VITE_SOUND_V2 === 'false');
 
     if (activeGame === 'memory') {
+        if (!legacyMemory) return <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#faf8f0] text-[#306355]" role="status">Đang bày những chiếc thẻ…</div>}><MemoryAdventure initialPairs={difficulty / 2} onExit={() => setActiveGame(null)} onLegacy={() => setLegacyMemory(true)}/></Suspense>;
         return (
             <MemoryMatchGame
                 difficulty={difficulty}
@@ -48,6 +53,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     };
 
     if (activeGame === 'sound-memory') {
+        if (!legacySound) return <Suspense fallback={<div className="min-h-screen grid place-items-center bg-[#faf5ec] text-[#243d4d]" role="status">Ban nhạc đang chuẩn bị…</div>}><SoundAdventure onExit={() => setActiveGame(null)} onLegacy={() => setLegacySound(true)}/></Suspense>;
         return (
             <SoundMemoryGame
                 difficulty={getSoundDifficulty(difficulty)}
@@ -228,14 +234,14 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
 
                             <div className="flex-1 text-center md:text-left">
                                 <h3 className="text-3xl font-bold text-slate-800 mb-3">
-                                    Ghép Thẻ Hình Ảnh
+                                    Lật Thẻ · Đảo Ký Ức
                                 </h3>
                                 <p className="text-slate-600 text-lg mb-6">
-                                    Lật thẻ tìm cặp hình ảnh hoặc biểu tượng giống nhau. Rèn luyện trí nhớ và sự tinh mắt!
+                                    Tìm những cặp hình đáng yêu, khám phá 5 vùng đất và làm hòn đảo của em thêm rực rỡ. Hoặc bày một ván theo ý mình!
                                 </p>
 
                                 <button
-                                    onClick={() => setActiveGame('memory')}
+                                    onClick={() => { setLegacyMemory(import.meta.env.VITE_MEMORY_V2 === 'false'); setActiveGame('memory'); }}
                                     className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
                                     🎮 Chơi ngay!
@@ -253,14 +259,14 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
 
                             <div className="flex-1 text-center md:text-left">
                                 <h3 className="text-3xl font-bold text-slate-800 mb-3">
-                                    Giai Điệu Vui Nhộn
+                                    Giai Điệu Vui Nhộn · Ban Nhạc Tí Hon
                                 </h3>
                                 <p className="text-slate-600 text-lg mb-6">
-                                    Lắng nghe và ghi nhớ chuỗi âm thanh. Thử thách trí nhớ thính giác của bạn!
+                                    Nghe giai điệu, gõ theo nhịp và viết bài nhạc của riêng mình. Cùng ban nhạc khám phá 24 bài chơi ngắn!
                                 </p>
 
                                 <button
-                                    onClick={() => setActiveGame('sound-memory')}
+                                    onClick={() => { setLegacySound(import.meta.env.VITE_SOUND_V2 === 'false'); setActiveGame('sound-memory'); }}
                                     className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
                                     🎵 Chơi ngay!

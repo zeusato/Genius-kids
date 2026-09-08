@@ -233,12 +233,12 @@ export const ModeSelectionScreen: React.FC<ModeSelectionScreenProps> = ({
                         </h2>
 
                         <p className="text-slate-600 text-lg">
-                            Học tư duy máy tính và logic
+                            Lập trình rover thám hiểm hành tinh
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2 justify-center">
                             <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold">
-                                Robot
+                                Biệt đội Rover
                             </span>
                             <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-semibold">
                                 Thuật toán

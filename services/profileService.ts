@@ -114,6 +114,9 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         gameHistory: oldProfile.gameHistory || [],
         shopDailyPhotos: oldProfile.shopDailyPhotos || [],
         sphinxProfile: oldProfile.sphinxProfile,
+        kidCoder: oldProfile.kidCoder,
+        memoryMatch: oldProfile.memoryMatch,
+        soundMemory: oldProfile.soundMemory,
         achievements: oldProfile.achievements || [],
     };
 
@@ -192,9 +195,12 @@ export const getDailyStarsEarned = (profile: StudentProfile): number => {
         .reduce((acc, test) => acc + (test.starsEarned || 0), 0);
 
     // Stars from games today
-    const gameStars = profile.gameHistory
-        .filter(game => new Date(game.date).getTime() >= todayTimestamp)
-        .reduce((acc, game) => acc + game.starsEarned, 0);
+    const gameStars = profile.gameHistory.reduce((acc, game) => {
+        if (Array.isArray(game.starAwards)) return acc + game.starAwards
+            .filter(award => new Date(award.date).getTime() >= todayTimestamp)
+            .reduce((sum, award) => sum + award.amount, 0);
+        return acc + (new Date(game.date).getTime() >= todayTimestamp ? game.starsEarned : 0);
+    }, 0);
 
     return testStars + gameStars;
 };
