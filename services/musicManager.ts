@@ -18,6 +18,11 @@ const STORAGE_KEY_SOUND_ENABLED = 'mathgenius_sound_enabled';
 class MusicManager {
     private audio: HTMLAudioElement | null = null;
     private currentTrack: MusicTrack | null = null;
+    private suspended = false;
+    private fadeTimer: ReturnType<typeof setInterval> | undefined;
+    private retiring: HTMLAudioElement | null = null;
+    private volume = .4;
+    private fadeLevel = 1;
     private musicEnabled: boolean = true;
     private soundEnabled: boolean = true;
     private listeners: Set<() => void> = new Set();
@@ -69,24 +74,27 @@ class MusicManager {
 
         // If track is null, stop music
         if (track === null) {
+            this.cancelFade();
             this.stopCurrentTrack();
             this.currentTrack = null;
             return;
         }
 
         // If music is disabled, don't play (but set current track so it resumes if enabled)
-        if (!this.musicEnabled) {
+        if (!this.musicEnabled || this.suspended) {
             this.currentTrack = track;
-            this.stopCurrentTrack();
+            this.audio.pause();
             return;
         }
 
         // If same track is already playing, do nothing (seamless)
-        if (this.currentTrack === track && !this.audio.paused) {
+        if (this.currentTrack === track && this.audio.getAttribute('src') === MUSIC_FILES[track]) {
+            if(this.audio.paused)void this.audio.play().catch(()=>{});
             return;
         }
 
         // Switch to new track
+        this.cancelFade();
         this.currentTrack = track;
         const filePath = MUSIC_FILES[track];
 
@@ -111,6 +119,36 @@ class MusicManager {
         this.playTrack(track);
     }
 
+    /** Pause a game without restarting its soundtrack on resume. */
+    public setPaused(paused: boolean): void {
+        this.suspended = paused;
+        if(paused){this.cancelFade();this.audio?.pause();}
+        else if(this.musicEnabled && this.currentTrack)this.playTrack(this.currentTrack);
+    }
+
+    private cancelFade(): void {
+        clearInterval(this.fadeTimer);this.fadeTimer=undefined;
+        this.retiring?.pause();this.retiring=null;this.fadeLevel=1;
+        if(this.audio)this.audio.volume=this.volume;
+    }
+
+    /** Transition between the game's two local soundtracks, respecting mute and TTS. */
+    public transitionTrack(track: MusicTrack): void {
+        if(this.currentTrack===track)return;
+        if(!this.audio||!this.musicEnabled||this.suspended||this.audio.paused){this.playTrack(track);return;}
+        this.cancelFade();
+        const old=this.audio, next=new Audio(MUSIC_FILES[track]);
+        next.loop=true;next.preload='metadata';next.volume=0;
+        this.retiring=old;this.audio=next;this.currentTrack=track;this.fadeLevel=0;
+        const start=performance.now();
+        void next.play().catch(()=>{if(this.audio===next)this.cancelFade();});
+        this.fadeTimer=setInterval(()=>{
+            this.fadeLevel=Math.min(1,(performance.now()-start)/1200);
+            next.volume=this.volume*this.fadeLevel;old.volume=this.volume*(1-this.fadeLevel);
+            if(this.fadeLevel>=1)this.cancelFade();
+        },50);
+    }
+
     /**
      * Stop current track
      */
@@ -125,6 +163,7 @@ class MusicManager {
      * Toggle music on/off
      */
     public toggleMusic(): void {
+        this.cancelFade();
         this.musicEnabled = !this.musicEnabled;
         this.saveSettings();
 
@@ -189,12 +228,14 @@ class MusicManager {
      * Set volume (0.0 to 1.0)
      */
     public setVolume(volume: number): void {
+        this.volume = Math.max(0, Math.min(1, volume));
         if (this.audio) {
-            this.audio.volume = Math.max(0, Math.min(1, volume));
+            this.audio.volume = this.volume*this.fadeLevel;
         }
+        if(this.retiring)this.retiring.volume=this.volume*(1-this.fadeLevel);
     }
 
-    public getVolume(): number { return this.audio?.volume ?? 0.4; }
+    public getVolume(): number { return this.volume; }
 }
 
 // Export singleton instance

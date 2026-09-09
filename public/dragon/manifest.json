@@ -57,6 +57,20 @@
         "hit",
         "celebrate"
       ]
+    },
+    {
+      "name": "knight",
+      "bytes": 1145160,
+      "meshes": 13,
+      "triangles": 13404,
+      "clips": [
+        "idle",
+        "walk",
+        "cast",
+        "guard",
+        "hit",
+        "celebrate"
+      ]
     }
   ]
 }

@@ -11,7 +11,7 @@ const folder=path.resolve('public/dragon');fs.mkdirSync(folder,{recursive:true})
 const materials=new Map();
 function material(name,color,roughness=.72){if(!materials.has(name)){const m=new T.MeshStandardMaterial({color,roughness,metalness:name==='gold'?.25:0});m.name=name;materials.set(name,m);}return materials.get(name);}
 const M={green:material('scales','#579c82'),light:material('belly','#e9d7a0'),gold:material('gold','#ddb56b'),cream:material('ivory','#fff2cb'),eye:material('eye','#20323b',.25),white:material('eyeWhite','#fffdf0',.3),cheek:material('cheek','#dc9d91'),wing:material('wing','#dfb377'),teal:material('cloak','#397c7d'),skin:material('skin','#efc69f'),hair:material('hair','#594839'),boot:material('boot','#544d48'),cloth:material('cloth','#e9d7ba'),leaf:material('leaf','#7bae83'),violet:material('violet','#9b8bbb'),red:material('red','#c7856b')};
-const ball=new T.SphereGeometry(1,16,12),cone=new T.ConeGeometry(1,1,10),cyl=new T.CylinderGeometry(1,1,1,12),box=new T.BoxGeometry(1,1,1),gem=new T.IcosahedronGeometry(1,0);
+const ball=new T.SphereGeometry(1,12,8),cone=new T.ConeGeometry(1,1,10),cyl=new T.CylinderGeometry(1,1,1,12),box=new T.BoxGeometry(1,1,1),gem=new T.IcosahedronGeometry(1,0);
 function mesh(g,mat,pos=[0,0,0],scale=[1,1,1],rot=[0,0,0]){const m=new T.Mesh(g,mat);m.position.set(...pos);m.scale.set(...scale);m.rotation.set(...rot);return m;}
 function add(root,g,mat,pos,scale,rot){root.add(mesh(g,mat,pos,scale,rot));}
 function joint(root,name,pos=[0,0,0]){const g=new T.Group();g.name=name;g.position.set(...pos);root.add(g);return g;}
@@ -70,7 +70,75 @@ function hero(type='hero'){const root=new T.Group();root.name=type;const body=jo
  if(fairy)for(const sign of [-1,1]){const wing=joint(body,`${type}_wing${sign<0?'L':'R'}`,[sign*.16,.85,-.14]);add(wing,ball,M.cream,[sign*.28,.2,-.12],[.26,.42,.04],[0,0,sign*-.5]);add(wing,ball,M.gold,[sign*.22,-.14,-.12],[.19,.24,.035],[0,0,sign*.5]);}
  return root;
 }
-const exporter=new GLTFExporter();const report=[];
-for(const root of [dragon(),hero(),hero('fairy'),hero('goblin')]){const animations=clips(root,root.name);optimize(root);const data=await exporter.parseAsync(root,{binary:true,animations});fs.writeFileSync(path.join(folder,`${root.name}.glb`),Buffer.from(data));let meshes=0,triangles=0;root.traverse(o=>{if(o.isMesh){meshes++;triangles+=o.geometry.attributes.position.count/3;}});report.push({name:root.name,bytes:data.byteLength,meshes,triangles,clips:animations.map(c=>c.name)});}
+
+function knight(){
+ const root=new T.Group();root.name='knight';const body=joint(root,'knight_body');
+ const chestnut=material('horseChestnut','#945732'),muzzle=material('horseMuzzle','#d8b481'),mane=material('horseMane','#3d3028'),silver=material('knightSilver','#a8c5d0'),armor=material('knightArmor','#658a99');
+ add(body,ball,chestnut,[0,.94,-.08],[.34,.39,.7]);
+ add(body,ball,chestnut,[0,1.22,.49],[.24,.46,.27],[.35,0,0]);
+ const horseHead=joint(body,'horse_head',[0,1.63,.69]);
+ add(horseHead,ball,chestnut,[0,0,.1],[.245,.3,.34]);
+ add(horseHead,ball,muzzle,[0,-.12,.36],[.24,.19,.23]);
+ for(const side of [-1,1]){
+  add(horseHead,cone,chestnut,[side*.14,.34,-.06],[.095,.33,.11],[.1,0,side*-.15]);
+  add(horseHead,ball,M.white,[side*.205,.05,.22],[.04,.08,.08]);
+  add(horseHead,ball,M.eye,[side*.228,.04,.245],[.022,.05,.045]);
+  add(horseHead,ball,M.eye,[side*.12,-.1,.56],[.025,.018,.015]);
+  pill(horseHead,M.boot,[side*.24,.1,.05],[side*.24,-.12,.36],.02);
+  for(const front of [true,false]){
+   const leg=joint(body,`horse_${front?'front':'rear'}${side<0?'L':'R'}`,[side*.245,.84,front?.43:-.55]);
+   pill(leg,chestnut,[0,0,0],[0,-.51,front?.02:-.04],.072);
+   add(leg,ball,muzzle,[0,-.52,front?.02:-.04],[.078,.105,.085]);
+   add(leg,box,M.boot,[0,-.67,front?.075:0],[.17,.16,.22]);
+  }
+ }
+ for(let i=0;i<6;i++)add(body,ball,mane,[0,1.16+i*.105,.27+i*.07],[.095,.16,.115]);
+ add(horseHead,ball,mane,[0,.21,.14],[.14,.105,.16]);
+ const tail=joint(body,'horse_tail',[0,1.08,-.76]);
+ pill(tail,mane,[0,0,0],[.05,-.34,-.25],.09);add(tail,ball,mane,[.07,-.43,-.28],[.12,.24,.13],[.3,0,-.1]);
+ add(body,box,M.teal,[0,1.18,-.14],[.75,.13,.66]);add(body,ball,M.boot,[0,1.29,-.12],[.34,.13,.34]);
+ // The young rider sits on the saddle; no wizard hat or beard.
+ add(body,ball,armor,[0,1.63,-.13],[.26,.32,.2]);add(body,ball,silver,[0,1.67,.03],[.23,.23,.07]);
+ add(body,cyl,M.gold,[0,1.4,-.12],[.27,.075,.2]);
+ add(body,cone,M.teal,[0,1.59,-.36],[.34,.72,.1],[.22,0,0]);
+ for(const side of [-1,1]){
+  pill(body,armor,[side*.21,1.43,-.12],[side*.41,1.13,.08],.1);
+  pill(body,M.boot,[side*.41,1.13,.08],[side*.4,.93,.23],.095);
+  add(body,ball,M.boot,[side*.4,.91,.29],[.12,.1,.17]);
+  const arm=joint(body,side<0?'knight_armL':'knight_armR',[side*.26,1.81,-.1]);
+  add(arm,ball,silver,[side*.03,-.02,0],[.14,.15,.15]);
+  pill(arm,armor,[side*.06,-.08,.02],[side*.09,-.27,.28],.075);
+  add(arm,ball,M.skin,[side*.09,-.29,.31],[.075,.075,.075]);
+  pill(body,M.boot,[side*.35,1.52,.21],[side*.23,1.52,.97],.013);
+ }
+ const head=joint(body,'knight_head',[0,2.1,-.08]);
+ add(head,ball,M.skin,[0,0,.02],[.25,.26,.24]);
+ add(head,new T.SphereGeometry(1,16,10,0,Math.PI*2,0,Math.PI*.53),silver,[0,.055,0],[.27,.29,.255]);
+ add(head,ball,M.skin,[0,-.045,.24],[.045,.045,.04]);
+ for(const side of [-1,1]){
+  add(head,ball,M.eye,[side*.093,-.006,.242],[.028,.044,.018]);
+  add(head,ball,M.white,[side*.099,.005,.256],[.009,.012,.006]);
+  add(head,ball,M.cheek,[side*.15,-.085,.21],[.035,.018,.009]);
+  add(head,box,silver,[side*.225,-.075,-.025],[.07,.22,.17]);
+ }
+ add(head,ball,M.hair,[0,-.12,.23],[.045,.008,.01]);
+ add(head,ball,M.teal,[0,.39,-.08],[.07,.17,.24],[.45,0,0]);add(head,gem,M.gold,[0,.17,.25],[.055,.075,.018]);
+ const sword=joint(body,'knight_sword',[-.37,1.38,-.26]);add(sword,box,M.boot,[0,-.21,0],[.09,.58,.075],[0,0,-.22]);add(sword,box,M.gold,[0,.11,0],[.25,.045,.09]);add(sword,cyl,M.boot,[0,.21,0],[.04,.18,.04]);add(sword,ball,M.gold,[0,.31,0],[.055,.05,.055]);
+ return root;
+}
+function knightClips(root){
+ const result=clips(root,'knight');
+ result[0].tracks.push(track('horse_head','x',[-.04,.04,-.04],[0,1,2]),track('horse_tail','z',[-.15,.15,-.15],[0,1,2]));
+ result[1]=new T.AnimationClip('walk',.56,[
+  track('horse_frontL','x',[-.45,.45,-.45],[0,.28,.56]),track('horse_rearR','x',[-.45,.45,-.45],[0,.28,.56]),
+  track('horse_frontR','x',[.45,-.45,.45],[0,.28,.56]),track('horse_rearL','x',[.45,-.45,.45],[0,.28,.56]),
+  track('horse_head','x',[-.05,.07,-.05],[0,.28,.56]),
+  new T.VectorKeyframeTrack('knight_body.position',[0,.14,.28,.42,.56],[0,0,0,0,.055,0,0,0,0,0,.055,0,0,0,0]),
+ ]);
+ return result;
+}
+
+const exporter=new GLTFExporter();const onlyKnight=process.argv.includes('--knight');const report=onlyKnight&&fs.existsSync(path.join(folder,'manifest.json'))?JSON.parse(fs.readFileSync(path.join(folder,'manifest.json'),'utf8')).models.filter(m=>m.name!=='knight'):[];
+for(const root of (onlyKnight?[knight()]:[dragon(),hero(),hero('fairy'),hero('goblin'),knight()])){const animations=root.name==='knight'?knightClips(root):clips(root,root.name);optimize(root);const data=await exporter.parseAsync(root,{binary:true,animations});fs.writeFileSync(path.join(folder,`${root.name}.glb`),Buffer.from(data));let meshes=0,triangles=0;root.traverse(o=>{if(o.isMesh){meshes++;triangles+=o.geometry.attributes.position.count/3;}});report.push({name:root.name,bytes:data.byteLength,meshes,triangles,clips:animations.map(c=>c.name)});}
 fs.writeFileSync(path.join(folder,'manifest.json'),JSON.stringify({version:1,author:'Genius Kids procedural character workshop',models:report},null,2));console.log(JSON.stringify(report,null,2));
 

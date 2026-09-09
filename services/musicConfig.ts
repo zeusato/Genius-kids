@@ -8,6 +8,8 @@
 export enum MusicTrack {
     MAIN_THEME = 'MAIN_THEME',
     DRAGON_QUEST = 'DRAGON_QUEST',
+    DRAGON_FOREST = 'DRAGON_FOREST',
+    DRAGON_JOURNEY = 'DRAGON_JOURNEY',
     SPEED_MATH = 'SPEED_MATH',
     SPHINX_RIDDLE = 'SPHINX_RIDDLE',
     TELL_ME_WHY = 'TELL_ME_WHY',
@@ -18,6 +20,8 @@ export enum MusicTrack {
 export const MUSIC_FILES: Record<MusicTrack, string> = {
     [MusicTrack.MAIN_THEME]: '/Genius-kids/sound/mainTheme-Curious Minds.mp3',
     [MusicTrack.DRAGON_QUEST]: '/Genius-kids/sound/dragonQuest-Knights of the Playground.mp3',
+    [MusicTrack.DRAGON_FOREST]: import.meta.env.BASE_URL + 'dragon/audio/forest-of-dawn.mp3',
+    [MusicTrack.DRAGON_JOURNEY]: import.meta.env.BASE_URL + 'dragon/audio/enchanted-journey.mp3',
     [MusicTrack.SPEED_MATH]: '/Genius-kids/sound/timeAttack-Wonder in the Air.mp3',
     [MusicTrack.SPHINX_RIDDLE]: '/Genius-kids/sound/sphinxRiddle-Mystic Sands.mp3',
     [MusicTrack.TELL_ME_WHY]: '/Genius-kids/sound/1000q.mp3',
