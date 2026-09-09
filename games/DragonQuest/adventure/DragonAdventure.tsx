@@ -44,7 +44,7 @@ export function DragonAdventure({student,complete,controls,onExit,onLegacy,gener
  const panelRef=useRef<HTMLElement>(null),manualRead=useRef(false),pending=useRef<AbortController|null>(null),mounted=useRef(true),committing=useRef(''),speechStop=useRef<()=>void>(()=>{}),saveFailed=useRef(false);
  const patchPrefs=(p:Partial<Preferences>)=>setPrefs(old=>({...old,...p}));
  const setRound=useCallback((s:Session|null)=>{sessionRef.current=s;setSession(s);},[]);
- const send=useCallback((e:Action)=>{const s=sessionRef.current;if(s){const n=reduce(s,{...e,sessionId:s.id} as Event);if(n!==s)setRound(n);}},[setRound]);
+ const send=useCallback((e:Action)=>{const s=sessionRef.current;if(s){const n=reduce(s,{...e,sessionId:s.id} as Event);if(n!==s){if(e.type==='answer'&&n.phase==='feedback')speechStop.current();setRound(n);}}},[setRound]);
  const pause=useCallback(()=>{speechStop.current();send({type:'pause'});},[send]);
  useEffect(()=>{mounted.current=true;musicManager.playTrack(MusicTrack.DRAGON_FOREST);return()=>{mounted.current=false;pending.current?.abort();speechStop.current();const s=sessionRef.current;if(s)saveDraft({...s,paused:!finished(s),questionReady:false});musicManager.resumeRouteMusic();};},[]);
  useEffect(()=>{savePreferences(student.id,prefs);},[student.id,prefs]);

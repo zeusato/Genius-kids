@@ -83,7 +83,25 @@ describe('Dragon questions, clocks and durable sessions',()=>{
  it('rejects invalid task scopes and mismatched canonical answers',()=>{const c=config({grade:1}),slot={...slotsFor(c)[0],kind:'arithmetic' as const};expect(validateTask({kind:'arithmetic',a:99,b:8,op:'add',target:'result'},slot,c)).toBe(false);const s=fresh();s.prepared.questions[s.slots[0].id].answer='evil';s.prepared.hash=hash(s.prepared.questions);expect(validSession(s)).toBe(false);});
  it('normalizes numeric input but never accepts option text as an option id',()=>{const s=fresh(config({missionId:'forest-4',topic:'math'}));for(const q of Object.values(s.prepared.questions)){expect(correct(q,q.input?' 00'+q.answer+' ':q.options.find(o=>o.text===q.answer)!.id)).toBe(true);expect(correct(q,q.input?'1e2':q.answer)).toBe(false);}});
  it('guards invalid moves, stale sessions, duplicate answers and unanswered continuation',()=>{const s=fresh();expect(event(s,{type:'move',nodeId:'tile-49'})).toBe(s);const q=toQuestion(s);expect(event(q,{type:'continue'})).toBe(q);expect(reduce(q,{type:'roll',sessionId:'stale'})).toBe(q);const a=answer(q);expect(answer(a)).toBe(a);expect(attemptOf(a)?.answers).toBe(1);});
- it('pauses movement and challenge clocks, gates reading and survives JSON resume',()=>{let s=toQuestion(fresh(config({mode:'challenge'})));s=event(s,{type:'listen'});s=event(s,{type:'tick',ms:1000});expect(s.questionMs).toBe(0);s=event(s,{type:'ready'});s=event(s,{type:'tick',ms:500});expect(s.questionMs).toBe(500);s=event(s,{type:'pause'});expect(event(s,{type:'tick',ms:1000})).toBe(s);expect(validSession(JSON.parse(JSON.stringify(s)))).toBe(true);s=event(s,{type:'resume'});expect(s.questionReady).toBe(false);s=event(s,{type:'ready'});expect(event(s,{type:'tick',ms:500}).questionMs).toBe(1000);});
+ it('pauses the challenge clock during narration and survives JSON resume',()=>{let s=toQuestion(fresh(config({mode:'challenge'})));s=event(s,{type:'listen'});s=event(s,{type:'tick',ms:1000});expect(s.questionMs).toBe(0);s=event(s,{type:'ready'});s=event(s,{type:'tick',ms:500});expect(s.questionMs).toBe(500);s=event(s,{type:'pause'});expect(event(s,{type:'tick',ms:1000})).toBe(s);expect(validSession(JSON.parse(JSON.stringify(s)))).toBe(true);s=event(s,{type:'resume'});expect(s.questionReady).toBe(false);s=event(s,{type:'ready'});expect(event(s,{type:'tick',ms:500}).questionMs).toBe(1000);});
+ it.each(['story','challenge'] as const)('accepts choices immediately during narration in %s mode, exactly once',mode=>{
+  for(const kind of ['combat','buff','boss'] as const){
+   const intro=atKind(kind,fresh(config({mode})));expect(answer(intro)).toBe(intro);
+   const s=event(intro,{type:'continue'});expect(s.questionReady).toBe(false);
+   const result=answer(s);expect(result.phase).toBe('feedback');expect(result.feedback?.correct).toBe(true);
+   expect(attemptOf(result)?.answers).toBe(1);expect(answer(result)).toBe(result);
+   expect(event(result,{type:'ready'})).toBe(result);
+   const paused=event(s,{type:'pause'});expect(answer(paused)).toBe(paused);
+   expect(answer(event(paused,{type:'resume'})).phase).toBe('feedback');
+  }
+ });
+ it('accepts typed answers while reading again without waiting for narration',()=>{
+  const s=fresh(config({topic:'math'})),slot=s.slots.find(slot=>slot.input)!;
+  const question=event(land(s,s.map.find(n=>n.id===slot.nodeId)!.index),{type:'continue'});
+  expect(questionOf(question)?.input).toBe(true);
+  const listening=event(question,{type:'listen'});expect(listening.questionReady).toBe(false);
+  const result=answer(listening);expect(result.phase).toBe('feedback');expect(result.feedback?.correct).toBe(true);
+ });
  it('timeout costs exactly once; standard mode does not count down',()=>{let s=toQuestion(fresh(config({mode:'challenge'})));s=event({...s,questionMs:timeLimit(s)-200},{type:'tick',ms:300});expect(s.phase).toBe('feedback');expect(s.energy).toBe(2);expect(s.feedback?.timedOut).toBe(true);expect(event(s,{type:'tick',ms:1000}).energy).toBe(2);expect(event(toQuestion(),{type:'tick',ms:1000}).questionMs).toBe(0);});
  it('rejects old branching snapshots, corrupt maps and forged incomplete victory',()=>{const s=win();expect(validSession({...s,version:2})).toBe(false);expect(validSession({...s,map:s.map.slice(0,10)})).toBe(false);expect(validSession({...s,questionMs:NaN})).toBe(false);expect(validSession({...s,attempts:{}})).toBe(false);expect(validSession({...s,prepared:{...s.prepared,hash:'x'}})).toBe(false);});
 });

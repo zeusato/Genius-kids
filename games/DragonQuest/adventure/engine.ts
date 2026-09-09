@@ -28,7 +28,8 @@ function arrive(s:Session):Session{
  return {...next,phase:'intro',encounter:s.encounter+1,bossTotal:calculateBossQuestions(s.buffs.holySword),pendingBuff:node.kind==='buff'?getRandomBuff(randomFor(s)):null,rngCount:s.rngCount+(node.kind==='buff'?1:0)};
 }
 function answer(s:Session,value:string,timedOut=false):Session{
- const q=questionOf(s);if(!q||s.phase!=='question'||!s.questionReady)return s;
+ // Narration readiness controls the challenge clock, never the player's answer.
+ const q=questionOf(s);if(!q||s.phase!=='question')return s;
  const key=attemptKey(s),old=attemptOf(s);if(old?.answers)return s;
  const ok=correct(q,value),node=nodeOf(s),entry:Attempt={slotId:q.slotId,answers:1,assisted:!!old?.assisted,resolved:ok,firstCorrect:ok&&!old?.assisted};
  const score=ok?node.kind==='boss'?SCORE.boss:node.kind==='buff'?SCORE.buff:SCORE.combat:0;

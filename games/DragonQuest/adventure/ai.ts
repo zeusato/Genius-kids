@@ -33,7 +33,7 @@ export function parseBatch(raw:string,config:Config,slots:Slot[],seed:number,exi
 }
 export type Generate=(body:ReturnType<typeof buildRequest>,signal:AbortSignal)=>Promise<string>;
 export const apiGenerator=(key:string):Generate=>async(body,signal)=>{
- const response=await geminiGenerateContent(key,body,{signal,maxAttempts:2});
+ const response=await geminiGenerateContent(key,body,{signal,maxAttempts:4});
  if(!response.ok)throw new Error(`AI ${response.status}`);
  const raw=await response.text();if(raw.length>2_500_000)throw new Error('Phản hồi quá lớn');const data=JSON.parse(raw);
  const text=data.candidates?.[0]?.content?.parts?.filter((p:any)=>!p.thought&&typeof p.text==='string').map((p:any)=>p.text).join('');

@@ -1,136 +1,139 @@
-// ============================================================================
-//  Gemini client dùng chung — TỰ ĐỘNG chọn model mới nhất (KHÔNG chỉ đích danh
-//  một phiên bản cụ thể) để khi Google cập nhật model thì tính năng không hỏng.
-//
-//  Cơ chế:
-//   1) Hỏi endpoint ListModels của Gemini để lấy danh sách model thực có với
-//      API key đó, rồi chọn model "flash" ỔN ĐỊNH, phiên bản CAO NHẤT
-//      (ưu tiên alias family-latest `gemini-flash-latest` nếu tồn tại). Kết quả
-//      được cache (bộ nhớ + localStorage, TTL 24h) để khỏi gọi lại mỗi lần.
-//   2) generateContent đi qua `geminiGenerateContent()`: nếu model trả 404
-//      (bị gỡ/đổi tên), tự khám phá lại + thử lần lượt các ứng viên dự phòng,
-//      và CACHE model nào chạy được → tự chữa lành, không cần sửa code.
-//
-//  Lưu ý: đây là API Google Gemini (không phải Anthropic/Claude).
-// ============================================================================
-
+// Shared text/JSON client. Discover available models, newest version first.
+// Cache the catalog, never the last fallback that happened to succeed.
 const BASE = 'https://generativelanguage.googleapis.com/v1beta';
-const listUrl = (key: string) => `${BASE}/models?key=${key}&pageSize=1000`;
-const genUrl = (model: string, key: string) => `${BASE}/models/${model}:generateContent?key=${key}`;
+const CACHE_TTL = 60 * 60 * 1000;
 
-const CACHE_KEY = 'mathgenius_gemini_model';
-const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 giờ
-
-// Alias "family-latest" của Google luôn trỏ tới flash mới nhất (không đích danh version).
-const FAMILY_LATEST = 'gemini-flash-latest';
-// Ứng viên dự phòng cuối cùng (model đang chạy tốt hiện tại) — chỉ dùng khi mọi cách trên thất bại.
-const SAFE_FALLBACK = 'gemini-2.5-flash';
-
-let memoModel: string | null = null;
+// Used only when ListModels cannot provide a usable catalog.
+// Verified 2026-09-09: https://ai.google.dev/gemini-api/docs/models
+const DISCOVERY_FALLBACKS = [
+    'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash',
+    'gemini-3.5-flash', 'gemini-flash-latest',
+];
+type Catalog = { apiKey: string; models: string[]; expiresAt: number };
+// Intentionally ignore the old unscoped localStorage "winning model" cache.
+// Changing keys or reloading the app now causes fresh discovery.
+let catalog: Catalog | null = null;
 
 const stripPrefix = (name: string) => name.replace(/^models\//, '');
+const aliases = ['gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-pro-latest'];
+const modelPattern = /^gemini-(\d+)(?:\.(\d+))?-(flash-lite|flash|pro)(?:-((?:preview|exp|latest|\d{3})(?:-\d{2,4})*))?$/;
 
-const readCache = (): { model: string; ts: number } | null => {
-    try {
-        const raw = localStorage.getItem(CACHE_KEY);
-        return raw ? JSON.parse(raw) : null;
-    } catch { return null; }
-};
-const writeCache = (model: string) => {
-    memoModel = model;
-    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ model, ts: Date.now() })); } catch { /* ignore */ }
-};
-
-/** Điểm phiên bản: "gemini-2.5-flash" → 205; càng cao càng mới. (export để test) */
+/** Handles both gemini-3-flash-preview and gemini-3.8-flash. */
 export const versionScore = (name: string): number => {
-    const m = name.match(/gemini-(\d+)\.(\d+)/);
-    return m ? parseInt(m[1], 10) * 100 + parseInt(m[2], 10) : 0;
+    const match = stripPrefix(name).match(/^gemini-(\d+)(?:\.(\d+))?-/);
+    return match ? Number(match[1]) * 100 + Number(match[2] || 0) : 0;
+};
+const stage = (suffix = '') => suffix.startsWith('exp') ? 2 : suffix.startsWith('preview') ? 1 : 0;
+const family = (name: string) => name === 'flash' ? 0 : name === 'pro' ? 1 : 2;
+const compareModels = (a: string, b: string): number => {
+    const av = a.match(modelPattern), bv = b.match(modelPattern);
+    // Unversioned aliases are a last resort: their target is not observable here.
+    if (!av || !bv) return av ? -1 : bv ? 1 : aliases.indexOf(a) - aliases.indexOf(b);
+    return versionScore(b) - versionScore(a)
+        || stage(av[4]) - stage(bv[4])
+        || family(av[3]) - family(bv[3])
+        || (bv[4] || '').localeCompare(av[4] || '', undefined, {numeric: true})
+        || a.localeCompare(b);
 };
 
-/** Chọn model tốt nhất từ danh sách ListModels: flash ổn định, version cao nhất. (export để test) */
-export const pickBest = (models: any[]): string | null => {
-    const gen = (models || [])
-        .filter(m => Array.isArray(m?.supportedGenerationMethods) && m.supportedGenerationMethods.includes('generateContent'))
-        .map(m => stripPrefix(m.name || ''))
-        .filter(Boolean);
-    if (gen.length === 0) return null;
-
-    // 1) Alias family-latest nếu API có (Google tự bảo trì = mới nhất).
-    if (gen.includes(FAMILY_LATEST)) return FAMILY_LATEST;
-
-    // 2) Flash "thuần" (không hậu tố preview/exp/lite/ngày tháng), version cao nhất.
-    const stableFlash = gen.filter(n => /^gemini-\d+(?:\.\d+)?-flash$/.test(n));
-    if (stableFlash.length) return stableFlash.sort((a, b) => versionScore(b) - versionScore(a))[0];
-
-    // 3) Bất kỳ flash nào không phải preview/exp.
-    const anyFlash = gen.filter(n => n.includes('flash') && !/preview|exp/i.test(n));
-    if (anyFlash.length) return anyFlash.sort((a, b) => versionScore(b) - versionScore(a))[0];
-
-    // 4) Bất kỳ model gemini hỗ trợ generateContent.
-    const anyGemini = gen.filter(n => n.startsWith('gemini')).sort((a, b) => versionScore(b) - versionScore(a));
-    return anyGemini[0] || null;
-};
-
-/** Trả về id model nên dùng (có cache). force=true để bỏ cache, khám phá lại. */
-export const resolveGeminiModel = async (apiKey: string, force = false, signal?: AbortSignal): Promise<string> => {
-    signal?.throwIfAborted();
-    if (!force) {
-        if (memoModel) return memoModel;
-        const cached = readCache();
-        if (cached && Date.now() - cached.ts < CACHE_TTL) { memoModel = cached.model; return cached.model; }
+/** Only general text models with generateContent; exclude image/audio/live/tools. */
+export const rankModels = (models: unknown): string[] => {
+    if (!Array.isArray(models)) return [];
+    const names: string[] = [];
+    for (const model of models) {
+        if (!model || typeof model.name !== 'string'
+            || !Array.isArray(model.supportedGenerationMethods)
+            || !model.supportedGenerationMethods.includes('generateContent')) continue;
+        const name = stripPrefix(model.name);
+        if (modelPattern.test(name) || aliases.includes(name)) names.push(name);
     }
+    return [...new Set(names)].sort(compareModels);
+};
+export const pickBest = (models: unknown): string | null => rankModels(models)[0] || null;
+
+export const resolveGeminiModels = async (apiKey: string, force = false, signal?: AbortSignal): Promise<string[]> => {
+    signal?.throwIfAborted();
+    if (!apiKey) throw new Error('Vui lòng cung cấp API Key để sử dụng AI.');
+    const cached = catalog?.apiKey === apiKey ? catalog : null;
+    if (!force && cached && cached.expiresAt > Date.now()) return [...cached.models];
     try {
-        const res = await fetch(listUrl(apiKey), { signal });
-        if (res.ok) {
-            const data = await res.json();
-            const best = pickBest(data?.models);
-            if (best) { writeCache(best); return best; }
+        const models: unknown[] = [], seenTokens = new Set<string>();
+        let pageToken = '';
+        do {
+            signal?.throwIfAborted();
+            const url = BASE + '/models?pageSize=1000' + (pageToken ? '&pageToken=' + encodeURIComponent(pageToken) : '');
+            const response = await fetch(url, {headers: {'x-goog-api-key': apiKey}, signal});
+            if (!response.ok) throw new Error('Model discovery failed');
+            const data = await response.json();
+            if (!Array.isArray(data?.models)) throw new Error('Invalid model catalog');
+            models.push(...data.models);
+            pageToken = typeof data.nextPageToken === 'string' ? data.nextPageToken : '';
+            if (pageToken && seenTokens.has(pageToken)) throw new Error('Repeated model page');
+            seenTokens.add(pageToken);
+        } while (pageToken);
+        signal?.throwIfAborted();
+        const ranked = rankModels(models);
+        if (ranked.length) {
+            catalog = {apiKey, models: ranked, expiresAt: Date.now() + CACHE_TTL};
+            return [...ranked];
         }
-    } catch { signal?.throwIfAborted(); /* offline / bị chặn → dùng dự phòng */ }
-    // Không khám phá được: ưu tiên cache cũ, rồi tới alias family-latest.
-    return readCache()?.model || FAMILY_LATEST;
+    } catch {
+        signal?.throwIfAborted();
+    }
+    // Discovery failure does not refresh the TTL or borrow another key's catalog.
+    return [...new Set([...DISCOVERY_FALLBACKS, ...(cached?.models || [])])].sort(compareModels);
+};
+export const resolveGeminiModel = async (apiKey: string, force = false, signal?: AbortSignal): Promise<string> =>
+    (await resolveGeminiModels(apiKey, force, signal))[0];
+
+const waitForRetry = (ms: number, signal?: AbortSignal) => {
+    signal?.throwIfAborted();
+    return new Promise<void>((resolve, reject) => {
+        const clean = () => { clearTimeout(timer); signal?.removeEventListener('abort', abort); };
+        const abort = () => { clean(); reject(signal?.reason); };
+        const timer = setTimeout(() => { clean(); resolve(); }, ms);
+        signal?.addEventListener('abort', abort, {once: true});
+    });
+};
+const retryDelay = (response: Response, attempt: number): number => {
+    const header = response.headers.get('Retry-After');
+    const serverDelay = header === null ? 0 : /^\d+(?:\.\d+)?$/.test(header)
+        ? Number(header) * 1000 : Math.max(0, Date.parse(header) - Date.now()) || 0;
+    return Math.max(serverDelay, Math.min(4000, 1000 * 2 ** (attempt - 1)) + Math.random() * 200);
 };
 
-/**
- * Gọi generateContent với model tự chọn. Trả về `Response` (caller tự xử lý
- * .ok / .json() như cũ). Tự chữa lành nếu model 404: khám phá lại + thử các
- * ứng viên dự phòng, cache model nào hoạt động.
- */
-export const geminiGenerateContent = async (apiKey: string, body: unknown, options: { signal?: AbortSignal; maxAttempts?: number } = {}): Promise<Response> => {
-    if (!apiKey) throw new Error('Vui lòng cung cấp API Key để sử dụng AI.');
-    options.signal?.throwIfAborted();
-    const primary = await resolveGeminiModel(apiKey, false, options.signal);
-    const candidates = [primary, FAMILY_LATEST, SAFE_FALLBACK];
+/** Try compatible versions in descending order; stop on key/payload errors. */
+export const geminiGenerateContent = async (
+    apiKey: string, body: unknown, options: {signal?: AbortSignal; maxAttempts?: number} = {},
+): Promise<Response> => {
+    const {signal} = options;
+    let candidates = await resolveGeminiModels(apiKey, false, signal);
     const tried = new Set<string>();
     const attemptLimit = Number.isFinite(options.maxAttempts) ? Math.max(1, Math.min(4, Math.floor(options.maxAttempts!))) : 4;
-    const post = (model: string) => fetch(genUrl(model, apiKey), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-        signal: options.signal,
-    });
-
-    let lastRes: Response | null = null;
-    for (let i = 0; i < candidates.length; i++) {
-        options.signal?.throwIfAborted();
-        if (tried.size >= attemptLimit) break;
-        const model = candidates[i];
-        if (!model || tried.has(model)) continue;
+    const payload = JSON.stringify(body);
+    let lastResponse: Response | undefined, refreshed = false;
+    while (candidates.length && tried.size < attemptLimit) {
+        signal?.throwIfAborted();
+        const model = candidates.shift()!;
+        if (tried.has(model)) continue;
         tried.add(model);
-
-        const res = await post(model);
-        if (res.status !== 404) {
-            // Thành công hoặc lỗi khác (key/mạng/quota) → cache model chạy được, trả về.
-            if (res.ok && model !== memoModel) writeCache(model);
-            return res;
-        }
-        lastRes = res;
-        // 404 ở model chính → thử khám phá lại 1 lần và chèn kết quả vào hàng đợi.
-        if (i === 0) {
-            const fresh = await resolveGeminiModel(apiKey, true, options.signal);
-            if (fresh && !tried.has(fresh)) candidates.splice(i + 1, 0, fresh);
+        const response = await fetch(BASE + '/models/' + model + ':generateContent', {
+            method: 'POST', headers: {'Content-Type': 'application/json', 'x-goog-api-key': apiKey},
+            body: payload, signal,
+        });
+        signal?.throwIfAborted();
+        // Model/status only: never log a key, prompt or answer.
+        if (import.meta.env.DEV) console.info('[Gemini]', {model, attempt: tried.size, status: response.status});
+        if (response.ok || ![404, 410, 408, 429, 500, 502, 503, 504].includes(response.status)) return response;
+        lastResponse = response;
+        if (tried.size >= attemptLimit) break;
+        if ((response.status === 404 || response.status === 410) && !refreshed) {
+            refreshed = true;
+            const fresh = await resolveGeminiModels(apiKey, true, signal);
+            candidates = [...new Set([...fresh, ...candidates])].filter(name => !tried.has(name)).sort(compareModels);
+        } else if (response.status !== 404 && response.status !== 410 && candidates.length) {
+            await waitForRetry(retryDelay(response, tried.size), signal);
         }
     }
-    // Tất cả đều 404 → trả response cuối để caller báo lỗi như bình thường.
-    return lastRes as Response;
+    return lastResponse!;
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowRight, Sword } from 'lucide-react';
 import { Event, Session } from './model';
 import { nodeOf, questionOf } from './engine';
@@ -10,7 +10,7 @@ import { QuestionView } from './QuestionView';
 type Command = Event extends infer T ? T extends Event ? Omit<T, 'sessionId'> : never : never;
 
 // This component stays mounted from the encounter cover through its answer.
-// The engine enters "question" only after the cover has finished fading.
+// The question becomes interactive as soon as the cover starts fading.
 export function EncounterQuestion({s, worldReady, reduced, send, onRead, onReady}: {
   s: Session; worldReady: boolean; reduced: boolean; send: (event: Command) => void;
   onRead: () => void; onReady: () => void;
@@ -35,20 +35,35 @@ export function EncounterQuestion({s, worldReady, reduced, send, onRead, onReady
     return () => media.removeEventListener('change', update);
   }, []);
 
-  useEffect(() => {
+  const reveal = useCallback(() => {
     if (s.phase !== 'intro' || s.paused || !worldReady) return;
-    const timer = window.setTimeout(() => {
-      if (view === 'cover') setView('revealing');
-      else { setView('open'); send({type: 'continue'}); }
-    }, view === 'cover' ? 1400 : view === 'revealing' && !reduceMotion ? 450 : 0);
+    setView(reduceMotion ? 'open' : 'revealing');
+    send({type: 'continue'});
+  }, [s.phase, s.paused, worldReady, reduceMotion, send]);
+
+  useEffect(() => {
+    if (view !== 'cover' || s.phase !== 'intro' || s.paused || !worldReady) return;
+    const timer = window.setTimeout(reveal, 1400);
     return () => window.clearTimeout(timer);
-  }, [s.phase, s.paused, worldReady, view, reduceMotion, send]);
+  }, [view, s.phase, s.paused, worldReady, reveal]);
+
+  useEffect(() => {
+    if (view !== 'revealing') return;
+    const timer = window.setTimeout(() => setView('open'), reduceMotion ? 0 : 450);
+    return () => window.clearTimeout(timer);
+  }, [view, reduceMotion]);
+
+  // Subsequent boss questions have no cover; enable them before their first paint.
+  useLayoutEffect(() => {
+    if (view === 'open' && s.phase === 'intro' && !s.paused && worldReady) send({type: 'continue'});
+  }, [view, s.phase, s.paused, worldReady, send]);
 
   useEffect(() => {
     if (!active) return;
+    if (!feedback && q.input) return;
     const target = content.current?.querySelector<HTMLElement>(feedback ? '.dq-continue' : '#dq-question-text');
     target?.focus({preventScroll: true});
-  }, [active, feedback]);
+  }, [active, feedback, q.input]);
 
   return <div className="dq-encounter-stage" data-encounter-view={view} data-phase={s.phase}>
     <div ref={content} className="dq-encounter-content" inert={!active} aria-hidden={!active}>
@@ -74,7 +89,7 @@ export function EncounterQuestion({s, worldReady, reduced, send, onRead, onReady
         <h2>{NODE_COPY[node.kind].title}</h2>
         <p>{NODE_COPY[node.kind].line}</p>
         {s.pendingBuff && <p className="dq-cover-gift">Món quà: {getBuffName(s.pendingBuff)}</p>}
-        <button className="dq-primary dq-wide" disabled={!worldReady || view !== 'cover'} onClick={() => setView('revealing')}>{NODE_COPY[node.kind].action}<ArrowRight size={18}/></button>
+        <button className="dq-primary dq-wide" disabled={!worldReady || view !== 'cover'} onClick={reveal}>{NODE_COPY[node.kind].action}<ArrowRight size={18}/></button>
       </div>
     </div>}
   </div>;
