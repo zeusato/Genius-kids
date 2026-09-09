@@ -14,19 +14,21 @@ interface MusicControlsProps {
     className?: string;
     vertical?: boolean;
     hideSound?: boolean;
+    variant?: 'default' | 'hub';
 }
 
-export function MusicControls({ className = '', vertical = false, hideSound = false }: MusicControlsProps) {
+export function MusicControls({ className = '', vertical = false, hideSound = false, variant = 'default' }: MusicControlsProps) {
     const { musicEnabled, soundEnabled, toggleMusic, toggleSound } = useMusicControls();
 
     const buttonBaseClass = 'p-2.5 rounded-lg transition-all hover:scale-110 active:scale-95';
 
     return (
-        <div className={`flex ${vertical ? 'flex-col' : 'items-center'} gap-2 ${className}`}>
+        <div className={variant === 'hub' ? `hub-audio ${className}` : `flex ${vertical ? 'flex-col' : 'items-center'} gap-2 ${className}`}>
             {/* Music Toggle */}
             <button
                 onClick={toggleMusic}
-                className={`${buttonBaseClass} ${musicEnabled
+                aria-pressed={musicEnabled}
+                className={variant === 'hub' ? 'hub-icon' : `${buttonBaseClass} ${musicEnabled
                     ? 'bg-brand-100 text-brand-600 hover:bg-brand-200'
                     : 'bg-slate-200 text-slate-400 hover:bg-slate-300'
                     }`}
@@ -44,7 +46,8 @@ export function MusicControls({ className = '', vertical = false, hideSound = fa
             {!hideSound && (
                 <button
                     onClick={toggleSound}
-                    className={`${buttonBaseClass} ${soundEnabled
+                    aria-pressed={soundEnabled}
+                    className={variant === 'hub' ? 'hub-icon' : `${buttonBaseClass} ${soundEnabled
                         ? 'bg-brand-100 text-brand-600 hover:bg-brand-200'
                         : 'bg-slate-200 text-slate-400 hover:bg-slate-300'
                         }`}

@@ -77,8 +77,13 @@ export default defineConfig(({ mode }) => {
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}', 'audio/**/*.mp3', 'dragon/*.glb'],
-          globIgnores: ['**/speed-math/art/**', '**/speed-preview.html'],
+          globIgnores: ['**/speed-math/art/**', '**/hub/art/**', '**/speed-preview.html', '**/hub-preview.html'],
           runtimeCaching: [
+            {
+              urlPattern: /\/Genius-kids\/hub\/art\/[^/]+\.webp$/,
+              handler: 'CacheFirst',
+              options: { cacheName: 'discovery-hub-art-v1', expiration: { maxEntries: 24, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
+            },
             {
               urlPattern: /\/Genius-kids\/speed-math\/art\/[^/]+\.webp$/,
               handler: 'CacheFirst',

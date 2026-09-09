@@ -1,8 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { SudokuGame } from './games/Sudoku/SudokuGame';
-import GearsGamePage from './games/GearsGame/GearsGamePage';
-import { MathRacingGame as __PreviewRace } from './games/MathRacing/MathRacingGame'; // TEMP-PREVIEW
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
@@ -16,6 +13,9 @@ import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { X, Download, Loader2, CheckCircle } from 'lucide-react';
 
 // Lazy load pages for performance
+const SudokuGame = React.lazy(() => import('./games/Sudoku/SudokuGame').then(module => ({ default: module.SudokuGame })));
+const GearsGamePage = React.lazy(() => import('./games/GearsGame/GearsGamePage'));
+const __PreviewRace = React.lazy(() => import('./games/MathRacing/MathRacingGame').then(module => ({ default: module.MathRacingGame })));
 const HomePage = React.lazy(() => import('@/src/pages/HomePage').then(module => ({ default: module.HomePage })));
 const ModeSelectionPage = React.lazy(() => import('@/src/pages/ModeSelectionPage').then(module => ({ default: module.ModeSelectionPage })));
 const StudyPage = React.lazy(() => import('@/src/pages/StudyPage').then(module => ({ default: module.StudyPage })));
