@@ -77,7 +77,13 @@ export default defineConfig(({ mode }) => {
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}', 'audio/**/*.mp3', 'dragon/*.glb'],
+          globIgnores: ['**/speed-math/art/**', '**/speed-preview.html'],
           runtimeCaching: [
+            {
+              urlPattern: /\/Genius-kids\/speed-math\/art\/[^/]+\.webp$/,
+              handler: 'CacheFirst',
+              options: { cacheName: 'speed-arcade-art-v1', expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
+            },
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
               handler: 'CacheFirst',

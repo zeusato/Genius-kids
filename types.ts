@@ -75,6 +75,7 @@ export interface GameResult {
   memory?: import('./games/MemoryMatch/engine/model').MemoryRecord;
   sound?: import('./games/SoundMemory/engine/game').SoundRecord;
   dragon?: import('./games/DragonQuest/adventure/model').DragonRecord;
+  speed?: import('./games/SpeedMath/arcade/model').ArcadeRecord;
 }
 
 export enum QuestionType {

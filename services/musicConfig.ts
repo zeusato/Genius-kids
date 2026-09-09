@@ -42,7 +42,7 @@ export function getMusicTrackForRoute(pathname: string): MusicTrack {
     if (normalizedPath.includes('dragonquest')) {
         return MusicTrack.DRAGON_QUEST;
     }
-    if (normalizedPath.includes('speedmath')) {
+    if (normalizedPath.includes('speedmath') || normalizedPath.includes('speed-math')) {
         return MusicTrack.SPEED_MATH;
     }
     if (normalizedPath.includes('riddle')) {

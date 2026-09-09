@@ -147,7 +147,8 @@ export const checkAchievements = (profile: StudentProfile): { unlocked: Achievem
             case 'game_win':
                 // key format: gameType or gameType_difficulty
                 const key = ach.difficulty ? `${ach.gameType}_${ach.difficulty}` : ach.gameType;
-                if (key) currentValue = stats.gameWins?.[key] || 0;
+                // Old and new SpeedMath sessions were recorded under separate game keys.
+                if (key) currentValue = key === 'speed' ? (stats.gameWins?.speed || 0) + (stats.gameWins?.['speed-math'] || 0) : stats.gameWins?.[key] || 0;
                 break;
             case 'game_score':
                 // High score for a specific game

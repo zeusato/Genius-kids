@@ -348,7 +348,7 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/games/speed-math" element={<ProtectedRoute><SpeedMathGame difficulty="easy" onBack={() => window.history.back()} onComplete={() => { }} /></ProtectedRoute>} />
+              <Route path="/games/speed-math" element={<ProtectedRoute><SpeedMathGame difficulty="easy" onBack={() => window.history.back()} /></ProtectedRoute>} />
               <Route path="/games/gears" element={<ProtectedRoute><GearsGamePage difficulty="easy" onBack={() => window.history.back()} /></ProtectedRoute>} />
               <Route
                 path="/science"

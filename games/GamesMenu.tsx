@@ -73,10 +73,6 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
             <SpeedMathGame
                 difficulty={getSoundDifficulty(difficulty)}
                 onBack={() => setActiveGame(null)}
-                onComplete={(score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => {
-                    onGameComplete('speed-math', score, maxScore, medal);
-                    setActiveGame(null);
-                }}
             />
         );
     }
@@ -291,14 +287,14 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
                                     Đua Tốc Độ
                                 </h3>
                                 <p className="text-slate-600 text-lg mb-6">
-                                    Trả lời nhanh các câu hỏi Toán, Tiếng Việt và Tự nhiên xã hội trước khi hết giờ!
+                                    Đấu Trường Tia Chớp: chọn đáp án, nối cặp và xếp thẻ để thắp sáng sân khấu cùng robot Tia!
                                 </p>
 
                                 <button
                                     onClick={() => setActiveGame('speed-math')}
                                     className="px-8 py-4 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                                 >
-                                    🏎️ Chơi ngay!
+                                    ⚡ Vào đấu trường!
                                 </button>
                             </div>
                         </div>
