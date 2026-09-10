@@ -17,7 +17,7 @@ describe('hub entry contracts', () => {
         }
     });
     it('requires configuration before launching old games and gear activities', () => {
-        for (const query of ['play=math-racing','play=gears-build','play=gears-guess','play=memory&edition=classic','play=sound-memory&edition=classic','play=dragon-quest&edition=classic']) {
+        for (const query of ['play=math-racing&edition=classic','play=gears-build','play=gears-guess','play=memory&edition=classic','play=sound-memory&edition=classic','play=dragon-quest&edition=classic']) {
             expect(resolve(query)?.needsSetup).toBe(true);
             expect(resolve(query + '&level=medium')).toMatchObject({ needsSetup:false, level:'medium' });
         }
@@ -34,7 +34,7 @@ describe('hub entry contracts', () => {
             expect(resolve('play=' + id, 3, old)).toMatchObject({ classic:true, needsSetup:true });
             expect(resolve('play=' + id + '&level=hard', 3, old)).toMatchObject({ classic:true, needsSetup:false, level:'hard' });
         }
-        expect(resolve('play=math-racing&level=impossible')?.needsSetup).toBe(true);
+        expect(resolve('play=math-racing&edition=classic&level=impossible')?.needsSetup).toBe(true);
         expect(resolve('play=memory&edition=classic&level=hard', Grade.Preschool)?.needsSetup).toBe(true);
     });
     it('falls back to the catalog for missing or unknown games', () => {
@@ -42,5 +42,12 @@ describe('hub entry contracts', () => {
     });
     it('does not let edition parameters change other game types', () => {
         expect(resolve('play=speed-math&edition=classic&level=hard')).toMatchObject({ id:'speed-math', classic:false, needsSetup:false, level:'easy' });
+    });
+    it('opens Racing garage once and gives an explicit valid URL level priority over preferences', () => {
+        expect(resolve('play=math-racing')).toMatchObject({ classic: false, needsSetup: false, level: 'easy' });
+        expect(resolve('play=math-racing')?.requestedLevel).toBeUndefined();
+        for (const level of ['easy', 'medium', 'hard']) expect(resolve('play=math-racing&level=' + level)).toMatchObject({ needsSetup: false, level, requestedLevel: level });
+        expect(resolve('play=math-racing&level=impossible')?.requestedLevel).toBeUndefined();
+        expect(resolve('play=math-racing', 3, { ...modern, racing: true })).toMatchObject({ classic: true, needsSetup: true });
     });
 });

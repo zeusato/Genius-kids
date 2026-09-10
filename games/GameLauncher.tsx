@@ -11,6 +11,7 @@ const SoundClassic = lazy(() => import('./SoundMemory/SoundMemoryGame').then(m =
 const DragonClassic = lazy(() => import('./DragonQuest/DragonQuestGame').then(m => ({ default: m.DragonQuestGame })));
 const SpeedMath = lazy(() => import('./SpeedMath/SpeedMathGame').then(m => ({ default: m.SpeedMathGame })));
 const Racing = lazy(() => import('./MathRacing/MathRacingGame').then(m => ({ default: m.MathRacingGame })));
+const RacingCup = lazy(() => import('./MathRacing/cup/RacingCupEntry'));
 const Sudoku = lazy(() => import('./Sudoku/SudokuGame').then(m => ({ default: m.SudokuGame })));
 const GearsBuild = lazy(() => import('./GearsGame/GearsGamePage'));
 const GearsGuess = lazy(() => import('./GearsGame/GuessDirectionGame'));
@@ -33,7 +34,7 @@ export function GameLauncher({ entry, onBack, onLegacy, onComplete }: { entry: G
         case 'sound-memory': game = classic ? <SoundClassic difficulty={level} onExit={onBack} onComplete={complete(id)}/> : <SoundAdventure onExit={onBack} onLegacy={onLegacy}/>; break;
         case 'dragon-quest': game = classic ? <DragonClassic difficulty={level} onBack={onBack} onComplete={complete(id)}/> : <DragonAdventure onExit={onBack} onLegacy={onLegacy}/>; break;
         case 'speed-math': game = <SpeedMath difficulty="easy" onBack={onBack}/>; break;
-        case 'math-racing': game = <Racing difficulty={level} onExit={onBack}/>; break;
+        case 'math-racing': game = classic ? <Racing difficulty={level} onExit={onBack}/> : <RacingCup difficulty={entry.requestedLevel} onExit={onBack} onLegacy={onLegacy}/>; break;
         case 'sudoku': game = <Sudoku onExit={onBack}/>; break;
         case 'gears-build': game = <GearsBuild difficulty={level} onBack={onBack}/>; break;
         case 'gears-guess': game = <GearsGuess difficulty={level} onBack={onBack}/>; break;

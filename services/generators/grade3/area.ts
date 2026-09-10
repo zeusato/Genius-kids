@@ -1,10 +1,11 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 import { rectSVG, squareSVG } from '../svg';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(arr: T[]): T[] => {
     const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
 };
 const opts = (ans: number, cands: number[], unit: string): string[] => {
@@ -19,7 +20,7 @@ const opts = (ans: number, cands: number[], unit: string): string[] => {
  * (Chuẩn GDPT 2018 lớp 3: diện tích, đơn vị cm²; chu vi/diện tích HCN, hình vuông.)
  */
 export const generateG3Area = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
+    const r = generatorRandom();
 
     // 1. Diện tích hình chữ nhật (30%)
     if (r < 0.3) {

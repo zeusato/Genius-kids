@@ -1,24 +1,25 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+import { generateWrongAnswersWithSameUnits } from '../distractors';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
 };
 
 export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     // 1. Add/subtract without carry (20%)
     if (type < 0.2) {
-        const isAdd = Math.random() > 0.5;
+        const isAdd = generatorRandom() > 0.5;
         if (isAdd) {
             const a = randomInt(100, 4000);
             const b = randomInt(100, 5000 - a);
@@ -46,7 +47,7 @@ export const generateG3Arithmetic = (): Omit<Question, 'id' | 'topicId'> => {
 
     // 2. Add/subtract with carry (25%)
     else if (type < 0.45) {
-        const isAdd = Math.random() > 0.5;
+        const isAdd = generatorRandom() > 0.5;
         if (isAdd) {
             const a = randomInt(567, 4567);
             const b = randomInt(345, 3456);

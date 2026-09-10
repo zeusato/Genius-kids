@@ -755,6 +755,18 @@
         ]
     },
     {
+        "id": "meteor_cup_explorer",
+        "type": "racing_missions",
+        "title": "Cúp Sao Băng",
+        "description": "Hoàn thành các chặng đua Cúp Sao Băng",
+        "icon": "Car",
+        "tiers": [
+            { "tier": "bronze", "value": 1, "rewardStars": 2 },
+            { "tier": "silver", "value": 4, "rewardStars": 5 },
+            { "tier": "gold", "value": 12, "rewardStars": 10 }
+        ]
+    },
+    {
         "id": "racing_champion",
         "type": "game_win",
         "gameType": "math_racing",

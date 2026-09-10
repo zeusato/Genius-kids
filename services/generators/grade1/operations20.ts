@@ -1,17 +1,18 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
 };
 
 export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
-    const questionTypeRand = Math.random();
+    const questionTypeRand = generatorRandom();
 
     if (questionTypeRand < 0.2) {
         // SelectWrong
@@ -23,7 +24,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
         let attempts = 0;
         while (correctExpressions.length < 3 && attempts < 30) {
             attempts++;
-            if (Math.random() > 0.5) {
+            if (generatorRandom() > 0.5) {
                 // Addition
                 const a = randomInt(1, target - 1);
                 const b = target - a;
@@ -51,7 +52,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
             attempts++;
             const a = randomInt(1, 20);
             const b = randomInt(0, a);
-            const op = Math.random() > 0.5 ? '+' : '-';
+            const op = generatorRandom() > 0.5 ? '+' : '-';
             const result = op === '+' ? a + b : a - b;
             if (result !== target && result >= 0 && result <= 30) {
                 wrongExpression = `${a} ${op} ${b}`;
@@ -74,7 +75,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
         let attempts = 0;
         while (correctOps.size < 2 && attempts < 20) {
             attempts++;
-            if (Math.random() > 0.5) {
+            if (generatorRandom() > 0.5) {
                 const a = randomInt(0, target);
                 const b = target - a;
                 if (a <= 20 && b <= 20) {
@@ -94,7 +95,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
             attempts++;
             const a = randomInt(1, 20);
             const b = randomInt(0, 20);
-            const op = Math.random() > 0.5 ? '+' : '-';
+            const op = generatorRandom() > 0.5 ? '+' : '-';
             const expr = `${a} ${op} ${b}`;
             const result = op === '+' ? a + b : a - b;
             if (result !== target && result >= 0 && !correctOps.has(expr)) {
@@ -111,7 +112,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
         };
     } else {
         // SingleChoice
-        const type = Math.random();
+        const type = generatorRandom();
 
         if (type < 0.33) {
             // Addition within 20
@@ -139,7 +140,7 @@ export const generateOperations20 = (): Omit<Question, 'id' | 'topicId'> => {
             };
         } else {
             // Word problem
-            const isAdd = Math.random() > 0.5;
+            const isAdd = generatorRandom() > 0.5;
             if (isAdd) {
                 const a = randomInt(5, 10);
                 const b = randomInt(5, 10);

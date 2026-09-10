@@ -1,13 +1,14 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+import { generateWrongAnswersWithSameUnits } from '../distractors';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -113,11 +114,11 @@ const findMissingNumber = (
 
 export const generateG4Parentheses = (): Omit<Question, 'id' | 'topicId'> => {
     // 60% only +/-, 40% with */÷
-    const useMultDiv = Math.random() > 0.6;
+    const useMultDiv = generatorRandom() > 0.6;
     const minNum = 10;
     const maxNum = 999;
 
-    const exerciseType = Math.random();
+    const exerciseType = generatorRandom();
 
     // 1. Calculate result (30%)
     if (exerciseType < 0.3) {

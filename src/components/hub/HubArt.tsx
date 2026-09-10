@@ -5,6 +5,7 @@ import { Picture } from '../../../games/MemoryMatch/components/Picture';
 import { BandStage } from '../../../games/SoundMemory/components/BandStage';
 import { RoverPortrait } from '../../../games/KidCoder/rendering/RoverPortrait';
 import type { ArtId } from './catalog';
+import { RacingCover } from '../../../games/MathRacing/cup/RacingCover';
 
 const asset = (file: string) => `${import.meta.env.BASE_URL}hub/art/${file}`;
 function ArtImage({ name, className = '', eager = false }: { name: string; className?: string; eager?: boolean }) {
@@ -37,7 +38,7 @@ export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }
     else if (kind === 'dragon-quest') art = <><ArtImage name="forest" eager={eager}/><ArtImage name="knight" className="hub-knight" eager={eager}/></>;
     else if (kind === 'coding') art = <><span className="hub-planet"/><span className="hub-orbit"/><RoverPortrait color="#91d9c0"/><span className="hub-code-blocks"><b>↑</b><b>↱</b><b>↑</b></span></>;
     else if (kind === 'game') art = <><span className="hub-game-orbit"/><span className="hub-game-card"><Picture id="fox"/></span><ArtImage name="tia" className="hub-game-tia" eager={eager}/><span className="hub-game-note">♫</span><span className="hub-game-star">✦</span></>;
-    else if (kind === 'math-racing') art = <><svg className="hub-road" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid slice"><path d="M0 165Q100 63 190 132T480 125V270H0" fill="#afcbb5"/><path d="M171 78H253L406 270H27Z" fill="#66837e"/><path d="M207 89 201 111M196 128 181 165M167 197 143 250" stroke="#f2e5bc" strokeWidth="8"/><path d="M165 81 24 270M259 81 410 270" stroke="#e4d9b5" strokeWidth="7"/></svg><ArtImage name="car" className="hub-car" eager={eager}/></>;
+    else if (kind === 'math-racing') art = <RacingCover/>;
     else if (kind === 'sudoku') art = <SudokuScene/>;
     else if (kind.startsWith('gears')) art = <GearScene reverse={kind === 'gears-guess'}/>;
     else if (kind === 'alphabet') art = <div className="hub-learning-blocks"><b>A</b><b>B</b><b>C</b></div>;

@@ -25,7 +25,7 @@ export const GAME_CATALOG: HubEntry<GameId>[] = [
     { id: 'sound-memory', title: 'Giai Điệu Vui Nhộn', subtitle: 'Ban Nhạc Tí Hon', description: 'Nghe giai điệu, gõ nhịp và viết bài nhạc.', art: 'sound-memory', label: 'ÂM NHẠC' },
     { id: 'speed-math', title: 'Đua Tốc Độ', subtitle: 'Đấu Trường Tia Chớp', description: 'Chọn, nối, xếp để thắp sáng sân khấu!', art: 'speed-math', label: 'PHẢN XẠ & TƯ DUY' },
     { id: 'dragon-quest', title: 'Đại Chiến Rồng Thần', subtitle: 'Hành trình của dũng sĩ', description: 'Cưỡi ngựa qua 5 vùng đất, đánh thức rồng.', art: 'dragon-quest', label: 'PHIÊU LƯU' },
-    { id: 'math-racing', title: 'Đường Đua Thần Tốc', subtitle: 'Tay lái toán học', description: 'Lái xe, tránh vật cản và chọn đáp án.', art: 'math-racing', label: 'LÁI XE & TÍNH NHẨM' },
+    { id: 'math-racing', title: 'Đường Đua Thần Tốc', subtitle: 'Cúp Sao Băng', description: 'Tính thật chắc, nạp nitro, bứt phá về đích!', art: 'math-racing', label: 'LÁI XE & TÍNH NHẨM' },
     { id: 'sudoku', title: 'Sudoku Logic', subtitle: 'Mỗi con số, một khám phá', description: 'Tìm vị trí đúng cho những con số.', art: 'sudoku', label: 'LOGIC' },
     { id: 'gears-menu', title: 'Kỹ Sư Máy Móc', subtitle: 'Xưởng máy sáng tạo', description: 'Kết nối bánh răng, đánh thức cỗ máy.', art: 'gears-menu', label: 'LẮP RÁP & SUY LUẬN' },
 ];
@@ -39,18 +39,19 @@ export function modesFor(grade?: Grade) {
 export function gamesFor(grade?: Grade) {
     return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'memory' || g.id === 'sound-memory') : GAME_CATALOG;
 }
-export interface LegacyFlags { memory: boolean; sound: boolean; dragon: boolean }
-export interface GameEntry { id: GameId; classic: boolean; level: Level; needsSetup: boolean }
+export interface LegacyFlags { memory: boolean; sound: boolean; dragon: boolean; racing?: boolean }
+export interface GameEntry { id: GameId; classic: boolean; level: Level; needsSetup: boolean; requestedLevel?: Level }
 // Apply the same grade gate to cards, direct links and browser Forward.
 export function resolveEntry(params: URLSearchParams, grade: Grade | undefined, flags: LegacyFlags): GameEntry | null {
     const id = params.get('play') as GameId;
     if (![...GAME_CATALOG, ...GEAR_CATALOG].some(g => g.id === id)) return null;
     if (isPreschool(grade) && id !== 'memory' && id !== 'sound-memory') return null;
-    const classic = ['memory', 'sound-memory', 'dragon-quest'].includes(id) && (params.get('edition') === 'classic' || (id === 'memory' ? flags.memory : id === 'sound-memory' ? flags.sound : flags.dragon));
+    const classic = ['memory', 'sound-memory', 'dragon-quest', 'math-racing'].includes(id) && (params.get('edition') === 'classic' || (id === 'memory' ? flags.memory : id === 'sound-memory' ? flags.sound : id === 'dragon-quest' ? flags.dragon : !!flags.racing));
     const raw = params.get('level');
     const valid = ['easy', 'medium', 'hard'].includes(raw || '') && !(isPreschool(grade) && raw === 'hard');
-    const needsLevel = classic || id === 'math-racing' || id === 'gears-build' || id === 'gears-guess';
-    return { id, classic, level: needsLevel && valid ? raw as Level : 'easy', needsSetup: needsLevel && !valid };
+    const needsLevel = classic || id === 'gears-build' || id === 'gears-guess';
+    return { id, classic, level: (needsLevel || id === 'math-racing') && valid ? raw as Level : 'easy', needsSetup: needsLevel && !valid,
+        ...(id === 'math-racing' && !classic && valid ? { requestedLevel: raw as Level } : {}) };
 }
 export function gameTitle(id: GameId) {
     return [...GAME_CATALOG, ...GEAR_CATALOG].find(g => g.id === id)?.title || 'Trò chơi';

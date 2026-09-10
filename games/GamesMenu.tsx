@@ -10,7 +10,7 @@ import { gamesFor, GEAR_CATALOG, resolveEntry, gameTitle, type GameId, type Leve
 import { GameLauncher, type LegacyComplete } from './GameLauncher';
 
 interface GamesMenuProps { grade?: Grade; onBack: () => void; onGameComplete: LegacyComplete }
-const flags = { memory: import.meta.env.VITE_MEMORY_V2 === 'false', sound: import.meta.env.VITE_SOUND_V2 === 'false', dragon: import.meta.env.VITE_DRAGON_V2 === 'false' };
+const flags = { memory: import.meta.env.VITE_MEMORY_V2 === 'false', sound: import.meta.env.VITE_SOUND_V2 === 'false', dragon: import.meta.env.VITE_DRAGON_V2 === 'false', racing: import.meta.env.VITE_RACING_V2 === 'false' };
 
 export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameComplete }) => {
     const { currentStudent } = useStudent();

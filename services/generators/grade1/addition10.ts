@@ -1,10 +1,11 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -27,7 +28,7 @@ const createAdditionSVG = (a: number, b: number) => {
 
 export const generateAddition10 = (): Omit<Question, 'id' | 'topicId'> => {
     // Random question type: 60% SingleChoice, 20% SelectWrong, 20% MultipleSelect
-    const questionTypeRand = Math.random();
+    const questionTypeRand = generatorRandom();
 
     if (questionTypeRand < 0.2) {
         // SelectWrong: Find the wrong sum
@@ -105,7 +106,7 @@ export const generateAddition10 = (): Omit<Question, 'id' | 'topicId'> => {
         };
     } else {
         // SingleChoice - existing variations
-        const type = Math.random();
+        const type = generatorRandom();
 
         if (type < 0.3) {
             // Visual addition

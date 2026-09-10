@@ -1,13 +1,14 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+import { generateWrongAnswersWithSameUnits } from '../distractors';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -36,7 +37,7 @@ const createRatioSVG = (count1: number, count2: number, label1: string, label2: 
 };
 
 export const generateG5Ratios = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     // 1. Ratio of two quantities (15%)
     if (type < 0.15) {
@@ -105,7 +106,7 @@ export const generateG5Ratios = (): Omit<Question, 'id' | 'topicId'> => {
     else if (type < 0.65) {
         const original = randomInt(50, 200) * 1000;
         const percent = [10, 20, 25, 50][randomInt(0, 3)];
-        const isIncrease = Math.random() > 0.5;
+        const isIncrease = generatorRandom() > 0.5;
 
         const change = (original * percent) / 100;
         const newPrice = isIncrease ? original + change : original - change;

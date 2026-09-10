@@ -1,17 +1,18 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
 };
 
 export const generateNumbers100 = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     if (type < 0.4) {
         // Compare round numbers

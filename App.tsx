@@ -233,7 +233,7 @@ export default function App() {
           }>
             <Routes>
               {/* TEMP-PREVIEW */}
-              <Route path="/__race" element={<__PreviewRace difficulty="easy" onExit={() => { window.location.href = '/Genius-kids/__race'; }} />} />
+              {import.meta.env.DEV && <Route path="/__race" element={<__PreviewRace difficulty="easy" onExit={() => { window.location.href = '/Genius-kids/__race'; }} />} />}
               <Route
                 path="/"
                 element={

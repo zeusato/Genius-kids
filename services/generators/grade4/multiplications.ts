@@ -1,13 +1,14 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+import { generateWrongAnswersWithSameUnits } from '../distractors';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -16,7 +17,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 // Using generateWrongAnswersWithSameUnits from mathEngine
 
 export const generateMultiplication = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     // 1. Basic multiplication - 30%
     if (type < 0.3) {

@@ -1,11 +1,12 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -40,7 +41,7 @@ export const generateUniqueWrongAnswers = (correct: number, count: number = 3, d
         // e.g. for 2 decimals, adding 0.1, 0.2, 1.0, etc.
 
         const offsetInt = randomInt(1, 50) * 10; // Multiple of 10
-        const isNegative = Math.random() > 0.5;
+        const isNegative = generatorRandom() > 0.5;
         const finalOffsetInt = isNegative ? -offsetInt : offsetInt;
 
         const wrongInt = correctInteger + finalOffsetInt;
@@ -54,7 +55,7 @@ export const generateUniqueWrongAnswers = (correct: number, count: number = 3, d
     // Fallback: just random small offsets if we can't find enough
     while (wrongs.size < count) {
         const offset = randomInt(1, 20) / power; // Just change the last digit or close to it
-        const isNegative = Math.random() > 0.5;
+        const isNegative = generatorRandom() > 0.5;
         const val = Math.max(0, correct + (isNegative ? -offset : offset));
         if (val !== correct) {
             wrongs.add(roundToDecimals(val, decimals));
@@ -65,7 +66,7 @@ export const generateUniqueWrongAnswers = (correct: number, count: number = 3, d
 };
 
 export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     // 1. Add decimals (15%)
     if (type < 0.15) {

@@ -1,9 +1,10 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(arr: T[]): T[] => {
     const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
 };
 const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
@@ -36,7 +37,7 @@ const fourOpts = (correct: string, wrongs: string[]): string[] => {
  * (với số tự nhiên, với phân số). (Chuẩn GDPT 2018 lớp 4.)
  */
 export const generateG4FractionOps = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
+    const r = generatorRandom();
     const dens = [2, 3, 4, 5, 6];
 
     // 1. So sánh hai phân số khác mẫu (25%)
@@ -55,7 +56,7 @@ export const generateG4FractionOps = (): Omit<Question, 'id' | 'topicId'> => {
 
     // 2. Cộng / trừ khác mẫu (35%)
     if (r < 0.6) {
-        const isAdd = Math.random() > 0.5;
+        const isAdd = generatorRandom() > 0.5;
         const b = pick(dens), d = pick(dens.filter(x => x !== b));
         let a = randomInt(1, b - 1), c = randomInt(1, d - 1);
         // với phép trừ, đảm bảo kết quả không âm

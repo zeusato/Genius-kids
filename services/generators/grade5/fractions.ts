@@ -1,11 +1,12 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -25,7 +26,7 @@ const simplifyFraction = (num: number, den: number): [number, number] => {
 };
 
 export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+    const type = generatorRandom();
 
     // 1. Compare fractions (25%)
     if (type < 0.25) {
@@ -49,7 +50,7 @@ export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
         const den = randomInt(4, 12);
         const num1 = randomInt(1, den - 2);
         const num2 = randomInt(1, den - num1);
-        const isAdd = Math.random() > 0.5;
+        const isAdd = generatorRandom() > 0.5;
         const resultNum = isAdd ? num1 + num2 : num1 + num2;
         const resultDen = den;
         const [simNum, simDen] = simplifyFraction(isAdd ? num1 + num2 : num2, den);
@@ -75,7 +76,7 @@ export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
         const num1 = randomInt(1, 5);
         const den1 = randomInt(2, 8);
         const num2 = randomInt(2, 6);
-        const isMultiply = Math.random() > 0.5;
+        const isMultiply = generatorRandom() > 0.5;
 
         if (isMultiply) {
             const resultNum = num1 * num2;
@@ -146,7 +147,7 @@ export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
         // Simple decimal
         const decVal = randomInt(1, 9) / 10; // 0.1 to 0.9
 
-        const isAdd = Math.random() > 0.5;
+        const isAdd = generatorRandom() > 0.5;
         const result = isAdd ? fracVal + decVal : Math.abs(fracVal - decVal); // Ensure positive
 
         // If subtract and result is 0, regenerate or just accept 0

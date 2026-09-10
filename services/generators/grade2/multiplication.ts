@@ -1,9 +1,10 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const shuffleArray = <T,>(arr: T[]): T[] => {
     const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
 };
 const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
@@ -24,7 +25,7 @@ export const generateG2Multiplication = (): Omit<Question, 'id' | 'topicId'> => 
     const table = pick([2, 3, 4, 5]);
     const b = randomInt(1, 10);
     const ans = table * b;
-    const r = Math.random();
+    const r = generatorRandom();
 
     // 1. Chuyển tổng các số hạng bằng nhau thành phép nhân (25%)
     if (r < 0.25) {

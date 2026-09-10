@@ -1,11 +1,12 @@
+import { generatorRandom } from '../random';
 import { Question, QuestionType } from '../../../types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 
 const shuffleArray = <T,>(array: T[]): T[] => {
     const newArr = [...array];
     for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(generatorRandom() * (i + 1));
         [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
@@ -24,7 +25,7 @@ const generateWrongAnswers = (correct: number, count: number, range: number): st
 };
 
 export const generateG2AddSubCarry = (): Omit<Question, 'id' | 'topicId'> => {
-    const isAdd = Math.random() > 0.5;
+    const isAdd = generatorRandom() > 0.5;
     let a, b, ans;
 
     if (isAdd) {

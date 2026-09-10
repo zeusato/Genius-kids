@@ -154,6 +154,9 @@ export const checkAchievements = (profile: StudentProfile): { unlocked: Achievem
                 // High score for a specific game
                 if (ach.gameType) currentValue = stats.gameHighScores?.[ach.gameType] || 0;
                 break;
+            case 'racing_missions':
+                currentValue = new Set(profile.gameHistory.filter(g => g.racing?.version === 2 && g.racing.config.mode === 'campaign').map(g => g.racing!.config.mission)).size;
+                break;
             case 'total_stars_earned': currentValue = stats.totalStarsEarned; break;
             case 'total_cards': currentValue = realTotalCards; break;
             case 'rarity_count':

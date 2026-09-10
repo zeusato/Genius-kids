@@ -3,6 +3,8 @@ import { persistMission } from '../../games/KidCoder/progress/progress';
 import { persistMemory } from '../../games/MemoryMatch/progress/progress';
 import { persistDragon } from '../../games/DragonQuest/adventure/progress';
 import { persistArcade } from '../../games/SpeedMath/arcade/progress';
+import { clearRacingData, persistRacing } from '../../games/MathRacing/cup/progress';
+import type { Session as RacingSession } from '../../games/MathRacing/cup/model';
 import type { Session as ArcadeSession } from '../../games/SpeedMath/arcade/model';
 import type { Session as DragonSession } from '../../games/DragonQuest/adventure/model';
 import { persistSound, persistComposition, clearSoundProfileData } from '../../games/SoundMemory/progress/progress';
@@ -35,6 +37,7 @@ interface StudentActionsType {
     completeMemoryGame: (studentId: string, session: MemorySession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeDragonGame: (studentId: string, session: DragonSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeSpeedGame: (studentId: string, session: ArcadeSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    completeRacingGame: (studentId: string, session: RacingSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeSoundGame: (studentId: string, session: SoundSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     saveSoundComposition: (studentId: string, action: CompositionAction) => { ok: boolean; error?: string };
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
@@ -130,6 +133,14 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: true, earned: result.earned, bonusStars: result.bonusStars, achievementNames: result.achievementNames };
     }, [currentStudentId, setStudents]);
 
+    const completeRacingGame = useCallback((studentId: string, session: RacingSession) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current, result = persistRacing(snapshot, studentId, session, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: true, earned: result.earned, bonusStars: result.bonusStars, achievementNames: result.achievementNames };
+    }, [currentStudentId, setStudents]);
+
     const saveSoundComposition = useCallback((studentId: string, action: CompositionAction) => {
         if (studentId !== currentStudentId) return { ok: false, error: 'Hồ sơ đã thay đổi.' };
         const result = persistComposition(studentsRef.current, studentId, action, saveProfiles);
@@ -159,6 +170,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
 
     const deleteStudent = useCallback((id: string) => {
         clearSoundProfileData(id);
+        clearRacingData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -486,6 +498,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeMemoryGame,
         completeDragonGame,
         completeSpeedGame,
+        completeRacingGame,
         completeSoundGame,
         saveSoundComposition,
         setGachaResult,
