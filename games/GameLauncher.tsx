@@ -15,6 +15,7 @@ const RacingCup = lazy(() => import('./MathRacing/cup/RacingCupEntry'));
 const Sudoku = lazy(() => import('./Sudoku/SudokuGame').then(m => ({ default: m.SudokuGame })));
 const GearsBuild = lazy(() => import('./GearsGame/GearsGamePage'));
 const GearsGuess = lazy(() => import('./GearsGame/GuessDirectionGame'));
+const GearsWorkshop = lazy(() => import('./GearsGame/workshop/Entry'));
 
 export type LegacyComplete = (gameId: string, score: number, maxScore: number, medal: 'bronze' | 'silver' | 'gold' | null) => void;
 class LaunchBoundary extends React.Component<{ children: React.ReactNode; onBack: () => void }, { failed: boolean }> {
@@ -36,8 +37,8 @@ export function GameLauncher({ entry, onBack, onLegacy, onComplete }: { entry: G
         case 'speed-math': game = <SpeedMath difficulty="easy" onBack={onBack}/>; break;
         case 'math-racing': game = classic ? <Racing difficulty={level} onExit={onBack}/> : <RacingCup difficulty={entry.requestedLevel} onExit={onBack} onLegacy={onLegacy}/>; break;
         case 'sudoku': game = <Sudoku onExit={onBack}/>; break;
-        case 'gears-build': game = <GearsBuild difficulty={level} onBack={onBack}/>; break;
-        case 'gears-guess': game = <GearsGuess difficulty={level} onBack={onBack}/>; break;
+        case 'gears-build': game = classic ? <GearsBuild difficulty={level} onBack={onBack}/> : <GearsWorkshop difficulty={entry.requestedLevel} mode="build" onBack={onBack} onLegacy={onLegacy}/>; break;
+        case 'gears-guess': game = classic ? <GearsGuess difficulty={level} onBack={onBack}/> : <GearsWorkshop difficulty={entry.requestedLevel} mode="guess" onBack={onBack} onLegacy={onLegacy}/>; break;
         default: return null;
     }
     return <LaunchBoundary key={id + ':' + classic + ':' + level} onBack={onBack}><Suspense fallback={<div className="hub-loading" role="status"><Compass size={34}/><span>Đang mở thế giới của em…</span><button onClick={onBack}>Về danh sách trò chơi</button></div>}>{game}</Suspense></LaunchBoundary>;

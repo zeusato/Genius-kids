@@ -4,6 +4,8 @@ import { persistMemory } from '../../games/MemoryMatch/progress/progress';
 import { persistDragon } from '../../games/DragonQuest/adventure/progress';
 import { persistArcade } from '../../games/SpeedMath/arcade/progress';
 import { clearRacingData, persistRacing } from '../../games/MathRacing/cup/progress';
+import { clearWorkshopData, persistWorkshop } from '../../games/GearsGame/workshop/progress';
+import type { WorkshopRecord } from '../../games/GearsGame/workshop/model';
 import type { Session as RacingSession } from '../../games/MathRacing/cup/model';
 import type { Session as ArcadeSession } from '../../games/SpeedMath/arcade/model';
 import type { Session as DragonSession } from '../../games/DragonQuest/adventure/model';
@@ -38,6 +40,7 @@ interface StudentActionsType {
     completeDragonGame: (studentId: string, session: DragonSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeSpeedGame: (studentId: string, session: ArcadeSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeRacingGame: (studentId: string, session: RacingSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    completeGearsGame: (studentId: string, record: WorkshopRecord, seconds: number) => { ok: boolean; earned: number };
     completeSoundGame: (studentId: string, session: SoundSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     saveSoundComposition: (studentId: string, action: CompositionAction) => { ok: boolean; error?: string };
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
@@ -149,6 +152,14 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: true };
     }, [currentStudentId, setStudents]);
 
+    const completeGearsGame = useCallback((studentId: string, record: WorkshopRecord, seconds: number) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current, result = persistWorkshop(snapshot, studentId, record, seconds, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: true, earned: result.earned };
+    }, [currentStudentId, setStudents]);
+
     const setStudent = useCallback((student: StudentProfile | null) => {
         setCurrentStudentId(student ? student.id : null);
     }, []);
@@ -171,6 +182,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     const deleteStudent = useCallback((id: string) => {
         clearSoundProfileData(id);
         clearRacingData(id);
+        clearWorkshopData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -499,6 +511,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeDragonGame,
         completeSpeedGame,
         completeRacingGame,
+        completeGearsGame,
         completeSoundGame,
         saveSoundComposition,
         setGachaResult,

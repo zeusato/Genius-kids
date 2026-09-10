@@ -77,7 +77,7 @@ export default defineConfig(({ mode }) => {
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}', 'audio/**/*.mp3', 'dragon/*.glb'],
-          globIgnores: ['**/speed-math/art/**', '**/hub/art/**', '**/speed-preview.html', '**/hub-preview.html', '**/racing-preview.html'],
+          globIgnores: ['**/speed-math/art/**', '**/hub/art/**', '**/speed-preview.html', '**/hub-preview.html', '**/racing-preview.html', '**/gears-preview.html'],
           runtimeCaching: [
             {
               urlPattern: /\/Genius-kids\/hub\/art\/[^/]+\.webp$/,

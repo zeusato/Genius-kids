@@ -16,12 +16,18 @@ describe('hub entry contracts', () => {
             expect(resolve('play=' + id + '&level=easy', Grade.Preschool)).toBeNull();
         }
     });
-    it('requires configuration before launching old games and gear activities', () => {
-        for (const query of ['play=math-racing&edition=classic','play=gears-build','play=gears-guess','play=memory&edition=classic','play=sound-memory&edition=classic','play=dragon-quest&edition=classic']) {
+    it('requires configuration before launching classic games', () => {
+        for (const query of ['play=math-racing&edition=classic','play=gears-build&edition=classic','play=gears-guess&edition=classic','play=memory&edition=classic','play=sound-memory&edition=classic','play=dragon-quest&edition=classic']) {
             expect(resolve(query)?.needsSetup).toBe(true);
             expect(resolve(query + '&level=medium')).toMatchObject({ needsSetup:false, level:'medium' });
         }
         expect(resolve('play=gears-menu')?.needsSetup).toBe(false);
+    });
+    it('opens the workshop directly and honors explicit difficulty without inheriting the racing legacy flag',()=>{
+        for(const id of ['gears-build','gears-guess']){
+            expect(resolve('play='+id,3,{...modern,racing:true})).toMatchObject({classic:false,needsSetup:false});
+            expect(resolve('play='+id+'&level=hard')).toMatchObject({classic:false,needsSetup:false,level:'hard',requestedLevel:'hard'});
+        }
     });
     it('keeps modern setup authoritative and Speed defaults equal to its direct route', () => {
         for (const id of ['memory','sound-memory','dragon-quest','speed-math','sudoku']) {

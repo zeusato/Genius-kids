@@ -77,6 +77,7 @@ export interface GameResult {
   dragon?: import('./games/DragonQuest/adventure/model').DragonRecord;
   speed?: import('./games/SpeedMath/arcade/model').ArcadeRecord;
   racing?: import('./games/MathRacing/cup/model').RacingRecord;
+  gears?: import('./games/GearsGame/workshop/model').WorkshopRecord;
 }
 
 export enum QuestionType {
