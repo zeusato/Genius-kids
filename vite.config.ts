@@ -82,7 +82,7 @@ export default defineConfig(({ mode }) => {
             {
               urlPattern: /\/Genius-kids\/hub\/art\/[^/]+\.webp$/,
               handler: 'CacheFirst',
-              options: { cacheName: 'discovery-hub-art-v1', expiration: { maxEntries: 24, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
+              options: { cacheName: 'discovery-hub-art-v1', expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
             },
             {
               urlPattern: /\/Genius-kids\/speed-math\/art\/[^/]+\.webp$/,

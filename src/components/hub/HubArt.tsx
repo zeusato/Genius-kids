@@ -31,7 +31,7 @@ function SudokuScene() {
 }
 export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }) {
     let art: React.ReactNode;
-    if (['study', 'library', 'riddle', 'science'].includes(kind)) art = <ArtImage name={kind} eager={eager}/>;
+    if (['study', 'library', 'riddle', 'science'].includes(kind) || kind.startsWith('science-')) art = <ArtImage name={kind} eager={eager}/>;
     else if (kind === 'memory') art = <MemoryScene/>;
     else if (kind === 'sound-memory') art = <BandStage/>;
     else if (kind === 'speed-math') art = <><ArtImage name="station" eager={eager}/><ArtImage name="tia" className="hub-tia" eager={eager}/><span className="hub-lightning">✦</span><span className="hub-puzzle-chip">2 + 3 = 5</span></>;

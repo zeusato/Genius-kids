@@ -3,7 +3,8 @@ import { isPreschool } from '../../utils/grade';
 
 export type ModeId = 'study' | 'game' | 'library' | 'riddle' | 'coding' | 'science' | 'alphabet' | 'counting' | 'colors';
 export type GameId = 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess';
-export type ArtId = ModeId | GameId;
+export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
+export type ArtId = ModeId | GameId | `science-${ScienceId}`;
 export type Level = 'easy' | 'medium' | 'hard';
 export interface HubEntry<T extends string> { id: T; title: string; subtitle: string; description: string; art: ArtId; label: string }
 
@@ -35,6 +36,17 @@ export const GEAR_CATALOG: HubEntry<GameId>[] = [
 ];
 export function modesFor(grade?: Grade) {
     return isPreschool(grade) ? [...preschoolModes, ...modes.filter(m => ['game', 'library', 'science'].includes(m.id))] : modes;
+}
+export const SCIENCE_CATALOG: (HubEntry<ScienceId> & { route: `/science/${ScienceId}`; allowPreschool: boolean })[] = [
+    { id: 'solar-system', title: 'Khám Phá Hệ Mặt Trời', subtitle: 'Một chuyến đi vào vũ trụ', description: 'Ghé thăm các hành tinh và ngắm thế giới ngoài Trái Đất.', art: 'science-solar-system', label: 'THIÊN VĂN', route: '/science/solar-system', allowPreschool: true },
+    { id: 'planet-maker', title: 'Xưởng Hành Tinh', subtitle: 'Tạo thế giới của riêng em', description: 'Nặn núi, thêm biển và phủ xanh hành tinh của em.', art: 'science-planet-maker', label: 'SÁNG TẠO', route: '/science/planet-maker', allowPreschool: true },
+    { id: 'periodic-table', title: 'Bảng Tuần Hoàn', subtitle: 'Những viên gạch của vật chất', description: 'Làm quen các nguyên tố và quan sát mô hình nguyên tử.', art: 'science-periodic-table', label: 'HÓA HỌC', route: '/science/periodic-table', allowPreschool: false },
+    { id: 'electricity', title: 'Điện & Mạch Điện', subtitle: 'Tự tay thắp sáng bóng đèn', description: 'Nối linh kiện, thử công tắc và xem dòng điện chuyển động.', art: 'science-electricity', label: 'VẬT LÝ', route: '/science/electricity', allowPreschool: false },
+    { id: 'cell-biology', title: 'Khám Phá Tế Bào', subtitle: 'Cả thế giới trong một điều nhỏ', description: 'Nhìn vào tế bào động vật, thực vật và vi khuẩn.', art: 'science-cell-biology', label: 'SINH HỌC', route: '/science/cell-biology', allowPreschool: true },
+    { id: 'evolution', title: 'Cây Tiến Hóa', subtitle: 'Lần theo những nhánh sự sống', description: 'Tìm hiểu nguồn gốc và sự đa dạng của các loài sinh vật.', art: 'science-evolution', label: 'THẾ GIỚI TỰ NHIÊN', route: '/science/evolution', allowPreschool: false },
+];
+export function scienceFor(grade?: Grade) {
+    return isPreschool(grade) ? SCIENCE_CATALOG.filter(item => item.allowPreschool) : SCIENCE_CATALOG;
 }
 export function gamesFor(grade?: Grade) {
     return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'memory' || g.id === 'sound-memory') : GAME_CATALOG;

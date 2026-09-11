@@ -4,7 +4,7 @@ import sharp from 'sharp';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const [name, source] = process.argv.slice(2);
-if (!['study','library','riddle','science','station','tia','forest','knight','car'].includes(name) || !source) throw new Error('Expected cover name and local source');
+if (!['study','library','riddle','science','station','tia','forest','knight','car','science-solar-system','science-planet-maker','science-periodic-table','science-electricity','science-cell-biology','science-evolution'].includes(name) || !source) throw new Error('Expected cover name and local source');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../public/hub/art');
 for (const width of [800, 400]) {
     const suffix = width === 400 ? '-sm' : '';

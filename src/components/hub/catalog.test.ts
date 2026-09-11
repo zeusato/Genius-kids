@@ -1,10 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { Grade } from '../../../types';
-import { gamesFor, modesFor, resolveEntry, type LegacyFlags } from './catalog';
+import { gamesFor, modesFor, scienceFor, SCIENCE_CATALOG, resolveEntry, type LegacyFlags } from './catalog';
 
 const modern: LegacyFlags = { memory:false, sound:false, dragon:false };
 const resolve = (query: string, grade: Grade = 3, flags = modern) => resolveEntry(new URLSearchParams(query), grade, flags);
 describe('hub entry contracts', () => {
+    it('preserves the existing science destinations and preschool choices', () => {
+        expect(scienceFor(Grade.Preschool).map(item => item.id)).toEqual(['solar-system', 'planet-maker', 'cell-biology']);
+        const routes = ['/science/solar-system', '/science/planet-maker', '/science/periodic-table', '/science/electricity', '/science/cell-biology', '/science/evolution'];
+        for (const grade of [1, 2, 3, 4, 5] as const) expect(scienceFor(grade).map(item => item.route)).toEqual(routes);
+        expect(new Set(SCIENCE_CATALOG.map(item => item.id)).size).toBe(6);
+    });
     it('keeps preschool destinations and order, including grade zero', () => {
         expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','science']);
         expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['memory','sound-memory']);

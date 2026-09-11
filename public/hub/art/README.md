@@ -27,6 +27,21 @@ Shared prompt: Original premium children learning app cover illustration, tactil
 - **Riddle:** A friendly adorable young sphinx guardian with a cheerful face, golden sandstone body and a teal and honey gold ancient Egyptian headdress, seated beside a small sandstone puzzle gate with simple geometric carvings and small desert plants. Magical miniature world, welcoming and clever, no scary features. Single sphinx, clear broad silhouette.
 - **Science:** A miniature science observatory with a rounded ivory dome, a brass telescope pointing up, a beautiful orrery of colorful stylized planets orbiting a warm golden sun, and teal crystals on an oval platform. Curious magical science discovery mood, clear readable planets, no real astronomical labels.
 
+## Science subject covers
+
+Created 2026-09-11 in the same authorized Flow project: six Nano Banana 2 requests, landscape 16:9, one candidate each. Full prompts and Flow source IDs are recorded in [science-sources.json](science-sources.json).
+
+| File (plus `-sm` variant) | Purpose | Combined bytes |
+| --- | --- | ---: |
+| science-solar-system.webp | Solar system model and telescope | 32,548 |
+| science-planet-maker.webp | Handmade planet workshop | 36,266 |
+| science-periodic-table.webp | Chemistry cabinet and atom model | 24,990 |
+| science-electricity.webp | Battery, switch and glowing bulb | 17,544 |
+| science-cell-biology.webp | Microscope and cell model | 24,726 |
+| science-evolution.webp | Branching tree of life | 26,694 |
+
+All six selected covers were visually inspected in the menu. The 12 new responsive WebP files total **162,768 bytes**, using the same conversion settings above. These are decorative cover illustrations, not lesson diagrams. They are served locally; titles, subject labels and descriptions remain accessible HTML text.
+
 ## Font
 
 `../fonts/` bundles Nunito variable WOFF2 (Latin and Vietnamese subsets), 52,224 bytes combined, served locally with font-display swap. Source: Google Fonts CSS API, Nunito v32. The upstream SIL Open Font License is included in `../fonts/OFL.txt`. The CSS family name `HubNunito` scopes this choice to the hub.
