@@ -4,6 +4,7 @@ import { getDefaultThemeId } from './themeService';
 import { initializeShopDailyPhotos } from './shopService';
 import { initializeStats } from './achievementService';
 
+export const MAX_PROFILE_NAME_LENGTH = 50;
 const STORAGE_KEY = 'math_profiles';
 
 // Load all profiles from localStorage
@@ -35,9 +36,11 @@ export const createProfile = (name: string, grade: Grade, age?: number, avatarId
     const defaultAvatarId = avatarId || getRandomUnusedAvatar(usedAvatarIds);
     const defaultThemeId = getDefaultThemeId();
 
+    const sanitizedName = (name || '').trim().slice(0, MAX_PROFILE_NAME_LENGTH);
+
     const newProfile: StudentProfile = {
         id: Date.now().toString(),
-        name,
+        name: sanitizedName,
         // Lưu ý: Grade.Preschool = 0 là falsy → dùng ?? và xử lý riêng mầm non (~4 tuổi).
         age: age ?? (grade === Grade.Preschool ? 4 : grade + 6), // Rough estimate if not provided
         grade,
@@ -63,11 +66,15 @@ export const createProfile = (name: string, grade: Grade, age?: number, avatarId
 export const updateProfile = (profile: StudentProfile): StudentProfile[] => {
     const profiles = getAllProfiles();
     const index = profiles.findIndex(p => p.id === profile.id);
+    const sanitizedProfile: StudentProfile = {
+        ...profile,
+        name: typeof profile.name === 'string' ? profile.name.trim().slice(0, MAX_PROFILE_NAME_LENGTH) : profile.name,
+    };
 
     if (index >= 0) {
-        profiles[index] = profile;
+        profiles[index] = sanitizedProfile;
     } else {
-        profiles.push(profile);
+        profiles.push(sanitizedProfile);
     }
 
     saveProfiles(profiles);
@@ -90,16 +97,24 @@ export const getProfileById = (profileId: string): StudentProfile | undefined =>
 export const migrateProfile = (oldProfile: any): StudentProfile => {
     // Check if already migrated (has all critical fields)
     if (oldProfile.currentAvatarId && oldProfile.stars !== undefined && oldProfile.stats) {
+        if (typeof oldProfile.name === 'string' && oldProfile.name.length > MAX_PROFILE_NAME_LENGTH) {
+            return {
+                ...oldProfile,
+                name: oldProfile.name.slice(0, MAX_PROFILE_NAME_LENGTH),
+            } as StudentProfile;
+        }
         return oldProfile as StudentProfile;
     }
 
     // Old format - migrate but PRESERVE existing data
     const defaultAvatarId = oldProfile.currentAvatarId || 'avatar_01';
     const defaultThemeId = oldProfile.currentThemeId || getDefaultThemeId();
+    const rawName = typeof oldProfile.name === 'string' ? oldProfile.name.trim() : '';
+    const sanitizedName = rawName.slice(0, MAX_PROFILE_NAME_LENGTH) || 'Student';
 
     const migratedProfile: StudentProfile = {
         id: oldProfile.id || Date.now().toString(),
-        name: oldProfile.name || 'Student',
+        name: sanitizedName,
         age: oldProfile.age || 8,
         grade: oldProfile.grade ?? Grade.Grade2, // ?? để grade 0 (Mầm non) không bị nuốt thành Lớp 2
         avatarId: oldProfile.avatarId || 0, // keep for compatibility

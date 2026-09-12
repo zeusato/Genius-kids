@@ -123,7 +123,7 @@ export const geminiGenerateContent = async (
         });
         signal?.throwIfAborted();
         // Model/status only: never log a key, prompt or answer.
-        if (import.meta.env.DEV) console.info('[Gemini]', {model, attempt: tried.size, status: response.status});
+        if (Boolean((import.meta as any)?.env?.DEV)) console.info('[Gemini]', {model, attempt: tried.size, status: response.status});
         if (response.ok || ![404, 410, 408, 429, 500, 502, 503, 504].includes(response.status)) return response;
         lastResponse = response;
         if (tried.size >= attemptLimit) break;

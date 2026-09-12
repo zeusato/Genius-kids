@@ -81,9 +81,11 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
     };
 
     const handleCreate = () => {
-        if (!newProfile.name) return;
+        const trimmedName = newProfile.name.trim().slice(0, 50);
+        if (!trimmedName) return;
 
-        addStudent(newProfile.name, newProfile.grade);
+        addStudent(trimmedName, newProfile.grade);
+        setNewProfile({ name: '', grade: Grade.Grade2 });
         setIsCreating(false);
     };
 
@@ -178,11 +180,17 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
                     <h2 className="text-2xl font-bold mb-6 text-center">Tạo hồ sơ mới</h2>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-bold text-slate-600 mb-1">Tên của bé:</label>
+                            <div className="flex justify-between items-center mb-1">
+                                <label className="block text-sm font-bold text-slate-600">Tên của bé:</label>
+                                <span className={`text-xs ${newProfile.name.length >= 50 ? 'text-rose-500 font-bold' : 'text-slate-400'}`}>
+                                    {newProfile.name.length}/50
+                                </span>
+                            </div>
                             <input
                                 type="text"
                                 value={newProfile.name}
-                                onChange={e => setNewProfile({ ...newProfile, name: e.target.value })}
+                                maxLength={50}
+                                onChange={e => setNewProfile({ ...newProfile, name: e.target.value.slice(0, 50) })}
                                 className="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none text-lg"
                                 placeholder="Ví dụ: Bi, Na..."
                             />

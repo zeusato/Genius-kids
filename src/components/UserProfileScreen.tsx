@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StudentProfile } from '../../types';
 import { getAllAvatars, getAvatarById } from '../../services/avatarService';
 import { getAllThemes, getThemeById, applyTheme } from '../../services/themeService';
-import { getProfileStats, getDailyStarsEarned } from '../../services/profileService';
+import { getProfileStats, getDailyStarsEarned, MAX_PROFILE_NAME_LENGTH } from '../../services/profileService';
 import { ArrowLeft, Edit2, Image, Palette, Album, LogOut, AlertTriangle, Info, Trophy, Bot } from 'lucide-react';
 import { MusicControls } from '@/src/components/MusicControls';
 import { AIAgentSettingsModal } from './AIAgentSettingsModal';
@@ -39,8 +39,9 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
     const ownedThemes = getAllThemes().filter(t => student.ownedThemeIds.includes(t.id));
 
     const handleSaveName = () => {
-        if (newName.trim()) {
-            onUpdateProfile({ ...student, name: newName.trim() });
+        const trimmed = newName.trim().slice(0, MAX_PROFILE_NAME_LENGTH);
+        if (trimmed) {
+            onUpdateProfile({ ...student, name: trimmed });
             setIsEditingName(false);
         }
     };
@@ -143,29 +144,37 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     <div className="flex-1 w-full">
                         <h2 className="text-xl font-bold text-slate-800 mb-2">Tên</h2>
                         {isEditingName ? (
-                            <div className="flex gap-2">
-                                <input
-                                    type="text"
-                                    value={newName}
-                                    onChange={(e) => setNewName(e.target.value)}
-                                    className="flex-1 px-4 py-2 border-2 border-brand-300 rounded-lg focus:border-brand-500 focus:outline-none"
-                                    autoFocus
-                                />
-                                <button
-                                    onClick={handleSaveName}
-                                    className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 font-semibold"
-                                >
-                                    Lưu
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        setNewName(student.name);
-                                        setIsEditingName(false);
-                                    }}
-                                    className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
-                                >
-                                    Hủy
-                                </button>
+                            <div className="space-y-1">
+                                <div className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={newName}
+                                        maxLength={MAX_PROFILE_NAME_LENGTH}
+                                        onChange={(e) => setNewName(e.target.value.slice(0, MAX_PROFILE_NAME_LENGTH))}
+                                        className="flex-1 px-4 py-2 border-2 border-brand-300 rounded-lg focus:border-brand-500 focus:outline-none"
+                                        autoFocus
+                                    />
+                                    <button
+                                        onClick={handleSaveName}
+                                        className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 font-semibold"
+                                    >
+                                        Lưu
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setNewName(student.name);
+                                            setIsEditingName(false);
+                                        }}
+                                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+                                    >
+                                        Hủy
+                                    </button>
+                                </div>
+                                <div className="flex justify-end">
+                                    <span className={`text-xs ${newName.length >= MAX_PROFILE_NAME_LENGTH ? 'text-rose-500 font-bold' : 'text-slate-400'}`}>
+                                        {newName.length}/{MAX_PROFILE_NAME_LENGTH}
+                                    </span>
+                                </div>
                             </div>
                         ) : (
                             <div className="flex items-center gap-4">

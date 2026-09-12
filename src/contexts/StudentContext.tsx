@@ -15,7 +15,7 @@ import type { CompositionAction } from '../../games/SoundMemory/studio/model';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
 import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
 import { StudentProfile, TestResult, GameResult, AlbumImage, AchievementProgress } from '../../types';
-import { getAllProfiles, saveProfiles, createProfile, updateProfile as updateProfileStorage, deleteProfile as deleteProfileStorage } from '../../services/profileService';
+import { getAllProfiles, saveProfiles, createProfile, updateProfile as updateProfileStorage, deleteProfile as deleteProfileStorage, MAX_PROFILE_NAME_LENGTH } from '../../services/profileService';
 import { updateStats, checkAchievements, initializeStats } from '../../services/achievementService';
 import { purchaseGachaSpin } from '../../services/shopService';
 import { Grade } from '../../types';
@@ -169,15 +169,21 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const addStudent = useCallback((name: string, grade: Grade, age?: number, avatarId?: string) => {
-        const newStudent = createProfile(name, grade, age, avatarId);
+        const sanitizedName = (name || '').trim().slice(0, MAX_PROFILE_NAME_LENGTH);
+        if (!sanitizedName) return;
+        const newStudent = createProfile(sanitizedName, grade, age, avatarId);
         setStudents(prev => [...prev, newStudent]);
         // We don't auto-select here to let the user choose from the list
         // setCurrentStudentId(newStudent.id); 
-    }, []);
+    }, [setStudents]);
 
     const updateStudent = useCallback((updated: StudentProfile) => {
-        setStudents(prev => prev.map(s => s.id === updated.id ? updated : s));
-    }, []);
+        const sanitized = {
+            ...updated,
+            name: typeof updated.name === 'string' ? updated.name.trim().slice(0, MAX_PROFILE_NAME_LENGTH) : updated.name,
+        };
+        setStudents(prev => prev.map(s => s.id === sanitized.id ? sanitized : s));
+    }, [setStudents]);
 
     const deleteStudent = useCallback((id: string) => {
         clearSoundProfileData(id);

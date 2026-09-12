@@ -34,7 +34,11 @@ export function parseBatch(raw:string,config:Config,slots:Slot[],seed:number,exi
 export type Generate=(body:ReturnType<typeof buildRequest>,signal:AbortSignal)=>Promise<string>;
 export const apiGenerator=(key:string):Generate=>async(body,signal)=>{
  const response=await geminiGenerateContent(key,body,{signal,maxAttempts:4});
- if(!response.ok)throw new Error(`AI ${response.status}`);
+ if(!response.ok){
+  const errText=await response.text().catch(()=>'');
+  console.error('[DragonQuest AI API Error]',response.status,errText);
+  throw new Error(`AI ${response.status}`);
+ }
  const raw=await response.text();if(raw.length>2_500_000)throw new Error('Phản hồi quá lớn');const data=JSON.parse(raw);
  const text=data.candidates?.[0]?.content?.parts?.filter((p:any)=>!p.thought&&typeof p.text==='string').map((p:any)=>p.text).join('');
  if(!text)throw new Error('AI chưa trả câu hỏi');return text;
@@ -42,7 +46,7 @@ export const apiGenerator=(key:string):Generate=>async(body,signal)=>{
 export async function prepareQuestions(config:Config,slots:Slot[],seed:number,options:{signal:AbortSignal;generate?:Generate;budgetMs?:number;onProgress?:(text:string)=>void}):Promise<Prepared>{
  options.signal.throwIfAborted();
  if(!config.ai||!options.generate)return assemble(createLocalQuestions(config,slots,seed),config.ai?'AI chưa sẵn sàng, đã dùng câu hỏi có sẵn.':'');
- const controller=new AbortController(),cancel=()=>controller.abort(options.signal.reason),deadline=setTimeout(()=>controller.abort(new DOMException('Timeout','TimeoutError')),options.budgetMs??25000);
+ const controller=new AbortController(),cancel=()=>controller.abort(options.signal.reason),deadline=setTimeout(()=>controller.abort(new DOMException('Timeout','TimeoutError')),options.budgetMs??60000);
  options.signal.addEventListener('abort',cancel,{once:true});let questions:Record<string,Question>={};
  try{
   for(let attempt=0;attempt<2;attempt++){
@@ -54,10 +58,16 @@ export async function prepareQuestions(config:Config,slots:Slot[],seed:number,op
    try{const canceled=new Promise<never>((_,reject)=>{stop=()=>reject(controller.signal.reason);if(controller.signal.aborted)stop();else controller.signal.addEventListener('abort',stop,{once:true});});
     const raw=await Promise.race([canceled,options.generate(body,controller.signal)]);
     Object.assign(questions,parseBatch(raw,config,missing,seed,Object.values(questions)));
-   }catch(error){if(controller.signal.aborted||!(error instanceof SyntaxError)&&!(error instanceof Error&&error.message==='Định dạng câu hỏi chưa phù hợp'))throw error;}
+   }catch(error){
+    console.warn('[DragonQuest AI Batch Attempt Failed]:',error);
+    if(controller.signal.aborted||!(error instanceof SyntaxError)&&!(error instanceof Error&&error.message==='Định dạng câu hỏi chưa phù hợp'))throw error;
+   }
    finally{if(stop)controller.signal.removeEventListener('abort',stop);}
   }
- }catch{options.signal.throwIfAborted();}
+ }catch(error){
+  console.warn('[DragonQuest AI prepareQuestions failed, falling back to local questions]:',error);
+  options.signal.throwIfAborted();
+ }
  finally{clearTimeout(deadline);options.signal.removeEventListener('abort',cancel);}
  options.signal.throwIfAborted();const missing=slots.filter(s=>!questions[s.id]);
  if(missing.length)Object.assign(questions,createLocalQuestions(config,missing,seed^0x52abc,Object.values(questions)));
