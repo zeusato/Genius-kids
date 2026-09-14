@@ -13,9 +13,9 @@ describe('hub entry contracts', () => {
     });
     it('keeps preschool destinations and order, including grade zero', () => {
         expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','science']);
-        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['memory','sound-memory']);
+        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['horse-race','memory','sound-memory']);
         expect(modesFor(3).map(m => m.id)).toEqual(['study','game','library','riddle','coding','science']);
-        expect(gamesFor(3)).toHaveLength(7);
+        expect(gamesFor(3)).toHaveLength(8);
     });
     it('rejects direct links that bypass the preschool card gate', () => {
         for (const id of ['speed-math','dragon-quest','math-racing','sudoku','gears-menu','gears-build','gears-guess']) {
@@ -51,6 +51,9 @@ describe('hub entry contracts', () => {
     });
     it('falls back to the catalog for missing or unknown games', () => {
         for (const query of ['', 'play=not-a-game', 'play=__proto__', 'play=profile']) expect(resolve(query)).toBeNull();
+    });
+    it('opens the shared-tablet horse-race lobby for every grade without a legacy setup',()=>{
+        for(const grade of [0,1,2,3,4,5] as const)expect(resolve('play=horse-race&edition=classic&level=hard',grade)).toMatchObject({id:'horse-race',classic:false,needsSetup:false});
     });
     it('does not let edition parameters change other game types', () => {
         expect(resolve('play=speed-math&edition=classic&level=hard')).toMatchObject({ id:'speed-math', classic:false, needsSetup:false, level:'easy' });

@@ -32,6 +32,7 @@ function SudokuScene() {
 export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }) {
     let art: React.ReactNode;
     if (['study', 'library', 'riddle', 'science'].includes(kind) || kind.startsWith('science-')) art = <ArtImage name={kind} eager={eager}/>;
+    else if (kind === 'horse-race') art = <img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}horse-race/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}horse-race/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'memory') art = <MemoryScene/>;
     else if (kind === 'sound-memory') art = <BandStage/>;
     else if (kind === 'speed-math') art = <><ArtImage name="station" eager={eager}/><ArtImage name="tia" className="hub-tia" eager={eager}/><span className="hub-lightning">✦</span><span className="hub-puzzle-chip">2 + 3 = 5</span></>;

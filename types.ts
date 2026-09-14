@@ -62,6 +62,7 @@ export interface ShopDailyPhoto {
 }
 
 export interface GameResult {
+  horseRace?: import('./games/HorseRace/model').Record;
   id: string;
   gameType: string; // 'memory', 'speed', etc.
   date: string; // ISO string

@@ -1,0 +1,32 @@
+import { describe,it,expect } from 'vitest';
+import { newMatch,roll,legalMoves,applyMove,pass,validateMatch } from './engine';
+import { TRACK,STARTS,trackCell,homePoint } from './board';
+import { chooseMove } from './bot';
+import { seeded } from './rng';
+import type { Match,Player } from './model';
+export const players=(n=2):Player[]=>Array.from({length:n},(_,i)=>({id:'p'+i,name:'Bạn '+i,color:n===2?i*2:i,kind:i===0?'human':'bot',level:'hard',avatar:'avatar_01'}));
+const game=(n=2)=>newMatch('owner',players(n),'test',0);
+const at=(pieces:number[],dice:number,n=2)=>roll({...game(n),pieces:[...pieces,...Array(n*4-pieces.length).fill(-1)]},dice);
+describe('horse race rules',()=>{
+ it('has a unique continuous 56-cell symmetric board and four private gates',()=>{expect(TRACK).toHaveLength(56);expect(new Set(TRACK.map(p=>p.join(','))).size).toBe(56);TRACK.forEach(([x,z],i)=>{const [a,b]=TRACK[(i+1)%56];expect(Math.abs(x-a)+Math.abs(z-b)).toBe(1);});STARTS.forEach((_,color)=>{const [x,z]=TRACK[trackCell(color,55)],[a,b]=homePoint(color,1);expect(Math.abs(x-a)+Math.abs(z-b)).toBe(1);});});
+ it.each([1,2,3,4,5])('requires six for deployment: %s',dice=>expect(legalMoves(roll(game(),dice))).toHaveLength(0));
+ it('deploys to zero and gives another roll',()=>{const s=applyMove(roll(game(),6),0);expect(s.pieces[0]).toBe(0);expect(s.active).toBe(0);expect(s.phase).toBe('roll');});
+ it('blocks deployment on a teammate',()=>expect(legalMoves(at([0],6)).some(m=>m.kind==='deploy')).toBe(false));
+ it('captures on deployment',()=>{const s=at([-1,-1,-1,-1,28],6);expect(applyMove(s,0).pieces[4]).toBe(-1);});
+ it('captures exact targets but cannot jump enemies',()=>{expect(applyMove(at([5,-1,-1,-1,36],3),0).pieces[4]).toBe(-1);expect(legalMoves(at([5,-1,-1,-1,36],4))).toHaveLength(0);});
+ it('cannot jump or stack teammates',()=>{expect(legalMoves(at([5,8],4)).some(m=>m.piece===0)).toBe(false);expect(legalMoves(at([5,8],3)).some(m=>m.piece===0)).toBe(false);});
+ it('must land on the gate exactly',()=>{expect(legalMoves(at([53],3))).toHaveLength(0);expect(applyMove(at([53],2),0).pieces[0]).toBe(55);});
+ it('can enter six directly and locks the first horse',()=>{const s=applyMove(at([55],6),0);expect(s.pieces[0]).toBe(61);expect(s.locked[0]).toBe(true);expect(s.finished[0]).toBe(1);});
+ it('climbs home with the destination face, never skips a rung',()=>{expect(legalMoves(at([59],1))).toHaveLength(0);expect(legalMoves(at([59],6)).some(m=>m.piece===0)).toBe(false);expect(applyMove(at([59],5),0).pieces[0]).toBe(60);});
+ it('cannot jump horses in the home lane',()=>expect(legalMoves(at([55,58],6))).not.toContainEqual(expect.objectContaining({piece:0})));
+ it('finishes at six, five, four, three; ends on the last horse',()=>{let s:Match={...game(),pieces:[61,60,59,55,-1,-1,-1,-1],locked:[true,true,true,false,false,false,false,false],finished:[3,0]};s=applyMove(roll(s,3),3);expect(s.winner).toBe(0);expect(s.phase).toBe('over');expect(validateMatch(s)).toBe(true);expect(roll(s,6)).toBe(s);});
+ it('passes only when no moves exist, preserving six bonus',()=>{const s=at([53,53,53,53],6);expect(pass(s).active).toBe(0);const t=roll(game(),1);expect(pass(t).active).toBe(1);const u=roll(game(),6);expect(pass(u)).toBe(u);});
+ it('rejects stale or illegal actions',()=>{const s=game();expect(applyMove(s,0)).toBe(s);const t=roll(s,6);expect(roll(t,6)).toBe(t);expect(applyMove(t,5)).toBe(t);});
+ it('rejects corrupt snapshots and profile mismatches',()=>{expect(validateMatch(game(),'someone-else')).toBe(false);expect(validateMatch(null)).toBe(false);expect(validateMatch({...game(),pieces:[900]})).toBe(false);expect(validateMatch({...game(),dice:1})).toBe(false);});
+ it.each([2,3,4])('maintains invariants through 3000 seeded actions with %s players',n=>{const rng=seeded(482+n);let s=game(n);for(let i=0;i<3000;i++){if(s.winner!==null)s=game(n);s=roll(s,1+Math.floor(rng()*6));const moves=legalMoves(s),before=JSON.stringify(s);const next=moves.length?applyMove(s,moves[Math.floor(rng()*moves.length)].piece):pass(s);expect(JSON.stringify(s)).toBe(before);expect(validateMatch(next)).toBe(true);s=next;}});
+});
+describe('bot contracts',()=>{
+ it.each(['easy','medium','hard'] as const)('takes an immediate win on %s',level=>{const s=roll({...game(),pieces:[61,60,59,55,30,-1,-1,-1],locked:[true,true,true,false,false,false,false,false],finished:[3,0]},3);expect(chooseMove(s,level).piece).toBe(3);});
+ it('is reproducible, legal and does not mutate state',()=>{const s=at([9,18,-1,-1,48,2],6),before=JSON.stringify(s);const a=chooseMove(s,'hard',{rollouts:16,seed:25}),b=chooseMove(s,'hard',{rollouts:16,seed:25});expect(a).toEqual(b);expect(legalMoves(s).some(m=>m.piece===a.piece)).toBe(true);expect(JSON.stringify(s)).toBe(before);});
+ it('ends bounded search even after deadline',()=>expect(chooseMove(roll(game(),6),'hard',{deadline:1}).piece).not.toBeNull());
+});

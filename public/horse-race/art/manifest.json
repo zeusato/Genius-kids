@@ -1,0 +1,12 @@
+{
+  "created": "2026-09-14",
+  "source": "Google Flow, Nano Banana 2, user-authorized in-app browser",
+  "project": "https://flow.google.com/project/7b20f6a9-d1ff-4fbb-9152-27694219b8d5",
+  "direction": "Premium miniature Vietnamese horse-race board game in a magical garden. Rounded wooden toy horses in red, blue, green and yellow, tiny castles, soft warm light, tactile wood and painted surfaces. No UI, typography, watermark or photorealistic children.",
+  "assets": [
+    {"file":"cover.webp","sourceTitle":"Miniature horse race board game","width":800,"height":450,"use":"Lobby and large catalog cover"},
+    {"file":"cover-sm.webp","sourceTitle":"Miniature horse race board game","width":400,"height":225,"use":"Small catalog cover"},
+    {"file":"concept.webp","sourceTitle":"Miniature wooden horse board game","width":1376,"height":768,"use":"Art direction reference; not loaded by gameplay"}
+  ],
+  "notes": "Source images were visually inspected, retrieved with the browser pageAssets capability and resized/compressed to WebP. Illustrative board markings are not a rules reference. The interactive board and horses are original procedural Three.js geometry, independent of the cover image. Audio reuses the existing Dragon Forest track plus locally synthesized effects. No signed image URLs or account credentials are stored."
+}
