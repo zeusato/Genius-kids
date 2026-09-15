@@ -1,0 +1,4 @@
+.build/
+.vite-cache/
+.vitest-cache/
+.bench/

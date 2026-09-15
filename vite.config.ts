@@ -1,10 +1,15 @@
 import path from 'path';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { isCoreAsset } from './pwa/download';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+  const builtAt = new Date().toISOString();
+  const appVersion = `${builtAt.replace(/[-:TZ.]/g, '')}-${(process.env.GITHUB_SHA || 'local').slice(0, 7)}`;
   return {
     base: '/Genius-kids/',
     server: {
@@ -45,11 +50,14 @@ export default defineConfig(({ mode }) => {
         }
       }),
       VitePWA({
+        strategies: 'injectManifest',
+        srcDir: 'pwa',
+        filename: 'sw.ts',
         registerType: 'prompt',
-        // Service worker được đăng ký thủ công qua registerSW() trong services/updateService.ts.
-        // injectRegister: false để plugin không tự chèn thêm script đăng ký (tránh đăng ký 2 lần).
+        // Registration and manual update checks live in services/updateService.ts.
         injectRegister: false,
-        includeAssets: ['Logo.png', 'OG.png'],
+        includeAssets: [],
+        includeManifestIcons: false,
         manifest: {
           name: 'MathGenius Kids',
           short_name: 'MathGenius',
@@ -74,36 +82,22 @@ export default defineConfig(({ mode }) => {
             }
           ]
         },
-        workbox: {
-          maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}', 'audio/**/*.mp3', 'dragon/*.glb'],
-          globIgnores: ['**/speed-math/art/**', '**/hub/art/**', '**/horse-race/art/concept.webp', '**/horse-race-preview.html', '**/o-an-quan-preview.html', '**/co-ti-phu-preview.html', '**/speed-preview.html', '**/hub-preview.html', '**/racing-preview.html', '**/gears-preview.html'],
-          runtimeCaching: [
-            {
-              urlPattern: /\/Genius-kids\/hub\/art\/[^/]+\.webp$/,
-              handler: 'CacheFirst',
-              options: { cacheName: 'discovery-hub-art-v1', expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
-            },
-            {
-              urlPattern: /\/Genius-kids\/speed-math\/art\/[^/]+\.webp$/,
-              handler: 'CacheFirst',
-              options: { cacheName: 'speed-arcade-art-v1', expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 90 }, cacheableResponse: { statuses: [200] } }
-            },
-            {
-              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'google-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-                },
-                cacheableResponse: {
-                  statuses: [0, 200]
-                }
-              }
-            }
-          ]
+        injectManifest: {
+          maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp,jpg,jpeg,json,webmanifest,mp3,ogg,wav,glb,ktx2,wasm}'],
+          globIgnores: ['**/version.json', '**/*-preview.html', '**/horse-race/art/concept.webp', '**/404.html'],
+          manifestTransforms: [async entries => {
+            const manifest = await Promise.all(entries.map(async entry => {
+              const content = await readFile(path.resolve('dist', entry.url));
+              return { ...entry, byteSize: entry.size, integrity: `sha256-${createHash('sha256').update(content).digest('base64')}` };
+            }));
+            await writeFile(path.resolve('dist/version.json'), JSON.stringify({
+              version: appVersion, builtAt,
+              coreBytes: manifest.filter(isCoreAsset).reduce((sum, entry) => sum + entry.byteSize, 0),
+              offlineBytes: manifest.reduce((sum, entry) => sum + entry.byteSize, 0),
+            }));
+            return { manifest, warnings: [] };
+          }],
         },
         devOptions: {
           enabled: false,
@@ -112,6 +106,7 @@ export default defineConfig(({ mode }) => {
       })
     ],
     define: {
+      '__APP_VERSION__': JSON.stringify(appVersion),
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
     },

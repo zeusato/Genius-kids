@@ -1,0 +1,4 @@
+.build/
+.vite-cache/
+.vitest-cache/
+reports/benchmark-runner.mjs

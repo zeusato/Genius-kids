@@ -1,0 +1,1 @@
+{"extends":"../../tsconfig.json","compilerOptions":{"strict":true,"types":["node","vite/client"]},"include":["./**/*.ts","./**/*.tsx"],"exclude":[".build",".vite-cache",".vitest-cache","profile-adapter.ts","persistence.test.ts"]}

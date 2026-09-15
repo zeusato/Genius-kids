@@ -1,0 +1,13 @@
+{
+  "game": "co-vua",
+  "opponent": "random",
+  "games": 30,
+  "deadlineMs": 120,
+  "seed": 7,
+  "engineWins": 30,
+  "draws": 0,
+  "engineLosses": 0,
+  "matchScore": 100,
+  "wilson95": [88.65, 100],
+  "note": "Mẫu nhanh, deadline 120ms (thấp hơn 1200ms sản phẩm). Bot Khó thắng tuyệt đối lối đi ngẫu nhiên."
+}

@@ -1,0 +1,187 @@
+{
+  "date": "2026-09-15T16:55:38.950Z",
+  "rulesVersion": "gk-chess-v2",
+  "purpose": "smoke; does not establish skill relative to people",
+  "configuration": {
+    "pairs": 5,
+    "plyLimit": 180,
+    "seed": 20260915,
+    "opponent": "greedy",
+    "level": "hard",
+    "mode": "fixed-nodes",
+    "nodes": 3000,
+    "timeMs": null
+  },
+  "counts": {
+    "win": 10,
+    "draw": 0,
+    "loss": 0,
+    "unfinished": 0
+  },
+  "illegalMoves": 0,
+  "finishedScore": 1,
+  "completePairs": 5,
+  "pairedBootstrap95": null,
+  "ciNote": "At least 10 complete pairs required; no confidence interval reported.",
+  "latency": {
+    "easy": {
+      "samples": 5,
+      "p50Ms": 6,
+      "p95Ms": 11,
+      "depths": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "medium": {
+      "samples": 5,
+      "p50Ms": 400,
+      "p95Ms": 400,
+      "depths": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "hard": {
+      "samples": 5,
+      "p50Ms": 1200,
+      "p95Ms": 1200,
+      "depths": [
+        5,
+        4,
+        4,
+        5,
+        4
+      ]
+    }
+  },
+  "seconds": 18,
+  "games": [
+    {
+      "pair": 0,
+      "side": 0,
+      "outcome": "win",
+      "plies": 39,
+      "reason": "checkmate",
+      "opening": []
+    },
+    {
+      "pair": 0,
+      "side": 1,
+      "outcome": "win",
+      "plies": 30,
+      "reason": "checkmate",
+      "opening": []
+    },
+    {
+      "pair": 1,
+      "side": 0,
+      "outcome": "win",
+      "plies": 49,
+      "reason": "checkmate",
+      "opening": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6"
+      ]
+    },
+    {
+      "pair": 1,
+      "side": 1,
+      "outcome": "win",
+      "plies": 48,
+      "reason": "checkmate",
+      "opening": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6"
+      ]
+    },
+    {
+      "pair": 2,
+      "side": 0,
+      "outcome": "win",
+      "plies": 47,
+      "reason": "checkmate",
+      "opening": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6"
+      ]
+    },
+    {
+      "pair": 2,
+      "side": 1,
+      "outcome": "win",
+      "plies": 54,
+      "reason": "checkmate",
+      "opening": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6"
+      ]
+    },
+    {
+      "pair": 3,
+      "side": 0,
+      "outcome": "win",
+      "plies": 31,
+      "reason": "checkmate",
+      "opening": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6"
+      ]
+    },
+    {
+      "pair": 3,
+      "side": 1,
+      "outcome": "win",
+      "plies": 34,
+      "reason": "checkmate",
+      "opening": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6"
+      ]
+    },
+    {
+      "pair": 4,
+      "side": 0,
+      "outcome": "win",
+      "plies": 41,
+      "reason": "checkmate",
+      "opening": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6"
+      ]
+    },
+    {
+      "pair": 4,
+      "side": 1,
+      "outcome": "win",
+      "plies": 64,
+      "reason": "checkmate",
+      "opening": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6"
+      ]
+    }
+  ]
+}

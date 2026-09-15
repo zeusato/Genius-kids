@@ -4,7 +4,8 @@ import { StudentProfile, Grade } from '@/types';
 import { getGradeLabel } from '@/src/utils/grade';
 import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
-import { Plus, CheckCircle, Download, Bot } from 'lucide-react';
+import { Plus, RefreshCw, Download, Bot } from 'lucide-react';
+import { usePwaUpdate } from '../hooks/usePwaUpdate';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
 import { MusicControls } from '@/src/components/MusicControls';
@@ -13,7 +14,7 @@ import { AIAgentSettingsModal } from '@/src/components/AIAgentSettingsModal';
 interface HomePageProps {
     onInstallClick?: () => void;
     canInstall?: boolean;
-    showVersionCheck?: boolean;
+    onUpdateClick?: () => void;
 }
 
 const Button = ({ onClick, children, variant = 'primary', className = '' }: any) => {
@@ -29,7 +30,8 @@ const Card = ({ children, className = '' }: any) => {
     return <div className={`bg-white p-6 rounded-2xl shadow-md border border-gray-100 ${className}`}>{children}</div>;
 };
 
-export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomePageProps) {
+export function HomePage({ onInstallClick, canInstall, onUpdateClick }: HomePageProps) {
+    const update = usePwaUpdate();
     const navigate = useNavigate();
     const { students: profiles } = useStudent();
     const { setStudent, addStudent, updateStudent } = useStudentActions();
@@ -99,16 +101,14 @@ export function HomePage({ onInstallClick, canInstall, showVersionCheck }: HomeP
         <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
             {/* Top Header Bar - Fixed */}
             <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 pointer-events-none">
-                {/* Version Check Indicator - Left */}
-                {showVersionCheck && (
-                    <div className="pointer-events-auto flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2.5 rounded-lg shadow-md border border-green-200 animate-in fade-in slide-in-from-top duration-500 h-[44px]">
-                        <CheckCircle size={18} className="flex-shrink-0" />
-                        <span className="text-sm font-semibold whitespace-nowrap">Newest Version</span>
-                    </div>
-                )}
-
-                {/* Spacer when version check not shown */}
-                {!showVersionCheck && <div />}
+                <button onClick={onUpdateClick} title="Cập nhật & nội dung offline" aria-label="Cập nhật và nội dung offline"
+                    className="pointer-events-auto flex items-center gap-2 bg-white text-brand-700 px-3 py-2.5 rounded-lg shadow-md border border-brand-200 h-[44px] hover:bg-brand-50">
+                    <RefreshCw size={18} className={`flex-shrink-0 ${update.phase === 'downloading' || update.phase === 'checking' ? 'animate-spin' : ''}`} />
+                    <span className="text-sm font-semibold whitespace-nowrap">
+                        {update.phase === 'downloading' ? `Đang tải${update.progress.total ? ` ${Math.floor(update.progress.completed / update.progress.total * 100)}%` : '…'}`
+                            : update.phase === 'available' || update.phase === 'ready' ? 'Có bản mới' : 'Cập nhật'}
+                    </span>
+                </button>
 
                 {/* Right side controls */}
                 <div className="flex items-center gap-3">

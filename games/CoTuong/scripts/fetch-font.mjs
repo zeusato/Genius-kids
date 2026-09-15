@@ -1,0 +1,14 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+const target = new URL('../assets/fonts/', import.meta.url);
+await mkdir(target, { recursive: true });
+const text = '帥仕相傌俥炮兵將士象馬車砲卒楚河漢界';
+const response = await fetch('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&text=' + encodeURIComponent(text), { headers: { 'User-Agent': 'Mozilla/5.0' } });
+if (!response.ok) throw new Error('Font stylesheet: ' + response.status);
+const css = await response.text(), url = css.match(/url\((https:[^)]+)\)/)?.[1];
+if (!url || new URL(url).hostname !== 'fonts.gstatic.com') throw new Error('Unexpected font host');
+const font = await fetch(url); if (!font.ok) throw new Error('Font response: ' + font.status);
+await writeFile(new URL('xiangqi-subset.woff2', target), Buffer.from(await font.arrayBuffer()));
+const license = await fetch('https://raw.githubusercontent.com/notofonts/noto-cjk/main/Serif/LICENSE');
+if (!license.ok) throw new Error('License response: ' + license.status);
+await writeFile(new URL('OFL.txt', target), await license.text());
+console.log('Downloaded Noto Serif TC subset and license.');

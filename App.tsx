@@ -7,7 +7,7 @@ import { ProtectedRoute } from '@/src/components/ProtectedRoute';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
 import { GachaModal } from '@/src/components/GachaModal';
 import { AIChatWidget } from '@/src/components/AIChatWidget';
-import { UPDATE_AVAILABLE_EVENT, UPDATE_CHECK_COMPLETE_EVENT, checkUpdateSuccess } from '@/services/updateService';
+import { UPDATE_AVAILABLE_EVENT, checkForUpdates, checkUpdateSuccess } from '@/services/updateService';
 import { initializeTheme } from '@/services/themeService';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { X, Download, Loader2, CheckCircle } from 'lucide-react';
@@ -157,7 +157,6 @@ export default function App() {
   const [showInstallInstructions, setShowInstallInstructions] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
   const [showUpdateNotification, setShowUpdateNotification] = useState(false);
-  const [versionCheckComplete, setVersionCheckComplete] = useState(false);
   const [showUpdateSuccess, setShowUpdateSuccess] = useState(false);
 
   useEffect(() => {
@@ -180,7 +179,7 @@ export default function App() {
 
     // Initialize update service
     import('@/services/updateService').then(({ initUpdateService }) => {
-      initUpdateService().catch(err => console.error('Failed to init update service:', err));
+      initUpdateService().then(() => checkForUpdates()).catch(err => console.error('Failed to init update service:', err));
     });
 
     // Check for update success flag
@@ -194,17 +193,10 @@ export default function App() {
     };
     window.addEventListener(UPDATE_AVAILABLE_EVENT, handleUpdateAvailable);
 
-    // Listen for update check complete event
-    const handleUpdateCheckComplete = () => {
-      setVersionCheckComplete(true);
-    };
-    window.addEventListener(UPDATE_CHECK_COMPLETE_EVENT, handleUpdateCheckComplete);
-
     return () => {
       window.removeEventListener('beforeinstallprompt', handler);
       window.matchMedia('(display-mode: standalone)').removeEventListener('change', checkStandalone);
       window.removeEventListener(UPDATE_AVAILABLE_EVENT, handleUpdateAvailable);
-      window.removeEventListener(UPDATE_CHECK_COMPLETE_EVENT, handleUpdateCheckComplete);
     };
   }, []);
 
@@ -240,7 +232,7 @@ export default function App() {
                   <HomePage
                     onInstallClick={handleInstallClick}
                     canInstall={!isStandalone}
-                    showVersionCheck={versionCheckComplete}
+                    onUpdateClick={() => setShowUpdateNotification(true)}
                   />
                 }
               />

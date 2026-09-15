@@ -1,0 +1,13 @@
+{
+  "game": "co-vua",
+  "opponent": "greedy",
+  "games": 30,
+  "deadlineMs": 120,
+  "seed": 7,
+  "engineWins": 30,
+  "draws": 0,
+  "engineLosses": 0,
+  "matchScore": 100,
+  "wilson95": [88.65, 100],
+  "note": "Mẫu nhanh, deadline 120ms. Bot Khó thắng tuyệt đối lối đánh tham vật chất (greedy) — đã trên tầm người mới chơi. Cần chạy mẫu lớn + deadline 1200ms + puzzle mate-in-N để nghiệm thu đầy đủ."
+}

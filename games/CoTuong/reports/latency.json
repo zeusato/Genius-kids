@@ -1,0 +1,481 @@
+{
+  "kind": "deadline-latency",
+  "generatedAt": "2026-09-15T15:27:06.415Z",
+  "fixtureSHA256": "be95028bfd8087fcfb438ab761fe0605f4de7aabb4e6b97a7796b2a7d9fbc686",
+  "engineSHA256": "e58df6eeead0fe6041e6cbf994874e7f358d4338c7f8df69e121e267af5809cc",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1195G7 @ 2.90GHz",
+  "node": "v22.18.0",
+  "rows": [
+    {
+      "level": "easy",
+      "limits": {
+        "timeMs": 60,
+        "maxDepth": 3,
+        "maxNodes": 10000
+      },
+      "decisions": [
+        {
+          "fixture": "fixture-0",
+          "move": {
+            "from": 1,
+            "to": 12
+          },
+          "score": 0,
+          "completedDepth": 1,
+          "nodes": 1197,
+          "elapsedMs": 60.10510000000001,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-1",
+          "move": {
+            "from": 54,
+            "to": 45
+          },
+          "score": 450,
+          "completedDepth": 1,
+          "nodes": 2065,
+          "elapsedMs": 60.052400000000006,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-2",
+          "move": {
+            "from": 4,
+            "to": 3
+          },
+          "score": 0,
+          "completedDepth": 2,
+          "nodes": 2750,
+          "elapsedMs": 60.027000000000015,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-3",
+          "move": {
+            "from": 43,
+            "to": 7
+          },
+          "score": -50,
+          "completedDepth": 2,
+          "nodes": 3033,
+          "elapsedMs": 60.0453,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-4",
+          "move": {
+            "from": 29,
+            "to": 38
+          },
+          "score": 450,
+          "completedDepth": 1,
+          "nodes": 1699,
+          "elapsedMs": 30.641099999999994,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-5",
+          "move": {
+            "from": 73,
+            "to": 19
+          },
+          "score": 450,
+          "completedDepth": 2,
+          "nodes": 3252,
+          "elapsedMs": 60.02620000000002,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-6",
+          "move": {
+            "from": 19,
+            "to": 20
+          },
+          "score": 0,
+          "completedDepth": 2,
+          "nodes": 2589,
+          "elapsedMs": 60.07690000000002,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-7",
+          "move": {
+            "from": 89,
+            "to": 88
+          },
+          "score": 0,
+          "completedDepth": 0,
+          "nodes": 75,
+          "elapsedMs": 1.7438999999999965,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-8",
+          "move": {
+            "from": 27,
+            "to": 36
+          },
+          "score": 0,
+          "completedDepth": 2,
+          "nodes": 2882,
+          "elapsedMs": 60.04069999999996,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-9",
+          "move": {
+            "from": 58,
+            "to": 49
+          },
+          "score": 450,
+          "completedDepth": 1,
+          "nodes": 3144,
+          "elapsedMs": 60.03149999999994,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-10",
+          "move": {
+            "from": 0,
+            "to": 1
+          },
+          "score": -450,
+          "completedDepth": 2,
+          "nodes": 3062,
+          "elapsedMs": 60.02480000000003,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-11",
+          "move": {
+            "from": 43,
+            "to": 38
+          },
+          "score": 50,
+          "completedDepth": 2,
+          "nodes": 3401,
+          "elapsedMs": 60.06589999999994,
+          "stoppedBy": "time"
+        }
+      ],
+      "p50": 60.04069999999996,
+      "p95": 60.10510000000001,
+      "incompleteFirstIterations": 1
+    },
+    {
+      "level": "medium",
+      "limits": {
+        "timeMs": 350,
+        "maxDepth": 6,
+        "maxNodes": 80000
+      },
+      "decisions": [
+        {
+          "fixture": "fixture-0",
+          "move": {
+            "from": 1,
+            "to": 12
+          },
+          "score": 22,
+          "completedDepth": 3,
+          "nodes": 10417,
+          "elapsedMs": 213.95510000000002,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-1",
+          "move": {
+            "from": 54,
+            "to": 45
+          },
+          "score": 450,
+          "completedDepth": 4,
+          "nodes": 18904,
+          "elapsedMs": 350.03790000000004,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-2",
+          "move": {
+            "from": 10,
+            "to": 11
+          },
+          "score": -5,
+          "completedDepth": 3,
+          "nodes": 11535,
+          "elapsedMs": 222.12920000000008,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-3",
+          "move": {
+            "from": 43,
+            "to": 7
+          },
+          "score": -68,
+          "completedDepth": 3,
+          "nodes": 5592,
+          "elapsedMs": 110.37059999999997,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-4",
+          "move": {
+            "from": 29,
+            "to": 38
+          },
+          "score": 371,
+          "completedDepth": 5,
+          "nodes": 18567,
+          "elapsedMs": 350.0223000000001,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-5",
+          "move": {
+            "from": 73,
+            "to": 19
+          },
+          "score": 413,
+          "completedDepth": 4,
+          "nodes": 11495,
+          "elapsedMs": 231.71079999999984,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-6",
+          "move": {
+            "from": 1,
+            "to": 20
+          },
+          "score": -39,
+          "completedDepth": 2,
+          "nodes": 2351,
+          "elapsedMs": 50.56580000000031,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-7",
+          "move": {
+            "from": 89,
+            "to": 88
+          },
+          "score": -287,
+          "completedDepth": 4,
+          "nodes": 17220,
+          "elapsedMs": 350.02070000000003,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-8",
+          "move": {
+            "from": 7,
+            "to": 24
+          },
+          "score": 21,
+          "completedDepth": 3,
+          "nodes": 5855,
+          "elapsedMs": 131.1594,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-9",
+          "move": {
+            "from": 58,
+            "to": 49
+          },
+          "score": 439,
+          "completedDepth": 4,
+          "nodes": 18300,
+          "elapsedMs": 350.0193999999997,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-10",
+          "move": {
+            "from": 0,
+            "to": 1
+          },
+          "score": -447,
+          "completedDepth": 4,
+          "nodes": 17898,
+          "elapsedMs": 350.02480000000014,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-11",
+          "move": {
+            "from": 43,
+            "to": 38
+          },
+          "score": 39,
+          "completedDepth": 4,
+          "nodes": 17828,
+          "elapsedMs": 350.0209,
+          "stoppedBy": "time"
+        }
+      ],
+      "p50": 350.0193999999997,
+      "p95": 350.03790000000004,
+      "incompleteFirstIterations": 0
+    },
+    {
+      "level": "hard",
+      "limits": {
+        "timeMs": 1200,
+        "maxDepth": 12,
+        "maxNodes": 300000
+      },
+      "decisions": [
+        {
+          "fixture": "fixture-0",
+          "move": {
+            "from": 1,
+            "to": 12
+          },
+          "score": 22,
+          "completedDepth": 3,
+          "nodes": 10417,
+          "elapsedMs": 211.44669999999996,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-1",
+          "move": {
+            "from": 54,
+            "to": 45
+          },
+          "score": 463,
+          "completedDepth": 5,
+          "nodes": 65003,
+          "elapsedMs": 1200.0252,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-2",
+          "move": {
+            "from": 10,
+            "to": 11
+          },
+          "score": -5,
+          "completedDepth": 3,
+          "nodes": 11535,
+          "elapsedMs": 216.39899999999943,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-3",
+          "move": {
+            "from": 43,
+            "to": 7
+          },
+          "score": -68,
+          "completedDepth": 3,
+          "nodes": 5592,
+          "elapsedMs": 115.4434999999994,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-4",
+          "move": {
+            "from": 29,
+            "to": 38
+          },
+          "score": 371,
+          "completedDepth": 5,
+          "nodes": 63707,
+          "elapsedMs": 1200.0315999999993,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-5",
+          "move": {
+            "from": 73,
+            "to": 19
+          },
+          "score": 413,
+          "completedDepth": 4,
+          "nodes": 11495,
+          "elapsedMs": 233.11259999999947,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-6",
+          "move": {
+            "from": 1,
+            "to": 20
+          },
+          "score": -39,
+          "completedDepth": 2,
+          "nodes": 2351,
+          "elapsedMs": 46.70809999999983,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-7",
+          "move": {
+            "from": 89,
+            "to": 88
+          },
+          "score": -286,
+          "completedDepth": 5,
+          "nodes": 36028,
+          "elapsedMs": 741.4848999999995,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-8",
+          "move": {
+            "from": 7,
+            "to": 24
+          },
+          "score": 21,
+          "completedDepth": 3,
+          "nodes": 5855,
+          "elapsedMs": 126.44130000000041,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-9",
+          "move": {
+            "from": 58,
+            "to": 49
+          },
+          "score": 462,
+          "completedDepth": 5,
+          "nodes": 56570,
+          "elapsedMs": 1086.6368000000002,
+          "stoppedBy": "depth"
+        },
+        {
+          "fixture": "fixture-10",
+          "move": {
+            "from": 0,
+            "to": 1
+          },
+          "score": -447,
+          "completedDepth": 5,
+          "nodes": 59555,
+          "elapsedMs": 1200.0544999999984,
+          "stoppedBy": "time"
+        },
+        {
+          "fixture": "fixture-11",
+          "move": {
+            "from": 43,
+            "to": 38
+          },
+          "score": 39,
+          "completedDepth": 4,
+          "nodes": 55047,
+          "elapsedMs": 1200.0197000000007,
+          "stoppedBy": "time"
+        }
+      ],
+      "p50": 741.4848999999995,
+      "p95": 1200.0544999999984,
+      "incompleteFirstIterations": 0
+    }
+  ]
+}
