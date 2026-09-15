@@ -5,20 +5,26 @@ import type {OrbitControls as Controls} from 'three-stdlib';
 import {MathUtils,PerspectiveCamera,Spherical,Vector3} from 'three';
 import {boardOrbitDistance,boardPreset,frameBoardCamera,MIN_POLAR,MAX_POLAR,MIN_MAGNIFICATION,MAX_MAGNIFICATION} from './view';
 import type {BoardFrame,BoardView} from './view';
+import {introPose,introSubjects,introDuration} from './cameraIntro';
+import type {Match} from './model';
 import {STABLES} from './board';
 import type {BoardGesture} from './boardGesture';
 
 export type SeatProjection={color:number;x:number;y:number}[];
 interface Props {
- view:BoardView;reset:number;frame?:BoardFrame;paused:boolean;reduced:boolean;
+ intro:boolean;match:Match;onIntroEnd:()=>void;view:BoardView;reset:number;frame?:BoardFrame;paused:boolean;reduced:boolean;
  gesture:BoardGesture;onManual:()=>void;onSeats:(positions:SeatProjection)=>void;
 }
-export function BoardCamera({view,reset,frame,paused,reduced,gesture,onManual,onSeats}:Props){
+export function BoardCamera({intro,match,onIntroEnd,view,reset,frame,paused,reduced,gesture,onManual,onSeats}:Props){
  const control=useRef<Controls>(null),{camera:rawCamera,size,gl,invalidate,scene}=useThree();
  const camera=rawCamera as PerspectiveCamera;
  const region=useMemo(()=>frame??{left:0,top:0,width:size.width,height:size.height},[frame,size.width,size.height]);
  const initialized=useRef(false),baseDistance=useRef(0),interacting=useRef(false);
  const reduceMotion=useRef(reduced);reduceMotion.current=reduced;
+ const flight=useRef<{elapsed:number}|null>(null);
+ // Keep the opening subjects fixed for this match as gameplay moves its pieces.
+ const subjects=useMemo(()=>introSubjects(match),[match.id]);
+ const introSeconds=introDuration(subjects.length);
  const transition=useRef<{from:Spherical;to:Spherical;elapsed:number}|null>(null);
  const v=useMemo(()=>new Vector3(),[]),lastSeats=useRef('');
 
@@ -37,17 +43,18 @@ export function BoardCamera({view,reset,frame,paused,reduced,gesture,onManual,on
  useEffect(()=>{
   frameBoardCamera(camera,size.width,size.height,region);
   const distance=boardOrbitDistance(camera,size.height,region),previous=baseDistance.current;
-  if(previous>0){
+  if(previous>0&&!intro){
    const ratio=distance/previous;camera.position.multiplyScalar(ratio);
    if(transition.current){transition.current.from.radius*=ratio;transition.current.to.radius*=ratio;}
   }
   baseDistance.current=distance;
-  if(control.current){control.current.minDistance=distance/MAX_MAGNIFICATION;control.current.maxDistance=distance/MIN_MAGNIFICATION;}
+  if(control.current){control.current.minDistance=intro?.1:distance/MAX_MAGNIFICATION;control.current.maxDistance=intro?distance*2:distance/MIN_MAGNIFICATION;}
+  if(flight.current){const pose=introPose(flight.current.elapsed/introSeconds,view,distance,subjects);camera.position.copy(pose.position);control.current?.target.copy(pose.target);camera.lookAt(pose.target);}
   camera.updateMatrixWorld();invalidate();
- },[camera,size.width,size.height,region,invalidate]);
+ },[camera,size.width,size.height,region,intro,invalidate]);
 
  useEffect(()=>{
-  const controls=control.current;if(!controls)return;
+  const controls=control.current;if(!controls||intro)return;
   controls.enableDamping=false;controls.update();controls.enableDamping=!reduceMotion.current;
   controls.target.set(0,0,0);camera.up.set(0,1,0);
   const from=new Spherical().setFromVector3(camera.position),to=boardPreset(view,baseDistance.current);
@@ -55,10 +62,29 @@ export function BoardCamera({view,reset,frame,paused,reduced,gesture,onManual,on
   transition.current={from,to,elapsed:0};
   if(!initialized.current||reduceMotion.current){camera.position.setFromSpherical(to);camera.lookAt(0,0,0);transition.current=null;initialized.current=true;}
   invalidate();
- },[view,reset,camera,invalidate]);
+ },[view,reset,intro,camera,invalidate]);
+
+ useEffect(()=>{
+  if(intro&&!reduced){
+   transition.current=null;flight.current={elapsed:0};
+   if(control.current){control.current.enableDamping=false;control.current.update();control.current.target.set(0,0,0);}
+   const pose=introPose(0,view,baseDistance.current,subjects);
+   camera.position.copy(pose.position);control.current?.target.copy(pose.target);camera.lookAt(pose.target);initialized.current=true;
+  }else if(flight.current){
+   flight.current=null;transition.current=null;
+   control.current?.target.set(0,0,0);camera.position.setFromSpherical(boardPreset(view,baseDistance.current));camera.lookAt(0,0,0);
+  }
+  invalidate();
+ },[intro,match.id,reduced,camera,invalidate]);
 
  useFrame((_,dt)=>{
   const controls=control.current;if(!controls)return;
+  const flying=flight.current;
+  if(flying&&!paused){
+   flying.elapsed+=Math.min(dt,.05);const t=Math.min(1,flying.elapsed/introSeconds),pose=introPose(t,view,baseDistance.current,subjects);
+   camera.position.copy(pose.position);controls.target.copy(pose.target);camera.lookAt(pose.target);
+   if(t===1){flight.current=null;onIntroEnd();}else invalidate();
+  }
   const moving=transition.current;
   if(moving&&!paused){
    moving.elapsed=reduced?.55:moving.elapsed+Math.min(dt,.05);const t=Math.min(1,moving.elapsed/.55),ease=t*t*(3-2*t);
@@ -72,12 +98,12 @@ export function BoardCamera({view,reset,frame,paused,reduced,gesture,onManual,on
   const seats=STABLES.map(([x,z],color)=>{v.set(Math.sign(x)*9.25,.7,Math.sign(z)*9.25).project(camera);return{color,x:(v.x+1)*size.width/2-region.left,y:(1-v.y)*size.height/2-region.top};});
   const key=seats.map(p=>Math.round(p.x)+','+Math.round(p.y)).join(';');
   if(key!==lastSeats.current){lastSeats.current=key;onSeats(seats);}
-  if(import.meta.env.DEV)gl.domElement.dataset.horseCamera=JSON.stringify({scene:scene.uuid,camera:camera.uuid,projection:camera.type,position:camera.position.toArray().map(n=>+n.toFixed(3)),distance:+camera.position.length().toFixed(4),fov:camera.fov,aspect:camera.aspect,zoom:+(baseDistance.current/camera.position.length()).toFixed(3),transition:!!transition.current});
+  if(import.meta.env.DEV)gl.domElement.dataset.horseCamera=JSON.stringify({scene:scene.uuid,camera:camera.uuid,projection:camera.type,position:camera.position.toArray().map(n=>+n.toFixed(3)),target:controls.target.toArray().map(n=>+n.toFixed(3)),distance:+camera.position.length().toFixed(4),fov:camera.fov,aspect:camera.aspect,zoom:+(baseDistance.current/camera.position.length()).toFixed(3),intro:!!flight.current,introSeconds,introProgress:flight.current?+(flight.current.elapsed/introSeconds).toFixed(3):1,transition:!!transition.current});
  });
 
- return <OrbitControls ref={control} makeDefault enabled={!paused} enablePan={false} enableRotate enableZoom
-  enableDamping={!reduced} dampingFactor={.12} rotateSpeed={.65} zoomSpeed={.7}
-  minPolarAngle={MIN_POLAR} maxPolarAngle={MAX_POLAR}
+ return <OrbitControls ref={control} makeDefault enabled={!paused&&!intro} enablePan={false} enableRotate enableZoom
+  enableDamping={!reduced&&!intro} dampingFactor={.12} rotateSpeed={.65} zoomSpeed={.7}
+  minPolarAngle={MIN_POLAR} maxPolarAngle={intro?Math.PI/2:MAX_POLAR}
   onStart={()=>{interacting.current=true;transition.current=null;gl.domElement.style.cursor='grabbing';}}
   onChange={()=>{if(interacting.current)onManual();invalidate();}}
   onEnd={()=>{interacting.current=false;gl.domElement.style.cursor='grab';}}/>;

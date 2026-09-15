@@ -1,0 +1,33 @@
+{
+  "seed": 20260915,
+  "opponent": "random",
+  "uniquePositions": 128,
+  "games": 256,
+  "search": {
+    "hard": {
+      "nodes": 4000,
+      "maxDepth": 6
+    },
+    "medium": {
+      "nodes": 1000,
+      "maxDepth": 3
+    },
+    "deadline": "none, fixed work"
+  },
+  "wins": 220,
+  "draws": 10,
+  "losses": 26,
+  "unfinished": 0,
+  "matchScore": 0.87890625,
+  "averageDifference": 22.5078125,
+  "averageTurns": 11.7890625,
+  "reasons": {
+    "empty": 238,
+    "shortage": 18
+  },
+  "decisions": 1560,
+  "meanDepth": 4.944230769230769,
+  "p50": 21.95679999999993,
+  "p95": 96.68869999999879,
+  "seconds": 49.072
+}

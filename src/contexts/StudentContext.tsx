@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect, useRef } from 'react';
 import { persistResult as persistHorseRace, clearHorseData } from '../../games/HorseRace/persistence';
+import { persistResult as persistOAnQuan, clearOAnQuanData } from '../../games/OAnQuan/persistence';
+import { persistResult as persistPropertyTown, clearTownData } from '../../games/PropertyTown/persistence';
 import { persistMission } from '../../games/KidCoder/progress/progress';
 import { persistMemory } from '../../games/MemoryMatch/progress/progress';
 import { persistDragon } from '../../games/DragonQuest/adventure/progress';
@@ -29,6 +31,8 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    completeOAnQuan: (owner: string, match: import('../../games/OAnQuan/model').Match) => { ok: boolean };
+    completePropertyTown: (owner: string, match: import('../../games/PropertyTown/model').Match) => { ok: boolean };
     completeHorseRace: (owner: string, match: import('../../games/HorseRace/model').Match) => { ok: boolean };
     addStudent: (name: string, grade: Grade, age?: number, avatarId?: string) => void;
     setStudent: (student: StudentProfile | null) => void;
@@ -93,6 +97,20 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [students]);
 
     const currentStudent = students.find(s => s.id === currentStudentId) || null;
+
+    const completePropertyTown = useCallback((owner: string, match: import('../../games/PropertyTown/model').Match) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const snapshot = studentsRef.current, result = persistPropertyTown(snapshot, owner, match, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
+
+    const completeOAnQuan = useCallback((owner: string, match: import('../../games/OAnQuan/model').Match) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const snapshot = studentsRef.current, result = persistOAnQuan(snapshot, owner, match, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
 
     const completeHorseRace = useCallback((owner: string, match: import('../../games/HorseRace/model').Match) => {
         if (owner !== currentStudentId) return { ok: false };
@@ -199,6 +217,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         clearRacingData(id);
         clearWorkshopData(id);
         clearHorseData(id);
+        clearOAnQuanData(id);
+        clearTownData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -523,6 +543,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         addTestResult,
         addGameResult,
         completeHorseRace,
+        completeOAnQuan,
+        completePropertyTown,
         completeKidCoder,
         completeMemoryGame,
         completeDragonGame,

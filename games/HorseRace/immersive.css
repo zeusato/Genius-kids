@@ -1,4 +1,7 @@
 /* The world fills the viewport; only the controls and player labels float above it. */
+.hr-camera-intro{position:absolute;left:14px;right:var(--hr-stage-right);bottom:calc(var(--hr-stage-bottom) + 22px);z-index:4;display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none;color:#45603c;text-shadow:0 1px 8px #fffff5;font-size:13px;font-weight:700}
+.hr-camera-intro button{pointer-events:auto;min-height:44px;padding:10px 22px;border:1px solid #ffffffd9;border-radius:24px;background:#fffdf0ed;color:#47663d;font:inherit;box-shadow:0 5px 24px #36532922;cursor:pointer}
+.hr-intro-playing .hr-players-overlay{opacity:0;pointer-events:none}
 .hr-immersive.hr-root{--hr-dock-width:252px;--hr-dock-gap:22px;--hr-stage-top:68px;--hr-stage-bottom:16px;--hr-stage-right:calc(var(--hr-dock-width) + var(--hr-dock-gap)*2);position:fixed;inset:0;z-index:40;height:100dvh;min-height:0;overflow:hidden;background:#d0ddbb;isolation:isolate}
 .hr-immersive .hr-header{position:absolute;inset:0 0 auto;z-index:5;height:68px;padding:12px 20px;border:0;background:linear-gradient(#eff3e5d9,transparent);pointer-events:none}
 .hr-immersive .hr-header button,.hr-immersive .hr-header-tools{pointer-events:auto}

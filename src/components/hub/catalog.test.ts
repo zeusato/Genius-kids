@@ -5,6 +5,9 @@ import { gamesFor, modesFor, scienceFor, SCIENCE_CATALOG, resolveEntry, type Leg
 const modern: LegacyFlags = { memory:false, sound:false, dragon:false };
 const resolve = (query: string, grade: Grade = 3, flags = modern) => resolveEntry(new URLSearchParams(query), grade, flags);
 describe('hub entry contracts', () => {
+    it('opens O An Quan directly for every grade with its own lobby',()=>{
+        for(const grade of [0,1,2,3,4,5] as const)expect(resolve('play=o-an-quan&edition=classic&level=hard',grade)).toMatchObject({id:'o-an-quan',classic:false,needsSetup:false});
+    });
     it('preserves the existing science destinations and preschool choices', () => {
         expect(scienceFor(Grade.Preschool).map(item => item.id)).toEqual(['solar-system', 'planet-maker', 'cell-biology']);
         const routes = ['/science/solar-system', '/science/planet-maker', '/science/periodic-table', '/science/electricity', '/science/cell-biology', '/science/evolution'];
@@ -13,12 +16,12 @@ describe('hub entry contracts', () => {
     });
     it('keeps preschool destinations and order, including grade zero', () => {
         expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','science']);
-        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['horse-race','memory','sound-memory']);
+        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['o-an-quan','horse-race','memory','sound-memory']);
         expect(modesFor(3).map(m => m.id)).toEqual(['study','game','library','riddle','coding','science']);
-        expect(gamesFor(3)).toHaveLength(8);
+        expect(gamesFor(3)).toHaveLength(10);
     });
     it('rejects direct links that bypass the preschool card gate', () => {
-        for (const id of ['speed-math','dragon-quest','math-racing','sudoku','gears-menu','gears-build','gears-guess']) {
+        for (const id of ['co-ti-phu','speed-math','dragon-quest','math-racing','sudoku','gears-menu','gears-build','gears-guess']) {
             expect(resolve('play=' + id + '&level=easy', Grade.Preschool)).toBeNull();
         }
     });

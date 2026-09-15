@@ -1,0 +1,145 @@
+{
+  "date": "2026-09-15T09:47:16.500Z",
+  "elapsedSeconds": 1129.742,
+  "policy": "medium public-information heuristic, equal skills, seeded randomized starting seat",
+  "results": [
+    {
+      "seats": 2,
+      "mode": "quick",
+      "games": 10000,
+      "winPercent": [
+        49.94,
+        50.07
+      ],
+      "winByTurnOrderPercent": [
+        55.65,
+        44.35
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 33.8395,
+      "averageTurns": 16,
+      "averageUpgrades": 4.1998,
+      "averageAcceptedTrades": 0,
+      "averageAuctionsWon": 0,
+      "averageFinalAssets": 706.26
+    },
+    {
+      "seats": 2,
+      "mode": "family",
+      "games": 10000,
+      "winPercent": [
+        49.57,
+        50.43
+      ],
+      "winByTurnOrderPercent": [
+        51.54,
+        48.46
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 78.3849,
+      "averageTurns": 24,
+      "averageUpgrades": 5.1746,
+      "averageAcceptedTrades": 0.0011,
+      "averageAuctionsWon": 2.7469,
+      "averageFinalAssets": 884.9245
+    },
+    {
+      "seats": 3,
+      "mode": "quick",
+      "games": 10000,
+      "winPercent": [
+        32.9,
+        33.71,
+        33.39
+      ],
+      "winByTurnOrderPercent": [
+        40.95,
+        32.67,
+        26.38
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 48.8527,
+      "averageTurns": 24,
+      "averageUpgrades": 6.18,
+      "averageAcceptedTrades": 0,
+      "averageAuctionsWon": 0,
+      "averageFinalAssets": 707.9043333333325
+    },
+    {
+      "seats": 3,
+      "mode": "family",
+      "games": 10000,
+      "winPercent": [
+        33.34,
+        32.53,
+        34.13
+      ],
+      "winByTurnOrderPercent": [
+        36.87,
+        32.87,
+        30.26
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 123.5908,
+      "averageTurns": 36,
+      "averageUpgrades": 7.7913,
+      "averageAcceptedTrades": 0.0021,
+      "averageAuctionsWon": 4.6323,
+      "averageFinalAssets": 885.4680000000011
+    },
+    {
+      "seats": 4,
+      "mode": "quick",
+      "games": 10000,
+      "winPercent": [
+        24.75,
+        24.97,
+        24.89,
+        25.39
+      ],
+      "winByTurnOrderPercent": [
+        34.46,
+        26.66,
+        22,
+        16.89
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 62.8145,
+      "averageTurns": 32,
+      "averageUpgrades": 7.9801,
+      "averageAcceptedTrades": 0,
+      "averageAuctionsWon": 0,
+      "averageFinalAssets": 709.02625
+    },
+    {
+      "seats": 4,
+      "mode": "family",
+      "games": 10000,
+      "winPercent": [
+        25.11,
+        24.46,
+        24.5,
+        25.93
+      ],
+      "winByTurnOrderPercent": [
+        30.51,
+        25.86,
+        22.7,
+        20.92
+      ],
+      "bankruptPercent": 0,
+      "bankruptBeforeRound4Percent": 0,
+      "averageActions": 167.0335,
+      "averageTurns": 48,
+      "averageUpgrades": 10.3039,
+      "averageAcceptedTrades": 0.0068,
+      "averageAuctionsWon": 6.1727,
+      "averageFinalAssets": 875.10625
+    }
+  ]
+}

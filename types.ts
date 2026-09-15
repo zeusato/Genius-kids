@@ -62,6 +62,8 @@ export interface ShopDailyPhoto {
 }
 
 export interface GameResult {
+  propertyTown?: import('./games/PropertyTown/model').TownRecord;
+  oAnQuan?: import('./games/OAnQuan/model').GameRecord;
   horseRace?: import('./games/HorseRace/model').Record;
   id: string;
   gameType: string; // 'memory', 'speed', etc.

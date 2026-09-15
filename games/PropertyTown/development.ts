@@ -1,0 +1,21 @@
+// The same three stages are used by the model gallery and the in-game build panel.
+export const DEVELOPMENTS:Record<number,[string,string,string]>={
+ 1:['Lò bánh nhỏ và quầy bánh nóng.','Mở thêm gian trưng bày mái kính.','Tiệm bánh chữ L với hiên phục vụ và lò lớn.'],
+ 3:['Quầy nước và một bàn sân vườn.','Mở thêm sảnh kính và sân có giàn che.','Quán sân vườn với mái pergola và quầy ngoài trời.'],
+ 4:['Xe kem đẩy với dù che.','Thay xe đẩy bằng cửa hàng kem tròn.','Cửa hàng kem hai cánh với sân ngồi.'],
+ 6:['Hiệu sách mái dốc, kệ sách mặt tiền.','Mở phòng đọc kính bên cạnh.','Thư viện nhỏ có mái vòm và sân đọc sách.'],
+ 9:['Xưởng nhỏ có mái lấy sáng.','Mở gian triển lãm phía trước.','Phòng tranh có sảnh kính và vườn tượng.'],
+ 10:['Lâu đài đồ chơi và đoàn tàu nhỏ.','Xây cầu nối hai tháp lâu đài.','Lâu đài với cổng vòm và tháp trung tâm.'],
+ 12:['Các luống hoa và cổng vòm.','Mở vườn dạo bộ có giàn hoa.','Vườn hoa với đài phun nước và nhà nghỉ.'],
+ 14:['Nhà kính vòm trồng cây.','Mở thêm hai cánh nhà kính.','Vườn thực vật với mái kính trung tâm.'],
+ 15:['Nhà kho nông trại và luống rau.','Xây silo bên cạnh nhà kho.','Nông trại có silo và cối xay gió.'],
+ 17:['Xưởng xe mở với xe trưng bày.','Mở thêm khu sửa xe có mái che.','Trung tâm xe đạp có vòm trưng bày.'],
+ 19:['Sân cỏ kẻ vạch và hai cầu môn.','Xây khán đài hai bên sân.','Sân vận động có mái khán đài, đèn và bảng điểm.'],
+ 20:['Bể bơi có làn và thang xuống nước.','Xây khu cứu hộ và bục nhảy.','Công viên nước có tháp cầu trượt.'],
+ 22:['Cửa tiệm và hai ngôi nhà thú cưng.','Mở khu chơi có mái che.','Công viên thú cưng có sân vận động mini.'],
+ 25:['Phòng khám và xe cứu thương.','Mở phòng khám kính bên cạnh.','Bệnh viện thú cưng có hai khu điều trị.'],
+ 26:['Tiệm nhỏ với bồn tắm và bàn chải lông.','Mở phòng chăm sóc mái vòm.','Spa thú cưng có sân thư giãn và mái uốn cong.'],
+ 28:['Rạp nhỏ phong cách Art Deco.','Mở sảnh chiếu phim có mái đón.','Cụm rạp với cánh phòng chiếu và mái bậc.'],
+ 30:['Sân khấu mở có rèm và ghế khán giả.','Xây mái sân khấu và dàn đèn.','Nhà hát ngoài trời với vòm lớn.'],
+ 31:['Vòng quay và quầy vé.','Mở thêm đu quay ngựa gỗ.','Công viên giải trí có tàu lượn mini.'],
+};

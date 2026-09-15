@@ -302,19 +302,19 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     <div className="space-y-3">
                         {Object.entries(stats.gamesByType).map(([gameType, gameStats]) => (
                             <div key={gameType} className="bg-gray-50 p-4 rounded-xl">
-                                <h3 className="font-semibold text-slate-700 capitalize mb-2">{gameType==='horse-race'?'Cờ Cá Ngựa':gameType}</h3>
+                                <h3 className="font-semibold text-slate-700 capitalize mb-2">{gameType==='co-ti-phu'?'Cờ Tỉ Phú':gameType==='o-an-quan'?'Ô Ăn Quan':gameType==='horse-race'?'Cờ Cá Ngựa':gameType}</h3>
                                 <div className="grid grid-cols-3 gap-2 text-sm">
                                     <div>
                                         <p className="text-gray-500">Số lần chơi</p>
                                         <p className="font-bold text-slate-800">{gameStats.count}</p>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500">{gameType==='horse-race'?'Ván thắng':'Điểm TB'}</p>
-                                        <p className="font-bold text-slate-800">{gameType==='horse-race'?student.gameHistory.filter(g=>g.gameType==='horse-race'&&g.horseRace?.hostWon).length:gameStats.avgScore+'%'}</p>
+                                        <p className="text-gray-500">{gameType==='o-an-quan'?'Thắng / Hòa / Thua':['horse-race','co-ti-phu'].includes(gameType)?'Ván thắng':'Điểm TB'}</p>
+                                        <p className="font-bold text-slate-800">{gameType==='co-ti-phu'?student.gameHistory.filter(g=>g.gameType==='co-ti-phu'&&g.propertyTown?.hostWon).length:gameType==='o-an-quan'?(['win','draw','loss'].map(r=>student.gameHistory.filter(g=>g.gameType==='o-an-quan'&&g.oAnQuan?.hostResult===r).length).join(' / ')):gameType==='horse-race'?student.gameHistory.filter(g=>g.gameType==='horse-race'&&g.horseRace?.hostWon).length:gameStats.avgScore+'%'}</p>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500">{gameType==='horse-race'?'Ngựa về TB':'Sao TB'}</p>
-                                        <p className="font-bold text-yellow-600">{gameType==='horse-race'?(student.gameHistory.filter(g=>g.gameType==='horse-race').reduce((sum,g)=>sum+g.score,0)/gameStats.count).toFixed(1)+'/4':gameStats.avgStars+'⭐'}</p>
+                                        <p className="text-gray-500">{gameType==='co-ti-phu'?'Tài sản TB':gameType==='o-an-quan'?'Điểm dân / quan TB':gameType==='horse-race'?'Ngựa về TB':'Sao TB'}</p>
+                                        <p className="font-bold text-yellow-600">{gameType==='co-ti-phu'?(student.gameHistory.filter(g=>g.gameType==='co-ti-phu').reduce((sum,g)=>sum+g.score,0)/gameStats.count).toFixed(0)+' xu':gameType==='o-an-quan'?(student.gameHistory.filter(g=>g.gameType==='o-an-quan').reduce((sum,g)=>sum+g.score,0)/gameStats.count).toFixed(1)+' điểm':gameType==='horse-race'?(student.gameHistory.filter(g=>g.gameType==='horse-race').reduce((sum,g)=>sum+g.score,0)/gameStats.count).toFixed(1)+'/4':gameStats.avgStars+'⭐'}</p>
                                     </div>
                                 </div>
                             </div>

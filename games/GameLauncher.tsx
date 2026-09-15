@@ -5,6 +5,8 @@ import type { GameEntry } from '../src/components/hub/catalog';
 
 const MemoryAdventure = lazy(() => import('./MemoryMatch/MemoryAdventure'));
 const HorseRace = lazy(() => import('./HorseRace/HorseRaceGame'));
+const OAnQuan = lazy(() => import('./OAnQuan/OAnQuanGame'));
+const PropertyTown = lazy(() => import('./PropertyTown/PropertyTownGame'));
 const SoundAdventure = lazy(() => import('./SoundMemory/SoundAdventure'));
 const DragonAdventure = lazy(() => import('./DragonQuest/adventure/DragonAdventure'));
 const MemoryClassic = lazy(() => import('./MemoryMatch/MemoryMatchGame').then(m => ({ default: m.MemoryMatchGame })));
@@ -32,6 +34,8 @@ export function GameLauncher({ entry, onBack, onLegacy, onComplete }: { entry: G
     const pairs = { easy: Difficulty.Easy, medium: Difficulty.Medium, hard: Difficulty.Hard }[level];
     let game: React.ReactNode;
     switch (id) {
+        case 'co-ti-phu': game = <PropertyTown onExit={onBack}/>; break;
+        case 'o-an-quan': game = <OAnQuan onExit={onBack}/>; break;
         case 'horse-race': game = <HorseRace onExit={onBack}/>; break;
         case 'memory': game = classic ? <MemoryClassic difficulty={pairs} onExit={onBack} onComplete={complete(id)}/> : <MemoryAdventure onExit={onBack} onLegacy={onLegacy}/>; break;
         case 'sound-memory': game = classic ? <SoundClassic difficulty={level} onExit={onBack} onComplete={complete(id)}/> : <SoundAdventure onExit={onBack} onLegacy={onLegacy}/>; break;

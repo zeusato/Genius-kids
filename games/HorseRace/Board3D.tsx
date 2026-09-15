@@ -13,7 +13,7 @@ import { TEAMS,Match,Move } from './model';
 import { horseGeometry } from './horseGeometry';
 import {stableGeometry,woodGrain,boardSurface,contactTexture} from './scenery';
 export interface Motion { id:number;before:Match;move?:Move;dice?:number;duration:number }
-export interface BoardProps { state:Match; motion:Motion|null; paused:boolean; reduced:boolean; light:boolean; view:BoardView; cameraReset:number; onManualView:()=>void; onSeats:(positions:SeatProjection)=>void; frame?:BoardFrame; enabled:boolean; moves:Move[]; onPick:(piece:number)=>void; onFailure:()=>void; onReady:()=>void }
+export interface BoardProps { state:Match; intro:boolean; onIntroEnd:()=>void; motion:Motion|null; paused:boolean; reduced:boolean; light:boolean; view:BoardView; cameraReset:number; onManualView:()=>void; onSeats:(positions:SeatProjection)=>void; frame?:BoardFrame; enabled:boolean; moves:Move[]; onPick:(piece:number)=>void; onFailure:()=>void; onReady:()=>void }
 const temp=new T.Object3D();
 function DirectionArrows(){
  const mesh=useRef<T.InstancedMesh>(null);
@@ -124,9 +124,10 @@ function Scene(props:BoardProps){
  const pick=(piece:number)=>{if(gesture.canPick)props.onPick(piece);};
  useEffect(()=>{if(!import.meta.env.DEV)return;const timer=setInterval(()=>{gl.domElement.dataset.renderCalls=String(gl.info.render.calls);gl.domElement.dataset.triangles=String(gl.info.render.triangles);},1000);return()=>clearInterval(timer);},[gl]);
  useEffect(()=>{const room=new RoomEnvironment(),generator=new T.PMREMGenerator(gl);const env=generator.fromScene(room,.04);scene.environment=env.texture;scene.environmentIntensity=.3;room.dispose();generator.dispose();invalidate();return()=>{scene.environment=null;env.dispose();};},[gl,scene,invalidate]);
- useEffect(()=>{props.onReady();const canvas=gl.domElement;const lost=(e:Event)=>{e.preventDefault();props.onFailure();};canvas.addEventListener('webglcontextlost',lost);return()=>canvas.removeEventListener('webglcontextlost',lost);},[gl,props.onReady,props.onFailure]);
+ useEffect(()=>{props.onReady();},[props.state.id,props.onReady]);
+ useEffect(()=>{const canvas=gl.domElement;const lost=(e:Event)=>{e.preventDefault();props.onFailure();};canvas.addEventListener('webglcontextlost',lost);return()=>canvas.removeEventListener('webglcontextlost',lost);},[gl,props.onFailure]);
  return <>
-  <BoardCamera view={props.view} reset={props.cameraReset} frame={props.frame} paused={props.paused} reduced={props.reduced} gesture={gesture} onManual={props.onManualView} onSeats={props.onSeats}/>
+  <BoardCamera intro={props.intro} match={props.state} onIntroEnd={props.onIntroEnd} view={props.view} reset={props.cameraReset} frame={props.frame} paused={props.paused} reduced={props.reduced} gesture={gesture} onManual={props.onManualView} onSeats={props.onSeats}/>
   <color attach='background' args={['#dce6ce']}/><ambientLight intensity={.2}/><hemisphereLight args={['#fff8e9','#82906e',.7]}/>
   <directionalLight position={[-6,18,-7]} intensity={1.9} castShadow={!props.light} shadow-mapSize={[2048,2048]} shadow-camera-left={-13} shadow-camera-right={13} shadow-camera-top={13} shadow-camera-bottom={-13} shadow-normalBias={.035} shadow-bias={-.00015}/>
   <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.9,0]} receiveShadow><planeGeometry args={[1000,1000]}/><meshStandardMaterial color='#d0ddbb' roughness={1}/></mesh>

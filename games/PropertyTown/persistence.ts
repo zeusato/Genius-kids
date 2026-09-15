@@ -1,0 +1,10 @@
+import type {Match,TownRecord} from './model';
+import {validateMatch,winners} from './engine';
+import {assets} from './economy';
+import type {StudentProfile} from '../../types';
+import {initializeStats} from '../../services/achievementService';
+const key=(owner:string)=>`property-town-v2:${owner}`;
+export function loadDraft(owner:string):{match:Match|null;error:boolean}{try{const raw=localStorage.getItem(key(owner));if(!raw)return{match:null,error:false};const s=JSON.parse(raw);return validateMatch(s,owner)?{match:s,error:false}:{match:null,error:true};}catch{return{match:null,error:true};}}
+export function saveDraft(s:Match){try{localStorage.setItem(key(s.owner),JSON.stringify(s));return true;}catch{return false;}}
+export function clearTownData(owner:string){try{localStorage.removeItem(key(owner));localStorage.removeItem(`property-town-v1:${owner}`);localStorage.removeItem(`property-town-prefs:${owner}`);}catch{/* Profile deletion can continue without storage. */}}
+export function persistResult(profiles:StudentProfile[],owner:string,s:Match,write:(p:StudentProfile[])=>void){const fail={ok:false,profiles};if(!validateMatch(s,owner)||s.phase!=='over')return fail;const profile=profiles.find(p=>p.id===owner);if(!profile)return fail;if(profile.gameHistory.some(g=>g.id===s.id))return{ok:true,profiles};const record:TownRecord={version:2,hostWon:winners(s).includes(0),mode:s.mode,rounds:s.turn,players:s.players.map((p,i)=>({name:p.name,kind:p.kind,assets:assets(s,i)})),endReason:s.endReason!};const stats=structuredClone(profile.stats||initializeStats(profile));stats.totalGamesPlayed++;if(record.hostWon)stats.gameWins['co-ti-phu']=(stats.gameWins['co-ti-phu']||0)+1;const next=profiles.map(p=>p.id===owner?{...p,stats,gameHistory:[...p.gameHistory,{id:s.id,gameType:'co-ti-phu',date:new Date().toISOString(),score:assets(s,0),maxScore:Math.max(...s.players.map((_,i)=>assets(s,i))),starsEarned:0,durationSeconds:Math.round(s.elapsed/1000),propertyTown:record}]}:p);try{write(next);return{ok:true,profiles:next};}catch{return fail;}}

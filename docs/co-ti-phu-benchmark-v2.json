@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "date": "2026-09-15T10:37:14.764Z",
+  "elapsedSeconds": 15.768,
+  "policy": "Equal medium bots, random starting seat; cap 6000 actions for reporting, no in-game turn cap.",
+  "results": [
+    {
+      "seats": 2,
+      "games": 100,
+      "unfinished": 0,
+      "invalid": 0,
+      "winPercent": [
+        54,
+        46
+      ],
+      "medianTurns": 43,
+      "p90Turns": 87,
+      "maxTurns": 126,
+      "averageUpgrades": 8.47
+    },
+    {
+      "seats": 3,
+      "games": 100,
+      "unfinished": 0,
+      "invalid": 0,
+      "winPercent": [
+        32,
+        34,
+        34
+      ],
+      "medianTurns": 61,
+      "p90Turns": 104,
+      "maxTurns": 931,
+      "averageUpgrades": 12.46
+    },
+    {
+      "seats": 4,
+      "games": 100,
+      "unfinished": 4,
+      "invalid": 0,
+      "winPercent": [
+        22,
+        22,
+        27,
+        25
+      ],
+      "medianTurns": 76,
+      "p90Turns": 120,
+      "maxTurns": 197,
+      "averageUpgrades": 16.66
+    }
+  ]
+}
