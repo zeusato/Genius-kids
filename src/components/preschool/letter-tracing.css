@@ -1,0 +1,73 @@
+.lt-page { overflow: hidden; border: 1px solid #dbdfce; border-radius: 24px; background: #fffdf4; box-shadow: 0 8px 24px #40523509; scroll-margin-top: 88px; }
+.lt-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 20px; border-bottom: 1px solid #e6e8d9; }
+.lt-top > span { display: flex; align-items: center; gap: 6px; color: #738268; font-size: 11px; }
+.lt-back { display: flex; align-items: center; gap: 7px; border: 0; background: none; color: #55765b; font-size: 12px; font-weight: 750; min-height: 44px; }
+.lt-layout { display: grid; grid-template-columns: minmax(170px, .65fr) minmax(0, 1.6fr); }
+.lt-companion { position: relative; overflow: hidden; min-width: 0; background: #e5eacf; }
+.lt-companion img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 26% center; opacity: .84; }
+.lt-companion::after { content: ''; position: absolute; inset: 0; background: linear-gradient(#fffcf2 4%, #fffcf2c9 30%, #f4f6e735 57%, #385b2514); pointer-events: none; }
+.lt-companion-copy { position: relative; z-index: 1; padding: 32px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.lt-companion-copy > strong { color: #a95440; font-size: 88px; line-height: 1.15; letter-spacing: -5px; margin: 18px 0 8px; }
+.lt-companion-copy > strong small { color: #c48b63; font-size: 55px; }
+.lt-companion-copy > span:not(.ag-eyebrow) { color: #4b6a54; font-size: 12px; font-weight: 800; }
+.lt-companion-copy p { margin-top: 15px; color: #7e8269; font-size: 12px; line-height: 1.7; }
+.lt-workspace { min-width: 0; padding: 26px 30px 20px; }
+.lt-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.lt-heading h3 { font-size: clamp(20px, 2.3vw, 27px); font-weight: 900; letter-spacing: -.6px; margin-top: 7px; scroll-margin-top: 100px; outline: none; }
+.lt-heading > button { border: 1px solid #e0e6d0; box-shadow: none; }
+.lt-instruction { display: flex; align-items: center; gap: 8px; min-height: 47px; margin: 8px 0 12px; }
+.lt-instruction p { color: #6b7d5b; font-size: 12px; font-weight: 700; line-height: 1.6; }
+.lt-start-dot { flex: 0 0 9px; width: 9px; height: 9px; background: #668f54; border-radius: 50%; box-shadow: 0 0 0 4px #e9efdc; }
+.lt-paper { position: relative; overflow: hidden; border: 1px solid #e3dfcd; border-radius: 19px; padding: 16px 18px 12px; background: radial-gradient(#95a17c15 .7px, transparent .8px) 0 0 / 10px 10px, #fffef9; box-shadow: inset 0 2px 12px #a08b5710; }
+.lt-paper-label { position: absolute; top: 13px; left: 17px; color: #a1a58d; font-size: 10px; font-weight: 700; pointer-events: none; }
+.lt-canvas { display: block; width: 100%; max-width: 370px; aspect-ratio: 280 / 330; margin: 0 auto; user-select: none; touch-action: none; cursor: crosshair; -webkit-tap-highlight-color: transparent; overflow: visible; }
+.lt-writing-lines line { stroke: #dce3d0; stroke-width: 1; }
+.lt-writing-lines .lt-middle-line { stroke-dasharray: 5 5; }
+.lt-outline { stroke: #9bb28a; stroke-width: 42; }
+.lt-interior { stroke: #fcfcf1; stroke-width: 38; }
+.lt-centre-guide { stroke: #b9c9a8; stroke-width: 1.1; stroke-dasharray: 1 7; }
+.lt-ink { stroke: #84ae64; stroke-width: 28; }
+.lt-trail-dot { fill: #779961; opacity: .65; }
+.lt-start > circle:not(.lt-start-halo) { fill: #4d854e; stroke: #fffdf0; stroke-width: 2; }
+.lt-start-halo { fill: #aac48e; opacity: .3; }
+.lt-start text { fill: #fffef2; font-size: 12px; font-weight: 900; }
+.lt-direction { fill: none; stroke: #537d46; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+.lt-demo-ink { stroke: #e0b05a; stroke-width: 26; opacity: .65; }
+.lt-demo-pencil circle { fill: #f3d793; opacity: .5; }
+.lt-demo-pencil path { fill: #dca24c; stroke: #966e39; stroke-width: 1.5; }
+.lt-finished-stars { fill: #cbb36a; font-size: 24px; }
+.lt-stroke-progress { display: flex; gap: 10px; align-items: center; color: #78856d; font-size: 10px; font-weight: 800; padding-top: 5px; }
+.lt-stroke-progress > div { flex: 1; height: 6px; overflow: hidden; border-radius: 8px; background: #e9edde; }
+.lt-stroke-progress i { display: block; height: 100%; border-radius: 8px; background: #8aab6f; transition: width .12s; }
+.lt-tools { display: flex; justify-content: center; gap: 12px; padding: 13px 0 2px; }
+.lt-tools button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 14px; border: 1px solid #dfe3d2; border-radius: 12px; background: #f8f9ef; color: #557854; font-size: 12px; font-weight: 800; }
+.lt-tools button:disabled { opacity: .45; }
+.lt-gentle { display: flex; justify-content: center; align-items: center; gap: 6px; color: #8d957e; font-size: 10px; line-height: 1.6; padding-top: 12px; text-align: center; }
+.lt-reward { display: flex; align-items: center; gap: 12px; border-top: 1px dashed #dae1cc; margin-top: 12px; padding-top: 15px; animation: ag-reveal .4s ease-out; }
+.lt-reward-sticker { position: relative; display: grid; place-items: center; width: 50px; height: 50px; flex-shrink: 0; border: 2px solid white; border-radius: 16px; background: #f3f6e6; box-shadow: 0 3px 7px #5c784b1a; font-size: 30px; rotate: -6deg; }
+.lt-reward-sticker svg { position: absolute; right: -4px; bottom: -3px; box-sizing: content-box; padding: 3px; border-radius: 50%; background: #739b63; color: white; }
+.lt-reward > div { flex: 1; }
+.lt-reward strong { color: #507747; font-size: 13px; font-weight: 850; }
+.lt-reward p { color: #8a937a; font-size: 10px; margin-top: 3px; line-height: 1.6; }
+@media (max-width: 900px) { .lt-workspace { padding: 22px 18px 18px; } .lt-companion-copy { padding: 27px 12px; } .lt-companion-copy > strong { font-size: 70px; } .lt-reward { flex-wrap: wrap; } }
+@media (max-width: 640px) {
+    .lt-page { border-radius: 19px; }
+    .lt-top { padding: 6px 12px; gap: 6px; }
+    .lt-top > span { font-size: 9px; gap: 4px; }
+    .lt-back { font-size: 10px; }
+    .lt-layout { display: block; }
+    .lt-companion { display: none; }
+    .lt-workspace { padding: 18px 12px 14px; }
+    .lt-heading h3 { font-size: 21px; }
+    .lt-heading .ag-eyebrow { font-size: 7px; }
+    .lt-instruction { min-height: 52px; margin: 8px 0; }
+    .lt-instruction p { font-size: 11px; }
+    .lt-paper { padding: 14px 4px 11px; border-radius: 14px; }
+    .lt-paper-label { left: 10px; top: 8px; font-size: 9px; }
+    .lt-canvas { max-width: 330px; }
+    .lt-stroke-progress { padding: 4px 8px 0; font-size: 9px; gap: 8px; }
+    .lt-tools { gap: 8px; }
+    .lt-tools button { font-size: 10px; gap: 5px; padding: 9px 11px; }
+    .lt-gentle { align-items: flex-start; font-size: 9px; }
+    .lt-gentle svg { flex-shrink: 0; }
+}

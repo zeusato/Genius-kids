@@ -13,6 +13,7 @@ import { MusicTrack } from '@/services/musicConfig';
 
 interface MusicContextValue {
     musicEnabled: boolean;
+    musicTemporarilyMuted?: boolean;
     soundEnabled: boolean;
     toggleMusic: () => void;
     toggleSound: () => void;
@@ -46,9 +47,11 @@ export function MusicProvider({ children }: MusicProviderProps) {
     }, [location.pathname]);
 
     const { musicEnabled, soundEnabled } = musicManager.getMusicState();
+    const musicTemporarilyMuted = getMusicTrackForRoute(location.pathname) === null;
 
     const value: MusicContextValue = {
         musicEnabled,
+        musicTemporarilyMuted,
         soundEnabled,
         toggleMusic: () => musicManager.toggleMusic(),
         toggleSound: () => musicManager.toggleSound(),

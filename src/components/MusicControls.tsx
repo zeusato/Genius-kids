@@ -18,7 +18,11 @@ interface MusicControlsProps {
 }
 
 export function MusicControls({ className = '', vertical = false, hideSound = false, variant = 'default' }: MusicControlsProps) {
-    const { musicEnabled, soundEnabled, toggleMusic, toggleSound } = useMusicControls();
+    const { musicEnabled, musicTemporarilyMuted = false, soundEnabled, toggleMusic, toggleSound } = useMusicControls();
+    const musicActive = musicEnabled && !musicTemporarilyMuted;
+    const musicLabel = musicTemporarilyMuted
+        ? 'Nhạc nền tạm tắt để nghe bài học rõ hơn'
+        : musicEnabled ? 'Tắt nhạc nền' : 'Bật nhạc nền';
 
     const buttonBaseClass = 'p-2.5 rounded-lg transition-all hover:scale-110 active:scale-95';
 
@@ -27,15 +31,16 @@ export function MusicControls({ className = '', vertical = false, hideSound = fa
             {/* Music Toggle */}
             <button
                 onClick={toggleMusic}
-                aria-pressed={musicEnabled}
-                className={variant === 'hub' ? 'hub-icon' : `${buttonBaseClass} ${musicEnabled
+                disabled={musicTemporarilyMuted}
+                aria-pressed={musicActive}
+                className={variant === 'hub' ? 'hub-icon' : `${buttonBaseClass} ${musicActive
                     ? 'bg-brand-100 text-brand-600 hover:bg-brand-200'
                     : 'bg-slate-200 text-slate-400 hover:bg-slate-300'
                     }`}
-                title={musicEnabled ? 'Tắt nhạc nền' : 'Bật nhạc nền'}
-                aria-label={musicEnabled ? 'Tắt nhạc nền' : 'Bật nhạc nền'}
+                title={musicLabel}
+                aria-label={musicLabel}
             >
-                {musicEnabled ? (
+                {musicActive ? (
                     <Music size={20} className="animate-in zoom-in duration-200" />
                 ) : (
                     <Music2 size={20} className="animate-in zoom-in duration-200 opacity-50" />

@@ -18,6 +18,9 @@ import type { Session as ArcadeSession } from '../../games/SpeedMath/arcade/mode
 import type { Session as DragonSession } from '../../games/DragonQuest/adventure/model';
 import { persistSound, persistComposition, clearSoundProfileData } from '../../games/SoundMemory/progress/progress';
 import type { SoundSession } from '../../games/SoundMemory/engine/game';
+import { persistAlphabetPractice } from '../components/preschool/alphabet-games/persistence';
+import type { AlphabetSession } from '../components/preschool/alphabet-games/types';
+import { persistCounting, type PendingSession } from '../components/preschool/counting/persistence';
 import type { CompositionAction } from '../../games/SoundMemory/studio/model';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
 import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
@@ -35,6 +38,7 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    saveCounting: (owner: string, session: PendingSession) => { ok: boolean; earned: number; session: PendingSession };
     completeCoVua: (owner: string, match: import('../../games/CoVua/model').Match) => { ok: boolean };
     completeCoTuong: (owner: string, match: import('../../games/CoTuong/model').Match) => { ok: boolean };
     completeOAnQuan: (owner: string, match: import('../../games/OAnQuan/model').Match) => { ok: boolean };
@@ -54,6 +58,7 @@ interface StudentActionsType {
     completeRacingGame: (studentId: string, session: RacingSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
     completeGearsGame: (studentId: string, record: WorkshopRecord, seconds: number) => { ok: boolean; earned: number };
     completeSoundGame: (studentId: string, session: SoundSession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
+    completeAlphabetPractice: (studentId: string, session: AlphabetSession) => { ok: boolean; earned: number };
     saveSoundComposition: (studentId: string, action: CompositionAction) => { ok: boolean; error?: string };
     setGachaResult: (result: { image: AlbumImage; isNew: boolean } | null) => void;
     /** Centralized function to save gacha card. Called when GachaModal closes. */
@@ -81,6 +86,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         setStudentsState(next);
     }, []);
     const [currentStudentId, setCurrentStudentId] = useState<string | null>(null);
+    const countingOwnerRef = useRef(currentStudentId);
+    countingOwnerRef.current = currentStudentId;
     const [gachaResult, setGachaResult] = useState<{ image: AlbumImage; isNew: boolean } | null>(null);
     const [achievementQueue, setAchievementQueue] = useState<AchievementProgress[]>([]);
 
@@ -173,6 +180,23 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
         return { ok: true, earned: result.earned, bonusStars: result.bonusStars, achievementNames: result.achievementNames };
     }, [currentStudentId, setStudents]);
+
+    const completeAlphabetPractice = useCallback((studentId: string, session: AlphabetSession) => {
+        if (studentId !== currentStudentId) return { ok: false, earned: 0 };
+        const snapshot = studentsRef.current, result = persistAlphabetPractice(snapshot, studentId, session, saveProfiles);
+        if (!result.ok) return { ok: false, earned: 0 };
+        if (result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        if (result.gachaImage) setGachaResult({ image: result.gachaImage, isNew: true });
+        return { ok: true, earned: result.earned };
+    }, [currentStudentId, setStudents]);
+
+    const saveCounting = useCallback((owner: string, session: PendingSession) => {
+        if (owner !== countingOwnerRef.current) return { ok:false, earned:0, session };
+        const snapshot=studentsRef.current, result=persistCounting(snapshot,owner,session,saveProfiles);
+        if(result.ok && result.profiles!==snapshot){persistedRef.current=result.profiles;setStudents(result.profiles);}
+        if(result.ok && result.image)setGachaResult({image:result.image,isNew:!snapshot.find(p=>p.id===owner)?.ownedImageIds.includes(result.image.id)});
+        return {ok:result.ok,earned:result.earned,session:result.session};
+    }, [setStudents]);
 
     const completeSpeedGame = useCallback((studentId: string, session: ArcadeSession) => {
         if (studentId !== currentStudentId) return { ok: false, earned: 0 };
@@ -576,6 +600,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeRacingGame,
         completeGearsGame,
         completeSoundGame,
+        completeAlphabetPractice,
+        saveCounting,
         saveSoundComposition,
         setGachaResult,
         saveGachaCard,

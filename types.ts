@@ -62,6 +62,7 @@ export interface ShopDailyPhoto {
 }
 
 export interface GameResult {
+  alphabet?: import('./src/components/preschool/alphabet-games/types').AlphabetPracticeRecord;
   propertyTown?: import('./games/PropertyTown/model').TownRecord;
   oAnQuan?: import('./games/OAnQuan/model').GameRecord;
   horseRace?: import('./games/HorseRace/model').Record;
@@ -226,6 +227,9 @@ export interface AchievementProgress {
 }
 
 export interface StudentProfile {
+  counting?: import('./src/components/preschool/counting/model').Progress;
+  alphabetGarden?: import('./src/components/preschool/alphabetGardenProgress').AlphabetGardenProgress;
+  alphabetPractice?: import('./src/components/preschool/alphabet-games/progress').AlphabetPracticeProgress;
   soundMemory?: import('./games/SoundMemory/progress/progress').SoundProgress;
   memoryMatch?: import('./games/MemoryMatch/progress/progress').MemoryProgress;
   kidCoder?: import('./games/KidCoder/progress/progress').KidCoderProgress;

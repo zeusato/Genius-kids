@@ -1,0 +1,390 @@
+{
+  "generatedAt": "2026-09-16T08:11:34.844Z",
+  "generator": "Google Flow backgrounds plus ImageGen object sprite sheets",
+  "objects": [
+    {
+      "id": "apple",
+      "file": "public/preschool/alphabet-games/objects/apple.webp",
+      "bytes": 13854,
+      "sourceSheet": 1
+    },
+    {
+      "id": "ant",
+      "file": "public/preschool/alphabet-games/objects/ant.webp",
+      "bytes": 15772,
+      "sourceSheet": 1
+    },
+    {
+      "id": "ball",
+      "file": "public/preschool/alphabet-games/objects/ball.webp",
+      "bytes": 12074,
+      "sourceSheet": 1
+    },
+    {
+      "id": "banana",
+      "file": "public/preschool/alphabet-games/objects/banana.webp",
+      "bytes": 9284,
+      "sourceSheet": 1
+    },
+    {
+      "id": "bear",
+      "file": "public/preschool/alphabet-games/objects/bear.webp",
+      "bytes": 15344,
+      "sourceSheet": 1
+    },
+    {
+      "id": "cat",
+      "file": "public/preschool/alphabet-games/objects/cat.webp",
+      "bytes": 14146,
+      "sourceSheet": 1
+    },
+    {
+      "id": "car",
+      "file": "public/preschool/alphabet-games/objects/car.webp",
+      "bytes": 10158,
+      "sourceSheet": 1
+    },
+    {
+      "id": "cake",
+      "file": "public/preschool/alphabet-games/objects/cake.webp",
+      "bytes": 12258,
+      "sourceSheet": 1
+    },
+    {
+      "id": "dog",
+      "file": "public/preschool/alphabet-games/objects/dog.webp",
+      "bytes": 16304,
+      "sourceSheet": 1
+    },
+    {
+      "id": "duck",
+      "file": "public/preschool/alphabet-games/objects/duck.webp",
+      "bytes": 12220,
+      "sourceSheet": 1
+    },
+    {
+      "id": "elephant",
+      "file": "public/preschool/alphabet-games/objects/elephant.webp",
+      "bytes": 13990,
+      "sourceSheet": 1
+    },
+    {
+      "id": "egg",
+      "file": "public/preschool/alphabet-games/objects/egg.webp",
+      "bytes": 8792,
+      "sourceSheet": 1
+    },
+    {
+      "id": "fish",
+      "file": "public/preschool/alphabet-games/objects/fish.webp",
+      "bytes": 13330,
+      "sourceSheet": 1
+    },
+    {
+      "id": "frog",
+      "file": "public/preschool/alphabet-games/objects/frog.webp",
+      "bytes": 17050,
+      "sourceSheet": 1
+    },
+    {
+      "id": "goat",
+      "file": "public/preschool/alphabet-games/objects/goat.webp",
+      "bytes": 17812,
+      "sourceSheet": 2
+    },
+    {
+      "id": "grape",
+      "file": "public/preschool/alphabet-games/objects/grape.webp",
+      "bytes": 15600,
+      "sourceSheet": 2
+    },
+    {
+      "id": "hat",
+      "file": "public/preschool/alphabet-games/objects/hat.webp",
+      "bytes": 9182,
+      "sourceSheet": 2
+    },
+    {
+      "id": "horse",
+      "file": "public/preschool/alphabet-games/objects/horse.webp",
+      "bytes": 15122,
+      "sourceSheet": 2
+    },
+    {
+      "id": "ice-cream",
+      "file": "public/preschool/alphabet-games/objects/ice-cream.webp",
+      "bytes": 11804,
+      "sourceSheet": 2
+    },
+    {
+      "id": "ice",
+      "file": "public/preschool/alphabet-games/objects/ice.webp",
+      "bytes": 17696,
+      "sourceSheet": 2
+    },
+    {
+      "id": "juice",
+      "file": "public/preschool/alphabet-games/objects/juice.webp",
+      "bytes": 11528,
+      "sourceSheet": 2
+    },
+    {
+      "id": "jellyfish",
+      "file": "public/preschool/alphabet-games/objects/jellyfish.webp",
+      "bytes": 24508,
+      "sourceSheet": 2
+    },
+    {
+      "id": "kite",
+      "file": "public/preschool/alphabet-games/objects/kite.webp",
+      "bytes": 12884,
+      "sourceSheet": 2
+    },
+    {
+      "id": "key",
+      "file": "public/preschool/alphabet-games/objects/key.webp",
+      "bytes": 12958,
+      "sourceSheet": 2
+    },
+    {
+      "id": "lion",
+      "file": "public/preschool/alphabet-games/objects/lion.webp",
+      "bytes": 17588,
+      "sourceSheet": 2
+    },
+    {
+      "id": "leaf",
+      "file": "public/preschool/alphabet-games/objects/leaf.webp",
+      "bytes": 11428,
+      "sourceSheet": 2
+    },
+    {
+      "id": "monkey",
+      "file": "public/preschool/alphabet-games/objects/monkey.webp",
+      "bytes": 17560,
+      "sourceSheet": 2
+    },
+    {
+      "id": "moon",
+      "file": "public/preschool/alphabet-games/objects/moon.webp",
+      "bytes": 12444,
+      "sourceSheet": 2
+    },
+    {
+      "id": "nest",
+      "file": "public/preschool/alphabet-games/objects/nest.webp",
+      "bytes": 16256,
+      "sourceSheet": 3
+    },
+    {
+      "id": "net",
+      "file": "public/preschool/alphabet-games/objects/net.webp",
+      "bytes": 17848,
+      "sourceSheet": 3
+    },
+    {
+      "id": "orange",
+      "file": "public/preschool/alphabet-games/objects/orange.webp",
+      "bytes": 12482,
+      "sourceSheet": 3
+    },
+    {
+      "id": "owl",
+      "file": "public/preschool/alphabet-games/objects/owl.webp",
+      "bytes": 13196,
+      "sourceSheet": 3
+    },
+    {
+      "id": "pig",
+      "file": "public/preschool/alphabet-games/objects/pig.webp",
+      "bytes": 13728,
+      "sourceSheet": 3
+    },
+    {
+      "id": "panda",
+      "file": "public/preschool/alphabet-games/objects/panda.webp",
+      "bytes": 12550,
+      "sourceSheet": 3
+    },
+    {
+      "id": "queen",
+      "file": "public/preschool/alphabet-games/objects/queen.webp",
+      "bytes": 12210,
+      "sourceSheet": 3
+    },
+    {
+      "id": "quilt",
+      "file": "public/preschool/alphabet-games/objects/quilt.webp",
+      "bytes": 13082,
+      "sourceSheet": 3
+    },
+    {
+      "id": "rabbit",
+      "file": "public/preschool/alphabet-games/objects/rabbit.webp",
+      "bytes": 13616,
+      "sourceSheet": 3
+    },
+    {
+      "id": "robot",
+      "file": "public/preschool/alphabet-games/objects/robot.webp",
+      "bytes": 15434,
+      "sourceSheet": 3
+    },
+    {
+      "id": "sun",
+      "file": "public/preschool/alphabet-games/objects/sun.webp",
+      "bytes": 13336,
+      "sourceSheet": 3
+    },
+    {
+      "id": "star",
+      "file": "public/preschool/alphabet-games/objects/star.webp",
+      "bytes": 12270,
+      "sourceSheet": 3
+    },
+    {
+      "id": "tiger",
+      "file": "public/preschool/alphabet-games/objects/tiger.webp",
+      "bytes": 17398,
+      "sourceSheet": 3
+    },
+    {
+      "id": "tree",
+      "file": "public/preschool/alphabet-games/objects/tree.webp",
+      "bytes": 14416,
+      "sourceSheet": 3
+    },
+    {
+      "id": "umbrella",
+      "file": "public/preschool/alphabet-games/objects/umbrella.webp",
+      "bytes": 10916,
+      "sourceSheet": 4
+    },
+    {
+      "id": "unicorn",
+      "file": "public/preschool/alphabet-games/objects/unicorn.webp",
+      "bytes": 13208,
+      "sourceSheet": 4
+    },
+    {
+      "id": "violin",
+      "file": "public/preschool/alphabet-games/objects/violin.webp",
+      "bytes": 17054,
+      "sourceSheet": 4
+    },
+    {
+      "id": "van",
+      "file": "public/preschool/alphabet-games/objects/van.webp",
+      "bytes": 9576,
+      "sourceSheet": 4
+    },
+    {
+      "id": "watermelon",
+      "file": "public/preschool/alphabet-games/objects/watermelon.webp",
+      "bytes": 11588,
+      "sourceSheet": 4
+    },
+    {
+      "id": "whale",
+      "file": "public/preschool/alphabet-games/objects/whale.webp",
+      "bytes": 14108,
+      "sourceSheet": 4
+    },
+    {
+      "id": "xylophone",
+      "file": "public/preschool/alphabet-games/objects/xylophone.webp",
+      "bytes": 16000,
+      "sourceSheet": 4
+    },
+    {
+      "id": "yo-yo",
+      "file": "public/preschool/alphabet-games/objects/yo-yo.webp",
+      "bytes": 13472,
+      "sourceSheet": 4
+    },
+    {
+      "id": "yarn",
+      "file": "public/preschool/alphabet-games/objects/yarn.webp",
+      "bytes": 14826,
+      "sourceSheet": 4
+    },
+    {
+      "id": "zebra",
+      "file": "public/preschool/alphabet-games/objects/zebra.webp",
+      "bytes": 13950,
+      "sourceSheet": 4
+    },
+    {
+      "id": "zipper",
+      "file": "public/preschool/alphabet-games/objects/zipper.webp",
+      "bytes": 14840,
+      "sourceSheet": 4
+    }
+  ],
+  "scenes": [
+    {
+      "id": "word-picnic",
+      "file": "public/preschool/alphabet-games/scenes/word-picnic.webp",
+      "bytes": 55436,
+      "source": "Reviewed Google Flow garden scene orchard"
+    },
+    {
+      "id": "word-workshop",
+      "file": "public/preschool/alphabet-games/scenes/word-workshop.webp",
+      "bytes": 38188,
+      "source": "Custom Google Flow workshop scene"
+    },
+    {
+      "id": "word-beach",
+      "file": "public/preschool/alphabet-games/scenes/word-beach.webp",
+      "bytes": 44042,
+      "source": "Reviewed Google Flow garden scene s-sun"
+    },
+    {
+      "id": "match-garden",
+      "file": "public/preschool/alphabet-games/scenes/match-garden.webp",
+      "bytes": 56572,
+      "source": "Reviewed Google Flow garden scene d-dog"
+    },
+    {
+      "id": "match-riverside",
+      "file": "public/preschool/alphabet-games/scenes/match-riverside.webp",
+      "bytes": 43484,
+      "source": "Reviewed Google Flow garden scene u-umbrella"
+    },
+    {
+      "id": "match-snowy-village",
+      "file": "public/preschool/alphabet-games/scenes/match-snowy-village.webp",
+      "bytes": 47886,
+      "source": "Reviewed Google Flow garden scene q-queen"
+    },
+    {
+      "id": "pick-garden",
+      "file": "public/preschool/alphabet-games/scenes/pick-garden.webp",
+      "bytes": 34788,
+      "source": "Reviewed Google Flow garden scene k-kite"
+    },
+    {
+      "id": "pick-forest",
+      "file": "public/preschool/alphabet-games/scenes/pick-forest.webp",
+      "bytes": 60846,
+      "source": "Reviewed Google Flow garden scene m-monkey"
+    },
+    {
+      "id": "pick-seaside",
+      "file": "public/preschool/alphabet-games/scenes/pick-seaside.webp",
+      "bytes": 59346,
+      "source": "Reviewed Google Flow garden scene f-fish"
+    }
+  ],
+  "mascot": {
+    "file": "public/preschool/alphabet-games/fox-guide.webp",
+    "bytes": 59530,
+    "source": "ImageGen transparent fox guide"
+  },
+  "totals": {
+    "objects": 53,
+    "scenes": 9,
+    "bytes": 1240168
+  }
+}

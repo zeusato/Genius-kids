@@ -32,11 +32,15 @@ export const MUSIC_FILES: Record<MusicTrack, string> = {
 /**
  * Get music track for a given route path
  * @param pathname - Current route pathname (e.g., '/mode', '/game/dragonquest')
- * @returns Music track identifier
+ * @returns Music track identifier, or null where spoken letters need a quiet background
  */
-export function getMusicTrackForRoute(pathname: string): MusicTrack {
+export function getMusicTrackForRoute(pathname: string): MusicTrack | null {
     // Normalize pathname (remove trailing slash, convert to lowercase)
     const normalizedPath = pathname.toLowerCase().replace(/\/$/, '');
+
+    // Keep the alphabet menu and all its listening/learning activities quiet.
+    // This changes playback only; the user's saved music preference stays intact.
+    if (normalizedPath.endsWith('/preschool/alphabet') || normalizedPath.endsWith('/preschool/counting')) return null;
 
     // Check for specific game routes first (more specific matches)
     if (normalizedPath.includes('dragonquest')) {

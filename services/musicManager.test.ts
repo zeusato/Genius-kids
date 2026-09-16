@@ -11,6 +11,26 @@ class FakeAudio{
 beforeEach(()=>{vi.resetModules();FakeAudio.instances=[];vi.useFakeTimers();vi.stubGlobal('window',{location:{pathname:'/game'}});vi.stubGlobal('Audio',FakeAudio);vi.stubGlobal('localStorage',{getItem:()=>null,setItem:vi.fn()});});
 afterEach(()=>{vi.clearAllTimers();vi.useRealTimers();vi.unstubAllGlobals();});
 describe('Game music transport',()=>{
+ it('silences alphabet routes and restores music on exit without changing saved settings or speech effects',async()=>{
+  const {musicManager:m}=await import('./musicManager'),{getMusicTrackForRoute,MusicTrack:T}=await import('./musicConfig');
+  m.playTrack(T.MAIN_THEME);const a=FakeAudio.instances[0];
+  window.location.pathname='/Genius-kids/preschool/alphabet';m.resumeRouteMusic();
+  expect(a.paused).toBe(true);expect(m.getMusicState()).toEqual({musicEnabled:true,soundEnabled:true});
+  m.resumeRouteMusic();expect(a.play).toHaveBeenCalledTimes(1);
+  window.location.pathname='/Genius-kids/mode';m.playTrack(getMusicTrackForRoute(window.location.pathname));
+  expect(a.paused).toBe(false);expect(localStorage.setItem).not.toHaveBeenCalled();
+ });
+ it('keeps an existing music-off preference when leaving the alphabet',async()=>{
+  const {musicManager:m}=await import('./musicManager'),{getMusicTrackForRoute}=await import('./musicConfig');
+  m.toggleMusic();m.playTrack(getMusicTrackForRoute('/preschool/alphabet'));m.playTrack(getMusicTrackForRoute('/mode'));
+  expect(m.getMusicState().musicEnabled).toBe(false);expect(FakeAudio.instances[0].play).not.toHaveBeenCalled();
+ });
+ it('stops both audio elements if a fading game track is still active when entering the alphabet',async()=>{
+  const {musicManager:m}=await import('./musicManager'),{getMusicTrackForRoute,MusicTrack:T}=await import('./musicConfig');
+  m.playTrack(T.DRAGON_FOREST);m.transitionTrack(T.DRAGON_JOURNEY);
+  m.playTrack(getMusicTrackForRoute('/preschool/alphabet'));await vi.advanceTimersByTimeAsync(2000);
+  expect(FakeAudio.instances.every(a=>a.paused)).toBe(true);
+ });
  it('resumes a paused track at its existing position',async()=>{
   const {musicManager:m}=await import('./musicManager'),{MusicTrack:T}=await import('./musicConfig');
   m.playTrack(T.DRAGON_FOREST);const a=FakeAudio.instances[0];a.currentTime=42;
