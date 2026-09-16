@@ -1,22 +1,15 @@
+import BoardCamera from '../shared/BoardCamera';
 import { useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import type { OrbitControls as Controls } from 'three-stdlib';
 import * as T from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { boardTexture, faceTexture, gardenGeometry, point, slab } from './geometry';
 import type { Match, Move } from './model';
 export interface Motion extends Move { piece: number; at: number; duration: number }
-export interface BoardProps { match: Match; selected: number | null; moves: Move[]; enabled: boolean; vietnamese: boolean; flip: boolean; view: 'straight' | 'tilted'; light: boolean; motion: Motion | null; checked: boolean; onPick(square: number): void; onFailure(): void }
-function Camera({ flip, view }: Pick<BoardProps, 'flip' | 'view'>) {
-  const { camera, size, invalidate } = useThree(), controls = useRef<Controls>(null);
-  const distance = Math.max(17.5, 16 / Math.max(.5, size.width / size.height));
-  useEffect(() => {
-    camera.position.set(0, view === 'straight' ? distance : distance * .88, (flip ? -1 : 1) * (view === 'straight' ? .01 : distance * .57));
-    camera.lookAt(0, 0, 0); controls.current?.target.set(0, 0, 0); controls.current?.update(); invalidate();
-  }, [camera, distance, view, flip, invalidate]);
-  const azimuth = flip ? Math.PI : 0;
-  return <OrbitControls ref={controls} makeDefault enablePan={false} enableDamping={false} rotateSpeed={.45} zoomSpeed={.55} minDistance={12} maxDistance={distance * 1.25} minPolarAngle={.001} maxPolarAngle={.8} minAzimuthAngle={azimuth - .42} maxAzimuthAngle={azimuth + .42}/>;
+export interface BoardProps { match: Match; selected: number | null; moves: Move[]; enabled: boolean; vietnamese: boolean; flip: boolean; reduced?: boolean; view: 'straight' | 'tilted'; light: boolean; motion: Motion | null; checked: boolean; onPick(square: number): void; onFailure(): void }
+function Camera({flip,view,reduced}: Pick<BoardProps,'flip'|'view'|'reduced'>) {
+  const {size}=useThree();
+  return <BoardCamera flip={flip} top={view==='straight'} reduced={reduced} distance={Math.max(17.5,16/Math.max(.5,size.width/size.height))}/>;
 }
 function Pieces(p: BoardProps) {
   const bodies = useRef<T.InstancedMesh>(null), faces = useRef(new Map<number, T.InstancedMesh>()), { invalidate } = useThree();
@@ -60,7 +53,7 @@ function Scene(p: BoardProps) {
   useEffect(() => { const room = new RoomEnvironment(), generator = new T.PMREMGenerator(gl), env = generator.fromScene(room, .04); scene.environment = env.texture; scene.environmentIntensity = .35; room.dispose(); generator.dispose(); invalidate(); return () => { scene.environment = null; env.dispose(); }; }, [gl, scene, invalidate]);
   useEffect(() => { const lost = (e: Event) => { e.preventDefault(); p.onFailure(); }; gl.domElement.addEventListener('webglcontextlost', lost); return () => gl.domElement.removeEventListener('webglcontextlost', lost); }, [gl, p.onFailure]);
   useFrame(() => { if (import.meta.env.DEV) { gl.domElement.dataset.triangles = String(gl.info.render.triangles); gl.domElement.dataset.drawCalls = String(gl.info.render.calls); } });
-  return <><Camera flip={p.flip} view={p.view}/><color attach='background' args={['#d6ddca']}/><fog attach='fog' args={['#d6ddca', 70, 120]}/><ambientLight intensity={.3}/><hemisphereLight args={['#fff8e2', '#84916c', .8]}/><directionalLight position={[-5, 14, 6]} intensity={1.8} castShadow={!p.light} shadow-mapSize={[1024, 1024]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-9} shadow-normalBias={.035}/>
+  return <><Camera flip={p.flip} view={p.view} reduced={p.reduced}/><color attach='background' args={['#d6ddca']}/><fog attach='fog' args={['#d6ddca', 70, 120]}/><ambientLight intensity={.3}/><hemisphereLight args={['#fff8e2', '#84916c', .8]}/><directionalLight position={[-5, 14, 6]} intensity={1.8} castShadow={!p.light} shadow-mapSize={[1024, 1024]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-9} shadow-normalBias={.035}/>
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.05, 0]} receiveShadow><planeGeometry args={[120, 120]}/><meshStandardMaterial color='#b7bea5' roughness={1}/></mesh>
     {!p.light && <mesh geometry={garden} receiveShadow castShadow><meshStandardMaterial vertexColors roughness={.8}/></mesh>}
     <mesh geometry={table} position={[0, -.83, 0]} receiveShadow castShadow><meshStandardMaterial color='#836043' roughness={.65}/></mesh>

@@ -1,0 +1,36 @@
+/* One visible category exit, in the first position of every board game's header. */
+button.board-games-back {
+  display:inline-flex!important;align-items:center;justify-content:center;gap:8px;
+  flex:0 0 auto;width:auto!important;min-width:156px;min-height:44px!important;
+  padding:10px 13px!important;border:1px solid #b4c7b8!important;border-radius:12px!important;
+  background:#fffdf4!important;color:#294f3e!important;font:800 13px/1.3 Nunito,system-ui,sans-serif!important;
+  white-space:nowrap;box-shadow:0 2px 8px #294f3e12;cursor:pointer;touch-action:manipulation;
+}
+button.board-games-back:hover {background:#e8f0e4!important;border-color:#527860!important}
+button.board-games-back:focus-visible {outline:3px solid #377b59!important;outline-offset:3px}
+button.board-games-back svg {width:19px!important;height:19px!important;flex-shrink:0}
+.cv-header:has(.board-games-back),.kv-header:has(.board-games-back),.hr-header,.oaq-header {
+  padding-left:16px!important;padding-right:16px!important;gap:12px;
+}
+.cv-header:has(.board-games-back) .cv-brand,.kv-header:has(.board-games-back) .kv-brand {margin-right:auto}
+.cv-header:has(.board-games-back),.kv-header:has(.board-games-back),
+.hr-root:not(.hr-immersive) .hr-header,.oaq-root:not(.oaq-playing) .oaq-header {
+  position:sticky;top:0;z-index:30;background:#faf8ef;
+}
+.town-category-back {position:absolute;top:16px;left:16px;z-index:25}
+.town-hud:has(.board-games-back) {top:8px;left:8px;right:8px;padding:8px;gap:10px}
+@media(max-width:1200px) {
+  .cv-header:has(.board-games-back) .cv-header-center,.kv-header:has(.board-games-back) .kv-header-center {display:none}
+}
+@media(max-width:640px) {
+  .cv-header:has(.board-games-back) .cv-brand,.kv-header:has(.board-games-back) .kv-brand,
+  .hr-header:has(.board-games-back) .hr-brand,.oaq-header:has(.board-games-back) .oaq-brand {display:none}
+  .cv-header:has(.board-games-back) nav,.kv-header:has(.board-games-back) nav {margin-left:auto}
+  .town-hud:has(.board-games-back)>div {display:none}
+  .town-hud:has(.board-games-back) {gap:4px}
+  .town-hud:has(.board-games-back) .board-games-back {margin-right:auto}
+}
+@media(max-width:380px) {
+  .cv-header:has(.board-games-back),.kv-header:has(.board-games-back),.hr-header,.oaq-header {gap:4px;padding-left:8px!important;padding-right:8px!important}
+  button.board-games-back {min-width:145px;padding:10px 8px!important}
+}

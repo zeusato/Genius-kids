@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { COUNTING_DATA } from '@/src/data/countingData';
-import { PreschoolShell, ActivityHub, type ActivityDef } from '@/src/components/preschool/PreschoolShell';
+import { PreschoolShell } from '@/src/components/preschool/PreschoolShell';
+import { usePreschoolActivity } from '@/src/components/preschool/usePreschoolActivity';
 import { FlashcardDeck } from '@/src/components/preschool/FlashcardDeck';
 import { ListenAndPick } from '@/src/components/preschool/ListenAndPick';
 import { CountObjects } from '@/src/components/preschool/CountObjects';
@@ -29,26 +30,11 @@ const quizTokens: PreschoolToken[] = COUNTING_DATA.map(n => ({
     viText: n.viName,
 }));
 
-const ACTIVITIES: ActivityDef[] = [
-    { id: 'learn', title: 'Học đếm 1 đến 10', desc: 'Nhìn số, đếm vật, nghe đọc', emoji: '🔢', gradient: 'from-teal-500 to-emerald-500' },
-    { id: 'count', title: 'Đếm đồ vật', desc: 'Đếm rồi chọn số đúng', emoji: '🐟', gradient: 'from-emerald-500 to-green-500' },
-    { id: 'pick', title: 'Nghe và chọn số', desc: 'Nghe rồi chạm đúng số', emoji: '👂', gradient: 'from-cyan-500 to-teal-500' },
-    { id: 'add', title: 'Học phép cộng', desc: 'Cộng trong phạm vi 10, nhiều trò vui', emoji: '➕', gradient: 'from-green-500 to-teal-500' },
-    { id: 'compare', title: 'So sánh', desc: 'Lớn–nhỏ, nhiều–ít, dài–ngắn...', emoji: '⚖️', gradient: 'from-emerald-500 to-cyan-500' },
-];
-
 export function CountingPage() {
-    const [activity, setActivity] = useState<string | null>(null);
-    const back = () => setActivity(null);
+    const { activity, setActivity, back } = usePreschoolActivity('counting');
 
     return (
-        <PreschoolShell
-            title="Số Đếm Tiếng Anh – Việt"
-            subtitle={activity ? undefined : 'Chọn một hoạt động để bắt đầu nào!'}
-            bg="from-teal-100 via-emerald-50 to-cyan-50"
-            onBack={activity ? back : undefined}
-        >
-            {!activity && <ActivityHub activities={ACTIVITIES} onPick={setActivity} />}
+        <PreschoolShell topic="counting" activity={activity} onPick={setActivity} onBack={back}>
             {activity === 'learn' && (
                 <FlashcardDeck tokens={learnTokens} cardGradient="from-teal-50 to-white" onBack={back} />
             )}

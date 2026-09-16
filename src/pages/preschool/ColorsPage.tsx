@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { COLORS_DATA } from '@/src/data/colorsData';
-import { PreschoolShell, ActivityHub, type ActivityDef } from '@/src/components/preschool/PreschoolShell';
+import { PreschoolShell } from '@/src/components/preschool/PreschoolShell';
+import { usePreschoolActivity } from '@/src/components/preschool/usePreschoolActivity';
 import { FlashcardDeck } from '@/src/components/preschool/FlashcardDeck';
 import { ListenAndPick } from '@/src/components/preschool/ListenAndPick';
 import { ColoringActivity } from '@/src/components/preschool/ColoringActivity';
@@ -28,25 +29,11 @@ const quizTokens: PreschoolToken[] = COLORS_DATA.map(c => ({
     viText: `màu ${c.viName}`,
 }));
 
-const ACTIVITIES: ActivityDef[] = [
-    { id: 'learn', title: 'Học màu sắc', desc: 'Chạm ô màu, nghe tên màu', emoji: '🌈', gradient: 'from-fuchsia-500 to-violet-500' },
-    { id: 'pick', title: 'Nghe và chọn màu', desc: 'Nghe rồi chạm đúng màu', emoji: '👂', gradient: 'from-violet-500 to-purple-500' },
-    { id: 'color', title: 'Tô màu theo yêu cầu', desc: 'Tô hình đúng màu cô đọc', emoji: '🎨', gradient: 'from-pink-500 to-fuchsia-500' },
-    { id: 'shapes', title: 'Học hình dạng', desc: 'Tròn, vuông, tam giác... chọn đúng hình', emoji: '🔷', gradient: 'from-violet-500 to-indigo-500' },
-];
-
 export function ColorsPage() {
-    const [activity, setActivity] = useState<string | null>(null);
-    const back = () => setActivity(null);
+    const { activity, setActivity, back } = usePreschoolActivity('colors');
 
     return (
-        <PreschoolShell
-            title="Màu Sắc – Hình Dạng"
-            subtitle={activity ? undefined : 'Chọn một hoạt động để bắt đầu nào!'}
-            bg="from-fuchsia-100 via-violet-50 to-pink-50"
-            onBack={activity ? back : undefined}
-        >
-            {!activity && <ActivityHub activities={ACTIVITIES} onPick={setActivity} />}
+        <PreschoolShell topic="colors" activity={activity} onPick={setActivity} onBack={back}>
             {activity === 'learn' && (
                 <FlashcardDeck tokens={learnTokens} cardGradient="from-fuchsia-50 to-white" onBack={back} />
             )}

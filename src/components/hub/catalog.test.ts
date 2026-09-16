@@ -1,10 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import { Grade } from '../../../types';
-import { gamesFor, modesFor, scienceFor, SCIENCE_CATALOG, resolveEntry, type LegacyFlags } from './catalog';
+import { gamesFor, boardGamesFor, gameParent, gameTitle, modesFor, scienceFor, SCIENCE_CATALOG, resolveEntry, type LegacyFlags } from './catalog';
 
 const modern: LegacyFlags = { memory:false, sound:false, dragon:false };
 const resolve = (query: string, grade: Grade = 3, flags = modern) => resolveEntry(new URLSearchParams(query), grade, flags);
 describe('hub entry contracts', () => {
+    it('groups five board games and returns each game to its group', () => {
+        const ids = ['co-ti-phu','o-an-quan','horse-race','co-vua','co-tuong'] as const;
+        expect(boardGamesFor(3).map(g => g.id)).toEqual(ids);
+        expect(gamesFor(3).filter(g => ids.some(id => id === g.id))).toEqual([]);
+        expect(resolve('play=board-games')).toMatchObject({ id:'board-games', needsSetup:false });
+        expect(resolve('play=board-games', Grade.Preschool)).not.toBeNull();
+        for (const id of ids) {
+            expect(resolve('play=' + id + '&edition=classic&level=hard')).toMatchObject({ id, classic:false, needsSetup:false });
+            expect(gameParent(id)).toBe('?play=board-games');
+            expect(gameTitle(id)).not.toBe('Trò chơi');
+        }
+        expect(gameParent('board-games')).toBe('');
+        expect(gameParent('gears-build')).toBe('?play=gears-menu');
+    });
     it('opens O An Quan directly for every grade with its own lobby',()=>{
         for(const grade of [0,1,2,3,4,5] as const)expect(resolve('play=o-an-quan&edition=classic&level=hard',grade)).toMatchObject({id:'o-an-quan',classic:false,needsSetup:false});
     });
@@ -16,12 +30,13 @@ describe('hub entry contracts', () => {
     });
     it('keeps preschool destinations and order, including grade zero', () => {
         expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','science']);
-        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['o-an-quan','horse-race','memory','sound-memory']);
+        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['board-games','memory','sound-memory']);
+        expect(boardGamesFor(Grade.Preschool).map(g => g.id)).toEqual(['o-an-quan','horse-race']);
         expect(modesFor(3).map(m => m.id)).toEqual(['study','game','library','riddle','coding','science']);
-        expect(gamesFor(3)).toHaveLength(10);
+        expect(gamesFor(3)).toHaveLength(8);
     });
     it('rejects direct links that bypass the preschool card gate', () => {
-        for (const id of ['co-ti-phu','speed-math','dragon-quest','math-racing','sudoku','gears-menu','gears-build','gears-guess']) {
+        for (const id of ['co-ti-phu','co-vua','co-tuong','speed-math','dragon-quest','math-racing','sudoku','gears-menu','gears-build','gears-guess']) {
             expect(resolve('play=' + id + '&level=easy', Grade.Preschool)).toBeNull();
         }
     });

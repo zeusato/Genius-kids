@@ -1,86 +1,64 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { MusicControls } from '@/src/components/MusicControls';
-import { SpeakButton } from '@/src/components/shared/SpeakButton';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { ArrowRight, AudioLines, BookOpen, ChevronRight, Ear, Leaf, Palette, Paintbrush, Puzzle, Scale, Shapes, Sparkles, Volume2 } from 'lucide-react';
+import { HubShell } from '../hub/HubShell';
+import { SpeakButton } from '../shared/SpeakButton';
+import { useStudent, useStudentActions } from '../../contexts/StudentContext';
+import { activityFor, preschoolArt, PRESCHOOL_TOPICS, topicFor, type ActivityArt, type PreschoolTopic } from './catalog';
+import './preschool-menu.css';
+
+function ActivityPicture({ art }: { art: ActivityArt }) {
+    if (art === 'letters') return <span className="ps-letter-toy">A<small>a</small></span>;
+    if (art === 'numbers') return <span className="ps-number-toy">1<small>2</small></span>;
+    if (art === 'add') return <span className="ps-sum-toy">2<small>+</small>1</span>;
+    if (art === 'count') return <span className="ps-count-toy"><i/><i/><i/></span>;
+    const Icon = { listen: Ear, pairs: Puzzle, word: BookOpen, compare: Scale, palette: Palette, paint: Paintbrush, shapes: Shapes }[art];
+    return <Icon size={38} strokeWidth={1.6}/>;
+}
+
+function ActivityHub({ topic, onPick }: { topic: PreschoolTopic; onPick: (id: string) => void }) {
+    const data = topicFor(topic);
+    return <section className="ps-activities" aria-labelledby="ps-activities-title">
+        <div className="ps-section-heading"><div><span className="hub-eyebrow">CHỌN MỘT ĐIỀU THÚ VỊ</span><h2 id="ps-activities-title">Hôm nay bé muốn thử gì?</h2></div><span className="ps-listen-tip"><Volume2 size={17}/>Chạm loa để nghe tên</span></div>
+        <div className="ps-activity-grid">
+            {data.activities.map((item, index) => <article className="ps-activity-card" key={item.id}>
+                <button className="ps-activity-open" id={'preschool-' + topic + '-' + item.id} aria-label={item.title} onClick={() => onPick(item.id)}>
+                    <span className={'ps-activity-art ps-art-' + item.art} aria-hidden="true"><ActivityPicture art={item.art}/></span>
+                    <span className="ps-activity-copy"><span className="ps-activity-label">{String(index + 1).padStart(2, '0')} · {item.label}</span><strong>{item.title}</strong><span className="ps-activity-description">{item.desc}</span><span className="ps-card-action">{item.id === 'learn' ? 'Cùng khám phá' : 'Cùng chơi nào'}<ArrowRight size={16}/></span></span>
+                </button>
+                <div className="ps-card-speaker"><SpeakButton text={item.title} title={'Nghe tên: ' + item.title} lang="vi-VN" size={24}/></div>
+            </article>)}
+        </div>
+    </section>;
+}
 
 interface PreschoolShellProps {
-    title: string;
-    subtitle?: string;
-    /** Lớp nền gradient (tailwind), vd 'from-pink-100 via-rose-50 to-orange-50'. */
-    bg?: string;
-    onBack?: () => void;     // mặc định về /mode
+    topic: PreschoolTopic;
+    activity: string | null;
+    onPick: (id: string) => void;
+    onBack: () => void;
     children: React.ReactNode;
 }
-
-/** Khung chung cho các trang Mầm non: nút quay lại lớn, tiêu đề, nền vui mắt. */
-export const PreschoolShell: React.FC<PreschoolShellProps> = ({
-    title,
-    subtitle,
-    bg = 'from-sky-100 via-purple-50 to-pink-50',
-    onBack,
-    children,
-}) => {
-    const navigate = useNavigate();
-    const back = onBack ?? (() => navigate('/mode'));
-
-    return (
-        <div className={`min-h-screen bg-gradient-to-br ${bg} p-4`}>
-            <div className="max-w-4xl mx-auto">
-                <div className="flex items-center justify-between mb-6">
-                    <button
-                        onClick={back}
-                        className="flex items-center gap-2 px-5 py-3 bg-white rounded-2xl shadow-md font-bold text-slate-700 active:scale-95 transition-all"
-                    >
-                        <ArrowLeft size={22} /> Quay lại
-                    </button>
-                    <h1 className="text-2xl sm:text-4xl font-extrabold text-brand-600 drop-shadow-sm text-center">{title}</h1>
-                    <MusicControls />
-                </div>
-                {subtitle && (
-                    <p className="text-center text-slate-500 text-lg mb-6">{subtitle}</p>
-                )}
-                {children}
-            </div>
-        </div>
-    );
-};
-
-export interface ActivityDef {
-    id: string;
-    title: string;
-    desc: string;
-    emoji: string;
-    gradient: string;   // vd 'from-pink-500 to-rose-500'
+export function PreschoolShell({ topic, activity, onPick, onBack, children }: PreschoolShellProps) {
+    const navigate = useNavigate(), { currentStudent } = useStudent(), { setStudent } = useStudentActions();
+    const data = topicFor(topic), selected = activityFor(topic, activity);
+    return <div className={'preschool-shell ps-topic-' + topic}>
+        <HubShell student={currentStudent} section={data.title} backText backLabel={selected ? 'Về ' + data.shortTitle : 'Về khám phá'} onBack={selected ? onBack : () => navigate('/mode')} onProfile={() => navigate('/profile')} onShop={() => navigate('/shop')} onLogout={() => { setStudent(null); navigate('/'); }}>
+            <main className={selected ? 'ps-main ps-playing' : 'ps-main'}>
+                <nav className="ps-breadcrumb" aria-label="Đường dẫn"><Link to="/mode">Khám phá</Link><ChevronRight size={13}/>{selected ? <><button onClick={onBack}>{data.title}</button><ChevronRight size={13}/><span aria-current="page">{selected.title}</span></> : <span aria-current="page">{data.title}</span>}</nav>
+                {!selected ? <>
+                    <nav className="ps-topic-nav" aria-label="Chủ đề mầm non">{PRESCHOOL_TOPICS.map(item => <NavLink to={'/preschool/' + item.id} key={item.id} className={({ isActive }) => isActive ? 'active' : ''}><span aria-hidden="true">{item.id === 'alphabet' ? <BookOpen size={18}/> : item.id === 'counting' ? <span className="ps-tab-number">123</span> : <Palette size={18}/>}</span>{item.title}</NavLink>)}</nav>
+                    <section className="ps-hero" aria-labelledby="preschool-title">
+                        <div className="ps-hero-copy"><span className="hub-eyebrow"><Leaf size={14}/> MẦM NON · HỌC QUA KHÁM PHÁ</span><h1 id="preschool-title" tabIndex={-1}>{data.headline}</h1><p>{data.description}</p><div className="ps-hero-tags"><span><Sparkles size={15}/>{data.activities.length} hoạt động</span><span><AudioLines size={15}/>Có hướng dẫn bằng giọng nói</span></div><small>{data.note}</small></div>
+                        <div className="ps-hero-picture"><img src={preschoolArt(topic)} srcSet={preschoolArt(topic, true) + ' 400w, ' + preschoolArt(topic) + ' 1200w'} sizes="(max-width: 640px) 100vw, 50vw" width={1200} height={675} alt={data.imageAlt} fetchPriority="high"/><span className="ps-picture-note"><Sparkles size={15}/>Mỗi ngày, một khám phá nhỏ</span></div>
+                    </section>
+                    <ActivityHub topic={topic} onPick={onPick}/>
+                    <footer className="ps-footer"><Leaf size={15}/>Cứ thong thả. Bé có thể thử lại bất cứ lúc nào.</footer>
+                </> : <>
+                    <div className="ps-play-heading"><div><span className="hub-eyebrow">{data.title} · {selected.label}</span><h1 id="preschool-title" tabIndex={-1}>{selected.title}</h1><p>{selected.desc}</p></div><SpeakButton text={selected.title + '. ' + selected.desc} title="Nghe hướng dẫn hoạt động" size={24}/></div>
+                    <div className="preschool-play" key={topic + '-' + activity}>{children}</div>
+                </>}
+            </main>
+        </HubShell>
+    </div>;
 }
-
-interface ActivityHubProps {
-    activities: ActivityDef[];
-    onPick: (id: string) => void;
-}
-
-/** Lưới chọn hoạt động trong một module mầm non. Mỗi thẻ có nút loa đọc tên hoạt động. */
-export const ActivityHub: React.FC<ActivityHubProps> = ({ activities, onPick }) => {
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {activities.map(a => (
-                <div
-                    key={a.id}
-                    className="relative bg-white rounded-3xl shadow-xl p-6 flex items-center gap-4 hover:shadow-2xl hover:scale-[1.02] transition-all cursor-pointer"
-                    onClick={() => onPick(a.id)}
-                >
-                    <div className={`w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br ${a.gradient} flex items-center justify-center text-4xl shadow-lg`}>
-                        {a.emoji}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                        <h3 className="text-xl font-extrabold text-slate-800">{a.title}</h3>
-                        <p className="text-slate-500 text-sm">{a.desc}</p>
-                    </div>
-                    <div onClick={e => e.stopPropagation()}>
-                        <SpeakButton text={a.title} lang="vi-VN" size={20} />
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};

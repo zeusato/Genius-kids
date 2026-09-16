@@ -11,11 +11,12 @@ export interface HubHeaderProps {
     section: string;
     onBack?: () => void;
     backLabel?: string;
+    backText?: boolean;
     onProfile?: () => void;
     onShop?: () => void;
     onLogout?: () => void;
 }
-function HubHeader({ student, section, onBack, backLabel = 'Về khám phá', onProfile, onShop, onLogout }: HubHeaderProps) {
+function HubHeader({ student, section, onBack, backLabel = 'Về khám phá', backText = false, onProfile, onShop, onLogout }: HubHeaderProps) {
     const [open, setOpen] = useState(false);
     const profile = useRef<HTMLDivElement>(null);
     const toggle = useRef<HTMLButtonElement>(null);
@@ -30,7 +31,7 @@ function HubHeader({ student, section, onBack, backLabel = 'Về khám phá', on
         return () => { document.removeEventListener('pointerdown', outside); document.removeEventListener('keydown', escape); };
     }, [open]);
     return <header className="hub-header"><div className="hub-header-inner">
-        {onBack && <button className="hub-icon hub-back" aria-label={backLabel} title={backLabel} onClick={onBack}><ArrowLeft size={20}/></button>}
+        {onBack && <button className={backText ? 'hub-back-text' : 'hub-icon hub-back'} aria-label={backLabel} title={backLabel} onClick={onBack}><ArrowLeft size={20}/>{backText && <span>{backLabel}</span>}</button>}
         <div className="hub-brand"><span className="hub-brand-mark"><Compass size={25}/></span><span>Genius Kids<small>{section}</small></span></div>
         <div className="hub-header-actions">
             {student && <span className="hub-wallet" aria-label={`${student.stars} sao`}><Star size={18} fill="currentColor"/><span>{new Intl.NumberFormat('vi-VN').format(student.stars)}</span></span>}

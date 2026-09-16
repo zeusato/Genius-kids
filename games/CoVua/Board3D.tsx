@@ -1,16 +1,17 @@
+import BoardCamera from '../shared/BoardCamera';
 import { useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as T from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { pieceGeometry, point, slab, woodTexture, roomGeometry } from './geometry';
+import { pieceGeometry, point, slab, woodTexture } from './geometry';
+import { gardenGeometry } from '../CoTuong/geometry';
 import type { Match, Move } from './model';
 import { algToSq } from './board';
 export interface Motion extends Move { at: number; duration: number }
-export interface BoardProps { match: Match; flip: boolean; view: 'top'|'angled'; light: boolean; selected: number|null; targets: number[]; interactive: boolean; motion: Motion|null; onPick(sq:number):void; onFailure():void }
-function Camera({flip,view}: Pick<BoardProps,'flip'|'view'>) {
-  const {camera,size,invalidate}=useThree();
-  useEffect(() => { const cam=camera as T.OrthographicCamera; cam.position.set(0,view==='top'?20:19,(flip?-1:1)*(view==='top'?.001:9));cam.lookAt(0,.25,0);cam.zoom=Math.min(size.width/9.8,size.height/(view==='top'?10:9.75));cam.updateProjectionMatrix();invalidate(); },[camera,size,flip,view,invalidate]);
-  return null;
+export interface BoardProps { match: Match; flip: boolean; reduced?: boolean; view: 'top'|'angled'; light: boolean; selected: number|null; targets: number[]; interactive: boolean; motion: Motion|null; onPick(sq:number):void; onFailure():void }
+function Camera({flip,view,reduced}: Pick<BoardProps,'flip'|'view'|'reduced'>) {
+  const {size}=useThree();
+  return <BoardCamera flip={flip} top={view==='top'} reduced={reduced} targetY={.25} distance={Math.max(16.5,14.6/Math.max(.45,size.width/size.height))}/>;
 }
 function Pieces(p:BoardProps) {
   const meshes=useRef(new Map<number,T.InstancedMesh>()), {invalidate}=useThree(), dummy=useMemo(()=>new T.Object3D(),[]);
@@ -34,8 +35,8 @@ function Pieces(p:BoardProps) {
   }
   useEffect(()=>{update(p.motion?0:1);invalidate();},[p.match.board,p.selected,p.motion]);
   useFrame(()=>{if(p.motion){const t=Math.min(1,(performance.now()-p.motion.at)/p.motion.duration);update(t);if(t<1)invalidate();}});
-  return <>{codes.map(code=><instancedMesh key={code} ref={ref=>{if(ref)meshes.current.set(code,ref);else meshes.current.delete(code);}} args={[geometries[(code&7)-1],undefined,16]} castShadow receiveShadow onClick={event=>{event.stopPropagation();if(!p.interactive||event.instanceId===undefined)return;const square=p.match.board.flatMap((piece,sq)=>piece===code?[sq]:[])[event.instanceId];if(square!==undefined)p.onPick(square);}}>
-    <meshStandardMaterial color={code<9?'#d7c09a':'#362d24'} roughness={.44} metalness={.02} vertexColors/>
+  return <>{codes.map(code=><instancedMesh key={code} ref={ref=>{if(ref)meshes.current.set(code,ref);else meshes.current.delete(code);}} args={[geometries[(code&7)-1],undefined,16]} castShadow receiveShadow onClick={event=>{event.stopPropagation();if(!p.interactive||event.delta>6||event.instanceId===undefined)return;const square=p.match.board.flatMap((piece,sq)=>piece===code?[sq]:[])[event.instanceId];if(square!==undefined)p.onPick(square);}}>
+    <meshStandardMaterial color={code<9?'#f0d9ad':'#293e34'} roughness={.48} metalness={.02} vertexColors/>
   </instancedMesh>)}</>;
 }
 function Markers(p:BoardProps) {
@@ -47,23 +48,23 @@ function Markers(p:BoardProps) {
 }
 function Scene(p:BoardProps) {
   const {gl,scene,invalidate}=useThree();
-  const board=useMemo(()=>slab(8.85,8.85,.3),[]), trim=useMemo(()=>slab(8.98,8.98,.08),[]), table=useMemo(()=>woodTexture(),[]), texture=useMemo(()=>woodTexture(true),[]);
-  const room=useMemo(roomGeometry,[]);useEffect(()=>()=>room.dispose(),[room]);
+  const board=useMemo(()=>slab(8.85,8.85,.3),[]), trim=useMemo(()=>slab(8.98,8.98,.08),[]), table=useMemo(()=>slab(10.7,10.7,.25,.18),[]), texture=useMemo(()=>woodTexture(true),[]);
+  const garden=useMemo(gardenGeometry,[]);useEffect(()=>()=>garden.dispose(),[garden]);
   useEffect(()=>()=>{board.dispose();trim.dispose();table.dispose();texture.dispose();},[board,trim,table,texture]);
-  useEffect(()=>{const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(gl),env=pmrem.fromScene(room,.04);scene.environment=env.texture;scene.environmentIntensity=.22;room.dispose();pmrem.dispose();invalidate();return()=>{scene.environment=null;env.dispose();};},[gl,scene,invalidate]);
+  useEffect(()=>{const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(gl),env=pmrem.fromScene(room,.04);scene.environment=env.texture;scene.environmentIntensity=.35;room.dispose();pmrem.dispose();invalidate();return()=>{scene.environment=null;env.dispose();};},[gl,scene,invalidate]);
   useEffect(()=>{const lost=(e:Event)=>{e.preventDefault();p.onFailure();};gl.domElement.addEventListener('webglcontextlost',lost);return()=>gl.domElement.removeEventListener('webglcontextlost',lost);},[gl,p.onFailure]);
   useFrame(()=>{if(import.meta.env.DEV){gl.domElement.dataset.drawCalls=String(gl.info.render.calls);gl.domElement.dataset.triangles=String(gl.info.render.triangles);}});
-  return <><Camera flip={p.flip} view={p.view}/><color attach='background' args={['#e8decb']}/><ambientLight intensity={.05}/><hemisphereLight args={['#fff4db','#95765b',.35]}/>
-    <directionalLight position={[-7,14,6]} intensity={1.7} castShadow={!p.light} shadow-mapSize={[2048,2048]} shadow-camera-left={-7} shadow-camera-right={7} shadow-camera-top={7} shadow-camera-bottom={-7} shadow-normalBias={.025} shadow-bias={-.00015} shadow-radius={3}/>
-    <directionalLight position={[5,6,-8]} intensity={.4} color='#fff2dc'/>
-    <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.41,0]} receiveShadow><planeGeometry args={[100,100]}/><meshStandardMaterial color='#ede6d5' map={table} roughness={.86}/></mesh>
-    {!p.light&&<mesh geometry={room} castShadow receiveShadow><meshStandardMaterial vertexColors roughness={.8}/></mesh>}
+  return <><Camera flip={p.flip} view={p.view} reduced={p.reduced}/><color attach='background' args={['#d6ddca']}/><fog attach='fog' args={['#d6ddca',70,120]}/><ambientLight intensity={.3}/><hemisphereLight args={['#fff8e2','#84916c',.8]}/>
+    <directionalLight position={[-5,14,6]} intensity={1.8} castShadow={!p.light} shadow-mapSize={[1024,1024]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-9} shadow-normalBias={.035}/>
+    <mesh rotation={[-Math.PI/2,0,0]} position={[0,-1.05,0]} receiveShadow><planeGeometry args={[120,120]}/><meshStandardMaterial color='#b7bea5' roughness={1}/></mesh>
+    {!p.light&&<mesh geometry={garden} castShadow receiveShadow><meshStandardMaterial vertexColors roughness={.8}/></mesh>}
+    <mesh geometry={table} position={[0,-.65,0]} castShadow receiveShadow><meshStandardMaterial color='#836043' roughness={.65}/></mesh>
     <mesh geometry={trim} position={[0,-.32,0]} castShadow receiveShadow><meshStandardMaterial color='#30291e' roughness={.58}/></mesh>
     <mesh geometry={board} position={[0,-.30,0]} castShadow receiveShadow><meshStandardMaterial color='#6c4830' roughness={.4}/></mesh>
-    <group onClick={e=>{e.stopPropagation();if(!p.interactive)return;const f=Math.floor(e.point.x+4),r=Math.floor(4-e.point.z);if(f>=0&&f<8&&r>=0&&r<8)p.onPick(r*8+f);}}>
+    <group onClick={e=>{e.stopPropagation();if(!p.interactive||e.delta>6)return;const f=Math.floor(e.point.x+4),r=Math.floor(4-e.point.z);if(f>=0&&f<8&&r>=0&&r<8)p.onPick(r*8+f);}}>
       <mesh rotation={[-Math.PI/2,0,0]} position={[0,.11,0]} receiveShadow><planeGeometry args={[8.8,8.8]}/><meshStandardMaterial map={texture} roughness={.59}/></mesh>
       <Pieces {...p}/><Markers {...p}/>
     </group>
   </>;
 }
-export default function Board3D(p:BoardProps) { return <Canvas orthographic camera={{position:[0,13,11],near:.1,far:150,zoom:60}} role='img' aria-label='Bàn cờ vua 3D. Chọn quân rồi chọn ô đến. Chế độ 2D hỗ trợ bàn phím.' dpr={p.light?1:[1,1.75]} shadows={!p.light} frameloop='demand' gl={{antialias:true,powerPreference:'low-power'}}><Scene {...p}/></Canvas>; }
+export default function Board3D(p:BoardProps) { return <Canvas camera={{position:[0,16,10],fov:39,near:.1,far:150}} role='img' aria-label='Bàn cờ vua 3D. Chọn quân rồi chọn ô đến. Chế độ 2D hỗ trợ bàn phím.' dpr={p.light?1:[1,1.5]} shadows={!p.light} frameloop='demand' gl={{antialias:true,powerPreference:'low-power'}} onPointerMissed={()=>p.interactive&&p.onPick(-1)}><Scene {...p}/></Canvas>; }

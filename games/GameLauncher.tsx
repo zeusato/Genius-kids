@@ -6,6 +6,8 @@ import type { GameEntry } from '../src/components/hub/catalog';
 const MemoryAdventure = lazy(() => import('./MemoryMatch/MemoryAdventure'));
 const HorseRace = lazy(() => import('./HorseRace/HorseRaceGame'));
 const OAnQuan = lazy(() => import('./OAnQuan/OAnQuanGame'));
+const CoVua = lazy(() => import('./CoVua/Entry'));
+const CoTuong = lazy(() => import('./CoTuong/Entry'));
 const PropertyTown = lazy(() => import('./PropertyTown/PropertyTownGame'));
 const SoundAdventure = lazy(() => import('./SoundMemory/SoundAdventure'));
 const DragonAdventure = lazy(() => import('./DragonQuest/adventure/DragonAdventure'));
@@ -34,6 +36,8 @@ export function GameLauncher({ entry, onBack, onLegacy, onComplete }: { entry: G
     const pairs = { easy: Difficulty.Easy, medium: Difficulty.Medium, hard: Difficulty.Hard }[level];
     let game: React.ReactNode;
     switch (id) {
+        case 'co-vua': game = <CoVua onExit={onBack}/>; break;
+        case 'co-tuong': game = <CoTuong onExit={onBack}/>; break;
         case 'co-ti-phu': game = <PropertyTown onExit={onBack}/>; break;
         case 'o-an-quan': game = <OAnQuan onExit={onBack}/>; break;
         case 'horse-race': game = <HorseRace onExit={onBack}/>; break;

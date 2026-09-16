@@ -7,11 +7,13 @@ import { RoverPortrait } from '../../../games/KidCoder/rendering/RoverPortrait';
 import type { ArtId } from './catalog';
 import { RacingCover } from '../../../games/MathRacing/cup/RacingCover';
 
+const chessCover = new URL('../../../games/CoVua/assets/cover.webp', import.meta.url).href;
+const xiangqiCover = new URL('../../../games/CoTuong/assets/art/courtyard.webp', import.meta.url).href;
 const asset = (file: string) => `${import.meta.env.BASE_URL}hub/art/${file}`;
-function ArtImage({ name, className = '', eager = false }: { name: string; className?: string; eager?: boolean }) {
+function ArtImage({ name, className = '', eager = false, width = 800, height = 450 }: { name: string; className?: string; eager?: boolean; width?: number; height?: number }) {
     const [failed, setFailed] = useState(false);
     if (failed) return <span className={`hub-art-fallback ${className}`}><Compass size={46}/></span>;
-    return <img className={className} src={asset(`${name}.webp`)} srcSet={`${asset(`${name}-sm.webp`)} 400w, ${asset(`${name}.webp`)} 800w`} sizes="(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px" alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" width={800} height={450} onError={() => setFailed(true)}/>;
+    return <img className={className} src={asset(`${name}.webp`)} srcSet={`${asset(`${name}-sm.webp`)} 400w, ${asset(`${name}.webp`)} ${width}w`} sizes="(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px" alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" width={width} height={height} onError={() => setFailed(true)}/>;
 }
 function MemoryScene() {
     return <><div className="hub-island"><Island zone="garden" completed={5}/></div><span className="hub-memory-tile tile-a"><Picture id="fox"/></span><span className="hub-memory-tile tile-b"><Picture id="fox"/></span></>;
@@ -32,6 +34,8 @@ function SudokuScene() {
 export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }) {
     let art: React.ReactNode;
     if (['study', 'library', 'riddle', 'science'].includes(kind) || kind.startsWith('science-')) art = <ArtImage name={kind} eager={eager}/>;
+    else if (kind === 'board-games') art = <span className="hub-board-collection"><img src={chessCover} alt="" loading={eager?'eager':'lazy'}/><img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} alt="" loading={eager?'eager':'lazy'}/><img src={`${import.meta.env.BASE_URL}o-an-quan/art/cover.webp`} alt="" loading={eager?'eager':'lazy'}/></span>;
+    else if (kind === 'co-vua' || kind === 'co-tuong') art = <img src={kind === 'co-vua' ? chessCover : xiangqiCover} alt="" loading={eager?'eager':'lazy'} decoding="async" width={800} height={450} style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'horse-race') art = <img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}horse-race/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}horse-race/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'o-an-quan') art = <img src={`${import.meta.env.BASE_URL}o-an-quan/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}o-an-quan/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}o-an-quan/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'co-ti-phu') art = <img src={`${import.meta.env.BASE_URL}co-ti-phu/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}co-ti-phu/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}co-ti-phu/art/cover.webp 1600w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={1600} height={900} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
@@ -44,9 +48,7 @@ export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }
     else if (kind === 'math-racing') art = <RacingCover/>;
     else if (kind === 'sudoku') art = <SudokuScene/>;
     else if (kind.startsWith('gears')) art = <GearScene reverse={kind === 'gears-guess'}/>;
-    else if (kind === 'alphabet') art = <div className="hub-learning-blocks"><b>A</b><b>B</b><b>C</b></div>;
-    else if (kind === 'counting') art = <div className="hub-counting"><span>1</span><span>2</span><span>3</span><div>{[0, 1, 2].map(n => <Picture key={n} id="butterfly"/>)}</div></div>;
-    else if (kind === 'colors') art = <div className="hub-shape-toys"><i/><b/><span/></div>;
+    else if (kind === 'alphabet' || kind === 'counting' || kind === 'colors') art = <ArtImage name={`preschool-${kind}`} eager={eager} width={1200} height={670}/>;
     else art = <div className="hub-art-fallback"><Shapes/><BookOpen/><FlaskConical/></div>;
     return <span className={`hub-art hub-art-${kind}`} aria-hidden="true">{art}</span>;
 }

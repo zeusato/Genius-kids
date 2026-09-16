@@ -6,7 +6,7 @@ import { useStudent, useStudentActions } from '../src/contexts/StudentContext';
 import { isPreschool } from '../src/utils/grade';
 import { HubShell, HubIntro, HubDialog } from '../src/components/hub/HubShell';
 import { HubCard } from '../src/components/hub/HubCard';
-import { gamesFor, GEAR_CATALOG, resolveEntry, gameTitle, type GameId, type Level } from '../src/components/hub/catalog';
+import { gamesFor, boardGamesFor, isBoardGame, gameParent, GEAR_CATALOG, resolveEntry, gameTitle, type GameId, type Level } from '../src/components/hub/catalog';
 import { GameLauncher, type LegacyComplete } from './GameLauncher';
 
 interface GamesMenuProps { grade?: Grade; onBack: () => void; onGameComplete: LegacyComplete }
@@ -22,8 +22,9 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     const [level, setLevel] = useState<Level>('easy');
     const positions = useRef<Record<string, { y: number; id: GameId }>>({});
     const gearList = entry?.id.startsWith('gears-');
-    const listKey = gearList ? 'gears' : 'menu';
-    const showList = !entry || entry.id === 'gears-menu' || entry.needsSetup;
+    const boardList = entry?.id === 'board-games' || !!entry && isBoardGame(entry.id);
+    const listKey = boardList ? 'board-games' : gearList ? 'gears' : 'menu';
+    const showList = !entry || entry.id === 'gears-menu' || entry.id === 'board-games' || entry.needsSetup;
 
     useEffect(() => {
         if (!showList) return;
@@ -43,7 +44,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
         setParams({ play: id }, { state: { hubParent: location.search, hubOwner: currentStudent?.id } });
     };
     const leave = () => {
-        const parent = entry?.id.startsWith('gears-') && entry.id !== 'gears-menu' ? '?play=gears-menu' : '';
+        const parent = entry ? gameParent(entry.id) : '';
         if (location.state?.hubParent === parent && location.state?.hubOwner === currentStudent?.id) navigate(-1);
         else navigate({ search: parent }, { replace: true });
     };
@@ -58,13 +59,13 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
     };
     if (!showList && entry) return <GameLauncher key={currentStudent?.id} entry={entry} onBack={leave} onLegacy={classic} onComplete={onGameComplete}/>;
 
-    const cards = gearList ? GEAR_CATALOG : gamesFor(grade);
-    return <HubShell student={currentStudent} section={gearList ? 'Xưởng máy sáng tạo' : 'Bộ sưu tập trò chơi'} onBack={gearList ? leave : onBack} backLabel={gearList ? 'Về danh sách trò chơi' : 'Về khám phá'} onProfile={() => navigate('/profile')} onShop={() => navigate('/shop')} onLogout={() => { setStudent(null); navigate('/'); }}>
+    const cards = boardList ? boardGamesFor(grade) : gearList ? GEAR_CATALOG : gamesFor(grade);
+    return <HubShell student={currentStudent} section={boardList ? 'Board games' : gearList ? 'Xưởng máy sáng tạo' : 'Bộ sưu tập trò chơi'} onBack={boardList || gearList ? leave : onBack} backLabel={boardList || gearList ? 'Về danh sách trò chơi' : 'Về khám phá'} onProfile={() => navigate('/profile')} onShop={() => navigate('/shop')} onLogout={() => { setStudent(null); navigate('/'); }}>
         <main className="hub-main">
-            <HubIntro eyebrow={gearList ? 'KỸ SƯ MÁY MÓC' : 'CHƠI VUI · HỌC ĐIỀU MỚI'} title={gearList ? 'Cỗ máy đang chờ bàn tay em.' : 'Hôm nay em muốn chơi gì?'} description={gearList ? 'Lắp ráp hoặc thử tài đoán chuyển động. Chọn cách khám phá của em nhé.' : 'Mỗi trò chơi là một thế giới. Chọn cuộc khám phá của riêng em.'}>
+            <HubIntro eyebrow={boardList ? 'BOARD GAMES · CÙNG CHƠI THẬT VUI' : gearList ? 'KỸ SƯ MÁY MÓC' : 'CHƠI VUI · HỌC ĐIỀU MỚI'} title={boardList ? 'Cùng ngồi vào bàn nhé!' : gearList ? 'Cỗ máy đang chờ bàn tay em.' : 'Hôm nay em muốn chơi gì?'} description={boardList ? 'Chọn một bàn cờ, rủ bạn cùng chơi hoặc thử sức với máy. Mỗi ván là một niềm vui mới.' : gearList ? 'Lắp ráp hoặc thử tài đoán chuyển động. Chọn cách khám phá của em nhé.' : 'Mỗi trò chơi là một thế giới. Chọn cuộc khám phá của riêng em.'}>
                 <span className="hub-intro-note"><Sparkles size={25}/><span>Thử một chút.<br/>Giỏi thêm từng ngày.</span></span>
             </HubIntro>
-            <div className={'hub-grid ' + (cards.length <= 2 ? 'hub-grid-few' : '')} aria-label={gearList ? 'Các hoạt động máy móc' : 'Danh sách trò chơi'}>
+            <div className={'hub-grid ' + (cards.length <= 2 ? 'hub-grid-few' : '')} aria-label={boardList ? 'Các trò chơi Board games' : gearList ? 'Các hoạt động máy móc' : 'Danh sách trò chơi'}>
                 {cards.map((card, i) => <HubCard key={card.id} entry={card} onSelect={openGame} eager={i < 3}/>)}
             </div>
             <footer className="hub-footer"><span><Compass size={14}/>Cứ tò mò, cứ thử. Em sẽ tìm ra!</span><span>{cards.length} THẾ GIỚI ĐỂ KHÁM PHÁ</span></footer>

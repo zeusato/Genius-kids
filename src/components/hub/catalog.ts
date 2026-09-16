@@ -2,7 +2,7 @@ import { Grade } from '../../../types';
 import { isPreschool } from '../../utils/grade';
 
 export type ModeId = 'study' | 'game' | 'library' | 'riddle' | 'coding' | 'science' | 'alphabet' | 'counting' | 'colors';
-export type GameId = 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu';
+export type GameId = 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
 export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
 export type ArtId = ModeId | GameId | `science-${ScienceId}`;
 export type Level = 'easy' | 'medium' | 'hard';
@@ -21,10 +21,15 @@ const preschoolModes: HubEntry<ModeId>[] = [
     { id: 'counting', title: 'Đếm Số', subtitle: 'Mỗi vật một con số', description: 'Cùng đếm từ 1 đến 10.', art: 'counting', label: 'HỌC ĐẾM' },
     { id: 'colors', title: 'Màu Sắc & Hình Dạng', subtitle: 'Thế giới nhiều sắc màu', description: 'Nhận biết màu sắc và hình dạng.', art: 'colors', label: 'QUAN SÁT' },
 ];
-export const GAME_CATALOG: HubEntry<GameId>[] = [
+export const BOARD_GAME_CATALOG: HubEntry<GameId>[] = [
     { id: 'co-ti-phu', title: 'Cờ Tỉ Phú', subtitle: 'Phố Nhỏ Tỉ Phú', description: 'Mở cửa tiệm, xây khu phố và cùng cả nhà trở thành tỉ phú.', art: 'co-ti-phu', label: '2–4 NGƯỜI · CÙNG MỘT MÁY' },
     { id: 'o-an-quan', title: 'Ô Ăn Quan', subtitle: 'Sân đình tí hon', description: 'Chọn ô, rải dân và tìm nước hay. Cùng bạn hoặc thử tài với máy.', art: 'o-an-quan', label: '2 NGƯỜI · CÙNG MỘT MÁY' },
     { id: 'horse-race', title: 'Cờ Cá Ngựa', subtitle: 'Cuộc đua trong vườn', description: 'Rủ bạn cùng chơi, thi tài với máy và đưa ngựa về chuồng.', art: 'horse-race', label: '2–4 NGƯỜI · CÙNG MỘT MÁY' },
+    { id: 'co-vua', title: 'Cờ Vua', subtitle: 'Vườn cờ trí tuệ', description: 'Khám phá 64 ô cờ, luyện cùng máy hoặc đấu trí với bạn.', art: 'co-vua', label: '1–2 NGƯỜI · CHIẾN THUẬT' },
+    { id: 'co-tuong', title: 'Cờ Tướng', subtitle: 'Kỳ Viên', description: 'Bày quân giữa khu vườn, cùng tìm những nước cờ hay.', art: 'co-tuong', label: '1–2 NGƯỜI · CHIẾN THUẬT' },
+];
+export const GAME_CATALOG: HubEntry<GameId>[] = [
+    { id: 'board-games', title: 'Board games', subtitle: 'Cùng ngồi vào bàn', description: 'Những bàn cờ quen thuộc, những cuộc vui cùng bạn bè và gia đình.', art: 'board-games', label: 'CÙNG CHƠI · CÙNG SUY NGHĨ' },
     { id: 'memory', title: 'Lật Thẻ', subtitle: 'Đảo Ký Ức', description: 'Tìm cặp hình, làm hòn đảo thêm rực rỡ.', art: 'memory', label: 'GHI NHỚ' },
     { id: 'sound-memory', title: 'Giai Điệu Vui Nhộn', subtitle: 'Ban Nhạc Tí Hon', description: 'Nghe giai điệu, gõ nhịp và viết bài nhạc.', art: 'sound-memory', label: 'ÂM NHẠC' },
     { id: 'speed-math', title: 'Đua Tốc Độ', subtitle: 'Đấu Trường Tia Chớp', description: 'Chọn, nối, xếp để thắp sáng sân khấu!', art: 'speed-math', label: 'PHẢN XẠ & TƯ DUY' },
@@ -51,16 +56,23 @@ export const SCIENCE_CATALOG: (HubEntry<ScienceId> & { route: `/science/${Scienc
 export function scienceFor(grade?: Grade) {
     return isPreschool(grade) ? SCIENCE_CATALOG.filter(item => item.allowPreschool) : SCIENCE_CATALOG;
 }
+export function isBoardGame(id: GameId) { return BOARD_GAME_CATALOG.some(game => game.id === id); }
+export function boardGamesFor(grade?: Grade) {
+    return isPreschool(grade) ? BOARD_GAME_CATALOG.filter(game => game.id === 'horse-race' || game.id === 'o-an-quan') : BOARD_GAME_CATALOG;
+}
+export function gameParent(id: GameId) {
+    return isBoardGame(id) ? '?play=board-games' : id.startsWith('gears-') && id !== 'gears-menu' ? '?play=gears-menu' : '';
+}
 export function gamesFor(grade?: Grade) {
-    return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'memory' || g.id === 'sound-memory' || g.id === 'horse-race' || g.id === 'o-an-quan') : GAME_CATALOG;
+    return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'memory' || g.id === 'sound-memory' || g.id === 'board-games') : GAME_CATALOG;
 }
 export interface LegacyFlags { memory: boolean; sound: boolean; dragon: boolean; racing?: boolean }
 export interface GameEntry { id: GameId; classic: boolean; level: Level; needsSetup: boolean; requestedLevel?: Level }
 // Apply the same grade gate to cards, direct links and browser Forward.
 export function resolveEntry(params: URLSearchParams, grade: Grade | undefined, flags: LegacyFlags): GameEntry | null {
     const id = params.get('play') as GameId;
-    if (![...GAME_CATALOG, ...GEAR_CATALOG].some(g => g.id === id)) return null;
-    if (isPreschool(grade) && id !== 'memory' && id !== 'sound-memory' && id !== 'horse-race' && id !== 'o-an-quan') return null;
+    if (![...GAME_CATALOG, ...BOARD_GAME_CATALOG, ...GEAR_CATALOG].some(g => g.id === id)) return null;
+    if (isPreschool(grade) && id !== 'board-games' && id !== 'memory' && id !== 'sound-memory' && id !== 'horse-race' && id !== 'o-an-quan') return null;
     const classic = ['memory', 'sound-memory', 'dragon-quest', 'math-racing', 'gears-build', 'gears-guess'].includes(id) && (params.get('edition') === 'classic' || (id === 'memory' ? flags.memory : id === 'sound-memory' ? flags.sound : id === 'dragon-quest' ? flags.dragon : id === 'math-racing' && !!flags.racing));
     const raw = params.get('level');
     const valid = ['easy', 'medium', 'hard'].includes(raw || '') && !(isPreschool(grade) && raw === 'hard');
@@ -70,5 +82,5 @@ export function resolveEntry(params: URLSearchParams, grade: Grade | undefined, 
         ...(modernSetup && !classic && valid ? { requestedLevel: raw as Level } : {}) };
 }
 export function gameTitle(id: GameId) {
-    return [...GAME_CATALOG, ...GEAR_CATALOG].find(g => g.id === id)?.title || 'Trò chơi';
+    return [...GAME_CATALOG, ...BOARD_GAME_CATALOG, ...GEAR_CATALOG].find(g => g.id === id)?.title || 'Trò chơi';
 }

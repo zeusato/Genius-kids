@@ -1,3 +1,7 @@
+import { persistResult as persistCoVua } from '../../games/CoVua/profile-adapter';
+import { persistResult as persistCoTuong } from '../../games/CoTuong/profile-adapter';
+import { clearCoVuaData } from '../../games/CoVua/persistence';
+import { clearCoTuongData } from '../../games/CoTuong/persistence';
 import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect, useRef } from 'react';
 import { persistResult as persistHorseRace, clearHorseData } from '../../games/HorseRace/persistence';
 import { persistResult as persistOAnQuan, clearOAnQuanData } from '../../games/OAnQuan/persistence';
@@ -31,6 +35,8 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    completeCoVua: (owner: string, match: import('../../games/CoVua/model').Match) => { ok: boolean };
+    completeCoTuong: (owner: string, match: import('../../games/CoTuong/model').Match) => { ok: boolean };
     completeOAnQuan: (owner: string, match: import('../../games/OAnQuan/model').Match) => { ok: boolean };
     completePropertyTown: (owner: string, match: import('../../games/PropertyTown/model').Match) => { ok: boolean };
     completeHorseRace: (owner: string, match: import('../../games/HorseRace/model').Match) => { ok: boolean };
@@ -97,6 +103,20 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [students]);
 
     const currentStudent = students.find(s => s.id === currentStudentId) || null;
+
+    const completeCoVua = useCallback((owner: string, match: import('../../games/CoVua/model').Match) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const snapshot = studentsRef.current, result = persistCoVua(snapshot, owner, match, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
+
+    const completeCoTuong = useCallback((owner: string, match: import('../../games/CoTuong/model').Match) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const snapshot = studentsRef.current, result = persistCoTuong(snapshot, owner, match, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
 
     const completePropertyTown = useCallback((owner: string, match: import('../../games/PropertyTown/model').Match) => {
         if (owner !== currentStudentId) return { ok: false };
@@ -219,6 +239,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         clearHorseData(id);
         clearOAnQuanData(id);
         clearTownData(id);
+        clearCoVuaData(id);
+        clearCoTuongData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -542,6 +564,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         deleteStudent,
         addTestResult,
         addGameResult,
+        completeCoVua,
+        completeCoTuong,
         completeHorseRace,
         completeOAnQuan,
         completePropertyTown,

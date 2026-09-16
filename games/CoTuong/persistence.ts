@@ -1,3 +1,4 @@
+import type { Seating } from '../shared/seating';
 import type { GameRecord, Match } from './model';
 import { recordOf, validateMatch } from './engine';
 export interface Store { getItem(key: string): string | null; setItem(key: string, value: string): void; removeItem(key: string): void }
@@ -18,9 +19,9 @@ export function persistResult(match: Match, store?: Store): boolean {
 }
 export function recordsFor(owner: string, store?: Store): GameRecord[] { try { const list = JSON.parse((store ?? storage()).getItem(key(owner, 'results-v1')) || '[]'); return Array.isArray(list) ? list.filter(r => r && r.rulesVersion === 'gk-xiangqi-v1' && ['win', 'draw', 'loss'].includes(r.hostResult)) : []; } catch { return []; } }
 export function clearCoTuongData(owner: string, store?: Store) { for (const suffix of ['draft-v1', 'prefs', 'party', 'results-v1']) try { (store ?? storage()).removeItem(key(owner, suffix)); } catch { /* Read-only storage should not crash the app. */ } }
-export interface Prefs { vietnamese: boolean; flat: boolean; view: 'straight' | 'tilted'; sound: boolean; reduced: boolean; light: boolean; handoff: boolean }
-export function loadPrefs(owner: string): Prefs {
-  const defaults: Prefs = { vietnamese: false, flat: false, view: 'tilted', sound: true, reduced: typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches, light: false, handoff: false };
-  try { const parsed = JSON.parse(storage().getItem(key(owner, 'prefs')) || '{}'); for (const name of Object.keys(defaults) as (keyof Prefs)[]) if (name === 'view' ? ['straight', 'tilted'].includes(parsed[name]) : typeof parsed[name] === 'boolean') Object.assign(defaults, { [name]: parsed[name] }); } catch { /* Use defaults. */ } return defaults;
+export interface Prefs { vietnamese: boolean; flat: boolean; view: 'straight' | 'tilted'; sound: boolean; reduced: boolean; light: boolean; seating: Seating }
+export function loadPrefs(owner: string, store?: Store): Prefs {
+  const defaults: Prefs = { vietnamese: false, flat: false, view: 'tilted', sound: true, reduced: typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches, light: false, seating: 'opposite' };
+  try { const parsed = JSON.parse((store ?? storage()).getItem(key(owner, 'prefs')) || '{}'); for (const name of Object.keys(defaults) as (keyof Prefs)[]) if (name === 'view' ? ['straight', 'tilted'].includes(parsed[name]) : name === 'seating' ? ['same', 'opposite'].includes(parsed[name]) : typeof parsed[name] === 'boolean') Object.assign(defaults, { [name]: parsed[name] }); } catch { /* Use defaults. */ } return defaults;
 }
 export function savePrefs(owner: string, prefs: Prefs) { try { storage().setItem(key(owner, 'prefs'), JSON.stringify(prefs)); } catch { /* Preferences are optional. */ } }

@@ -302,7 +302,7 @@ export const UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     <div className="space-y-3">
                         {Object.entries(stats.gamesByType).map(([gameType, gameStats]) => (
                             <div key={gameType} className="bg-gray-50 p-4 rounded-xl">
-                                <h3 className="font-semibold text-slate-700 capitalize mb-2">{gameType==='co-ti-phu'?'Cờ Tỉ Phú':gameType==='o-an-quan'?'Ô Ăn Quan':gameType==='horse-race'?'Cờ Cá Ngựa':gameType}</h3>
+                                <h3 className="font-semibold text-slate-700 capitalize mb-2">{gameType==='co-ti-phu'?'Cờ Tỉ Phú':gameType==='o-an-quan'?'Ô Ăn Quan':gameType==='horse-race'?'Cờ Cá Ngựa':gameType==='co-vua'?'Cờ Vua':gameType==='co-tuong'?'Cờ Tướng':gameType}</h3>
                                 <div className="grid grid-cols-3 gap-2 text-sm">
                                     <div>
                                         <p className="text-gray-500">Số lần chơi</p>
