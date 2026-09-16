@@ -1,7 +1,6 @@
 .preschool-shell {--ps-tint:#f3e9d9;--ps-accent:#976043}
 .ps-topic-counting {--ps-tint:#e4eddd;--ps-accent:#477456}
 .ps-topic-colors {--ps-tint:#ede5ef;--ps-accent:#886580}
-.preschool-shell .hub-header {position:sticky;top:0;background:var(--hub-bg);z-index:30}
 .hub-back-text {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;flex-shrink:0;padding:10px 13px;border:1px solid var(--hub-line);border-radius:12px;background:#fffdf6;font-size:13px!important;font-weight:800!important;white-space:nowrap}
 .hub-back-text:hover {background:var(--hub-tint)}
 .ps-main {max-width:1264px;margin:0 auto;padding:0 32px}
