@@ -1,14 +1,19 @@
 import { cancelSpeech } from '../../../utils/speech';
-import { VI } from './model';
+import { EN, VI } from './model';
 import { VOICE_LINES } from './voiceLines';
 export type AudioResult = 'ended' | 'error' | 'cancelled';
 const slugs=['khong','mot','hai','ba','bon','nam','sau','bay','tam','chin','muoi'];
 /** Scoped audio, explicit success, one settlement, bounded wait. Never treat play() as heard. */
 export class CountingVoice {
     private stop?: () => void;
-    cancel() { this.stop?.(); this.stop=undefined; }
+    private run = 0;
+    cancel() { this.run++; this.stop?.(); this.stop=undefined; }
     play(text:string, lang:'vi-VN'|'en-US'='vi-VN', number?:number):Promise<AudioResult> {
-        this.cancel(); cancelSpeech();
+        this.cancel();
+        return this.playClip(text, lang, number);
+    }
+    private playClip(text:string, lang:'vi-VN'|'en-US', number?:number):Promise<AudioResult> {
+        cancelSpeech();
         return new Promise(resolve=>{
             let settled=false, audio:HTMLAudioElement|undefined;
             const finish=(result:AudioResult)=>{if(settled)return;settled=true;clearTimeout(timeout);if(audio){audio.onended=null;audio.onerror=null;audio.pause();} window.speechSynthesis?.cancel(); this.stop=undefined;resolve(result);};
@@ -23,5 +28,20 @@ export class CountingVoice {
             else {const qs=`ie=UTF-8&q=${encodeURIComponent(text)}&tl=${lang.slice(0,2)}&client=tw-ob`;const proxy=import.meta.env.DEV?'/api/tts':import.meta.env.VITE_TTS_PROXY; if(proxy)playFile(`${proxy}?${qs}`);else finish('error');}
         });
     }
-    number(n:number) {return this.play(VI[n],'vi-VN',n);}
+    async number(n:number, instruction?:string):Promise<AudioResult> {
+        this.cancel();
+        const run = this.run;
+        const parts: {text:string;lang:'en-US'|'vi-VN';number?:number}[] = [
+            {text:EN[n],lang:'en-US'}, {text:VI[n],lang:'vi-VN',number:n},
+        ];
+        if(instruction) parts.push({text:instruction,lang:'vi-VN'});
+        let result:AudioResult='ended';
+        for(const part of parts) {
+            if(run!==this.run)return 'cancelled';
+            const played=await this.playClip(part.text,part.lang,part.number);
+            if(run!==this.run || played==='cancelled')return 'cancelled';
+            if(played==='error')result='error';
+        }
+        return result;
+    }
 }

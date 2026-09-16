@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Keep long-press game gestures free of native link/image callouts on tablets. */
+html, body, #root, #root * { -webkit-touch-callout: none; }
+#root { -webkit-user-select: none; user-select: none; }
+#root input, #root textarea, #root [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
 @layer utilities {
     .animate-in {
         animation-duration: 300ms;

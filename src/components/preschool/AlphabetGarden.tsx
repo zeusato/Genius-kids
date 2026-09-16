@@ -32,6 +32,7 @@ function LetterRound({ letter, earned, onExplore, onMatch, onWin, onNext }: {
     const exploredRef = useRef(false);
     const wonRef = useRef(false);
     const matchedRef = useRef(false);
+    const matchPanel = useRef<HTMLDivElement>(null);
     const scene = GARDEN_SCENES[letter.id];
     const instruction = GARDEN_ACTIVITIES[letter.id]?.instruction ?? scene.instruction;
     const speechParts = [
@@ -46,6 +47,11 @@ function LetterRound({ letter, earned, onExplore, onMatch, onWin, onNext }: {
     const offset = (index + 1) % 3;
     const orderedChoices = [...choices.slice(offset), ...choices.slice(0, offset)];
     useEffect(() => () => cancelSpeech(), []);
+    useEffect(() => {
+        if (!discovered || matched || writing) return;
+        matchPanel.current?.focus({ preventScroll: true });
+        matchPanel.current?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+    }, [discovered, matched, writing]);
 
     const discover = () => {
         if (exploredRef.current) return;
@@ -62,20 +68,20 @@ function LetterRound({ letter, earned, onExplore, onMatch, onWin, onNext }: {
         const next = [...touched, number];
         setTouched(next);
         soundManager.playClick();
-        narrateObject();
         if (next.length === 3) discover();
+        else narrateObject();
     };
     const bounceBall = () => {
         setBounces(count => count + 1);
         soundManager.playNote(420 + Math.min(bounces, 5) * 70, .16);
-        if (bounces === 0 || bounces === 2) narrateObject();
         if (bounces >= 2) discover();
+        else if (bounces === 0) narrateObject();
     };
     const openBush = (number: number) => {
         if (touched.includes(number)) return;
         setTouched([...touched, number]);
         soundManager.playClick();
-        if (number === 1) { narrateObject(); discover(); }
+        if (number === 1) discover();
         else {
             const message = 'Một bạn bướm! Thử bụi cây khác nhé.';
             setHint(message);
@@ -117,17 +123,17 @@ function LetterRound({ letter, earned, onExplore, onMatch, onWin, onNext }: {
                 <span className="ag-eyebrow">NGƯỜI BẠN HÔM NAY</span>
                 <div className="ag-letter-pair" aria-label={'Chữ ' + letter.upper + ' và chữ thường ' + letter.lower}><span>{letter.upper}</span><span>{letter.lower}</span></div>
                 <div className="ag-word"><strong lang="en">{letter.exampleEn}</strong><span>{letter.exampleVi}</span></div>
-                <div className="ag-listen"><SpeakButton parts={speechParts} autoPlay={!writing && !matched} autoPlayKey={letter.id + replay + writing} title={'Nghe chữ ' + letter.upper + ' và hướng dẫn'} size={24}/><span>Nghe cùng Cáo</span></div>
+                <div className="ag-listen"><SpeakButton parts={discovered ? [
+                    { text: 'Bé làm được rồi! Chạm vào chữ thường đi cùng chữ', lang: 'vi-VN' },
+                    { text: letter.upper, lang: 'en-US' },
+                    { text: 'trong ba ô trước mặt nhé.', lang: 'vi-VN' },
+                ] : speechParts} autoPlay={!writing && !matched} autoPlayKey={`${letter.id}-${replay}-${writing}-${discovered}`} title={'Nghe chữ ' + letter.upper + ' và hướng dẫn'} size={24}/><span>Nghe cùng Cáo</span></div>
                 <div className="ag-letter-task">
                     {!discovered ? <><span className="ag-task-icon"><Hand size={24}/></span><p>Chơi và khám phá<br/> cùng bạn Cáo!</p></> : won ? <div className="ag-reward" role="status">
                         <span className="ag-earned-toy">{letter.id === 'a' || letter.id === 'b' || letter.id === 'c' ? <GardenToy kind={letter.id === 'a' ? 'apple' : letter.id === 'b' ? 'ball' : 'cat'}/> : letter.emoji}<i><Check size={13}/></i></span>
                         <strong>{alreadyEarned.current ? 'Bé làm tốt lắm!' : 'Sticker của bé!'}</strong>
                         <button className="ag-primary" onClick={onNext}>Khám phá tiếp <ArrowRight size={17}/></button>
-                    </div> : matched ? <div className="ag-reward"><Check size={25}/><strong>Bé ghép đúng rồi!</strong><button className="ag-primary" onClick={() => setWriting(true)}>Tập tô chữ {letter.upper}<ArrowRight size={17}/></button></div> : <div className="ag-match">
-                        <span className="ag-eyebrow">TÌM BẠN CHO {letter.upper}</span><p>Chữ thường nào đi cùng <b>{letter.upper}</b>?</p>
-                        <div className="ag-answers">{orderedChoices.map(choice => <button key={choice.id} aria-label={'Chữ thường ' + choice.lower} className={attempt === choice.id ? 'ag-try-again' : ''} onClick={() => choose(choice.id)}>{choice.lower}</button>)}</div>
-                        {attempt && <small>Nhìn mẫu <b>{letter.lower}</b> ở trên nhé.</small>}
-                    </div>}
+                    </div> : matched ? <div className="ag-reward"><Check size={25}/><strong>Bé ghép đúng rồi!</strong><button className="ag-primary" onClick={() => setWriting(true)}>Tập tô chữ {letter.upper}<ArrowRight size={17}/></button></div> : <p><Check size={20}/>Bé đã khám phá xong!<br/> Cùng tìm bạn cho chữ {letter.upper}.</p>}
                 </div>
             </div>
             <div className="ag-scene-wrap">
@@ -137,7 +143,15 @@ function LetterRound({ letter, earned, onExplore, onMatch, onWin, onNext }: {
                     {letter.id === 'a' && <>{[0, 1, 2].map(number => <button key={number} className={`ag-toy ag-apple ag-apple-${number}${touched.includes(number) ? ' ag-picked' : ''}`} disabled={touched.includes(number)} onClick={() => touchApple(number)} aria-label={'Hái quả táo ' + (number + 1)}><GardenToy kind="apple"/></button>)}<div className="ag-scene-count">{touched.length}/3 quả táo</div></>}
                     {letter.id === 'b' && <><button className="ag-toy ag-ball" onClick={bounceBall} aria-label="Chạm cho bóng nảy"><span key={bounces} className={bounces ? 'ag-bouncing' : ''}><GardenToy kind="ball"/></span></button><div className="ag-scene-count">{Math.min(bounces, 3)}/3 lần chơi bóng</div></>}
                     {letter.id === 'c' && <>{[0, 1, 2].map(number => <button key={number} className={`ag-toy ag-hiding ag-hiding-${number}${touched.includes(number) ? ' ag-opened' : ''}`} onClick={() => openBush(number)} disabled={touched.includes(number)} aria-label={'Tìm sau bụi cây ' + (number + 1)}><span className="ag-hidden-friend">{number === 1 ? <GardenToy kind="cat"/> : '🦋'}</span><span className="ag-bush"><GardenToy kind="bush"/></span></button>)}</>}
-                    {GARDEN_ACTIVITIES[letter.id] && <GardenActivityGame key={letter.id + replay} letter={letter.id} onFeedback={setHint} onComplete={() => { narrateObject(); discover(); }}/>}
+                    {GARDEN_ACTIVITIES[letter.id] && <GardenActivityGame key={letter.id + replay} letter={letter.id} onFeedback={setHint} onComplete={discover}/>}
+                    {discovered && !matched && <div className="ag-match-stage">
+                        <div ref={matchPanel} className="ag-match ag-match-panel" tabIndex={-1} role="group" aria-label="Chọn chữ thường">
+                            <span className="ag-eyebrow"><Hand size={17}/> ĐẾN LƯỢT BÉ GHÉP CHỮ</span>
+                            <p>Chữ thường nào đi cùng <b>{letter.upper}</b>?</p>
+                            <div className="ag-answers">{orderedChoices.map(choice => <button key={choice.id} aria-label={'Chữ thường ' + choice.lower} className={attempt === choice.id ? 'ag-try-again' : ''} onClick={() => choose(choice.lower)}>{choice.lower}</button>)}</div>
+                            <small>{attempt ? <>Thử lại nhé. Tìm chữ giống mẫu <b>{letter.lower}</b>.</> : 'Chạm một ô chữ để cùng Cáo tập tô.'}</small>
+                        </div>
+                    </div>}
                     {won && <div className="ag-sparkles" aria-hidden="true">{[0, 1, 2, 3, 4, 5].map(n => <Sparkles key={n} style={{ left: `${18 + n * 13}%`, top: `${18 + n % 3 * 19}%`, animationDelay: `${n * .09}s` }}/>)}</div>}
                 </div>
                 <div className="ag-guide"><div className="ag-guide-icon" aria-hidden="true">{won ? <Flower2 size={22}/> : <Hand size={22}/>}</div><p aria-live="polite">{hint || instruction}</p><SpeakButton text={hint || instruction} parts={discovered && !matched ? [{ text: 'Tìm chữ thường đi cùng chữ', lang: 'vi-VN' }, { text: letter.upper, lang: 'en-US' }] : undefined} title="Nghe gợi ý của Cáo" size={20}/></div>

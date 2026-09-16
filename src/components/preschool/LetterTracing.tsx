@@ -15,6 +15,7 @@ export function LetterTracing({ letter, scene, earned, onComplete, onBack, onNex
     const live = useRef(state);
     const [hint, setHint] = useState('');
     const [demo, setDemo] = useState<number | null>(null);
+    const [replay, setReplay] = useState(0);
     const demoFrame = useRef(0);
     const gesture = useRef<{ id: number; previous: TracePoint } | null>(null);
     const drawing = useRef<SVGSVGElement>(null);
@@ -46,16 +47,15 @@ export function LetterTracing({ letter, scene, earned, onComplete, onBack, onNex
         live.current = next; setState(next);
         if (next.stroke > previous.stroke) {
             gesture.current = null;
+            setHint('');
             soundManager.playNote(523.25 + previous.stroke * 90, .2);
             if (traceFinished(model, next)) {
                 if (!completed.current) {
                     completed.current = true;
                     onComplete(next);
                     soundManager.playCorrect();
-                    speak('Giỏi quá! Bé đã tô xong chữ rồi!', { lang: 'vi-VN' });
                 }
-                setHint('');
-            } else setHint('Giỏi lắm! Nhấc tay, rồi bắt đầu ở chấm xanh tiếp theo.');
+            }
         }
     };
     const begin = (event: React.PointerEvent<SVGSVGElement>) => {
@@ -91,6 +91,7 @@ export function LetterTracing({ letter, scene, earned, onComplete, onBack, onNex
     const reset = () => {
         stopDemo(); cancelSpeech(); gesture.current = null;
         live.current = initialTraceState(); setState(live.current); setHint('');
+        setReplay(value => value + 1);
     };
     const demonstrate = () => {
         if (done || !active) return;
@@ -119,8 +120,8 @@ export function LetterTracing({ letter, scene, earned, onComplete, onBack, onNex
                 <div className="lt-companion-copy"><span className="ag-eyebrow">CÙNG BÉ TẬP VIẾT</span><strong>{letter.upper}<small>{letter.lower}</small></strong><span>{letter.exampleEn} · {letter.exampleVi}</span><p>Đi từng nét nhỏ,<br/>bé sẽ viết được thôi!</p></div>
             </aside>
             <div className="lt-workspace">
-                <div className="lt-heading"><div><span className="ag-eyebrow">BƯỚC 3 · TẬP TÔ CHỮ HOA</span><h3 ref={heading} tabIndex={-1}>Tô chữ {letter.upper} cùng Cáo</h3></div><SpeakButton text={'Chạm chấm xanh, giữ tay và kéo theo các chấm nhỏ. ' + instruction} autoPlay autoPlayKey={letter.id} title="Nghe hướng dẫn tập tô" size={24}/></div>
-                <div className="lt-instruction"><span className="lt-start-dot"/><p aria-live="polite">{hint || instruction}</p></div>
+                <div className="lt-heading"><div><span className="ag-eyebrow">BƯỚC 3 · TẬP TÔ CHỮ HOA</span><h3 ref={heading} tabIndex={-1}>Tô chữ {letter.upper} cùng Cáo</h3></div><SpeakButton text={(done ? 'Giỏi quá! ' : state.stroke === 0 ? 'Chạm chấm xanh, giữ tay và kéo theo các chấm nhỏ. ' : 'Giỏi lắm! Nhấc tay rồi chạm chấm xanh tiếp theo. ') + instruction} autoPlay autoPlayKey={`${letter.id}-${state.stroke}-${replay}`} title="Nghe hướng dẫn tập tô" size={24}/></div>
+                <div className="lt-action-row"><div className="lt-instruction"><span className="lt-start-dot"/><p aria-live="polite">{hint || instruction}</p></div>{done && <button className="ag-primary lt-next" onClick={onNext}>Chữ tiếp theo<ArrowRight size={18}/></button>}</div>
                 <div className="lt-paper">
                     <span className="lt-paper-label">{done ? 'Nét chữ của bé' : 'Giữ tay và tô theo nét'}</span>
                     <svg ref={drawing} className="lt-canvas" viewBox="60 40 280 330" role="group" aria-label={'Khung tập tô chữ ' + letter.upper + '. Dùng ngón tay hoặc chuột tô từ chấm xanh.'}
@@ -144,7 +145,7 @@ export function LetterTracing({ letter, scene, earned, onComplete, onBack, onNex
                     <div className="lt-stroke-progress"><span>{done ? 'Hoàn thành!' : `Nét ${state.stroke + 1} / ${model.strokes.length}`}</span><div role="progressbar" aria-label="Tiến độ tô chữ" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}><i style={{ width: fraction * 100 + '%' }}/></div><span>{Math.round(fraction * 100)}%</span></div>
                 </div>
                 <div className="lt-tools"><button onClick={demonstrate} disabled={done || demo !== null}><Play size={16}/>{demo !== null ? 'Cáo đang chỉ nét…' : 'Xem nét mẫu'}</button><button onClick={reset}><Eraser size={16}/>Tô lại</button></div>
-                {done ? <div className="lt-reward" role="status"><span className="lt-reward-sticker">{letter.emoji}<Check size={13}/></span><div><strong>{earned ? 'Bé tô đẹp lắm!' : 'Sticker mới cho bé!'}</strong><p>Đã khám phá, ghép chữ và tập tô.</p></div><button className="ag-primary" onClick={onNext}>Chữ tiếp theo<ArrowRight size={16}/></button></div>
+                {done ? <div className="lt-reward" role="status"><span className="lt-reward-sticker">{letter.emoji}<Check size={13}/></span><div><strong>{earned ? 'Bé tô đẹp lắm!' : 'Sticker mới cho bé!'}</strong><p>Đã khám phá, ghép chữ và tập tô.</p></div></div>
                     : <p className="lt-gentle"><PencilLine size={14}/>Cứ thong thả. Bé có thể nhấc tay rồi tô tiếp.</p>}
             </div>
         </div>

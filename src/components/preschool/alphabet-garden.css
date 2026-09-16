@@ -70,6 +70,27 @@
 .ag-answers button:hover {background:#e7edd6;transform:translateY(-2px)}
 .ag-answers .ag-try-again {background:#f5e8cf;border-color:#bc9870}
 .ag-match small {display:block;margin-top:8px;color:#8b715a;font-size:10px}
+.ag-match-stage {position:absolute;inset:0;z-index:5;display:grid;place-items:center;padding:16px;background:#243e352e;backdrop-filter:blur(3px)}
+.ag-match-panel {width:min(100%,420px);padding:24px;border:2px solid #fffef1;border-radius:24px;background:#fffaf0;box-shadow:0 12px 40px #31483030;text-align:center;animation:ag-match-arrive .45s ease-out;outline:none}
+.ag-match-panel>.ag-eyebrow {display:flex;justify-content:center;color:#507449;font-size:10px}
+.ag-match-panel p {font-size:18px;margin:12px 0 18px!important}
+.ag-match-panel p b {color:#a95440;font-size:30px}
+.ag-match-panel .ag-answers {gap:18px}
+.ag-match-panel .ag-answers button {width:76px;min-height:76px;font-size:43px;border-radius:18px;animation:ag-choice-cue 1.5s ease-in-out 3}
+.ag-match-panel .ag-answers button:nth-child(2) {animation-delay:.12s}
+.ag-match-panel .ag-answers button:nth-child(3) {animation-delay:.24s}
+.ag-match-panel small {margin-top:16px;font-size:12px}
+@keyframes ag-match-arrive {from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ag-choice-cue {0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(max-width:640px) {
+ .ag-match-stage {padding:10px}
+ .ag-match.ag-match-panel {display:block;padding:14px;width:min(100%,350px)}
+ .ag-match-panel>.ag-eyebrow {display:flex;font-size:8px}
+ .ag-match-panel p {font-size:14px;margin:6px 0 10px!important}
+ .ag-match-panel p b {font-size:23px}
+ .ag-match-panel .ag-answers button {width:62px;min-height:62px;font-size:34px}
+ .ag-match-panel small {font-size:10px;margin-top:10px}
+}
 .ag-reward {display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;animation:ag-reveal .4s ease-out}
 .ag-earned-toy {position:relative;display:grid;place-items:center;font-size:40px;width:63px;height:63px;padding:6px;background:#fffdfa;border:2px solid #fff;box-shadow:0 3px 12px #7d694524;border-radius:20px;rotate:-7deg}
 .ag-earned-toy svg {width:100%;height:100%}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowRight, Hand, MoveRight, Paintbrush, PencilLine } from 'lucide-react';
-import type { Session } from './model';
+import { EN, VI, type Session } from './model';
 import { storyFor } from './learnStories';
 import { storyComplete } from './learnStoryModel';
 import './number-stories.css';
@@ -69,10 +69,10 @@ export function NumberStory({session,onAction,onTrace}:{session:Session;onAction
     const value=session.rounds[session.index].value,story=storyFor(value),complete=storyComplete(session);
     const [tool,setTool]=useState(false),[paint,setPaint]=useState(0),[cloud,setCloud]=useState(complete?100:0);
     const selected=tool || (value!==2&&value!==5),done=session.collected;
-    const styleAt=(i:number):CSSProperties=>({'--x':`${positions[value][i][0]}%`,'--y':`${positions[value][i][1]}%`,'--tone':COLORS[i%3]} as CSSProperties);
+    const styleAt=(i:number):CSSProperties=>({'--x':`${positions[value][i][0]}%`,'--y':`${positions[value][i][1]}%`,'--wide-x':`${49+(i%4)*14}%`,'--wide-y':`${i<4?30:68}%`,'--tone':COLORS[i%3]} as CSSProperties);
     const countBadge=(i:number)=>done.includes(i)?<span className="ns-count-badge">{done.indexOf(i)+1}</span>:null;
     return <div className={'ns-story ns-'+story.id}>
-        <div className="ns-story-top"><span><b>{value}</b> {story.noun}</span><strong aria-label={`Đã đếm ${done.length} trên ${value}`}>{done.length}<small> / {value}</small></strong></div>
+        <div className="ns-story-top"><span><b>{value}</b><span>{VI[value]} · {EN[value]}<small>{story.noun}</small></span></span><strong aria-label={`Đã đếm ${done.length} trên ${value}`}>{done.length}<small> / {value}</small></strong><button className={'nc-primary ns-trace-next '+(complete?'ready':'')} disabled={!complete} onClick={onTrace}><PencilLine size={20}/>Tập tô số {value}<ArrowRight size={18}/></button></div>
         {<div className="ns-tools">
             {complete?<span>Đã đếm đủ {value} {story.noun}</span>:(value===2||value===5)?<><button className={tool?'ns-tool selected':'ns-tool'} aria-pressed={tool} onClick={()=>setTool(true)}><StoryTool watering={value===2}/><span>{value===2?'Bình tưới':'Thức ăn cho cá'}</span>{!tool&&<Hand size={19}/>}</button><span>{tool?(value===2?'Tưới từng bông hoa nhé':'Mời từng bạn cá ăn nào'):'Chạm để cầm lên'}<ArrowRight size={17}/></span></>:
             value===9?<><Paintbrush size={25}/><span>Chọn màu</span>{COLORS.map((color,i)=><button key={color} className={'ns-paint '+(paint===i+1?'selected':'')} style={{background:color}} aria-label={['Màu hồng','Màu vàng','Màu xanh'][i]} aria-pressed={paint===i+1} onClick={()=>setPaint(i+1)}>{paint===i+1&&<Paintbrush size={22}/>}</button>)}</>:
@@ -82,7 +82,7 @@ export function NumberStory({session,onAction,onTrace}:{session:Session;onAction
             <StoryBackdrop value={value}/>
             {value===1?<div className="ns-sun-game"><svg viewBox="0 0 320 220" aria-hidden="true"><g className={complete?'ns-sun awake':'ns-sun'}>{Array.from({length:12},(_,i)=><path key={i} d="M160 24V9" transform={`rotate(${i*30} 160 104)`} stroke="#dbb45c" strokeWidth="8" strokeLinecap="round"/>)}<circle cx="160" cy="104" r="64" fill="#efcf80"/><Face x={160} y={102}/></g><g style={{transform:`translateX(${cloud*2}px)`,opacity:1-cloud/120}} className="ns-cloud"><path d="M60 165Q25 140 56 119Q45 85 90 90Q119 44 153 88Q204 70 214 112Q255 133 223 160Z" fill="#f5f2e6" stroke="#dddccc" strokeWidth="3"/></g></svg><div className="ns-sun-slider"><Hand size={21}/><input type="range" min="0" max="100" value={complete?100:cloud} disabled={complete} aria-label="Kéo mây sang phải" onChange={e=>{const amount=Number(e.target.value);setCloud(amount);if(amount>=95&&!complete)onAction(0);}}/><MoveRight size={24}/></div>{complete&&<span className="ns-sun-one">1</span>}</div>:
             <>{value===7&&<svg className="ns-constellation" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points={positions[7].slice(0,done.length).map(p=>p.join(',')).join(' ')} fill="none" stroke="#edd497" strokeWidth=".5" strokeDasharray="1.5 1"/></svg>}
-                {value===8&&<div className="ns-tower" aria-label={`Tòa tháp ${done.length} tầng`}>{done.map((item,i)=><div key={item} className="ns-tower-block" style={{bottom:i*28,background:COLORS[item%3]}}>{i+1}</div>)}<span/></div>}
+                {value===8&&<div className="ns-tower" aria-label={`Tòa tháp ${done.length} tầng`}>{done.map((item,i)=><div key={item} className="ns-tower-block" style={{'--floor':i,bottom:i*28,background:COLORS[item%3]} as CSSProperties}>{i+1}</div>)}<span/></div>}
                 {Array.from({length:value},(_,i)=>{
                     const finished=done.includes(i),steps=session.storySteps?.[i]||0;
                     const label=`${story.action} ${i+1}`;
@@ -92,6 +92,6 @@ export function NumberStory({session,onAction,onTrace}:{session:Session;onAction
                 })}
             </>}
         </div>
-        <div className={'ns-result '+(complete?'ready':'')} aria-live="polite"><div className="ns-count-trail" aria-hidden="true">{Array.from({length:value},(_,i)=><span key={i} className={i<done.length?'filled':''}>{i<done.length?i+1:''}</span>)}</div>{complete&&<><p>{story.complete}</p><button className="nc-primary" onClick={onTrace}><PencilLine size={22}/>Tập tô số {value}<ArrowRight size={20}/></button><small>Bé cứ ngắm lại thành quả, khi nào sẵn sàng mình đi tiếp.</small></>}</div>
+        <div className={'ns-result '+(complete?'ready':'')} aria-live="polite"><div className="ns-count-trail" aria-hidden="true">{Array.from({length:value},(_,i)=><span key={i} className={i<done.length?'filled':''}>{i<done.length?i+1:''}</span>)}</div>{complete&&<p>{story.complete}</p>}</div>
     </div>;
 }

@@ -1,25 +1,12 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { ArrowRight, AudioLines, BookOpen, ChevronRight, Ear, Leaf, Palette, Paintbrush, Scale, Shapes, Sparkles, Volume2 } from 'lucide-react';
+import { ArrowRight, AudioLines, BookOpen, ChevronRight, Leaf, Palette, Sparkles, Volume2 } from 'lucide-react';
 import { HubShell } from '../hub/HubShell';
 import { SpeakButton } from '../shared/SpeakButton';
 import { useStudent, useStudentActions } from '../../contexts/StudentContext';
-import { activityFor, preschoolArt, PRESCHOOL_TOPICS, topicFor, type ActivityArt, type PreschoolTopic } from './catalog';
+import { activityFor, activityThumbnail, preschoolArt, PRESCHOOL_TOPICS, topicFor, type PreschoolTopic } from './catalog';
 import './preschool-menu.css';
 import { CountingProgressStrip } from './counting/CountingAdventure';
-import { Demo as CountingDemo } from './counting/visuals';
-import type { Activity as CountingActivity } from './counting/model';
-
-function ActivityPicture({ art }: { art: ActivityArt }) {
-    if (art === 'letters') return <span className="ps-letter-toy">A<small>a</small></span>;
-    if (art === 'numbers') return <span className="ps-number-toy">1<small>2</small></span>;
-    if (art === 'add') return <span className="ps-sum-toy">2<small>+</small>1</span>;
-    if (art === 'count') return <span className="ps-count-toy"><i/><i/><i/></span>;
-    if (art === 'pairs') return <span className="ps-card-demo ps-card-demo-pairs"><i>A</i><b>→</b><em>a</em></span>;
-    if (art === 'word') return <span className="ps-card-demo ps-card-demo-word"><img src={`${import.meta.env.BASE_URL}preschool/alphabet-games/objects/apple.webp`} alt=""/><b>↓</b><em/></span>;
-    const Icon = { listen: Ear, compare: Scale, palette: Palette, paint: Paintbrush, shapes: Shapes }[art];
-    return <Icon size={38} strokeWidth={1.6}/>;
-}
 
 function ActivityHub({ topic, onPick }: { topic: PreschoolTopic; onPick: (id: string) => void }) {
     const data = topicFor(topic);
@@ -28,7 +15,7 @@ function ActivityHub({ topic, onPick }: { topic: PreschoolTopic; onPick: (id: st
         <div className="ps-activity-grid">
             {data.activities.map((item, index) => <article className="ps-activity-card" key={item.id}>
                 <button className="ps-activity-open" id={'preschool-' + topic + '-' + item.id} aria-label={item.title} onClick={() => onPick(item.id)}>
-                    <span className={'ps-activity-art ps-art-' + item.art} aria-hidden="true">{topic==='counting'?<CountingDemo activity={item.id as CountingActivity}/>:<ActivityPicture art={item.art}/>}</span>
+                    <span className="ps-activity-cover"><img src={activityThumbnail(topic, item.id)} width={720} height={480} alt={item.title} loading="lazy" decoding="async"/></span>
                     <span className="ps-activity-copy"><span className="ps-activity-label">{String(index + 1).padStart(2, '0')} · {item.label}</span><strong>{item.title}</strong><span className="ps-activity-description">{item.desc}</span><span className="ps-card-action">{item.id === 'learn' ? 'Cùng khám phá' : 'Cùng chơi nào'}<ArrowRight size={16}/></span></span>
                 </button>
                 <div className="ps-card-speaker"><SpeakButton text={item.title} title={'Nghe tên: ' + item.title} lang="vi-VN" size={24}/></div>

@@ -8,7 +8,7 @@ import { numberTrace } from './NumberTracing';
 import { advanceTrace, canStartTrace, traceFinished, type TraceState } from '../letterTracingModel';
 import { createProfile, migrateProfile } from '../../../../services/profileService';
 import { Grade, Rarity } from '../../../../types';
-import { LEARN_STORIES } from './learnStories';
+import { LEARN_STORIES, storyFor } from './learnStories';
 import { advanceStory, beginTracing, isTracing, storyComplete } from './learnStoryModel';
 
 describe('counting curriculum',()=>{
@@ -191,14 +191,29 @@ describe('strict number audio lifecycle',()=>{
         vi.stubGlobal('Audio',class{onended:any;onerror:any;src:string;pause=vi.fn();play=vi.fn(()=>Promise.resolve());constructor(src:string){this.src=src;audio=this;}});voice=new CountingVoice();
     });
     afterEach(()=>{voice.cancel();vi.useRealTimers();vi.unstubAllGlobals();});
-    it('does not resolve on play() and succeeds only on ended',async()=>{
-        let settled=false;const promise=voice.number(3).then(r=>{settled=true;return r;});await Promise.resolve();expect(settled).toBe(false);expect(audio.src).toContain('audio/vi/ba.mp3');audio.onended();expect(await promise).toBe('ended');
+    it('reads English then Vietnamese and succeeds only after both ended events',async()=>{
+        let settled=false;const promise=voice.number(3).then(r=>{settled=true;return r;});
+        await Promise.resolve();expect(settled).toBe(false);expect(audio.src).toContain('counting-en-three.mp3');
+        audio.onended();await Promise.resolve();expect(settled).toBe(false);expect(audio.src).toContain('audio/vi/ba.mp3');
+        audio.onended();expect(await promise).toBe('ended');
     });
     it('reports decode/play errors and a timeout as failure',async()=>{
-        const p=voice.number(2);audio.onerror();expect(await p).toBe('error');const q=voice.number(1);await vi.advanceTimersByTimeAsync(15000);expect(await q).toBe('error');
+        const p=voice.number(2);audio.onerror();await Promise.resolve();expect(audio.src).toContain('/hai.mp3');audio.onended();expect(await p).toBe('error');
+        const q=voice.number(1);await vi.advanceTimersByTimeAsync(30000);expect(await q).toBe('error');
     });
     it('cancels stale audio and settles only once',async()=>{
-        const p=voice.number(1),late=audio.onended;const q=voice.number(2);expect(await p).toBe('cancelled');late();audio.onended();expect(await q).toBe('ended');
+        const p=voice.number(1),late=audio.onended;const q=voice.number(2);expect(await p).toBe('cancelled');late();
+        expect(audio.src).toContain('counting-en-two.mp3');audio.onended();await Promise.resolve();expect(audio.src).toContain('/hai.mp3');audio.onended();expect(await q).toBe('ended');
+    });
+    it('continues with the story instruction after both languages',async()=>{
+        const instruction=storyFor(1).guide,p=voice.number(1,instruction);
+        expect(audio.src).toContain('counting-en-one.mp3');audio.onended();await Promise.resolve();
+        expect(audio.src).toContain('/mot.mp3');audio.onended();await Promise.resolve();
+        expect(audio.src).toContain(`/${VOICE_LINES[instruction].file}.mp3`);audio.onended();expect(await p).toBe('ended');
+    });
+    it('does not start a queued language after cancellation between clips',async()=>{
+        const p=voice.number(4),first=audio;audio.onended();voice.cancel();
+        expect(await p).toBe('cancelled');expect(audio).toBe(first);
     });
     it('cancels explicitly on hidden page/unmount',async()=>{const p=voice.number(7);voice.cancel();expect(await p).toBe('cancelled');expect(audio.pause).toHaveBeenCalled();});
     it('uses bundled guidance and English audio without depending on a device voice or proxy',async()=>{

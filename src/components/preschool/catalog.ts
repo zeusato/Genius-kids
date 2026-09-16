@@ -44,3 +44,4 @@ export const PRESCHOOL_TOPICS: TopicDef[] = [
 export const topicFor = (id: PreschoolTopic) => PRESCHOOL_TOPICS.find(topic => topic.id === id)!;
 export const activityFor = (topic: PreschoolTopic, id: string | null) => topicFor(topic).activities.find(activity => activity.id === id) ?? null;
 export const preschoolArt = (topic: PreschoolTopic, small = false) => `${import.meta.env.BASE_URL}hub/art/preschool-${topic}${small ? '-sm' : ''}.webp`;
+export const activityThumbnail = (topic: PreschoolTopic, activity: string) => `${import.meta.env.BASE_URL}preschool/thumbnails/${topic}-${activity}.webp`;

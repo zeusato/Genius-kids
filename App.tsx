@@ -153,6 +153,11 @@ function GlobalModals() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const preventContextMenu = (event: MouseEvent) => event.preventDefault();
+    document.addEventListener('contextmenu', preventContextMenu, { capture: true });
+    return () => document.removeEventListener('contextmenu', preventContextMenu, { capture: true });
+  }, []);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showInstallInstructions, setShowInstallInstructions] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
