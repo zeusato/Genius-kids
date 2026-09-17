@@ -1,43 +1,50 @@
-# Kiểm chứng bản thử độc lập 0.1
+# Kiểm chứng Làng Mầm 0.2
 
-> Kết quả lịch sử của bản thử 0.1. Đọc [bàn giao](README.md) để biết điểm tiếp tục; tài liệu này không chứng nhận các tính năng trong [REVAMP_PLAN](REVAMP_PLAN.md). Lượt gom tài liệu không thay code và không chạy lại các kiểm thử gameplay dưới đây.
-
-Ngày 17/09/2026. Kiểm tra trên môi trường phát triển hiện tại; không phải chứng nhận hoàn thiện mỹ thuật hoặc hiệu năng điện thoại thật.
+17/09/2026, kiểm trên module thật. Fixture chỉ dùng DB QA riêng, không đụng vườn của Đại ca.
 
 ## Tự động
 
-- Typecheck bằng cấu hình riêng: đạt.
-- Typecheck từ repository gốc cũng đã chạy đạt khi thêm module; không sửa cấu hình gốc.
-- 34 kiểm thử / 3 file: đạt. Phạm vi: chống nhận sản phẩm/thưởng lặp, trừ hạt/nguyên liệu, bán sai số lượng, công thức sai trạm, tưới một lần, chuyển giai đoạn cây, cấp/mở đất, xoay footprint, chồng lấn, thời gian khi quay lại và đồng hồ lùi, bản lưu hỏng, lỗi ghi, hai cửa sổ, mở lần đầu đồng thời, bản sao và model.
-- Production build riêng: đạt; đầu ra `.build`. JS khoảng 1.19 MB trước gzip / 339 kB gzip; font khoảng 52 kB; CSS khoảng 21 kB trước gzip. Vite vẫn cảnh báo chunk JS lớn hơn 500 kB. Chưa tối ưu tách chunk hay đo bản đồ tải lớn.
+Typecheck module/host và production build đạt. Bộ test gồm regression v1, engine v2, persistence, raw migration, model, thế giới, hoạt động và chơi solo. Kết quả cuối ghi tại cuối tài liệu sau chạy lại.
+
+**Lần chạy cuối: 64/64 test, 7/7 file đạt**, 77,40 giây. Typecheck module/host đạt; build 0.2 đạt, JS 1.262 MB / 365 kB gzip, CSS 15,24 kB / 4,01 kB gzip và font 13,10 kB. Cảnh báo chunk >500 kB vẫn còn.
+
+- 6.000 seed: kích thước, giá trị terrain, vùng sạch/bờ cảng và đủ sáu họ. 120 seed kiểm hai bờ cầu khô và đủ 36 khu tiếp cận sau xây cầu.
+- Batch nguyên tử, ô lặp/thiếu hạt/revision cũ, receipt qua reload, kho đầy, reserve, move/undo giữ job, hủy lịch/hàng đợi hoàn phí.
+- Đồng hồ lùi, nâng bốn ngày sau bảy ngày vắng, mẻ→nâng→mẻ chờ, không nhận lặp, phiếu sau deadline không bị tiêu.
+- Mở đồng thời, cửa sổ stale không ghi đè, quota không đổi UI, import/revision, dữ liệu hỏng/tương lai không reset, raw v1 giữ nguyên sau nhiều lần lưu, XP mẻ cũ và quyền recipe kế thừa.
+- Ống tưới kiểm đường chảy/thưởng kỳ; nghề đòi tự sản xuất; dự án nhận decor một lần.
+- Model hữu hạn/clone hoạt ảnh độc lập; 12 cây × năm giai đoạn, sáu mốc nhà. Không thay kiểm thẩm mỹ.
+
+## Chơi solo
+
+`tests/progression-playthrough.check.ts`: **3 biome × lịch 5/15/30 phút/ngày**, dùng lệnh thật, không gán tiền/hàng/cấp sau tạo mới, không giao dịch người chơi hay dùng phiếu. Lên Home 25; một lượt còn tự làm và nhận đủ 25 chương. Validate snapshot mỗi mốc.
+
+Mỗi lệnh hai giây; hết phiên chuyển ngày, thu batch và dùng hàng đợi hữu hạn. Tám luống, nâng từng nhà tuần tự, tự gom/craft vật liệu, kiếm xu từ cây. Chưa mô phỏng tối ưu nhiều thợ, nhiều phiên/ngày hoặc hành vi thật. [Dữ liệu](solo-progression-v2.json), [phân tích](ECONOMY_VERIFICATION.md).
 
 ## Trình duyệt
 
-Đã thực hiện bằng giao diện bản local tại cổng 4328:
+- Quét thu sáu luống quà: 17 hàng; quét gieo tám ô lúa mì: trừ 24 xu; công cụ giữ nguyên.
+- Chọn trên mesh đã gộp vẫn đúng nhà; xoay camera, xoay nhà/xác nhận, chuyển vị trí mới, hoàn tác thành công, tiền/kho giữ nguyên.
+- Nút cạnh vật và toast nằm trên thanh công cụ/dock. Năm menu riêng. Mobile panel dưới bản đồ, đóng bảng hiện đủ công cụ.
+- QA Home 25: 29 nhà, 120 luống, 12 giống, 36 khu. Minimap cùng terrain nước/cao độ/cầu.
+- Hai cửa sổ chung DB báo conflict đúng; QA mobile tách DB để thử song song. Các lỗi HMR trong lúc ghi nguồn được kiểm lại bằng tải bản ổn định, không đồng nhất với lỗi release.
+- Bản production đã được phục vụ riêng tại cổng 4329 và mở bằng trình duyệt: khởi tạo Home 1, đầy đủ menu/cảnh, không có debug/QA, log lỗi rỗng. Bundle được kiểm không chứa mã DB/nút QA. Dev server chờ ghi file ổn định 150 ms để tránh HMR đọc file đang ghi dở trên Windows.
+- Sau sửa guard điểm thả, click thu hoạch qua canvas vẫn thành công. Thả trên UI overlay hủy nét thay vì commit qua thanh công cụ.
 
-- Thu hoạch, gieo cà rốt, tưới; trừ đúng 5 xu và lưu vụ mới.
-- Xay bột từ lúa mì; nhận thành phẩm sau hạn hoàn thành.
-- Thu thêm cây, nhận mục tiêu lần đầu, lên cấp 2.
-- Nâng lò bánh cấp 2; trừ 100 xu và thay model.
-- Mua, xoay preview và đặt chậu cúc; trừ 15 xu.
-- Tải lại: giữ 100 xu, 40 XP, lò bánh cấp 2, trạng thái các luống và chậu mới.
-- Xưởng mẫu: mở và chuyển lò bánh đến cấp 3; model hiện đầy đủ trong cảnh xem riêng.
-- Xem ảnh toàn cảnh desktop và khung iframe 390 × 844. Chữ tiếng Việt, model, menu và bảng thao tác hiển thị; bản responsive dùng bảng thao tác bên dưới bản đồ. Khung iframe không thay thế thử cảm ứng/GPU/mạng của thiết bị thật.
+Ảnh thật: [Home 1](screenshots/home-1.png), [Home 25](screenshots/home-25.png), [bản đồ](screenshots/world-map.png), [mobile](screenshots/mobile-390.png). [Concept v2](farm-world-concept-v2.png) không phải screenshot.
 
-## Ranh giới đã kiểm tra
+## Hiệu năng và giới hạn
 
-Không có import host, lời gọi Supabase/API, truy cập localStorage hồ sơ hoặc đăng ký service worker trong mã nguồn module. Không thay route/catalog, package/config, public hoặc dịch vụ của dự án chính trong lượt triển khai này. Thay đổi sẵn có ngoài `modules/farm` được giữ nguyên.
+Windows, browser nhúng Codex, desktop 1280 × 720. CPU môi trường báo `Intel64 Family 6 Model 140 Stepping 2`; truy vấn GPU bị từ chối, không gán số đo cho GPU cụ thể. Bộ đo hiển thị trong QA, lấy mẫu ba giây sau dựng model.
 
-## Còn cần kiểm chứng ở các mốc sau
+- Home 25, một cửa sổ/ánh sáng mềm: **60 FPS, p95 17 ms, 107 calls, khoảng 402 nghìn tam giác** tại góc đo. Khi đổi góc/di chuyển có mẫu 57 FPS, p95 19 ms.
+- Trước tối ưu: khoảng 342 calls/609 nghìn tam giác. Instancing/gộp công trình và bỏ bevel thừa giảm tải. Góc/cửa sổ khác nhau nên đây không là benchmark kiểm soát tuyệt đối.
+- Khung mobile 390 × 844 trên cùng máy, trước tối ưu cuối, nhiều cửa sổ cùng vẽ: mẫu 38 FPS, p95 29 ms. **Không phải hiệu năng điện thoại thật.**
+- Sau tối ưu cuối, khung mobile cùng desktop đang mở: mẫu 48 FPS, p95 24 ms, 107 calls, khoảng 401 nghìn tam giác. Ảnh mobile đã lưu ứng với lần kiểm này.
+- Có đồ họa nhẹ (không bóng, DPR 1), giảm chuyển động/demand rendering, mobile mặc định nhẹ.
 
-Mỹ thuật so với concept, animation vật nuôi đầy đủ, thao tác kéo thả, âm thanh/mini game, nhịp kinh tế nhiều ngày, thử người chơi, tải lớn và thiết bị di động thật. Login, cloud save, thăm vườn và chợ người chơi chưa triển khai. Không dùng bản local để khẳng định đã xử lý xung đột online hoặc chống sửa dữ liệu.
+Chưa thử cảm ứng hai ngón/GPU điện thoại thật, chưa chạy nhiều giờ liên tục, chưa có người chơi nhiều ngày. Chưa chứng nhận toàn bộ E. Build còn cảnh báo bundle Three/React lớn; cần đo cold start trên thiết bị/mạng mục tiêu.
 
-## Kiểm tra riêng lượt gom tài liệu bàn giao — 17/09/2026
+## Phạm vi
 
-- Tập trung 11 tệp trong `modules/farm/docs`: 9 Markdown, 1 JSON thiết kế và 1 PNG concept; mọi tệp đã có trong mục lục/thứ tự đọc.
-- Tám tệp di chuyển được so SHA-256 trước/sau khi chuyển, nội dung giữ nguyên ở bước di chuyển; sau đó bổ sung nhãn tài liệu hiện hành/tham khảo và sửa liên kết.
-- Kiểm 53 liên kết nội bộ của bộ docs và README module: không có liên kết hỏng. Không còn tài liệu `farm-*` nằm rải ở thư mục `docs` gốc.
-- Ảnh concept đi cùng thư mục, xác nhận PNG 1536 × 1024; không phụ thuộc file tạm ở máy công ty.
-- JSON thiết kế đọc được, vẫn đủ 25 mốc Home và 28 nhà phụ. Không chỉnh nội dung tiến trình trong lượt gom tài liệu.
-- Có README bàn giao và AGENTS ở gốc module dẫn đến điểm đọc đầu tiên; ghi rõ trạng thái Git, cách chạy trên máy mới và save IndexedDB phải xuất/nhập riêng.
-- Không thay source/config/dependency hoặc save trong lượt này; không chạy lại bộ test/build gameplay và không commit/push.
+Chỉ đổi `modules/farm/`, giữ `.claude/settings.local.json` có trước. Không commit/push/deploy hoặc mở server public. Không đổi host/account/online.

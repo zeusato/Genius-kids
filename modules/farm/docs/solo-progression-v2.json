@@ -1,0 +1,1172 @@
+[
+  {
+    "seed": 7,
+    "biome": "forest",
+    "minutes": 5,
+    "days": 1419,
+    "actions": 26790,
+    "waitDays": 1419,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 3,
+        "actions": 77
+      },
+      {
+        "home": 4,
+        "days": 6,
+        "actions": 166
+      },
+      {
+        "home": 5,
+        "days": 11,
+        "actions": 303
+      },
+      {
+        "home": 6,
+        "days": 19,
+        "actions": 487
+      },
+      {
+        "home": 7,
+        "days": 26,
+        "actions": 673
+      },
+      {
+        "home": 8,
+        "days": 36,
+        "actions": 934
+      },
+      {
+        "home": 9,
+        "days": 55,
+        "actions": 1311
+      },
+      {
+        "home": 10,
+        "days": 79,
+        "actions": 1708
+      },
+      {
+        "home": 11,
+        "days": 97,
+        "actions": 2152
+      },
+      {
+        "home": 12,
+        "days": 132,
+        "actions": 2868
+      },
+      {
+        "home": 13,
+        "days": 165,
+        "actions": 3427
+      },
+      {
+        "home": 14,
+        "days": 210,
+        "actions": 4405
+      },
+      {
+        "home": 15,
+        "days": 260,
+        "actions": 5441
+      },
+      {
+        "home": 16,
+        "days": 322,
+        "actions": 6618
+      },
+      {
+        "home": 17,
+        "days": 376,
+        "actions": 7819
+      },
+      {
+        "home": 18,
+        "days": 450,
+        "actions": 9290
+      },
+      {
+        "home": 19,
+        "days": 517,
+        "actions": 10571
+      },
+      {
+        "home": 20,
+        "days": 665,
+        "actions": 13415
+      },
+      {
+        "home": 21,
+        "days": 757,
+        "actions": 15116
+      },
+      {
+        "home": 22,
+        "days": 930,
+        "actions": 17802
+      },
+      {
+        "home": 23,
+        "days": 1092,
+        "actions": 21668
+      },
+      {
+        "home": 24,
+        "days": 1252,
+        "actions": 24080
+      },
+      {
+        "home": 25,
+        "days": 1419,
+        "actions": 26790
+      }
+    ]
+  },
+  {
+    "seed": 7,
+    "biome": "forest",
+    "minutes": 15,
+    "days": 665,
+    "actions": 28868,
+    "waitDays": 665,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 1,
+        "actions": 77
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 166
+      },
+      {
+        "home": 5,
+        "days": 4,
+        "actions": 305
+      },
+      {
+        "home": 6,
+        "days": 7,
+        "actions": 493
+      },
+      {
+        "home": 7,
+        "days": 10,
+        "actions": 695
+      },
+      {
+        "home": 8,
+        "days": 16,
+        "actions": 962
+      },
+      {
+        "home": 9,
+        "days": 24,
+        "actions": 1356
+      },
+      {
+        "home": 10,
+        "days": 34,
+        "actions": 1782
+      },
+      {
+        "home": 11,
+        "days": 42,
+        "actions": 2222
+      },
+      {
+        "home": 12,
+        "days": 57,
+        "actions": 2992
+      },
+      {
+        "home": 13,
+        "days": 72,
+        "actions": 3613
+      },
+      {
+        "home": 14,
+        "days": 93,
+        "actions": 4660
+      },
+      {
+        "home": 15,
+        "days": 118,
+        "actions": 5769
+      },
+      {
+        "home": 16,
+        "days": 150,
+        "actions": 7013
+      },
+      {
+        "home": 17,
+        "days": 177,
+        "actions": 8310
+      },
+      {
+        "home": 18,
+        "days": 212,
+        "actions": 9860
+      },
+      {
+        "home": 19,
+        "days": 244,
+        "actions": 11262
+      },
+      {
+        "home": 20,
+        "days": 314,
+        "actions": 14212
+      },
+      {
+        "home": 21,
+        "days": 355,
+        "actions": 16075
+      },
+      {
+        "home": 22,
+        "days": 436,
+        "actions": 18970
+      },
+      {
+        "home": 23,
+        "days": 512,
+        "actions": 23158
+      },
+      {
+        "home": 24,
+        "days": 588,
+        "actions": 25799
+      },
+      {
+        "home": 25,
+        "days": 665,
+        "actions": 28868
+      }
+    ]
+  },
+  {
+    "seed": 7,
+    "biome": "forest",
+    "minutes": 30,
+    "days": 407,
+    "actions": 29344,
+    "waitDays": 407,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 0,
+        "actions": 77
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 166
+      },
+      {
+        "home": 5,
+        "days": 3,
+        "actions": 305
+      },
+      {
+        "home": 6,
+        "days": 5,
+        "actions": 493
+      },
+      {
+        "home": 7,
+        "days": 7,
+        "actions": 695
+      },
+      {
+        "home": 8,
+        "days": 10,
+        "actions": 962
+      },
+      {
+        "home": 9,
+        "days": 15,
+        "actions": 1356
+      },
+      {
+        "home": 10,
+        "days": 22,
+        "actions": 1782
+      },
+      {
+        "home": 11,
+        "days": 26,
+        "actions": 2254
+      },
+      {
+        "home": 12,
+        "days": 36,
+        "actions": 3024
+      },
+      {
+        "home": 13,
+        "days": 45,
+        "actions": 3645
+      },
+      {
+        "home": 14,
+        "days": 58,
+        "actions": 4692
+      },
+      {
+        "home": 15,
+        "days": 72,
+        "actions": 5823
+      },
+      {
+        "home": 16,
+        "days": 90,
+        "actions": 7105
+      },
+      {
+        "home": 17,
+        "days": 105,
+        "actions": 8452
+      },
+      {
+        "home": 18,
+        "days": 128,
+        "actions": 10052
+      },
+      {
+        "home": 19,
+        "days": 148,
+        "actions": 11490
+      },
+      {
+        "home": 20,
+        "days": 190,
+        "actions": 14482
+      },
+      {
+        "home": 21,
+        "days": 215,
+        "actions": 16381
+      },
+      {
+        "home": 22,
+        "days": 264,
+        "actions": 19312
+      },
+      {
+        "home": 23,
+        "days": 310,
+        "actions": 23536
+      },
+      {
+        "home": 24,
+        "days": 357,
+        "actions": 26225
+      },
+      {
+        "home": 25,
+        "days": 407,
+        "actions": 29344
+      }
+    ]
+  },
+  {
+    "seed": 5,
+    "biome": "ore",
+    "minutes": 5,
+    "days": 1426,
+    "actions": 27296,
+    "waitDays": 1426,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 3,
+        "actions": 81
+      },
+      {
+        "home": 4,
+        "days": 6,
+        "actions": 166
+      },
+      {
+        "home": 5,
+        "days": 11,
+        "actions": 313
+      },
+      {
+        "home": 6,
+        "days": 19,
+        "actions": 504
+      },
+      {
+        "home": 7,
+        "days": 26,
+        "actions": 711
+      },
+      {
+        "home": 8,
+        "days": 38,
+        "actions": 980
+      },
+      {
+        "home": 9,
+        "days": 58,
+        "actions": 1361
+      },
+      {
+        "home": 10,
+        "days": 81,
+        "actions": 1771
+      },
+      {
+        "home": 11,
+        "days": 100,
+        "actions": 2224
+      },
+      {
+        "home": 12,
+        "days": 134,
+        "actions": 2961
+      },
+      {
+        "home": 13,
+        "days": 165,
+        "actions": 3529
+      },
+      {
+        "home": 14,
+        "days": 209,
+        "actions": 4527
+      },
+      {
+        "home": 15,
+        "days": 258,
+        "actions": 5581
+      },
+      {
+        "home": 16,
+        "days": 320,
+        "actions": 6779
+      },
+      {
+        "home": 17,
+        "days": 373,
+        "actions": 7999
+      },
+      {
+        "home": 18,
+        "days": 448,
+        "actions": 9498
+      },
+      {
+        "home": 19,
+        "days": 517,
+        "actions": 10793
+      },
+      {
+        "home": 20,
+        "days": 666,
+        "actions": 13690
+      },
+      {
+        "home": 21,
+        "days": 761,
+        "actions": 15415
+      },
+      {
+        "home": 22,
+        "days": 937,
+        "actions": 18157
+      },
+      {
+        "home": 23,
+        "days": 1099,
+        "actions": 22081
+      },
+      {
+        "home": 24,
+        "days": 1260,
+        "actions": 24544
+      },
+      {
+        "home": 25,
+        "days": 1426,
+        "actions": 27296
+      }
+    ]
+  },
+  {
+    "seed": 5,
+    "biome": "ore",
+    "minutes": 15,
+    "days": 660,
+    "actions": 29350,
+    "waitDays": 660,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 1,
+        "actions": 81
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 174
+      },
+      {
+        "home": 5,
+        "days": 4,
+        "actions": 317
+      },
+      {
+        "home": 6,
+        "days": 7,
+        "actions": 511
+      },
+      {
+        "home": 7,
+        "days": 10,
+        "actions": 721
+      },
+      {
+        "home": 8,
+        "days": 15,
+        "actions": 994
+      },
+      {
+        "home": 9,
+        "days": 23,
+        "actions": 1400
+      },
+      {
+        "home": 10,
+        "days": 33,
+        "actions": 1840
+      },
+      {
+        "home": 11,
+        "days": 41,
+        "actions": 2288
+      },
+      {
+        "home": 12,
+        "days": 56,
+        "actions": 3076
+      },
+      {
+        "home": 13,
+        "days": 71,
+        "actions": 3711
+      },
+      {
+        "home": 14,
+        "days": 91,
+        "actions": 4778
+      },
+      {
+        "home": 15,
+        "days": 116,
+        "actions": 5909
+      },
+      {
+        "home": 16,
+        "days": 148,
+        "actions": 7177
+      },
+      {
+        "home": 17,
+        "days": 174,
+        "actions": 8494
+      },
+      {
+        "home": 18,
+        "days": 209,
+        "actions": 10074
+      },
+      {
+        "home": 19,
+        "days": 241,
+        "actions": 11468
+      },
+      {
+        "home": 20,
+        "days": 313,
+        "actions": 14468
+      },
+      {
+        "home": 21,
+        "days": 355,
+        "actions": 16359
+      },
+      {
+        "home": 22,
+        "days": 434,
+        "actions": 19306
+      },
+      {
+        "home": 23,
+        "days": 512,
+        "actions": 23546
+      },
+      {
+        "home": 24,
+        "days": 584,
+        "actions": 26229
+      },
+      {
+        "home": 25,
+        "days": 660,
+        "actions": 29350
+      }
+    ]
+  },
+  {
+    "seed": 5,
+    "biome": "ore",
+    "minutes": 30,
+    "days": 404,
+    "actions": 29826,
+    "waitDays": 404,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 11
+      },
+      {
+        "home": 3,
+        "days": 0,
+        "actions": 81
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 174
+      },
+      {
+        "home": 5,
+        "days": 3,
+        "actions": 317
+      },
+      {
+        "home": 6,
+        "days": 5,
+        "actions": 511
+      },
+      {
+        "home": 7,
+        "days": 7,
+        "actions": 721
+      },
+      {
+        "home": 8,
+        "days": 10,
+        "actions": 994
+      },
+      {
+        "home": 9,
+        "days": 15,
+        "actions": 1400
+      },
+      {
+        "home": 10,
+        "days": 22,
+        "actions": 1840
+      },
+      {
+        "home": 11,
+        "days": 26,
+        "actions": 2320
+      },
+      {
+        "home": 12,
+        "days": 36,
+        "actions": 3108
+      },
+      {
+        "home": 13,
+        "days": 44,
+        "actions": 3743
+      },
+      {
+        "home": 14,
+        "days": 57,
+        "actions": 4808
+      },
+      {
+        "home": 15,
+        "days": 71,
+        "actions": 5959
+      },
+      {
+        "home": 16,
+        "days": 89,
+        "actions": 7265
+      },
+      {
+        "home": 17,
+        "days": 104,
+        "actions": 8632
+      },
+      {
+        "home": 18,
+        "days": 125,
+        "actions": 10262
+      },
+      {
+        "home": 19,
+        "days": 145,
+        "actions": 11712
+      },
+      {
+        "home": 20,
+        "days": 189,
+        "actions": 14752
+      },
+      {
+        "home": 21,
+        "days": 214,
+        "actions": 16679
+      },
+      {
+        "home": 22,
+        "days": 262,
+        "actions": 19654
+      },
+      {
+        "home": 23,
+        "days": 309,
+        "actions": 23924
+      },
+      {
+        "home": 24,
+        "days": 355,
+        "actions": 26655
+      },
+      {
+        "home": 25,
+        "days": 404,
+        "actions": 29826
+      }
+    ]
+  },
+  {
+    "seed": 8,
+    "biome": "stone",
+    "minutes": 5,
+    "days": 1449,
+    "actions": 27143,
+    "waitDays": 1449,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 9
+      },
+      {
+        "home": 3,
+        "days": 3,
+        "actions": 64
+      },
+      {
+        "home": 4,
+        "days": 6,
+        "actions": 154
+      },
+      {
+        "home": 5,
+        "days": 11,
+        "actions": 291
+      },
+      {
+        "home": 6,
+        "days": 19,
+        "actions": 484
+      },
+      {
+        "home": 7,
+        "days": 26,
+        "actions": 687
+      },
+      {
+        "home": 8,
+        "days": 36,
+        "actions": 954
+      },
+      {
+        "home": 9,
+        "days": 55,
+        "actions": 1342
+      },
+      {
+        "home": 10,
+        "days": 78,
+        "actions": 1746
+      },
+      {
+        "home": 11,
+        "days": 97,
+        "actions": 2188
+      },
+      {
+        "home": 12,
+        "days": 132,
+        "actions": 2920
+      },
+      {
+        "home": 13,
+        "days": 165,
+        "actions": 3487
+      },
+      {
+        "home": 14,
+        "days": 210,
+        "actions": 4481
+      },
+      {
+        "home": 15,
+        "days": 261,
+        "actions": 5535
+      },
+      {
+        "home": 16,
+        "days": 324,
+        "actions": 6721
+      },
+      {
+        "home": 17,
+        "days": 378,
+        "actions": 7935
+      },
+      {
+        "home": 18,
+        "days": 452,
+        "actions": 9426
+      },
+      {
+        "home": 19,
+        "days": 520,
+        "actions": 10709
+      },
+      {
+        "home": 20,
+        "days": 672,
+        "actions": 13587
+      },
+      {
+        "home": 21,
+        "days": 769,
+        "actions": 15306
+      },
+      {
+        "home": 22,
+        "days": 948,
+        "actions": 18031
+      },
+      {
+        "home": 23,
+        "days": 1112,
+        "actions": 21945
+      },
+      {
+        "home": 24,
+        "days": 1279,
+        "actions": 24402
+      },
+      {
+        "home": 25,
+        "days": 1449,
+        "actions": 27143
+      }
+    ]
+  },
+  {
+    "seed": 8,
+    "biome": "stone",
+    "minutes": 15,
+    "days": 670,
+    "actions": 29182,
+    "waitDays": 670,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 9
+      },
+      {
+        "home": 3,
+        "days": 1,
+        "actions": 79
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 170
+      },
+      {
+        "home": 5,
+        "days": 4,
+        "actions": 309
+      },
+      {
+        "home": 6,
+        "days": 8,
+        "actions": 505
+      },
+      {
+        "home": 7,
+        "days": 11,
+        "actions": 709
+      },
+      {
+        "home": 8,
+        "days": 17,
+        "actions": 980
+      },
+      {
+        "home": 9,
+        "days": 25,
+        "actions": 1380
+      },
+      {
+        "home": 10,
+        "days": 35,
+        "actions": 1814
+      },
+      {
+        "home": 11,
+        "days": 44,
+        "actions": 2260
+      },
+      {
+        "home": 12,
+        "days": 60,
+        "actions": 3032
+      },
+      {
+        "home": 13,
+        "days": 75,
+        "actions": 3661
+      },
+      {
+        "home": 14,
+        "days": 95,
+        "actions": 4720
+      },
+      {
+        "home": 15,
+        "days": 119,
+        "actions": 5847
+      },
+      {
+        "home": 16,
+        "days": 150,
+        "actions": 7103
+      },
+      {
+        "home": 17,
+        "days": 176,
+        "actions": 8412
+      },
+      {
+        "home": 18,
+        "days": 211,
+        "actions": 9980
+      },
+      {
+        "home": 19,
+        "days": 244,
+        "actions": 11390
+      },
+      {
+        "home": 20,
+        "days": 315,
+        "actions": 14372
+      },
+      {
+        "home": 21,
+        "days": 355,
+        "actions": 16255
+      },
+      {
+        "home": 22,
+        "days": 436,
+        "actions": 19188
+      },
+      {
+        "home": 23,
+        "days": 514,
+        "actions": 23414
+      },
+      {
+        "home": 24,
+        "days": 590,
+        "actions": 26087
+      },
+      {
+        "home": 25,
+        "days": 670,
+        "actions": 29182
+      }
+    ]
+  },
+  {
+    "seed": 8,
+    "biome": "stone",
+    "minutes": 30,
+    "days": 411,
+    "actions": 29678,
+    "waitDays": 411,
+    "milestones": [
+      {
+        "home": 2,
+        "days": 0,
+        "actions": 9
+      },
+      {
+        "home": 3,
+        "days": 0,
+        "actions": 79
+      },
+      {
+        "home": 4,
+        "days": 2,
+        "actions": 170
+      },
+      {
+        "home": 5,
+        "days": 3,
+        "actions": 309
+      },
+      {
+        "home": 6,
+        "days": 5,
+        "actions": 505
+      },
+      {
+        "home": 7,
+        "days": 7,
+        "actions": 709
+      },
+      {
+        "home": 8,
+        "days": 10,
+        "actions": 982
+      },
+      {
+        "home": 9,
+        "days": 15,
+        "actions": 1382
+      },
+      {
+        "home": 10,
+        "days": 22,
+        "actions": 1816
+      },
+      {
+        "home": 11,
+        "days": 27,
+        "actions": 2294
+      },
+      {
+        "home": 12,
+        "days": 37,
+        "actions": 3076
+      },
+      {
+        "home": 13,
+        "days": 46,
+        "actions": 3705
+      },
+      {
+        "home": 14,
+        "days": 59,
+        "actions": 4764
+      },
+      {
+        "home": 15,
+        "days": 73,
+        "actions": 5911
+      },
+      {
+        "home": 16,
+        "days": 92,
+        "actions": 7205
+      },
+      {
+        "home": 17,
+        "days": 107,
+        "actions": 8564
+      },
+      {
+        "home": 18,
+        "days": 130,
+        "actions": 10182
+      },
+      {
+        "home": 19,
+        "days": 150,
+        "actions": 11626
+      },
+      {
+        "home": 20,
+        "days": 193,
+        "actions": 14648
+      },
+      {
+        "home": 21,
+        "days": 218,
+        "actions": 16567
+      },
+      {
+        "home": 22,
+        "days": 267,
+        "actions": 19528
+      },
+      {
+        "home": 23,
+        "days": 314,
+        "actions": 23800
+      },
+      {
+        "home": 24,
+        "days": 361,
+        "actions": 26521
+      },
+      {
+        "home": 25,
+        "days": 411,
+        "actions": 29678
+      }
+    ]
+  }
+]

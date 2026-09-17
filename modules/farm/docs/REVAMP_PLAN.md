@@ -2,7 +2,7 @@
 
 > **Thiết kế hiện hành.** Nếu bắt đầu ở máy/phiên mới, đọc [bàn giao và thứ tự toàn bộ tài liệu](README.md) trước. [CURRENT_STATE](CURRENT_STATE.md) mô tả code thực tế; nội dung dưới đây là kế hoạch nâng cấp, không phải danh sách đã triển khai.
 
-Ngày 17/09/2026. **Tài liệu thiết kế, chưa phải các tính năng đã triển khai.** Em lập kế hoạch này theo 17 yêu cầu của Đại ca và các bổ sung: bản đồ ngẫu nhiên hoàn toàn, nâng cấp cuối game kéo dài nhiều ngày, công trình tối đa cấp 25, bản đồ rộng và khai phá vật cản bằng tiền/dụng cụ để nhận tài nguyên, địa hình hồ/sông/suối/vách đá với cầu cảng và đánh cá. Phương án sinh map đề xuất là mẫu địa hình đã kiểm duyệt kết hợp bộ sinh theo seed.
+Ngày 17/09/2026. **Thiết kế đích; 0.2 đã triển khai nhiều phần, kiểm CURRENT_STATE và VERIFICATION để biết bằng chứng. Không tự đánh dấu toàn bộ E đã nghiệm thu.** Em lập kế hoạch này theo 17 yêu cầu của Đại ca và các bổ sung: bản đồ ngẫu nhiên hoàn toàn, nâng cấp cuối game kéo dài nhiều ngày, công trình tối đa cấp 25, bản đồ rộng và khai phá vật cản bằng tiền/dụng cụ để nhận tài nguyên, địa hình hồ/sông/suối/vách đá với cầu cảng và đánh cá. Phương án sinh map đề xuất là mẫu địa hình đã kiểm duyệt kết hợp bộ sinh theo seed.
 
 Tất cả công việc tiếp tục trong `modules/farm`. Module có trang chạy, cấu hình, tài nguyên và dữ liệu lưu riêng; chỉ ghép vào dự án chính khi Đại ca yêu cầu. Đăng nhập, Supabase, thăm vườn và giao dịch giữa người chơi thực hiện sau khi gameplay chính đạt yêu cầu. Giao dịch người chơi bắt buộc online.
 
@@ -517,3 +517,7 @@ Mẫu thiết kế tham khảo, không sao chép nội dung hoặc tỷ lệ câ
 - [Anno 1800 — Game Update 8](https://www.anno-union.com/updates/game-update-8-june-2-2020/) ghi thay đổi tạo map để bảo đảm các loại fertility xuất hiện trong thế giới và điều chỉnh phân bố tài nguyên. Bài học em rút ra: phải kiểm tính khả thi của map, lưu phiên bản bộ sinh và kiểm nguồn cung; không suy ra mọi nông trại phải có mọi mỏ lớn.
 
 Đã chốt bởi Đại ca: giới hạn 25, map ngẫu nhiên, timer có thể nhiều ngày, bản đồ rộng với khai phá vật cản nhận tài nguyên và địa hình hồ/sông/suối/vách đá/cầu cảng, các yêu cầu 1–17, module riêng, server sau, trading online. Em đề xuất để thử: thời gian cụ thể 2 phút → 4 ngày của Home, 8 → 120 ruộng, bốn đội thợ, thế giới 96 × 96 ô, bộ sinh sáu họ địa hình với seed riêng, danh mục 28 nhà phụ và các mốc mở. Chi phí từng cấp, sản lượng, giá, trữ lượng, hạn mức NPC và độ hiếm thưởng phải có bảng định lượng/mô phỏng ở B–D trước khi coi là cân bằng hoàn chỉnh. Kế hoạch chưa chứng minh người chơi sẽ gắn bó; cần chơi thử để kiểm điều đó.
+
+## Cập nhật triển khai 0.2 — 17/09/2026
+
+Home JSON đã được import vào game. Core có 25 cấp, 28 nhà phụ, chuỗi recipe, migration, generator và giao dịch; UI và cảnh mới chạy riêng. Nghề gồm ba nhánh/ba bậc, dự án ba chặng nhận decor, mini game câu cá và ghép ống. Hợp đồng bắt đầu Home 12 với hàng đã mở, dùng quà đặc sản từ 15. Chi phí vật liệu nhà phụ từ cấp 4 đã giảm sau mô phỏng; Home giữ timer 2 phút→96 giờ. Mô phỏng 3 biome × 3 lịch đạt Home 25, một lượt hoàn tất 25 chương; xem ECONOMY_VERIFICATION. Asset hiện dùng kit mesh procedural sáu mốc, không phải bộ GLB mỹ thuật đã duyệt. Điện thoại thật, duyệt mỹ thuật và chơi dài với người thật còn mở; chưa đóng E, chưa bắt đầu F.

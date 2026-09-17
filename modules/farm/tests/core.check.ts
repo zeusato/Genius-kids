@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { ASSETS, CROPS, ITEMS, QUESTS, type AssetId } from '../src/core/catalog';
-import { advanceTime, createFarm, dimensions, execute, growthStage, MAX_OFFLINE_MS, placementError } from '../src/core/engine';
-import { parseBackup, serializeBackup, validateSnapshot } from '../src/core/validation';
-import type { FarmCommand, FarmState } from '../src/core/types';
+import { ASSETS, CROPS, ITEMS, QUESTS, type AssetId } from '../src/core/legacy/catalog';
+import { advanceTime, createFarm, dimensions, execute, growthStage, MAX_OFFLINE_MS, placementError } from '../src/core/legacy/engine';
+import { parseBackup, serializeBackup, validateSnapshot } from '../src/core/legacy/validation';
+import type { FarmCommand, FarmState } from '../src/core/legacy/types';
 const now = 1800000000000;
 function command(state: FarmState, input: FarmCommand) { const r = execute(state, input); expect(r.ok, r.message).toBe(true); validateSnapshot(r.state); return r.state; }
 

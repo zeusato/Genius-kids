@@ -1,8 +1,8 @@
 # Làng Mầm — đọc từ đây để tiếp tục công việc
 
-**Bàn giao ngày 17/09/2026, khi Đại ca tạm dừng ở công ty để về nhà làm tiếp.** Thư mục này là nơi tập trung toàn bộ tài liệu và concept của module nông trại. Không cần lịch sử chat để biết yêu cầu, trạng thái code và bước tiếp theo.
+**Bàn giao triển khai 0.2 ngày 17/09/2026.** Module đã có gameplay Home 1–25. Đọc trạng thái và kiểm chứng bên dưới để phân biệt chức năng đã chạy với nghiệm thu chất lượng còn lại.
 
-Xưng **em**, gọi người dùng là **Đại ca**. Lượt bàn giao này chỉ tổ chức tài liệu; không triển khai gameplay, không sửa save, không commit/push, không ghép module vào ứng dụng chính.
+Xưng **em**, gọi người dùng là **Đại ca**. Lượt này đã triển khai gameplay theo yêu cầu Đại ca. Giữ module độc lập, bảo toàn save; chưa làm account/online hoặc ghép hệ thống chính.
 
 ## 1. Đọc theo thứ tự này
 
@@ -12,9 +12,9 @@ Xưng **em**, gọi người dùng là **Đại ca**. Lượt bàn giao này ch�
 |---|---|---|
 | 1 | **README.md — tệp đang đọc** | Điểm vào, các quyết định đã chốt, phân biệt kế hoạch/code, cách tiếp tục |
 | 2 | [REVAMP_PLAN.md](REVAMP_PLAN.md) | **Thiết kế hiện hành**, đầy đủ yêu cầu nâng cấp, thế giới, generator, kinh tế, UI, dữ liệu và nghiệm thu |
-| 3 | [progression-draft.json](progression-draft.json) | Bảng thiết kế Home 1–25, 28 nhà phụ, điều kiện cấp, timer, ruộng, đội thợ và quy mô thế giới; chưa được game import |
-| 4 | [CURRENT_STATE.md](CURRENT_STATE.md) | Bản thử 0.1 thực sự có gì, cách chạy, ranh giới module, kiến trúc và việc server còn thiếu |
-| 5 | [VERIFICATION.md](VERIFICATION.md) | Kết quả kiểm thử đã thực hiện trên bản thử; không phải kết quả của các tính năng mới |
+| 3 | [progression-draft.json](progression-draft.json) | Bảng thiết kế Home 1–25, 28 nhà phụ, điều kiện cấp, timer, ruộng, đội thợ và quy mô thế giới; Home đã được game import; cân bằng vẫn cần chơi thử |
+| 4 | [CURRENT_STATE.md](CURRENT_STATE.md) | Bản 0.2 thực sự có gì, cách chạy, ranh giới module, kiến trúc và việc server còn thiếu |
+| 5 | [VERIFICATION.md](VERIFICATION.md) | Kết quả engine/migration/world/model/solo và trình duyệt 0.2; giới hạn phép đo |
 | 6 | [farm-research-and-design.md](farm-research-and-design.md) | Nghiên cứu ban đầu, nguồn thị trường, vòng chơi và ý tưởng; phần tiến trình/đối tượng/lịch triển khai đã được cập nhật ở REVAMP_PLAN |
 | 7 | [farm-economy-and-engagement.md](farm-economy-and-engagement.md) | Tham khảo sâu về dòng tiền, nghề, hợp đồng, bán/đổi, giữ hàng, giao dịch và phiên offline |
 | 8 | [farm-online-supabase-plan.md](farm-online-supabase-plan.md) | Phương án tương lai cho Auth/cloud save/thăm trại; không phải backend đã triển khai hoặc lệnh làm server ngay |
@@ -59,7 +59,7 @@ Xưng **em**, gọi người dùng là **Đại ca**. Lượt bàn giao này ch�
 - **Phát map ngẫu nhiên hoàn toàn cho người chơi**, không cho chọn một trong ba vùng. Điều này nói về cách cấp map; thuật toán được phép dùng họ mẫu/seed.
 - Map rộng hơn nhiều, nhìn thấy các vùng xa còn cây/đá/núi. Mở dần bằng khai phá, dụng cụ hoặc xu; phá vật cản thu tài nguyên tương ứng.
 - Địa hình có **hồ đặt cầu cảng và đánh cá, sông/suối, vách đá**, thêm cao độ/đường nối để sinh động.
-- Đại ca nêu hai khả năng: engine sinh tự động hoặc một tập các loại địa hình cố định. **Em đề xuất hướng kết hợp mẫu đã kiểm duyệt + seed + validator** trong REVAMP_PLAN 5.6; đây là phương án kỹ thuật đề xuất, chưa có generator được code và chưa phải Đại ca đã chọn mọi thông số của nó.
+- Đại ca nêu hai khả năng: engine sinh tự động hoặc một tập các loại địa hình cố định. **Em đề xuất hướng kết hợp mẫu đã kiểm duyệt + seed + validator** trong REVAMP_PLAN 5.6; đây là phương án kỹ thuật đề xuất, generator v1 đã được code và kiểm seed; các thông số cân bằng còn cần chơi thử.
 
 ## 3. Số đề xuất, chưa được coi là cân bằng đã duyệt
 
@@ -85,23 +85,13 @@ Giữ tài liệu cũ để hiểu nghiên cứu, phương án và các phân t�
 
 ## 5. Trạng thái code khi bàn giao
 
-**Đã có:** module độc lập 0.1 chạy được, React/TypeScript/Three.js; bốn cây có năm trạng thái; cối xay/lò bánh/chuồng bò, tám decor, tám luống đầu; gieo/tưới/thu/bán, công thức, nâng ba cấp tức thì, mục tiêu/thưởng và đơn NPC; pan/zoom, preview đặt/xoay, xưởng mẫu; IndexedDB riêng có revision, giữ bản trước, import/export; test và build riêng.
+**0.2 đã triển khai:** năm menu/công cụ quét nguyên tử, Home 1–25, 28 nhà phụ, jobs/đội thợ/phiếu, migration nguyên gốc, 12 cây, chuỗi vật liệu/sản phẩm, sáu họ map/ba biome/36 khu, nước/cao độ/dốc/cầu/cảng, khai phá, chợ NPC hữu hạn, hàng đợi/kho/dự trữ, 25 chương, thành tựu/hợp đồng, ba nghề, dự án decor, hai mini game, bộ model/cảnh sống, tối ưu instancing và gộp mesh.
 
-**Chưa có:** Home; cấp 25; nâng có thời gian; thao tác quét nhiều ô; kéo thả thực; xoay camera chơi; khắc phục toast đè dock; vật liệu gỗ/đá/sắt; hàng đợi nhiều mẻ; map lớn/ngẫu nhiên/cao độ/nước/khai phá; cầu/cảng; chính tuyến; tăng tốc; backend/Auth/cloud/chợ/thăm vườn. Các mục này mới ở kế hoạch, không được báo là đã hoàn thành.
+**Nghiệm thu còn mở:** điện thoại thật/two-touch, chơi dài với người thật, duyệt nhận diện mỹ thuật từng nghề. Không gọi là đã cân bằng hoặc phát hành hoàn chỉnh chỉ vì test pass. Account, Auth, cloud, thăm vườn/chợ người chơi và tích hợp host chưa làm theo thứ tự Đại ca chốt.
 
-Các chỗ phải chú ý khi bắt tay nâng cấp:
+Chi tiết kiến trúc, gameplay, save và sân thử ở [CURRENT_STATE](CURRENT_STATE.md). Bằng chứng và giới hạn ở [VERIFICATION](VERIFICATION.md), số liệu nhịp solo ở [ECONOMY_VERIFICATION](ECONOMY_VERIFICATION.md).
 
-- `src/core/engine.ts`: `MAX_OFFLINE_MS` đang giới hạn tổng thời gian cộng thêm ở 24 giờ; phải thay trước khi thêm jobs nhiều ngày. Nâng cấp hiện trực tiếp tăng `level`.
-- `src/core/types.ts`: schema/contentVersion 1, job gắn entity chỉ là một mẻ, economy `local-unverified`; cần migration khi thay schema.
-- `src/core/catalog.ts`: cây/công thức/nhà/quest và `levelOf(xp)` đang chung một file; mở khóa hiện theo XP.
-- `src/render/FarmScene.tsx`: camera chơi khóa hướng; chọn vật bằng raycast và đặt theo mặt đất phẳng. Gallery có điều khiển khác với cảnh chơi.
-- `src/render/models.ts`: geometry dựng bằng code, cache và ghép mesh; không phải bộ GLB sản xuất đã được duyệt.
-- `src/FarmApp.tsx`, `src/farm.css`, `src/ui/useFarm.ts`: UI, tương tác và toast; toast và dock cùng ở đáy là lỗi đã được Đại ca chỉ ra.
-- `src/adapters/local.ts`: serial commands, save nguyên tử + so revision, `main/previous`, TimeProvider qua hàm giờ; giữ các đảm bảo này khi mở rộng.
-- `src/core/validation.ts`: kiểm snapshot; không bỏ kiểm tra để chấp nhận schema mới tạm bợ.
-- `tests/*.check.ts`: ba file, 34 ca kiểm thử của bản thử; dùng đuôi/config riêng để không bị test host tự quét theo mẫu thông thường.
-
-Đường dẫn trong mục này tính từ `modules/farm/`. Thông tin chức năng và kiến trúc đầy đủ ở CURRENT_STATE.
+Concept mới và giới hạn của kit asset: [ART_V2](ART_V2.md). Ảnh nghiệm thu thật nằm trong `screenshots/`; không nhầm concept với hình chụp game.
 
 ## 6. Chạy lại trên máy ở nhà
 
@@ -123,11 +113,11 @@ node node_modules/vite/bin/vite.js build --config modules/farm/vite.config.ts --
 
 Giữ `--configLoader runner`: ở máy công ty, config loader mặc định từng lỗi quyền ghi `.vite-temp` trong dependency chung. Cấu hình runner dùng đường riêng của module. `.build`, `.vite-cache`, `reports` là đầu ra/cache bị ignore, không phải mã nguồn cần mang đi. TypeScript của host có thể quét module do include rộng, nên vẫn giữ tương thích typecheck.
 
-Kiểm tra trước bàn giao ở lượt triển khai: 34/34 test, typecheck module và host, build module đạt; vẫn có cảnh báo JS chunk lớn. Chưa đo điện thoại thật/hiệu năng map lớn. Lượt tổ chức tài liệu không chạy lại gameplay test vì không đổi source/config; không ghi các kết quả cũ thành kiểm chứng mới.
+Kiểm chứng 0.2: xem VERIFICATION và kết quả mô phỏng đã lưu; không dùng kết quả 34 test của 0.1 làm bằng chứng cho code mới.
 
 ## 7. Mang công việc và tiến trình sang máy khác
 
-Tại lúc bàn giao: branch **main**, HEAD **c95e1fccc44575f52b893d90dcd829174509becc**. Đây là commit nền, **không chứa module chưa commit**. `modules/` đang untracked. Có thay đổi sẵn có ở `src/components/hub/catalog.ts` từ công việc trước và `.claude/settings.local.json` untracked; không gộp hoặc reset các tệp đó chỉ để chuyển tài liệu farm.
+Thay đổi lượt này chưa commit/push. Chỉ làm trong modules/farm; giữ nguyên thay đổi sẵn có ngoài module, gồm .claude/settings.local.json. Xem git status thực tế khi chuyển máy, không dùng HEAD lịch sử trong tài liệu cũ.
 
 - Mang **toàn bộ `modules/farm/`**, gồm code, config, fonts/giấy phép, docs và ảnh concept; chỉ mang docs thì model hiểu kế hoạch nhưng không có code bản thử để tiếp tục.
 - Có thể chuyển bằng Git hoặc sao chép thư mục vào cùng repo ở nhà; việc commit/push chưa được thực hiện trong lượt này. `git pull` đơn thuần sẽ không mang các tệp chưa commit ở công ty sang.
@@ -138,15 +128,11 @@ Tại lúc bàn giao: branch **main**, HEAD **c95e1fccc44575f52b893d90dcd8291745
 
 ## 8. Điểm tiếp tục công việc
 
-**Chưa bắt đầu đợt A của kế hoạch nâng cấp.** Sau khi Đại ca yêu cầu code tiếp, làm đợt A trước: sửa vị trí toast, năm menu, giữ công cụ/thao tác nhiều ô, kéo thả và xoay tại vật thể, xoay camera và tooltip tên/cấp. Khi cần lệnh batch thì bổ sung giao dịch vào engine cùng UI; không xử lý tiền/kho trực tiếp trong render.
+Không bắt đầu lại A từ số không. Kiểm lại bản 0.2 bằng sân thử riêng. Ưu tiên các phần nghiệm thu E còn thiếu: cảm ứng/GPU trên điện thoại thật, chơi nhiều ngày để cân bằng, duyệt model từng nghề. Test solo là chiến lược tuần tự bảo thủ, không là dự đoán retention.
 
-Tiếp theo theo REVAMP_PLAN: B = Home/jobs/migration và vòng Home 1–3; C = generator/địa hình/khai phá/kinh tế Home 4–10; D = nội dung đến 25; E = mỹ thuật/âm thanh/mini game/hiệu năng; F = online. Mỹ thuật đại diện và thử terrain/placement được làm sớm, không đợi xong mọi bảng kinh tế mới xem chất lượng hình ảnh.
+Giữ bản gốc v1 và giao kèo job khi thay catalog/schema; không reset vườn thật để thử. Cập nhật CURRENT_STATE/VERIFICATION sau mỗi thay đổi. Không bắt đầu F hoặc tích hợp Genius Kids khi chưa hoàn thành chất lượng module và có chỉ dẫn phù hợp từ Đại ca.
 
-Trước chỉnh code: xem `git status`, đọc source liên quan, kiểm bản đang chạy và bảo toàn thay đổi có trước. Sau mỗi đợt: cập nhật CURRENT_STATE/VERIFICATION và mục trạng thái ở đây, ghi phần nào đạt/chưa đạt. Nếu sửa mốc tiến trình, cập nhật cả REVAMP_PLAN và JSON. Không đánh dấu kế hoạch là triển khai chỉ vì đã tạo data/catalog.
-
-Prompt Đại ca có thể dùng ở máy nhà:
-
-> Đọc modules/farm/docs/README.md, rồi đọc đầy đủ bộ tài liệu theo thứ tự trong đó và xem concept. Đối chiếu source hiện tại, tiếp tục triển khai đợt A của kế hoạch nâng cấp Làng Mầm. Giữ module độc lập, bảo toàn save, chưa làm login/server hay ghép vào Genius Kids. Gọi tao là Đại ca, xưng em.
+Prompt tiếp tục: “Đọc đầy đủ bộ docs farm và trạng thái 0.2, kiểm code/bằng chứng hiện tại, tiếp tục các mục nghiệm thu còn mở. Giữ module độc lập và save của tao; chưa làm login/server/ghép host. Xưng em, gọi tao là đại ca.”
 
 ## 9. Bản đồ vị trí tài liệu sau khi gom
 

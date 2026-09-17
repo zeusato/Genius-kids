@@ -1,95 +1,69 @@
-# Làng Mầm — module độc lập
+# Làng Mầm 0.2 — trạng thái triển khai
 
-> **Hiện trạng bản thử 0.1, không phải thiết kế đích.** Tài liệu này là nội dung README kỹ thuật trước khi gom docs. Đọc [bàn giao](README.md) và [kế hoạch hiện hành](REVAMP_PLAN.md) để tiếp tục; các tính năng nâng cấp trong kế hoạch chưa được triển khai vào bản thử.
+Cập nhật 17/09/2026. Module chơi riêng, tiến trình local, chưa ghép Genius Kids và chưa triển khai tài khoản/online. Đối chiếu [thiết kế](REVAMP_PLAN.md) và [kiểm chứng](VERIFICATION.md). Không coi nghiệm thu thiết bị thật và giữ chân người chơi là đã đạt.
 
-Bản thử 0.1, 17/09/2026. Đại ca yêu cầu phát triển riêng để đánh giá trước khi ghép vào Genius Kids. Module hiện là một vòng chơi nhỏ có thể dùng thật và cảnh 3D để kiểm chứng. Đây chưa phải toàn bộ nội dung của bản thiết kế dài hạn, chưa phải bộ model mỹ thuật cuối.
+## Chạy và kiểm tra
 
-## Kế hoạch nâng cấp tiếp theo
-
-[Kế hoạch nông trại 1–25](REVAMP_PLAN.md) ghi thiết kế mới theo yêu cầu Đại ca: Home làm trung tâm, công trình tối đa cấp 25, nâng cấp có thể kéo dài nhiều ngày, bản đồ ngẫu nhiên rộng với khai phá vật cản nhận tài nguyên, thao tác nhiều ô/kéo thả/xoay camera, chính tuyến, kinh tế và tiến trình dài hạn. [Bảng tiến trình dự thảo](progression-draft.json) chứa mốc Home, điều kiện nhà phụ, thời gian và giới hạn đề xuất để kiểm tra trước khi thực hiện. Đây là **tài liệu kế hoạch**, chưa thay đổi gameplay hoặc bản lưu hiện tại; các số cân bằng cần chơi thử. Khi khác với các tài liệu nghiên cứu trước, dùng hướng thiết kế mới này cho đợt nâng cấp.
-
-Bổ sung địa hình: hồ, sông/suối, vách đá, cao nguyên, cầu qua sông và cầu cảng đánh cá. Phương án bộ sinh map kết hợp các họ địa hình đã kiểm duyệt với seed riêng, kiểm đường tiếp cận, nguồn vật liệu khai phá và vị trí đặt cảng trước khi giao map cho người chơi; chi tiết ở mục 5.4–5.6 của kế hoạch.
-
-## Chạy riêng
-
-Từ thư mục gốc repository:
+Chạy từng lệnh từ gốc repository, dùng dependency hiện có:
 
 ```powershell
 node node_modules/vite/bin/vite.js --config modules/farm/vite.config.ts --configLoader runner
-```
-
-Mở **http://127.0.0.1:4328/**. Cổng cố định 4328, bind loopback, không lấy cổng 3000 của ứng dụng chính. Nếu cổng đã dùng, Vite báo lỗi thay vì tự chuyển cổng. Khung kiểm tra responsive 390 × 844: **http://127.0.0.1:4328/mobile-preview.html**. Đây là iframe phục vụ kiểm tra CSS, không giả lập GPU hoặc cảm ứng của điện thoại thật.
-
-Tận dụng thư viện đang cài trong `node_modules` của repository; không cài/gỡ hoặc sửa phiên bản thư viện của hệ thống. Vite dùng config riêng, không nạp cấu hình/PWA/biến môi trường của ứng dụng chính. `--configLoader runner` tránh tạo config tạm trong thư mục dependency dùng chung. Package con cung cấp thêm các lệnh `dev`, `build`, `typecheck`, `test` nếu dùng npm từ thư mục này.
-
-```powershell
 node node_modules/typescript/bin/tsc -p modules/farm/tsconfig.json
 node node_modules/vitest/vitest.mjs run --config modules/farm/vitest.config.ts --configLoader runner
 node node_modules/vite/bin/vite.js build --config modules/farm/vite.config.ts --configLoader runner
 ```
 
-Build xuất vào `modules/farm/.build`, cache ở `.vite-cache`, được ignore bằng file riêng của module. Không ghi vào `dist` hoặc `public` của dự án chính. Chưa có PWA của module; tiến trình khi đóng tab được tính khi mở lại, nhưng khởi động trang khi không có máy chủ phục vụ là công việc riêng cần làm sau.
+- Chơi: http://127.0.0.1:4328/ — DB `lang-mam-independent-lab-v1`, giữ tên để chuyển vườn cũ.
+- Sân thử dev: `/?lab=qa` — DB `lang-mam-qa-only-v2`, nút Home 1/25 và tiến giờ. Home 25 có 29 công trình, 120 luống, 12 giống, 36 khu; tài sản fixture chỉ cấp vào DB QA.
+- `/mobile-preview.html`: iframe 390 × 844, `/?lab=mobile`, DB QA mobile riêng. Không giả lập điện thoại thật. QA bị loại khỏi production build.
+- `.build`, `.vite-cache`, `reports` là đầu ra/cache của module; không đụng host.
 
-## Ranh giới độc lập
+## Gameplay hiện có
 
-- Không thêm route, menu/card game, import hoặc provider vào hệ thống hiện tại.
-- Không đọc/ghi hồ sơ học sinh, sao học tập, tài khoản hoặc database đang dùng.
-- Không import mã từ `src`, `services`, `games` hay `public` của ứng dụng chính.
-- Không kết nối Supabase, không gọi API, không telemetry; không đăng ký service worker.
-- Dữ liệu dùng IndexedDB riêng **`lang-mam-independent-lab-v1`**, object store `snapshots`; origin ở cổng 4328 cũng tách với cổng 3000.
-- Font Nunito được chép riêng cùng giấy phép OFL vào `assets/fonts`. Model được tạo trong `src/render/models.ts`, không phụ thuộc tải tài nguyên từ xa.
-- Test dùng `.check.ts` và config riêng, không được Vitest mặc định của dự án chính tự tìm theo mẫu `*.test.*`/`*.spec.*`. Root TypeScript có thể vẫn quét mã nguồn con do `include` rộng; mã trong module phải giữ typecheck hợp lệ.
+| Hệ thống | Hành vi |
+|---|---|
+| Thao tác | Năm menu, giữ công cụ Gieo/Tưới/Thu; quét mỗi ô một lần, preview chi phí/sản lượng/ô bỏ qua; batch nguyên tử, revision và mã chống lặp |
+| Bố trí | Chọn trên mesh, kéo nhà, nút xoay/xác nhận/hủy cạnh vật, kiểm footprint/cao độ/nước/vật cản, hoàn tác; giữ mẻ đang chạy khi chuyển |
+| Camera | Pan/zoom, chuột phải/Q/E và nút xoay, focus nhà/khu; hai ngón pan/zoom/xoay hủy nét đang dở; Escape/pointer cancel/ra ngoài canvas không commit |
+| Home | 25 cấp, 8→120 luống, 4→36 khu, 1→4 đội thợ; điều kiện chéo; chỉ cấp hoàn thành mở nội dung |
+| Nội dung | Home + 28 nhà phụ; nhà phụ không vượt Home; 12 giống, catalog hàng hóa/công thức theo nghề và cấp |
+| Công việc | Xây/nâng theo hạn, Home cuối 96 giờ; nâng chờ mẻ hiện tại, giữ phí/thợ; hủy lịch chưa chạy hoàn phí; hàng đợi hữu hạn, kho trạm đầy thì dừng |
+| Phiếu | 5/10/30/60 phút, xem trước, áp một vụ/mẻ/nâng/khai phá; đã hết hạn không tiêu, dư không hoàn |
+| Thế giới | Seed ngẫu nhiên, sáu họ, ba thế mạnh; 96 × 96, khu 16 × 16; bốn khu sở hữu và 24 × 24 sạch ban đầu; sông/hồ/suối/cao độ/dốc/cầu |
+| Khai phá | Khu liền kề có đường tiếp cận; cây/đá/quặng có job và thưởng nhận một lần; kho đầy giữ tài nguyên; gom gỗ/đá lặp lại và trạm nguyên liệu hỗ trợ solo |
+| Bờ nước | Cầu dùng ván/đá/xu trong năm phút; cảng bắt buộc một hàng bờ, ba hàng nước, xét bốn hướng; ao cá là nguồn thay thế |
+| Kinh tế | Kho theo cấp, ghim dự trữ chống bán/giao nhầm; NPC giá cao/stock kỳ bốn giờ, không tích lũy kỳ bỏ lỡ; cứu trợ giống khi thực sự hết vốn |
+| Mục tiêu | 25 chương, thành tựu, đơn NPC/đổi đơn; hợp đồng ba chặng từ Home 12, sản phẩm cao hơn từ 15 |
+| Nghề/dự án | Ba nghề × ba bậc ở Home 10/18/25: tự làm và nộp hàng, giảm 5/10/15% thời gian mẻ mới; giữ cả ba nghề; ba dự án nhận decor/phiếu; sổ sản phẩm |
+| Mini game | Nhớ nhịp câu cá tại cảng; ghép ống 3 × 3 kiểm đường chảy thật; thưởng giới hạn theo kỳ chợ |
+| Hình ảnh | Mesh thật, sáu mốc nhà 1/5/10/15/20/25, cây năm giai đoạn, kit thiết bị/decor/bờ nước, chim/cối xay/bò; âm báo bật tùy chọn |
+| Hiệu năng | Instancing ruộng/vật cản; gộp công trình theo vật liệu vẫn chọn đúng nhà; cache model/chunk; nhẹ và giảm chuyển động; mobile mặc định nhẹ |
 
-## Có thể thử ngay
+Nhà sử dụng kit procedural, chưa phải bộ GLB mỹ thuật đã duyệt riêng từng nghề. Sáu mốc có hình học thêm; cấp giữa có lợi ích gameplay và chi tiết. Xưởng mẫu xem mọi cấp/bốn phía. Concept raster là tham chiếu, không thay mesh.
 
-1. Thu hoạch quà đầu vườn; gieo, tưới một lần mỗi vụ, chờ cây lớn, thu và bán cho cửa hàng NPC.
-2. Bốn cây: lúa mì, cà rốt, ngô, bí đỏ, mỗi cây có năm trạng thái nhìn thấy được. Ngô/bí mở ở cấp 2/3; cây quà ban đầu có thể thu trước khi mở giống.
-3. Cối xay, lò bánh và chuồng bò; chuỗi lúa mì → bột → bánh, ngô → sữa, bột + bí + sữa → bánh bí đỏ. Nguyên liệu trừ khi bắt đầu, thành phẩm chỉ nhận một lần. Vật nuôi có chuyển động nghỉ/ăn đơn giản.
-4. Công trình có ba cấp ngoại hình, nâng cấp giảm thời gian mẻ mới và lò cấp 2 mở bánh bí đỏ. Mẻ đang chạy giữ nguyên hạn hoàn thành.
-5. Mua tám loại decor; chọn vị trí bằng chạm đất hoặc mũi tên, xoay 90°, xem ô chiếm chỗ, xác nhận rồi mới trừ tiền. Chuyển công trình đang sản xuất không làm mất mẻ hàng. Đặt đè lên cây/nhà hoặc ngoài đất bị từ chối.
-6. Thêm luống, hai lần mở đất, XP và cấp, sáu mục tiêu có thưởng một lần, chuỗi đơn NPC, bảng tổng kết thành tích.
-7. Tự lưu sau mỗi giao dịch; checkpoint thời gian; cộng tiến trình hữu hạn khi quay lại, cây/hàng chín không mất. Có xuất/nhập bản sao JSON và xác nhận trước khi thay thế.
-8. Nút **Mẫu 3D** mở xưởng mẫu: đổi loại nhà/cấp và cây/giai đoạn, xoay camera để xem model. Mọi thao tác ở xưởng không sửa tiến trình game.
+## Save và chuyển đổi
 
-Nhịp 35–120 giây/vụ phục vụ thử nhanh, chưa cân bằng kinh tế dài hạn. Một công trình xử lý một mẻ tại một thời điểm; chưa có hàng chờ nhiều mẻ. Camera chơi cố định góc nhìn, có pan/zoom; di chuyển đồ theo chọn vị trí và xác nhận, chưa kéo thả trực tiếp. Chưa có undo vị trí, cất decor, âm thanh, mini game, NPC có hình/animation, đủ 12 loại cây hoặc toàn bộ danh mục công trình trong thiết kế dài hạn.
+Schema/contentVersion 2, `economy: local-unverified`. Engine thuần xử lý lệnh; adapter tuần tự hóa và ghi IndexedDB bằng compare-and-swap. Ghi lỗi không áp giao dịch lên UI; cửa sổ thua conflict phải tải bản mới. Không reset save hỏng hoặc tương lai.
 
-## Cấu trúc và điểm nối sau này
+V1 qua validator đóng băng `core/legacy/`, chuyển trong bộ nhớ. Lần ghi đầu giữ nguyên raw tại `migration-original-v1` trong cùng transaction; `previous` giữ bản trước mỗi lần ghi. Có nút xuất nguyên gốc. Giữ xu/kho/ID/vị trí/luống/cây và giao kèo mẻ cũ, kể cả XP. Quyền kế thừa chỉ mở recipe đã có ở v1. Home/kho thêm vào chỗ trống, cấp ít nhất bằng nhà cũ; đặc quyền kho/luống ngăn mất tài sản.
 
-```text
-modules/farm/
-  index.html, mobile-preview.html  trang thử riêng
-  vite.config.ts, tsconfig.json   cấu hình riêng
-  assets/fonts/                  font cục bộ và giấy phép
-  src/core/catalog.ts            cây, hàng hóa, công thức, công trình, mục tiêu
-  src/core/types.ts              trạng thái, lệnh và hợp đồng adapter
-  src/core/engine.ts             kiểm tra + áp dụng một giao dịch thuần
-  src/core/validation.ts         kiểm tra bản lưu và định dạng bản sao
-  src/adapters/local.ts          lưu nguyên tử, revision, thời gian và phiên chơi
-  src/render/models.ts          model, vật liệu, bộ phận chuyển động và cache
-  src/render/FarmScene.tsx       cảnh chơi, lựa chọn vị trí, xưởng mẫu
-  src/ui/useFarm.ts              vòng đời phiên và phản hồi thao tác
-  src/FarmApp.tsx, farm.css      giao diện riêng
-  src/index.ts                  API để tích hợp khi được yêu cầu
-  tests/*.check.ts               luật, tiền/kho, persistence, hợp đồng model
-```
+Không chặn offline ở 24 giờ. Đồng hồ lùi không hạ mốc đã tính. Job chụp đầu vào/đầu ra/thời gian/XP; nâng nhà/học nghề chỉ đổi job mới. Hàng đợi hữu hạn, không tự tạo thêm sản xuất khi nghỉ.
 
-`execute(state, command)` không biết React, trình duyệt, đăng nhập hoặc mạng. UI gửi `FarmCommand` qua `FarmSession.execute`; có thể truyền `openSession` cho `FarmApp` để thay adapter mà không viết lại các bảng thao tác. `FarmRepository` phục vụ lưu local; giao dịch IndexedDB so revision hiện tại với revision kỳ vọng, đồng thời giữ bản trước trong `previous`. Lỗi ghi không được áp dụng vào trạng thái đang chơi. Hai cửa sổ cùng sửa sẽ yêu cầu tải lại, không tự hợp nhất kho/tiền. Một giao dịch lỗi không tiêu bất kỳ tài nguyên nào.
+Import có xem trước/xác nhận và xuất bản hiện tại trước khi thay. IndexedDB không theo Git; chuyển máy bằng JSON. Localhost và 127.0.0.1 khác origin.
 
-Bản lưu sai schema, ID, số lượng, thời gian hoặc tọa độ bị từ chối, không tự tạo vườn trắng thay thế. Bản `previous` là bản ghi gần nhất trước lần lưu, chưa có giao diện duyệt lịch sử/phục hồi bản bị hỏng. Xuất JSON là đường sao lưu do người chơi chủ động sử dụng.
+## Kiến trúc
 
-## Login/server làm sau có trở ngại gì?
+- `core/content.ts`, `progression.ts`, `activities.ts`: catalog, Home nhập JSON, chi phí/chuỗi/mục tiêu/nghề.
+- `core/engine.ts`, `simulation.ts`, `world.ts`: lệnh, deadlines, generator/đường tiếp cận. `copy.ts` chia sẻ mảng địa hình bất biến, biên adapter deep-copy.
+- `validation.ts`, `adapters/local.ts`: kiểm dữ liệu, migration, CAS, backup.
+- `Game.tsx`, `ui/`: giao diện, không sửa tiền/kho trực tiếp.
+- `render/FarmWorld.tsx`: camera/gesture; `Buildings.tsx` ánh xạ tam giác→ID, `CropField.tsx` instance→ID; `models.ts` asset; `FarmScene.tsx` helper/gallery.
+- `DevLab.tsx`: fixture riêng chỉ dev. Test `.check.ts` không trùng quy ước test host.
 
-Không cản trở việc hoàn thiện gameplay, nội dung và mỹ thuật. Khi thực hiện online, cần một đợt công việc riêng:
+## Ranh giới chất lượng
 
-1. **Danh tính:** adapter Auth và ánh xạ account/profile → farm; ID hồ sơ cục bộ không được coi là danh tính xác thực.
-2. **Tiền/hàng:** xây server gateway nhận lệnh, kiểm tra quyền, giá/công thức, thời gian, revision và khóa giao dịch. Không dùng adapter gửi toàn bộ snapshot client để ghi đè tiền/kho trên server.
-3. **Giao dịch:** vẫn chỉ online theo yêu cầu Đại ca; cần giữ hàng rao bán, mua/đổi nguyên tử, mã lệnh chống lặp và hoàn tiền/hàng. Không có hàng đợi chợ offline.
-4. **Thăm vườn:** công bố bản cảnh được phép xem, chỉ chứa loại model, vị trí, cấp/trạng thái và decor. Không công bố bản lưu riêng hoặc thông tin học tập.
-5. **Chuyển thiết bị/offline:** mốc giờ server, quyền ghi/phiên thiết bị, revision và cách tiếp nhận hành động offline. Phần local hiện tại giải quyết việc lưu trên một trình duyệt, không tự giải quyết toàn bộ đồng bộ nhiều thiết bị.
-6. **Chuyển dữ liệu thử lên online:** cần chốt chính sách nhập trước khi phát hành. Hiện `economy: local-unverified` là nhãn mô tả, không phải biện pháp chống gian lận. Người dùng có thể sửa bản local; không tự đưa số xu/hàng này vào nền kinh tế giao dịch. Không tự xóa hoặc đặt lại tiến trình khi liên kết tài khoản.
+Không sửa host routes/profile/account/package/config, không Supabase/service worker/chợ người chơi. Chưa có khởi động PWA offline; tiến trình offline được tính khi mở lại trang được máy chủ phục vụ.
 
-Những việc này được hoãn, không giả lập đăng nhập hoặc hứa chợ đã sẵn sàng. Bộ schema online cụ thể và cơ chế duyệt hành động offline sẽ được thiết kế/kiểm thử trước khi bật tài khoản và giao dịch.
+Chức năng A–D và nhiều mục E đã hiện thực. **Chưa đóng nghiệm thu E:** cần cảm ứng/FPS điện thoại thật, duyệt mỹ thuật theo từng nghề, chơi nhiều ngày với người thật. Mô phỏng chứng minh có đường solo, không chứng minh nhịp đã hấp dẫn. Kịch bản tám luống/nâng tuần tự không tối ưu nhiều thợ/đơn/thưởng; mốc ngày là số đo chiến lược đó, không là lời hứa thời gian hoàn thành.
 
-## Trước khi ghép hệ thống
-
-Đại ca xem bản riêng và chất lượng model trước. Sau đó hoàn thiện nội dung/mini game/âm thanh, bộ asset chính thức, đo hiệu năng trên thiết bị thật, thử phiên dài và phục hồi dữ liệu. Chỉ tích hợp router/menu/hồ sơ khi có yêu cầu tiếp theo. Bản module hiện không thay đổi cách chạy hoặc phát hành ứng dụng chính.
+Tiếp tục chất lượng module trước F và ghép host.

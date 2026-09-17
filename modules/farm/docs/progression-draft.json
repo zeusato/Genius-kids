@@ -1,5 +1,5 @@
 {
-  "$comment": "Design data only, 2026-09-17. Not imported by the running game. Times, capacities and prerequisites need economy simulation and playtesting; maximum level 25 is a user requirement.",
+  "$comment": "Runtime Home progression for farm 0.2, 2026-09-17. Imported by core/progression.ts. Costs/recipes live in the versioned TypeScript catalog. Solo reachability is tested; timing remains subject to human playtesting.",
   "designVersion": 1,
   "maximumBuildingLevel": 25,
   "mapAssignment": "random-no-player-selection",
