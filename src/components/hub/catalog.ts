@@ -30,8 +30,8 @@ export const BOARD_GAME_CATALOG: HubEntry<GameId>[] = [
     { id: 'caro', title: 'Cờ Ca-rô', subtitle: 'Góc giấy ô ly', description: 'Một nét X, một vòng O. Nối năm quân, cùng tìm nước hay.', art: 'caro', label: '1–2 NGƯỜI · X & O' },
 ];
 export const GAME_CATALOG: HubEntry<GameId>[] = [
-    { id: 'coding', title: 'Lập Trình Nhí', subtitle: 'Biệt đội Rover', description: 'Dẫn rover đi thám hiểm hành tinh bằng những khối lệnh.', art: 'coding', label: 'LẬP TRÌNH & SÁNG TẠO' },
     { id: 'board-games', title: 'Board games', subtitle: 'Cùng ngồi vào bàn', description: 'Những bàn cờ quen thuộc, những cuộc vui cùng bạn bè và gia đình.', art: 'board-games', label: 'CÙNG CHƠI · CÙNG SUY NGHĨ' },
+    { id: 'coding', title: 'Lập Trình Nhí', subtitle: 'Biệt đội Rover', description: 'Dẫn rover đi thám hiểm hành tinh bằng những khối lệnh.', art: 'coding', label: 'LẬP TRÌNH & SÁNG TẠO' },
     { id: 'memory', title: 'Lật Thẻ', subtitle: 'Đảo Ký Ức', description: 'Tìm cặp hình, làm hòn đảo thêm rực rỡ.', art: 'memory', label: 'GHI NHỚ' },
     { id: 'sound-memory', title: 'Giai Điệu Vui Nhộn', subtitle: 'Ban Nhạc Tí Hon', description: 'Nghe giai điệu, gõ nhịp và viết bài nhạc.', art: 'sound-memory', label: 'ÂM NHẠC' },
     { id: 'speed-math', title: 'Đua Tốc Độ', subtitle: 'Đấu Trường Tia Chớp', description: 'Chọn, nối, xếp để thắp sáng sân khấu!', art: 'speed-math', label: 'PHẢN XẠ & TƯ DUY' },

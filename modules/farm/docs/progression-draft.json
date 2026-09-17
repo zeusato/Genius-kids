@@ -1,0 +1,615 @@
+{
+  "$comment": "Design data only, 2026-09-17. Not imported by the running game. Times, capacities and prerequisites need economy simulation and playtesting; maximum level 25 is a user requirement.",
+  "designVersion": 1,
+  "maximumBuildingLevel": 25,
+  "mapAssignment": "random-no-player-selection",
+  "homeUnlockRule": "completed-level-only",
+  "buildingCapRule": "min(completedHomeLevel, maximumBuildingLevel)",
+  "worldDraft": {
+    "widthTiles": 96,
+    "depthTiles": 96,
+    "chunkSizeTiles": 16,
+    "initialOwnedChunks": 4,
+    "initialClearedAreaApprox": "24x24 within the initial 32x32 estate",
+    "regionCapMilestones": [
+      {
+        "home": 1,
+        "chunks": 4
+      },
+      {
+        "home": 5,
+        "chunks": 6
+      },
+      {
+        "home": 10,
+        "chunks": 11
+      },
+      {
+        "home": 15,
+        "chunks": 16
+      },
+      {
+        "home": 20,
+        "chunks": 22
+      },
+      {
+        "home": 25,
+        "chunks": 36
+      }
+    ],
+    "claimRule": "owned-adjacent-region-with-completed-home-permit",
+    "clearRule": "preview-cost-duration-resource-yield-before-command",
+    "generationMode": "validated-terrain-templates-plus-seeded-generation",
+    "terrainFamilies": [
+      "streamside-forest",
+      "valley-lake",
+      "ore-hills-lake",
+      "rocky-terraces",
+      "river-crossing",
+      "lakeside-woodland"
+    ],
+    "guarantees": [
+      "reachable-initial-buildable-estate",
+      "accessible-fishing-pier-shore-by-home-11",
+      "bridge-inputs-available-before-crossing",
+      "no-resource-progression-cycles"
+    ],
+    "persistence": "store-world-snapshot-plus-seed-template-and-generator-version"
+  },
+  "buildings": [
+    {
+      "id": "warehouse",
+      "name": "Kho hàng",
+      "unlockHome": 1
+    },
+    {
+      "id": "mill",
+      "name": "Cối xay gió",
+      "unlockHome": 2
+    },
+    {
+      "id": "coop",
+      "name": "Chuồng gà",
+      "unlockHome": 2
+    },
+    {
+      "id": "bakery",
+      "name": "Lò bánh",
+      "unlockHome": 3
+    },
+    {
+      "id": "sawmill",
+      "name": "Xưởng gỗ",
+      "unlockHome": 3
+    },
+    {
+      "id": "quarry",
+      "name": "Trạm khai thác đá",
+      "unlockHome": 3
+    },
+    {
+      "id": "barn",
+      "name": "Chuồng bò",
+      "unlockHome": 4
+    },
+    {
+      "id": "dairy",
+      "name": "Xưởng sữa",
+      "unlockHome": 4
+    },
+    {
+      "id": "iron_mine",
+      "name": "Trạm khai thác quặng",
+      "unlockHome": 4
+    },
+    {
+      "id": "smelter",
+      "name": "Lò luyện",
+      "unlockHome": 5
+    },
+    {
+      "id": "sheepfold",
+      "name": "Chuồng cừu",
+      "unlockHome": 5
+    },
+    {
+      "id": "loom",
+      "name": "Xưởng dệt",
+      "unlockHome": 5
+    },
+    {
+      "id": "orchard",
+      "name": "Vườn cây ăn quả",
+      "unlockHome": 6
+    },
+    {
+      "id": "apiary",
+      "name": "Trại ong",
+      "unlockHome": 6
+    },
+    {
+      "id": "pottery",
+      "name": "Xưởng gốm",
+      "unlockHome": 7
+    },
+    {
+      "id": "workshop",
+      "name": "Xưởng dụng cụ",
+      "unlockHome": 8
+    },
+    {
+      "id": "press",
+      "name": "Xưởng ép",
+      "unlockHome": 9
+    },
+    {
+      "id": "greenhouse",
+      "name": "Nhà kính",
+      "unlockHome": 10
+    },
+    {
+      "id": "fishpond",
+      "name": "Ao nuôi cá",
+      "unlockHome": 11
+    },
+    {
+      "id": "kitchen",
+      "name": "Nhà bếp",
+      "unlockHome": 12
+    },
+    {
+      "id": "preserves",
+      "name": "Xưởng mứt",
+      "unlockHome": 13
+    },
+    {
+      "id": "tailor",
+      "name": "Xưởng may",
+      "unlockHome": 14
+    },
+    {
+      "id": "fairground",
+      "name": "Nhà hội chợ",
+      "unlockHome": 15
+    },
+    {
+      "id": "icecream",
+      "name": "Xưởng kem",
+      "unlockHome": 16
+    },
+    {
+      "id": "herb_garden",
+      "name": "Vườn thảo mộc",
+      "unlockHome": 17
+    },
+    {
+      "id": "dyehouse",
+      "name": "Xưởng nhuộm",
+      "unlockHome": 18
+    },
+    {
+      "id": "tea_house",
+      "name": "Nhà trà",
+      "unlockHome": 20
+    },
+    {
+      "id": "fishing_pier",
+      "name": "Cầu cảng",
+      "unlockHome": 11
+    }
+  ],
+  "homeLevels": [
+    {
+      "level": 1,
+      "upgradeMinutes": 0,
+      "plotCap": 8,
+      "builderSlots": 1,
+      "requires": [],
+      "milestone": "Nhà chính và kho ban đầu; lúa mì, cà rốt, thu gom gỗ và đá."
+    },
+    {
+      "level": 2,
+      "upgradeMinutes": 2,
+      "plotCap": 10,
+      "builderSlots": 1,
+      "requires": [
+        {
+          "building": "warehouse",
+          "level": 1
+        }
+      ],
+      "milestone": "Cối xay, gà, ngô; đơn hàng cơ bản."
+    },
+    {
+      "level": 3,
+      "upgradeMinutes": 10,
+      "plotCap": 12,
+      "builderSlots": 1,
+      "requires": [
+        {
+          "building": "mill",
+          "level": 2
+        },
+        {
+          "building": "warehouse",
+          "level": 2
+        }
+      ],
+      "milestone": "Lò bánh, xưởng gỗ, trạm đá; bí đỏ và ván gỗ."
+    },
+    {
+      "level": 4,
+      "upgradeMinutes": 30,
+      "plotCap": 16,
+      "builderSlots": 1,
+      "requires": [
+        {
+          "building": "bakery",
+          "level": 2
+        },
+        {
+          "building": "sawmill",
+          "level": 2
+        }
+      ],
+      "milestone": "Bò, sữa, khai thác quặng; đậu tương."
+    },
+    {
+      "level": 5,
+      "upgradeMinutes": 60,
+      "plotCap": 20,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "barn",
+          "level": 2
+        },
+        {
+          "building": "dairy",
+          "level": 2
+        }
+      ],
+      "milestone": "Lò luyện, cừu, dệt; bông; đội thợ thứ hai."
+    },
+    {
+      "level": 6,
+      "upgradeMinutes": 120,
+      "plotCap": 24,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "smelter",
+          "level": 2
+        },
+        {
+          "building": "sawmill",
+          "level": 4
+        }
+      ],
+      "milestone": "Vườn táo và ong; mật ong."
+    },
+    {
+      "level": 7,
+      "upgradeMinutes": 180,
+      "plotCap": 28,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "orchard",
+          "level": 2
+        },
+        {
+          "building": "apiary",
+          "level": 2
+        }
+      ],
+      "milestone": "Gốm, hoa hướng dương; công thức thủy tinh trong lò luyện."
+    },
+    {
+      "level": 8,
+      "upgradeMinutes": 240,
+      "plotCap": 32,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "pottery",
+          "level": 2
+        },
+        {
+          "building": "mill",
+          "level": 6
+        }
+      ],
+      "milestone": "Xưởng dụng cụ; hàng đợi sản xuất dài hơn."
+    },
+    {
+      "level": 9,
+      "upgradeMinutes": 360,
+      "plotCap": 36,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "workshop",
+          "level": 2
+        },
+        {
+          "building": "barn",
+          "level": 6
+        }
+      ],
+      "milestone": "Xưởng ép, dâu tây; dầu và nước quả."
+    },
+    {
+      "level": 10,
+      "upgradeMinutes": 480,
+      "plotCap": 40,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "press",
+          "level": 2
+        },
+        {
+          "building": "warehouse",
+          "level": 8
+        }
+      ],
+      "milestone": "Nhà kính, cà chua; vùng đất mở rộng thứ hai."
+    },
+    {
+      "level": 11,
+      "upgradeMinutes": 720,
+      "plotCap": 44,
+      "builderSlots": 2,
+      "requires": [
+        {
+          "building": "greenhouse",
+          "level": 2
+        },
+        {
+          "building": "workshop",
+          "level": 5
+        }
+      ],
+      "milestone": "Ao cá, cầu cảng; công việc đánh cá và mini game câu cá tùy chọn."
+    },
+    {
+      "level": 12,
+      "upgradeMinutes": 960,
+      "plotCap": 48,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "fishpond",
+          "level": 2
+        },
+        {
+          "building": "bakery",
+          "level": 9
+        }
+      ],
+      "milestone": "Nhà bếp, hợp đồng nhiều món; đội thợ thứ ba."
+    },
+    {
+      "level": 13,
+      "upgradeMinutes": 1200,
+      "plotCap": 52,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "kitchen",
+          "level": 2
+        },
+        {
+          "building": "warehouse",
+          "level": 11
+        }
+      ],
+      "milestone": "Xưởng mứt, anh đào; quà đặc sản."
+    },
+    {
+      "level": 14,
+      "upgradeMinutes": 1440,
+      "plotCap": 56,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "preserves",
+          "level": 2
+        },
+        {
+          "building": "loom",
+          "level": 11
+        }
+      ],
+      "milestone": "May mặc, đồ trang trí bằng vải."
+    },
+    {
+      "level": 15,
+      "upgradeMinutes": 1800,
+      "plotCap": 60,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "tailor",
+          "level": 2
+        },
+        {
+          "building": "workshop",
+          "level": 12
+        }
+      ],
+      "milestone": "Hội chợ NPC; bộ sưu tập và hợp đồng vùng."
+    },
+    {
+      "level": 16,
+      "upgradeMinutes": 2160,
+      "plotCap": 64,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "fairground",
+          "level": 2
+        },
+        {
+          "building": "dairy",
+          "level": 13
+        }
+      ],
+      "milestone": "Xưởng kem; công thức phối hợp sữa và quả."
+    },
+    {
+      "level": 17,
+      "upgradeMinutes": 2520,
+      "plotCap": 68,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "icecream",
+          "level": 2
+        },
+        {
+          "building": "greenhouse",
+          "level": 10
+        }
+      ],
+      "milestone": "Thảo mộc, oải hương; sản phẩm hương thơm."
+    },
+    {
+      "level": 18,
+      "upgradeMinutes": 2880,
+      "plotCap": 72,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "herb_garden",
+          "level": 2
+        },
+        {
+          "building": "smelter",
+          "level": 15
+        }
+      ],
+      "milestone": "Xưởng nhuộm; vải màu và decor nâng cao."
+    },
+    {
+      "level": 19,
+      "upgradeMinutes": 3240,
+      "plotCap": 76,
+      "builderSlots": 3,
+      "requires": [
+        {
+          "building": "dyehouse",
+          "level": 2
+        },
+        {
+          "building": "loom",
+          "level": 16
+        }
+      ],
+      "milestone": "Giống lê, đặc sản chất lượng cao; nhánh chuyên môn sản xuất."
+    },
+    {
+      "level": 20,
+      "upgradeMinutes": 3600,
+      "plotCap": 80,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "orchard",
+          "level": 17
+        },
+        {
+          "building": "press",
+          "level": 16
+        }
+      ],
+      "milestone": "Nhà trà, cây trà; đội thợ thứ tư."
+    },
+    {
+      "level": 21,
+      "upgradeMinutes": 3960,
+      "plotCap": 88,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "tea_house",
+          "level": 2
+        },
+        {
+          "building": "workshop",
+          "level": 18
+        }
+      ],
+      "milestone": "Dự án cảnh quan lớn và bản thiết kế hiếm."
+    },
+    {
+      "level": 22,
+      "upgradeMinutes": 4320,
+      "plotCap": 96,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "greenhouse",
+          "level": 19
+        },
+        {
+          "building": "warehouse",
+          "level": 20
+        }
+      ],
+      "milestone": "Hoa nhà kính và bộ sưu tập giống nâng cao."
+    },
+    {
+      "level": 23,
+      "upgradeMinutes": 4800,
+      "plotCap": 104,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "fairground",
+          "level": 16
+        },
+        {
+          "building": "kitchen",
+          "level": 16
+        }
+      ],
+      "milestone": "Lễ hội vùng, đơn hàng nhiều giai đoạn."
+    },
+    {
+      "level": 24,
+      "upgradeMinutes": 5280,
+      "plotCap": 112,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "smelter",
+          "level": 22
+        },
+        {
+          "building": "workshop",
+          "level": 21
+        }
+      ],
+      "milestone": "Công trình biểu tượng; thử thách vận hành dài hạn."
+    },
+    {
+      "level": 25,
+      "upgradeMinutes": 5760,
+      "plotCap": 120,
+      "builderSlots": 4,
+      "requires": [
+        {
+          "building": "warehouse",
+          "level": 23
+        },
+        {
+          "building": "fairground",
+          "level": 22
+        }
+      ],
+      "milestone": "Trang trại hoàn chỉnh; hoàn tất chính tuyến, tiếp tục chuyên môn và sưu tập."
+    }
+  ]
+}

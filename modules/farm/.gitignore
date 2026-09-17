@@ -1,0 +1,3 @@
+.build/
+.vite-cache/
+reports/
