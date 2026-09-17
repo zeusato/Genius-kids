@@ -41,6 +41,7 @@ export const AIChatWidget: React.FC = () => {
         location.pathname.includes('/test') || 
         location.pathname.includes('/game') || 
         location.pathname.includes('/coding') || 
+        location.pathname.includes('/piano') ||
         location.pathname.includes('/riddle') || 
         location.pathname.includes('/preschool') || 
         location.pathname.includes('/__race');

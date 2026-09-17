@@ -27,6 +27,7 @@ const TellMeWhyPage = React.lazy(() => import('@/src/pages/TellMeWhyPage').then(
 const SphinxRiddlePage = React.lazy(() => import('@/src/pages/SphinxRiddlePage').then(module => ({ default: module.SphinxRiddlePage })));
 const HallOfFamePage = React.lazy(() => import('@/src/pages/HallOfFamePage').then(module => ({ default: module.HallOfFamePage })));
 const KidCoderPage = React.lazy(() => import('@/src/pages/KidCoderPage').then(module => ({ default: module.KidCoderPage })));
+const PianoPage = React.lazy(() => import('./games/Piano/PianoGame'));
 const SolarSystemPage = React.lazy(() => import('@/src/pages/SolarSystemPage').then(module => ({ default: module.SolarSystemPage })));
 const PlanetMakerPage = React.lazy(() => import('@/src/pages/PlanetMakerPage').then(module => ({ default: module.PlanetMakerPage })));
 const ScienceMenuPage = React.lazy(() => import('@/src/pages/ScienceMenuPage').then(module => ({ default: module.ScienceMenuPage })));
@@ -336,6 +337,10 @@ export default function App() {
                     <HallOfFamePage />
                   </ProtectedRoute>
                 }
+              />
+              <Route
+                path="/piano"
+                element={<ProtectedRoute><PianoPage /></ProtectedRoute>}
               />
               <Route
                 path="/coding"

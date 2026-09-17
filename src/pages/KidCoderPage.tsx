@@ -5,16 +5,17 @@ import { useStudent } from '@/src/contexts/StudentContext';
 import { KidCoderGame } from '@/games/KidCoder/KidCoderGame';
 import { KidCoderLevelSelect } from '@/games/KidCoder/KidCoderLevelSelect';
 
-export function KidCoderPage() {
+export function KidCoderPage({ onExit }: { onExit?: () => void } = {}) {
     const navigate = useNavigate();
     const { currentStudent } = useStudent();
     const [legacy, setLegacy] = useState(import.meta.env.VITE_KIDCODER_V2 === 'false');
     if (!currentStudent) return <Navigate to="/" replace/>;
-    if (legacy) return <><button onClick={() => setLegacy(false)} className="fixed bottom-4 left-4 z-[60] bg-emerald-200 text-slate-900 rounded-xl px-4 py-3 font-bold shadow-lg">🚀 Biệt đội Rover</button><LegacyKidCoderPage/></>;
-    return <KidCoderAdventure key={currentStudent.id} student={currentStudent} onExit={() => navigate('/mode')} onLegacy={() => setLegacy(true)}/>;
+    const leave = onExit || (() => navigate('/game'));
+    if (legacy) return <><button onClick={() => setLegacy(false)} className="fixed bottom-4 left-4 z-[60] bg-emerald-200 text-slate-900 rounded-xl px-4 py-3 font-bold shadow-lg">🚀 Biệt đội Rover</button><LegacyKidCoderPage onExit={leave}/></>;
+    return <KidCoderAdventure key={currentStudent.id} student={currentStudent} onExit={leave} onLegacy={() => setLegacy(true)}/>;
 }
 
-function LegacyKidCoderPage() {
+function LegacyKidCoderPage({ onExit }: { onExit: () => void }) {
     const navigate = useNavigate();
     const { currentStudent } = useStudent();
     const [view, setView] = useState<'menu' | 'game'>('menu');
@@ -30,7 +31,7 @@ function LegacyKidCoderPage() {
     };
 
     const handleExitMenu = () => {
-        navigate('/mode');
+        onExit();
     };
 
     const handleSelectLevel = (level: number, lesson: number) => {

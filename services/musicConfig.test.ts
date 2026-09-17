@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { getMusicTrackForRoute, MusicTrack } from './musicConfig';
 
 describe('alphabet background music', () => {
-    it.each(['/preschool/alphabet', '/Genius-kids/preschool/alphabet', '/Genius-kids/preschool/alphabet/', '/GENIUS-KIDS/PRESCHOOL/ALPHABET', '/preschool/counting', '/Genius-kids/preschool/counting/'])('keeps %s quiet', path => {
+    it.each(['/piano', '/Genius-kids/piano/', '/preschool/alphabet', '/Genius-kids/preschool/alphabet', '/Genius-kids/preschool/alphabet/', '/GENIUS-KIDS/PRESCHOOL/ALPHABET', '/preschool/counting', '/Genius-kids/preschool/counting/'])('keeps %s quiet', path => {
         expect(getMusicTrackForRoute(path)).toBeNull();
     });
 

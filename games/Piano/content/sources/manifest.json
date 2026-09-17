@@ -1,0 +1,146 @@
+[
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/girls.xml",
+    "file": "25418-girls.xml",
+    "sha256": "80a694c2875d8aa3b0cab785ad2ffe18a1f598e38a7aa2b66da696c18941439d"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/mulberry.xml",
+    "file": "25418-mulberry.xml",
+    "sha256": "78e71336d47a7c4da8eba549c7a4b2ba50d6ee1651597f48e10d0d97772dcccc"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/oranges.xml",
+    "file": "25418-oranges.xml",
+    "sha256": "0019fb85d40c9ec5492d91aea66dc8a06c169cac08cde91dc92385857435585e"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/lavender.xml",
+    "file": "25418-lavender.xml",
+    "sha256": "241fcafeff30ae05ef12aca3ea575699ebf7d855266c74dd7a5af16e7467ef90"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/threeships.xml",
+    "file": "25418-threeships.xml",
+    "sha256": "b024e2053c5dc624d1822df5c9dff491ead64226eecb459db70cb7679acd9515"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/dingdong.xml",
+    "file": "25418-dingdong.xml",
+    "sha256": "83c9ebafb94f28ecc001d281febabc9b8a9e422a21489b2e42b5effbeec315f5"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/threeblindmice.xml",
+    "file": "25418-threeblindmice.xml",
+    "sha256": "4182bde140dedb8eb0f3bb9b2fdc7b7bf53d13f6b6a4aa7536fd1a96eec893b9"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/dickory.xml",
+    "file": "25418-dickory.xml",
+    "sha256": "3102864332d5994818b58d014eff48d75d6132d0af94f28193d5bf3794643eb1"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/sixpence.xml",
+    "file": "25418-sixpence.xml",
+    "sha256": "814cad48d5ba77470ea93687728ec551610d7412cfc696ce32388195beb8a324"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/bopeep.xml",
+    "file": "25418-bopeep.xml",
+    "sha256": "3948e5daf1e42640692f26c8f8b65b5e861504770a7c63d5fe449e8cb73161f2"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/baabaa.xml",
+    "file": "25418-baabaa.xml",
+    "sha256": "8a72985af317de378633f99807ba021c99c23c409d59acc0c0e5888da2266d77"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/jackandjill.xml",
+    "file": "25418-jackandjill.xml",
+    "sha256": "43297fef01cfa34f4220bd5f06223d007f072e26468f506dbea5080e86924597"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/hushaby.xml",
+    "file": "25418-hushaby.xml",
+    "sha256": "f32e15fc057e0abda9c57ed7ae0b9df37f289cf5771c60776f5993a2f4bb670a"
+  },
+  {
+    "book": "25418",
+    "source": "https://www.gutenberg.org/files/25418/25418-h/music/kingcole.xml",
+    "file": "25418-kingcole.xml",
+    "sha256": "48cf020172a0b7e0ad7ecdf5cafd249cdca30085c1151f1c238044256936e5cc"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/polly.xml",
+    "file": "25432-polly.xml",
+    "sha256": "442b14704ec6fe414eb18fd4c94eb6505eeda9bcaa81e3bee48389477d7377ee"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/hotcrossbuns.xml",
+    "file": "25432-hotcrossbuns.xml",
+    "sha256": "60f33fffd0cbb610f4668a6cf873c0c6276e373a01b9a19c8621f1badcc8f10f"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/schlaf.xml",
+    "file": "25432-schlaf.xml",
+    "sha256": "35d3a334949c319c623941aae9746676bf7b21c242eacd6c82b8632c46c3bd33"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/lucylocket.xml",
+    "file": "25432-lucylocket.xml",
+    "sha256": "8ea5878519a4fccaf921cfd14d46cdbe9dd3e4e0ba4b3b1889945e363ef8459b"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/aikendrum.xml",
+    "file": "25432-aikendrum.xml",
+    "sha256": "183a5114d089d0cfc92e9066e2ef22b489bc8ccafac199951da20f7d7d1f5716"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/avignon.xml",
+    "file": "25432-avignon.xml",
+    "sha256": "af297464317a0c934c5c2b310c5fd63bac26fd1240364ed4c45bfb2cb3f8878e"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/londonbridge.xml",
+    "file": "25432-londonbridge.xml",
+    "sha256": "a48240154d16f26c0ce5a7ac0fd85c597fb5a9c37729ce3d8a8d03ae38cda0d6"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/threelittlekittens.xml",
+    "file": "25432-threelittlekittens.xml",
+    "sha256": "239cba30bbe0efb36f96b170336b2396342fe5eb1a7da32dac4e99baa0b04cf1"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/looby.xml",
+    "file": "25432-looby.xml",
+    "sha256": "78e3caa8497bdd659eb6cbcbb967dff7242281d3302bd171c63ac35fc435d262"
+  },
+  {
+    "book": "25432",
+    "source": "https://www.gutenberg.org/files/25432/25432-h/music/margerydaw.xml",
+    "file": "25432-margerydaw.xml",
+    "sha256": "e641c12d48f060c9ce9d6978034b7ff9944614b4cf446e2c1a5c09a47782440f"
+  }
+]

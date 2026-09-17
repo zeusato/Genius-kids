@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-09-17T04:41:54.325Z",
+  "seed": 20260917,
+  "pairs": 50,
+  "budgetsMs": {
+    "easy": 5,
+    "medium": 10,
+    "hard": 30
+  },
+  "note": "Accelerated search budgets for paired regression matches, not a rating or full-budget strength claim.",
+  "matches": [
+    {
+      "a": "medium",
+      "b": "easy",
+      "games": 100,
+      "wins": 96,
+      "draws": 0,
+      "losses": 4,
+      "capped": 0,
+      "illegal": 0,
+      "p50Ms": 0.1982999999997901,
+      "p95Ms": 5.507900000000063
+    },
+    {
+      "a": "hard",
+      "b": "easy",
+      "games": 100,
+      "wins": 96,
+      "draws": 0,
+      "losses": 4,
+      "capped": 0,
+      "illegal": 0,
+      "p50Ms": 0.4052000000010594,
+      "p95Ms": 31.119399999999587
+    },
+    {
+      "a": "hard",
+      "b": "medium",
+      "games": 100,
+      "wins": 88,
+      "draws": 0,
+      "losses": 12,
+      "capped": 0,
+      "illegal": 0,
+      "p50Ms": 3.3329999999987194,
+      "p95Ms": 30.35689999999886
+    }
+  ]
+}

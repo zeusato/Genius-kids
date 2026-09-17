@@ -1,4 +1,8 @@
 import { persistResult as persistCoVua } from '../../games/CoVua/profile-adapter';
+import { persistResult as persistCaro } from '../../games/Caro/profile-adapter';
+import { clearCaroData } from '../../games/Caro/persistence';
+import { clearSudokuData, type SudokuDraft } from '../../games/Sudoku/persistence';
+import { persistSudoku } from '../../games/Sudoku/profile-adapter';
 import { persistResult as persistCoTuong } from '../../games/CoTuong/profile-adapter';
 import { clearCoVuaData } from '../../games/CoVua/persistence';
 import { clearCoTuongData } from '../../games/CoTuong/persistence';
@@ -22,6 +26,7 @@ import { persistAlphabetPractice } from '../components/preschool/alphabet-games/
 import type { AlphabetSession } from '../components/preschool/alphabet-games/types';
 import { persistCounting, type PendingSession } from '../components/preschool/counting/persistence';
 import type { CompositionAction } from '../../games/SoundMemory/studio/model';
+import { persistPiano, type PianoAction } from '../../games/Piano/progress';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
 import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
 import { StudentProfile, TestResult, GameResult, AlbumImage, AchievementProgress } from '../../types';
@@ -38,6 +43,9 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    completeCaro: (owner: string, match: import('../../games/Caro/model').Match) => { ok: boolean };
+    completeSudoku: (owner: string, draft: SudokuDraft) => { ok: boolean; earned: number; image: AlbumImage | null; isNew: boolean };
+    savePiano: (owner: string, action: PianoAction) => { ok: boolean };
     saveCounting: (owner: string, session: PendingSession) => { ok: boolean; earned: number; session: PendingSession };
     completeCoVua: (owner: string, match: import('../../games/CoVua/model').Match) => { ok: boolean };
     completeCoTuong: (owner: string, match: import('../../games/CoTuong/model').Match) => { ok: boolean };
@@ -110,6 +118,23 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [students]);
 
     const currentStudent = students.find(s => s.id === currentStudentId) || null;
+
+    const completeCaro = useCallback((owner: string, match: import('../../games/Caro/model').Match) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const snapshot = studentsRef.current, result = persistCaro(snapshot, owner, match, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
+        return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
+
+    const completeSudoku = useCallback((owner: string, draft: SudokuDraft) => {
+        if (owner !== currentStudentId) return { ok: false, earned: 0, image: null, isNew: false };
+        const snapshot = studentsRef.current, result = persistSudoku(snapshot, owner, draft, saveProfiles);
+        if (result.ok && result.profiles !== snapshot) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+            if (result.unlocked.length) setAchievementQueue(prev => [...prev, ...result.unlocked]);
+        }
+        return { ok: result.ok, earned: result.earned, image: result.image, isNew: result.isNew };
+    }, [currentStudentId, setStudents]);
 
     const completeCoVua = useCallback((owner: string, match: import('../../games/CoVua/model').Match) => {
         if (owner !== currentStudentId) return { ok: false };
@@ -231,6 +256,14 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: true, earned: result.earned };
     }, [currentStudentId, setStudents]);
 
+    const savePiano = useCallback((owner: string, action: PianoAction) => {
+        if (owner !== currentStudentId) return { ok: false };
+        const result = persistPiano(studentsRef.current, owner, action, saveProfiles);
+        if (!result.ok) return { ok: false };
+        persistedRef.current = result.profiles; setStudents(result.profiles);
+        return { ok: true };
+    }, [currentStudentId, setStudents]);
+
     const setStudent = useCallback((student: StudentProfile | null) => {
         setCurrentStudentId(student ? student.id : null);
     }, []);
@@ -265,6 +298,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         clearTownData(id);
         clearCoVuaData(id);
         clearCoTuongData(id);
+        clearCaroData(id);
+        clearSudokuData(id);
         setStudents(prev => prev.filter(s => s.id !== id));
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
@@ -581,6 +616,9 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     };
 
     const actions: StudentActionsType = {
+        completeCaro,
+        completeSudoku,
+        savePiano,
         addStudent,
         setStudent,
         selectStudent,

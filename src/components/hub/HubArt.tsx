@@ -5,9 +5,11 @@ import { Picture } from '../../../games/MemoryMatch/components/Picture';
 import { BandStage } from '../../../games/SoundMemory/components/BandStage';
 import { RoverPortrait } from '../../../games/KidCoder/rendering/RoverPortrait';
 import type { ArtId } from './catalog';
+import { PianoArt } from '../../../games/Piano/PianoArt';
 import { RacingCover } from '../../../games/MathRacing/cup/RacingCover';
 
 const chessCover = new URL('../../../games/CoVua/assets/cover.webp', import.meta.url).href;
+const caroCover = new URL('../../../games/Caro/assets/cover.webp', import.meta.url).href;
 const xiangqiCover = new URL('../../../games/CoTuong/assets/art/courtyard.webp', import.meta.url).href;
 const asset = (file: string) => `${import.meta.env.BASE_URL}hub/art/${file}`;
 function ArtImage({ name, className = '', eager = false, width = 800, height = 450 }: { name: string; className?: string; eager?: boolean; width?: number; height?: number }) {
@@ -39,10 +41,12 @@ export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }
     else if (kind === 'horse-race') art = <img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}horse-race/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}horse-race/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'o-an-quan') art = <img src={`${import.meta.env.BASE_URL}o-an-quan/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}o-an-quan/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}o-an-quan/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'co-ti-phu') art = <img src={`${import.meta.env.BASE_URL}co-ti-phu/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}co-ti-phu/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}co-ti-phu/art/cover.webp 1600w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={1600} height={900} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
+    else if (kind === 'caro') art = <img src={caroCover} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" width={1200} height={800} style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#faf6eb' }}/>;
     else if (kind === 'memory') art = <MemoryScene/>;
     else if (kind === 'sound-memory') art = <BandStage/>;
     else if (kind === 'speed-math') art = <><ArtImage name="station" eager={eager}/><ArtImage name="tia" className="hub-tia" eager={eager}/><span className="hub-lightning">✦</span><span className="hub-puzzle-chip">2 + 3 = 5</span></>;
     else if (kind === 'dragon-quest') art = <><ArtImage name="forest" eager={eager}/><ArtImage name="knight" className="hub-knight" eager={eager}/></>;
+    else if (kind === 'piano') art = <PianoArt small/>;
     else if (kind === 'coding') art = <><span className="hub-planet"/><span className="hub-orbit"/><RoverPortrait color="#91d9c0"/><span className="hub-code-blocks"><b>↑</b><b>↱</b><b>↑</b></span></>;
     else if (kind === 'game') art = <><span className="hub-game-orbit"/><span className="hub-game-card"><Picture id="fox"/></span><ArtImage name="tia" className="hub-game-tia" eager={eager}/><span className="hub-game-note">♫</span><span className="hub-game-star">✦</span></>;
     else if (kind === 'math-racing') art = <RacingCover/>;

@@ -105,6 +105,9 @@
 .hub-puzzle-chip { position:absolute; right:8%; bottom:20%; padding:9px 13px; border:1px solid #c8e3c94a; border-radius:14px; background:#123f44de; color:#f5d798; font-size:18px; font-weight:900; transform:rotate(-5deg); }
 .hub-art>img.hub-knight { inset:auto; right:3%; bottom:-7%; width:75%; height:120%; object-fit:cover; mask-image:radial-gradient(ellipse 49% 51% at 50% 52%,#000 52%,transparent 99%); }
 .hub-art-coding { background:radial-gradient(ellipse at 50% 0,#3f6675,#19394a); }
+.hub-art-piano { background:#edf0df; }
+.hub-art-piano>svg { width:100%; height:100%; object-fit:contain; }
+.hub-art-piano>img { width:100%; height:100%; object-fit:cover; object-position:center 58%; }
 .hub-art-coding>svg { position:absolute; width:165px; height:127px; left:calc(50% - 104px); bottom:-3px; filter:drop-shadow(0 7px 4px #091f3955); }
 .hub-planet { position:absolute; width:94px; height:94px; border-radius:50%; right:22%; top:9px; background:radial-gradient(circle at 30% 25%,#e3d5bd,#9dafa2 40%,#3e6570 82%); box-shadow:inset -10px -7px 20px #203a5b80; }
 .hub-orbit { position:absolute; width:230px; height:85px; border:1px solid #bddec94a; border-radius:50%; left:calc(50% - 115px); top:35px; transform:rotate(-20deg); }

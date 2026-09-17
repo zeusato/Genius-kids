@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Lightbulb, Eraser, Pencil, Trophy, Timer, Star, Heart, X } from 'lucide-react';
+import { ArrowLeft, Lightbulb, Eraser, Pencil, Trophy, Timer, Star, Pause, Play, Save } from 'lucide-react';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { playSound } from '@/utils/sound';
-import { processGameReward } from '@/services/rewardService';
+import { clearSudokuData, loadSudoku, saveSudoku, withConflicts, isSolved, type Cell, type SudokuDraft } from './persistence';
 import { GachaModal } from '../../src/components/GachaModal';
 import { generateSudoku, Difficulty } from '@/services/sudokuGenerator';
 import { AlbumImage } from '@/types';
@@ -11,18 +11,32 @@ interface SudokuGameProps {
     onExit: () => void;
 }
 
-type CellValue = number | 0;
-
-interface Cell {
-    value: CellValue;
-    isInitial: boolean;
-    notes: number[];
-    isError: boolean; // Now represents "Conflict" (duplicate in row/col/box)
-}
-
 export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     const { currentStudent } = useStudent();
-    const { addGameResult, updateStudent } = useStudentActions();
+    return currentStudent ? <SudokuSession key={currentStudent.id} onExit={onExit}/> : null;
+};
+
+function SudokuDialog({ title, children, onClose }: { title: string; children: React.ReactNode; onClose(): void }) {
+    const ref = useRef<HTMLDialogElement>(null);
+    useEffect(() => { ref.current?.showModal(); return () => ref.current?.close(); }, []);
+    return <dialog ref={ref} aria-labelledby="sudoku-dialog-title" onCancel={e => { e.preventDefault(); onClose(); }}
+        className="rounded-3xl border-4 border-[#8b4513] bg-[#fdf6e3] text-[#5d4037] p-7 max-w-sm w-[calc(100%-2rem)] shadow-2xl backdrop:bg-[#fdf6e3]/95">
+        <h2 id="sudoku-dialog-title" className="text-2xl font-black mb-4">{title}</h2>{children}
+    </dialog>;
+}
+
+const SudokuSession: React.FC<SudokuGameProps> = ({ onExit }) => {
+    const { currentStudent } = useStudent();
+    const { completeSudoku, updateStudent } = useStudentActions();
+    const owner = currentStudent!.id;
+    const [savedState, setSavedState] = useState(() => loadSudoku(owner, currentStudent!.gameHistory.map(g => g.id)));
+    const [saveOk, setSaveOk] = useState(true);
+    const [completionOk, setCompletionOk] = useState(true);
+    const [pendingDifficulty, setPendingDifficulty] = useState<Difficulty | null>(null);
+    const sessionId = useRef('');
+    const snapshot = useRef<SudokuDraft | null>(null);
+    const finished = useRef(false);
+    const pauseRef = useRef(false);
 
     // Game State
     const [difficulty, setDifficulty] = useState<Difficulty | null>(null);
@@ -41,10 +55,47 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+    const buildDraft = (nextGrid = grid): SudokuDraft | null => difficulty && sessionId.current ? ({
+        version: 1, id: sessionId.current, owner, difficulty, grid: nextGrid, solution,
+        selectedCell, isNoteMode, timer, isPaused, updatedAt: new Date().toISOString()
+    }) : null;
+    if (gameState === 'playing') snapshot.current = buildDraft();
+    pauseRef.current = isPaused;
+    const saveNow = useCallback(() => {
+        const s = snapshot.current;
+        if (s && !finished.current) { const ok = saveSudoku(s); setSaveOk(ok); return ok; }
+        return true;
+    }, []);
+    useEffect(() => { if (gameState === 'playing') saveNow(); }, [grid, solution, selectedCell, isNoteMode, timer, isPaused, difficulty, gameState, saveNow]);
+    useEffect(() => {
+        const hide = () => { if (document.hidden && snapshot.current && !finished.current) {
+            pauseRef.current = true; snapshot.current = { ...snapshot.current, isPaused: true };
+            setIsPaused(true); saveNow();
+        }};
+        const flush = () => saveNow();
+        document.addEventListener('visibilitychange', hide); window.addEventListener('pagehide', flush);
+        return () => { document.removeEventListener('visibilitychange', hide); window.removeEventListener('pagehide', flush); };
+    }, [saveNow]);
+    const pause = () => { pauseRef.current = true; setIsPaused(true); if (snapshot.current) snapshot.current = { ...snapshot.current, isPaused: true }; saveNow(); };
+    const resume = () => { pauseRef.current = false; setIsPaused(false); };
+    const leave = () => { saveNow(); onExit(); };
+    const chooseGame = (diff: Difficulty) => savedState.draft ? setPendingDifficulty(diff) : startGame(diff);
+    const continueGame = () => {
+        const s = savedState.draft; if (!s) return;
+        sessionId.current = s.id; finished.current = false;
+        setGrid(withConflicts(s.grid)); setSolution(s.solution); setDifficulty(s.difficulty);
+        setSelectedCell(s.selectedCell); setIsNoteMode(s.isNoteMode); setTimer(s.timer); setIsPaused(false);
+        setGameState('playing'); setEarnedStars(0); setGachaReward(null); setShowGacha(false);
+        snapshot.current = { ...s, isPaused: false };
+        if (isSolved(s)) handleGameOver(s);
+    };
+
     // --- Game Logic ---
 
     const startGame = (diff: Difficulty) => {
         const { initialGrid, solvedGrid } = generateSudoku(diff);
+        sessionId.current = 'sudoku-' + crypto.randomUUID(); finished.current = false; pauseRef.current = false;
+        setSavedState({ draft: null, error: false }); setPendingDifficulty(null); setCompletionOk(true);
 
         const newGrid: Cell[][] = initialGrid.map(row =>
             row.map(val => ({
@@ -62,6 +113,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
         setGameState('playing');
         setIsPaused(false);
         setSelectedCell(null);
+        setIsNoteMode(false);
         setEarnedStars(0);
         setGachaReward(null);
         setShowGacha(false);
@@ -70,7 +122,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     useEffect(() => {
         if (gameState === 'playing' && !isPaused) {
             timerRef.current = setInterval(() => {
-                setTimer(t => t + 1);
+                if (!pauseRef.current && !document.hidden && !finished.current) setTimer(t => t + 1);
             }, 1000);
         } else {
             if (timerRef.current) clearInterval(timerRef.current);
@@ -81,72 +133,15 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     }, [gameState, isPaused]);
 
     const handleCellClick = (r: number, c: number) => {
-        if (gameState !== 'playing') return;
+        if (gameState !== 'playing' || pauseRef.current || document.hidden || finished.current) return;
         setSelectedCell({ r, c });
         playSound('click');
     };
 
-    // Helper to check conflicts
-    const updateConflicts = (currentGrid: Cell[][]) => {
-        // Create a deep copy to avoid mutating state directly during calculation
-        const newGrid = currentGrid.map(row => row.map(cell => ({ ...cell, isError: false })));
-
-        // Check Rows & Cols
-        for (let i = 0; i < 9; i++) {
-            const rowMap = new Map<number, number[]>();
-            const colMap = new Map<number, number[]>();
-
-            for (let j = 0; j < 9; j++) {
-                // Row
-                const rVal = newGrid[i][j].value;
-                if (rVal !== 0) {
-                    if (!rowMap.has(rVal)) rowMap.set(rVal, []);
-                    rowMap.get(rVal)?.push(j);
-                }
-
-                // Col
-                const cVal = newGrid[j][i].value;
-                if (cVal !== 0) {
-                    if (!colMap.has(cVal)) colMap.set(cVal, []);
-                    colMap.get(cVal)?.push(j);
-                }
-            }
-
-            // Mark conflicts
-            rowMap.forEach(indices => {
-                if (indices.length > 1) indices.forEach(colIdx => newGrid[i][colIdx].isError = true);
-            });
-            colMap.forEach(indices => {
-                if (indices.length > 1) indices.forEach(rowIdx => newGrid[rowIdx][i].isError = true);
-            });
-        }
-
-        // Check Boxes
-        for (let br = 0; br < 3; br++) {
-            for (let bc = 0; bc < 3; bc++) {
-                const boxMap = new Map<number, { r: number, c: number }[]>();
-                for (let i = 0; i < 3; i++) {
-                    for (let j = 0; j < 3; j++) {
-                        const r = br * 3 + i;
-                        const c = bc * 3 + j;
-                        const val = newGrid[r][c].value;
-                        if (val !== 0) {
-                            if (!boxMap.has(val)) boxMap.set(val, []);
-                            boxMap.get(val)?.push({ r, c });
-                        }
-                    }
-                }
-                boxMap.forEach(cells => {
-                    if (cells.length > 1) cells.forEach(pos => newGrid[pos.r][pos.c].isError = true);
-                });
-            }
-        }
-
-        return newGrid;
-    };
+    const updateConflicts = withConflicts;
 
     const handleNumberInput = (num: number) => {
-        if (gameState !== 'playing' || !selectedCell) return;
+        if (gameState !== 'playing' || pauseRef.current || document.hidden || finished.current || !selectedCell) return;
         const { r, c } = selectedCell;
         const cell = grid[r][c];
 
@@ -156,6 +151,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
         const newCell = newGrid[r][c];
 
         if (isNoteMode) {
+            if (newCell.value) return;
             // Toggle note
             if (newCell.notes.includes(num)) {
                 newCell.notes = newCell.notes.filter(n => n !== num);
@@ -182,7 +178,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     };
 
     const handleErase = () => {
-        if (gameState !== 'playing' || !selectedCell) return;
+        if (gameState !== 'playing' || pauseRef.current || document.hidden || finished.current || !selectedCell) return;
         const { r, c } = selectedCell;
         if (grid[r][c].isInitial) return;
 
@@ -197,8 +193,9 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
     };
 
     const handleHint = () => {
-        if (gameState !== 'playing' || !selectedCell) return;
+        if (gameState !== 'playing' || pauseRef.current || document.hidden || finished.current || !selectedCell) return;
         const { r, c } = selectedCell;
+        if (grid[r][c].isInitial) return;
         if (grid[r][c].value !== 0 && !grid[r][c].isError) return; // Already filled and no conflict
 
         if (!currentStudent || currentStudent.stars < 5) {
@@ -248,91 +245,22 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
             }
         }
 
-        handleGameOver();
+        const finalDraft = buildDraft(currentGrid);
+        if (finalDraft) handleGameOver(finalDraft);
     };
 
-    const handleGameOver = () => {
-        setGameState('won');
-        playSound('complete');
+    const handleGameOver = (finalDraft: SudokuDraft) => {
+        if (finished.current) return;
+        // Retain the solved draft until the profile write succeeds. Retrying uses the same id.
+        snapshot.current = finalDraft; saveSudoku(finalDraft);
+        const result = completeSudoku(owner, finalDraft);
+        setCompletionOk(result.ok); setGameState('won');
         if (timerRef.current) clearInterval(timerRef.current);
-
-        if (!currentStudent || !difficulty) return;
-
-        // Calculate Stars
-        let stars = 0;
-        let timeLimit3 = 0;
-        let timeLimit2 = 0;
-        let gachaChance = 0;
-
-        switch (difficulty) {
-            case 'easy':
-                timeLimit3 = 300; // 5m
-                timeLimit2 = 480; // 8m
-                gachaChance = 0.2;
-                break;
-            case 'medium':
-                timeLimit3 = 600; // 10m
-                timeLimit2 = 900; // 15m
-                gachaChance = 0.3;
-                break;
-            case 'hard':
-                timeLimit3 = 900; // 15m
-                timeLimit2 = 1200; // 20m
-                gachaChance = 0.5;
-                break;
-        }
-
-        if (timer < timeLimit3) stars = 3;
-        else if (timer < timeLimit2) stars = 2;
-        else stars = 1;
-
-        // Medal for internal logic (Gold = 3 stars here)
-        const medal = stars === 3 ? 'gold' : stars === 2 ? 'silver' : 'bronze';
-
-        // Process Reward
-        const { reward } = processGameReward(currentStudent, medal, stars); // This adds base stars. 
-
-        let finalStars = 0;
-        if (difficulty === 'easy') finalStars = stars; // 1-3
-        if (difficulty === 'medium') finalStars = stars === 3 ? 5 : stars === 2 ? 3 : 2;
-        if (difficulty === 'hard') finalStars = stars === 3 ? 10 : stars === 2 ? 6 : 4;
-
-        const newStars = currentStudent.stars + finalStars;
-        let rewardImage: AlbumImage | null = null;
-
-        // Gacha Logic
-        if (stars === 3 && Math.random() < gachaChance) {
-            // Trigger Gacha
-            const dummyReward = processGameReward(currentStudent, 'gold', 0); // Just to get image
-            if (dummyReward.reward.image) {
-                rewardImage = dummyReward.reward.image;
-                // Don't add to ownedImageIds here - addGameResult will handle it
-            }
-        }
-
-        // Update stars only (don't update ownedImageIds - addGameResult handles that)
-        updateStudent({
-            ...currentStudent,
-            stars: newStars
-        });
-
-        setEarnedStars(finalStars);
-        if (rewardImage) {
-            const isNew = !currentStudent.ownedImageIds.includes(rewardImage.id);
-            setGachaReward({ image: rewardImage, isNew });
-        }
-
-        // Save Result - addGameResult handles card saving to ownedImageIds
-        addGameResult({
-            id: Date.now().toString(),
-            date: new Date().toISOString(),
-            gameType: 'sudoku',
-            difficulty,
-            score: (81 * 10) - timer, // Arbitrary score
-            maxScore: 810,
-            starsEarned: finalStars,
-            durationSeconds: timer,
-        }, rewardImage || undefined);
+        if (!result.ok) return;
+        finished.current = true; snapshot.current = null; clearSudokuData(owner);
+        setSavedState({ draft: null, error: false });
+        setEarnedStars(result.earned); playSound('complete');
+        if (result.image) setGachaReward({ image: result.image, isNew: result.isNew });
     };
 
     const formatTime = (seconds: number) => {
@@ -361,7 +289,11 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
         const borderBottom = (r + 1) % 3 === 0 && r !== 8 ? 'border-b-2 border-b-[#8b4513]' : 'border-b border-b-[#d2b48c]';
 
         return (
-            <div
+            <button
+                type="button"
+                aria-label={`Hàng ${r + 1}, cột ${c + 1}: ${cell.value || 'trống'}${cell.isInitial ? ', số cho sẵn' : ''}`}
+                aria-pressed={isSelected}
+                disabled={isPaused || gameState !== 'playing'}
                 key={`${r}-${c}`}
                 className={`w-full h-full flex items-center justify-center text-xl md:text-2xl font-bold cursor-pointer select-none transition-colors duration-100
                     ${bgClass} ${borderRight} ${borderBottom}
@@ -371,14 +303,14 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
             >
                 {cell.value !== 0 ? cell.value : (
                     <div className="grid grid-cols-3 gap-[1px] w-full h-full p-[2px]">
-                        {cell.notes.map(n => (
+                        {[1,2,3,4,5,6,7,8,9].map(n => (
                             <div key={n} className="flex items-center justify-center text-[8px] md:text-[10px] text-slate-500 leading-none">
-                                {n}
+                                {cell.notes.includes(n) ? n : ''}
                             </div>
                         ))}
                     </div>
                 )}
-            </div>
+            </button>
         );
     };
 
@@ -386,7 +318,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
 
     if (gameState === 'menu') {
         return (
-            <div className="fixed inset-0 bg-[#fdf6e3] z-50 flex flex-col items-center justify-center p-4 bg-wood-pattern">
+            <div className="fixed inset-0 bg-[#fdf6e3] z-50 flex flex-col items-center justify-center p-4 bg-wood-pattern overflow-auto">
                 <div className="max-w-md w-full bg-[#deb887] rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-4 border-[#8b4513] text-center relative overflow-hidden">
                     {/* Wood Texture Overlay */}
                     <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
@@ -395,20 +327,30 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                     <p className="text-[#8b4513] mb-8 font-medium">Rèn luyện tư duy logic</p>
 
                     <div className="space-y-4 relative z-10">
-                        <button onClick={() => startGame('easy')} className="w-full py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#15803d] active:shadow-none active:translate-y-1 transition-all border-2 border-[#14532d]">
+                        {savedState.draft && <button onClick={continueGame} className="w-full p-4 bg-[#fdf6e3] text-[#5d4037] rounded-xl border-2 border-[#8b4513] text-left">
+                            <strong className="flex items-center gap-2"><Play size={19}/> Chơi tiếp ván đã lưu</strong>
+                            <span className="text-sm block mt-1">{({easy:'Dễ',medium:'Trung bình',hard:'Khó'})[savedState.draft.difficulty]} · {formatTime(savedState.draft.timer)} · {savedState.draft.grid.flat().filter(c => c.value).length}/81 ô</span>
+                        </button>}
+                        {savedState.error && <p role="status" className="text-sm">Chưa đọc được bản lưu. Em có thể bắt đầu ván mới.</p>}
+                        <button onClick={() => chooseGame('easy')} className="w-full py-4 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#15803d] active:shadow-none active:translate-y-1 transition-all border-2 border-[#14532d]">
                             Dễ (Easy)
                         </button>
-                        <button onClick={() => startGame('medium')} className="w-full py-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#a16207] active:shadow-none active:translate-y-1 transition-all border-2 border-[#713f12]">
+                        <button onClick={() => chooseGame('medium')} className="w-full py-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#a16207] active:shadow-none active:translate-y-1 transition-all border-2 border-[#713f12]">
                             Trung Bình (Medium)
                         </button>
-                        <button onClick={() => startGame('hard')} className="w-full py-4 bg-red-500 hover:bg-red-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#b91c1c] active:shadow-none active:translate-y-1 transition-all border-2 border-[#7f1d1d]">
+                        <button onClick={() => chooseGame('hard')} className="w-full py-4 bg-red-500 hover:bg-red-600 text-white rounded-xl font-bold text-xl shadow-[0_4px_0_#b91c1c] active:shadow-none active:translate-y-1 transition-all border-2 border-[#7f1d1d]">
                             Khó (Hard)
                         </button>
-                        <button onClick={onExit} className="w-full py-4 bg-[#fdf6e3] hover:bg-[#eee8d5] text-[#8b4513] rounded-xl font-bold text-xl shadow-[0_4px_0_#d2b48c] active:shadow-none active:translate-y-1 transition-all border-2 border-[#8b4513]">
+                        <button onClick={leave} className="w-full py-4 bg-[#fdf6e3] hover:bg-[#eee8d5] text-[#8b4513] rounded-xl font-bold text-xl shadow-[0_4px_0_#d2b48c] active:shadow-none active:translate-y-1 transition-all border-2 border-[#8b4513]">
                             Thoát
                         </button>
                     </div>
                 </div>
+                {pendingDifficulty && <SudokuDialog title="Bắt đầu ván mới?" onClose={() => setPendingDifficulty(null)}>
+                    <p className="mb-5">Ván đang lưu sẽ được thay bằng một câu đố mới.</p>
+                    <div className="flex gap-3"><button className="flex-1 rounded-xl bg-white p-3 font-bold" onClick={() => setPendingDifficulty(null)}>Giữ ván cũ</button>
+                    <button className="flex-1 rounded-xl bg-[#8b4513] text-white p-3 font-bold" onClick={() => startGame(pendingDifficulty)}>Ván mới</button></div>
+                </SudokuDialog>}
             </div>
         );
     }
@@ -417,19 +359,24 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
         <div className="fixed inset-0 bg-[#fdf6e3] z-50 flex flex-col items-center p-2 sm:p-4 bg-wood-pattern overflow-hidden h-screen w-screen">
             {/* Header - Fixed height */}
             <div className="w-full max-w-lg flex justify-between items-center mb-2 shrink-0 bg-[#deb887] p-2 rounded-xl border-2 border-[#8b4513] shadow-lg">
-                <button onClick={onExit} className="p-2 bg-[#fdf6e3] rounded-lg text-[#8b4513] hover:bg-white border border-[#d2b48c]">
+                <button aria-label="Lưu và thoát Sudoku" onClick={leave} className="p-2 bg-[#fdf6e3] rounded-lg text-[#8b4513] hover:bg-white border border-[#d2b48c]">
                     <ArrowLeft size={20} />
                 </button>
                 <div className="flex items-center gap-2 bg-[#5d4037] px-3 py-1 rounded-lg border border-[#3e2723]">
                     <Timer className="text-white w-4 h-4" />
                     <span className="text-lg font-mono font-bold text-white">{formatTime(timer)}</span>
                 </div>
+                <button aria-label="Tạm dừng Sudoku" title="Tạm dừng" disabled={gameState !== 'playing'} onClick={pause} className="p-2 bg-[#fdf6e3] rounded-lg text-[#8b4513] border border-[#d2b48c]"><Pause size={20}/></button>
                 <div className="flex items-center gap-1 bg-yellow-100 px-2 py-1 rounded-lg border border-yellow-300">
                     <span className="font-bold text-yellow-600">{currentStudent?.stars || 0}</span>
                     <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                 </div>
             </div>
 
+            <div className="w-full max-w-lg flex justify-between items-center text-[11px] text-[#8b4513] shrink-0" role="status">
+                <span>{saveOk ? '✓ Tự động lưu trên thiết bị này' : 'Chưa lưu được. Em có thể thử lại.'}</span>
+                <button disabled={gameState !== 'playing'} onClick={saveNow} className="flex items-center gap-1 p-2 rounded-lg"><Save size={14}/> Lưu ngay</button>
+            </div>
             {/* Board Container - Flexible height */}
             <div className="flex-1 w-full min-h-0 flex items-center justify-center py-2">
                 <div className="aspect-square max-h-full max-w-full portrait:w-full portrait:h-auto landscape:h-full landscape:w-auto bg-[#8b4513] p-2 rounded-lg shadow-2xl">
@@ -444,7 +391,8 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                 {/* Tools */}
                 <div className="flex justify-between gap-2">
                     <button
-                        onClick={() => setIsNoteMode(!isNoteMode)}
+                        disabled={isPaused || gameState !== 'playing'}
+                        onClick={() => { if (!pauseRef.current) setIsNoteMode(!isNoteMode); }}
                         className={`flex-1 py-2 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 transition-all
                             ${isNoteMode ? 'bg-brand-500 text-white border-brand-700' : 'bg-[#fdf6e3] text-[#8b4513] border-[#d2b48c]'}
                         `}
@@ -453,6 +401,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                         <span className="text-[10px] sm:text-xs">Ghi chú</span>
                     </button>
                     <button
+                        disabled={isPaused || gameState !== 'playing'}
                         onClick={handleErase}
                         className="flex-1 py-2 bg-[#fdf6e3] text-[#8b4513] rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-[#d2b48c] active:border-b-0 active:translate-y-1"
                     >
@@ -460,6 +409,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                         <span className="text-[10px] sm:text-xs">Xóa</span>
                     </button>
                     <button
+                        disabled={isPaused || gameState !== 'playing'}
                         onClick={handleHint}
                         className="flex-1 py-2 bg-yellow-100 text-yellow-700 rounded-xl font-bold flex flex-col items-center justify-center gap-1 border-b-4 border-yellow-300 active:border-b-0 active:translate-y-1"
                     >
@@ -478,6 +428,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
                         <button
                             key={num}
+                            disabled={isPaused || gameState !== 'playing'}
                             onClick={() => handleNumberInput(num)}
                             className="h-full bg-[#deb887] text-[#5d4037] rounded-lg font-black text-xl sm:text-2xl shadow-[0_3px_0_#8b4513] active:shadow-none active:translate-y-[3px] border border-[#d2b48c] transition-all flex items-center justify-center"
                         >
@@ -486,6 +437,14 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                     ))}
                 </div>
             </div>
+
+            {isPaused && gameState === 'playing' && <SudokuDialog title="Nghỉ một chút nhé" onClose={resume}>
+                <p className="mb-2">Đồng hồ đã dừng ở <strong>{formatTime(timer)}</strong>. Bảng số và ghi chú của em được giữ nguyên.</p>
+                <p className="text-sm mb-6">{saveOk ? 'Tiến trình đã lưu trên thiết bị này.' : 'Chưa lưu được trên thiết bị. Hãy thử lưu lại trước khi thoát.'}</p>
+                <div className="grid gap-3"><button onClick={resume} className="rounded-xl bg-[#8b4513] text-white p-3 font-bold flex gap-2 justify-center"><Play size={18}/> Chơi tiếp</button>
+                <button onClick={saveNow} className="rounded-xl bg-[#deb887] p-3 font-bold">Lưu tiến trình</button>
+                <button onClick={leave} className="rounded-xl bg-white p-3 font-bold">Lưu và thoát</button></div>
+            </SudokuDialog>}
 
             {/* Win Modal */}
             {gameState === 'won' && !showGacha && (
@@ -517,8 +476,11 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                             </div>
                         )}
 
+                        {!completionOk && <p role="alert" className="text-sm text-red-700 mb-3">Chưa lưu được kết quả. Ván đã giải được giữ lại để thử lưu tiếp.</p>}
                         <div className="space-y-3">
+                            {!completionOk && <button onClick={() => snapshot.current && handleGameOver(snapshot.current)} className="w-full py-3 bg-[#8b4513] text-white rounded-xl font-bold">Thử lưu kết quả</button>}
                             <button
+                                disabled={!completionOk}
                                 onClick={() => {
                                     if (gachaReward) setShowGacha(true);
                                     else startGame(difficulty!);
@@ -528,7 +490,7 @@ export const SudokuGame: React.FC<SudokuGameProps> = ({ onExit }) => {
                                 {gachaReward ? 'Mở quà' : 'Chơi lại'}
                             </button>
                             <button
-                                onClick={onExit}
+                                onClick={leave}
                                 className="w-full py-3 bg-white text-[#8b4513] border-2 border-[#d2b48c] rounded-xl font-bold"
                             >
                                 Thoát

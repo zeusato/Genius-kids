@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-17T04:03:34.036Z",
+  "tool": "imagegen built-in",
+  "status": "planning-art-selected-not-runtime-integrated",
+  "promptFile": "../art-prompts.md",
+  "assets": [
+    {
+      "name": "cover-v1",
+      "source": "C:\\Users\\zeusa\\.codex\\generated_images\\01a0ad0b-d3a8-76c1-8f2d-27e04b257478\\exec-35adb6ca-6397-46d2-8d9f-10d47a967fbc.png",
+      "width": 1200,
+      "role": "menu-and-setup-cover",
+      "fit": "contain",
+      "notes": "Decorative illustration only; rendered game grid must be exact 15x15.",
+      "files": [
+        {
+          "file": "cover-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2757413,
+          "sha256": "239db592af8336c590bf01df076fe1dde934113f77e2c3cbb510b7a618079148"
+        },
+        {
+          "file": "cover-v1.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 133394,
+          "sha256": "2dbf4873233a80d70cd12a885b8f8af043cdecb87173a3373d8fc2d9d6729866"
+        }
+      ]
+    },
+    {
+      "name": "backdrop-v1",
+      "source": "C:\\Users\\zeusa\\.codex\\generated_images\\01a0ad0b-d3a8-76c1-8f2d-27e04b257478\\exec-ba70b6d9-47ec-49de-86cd-dd015f0c4c34.png",
+      "width": 1536,
+      "role": "peripheral-game-background",
+      "fit": "cover-with-solid-board-overlay",
+      "safeCenter": {
+        "x": 0.24,
+        "y": 0.08,
+        "width": 0.54,
+        "height": 0.84
+      },
+      "notes": "Conservative visually reviewed central rectangle; hide ornamental background on narrow screens if needed.",
+      "files": [
+        {
+          "file": "backdrop-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2075797,
+          "sha256": "d3884949a2392d8546b5fbc2bdeb673ea9630344a3a13748fb24bfd6c1cd0c85"
+        },
+        {
+          "file": "backdrop-v1.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 43974,
+          "sha256": "907b7242385e5339daaf4b6e1f79cec8190f4a4cd1fba6337ce9a8b2c99e6779"
+        }
+      ]
+    }
+  ]
+}
