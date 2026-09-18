@@ -6,7 +6,10 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undef
 // Only create client if credentials are available
 export const supabase: SupabaseClient | null =
     supabaseUrl && supabaseAnonKey
-        ? createClient(supabaseUrl, supabaseAnonKey)
+        ? createClient(supabaseUrl, supabaseAnonKey, {
+            // Farm owns its PKCE callback and a separate auth storage key.
+            auth: { detectSessionInUrl: !window.location.pathname.replace(/\/$/, '').endsWith('/games/farm') },
+        })
         : null;
 
 if (!supabase) {

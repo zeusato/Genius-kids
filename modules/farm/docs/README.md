@@ -1,6 +1,36 @@
+**Tài khoản 18/09:** Đại ca đã cho phép dùng Supabase hiện tại. Đọc [ACCOUNT_SYNC](ACCOUNT_SYNC.md) trước các hạn chế Auth cũ. Mã đăng nhập/cache/outbox/conflict đã có; migration đã chạy qua Chrome và 16/16 kiểm tra DB thật đạt, redirect local đã thêm. Custom SMTP/email thật còn cần cấu hình và nghiệm thu.
+
+**Google 18/09:** nút đăng nhập Google và xử lý PKCE/lỗi đã có, 17/17 bài Google + online đạt. Đã tạo project Google **Lang Mam** theo xác nhận của Đại ca; OAuth đang chờ đồng ý chính sách dữ liệu ở onboarding, chưa có client/provider hoạt động. Đọc [ACCOUNT_SYNC](ACCOUNT_SYNC.md) để tiếp tục đúng bước, không tạo project trùng.
+
+**Ghép app chính 18/09:** Đại ca đã yêu cầu tích hợp. Đọc [HOST_INTEGRATION](HOST_INTEGRATION.md) trước các hạn chế độc lập cũ: Games → Làng Mầm, ảnh imagegen riêng, route `/games/farm`, guest save theo hồ sơ và vẫn giữ sân thử 4328. Google OAuth còn chờ bước chính sách.
+
 # Làng Mầm — đọc từ đây để tiếp tục công việc
 
-**Bàn giao triển khai 0.2 ngày 17/09/2026.** Module đã có gameplay Home 1–25. Đọc trạng thái và kiểm chứng bên dưới để phân biệt chức năng đã chạy với nghiệm thu chất lượng còn lại.
+**Rà soát cuối 18/09:** [bờ nước và polish](FINAL_POLISH_2026-09-18.md): bờ thấp vát xuống mặt nước, dải cát/nước nông theo khoảng cách, normals mềm, gợn không lặp lưới. Sửa thanh QA che dock điện thoại và focus các túi kho. Không đổi save/logic địa hình.
+
+**Xây dựng 18/09:** [giá và hạn mức](CONSTRUCTION_COSTS.md): công trình chức năng cần xu + vật liệu; tối đa 1 mỗi loại kể cả đang xây, menu hiện 0/1–1/1. Trang trí vẫn chỉ dùng xu. Giữ hóa đơn/job/save cũ; đọc tài liệu này trước các mô tả xây chỉ bằng tiền cũ.
+
+**Kho gọn 18/09:** danh sách chỉ hình + tên + số lượng đang có; bấm vật phẩm mới mở số lượng/nút bán và giữ lại. Túi hỗ trợ, trang trí đã cất, sổ sản phẩm thu gọn mặc định. Component `ui/Inventory.tsx`; giữ nguyên engine bán/ghim và save.
+
+**Nhịp chim cảnh 18/09:** `SceneLife.tsx` cho đàn chim bay vào, lượn rồi bay khỏi map trong 26–32 giây; nghỉ ngẫu nhiên 80–140 giây giữa hai lượt. Lần đầu chờ 15 giây. Giảm chuyển động thì ẩn chim; không giữ chim đứng im trên map.
+
+**Mới nhất, 24 giống cây 18/09:** đã tăng gấp đôi bộ giống; nghệ tây dài nhất 24 giờ, mở ở Home 25. Mỗi giống mới có model, thumbnail và icon riêng. Bản lưu content 2 được chuyển sang 3, giữ tiến trình. Đọc [CROPS_24](CROPS_24.md) trước các ghi chép 12 giống bên dưới.
+
+**Quyết định UI mới nhất 18/09:** Đại ca yêu cầu gọn như game. Chi phí nâng cấp chỉ có icon từng tài nguyên + số có/số cần, đủ xanh/thiếu đỏ; bỏ bảng và chữ giải thích. Menu chọn cây/đá/quặng phải gọi đúng tên variant. Đã triển khai; xem bằng chứng mới nhất trong [VERIFICATION](VERIFICATION.md).
+
+**Mới nhất, hòa trộn cảnh 18/09:** [foliage blending](foliage-blending-2026-09-18.md): mép sprite giữ alpha, bóng tiếp đất mềm, ảnh bạch dương v2. Không đổi bố trí/save; đây là bản sửa sau menu ảnh.
+
+**Bổ sung menu ảnh 18/09:** xây dựng/trang trí có thumbnail đúng model và cấp; 12 giống có ảnh trưởng thành. Gieo và đổi giống dùng popup ảnh. Chi tiết trong [CONTEXTUAL_PLAY_AND_ROADS](CONTEXTUAL_PLAY_AND_ROADS.md), bằng chứng mới nhất trong [VERIFICATION](VERIFICATION.md).
+
+**Cập nhật mới nhất 18/09:** đọc [CONTEXTUAL_PLAY_AND_ROADS](CONTEXTUAL_PLAY_AND_ROADS.md). Đã bỏ sidebar/toolbar cố định, thêm menu tại vật thể, cửa sổ có tranh, kéo liềm và hàng bay về kho sau lưu thành công, texture đất, chim ảnh và đường tự nối 16 hướng. Mô tả bảng bên/toolbar phía dưới là lịch sử, không phải UI hiện tại.
+
+**Mới nhất, sau phản hồi mỹ thuật 18/09:** đọc [ARCHITECTURE_AND_EXPLORATION](ARCHITECTURE_AND_EXPLORATION.md). Đã thay kiến trúc xưởng chung, tách khởi đầu/trưng bày, tăng tỷ lệ nhìn, thêm nền phân vùng, cây thấp và sương theo đất đã mở. 75 test đạt; không coi mỹ thuật/mobile đã nghiệm thu chỉ vì test qua.
+
+**Bàn giao địa hình v2 ngày 18/09/2026.** Module có gameplay Home 1–25, camera cố định pan/zoom và cảnh 2.5D. Đọc [TERRAIN_V2_IMPLEMENTATION](TERRAIN_V2_IMPLEMENTATION.md) trước phần lịch sử bên dưới.
+
+**Đã triển khai sau review:** thung lũng hồ/sông/rừng và một cao nguyên có lối lên; bỏ đồi lặp theo chunk; 7 mẫu cây + 7 mẫu đá/quặng tạo bằng imagegen. Đã chặn xây/khai phá trên bờ chưa tiếp cận, giữ nguyên save cũ. [REVIEW_2026-09-18](REVIEW_2026-09-18.md) là bằng chứng baseline trước sửa.
+
+**Tham chiếu Đại ca chỉ định:** [phân tích map Family Island](TERRAIN_REFERENCE_FAMILY_ISLAND.md). Đã dựng một mẫu thung lũng với biến thiên seed có giới hạn; chưa hoàn thành sáu bố cục địa hình riêng. Không sao chép tài nguyên của game tham chiếu.
 
 Xưng **em**, gọi người dùng là **Đại ca**. Lượt này đã triển khai gameplay theo yêu cầu Đại ca. Giữ module độc lập, bảo toàn save; chưa làm account/online hoặc ghép hệ thống chính.
 
@@ -11,6 +41,15 @@ Xưng **em**, gọi người dùng là **Đại ca**. Lượt này đã triển 
 | Thứ tự | Tài liệu | Vai trò và mức ưu tiên |
 |---|---|---|
 | 1 | **README.md — tệp đang đọc** | Điểm vào, các quyết định đã chốt, phân biệt kế hoạch/code, cách tiếp tục |
+| 1.0000 | [FINAL_POLISH_2026-09-18.md](FINAL_POLISH_2026-09-18.md) | Mới nhất: bờ nước, normals, mobile dock và phạm vi kiểm chứng |
+| 1.000 | [CONSTRUCTION_COSTS.md](CONSTRUCTION_COSTS.md) | Giá vật liệu xây mới, hạn mức chức năng, UI và không áp giá hồi tố |
+| 1.00 | [CROPS_24.md](CROPS_24.md) | Bộ 24 giống, thời gian tối đa 24 giờ, hình ảnh và chuyển bản lưu |
+| 1.0 | [foliage-blending-2026-09-18.md](foliage-blending-2026-09-18.md) | Mới nhất: alpha mép cây, bóng tiếp đất và bạch dương v2 |
+| 1.1 | [CONTEXTUAL_PLAY_AND_ROADS.md](CONTEXTUAL_PLAY_AND_ROADS.md) | Mới nhất: tương tác tại vật thể, game window, thu hoạch, texture, chim và đường tự nối |
+| 1a | [ARCHITECTURE_AND_EXPLORATION.md](ARCHITECTURE_AND_EXPLORATION.md) | Mới nhất: kiến trúc, kích thước nhìn, phân vùng nền, sương, QA và kiểm chứng |
+| 1a.0 | [TERRAIN_V2_IMPLEMENTATION.md](TERRAIN_V2_IMPLEMENTATION.md) | Nền địa hình v2 trước đợt kiến trúc/sương |
+| 1a.1 | [REVIEW_2026-09-18.md](REVIEW_2026-09-18.md) | Lịch sử vấn đề địa hình/tiếp cận trước sửa |
+| 1b | [TERRAIN_REFERENCE_FAMILY_ISLAND.md](TERRAIN_REFERENCE_FAMILY_ISLAND.md) | Tham chiếu mới do Đại ca chỉ định; bố cục cảnh quan và cách khai phá cho bản đồ mẫu |
 | 2 | [REVAMP_PLAN.md](REVAMP_PLAN.md) | **Thiết kế hiện hành**, đầy đủ yêu cầu nâng cấp, thế giới, generator, kinh tế, UI, dữ liệu và nghiệm thu |
 | 3 | [progression-draft.json](progression-draft.json) | Bảng thiết kế Home 1–25, 28 nhà phụ, điều kiện cấp, timer, ruộng, đội thợ và quy mô thế giới; Home đã được game import; cân bằng vẫn cần chơi thử |
 | 4 | [CURRENT_STATE.md](CURRENT_STATE.md) | Bản 0.2 thực sự có gì, cách chạy, ranh giới module, kiến trúc và việc server còn thiếu |
@@ -30,7 +69,7 @@ Xưng **em**, gọi người dùng là **Đại ca**. Lượt này đã triển 
 - Xây game nông trại có chiều sâu, người lớn cũng chơi được; không giới hạn thành trò cho trẻ tiểu học.
 - Người chơi là chủ trại; kiếm tiền từ sản xuất/hoạt động để mua giống, xây/nâng, mở đất và tùy biến trang trại.
 - Chơi chủ động và tiến trình hữu hạn khi đóng game; không phải để tab mở. Cây/vật nuôi không bị mất vì người chơi nghỉ.
-- Thế giới **3D thật**, công trình/cây từng giai đoạn/decor có hình dáng khác nhau, ưu tiên đồ họa và trải nghiệm. Dùng imagegen khi cần concept/ảnh tham chiếu, không nhầm ảnh với mesh.
+- Cảnh **2.5D, camera cố định** theo chỉ dẫn mới: địa hình có cao độ thật, cây/đá dùng sprite; công trình hiện vẫn là 3D. Object tĩnh một góc ảnh, object xoay được phải đủ bốn góc nếu dùng sprite. Ưu tiên đa dạng silhouette, không chỉ đổi màu.
 - Phát triển độc lập trong `modules/farm`; **chưa ghép route/menu/profile vào Genius Kids**. Login và server làm sau khi module chính đủ tốt. Chưa tự cài hoặc thay dependency của ứng dụng chính.
 - Tương lai có tài khoản, Supabase, lưu online, thăm trang trại, bán hàng lấy xu và đổi vật phẩm. **Mọi thao tác trading cần online; không xếp lệnh trading offline.** Đường tiếp nhận tài sản local vào kinh tế online còn phải thiết kế, không tự reset hoặc tự tin tiền client.
 
@@ -41,7 +80,7 @@ Xưng **em**, gọi người dùng là **Đại ca**. Lượt này đã triển 
 3. Chọn chuyển vị trí rồi kéo thả; nút xoay hiện cạnh vật thể.
 4. Có **Home** ban đầu làm công trình trung tâm, nâng để mở cây/tính năng/vật nuôi.
 5. Xây/nâng có thời gian, tăng theo cấp; các cấp cuối **có thể kéo dài vài ngày**.
-6. Cho phép xoay bản đồ.
+6. **Đã thay bằng chỉ dẫn mới 18/09:** khóa góc nhìn bản đồ, cho pan/zoom; giữ xoay công trình.
 7. Công trình có nhiều cấp, **tối đa 25**; hover tên/cấp, mobile có cách xem tương đương.
 8. Home mở quyền xây thêm thửa ruộng.
 9. Chính tuyến xoay quanh phát triển trại và nâng Home.
@@ -129,6 +168,8 @@ Thay đổi lượt này chưa commit/push. Chỉ làm trong modules/farm; giữ
 ## 8. Điểm tiếp tục công việc
 
 Không bắt đầu lại A từ số không. Kiểm lại bản 0.2 bằng sân thử riêng. Ưu tiên các phần nghiệm thu E còn thiếu: cảm ứng/GPU trên điện thoại thật, chơi nhiều ngày để cân bằng, duyệt model từng nghề. Test solo là chiến lược tuần tự bảo thủ, không là dự đoán retention.
+
+Đợt địa hình v2 đã xử lý camera cố định, bờ nước, đồi lặp, phân bố tài nguyên và chặn thao tác vượt bờ chưa có cầu. Phần còn lại: duyệt mỹ thuật với Đại ca, mở rộng bố cục mẫu, tối ưu texture/điện thoại, bộ công trình sprite bốn hướng nếu chuyển khỏi 3D. Xem TERRAIN_V2_IMPLEMENTATION.
 
 Giữ bản gốc v1 và giao kèo job khi thay catalog/schema; không reset vườn thật để thử. Cập nhật CURRENT_STATE/VERIFICATION sau mỗi thay đổi. Không bắt đầu F hoặc tích hợp Genius Kids khi chưa hoàn thành chất lượng module và có chỉ dẫn phù hợp từ Đại ca.
 

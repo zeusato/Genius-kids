@@ -26,7 +26,7 @@ export function Buildings({ state: s, hide, reduced }: {
             group: T.Group;
         }[] = [];
         for (const e of s.entities) {
-            if (e.stored || e.id === hide)
+            if (e.stored || e.id === hide || e.asset === 'path')
                 continue;
             const model = assetModel(e.asset, e.level), [w, d] = dimensions(e.asset, e.rotation), pose = new T.Group();
             pose.position.set(e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2);

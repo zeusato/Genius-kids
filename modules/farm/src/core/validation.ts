@@ -1,5 +1,5 @@
 import { RECIPES as LEGACY_RECIPES } from './legacy/catalog';
-import { ASSETS, CROPS, ITEMS, RECIPES, QUESTS, emptyInventory, levelOf, type ItemId } from './catalog';
+import { ASSETS, CROPS, ITEMS, RECIPES, QUESTS, NEW_CROP_IDS, emptyInventory, levelOf, type ItemId } from './catalog';
 import { dimensions, placementError, createFarm } from './engine';
 import { validateSnapshot as validateLegacy } from './legacy/validation';
 import { worldErrors, FAMILIES, BIOMES, ownedAt } from './world';
@@ -41,7 +41,14 @@ export function validateSnapshot(value: unknown): FarmState {
     assert(object(value), 'thiếu dữ liệu');
     if (value.schema === 1)
         return validateSnapshot(migrateLegacy(value));
-    assert(value.schema === 2 && value.contentVersion === 2, 'phiên bản chưa được hỗ trợ');
+    if (value.schema === 2 && value.contentVersion === 2) {
+        // Content-only migration: require the complete old inventory, never mask corruption.
+        items(value.inventory);
+        const oldIds = Object.keys(ITEMS).filter(id => !(NEW_CROP_IDS as readonly string[]).includes(id));
+        assert(Object.keys(value.inventory).length === oldIds.length && oldIds.every(id => known(value.inventory, id)), 'thiếu vật phẩm trong kho cũ');
+        return validateSnapshot({ ...value, contentVersion: 3, inventory: { ...emptyInventory(), ...value.inventory } });
+    }
+    assert(value.schema === 2 && value.contentVersion === 3, 'phiên bản chưa được hỗ trợ');
     assert(value.economy === 'local-unverified', 'không phải dữ liệu local');
     for (const field of ['coins', 'xp', 'clock', 'lastWallTime', 'revision', 'nextId', 'orderIndex'])
         assert(integer(value[field], 0, field === 'clock' || field === 'lastWallTime' ? 8640000000000000 : 1000000000), field);
@@ -66,7 +73,7 @@ export function validateSnapshot(value: unknown): FarmState {
     assert(object(value.contract) && integer(value.contract.stage, 0, 2) && integer(value.contract.round, 0, 1000000), 'hợp đồng');
     assert(object(value.fishing) && integer(value.fishing.round, 0, 1000000000) && integer(value.fishing.best, 0, 6) && integer(value.fishing.rewardedEpoch, -1, value.market.epoch), 'câu cá');
     const w = value.world;
-    assert(object(w) && w.version === 1 && integer(w.seed, 0, 4294967295) && FAMILIES.includes(w.family) && BIOMES.includes(w.biome), 'thế giới');
+    assert(object(w) && (w.version === 1 || w.version === 2) && integer(w.seed, 0, 4294967295) && FAMILIES.includes(w.family) && BIOMES.includes(w.biome), 'thế giới');
     assert(Array.isArray(w.heights) && Array.isArray(w.water) && Array.isArray(w.owned) && w.owned.every((id: unknown) => integer(id, 0, 35)) && new Set(w.owned).size === w.owned.length && [0, 1, 6, 7].every(id => w.owned.includes(id)), 'khu đất');
     assert(Array.isArray(w.obstacles) && w.obstacles.length <= 9216 && Array.isArray(w.bridges) && w.bridges.length === 2, 'địa hình');
     for (const o of w.obstacles) {
@@ -127,13 +134,14 @@ export function validateSnapshot(value: unknown): FarmState {
         if (e.stored)
             continue;
         const [w, d] = dimensions(e.asset, e.rotation);
-        assert(!placementError(state, e.x, e.z, w, d, e.id, e.asset, e.rotation), 'công trình chồng lấn hoặc sai địa hình');
+        // Reachability gates new commands, not loading existing possessions from older versions.
+        assert(!placementError(state, e.x, e.z, w, d, e.id, e.asset, e.rotation, false), 'công trình chồng lấn hoặc sai địa hình');
     }
     const noPlots = { ...state, plots: [] };
     const positions = new Set<string>();
     for (const p of state.plots) {
         const key = `${p.x},${p.z}`;
-        assert(!positions.has(key) && !placementError(noPlots, p.x, p.z, 1, 1), 'luống chồng lấn hoặc sai địa hình');
+        assert(!positions.has(key) && !placementError(noPlots, p.x, p.z, 1, 1, undefined, undefined, 0, false), 'luống chồng lấn hoặc sai địa hình');
         positions.add(key);
     }
     assert([...ids].every(k => !/^(entity|plot|job|build)-\d+$/.test(k) || Number(k.split('-')[1]) < state.nextId), 'bộ đếm ID');

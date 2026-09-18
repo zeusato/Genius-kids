@@ -50,7 +50,7 @@ export type Entity = {
 };
 export type FarmState = {
     schema: 2;
-    contentVersion: 2;
+    contentVersion: 3;
     economy: 'local-unverified';
     revision: number;
     coins: number;
@@ -210,7 +210,7 @@ export type CommandResult = {
 };
 export interface FarmRepository {
     load(): Promise<FarmState | null>;
-    save(next: FarmState, expectedRevision: number | null): Promise<void>;
+    save(next: FarmState, expectedRevision: number | null, reason?: 'command' | 'checkpoint' | 'import'): Promise<void>;
     close?(): Promise<void>;
 }
 export interface FarmGateway {

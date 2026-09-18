@@ -1,23 +1,29 @@
+import { obstacleName } from '../core/scenery';
 import { Buildings } from './Buildings';
+import { Landscape, LandscapeObjects, CAMERA_OFFSET, CAMERA_POLAR, CAMERA_AZIMUTH } from './Landscape';
+import { ExplorationFog } from './ExplorationFog';
+import { GroundCover } from './GroundCover';
 import { CropField } from './CropField';
+import { Roads } from './Roads';
 import { SceneLife, FrameMeter } from './SceneLife';
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState, type RefObject, type ReactNode } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';
 import * as T from 'three';
-import { ASSETS, CROPS, type CropId } from '../core/catalog';
-import { dimensions, growthStage, placementError } from '../core/engine';
-import { heightAt, isWater, chunkOf, type World } from '../core/world';
+import { ASSETS, type CropId } from '../core/catalog';
+import { dimensions, placementError } from '../core/engine';
+import { buildRequirements } from '../core/construction';
+import { heightAt, ownedAt, type World } from '../core/world';
 import { previewStroke, type Tool } from '../core/interaction';
-import type { FarmState, Rotation } from '../core/types';
+import type { FarmState } from '../core/types';
 import { BuildingModel, SceneBoundary, type Placement } from './FarmScene';
-import { cropModel } from './models';
 export type CameraIntent = {
     serial: number;
-    kind: 'home' | 'left' | 'right' | 'zoom-in' | 'zoom-out' | 'focus';
+    kind: 'home' | 'overview' | 'district' | 'zoom-in' | 'zoom-out' | 'focus';
     x?: number;
     z?: number;
 };
+export type PlotScreenPoint = { id: string; x: number; y: number };
 type Props = {
     state: FarmState;
     selected: string | null;
@@ -28,73 +34,33 @@ type Props = {
     reduced: boolean;
     camera: CameraIntent;
     onSelect: (id: string) => void;
+    onDeselect: () => void;
+    subjectMenu?: ReactNode;
     onPosition: (x: number, z: number) => void;
     onMoveStart: (id: string) => void;
     onPlace: (p: Placement) => void;
     onRotate: () => void;
     onCancel: () => void;
-    onStroke: (ids: string[], revision: number) => void;
+    onStroke: (ids: string[], revision: number, origins: PlotScreenPoint[]) => void;
     onPreview: (ids: string[]) => void;
     onHover: (text: string) => void;
     stroke: string[];
 };
-function terrainGeometry(w: World, cx: number, cz: number) {
-    const pos: number[] = [], colors: number[] = [];
-    const face = (points: number[][], color: T.Color) => { for (const i of [0, 1, 2, 0, 2, 3]) {
-        pos.push(...points[i]);
-        colors.push(color.r, color.g, color.b);
-    } };
-    for (let z = cz * 16; z < cz * 16 + 16; z++)
-        for (let x = cx * 16; x < cx * 16 + 16; x++) {
-            const h = heightAt(w, x, z), wet = isWater(w, x, z), owned = w.owned.includes(chunkOf(x, z)), color = new T.Color(wet ? '#7eaea7' : w.biome === 'stone' ? '#b0b285' : w.biome === 'ore' ? '#b0ac78' : '#a6b978');
-            color.multiplyScalar((owned ? 1 : .8) * (1 + (((x * 19 + z * 13) % 7) - 3) * .012));
-            const y = wet ? -.16 : h;
-            face([[x, y, z], [x, y, z + 1], [x + 1, y, z + 1], [x + 1, y, z]], color);
-            const stone = new T.Color('#969582');
-            if (x === 0 || heightAt(w, x - 1, z) < h)
-                face([[x, -.4, z], [x, -.4, z + 1], [x, h, z + 1], [x, h, z]], stone);
-            if (z === 0 || heightAt(w, x, z - 1) < h)
-                face([[x, -.4, z], [x, h, z], [x + 1, h, z], [x + 1, -.4, z]], stone);
-            if (x === 95 || heightAt(w, x + 1, z) < h)
-                face([[x + 1, -.4, z], [x + 1, h, z], [x + 1, h, z + 1], [x + 1, -.4, z + 1]], stone);
-            if (z === 95 || heightAt(w, x, z + 1) < h)
-                face([[x, -.4, z + 1], [x + 1, -.4, z + 1], [x + 1, h, z + 1], [x, h, z + 1]], stone);
-        }
-    const g = new T.BufferGeometry();
-    g.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
-    g.setAttribute('color', new T.Float32BufferAttribute(colors, 3));
-    g.computeVertexNormals();
-    g.computeBoundingSphere();
-    return g;
+function SubjectAnchor({ state, selected, children }: { state: FarmState; selected: string; children: ReactNode }) {
+    const div = useRef<HTMLDivElement>(null), { camera, size } = useThree();
+    const v = useMemo(() => new T.Vector3(), []);
+    const entity = state.entities.find(e => e.id === selected);
+    const subject = entity ?? state.plots.find(p => p.id === selected) ?? state.world.obstacles.find(o => o.id === selected) ?? state.world.bridges.find(b => b.id === selected);
+    useFrame(() => {
+        if (!subject || !div.current) return;
+        const [w, d] = entity ? dimensions(entity.asset, entity.rotation) : [1, 1];
+        v.set(subject.x + w / 2, heightAt(state.world, subject.x, subject.z) + (entity ? 2.7 : 1.1), subject.z + d / 2).project(camera);
+        const height = div.current.offsetHeight;
+        div.current.style.left = `${Math.max(155, Math.min(size.width - 155, (v.x + 1) * size.width / 2))}px`;
+        div.current.style.top = `${Math.max(12, Math.min(size.height - height - 110, (-v.y + 1) * size.height / 2 - height - 18))}px`;
+    });
+    return subject ? <Html fullscreen calculatePosition={(_, __, size) => [size.width / 2, size.height / 2]} style={{ pointerEvents: 'none' }} zIndexRange={[24, 21]}><div ref={div} className="farm-subject-anchor">{children}</div></Html> : null;
 }
-function Terrain({ world }: {
-    world: World;
-}) {
-    const signature = world.owned.join(','), geo = useMemo(() => Array.from({ length: 36 }, (_, i) => terrainGeometry(world, i % 6, Math.floor(i / 6))), [world.seed, signature]);
-    useEffect(() => () => geo.forEach(g => g.dispose()), [geo]);
-    return <>{geo.map((g, i) => <mesh key={i} geometry={g} receiveShadow userData={{ terrain: true }}><meshStandardMaterial vertexColors roughness={1} side={T.DoubleSide}/></mesh>)}
- <mesh rotation={[-Math.PI / 2, 0, 0]} position={[48, -.5, 48]}><planeGeometry args={[300, 300]}/><meshStandardMaterial color="#d2dac3"/></mesh></>;
-}
-function Obstacles({ world }: {
-    world: World;
-}) {
-    const signature = world.obstacles.filter(o => o.cleared).map(o => o.id).join(','), trees = useMemo(() => world.obstacles.filter(o => o.kind === 'tree' && !o.cleared), [world.seed, signature]), rocks = useMemo(() => world.obstacles.filter(o => o.kind !== 'tree' && !o.cleared), [world.seed, signature]);
-    const trunks = useRef<T.InstancedMesh>(null), crowns = useRef<T.InstancedMesh>(null), stones = useRef<T.InstancedMesh>(null);
-    useLayoutEffect(() => { const dummy = new T.Object3D(); for (const [list, ref, kind] of [[trees, trunks, 'trunk'], [trees, crowns, 'crown'], [rocks, stones, 'rock']] as const) {
-        if (!ref.current)
-            continue;
-        list.forEach((o, i) => { const variant = (o.x * 7 + o.z * 11) % 5 / 10; dummy.position.set(o.x + .5, heightAt(world, o.x, o.z) + (kind === 'trunk' ? .65 : kind === 'crown' ? 1.5 + variant : .35), o.z + .5); dummy.scale.set(kind === 'trunk' ? .11 : kind === 'crown' ? .7 + variant : .5, kind === 'trunk' ? 1.3 : kind === 'crown' ? .95 + variant : .45, kind === 'trunk' ? .11 : kind === 'crown' ? .7 + variant : .48); dummy.rotation.set(0, variant * 4, 0); dummy.updateMatrix(); ref.current!.setMatrixAt(i, dummy.matrix); if (kind === 'rock')
-            ref.current!.setColorAt(i, new T.Color(o.kind === 'ore' ? '#837b71' : '#a3a28c')); });
-        ref.current.instanceMatrix.needsUpdate = true;
-        ref.current.computeBoundingSphere();
-    } }, [trees, rocks]);
-    return <><instancedMesh ref={trunks} args={[undefined, undefined, trees.length]} userData={{ ids: trees.map(o => o.id) }} castShadow><cylinderGeometry args={[1, 1, 1, 5]}/><meshStandardMaterial color="#8b6d48"/></instancedMesh><instancedMesh ref={crowns} args={[undefined, undefined, trees.length]} userData={{ ids: trees.map(o => o.id) }} castShadow><icosahedronGeometry args={[1, 1]}/><meshStandardMaterial color="#6f9157" roughness={1}/></instancedMesh><instancedMesh ref={stones} args={[undefined, undefined, rocks.length]} userData={{ ids: rocks.map(o => o.id) }} castShadow><dodecahedronGeometry args={[1, 0]}/><meshStandardMaterial color="white" roughness={1}/></instancedMesh></>;
-}
-function Crop({ p, now, world }: {
-    p: FarmState['plots'][number];
-    now: number;
-    world: World;
-}) { const stage = growthStage(p, now), model = useMemo(() => p.crop ? cropModel(p.crop, stage) : null, [p.crop, stage]); return <group userData={{ id: p.id }} position={[p.x + .5, heightAt(world, p.x, p.z) + .04, p.z + .5]}><mesh receiveShadow><boxGeometry args={[.9, .1, .9]}/><meshStandardMaterial color={p.watered ? '#70513b' : '#8e6a47'}/></mesh>{model && <primitive object={model} position={[0, .09, 0]} dispose={null}/>}</group>; }
 function Mark({ x, z, w = 1, d = 1, world, color = '#eed69a' }: {
     x: number;
     z: number;
@@ -117,7 +83,7 @@ function AnchoredActions({ p, world, onRotate, onCancel, onPlace, valid }: {
         div.current.style.left = `${Math.max(110, Math.min(size.width - 110, (v.x + 1) * size.width / 2))}px`;
         div.current.style.top = `${Math.max(60, Math.min(size.height - 160, (-v.y + 1) * size.height / 2))}px`;
     } });
-    return <Html fullscreen style={{ pointerEvents: 'none' }} zIndexRange={[20, 10]}><div ref={div} className="farm-object-actions"><button onClick={onRotate} aria-label="Xoay vật thể 90 độ">↻</button><button onClick={onPlace} disabled={!valid}>Xác nhận</button><button onClick={onCancel} aria-label="Hủy bố trí">×</button></div></Html>;
+    return <Html fullscreen calculatePosition={(_, __, size) => [size.width / 2, size.height / 2]} style={{ pointerEvents: 'none' }} zIndexRange={[20, 10]}><div ref={div} className="farm-object-actions"><button onClick={onRotate} aria-label="Xoay vật thể 90 độ">↻</button><button onClick={onPlace} disabled={!valid}>Xác nhận</button><button onClick={onCancel} aria-label="Hủy bố trí">×</button></div></Html>;
 }
 function Interaction({ props, controls }: {
     props: Props;
@@ -164,6 +130,8 @@ function Interaction({ props, controls }: {
             const hits = ray.intersectObjects(scene.children, true);
             for (const i of hits) {
                 let n: T.Object3D | null = i.object;
+                if (n.userData.natural && ['plant', 'water', 'harvest', 'arrange'].includes(latest.current.tool)) continue;
+                if (n.userData.opaqueAt && i.uv && !n.userData.opaqueAt(i.uv)) continue;
                 if (n.userData.faceOwners && i.faceIndex !== undefined) {
                     id = n.userData.faceOwners.find((v: {
                         end: number;
@@ -184,6 +152,10 @@ function Interaction({ props, controls }: {
                 }
             }
             const ground = hits.find(i => i.object.userData.terrain);
+            if (id) {
+                const resource = latest.current.state.world.obstacles.find(o => o.id === id);
+                if (resource && !ownedAt(latest.current.state.world, resource.x, resource.z)) id = undefined;
+            }
             const point = ground?.point ?? ray.ray.intersectPlane(plane, hit) ?? hit;
             return { id, x: Math.floor(point.x), z: Math.floor(point.z) };
         };
@@ -206,8 +178,10 @@ function Interaction({ props, controls }: {
                 return;
             const p = latest.current, q = pick(ev);
             start = { x: ev.clientX, y: ev.clientY, id: q.id, revision: p.state.revision, ids: [], drag: false };
-            if (p.placement)
+            if (p.placement) {
                 start.move = { ...p.placement };
+                if (p.placement.moveId === q.id) start.offset = { x: q.x - p.placement.x, z: q.z - p.placement.z };
+            }
             else if (p.tool === 'arrange' && q.id) {
                 const e = p.state.entities.find(e => e.id === q.id);
                 if (e && !e.construction) {
@@ -237,14 +211,8 @@ function Interaction({ props, controls }: {
                     const delta = right.multiplyScalar(-(next.x - gesture.x) * scale).add(forward.multiplyScalar((next.y - gesture.y) * scale));
                     camera.position.add(delta);
                     c.target.add(delta);
-                    camera.zoom = Math.max(5, Math.min(100, camera.zoom * next.distance / Math.max(1, gesture.distance)));
+                    camera.zoom = Math.max(2, Math.min(80, camera.zoom * next.distance / Math.max(1, gesture.distance)));
                     camera.updateProjectionMatrix();
-                    let angle = next.angle - gesture.angle;
-                    if (angle > Math.PI)
-                        angle -= 2 * Math.PI;
-                    if (angle < -Math.PI)
-                        angle += 2 * Math.PI;
-                    c.setAzimuthalAngle(c.getAzimuthalAngle() - angle);
                     c.update();
                 }
                 gesture = next;
@@ -253,7 +221,7 @@ function Interaction({ props, controls }: {
             const p = latest.current, q = pick(ev);
             if (!start) {
                 const e = p.state.entities.find(e => e.id === q.id), o = p.state.world.obstacles.find(o => o.id === q.id);
-                p.onHover(e ? `${ASSETS[e.asset].name} · ${ASSETS[e.asset].kind === 'building' ? `Cấp ${e.level}/25` : 'Trang trí'}` : o ? `${o.kind === 'tree' ? 'Cây già' : o.kind === 'ore' ? 'Đá quặng' : 'Đá tảng'} · chọn để khai phá` : '');
+                p.onHover(e ? `${ASSETS[e.asset].name} · ${ASSETS[e.asset].kind === 'building' ? `Cấp ${e.level}/25` : 'Trang trí'}` : o ? `${obstacleName(p.state.world, o)} · chọn để khai phá` : '');
                 return;
             }
             if (Math.hypot(ev.clientX - start.x, ev.clientY - start.y) > 5)
@@ -294,11 +262,18 @@ function Interaction({ props, controls }: {
                 return;
             }
             if (['plant', 'water', 'harvest'].includes(p.tool)) {
-                p.onStroke(a.ids, a.revision);
+                const origins = a.ids.flatMap(id => {
+                    const plot = p.state.plots.find(v => v.id === id);
+                    if (!plot) return [];
+                    const point = new T.Vector3(plot.x + .5, heightAt(p.state.world, plot.x, plot.z) + .7, plot.z + .5).project(camera);
+                    return [{ id, x: b.left + (point.x + 1) * b.width / 2, y: b.top + (1 - point.y) * b.height / 2 }];
+                });
+                p.onStroke(a.ids, a.revision, origins);
                 return;
             }
             if (!a.drag && a.id)
                 p.onSelect(a.id);
+            else if (!a.drag) p.onDeselect();
         };
         const key = (e: KeyboardEvent) => { if (e.code === 'Space') {
             space = true;
@@ -306,13 +281,6 @@ function Interaction({ props, controls }: {
         } if (e.key === 'Escape') {
             cancel();
             latest.current.onCancel();
-        } if (e.key === 'q' || e.key === 'e') {
-            const c = controls.current;
-            if (c) {
-                const angle = c.getAzimuthalAngle() + (e.key === 'q' ? -1 : 1) * Math.PI / 2;
-                c.setAzimuthalAngle(angle);
-                c.update();
-            }
         } };
         const keyup = () => { space = false; };
         const lost = () => { pointers.clear(); touches.clear(); gesture = null; cancel(); space = false; };
@@ -329,6 +297,7 @@ function Interaction({ props, controls }: {
 }
 function Scene(props: Props) {
     const { state: s, placement: p } = props, controls = useRef<any>(null), lastIntent = useRef(-1), { camera, size } = useThree();
+    useFrame(() => { const c = controls.current; if (!c) return; const dx = Math.max(-12, Math.min(108, c.target.x)) - c.target.x, dz = Math.max(-12, Math.min(108, c.target.z)) - c.target.z; if (dx || dz) { c.target.x += dx; c.target.z += dz; camera.position.x += dx; camera.position.z += dz; c.update(); } });
     useEffect(() => {
         if (!(camera instanceof T.OrthographicCamera))
             return;
@@ -336,35 +305,37 @@ function Scene(props: Props) {
         if (!c || lastIntent.current === intent.serial)
             return;
         lastIntent.current = intent.serial;
-        if (intent.kind === 'left' || intent.kind === 'right')
-            c.setAzimuthalAngle(c.getAzimuthalAngle() + (intent.kind === 'left' ? -1 : 1) * Math.PI / 2);
-        else if (intent.kind === 'zoom-in' || intent.kind === 'zoom-out') {
-            camera.zoom = Math.max(5, Math.min(100, camera.zoom * (intent.kind === 'zoom-in' ? 1.25 : .8)));
+        if (intent.kind === 'zoom-in' || intent.kind === 'zoom-out') {
+            camera.zoom = Math.max(2, Math.min(80, camera.zoom * (intent.kind === 'zoom-in' ? 1.25 : .8)));
             camera.updateProjectionMatrix();
         }
         else {
-            const x = intent.x ?? 9, z = intent.z ?? 7;
-            c.target.set(x, 0, z);
-            camera.position.set(x + 18, 23, z + 23);
-            camera.zoom = Math.min(size.width / 23, size.height / 18);
+            const home = s.entities.find(e => e.asset === 'home')!;
+            const x = intent.kind === 'overview' ? 45 : intent.kind === 'district' ? 23 : intent.x ?? home.x - 1, z = intent.kind === 'overview' ? 44 : intent.kind === 'district' ? 17 : intent.z ?? home.z + 6;
+            c.target.set(x, heightAt(s.world, x, z), z);
+            camera.position.copy(c.target).add(CAMERA_OFFSET);
+            camera.zoom = Math.max(2, Math.min(size.width / (intent.kind === 'overview' ? 165 : intent.kind === 'home' ? size.width < 700 ? 15 : 22 : 28), (size.height - (intent.kind === 'overview' ? 100 : 0)) / (intent.kind === 'overview' ? 110 : intent.kind === 'home' ? 18 : 22)));
+            if (intent.kind === 'district') camera.zoom = Math.min(size.width / 62, (size.height - 150) / 28);
             camera.updateProjectionMatrix();
         }
         c.update();
     }, [props.camera.serial, size.width, size.height]);
     const preview = ['plant', 'water', 'harvest'].includes(props.tool) ? previewStroke(s, props.tool as 'plant' | 'water' | 'harvest', props.seed, props.stroke) : null;
     const [pw, pd] = p && p.asset !== 'plot' ? dimensions(p.asset, p.rotation) : [1, 1];
-    const problem = p ? placementError(s, p.x, p.z, pw, pd, p.moveId, p.asset === 'plot' ? undefined : p.asset, p.rotation) : null;
+    const problem = p ? placementError(s, p.x, p.z, pw, pd, p.moveId, p.asset === 'plot' ? undefined : p.asset, p.rotation) || (!p.moveId && p.asset !== 'plot' ? buildRequirements(s, p.asset)[0] : null) : null;
     const hovered = s.entities.find(e => e.id === props.selected);
-    return <><color attach="background" args={['#d8dfcb']}/><fog attach="fog" args={['#d8dfcb', 100, 170]}/><hemisphereLight args={['#fff0d8', '#8d9c75', 2.4]}/><directionalLight position={[-8, 30, 12]} intensity={2.7} color="#fff0d2" castShadow={props.quality === 'soft'} shadow-mapSize={[2048, 2048]} shadow-camera-left={-42} shadow-camera-right={42} shadow-camera-top={42} shadow-camera-bottom={-42} shadow-camera-far={130} shadow-normalBias={.07}/>
- <Terrain world={s.world}/><Obstacles world={s.world}/>
- <CropField state={s}/><SceneLife reduced={props.reduced}/>{import.meta.env.DEV && new URLSearchParams(location.search).has('lab') && <FrameMeter />}
+    return <><color attach="background" args={['#d8dfcb']}/><hemisphereLight args={['#fff0d8', '#8d9c75', 1.75]}/><directionalLight position={[-8, 30, 12]} intensity={2} color="#fff0d2" castShadow={props.quality === 'soft'} shadow-mapSize={[2048, 2048]} shadow-camera-left={-42} shadow-camera-right={42} shadow-camera-top={42} shadow-camera-bottom={-42} shadow-camera-far={130} shadow-normalBias={.07}/>
+ <Landscape world={s.world} reduced={props.reduced}/><GroundCover state={s}/><LandscapeObjects world={s.world} reveal={['arrange', 'plant', 'water', 'harvest'].includes(props.tool)}/>
+ <Roads state={s} placement={p}/><CropField state={s}/><SceneLife reduced={props.reduced}/>{import.meta.env.DEV && new URLSearchParams(location.search).has('lab') && <FrameMeter />}
  <Buildings state={s} hide={p?.moveId} reduced={props.reduced}/>{s.entities.filter(e => !e.stored && e.id !== p?.moveId && e.construction).map(e => { const [w, d] = dimensions(e.asset, e.rotation); return <group key={e.id} userData={{ id: e.id }} position={[e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2]} rotation={[0, e.rotation * Math.PI / 2, 0]}>{e.construction && <mesh position={[0, 1.2, 0]}><boxGeometry args={[w + .12, 2.4, d + .12]}/><meshBasicMaterial color="#c6ad72" wireframe transparent opacity={.65}/></mesh>}</group>; })}
  {s.world.bridges.map(b => <group key={b.id} userData={{ id: b.id }} position={[b.x + 3, .04, b.z + 1]}>{b.built ? <><mesh receiveShadow><boxGeometry args={[6, .22, 2]}/><meshStandardMaterial color="#ac8a5d"/></mesh>{[-1, 1].map(z => <mesh key={z} position={[0, .6, z * .9]}><boxGeometry args={[6, .08, .08]}/><meshStandardMaterial color="#816342"/></mesh>)}</> : <mesh><boxGeometry args={[6, .04, 2]}/><meshBasicMaterial color="#ecd3a0" wireframe/></mesh>}</group>)}
  {props.selected && s.plots.filter(v => v.id === props.selected).map(v => <Mark key={v.id} {...v} world={s.world}/>)}
  {hovered && !p && <><Mark x={hovered.x} z={hovered.z} w={dimensions(hovered.asset, hovered.rotation)[0]} d={dimensions(hovered.asset, hovered.rotation)[1]} world={s.world}/><Html position={[hovered.x + 1.5, heightAt(s.world, hovered.x, hovered.z) + 3.4, hovered.z + 1.5]} center style={{ pointerEvents: 'none' }} zIndexRange={[2, 0]}><span className="farm-world-label">{ASSETS[hovered.asset].name} · Cấp {hovered.level}/25</span></Html></>}
  {preview && props.stroke.map(id => { const plot = s.plots.find(v => v.id === id); return plot ? <Mark key={id} {...plot} world={s.world} color={preview.accepted.includes(id) ? '#ead49a' : '#d77c67'}/> : null; })}
- {p && <><Mark x={p.x} z={p.z} w={pw} d={pd} world={s.world} color={problem ? '#d97962' : '#ecdc9e'}/>{p.asset !== 'plot' && <group position={[p.x + pw / 2, heightAt(s.world, p.x, p.z) + .12, p.z + pd / 2]} rotation={[0, p.rotation * Math.PI / 2, 0]}><BuildingModel asset={p.asset} level={s.entities.find(e => e.id === p.moveId)?.level ?? 1} reduced/></group>}<AnchoredActions p={p} world={s.world} onRotate={props.onRotate} onCancel={props.onCancel} onPlace={() => props.onPlace(p)} valid={!problem}/></>}
- <OrbitControls ref={controls} makeDefault target={[11, 0, 9]} minZoom={5} maxZoom={100} minPolarAngle={.55} maxPolarAngle={1.1} screenSpacePanning={false} mouseButtons={{ LEFT: T.MOUSE.PAN, MIDDLE: T.MOUSE.DOLLY, RIGHT: T.MOUSE.ROTATE }} touches={{ ONE: T.TOUCH.PAN, TWO: T.TOUCH.DOLLY_PAN }}/>
+ {p && <><Mark x={p.x} z={p.z} w={pw} d={pd} world={s.world} color={problem ? '#d97962' : '#ecdc9e'}/>{p.asset !== 'plot' && p.asset !== 'path' && <group position={[p.x + pw / 2, heightAt(s.world, p.x, p.z) + .12, p.z + pd / 2]} rotation={[0, p.rotation * Math.PI / 2, 0]}><BuildingModel asset={p.asset} level={s.entities.find(e => e.id === p.moveId)?.level ?? 1} reduced/></group>}<AnchoredActions p={p} world={s.world} onRotate={props.onRotate} onCancel={props.onCancel} onPlace={() => props.onPlace(p)} valid={!problem}/></>}
+ <OrbitControls ref={controls} makeDefault target={[11, 0, 9]} minZoom={2} maxZoom={80} enableRotate={false} minPolarAngle={CAMERA_POLAR} maxPolarAngle={CAMERA_POLAR} minAzimuthAngle={CAMERA_AZIMUTH} maxAzimuthAngle={CAMERA_AZIMUTH} screenSpacePanning={false} mouseButtons={{ LEFT: T.MOUSE.PAN, MIDDLE: T.MOUSE.DOLLY, RIGHT: T.MOUSE.PAN }} touches={{ ONE: T.TOUCH.PAN, TWO: T.TOUCH.DOLLY_PAN }}/>
+ <ExplorationFog world={s.world} reduced={props.reduced}/>
+ {props.selected && props.subjectMenu && !p && props.tool === 'select' && <SubjectAnchor state={s} selected={props.selected}>{props.subjectMenu}</SubjectAnchor>}
  <Interaction props={props} controls={controls}/></>;
 }
-export function FarmWorld(props: Props) { return <SceneBoundary><Canvas orthographic shadows={props.quality === 'soft'} camera={{ position: [29, 23, 32], zoom: 30, near: .1, far: 250 }} dpr={[1, props.quality === 'soft' ? 1.5 : 1]} frameloop={props.reduced ? 'demand' : 'always'} gl={{ antialias: true, powerPreference: 'high-performance' }} aria-label="Bản đồ 3D tương tác" onContextMenu={e => e.preventDefault()}><Suspense fallback={null}><Scene {...props}/></Suspense></Canvas></SceneBoundary>; }
+export function FarmWorld(props: Props) { return <SceneBoundary><Canvas orthographic shadows={props.quality === 'soft'} camera={{ position: [240, 270, 300], zoom: 30, near: .1, far: 2000 }} dpr={[1, props.quality === 'soft' ? 1.5 : 1]} frameloop={props.reduced ? 'demand' : 'always'} gl={{ antialias: true, powerPreference: 'high-performance' }} aria-label="Bản đồ 3D tương tác" onContextMenu={e => e.preventDefault()}><Suspense fallback={null}><Scene {...props}/></Suspense></Canvas></SceneBoundary>; }

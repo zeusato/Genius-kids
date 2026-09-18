@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-18",
+  "mode": "built-in image_gen",
+  "assets": "../src/assets/terrain/*-v1.png",
+  "prompts": [
+    {
+      "name": "fern",
+      "subject": "A dense natural clump of five arching woodland fern fronds, delicate pinnate leaflets, dark olive and sage green, low wide silhouette, no pot.",
+      "prompt": "Use case: stylized-concept. Production game sprite for a warm hand-painted 2.5D farming game. One isolated object, orthographic isometric camera looking down 35 degrees. Soft daylight upper left. Rich natural painterly surfaces, crisp readable silhouette, understated colors, entirely visible with 8 percent empty padding. TRUE transparent RGBA background, no ground tile, no floor, no cast ground shadow, no text or border. A dense natural clump of five arching woodland fern fronds, delicate pinnate leaflets, dark olive and sage green, low wide silhouette, no pot."
+    },
+    {
+      "name": "shrub",
+      "subject": "One compact irregular wild leafy shrub with many small rounded leaves, olive and forest green, a few reddish buds, multiple short woody stems visible at the very base, low wide mound, no pot.",
+      "prompt": "Use case: stylized-concept. Production game sprite for a warm hand-painted 2.5D farming game. One isolated object, orthographic isometric camera looking down 35 degrees. Soft daylight upper left. Rich natural painterly surfaces, crisp readable silhouette, understated colors, entirely visible with 8 percent empty padding. TRUE transparent RGBA background, no ground tile, no floor, no cast ground shadow, no text or border. One compact irregular wild leafy shrub with many small rounded leaves, olive and forest green, a few reddish buds, multiple short woody stems visible at the very base, low wide mound, no pot."
+    },
+    {
+      "name": "wildflowers",
+      "subject": "A small airy clump of meadow grasses with eight tiny wildflowers, muted cream daisies and pale purple bellflowers, irregular natural silhouette, slender leaves, low ground-cover vegetation, no pot.",
+      "prompt": "Use case: stylized-concept. Production game sprite for a warm hand-painted 2.5D farming game. One isolated object, orthographic isometric camera looking down 35 degrees. Soft daylight upper left. Rich natural painterly surfaces, crisp readable silhouette, understated colors, entirely visible with 8 percent empty padding. TRUE transparent RGBA background, no ground tile, no floor, no cast ground shadow, no text or border. A small airy clump of meadow grasses with eight tiny wildflowers, muted cream daisies and pale purple bellflowers, irregular natural silhouette, slender leaves, low ground-cover vegetation, no pot."
+    }
+  ]
+}

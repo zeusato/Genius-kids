@@ -1,3 +1,5 @@
+> Cập nhật 18/09/2026: Đại ca đã duyệt làm tài khoản/cloud save trên project hiện tại. Đọc [ACCOUNT_SYNC](ACCOUNT_SYNC.md) cho mã và trạng thái triển khai mới nhất. Các phần marketplace/server-authoritative bên dưới vẫn là kế hoạch tương lai.
+
 # Nông trại online với Supabase
 
 > **Phương án backend tương lai, chưa triển khai.** Theo quyết định mới hơn của Đại ca, hoàn thiện module chính trước; online là đợt F trong [REVAMP_PLAN](REVAMP_PLAN.md). Đề xuất “tài khoản/thăm vườn trong bản 1” bên dưới không còn là thứ tự triển khai hiện hành. Không tạo Auth/database hoặc gắn hồ sơ host khi làm module riêng. Giao dịch bắt buộc online; snapshot không có quyền ghi đè kinh tế, chính sách đưa tài sản local lên chợ chưa chốt. Đọc [bàn giao](README.md) để biết toàn bộ phạm vi.

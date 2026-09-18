@@ -28,6 +28,7 @@ const SphinxRiddlePage = React.lazy(() => import('@/src/pages/SphinxRiddlePage')
 const HallOfFamePage = React.lazy(() => import('@/src/pages/HallOfFamePage').then(module => ({ default: module.HallOfFamePage })));
 const KidCoderPage = React.lazy(() => import('@/src/pages/KidCoderPage').then(module => ({ default: module.KidCoderPage })));
 const PianoPage = React.lazy(() => import('./games/Piano/PianoGame'));
+const FarmPage = React.lazy(() => import('./games/Farm/Entry'));
 const SolarSystemPage = React.lazy(() => import('@/src/pages/SolarSystemPage').then(module => ({ default: module.SolarSystemPage })));
 const PlanetMakerPage = React.lazy(() => import('@/src/pages/PlanetMakerPage').then(module => ({ default: module.PlanetMakerPage })));
 const ScienceMenuPage = React.lazy(() => import('@/src/pages/ScienceMenuPage').then(module => ({ default: module.ScienceMenuPage })));
@@ -350,6 +351,7 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="/games/farm" element={<FarmPage />} />
               <Route path="/games/speed-math" element={<ProtectedRoute><SpeedMathGame difficulty="easy" onBack={() => window.history.back()} /></ProtectedRoute>} />
               <Route path="/games/gears" element={<ProtectedRoute><GearsGamePage difficulty="easy" onBack={() => window.history.back()} /></ProtectedRoute>} />
               <Route

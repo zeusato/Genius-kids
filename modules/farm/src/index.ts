@@ -1,4 +1,4 @@
-/** Optional integration boundary. No host code imports this entry yet. */
+/** Module API. The main app lazy-loads FarmApp through games/Farm/Entry. */
 export { default as FarmApp } from './FarmApp';
 export { execute, advanceTime, createFarm, placementError } from './core/engine';
 export { ASSETS, CROPS, RECIPES, ITEMS, QUESTS } from './core/catalog';

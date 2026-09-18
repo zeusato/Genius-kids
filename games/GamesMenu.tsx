@@ -40,6 +40,7 @@ export const GamesMenu: React.FC<GamesMenuProps> = ({ grade, onBack, onGameCompl
 
     const openGame = (id: GameId) => {
         positions.current[listKey] = { y: window.scrollY, id };
+        if (id === 'farm') { navigate('/games/farm', { state: { fromGames: true } }); return; }
         setLevel('easy');
         setParams({ play: id }, { state: { hubParent: location.search, hubOwner: currentStudent?.id } });
     };

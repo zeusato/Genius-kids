@@ -5,7 +5,7 @@ export class RevisionConflict extends Error {
     constructor() { super('Nông trại đã được lưu ở cửa sổ khác. Tải lại để tiếp tục từ bản mới nhất.'); }
 }
 export class LocalFarmRepository implements FarmRepository {
-    private db: Promise<IDBDatabase>;
+    protected db: Promise<IDBDatabase>;
     constructor(name = 'lang-mam-independent-lab-v1') {
         this.db = new Promise((resolve, reject) => {
             const request = indexedDB.open(name, 1);
@@ -24,7 +24,8 @@ export class LocalFarmRepository implements FarmRepository {
         });
         return raw === undefined ? null : validateSnapshot(raw);
     }
-    async save(next: FarmState, expectedRevision: number | null) {
+    protected afterSave(_store: IDBObjectStore, _next: FarmState, _reason?: 'command' | 'checkpoint' | 'import') { }
+    async save(next: FarmState, expectedRevision: number | null, reason?: 'command' | 'checkpoint' | 'import') {
         validateSnapshot(next);
         const db = await this.db;
         return new Promise<void>((resolve, reject) => {
@@ -49,6 +50,7 @@ export class LocalFarmRepository implements FarmRepository {
                         store.put(old, 'migration-original-v1');
                 }
                 store.put(next, 'main');
+                this.afterSave(store, next, reason);
             };
         });
     }
@@ -81,6 +83,7 @@ export class LocalFarmGateway implements FarmSession {
         return new LocalFarmGateway(state, repository, now);
     }
     getSnapshot() { return advanceTime(structuredClone(this.state), this.now()); }
+    reload() { return this.run(async () => { const state = await this.repository.load(); if (!state) throw new Error('Không tìm thấy bản lưu.'); this.state = state; }); }
     async exportOriginal() { return this.repository instanceof LocalFarmRepository ? this.repository.exportOriginal() : null; }
     async close() { await this.queue; await this.repository.close?.(); }
     private run<T>(job: () => Promise<T>): Promise<T> {
@@ -92,7 +95,7 @@ export class LocalFarmGateway implements FarmSession {
         return this.run(async () => {
             const result = execute(this.getSnapshot(), command);
             if (result.ok) {
-                await this.repository.save(result.state, this.state.revision);
+                await this.repository.save(result.state, this.state.revision, 'command');
                 this.state = result.state;
             }
             return result;
@@ -104,7 +107,7 @@ export class LocalFarmGateway implements FarmSession {
             if (next.lastWallTime === this.state.lastWallTime)
                 return;
             next.revision = this.state.revision + 1;
-            await this.repository.save(next, this.state.revision);
+            await this.repository.save(next, this.state.revision, 'checkpoint');
             this.state = next;
         });
     }
@@ -114,13 +117,13 @@ export class LocalFarmGateway implements FarmSession {
             // An import restores the saved game time, not a second offline reward interval.
             next.lastWallTime = this.now();
             next.revision = this.state.revision + 1;
-            await this.repository.save(next, this.state.revision);
+            await this.repository.save(next, this.state.revision, 'import');
             this.state = next;
         });
     }
 }
-export async function openLocalFarm(): Promise<FarmSession> {
-    const repository = new LocalFarmRepository();
+export async function openLocalFarm(databaseName?: string): Promise<FarmSession> {
+    const repository = new LocalFarmRepository(databaseName);
     try {
         return await LocalFarmGateway.open(repository);
     }

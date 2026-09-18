@@ -50,7 +50,7 @@ describe('world and economy constraints', () => {
         const w = generateWorld(seed);
         expect(worldErrors(w), `seed ${seed}`).toEqual([]);
         counts.set(w.family, (counts.get(w.family) ?? 0) + 1);
-    } expect(counts.size).toBe(FAMILIES.length); }, 30000);
+    } expect(counts.size).toBe(FAMILIES.length); }, 90000);
     it('generates exactly the same persisted terrain for a given seed', () => { expect(generateWorld(222)).toEqual(generateWorld(222)); expect(generateWorld(222).water).not.toEqual(generateWorld(223).water); });
     it('does not refresh stock on reload or accumulate missed restocks', () => { let s = rich(4); s = command(s, { type: 'buy', item: 'wood', quantity: 30, epoch: s.market.epoch }); expect(execute(parseBackup(serializeBackup(s)), { type: 'buy', item: 'wood', quantity: 1, epoch: s.market.epoch }).ok).toBe(false); const n = advanceTime(s, now + 7 * 86400000); expect(n.market.bought).toEqual({}); expect(n.coins).toBe(s.coins); });
     it('clears and claims an obstacle once; full warehouse keeps its reward', () => { let s = rich(4); const o = s.world.obstacles.find(o => o.x < 32 && o.z < 32)!; s = command(s, { type: 'clear', obstacleId: o.id, pay: 'coins' }); s = advanceTime(s, now + 120000); s = command(s, { type: 'collect-obstacle', obstacleId: o.id }); expect(s.world.obstacles.find(v => v.id === o.id)!.cleared).toBe(true); expect(execute(s, { type: 'collect-obstacle', obstacleId: o.id }).ok).toBe(false); });

@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Compass } from 'lucide-react';
 import { Difficulty } from './memoryMatchEngine';
 import type { GameEntry } from '../src/components/hub/catalog';
@@ -38,6 +39,7 @@ export function GameLauncher({ entry, onBack, onLegacy, onComplete }: { entry: G
     const pairs = { easy: Difficulty.Easy, medium: Difficulty.Medium, hard: Difficulty.Hard }[level];
     let game: React.ReactNode;
     switch (id) {
+        case 'farm': game = <Navigate to="/games/farm" replace/>; break;
         case 'coding': game = <KidCoder onExit={onBack}/>; break;
         case 'caro': game = <Caro onExit={onBack}/>; break;
         case 'co-vua': game = <CoVua onExit={onBack}/>; break;

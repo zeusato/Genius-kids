@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in image_gen (imagegen skill); original PNG copied unchanged",
+  "assets": [
+    {
+      "file": "tilled-soil-v1.png",
+      "prompt": "Use case: stylized-concept. Production game texture: a single square patch of freshly tilled dark warm brown earth, viewed exactly orthographically from directly overhead, flat albedo illustration. Rich crumbly soil, irregular small clods, pebbles, five subtle parallel cultivation furrows, softly irregular rounded square perimeter. Warm hand painted cozy farm game style, detailed tactile soil, not wood, no planks, no raised box, no border, no plants, no tools, no perspective, no text, no cast shadow. Patch fills 94 percent of square canvas with genuinely transparent background outside the irregular edge. 1024x1024."
+    },
+    {
+      "file": "harvest-window-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: decorative panoramic header illustration for a cozy farming game's parchment popup. Hand-painted storybook gouache, refined warm natural colors. Wide 3:1 composition: at left a woven harvest basket holding wheat, carrots and leafy vegetables, linen gardening gloves and a little seed envelope; at right a small terracotta pot with delicate meadow flowers and a resting wooden handled sickle. Center 60 percent is quiet light cream parchment with barely visible watercolor meadow beyond. Organic soft painterly fade into cream #fbf5e6 at all outer edges. No text, no UI buttons, no borders, no characters. Charming adult-friendly rural craft aesthetic, detailed tactile materials, not glossy plastic. Landscape 1536x512."
+    },
+    {
+      "file": "swallow-flight-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: one small flying barn swallow sprite for a cozy isometric farming game, isolated on a genuinely transparent background. View bird from above at a three quarter angle as seen from a fixed elevated isometric farm camera. Fully spread wings mid-flight, head points toward upper right. Clearly recognizable graceful swallow with rounded navy slate-blue body, pale cream chest glimpsed at side, warm rust throat, two long forked tail feathers, tiny dark beak and visible bright eye. Wings have layered broad feather shapes, natural curved silhouette and soft painted shading, no outlines. Warm hand painted illustrated game style, charming but anatomically coherent, readable at 40-65 pixels, not photoreal, not a paper plane or V shape. Single bird only, centered with generous transparent margin, no shadow on ground, no sky, no scenery, no text. Square image."
+    }
+  ]
+}

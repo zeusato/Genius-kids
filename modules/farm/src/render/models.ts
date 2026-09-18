@@ -2,6 +2,8 @@ import * as T from 'three';
 
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { ASSETS, CROPS, type AssetId, type CropId } from '../core/catalog';
+import { architecture } from './architecture';
+import { cropVariety } from './cropVarieties';
 type V = [
     number,
     number,
@@ -68,19 +70,20 @@ function bake(source: T.Group): T.Group {
     return target;
 }
 function roof(g: T.Group, x: number, y: number, z: number, width: number, depth: number, color = C.roof) {
+    const highlight = '#' + new T.Color(color).lerp(new T.Color(C.cream), .15).getHexString();
     const rise = width * .31, angle = Math.atan2(rise, width / 2), side = Math.hypot(width / 2, rise);
     for (const sign of [-1, 1]) {
         box(g, [x + sign * width / 4, y + rise / 2, z], [side + .13, .13, depth], color, [0, 0, -sign * angle]);
         for (let row = 0; row < 3; row++) {
             const px = (row + .45) / 3 * width / 2, py = rise * (1 - px / (width / 2));
             for (let col = 0; col < Math.round(depth * 4); col++) {
-                box(g, [x + sign * px, y + py + .07, z - depth / 2 + .14 + col * .25], [side / 3 + .06, .075, .235], (row + col) % 3 ? color : C.tile, [0, 0, -sign * angle]);
+                box(g, [x + sign * px, y + py + .07, z - depth / 2 + .14 + col * .25], [side / 3 + .06, .075, .235], (row + col) % 3 ? color : highlight, [0, 0, -sign * angle]);
             }
         }
         beam(g, [x, y + rise + .06, z - depth / 2], [x + sign * width / 2, y, z - depth / 2], .06, C.cream);
         beam(g, [x, y + rise + .06, z + depth / 2], [x + sign * width / 2, y, z + depth / 2], .065, C.dark);
     }
-    cylinder(g, [x, y + rise + .1, z], .095, depth + .14, C.tile, .095, [Math.PI / 2, 0, 0]);
+    cylinder(g, [x, y + rise + .1, z], .095, depth + .14, highlight, .095, [Math.PI / 2, 0, 0]);
 }
 function window(g: T.Group, x: number, y: number, z: number) {
     box(g, [x, y, z], [.47, .59, .07], C.cream);
@@ -353,6 +356,7 @@ function crop(id: CropId, stage: number) {
         }
         return bake(g);
     }
+    if (cropVariety(g, id, stage, { ball, cylinder, beam, leaf })) return bake(g);
     const ripe = stage === 4;
     if (id === 'corn') {
         for (const [x, z] of [[-.18, -.13], [.23, .15]]) {
@@ -442,190 +446,42 @@ function crop(id: CropId, stage: number) {
     return bake(g);
 }
 const cache = new Map<string, T.Group>();
-function workshopModel(id: AssetId, level: number) {
-    const g = new T.Group(), a = ASSETS[id], tier = Math.floor(level / 5), w = a.width * (id === 'home' ? .52 + tier * .047 : .7 + tier * .012), d = a.depth * .72;
-    const kiln = ['smelter', 'pottery', 'kitchen', 'preserves', 'icecream', 'tea_house'].includes(id);
+function workshopModel(id: AssetId, _level: number) {
+    const g = new T.Group();
     if (id === 'path') {
         box(g, [0, .025, 0], [.87, .06, .87], C.stone);
-        return bake(g);
-    }
-    if (id === 'statue') {
+    } else if (id === 'statue') {
         cylinder(g, [0, .16, 0], .65, .3, C.stone);
         cylinder(g, [0, .8, 0], .24, 1.3, C.cream);
         ball(g, [0, 1.6, 0], [.38, .35, .38], C.gold);
-        return bake(g);
     }
-    if (id === 'fishing_pier') {
-        for (let i = 0; i < 13; i++)
-            box(g, [0, .18, -1.85 + i * .29], [2.8, .12, .25], i % 2 ? C.timber : '#ab8159');
-        for (const x of [-1.25, 1.25])
-            for (const z of [-1.6, 1.6])
-                cylinder(g, [x, -.02, z], .09, .8, C.dark);
-        for (const x of [-1.22, 1.22])
-            beam(g, [x, .75, -1.8], [x, .75, 1.8], .06, C.dark);
-        crate(g, .7, .26, 1, .45);
-        beam(g, [-.7, .3, 1], [-.7, 1.7, 1.7], .026, C.dark);
-    }
-    else if (id === 'fishpond') {
-        box(g, [0, .1, 0], [w, .2, d], C.stone);
-        box(g, [0, .23, 0], [w - .25, .07, d - .25], '#76aaa2');
-        for (const x of [-w / 2, w / 2])
-            box(g, [x, .3, 0], [.14, .25, d], C.stone);
-    }
-    else if (['orchard', 'herb_garden', 'apiary'].includes(id)) {
-        for (let i = 0; i < 4; i++) {
-            const x = (i % 2 - .5) * 1.6, z = (Math.floor(i / 2) - .5) * 1.6;
-            if (id === 'apiary') {
-                box(g, [x, .48, z], [.6, .8, .6], '#d1af72');
-                roof(g, x, .88, z, .8, .85);
-                for (const y of [.25, .5, .7])
-                    box(g, [x, y, z + .31], [.55, .03, .03], C.dark);
-            }
-            else {
-                cylinder(g, [x, .55, z], .075, 1.1, C.timber);
-                ball(g, [x, 1.1, z], [.57, .62, .55], id === 'herb_garden' ? '#92a080' : C.green);
-                for (let k = 0; k < 3; k++)
-                    ball(g, [x + Math.cos(k * 2) * .42, 1.15, z + Math.sin(k * 2) * .42], [.1, .1, .1], id === 'orchard' ? '#c56d48' : '#b195c0');
-            }
-        }
-    }
-    else if (id === 'greenhouse') {
-        for (const x of [-w / 2, w / 2])
-            for (const z of [-d / 2, d / 2])
-                box(g, [x, .9, z], [.07, 1.8, .07], C.cream);
-        box(g, [0, .85, 0], [w, 1.65, d], '#a6c6b1');
-        roof(g, 0, 1.75, 0, w + .15, d + .2, '#b4d0bd');
-        for (let i = 0; i < 4; i++)
-            beam(g, [-w / 2 + i * w / 3, 0, d / 2 + .02], [-w / 2 + i * w / 3, 1.7, d / 2 + .02], .035, C.cream);
-    }
-    else if (id === 'coop' || id === 'sheepfold') {
-        box(g, [0, .7, -.3], [w, 1.1, d * .65], C.cream);
-        roof(g, 0, 1.25, -.3, w + .2, d * .8);
-        for (let i = 0; i < 3; i++) {
-            const x = (i - 1) * .6;
-            ball(g, [x, .27, .8], [.21, .22, .26], id === 'coop' ? '#eee1c0' : '#d6d1bc');
-            ball(g, [x, .42, 1], [.11, .12, .1], C.cream);
-            if (id === 'coop')
-                ball(g, [x, .55, 1], [.04, .05, .06], '#bc6552');
-        }
-    }
-    else {
-        const home = id === 'home', warehouse = id === 'warehouse', mine = id === 'iron_mine' || id === 'quarry';
-        if (mine) {
-            for (let i = 0; i < 6; i++)
-                ball(g, [Math.cos(i) * .8, .6, Math.sin(i) * .6], [.7, .7, .6], id === 'iron_mine' ? '#898879' : C.stone);
-            box(g, [0, .6, d / 2], [.65, 1.1, .1], C.dark);
-            for (const x of [-.42, .42])
-                box(g, [x, .6, d / 2 + .1], [.1, 1.2, .12]);
-            beam(g, [-.5, 1.25, d / 2], [.5, 1.25, d / 2], .1);
-        }
-        else {
-            const h = home ? 1.05 + tier * .18 : warehouse ? .95 + tier * .07 : 1.05 + tier * .06;
-            box(g, [0, h / 2, 0], [w, h, d], warehouse ? '#b39768' : C.cream);
-            roof(g, 0, h, 0, w + .28, d + .3, id === 'dyehouse' ? '#81768e' : C.roof);
-            box(g, [0, .52, d / 2 + .02], [.52, 1.04, .08], C.teal);
-            for (const x of [-w * .32, w * .32]) {
-                box(g, [x, .86, d / 2 + .03], [.38, .4, .065], C.dark);
-                box(g, [x, .86, d / 2 + .07], [.035, .43, .025], C.cream);
-            }
-            if (home) {
-                for (const x of [-w / 2, w / 2])
-                    box(g, [x, .55, d / 2 + .26], [.09, 1.1, .09]);
-                box(g, [0, .1, d / 2 + .18], [w + .12, .16, .4], C.stone);
-                if (tier >= 1)
-                    roof(g, 0, 1.08, d / 2 + .1, w + .2, .7);
-                if (tier >= 2) {
-                    box(g, [-w * .34, .5, -d * .35], [.65, 1, .7], C.teal);
-                    roof(g, -w * .34, 1.05, -d * .35, .8, .85);
-                }
-                if (tier >= 3) {
-                    box(g, [w * .27, h * .8, -d * .28], [.65, h * 1.6, .7], C.cream);
-                    roof(g, w * .27, h * 1.6, -d * .28, .85, .9);
-                }
-                if (tier >= 4)
-                    for (const x of [-w * .35, w * .35])
-                        flower(g, x, .25, d / 2 + .22, .9, '#c18383');
-                if (tier === 5)
-                    beam(g, [-w / 2, 1.08, d / 2 + .35], [w / 2, 1.08, d / 2 + .35], .08, C.gold);
-            }
-            else if (warehouse)
-                for (let i = 0; i < 3; i++)
-                    ball(g, [-w * .3 + i * .28, .22, d / 2 + .22], [.16, .24, .16], '#c8b384');
-            else if (kiln) {
-                cylinder(g, [-w * .28, .45, d / 2 + .17], .37, .8, '#b17954');
-                box(g, [-w * .28, 1.25, 0], [.3, 1.5, .35], C.stone);
-            }
-            else if (id === 'loom' || id === 'tailor' || id === 'dyehouse') {
-                for (const x of [-.6, .6])
-                    box(g, [x, .6, d / 2 + .18], [.06, 1.15, .06]);
-                box(g, [0, .7, d / 2 + .18], [1.2, .7, .04], id === 'dyehouse' ? '#ac799e' : '#c7b78a');
-            }
-            else if (id === 'sawmill') {
-                for (let i = 0; i < 4; i++)
-                    cylinder(g, [i * .18 - .3, .3, d / 2 + .12], .12, 1.3, C.timber, .12, [0, 0, Math.PI / 2]);
-            }
-            else if (id === 'press' || id === 'dairy') {
-                for (const x of [-.5, .5])
-                    cylinder(g, [x, .48, d / 2 + .18], .23, .85, id === 'dairy' ? '#c8d1bd' : '#a79365');
-            }
-            else if (id === 'fairground') {
-                for (let i = 0; i < 5; i++)
-                    box(g, [(i - 2) * .38, 1.55, d / 2 + .3], [.3, .25, .04], i % 2 ? C.teal : C.gold);
-            }
-            else {
-                crate(g, -.65, 0, d / 2 + .1, .5);
-                beam(g, [.4, .2, d / 2 + .2], [.4, 1.2, d / 2 + .2], .055, C.dark);
-            }
-        }
-    }
-    // Six readable architecture tiers and functional attachments between milestones.
-    for (let i = 0; i < tier; i++) {
-        const x = -w * .35 + i * .17;
-        box(g, [x, .16, -d * .42], [.14, .3, .23], C.stone);
-    }
-    if (level >= 5) {
-        for (const x of [-w * .42, w * .42])
-            box(g, [x, .55, -d * .35], [.12, 1.1, .13], C.timber);
-    }
-    if (level >= 10)
-        crate(g, w * .28, 0, -d * .32, .5);
-    if (level >= 15)
-        cylinder(g, [-w * .3, 1.1, -d * .3], .12, 2, C.teal);
-    if (level >= 20)
-        box(g, [w * .27, 1.2, -d * .25], [.35, .45, .35], C.gold);
-    if (level === 25)
-        ball(g, [0, 2.4, 0], [.16, .16, .16], C.gold);
-    if (level % 5)
-        for (let i = 0; i < level % 5; i++)
-            box(g, [-w * .3 + i * .16, .07, -d * .4], [.1, .08, .16], C.stone);
     return bake(g);
 }
 export function assetModel(id: AssetId, level = 1): T.Group {
     const key = `${id}:${level}`;
     if (!cache.has(key)) {
         const visual = Math.min(3, 1 + Math.floor(level / 10));
-        const model = id === 'bakery' ? bakery(visual) : id === 'mill' ? mill(visual) : id === 'barn' ? barn(visual) : ASSETS[id].kind === 'building' || id === 'path' || id === 'statue' ? workshopModel(id, level) : decor(id);
+        const model = id === 'bakery' ? bakery(visual) : id === 'mill' ? mill(visual) : id === 'barn' ? barn(visual) : ASSETS[id].kind === 'building' ? bake(architecture(id, level, { box, ball, cylinder, beam, roof, window, crate, pot, part })) : id === 'path' || id === 'statue' ? workshopModel(id, level) : decor(id);
         if (['mill', 'bakery', 'barn'].includes(id) && level >= 5) {
-            const kit = new T.Group(), w = ASSETS[id].width, d = ASSETS[id].depth;
-            for (const x of [-w * .38, w * .38])
-                box(kit, [x, .48, -d * .33], [.13, .95, .15], C.stone);
-            if (level >= 10) {
-                crate(kit, w * .3, 0, d * .28, .5);
-                for (let i = 0; i < 3; i++)
-                    box(kit, [-w * .3 + i * .17, .18, -d * .35], [.12, .3, .2], C.timber);
-            }
-            if (level >= 15) {
-                box(kit, [-w * .3, .65, -d * .25], [.5, 1.3, .5], C.cream);
-                roof(kit, -w * .3, 1.3, -d * .25, .7, .65);
-            }
-            if (level >= 20) {
-                for (const x of [-w * .32, w * .32])
-                    flower(kit, x, .22, d * .34, .7, '#bc8780');
-                cylinder(kit, [w * .3, .9, -d * .3], .16, 1.7, C.teal);
-            }
-            if (level >= 25) {
-                beam(kit, [-w * .35, 1.05, d * .34], [w * .35, 1.05, d * .34], .08, C.gold);
-                ball(kit, [0, 1.3, d * .34], [.13, .17, .08], C.gold);
+            const kit = new T.Group(), tier = Math.floor(level / 5);
+            if (id === 'mill') {
+                for (let i = 0; i < Math.min(tier, 3); i++) ball(kit, [.75 + i % 2 * .27, .27 + Math.floor(i / 2) * .28, .85], [.16, .25, .18], C.gold);
+                if (tier >= 2) { box(kit, [0, .38, -1.03], [1.55, .16, .58], C.timber); for (const x of [-.7, .7]) box(kit, [x, .18, -1.03], [.1, .35, .1], C.dark); }
+                if (tier >= 3) { cylinder(kit, [.95, .6, -.63], .3, 1.1, C.timber); part(kit, new T.ConeGeometry(.34, .3, 10), C.roof, [.95, 1.3, -.63]); }
+                if (tier >= 4) beam(kit, [.75, 1.23, -.7], [.55, .8, -1.02], .09, C.dark);
+                if (tier >= 5) for (let i = 0; i < 4; i++) box(kit, [-.42 + i * .28, .55, -1.26], [.12, .27, .15], C.cream);
+            } else if (id === 'bakery') {
+                crate(kit, 1.12, .15, -.94, .4);
+                if (tier >= 2) for (let i = 0; i < 3; i++) ball(kit, [.38 + i * .3, 1.05, 1.01], [.1, .07, .16], C.gold);
+                if (tier >= 3) { box(kit, [-1.05, .55, -.83], [.22, .85, .5], C.timber); for (const y of [.35, .62, .9]) { box(kit, [-1.05, y, -.65], [.38, .05, .5], C.dark); ball(kit, [-1.05, y + .09, -.58], [.12, .07, .15], C.gold); } }
+                if (tier >= 4) pot(kit, 1.12, .12, .58, .6, true);
+                if (tier >= 5) { box(kit, [.95, 1.22, -.85], [.45, .07, .32], C.timber); ball(kit, [.95, 1.35, -.85], [.16, .12, .2], C.gold); }
+            } else {
+                for (let i = 0; i < Math.min(tier, 3); i++) { const x = .75 + i % 2 * .42, y = .31 + Math.floor(i / 2) * .39; box(kit, [x, y, -.58], [.38, .37, .48], C.gold); box(kit, [x, y, -.58], [.04, .39, .5], C.dark); }
+                if (tier >= 2) for (const x of [-1.65, 1.65]) cylinder(kit, [x, .42, 1.06], .18, .5, '#a7b7b0', .12);
+                if (tier >= 3) { box(kit, [1.34, .85, -.95], [.55, 1.5, .5], '#b2b8a4'); part(kit, new T.ConeGeometry(.4, .4, 8), C.roof, [1.34, 1.78, -.95]); }
+                if (tier >= 4) box(kit, [.85, .55, 1.06], [.65, .13, .36], C.teal);
+                if (tier >= 5) for (const x of [.6, 1.1]) cylinder(kit, [x, .38, 1.1], .12, .38, '#a7b7b0', .085);
             }
             model.add(bake(kit));
         }

@@ -1,5 +1,7 @@
 # Làng Mầm — kế hoạch nâng cấp nông trại 1–25
 
+**Cập nhật mới nhất 18/09:** đọc [CONTEXTUAL_PLAY_AND_ROADS](CONTEXTUAL_PLAY_AND_ROADS.md). Đã bỏ sidebar/toolbar cố định, thêm menu tại vật thể, cửa sổ có tranh, kéo liềm và hàng bay về kho sau lưu thành công, texture đất, chim ảnh và đường tự nối 16 hướng. Mô tả bảng bên/toolbar phía dưới là lịch sử, không phải UI hiện tại.
+
 > **Thiết kế hiện hành.** Nếu bắt đầu ở máy/phiên mới, đọc [bàn giao và thứ tự toàn bộ tài liệu](README.md) trước. [CURRENT_STATE](CURRENT_STATE.md) mô tả code thực tế; nội dung dưới đây là kế hoạch nâng cấp, không phải danh sách đã triển khai.
 
 Ngày 17/09/2026. **Thiết kế đích; 0.2 đã triển khai nhiều phần, kiểm CURRENT_STATE và VERIFICATION để biết bằng chứng. Không tự đánh dấu toàn bộ E đã nghiệm thu.** Em lập kế hoạch này theo 17 yêu cầu của Đại ca và các bổ sung: bản đồ ngẫu nhiên hoàn toàn, nâng cấp cuối game kéo dài nhiều ngày, công trình tối đa cấp 25, bản đồ rộng và khai phá vật cản bằng tiền/dụng cụ để nhận tài nguyên, địa hình hồ/sông/suối/vách đá với cầu cảng và đánh cá. Phương án sinh map đề xuất là mẫu địa hình đã kiểm duyệt kết hợp bộ sinh theo seed.
@@ -77,7 +79,7 @@ Chọn **Gieo → Ngô**, sau đó chạm nhiều ô liên tiếp hoặc giữ v
 - Chạm từng ô là từng giao dịch nhanh, vẫn giữ công cụ. Nhấn Escape, nút Hủy hoặc bắt đầu cử chỉ hai ngón sẽ hủy nét quét chưa xác nhận.
 - Chỉ báo nổi ngắn “+3” tại nơi thu hoạch; một toast tổng kết. Sau này thêm chọn vùng chữ nhật và “gieo lại vùng vừa thu” khi có nhu cầu ở quy mô lớn.
 
-### 2.4 Di chuyển, xoay đồ và xoay camera
+### 2.4 Di chuyển, xoay đồ và camera cố định
 
 **Sắp xếp → chọn vật thể → kéo thả.** Bóng xem trước bám lưới, màu/ký hiệu báo hợp lệ. Cụm nút **Xoay 90° · Xác nhận · Hủy** bám cạnh vật thể và tự tránh mép màn hình. Thả tại ô hợp lệ áp dụng di chuyển; chọn xoay mà không kéo dùng nút xác nhận. Vị trí sai trả lại chỗ cũ. Có hoàn tác bố trí gần nhất.
 
@@ -85,10 +87,10 @@ Chọn **Gieo → Ngô**, sau đó chạm nhiều ô liên tiếp hoặc giữ v
 - Xoay tính lại footprint, kiểm tra lấn đất/đè đồ, không làm thay đổi job hoặc thời gian sản xuất.
 - Công trình đang sản xuất được chuyển; công trình đang thi công bị khóa di chuyển đến khi xong. Home được chuyển khi rảnh, không được bán/cất/xóa. Mỏ tự nhiên và rừng tài nguyên là địa hình cố định; decor cây trồng trang trí được chuyển.
 - Hoàn tác chỉ sửa bố trí; không khôi phục tiền/kho về trạng thái cũ. Nếu vị trí cũ đã bị chiếm thì báo lý do.
-- Camera xoay ngang đủ 360°, khóa góc nghiêng trong khoảng dễ nhìn. Có nút xoay từng 90° và la bàn đặt lại; không buộc người chơi dùng gesture.
-- Desktop: kéo phải xoay, giữ Space + kéo trái để pan, con lăn zoom; Q/E xoay khi canvas có focus, không nhận phím lúc nhập chữ.
-- Mobile: một ngón thao tác theo công cụ; hai ngón pan/pinch/twist. Khi bắt đầu hai ngón, hủy thao tác một ngón đang xem trước. Nút xoay luôn là phương án thay thế.
-- Sau mọi góc xoay, raycast về tọa độ thế giới để chọn đúng ô. Làm mờ vật che khuất đối tượng chọn khi cần.
+- Camera cố định hướng và độ nghiêng theo quyết định mới ngày 18/09; không xoay bằng chuột, Q/E hoặc hai ngón. Pan/zoom và nút về Home/toàn cảnh/điểm tham quan điều chỉnh vùng nhìn.
+- Desktop: kéo trên đất trống hoặc Space + kéo để pan, kéo phải cũng pan, con lăn zoom.
+- Mobile: một ngón thao tác theo công cụ; hai ngón pan/pinch, hủy nét đang dở khi ngón thứ hai xuất hiện.
+- Raycast về tọa độ thế giới; kiểm alpha của sprite khi chọn. Tán cây mờ và không chặn chọn phía sau trong công cụ ruộng/sắp xếp.
 - Hover hiện “Cối xay gió · Cấp 8/25”; focus bàn phím hoặc chạm trên mobile cho cùng thông tin. Đang nâng hiện “8 → 9 · còn 2 giờ”. Tạm ẩn tooltip trong nét quét/kéo thả.
 
 ## 3. Home và 25 cấp công trình
@@ -300,6 +302,8 @@ Mỹ thuật dùng nước phản chiếu đơn giản theo mức đồ họa, g
 
 ### 5.6 Phương án bộ sinh bản đồ
 
+**Triển khai 18/09/2026:** Đại ca đã duyệt thực hiện camera cố định/2.5D và yêu cầu đa dạng object. Một mẫu thung lũng v2 đã có hồ/sông/cụm rừng/cao nguyên và lối lên; bờ nối liên tục, sprite tài nguyên 7 cây + 7 đá/quặng. Save v1 giữ nguyên bố cục. Các họ mẫu khác vẫn là kế hoạch. Xem [bàn giao](TERRAIN_V2_IMPLEMENTATION.md) và [tham chiếu Family Island](TERRAIN_REFERENCE_FAMILY_ISLAND.md).
+
 Em đề xuất **bộ sinh có ràng buộc, dựa trên họ mẫu địa hình**. Ngẫu nhiên chọn mẫu và tham số cho từng người chơi; người chơi không tự chọn kiểu map. Mẫu tạo bố cục đẹp và đường tiến trình kiểm soát được, seed tạo khác biệt đủ lớn trong từng họ. Đây là một hệ thống nội bộ module, chưa cần thêm một engine/game framework bên ngoài.
 
 | Cách làm | Điểm mạnh | Phần phải trả giá |
@@ -402,7 +406,7 @@ Quy tắc dùng phiếu:
 - **Sự kiện:** hợp đồng theo chủ đề và bộ decor quay lại; không xóa phần thưởng đã kiếm. Social sau này có thăm vườn, xem cách bố trí, giao dịch và hoạt động chung tùy chọn.
 - **Tiện ích cho quy mô lớn:** tìm công trình, lọc hàng, sắp hàng đợi nhiều mẻ, ghim thiếu vật liệu, nhảy tới nhà cần nâng, xem tổng thời gian/chi phí và báo hàng đang được dành cho mục tiêu.
 
-## 9. Mỹ thuật 3D và hiệu năng
+## 9. Mỹ thuật 2.5D và hiệu năng
 
 Hướng hình ảnh: nông trại thủ công ấm áp, gỗ/đá/đất có chất liệu rõ, bảng màu tiết chế, ánh sáng mềm; công trình dễ nhận ra ở góc xa. Giữ sự thân thiện nhưng giảm cảm giác đồ chơi đồng dạng. UI dùng số liệu và icon rõ, ít mảng trang trí chiếm chỗ.
 
@@ -413,11 +417,11 @@ Mỗi loại có **sáu bậc ngoại hình chính ở cấp 1/5/10/15/20/25**. 
 - Home: nhà gỗ nhỏ → nhà có hiên → nhà đá/gỗ → nhà nông trang lớn → khu nhà có tháp nhỏ → điền trang cấp 25, vẫn giữ tỷ lệ ấm áp.
 - Cối xay có cánh/bộ máy/bao bột; lò bánh có lò/ống khói/khay; chuồng có sân và máng; xưởng kim loại có lò, ống và dụng cụ. Silhouette khác nhau trước khi thêm chi tiết.
 - Giữ footprint logic ổn định theo loại để nâng cấp không phá bố trí cũ. Nếu một công trình đặc biệt cần diện tích lớn hơn thì phải có preview và quy trình mở rộng riêng; không tự đẩy/xóa đồ lân cận.
-- Model phải đẹp ở cả bốn phía vì camera xoay. Giàn giáo và vị trí gắn nhãn được định nghĩa chung theo footprint.
+- Camera cố định. Object tĩnh dùng một sprite, không cho xoay. Object được xoay dùng model 3D hoặc bộ sprite đủ bốn hướng nhất quán về pivot/tỉ lệ/ánh sáng; không lật ảnh thay mặt sau. Giàn giáo/nhãn dùng chung footprint.
 - Cây có tối thiểu năm giai đoạn thấy rõ; cây khác nhau cả lá, thân, hình tán và quả. Vườn cây lâu năm khác ruộng mùa vụ. Tài nguyên rừng/đá/quặng có bộ địa hình riêng.
 - Decor theo bộ phối hợp: vườn quê, sân đá, bờ suối, hội chợ; thay đổi kích thước/chất liệu/hình dáng, tránh lặp một mẫu đổi màu.
 
-**Dùng skill imagegen khi bước vào đợt mỹ thuật** để tạo concept ba vùng, bảng ngoại hình Home, tham chiếu từng công trình và vật liệu phù hợp. Ảnh concept hiện có là điểm bắt đầu, không thay cho mesh 3D. Từ concept cần dựng/kiểm model, pivot, footprint, vật liệu, LOD và xuất asset tối ưu; không dùng ảnh một góc làm công trình phải xoay đủ 360°.
+**Dùng skill imagegen** để tạo sprite và concept. Đã có 14 sprite RGBA tài nguyên tĩnh; công trình/cây mùa vụ vẫn dùng mesh hiện có. Nếu chuyển công trình sang sprite phải sản xuất đủ bốn ảnh/hạng ngoại hình, kiểm pivot, footprint, bóng, lớp che khuất và dung lượng; không dùng một ảnh rồi xoay tấm phẳng.
 
 Danh mục trong bảng tiến trình gồm 28 loại công trình ngoài Home, tính cả cầu cảng: nếu mỗi loại sáu bậc sẽ là khối lượng lớn. Làm trước bộ đại diện Home/cối xay/lò bánh/chuồng/kho, cộng một bộ bờ nước/cảng/cầu, duyệt chất lượng trong cảnh chơi rồi mở rộng kit. Không sản xuất hàng loạt trước khi chốt tỷ lệ, ánh sáng và cách phân bậc.
 
@@ -433,7 +437,7 @@ Giữ engine thuần và adapter lưu riêng đang có; tách dần catalog/logi
 | State | Home, jobs, đội thợ, seed/biome/vùng đất, tài nguyên, hàng đợi, kho khả dụng/giữ chỗ, tiến độ nhiệm vụ, biên nhận |
 | Commands | Công cụ nhiều ô; move/rotate; tạo/hủy lịch nâng; tăng tốc; mua lô hàng; đóng góp nhiệm vụ; nhận thưởng |
 | Systems | Kiểm điều kiện, giải quyết thời gian/job, bố trí, tạo map, kinh tế/chợ, tiến trình/thưởng |
-| Interaction | Bộ điều khiển chọn/quét ô/kéo vật/xoay camera với trạng thái loại trừ nhau |
+| Interaction | Bộ điều khiển chọn/quét ô/kéo vật/pan camera với trạng thái loại trừ nhau |
 | Render | Địa hình theo biome, model bậc nhà, tài nguyên, dấu thi công, nhãn vật thể và mức chi tiết |
 | Adapters | Kho local có migration, revision và lưu nguyên tử; TimeProvider/RandomProvider thay được |
 
@@ -457,7 +461,7 @@ Mỗi đợt giao một bản chạy riêng có thể chơi thử. Không coi c�
 
 | Đợt | Phạm vi | Điều kiện hoàn thành |
 |---|---|---|
-| A — Thao tác và bố cục | Toast, năm menu, giữ công cụ/quét ruộng, kéo thả, nút xoay cạnh vật, xoay camera, tooltip | Không che dock; gieo/thu nhiều ô đúng tiền/kho; chọn/đặt đúng ở mọi hướng; desktop và mobile dùng được |
+| A — Thao tác và bố cục | Toast, năm menu, giữ công cụ/quét ruộng, kéo thả, nút xoay cạnh vật, pan/zoom camera cố định, tooltip | Không che dock; gieo/thu nhiều ô đúng tiền/kho; chọn/đặt đúng ở mọi hướng; desktop và mobile dùng được |
 | B — Nền Home và thời gian | Home, schema/migration, điều kiện chéo, jobs/đội thợ, tăng tốc tối thiểu, nguồn gỗ/đá; lượt chơi Home 1–3 | Cối xay 2 + kho 2 → Home 3; chờ thật, đóng/mở tiếp tục; không thể vượt Home; save cũ giữ tiến trình |
 | C — Kinh tế và thế giới | Map lớn chia khu, bộ sinh theo mẫu/seed, ba thế mạnh, hồ/suối/vách/cầu, khai phá nhận tài nguyên, kho, chợ NPC, hàng đợi, chuỗi sản phẩm Home 4–10; thử sớm placement cầu cảng | Mọi vùng lên Home 10 solo; địa hình/đường đi/điểm đặt cảng hợp lệ; không vòng nguyên liệu/tiền; reload không đổi map/stock/tái sinh đá đã phá; pan qua biên khu mượt |
 | D — Tiến trình đầy đủ | Content Home 11–25, nhà phụ đến 25, 25 chương, thành tựu, thưởng đa dạng, hợp đồng/chuyên môn | Chạy mô phỏng đầy đủ từng biome không mua người chơi/không tăng tốc; có mục tiêu ngoài chờ Home; bảng chi phí được cân bằng |
@@ -474,7 +478,7 @@ Mỹ thuật không đợi đến E mới làm: ở B làm bộ đại diện Ho
 - **Giao dịch local:** double-click, gửi lại mã lệnh, hai tab, lỗi ghi, kho đầy, nhận thưởng quá kho, mua hết stock; không âm kho/xu, không mất job.
 - **Khai phá:** mở đất liền kề, cấp Home/nguồn dụng cụ đúng, đủ diện tích lối đi; phá lúc kho đầy; nhận thưởng sau ba ngày; tải lại/đổi phiên bản bộ sinh không hoàn nguyên vật cản; không phá mất nguồn tài nguyên thiết yếu cuối cùng.
 - **Địa hình/generator:** đủ mặt bằng và bờ nước cho cảng, đầu cầu có đường tới, sông không đứt ở ranh chunk, vách không làm nhà treo, không mở lối bằng vật liệu chỉ ở phía bị khóa; cùng seed/phiên bản cho cùng map, seed lỗi dùng dự phòng, save cũ giữ nguyên mặt nước và cao độ.
-- **Điều khiển:** quét qua lại một ô, thiếu một hạt, đổi công cụ giữa nét, kéo ra ngoài canvas, hai ngón xuất hiện giữa nét, xoay bản đồ rồi kéo/rotate nhà; no-op không tốn tiền.
+- **Điều khiển:** quét qua lại một ô, thiếu một hạt, đổi công cụ giữa nét, kéo ra ngoài canvas, hai ngón xuất hiện giữa nét, pan/zoom bản đồ rồi kéo/xoay nhà; no-op không tốn tiền.
 - **Save:** migration/import/export, phiên bản không hỗ trợ, lỗi snapshot, slot debug tách save thật; không làm mất vườn hiện tại.
 - **UX/mỹ thuật:** kiểm va chạm overlay thực tế, chữ và touch target, giảm chuyển động, chế độ nhẹ; ảnh chụp và đo FPS trên thiết bị chỉ định, không chỉ build thành công.
 

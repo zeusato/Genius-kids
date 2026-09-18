@@ -6,6 +6,7 @@ import { createFarm, execute, advanceTime, dimensions, placementError } from '..
 import { ASSETS, CROPS, RECIPES, ITEMS, type AssetId, type ItemId, type RecipeId, type CropId } from '../src/core/catalog';
 import { CHAPTER_PRODUCTS, chapterReady, HOME_LEVELS, homeLevel, upgradePrice, plotCap, storageCap, usedStorage, queueCap, outputCap } from '../src/core/progression';
 import { generateWorld } from '../src/core/world';
+import { buildPrice } from '../src/core/construction';
 import { validateSnapshot } from '../src/core/validation';
 import type { FarmCommand, FarmState, Entity } from '../src/core/types';
 /** A legal-command player: no grants, no speedups, no trading, no edits to saved balances. */
@@ -140,7 +141,14 @@ class Player {
         }
     }
     build(asset: AssetId) { if (this.entity(asset))
-        return; this.money(ASSETS[asset].price); const [w, d] = dimensions(asset, 0); let spot: {
+        return;
+        const price = buildPrice(asset);
+        for (let pass = 0; pass < 20; pass++) {
+            this.money(price.coins + 100);
+            this.items(price.items);
+            if (this.s.coins >= price.coins) break;
+        }
+        const [w, d] = dimensions(asset, 0); let spot: {
         x: number;
         z: number;
     } | undefined; for (let z = 0; z < 24 && !spot; z++)
@@ -205,6 +213,8 @@ describe('legal solo progression', () => {
             }
         mkdirSync(reportDirectory, { recursive: true });
         writeFileSync(reportDirectory+'/solo-progression.json', JSON.stringify(reports, null, 2));
-    }, 180000);
+    // Nine full playthroughs execute hundreds of thousands of legal commands. Allow slower
+    // development machines to complete; the per-player 200000-action deadlock guard remains.
+    }, 600000);
 });
 

@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-18",
+  "mode": "built-in image_gen",
+  "usage": "Project assets copied to src/assets/terrain; unedited RGBA PNG originals.",
+  "prompts": [
+    {
+      "name": "oak",
+      "promptRecord": "summary",
+      "brief": "Single broad mature oak with irregular green canopy, visible trunk and roots; cozy painterly isometric farming resource, fixed elevated view, transparent background, no landscape or text."
+    },
+    {
+      "name": "stone",
+      "promptRecord": "summary",
+      "brief": "Single cluster of mossy gray boulders, irregular readable silhouette; cozy painterly isometric farming resource, fixed elevated view, transparent background, no landscape or text."
+    },
+    {
+      "name": "birch",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. A slender silver birch tree with two graceful white trunks marked dark gray, small delicate leaves in airy lime green and olive clusters, narrow upright canopy, small exposed roots. Clearly different silhouette from a broad oak."
+    },
+    {
+      "name": "pine",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One mature pine tree with a tall tapered conical silhouette, asymmetrical horizontal whorls of layered deep forest green needles, reddish-brown rough trunk exposed at base, a few small cones. Broad natural irregular branches, not a Christmas decoration."
+    },
+    {
+      "name": "bamboo",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One dense compact clump of seven slender bamboo canes with visible light jade segmented stems and sprays of narrow green leaves, asymmetric fan-shaped crown, small roots at base. A natural farm resource."
+    },
+    {
+      "name": "banana",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One banana plant with thick short green-brown pseudostem, seven broad dramatically arching lime and emerald banana leaves with gently torn edges, a small bunch of green bananas tucked near stem. Tropical farm plant, striking broad-leaf silhouette."
+    },
+    {
+      "name": "maple",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One mature maple tree with a spreading umbrella crown of layered warm amber, terracotta and gold leaves, visible branching dark brown trunk and small roots. Restrained autumn color, cozy and natural, rich painterly leaf masses."
+    },
+    {
+      "name": "blossom",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One small flowering plum tree with gently crooked dark trunk, a wide irregular crown mixing muted dusty pink blossoms with fresh green leaves, delicate branching silhouette, roots visible. Restrained floral accent for a natural farming valley."
+    },
+    {
+      "name": "granite",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One compact cluster of three rounded cool gray granite boulders, broad low silhouette, smoothly weathered surfaces, subtle speckles, a little moss in crevices. Isolated natural rock resource."
+    },
+    {
+      "name": "sandstone",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One stratified warm ochre sandstone outcrop, wide stepped rock slabs with irregular broken ends and fine horizontal layers, one smaller chunk at base. Low wide silhouette, natural geology."
+    },
+    {
+      "name": "slate",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One jagged dark blue-gray slate outcrop with several thin angular upright slabs and scattered connected small fragments at base, subtle silvery edges and mineral striations. Distinct pointed silhouette."
+    },
+    {
+      "name": "limestone",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One pale cream limestone outcrop, rounded asymmetrical porous weathered form with eroded holes and a few soft green moss patches near base. Compact tall silhouette, natural river valley geology."
+    },
+    {
+      "name": "riverstone",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One low cluster of five smooth river cobbles, sizes varied, muted gray and warm beige stones with soft wet-looking highlights and tiny moss accents. Broad flat silhouette, recognizable harvestable rock pile."
+    },
+    {
+      "name": "iron",
+      "prompt": "Use case: stylized-concept. Asset type: one production sprite for a cozy 2.5D farming game. A SINGLE isolated object, entire silhouette centered with 8 percent padding, visible base bottom center. Fixed orthographic isometric view down 35 degrees, soft sunlight upper left. Rich painterly hand-crafted 3D-rendered illustration, natural materials and crisp readable silhouette. Genuinely transparent alpha background, no ground tile, no floor, no cast ground shadow, no landscape, no other objects, no text or border. One iron ore outcrop: three chunky angular charcoal-brown rocks with clearly visible rust-orange mineral seams, a few steel-gray crystalline inclusions, rough matte rock surfaces. Distinct from ordinary pale stone, natural stylized mining resource."
+    }
+  ]
+}

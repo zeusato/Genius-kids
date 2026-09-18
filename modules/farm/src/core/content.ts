@@ -1,6 +1,7 @@
 import { ASSETS as OLD_ASSETS, CROPS as OLD_CROPS, QUESTS as OLD_QUESTS } from './legacy/catalog';
-export const CONTENT_VERSION = 2;
-export type CropId = keyof typeof OLD_CROPS | 'soy' | 'cotton' | 'sunflower' | 'strawberry' | 'tomato' | 'rice' | 'lavender' | 'tea';
+export const CONTENT_VERSION = 3;
+export const NEW_CROP_IDS = ['lettuce', 'radish', 'onion', 'potato', 'cucumber', 'eggplant', 'chili', 'watermelon', 'pineapple', 'rose', 'coffee', 'saffron'] as const;
+export type CropId = keyof typeof OLD_CROPS | 'soy' | 'cotton' | 'sunflower' | 'strawberry' | 'tomato' | 'rice' | 'lavender' | 'tea' | typeof NEW_CROP_IDS[number];
 export type CropSpec = {
     name: string;
     icon: string;
@@ -23,6 +24,18 @@ const cropRows: [
     string
 ][] = [
     ['soy', 'Đậu tương', 4, 14, 14, 180, 4, '#8dac53'], ['cotton', 'Bông', 5, 20, 22, 300, 3, '#e8e1cf'], ['sunflower', 'Hướng dương', 7, 24, 26, 450, 3, '#e4b83f'], ['strawberry', 'Dâu tây', 9, 35, 36, 900, 4, '#c66062'], ['tomato', 'Cà chua', 10, 40, 40, 1200, 4, '#c96745'], ['rice', 'Lúa', 12, 30, 28, 7200, 6, '#b9b063'], ['lavender', 'Oải hương', 17, 55, 60, 14400, 5, '#9b83b8'], ['tea', 'Trà', 20, 65, 65, 28800, 6, '#57855a'],
+    ['lettuce', 'Xà lách', 2, 6, 9, 150, 3, '#94b957'],
+    ['radish', 'Củ cải đỏ', 3, 9, 13, 240, 3, '#c7516b'],
+    ['onion', 'Hành tây', 4, 18, 22, 600, 4, '#d8ac6e'],
+    ['potato', 'Khoai tây', 6, 26, 30, 1200, 5, '#b79564'],
+    ['cucumber', 'Dưa leo', 8, 32, 38, 2700, 5, '#608d45'],
+    ['eggplant', 'Cà tím', 10, 45, 52, 5400, 4, '#78538c'],
+    ['chili', 'Ớt', 11, 55, 65, 10800, 5, '#c64e39'],
+    ['watermelon', 'Dưa hấu', 13, 85, 120, 18000, 3, '#477b48'],
+    ['pineapple', 'Dứa', 15, 95, 135, 21600, 4, '#d5a14a'],
+    ['rose', 'Hoa hồng', 18, 120, 150, 43200, 5, '#ce6e8c'],
+    ['coffee', 'Cà phê', 22, 160, 180, 57600, 6, '#974d3a'],
+    ['saffron', 'Nghệ tây', 25, 240, 480, 86400, 5, '#a179ba'],
 ];
 export const CROPS = { ...OLD_CROPS, ...Object.fromEntries(cropRows.map(([id, name, level, seed, sell, seconds, yieldCount, color]) => [id, { name, level, seed, sell, seconds, yield: yieldCount, color, icon: 'leaf', xp: level * 3 + 5 }])) } as Record<CropId, CropSpec>;
 export const GOODS = {

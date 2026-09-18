@@ -6,6 +6,7 @@ import { ASSETS, type AssetId, type CropId } from '../core/catalog';
 import { boundsOf, dimensions, growthStage, placementError } from '../core/engine';
 import type { Entity, FarmState, Plot, Rotation } from '../core/types';
 import { assetModel, cropModel, sceneryModel } from './models';
+import { RoadSample } from './Roads';
 export type Placement = {
     asset: AssetId | 'plot';
     rotation: Rotation;
@@ -66,7 +67,7 @@ export function BuildingModel({ asset, level, working = false, reduced = false }
         if (cow && origin)
             cow.position.y = origin.y + Math.sin(clock.elapsedTime * 1.8) * .009;
     });
-    return <primitive object={model} dispose={null}/>;
+    return asset === 'path' ? <RoadSample/> : <primitive object={model} dispose={null}/>;
 }
 function Light({ quality }: {
     quality: 'soft' | 'light';

@@ -40,7 +40,7 @@ export function getMusicTrackForRoute(pathname: string): MusicTrack | null {
 
     // Keep the alphabet menu and all its listening/learning activities quiet.
     // This changes playback only; the user's saved music preference stays intact.
-    if (normalizedPath.endsWith('/preschool/alphabet') || normalizedPath.endsWith('/preschool/counting') || normalizedPath.endsWith('/piano')) return null;
+    if (normalizedPath.endsWith('/preschool/alphabet') || normalizedPath.endsWith('/preschool/counting') || normalizedPath.endsWith('/piano') || normalizedPath.endsWith('/games/farm')) return null;
 
     // Check for specific game routes first (more specific matches)
     if (normalizedPath.includes('dragonquest')) {

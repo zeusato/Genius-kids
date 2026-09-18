@@ -1,0 +1,6 @@
+{
+  "tool": "Built-in image_gen via imagegen skill; original PNG copied unchanged",
+  "file": "src/assets/terrain/road-stone-v1.png",
+  "prompt": "Use case: stylized-concept. Asset: seamless repeating square albedo texture of a rustic farm footpath built from small irregular rounded sandstone cobblestones. Exactly flat top-down orthographic view, edge-to-edge material surface, no perspective, no raised slab. Warm muted beige limestone, pale honey sandstone, occasional dusty taupe stones, narrow earthy sand joints, subtly worn pitted surfaces, soft hand-painted gouache shading, cozy premium isometric farming game aesthetic matching a natural green countryside. Many stones, about 10-12 across; irregular sizes and hand-laid pattern; quiet readable detail. Tile seamlessly on all four sides, no outer border or frame, no grass, no plants, no objects, no cast shadow, no text. Square1024x1024 opaque texture.",
+  "implementation": "Shared world-space UVs, mirrored repeating texture, rounded connected mesh for all 16 cardinal masks. No stored road-mask field."
+}

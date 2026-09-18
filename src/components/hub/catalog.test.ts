@@ -5,6 +5,13 @@ import { gamesFor, boardGamesFor, gameParent, gameTitle, modesFor, scienceFor, S
 const modern: LegacyFlags = { memory:false, sound:false, dragon:false };
 const resolve = (query: string, grade: Grade = 3, flags = modern) => resolveEntry(new URLSearchParams(query), grade, flags);
 describe('hub entry contracts', () => {
+    it('keeps board games first and offers the farm without difficulty setup for every grade', () => {
+        for (const grade of [0,1,2,3,4,5] as const) {
+            expect(gamesFor(grade).slice(0,2).map(g => g.id)).toEqual(['board-games','farm']);
+            expect(resolve('play=farm&edition=classic&level=hard', grade)).toMatchObject({id:'farm',classic:false,needsSetup:false});
+        }
+        expect(gameParent('farm')).toBe('');
+    });
     it('groups six board games and returns each game to its group', () => {
         const ids = ['co-ti-phu','o-an-quan','horse-race','co-vua','co-tuong','caro'] as const;
         expect(boardGamesFor(3).map(g => g.id)).toEqual(ids);
@@ -30,11 +37,11 @@ describe('hub entry contracts', () => {
     });
     it('keeps preschool destinations and order, including grade zero', () => {
         expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','piano','science']);
-        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['board-games','memory','sound-memory']);
+        expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['board-games','farm','memory','sound-memory']);
         expect(boardGamesFor(Grade.Preschool).map(g => g.id)).toEqual(['o-an-quan','horse-race','caro']);
         expect(resolve('play=caro',Grade.Preschool)).toMatchObject({id:'caro',classic:false,needsSetup:false});
         expect(modesFor(3).map(m => m.id)).toEqual(['study','game','library','riddle','piano','science']);
-        expect(gamesFor(3)).toHaveLength(9);
+        expect(gamesFor(3)).toHaveLength(10);
         expect(gamesFor(3).some(g=>g.id==='coding')).toBe(true);
         expect(resolve('play=coding')).toMatchObject({id:'coding',needsSetup:false});
         expect(resolve('play=coding',Grade.Preschool)).toBeNull();

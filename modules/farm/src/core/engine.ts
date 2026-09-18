@@ -1,10 +1,11 @@
 import { ASSETS, CROPS, ITEMS, QUESTS, RECIPES, SPEEDUPS, emptyInventory, type AssetId, type BuildingId, type ItemId, type RecipeId } from './catalog';
 import { homeLevel, homeSpec, plotCap, regionCap, storageCap, usedStorage, queueCap, outputCap, productionFactor, upgradePrice, upgradeMs, upgradeRequirements, buildMs, chapterReady, orderFor, type Cost } from './progression';
-import { generateWorld, heightAt, isWater, ownedAt, bridgeAt, chunkNeighbors, chunkOf, canReachRegion } from './world';
+import { generateWorld, heightAt, isWater, ownedAt, bridgeAt, chunkNeighbors, chunkOf, canReachRegion, reachableTiles, tileIndex, canWorkTile } from './world';
 import { advanceTime, resolveJobs, marketItems, marketHome, marketPrice, marketStock, fishPuzzle } from './simulation';
 import { createFarm as createLegacy } from './legacy/engine';
 import {RECIPES as LEGACY_RECIPES} from './legacy/catalog';
 import { copyFarm } from './copy';
+import { buildPrice, buildRequirements } from './construction';
 import { PROFESSIONS, PROJECTS, professionRank, professionFactor, validPipes } from './activities';
 import type { FarmState, Entity, Plot, Rotation, FarmCommand, CommandResult, ProductionJob } from './types';
 export { advanceTime };
@@ -16,11 +17,11 @@ export const progressOf = (start: number, end: number, now: number) => Math.max(
 export const growthStage = (p: Plot, now: number) => !p.crop ? -1 : now >= p.readyAt! ? 4 : Math.min(3, Math.floor(progressOf(p.plantedAt!, p.readyAt!, now) * 4));
 export function createFarm(now: number, seed = crypto.getRandomValues(new Uint32Array(1))[0]): FarmState {
     const old = createLegacy(now);
-    return { ...old, schema: 2, contentVersion: 2, inventory: emptyInventory(), entities: [{ id: 'home', asset: 'home', x: 10, z: 2, rotation: 0, level: 1, queue: [], output: {} }, { id: 'warehouse', asset: 'warehouse', x: 2, z: 1, rotation: 0, level: 1, queue: [], output: {} }], world: generateWorld(seed), legacyPlotCap: 0, legacyStorageCap: 0, migrationNotes: [], speedups: { 5: 1, 10: 0, 30: 0, 60: 0 }, produced: {}, discovered: ['wheat', 'carrot'], market: { epoch: 0, bought: {} }, receipts: [], reserve: {}, contract: { stage: 0, round: 0 }, fishing: { round: 0, best: 0, rewardedEpoch: -1 }, stats: { ...old.stats, clear: 0, explore: 4, fish: 0 } };
+    return { ...old, schema: 2, contentVersion: 3, inventory: emptyInventory(), entities: [{ id: 'home', asset: 'home', x: 10, z: 2, rotation: 0, level: 1, queue: [], output: {} }, { id: 'warehouse', asset: 'warehouse', x: 2, z: 1, rotation: 0, level: 1, queue: [], output: {} }], world: generateWorld(seed), legacyPlotCap: 0, legacyStorageCap: 0, migrationNotes: [], speedups: { 5: 1, 10: 0, 30: 0, 60: 0 }, produced: {}, discovered: ['wheat', 'carrot'], market: { epoch: 0, bought: {} }, receipts: [], reserve: {}, contract: { stage: 0, round: 0 }, fishing: { round: 0, best: 0, rewardedEpoch: -1 }, stats: { ...old.stats, clear: 0, explore: 4, fish: 0 } };
 }
 const own = (o: object, k: string) => Object.prototype.hasOwnProperty.call(o, k);
 const overlap = (x: number, z: number, w: number, d: number, bx: number, bz: number, bw: number, bd: number) => x < bx + bw && x + w > bx && z < bz + bd && z + d > bz;
-export function placementError(s: FarmState, x: number, z: number, w: number, d: number, ignoreId?: string, asset?: AssetId, rotation: Rotation = 0): string | null {
+export function placementError(s: FarmState, x: number, z: number, w: number, d: number, ignoreId?: string, asset?: AssetId, rotation: Rotation = 0, requireAccess = true): string | null {
     if (![x, z, w, d].every(Number.isInteger) || x < 0 || z < 0 || x + w > 96 || z + d > 96)
         return 'Chọn vị trí trong bản đồ.';
     const h = heightAt(s.world, x, z);
@@ -53,6 +54,16 @@ export function placementError(s: FarmState, x: number, z: number, w: number, d:
         return 'Vị trí đang có luống cây.';
     if (s.world.obstacles.some(o => !o.cleared && overlap(x, z, w, d, o.x, o.z, 1, 1)))
         return 'Cần dọn cây hoặc đá ở đây.';
+    // The permanent 24×24 starter clearing is validated as flat, dry and unobstructed.
+    // Avoid flood-filling the world for every candidate in building searches there.
+    if (requireAccess && (x + w > 24 || z + d > 24)) {
+        const reachable = reachableTiles(s.world);
+        for (let dz = 0; dz < d; dz++) for (let dx = 0; dx < w; dx++) {
+            const xx = x + dx, zz = z + dz;
+            if (!isWater(s.world, xx, zz) && !reachable.has(tileIndex(xx, zz)))
+                return 'Cần khai phá lối đi hoặc xây cầu tới vị trí này.';
+        }
+    }
     return null;
 }
 export const needItems = (s: FarmState, items: Partial<Record<ItemId, number>>) => Object.entries(items).find(([id, n]) => s.inventory[id as ItemId] < n!)?.[0] as ItemId | undefined;
@@ -66,7 +77,6 @@ function add(s: FarmState, items: Partial<Record<ItemId, number>>) { for (const 
 const room = (s: FarmState, items: Partial<Record<ItemId, number>>) => usedStorage(s) + Object.values(items).reduce((a, b) => a + (b ?? 0), 0) <= storageCap(s);
 function afford(s: FarmState, c: Cost) { return s.coins >= c.coins && !needItems(s, c.items); }
 function pay(s: FarmState, c: Cost) { s.coins -= c.coins; consume(s, c.items); }
-const jobCount = (s: FarmState) => s.entities.filter(e => e.construction).length;
 export const contractNeed = (s: FarmState): Partial<Record<ItemId, number>> => (homeLevel(s)<15?[{bread:3,juice:2},{cloth:2,butter:2},{soup:2,flowers:2}]:[{ bread: 3, juice: 2 }, { cloth: 2, jam: 2 }, { gift: 2 }])[s.contract.stage];
 export function execute(state: FarmState, command: FarmCommand): CommandResult {
     const fail = (message: string): CommandResult => ({ ok: false, state, message });
@@ -259,18 +269,12 @@ export function execute(state: FarmState, command: FarmCommand): CommandResult {
             Object.assign(e, { x: command.x, z: command.z, rotation: command.rotation, stored: false });
         }
         else {
-            if (level < a.level || s.coins < a.price)
-                return fail('Chưa đủ cấp Nhà chính hoặc xu.');
-            if (s.entities.length >= 300)
-                return fail('Đã đạt 300 công trình và trang trí.');
-            if (a.kind === 'building' && s.entities.some(v => v.asset === id))
-                return fail('Mỗi loại công trình có một bản chính.');
-            if (a.kind === 'building' && jobCount(s) >= homeSpec(s).builderSlots)
-                return fail('Chưa có đội thợ rảnh.');
-            s.coins -= a.price;
+            const errors = buildRequirements(s, id), cost = buildPrice(id);
+            if (errors.length) return fail(errors.join(' · '));
+            pay(s, cost);
             const added: Entity = { id: `entity-${s.nextId++}`, asset: id, x: command.x, z: command.z, rotation: command.rotation, level: 1, queue: [], output: {} };
             if (a.kind === 'building')
-                added.construction = { id: `build-${s.nextId++}`, target: 1, startedAt: s.clock, readyAt: s.clock + buildMs(id as BuildingId), duration: buildMs(id as BuildingId), cost: { coins: a.price, items: {} }, newBuilding: true };
+                added.construction = { id: `build-${s.nextId++}`, target: 1, startedAt: s.clock, readyAt: s.clock + buildMs(id as BuildingId), duration: buildMs(id as BuildingId), cost, newBuilding: true };
             else
                 s.stats.decorate++;
             s.entities.push(added);
@@ -423,6 +427,8 @@ export function execute(state: FarmState, command: FarmCommand): CommandResult {
         if (command.type === 'clear') {
             if (o.cleared || o.readyAt !== undefined)
                 return fail('Vật cản đã dọn hoặc đang dọn.');
+            if (!canWorkTile(s.world, o.x, o.z))
+                return fail('Cần mở lối tới cây hoặc đá này trước.');
             if (o.kind === 'ore' && level < 4)
                 return fail('Quặng mở từ Nhà chính 4.');
             if (s.world.obstacles.some(v => v.readyAt !== undefined && v.readyAt > s.clock))
@@ -460,6 +466,8 @@ export function execute(state: FarmState, command: FarmCommand): CommandResult {
             return fail('Cầu đã xây hoặc đang xây.');
         if (level < 4 || !ownedAt(s.world, b.x, b.z) || !ownedAt(s.world, b.x + 5, b.z))
             return fail('Cần Nhà chính 4 và sở hữu hai đầu cầu.');
+        if (!canWorkTile(s.world, b.x, b.z) && !canWorkTile(s.world, b.x + 5, b.z))
+            return fail('Cần mở lối tới một đầu cầu trước.');
         const c = { coins: 100, items: { plank: 6, stone: 4 } };
         if (!afford(s, c))
             return fail('Cần 100 xu, 6 ván và 4 đá.');

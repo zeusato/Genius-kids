@@ -13,7 +13,8 @@ export type Obstacle = {
 };
 export type World = {
     seed: number;
-    version: 1;
+    version: 1 | 2;
+    templateId?: 'lake-valley-v2';
     family: typeof FAMILIES[number];
     biome: Biome;
     heights: number[];
@@ -70,7 +71,8 @@ export function canReachRegion(w: World, id: number): boolean {
         }
     return false;
 }
-export function generateWorld(seed: number): World {
+/** Retained for save compatibility and migration regression fixtures. Never regenerate a saved world. */
+export function generateLegacyWorld(seed: number): World {
     const rng = random(seed), family = FAMILIES[Math.floor(rng() * 6)], biome = BIOMES[Math.floor(rng() * 3)], phase = rng() * 6;
     const heights: number[] = [], water: number[] = [], obstacles: Obstacle[] = [];
     const familyIndex = FAMILIES.indexOf(family), river = 50 + Math.floor(rng() * 3), lakeX = 25 + Math.floor(rng() * 5), lakeZ = 42 + Math.floor(rng() * 5);
@@ -117,5 +119,100 @@ export function worldErrors(w: World): string[] {
         errors.push('pier');
     if (new Set(w.obstacles.map(o => o.id)).size !== w.obstacles.length)
         errors.push('obstacle ids');
+    if (w.obstacles.some(o => !o.cleared && o.x < 24 && o.z < 24)) errors.push('blocked start');
+    if (w.version === 2) {
+        if (w.templateId !== 'lake-valley-v2') errors.push('template');
+        if (w.obstacles.some(o => isWater(w, o.x, o.z))) errors.push('obstacle water');
+        if (new Set(w.bridges.map(b => b.id)).size !== w.bridges.length) errors.push('bridge ids');
+        for (const b of w.bridges) {
+            for (let dz = 0; dz < 2; dz++) {
+                if (isWater(w, b.x, b.z + dz) || isWater(w, b.x + 5, b.z + dz)) errors.push('bridge banks');
+                if (heightAt(w, b.x, b.z + dz) !== 0 || heightAt(w, b.x + 5, b.z + dz) !== 0) errors.push('bridge height');
+            }
+        }
+    }
     return [...new Set(errors)];
+}
+
+/** One authored valley composition with bounded seed variation; chunks do not shape landforms. */
+export function valleyLandAt(x: number, z: number, seed: number): boolean {
+    const coastline = ((x - 46) / 65) ** 2 + ((z - 45) / 64) ** 2;
+    const edge = 1 + .035 * Math.sin(x * .17 + seed % 17) + .025 * Math.cos(z * .21);
+    const homeHeadland = ((x - 14) / 31) ** 2 + ((z - 14) / 31) ** 2 < 1;
+    return coastline < edge || homeHeadland;
+}
+export function valleyShelfHeight(x: number, z: number, phase: number): number {
+    const outline = ((x - 81) / 20) ** 2 + ((z - 29) / 25) ** 2;
+    const ripple = .06 * Math.sin(z * .38 + phase) + .035 * Math.cos(x * .5);
+    let h = outline < 1 + ripple ? 2.5 : 0;
+    if (z >= 34 && z <= 39 && x >= 60 && x <= 80) h = Math.min(2.5, Math.max(0, (x - 63) * .25));
+    return h;
+}
+export function generateWorld(seed: number): World {
+    const rng = random(seed), family = FAMILIES[Math.floor(rng() * FAMILIES.length)], biome = BIOMES[Math.floor(rng() * BIOMES.length)];
+    const phase = rng() * Math.PI * 2, river = 50 + Math.floor(rng() * 3);
+    const lakeX = 27 + rng() * 2, lakeZ = 47 + rng() * 2;
+    const lakeWidth = 13 + rng() * 3, lakeDepth = 11 + rng() * 2;
+    const heights: number[] = [], water: number[] = [], obstacles: Obstacle[] = [];
+    const forestCenters = [[12, 37, 10, 9], [13, 59, 13, 14], [36, 77, 15, 12], [65, 80, 13, 12], [87, 58, 9, 12]];
+    const density = (x: number, z: number) => {
+        let best = 0;
+        for (const [cx, cz, rx, rz] of forestCenters) {
+            if (Math.abs(x - cx) >= rx || Math.abs(z - cz) >= rz) continue;
+            best = Math.max(best, 1 - ((x - cx) / rx) ** 2 - ((z - cz) / rz) ** 2);
+        }
+        return best;
+    };
+    for (let z = 0; z < WORLD_SIZE; z++) for (let x = 0; x < WORLD_SIZE; x++) {
+        const start = x < 32 && z < 32;
+        const crossingDistance = Math.min(Math.abs(z - 20), Math.abs(z - 21), Math.abs(z - 68), Math.abs(z - 69));
+        const riverX = river + Math.round(Math.sin(z * .065 + phase) * 4 * Math.min(1, crossingDistance / 9));
+        const crossing = z >= 20 && z <= 21 || z >= 68 && z <= 69;
+        const lake = ((x - lakeX) / lakeWidth) ** 2 + ((z - lakeZ) / lakeDepth) ** 2 < 1
+            || ((x - lakeX - 7) / 10) ** 2 + ((z - lakeZ - 3) / 8) ** 2 < 1;
+        const streamZ = lakeZ + Math.sin((x - lakeX) * .18) * 3;
+        const stream = x > lakeX && x < riverX && Math.abs(z - streamZ) < 1.6;
+        const wet = !start && (!valleyLandAt(x, z, seed) || lake || stream || x >= riverX && x < riverX + (crossing ? 4 : 3));
+        // One broad rocky shelf, with a deliberately reserved approach from the western meadow.
+        const h = !wet && !start ? valleyShelfHeight(x, z, phase) : 0;
+        heights.push(h);
+        water.push(wet ? 1 : 0);
+    }
+    // The permanent landing is kept compatible with the pier rule and existing QA tooling.
+    for (let z = 35; z <= 42; z++) for (let x = 23; x <= 29; x++) {
+        water[tileIndex(x, z)] = z >= 38 ? 1 : 0;
+        heights[tileIndex(x, z)] = 0;
+    }
+    for (let z = 0; z < WORLD_SIZE; z++) for (let x = 0; x < WORLD_SIZE; x++) {
+        const i = tileIndex(x, z), h = heights[i];
+        if (water[i] || x < 24 && z < 24) continue;
+        const crossing = Math.abs(z - 20.5) < 2 || Math.abs(z - 68.5) < 2;
+        const trail = Math.abs(x - (14 + Math.sin(z * .11) * 2)) < 1.6;
+        const landing = x >= 22 && x <= 30 && z <= 42;
+        const ramp = z >= 33 && z <= 40 && x >= 58 && x <= 84;
+        const shelfTrail = h > 0 && Math.abs(x - 81) < 2;
+        if (crossing || trail || landing || ramp || shelfTrail) continue;
+        // Keep objects rooted on a flat tile and away from the edge of the shelf.
+        if ([[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dz]) =>
+            x + dx >= 0 && x + dx < 96 && z + dz >= 0 && z + dz < 96 && heights[tileIndex(x + dx, z + dz)] !== h)) continue;
+        const cluster = density(x, z), chance = h > 0 ? .19 : .058 + cluster * .43;
+        if (rng() > chance) continue;
+        const p = rng(), treeChance = h > 0 ? .2 : biome === 'forest' ? .86 : .67;
+        const kind = p < treeChance ? 'tree' : p < (biome === 'ore' ? .81 : .95) ? 'rock' : 'ore';
+        obstacles.push({ id: `o-${x}-${z}`, x, z, kind, cleared: false });
+    }
+    // A reachable starter resource, so clearing has an immediate, visible first step.
+    if (!obstacles.some(o => o.x === 25 && o.z === 9)) obstacles.push({ id: 'o-25-9', x: 25, z: 9, kind: 'tree', cleared: false });
+    return { seed: seed >>> 0, version: 2, templateId: 'lake-valley-v2', family, biome, heights, water, owned: [0, 1, 6, 7], obstacles,
+        bridges: [{ id: 'bridge-north', x: river - 1, z: 20, built: false }, { id: 'bridge-south', x: river - 1, z: 68, built: false }] };
+}
+
+/** A blocked tile may be worked from an adjacent reachable tile at the same height. */
+export function canWorkTile(w: World, x: number, z: number): boolean {
+    const reachable = reachableTiles(w);
+    if (reachable.has(tileIndex(x, z))) return true;
+    return [[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dz]) => {
+        const nx = x + dx, nz = z + dz;
+        return nx >= 0 && nx < 96 && nz >= 0 && nz < 96 && reachable.has(tileIndex(nx, nz)) && Math.abs(heightAt(w, nx, nz) - heightAt(w, x, z)) <= .26;
+    });
 }

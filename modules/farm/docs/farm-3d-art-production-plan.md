@@ -1,3 +1,5 @@
+> Cập nhật 18/09/2026: chỉ dẫn mới đã chuyển camera sang góc cố định, cảnh hybrid 2.5D. Tài nguyên tĩnh dùng một ảnh; sprite công trình được xoay cần đủ bốn hướng. Đọc [TERRAIN_V2_IMPLEMENTATION](TERRAIN_V2_IMPLEMENTATION.md) để biết code và 14 asset đã có. Kế hoạch 3D bên dưới là tham khảo cho kit công trình hiện giữ.
+
 # Làng Mầm — kế hoạch mỹ thuật và sản xuất tài nguyên 3D
 
 > **Quy trình mỹ thuật tham khảo, quy mô nội dung đã đổi.** Đọc [bàn giao](README.md) và [REVAMP_PLAN mục 9](REVAMP_PLAN.md) cho hướng hiện hành: tối đa 25 cấp, sáu bậc ngoại hình 1/5/10/15/20/25, có địa hình/nước/cầu/cảng. Các dự toán 3 mốc/5 cấp/12 họ ở dưới là mẫu tính công cũ, không phải giới hạn mới. Cảnh 3D dựng thử đã tồn tại theo [CURRENT_STATE](CURRENT_STATE.md), chất lượng asset sản xuất chưa được nghiệm thu. Giữ các quy tắc nhận diện, footprint, pipeline và đo hiệu năng dưới đây khi làm bộ mới.

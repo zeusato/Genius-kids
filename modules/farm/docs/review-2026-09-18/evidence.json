@@ -1,0 +1,179 @@
+{
+  "isolatedBank": {
+    "seed": 20260917,
+    "owned": [
+      0,
+      1,
+      6,
+      7,
+      2,
+      3,
+      8,
+      9
+    ],
+    "target": {
+      "x": 56,
+      "z": 0
+    },
+    "reachable": false,
+    "bridgesBuilt": [
+      false,
+      false
+    ],
+    "buildAccepted": true,
+    "message": "Đã đặt trang trí."
+  },
+  "fullOutputQueue": {
+    "capacity": 16,
+    "firstBatchDuration": 28650,
+    "waitedMs": 3600000,
+    "beforeCollect": {
+      "output": {
+        "flour": 16
+      },
+      "active": true,
+      "queued": 1
+    },
+    "afterCollect": {
+      "output": {
+        "flour": 1
+      },
+      "active": true,
+      "queued": 0
+    },
+    "expected": "First blocked batch can deposit now; second batch should start now and remain active."
+  },
+  "terrainFamilies": [
+    {
+      "seed": 0,
+      "family": "valley-lake",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          49,
+          20
+        ],
+        [
+          49,
+          68
+        ]
+      ],
+      "errors": []
+    },
+    {
+      "seed": 1,
+      "family": "rocky-terraces",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          51,
+          20
+        ],
+        [
+          51,
+          68
+        ]
+      ],
+      "errors": []
+    },
+    {
+      "seed": 2,
+      "family": "river-crossing",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          50,
+          20
+        ],
+        [
+          50,
+          68
+        ]
+      ],
+      "errors": []
+    },
+    {
+      "seed": 4,
+      "family": "lakeside-woodland",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          49,
+          20
+        ],
+        [
+          49,
+          68
+        ]
+      ],
+      "errors": []
+    },
+    {
+      "seed": 7,
+      "family": "streamside-forest",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          51,
+          20
+        ],
+        [
+          51,
+          68
+        ]
+      ],
+      "errors": []
+    },
+    {
+      "seed": 14,
+      "family": "ore-hills-lake",
+      "raisedBoundaryTiles": 0,
+      "bridgeCoordinates": [
+        [
+          50,
+          20
+        ],
+        [
+          50,
+          68
+        ]
+      ],
+      "errors": []
+    }
+  ],
+  "plateauRow": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.25,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.25,
+    1,
+    0.75,
+    0.5,
+    0.25,
+    0,
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.25,
+    1.5,
+    1.5,
+    1.5,
+    1.5,
+    1.25,
+    1,
+    0.75,
+    0.5,
+    0.25,
+    0
+  ],
+  "validatorAcceptsTreeOnWater": []
+}

@@ -2,7 +2,7 @@ import { Grade } from '../../../types';
 import { isPreschool } from '../../utils/grade';
 
 export type ModeId = 'study' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors';
-export type GameId = 'caro' | 'coding' | 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
+export type GameId = 'farm' | 'caro' | 'coding' | 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
 export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
 export type ArtId = ModeId | GameId | `science-${ScienceId}`;
 export type Level = 'easy' | 'medium' | 'hard';
@@ -31,6 +31,7 @@ export const BOARD_GAME_CATALOG: HubEntry<GameId>[] = [
 ];
 export const GAME_CATALOG: HubEntry<GameId>[] = [
     { id: 'board-games', title: 'Board games', subtitle: 'Cùng ngồi vào bàn', description: 'Những bàn cờ quen thuộc, những cuộc vui cùng bạn bè và gia đình.', art: 'board-games', label: 'CÙNG CHƠI · CÙNG SUY NGHĨ' },
+    { id: 'farm', title: 'Làng Mầm', subtitle: 'Một góc bình yên', description: 'Gieo hạt, xây nhà, khám phá vùng đất và nuôi lớn nông trại của riêng mình.', art: 'farm', label: 'NÔNG TRẠI & KHÁM PHÁ' },
     { id: 'coding', title: 'Lập Trình Nhí', subtitle: 'Biệt đội Rover', description: 'Dẫn rover đi thám hiểm hành tinh bằng những khối lệnh.', art: 'coding', label: 'LẬP TRÌNH & SÁNG TẠO' },
     { id: 'memory', title: 'Lật Thẻ', subtitle: 'Đảo Ký Ức', description: 'Tìm cặp hình, làm hòn đảo thêm rực rỡ.', art: 'memory', label: 'GHI NHỚ' },
     { id: 'sound-memory', title: 'Giai Điệu Vui Nhộn', subtitle: 'Ban Nhạc Tí Hon', description: 'Nghe giai điệu, gõ nhịp và viết bài nhạc.', art: 'sound-memory', label: 'ÂM NHẠC' },
@@ -66,7 +67,7 @@ export function gameParent(id: GameId) {
     return isBoardGame(id) ? '?play=board-games' : id.startsWith('gears-') && id !== 'gears-menu' ? '?play=gears-menu' : '';
 }
 export function gamesFor(grade?: Grade) {
-    return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'memory' || g.id === 'sound-memory' || g.id === 'board-games') : GAME_CATALOG;
+    return isPreschool(grade) ? GAME_CATALOG.filter(g => g.id === 'farm' || g.id === 'memory' || g.id === 'sound-memory' || g.id === 'board-games') : GAME_CATALOG;
 }
 export interface LegacyFlags { memory: boolean; sound: boolean; dragon: boolean; racing?: boolean }
 export interface GameEntry { id: GameId; classic: boolean; level: Level; needsSetup: boolean; requestedLevel?: Level }
@@ -74,7 +75,7 @@ export interface GameEntry { id: GameId; classic: boolean; level: Level; needsSe
 export function resolveEntry(params: URLSearchParams, grade: Grade | undefined, flags: LegacyFlags): GameEntry | null {
     const id = params.get('play') as GameId;
     if (![...GAME_CATALOG, ...BOARD_GAME_CATALOG, ...GEAR_CATALOG].some(g => g.id === id)) return null;
-    if (isPreschool(grade) && id !== 'board-games' && id !== 'memory' && id !== 'sound-memory' && id !== 'horse-race' && id !== 'o-an-quan' && id !== 'caro') return null;
+    if (isPreschool(grade) && id !== 'farm' && id !== 'board-games' && id !== 'memory' && id !== 'sound-memory' && id !== 'horse-race' && id !== 'o-an-quan' && id !== 'caro') return null;
     const classic = ['memory', 'sound-memory', 'dragon-quest', 'math-racing', 'gears-build', 'gears-guess'].includes(id) && (params.get('edition') === 'classic' || (id === 'memory' ? flags.memory : id === 'sound-memory' ? flags.sound : id === 'dragon-quest' ? flags.dragon : id === 'math-racing' && !!flags.racing));
     const raw = params.get('level');
     const valid = ['easy', 'medium', 'hard'].includes(raw || '') && !(isPreschool(grade) && raw === 'hard');
