@@ -1,8 +1,10 @@
 import { heightAt, isWater, type Obstacle, type World } from './world';
+import { resourceTier, RESOURCE_TIERS } from './harvesting';
 
 /** Natural resources are fixed-view art. Rotatable sprite assets must supply ALL four views. */
 export type SpriteViews = { rotation: 'fixed'; front: string } | { rotation: 'quarter-turn'; views: Record<0 | 1 | 2 | 3, string> };
 export const NATURAL_VARIANTS = {
+    berry: { label: 'Bụi quả mọng', file: 'shrub-v1.png', tree: false, width: 1.2 },
     oak: { label: 'Sồi tán rộng', file: 'oak-v1.png', tree: true, width: 2.8 },
     birch: { label: 'Bạch dương', file: 'birch-v2.png', tree: true, width: 2.2 },
     pine: { label: 'Thông vùng cao', file: 'pine-v1.png', tree: true, width: 2.5 },
@@ -21,9 +23,10 @@ export const NATURAL_VARIANTS = {
 export type NaturalVariant = keyof typeof NATURAL_VARIANTS;
 
 /** Use the rendered variant's name consistently in picking, menus and dialogs. */
-export const obstacleName = (world: World, obstacle: Obstacle) => NATURAL_VARIANTS[obstacleVariant(world, obstacle)].label;
+export const obstacleName = (world: World, obstacle: Obstacle) => NATURAL_VARIANTS[obstacleVariant(world, obstacle)].label + (obstacle.kind === 'berry' ? '' : ` · ${RESOURCE_TIERS[resourceTier(world, obstacle)].name.toLowerCase()}`);
 
 export function obstacleVariant(w: World, o: Obstacle): NaturalVariant {
+    if (o.kind === 'berry') return 'berry';
     const n = ((Math.imul(o.x + 1, 73856093) ^ Math.imul(o.z + 1, 19349663) ^ w.seed) >>> 0);
     const high = heightAt(w, o.x, o.z) > 1;
     const shore = [[-2, 0], [2, 0], [0, -2], [0, 2]].some(([dx, dz]) => o.x + dx >= 0 && o.x + dx < 96 && o.z + dz >= 0 && o.z + dz < 96 && isWater(w, o.x + dx, o.z + dz));

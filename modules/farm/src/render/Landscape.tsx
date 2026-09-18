@@ -8,6 +8,11 @@ import { waterVertex, waterFragment } from './waterMaterial';
 import { NATURAL_VARIANTS, obstacleVariant, type NaturalVariant } from '../core/scenery';
 import { naturalAssetUrl } from './naturalAssets';
 import { foliageCoverage, contactShadowVertex, contactShadowFragment } from './cutoutMaterials';
+import { sceneryVisible } from './sceneryVisibility';
+import { performanceMetrics } from './performanceMetrics';
+import { resourceTier, RESOURCE_TIERS } from '../core/harvesting';
+import { BerryBushes } from './BerryBushes';
+import type { FamilyWork } from './Family';
 
 // Orthographic scale comes from zoom; a distant camera keeps the foreground in front of its near plane at overview zoom.
 export const CAMERA_OFFSET = new T.Vector3(240, 270, 300);
@@ -35,7 +40,15 @@ const meadowShader: T.MeshStandardMaterial['onBeforeCompile'] = shader => {
 };
 
 export function Landscape({ world, reduced }: { world: World; reduced: boolean }) {
-    const meshes = useMemo(() => createLandscapeGeometry(world), [world.heights, world.water]);
+    const meshes = useMemo(() => {
+        const started = import.meta.env.DEV ? performance.now() : 0;
+        const result = createLandscapeGeometry(world);
+        if (import.meta.env.DEV) {
+            performanceMetrics.landscapeBuilds++;
+            performanceMetrics.landscapeBuildMs = performance.now() - started;
+        }
+        return result;
+    }, [world.heights, world.water, world.seed, world.version, world.bridges[0]?.x]);
     useEffect(() => () => { meshes.land.dispose(); meshes.water.dispose(); meshes.banks.dispose(); }, [meshes]);
     const water = useRef<T.ShaderMaterial>(null);
     const uniforms = useMemo(() => ({ time: { value: 0 }, deepTint: { value: new T.Color('#59a8a3') }, shallowTint: { value: new T.Color('#9bc3af') }, sandTint: { value: new T.Color('#c7bb94') }, foamTint: { value: new T.Color('#e4ead2') } }), []);
@@ -69,21 +82,21 @@ function ShoreLife({ world }: { world: World }) {
             }
         }
         const g = new T.BufferGeometry(); g.setAttribute('position', new T.Float32BufferAttribute(positions, 3)); g.setAttribute('color', new T.Float32BufferAttribute(colors, 3)); g.computeVertexNormals(); return g;
-    }, [world.seed, world.heights, world.water]);
+    }, [world.seed, world.heights, world.water, world.bridges]);
     useEffect(() => () => geometry.dispose(), [geometry]);
     return <mesh geometry={geometry}><meshBasicMaterial vertexColors side={T.DoubleSide}/></mesh>;
 }
 
-export function LandscapeObjects({ world, reveal }: { world: World; reveal: boolean }) {
+export function LandscapeObjects({ world, reveal, ghosts = [] }: { world: World; reveal: boolean; ghosts?: FamilyWork[] }) {
     const groups = useMemo(() => {
         const result = new Map<NaturalVariant, Obstacle[]>();
-        for (const o of world.obstacles) if (!o.cleared) {
+        for (const o of world.obstacles) if ((!o.cleared || ghosts.some(g => g.obstacle.id === o.id && g.obstacle.generation === o.generation)) && sceneryVisible(world.owned, o.x + .5, o.z + .5)) {
             const variant = obstacleVariant(world, o), group = result.get(variant) ?? [];
             group.push(o); result.set(variant, group);
         }
         return [...result];
-    }, [world.obstacles, world.heights, world.water, world.seed]);
-    return <>{groups.map(([variant, objects]) => <Suspense key={variant} fallback={null}><Cutouts objects={objects} world={world} variant={variant} reveal={reveal && NATURAL_VARIANTS[variant].tree}/></Suspense>)}</>;
+    }, [world.obstacles, world.heights, world.water, world.seed, world.owned, ghosts]);
+    return <>{groups.map(([variant, objects]) => variant === 'berry' ? <BerryBushes key={variant} objects={objects} world={world}/> : <Suspense key={variant} fallback={null}><Cutouts objects={objects} world={world} variant={variant} reveal={reveal && NATURAL_VARIANTS[variant].tree}/></Suspense>)}</>;
 }
 
 function Cutouts({ objects, world, variant, reveal }: { objects: Obstacle[]; world: World; variant: NaturalVariant; reveal: boolean }) {
@@ -108,7 +121,7 @@ function Cutouts({ objects, world, variant, reveal }: { objects: Obstacle[]; wor
         if (!ref.current || !shadows.current) return;
         const dummy = new T.Object3D(), up = billboardUp;
         objects.forEach((o, i) => {
-            const n = ((o.x * 31 + o.z * 17) % 13) / 13, width = spec.width * (tree ? 1.15 : 1.25) * (.85 + n * .3);
+            const n = ((o.x * 31 + o.z * 17) % 13) / 13, width = spec.width * RESOURCE_TIERS[resourceTier(world, o)].scale * (tree ? 1.15 : 1.25) * (.85 + n * .3);
             const height = width * (source.height / source.width);
             dummy.position.set(o.x + .5, heightAt(world, o.x, o.z) + .025, o.z + .5);
             // Padding is part of the source image; place the visible root at the world anchor.

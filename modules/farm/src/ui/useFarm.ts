@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { openLocalFarm } from '../adapters/local';
-import type { FarmCommand, FarmSession, FarmState } from '../core/types';
+import type { CommandResult, FarmCommand, FarmSession, FarmState } from '../core/types';
+import { renderSnapshot } from './renderSnapshot';
 export function useFarm(openSession: () => Promise<FarmSession> = openLocalFarm) {
     const gateway = useRef<FarmSession | null>(null);
     const [state, setState] = useState<FarmState | null>(null), [error, setError] = useState(''), [busy, setBusy] = useState(false);
@@ -9,13 +10,16 @@ export function useFarm(openSession: () => Promise<FarmSession> = openLocalFarm)
         let active = true;
         openSession().then(g => { if (active) {
             gateway.current = g;
-            setState(g.getSnapshot());
+            const snapshot = g.getSnapshot();
+            setState(previous => renderSnapshot(previous, snapshot));
             setSaved(true);
         }
         else
             void g.close(); }).catch(e => active && setError(String(e.message ?? e)));
-        const tick = window.setInterval(() => { if (gateway.current && active)
-            setState(gateway.current.getSnapshot()); }, 1000);
+        const tick = window.setInterval(() => { if (gateway.current && active) {
+            const snapshot = gateway.current.getSnapshot();
+            setState(previous => renderSnapshot(previous, snapshot));
+        } }, 1000);
         const checkpoint = () => { if (gateway.current)
             gateway.current.checkpoint().then(() => { if (active)
                 setSaved(true); }).catch(e => active && setError(e.message)); };
@@ -27,16 +31,18 @@ export function useFarm(openSession: () => Promise<FarmSession> = openLocalFarm)
     }, [openSession]);
     useEffect(() => { if (!toast)
         return; const timer = setTimeout(() => setToast(''), 4500); return () => clearTimeout(timer); }, [toast]);
-    async function dispatch(command: FarmCommand) {
+    async function dispatch(command: FarmCommand, committed?: (result: CommandResult) => void) {
         if (!gateway.current || error)
             return false;
         setBusy(true);
         setSaved(false);
         try {
             const result = await gateway.current.execute(command);
-            setState(gateway.current.getSnapshot());
+            const snapshot = gateway.current.getSnapshot();
+            setState(previous => renderSnapshot(previous, snapshot));
             setToast(result.message);
             setSaved(true);
+            if (result.ok) committed?.(result);
             return result.ok;
         }
         catch (e) {
@@ -53,7 +59,8 @@ export function useFarm(openSession: () => Promise<FarmSession> = openLocalFarm)
         setBusy(true);
         try {
             await gateway.current.importSnapshot(imported);
-            setState(gateway.current.getSnapshot());
+            const snapshot = gateway.current.getSnapshot();
+            setState(previous => renderSnapshot(previous, snapshot));
             setToast('Đã khôi phục bản sao.');
             setSaved(true);
         }

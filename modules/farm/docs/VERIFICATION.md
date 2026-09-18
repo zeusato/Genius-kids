@@ -1,6 +1,35 @@
+**Icon năng lượng 18/09:** Thay toàn bộ ký tự Unicode năng lượng trong HUD, nút khai phá, phần thưởng quả và hiệu ứng bay bằng EnergyIcon.tsx (SVG tia sét vàng, viền và mặt sáng vẽ riêng). Chỉnh kích thước desktop/mobile, thêm tên nút đầy đủ cho trình đọc màn hình. Typecheck module và diff check đạt; không đổi cơ chế hoặc save, chưa deploy.
+
+**Gia đình tự sinh hoạt 18/09:** [FAMILY_LIFE](FAMILY_LIFE.md): bốn người tự tìm đường trong đất đã mở, ghé nhà/cây/đồ vật, nghỉ và vẫy chào; ưu tiên lệnh khai phá, không tác động kinh tế. Lưới đi tránh công trình/ruộng/nước/vách, nhận cầu đã xây. Giảm chuyển động tắt đi dạo. 26/26 kiểm tra liên quan, typecheck và build module đạt; chưa deploy hoặc đo Android thật.
+
+**Mỹ thuật gia đình 18/09:** Đã thay mô hình hộp bằng hình bo mềm, mặt có mắt/mũi/má, bố mặc yếm + mũ rơm, mẹ mặc tạp dề + tóc búi, bé trai đội mũ và bé gái tóc hai bên. Rig vai/khuỷu/hông/gối riêng cho chạy và khai phá; gia đình đứng thành nhóm hai hàng. Cả bốn dùng 2 instanced draw, 14.496 tam giác, không thêm texture/model tải ngoài. Chrome đã xem cận cảnh, console không lỗi; typecheck, 20/20 test khai phá và build module đạt. Chưa deploy hoặc đo Android thật.
+
 **Kiểm chứng tài khoản 18/09:** xem [ACCOUNT_SYNC](ACCOUNT_SYNC.md): migration đã chạy trên Supabase thật qua Chrome; 16/16 kiểm tra DB trực tiếp đạt, dữ liệu thử rollback sạch, thêm redirect farm. Nhóm lưu trữ/sync 21/21, typecheck/build đạt. Full suite 113/114 (1 timeout geometry; chạy riêng 10/10 đạt). Custom SMTP và email/tài khoản thật chưa nghiệm thu.
 
 # Kiểm chứng Làng Mầm
+
+## Khai phá, năng lượng và gia đình — 18/09/2026
+
+Xem [HARVESTING_ENERGY](HARVESTING_ENERGY.md), thay thế các bài dọn theo timer/thu gom cũ. Tổng **148 bài đạt** qua các lượt: 146 bài ngoài playthrough, thêm 1 bài biên kho/dụng cụ (chạy lại nhóm khai phá 20/20), và 1 bài mô phỏng gồm 9 hành trình Home 25. Mô phỏng 301 giây, 3 biome × 5/15/30 phút, không cấp vật liệu/xu/tăng tốc; nguồn vật liệu dùng khai phá, sản xuất và NPC hữu hạn. Sửa bot lấy lại luống sau khi kiếm tiền vì vòng kiếm tiền có thể đã gieo vào luống cũ.
+
+Báo cáo bot trong reports/solo-progression.json: 5 phút/ngày mất 1.635–1.671 ngày giả lập, 15 phút 765–781 ngày, 30 phút 473–484 ngày. Đây là kiểm tra không bế tắc; bot giữ 8 ruộng, không khai thác tối ưu mở đất/nhiệm vụ/trao đổi. **Không coi số liệu này là nhịp chơi đã cân bằng hoặc dự báo thời gian người thật.**
+
+Typecheck module đạt. Build module và host/PWA đạt; cảnh báo font/CSS/import/chunk cũ vẫn còn, precache host 817 entry khoảng 108.109 KiB. Không thay cấu hình host, không deploy.
+
+Chrome QA local riêng: khai phá đá tốn 2 dụng cụ, giữ năng lượng/xu, nhận ngay 12 đá + 2 sét; cây trừ 12 năng lượng nhận 6 gỗ; bụi quả hồi năng lượng không trừ dụng cụ/xu; quặng cấp 3 khóa Home 12. Reload giữ 20 vật liệu, 180 xu và năng lượng đang hồi. Cả bốn nhân vật hiện cạnh Home; bụi quả có model riêng. Đã bỏ mục thu gom ở Nhiệm vụ. Viewport 390×844 không chồng thanh năng lượng/dock; console không lỗi.
+
+Giới hạn: chưa bắt được trọn chuyển động ngắn của nhân vật/đường bay bằng screenshot trong phiên Chrome bị giãn frame. Bộ đo đôi lúc 1 FPS, có đoạn 22–30 FPS; chưa là phép đo Android thật. Chưa nghiệm thu độ mượt, mỹ thuật nhân vật hoặc cân bằng với người chơi. Không sửa vườn production.
+
+
+## Hiệu năng sau phản hồi Android/Chrome — 18/09/2026
+
+Xem [PERFORMANCE_2026-09-18](PERFORMANCE_2026-09-18.md). 128/128 bài đạt: full run 127 bài và rerun 1 playthrough đạt sau lỗi sandbox ghi report. Typecheck, build module, build host/PWA và diff check đạt. 21 WebP lossless đã kiểm alpha/RGB hiển thị và kích thước, tổng giảm 34,8%. Chrome QA riêng kiểm khởi đầu, Home 25, mở khu 13, nhớ cấu hình qua reload và viewport 390×844; bộ đếm địa hình giữ 1 sau reload qua nhiều tick. Không thay vườn production.
+
+**Giới hạn:** phiên Chrome đo gần 1 FPS/p95 khoảng 1 giây chưa rõ nguyên nhân; chưa có benchmark FPS đáng tin trên Android thật. Không tuyên bố 60 FPS hoặc đã hết giật. Chưa deploy. Host build còn cảnh báo font/CSS/chunk/import sẵn có và precache 817 entry khoảng 108.095 KiB; không sửa cấu hình host trong lượt này.
+
+## Google OAuth production — cập nhật 21 giờ 18/09/2026
+
+Đã hoàn tất cấu hình Google/Supabase theo xác nhận của Đại ca. Chrome trên GitHub Pages đã chuyển sang Google, consent tên/ảnh/email, trở về `/Genius-kids/games/farm` với tài khoản Owner và giữ phiên sau reload. Form hiện **Chọn nông trại / Liên kết nông trại**; chưa bấm upload vườn thật hoặc thử hai thiết bị. Google Audience vẫn Testing. Không đổi mã ứng dụng; không chạy lại build/test cho thay đổi cấu hình dashboard và tài liệu. Xem [ACCOUNT_SYNC](ACCOUNT_SYNC.md); mục Google cũ bên dưới là lịch sử trước khi cấu hình.
 
 ## Rà soát cuối và mép nước — 18/09/2026
 

@@ -1,8 +1,16 @@
+**Gia đình tự sinh hoạt 18/09:** [FAMILY_LIFE](FAMILY_LIFE.md): bốn người tự tìm đường trong đất đã mở, ghé nhà/cây/đồ vật, nghỉ và vẫy chào; ưu tiên lệnh khai phá, không tác động kinh tế. Lưới đi tránh công trình/ruộng/nước/vách, nhận cầu đã xây. Giảm chuyển động tắt đi dạo. 26/26 kiểm tra liên quan, typecheck và build module đạt; chưa deploy hoặc đo Android thật.
+
+**Mỹ thuật gia đình 18/09:** Đã thay mô hình hộp bằng hình bo mềm, mặt có mắt/mũi/má, bố mặc yếm + mũ rơm, mẹ mặc tạp dề + tóc búi, bé trai đội mũ và bé gái tóc hai bên. Rig vai/khuỷu/hông/gối riêng cho chạy và khai phá; gia đình đứng thành nhóm hai hàng. Cả bốn dùng 2 instanced draw, 14.496 tam giác, không thêm texture/model tải ngoài. Chrome đã xem cận cảnh, console không lỗi; typecheck, 20/20 test khai phá và build module đạt. Chưa deploy hoặc đo Android thật.
+
+**Khai phá mới 18/09:** [HARVESTING_ENERGY](HARVESTING_ENERGY.md) là yêu cầu hiện hành: 4 cấp tài nguyên, năng lượng 100/+5 mỗi cấp, hồi 3 phút/điểm, nhận ngay, dụng cụ thay năng lượng, gia đình 4 người và bụi quả, mọc tối đa 5 tài nguyên + 5 bụi/ngày, bỏ thu gom. Save cũ chuyển một lần, giữ contentVersion 3 cho Supabase. Đã làm local; chưa deploy, chưa nghiệm thu Android thật.
+
 **Tài khoản 18/09:** Đại ca đã cho phép dùng Supabase hiện tại. Đọc [ACCOUNT_SYNC](ACCOUNT_SYNC.md) trước các hạn chế Auth cũ. Mã đăng nhập/cache/outbox/conflict đã có; migration đã chạy qua Chrome và 16/16 kiểm tra DB thật đạt, redirect local đã thêm. Custom SMTP/email thật còn cần cấu hình và nghiệm thu.
 
-**Google 18/09:** nút đăng nhập Google và xử lý PKCE/lỗi đã có, 17/17 bài Google + online đạt. Đã tạo project Google **Lang Mam** theo xác nhận của Đại ca; OAuth đang chờ đồng ý chính sách dữ liệu ở onboarding, chưa có client/provider hoạt động. Đọc [ACCOUNT_SYNC](ACCOUNT_SYNC.md) để tiếp tục đúng bước, không tạo project trùng.
+**Google cập nhật 21 giờ 18/09:** đã hoàn tất onboarding, tạo **Lang Mam Web** và bật Google trên Supabase. Chrome đã đăng nhập thật trên GitHub Pages, quay về đúng route farm, giữ phiên sau reload. Owner project **Lang Mam** là `zeusato@gmail.com`. Google còn Testing; chưa chọn/upload vườn hoặc nghiệm thu hai thiết bị. Đọc trạng thái mới nhất trong [ACCOUNT_SYNC](ACCOUNT_SYNC.md), không tạo project/client trùng.
 
-**Ghép app chính 18/09:** Đại ca đã yêu cầu tích hợp. Đọc [HOST_INTEGRATION](HOST_INTEGRATION.md) trước các hạn chế độc lập cũ: Games → Làng Mầm, ảnh imagegen riêng, route `/games/farm`, guest save theo hồ sơ và vẫn giữ sân thử 4328. Google OAuth còn chờ bước chính sách.
+**Ghép app chính 18/09:** Đại ca đã yêu cầu tích hợp. Đọc [HOST_INTEGRATION](HOST_INTEGRATION.md) trước các hạn chế độc lập cũ: Games → Làng Mầm, ảnh imagegen riêng, route `/games/farm`, guest save theo hồ sơ và vẫn giữ sân thử 4328. Google OAuth đã kiểm đăng nhập trên GitHub Pages; xem ACCOUNT_SYNC.
+
+**Hiệu năng 18/09, sau OAuth:** [PERFORMANCE_2026-09-18](PERFORMANCE_2026-09-18.md): chặn dựng địa hình mỗi tick, culling scenery sâu trong fog, giảm picking khi pan, tách tải ảnh, giữ độ nét khi tắt bóng và nhớ lựa chọn. 21 ảnh lossless giảm 36,5 xuống 23,8 MB. 128/128 test, build module/host đạt. Chưa deploy, chưa nghiệm thu FPS Android/Chrome; không báo đã mượt dựa trên test.
 
 # Làng Mầm — đọc từ đây để tiếp tục công việc
 

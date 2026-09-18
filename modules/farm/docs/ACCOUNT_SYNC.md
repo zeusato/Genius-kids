@@ -1,5 +1,19 @@
 # Tài khoản và bản lưu Supabase — 18/09/2026
 
+## Cập nhật Google OAuth trên production — 18/09/2026, 21 giờ (UTC+7)
+
+Trạng thái này thay thế ghi chép onboarding/provider chưa bật ở phần lịch sử bên dưới.
+
+- Production được Đại ca xác nhận là **GitHub Pages**, không phải Vercel: `https://zeusato.github.io/Genius-kids/games/farm`.
+- IAM Google Cloud xác nhận `zeusato@gmail.com` có vai trò **Owner** của **Lang Mam**, project ID `peerless-rite-509010-f5`.
+- Đại ca đã xác nhận chấp thuận Google API Services: User Data Policy, tạo OAuth client và chuyển ID/secret sang Supabase. Đã hoàn tất onboarding tên **Làng Mầm**, đối tượng External, email hỗ trợ/liên hệ là tài khoản Owner.
+- Đã tạo Web application client **Lang Mam Web**, origin `https://zeusato.github.io`, redirect URI `https://vdgfgdvnjmlumxmbzivy.supabase.co/auth/v1/callback`. Không tạo project trùng.
+- Đã nhập Client ID/Secret vào Supabase project `vdgfgdvnjmlumxmbzivy`, lưu thành công và xác nhận Google **Enabled**. Giữ tắt Skip nonce checks và Allow users without an email. Không lưu secret trong repository, tài liệu hay đầu ra công cụ.
+- Redirect allowlist đã có chính xác URL farm trên GitHub Pages. Site URL vẫn là `http://localhost:3000`; lượt này không đổi cấu hình đó.
+- Chrome ban đầu giữ bản PWA cũ; đã kích hoạt bản cập nhật có sẵn bằng giao diện ứng dụng. Bản mới có Games → Làng Mầm và form Google.
+- Đã kiểm luồng thật: nút Google → chọn `zeusato@gmail.com` → consent chỉ tên/ảnh/email → quay về đúng route farm → hiển thị tài khoản và **Chọn nông trại**. Reload vẫn giữ phiên và hiện **Liên kết nông trại**.
+- Chưa bấm liên kết/upload vườn thật, chưa kiểm đồng bộ hai thiết bị. Google Audience còn **Testing**, chưa publish ứng dụng hoặc nghiệm thu tài khoản Google khác. SMTP/email vẫn chưa nghiệm thu.
+
 ## Phạm vi đã được Đại ca duyệt
 
 **Bổ sung tích hợp:** Đại ca đã yêu cầu ghép game vào app chính. [HOST_INTEGRATION](HOST_INTEGRATION.md) là nguồn hiện hành cho route `/games/farm`, guest save theo hồ sơ, public env của host và callback mới. Giới hạn chưa ghép route/profile trong đoạn lịch sử dưới đây đã được thay thế.

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as T from 'three';
 import type { World } from '../core/world';
@@ -8,12 +8,17 @@ export function ExplorationFog({ world, reduced }: { world: World; reduced: bool
     const material = useRef<T.ShaderMaterial>(null), { camera } = useThree();
     const target = useMemo<number[]>(() => Array.from({ length: 36 }, (_, i) => world.owned.includes(i) ? 1 : 0), [world.owned]);
     const uniforms = useMemo(() => ({ known: { value: [...target] }, inverseProjection: { value: new T.Matrix4() }, cameraWorld: { value: new T.Matrix4() }, time: { value: 0 } }), []);
-    useEffect(() => { if (reduced) uniforms.known.value = [...target]; }, [reduced, target, uniforms]);
+    useLayoutEffect(() => {
+        // Restoring a smaller farm closes its fog immediately, before hidden
+        // scenery is removed. Newly opened land still fades in normally.
+        target.forEach((v, i) => { if (reduced || v === 0) uniforms.known.value[i] = v; });
+    }, [reduced, target, uniforms]);
     useFrame(({ clock }, delta) => {
         uniforms.inverseProjection.value.copy(camera.projectionMatrixInverse);
         uniforms.cameraWorld.value.copy(camera.matrixWorld);
         uniforms.time.value = reduced ? 0 : clock.elapsedTime * .08;
-        uniforms.known.value = uniforms.known.value.map((v, i) => T.MathUtils.lerp(v, target[i], 1 - Math.exp(-delta * 3)));
+        const blend = 1 - Math.exp(-delta * 3);
+        for (let i = 0; i < target.length; i++) uniforms.known.value[i] = T.MathUtils.lerp(uniforms.known.value[i], target[i], blend);
     });
     if (world.owned.length === 36) return null;
     return <mesh frustumCulled={false} renderOrder={1000} raycast={() => {}}><planeGeometry args={[2, 2]}/><shaderMaterial ref={material} uniforms={uniforms} transparent depthTest={false} depthWrite={false}
@@ -26,9 +31,9 @@ export function ExplorationFog({ world, reduced }: { world: World; reduced: bool
             vec3 origin=(cameraWorld*a).xyz, direction=normalize((cameraWorld*b).xyz-origin);
             vec2 p=(origin+direction*(-origin.y/direction.y)).xz;
             float distance=1000.;
-            for(int i=0;i<36;i++){vec2 center=vec2(float(i-6*(i/6))*16.+8.,float(i/6)*16.+8.);vec2 q=max(abs(p-center)-vec2(8.),vec2(0.));distance=min(distance,length(q)+(1.-known[i])*160.);}
+            for(int i=0;i<36;i++){if(known[i]<=0.)continue;vec2 center=vec2(float(i-6*(i/6))*16.+8.,float(i/6)*16.+8.);vec2 q=max(abs(p-center)-vec2(8.),vec2(0.));distance=min(distance,length(q)+(1.-known[i])*160.);}
             float cloud=noise(p*.18+time*.23)*.65+noise(p*.43-time*.12)*.35;
-            float alpha=smoothstep(1.6,8.,distance+(cloud-.5)*2.)*.985;
+            float alpha=smoothstep(1.6,8.,distance+(cloud-.5)*2.);
             vec3 color=mix(vec3(.62,.70,.68),vec3(.82,.86,.80),cloud);
             gl_FragColor=vec4(color,alpha);
         }`}/></mesh>;

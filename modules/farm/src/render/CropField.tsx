@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from 'react';
 import * as T from 'three';
 import { useTexture } from '@react-three/drei';
-import soilUrl from '../assets/terrain/tilled-soil-v1.png';
+import soilUrl from '../assets/terrain/optimized/tilled-soil-v1.webp';
 import type { FarmState, Plot } from '../core/types';
 import { growthStage } from '../core/engine';
 import { heightAt, type World } from '../core/world';

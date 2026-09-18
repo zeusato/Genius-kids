@@ -5,7 +5,9 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { createFarm, execute, advanceTime, dimensions, placementError } from '../src/core/engine';
 import { ASSETS, CROPS, RECIPES, ITEMS, type AssetId, type ItemId, type RecipeId, type CropId } from '../src/core/catalog';
 import { CHAPTER_PRODUCTS, chapterReady, HOME_LEVELS, homeLevel, upgradePrice, plotCap, storageCap, usedStorage, queueCap, outputCap } from '../src/core/progression';
-import { generateWorld } from '../src/core/world';
+import { generateWorld, ownedAt, canWorkTile } from '../src/core/world';
+import { ENERGY_POINT_MS, resourceHome, resourcePayment, resourceTier, RESOURCE_TIERS } from '../src/core/harvesting';
+import { marketStock, marketPrice } from '../src/core/simulation';
 import { buildPrice } from '../src/core/construction';
 import { validateSnapshot } from '../src/core/validation';
 import type { FarmCommand, FarmState, Entity } from '../src/core/types';
@@ -84,18 +86,18 @@ class Player {
         this.harvest();
         if (this.s.inventory[id] >= n)
             break;
+        this.money(CROPS[id].seed);
         const p = this.plot();
         if (p.crop) {
             this.wait(p.readyAt! - this.s.clock);
             this.harvest();
             continue;
         }
-        this.money(CROPS[id].seed);
         this.do({ type: 'plant', plotId: p.id, crop: id });
         this.wait(CROPS[id].seconds * 1000);
     } }
     items(need: Partial<Record<ItemId, number>>) { for (let pass = 0; pass < 20; pass++) {
-        for (const [id, n] of Object.entries(need).reverse())
+        for (const [id, n] of Object.entries(need).sort(([a], [b]) => Number(a === 'tools') - Number(b === 'tools')))
             this.item(id as ItemId, n!);
         if (Object.entries(need).every(([id, n]) => this.s.inventory[id as ItemId] >= n!))
             return;
@@ -109,10 +111,22 @@ class Player {
         }
         if (id === 'wood' || id === 'stone') {
             while (this.s.inventory[id] < n) {
-                if (!this.s.gather)
-                    this.do({ type: 'gather', item: id });
-                this.wait(Math.max(0, this.s.gather!.readyAt - this.s.clock));
-                this.do({ type: 'collect-gather' });
+                const o = this.s.world.obstacles.filter(o => !o.cleared && o.kind === (id === 'wood' ? 'tree' : 'rock') && ownedAt(this.s.world, o.x, o.z) && resourceHome(this.s.world, o) <= homeLevel(this.s)).sort((a, b) => resourceTier(this.s.world, a) - resourceTier(this.s.world, b)).find(o => canWorkTile(this.s.world, o.x, o.z));
+                // Preserve tools earmarked for construction; the legal finite
+                // NPC market is the fallback once local resources run out.
+                if (o && this.s.inventory.tools === 0) {
+                    const cost = resourcePayment(this.s, o), spec = RESOURCE_TIERS[resourceTier(this.s.world, o)];
+                    if (this.s.energy.value < cost.energy) this.wait((cost.energy - this.s.energy.value) * ENERGY_POINT_MS);
+                    while (usedStorage(this.s) + spec.max + 4 > storageCap(this.s)) this.sellExcess();
+                    this.do({ type: 'clear', obstacleId: o.id, generation: o.generation ?? 0 });
+                } else {
+                    const available = marketStock(this.s, id);
+                    if (!available) { this.wait(14400000 - this.s.clock % 14400000); continue; }
+                    const quantity = Math.min(available, n - this.s.inventory[id]);
+                    this.money(quantity * marketPrice(id));
+                    while (usedStorage(this.s) + quantity > storageCap(this.s)) this.sellExcess();
+                    this.do({ type: 'buy', item: id, quantity, epoch: this.s.market.epoch });
+                }
             }
             return;
         }

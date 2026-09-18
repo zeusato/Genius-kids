@@ -6,7 +6,9 @@ export type Obstacle = {
     id: string;
     x: number;
     z: number;
-    kind: 'tree' | 'rock' | 'ore';
+    kind: 'tree' | 'rock' | 'ore' | 'berry';
+    tier?: 1 | 2 | 3 | 4;
+    generation?: number;
     cleared: boolean;
     readyAt?: number;
     claimed?: boolean;
@@ -38,6 +40,7 @@ export const isWater = (w: World, x: number, z: number) => w.water[tileIndex(x, 
 export const ownedAt = (w: World, x: number, z: number) => x >= 0 && z >= 0 && x < 96 && z < 96 && w.owned.includes(chunkOf(x, z));
 export const bridgeAt = (w: World, x: number, z: number) => w.bridges.some(b => b.built && x >= b.x && x < b.x + 6 && z >= b.z && z < b.z + 2);
 const reachableCache = new WeakMap<World, Set<number>>();
+export function invalidateReachability(w: World) { reachableCache.delete(w); }
 /** Topological access on owned terrain, including bridge decks and gentle ramps. */
 export function reachableTiles(w: World): Set<number> {
     const cached = reachableCache.get(w);

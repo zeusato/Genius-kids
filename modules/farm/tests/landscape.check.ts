@@ -43,7 +43,7 @@ describe('authored valley and safe old saves', () => {
         expect(target).toBeDefined();
         expect(execute(s, { type: 'build', asset: 'bench', ...target!, rotation: 0 }).ok).toBe(false);
         const obstacle = s.world.obstacles.find(o => o.x >= 56 && o.x < 64 && o.z < 32);
-        if (obstacle) expect(execute(s, { type: 'clear', obstacleId: obstacle.id, pay: 'coins' }).ok).toBe(false);
+        if (obstacle) expect(execute(s, { type: 'clear', obstacleId: obstacle.id, pay: 'auto' }).ok).toBe(false);
         const bridge = execute(s, { type: 'bridge', bridgeId: s.world.bridges[0].id }); expect(bridge.ok, bridge.message).toBe(true);
         s = advanceTime(bridge.state, s.lastWallTime + 300001);
         expect(reachableTiles(s.world).has(tileIndex(target!.x, target!.z))).toBe(true);
@@ -91,7 +91,7 @@ describe('shore geometry', () => {
 
 describe('natural resource art', () => {
     it('ships seven distinct trees and seven stones/ores with native alpha', () => {
-        const variants = Object.values(NATURAL_VARIANTS);
+        const variants = Object.entries(NATURAL_VARIANTS).filter(([id]) => id !== 'berry').map(([, v]) => v);
         expect(variants.filter(v => v.tree)).toHaveLength(7);
         expect(variants.filter(v => !v.tree)).toHaveLength(7);
         expect(new Set(variants.map(v => v.file)).size).toBe(14);

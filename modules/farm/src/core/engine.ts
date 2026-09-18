@@ -1,10 +1,11 @@
 import { ASSETS, CROPS, ITEMS, QUESTS, RECIPES, SPEEDUPS, emptyInventory, type AssetId, type BuildingId, type ItemId, type RecipeId } from './catalog';
 import { homeLevel, homeSpec, plotCap, regionCap, storageCap, usedStorage, queueCap, outputCap, productionFactor, upgradePrice, upgradeMs, upgradeRequirements, buildMs, chapterReady, orderFor, type Cost } from './progression';
-import { generateWorld, heightAt, isWater, ownedAt, bridgeAt, chunkNeighbors, chunkOf, canReachRegion, reachableTiles, tileIndex, canWorkTile } from './world';
+import { generateWorld, heightAt, isWater, ownedAt, bridgeAt, chunkNeighbors, chunkOf, canReachRegion, reachableTiles, tileIndex, canWorkTile, invalidateReachability } from './world';
 import { advanceTime, resolveJobs, marketItems, marketHome, marketPrice, marketStock, fishPuzzle } from './simulation';
 import { createFarm as createLegacy } from './legacy/engine';
 import {RECIPES as LEGACY_RECIPES} from './legacy/catalog';
 import { copyFarm } from './copy';
+import { initializeHarvesting, resourceHome, resourcePayment, resourceReward } from './harvesting';
 import { buildPrice, buildRequirements } from './construction';
 import { PROFESSIONS, PROJECTS, professionRank, professionFactor, validPipes } from './activities';
 import type { FarmState, Entity, Plot, Rotation, FarmCommand, CommandResult, ProductionJob } from './types';
@@ -17,7 +18,7 @@ export const progressOf = (start: number, end: number, now: number) => Math.max(
 export const growthStage = (p: Plot, now: number) => !p.crop ? -1 : now >= p.readyAt! ? 4 : Math.min(3, Math.floor(progressOf(p.plantedAt!, p.readyAt!, now) * 4));
 export function createFarm(now: number, seed = crypto.getRandomValues(new Uint32Array(1))[0]): FarmState {
     const old = createLegacy(now);
-    return { ...old, schema: 2, contentVersion: 3, inventory: emptyInventory(), entities: [{ id: 'home', asset: 'home', x: 10, z: 2, rotation: 0, level: 1, queue: [], output: {} }, { id: 'warehouse', asset: 'warehouse', x: 2, z: 1, rotation: 0, level: 1, queue: [], output: {} }], world: generateWorld(seed), legacyPlotCap: 0, legacyStorageCap: 0, migrationNotes: [], speedups: { 5: 1, 10: 0, 30: 0, 60: 0 }, produced: {}, discovered: ['wheat', 'carrot'], market: { epoch: 0, bought: {} }, receipts: [], reserve: {}, contract: { stage: 0, round: 0 }, fishing: { round: 0, best: 0, rewardedEpoch: -1 }, stats: { ...old.stats, clear: 0, explore: 4, fish: 0 } };
+    return initializeHarvesting({ ...old, schema: 2, contentVersion: 3, harvestingVersion: 1, energy: { value: 100, capacity: 100, updatedAt: old.clock }, regrowth: { slot: 0 }, inventory: emptyInventory(), entities: [{ id: 'home', asset: 'home', x: 10, z: 2, rotation: 0, level: 1, queue: [], output: {} }, { id: 'warehouse', asset: 'warehouse', x: 2, z: 1, rotation: 0, level: 1, queue: [], output: {} }], world: generateWorld(seed), legacyPlotCap: 0, legacyStorageCap: 0, migrationNotes: [], speedups: { 5: 1, 10: 0, 30: 0, 60: 0 }, produced: {}, discovered: ['wheat', 'carrot'], market: { epoch: 0, bought: {} }, receipts: [], reserve: {}, contract: { stage: 0, round: 0 }, fishing: { round: 0, best: 0, rewardedEpoch: -1 }, stats: { ...old.stats, clear: 0, explore: 4, fish: 0 } });
 }
 const own = (o: object, k: string) => Object.prototype.hasOwnProperty.call(o, k);
 const overlap = (x: number, z: number, w: number, d: number, bx: number, bz: number, bw: number, bd: number) => x < bx + bw && x + w > bx && z < bz + bd && z + d > bz;
@@ -91,7 +92,7 @@ export function execute(state: FarmState, command: FarmCommand): CommandResult {
             return receipt.payload === payload ? { ok: true, state, message: 'Thao tác này đã được lưu.' } : fail('Mã thao tác đã dùng cho yêu cầu khác.');
     }
     const s = copyFarm(state, ['expand', 'clear', 'collect-obstacle', 'bridge', 'speedup', 'collect'].includes(command.type)), level = homeLevel(s);
-    const success = (message: string): CommandResult => { s.revision = state.revision + 1; if (requestId)
+    const success = (message: string): CommandResult => { if (s.world !== state.world) invalidateReachability(s.world); s.revision = state.revision + 1; if (requestId)
         s.receipts = [...s.receipts.slice(-255), { id: requestId, payload }]; return { ok: true, state: s, message }; };
     if (command.type === 'batch') {
         if (command.expectedRevision !== state.revision)
@@ -404,61 +405,34 @@ export function execute(state: FarmState, command: FarmCommand): CommandResult {
         s.stats.explore++;
         return success('Đã nhận khu đất. Dọn cây đá để lấy vật liệu và mặt bằng.');
     }
-    if (command.type === 'gather') {
-        if (!['wood', 'stone'].includes(command.item) || s.gather)
-            return fail('Đang có chuyến thu gom.');
-        s.gather = { item: command.item, readyAt: s.clock + 30000 };
-        return success('Đang thu gom · không tốn xu.');
-    }
-    if (command.type === 'collect-gather') {
-        if (!s.gather || s.gather.readyAt > s.clock)
-            return fail('Chuyến thu gom chưa xong.');
-        const goods = { [s.gather.item]: s.world.biome === (s.gather.item === 'wood' ? 'forest' : 'stone') ? 6 : 4 };
-        if (!room(s, goods))
-            return fail('Kho đầy; chuyến thu gom vẫn được giữ.');
-        add(s, goods);
-        delete s.gather;
-        return success('Đã nhận tài nguyên thu gom.');
-    }
-    if (command.type === 'clear' || command.type === 'collect-obstacle') {
+    if (command.type === 'gather' || command.type === 'collect-gather')
+        return fail('Thu gom đã được thay bằng khai phá trên bản đồ.');
+    if (command.type === 'collect-obstacle')
+        return fail('Khai phá nhận tài nguyên ngay, không cần thu gom lần nữa.');
+    if (command.type === 'clear') {
         const o = s.world.obstacles.find(v => v.id === command.obstacleId);
-        if (!o || !ownedAt(s.world, o.x, o.z))
-            return fail('Vật cản chưa thuộc đất của mình.');
-        if (command.type === 'clear') {
-            if (o.cleared || o.readyAt !== undefined)
-                return fail('Vật cản đã dọn hoặc đang dọn.');
-            if (!canWorkTile(s.world, o.x, o.z))
-                return fail('Cần mở lối tới cây hoặc đá này trước.');
-            if (o.kind === 'ore' && level < 4)
-                return fail('Quặng mở từ Nhà chính 4.');
-            if (s.world.obstacles.some(v => v.readyAt !== undefined && v.readyAt > s.clock))
-                return fail('Đội khai phá đang làm việc.');
-            if (command.pay === 'tools') {
-                if (s.inventory.tools < 1)
-                    return fail('Thiếu dụng cụ.');
-                s.inventory.tools--;
-            }
-            else if (command.pay === 'coins') {
-                if (s.coins < 10)
-                    return fail('Cần 10 xu thuê dọn.');
-                s.coins -= 10;
-            }
-            else
-                return fail('Chọn cách trả chi phí.');
-            o.readyAt = s.clock + (command.pay === 'tools' ? 30000 : 60000);
-            return success('Đội khai phá đã bắt đầu.');
-        }
-        if (o.readyAt === undefined || o.readyAt > s.clock || o.claimed)
-            return fail('Chưa có tài nguyên để nhận.');
-        const goods: Partial<Record<ItemId, number>> = o.kind === 'tree' ? { wood: 12 } : o.kind === 'ore' ? { ore: 8, stone: 4 } : { stone: 12, clay: 2 };
-        if (!room(s, goods))
-            return fail('Kho đầy. Tài nguyên còn ở vật cản.');
-        add(s, goods);
-        o.cleared = true;
-        o.claimed = true;
+        if (!o || !ownedAt(s.world, o.x, o.z)) return fail('Tài nguyên chưa thuộc đất của mình.');
+        if (o.cleared || o.claimed) return fail('Tài nguyên đã được khai phá.');
+        if ((command.generation ?? 0) !== (o.generation ?? 0)) return fail('Tài nguyên này đã thay đổi. Hãy chọn lại.');
+        if (command.pay !== undefined && !['auto', 'energy', 'tools'].includes(command.pay)) return fail('Cách khai phá không hợp lệ.');
+        if (!canWorkTile(s.world, o.x, o.z)) return fail('Cần mở lối tới tài nguyên này trước.');
+        const required = resourceHome(s.world, o);
+        if (level < required) return fail(`Cần Nhà chính cấp ${required}.`);
+        const cost = resourcePayment(s, o, command.pay), reward = resourceReward(s.world, o);
+        if (s.inventory.tools < cost.tools) return fail(`Cần ${cost.tools} dụng cụ.`);
+        if (s.energy.value < cost.energy) return fail(`Cần ${cost.energy} năng lượng. Hồi 1 điểm mỗi 3 phút.`);
+        if (o.kind === 'berry' && s.energy.value >= s.energy.capacity) return fail('Năng lượng đang đầy. Để dành bụi quả cho lần sau.');
+        if (usedStorage(s) - cost.tools + Object.values(reward.items).reduce((n, quantity) => n + quantity!, 0) > storageCap(s)) return fail('Kho chưa đủ chỗ. Tài nguyên và năng lượng được giữ nguyên.');
+        const gained = Math.min(reward.energy, s.energy.capacity - s.energy.value);
+        if (s.energy.value === s.energy.capacity) s.energy.updatedAt = s.clock;
+        s.energy.value = Math.min(s.energy.capacity, s.energy.value - cost.energy + gained);
+        if (s.energy.value === s.energy.capacity) s.energy.updatedAt = s.clock;
+        s.inventory.tools -= cost.tools;
+        add(s, reward.items);
+        o.cleared = o.claimed = true;
         delete o.readyAt;
         s.stats.clear++;
-        return success('Đã nhận tài nguyên và giải phóng mặt bằng.');
+        return { ...success(o.kind === 'berry' ? `+${gained} năng lượng` : Object.entries(reward.items).map(([id, n]) => `+${n} ${ITEMS[id as ItemId].name.toLowerCase()}`).join(' · ')), harvest: { obstacle: { ...o, cleared: false, claimed: false }, items: reward.items, energy: gained } };
     }
     if (command.type === 'bridge') {
         const b = s.world.bridges.find(v => v.id === command.bridgeId);

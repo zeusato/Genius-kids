@@ -1,8 +1,10 @@
 import { useEffect, useRef, type CSSProperties, type RefObject } from 'react';
-import type { CropId } from '../core/catalog';
+import type { CropId, ItemId } from '../core/catalog';
 import { CropIcon } from './Icon';
+import { ResourceIcon } from './ResourceIcon';
+import { EnergyIcon } from './EnergyIcon';
 
-export type HarvestFlight = { key: string; crop: CropId; quantity: number; x: number; y: number; delay: number };
+export type HarvestFlight = { key: string; crop?: CropId; item?: ItemId | 'energy'; quantity: number; x: number; y: number; delay: number };
 export function Sickle({ size = 38 }: { size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M27 37C6 28 16 6 39 7C25 13 24 25 36 29L27 37Z" fill="#e1e8df" stroke="#526e64" strokeWidth="2.5"/><path d="M29 33L51 56" stroke="#493c2d" strokeWidth="11" strokeLinecap="round"/><path d="M29 33L51 56" stroke="#bc854e" strokeWidth="7" strokeLinecap="round"/><path d="M31 34L36 39" stroke="#efd599" strokeWidth="8"/></svg>;
 }
@@ -26,10 +28,10 @@ export function HarvestCursor() {
   return <div ref={ref} className="farm-sickle-cursor" aria-hidden="true"><Sickle size={64}/></div>;
 }
 
-export function HarvestEffects({ flights, basket, reduced, done }: { flights: HarvestFlight[]; basket: RefObject<HTMLButtonElement | null>; reduced: boolean; done: (key: string) => void }) {
-  return <div className="farm-harvest-effects" aria-hidden="true">{flights.map(f => <Flight key={f.key} flight={f} delay={f.delay} basket={basket} reduced={reduced} done={done}/>)}</div>;
+export function HarvestEffects({ flights, basket, energyTarget, reduced, done }: { flights: HarvestFlight[]; basket: RefObject<HTMLButtonElement | null>; energyTarget?: RefObject<HTMLDivElement | null>; reduced: boolean; done: (key: string) => void }) {
+  return <div className="farm-harvest-effects" aria-hidden="true">{flights.map(f => <Flight key={f.key} flight={f} delay={f.delay} basket={f.item === 'energy' && energyTarget ? energyTarget : basket} reduced={reduced} done={done}/>)}</div>;
 }
-function Flight({ flight: f, delay, basket, reduced, done }: { flight: HarvestFlight; delay: number; basket: RefObject<HTMLButtonElement | null>; reduced: boolean; done: (key: string) => void }) {
+function Flight({ flight: f, delay, basket, reduced, done }: { flight: HarvestFlight; delay: number; basket: RefObject<HTMLElement | null>; reduced: boolean; done: (key: string) => void }) {
   const ref = useRef<HTMLDivElement>(null), onDone = useRef(done); onDone.current = done;
   useEffect(() => {
     const el = ref.current, target = basket.current?.getBoundingClientRect();
@@ -47,5 +49,5 @@ function Flight({ flight: f, delay, basket, reduced, done }: { flight: HarvestFl
     };
     return () => motion.cancel();
   }, [f, delay, reduced, basket]);
-  return <div ref={ref} className="farm-harvest-flight" style={{ left: f.x, top: f.y } as CSSProperties}><CropIcon id={f.crop} size={38}/><b>+{f.quantity}</b></div>;
+  return <div ref={ref} className="farm-harvest-flight" style={{ left: f.x, top: f.y } as CSSProperties}>{f.item === 'energy' ? <EnergyIcon size={38}/> : f.item ? <ResourceIcon id={f.item}/> : <CropIcon id={f.crop ?? 'wheat'} size={38}/>}<b>+{f.quantity}</b></div>;
 }

@@ -2,6 +2,7 @@ import { ITEMS, type ItemId } from './catalog';
 import { outputCap } from './progression';
 import type { FarmState } from './types';
 import { copyFarm } from './copy';
+import { recoverEnergy, regrowResources, REGROWTH_SLOT_MS } from './harvesting';
 /** Resolve finite, reserved work chronologically. No production is invented for idle time. */
 export function resolveJobs(s: FarmState): FarmState {
     for (const e of s.entities) {
@@ -58,13 +59,17 @@ export function resolveJobs(s: FarmState): FarmState {
 export function advanceTime(state: FarmState, wallTime: number): FarmState {
     if (!Number.isFinite(wallTime) || wallTime < 0)
         return state;
-    const s = copyFarm(state, state.world.bridges.some(b => b.readyAt !== undefined)), elapsed = Math.max(0, Math.floor(wallTime) - s.lastWallTime);
+    const elapsed = Math.max(0, Math.floor(wallTime) - state.lastWallTime);
+    const s = copyFarm(state, state.world.bridges.some(b => b.readyAt !== undefined) || Math.floor((state.clock + elapsed) / REGROWTH_SLOT_MS) > state.regrowth.slot);
     s.clock += elapsed;
     s.lastWallTime = Math.max(s.lastWallTime, Math.floor(wallTime));
     const epoch = Math.floor(s.clock / (4 * 3600000));
     if (epoch > s.market.epoch)
         s.market = { epoch, bought: {} };
-    return resolveJobs(s);
+    resolveJobs(s);
+    recoverEnergy(s);
+    regrowResources(s);
+    return s;
 }
 export const marketItems: ItemId[] = ['wood', 'stone', 'ore', 'clay', 'sand', 'plank', 'iron', 'tools'];
 export const marketHome: Record<string, number> = { wood: 1, stone: 1, ore: 4, clay: 3, sand: 5, plank: 3, iron: 5, tools: 8 };

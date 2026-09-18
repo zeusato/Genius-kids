@@ -14,6 +14,9 @@ import { FarmWorld, type CameraIntent } from './render/FarmWorld';
 import { AssetPreview, type Placement } from './render/FarmScene';
 import { Icon } from './ui/Icon';
 import { useFarm } from './ui/useFarm';
+import { readGraphicsQuality, saveGraphicsQuality } from './ui/graphics';
+import { EnergyMeter } from './ui/ResourceAction';
+import { harvestMember, type FamilyWork } from './render/Family';
 import { Dialog } from './ui/shared';
 import { CatalogPicture } from './ui/CatalogPicture';
 import { SeedCards } from './ui/SeedCards';
@@ -22,20 +25,30 @@ import { SubjectMenu } from './ui/SubjectMenu';
 import { HarvestCursor, HarvestEffects, Sickle, type HarvestFlight } from './ui/HarvestEffects';
 import { Panels, menus, type Panel, type Confirmation } from './ui/Panels';
 import './farm.css';
-export default function Game({ openSession, accountPanel, accountStatus, openAccount, onExit }: {
+export default function Game({ openSession, accountPanel, accountStatus, openAccount, onExit, initialFocus }: {
     openSession?: () => Promise<FarmSession>;
     accountPanel?: ReactNode;
     accountStatus?: string;
     openAccount?: boolean;
     onExit?: () => void;
+    initialFocus?: { x: number; z: number };
 } = {}) {
     const { state: s, error, busy, toast, saved, dispatch, restore, notify, exportOriginal } = useFarm(openSession);
     const [panel, setPanel] = useState<Panel>('quests'), [panelOpen, setPanelOpen] = useState(false), [selected, setSelected] = useState<string | null>(null), [tool, setTool] = useState<Tool>('select'), [seed, setSeed] = useState<CropId>('wheat'), [placement, setPlacement] = useState<Placement | null>(null), [stroke, setStroke] = useState<string[]>([]), [hover, setHover] = useState('');
-    const [camera, setCamera] = useState<CameraIntent>({ serial: 0, kind: 'home' }), [quality, setQuality] = useState<'soft' | 'light'>(() => matchMedia('(max-width: 760px)').matches ? 'light' : 'soft'), [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches), [sound, setSound] = useState(false);
+    const [camera, setCamera] = useState<CameraIntent>({ serial: 0, kind: initialFocus ? 'focus' : 'home', ...initialFocus }), [quality, setQuality] = useState(readGraphicsQuality), [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches), [sound, setSound] = useState(false);
+    useEffect(() => saveGraphicsQuality(quality), [quality]);
     const [settings, setSettings] = useState(false), [gallery, setGallery] = useState(false), [galleryAsset, setGalleryAsset] = useState<AssetId>('home'), [galleryLevel, setGalleryLevel] = useState(1), [galleryCrop, setGalleryCrop] = useState<CropId | undefined>(), [galleryStage, setGalleryStage] = useState(4), [backup, setBackup] = useState(''), [pending, setPending] = useState<FarmState | null>(null), [backupError, setBackupError] = useState('');
     const [confirm, setConfirm] = useState<Confirmation | null>(null), [map, setMap] = useState(false), [fish, setFish] = useState(false), [fishMoves, setFishMoves] = useState<number[]>([]), [fishMemory, setFishMemory] = useState(true);
     const [seedChoices, setSeedChoices] = useState(false);
     const basket = useRef<HTMLButtonElement>(null), [flights, setFlights] = useState<HarvestFlight[]>([]);
+    const energyTarget = useRef<HTMLDivElement>(null);
+    const [familyWork, setFamilyWork] = useState<FamilyWork[]>([]);
+    useEffect(() => {
+        if (!familyWork.length) return;
+        const deadline = Math.min(...familyWork.map(w => w.started + (reduced ? 450 : 1900)));
+        const timer = window.setTimeout(() => setFamilyWork(works => works.filter(w => w.started + (reduced ? 450 : 1900) > performance.now())), Math.max(1, deadline - performance.now()));
+        return () => clearTimeout(timer);
+    }, [familyWork, reduced]);
     useEffect(() => { if (openAccount) setSettings(true); }, [openAccount]);
     useEffect(() => { setStroke([]); }, [tool, seed, placement?.asset]);
     useEffect(() => { const key = (e: KeyboardEvent) => { if (!e.defaultPrevented && e.key === 'Escape') {
@@ -46,7 +59,12 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
     } }; window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key); }, []);
     function chime() { if (!sound)
         return; const ctx = new AudioContext(), o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(523, ctx.currentTime); o.frequency.exponentialRampToValueAtTime(784, ctx.currentTime + .15); g.gain.setValueAtTime(.035, ctx.currentTime); g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .25); o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + .26); o.onended = () => void ctx.close(); }
-    async function act(c: FarmCommand) { const ok = await dispatch({ ...c, requestId: crypto.randomUUID() }); if (ok)
+    async function act(c: FarmCommand) { const ok = await dispatch({ ...c, requestId: crypto.randomUUID() }, result => {
+        if (!result.harvest) return;
+        const event: FamilyWork = { ...result.harvest, key: crypto.randomUUID(), member: harvestMember(result.harvest), started: performance.now() };
+        setFamilyWork(works => [...works.filter(w => w.member !== event.member), event]);
+        setSelected(null); setPanelOpen(false);
+    }); if (ok)
         chime(); return ok; }
     function cam(kind: CameraIntent['kind'], x?: number, z?: number) { setCamera(c => ({ serial: c.serial + 1, kind, x, z })); }
     function select(id: string) { setSelected(id); setPanelOpen(false); setTool('select'); setStroke([]); }
@@ -78,10 +96,10 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
     const modal = auxiliaryModal || panelOpen;
     return <main className={`farm-root ${tool === 'harvest' ? 'harvesting' : ''}`}>
  <div inert={modal || undefined} className="farm-play">
- <header className="farm-header"><div className="farm-brand">{onExit && <button className="farm-exit" aria-label="Về danh sách trò chơi" title="Về trò chơi" onClick={onExit}><Icon name="left"/></button>}<span><Icon name="sprout" size={29}/></span><div><b>Làng Mầm</b><small>MỘT GÓC BÌNH YÊN</small></div></div><div className="farm-overview"><button onClick={() => { select(home.id); cam('focus', home.x, home.z); }}><Icon name="home"/><span>Nhà chính <b>{level}/25</b></span></button><span className="farm-coins"><Icon name="coins"/><b>{s.coins.toLocaleString('vi-VN')}</b><small>xu</small></span><button ref={basket} aria-label="Mở kho hàng" onClick={() => openPanel('inventory')}><Icon name="basket"/><span>{usedStorage(s)}/{storageCap(s)}</span></button></div><div className="farm-header-actions">{accountPanel && <button className="farm-account-button" onClick={() => setSettings(true)}><Icon name="home" size={17}/><span>{accountStatus}</span></button>}<small className={error ? 'farm-warning' : 'farm-save'}>{error ? 'Lưu cần kiểm tra' : saved ? 'Đã lưu trên máy' : 'Đang lưu…'}</small><button aria-label="Xưởng tài nguyên" onClick={() => setGallery(true)}><Icon name="eye"/></button><button aria-label="Cài đặt và sao lưu" onClick={() => setSettings(true)}><Icon name="settings"/></button></div></header>
+ <header className="farm-header"><div className="farm-brand">{onExit && <button className="farm-exit" aria-label="Về danh sách trò chơi" title="Về trò chơi" onClick={onExit}><Icon name="left"/></button>}<span><Icon name="sprout" size={29}/></span><div><b>Làng Mầm</b><small>MỘT GÓC BÌNH YÊN</small></div></div><div className="farm-overview"><button onClick={() => { select(home.id); cam('focus', home.x, home.z); }}><Icon name="home"/><span>Nhà chính <b>{level}/25</b></span></button><span className="farm-coins"><Icon name="coins"/><b>{s.coins.toLocaleString('vi-VN')}</b><small>xu</small></span><EnergyMeter state={s} targetRef={energyTarget}/><button ref={basket} aria-label="Mở kho hàng" onClick={() => openPanel('inventory')}><Icon name="basket"/><span>{usedStorage(s)}/{storageCap(s)}</span></button></div><div className="farm-header-actions">{accountPanel && <button className="farm-account-button" onClick={() => setSettings(true)}><Icon name="home" size={17}/><span>{accountStatus}</span></button>}<small className={error ? 'farm-warning' : 'farm-save'}>{error ? 'Lưu cần kiểm tra' : saved ? 'Đã lưu trên máy' : 'Đang lưu…'}</small><button aria-label="Xưởng tài nguyên" onClick={() => setGallery(true)}><Icon name="eye"/></button><button aria-label="Cài đặt và sao lưu" onClick={() => setSettings(true)}><Icon name="settings"/></button></div></header>
  {error && <div className="farm-error" role="alert">{error}<button onClick={() => location.reload()}>Tải bản mới nhất</button></div>}
  <div className="farm-layout"><section className="farm-world" aria-label="Nông trại">
- {!gallery && <FarmWorld state={s} selected={selected} placement={placement} tool={tool} seed={seed} quality={quality} reduced={reduced} camera={camera} onSelect={select} onDeselect={() => setSelected(null)} subjectMenu={selected && !panelOpen ? <SubjectMenu s={s} id={selected} busy={busy || !!error} tool={useTool} details={() => setPanelOpen(true)} move={() => { if (entity) begin(entity.asset, entity.id); }} close={() => setSelected(null)}/> : null} onPosition={(x, z) => setPlacement(p => p && ({ ...p, x, z }))} onMoveStart={id => { const e = s.entities.find(e => e.id === id); if (e)
+ {!gallery && <FarmWorld familyWork={familyWork} onResourceOrigin={(work, x, y) => setFlights(f => [...f, ...Object.entries(work.items).map(([item, quantity], i) => ({ key: `${work.key}-${item}`, item: item as import('./core/catalog').ItemId, quantity: quantity!, x, y, delay: reduced ? 0 : 850 + i * 100 })), ...(work.energy ? [{ key: `${work.key}-energy`, item: 'energy' as const, quantity: work.energy, x, y, delay: reduced ? 0 : 850 }] : [])])} state={s} selected={selected} placement={placement} tool={tool} seed={seed} quality={quality} reduced={reduced} camera={camera} onSelect={select} onDeselect={() => setSelected(null)} subjectMenu={selected && !panelOpen ? <SubjectMenu act={act} s={s} id={selected} busy={busy || !!error} tool={useTool} details={() => setPanelOpen(true)} move={() => { if (entity) begin(entity.asset, entity.id); }} close={() => setSelected(null)}/> : null} onPosition={(x, z) => setPlacement(p => p && ({ ...p, x, z }))} onMoveStart={id => { const e = s.entities.find(e => e.id === id); if (e)
         begin(e.asset, id); }} onPlace={place} onRotate={rotate} onCancel={() => { setPlacement(null); setStroke([]); setTool('select'); }} onPreview={setStroke} onHover={setHover} stroke={stroke} onStroke={async (ids, revision, origins) => {
         if (!['plant', 'water', 'harvest'].includes(tool) || busy || error) return;
         const action = tool as 'plant' | 'water' | 'harvest', p = previewStroke(s, action, seed, ids);
@@ -109,7 +127,7 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
         setSeed(id); setSeedChoices(!id); setSelected(null); setTool('plant'); setPanelOpen(false); }} fish={() => { setFish(true); setFishMoves([]); setFishMemory(true); }}/></div></Dialog>}
  {seedChoices && <Dialog title="Chọn hạt giống" wide onClose={() => setSeedChoices(false)}><p className="farm-seed-intro">Chọn cây cho mùa mới. Hạt giống chỉ được trừ xu khi gieo xuống luống.</p><SeedCards level={level} selected={seed} choose={id => { setSeed(id); setSeedChoices(false); setTool('plant'); setSelected(null); setPanelOpen(false); }}/></Dialog>}
  {tool === 'harvest' && !modal && <HarvestCursor/>}
- <HarvestEffects flights={flights} basket={basket} reduced={reduced} done={key => setFlights(f => f.filter(v => v.key !== key))}/>
+ <HarvestEffects flights={flights} basket={basket} energyTarget={energyTarget} reduced={reduced} done={key => setFlights(f => f.filter(v => v.key !== key))}/>
 
  {settings && <Dialog title="Cài đặt & bản sao" onClose={() => setSettings(false)}>{accountPanel ?? <p className="farm-note">Sân thử lưu riêng, không đồng bộ tài khoản. <a href="./">Mở nông trại chính</a></p>}<label className="farm-setting">Đồ họa<select value={quality} onChange={e => setQuality(e.target.value as 'soft' | 'light')}><option value="soft">Ánh sáng mềm</option><option value="light">Nhẹ · tắt bóng</option></select></label><label className="farm-setting">Giảm chuyển động<input type="checkbox" checked={reduced} onChange={e => setReduced(e.target.checked)}/></label><label className="farm-setting">Âm thanh thao tác<input type="checkbox" checked={sound} onChange={e => setSound(e.target.checked)}/></label><button className="farm-primary" onClick={() => download(serializeBackup(s))}>Xuất bản sao hiện tại</button>{s.migrationNotes.length > 0 && <button onClick={async () => { const text = await exportOriginal(); if (text)
         download(text, 'lang-mam-original-v1.json');

@@ -18,7 +18,7 @@
 - Frontend host dùng public `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY`; standalone ưu tiên hai biến `FARM_LAB_*`. Không nhúng DATABASE_URL hay Google client secret.
 - Supabase client của app chính không nhận callback tại `/games/farm`; client farm dùng PKCE và storage key riêng để không tranh đổi code.
 - Đã thêm redirect allowlist thật qua Chrome cho `/Genius-kids/games/farm` trên `http://127.0.0.1:3000`, `http://localhost:3000`, `http://127.0.0.1:3001` và `https://zeusato.github.io`. Giữ callback sân thử 4328 và Site URL có trước; không dùng wildcard.
-- Google provider vẫn chưa bật: đang chờ chấp thuận chính sách Google ở onboarding. Chi tiết [ACCOUNT_SYNC](ACCOUNT_SYNC.md). Không coi việc ghép game là đã nghiệm thu OAuth.
+- Cập nhật 21 giờ 18/09: Google provider đã bật, OAuth client **Lang Mam Web** đã tạo; Chrome xác nhận đăng nhập thật và callback trên GitHub Pages, giữ phiên sau reload. Google còn Testing; chưa chọn/upload vườn thật hay kiểm hai thiết bị. Chi tiết [ACCOUNT_SYNC](ACCOUNT_SYNC.md).
 
 ## Tranh đại diện
 

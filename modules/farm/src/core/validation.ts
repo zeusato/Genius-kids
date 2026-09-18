@@ -4,6 +4,7 @@ import { dimensions, placementError, createFarm } from './engine';
 import { validateSnapshot as validateLegacy } from './legacy/validation';
 import { worldErrors, FAMILIES, BIOMES, ownedAt } from './world';
 import type { FarmState, Entity, ProductionJob } from './types';
+import { initializeHarvesting, REGROWTH_SLOT_MS } from './harvesting';
 const object = (v: unknown): v is Record<string, any> => !!v && typeof v === 'object' && !Array.isArray(v);
 const integer = (v: unknown, min = 0, max = Number.MAX_SAFE_INTEGER): v is number => typeof v === 'number' && Number.isSafeInteger(v) && v >= min && v <= max;
 const known = (o: object, k: unknown): k is string => typeof k === 'string' && Object.prototype.hasOwnProperty.call(o, k);
@@ -77,7 +78,9 @@ export function validateSnapshot(value: unknown): FarmState {
     assert(Array.isArray(w.heights) && Array.isArray(w.water) && Array.isArray(w.owned) && w.owned.every((id: unknown) => integer(id, 0, 35)) && new Set(w.owned).size === w.owned.length && [0, 1, 6, 7].every(id => w.owned.includes(id)), 'khu đất');
     assert(Array.isArray(w.obstacles) && w.obstacles.length <= 9216 && Array.isArray(w.bridges) && w.bridges.length === 2, 'địa hình');
     for (const o of w.obstacles) {
-        assert(object(o) && typeof o.id === 'string' && o.id === `o-${o.x}-${o.z}` && integer(o.x, 0, 95) && integer(o.z, 0, 95) && ['tree', 'rock', 'ore'].includes(o.kind) && typeof o.cleared === 'boolean' && (o.claimed === undefined || typeof o.claimed === 'boolean'), 'vật cản');
+        assert(object(o) && typeof o.id === 'string' && o.id === `o-${o.x}-${o.z}` && integer(o.x, 0, 95) && integer(o.z, 0, 95) && ['tree', 'rock', 'ore', 'berry'].includes(o.kind) && typeof o.cleared === 'boolean' && (o.claimed === undefined || typeof o.claimed === 'boolean'), 'vật cản');
+        assert(o.tier === undefined || integer(o.tier, 1, 4), 'cấp tài nguyên');
+        assert(o.generation === undefined || integer(o.generation, 1, 1000000000), 'lượt mọc tài nguyên');
         assert(o.cleared === !!o.claimed && (!o.cleared || o.readyAt === undefined), 'biên nhận khai phá');
         if (o.readyAt !== undefined)
             assert(integer(o.readyAt, 0) && ownedAt(w as FarmState['world'], o.x, o.z), 'job khai phá');
@@ -129,6 +132,12 @@ export function validateSnapshot(value: unknown): FarmState {
         assert(object(value.gather) && ['wood', 'stone'].includes(value.gather.item) && integer(value.gather.readyAt), 'thu gom');
     if (value.undo)
         assert(object(value.undo) && value.entities.some((e: any) => e.id === value.undo.entityId) && integer(value.undo.x, 0, 95) && integer(value.undo.z, 0, 95) && integer(value.undo.rotation, 0, 3), 'hoàn tác');
+    if (value.harvestingVersion !== undefined) {
+        assert(value.harvestingVersion === 1, 'phiên bản khai phá');
+        assert(object(value.energy) && integer(value.energy.capacity, 100, 220) && integer(value.energy.value, 0, value.energy.capacity) && integer(value.energy.updatedAt, 0, value.clock), 'năng lượng');
+        assert(object(value.regrowth) && integer(value.regrowth.slot, 0, Math.floor(value.clock / REGROWTH_SLOT_MS)), 'lịch mọc lại');
+        assert(!value.gather && w.obstacles.every((o: any) => o.readyAt === undefined), 'khai phá không có thời gian chờ');
+    }
     const state = structuredClone(value) as FarmState;
     for (const e of state.entities) {
         if (e.stored)
@@ -145,7 +154,7 @@ export function validateSnapshot(value: unknown): FarmState {
         positions.add(key);
     }
     assert([...ids].every(k => !/^(entity|plot|job|build)-\d+$/.test(k) || Number(k.split('-')[1]) < state.nextId), 'bộ đếm ID');
-    return state;
+    return value.harvestingVersion === undefined ? initializeHarvesting(state, true) : state;
 }
 export function parseBackup(text: string): FarmState { if (text.length > 3000000)
     throw new Error('Tệp sao lưu quá lớn.'); const data: unknown = JSON.parse(text); if (!object(data) || data.format !== 'lang-mam-lab-backup')

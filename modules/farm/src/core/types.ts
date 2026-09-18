@@ -1,5 +1,5 @@
 import type { AssetId, CropId, ItemId, RecipeId, Speedup, Stats } from './catalog';
-import type { World } from './world';
+import type { Obstacle, World } from './world';
 export type Rotation = 0 | 1 | 2 | 3;
 export type Plot = {
     id: string;
@@ -51,6 +51,9 @@ export type Entity = {
 export type FarmState = {
     schema: 2;
     contentVersion: 3;
+    harvestingVersion: 1;
+    energy: { value: number; capacity: number; updatedAt: number };
+    regrowth: { slot: number };
     economy: 'local-unverified';
     revision: number;
     coins: number;
@@ -179,7 +182,8 @@ export type FarmAction = {
 } | {
     type: 'clear';
     obstacleId: string;
-    pay: 'coins' | 'tools';
+    generation?: number;
+    pay?: 'energy' | 'tools' | 'auto';
 } | {
     type: 'collect-obstacle';
     obstacleId: string;
@@ -207,6 +211,7 @@ export type CommandResult = {
     ok: boolean;
     state: FarmState;
     message: string;
+    harvest?: { obstacle: Obstacle; items: Partial<Record<ItemId, number>>; energy: number };
 };
 export interface FarmRepository {
     load(): Promise<FarmState | null>;

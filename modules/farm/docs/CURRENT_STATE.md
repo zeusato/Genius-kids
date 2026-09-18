@@ -1,8 +1,18 @@
+**Icon năng lượng 18/09:** Thay toàn bộ ký tự Unicode năng lượng trong HUD, nút khai phá, phần thưởng quả và hiệu ứng bay bằng EnergyIcon.tsx (SVG tia sét vàng, viền và mặt sáng vẽ riêng). Chỉnh kích thước desktop/mobile, thêm tên nút đầy đủ cho trình đọc màn hình. Typecheck module và diff check đạt; không đổi cơ chế hoặc save, chưa deploy.
+
+**Gia đình tự sinh hoạt 18/09:** [FAMILY_LIFE](FAMILY_LIFE.md): bốn người tự tìm đường trong đất đã mở, ghé nhà/cây/đồ vật, nghỉ và vẫy chào; ưu tiên lệnh khai phá, không tác động kinh tế. Lưới đi tránh công trình/ruộng/nước/vách, nhận cầu đã xây. Giảm chuyển động tắt đi dạo. 26/26 kiểm tra liên quan, typecheck và build module đạt; chưa deploy hoặc đo Android thật.
+
+**Mỹ thuật gia đình 18/09:** Đã thay mô hình hộp bằng hình bo mềm, mặt có mắt/mũi/má, bố mặc yếm + mũ rơm, mẹ mặc tạp dề + tóc búi, bé trai đội mũ và bé gái tóc hai bên. Rig vai/khuỷu/hông/gối riêng cho chạy và khai phá; gia đình đứng thành nhóm hai hàng. Cả bốn dùng 2 instanced draw, 14.496 tam giác, không thêm texture/model tải ngoài. Chrome đã xem cận cảnh, console không lỗi; typecheck, 20/20 test khai phá và build module đạt. Chưa deploy hoặc đo Android thật.
+
+**Khai phá mới 18/09:** [HARVESTING_ENERGY](HARVESTING_ENERGY.md) là yêu cầu hiện hành: 4 cấp tài nguyên, năng lượng 100/+5 mỗi cấp, hồi 3 phút/điểm, nhận ngay, dụng cụ thay năng lượng, gia đình 4 người và bụi quả, mọc tối đa 5 tài nguyên + 5 bụi/ngày, bỏ thu gom. Save cũ chuyển một lần, giữ contentVersion 3 cho Supabase. Đã làm local; chưa deploy, chưa nghiệm thu Android thật.
+
 **Cập nhật tài khoản 18/09:** [ACCOUNT_SYNC](ACCOUNT_SYNC.md) là nguồn hiện hành cho Auth và cloud save. Đã triển khai migration thật trên Supabase qua Chrome, 16 kiểm tra DB đạt và redirect local đã cấu hình. Custom SMTP/email thật chưa nghiệm thu. Market vẫn để sau.
 
-**Google 18/09:** UI đăng nhập Google đã triển khai, email/mật khẩu là lựa chọn phụ. Project Google **Lang Mam** đã tạo; bước chính sách onboarding đang chờ xác nhận, chưa bật provider. Typecheck/build và 17/17 bài Google + online đạt. Chi tiết và trạng thái thật tại [ACCOUNT_SYNC](ACCOUNT_SYNC.md).
+**Google cập nhật 21 giờ 18/09:** đã tạo OAuth client **Lang Mam Web**, bật provider và kiểm đăng nhập thật trên GitHub Pages bằng tài khoản Owner `zeusato@gmail.com`; callback và giữ phiên sau reload đạt. Chưa chọn/upload vườn, chưa nghiệm thu hai thiết bị; Google còn Testing. Chi tiết tại [ACCOUNT_SYNC](ACCOUNT_SYNC.md). Kết quả typecheck/build và 17/17 bài Google + online trước đó không phải chạy lại trong lượt cấu hình này.
 
 **Ghép app chính 18/09:** [HOST_INTEGRATION](HOST_INTEGRATION.md): mục Làng Mầm thứ hai trong Games, ảnh mới, route lazy `/games/farm`, bản lưu guest theo hồ sơ; reload giữ đúng vườn. Sân thử vẫn chạy riêng. Yêu cầu tích hợp mới thay thế phạm vi độc lập cũ.
+
+**Hiệu năng Android/Chrome 18/09:** [PERFORMANCE_2026-09-18](PERFORMANCE_2026-09-18.md) là bàn giao mới nhất: world render reference ổn định, bỏ scenery dưới fog sâu, bỏ raycast khi pan, ảnh lossless giảm 34,8%, mặc định soft và lưu lựa chọn; light giữ cùng DPR cap 1,5. 128/128 test và build module/host đạt. Chưa deploy hoặc nghiệm thu FPS điện thoại thật.
 
 # Làng Mầm — trạng thái triển khai
 

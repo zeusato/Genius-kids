@@ -4,6 +4,8 @@ import { Icon } from './Icon';
 export function ResourceIcon({ id }: { id: string }) {
     if (id === 'tools') return <Icon name="hammer" size={28}/>;
     return <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        {id === 'ore' && <><path d="m4 29 5-16 11-6 13 7 4 17-19 6Z" fill="#69767a"/><path d="m9 13 11-6 13 7-10 9-12-2Z" fill="#a5b0ae"/><path d="m13 17 7-6 5 9-8 6Zm13 9 6-7 2 11-8 3Z" fill="#b57b50"/></>}
+        {id === 'clay' && <><path d="m5 30 4-13 9-8 14 6 5 15-18 6Z" fill="#b98968"/><path d="m9 17 9-8 14 6-11 9Z" fill="#d6af83"/><path d="m6 29 14-5 9 6-11 5Z" fill="#a87558"/></>}
         {id === 'coins' && <><ellipse cx="19" cy="29" rx="13" ry="5" fill="#b18436"/><path d="M6 24v5c0 6 26 6 26 0v-5" fill="#d6a442"/><ellipse cx="19" cy="24" rx="13" ry="5" fill="#f3ce6a"/><circle cx="24" cy="15" r="11" fill="#ce9b39"/><circle cx="24" cy="14" r="9" fill="#f5d371" stroke="#e6b349" strokeWidth="2"/><path d="m24 8 2 4 4 2-4 2-2 4-2-4-4-2 4-2Z" fill="#c99639"/></>}
         {id === 'wood' && <><path d="M7 19 23 8l10 8-17 12Z" fill="#886044"/><path d="m11 27 16-11 9 9-16 10Z" fill="#71503a"/><path d="m12 18 13-8m-6 16 13-8" stroke="#b18153" strokeWidth="2"/><ellipse cx="11" cy="24" rx="7" ry="8" fill="#d6ac72" stroke="#866144" strokeWidth="2"/><ellipse cx="20" cy="31" rx="6" ry="6" fill="#e2bd82" stroke="#866144" strokeWidth="2"/><ellipse cx="11" cy="24" rx="3" ry="4" stroke="#a97c4c"/><circle cx="20" cy="31" r="2.5" stroke="#a97c4c"/></>}
         {id === 'stone' && <><path d="m4 29 5-16 11-6 13 7 4 17-19 6Z" fill="#858b85"/><path d="m9 13 11-6 13 7-10 9-12-2Z" fill="#b2b5a8"/><path d="m4 29 7-8 12 2-5 14Z" fill="#999f92"/><path d="m23 23 10-9 4 17-19 6Z" fill="#707b76"/></>}

@@ -2,8 +2,8 @@ import * as T from 'three';
 import { assetModel, cropModel } from './models';
 import { roadGeometry } from './roadGeometry';
 import type { AssetId, CropId } from '../core/catalog';
-import soilUrl from '../assets/terrain/tilled-soil-v1.png';
-import roadUrl from '../assets/terrain/road-stone-v1.png';
+import soilUrl from '../assets/terrain/optimized/tilled-soil-v1.webp';
+import roadUrl from '../assets/terrain/optimized/road-stone-v1.webp';
 
 export type ThumbnailSubject = { asset: AssetId; level?: number } | { crop: CropId };
 export const thumbnailKey = (s: ThumbnailSubject) => 'crop' in s ? `crop:${s.crop}` : `asset:${s.asset}:${s.level ?? 1}`;

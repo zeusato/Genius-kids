@@ -6,6 +6,7 @@ import { GroundCover } from './GroundCover';
 import { CropField } from './CropField';
 import { Roads } from './Roads';
 import { SceneLife, FrameMeter } from './SceneLife';
+import { Family, type FamilyWork } from './Family';
 import { Suspense, useEffect, useMemo, useRef, useState, type RefObject, type ReactNode } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';
@@ -45,6 +46,8 @@ type Props = {
     onPreview: (ids: string[]) => void;
     onHover: (text: string) => void;
     stroke: string[];
+    familyWork: FamilyWork[];
+    onResourceOrigin: (work: FamilyWork, x: number, y: number) => void;
 };
 function SubjectAnchor({ state, selected, children }: { state: FarmState; selected: string; children: ReactNode }) {
     const div = useRef<HTMLDivElement>(null), { camera, size } = useThree();
@@ -218,14 +221,20 @@ function Interaction({ props, controls }: {
                 gesture = next;
                 return;
             }
-            const p = latest.current, q = pick(ev);
+            const p = latest.current;
+            if (!start && (space || ev.buttons !== 0)) return;
+            if (start) {
+                if (Math.hypot(ev.clientX - start.x, ev.clientY - start.y) > 5) start.drag = true;
+                // Camera panning needs no terrain/foliage raycast. Keep picking
+                // for placement and brush tools where the ground is actionable.
+                if (!start.move && !['plant', 'water', 'harvest'].includes(p.tool)) return;
+            }
+            const q = pick(ev);
             if (!start) {
                 const e = p.state.entities.find(e => e.id === q.id), o = p.state.world.obstacles.find(o => o.id === q.id);
                 p.onHover(e ? `${ASSETS[e.asset].name} · ${ASSETS[e.asset].kind === 'building' ? `Cấp ${e.level}/25` : 'Trang trí'}` : o ? `${obstacleName(p.state.world, o)} · chọn để khai phá` : '');
                 return;
             }
-            if (Math.hypot(ev.clientX - start.x, ev.clientY - start.y) > 5)
-                start.drag = true;
             if (start.move && start.drag) {
                 start.move = { ...start.move, x: q.x - (start.offset?.x ?? 0), z: q.z - (start.offset?.z ?? 0) };
                 p.onPosition(start.move.x, start.move.z);
@@ -325,8 +334,8 @@ function Scene(props: Props) {
     const problem = p ? placementError(s, p.x, p.z, pw, pd, p.moveId, p.asset === 'plot' ? undefined : p.asset, p.rotation) || (!p.moveId && p.asset !== 'plot' ? buildRequirements(s, p.asset)[0] : null) : null;
     const hovered = s.entities.find(e => e.id === props.selected);
     return <><color attach="background" args={['#d8dfcb']}/><hemisphereLight args={['#fff0d8', '#8d9c75', 1.75]}/><directionalLight position={[-8, 30, 12]} intensity={2} color="#fff0d2" castShadow={props.quality === 'soft'} shadow-mapSize={[2048, 2048]} shadow-camera-left={-42} shadow-camera-right={42} shadow-camera-top={42} shadow-camera-bottom={-42} shadow-camera-far={130} shadow-normalBias={.07}/>
- <Landscape world={s.world} reduced={props.reduced}/><GroundCover state={s}/><LandscapeObjects world={s.world} reveal={['arrange', 'plant', 'water', 'harvest'].includes(props.tool)}/>
- <Roads state={s} placement={p}/><CropField state={s}/><SceneLife reduced={props.reduced}/>{import.meta.env.DEV && new URLSearchParams(location.search).has('lab') && <FrameMeter />}
+ <Landscape world={s.world} reduced={props.reduced}/><GroundCover state={s}/><LandscapeObjects world={s.world} ghosts={props.familyWork} reveal={['arrange', 'plant', 'water', 'harvest'].includes(props.tool)}/><Family state={s} works={props.familyWork} reduced={props.reduced} origin={props.onResourceOrigin}/>
+ {(p?.asset === 'path' || s.entities.some(e => e.asset === 'path' && !e.stored)) && <Suspense fallback={null}><Roads state={s} placement={p}/></Suspense>}<Suspense fallback={null}><CropField state={s}/></Suspense><Suspense fallback={null}><SceneLife reduced={props.reduced}/></Suspense>{import.meta.env.DEV && new URLSearchParams(location.search).has('lab') && <FrameMeter />}
  <Buildings state={s} hide={p?.moveId} reduced={props.reduced}/>{s.entities.filter(e => !e.stored && e.id !== p?.moveId && e.construction).map(e => { const [w, d] = dimensions(e.asset, e.rotation); return <group key={e.id} userData={{ id: e.id }} position={[e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2]} rotation={[0, e.rotation * Math.PI / 2, 0]}>{e.construction && <mesh position={[0, 1.2, 0]}><boxGeometry args={[w + .12, 2.4, d + .12]}/><meshBasicMaterial color="#c6ad72" wireframe transparent opacity={.65}/></mesh>}</group>; })}
  {s.world.bridges.map(b => <group key={b.id} userData={{ id: b.id }} position={[b.x + 3, .04, b.z + 1]}>{b.built ? <><mesh receiveShadow><boxGeometry args={[6, .22, 2]}/><meshStandardMaterial color="#ac8a5d"/></mesh>{[-1, 1].map(z => <mesh key={z} position={[0, .6, z * .9]}><boxGeometry args={[6, .08, .08]}/><meshStandardMaterial color="#816342"/></mesh>)}</> : <mesh><boxGeometry args={[6, .04, 2]}/><meshBasicMaterial color="#ecd3a0" wireframe/></mesh>}</group>)}
  {props.selected && s.plots.filter(v => v.id === props.selected).map(v => <Mark key={v.id} {...v} world={s.world}/>)}
@@ -338,4 +347,4 @@ function Scene(props: Props) {
  {props.selected && props.subjectMenu && !p && props.tool === 'select' && <SubjectAnchor state={s} selected={props.selected}>{props.subjectMenu}</SubjectAnchor>}
  <Interaction props={props} controls={controls}/></>;
 }
-export function FarmWorld(props: Props) { return <SceneBoundary><Canvas orthographic shadows={props.quality === 'soft'} camera={{ position: [240, 270, 300], zoom: 30, near: .1, far: 2000 }} dpr={[1, props.quality === 'soft' ? 1.5 : 1]} frameloop={props.reduced ? 'demand' : 'always'} gl={{ antialias: true, powerPreference: 'high-performance' }} aria-label="Bản đồ 3D tương tác" onContextMenu={e => e.preventDefault()}><Suspense fallback={null}><Scene {...props}/></Suspense></Canvas></SceneBoundary>; }
+export function FarmWorld(props: Props) { return <SceneBoundary><Canvas orthographic shadows={props.quality === 'soft'} camera={{ position: [240, 270, 300], zoom: 30, near: .1, far: 2000 }} dpr={[1, 1.5]} frameloop={props.reduced ? 'demand' : 'always'} gl={{ antialias: true, powerPreference: 'high-performance' }} aria-label="Bản đồ 3D tương tác" onContextMenu={e => e.preventDefault()}><Suspense fallback={null}><Scene {...props}/></Suspense></Canvas></SceneBoundary>; }

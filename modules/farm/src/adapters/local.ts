@@ -44,6 +44,7 @@ export class LocalFarmRepository implements FarmRepository {
                 }
                 if (old) {
                     store.put(old, 'previous');
+                    if (old.schema === 2 && !old.harvestingVersion) store.put(old, 'migration-original-harvesting-v1');
                     if ((old as unknown as {
                         schema: number;
                     }).schema === 1)
@@ -57,7 +58,7 @@ export class LocalFarmRepository implements FarmRepository {
     async close() { (await this.db).close(); }
     async exportOriginal(): Promise<string | null> {
         const db = await this.db;
-        return new Promise((resolve, reject) => { const r = db.transaction('snapshots', 'readonly').objectStore('snapshots').get('migration-original-v1'); r.onsuccess = () => resolve(r.result ? JSON.stringify({ format: 'lang-mam-lab-backup', state: r.result }, null, 2) : null); r.onerror = () => reject(r.error); });
+        return new Promise((resolve, reject) => { const store = db.transaction('snapshots', 'readonly').objectStore('snapshots'); const r = store.get('migration-original-harvesting-v1'); r.onsuccess = () => { if (r.result) resolve(JSON.stringify({ format: 'lang-mam-lab-backup', state: r.result }, null, 2)); else { const legacy = store.get('migration-original-v1'); legacy.onsuccess = () => resolve(legacy.result ? JSON.stringify({ format: 'lang-mam-lab-backup', state: legacy.result }, null, 2) : null); legacy.onerror = () => reject(legacy.error); } }; r.onerror = () => reject(r.error); });
     }
 }
 /** Serial commands + IDB compare-and-swap: no lost update between tabs or async UI actions. */

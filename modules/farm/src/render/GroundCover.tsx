@@ -7,12 +7,13 @@ import { heightAt, isWater, random, tileIndex } from '../core/world';
 import { landcoverAt } from '../core/landcover';
 import { dimensions } from '../core/engine';
 import { CAMERA_OFFSET } from './Landscape';
-import fern from '../assets/terrain/fern-v1.png';
-import shrub from '../assets/terrain/shrub-v1.png';
-import wildflowers from '../assets/terrain/wildflowers-v1.png';
+import fern from '../assets/terrain/optimized/fern-v1.webp';
+import shrub from '../assets/terrain/optimized/shrub-v1.webp';
+import wildflowers from '../assets/terrain/optimized/wildflowers-v1.webp';
 import { foliageCoverage } from './cutoutMaterials';
+import { sceneryVisible } from './sceneryVisibility';
 const urls = [fern, shrub, wildflowers];
-type Spot = { x: number; z: number; size: number; y: number };
+type Spot = { x: number; z: number; size: number; y: number; shade: number };
 const camera = new T.PerspectiveCamera(); camera.position.copy(CAMERA_OFFSET); camera.lookAt(0, 0, 0);
 const rotation = camera.quaternion.clone(), up = new T.Vector3(0, 1, 0).applyQuaternion(rotation);
 function CoverInstances({ spots, kind }: { spots: Spot[]; kind: number }) {
@@ -27,7 +28,7 @@ function CoverInstances({ spots, kind }: { spots: Spot[]; kind: number }) {
             const height = p.size * image.height / image.width;
             dummy.position.set(p.x, p.y + .018, p.z); dummy.position.addScaledVector(up, height * .42);
             dummy.quaternion.copy(rotation); dummy.scale.set(p.size, height, 1); dummy.updateMatrix(); mesh.current!.setMatrixAt(i, dummy.matrix);
-            mesh.current!.setColorAt(i, new T.Color('#ffffff').multiplyScalar(.84 + (i % 7) * .025));
+            mesh.current!.setColorAt(i, new T.Color('#ffffff').multiplyScalar(p.shade));
         });
         mesh.current.instanceMatrix.needsUpdate = true; mesh.current.computeBoundingSphere();
     }, [spots, texture]);
@@ -49,9 +50,12 @@ export function GroundCover({ state: s }: { state: FarmState }) {
             const h = heightAt(s.world, x, z);
             if (heightAt(s.world, x + 1, z) !== h || heightAt(s.world, x, z + 1) !== h) continue;
             const kind = cover === 'marsh' ? 0 : cover === 'woodland' ? n < .13 ? 0 : 1 : n < .06 ? 2 : 1;
-            out[kind].push({ x: x + .2 + rng() * .6, z: z + .2 + rng() * .6, size: (kind === 2 ? .7 : 1) * (.8 + rng() * .7), y: h });
+            out[kind].push({ x: x + .2 + rng() * .6, z: z + .2 + rng() * .6, size: (kind === 2 ? .7 : 1) * (.8 + rng() * .7), y: h, shade: .84 + (out[kind].length % 7) * .025 });
         }
         return out;
     }, [layout, s.world.heights, s.world.water, s.world.obstacles, s.world.seed]);
-    return <>{groups.map((spots, kind) => <Suspense key={kind} fallback={null}><CoverInstances spots={spots} kind={kind}/></Suspense>)}</>;
+    // Filter after generating the seeded layout: revealing land must not shuffle
+    // existing plants or change their tint.
+    const visible = useMemo(() => groups.map(spots => spots.filter(p => sceneryVisible(s.world.owned, p.x, p.z))), [groups, s.world.owned]);
+    return <>{visible.map((spots, kind) => spots.length > 0 && <Suspense key={kind} fallback={null}><CoverInstances spots={spots} kind={kind}/></Suspense>)}</>;
 }

@@ -62,7 +62,7 @@ export function Buildings({ state: s, hide, reduced }: {
         }
         const batches = [...materials].map(([material, b]) => { const geometry = mergeGeometries(b.geometries)!; b.geometries.forEach(g => g.dispose()); geometry.computeBoundingSphere(); return { material, geometry, owners: b.owners }; });
         return { batches, moving };
-    }, [signature, s.world.seed]);
+    }, [signature, s.world.seed, s.world.heights]);
     useEffect(() => () => kit.batches.forEach(b => b.geometry.dispose()), [kit]);
     useFrame(({ clock }, delta) => { if (reduced)
         return; for (const { id, group } of kit.moving) {

@@ -7,7 +7,7 @@ import { roadConnections } from '../core/roads';
 import { heightAt } from '../core/world';
 import type { Placement } from './FarmScene';
 import { roadGeometry } from './roadGeometry';
-import stoneUrl from '../assets/terrain/road-stone-v1.png';
+import stoneUrl from '../assets/terrain/optimized/road-stone-v1.webp';
 
 function useRoadTexture() {
     const texture = useTexture(stoneUrl);

@@ -2,7 +2,8 @@ import { useMemo, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Html, useTexture } from '@react-three/drei';
 import * as T from 'three';
-import swallow from '../assets/terrain/swallow-flight-v1.png';
+import swallow from '../assets/terrain/optimized/swallow-flight-v1.webp';
+import { performanceMetrics } from './performanceMetrics';
 
 export function SceneLife({ reduced }: {
     reduced: boolean;
@@ -59,6 +60,6 @@ export function SceneLife({ reduced }: {
 export function FrameMeter() {
     const { gl } = useThree(), frames = useRef<number[]>([]), last = useRef(0), [text, setText] = useState('Đang đo…');
     useFrame(({ clock }, delta) => { frames.current.push(delta * 1000); if (clock.elapsedTime - last.current < 3)
-        return; const samples = frames.current.sort((a, b) => a - b); const mean = samples.reduce((a, b) => a + b, 0) / samples.length; setText(`${Math.round(1000 / mean)} fps · p95 ${Math.round(samples[Math.floor(samples.length * .95)] ?? 0)}ms · ${gl.info.render.calls} draws · ${Math.round(gl.info.render.triangles / 1000)}k tris`); frames.current = []; last.current = clock.elapsedTime; });
+        return; const samples = frames.current.sort((a, b) => a - b); const mean = samples.reduce((a, b) => a + b, 0) / samples.length; setText(`${Math.round(1000 / mean)} fps · p95 ${Math.round(samples[Math.floor(samples.length * .95)] ?? 0)}ms · max ${Math.round(samples[samples.length - 1])}ms · ${gl.info.render.calls} draws · ${Math.round(gl.info.render.triangles / 1000)}k tris · terrain ${performanceMetrics.landscapeBuilds} (${Math.round(performanceMetrics.landscapeBuildMs)}ms) · DPR ${gl.getPixelRatio()}`); frames.current = []; last.current = clock.elapsedTime; });
     return <Html fullscreen zIndexRange={[1, 0]} style={{ pointerEvents: 'none' }}><output className="farm-frame-meter" aria-label="Hiệu năng QA">{text}</output></Html>;
 }
