@@ -1,0 +1,37 @@
+.farm-root .farm-welcome{width:min(480px,calc(100vw - 24px))}
+.farm-welcome .farm-window-heading{min-height:0;padding:18px 22px;background:#e9edda}
+.farm-welcome .farm-window-heading h2{font-size:23px}
+.farm-welcome .farm-window-heading small{font-size:10px}
+.farm-welcome .farm-window-content{padding:0 22px 18px}
+.farm-welcome-art{display:block;width:calc(100% + 44px);height:140px;object-fit:contain;object-position:center;background:#e4e8d6;margin:0 -22px}
+.farm-welcome-intro{font-size:13px;line-height:1.55;color:#627057;margin:14px 0}
+.farm-welcome-controls{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.farm-welcome-controls li{display:flex;align-items:center;gap:12px;font-size:12px;color:#69735d}
+.farm-welcome-controls svg{flex:none;color:#5c7c4a}
+.farm-welcome-controls b{display:block;font-size:13px;color:#374d35;margin-bottom:2px}
+.farm-welcome-mission{display:flex;gap:12px;background:#f3e6ba;border:1px solid #dece97;border-radius:14px;padding:13px;margin:16px 0}
+.farm-welcome-mission>svg{flex:none;margin-top:4px;color:#8e7136}
+.farm-welcome-mission small{font-size:9px;letter-spacing:1.2px;display:block;color:#8c7544}
+.farm-welcome-mission b{display:block;font-size:16px;margin:3px 0}
+.farm-welcome-mission p{font-size:12px;line-height:1.5;margin:0}
+.farm-welcome .farm-primary{width:100%;justify-content:center;min-height:43px}
+.farm-welcome .farm-link{display:block;margin:5px auto 0;font-size:12px}
+.farm-root .farm-quest-target{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;width:100%;background:#f5f1df;padding:10px 12px;margin:5px 0;min-height:44px}
+.farm-quest-buildings{margin:14px 0 0}.farm-quest-buildings>small{display:block;color:#74805f}
+.farm-build-guidance{display:flex;gap:10px;align-items:center;background:#edf1dd;border-radius:12px;padding:13px;font-size:13px;line-height:1.5}
+.farm-save-options{border:0;padding:0;margin:16px 0;display:grid;gap:10px;min-width:0}
+.farm-save-options legend{font-size:12px;margin-bottom:8px;color:#637056}
+.farm-root .farm-save-options label{display:flex;justify-content:flex-start;align-items:center;gap:12px;margin:0;padding:14px;border:2px solid #e0dcc7;border-radius:13px;background:#fffaf0;cursor:pointer}
+.farm-root .farm-save-options label.chosen{border-color:#5d8050;background:#edf2df}
+.farm-save-options input{width:18px;height:18px;min-height:0;flex:none;accent-color:#527945}
+.farm-save-options span{min-width:0}.farm-save-options b{font-size:14px;display:block}.farm-save-options small{display:block;font-size:11px;line-height:1.7}
+.farm-save-options em{font-size:9px;font-style:normal;text-transform:uppercase;background:#5d8050;color:#fff;padding:3px 6px;border-radius:5px;white-space:nowrap}
+.farm-account-choice>.farm-primary{width:100%;justify-content:center;white-space:normal}
+@media(max-width:480px){.farm-welcome-art{height:125px}.farm-welcome .farm-window-heading{padding:14px 18px}.farm-welcome .farm-window-heading h2{font-size:20px}.farm-welcome-controls{gap:8px}.farm-welcome-mission{margin:12px 0;padding:10px}.farm-welcome .farm-window-content{padding-bottom:12px}}
+.farm-root .farm-welcome>.farm-window-heading{min-height:0;padding:12px 52px 10px;background:#e9edda}
+.farm-root .farm-welcome .farm-welcome-intro{font-size:12px;margin:10px 0;line-height:1.4}
+.farm-root .farm-welcome .farm-welcome-mission{margin:12px 0;padding:10px}
+.farm-root .farm-welcome .farm-welcome-mission p{margin:3px 0 0;font-size:12px}
+.farm-root .farm-save-options input[type=radio]{width:18px;padding:0}
+.farm-welcome-hero{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:15px;margin:12px 0}
+.farm-root .farm-welcome-hero .farm-welcome-art{width:100%;height:auto;aspect-ratio:1.5;object-fit:contain;margin:0;border-radius:12px}

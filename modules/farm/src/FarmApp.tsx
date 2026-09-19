@@ -42,6 +42,6 @@ function AccountGarden({ user, recovery, recovered, guestDatabaseName, onExit }:
         window.addEventListener('online', sync); document.addEventListener('visibilitychange', sync);
         return () => { window.removeEventListener('online', sync); document.removeEventListener('visibilitychange', sync); };
     }, [session]);
-    return <Game openSession={open} onExit={onExit} accountStatus={user ? syncLabel(status) : 'Tài khoản'} openAccount={recovery || (!user && !!initialAuthMessage) || status.phase === 'unlinked' || status.phase === 'conflict'}
+    return <Game accountChecking={!!user && status.phase === 'checking'} openSession={open} onExit={onExit} accountStatus={user ? syncLabel(status) : 'Tài khoản'} openAccount={recovery || (!user && !!initialAuthMessage) || status.phase === 'unlinked' || status.phase === 'conflict'}
         accountPanel={<AccountPanel client={farmSupabase} user={user} session={session} status={status} recovery={recovery} recovered={recovered} googleReady={googleProviderReady} initialMessage={user ? '' : initialAuthMessage}/>}/>;
 }

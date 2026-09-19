@@ -96,7 +96,7 @@ export function LandscapeObjects({ world, reveal, ghosts = [] }: { world: World;
         }
         return [...result];
     }, [world.obstacles, world.heights, world.water, world.seed, world.owned, ghosts]);
-    return <>{groups.map(([variant, objects]) => variant === 'berry' ? <BerryBushes key={variant} objects={objects} world={world}/> : <Suspense key={variant} fallback={null}><Cutouts objects={objects} world={world} variant={variant} reveal={reveal && NATURAL_VARIANTS[variant].tree}/></Suspense>)}</>;
+    return <>{groups.map(([variant, objects]) => variant === 'berry' ? <Suspense key={variant} fallback={null}><BerryBushes objects={objects} world={world} reveal={reveal}/></Suspense> : <Suspense key={variant} fallback={null}><Cutouts objects={objects} world={world} variant={variant} reveal={reveal && NATURAL_VARIANTS[variant].tree}/></Suspense>)}</>;
 }
 
 function Cutouts({ objects, world, variant, reveal }: { objects: Obstacle[]; world: World; variant: NaturalVariant; reveal: boolean }) {

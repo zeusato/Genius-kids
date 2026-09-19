@@ -1,4 +1,5 @@
 import { obstacleName } from '../core/scenery';
+import { ConstructionSites } from './ConstructionSites';
 import { Buildings } from './Buildings';
 import { Landscape, LandscapeObjects, CAMERA_OFFSET, CAMERA_POLAR, CAMERA_AZIMUTH } from './Landscape';
 import { ExplorationFog } from './ExplorationFog';
@@ -133,7 +134,7 @@ function Interaction({ props, controls }: {
             const hits = ray.intersectObjects(scene.children, true);
             for (const i of hits) {
                 let n: T.Object3D | null = i.object;
-                if (n.userData.natural && ['plant', 'water', 'harvest', 'arrange'].includes(latest.current.tool)) continue;
+                if ((n.userData.natural || n.userData.buildingSprite) && ['plant', 'water', 'harvest', 'arrange'].includes(latest.current.tool)) continue;
                 if (n.userData.opaqueAt && i.uv && !n.userData.opaqueAt(i.uv)) continue;
                 if (n.userData.faceOwners && i.faceIndex !== undefined) {
                     id = n.userData.faceOwners.find((v: {
@@ -336,12 +337,12 @@ function Scene(props: Props) {
     return <><color attach="background" args={['#d8dfcb']}/><hemisphereLight args={['#fff0d8', '#8d9c75', 1.75]}/><directionalLight position={[-8, 30, 12]} intensity={2} color="#fff0d2" castShadow={props.quality === 'soft'} shadow-mapSize={[2048, 2048]} shadow-camera-left={-42} shadow-camera-right={42} shadow-camera-top={42} shadow-camera-bottom={-42} shadow-camera-far={130} shadow-normalBias={.07}/>
  <Landscape world={s.world} reduced={props.reduced}/><GroundCover state={s}/><LandscapeObjects world={s.world} ghosts={props.familyWork} reveal={['arrange', 'plant', 'water', 'harvest'].includes(props.tool)}/><Family state={s} works={props.familyWork} reduced={props.reduced} origin={props.onResourceOrigin}/>
  {(p?.asset === 'path' || s.entities.some(e => e.asset === 'path' && !e.stored)) && <Suspense fallback={null}><Roads state={s} placement={p}/></Suspense>}<Suspense fallback={null}><CropField state={s}/></Suspense><Suspense fallback={null}><SceneLife reduced={props.reduced}/></Suspense>{import.meta.env.DEV && new URLSearchParams(location.search).has('lab') && <FrameMeter />}
- <Buildings state={s} hide={p?.moveId} reduced={props.reduced}/>{s.entities.filter(e => !e.stored && e.id !== p?.moveId && e.construction).map(e => { const [w, d] = dimensions(e.asset, e.rotation); return <group key={e.id} userData={{ id: e.id }} position={[e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2]} rotation={[0, e.rotation * Math.PI / 2, 0]}>{e.construction && <mesh position={[0, 1.2, 0]}><boxGeometry args={[w + .12, 2.4, d + .12]}/><meshBasicMaterial color="#c6ad72" wireframe transparent opacity={.65}/></mesh>}</group>; })}
+ <Buildings state={s} hide={p?.moveId} reduced={props.reduced} reveal={['plant', 'water', 'harvest', 'arrange'].includes(props.tool)}/><ConstructionSites state={s} reduced={props.reduced}/>
  {s.world.bridges.map(b => <group key={b.id} userData={{ id: b.id }} position={[b.x + 3, .04, b.z + 1]}>{b.built ? <><mesh receiveShadow><boxGeometry args={[6, .22, 2]}/><meshStandardMaterial color="#ac8a5d"/></mesh>{[-1, 1].map(z => <mesh key={z} position={[0, .6, z * .9]}><boxGeometry args={[6, .08, .08]}/><meshStandardMaterial color="#816342"/></mesh>)}</> : <mesh><boxGeometry args={[6, .04, 2]}/><meshBasicMaterial color="#ecd3a0" wireframe/></mesh>}</group>)}
  {props.selected && s.plots.filter(v => v.id === props.selected).map(v => <Mark key={v.id} {...v} world={s.world}/>)}
  {hovered && !p && <><Mark x={hovered.x} z={hovered.z} w={dimensions(hovered.asset, hovered.rotation)[0]} d={dimensions(hovered.asset, hovered.rotation)[1]} world={s.world}/><Html position={[hovered.x + 1.5, heightAt(s.world, hovered.x, hovered.z) + 3.4, hovered.z + 1.5]} center style={{ pointerEvents: 'none' }} zIndexRange={[2, 0]}><span className="farm-world-label">{ASSETS[hovered.asset].name} · Cấp {hovered.level}/25</span></Html></>}
  {preview && props.stroke.map(id => { const plot = s.plots.find(v => v.id === id); return plot ? <Mark key={id} {...plot} world={s.world} color={preview.accepted.includes(id) ? '#ead49a' : '#d77c67'}/> : null; })}
- {p && <><Mark x={p.x} z={p.z} w={pw} d={pd} world={s.world} color={problem ? '#d97962' : '#ecdc9e'}/>{p.asset !== 'plot' && p.asset !== 'path' && <group position={[p.x + pw / 2, heightAt(s.world, p.x, p.z) + .12, p.z + pd / 2]} rotation={[0, p.rotation * Math.PI / 2, 0]}><BuildingModel asset={p.asset} level={s.entities.find(e => e.id === p.moveId)?.level ?? 1} reduced/></group>}<AnchoredActions p={p} world={s.world} onRotate={props.onRotate} onCancel={props.onCancel} onPlace={() => props.onPlace(p)} valid={!problem}/></>}
+ {p && <><Mark x={p.x} z={p.z} w={pw} d={pd} world={s.world} color={problem ? '#d97962' : '#ecdc9e'}/>{p.asset !== 'plot' && p.asset !== 'path' && <group position={[p.x + pw / 2, heightAt(s.world, p.x, p.z) + .12, p.z + pd / 2]} ><BuildingModel rotation={p.rotation} asset={p.asset} level={s.entities.find(e => e.id === p.moveId)?.level ?? 1} reduced/></group>}<AnchoredActions p={p} world={s.world} onRotate={props.onRotate} onCancel={props.onCancel} onPlace={() => props.onPlace(p)} valid={!problem}/></>}
  <OrbitControls ref={controls} makeDefault target={[11, 0, 9]} minZoom={2} maxZoom={80} enableRotate={false} minPolarAngle={CAMERA_POLAR} maxPolarAngle={CAMERA_POLAR} minAzimuthAngle={CAMERA_AZIMUTH} maxAzimuthAngle={CAMERA_AZIMUTH} screenSpacePanning={false} mouseButtons={{ LEFT: T.MOUSE.PAN, MIDDLE: T.MOUSE.DOLLY, RIGHT: T.MOUSE.PAN }} touches={{ ONE: T.TOUCH.PAN, TWO: T.TOUCH.DOLLY_PAN }}/>
  <ExplorationFog world={s.world} reduced={props.reduced}/>
  {props.selected && props.subjectMenu && !p && props.tool === 'select' && <SubjectAnchor state={s} selected={props.selected}>{props.subjectMenu}</SubjectAnchor>}

@@ -7,20 +7,21 @@ import { roadConnections } from '../core/roads';
 import { heightAt } from '../core/world';
 import type { Placement } from './FarmScene';
 import { roadGeometry } from './roadGeometry';
-import stoneUrl from '../assets/terrain/optimized/road-stone-v1.webp';
+import { roadAssetUrl } from './roadAssets';
+import { homeLevel } from '../core/progression';
 
-function useRoadTexture() {
-    const texture = useTexture(stoneUrl);
+function useRoadTexture(level: number) {
+    const texture = useTexture(roadAssetUrl(level));
     useMemo(() => { texture.colorSpace = T.SRGBColorSpace; texture.wrapS = texture.wrapT = T.MirroredRepeatWrapping; texture.anisotropy = 4; texture.needsUpdate = true; }, [texture]);
     return texture;
 }
-export function RoadSample({ mask = 0 }: { mask?: number }) {
-    const texture = useRoadTexture(), geometry = useMemo(() => roadGeometry(-.5, -.5, 0, mask), [mask]);
+export function RoadSample({ mask = 0, level = 1 }: { mask?: number; level?: number }) {
+    const texture = useRoadTexture(level), geometry = useMemo(() => roadGeometry(-.5, -.5, 0, mask), [mask]);
     useEffect(() => () => geometry.dispose(), [geometry]);
     return <mesh geometry={geometry} receiveShadow><meshStandardMaterial map={texture} roughness={1}/></mesh>;
 }
 export function Roads({ state: s, placement }: { state: FarmState; placement: Placement | null }) {
-    const texture = useRoadTexture();
+    const texture = useRoadTexture(homeLevel(s));
     const signature = s.entities.filter(e => e.asset === 'path' && !e.stored && e.id !== placement?.moveId).map(e => `${e.id}:${e.x}:${e.z}`).join('|');
     const kit = useMemo(() => {
         const entries = s.entities.filter(e => e.asset === 'path' && e.id !== placement?.moveId);

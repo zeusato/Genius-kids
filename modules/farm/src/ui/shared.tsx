@@ -12,11 +12,12 @@ export function Progress({ start, end, now }: {
     end: number;
     now: number;
 }) { return <><div className="farm-progress"><span style={{ width: `${progressOf(start, end, now) * 100}%` }}/></div><small>{end <= now ? 'Đã xong' : `Còn ${duration(end - now)}`}</small></>; }
-export function Dialog({ title, children, onClose, wide = false }: {
+export function Dialog({ title, children, onClose, wide = false, className = '' }: {
     title: string;
     children: ReactNode;
     onClose: () => void;
     wide?: boolean;
+    className?: string;
 }) {
     const ref = useRef<HTMLElement>(null), close = useRef(onClose); close.current = onClose;
     useEffect(() => {
@@ -33,5 +34,5 @@ export function Dialog({ title, children, onClose, wide = false }: {
         el?.addEventListener('keydown', key);
         return () => { el?.removeEventListener('keydown', key); if (old?.isConnected) old.focus({ preventScroll: true }); };
     }, []);
-    return <div className="farm-modal-backdrop" onPointerDown={e => { if (e.target === e.currentTarget) onClose(); }}><section ref={ref} className={`farm-modal farm-game-window ${wide ? 'farm-game-window-wide' : ''}`} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1}><header className="farm-window-heading"><div><small>LÀNG MẦM · CHUYỆN TRONG VƯỜN</small><h2>{title}</h2></div><button aria-label="Đóng hộp thoại" onClick={onClose}>×</button></header><div className="farm-window-content">{children}</div></section></div>;
+    return <div className="farm-modal-backdrop" onPointerDown={e => { if (e.target === e.currentTarget) onClose(); }}><section ref={ref} className={`farm-modal farm-game-window ${wide ? 'farm-game-window-wide' : ''} ${className}`} role="dialog" aria-modal="true" aria-label={title} tabIndex={-1}><header className="farm-window-heading"><div><small>LÀNG MẦM · CHUYỆN TRONG VƯỜN</small><h2>{title}</h2></div><button aria-label="Đóng hộp thoại" onClick={onClose}>×</button></header><div className="farm-window-content">{children}</div></section></div>;
 }

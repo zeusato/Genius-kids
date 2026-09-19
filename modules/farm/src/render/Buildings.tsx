@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { Suspense, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as T from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
@@ -6,13 +6,24 @@ import { dimensions } from '../core/engine';
 import { heightAt } from '../core/world';
 import type { FarmState } from '../core/types';
 import { assetModel } from './models';
-/** Batch static architecture by material; keep face-to-owner picking and articulated parts. */
-export function Buildings({ state: s, hide, reduced }: {
+import { isSpriteBuilding } from './buildingAssets';
+import { SpriteBuilding } from './SpriteBuilding';
+/** Functional buildings use directional cutouts; decorations remain batched. */
+export function Buildings({ state: s, hide, reduced, reveal = false }: {
     state: FarmState;
     hide?: string;
     reduced: boolean;
+    reveal?: boolean;
 }) {
-    const signature = s.entities.filter(e => !e.stored && e.id !== hide).map(e => `${e.id}:${e.asset}:${e.level}:${e.x}:${e.z}:${e.rotation}`).join('|');
+    return <><DecorBuildings state={s} hide={hide} reduced={reduced}/>{s.entities.filter(e => !e.stored && e.id !== hide && isSpriteBuilding(e.asset)).map(e => {
+        const [w, d] = dimensions(e.asset, e.rotation);
+        return <group key={e.id} position={[e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2]}><Suspense fallback={null}><SpriteBuilding asset={e.asset} level={e.level} rotation={e.rotation} id={e.id} reveal={reveal}/></Suspense></group>;
+    })}</>;
+}
+function DecorBuildings({ state: s, hide, reduced }: {
+    state: FarmState; hide?: string; reduced: boolean;
+}) {
+    const signature = s.entities.filter(e => !e.stored && e.id !== hide && e.asset !== 'path' && !isSpriteBuilding(e.asset)).map(e => `${e.id}:${e.asset}:${e.level}:${e.x}:${e.z}:${e.rotation}`).join('|');
     const kit = useMemo(() => {
         const materials = new Map<T.Material, {
             geometries: T.BufferGeometry[];
@@ -26,7 +37,7 @@ export function Buildings({ state: s, hide, reduced }: {
             group: T.Group;
         }[] = [];
         for (const e of s.entities) {
-            if (e.stored || e.id === hide || e.asset === 'path')
+            if (e.stored || e.id === hide || e.asset === 'path' || isSpriteBuilding(e.asset))
                 continue;
             const model = assetModel(e.asset, e.level), [w, d] = dimensions(e.asset, e.rotation), pose = new T.Group();
             pose.position.set(e.x + w / 2, heightAt(s.world, e.x, e.z) + .025, e.z + d / 2);

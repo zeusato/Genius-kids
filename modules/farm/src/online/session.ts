@@ -14,7 +14,8 @@ export class CloudFarmSession implements FarmSession {
     private due = 0;
     private failures = 0;
     constructor(readonly cache: CloudCache, private local: LocalFarmGateway, private remote: CloudTransport,
-        private changed: (status: SyncStatus) => void = () => {}, private automatic = true) { }
+        private changed: (status: SyncStatus) => void = () => {}, private automatic = true,
+        private reviewOnOpen = false) { }
     getSnapshot() { return this.local.getSnapshot(); }
     exportOriginal() { return this.local.exportOriginal(); }
     recovery() { return this.cache.recovery(); }
@@ -59,7 +60,7 @@ export class CloudFarmSession implements FarmSession {
         if (this.status.phase === 'conflict') return;
         const meta = await this.cache.metadata();
         if (this.closed) return;
-        if (!meta.linked) {
+        if (!meta.linked || this.reviewOnOpen) {
             const remote = await this.remote.read();
             this.emit({ phase: 'unlinked', remote }); this.failures = 0; return;
         }
@@ -102,6 +103,7 @@ export class CloudFarmSession implements FarmSession {
             if (source === 'cloud' && selected) {
                 await this.cache.adopt(selected, this.local.getSnapshot().revision); await this.local.reload();
             } else await this.cache.chooseLocal(selected ?? null);
+            this.reviewOnOpen = false;
             this.emit({ phase: 'pending' });
         });
         await this.sync();
@@ -125,6 +127,6 @@ export async function openAccountFarm(owner: string, transport: CloudTransport, 
             } finally { await guest.close(); }
         }
         const local = await LocalFarmGateway.open(cache);
-        return new CloudFarmSession(cache, local, transport, changed);
+        return new CloudFarmSession(cache, local, transport, changed, true, true);
     } catch (e) { await cache.close(); throw e; }
 }

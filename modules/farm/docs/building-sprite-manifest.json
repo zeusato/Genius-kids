@@ -1,0 +1,8372 @@
+{
+  "generator": "built-in image_gen",
+  "extraction": "24 alpha-connected subjects per atlas, transparent padding",
+  "tiers": [
+    1,
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "views": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "sprites": [
+    {
+      "file": "apiary-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27532,
+      "sourceBounds": {
+        "left": 47,
+        "top": 4,
+        "width": 172,
+        "height": 211
+      }
+    },
+    {
+      "file": "apiary-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 34130,
+      "sourceBounds": {
+        "left": 33,
+        "top": 229,
+        "width": 205,
+        "height": 207
+      }
+    },
+    {
+      "file": "apiary-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32134,
+      "sourceBounds": {
+        "left": 26,
+        "top": 447,
+        "width": 219,
+        "height": 230
+      }
+    },
+    {
+      "file": "apiary-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30696,
+      "sourceBounds": {
+        "left": 17,
+        "top": 676,
+        "width": 222,
+        "height": 263
+      }
+    },
+    {
+      "file": "apiary-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29266,
+      "sourceBounds": {
+        "left": 17,
+        "top": 944,
+        "width": 229,
+        "height": 271
+      }
+    },
+    {
+      "file": "apiary-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28070,
+      "sourceBounds": {
+        "left": 16,
+        "top": 1210,
+        "width": 240,
+        "height": 311
+      }
+    },
+    {
+      "file": "apiary-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27492,
+      "sourceBounds": {
+        "left": 299,
+        "top": 7,
+        "width": 181,
+        "height": 206
+      }
+    },
+    {
+      "file": "apiary-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32796,
+      "sourceBounds": {
+        "left": 287,
+        "top": 222,
+        "width": 213,
+        "height": 215
+      }
+    },
+    {
+      "file": "apiary-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32474,
+      "sourceBounds": {
+        "left": 286,
+        "top": 447,
+        "width": 211,
+        "height": 225
+      }
+    },
+    {
+      "file": "apiary-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29458,
+      "sourceBounds": {
+        "left": 280,
+        "top": 683,
+        "width": 219,
+        "height": 256
+      }
+    },
+    {
+      "file": "apiary-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29496,
+      "sourceBounds": {
+        "left": 283,
+        "top": 947,
+        "width": 222,
+        "height": 258
+      }
+    },
+    {
+      "file": "apiary-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27670,
+      "sourceBounds": {
+        "left": 270,
+        "top": 1214,
+        "width": 237,
+        "height": 292
+      }
+    },
+    {
+      "file": "apiary-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27332,
+      "sourceBounds": {
+        "left": 549,
+        "top": 7,
+        "width": 183,
+        "height": 210
+      }
+    },
+    {
+      "file": "apiary-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32966,
+      "sourceBounds": {
+        "left": 532,
+        "top": 223,
+        "width": 207,
+        "height": 216
+      }
+    },
+    {
+      "file": "apiary-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32406,
+      "sourceBounds": {
+        "left": 535,
+        "top": 448,
+        "width": 211,
+        "height": 228
+      }
+    },
+    {
+      "file": "apiary-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29146,
+      "sourceBounds": {
+        "left": 530,
+        "top": 681,
+        "width": 212,
+        "height": 263
+      }
+    },
+    {
+      "file": "apiary-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27950,
+      "sourceBounds": {
+        "left": 519,
+        "top": 948,
+        "width": 231,
+        "height": 268
+      }
+    },
+    {
+      "file": "apiary-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25554,
+      "sourceBounds": {
+        "left": 519,
+        "top": 1217,
+        "width": 240,
+        "height": 308
+      }
+    },
+    {
+      "file": "apiary-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28010,
+      "sourceBounds": {
+        "left": 801,
+        "top": 21,
+        "width": 172,
+        "height": 202
+      }
+    },
+    {
+      "file": "apiary-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33830,
+      "sourceBounds": {
+        "left": 788,
+        "top": 239,
+        "width": 207,
+        "height": 211
+      }
+    },
+    {
+      "file": "apiary-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32308,
+      "sourceBounds": {
+        "left": 783,
+        "top": 453,
+        "width": 215,
+        "height": 232
+      }
+    },
+    {
+      "file": "apiary-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30466,
+      "sourceBounds": {
+        "left": 784,
+        "top": 684,
+        "width": 222,
+        "height": 257
+      }
+    },
+    {
+      "file": "apiary-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29202,
+      "sourceBounds": {
+        "left": 780,
+        "top": 944,
+        "width": 224,
+        "height": 265
+      }
+    },
+    {
+      "file": "apiary-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27864,
+      "sourceBounds": {
+        "left": 767,
+        "top": 1213,
+        "width": 238,
+        "height": 310
+      }
+    },
+    {
+      "file": "bakery-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22060,
+      "sourceBounds": {
+        "left": 47,
+        "top": 2,
+        "width": 174,
+        "height": 184
+      }
+    },
+    {
+      "file": "bakery-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22372,
+      "sourceBounds": {
+        "left": 22,
+        "top": 189,
+        "width": 219,
+        "height": 197
+      }
+    },
+    {
+      "file": "bakery-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24514,
+      "sourceBounds": {
+        "left": 18,
+        "top": 388,
+        "width": 223,
+        "height": 227
+      }
+    },
+    {
+      "file": "bakery-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26882,
+      "sourceBounds": {
+        "left": 12,
+        "top": 618,
+        "width": 238,
+        "height": 241
+      }
+    },
+    {
+      "file": "bakery-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25686,
+      "sourceBounds": {
+        "left": 15,
+        "top": 862,
+        "width": 235,
+        "height": 279
+      }
+    },
+    {
+      "file": "bakery-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25488,
+      "sourceBounds": {
+        "left": 11,
+        "top": 1146,
+        "width": 251,
+        "height": 339
+      }
+    },
+    {
+      "file": "bakery-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19522,
+      "sourceBounds": {
+        "left": 301,
+        "top": 1,
+        "width": 173,
+        "height": 188
+      }
+    },
+    {
+      "file": "bakery-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21540,
+      "sourceBounds": {
+        "left": 289,
+        "top": 193,
+        "width": 195,
+        "height": 194
+      }
+    },
+    {
+      "file": "bakery-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22388,
+      "sourceBounds": {
+        "left": 270,
+        "top": 398,
+        "width": 229,
+        "height": 222
+      }
+    },
+    {
+      "file": "bakery-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23670,
+      "sourceBounds": {
+        "left": 276,
+        "top": 631,
+        "width": 231,
+        "height": 233
+      }
+    },
+    {
+      "file": "bakery-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23236,
+      "sourceBounds": {
+        "left": 272,
+        "top": 862,
+        "width": 226,
+        "height": 282
+      }
+    },
+    {
+      "file": "bakery-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23102,
+      "sourceBounds": {
+        "left": 258,
+        "top": 1147,
+        "width": 252,
+        "height": 335
+      }
+    },
+    {
+      "file": "bakery-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21250,
+      "sourceBounds": {
+        "left": 546,
+        "top": 1,
+        "width": 179,
+        "height": 184
+      }
+    },
+    {
+      "file": "bakery-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21552,
+      "sourceBounds": {
+        "left": 539,
+        "top": 190,
+        "width": 195,
+        "height": 194
+      }
+    },
+    {
+      "file": "bakery-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22352,
+      "sourceBounds": {
+        "left": 535,
+        "top": 397,
+        "width": 218,
+        "height": 224
+      }
+    },
+    {
+      "file": "bakery-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23628,
+      "sourceBounds": {
+        "left": 529,
+        "top": 624,
+        "width": 226,
+        "height": 241
+      }
+    },
+    {
+      "file": "bakery-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23788,
+      "sourceBounds": {
+        "left": 527,
+        "top": 867,
+        "width": 231,
+        "height": 275
+      }
+    },
+    {
+      "file": "bakery-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24718,
+      "sourceBounds": {
+        "left": 521,
+        "top": 1151,
+        "width": 244,
+        "height": 329
+      }
+    },
+    {
+      "file": "bakery-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23258,
+      "sourceBounds": {
+        "left": 808,
+        "top": 3,
+        "width": 179,
+        "height": 184
+      }
+    },
+    {
+      "file": "bakery-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21980,
+      "sourceBounds": {
+        "left": 795,
+        "top": 194,
+        "width": 211,
+        "height": 193
+      }
+    },
+    {
+      "file": "bakery-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24768,
+      "sourceBounds": {
+        "left": 792,
+        "top": 397,
+        "width": 227,
+        "height": 223
+      }
+    },
+    {
+      "file": "bakery-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24942,
+      "sourceBounds": {
+        "left": 792,
+        "top": 624,
+        "width": 230,
+        "height": 240
+      }
+    },
+    {
+      "file": "bakery-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24996,
+      "sourceBounds": {
+        "left": 785,
+        "top": 865,
+        "width": 236,
+        "height": 278
+      }
+    },
+    {
+      "file": "bakery-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24944,
+      "sourceBounds": {
+        "left": 767,
+        "top": 1148,
+        "width": 246,
+        "height": 337
+      }
+    },
+    {
+      "file": "barn-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21296,
+      "sourceBounds": {
+        "left": 24,
+        "top": 27,
+        "width": 224,
+        "height": 197
+      }
+    },
+    {
+      "file": "barn-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22472,
+      "sourceBounds": {
+        "left": 22,
+        "top": 248,
+        "width": 226,
+        "height": 204
+      }
+    },
+    {
+      "file": "barn-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22606,
+      "sourceBounds": {
+        "left": 17,
+        "top": 464,
+        "width": 236,
+        "height": 215
+      }
+    },
+    {
+      "file": "barn-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23924,
+      "sourceBounds": {
+        "left": 12,
+        "top": 696,
+        "width": 243,
+        "height": 229
+      }
+    },
+    {
+      "file": "barn-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26326,
+      "sourceBounds": {
+        "left": 16,
+        "top": 936,
+        "width": 240,
+        "height": 243
+      }
+    },
+    {
+      "file": "barn-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24386,
+      "sourceBounds": {
+        "left": 10,
+        "top": 1186,
+        "width": 251,
+        "height": 292
+      }
+    },
+    {
+      "file": "barn-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19352,
+      "sourceBounds": {
+        "left": 287,
+        "top": 30,
+        "width": 213,
+        "height": 172
+      }
+    },
+    {
+      "file": "barn-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20306,
+      "sourceBounds": {
+        "left": 285,
+        "top": 253,
+        "width": 213,
+        "height": 180
+      }
+    },
+    {
+      "file": "barn-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21462,
+      "sourceBounds": {
+        "left": 285,
+        "top": 477,
+        "width": 218,
+        "height": 193
+      }
+    },
+    {
+      "file": "barn-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24040,
+      "sourceBounds": {
+        "left": 284,
+        "top": 701,
+        "width": 221,
+        "height": 220
+      }
+    },
+    {
+      "file": "barn-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23906,
+      "sourceBounds": {
+        "left": 279,
+        "top": 934,
+        "width": 225,
+        "height": 246
+      }
+    },
+    {
+      "file": "barn-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22572,
+      "sourceBounds": {
+        "left": 266,
+        "top": 1189,
+        "width": 241,
+        "height": 292
+      }
+    },
+    {
+      "file": "barn-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20686,
+      "sourceBounds": {
+        "left": 523,
+        "top": 28,
+        "width": 215,
+        "height": 182
+      }
+    },
+    {
+      "file": "barn-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20590,
+      "sourceBounds": {
+        "left": 523,
+        "top": 249,
+        "width": 218,
+        "height": 188
+      }
+    },
+    {
+      "file": "barn-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21772,
+      "sourceBounds": {
+        "left": 519,
+        "top": 477,
+        "width": 222,
+        "height": 191
+      }
+    },
+    {
+      "file": "barn-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22994,
+      "sourceBounds": {
+        "left": 518,
+        "top": 702,
+        "width": 224,
+        "height": 210
+      }
+    },
+    {
+      "file": "barn-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24214,
+      "sourceBounds": {
+        "left": 518,
+        "top": 934,
+        "width": 231,
+        "height": 235
+      }
+    },
+    {
+      "file": "barn-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23514,
+      "sourceBounds": {
+        "left": 515,
+        "top": 1188,
+        "width": 243,
+        "height": 279
+      }
+    },
+    {
+      "file": "barn-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21390,
+      "sourceBounds": {
+        "left": 774,
+        "top": 28,
+        "width": 226,
+        "height": 199
+      }
+    },
+    {
+      "file": "barn-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21586,
+      "sourceBounds": {
+        "left": 777,
+        "top": 250,
+        "width": 225,
+        "height": 202
+      }
+    },
+    {
+      "file": "barn-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22416,
+      "sourceBounds": {
+        "left": 773,
+        "top": 467,
+        "width": 234,
+        "height": 214
+      }
+    },
+    {
+      "file": "barn-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23832,
+      "sourceBounds": {
+        "left": 770,
+        "top": 696,
+        "width": 241,
+        "height": 228
+      }
+    },
+    {
+      "file": "barn-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25414,
+      "sourceBounds": {
+        "left": 769,
+        "top": 935,
+        "width": 239,
+        "height": 244
+      }
+    },
+    {
+      "file": "barn-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23910,
+      "sourceBounds": {
+        "left": 765,
+        "top": 1185,
+        "width": 248,
+        "height": 294
+      }
+    },
+    {
+      "file": "coop-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23598,
+      "sourceBounds": {
+        "left": 18,
+        "top": 19,
+        "width": 221,
+        "height": 206
+      }
+    },
+    {
+      "file": "coop-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23464,
+      "sourceBounds": {
+        "left": 15,
+        "top": 256,
+        "width": 230,
+        "height": 211
+      }
+    },
+    {
+      "file": "coop-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25528,
+      "sourceBounds": {
+        "left": 16,
+        "top": 498,
+        "width": 229,
+        "height": 222
+      }
+    },
+    {
+      "file": "coop-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25040,
+      "sourceBounds": {
+        "left": 16,
+        "top": 735,
+        "width": 235,
+        "height": 239
+      }
+    },
+    {
+      "file": "coop-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26768,
+      "sourceBounds": {
+        "left": 16,
+        "top": 985,
+        "width": 235,
+        "height": 253
+      }
+    },
+    {
+      "file": "coop-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25180,
+      "sourceBounds": {
+        "left": 18,
+        "top": 1245,
+        "width": 236,
+        "height": 274
+      }
+    },
+    {
+      "file": "coop-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22554,
+      "sourceBounds": {
+        "left": 272,
+        "top": 20,
+        "width": 217,
+        "height": 201
+      }
+    },
+    {
+      "file": "coop-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24514,
+      "sourceBounds": {
+        "left": 268,
+        "top": 249,
+        "width": 225,
+        "height": 221
+      }
+    },
+    {
+      "file": "coop-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25470,
+      "sourceBounds": {
+        "left": 269,
+        "top": 492,
+        "width": 226,
+        "height": 228
+      }
+    },
+    {
+      "file": "coop-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24778,
+      "sourceBounds": {
+        "left": 270,
+        "top": 734,
+        "width": 232,
+        "height": 239
+      }
+    },
+    {
+      "file": "coop-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26254,
+      "sourceBounds": {
+        "left": 269,
+        "top": 981,
+        "width": 235,
+        "height": 260
+      }
+    },
+    {
+      "file": "coop-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24366,
+      "sourceBounds": {
+        "left": 276,
+        "top": 1248,
+        "width": 228,
+        "height": 273
+      }
+    },
+    {
+      "file": "coop-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22590,
+      "sourceBounds": {
+        "left": 526,
+        "top": 15,
+        "width": 226,
+        "height": 207
+      }
+    },
+    {
+      "file": "coop-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23542,
+      "sourceBounds": {
+        "left": 527,
+        "top": 252,
+        "width": 229,
+        "height": 213
+      }
+    },
+    {
+      "file": "coop-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23620,
+      "sourceBounds": {
+        "left": 524,
+        "top": 489,
+        "width": 231,
+        "height": 226
+      }
+    },
+    {
+      "file": "coop-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24264,
+      "sourceBounds": {
+        "left": 525,
+        "top": 738,
+        "width": 229,
+        "height": 231
+      }
+    },
+    {
+      "file": "coop-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25422,
+      "sourceBounds": {
+        "left": 522,
+        "top": 984,
+        "width": 234,
+        "height": 248
+      }
+    },
+    {
+      "file": "coop-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23788,
+      "sourceBounds": {
+        "left": 521,
+        "top": 1250,
+        "width": 234,
+        "height": 267
+      }
+    },
+    {
+      "file": "coop-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24088,
+      "sourceBounds": {
+        "left": 787,
+        "top": 17,
+        "width": 218,
+        "height": 212
+      }
+    },
+    {
+      "file": "coop-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23676,
+      "sourceBounds": {
+        "left": 780,
+        "top": 250,
+        "width": 229,
+        "height": 221
+      }
+    },
+    {
+      "file": "coop-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24710,
+      "sourceBounds": {
+        "left": 782,
+        "top": 494,
+        "width": 225,
+        "height": 228
+      }
+    },
+    {
+      "file": "coop-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25920,
+      "sourceBounds": {
+        "left": 775,
+        "top": 735,
+        "width": 234,
+        "height": 241
+      }
+    },
+    {
+      "file": "coop-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26172,
+      "sourceBounds": {
+        "left": 775,
+        "top": 984,
+        "width": 232,
+        "height": 258
+      }
+    },
+    {
+      "file": "coop-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25276,
+      "sourceBounds": {
+        "left": 774,
+        "top": 1247,
+        "width": 231,
+        "height": 273
+      }
+    },
+    {
+      "file": "dairy-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20682,
+      "sourceBounds": {
+        "left": 17,
+        "top": 8,
+        "width": 211,
+        "height": 216
+      }
+    },
+    {
+      "file": "dairy-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21098,
+      "sourceBounds": {
+        "left": 16,
+        "top": 231,
+        "width": 216,
+        "height": 221
+      }
+    },
+    {
+      "file": "dairy-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22312,
+      "sourceBounds": {
+        "left": 9,
+        "top": 456,
+        "width": 228,
+        "height": 233
+      }
+    },
+    {
+      "file": "dairy-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23714,
+      "sourceBounds": {
+        "left": 8,
+        "top": 698,
+        "width": 234,
+        "height": 246
+      }
+    },
+    {
+      "file": "dairy-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25196,
+      "sourceBounds": {
+        "left": 7,
+        "top": 955,
+        "width": 238,
+        "height": 256
+      }
+    },
+    {
+      "file": "dairy-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28290,
+      "sourceBounds": {
+        "left": 6,
+        "top": 1228,
+        "width": 252,
+        "height": 263
+      }
+    },
+    {
+      "file": "dairy-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20308,
+      "sourceBounds": {
+        "left": 284,
+        "top": 10,
+        "width": 198,
+        "height": 215
+      }
+    },
+    {
+      "file": "dairy-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21632,
+      "sourceBounds": {
+        "left": 280,
+        "top": 233,
+        "width": 212,
+        "height": 219
+      }
+    },
+    {
+      "file": "dairy-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22422,
+      "sourceBounds": {
+        "left": 274,
+        "top": 462,
+        "width": 222,
+        "height": 230
+      }
+    },
+    {
+      "file": "dairy-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26586,
+      "sourceBounds": {
+        "left": 272,
+        "top": 702,
+        "width": 232,
+        "height": 244
+      }
+    },
+    {
+      "file": "dairy-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27230,
+      "sourceBounds": {
+        "left": 266,
+        "top": 958,
+        "width": 241,
+        "height": 254
+      }
+    },
+    {
+      "file": "dairy-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27992,
+      "sourceBounds": {
+        "left": 268,
+        "top": 1228,
+        "width": 240,
+        "height": 268
+      }
+    },
+    {
+      "file": "dairy-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22106,
+      "sourceBounds": {
+        "left": 530,
+        "top": 10,
+        "width": 211,
+        "height": 207
+      }
+    },
+    {
+      "file": "dairy-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22694,
+      "sourceBounds": {
+        "left": 528,
+        "top": 232,
+        "width": 217,
+        "height": 217
+      }
+    },
+    {
+      "file": "dairy-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23108,
+      "sourceBounds": {
+        "left": 523,
+        "top": 461,
+        "width": 227,
+        "height": 225
+      }
+    },
+    {
+      "file": "dairy-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25986,
+      "sourceBounds": {
+        "left": 521,
+        "top": 701,
+        "width": 233,
+        "height": 241
+      }
+    },
+    {
+      "file": "dairy-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27368,
+      "sourceBounds": {
+        "left": 516,
+        "top": 959,
+        "width": 241,
+        "height": 249
+      }
+    },
+    {
+      "file": "dairy-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28298,
+      "sourceBounds": {
+        "left": 516,
+        "top": 1229,
+        "width": 242,
+        "height": 261
+      }
+    },
+    {
+      "file": "dairy-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19952,
+      "sourceBounds": {
+        "left": 799,
+        "top": 7,
+        "width": 203,
+        "height": 218
+      }
+    },
+    {
+      "file": "dairy-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20624,
+      "sourceBounds": {
+        "left": 793,
+        "top": 231,
+        "width": 214,
+        "height": 223
+      }
+    },
+    {
+      "file": "dairy-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22210,
+      "sourceBounds": {
+        "left": 785,
+        "top": 456,
+        "width": 230,
+        "height": 237
+      }
+    },
+    {
+      "file": "dairy-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23654,
+      "sourceBounds": {
+        "left": 780,
+        "top": 698,
+        "width": 235,
+        "height": 246
+      }
+    },
+    {
+      "file": "dairy-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24338,
+      "sourceBounds": {
+        "left": 777,
+        "top": 955,
+        "width": 239,
+        "height": 259
+      }
+    },
+    {
+      "file": "dairy-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26980,
+      "sourceBounds": {
+        "left": 766,
+        "top": 1227,
+        "width": 255,
+        "height": 273
+      }
+    },
+    {
+      "file": "dyehouse-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28278,
+      "sourceBounds": {
+        "left": 28,
+        "top": 11,
+        "width": 218,
+        "height": 209
+      }
+    },
+    {
+      "file": "dyehouse-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27680,
+      "sourceBounds": {
+        "left": 25,
+        "top": 236,
+        "width": 221,
+        "height": 210
+      }
+    },
+    {
+      "file": "dyehouse-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28804,
+      "sourceBounds": {
+        "left": 18,
+        "top": 463,
+        "width": 230,
+        "height": 230
+      }
+    },
+    {
+      "file": "dyehouse-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29088,
+      "sourceBounds": {
+        "left": 23,
+        "top": 707,
+        "width": 231,
+        "height": 258
+      }
+    },
+    {
+      "file": "dyehouse-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29434,
+      "sourceBounds": {
+        "left": 19,
+        "top": 970,
+        "width": 250,
+        "height": 273
+      }
+    },
+    {
+      "file": "dyehouse-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33132,
+      "sourceBounds": {
+        "left": 14,
+        "top": 1242,
+        "width": 256,
+        "height": 284
+      }
+    },
+    {
+      "file": "dyehouse-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25438,
+      "sourceBounds": {
+        "left": 279,
+        "top": 4,
+        "width": 207,
+        "height": 214
+      }
+    },
+    {
+      "file": "dyehouse-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26854,
+      "sourceBounds": {
+        "left": 279,
+        "top": 230,
+        "width": 212,
+        "height": 211
+      }
+    },
+    {
+      "file": "dyehouse-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27370,
+      "sourceBounds": {
+        "left": 275,
+        "top": 466,
+        "width": 220,
+        "height": 221
+      }
+    },
+    {
+      "file": "dyehouse-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28032,
+      "sourceBounds": {
+        "left": 276,
+        "top": 712,
+        "width": 222,
+        "height": 249
+      }
+    },
+    {
+      "file": "dyehouse-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28660,
+      "sourceBounds": {
+        "left": 276,
+        "top": 980,
+        "width": 219,
+        "height": 257
+      }
+    },
+    {
+      "file": "dyehouse-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29624,
+      "sourceBounds": {
+        "left": 275,
+        "top": 1249,
+        "width": 224,
+        "height": 261
+      }
+    },
+    {
+      "file": "dyehouse-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27312,
+      "sourceBounds": {
+        "left": 536,
+        "top": 6,
+        "width": 209,
+        "height": 208
+      }
+    },
+    {
+      "file": "dyehouse-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27162,
+      "sourceBounds": {
+        "left": 535,
+        "top": 231,
+        "width": 209,
+        "height": 211
+      }
+    },
+    {
+      "file": "dyehouse-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26662,
+      "sourceBounds": {
+        "left": 528,
+        "top": 464,
+        "width": 221,
+        "height": 222
+      }
+    },
+    {
+      "file": "dyehouse-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27302,
+      "sourceBounds": {
+        "left": 526,
+        "top": 721,
+        "width": 225,
+        "height": 241
+      }
+    },
+    {
+      "file": "dyehouse-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28694,
+      "sourceBounds": {
+        "left": 524,
+        "top": 979,
+        "width": 226,
+        "height": 261
+      }
+    },
+    {
+      "file": "dyehouse-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28966,
+      "sourceBounds": {
+        "left": 522,
+        "top": 1243,
+        "width": 230,
+        "height": 272
+      }
+    },
+    {
+      "file": "dyehouse-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27674,
+      "sourceBounds": {
+        "left": 777,
+        "top": 12,
+        "width": 216,
+        "height": 208
+      }
+    },
+    {
+      "file": "dyehouse-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27378,
+      "sourceBounds": {
+        "left": 778,
+        "top": 233,
+        "width": 219,
+        "height": 213
+      }
+    },
+    {
+      "file": "dyehouse-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27898,
+      "sourceBounds": {
+        "left": 776,
+        "top": 463,
+        "width": 225,
+        "height": 230
+      }
+    },
+    {
+      "file": "dyehouse-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30106,
+      "sourceBounds": {
+        "left": 772,
+        "top": 720,
+        "width": 227,
+        "height": 250
+      }
+    },
+    {
+      "file": "dyehouse-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30512,
+      "sourceBounds": {
+        "left": 767,
+        "top": 984,
+        "width": 238,
+        "height": 265
+      }
+    },
+    {
+      "file": "dyehouse-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32934,
+      "sourceBounds": {
+        "left": 760,
+        "top": 1242,
+        "width": 251,
+        "height": 286
+      }
+    },
+    {
+      "file": "fairground-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24046,
+      "sourceBounds": {
+        "left": 53,
+        "top": 15,
+        "width": 180,
+        "height": 184
+      }
+    },
+    {
+      "file": "fairground-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25552,
+      "sourceBounds": {
+        "left": 44,
+        "top": 216,
+        "width": 194,
+        "height": 197
+      }
+    },
+    {
+      "file": "fairground-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26264,
+      "sourceBounds": {
+        "left": 28,
+        "top": 425,
+        "width": 225,
+        "height": 234
+      }
+    },
+    {
+      "file": "fairground-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26878,
+      "sourceBounds": {
+        "left": 21,
+        "top": 671,
+        "width": 233,
+        "height": 254
+      }
+    },
+    {
+      "file": "fairground-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27642,
+      "sourceBounds": {
+        "left": 13,
+        "top": 933,
+        "width": 246,
+        "height": 267
+      }
+    },
+    {
+      "file": "fairground-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28430,
+      "sourceBounds": {
+        "left": 5,
+        "top": 1201,
+        "width": 253,
+        "height": 303
+      }
+    },
+    {
+      "file": "fairground-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24250,
+      "sourceBounds": {
+        "left": 298,
+        "top": 12,
+        "width": 183,
+        "height": 186
+      }
+    },
+    {
+      "file": "fairground-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25606,
+      "sourceBounds": {
+        "left": 292,
+        "top": 215,
+        "width": 193,
+        "height": 197
+      }
+    },
+    {
+      "file": "fairground-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25768,
+      "sourceBounds": {
+        "left": 286,
+        "top": 425,
+        "width": 208,
+        "height": 230
+      }
+    },
+    {
+      "file": "fairground-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26140,
+      "sourceBounds": {
+        "left": 280,
+        "top": 671,
+        "width": 217,
+        "height": 252
+      }
+    },
+    {
+      "file": "fairground-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27224,
+      "sourceBounds": {
+        "left": 275,
+        "top": 933,
+        "width": 222,
+        "height": 262
+      }
+    },
+    {
+      "file": "fairground-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28660,
+      "sourceBounds": {
+        "left": 271,
+        "top": 1199,
+        "width": 232,
+        "height": 299
+      }
+    },
+    {
+      "file": "fairground-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24804,
+      "sourceBounds": {
+        "left": 544,
+        "top": 11,
+        "width": 183,
+        "height": 187
+      }
+    },
+    {
+      "file": "fairground-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26062,
+      "sourceBounds": {
+        "left": 538,
+        "top": 214,
+        "width": 197,
+        "height": 200
+      }
+    },
+    {
+      "file": "fairground-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26360,
+      "sourceBounds": {
+        "left": 531,
+        "top": 425,
+        "width": 215,
+        "height": 231
+      }
+    },
+    {
+      "file": "fairground-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26440,
+      "sourceBounds": {
+        "left": 529,
+        "top": 671,
+        "width": 221,
+        "height": 252
+      }
+    },
+    {
+      "file": "fairground-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27864,
+      "sourceBounds": {
+        "left": 525,
+        "top": 933,
+        "width": 227,
+        "height": 262
+      }
+    },
+    {
+      "file": "fairground-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28102,
+      "sourceBounds": {
+        "left": 521,
+        "top": 1199,
+        "width": 232,
+        "height": 299
+      }
+    },
+    {
+      "file": "fairground-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24294,
+      "sourceBounds": {
+        "left": 791,
+        "top": 15,
+        "width": 180,
+        "height": 184
+      }
+    },
+    {
+      "file": "fairground-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25172,
+      "sourceBounds": {
+        "left": 788,
+        "top": 217,
+        "width": 192,
+        "height": 197
+      }
+    },
+    {
+      "file": "fairground-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25528,
+      "sourceBounds": {
+        "left": 777,
+        "top": 425,
+        "width": 219,
+        "height": 234
+      }
+    },
+    {
+      "file": "fairground-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26290,
+      "sourceBounds": {
+        "left": 776,
+        "top": 671,
+        "width": 226,
+        "height": 255
+      }
+    },
+    {
+      "file": "fairground-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27894,
+      "sourceBounds": {
+        "left": 767,
+        "top": 933,
+        "width": 244,
+        "height": 266
+      }
+    },
+    {
+      "file": "fairground-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28686,
+      "sourceBounds": {
+        "left": 765,
+        "top": 1202,
+        "width": 256,
+        "height": 301
+      }
+    },
+    {
+      "file": "fishing_pier-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25706,
+      "sourceBounds": {
+        "left": 30,
+        "top": 3,
+        "width": 192,
+        "height": 228
+      }
+    },
+    {
+      "file": "fishing_pier-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25266,
+      "sourceBounds": {
+        "left": 25,
+        "top": 238,
+        "width": 205,
+        "height": 240
+      }
+    },
+    {
+      "file": "fishing_pier-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24954,
+      "sourceBounds": {
+        "left": 25,
+        "top": 483,
+        "width": 206,
+        "height": 250
+      }
+    },
+    {
+      "file": "fishing_pier-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25558,
+      "sourceBounds": {
+        "left": 14,
+        "top": 729,
+        "width": 226,
+        "height": 280
+      }
+    },
+    {
+      "file": "fishing_pier-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26306,
+      "sourceBounds": {
+        "left": 7,
+        "top": 995,
+        "width": 240,
+        "height": 285
+      }
+    },
+    {
+      "file": "fishing_pier-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30842,
+      "sourceBounds": {
+        "left": 3,
+        "top": 1269,
+        "width": 255,
+        "height": 267
+      }
+    },
+    {
+      "file": "fishing_pier-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25064,
+      "sourceBounds": {
+        "left": 286,
+        "top": 10,
+        "width": 200,
+        "height": 225
+      }
+    },
+    {
+      "file": "fishing_pier-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26110,
+      "sourceBounds": {
+        "left": 284,
+        "top": 245,
+        "width": 208,
+        "height": 233
+      }
+    },
+    {
+      "file": "fishing_pier-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26508,
+      "sourceBounds": {
+        "left": 284,
+        "top": 485,
+        "width": 209,
+        "height": 248
+      }
+    },
+    {
+      "file": "fishing_pier-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27388,
+      "sourceBounds": {
+        "left": 271,
+        "top": 741,
+        "width": 232,
+        "height": 273
+      }
+    },
+    {
+      "file": "fishing_pier-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29318,
+      "sourceBounds": {
+        "left": 261,
+        "top": 1012,
+        "width": 242,
+        "height": 272
+      }
+    },
+    {
+      "file": "fishing_pier-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31998,
+      "sourceBounds": {
+        "left": 261,
+        "top": 1273,
+        "width": 249,
+        "height": 261
+      }
+    },
+    {
+      "file": "fishing_pier-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26364,
+      "sourceBounds": {
+        "left": 538,
+        "top": 10,
+        "width": 201,
+        "height": 225
+      }
+    },
+    {
+      "file": "fishing_pier-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25396,
+      "sourceBounds": {
+        "left": 533,
+        "top": 244,
+        "width": 208,
+        "height": 234
+      }
+    },
+    {
+      "file": "fishing_pier-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26766,
+      "sourceBounds": {
+        "left": 532,
+        "top": 485,
+        "width": 209,
+        "height": 248
+      }
+    },
+    {
+      "file": "fishing_pier-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25834,
+      "sourceBounds": {
+        "left": 522,
+        "top": 737,
+        "width": 232,
+        "height": 277
+      }
+    },
+    {
+      "file": "fishing_pier-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28814,
+      "sourceBounds": {
+        "left": 522,
+        "top": 1012,
+        "width": 242,
+        "height": 272
+      }
+    },
+    {
+      "file": "fishing_pier-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31402,
+      "sourceBounds": {
+        "left": 515,
+        "top": 1273,
+        "width": 249,
+        "height": 261
+      }
+    },
+    {
+      "file": "fishing_pier-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25890,
+      "sourceBounds": {
+        "left": 802,
+        "top": 3,
+        "width": 193,
+        "height": 229
+      }
+    },
+    {
+      "file": "fishing_pier-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23046,
+      "sourceBounds": {
+        "left": 793,
+        "top": 238,
+        "width": 206,
+        "height": 240
+      }
+    },
+    {
+      "file": "fishing_pier-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24096,
+      "sourceBounds": {
+        "left": 793,
+        "top": 483,
+        "width": 206,
+        "height": 250
+      }
+    },
+    {
+      "file": "fishing_pier-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25512,
+      "sourceBounds": {
+        "left": 784,
+        "top": 729,
+        "width": 227,
+        "height": 280
+      }
+    },
+    {
+      "file": "fishing_pier-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26298,
+      "sourceBounds": {
+        "left": 778,
+        "top": 995,
+        "width": 240,
+        "height": 285
+      }
+    },
+    {
+      "file": "fishing_pier-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31128,
+      "sourceBounds": {
+        "left": 766,
+        "top": 1268,
+        "width": 256,
+        "height": 268
+      }
+    },
+    {
+      "file": "fishpond-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19290,
+      "sourceBounds": {
+        "left": 20,
+        "top": 19,
+        "width": 226,
+        "height": 175
+      }
+    },
+    {
+      "file": "fishpond-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23006,
+      "sourceBounds": {
+        "left": 20,
+        "top": 208,
+        "width": 225,
+        "height": 202
+      }
+    },
+    {
+      "file": "fishpond-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25420,
+      "sourceBounds": {
+        "left": 17,
+        "top": 416,
+        "width": 230,
+        "height": 218
+      }
+    },
+    {
+      "file": "fishpond-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26808,
+      "sourceBounds": {
+        "left": 18,
+        "top": 642,
+        "width": 237,
+        "height": 258
+      }
+    },
+    {
+      "file": "fishpond-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28264,
+      "sourceBounds": {
+        "left": 13,
+        "top": 918,
+        "width": 248,
+        "height": 269
+      }
+    },
+    {
+      "file": "fishpond-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27342,
+      "sourceBounds": {
+        "left": 12,
+        "top": 1200,
+        "width": 251,
+        "height": 295
+      }
+    },
+    {
+      "file": "fishpond-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21800,
+      "sourceBounds": {
+        "left": 280,
+        "top": 17,
+        "width": 214,
+        "height": 178
+      }
+    },
+    {
+      "file": "fishpond-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23124,
+      "sourceBounds": {
+        "left": 279,
+        "top": 217,
+        "width": 214,
+        "height": 190
+      }
+    },
+    {
+      "file": "fishpond-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26622,
+      "sourceBounds": {
+        "left": 281,
+        "top": 424,
+        "width": 216,
+        "height": 215
+      }
+    },
+    {
+      "file": "fishpond-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26222,
+      "sourceBounds": {
+        "left": 281,
+        "top": 650,
+        "width": 225,
+        "height": 248
+      }
+    },
+    {
+      "file": "fishpond-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24210,
+      "sourceBounds": {
+        "left": 282,
+        "top": 911,
+        "width": 217,
+        "height": 275
+      }
+    },
+    {
+      "file": "fishpond-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23906,
+      "sourceBounds": {
+        "left": 275,
+        "top": 1199,
+        "width": 223,
+        "height": 299
+      }
+    },
+    {
+      "file": "fishpond-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20352,
+      "sourceBounds": {
+        "left": 530,
+        "top": 23,
+        "width": 212,
+        "height": 173
+      }
+    },
+    {
+      "file": "fishpond-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22854,
+      "sourceBounds": {
+        "left": 533,
+        "top": 216,
+        "width": 213,
+        "height": 194
+      }
+    },
+    {
+      "file": "fishpond-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27344,
+      "sourceBounds": {
+        "left": 530,
+        "top": 425,
+        "width": 219,
+        "height": 216
+      }
+    },
+    {
+      "file": "fishpond-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25554,
+      "sourceBounds": {
+        "left": 531,
+        "top": 655,
+        "width": 218,
+        "height": 247
+      }
+    },
+    {
+      "file": "fishpond-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24472,
+      "sourceBounds": {
+        "left": 537,
+        "top": 920,
+        "width": 215,
+        "height": 267
+      }
+    },
+    {
+      "file": "fishpond-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22858,
+      "sourceBounds": {
+        "left": 543,
+        "top": 1202,
+        "width": 215,
+        "height": 296
+      }
+    },
+    {
+      "file": "fishpond-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19854,
+      "sourceBounds": {
+        "left": 780,
+        "top": 20,
+        "width": 225,
+        "height": 175
+      }
+    },
+    {
+      "file": "fishpond-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23354,
+      "sourceBounds": {
+        "left": 779,
+        "top": 208,
+        "width": 225,
+        "height": 202
+      }
+    },
+    {
+      "file": "fishpond-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24750,
+      "sourceBounds": {
+        "left": 777,
+        "top": 417,
+        "width": 230,
+        "height": 217
+      }
+    },
+    {
+      "file": "fishpond-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27078,
+      "sourceBounds": {
+        "left": 772,
+        "top": 642,
+        "width": 235,
+        "height": 258
+      }
+    },
+    {
+      "file": "fishpond-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28398,
+      "sourceBounds": {
+        "left": 764,
+        "top": 918,
+        "width": 248,
+        "height": 269
+      }
+    },
+    {
+      "file": "fishpond-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27702,
+      "sourceBounds": {
+        "left": 763,
+        "top": 1199,
+        "width": 250,
+        "height": 296
+      }
+    },
+    {
+      "file": "greenhouse-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21140,
+      "sourceBounds": {
+        "left": 55,
+        "top": 29,
+        "width": 154,
+        "height": 174
+      }
+    },
+    {
+      "file": "greenhouse-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24100,
+      "sourceBounds": {
+        "left": 36,
+        "top": 221,
+        "width": 185,
+        "height": 201
+      }
+    },
+    {
+      "file": "greenhouse-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25644,
+      "sourceBounds": {
+        "left": 13,
+        "top": 430,
+        "width": 220,
+        "height": 226
+      }
+    },
+    {
+      "file": "greenhouse-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28104,
+      "sourceBounds": {
+        "left": 12,
+        "top": 661,
+        "width": 235,
+        "height": 244
+      }
+    },
+    {
+      "file": "greenhouse-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29166,
+      "sourceBounds": {
+        "left": 7,
+        "top": 914,
+        "width": 240,
+        "height": 251
+      }
+    },
+    {
+      "file": "greenhouse-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23846,
+      "sourceBounds": {
+        "left": 4,
+        "top": 1174,
+        "width": 245,
+        "height": 320
+      }
+    },
+    {
+      "file": "greenhouse-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20238,
+      "sourceBounds": {
+        "left": 306,
+        "top": 21,
+        "width": 152,
+        "height": 178
+      }
+    },
+    {
+      "file": "greenhouse-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24660,
+      "sourceBounds": {
+        "left": 293,
+        "top": 219,
+        "width": 183,
+        "height": 196
+      }
+    },
+    {
+      "file": "greenhouse-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26186,
+      "sourceBounds": {
+        "left": 260,
+        "top": 428,
+        "width": 226,
+        "height": 228
+      }
+    },
+    {
+      "file": "greenhouse-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28418,
+      "sourceBounds": {
+        "left": 252,
+        "top": 661,
+        "width": 243,
+        "height": 245
+      }
+    },
+    {
+      "file": "greenhouse-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29072,
+      "sourceBounds": {
+        "left": 250,
+        "top": 915,
+        "width": 251,
+        "height": 255
+      }
+    },
+    {
+      "file": "greenhouse-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24242,
+      "sourceBounds": {
+        "left": 248,
+        "top": 1174,
+        "width": 255,
+        "height": 314
+      }
+    },
+    {
+      "file": "greenhouse-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19890,
+      "sourceBounds": {
+        "left": 567,
+        "top": 20,
+        "width": 151,
+        "height": 179
+      }
+    },
+    {
+      "file": "greenhouse-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23956,
+      "sourceBounds": {
+        "left": 549,
+        "top": 218,
+        "width": 182,
+        "height": 197
+      }
+    },
+    {
+      "file": "greenhouse-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26310,
+      "sourceBounds": {
+        "left": 539,
+        "top": 428,
+        "width": 225,
+        "height": 228
+      }
+    },
+    {
+      "file": "greenhouse-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28238,
+      "sourceBounds": {
+        "left": 530,
+        "top": 661,
+        "width": 242,
+        "height": 245
+      }
+    },
+    {
+      "file": "greenhouse-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28608,
+      "sourceBounds": {
+        "left": 523,
+        "top": 915,
+        "width": 251,
+        "height": 256
+      }
+    },
+    {
+      "file": "greenhouse-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23758,
+      "sourceBounds": {
+        "left": 521,
+        "top": 1174,
+        "width": 255,
+        "height": 314
+      }
+    },
+    {
+      "file": "greenhouse-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20986,
+      "sourceBounds": {
+        "left": 818,
+        "top": 29,
+        "width": 154,
+        "height": 174
+      }
+    },
+    {
+      "file": "greenhouse-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23726,
+      "sourceBounds": {
+        "left": 803,
+        "top": 220,
+        "width": 186,
+        "height": 202
+      }
+    },
+    {
+      "file": "greenhouse-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25188,
+      "sourceBounds": {
+        "left": 791,
+        "top": 430,
+        "width": 220,
+        "height": 226
+      }
+    },
+    {
+      "file": "greenhouse-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27746,
+      "sourceBounds": {
+        "left": 777,
+        "top": 660,
+        "width": 236,
+        "height": 246
+      }
+    },
+    {
+      "file": "greenhouse-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28680,
+      "sourceBounds": {
+        "left": 778,
+        "top": 915,
+        "width": 239,
+        "height": 250
+      }
+    },
+    {
+      "file": "greenhouse-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23460,
+      "sourceBounds": {
+        "left": 776,
+        "top": 1173,
+        "width": 245,
+        "height": 321
+      }
+    },
+    {
+      "file": "herb_garden-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29878,
+      "sourceBounds": {
+        "left": 45,
+        "top": 15,
+        "width": 181,
+        "height": 196
+      }
+    },
+    {
+      "file": "herb_garden-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33426,
+      "sourceBounds": {
+        "left": 34,
+        "top": 231,
+        "width": 196,
+        "height": 205
+      }
+    },
+    {
+      "file": "herb_garden-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31516,
+      "sourceBounds": {
+        "left": 34,
+        "top": 451,
+        "width": 196,
+        "height": 212
+      }
+    },
+    {
+      "file": "herb_garden-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29720,
+      "sourceBounds": {
+        "left": 24,
+        "top": 670,
+        "width": 220,
+        "height": 239
+      }
+    },
+    {
+      "file": "herb_garden-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30216,
+      "sourceBounds": {
+        "left": 14,
+        "top": 916,
+        "width": 236,
+        "height": 265
+      }
+    },
+    {
+      "file": "herb_garden-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26306,
+      "sourceBounds": {
+        "left": 6,
+        "top": 1184,
+        "width": 249,
+        "height": 325
+      }
+    },
+    {
+      "file": "herb_garden-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31532,
+      "sourceBounds": {
+        "left": 286,
+        "top": 15,
+        "width": 197,
+        "height": 201
+      }
+    },
+    {
+      "file": "herb_garden-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30766,
+      "sourceBounds": {
+        "left": 288,
+        "top": 229,
+        "width": 195,
+        "height": 209
+      }
+    },
+    {
+      "file": "herb_garden-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29340,
+      "sourceBounds": {
+        "left": 277,
+        "top": 453,
+        "width": 207,
+        "height": 216
+      }
+    },
+    {
+      "file": "herb_garden-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29316,
+      "sourceBounds": {
+        "left": 269,
+        "top": 673,
+        "width": 225,
+        "height": 247
+      }
+    },
+    {
+      "file": "herb_garden-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29336,
+      "sourceBounds": {
+        "left": 267,
+        "top": 926,
+        "width": 229,
+        "height": 260
+      }
+    },
+    {
+      "file": "herb_garden-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25334,
+      "sourceBounds": {
+        "left": 258,
+        "top": 1186,
+        "width": 239,
+        "height": 322
+      }
+    },
+    {
+      "file": "herb_garden-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28624,
+      "sourceBounds": {
+        "left": 538,
+        "top": 15,
+        "width": 190,
+        "height": 201
+      }
+    },
+    {
+      "file": "herb_garden-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29952,
+      "sourceBounds": {
+        "left": 540,
+        "top": 227,
+        "width": 197,
+        "height": 212
+      }
+    },
+    {
+      "file": "herb_garden-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28890,
+      "sourceBounds": {
+        "left": 539,
+        "top": 449,
+        "width": 209,
+        "height": 220
+      }
+    },
+    {
+      "file": "herb_garden-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29082,
+      "sourceBounds": {
+        "left": 538,
+        "top": 671,
+        "width": 218,
+        "height": 247
+      }
+    },
+    {
+      "file": "herb_garden-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30812,
+      "sourceBounds": {
+        "left": 534,
+        "top": 927,
+        "width": 225,
+        "height": 255
+      }
+    },
+    {
+      "file": "herb_garden-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24400,
+      "sourceBounds": {
+        "left": 530,
+        "top": 1183,
+        "width": 238,
+        "height": 325
+      }
+    },
+    {
+      "file": "herb_garden-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30158,
+      "sourceBounds": {
+        "left": 798,
+        "top": 16,
+        "width": 181,
+        "height": 195
+      }
+    },
+    {
+      "file": "herb_garden-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32412,
+      "sourceBounds": {
+        "left": 796,
+        "top": 228,
+        "width": 196,
+        "height": 209
+      }
+    },
+    {
+      "file": "herb_garden-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29918,
+      "sourceBounds": {
+        "left": 794,
+        "top": 451,
+        "width": 197,
+        "height": 212
+      }
+    },
+    {
+      "file": "herb_garden-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29496,
+      "sourceBounds": {
+        "left": 781,
+        "top": 671,
+        "width": 220,
+        "height": 238
+      }
+    },
+    {
+      "file": "herb_garden-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29986,
+      "sourceBounds": {
+        "left": 777,
+        "top": 918,
+        "width": 234,
+        "height": 262
+      }
+    },
+    {
+      "file": "herb_garden-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25414,
+      "sourceBounds": {
+        "left": 771,
+        "top": 1184,
+        "width": 249,
+        "height": 324
+      }
+    },
+    {
+      "file": "home-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19144,
+      "sourceBounds": {
+        "left": 47,
+        "top": 10,
+        "width": 180,
+        "height": 210
+      }
+    },
+    {
+      "file": "home-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22868,
+      "sourceBounds": {
+        "left": 28,
+        "top": 244,
+        "width": 202,
+        "height": 214
+      }
+    },
+    {
+      "file": "home-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21876,
+      "sourceBounds": {
+        "left": 29,
+        "top": 485,
+        "width": 200,
+        "height": 229
+      }
+    },
+    {
+      "file": "home-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23842,
+      "sourceBounds": {
+        "left": 19,
+        "top": 735,
+        "width": 252,
+        "height": 234
+      }
+    },
+    {
+      "file": "home-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26236,
+      "sourceBounds": {
+        "left": 15,
+        "top": 982,
+        "width": 231,
+        "height": 250
+      }
+    },
+    {
+      "file": "home-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27516,
+      "sourceBounds": {
+        "left": 8,
+        "top": 1239,
+        "width": 263,
+        "height": 282
+      }
+    },
+    {
+      "file": "home-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21488,
+      "sourceBounds": {
+        "left": 292,
+        "top": 33,
+        "width": 183,
+        "height": 177
+      }
+    },
+    {
+      "file": "home-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21470,
+      "sourceBounds": {
+        "left": 290,
+        "top": 262,
+        "width": 197,
+        "height": 185
+      }
+    },
+    {
+      "file": "home-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22908,
+      "sourceBounds": {
+        "left": 289,
+        "top": 505,
+        "width": 196,
+        "height": 198
+      }
+    },
+    {
+      "file": "home-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21794,
+      "sourceBounds": {
+        "left": 281,
+        "top": 751,
+        "width": 220,
+        "height": 207
+      }
+    },
+    {
+      "file": "home-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25692,
+      "sourceBounds": {
+        "left": 285,
+        "top": 1007,
+        "width": 211,
+        "height": 222
+      }
+    },
+    {
+      "file": "home-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26748,
+      "sourceBounds": {
+        "left": 287,
+        "top": 1262,
+        "width": 217,
+        "height": 236
+      }
+    },
+    {
+      "file": "home-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21914,
+      "sourceBounds": {
+        "left": 550,
+        "top": 32,
+        "width": 181,
+        "height": 178
+      }
+    },
+    {
+      "file": "home-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22368,
+      "sourceBounds": {
+        "left": 538,
+        "top": 262,
+        "width": 196,
+        "height": 185
+      }
+    },
+    {
+      "file": "home-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24276,
+      "sourceBounds": {
+        "left": 538,
+        "top": 505,
+        "width": 198,
+        "height": 198
+      }
+    },
+    {
+      "file": "home-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22750,
+      "sourceBounds": {
+        "left": 524,
+        "top": 751,
+        "width": 219,
+        "height": 209
+      }
+    },
+    {
+      "file": "home-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26130,
+      "sourceBounds": {
+        "left": 529,
+        "top": 1007,
+        "width": 210,
+        "height": 222
+      }
+    },
+    {
+      "file": "home-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26096,
+      "sourceBounds": {
+        "left": 521,
+        "top": 1262,
+        "width": 217,
+        "height": 237
+      }
+    },
+    {
+      "file": "home-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19256,
+      "sourceBounds": {
+        "left": 798,
+        "top": 10,
+        "width": 180,
+        "height": 210
+      }
+    },
+    {
+      "file": "home-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22960,
+      "sourceBounds": {
+        "left": 795,
+        "top": 244,
+        "width": 202,
+        "height": 213
+      }
+    },
+    {
+      "file": "home-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22052,
+      "sourceBounds": {
+        "left": 796,
+        "top": 485,
+        "width": 200,
+        "height": 229
+      }
+    },
+    {
+      "file": "home-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23328,
+      "sourceBounds": {
+        "left": 753,
+        "top": 735,
+        "width": 253,
+        "height": 233
+      }
+    },
+    {
+      "file": "home-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26550,
+      "sourceBounds": {
+        "left": 779,
+        "top": 983,
+        "width": 230,
+        "height": 249
+      }
+    },
+    {
+      "file": "home-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27236,
+      "sourceBounds": {
+        "left": 752,
+        "top": 1239,
+        "width": 265,
+        "height": 282
+      }
+    },
+    {
+      "file": "icecream-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20538,
+      "sourceBounds": {
+        "left": 59,
+        "top": 7,
+        "width": 172,
+        "height": 207
+      }
+    },
+    {
+      "file": "icecream-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25066,
+      "sourceBounds": {
+        "left": 43,
+        "top": 223,
+        "width": 193,
+        "height": 215
+      }
+    },
+    {
+      "file": "icecream-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24872,
+      "sourceBounds": {
+        "left": 25,
+        "top": 447,
+        "width": 219,
+        "height": 240
+      }
+    },
+    {
+      "file": "icecream-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27780,
+      "sourceBounds": {
+        "left": 7,
+        "top": 696,
+        "width": 239,
+        "height": 255
+      }
+    },
+    {
+      "file": "icecream-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28766,
+      "sourceBounds": {
+        "left": 6,
+        "top": 953,
+        "width": 240,
+        "height": 262
+      }
+    },
+    {
+      "file": "icecream-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28676,
+      "sourceBounds": {
+        "left": 11,
+        "top": 1216,
+        "width": 246,
+        "height": 283
+      }
+    },
+    {
+      "file": "icecream-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18188,
+      "sourceBounds": {
+        "left": 301,
+        "top": 5,
+        "width": 173,
+        "height": 213
+      }
+    },
+    {
+      "file": "icecream-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20702,
+      "sourceBounds": {
+        "left": 289,
+        "top": 224,
+        "width": 191,
+        "height": 218
+      }
+    },
+    {
+      "file": "icecream-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24266,
+      "sourceBounds": {
+        "left": 278,
+        "top": 448,
+        "width": 213,
+        "height": 231
+      }
+    },
+    {
+      "file": "icecream-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25646,
+      "sourceBounds": {
+        "left": 275,
+        "top": 696,
+        "width": 223,
+        "height": 245
+      }
+    },
+    {
+      "file": "icecream-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26064,
+      "sourceBounds": {
+        "left": 268,
+        "top": 949,
+        "width": 233,
+        "height": 263
+      }
+    },
+    {
+      "file": "icecream-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27536,
+      "sourceBounds": {
+        "left": 277,
+        "top": 1217,
+        "width": 226,
+        "height": 274
+      }
+    },
+    {
+      "file": "icecream-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18948,
+      "sourceBounds": {
+        "left": 548,
+        "top": 5,
+        "width": 176,
+        "height": 212
+      }
+    },
+    {
+      "file": "icecream-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21800,
+      "sourceBounds": {
+        "left": 544,
+        "top": 224,
+        "width": 189,
+        "height": 213
+      }
+    },
+    {
+      "file": "icecream-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22770,
+      "sourceBounds": {
+        "left": 537,
+        "top": 449,
+        "width": 208,
+        "height": 236
+      }
+    },
+    {
+      "file": "icecream-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24412,
+      "sourceBounds": {
+        "left": 527,
+        "top": 699,
+        "width": 219,
+        "height": 245
+      }
+    },
+    {
+      "file": "icecream-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26932,
+      "sourceBounds": {
+        "left": 523,
+        "top": 951,
+        "width": 232,
+        "height": 266
+      }
+    },
+    {
+      "file": "icecream-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27530,
+      "sourceBounds": {
+        "left": 524,
+        "top": 1218,
+        "width": 222,
+        "height": 276
+      }
+    },
+    {
+      "file": "icecream-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20452,
+      "sourceBounds": {
+        "left": 793,
+        "top": 6,
+        "width": 173,
+        "height": 208
+      }
+    },
+    {
+      "file": "icecream-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24794,
+      "sourceBounds": {
+        "left": 788,
+        "top": 224,
+        "width": 193,
+        "height": 213
+      }
+    },
+    {
+      "file": "icecream-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26756,
+      "sourceBounds": {
+        "left": 782,
+        "top": 447,
+        "width": 220,
+        "height": 239
+      }
+    },
+    {
+      "file": "icecream-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27852,
+      "sourceBounds": {
+        "left": 780,
+        "top": 696,
+        "width": 238,
+        "height": 255
+      }
+    },
+    {
+      "file": "icecream-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28992,
+      "sourceBounds": {
+        "left": 779,
+        "top": 954,
+        "width": 240,
+        "height": 263
+      }
+    },
+    {
+      "file": "icecream-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28836,
+      "sourceBounds": {
+        "left": 767,
+        "top": 1217,
+        "width": 246,
+        "height": 283
+      }
+    },
+    {
+      "file": "iron_mine-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22956,
+      "sourceBounds": {
+        "left": 16,
+        "top": 12,
+        "width": 214,
+        "height": 199
+      }
+    },
+    {
+      "file": "iron_mine-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26192,
+      "sourceBounds": {
+        "left": 12,
+        "top": 223,
+        "width": 224,
+        "height": 215
+      }
+    },
+    {
+      "file": "iron_mine-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28384,
+      "sourceBounds": {
+        "left": 11,
+        "top": 445,
+        "width": 226,
+        "height": 218
+      }
+    },
+    {
+      "file": "iron_mine-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29178,
+      "sourceBounds": {
+        "left": 9,
+        "top": 671,
+        "width": 234,
+        "height": 236
+      }
+    },
+    {
+      "file": "iron_mine-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30984,
+      "sourceBounds": {
+        "left": 8,
+        "top": 910,
+        "width": 247,
+        "height": 255
+      }
+    },
+    {
+      "file": "iron_mine-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27462,
+      "sourceBounds": {
+        "left": 5,
+        "top": 1170,
+        "width": 263,
+        "height": 316
+      }
+    },
+    {
+      "file": "iron_mine-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22560,
+      "sourceBounds": {
+        "left": 278,
+        "top": 12,
+        "width": 207,
+        "height": 196
+      }
+    },
+    {
+      "file": "iron_mine-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23882,
+      "sourceBounds": {
+        "left": 275,
+        "top": 225,
+        "width": 214,
+        "height": 206
+      }
+    },
+    {
+      "file": "iron_mine-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25464,
+      "sourceBounds": {
+        "left": 272,
+        "top": 446,
+        "width": 220,
+        "height": 214
+      }
+    },
+    {
+      "file": "iron_mine-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26328,
+      "sourceBounds": {
+        "left": 273,
+        "top": 675,
+        "width": 227,
+        "height": 232
+      }
+    },
+    {
+      "file": "iron_mine-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27058,
+      "sourceBounds": {
+        "left": 276,
+        "top": 919,
+        "width": 226,
+        "height": 247
+      }
+    },
+    {
+      "file": "iron_mine-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27436,
+      "sourceBounds": {
+        "left": 271,
+        "top": 1185,
+        "width": 241,
+        "height": 289
+      }
+    },
+    {
+      "file": "iron_mine-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21566,
+      "sourceBounds": {
+        "left": 537,
+        "top": 19,
+        "width": 214,
+        "height": 186
+      }
+    },
+    {
+      "file": "iron_mine-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24606,
+      "sourceBounds": {
+        "left": 535,
+        "top": 234,
+        "width": 215,
+        "height": 201
+      }
+    },
+    {
+      "file": "iron_mine-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25842,
+      "sourceBounds": {
+        "left": 532,
+        "top": 454,
+        "width": 219,
+        "height": 214
+      }
+    },
+    {
+      "file": "iron_mine-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25394,
+      "sourceBounds": {
+        "left": 523,
+        "top": 677,
+        "width": 230,
+        "height": 229
+      }
+    },
+    {
+      "file": "iron_mine-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24998,
+      "sourceBounds": {
+        "left": 522,
+        "top": 917,
+        "width": 229,
+        "height": 251
+      }
+    },
+    {
+      "file": "iron_mine-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25102,
+      "sourceBounds": {
+        "left": 517,
+        "top": 1188,
+        "width": 239,
+        "height": 293
+      }
+    },
+    {
+      "file": "iron_mine-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23046,
+      "sourceBounds": {
+        "left": 793,
+        "top": 12,
+        "width": 216,
+        "height": 199
+      }
+    },
+    {
+      "file": "iron_mine-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26508,
+      "sourceBounds": {
+        "left": 793,
+        "top": 222,
+        "width": 219,
+        "height": 216
+      }
+    },
+    {
+      "file": "iron_mine-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28412,
+      "sourceBounds": {
+        "left": 790,
+        "top": 447,
+        "width": 221,
+        "height": 221
+      }
+    },
+    {
+      "file": "iron_mine-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28428,
+      "sourceBounds": {
+        "left": 785,
+        "top": 671,
+        "width": 228,
+        "height": 235
+      }
+    },
+    {
+      "file": "iron_mine-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30682,
+      "sourceBounds": {
+        "left": 774,
+        "top": 910,
+        "width": 242,
+        "height": 255
+      }
+    },
+    {
+      "file": "iron_mine-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27424,
+      "sourceBounds": {
+        "left": 759,
+        "top": 1171,
+        "width": 259,
+        "height": 321
+      }
+    },
+    {
+      "file": "kitchen-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26190,
+      "sourceBounds": {
+        "left": 39,
+        "top": 3,
+        "width": 185,
+        "height": 198
+      }
+    },
+    {
+      "file": "kitchen-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27878,
+      "sourceBounds": {
+        "left": 18,
+        "top": 227,
+        "width": 209,
+        "height": 202
+      }
+    },
+    {
+      "file": "kitchen-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28208,
+      "sourceBounds": {
+        "left": 5,
+        "top": 444,
+        "width": 229,
+        "height": 213
+      }
+    },
+    {
+      "file": "kitchen-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29784,
+      "sourceBounds": {
+        "left": 7,
+        "top": 669,
+        "width": 238,
+        "height": 226
+      }
+    },
+    {
+      "file": "kitchen-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31466,
+      "sourceBounds": {
+        "left": 5,
+        "top": 913,
+        "width": 253,
+        "height": 265
+      }
+    },
+    {
+      "file": "kitchen-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28972,
+      "sourceBounds": {
+        "left": 5,
+        "top": 1190,
+        "width": 258,
+        "height": 305
+      }
+    },
+    {
+      "file": "kitchen-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26426,
+      "sourceBounds": {
+        "left": 289,
+        "top": 4,
+        "width": 195,
+        "height": 193
+      }
+    },
+    {
+      "file": "kitchen-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26818,
+      "sourceBounds": {
+        "left": 280,
+        "top": 228,
+        "width": 209,
+        "height": 198
+      }
+    },
+    {
+      "file": "kitchen-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26704,
+      "sourceBounds": {
+        "left": 271,
+        "top": 450,
+        "width": 224,
+        "height": 206
+      }
+    },
+    {
+      "file": "kitchen-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26840,
+      "sourceBounds": {
+        "left": 273,
+        "top": 669,
+        "width": 231,
+        "height": 219
+      }
+    },
+    {
+      "file": "kitchen-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25988,
+      "sourceBounds": {
+        "left": 266,
+        "top": 903,
+        "width": 240,
+        "height": 265
+      }
+    },
+    {
+      "file": "kitchen-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24740,
+      "sourceBounds": {
+        "left": 261,
+        "top": 1172,
+        "width": 247,
+        "height": 309
+      }
+    },
+    {
+      "file": "kitchen-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26826,
+      "sourceBounds": {
+        "left": 540,
+        "top": 4,
+        "width": 194,
+        "height": 194
+      }
+    },
+    {
+      "file": "kitchen-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26024,
+      "sourceBounds": {
+        "left": 536,
+        "top": 228,
+        "width": 208,
+        "height": 197
+      }
+    },
+    {
+      "file": "kitchen-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26250,
+      "sourceBounds": {
+        "left": 530,
+        "top": 449,
+        "width": 223,
+        "height": 207
+      }
+    },
+    {
+      "file": "kitchen-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26496,
+      "sourceBounds": {
+        "left": 521,
+        "top": 669,
+        "width": 231,
+        "height": 220
+      }
+    },
+    {
+      "file": "kitchen-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26032,
+      "sourceBounds": {
+        "left": 519,
+        "top": 902,
+        "width": 239,
+        "height": 266
+      }
+    },
+    {
+      "file": "kitchen-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24006,
+      "sourceBounds": {
+        "left": 518,
+        "top": 1171,
+        "width": 248,
+        "height": 312
+      }
+    },
+    {
+      "file": "kitchen-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26370,
+      "sourceBounds": {
+        "left": 802,
+        "top": 5,
+        "width": 184,
+        "height": 196
+      }
+    },
+    {
+      "file": "kitchen-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28200,
+      "sourceBounds": {
+        "left": 798,
+        "top": 229,
+        "width": 209,
+        "height": 200
+      }
+    },
+    {
+      "file": "kitchen-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28170,
+      "sourceBounds": {
+        "left": 791,
+        "top": 447,
+        "width": 228,
+        "height": 211
+      }
+    },
+    {
+      "file": "kitchen-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30140,
+      "sourceBounds": {
+        "left": 781,
+        "top": 670,
+        "width": 237,
+        "height": 225
+      }
+    },
+    {
+      "file": "kitchen-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31828,
+      "sourceBounds": {
+        "left": 767,
+        "top": 915,
+        "width": 253,
+        "height": 264
+      }
+    },
+    {
+      "file": "kitchen-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29414,
+      "sourceBounds": {
+        "left": 763,
+        "top": 1192,
+        "width": 256,
+        "height": 304
+      }
+    },
+    {
+      "file": "loom-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22890,
+      "sourceBounds": {
+        "left": 26,
+        "top": 5,
+        "width": 211,
+        "height": 216
+      }
+    },
+    {
+      "file": "loom-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24940,
+      "sourceBounds": {
+        "left": 21,
+        "top": 222,
+        "width": 213,
+        "height": 221
+      }
+    },
+    {
+      "file": "loom-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26438,
+      "sourceBounds": {
+        "left": 15,
+        "top": 446,
+        "width": 230,
+        "height": 235
+      }
+    },
+    {
+      "file": "loom-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28958,
+      "sourceBounds": {
+        "left": 11,
+        "top": 678,
+        "width": 242,
+        "height": 255
+      }
+    },
+    {
+      "file": "loom-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28442,
+      "sourceBounds": {
+        "left": 11,
+        "top": 929,
+        "width": 245,
+        "height": 264
+      }
+    },
+    {
+      "file": "loom-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29074,
+      "sourceBounds": {
+        "left": 8,
+        "top": 1192,
+        "width": 258,
+        "height": 287
+      }
+    },
+    {
+      "file": "loom-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23188,
+      "sourceBounds": {
+        "left": 285,
+        "top": 5,
+        "width": 208,
+        "height": 215
+      }
+    },
+    {
+      "file": "loom-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23494,
+      "sourceBounds": {
+        "left": 277,
+        "top": 233,
+        "width": 214,
+        "height": 212
+      }
+    },
+    {
+      "file": "loom-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25592,
+      "sourceBounds": {
+        "left": 270,
+        "top": 456,
+        "width": 224,
+        "height": 226
+      }
+    },
+    {
+      "file": "loom-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26318,
+      "sourceBounds": {
+        "left": 270,
+        "top": 684,
+        "width": 228,
+        "height": 247
+      }
+    },
+    {
+      "file": "loom-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27948,
+      "sourceBounds": {
+        "left": 268,
+        "top": 935,
+        "width": 229,
+        "height": 255
+      }
+    },
+    {
+      "file": "loom-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25926,
+      "sourceBounds": {
+        "left": 267,
+        "top": 1196,
+        "width": 237,
+        "height": 285
+      }
+    },
+    {
+      "file": "loom-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21968,
+      "sourceBounds": {
+        "left": 528,
+        "top": 4,
+        "width": 204,
+        "height": 215
+      }
+    },
+    {
+      "file": "loom-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24716,
+      "sourceBounds": {
+        "left": 531,
+        "top": 232,
+        "width": 213,
+        "height": 213
+      }
+    },
+    {
+      "file": "loom-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25478,
+      "sourceBounds": {
+        "left": 528,
+        "top": 456,
+        "width": 225,
+        "height": 226
+      }
+    },
+    {
+      "file": "loom-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27974,
+      "sourceBounds": {
+        "left": 523,
+        "top": 684,
+        "width": 235,
+        "height": 247
+      }
+    },
+    {
+      "file": "loom-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28510,
+      "sourceBounds": {
+        "left": 524,
+        "top": 935,
+        "width": 237,
+        "height": 255
+      }
+    },
+    {
+      "file": "loom-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26168,
+      "sourceBounds": {
+        "left": 524,
+        "top": 1197,
+        "width": 239,
+        "height": 284
+      }
+    },
+    {
+      "file": "loom-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22880,
+      "sourceBounds": {
+        "left": 786,
+        "top": 5,
+        "width": 213,
+        "height": 217
+      }
+    },
+    {
+      "file": "loom-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24296,
+      "sourceBounds": {
+        "left": 789,
+        "top": 222,
+        "width": 213,
+        "height": 222
+      }
+    },
+    {
+      "file": "loom-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26346,
+      "sourceBounds": {
+        "left": 779,
+        "top": 446,
+        "width": 230,
+        "height": 235
+      }
+    },
+    {
+      "file": "loom-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27216,
+      "sourceBounds": {
+        "left": 774,
+        "top": 679,
+        "width": 238,
+        "height": 254
+      }
+    },
+    {
+      "file": "loom-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27730,
+      "sourceBounds": {
+        "left": 771,
+        "top": 931,
+        "width": 242,
+        "height": 263
+      }
+    },
+    {
+      "file": "loom-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28542,
+      "sourceBounds": {
+        "left": 762,
+        "top": 1193,
+        "width": 253,
+        "height": 286
+      }
+    },
+    {
+      "file": "mill-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25724,
+      "sourceBounds": {
+        "left": 48,
+        "top": 1,
+        "width": 177,
+        "height": 212
+      }
+    },
+    {
+      "file": "mill-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25766,
+      "sourceBounds": {
+        "left": 40,
+        "top": 210,
+        "width": 181,
+        "height": 228
+      }
+    },
+    {
+      "file": "mill-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25856,
+      "sourceBounds": {
+        "left": 32,
+        "top": 427,
+        "width": 197,
+        "height": 239
+      }
+    },
+    {
+      "file": "mill-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26538,
+      "sourceBounds": {
+        "left": 28,
+        "top": 654,
+        "width": 200,
+        "height": 263
+      }
+    },
+    {
+      "file": "mill-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27284,
+      "sourceBounds": {
+        "left": 22,
+        "top": 911,
+        "width": 223,
+        "height": 292
+      }
+    },
+    {
+      "file": "mill-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25870,
+      "sourceBounds": {
+        "left": 30,
+        "top": 1195,
+        "width": 221,
+        "height": 306
+      }
+    },
+    {
+      "file": "mill-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24270,
+      "sourceBounds": {
+        "left": 293,
+        "top": 0,
+        "width": 171,
+        "height": 210
+      }
+    },
+    {
+      "file": "mill-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26662,
+      "sourceBounds": {
+        "left": 293,
+        "top": 227,
+        "width": 186,
+        "height": 210
+      }
+    },
+    {
+      "file": "mill-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25984,
+      "sourceBounds": {
+        "left": 294,
+        "top": 437,
+        "width": 198,
+        "height": 230
+      }
+    },
+    {
+      "file": "mill-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27584,
+      "sourceBounds": {
+        "left": 290,
+        "top": 666,
+        "width": 206,
+        "height": 246
+      }
+    },
+    {
+      "file": "mill-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26488,
+      "sourceBounds": {
+        "left": 285,
+        "top": 921,
+        "width": 212,
+        "height": 277
+      }
+    },
+    {
+      "file": "mill-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25780,
+      "sourceBounds": {
+        "left": 291,
+        "top": 1202,
+        "width": 210,
+        "height": 291
+      }
+    },
+    {
+      "file": "mill-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24190,
+      "sourceBounds": {
+        "left": 559,
+        "top": 0,
+        "width": 170,
+        "height": 214
+      }
+    },
+    {
+      "file": "mill-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25986,
+      "sourceBounds": {
+        "left": 542,
+        "top": 223,
+        "width": 191,
+        "height": 216
+      }
+    },
+    {
+      "file": "mill-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23152,
+      "sourceBounds": {
+        "left": 555,
+        "top": 438,
+        "width": 176,
+        "height": 227
+      }
+    },
+    {
+      "file": "mill-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25840,
+      "sourceBounds": {
+        "left": 540,
+        "top": 666,
+        "width": 197,
+        "height": 248
+      }
+    },
+    {
+      "file": "mill-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24536,
+      "sourceBounds": {
+        "left": 535,
+        "top": 921,
+        "width": 204,
+        "height": 277
+      }
+    },
+    {
+      "file": "mill-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22990,
+      "sourceBounds": {
+        "left": 529,
+        "top": 1201,
+        "width": 205,
+        "height": 296
+      }
+    },
+    {
+      "file": "mill-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25518,
+      "sourceBounds": {
+        "left": 799,
+        "top": 1,
+        "width": 176,
+        "height": 211
+      }
+    },
+    {
+      "file": "mill-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25036,
+      "sourceBounds": {
+        "left": 803,
+        "top": 210,
+        "width": 181,
+        "height": 228
+      }
+    },
+    {
+      "file": "mill-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25262,
+      "sourceBounds": {
+        "left": 802,
+        "top": 428,
+        "width": 191,
+        "height": 238
+      }
+    },
+    {
+      "file": "mill-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25752,
+      "sourceBounds": {
+        "left": 796,
+        "top": 656,
+        "width": 201,
+        "height": 262
+      }
+    },
+    {
+      "file": "mill-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26416,
+      "sourceBounds": {
+        "left": 784,
+        "top": 914,
+        "width": 218,
+        "height": 288
+      }
+    },
+    {
+      "file": "mill-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25348,
+      "sourceBounds": {
+        "left": 780,
+        "top": 1195,
+        "width": 213,
+        "height": 303
+      }
+    },
+    {
+      "file": "orchard-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28818,
+      "sourceBounds": {
+        "left": 27,
+        "top": 32,
+        "width": 212,
+        "height": 203
+      }
+    },
+    {
+      "file": "orchard-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31014,
+      "sourceBounds": {
+        "left": 26,
+        "top": 261,
+        "width": 216,
+        "height": 216
+      }
+    },
+    {
+      "file": "orchard-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30140,
+      "sourceBounds": {
+        "left": 27,
+        "top": 503,
+        "width": 216,
+        "height": 227
+      }
+    },
+    {
+      "file": "orchard-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31452,
+      "sourceBounds": {
+        "left": 21,
+        "top": 748,
+        "width": 227,
+        "height": 238
+      }
+    },
+    {
+      "file": "orchard-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30800,
+      "sourceBounds": {
+        "left": 21,
+        "top": 1003,
+        "width": 223,
+        "height": 240
+      }
+    },
+    {
+      "file": "orchard-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33612,
+      "sourceBounds": {
+        "left": 20,
+        "top": 1258,
+        "width": 225,
+        "height": 242
+      }
+    },
+    {
+      "file": "orchard-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27590,
+      "sourceBounds": {
+        "left": 276,
+        "top": 29,
+        "width": 216,
+        "height": 202
+      }
+    },
+    {
+      "file": "orchard-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30788,
+      "sourceBounds": {
+        "left": 274,
+        "top": 256,
+        "width": 219,
+        "height": 218
+      }
+    },
+    {
+      "file": "orchard-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30774,
+      "sourceBounds": {
+        "left": 273,
+        "top": 497,
+        "width": 221,
+        "height": 223
+      }
+    },
+    {
+      "file": "orchard-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31928,
+      "sourceBounds": {
+        "left": 273,
+        "top": 742,
+        "width": 220,
+        "height": 229
+      }
+    },
+    {
+      "file": "orchard-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32710,
+      "sourceBounds": {
+        "left": 273,
+        "top": 999,
+        "width": 224,
+        "height": 231
+      }
+    },
+    {
+      "file": "orchard-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31082,
+      "sourceBounds": {
+        "left": 270,
+        "top": 1254,
+        "width": 227,
+        "height": 240
+      }
+    },
+    {
+      "file": "orchard-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28040,
+      "sourceBounds": {
+        "left": 532,
+        "top": 30,
+        "width": 216,
+        "height": 202
+      }
+    },
+    {
+      "file": "orchard-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30016,
+      "sourceBounds": {
+        "left": 531,
+        "top": 260,
+        "width": 220,
+        "height": 214
+      }
+    },
+    {
+      "file": "orchard-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30866,
+      "sourceBounds": {
+        "left": 531,
+        "top": 496,
+        "width": 220,
+        "height": 225
+      }
+    },
+    {
+      "file": "orchard-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31014,
+      "sourceBounds": {
+        "left": 533,
+        "top": 742,
+        "width": 219,
+        "height": 230
+      }
+    },
+    {
+      "file": "orchard-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32982,
+      "sourceBounds": {
+        "left": 528,
+        "top": 1000,
+        "width": 224,
+        "height": 231
+      }
+    },
+    {
+      "file": "orchard-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32786,
+      "sourceBounds": {
+        "left": 530,
+        "top": 1254,
+        "width": 225,
+        "height": 241
+      }
+    },
+    {
+      "file": "orchard-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29284,
+      "sourceBounds": {
+        "left": 786,
+        "top": 31,
+        "width": 211,
+        "height": 203
+      }
+    },
+    {
+      "file": "orchard-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31396,
+      "sourceBounds": {
+        "left": 783,
+        "top": 261,
+        "width": 216,
+        "height": 216
+      }
+    },
+    {
+      "file": "orchard-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30242,
+      "sourceBounds": {
+        "left": 781,
+        "top": 504,
+        "width": 217,
+        "height": 226
+      }
+    },
+    {
+      "file": "orchard-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29014,
+      "sourceBounds": {
+        "left": 777,
+        "top": 749,
+        "width": 225,
+        "height": 240
+      }
+    },
+    {
+      "file": "orchard-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32162,
+      "sourceBounds": {
+        "left": 782,
+        "top": 1004,
+        "width": 221,
+        "height": 241
+      }
+    },
+    {
+      "file": "orchard-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33590,
+      "sourceBounds": {
+        "left": 780,
+        "top": 1259,
+        "width": 224,
+        "height": 241
+      }
+    },
+    {
+      "file": "pottery-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21502,
+      "sourceBounds": {
+        "left": 31,
+        "top": 36,
+        "width": 202,
+        "height": 159
+      }
+    },
+    {
+      "file": "pottery-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23950,
+      "sourceBounds": {
+        "left": 27,
+        "top": 235,
+        "width": 211,
+        "height": 192
+      }
+    },
+    {
+      "file": "pottery-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24650,
+      "sourceBounds": {
+        "left": 19,
+        "top": 458,
+        "width": 227,
+        "height": 205
+      }
+    },
+    {
+      "file": "pottery-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26306,
+      "sourceBounds": {
+        "left": 14,
+        "top": 689,
+        "width": 233,
+        "height": 227
+      }
+    },
+    {
+      "file": "pottery-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27854,
+      "sourceBounds": {
+        "left": 9,
+        "top": 931,
+        "width": 245,
+        "height": 250
+      }
+    },
+    {
+      "file": "pottery-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26040,
+      "sourceBounds": {
+        "left": 6,
+        "top": 1195,
+        "width": 251,
+        "height": 282
+      }
+    },
+    {
+      "file": "pottery-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20430,
+      "sourceBounds": {
+        "left": 293,
+        "top": 44,
+        "width": 192,
+        "height": 161
+      }
+    },
+    {
+      "file": "pottery-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22418,
+      "sourceBounds": {
+        "left": 276,
+        "top": 249,
+        "width": 212,
+        "height": 186
+      }
+    },
+    {
+      "file": "pottery-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23328,
+      "sourceBounds": {
+        "left": 274,
+        "top": 469,
+        "width": 225,
+        "height": 203
+      }
+    },
+    {
+      "file": "pottery-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24946,
+      "sourceBounds": {
+        "left": 269,
+        "top": 706,
+        "width": 235,
+        "height": 212
+      }
+    },
+    {
+      "file": "pottery-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27488,
+      "sourceBounds": {
+        "left": 266,
+        "top": 939,
+        "width": 240,
+        "height": 249
+      }
+    },
+    {
+      "file": "pottery-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27704,
+      "sourceBounds": {
+        "left": 264,
+        "top": 1213,
+        "width": 247,
+        "height": 277
+      }
+    },
+    {
+      "file": "pottery-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21306,
+      "sourceBounds": {
+        "left": 541,
+        "top": 34,
+        "width": 200,
+        "height": 167
+      }
+    },
+    {
+      "file": "pottery-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21190,
+      "sourceBounds": {
+        "left": 533,
+        "top": 256,
+        "width": 215,
+        "height": 173
+      }
+    },
+    {
+      "file": "pottery-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22708,
+      "sourceBounds": {
+        "left": 531,
+        "top": 475,
+        "width": 221,
+        "height": 193
+      }
+    },
+    {
+      "file": "pottery-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25488,
+      "sourceBounds": {
+        "left": 529,
+        "top": 713,
+        "width": 230,
+        "height": 210
+      }
+    },
+    {
+      "file": "pottery-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25190,
+      "sourceBounds": {
+        "left": 523,
+        "top": 947,
+        "width": 239,
+        "height": 240
+      }
+    },
+    {
+      "file": "pottery-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26014,
+      "sourceBounds": {
+        "left": 517,
+        "top": 1218,
+        "width": 247,
+        "height": 268
+      }
+    },
+    {
+      "file": "pottery-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21902,
+      "sourceBounds": {
+        "left": 792,
+        "top": 33,
+        "width": 204,
+        "height": 160
+      }
+    },
+    {
+      "file": "pottery-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23928,
+      "sourceBounds": {
+        "left": 784,
+        "top": 242,
+        "width": 213,
+        "height": 184
+      }
+    },
+    {
+      "file": "pottery-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25690,
+      "sourceBounds": {
+        "left": 780,
+        "top": 457,
+        "width": 222,
+        "height": 208
+      }
+    },
+    {
+      "file": "pottery-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26252,
+      "sourceBounds": {
+        "left": 778,
+        "top": 695,
+        "width": 232,
+        "height": 228
+      }
+    },
+    {
+      "file": "pottery-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26416,
+      "sourceBounds": {
+        "left": 770,
+        "top": 931,
+        "width": 243,
+        "height": 255
+      }
+    },
+    {
+      "file": "pottery-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24430,
+      "sourceBounds": {
+        "left": 769,
+        "top": 1191,
+        "width": 247,
+        "height": 292
+      }
+    },
+    {
+      "file": "preserves-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25198,
+      "sourceBounds": {
+        "left": 24,
+        "top": 0,
+        "width": 207,
+        "height": 212
+      }
+    },
+    {
+      "file": "preserves-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25948,
+      "sourceBounds": {
+        "left": 20,
+        "top": 216,
+        "width": 219,
+        "height": 221
+      }
+    },
+    {
+      "file": "preserves-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27304,
+      "sourceBounds": {
+        "left": 12,
+        "top": 439,
+        "width": 233,
+        "height": 241
+      }
+    },
+    {
+      "file": "preserves-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29522,
+      "sourceBounds": {
+        "left": 11,
+        "top": 684,
+        "width": 245,
+        "height": 257
+      }
+    },
+    {
+      "file": "preserves-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30356,
+      "sourceBounds": {
+        "left": 11,
+        "top": 938,
+        "width": 249,
+        "height": 271
+      }
+    },
+    {
+      "file": "preserves-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28632,
+      "sourceBounds": {
+        "left": 8,
+        "top": 1210,
+        "width": 259,
+        "height": 301
+      }
+    },
+    {
+      "file": "preserves-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26082,
+      "sourceBounds": {
+        "left": 278,
+        "top": 4,
+        "width": 208,
+        "height": 209
+      }
+    },
+    {
+      "file": "preserves-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27644,
+      "sourceBounds": {
+        "left": 272,
+        "top": 218,
+        "width": 224,
+        "height": 224
+      }
+    },
+    {
+      "file": "preserves-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28662,
+      "sourceBounds": {
+        "left": 262,
+        "top": 452,
+        "width": 235,
+        "height": 231
+      }
+    },
+    {
+      "file": "preserves-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29882,
+      "sourceBounds": {
+        "left": 261,
+        "top": 694,
+        "width": 242,
+        "height": 241
+      }
+    },
+    {
+      "file": "preserves-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29016,
+      "sourceBounds": {
+        "left": 264,
+        "top": 937,
+        "width": 242,
+        "height": 272
+      }
+    },
+    {
+      "file": "preserves-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26796,
+      "sourceBounds": {
+        "left": 268,
+        "top": 1206,
+        "width": 239,
+        "height": 309
+      }
+    },
+    {
+      "file": "preserves-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25238,
+      "sourceBounds": {
+        "left": 538,
+        "top": 5,
+        "width": 209,
+        "height": 208
+      }
+    },
+    {
+      "file": "preserves-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26032,
+      "sourceBounds": {
+        "left": 534,
+        "top": 222,
+        "width": 223,
+        "height": 217
+      }
+    },
+    {
+      "file": "preserves-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27410,
+      "sourceBounds": {
+        "left": 514,
+        "top": 442,
+        "width": 247,
+        "height": 241
+      }
+    },
+    {
+      "file": "preserves-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29446,
+      "sourceBounds": {
+        "left": 524,
+        "top": 692,
+        "width": 239,
+        "height": 245
+      }
+    },
+    {
+      "file": "preserves-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28856,
+      "sourceBounds": {
+        "left": 520,
+        "top": 936,
+        "width": 237,
+        "height": 269
+      }
+    },
+    {
+      "file": "preserves-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27240,
+      "sourceBounds": {
+        "left": 512,
+        "top": 1206,
+        "width": 252,
+        "height": 305
+      }
+    },
+    {
+      "file": "preserves-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24908,
+      "sourceBounds": {
+        "left": 794,
+        "top": 0,
+        "width": 206,
+        "height": 208
+      }
+    },
+    {
+      "file": "preserves-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24360,
+      "sourceBounds": {
+        "left": 785,
+        "top": 220,
+        "width": 225,
+        "height": 217
+      }
+    },
+    {
+      "file": "preserves-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25536,
+      "sourceBounds": {
+        "left": 782,
+        "top": 440,
+        "width": 234,
+        "height": 240
+      }
+    },
+    {
+      "file": "preserves-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28400,
+      "sourceBounds": {
+        "left": 776,
+        "top": 685,
+        "width": 240,
+        "height": 255
+      }
+    },
+    {
+      "file": "preserves-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30812,
+      "sourceBounds": {
+        "left": 772,
+        "top": 938,
+        "width": 243,
+        "height": 266
+      }
+    },
+    {
+      "file": "preserves-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28162,
+      "sourceBounds": {
+        "left": 766,
+        "top": 1206,
+        "width": 252,
+        "height": 298
+      }
+    },
+    {
+      "file": "press-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22644,
+      "sourceBounds": {
+        "left": 29,
+        "top": 0,
+        "width": 212,
+        "height": 225
+      }
+    },
+    {
+      "file": "press-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25378,
+      "sourceBounds": {
+        "left": 25,
+        "top": 231,
+        "width": 215,
+        "height": 228
+      }
+    },
+    {
+      "file": "press-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29406,
+      "sourceBounds": {
+        "left": 14,
+        "top": 453,
+        "width": 247,
+        "height": 248
+      }
+    },
+    {
+      "file": "press-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30760,
+      "sourceBounds": {
+        "left": 14,
+        "top": 724,
+        "width": 248,
+        "height": 250
+      }
+    },
+    {
+      "file": "press-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30878,
+      "sourceBounds": {
+        "left": 13,
+        "top": 992,
+        "width": 253,
+        "height": 252
+      }
+    },
+    {
+      "file": "press-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31298,
+      "sourceBounds": {
+        "left": 9,
+        "top": 1251,
+        "width": 269,
+        "height": 265
+      }
+    },
+    {
+      "file": "press-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22930,
+      "sourceBounds": {
+        "left": 280,
+        "top": 19,
+        "width": 209,
+        "height": 208
+      }
+    },
+    {
+      "file": "press-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25584,
+      "sourceBounds": {
+        "left": 276,
+        "top": 245,
+        "width": 214,
+        "height": 208
+      }
+    },
+    {
+      "file": "press-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25528,
+      "sourceBounds": {
+        "left": 274,
+        "top": 486,
+        "width": 230,
+        "height": 216
+      }
+    },
+    {
+      "file": "press-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26608,
+      "sourceBounds": {
+        "left": 272,
+        "top": 745,
+        "width": 235,
+        "height": 229
+      }
+    },
+    {
+      "file": "press-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28544,
+      "sourceBounds": {
+        "left": 276,
+        "top": 1028,
+        "width": 227,
+        "height": 220
+      }
+    },
+    {
+      "file": "press-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28566,
+      "sourceBounds": {
+        "left": 277,
+        "top": 1283,
+        "width": 232,
+        "height": 235
+      }
+    },
+    {
+      "file": "press-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21616,
+      "sourceBounds": {
+        "left": 533,
+        "top": 14,
+        "width": 209,
+        "height": 210
+      }
+    },
+    {
+      "file": "press-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23826,
+      "sourceBounds": {
+        "left": 531,
+        "top": 249,
+        "width": 211,
+        "height": 214
+      }
+    },
+    {
+      "file": "press-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27062,
+      "sourceBounds": {
+        "left": 522,
+        "top": 478,
+        "width": 227,
+        "height": 230
+      }
+    },
+    {
+      "file": "press-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28528,
+      "sourceBounds": {
+        "left": 521,
+        "top": 738,
+        "width": 236,
+        "height": 245
+      }
+    },
+    {
+      "file": "press-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26670,
+      "sourceBounds": {
+        "left": 523,
+        "top": 1000,
+        "width": 233,
+        "height": 255
+      }
+    },
+    {
+      "file": "press-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27692,
+      "sourceBounds": {
+        "left": 517,
+        "top": 1259,
+        "width": 237,
+        "height": 259
+      }
+    },
+    {
+      "file": "press-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23130,
+      "sourceBounds": {
+        "left": 787,
+        "top": 11,
+        "width": 209,
+        "height": 216
+      }
+    },
+    {
+      "file": "press-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24830,
+      "sourceBounds": {
+        "left": 789,
+        "top": 238,
+        "width": 213,
+        "height": 222
+      }
+    },
+    {
+      "file": "press-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27604,
+      "sourceBounds": {
+        "left": 781,
+        "top": 479,
+        "width": 229,
+        "height": 230
+      }
+    },
+    {
+      "file": "press-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29292,
+      "sourceBounds": {
+        "left": 772,
+        "top": 730,
+        "width": 240,
+        "height": 253
+      }
+    },
+    {
+      "file": "press-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28968,
+      "sourceBounds": {
+        "left": 772,
+        "top": 997,
+        "width": 240,
+        "height": 255
+      }
+    },
+    {
+      "file": "press-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30844,
+      "sourceBounds": {
+        "left": 761,
+        "top": 1255,
+        "width": 255,
+        "height": 259
+      }
+    },
+    {
+      "file": "quarry-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23164,
+      "sourceBounds": {
+        "left": 26,
+        "top": 73,
+        "width": 209,
+        "height": 171
+      }
+    },
+    {
+      "file": "quarry-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23920,
+      "sourceBounds": {
+        "left": 25,
+        "top": 285,
+        "width": 230,
+        "height": 185
+      }
+    },
+    {
+      "file": "quarry-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26174,
+      "sourceBounds": {
+        "left": 26,
+        "top": 485,
+        "width": 236,
+        "height": 222
+      }
+    },
+    {
+      "file": "quarry-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28504,
+      "sourceBounds": {
+        "left": 24,
+        "top": 720,
+        "width": 243,
+        "height": 239
+      }
+    },
+    {
+      "file": "quarry-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28834,
+      "sourceBounds": {
+        "left": 24,
+        "top": 975,
+        "width": 246,
+        "height": 246
+      }
+    },
+    {
+      "file": "quarry-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27564,
+      "sourceBounds": {
+        "left": 24,
+        "top": 1222,
+        "width": 245,
+        "height": 264
+      }
+    },
+    {
+      "file": "quarry-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24406,
+      "sourceBounds": {
+        "left": 299,
+        "top": 64,
+        "width": 185,
+        "height": 170
+      }
+    },
+    {
+      "file": "quarry-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26158,
+      "sourceBounds": {
+        "left": 293,
+        "top": 266,
+        "width": 202,
+        "height": 200
+      }
+    },
+    {
+      "file": "quarry-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26810,
+      "sourceBounds": {
+        "left": 293,
+        "top": 486,
+        "width": 207,
+        "height": 217
+      }
+    },
+    {
+      "file": "quarry-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26864,
+      "sourceBounds": {
+        "left": 293,
+        "top": 722,
+        "width": 210,
+        "height": 233
+      }
+    },
+    {
+      "file": "quarry-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28054,
+      "sourceBounds": {
+        "left": 281,
+        "top": 971,
+        "width": 226,
+        "height": 246
+      }
+    },
+    {
+      "file": "quarry-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26348,
+      "sourceBounds": {
+        "left": 282,
+        "top": 1217,
+        "width": 225,
+        "height": 268
+      }
+    },
+    {
+      "file": "quarry-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22310,
+      "sourceBounds": {
+        "left": 538,
+        "top": 64,
+        "width": 192,
+        "height": 166
+      }
+    },
+    {
+      "file": "quarry-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25126,
+      "sourceBounds": {
+        "left": 534,
+        "top": 271,
+        "width": 201,
+        "height": 190
+      }
+    },
+    {
+      "file": "quarry-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28390,
+      "sourceBounds": {
+        "left": 530,
+        "top": 485,
+        "width": 212,
+        "height": 218
+      }
+    },
+    {
+      "file": "quarry-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27422,
+      "sourceBounds": {
+        "left": 527,
+        "top": 725,
+        "width": 209,
+        "height": 230
+      }
+    },
+    {
+      "file": "quarry-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28274,
+      "sourceBounds": {
+        "left": 518,
+        "top": 973,
+        "width": 230,
+        "height": 246
+      }
+    },
+    {
+      "file": "quarry-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27150,
+      "sourceBounds": {
+        "left": 518,
+        "top": 1215,
+        "width": 230,
+        "height": 270
+      }
+    },
+    {
+      "file": "quarry-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22456,
+      "sourceBounds": {
+        "left": 792,
+        "top": 74,
+        "width": 206,
+        "height": 168
+      }
+    },
+    {
+      "file": "quarry-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25042,
+      "sourceBounds": {
+        "left": 784,
+        "top": 284,
+        "width": 215,
+        "height": 183
+      }
+    },
+    {
+      "file": "quarry-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27154,
+      "sourceBounds": {
+        "left": 775,
+        "top": 495,
+        "width": 225,
+        "height": 209
+      }
+    },
+    {
+      "file": "quarry-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28994,
+      "sourceBounds": {
+        "left": 768,
+        "top": 721,
+        "width": 232,
+        "height": 234
+      }
+    },
+    {
+      "file": "quarry-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26688,
+      "sourceBounds": {
+        "left": 763,
+        "top": 978,
+        "width": 238,
+        "height": 240
+      }
+    },
+    {
+      "file": "quarry-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27930,
+      "sourceBounds": {
+        "left": 763,
+        "top": 1226,
+        "width": 238,
+        "height": 263
+      }
+    },
+    {
+      "file": "sawmill-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26466,
+      "sourceBounds": {
+        "left": 16,
+        "top": 20,
+        "width": 219,
+        "height": 193
+      }
+    },
+    {
+      "file": "sawmill-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27788,
+      "sourceBounds": {
+        "left": 11,
+        "top": 244,
+        "width": 230,
+        "height": 214
+      }
+    },
+    {
+      "file": "sawmill-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28630,
+      "sourceBounds": {
+        "left": 6,
+        "top": 486,
+        "width": 238,
+        "height": 217
+      }
+    },
+    {
+      "file": "sawmill-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30458,
+      "sourceBounds": {
+        "left": 2,
+        "top": 734,
+        "width": 247,
+        "height": 241
+      }
+    },
+    {
+      "file": "sawmill-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33404,
+      "sourceBounds": {
+        "left": 5,
+        "top": 995,
+        "width": 243,
+        "height": 246
+      }
+    },
+    {
+      "file": "sawmill-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32904,
+      "sourceBounds": {
+        "left": 7,
+        "top": 1256,
+        "width": 259,
+        "height": 260
+      }
+    },
+    {
+      "file": "sawmill-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26344,
+      "sourceBounds": {
+        "left": 278,
+        "top": 20,
+        "width": 216,
+        "height": 194
+      }
+    },
+    {
+      "file": "sawmill-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26708,
+      "sourceBounds": {
+        "left": 271,
+        "top": 245,
+        "width": 220,
+        "height": 208
+      }
+    },
+    {
+      "file": "sawmill-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28030,
+      "sourceBounds": {
+        "left": 272,
+        "top": 492,
+        "width": 220,
+        "height": 208
+      }
+    },
+    {
+      "file": "sawmill-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27090,
+      "sourceBounds": {
+        "left": 263,
+        "top": 735,
+        "width": 234,
+        "height": 240
+      }
+    },
+    {
+      "file": "sawmill-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29448,
+      "sourceBounds": {
+        "left": 264,
+        "top": 1002,
+        "width": 237,
+        "height": 239
+      }
+    },
+    {
+      "file": "sawmill-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30478,
+      "sourceBounds": {
+        "left": 264,
+        "top": 1257,
+        "width": 241,
+        "height": 247
+      }
+    },
+    {
+      "file": "sawmill-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27646,
+      "sourceBounds": {
+        "left": 533,
+        "top": 20,
+        "width": 214,
+        "height": 196
+      }
+    },
+    {
+      "file": "sawmill-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27932,
+      "sourceBounds": {
+        "left": 526,
+        "top": 245,
+        "width": 227,
+        "height": 212
+      }
+    },
+    {
+      "file": "sawmill-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30192,
+      "sourceBounds": {
+        "left": 531,
+        "top": 491,
+        "width": 220,
+        "height": 213
+      }
+    },
+    {
+      "file": "sawmill-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29760,
+      "sourceBounds": {
+        "left": 524,
+        "top": 735,
+        "width": 236,
+        "height": 241
+      }
+    },
+    {
+      "file": "sawmill-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31146,
+      "sourceBounds": {
+        "left": 523,
+        "top": 1004,
+        "width": 236,
+        "height": 237
+      }
+    },
+    {
+      "file": "sawmill-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31546,
+      "sourceBounds": {
+        "left": 512,
+        "top": 1257,
+        "width": 259,
+        "height": 254
+      }
+    },
+    {
+      "file": "sawmill-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26492,
+      "sourceBounds": {
+        "left": 790,
+        "top": 20,
+        "width": 218,
+        "height": 194
+      }
+    },
+    {
+      "file": "sawmill-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26084,
+      "sourceBounds": {
+        "left": 784,
+        "top": 245,
+        "width": 229,
+        "height": 213
+      }
+    },
+    {
+      "file": "sawmill-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28418,
+      "sourceBounds": {
+        "left": 779,
+        "top": 487,
+        "width": 238,
+        "height": 220
+      }
+    },
+    {
+      "file": "sawmill-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29836,
+      "sourceBounds": {
+        "left": 777,
+        "top": 734,
+        "width": 247,
+        "height": 241
+      }
+    },
+    {
+      "file": "sawmill-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33350,
+      "sourceBounds": {
+        "left": 777,
+        "top": 997,
+        "width": 247,
+        "height": 244
+      }
+    },
+    {
+      "file": "sawmill-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31348,
+      "sourceBounds": {
+        "left": 770,
+        "top": 1253,
+        "width": 250,
+        "height": 263
+      }
+    },
+    {
+      "file": "sheepfold-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26268,
+      "sourceBounds": {
+        "left": 19,
+        "top": 12,
+        "width": 219,
+        "height": 220
+      }
+    },
+    {
+      "file": "sheepfold-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25354,
+      "sourceBounds": {
+        "left": 16,
+        "top": 238,
+        "width": 219,
+        "height": 218
+      }
+    },
+    {
+      "file": "sheepfold-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27534,
+      "sourceBounds": {
+        "left": 14,
+        "top": 462,
+        "width": 234,
+        "height": 229
+      }
+    },
+    {
+      "file": "sheepfold-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28264,
+      "sourceBounds": {
+        "left": 10,
+        "top": 697,
+        "width": 252,
+        "height": 253
+      }
+    },
+    {
+      "file": "sheepfold-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28456,
+      "sourceBounds": {
+        "left": 9,
+        "top": 959,
+        "width": 252,
+        "height": 254
+      }
+    },
+    {
+      "file": "sheepfold-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23322,
+      "sourceBounds": {
+        "left": 8,
+        "top": 1212,
+        "width": 253,
+        "height": 311
+      }
+    },
+    {
+      "file": "sheepfold-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24528,
+      "sourceBounds": {
+        "left": 285,
+        "top": 13,
+        "width": 214,
+        "height": 204
+      }
+    },
+    {
+      "file": "sheepfold-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23106,
+      "sourceBounds": {
+        "left": 273,
+        "top": 238,
+        "width": 224,
+        "height": 206
+      }
+    },
+    {
+      "file": "sheepfold-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24338,
+      "sourceBounds": {
+        "left": 273,
+        "top": 462,
+        "width": 230,
+        "height": 216
+      }
+    },
+    {
+      "file": "sheepfold-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28308,
+      "sourceBounds": {
+        "left": 266,
+        "top": 697,
+        "width": 241,
+        "height": 240
+      }
+    },
+    {
+      "file": "sheepfold-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27008,
+      "sourceBounds": {
+        "left": 265,
+        "top": 964,
+        "width": 244,
+        "height": 228
+      }
+    },
+    {
+      "file": "sheepfold-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24736,
+      "sourceBounds": {
+        "left": 265,
+        "top": 1214,
+        "width": 245,
+        "height": 281
+      }
+    },
+    {
+      "file": "sheepfold-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24352,
+      "sourceBounds": {
+        "left": 526,
+        "top": 12,
+        "width": 214,
+        "height": 205
+      }
+    },
+    {
+      "file": "sheepfold-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23434,
+      "sourceBounds": {
+        "left": 527,
+        "top": 238,
+        "width": 225,
+        "height": 205
+      }
+    },
+    {
+      "file": "sheepfold-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24426,
+      "sourceBounds": {
+        "left": 521,
+        "top": 462,
+        "width": 231,
+        "height": 216
+      }
+    },
+    {
+      "file": "sheepfold-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27874,
+      "sourceBounds": {
+        "left": 517,
+        "top": 698,
+        "width": 242,
+        "height": 239
+      }
+    },
+    {
+      "file": "sheepfold-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27226,
+      "sourceBounds": {
+        "left": 516,
+        "top": 964,
+        "width": 244,
+        "height": 228
+      }
+    },
+    {
+      "file": "sheepfold-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24830,
+      "sourceBounds": {
+        "left": 514,
+        "top": 1214,
+        "width": 246,
+        "height": 281
+      }
+    },
+    {
+      "file": "sheepfold-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26294,
+      "sourceBounds": {
+        "left": 787,
+        "top": 12,
+        "width": 219,
+        "height": 220
+      }
+    },
+    {
+      "file": "sheepfold-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25758,
+      "sourceBounds": {
+        "left": 791,
+        "top": 238,
+        "width": 218,
+        "height": 218
+      }
+    },
+    {
+      "file": "sheepfold-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27254,
+      "sourceBounds": {
+        "left": 779,
+        "top": 462,
+        "width": 232,
+        "height": 229
+      }
+    },
+    {
+      "file": "sheepfold-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28014,
+      "sourceBounds": {
+        "left": 764,
+        "top": 697,
+        "width": 251,
+        "height": 256
+      }
+    },
+    {
+      "file": "sheepfold-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27986,
+      "sourceBounds": {
+        "left": 764,
+        "top": 959,
+        "width": 252,
+        "height": 255
+      }
+    },
+    {
+      "file": "sheepfold-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22914,
+      "sourceBounds": {
+        "left": 764,
+        "top": 1212,
+        "width": 252,
+        "height": 314
+      }
+    },
+    {
+      "file": "smelter-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18756,
+      "sourceBounds": {
+        "left": 57,
+        "top": 10,
+        "width": 200,
+        "height": 200
+      }
+    },
+    {
+      "file": "smelter-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19816,
+      "sourceBounds": {
+        "left": 44,
+        "top": 222,
+        "width": 213,
+        "height": 212
+      }
+    },
+    {
+      "file": "smelter-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21498,
+      "sourceBounds": {
+        "left": 31,
+        "top": 436,
+        "width": 227,
+        "height": 232
+      }
+    },
+    {
+      "file": "smelter-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24060,
+      "sourceBounds": {
+        "left": 12,
+        "top": 675,
+        "width": 248,
+        "height": 251
+      }
+    },
+    {
+      "file": "smelter-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26170,
+      "sourceBounds": {
+        "left": 10,
+        "top": 935,
+        "width": 265,
+        "height": 265
+      }
+    },
+    {
+      "file": "smelter-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25312,
+      "sourceBounds": {
+        "left": 4,
+        "top": 1208,
+        "width": 273,
+        "height": 288
+      }
+    },
+    {
+      "file": "smelter-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17124,
+      "sourceBounds": {
+        "left": 305,
+        "top": 10,
+        "width": 174,
+        "height": 200
+      }
+    },
+    {
+      "file": "smelter-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18550,
+      "sourceBounds": {
+        "left": 293,
+        "top": 222,
+        "width": 191,
+        "height": 208
+      }
+    },
+    {
+      "file": "smelter-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20146,
+      "sourceBounds": {
+        "left": 281,
+        "top": 436,
+        "width": 211,
+        "height": 231
+      }
+    },
+    {
+      "file": "smelter-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21998,
+      "sourceBounds": {
+        "left": 280,
+        "top": 675,
+        "width": 210,
+        "height": 246
+      }
+    },
+    {
+      "file": "smelter-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21096,
+      "sourceBounds": {
+        "left": 280,
+        "top": 936,
+        "width": 217,
+        "height": 260
+      }
+    },
+    {
+      "file": "smelter-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19882,
+      "sourceBounds": {
+        "left": 280,
+        "top": 1208,
+        "width": 219,
+        "height": 286
+      }
+    },
+    {
+      "file": "smelter-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17176,
+      "sourceBounds": {
+        "left": 551,
+        "top": 10,
+        "width": 176,
+        "height": 200
+      }
+    },
+    {
+      "file": "smelter-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19038,
+      "sourceBounds": {
+        "left": 540,
+        "top": 222,
+        "width": 195,
+        "height": 211
+      }
+    },
+    {
+      "file": "smelter-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20562,
+      "sourceBounds": {
+        "left": 533,
+        "top": 436,
+        "width": 210,
+        "height": 232
+      }
+    },
+    {
+      "file": "smelter-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21540,
+      "sourceBounds": {
+        "left": 535,
+        "top": 675,
+        "width": 209,
+        "height": 250
+      }
+    },
+    {
+      "file": "smelter-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21154,
+      "sourceBounds": {
+        "left": 528,
+        "top": 936,
+        "width": 217,
+        "height": 260
+      }
+    },
+    {
+      "file": "smelter-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20354,
+      "sourceBounds": {
+        "left": 526,
+        "top": 1208,
+        "width": 219,
+        "height": 288
+      }
+    },
+    {
+      "file": "smelter-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18364,
+      "sourceBounds": {
+        "left": 767,
+        "top": 10,
+        "width": 201,
+        "height": 200
+      }
+    },
+    {
+      "file": "smelter-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19832,
+      "sourceBounds": {
+        "left": 767,
+        "top": 222,
+        "width": 212,
+        "height": 211
+      }
+    },
+    {
+      "file": "smelter-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21718,
+      "sourceBounds": {
+        "left": 766,
+        "top": 436,
+        "width": 227,
+        "height": 230
+      }
+    },
+    {
+      "file": "smelter-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24254,
+      "sourceBounds": {
+        "left": 764,
+        "top": 675,
+        "width": 248,
+        "height": 251
+      }
+    },
+    {
+      "file": "smelter-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26808,
+      "sourceBounds": {
+        "left": 750,
+        "top": 935,
+        "width": 264,
+        "height": 264
+      }
+    },
+    {
+      "file": "smelter-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25088,
+      "sourceBounds": {
+        "left": 748,
+        "top": 1208,
+        "width": 273,
+        "height": 288
+      }
+    },
+    {
+      "file": "tailor-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23132,
+      "sourceBounds": {
+        "left": 28,
+        "top": 4,
+        "width": 195,
+        "height": 225
+      }
+    },
+    {
+      "file": "tailor-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25248,
+      "sourceBounds": {
+        "left": 20,
+        "top": 237,
+        "width": 203,
+        "height": 231
+      }
+    },
+    {
+      "file": "tailor-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28422,
+      "sourceBounds": {
+        "left": 12,
+        "top": 473,
+        "width": 217,
+        "height": 246
+      }
+    },
+    {
+      "file": "tailor-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28060,
+      "sourceBounds": {
+        "left": 8,
+        "top": 719,
+        "width": 232,
+        "height": 278
+      }
+    },
+    {
+      "file": "tailor-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29128,
+      "sourceBounds": {
+        "left": 11,
+        "top": 998,
+        "width": 236,
+        "height": 282
+      }
+    },
+    {
+      "file": "tailor-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 32940,
+      "sourceBounds": {
+        "left": 14,
+        "top": 1276,
+        "width": 238,
+        "height": 260
+      }
+    },
+    {
+      "file": "tailor-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21220,
+      "sourceBounds": {
+        "left": 289,
+        "top": 1,
+        "width": 195,
+        "height": 228
+      }
+    },
+    {
+      "file": "tailor-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23692,
+      "sourceBounds": {
+        "left": 291,
+        "top": 235,
+        "width": 201,
+        "height": 232
+      }
+    },
+    {
+      "file": "tailor-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26108,
+      "sourceBounds": {
+        "left": 292,
+        "top": 475,
+        "width": 212,
+        "height": 241
+      }
+    },
+    {
+      "file": "tailor-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26698,
+      "sourceBounds": {
+        "left": 279,
+        "top": 721,
+        "width": 230,
+        "height": 279
+      }
+    },
+    {
+      "file": "tailor-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28108,
+      "sourceBounds": {
+        "left": 272,
+        "top": 999,
+        "width": 226,
+        "height": 284
+      }
+    },
+    {
+      "file": "tailor-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 33394,
+      "sourceBounds": {
+        "left": 269,
+        "top": 1281,
+        "width": 230,
+        "height": 249
+      }
+    },
+    {
+      "file": "tailor-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20836,
+      "sourceBounds": {
+        "left": 544,
+        "top": 0,
+        "width": 194,
+        "height": 232
+      }
+    },
+    {
+      "file": "tailor-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23640,
+      "sourceBounds": {
+        "left": 542,
+        "top": 235,
+        "width": 198,
+        "height": 233
+      }
+    },
+    {
+      "file": "tailor-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24380,
+      "sourceBounds": {
+        "left": 540,
+        "top": 472,
+        "width": 205,
+        "height": 249
+      }
+    },
+    {
+      "file": "tailor-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26228,
+      "sourceBounds": {
+        "left": 525,
+        "top": 721,
+        "width": 222,
+        "height": 278
+      }
+    },
+    {
+      "file": "tailor-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26270,
+      "sourceBounds": {
+        "left": 523,
+        "top": 999,
+        "width": 226,
+        "height": 282
+      }
+    },
+    {
+      "file": "tailor-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29464,
+      "sourceBounds": {
+        "left": 524,
+        "top": 1276,
+        "width": 227,
+        "height": 260
+      }
+    },
+    {
+      "file": "tailor-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22100,
+      "sourceBounds": {
+        "left": 805,
+        "top": 1,
+        "width": 195,
+        "height": 228
+      }
+    },
+    {
+      "file": "tailor-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24438,
+      "sourceBounds": {
+        "left": 804,
+        "top": 241,
+        "width": 193,
+        "height": 226
+      }
+    },
+    {
+      "file": "tailor-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27264,
+      "sourceBounds": {
+        "left": 797,
+        "top": 473,
+        "width": 214,
+        "height": 246
+      }
+    },
+    {
+      "file": "tailor-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28754,
+      "sourceBounds": {
+        "left": 788,
+        "top": 723,
+        "width": 227,
+        "height": 275
+      }
+    },
+    {
+      "file": "tailor-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29742,
+      "sourceBounds": {
+        "left": 776,
+        "top": 999,
+        "width": 235,
+        "height": 281
+      }
+    },
+    {
+      "file": "tailor-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31870,
+      "sourceBounds": {
+        "left": 769,
+        "top": 1276,
+        "width": 242,
+        "height": 260
+      }
+    },
+    {
+      "file": "tea_house-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23700,
+      "sourceBounds": {
+        "left": 42,
+        "top": 12,
+        "width": 195,
+        "height": 203
+      }
+    },
+    {
+      "file": "tea_house-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25224,
+      "sourceBounds": {
+        "left": 22,
+        "top": 226,
+        "width": 226,
+        "height": 210
+      }
+    },
+    {
+      "file": "tea_house-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25280,
+      "sourceBounds": {
+        "left": 9,
+        "top": 447,
+        "width": 253,
+        "height": 222
+      }
+    },
+    {
+      "file": "tea_house-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29362,
+      "sourceBounds": {
+        "left": 12,
+        "top": 674,
+        "width": 255,
+        "height": 252
+      }
+    },
+    {
+      "file": "tea_house-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30384,
+      "sourceBounds": {
+        "left": 11,
+        "top": 921,
+        "width": 265,
+        "height": 280
+      }
+    },
+    {
+      "file": "tea_house-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29048,
+      "sourceBounds": {
+        "left": 7,
+        "top": 1201,
+        "width": 261,
+        "height": 310
+      }
+    },
+    {
+      "file": "tea_house-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22914,
+      "sourceBounds": {
+        "left": 275,
+        "top": 11,
+        "width": 191,
+        "height": 196
+      }
+    },
+    {
+      "file": "tea_house-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25670,
+      "sourceBounds": {
+        "left": 277,
+        "top": 225,
+        "width": 218,
+        "height": 207
+      }
+    },
+    {
+      "file": "tea_house-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24214,
+      "sourceBounds": {
+        "left": 275,
+        "top": 447,
+        "width": 224,
+        "height": 209
+      }
+    },
+    {
+      "file": "tea_house-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28072,
+      "sourceBounds": {
+        "left": 272,
+        "top": 672,
+        "width": 234,
+        "height": 236
+      }
+    },
+    {
+      "file": "tea_house-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29328,
+      "sourceBounds": {
+        "left": 273,
+        "top": 922,
+        "width": 235,
+        "height": 267
+      }
+    },
+    {
+      "file": "tea_house-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28998,
+      "sourceBounds": {
+        "left": 269,
+        "top": 1201,
+        "width": 241,
+        "height": 286
+      }
+    },
+    {
+      "file": "tea_house-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22528,
+      "sourceBounds": {
+        "left": 552,
+        "top": 10,
+        "width": 193,
+        "height": 199
+      }
+    },
+    {
+      "file": "tea_house-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25098,
+      "sourceBounds": {
+        "left": 539,
+        "top": 225,
+        "width": 212,
+        "height": 205
+      }
+    },
+    {
+      "file": "tea_house-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26048,
+      "sourceBounds": {
+        "left": 527,
+        "top": 445,
+        "width": 216,
+        "height": 209
+      }
+    },
+    {
+      "file": "tea_house-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27940,
+      "sourceBounds": {
+        "left": 525,
+        "top": 676,
+        "width": 227,
+        "height": 235
+      }
+    },
+    {
+      "file": "tea_house-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28352,
+      "sourceBounds": {
+        "left": 512,
+        "top": 920,
+        "width": 239,
+        "height": 279
+      }
+    },
+    {
+      "file": "tea_house-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28502,
+      "sourceBounds": {
+        "left": 519,
+        "top": 1201,
+        "width": 240,
+        "height": 290
+      }
+    },
+    {
+      "file": "tea_house-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22938,
+      "sourceBounds": {
+        "left": 784,
+        "top": 13,
+        "width": 191,
+        "height": 201
+      }
+    },
+    {
+      "file": "tea_house-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25548,
+      "sourceBounds": {
+        "left": 772,
+        "top": 228,
+        "width": 220,
+        "height": 210
+      }
+    },
+    {
+      "file": "tea_house-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23974,
+      "sourceBounds": {
+        "left": 769,
+        "top": 449,
+        "width": 240,
+        "height": 221
+      }
+    },
+    {
+      "file": "tea_house-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29132,
+      "sourceBounds": {
+        "left": 766,
+        "top": 676,
+        "width": 245,
+        "height": 251
+      }
+    },
+    {
+      "file": "tea_house-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30224,
+      "sourceBounds": {
+        "left": 752,
+        "top": 926,
+        "width": 258,
+        "height": 276
+      }
+    },
+    {
+      "file": "tea_house-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28746,
+      "sourceBounds": {
+        "left": 762,
+        "top": 1202,
+        "width": 257,
+        "height": 309
+      }
+    },
+    {
+      "file": "warehouse-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21032,
+      "sourceBounds": {
+        "left": 53,
+        "top": 35,
+        "width": 178,
+        "height": 173
+      }
+    },
+    {
+      "file": "warehouse-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22798,
+      "sourceBounds": {
+        "left": 44,
+        "top": 230,
+        "width": 198,
+        "height": 203
+      }
+    },
+    {
+      "file": "warehouse-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23010,
+      "sourceBounds": {
+        "left": 33,
+        "top": 452,
+        "width": 216,
+        "height": 206
+      }
+    },
+    {
+      "file": "warehouse-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24660,
+      "sourceBounds": {
+        "left": 23,
+        "top": 673,
+        "width": 233,
+        "height": 233
+      }
+    },
+    {
+      "file": "warehouse-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25316,
+      "sourceBounds": {
+        "left": 22,
+        "top": 914,
+        "width": 239,
+        "height": 253
+      }
+    },
+    {
+      "file": "warehouse-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25834,
+      "sourceBounds": {
+        "left": 21,
+        "top": 1187,
+        "width": 241,
+        "height": 272
+      }
+    },
+    {
+      "file": "warehouse-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19556,
+      "sourceBounds": {
+        "left": 294,
+        "top": 35,
+        "width": 190,
+        "height": 172
+      }
+    },
+    {
+      "file": "warehouse-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21932,
+      "sourceBounds": {
+        "left": 282,
+        "top": 230,
+        "width": 203,
+        "height": 206
+      }
+    },
+    {
+      "file": "warehouse-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22658,
+      "sourceBounds": {
+        "left": 278,
+        "top": 452,
+        "width": 209,
+        "height": 206
+      }
+    },
+    {
+      "file": "warehouse-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23106,
+      "sourceBounds": {
+        "left": 270,
+        "top": 668,
+        "width": 224,
+        "height": 239
+      }
+    },
+    {
+      "file": "warehouse-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24018,
+      "sourceBounds": {
+        "left": 264,
+        "top": 916,
+        "width": 224,
+        "height": 254
+      }
+    },
+    {
+      "file": "warehouse-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25228,
+      "sourceBounds": {
+        "left": 267,
+        "top": 1190,
+        "width": 236,
+        "height": 272
+      }
+    },
+    {
+      "file": "warehouse-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19088,
+      "sourceBounds": {
+        "left": 540,
+        "top": 33,
+        "width": 192,
+        "height": 172
+      }
+    },
+    {
+      "file": "warehouse-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21584,
+      "sourceBounds": {
+        "left": 544,
+        "top": 230,
+        "width": 201,
+        "height": 204
+      }
+    },
+    {
+      "file": "warehouse-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22892,
+      "sourceBounds": {
+        "left": 542,
+        "top": 453,
+        "width": 204,
+        "height": 202
+      }
+    },
+    {
+      "file": "warehouse-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22998,
+      "sourceBounds": {
+        "left": 534,
+        "top": 668,
+        "width": 223,
+        "height": 239
+      }
+    },
+    {
+      "file": "warehouse-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24030,
+      "sourceBounds": {
+        "left": 536,
+        "top": 914,
+        "width": 226,
+        "height": 256
+      }
+    },
+    {
+      "file": "warehouse-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23994,
+      "sourceBounds": {
+        "left": 523,
+        "top": 1189,
+        "width": 234,
+        "height": 276
+      }
+    },
+    {
+      "file": "warehouse-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 21432,
+      "sourceBounds": {
+        "left": 793,
+        "top": 31,
+        "width": 177,
+        "height": 174
+      }
+    },
+    {
+      "file": "warehouse-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22444,
+      "sourceBounds": {
+        "left": 784,
+        "top": 230,
+        "width": 200,
+        "height": 203
+      }
+    },
+    {
+      "file": "warehouse-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23064,
+      "sourceBounds": {
+        "left": 777,
+        "top": 451,
+        "width": 217,
+        "height": 204
+      }
+    },
+    {
+      "file": "warehouse-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25304,
+      "sourceBounds": {
+        "left": 770,
+        "top": 673,
+        "width": 231,
+        "height": 231
+      }
+    },
+    {
+      "file": "warehouse-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24616,
+      "sourceBounds": {
+        "left": 766,
+        "top": 913,
+        "width": 237,
+        "height": 255
+      }
+    },
+    {
+      "file": "warehouse-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26732,
+      "sourceBounds": {
+        "left": 764,
+        "top": 1188,
+        "width": 240,
+        "height": 271
+      }
+    },
+    {
+      "file": "workshop-1-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24468,
+      "sourceBounds": {
+        "left": 18,
+        "top": 0,
+        "width": 213,
+        "height": 205
+      }
+    },
+    {
+      "file": "workshop-5-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 26120,
+      "sourceBounds": {
+        "left": 12,
+        "top": 208,
+        "width": 227,
+        "height": 227
+      }
+    },
+    {
+      "file": "workshop-10-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27532,
+      "sourceBounds": {
+        "left": 7,
+        "top": 444,
+        "width": 241,
+        "height": 233
+      }
+    },
+    {
+      "file": "workshop-15-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28684,
+      "sourceBounds": {
+        "left": 4,
+        "top": 684,
+        "width": 247,
+        "height": 256
+      }
+    },
+    {
+      "file": "workshop-20-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29822,
+      "sourceBounds": {
+        "left": 4,
+        "top": 945,
+        "width": 263,
+        "height": 276
+      }
+    },
+    {
+      "file": "workshop-25-0.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29964,
+      "sourceBounds": {
+        "left": 3,
+        "top": 1227,
+        "width": 280,
+        "height": 294
+      }
+    },
+    {
+      "file": "workshop-1-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24290,
+      "sourceBounds": {
+        "left": 277,
+        "top": 0,
+        "width": 212,
+        "height": 203
+      }
+    },
+    {
+      "file": "workshop-5-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24886,
+      "sourceBounds": {
+        "left": 276,
+        "top": 214,
+        "width": 220,
+        "height": 219
+      }
+    },
+    {
+      "file": "workshop-10-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23982,
+      "sourceBounds": {
+        "left": 276,
+        "top": 437,
+        "width": 222,
+        "height": 241
+      }
+    },
+    {
+      "file": "workshop-15-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25198,
+      "sourceBounds": {
+        "left": 272,
+        "top": 680,
+        "width": 231,
+        "height": 261
+      }
+    },
+    {
+      "file": "workshop-20-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25368,
+      "sourceBounds": {
+        "left": 274,
+        "top": 946,
+        "width": 237,
+        "height": 279
+      }
+    },
+    {
+      "file": "workshop-25-1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24682,
+      "sourceBounds": {
+        "left": 280,
+        "top": 1228,
+        "width": 235,
+        "height": 289
+      }
+    },
+    {
+      "file": "workshop-1-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24370,
+      "sourceBounds": {
+        "left": 535,
+        "top": 0,
+        "width": 212,
+        "height": 204
+      }
+    },
+    {
+      "file": "workshop-5-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24422,
+      "sourceBounds": {
+        "left": 529,
+        "top": 213,
+        "width": 221,
+        "height": 222
+      }
+    },
+    {
+      "file": "workshop-10-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22656,
+      "sourceBounds": {
+        "left": 526,
+        "top": 438,
+        "width": 223,
+        "height": 240
+      }
+    },
+    {
+      "file": "workshop-15-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24728,
+      "sourceBounds": {
+        "left": 522,
+        "top": 680,
+        "width": 230,
+        "height": 262
+      }
+    },
+    {
+      "file": "workshop-20-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24074,
+      "sourceBounds": {
+        "left": 515,
+        "top": 943,
+        "width": 235,
+        "height": 281
+      }
+    },
+    {
+      "file": "workshop-25-2.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23520,
+      "sourceBounds": {
+        "left": 513,
+        "top": 1227,
+        "width": 233,
+        "height": 289
+      }
+    },
+    {
+      "file": "workshop-1-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24548,
+      "sourceBounds": {
+        "left": 793,
+        "top": 0,
+        "width": 214,
+        "height": 197
+      }
+    },
+    {
+      "file": "workshop-5-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25608,
+      "sourceBounds": {
+        "left": 785,
+        "top": 209,
+        "width": 227,
+        "height": 223
+      }
+    },
+    {
+      "file": "workshop-10-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27084,
+      "sourceBounds": {
+        "left": 777,
+        "top": 444,
+        "width": 241,
+        "height": 231
+      }
+    },
+    {
+      "file": "workshop-15-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 28824,
+      "sourceBounds": {
+        "left": 772,
+        "top": 684,
+        "width": 249,
+        "height": 257
+      }
+    },
+    {
+      "file": "workshop-20-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 29928,
+      "sourceBounds": {
+        "left": 753,
+        "top": 945,
+        "width": 269,
+        "height": 278
+      }
+    },
+    {
+      "file": "workshop-25-3.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 30308,
+      "sourceBounds": {
+        "left": 747,
+        "top": 1229,
+        "width": 274,
+        "height": 292
+      }
+    }
+  ]
+}

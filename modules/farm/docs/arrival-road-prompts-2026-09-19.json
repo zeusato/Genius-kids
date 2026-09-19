@@ -1,0 +1,47 @@
+[
+  {
+    "id": "berry",
+    "prompt": "Use case: stylized-concept. Production game asset: ONE isolated ripe berry bush, premium hand-painted faux 3D cozy farm game art. Dense rounded moss-green leaves with clusters of plump raspberry-pink and blackberry-purple berries, a few tiny white flowers, short visible woody stems rooted at bottom center. Fixed orthographic isometric camera looking down 35 degrees, soft upper-left daylight, natural matte foliage, readable silhouette at small size. Full bush centered, 12 percent empty margins, genuinely transparent RGBA background, no ground tile, no grass pedestal, no cast shadow, no text, no border. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "welcome",
+    "prompt": "Use case: illustration-story. Landscape welcome illustration for cozy farming game Lang Mam, premium hand-painted faux 3D art. A warm Vietnamese countryside family of four (dad in straw hat and overalls, mum in apron and bun hairstyle, boy with cap and girl with pigtails) warmly waves beside a small cream farmhouse with blue slate roof, ripe wheat and carrot beds, berry bush, a wooden basket and a distant windmill. Soft morning sunshine, calm sage green and warm cream/terracotta palette, lovely crafted textures and clear friendly silhouettes. Compact wide composition 1536x1024, important subjects centered in middle 70 percent for banner cropping. No text, no letters, no logos, no UI. Beautiful complete illustration, no transparency needed.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "tools",
+    "prompt": "Use case: stylized-concept. Production animation SPRITE SHEET for cozy farming game construction effect. Exactly FOUR columns by TWO rows, 8 equally sized square cells, transparent RGBA background. In each cell the SAME wooden-handled steel carpenter hammer at left, short handsaw with ochre wooden handle at right, and small timber plank underneath. Frame sequence from top-left across then second row: hammer raises, swings down, taps plank with small golden spark, rebounds; saw slides forward, back, forward, back. Full readable tools in all cells; motions alternate and loop seamlessly. Premium hand-painted faux 3D, chunky friendly rounded shapes, clear silhouettes, warm lighting, muted gold timber steel palette. Tools stay centered and well inside each cell with 15 percent empty padding. No numbers, labels, gridlines, backdrop, ground, hands or people. Landscape sheet 2048x1024.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-1",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, warm compacted brown garden earth, softly worn footpath soil, very fine grit, a few tiny pebbles, irregular subtle footprints but no identifiable shoe marks. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-5",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, warm tan compacted earth with embedded tiny rounded gravel, predominantly earth, rustic country garden footpath. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-10",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, aged handmade terracotta brick paving, warm muted red and ochre bricks in a relaxed herringbone pattern, tiny moss flecks in narrow earthy joints. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-15",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, rounded irregular river cobblestone garden paving, warm beige gray stones, small moss-filled earthy joints, tasteful handcrafted estate path. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-20",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, beautiful irregular warm limestone flagstones in cream sand and light sage gray, fitted artisan paving, softened edges, restrained moss in thin joints. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  },
+  {
+    "id": "road-25",
+    "prompt": "Use case: stylized-concept. Production ground texture for a cozy farming game estate footpath. One square seamless top-down orthographic material swatch, refined countryside manor garden paving of small warm cream and honey limestone stones arranged in gentle fan-shaped arcs, subtle terracotta stone accents, handcrafted and pastoral, never urban or regal. Premium hand-painted faux 3D mobile game style, soft diffuse light, delicate tactile detail readable at small size, earthy muted palette. Texture fills entire image edge to edge, perfectly tileable horizontally and vertically. No road silhouette, no road borders, no grass outside, no perspective, no horizon, no text, no symbols, NO asphalt, NO highway, NO lane markings, NO curbs. 1024 square.",
+    "mode": "built-in image_gen"
+  }
+]

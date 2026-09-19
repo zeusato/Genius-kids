@@ -204,8 +204,20 @@ export function generateWorld(seed: number): World {
         const kind = p < treeChance ? 'tree' : p < (biome === 'ore' ? .81 : .95) ? 'rock' : 'ore';
         obstacles.push({ id: `o-${x}-${z}`, x, z, kind, cleared: false });
     }
-    // A reachable starter resource, so clearing has an immediate, visible first step.
-    if (!obstacles.some(o => o.x === 25 && o.z === 9)) obstacles.push({ id: 'o-25-9', x: 25, z: 9, kind: 'tree', cleared: false });
+    // Guaranteed tier-one reserves on two edges of the starter clearing. Leave
+    // a free ring around each deposit so every node can be worked immediately.
+    // This runs only for NEW worlds; saved layouts are never regenerated.
+    const starter: Obstacle[] = [];
+    const sites = [3, 6, 9, 12, 15];
+    for (const [i, n] of sites.entries()) {
+        for (const [x, z, kind] of [
+            [25, n, 'tree'], [28, n, i < 3 ? 'tree' : 'ore'],
+            [n, 25, 'rock'], [n, 28, i < 3 ? 'rock' : 'ore'],
+        ] as const) starter.push({ id: `o-${x}-${z}`, x, z, kind, tier: 1, cleared: false });
+    }
+    for (let i = obstacles.length - 1; i >= 0; i--)
+        if (starter.some(p => Math.abs(p.x - obstacles[i].x) <= 1 && Math.abs(p.z - obstacles[i].z) <= 1)) obstacles.splice(i, 1);
+    obstacles.push(...starter);
     return { seed: seed >>> 0, version: 2, templateId: 'lake-valley-v2', family, biome, heights, water, owned: [0, 1, 6, 7], obstacles,
         bridges: [{ id: 'bridge-north', x: river - 1, z: 20, built: false }, { id: 'bridge-south', x: river - 1, z: 68, built: false }] };
 }

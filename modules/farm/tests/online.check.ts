@@ -31,6 +31,18 @@ async function device(server = new Server(), name = crypto.randomUUID(), owner =
 async function link(d: Awaited<ReturnType<typeof device>>) { await d.session.sync(); await d.session.choose('local'); }
 
 describe('account cloud storage and durable outbox', () => {
+    it('requires cloud-first review again after sign-in, even for a linked dirty cache', async () => {
+        const d = await device(); await link(d);
+        await d.session.execute({ type: 'harvest', plotId: 'plot-1' }); await d.session.close();
+        const cache = new CloudCache('a', d.name), local = await LocalFarmGateway.open(cache, () => 1000);
+        const session = new CloudFarmSession(cache, local, d.server, () => {}, false, true);
+        await session.sync(); await session.sync();
+        expect(session.status.phase).toBe('unlinked'); expect(session.status.remote?.state.inventory.wheat).toBe(0);
+        expect(d.server.calls).toHaveLength(1); expect(session.getSnapshot().inventory.wheat).toBe(3);
+        await session.choose('cloud');
+        expect(session.getSnapshot().inventory.wheat).toBe(0); expect((await session.recovery())?.inventory.wheat).toBe(3);
+        expect(d.server.calls).toHaveLength(1); await session.close();
+    });
     it('never uploads a guest copy before explicit linking', async () => {
         const d = await device(); await d.session.sync();
         expect(d.session.status.phase).toBe('unlinked'); expect(d.server.calls).toHaveLength(0);

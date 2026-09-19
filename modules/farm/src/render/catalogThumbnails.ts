@@ -1,12 +1,15 @@
 import * as T from 'three';
 import { assetModel, cropModel } from './models';
 import { roadGeometry } from './roadGeometry';
+import { buildingAssetUrl, isSpriteBuilding } from './buildingAssets';
+import { roadAssetUrl } from './roadAssets';
+import type { Rotation } from '../core/types';
 import type { AssetId, CropId } from '../core/catalog';
 import soilUrl from '../assets/terrain/optimized/tilled-soil-v1.webp';
-import roadUrl from '../assets/terrain/optimized/road-stone-v1.webp';
 
-export type ThumbnailSubject = { asset: AssetId; level?: number } | { crop: CropId };
-export const thumbnailKey = (s: ThumbnailSubject) => 'crop' in s ? `crop:${s.crop}` : `asset:${s.asset}:${s.level ?? 1}`;
+
+export type ThumbnailSubject = { asset: AssetId; level?: number; rotation?: Rotation } | { crop: CropId };
+export const thumbnailKey = (s: ThumbnailSubject) => 'crop' in s ? `crop:${s.crop}` : `asset:${s.asset}:${s.level ?? 1}:${s.rotation ?? 0}`;
 const images = new Map<string, Promise<string>>(), textures = new Map<string, Promise<T.Texture>>();
 let renderer: T.WebGLRenderer | null = null, releaseTimer: ReturnType<typeof setTimeout> | undefined;
 let queue = Promise.resolve();
@@ -17,6 +20,7 @@ function texture(url: string) {
 
 /** One transient renderer for the entire catalog, cached PNGs thereafter — never a canvas per card. */
 export function catalogThumbnail(subject: ThumbnailSubject): Promise<string> {
+    if ('asset' in subject && isSpriteBuilding(subject.asset)) return Promise.resolve(buildingAssetUrl(subject.asset, subject.level, subject.rotation));
     const key = thumbnailKey(subject), existing = images.get(key);
     if (existing) return existing;
     const result = queue.then(async () => {
@@ -25,7 +29,7 @@ export function catalogThumbnail(subject: ThumbnailSubject): Promise<string> {
         const scene = new T.Scene(), model = 'crop' in subject ? cropModel(subject.crop, 4) : assetModel(subject.asset, subject.level ?? 1);
         const disposable: (T.BufferGeometry | T.Material)[] = [];
         if ('crop' in subject || subject.asset === 'path') {
-            const crop = 'crop' in subject, map = await texture(crop ? soilUrl : roadUrl);
+            const crop = 'crop' in subject, map = await texture(crop ? soilUrl : roadAssetUrl('asset' in subject ? subject.level ?? 1 : 1));
             const geometry = crop ? new T.PlaneGeometry(1.04, 1.04).rotateX(-Math.PI / 2) : roadGeometry(-.5, -.5, 0, 0);
             const material = new T.MeshStandardMaterial({ map, alphaTest: .2, roughness: 1, side: T.DoubleSide });
             if (!crop) { model.clear(); map.wrapS = map.wrapT = T.MirroredRepeatWrapping; map.needsUpdate = true; }

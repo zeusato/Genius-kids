@@ -7,6 +7,11 @@ import { boundsOf, dimensions, growthStage, placementError } from '../core/engin
 import type { Entity, FarmState, Plot, Rotation } from '../core/types';
 import { assetModel, cropModel, sceneryModel } from './models';
 import { RoadSample } from './Roads';
+import { SpriteBuilding } from './SpriteBuilding';
+import { isSpriteBuilding, buildingAssetUrl } from './buildingAssets';
+export function BuildingModel({ asset, level, rotation = 0, working = false, reduced = false }: { asset: AssetId; level: number; rotation?: Rotation; working?: boolean; reduced?: boolean }) {
+    return isSpriteBuilding(asset) ? <Suspense fallback={null}><SpriteBuilding asset={asset} level={level} rotation={rotation}/></Suspense> : <group rotation={[0, rotation * Math.PI / 2, 0]}><LegacyBuildingModel asset={asset} level={level} working={working} reduced={reduced}/></group>;
+}
 export type Placement = {
     asset: AssetId | 'plot';
     rotation: Rotation;
@@ -46,7 +51,7 @@ function FitCamera({ width, depth, reset, gallery = false }: {
     }, [width, depth, size.width, size.height, reset, gallery, camera, invalidate]);
     return null;
 }
-export function BuildingModel({ asset, level, working = false, reduced = false }: {
+function LegacyBuildingModel({ asset, level, working = false, reduced = false }: {
     asset: AssetId;
     level: number;
     working?: boolean;
@@ -67,7 +72,7 @@ export function BuildingModel({ asset, level, working = false, reduced = false }
         if (cow && origin)
             cow.position.y = origin.y + Math.sin(clock.elapsedTime * 1.8) * .009;
     });
-    return asset === 'path' ? <RoadSample/> : <primitive object={model} dispose={null}/>;
+    return asset === 'path' ? <RoadSample level={level}/> : <primitive object={model} dispose={null}/>;
 }
 function Light({ quality }: {
     quality: 'soft' | 'light';
@@ -91,6 +96,8 @@ export function AssetPreview({ asset, level, crop, stage, reduced }: {
     stage: number;
     reduced: boolean;
 }) {
+    const [view, setView] = useState<Rotation>(0);
+    if (!crop && isSpriteBuilding(asset)) return <div className="farm-sprite-preview"><img src={buildingAssetUrl(asset, level, view)} alt={ASSETS[asset].name + ' · hướng ' + (view + 1)}/><nav aria-label="Góc nhìn công trình">{([0, 1, 2, 3] as Rotation[]).map(n => <button key={n} aria-label={'Góc ' + (n + 1)} aria-pressed={view === n} onClick={() => setView(n)}>{n * 90}°</button>)}</nav></div>;
     return <SceneBoundary><Canvas shadows orthographic camera={{ position: [6, 6, 8], zoom: 80 }} dpr={[1, 1.5]} aria-label="Mẫu tài nguyên 3D có thể xoay">
     <color attach="background" args={['#eee9db']}/><Light quality="soft"/><FitCamera width={0} depth={0} reset={0} gallery/>
     <group scale={crop ? 3 : 1}>{crop ? <SampleCrop crop={crop} stage={stage}/> : <BuildingModel asset={asset} level={level} working reduced={reduced}/>}</group>

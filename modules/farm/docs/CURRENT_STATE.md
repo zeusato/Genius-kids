@@ -1,3 +1,7 @@
+**Sửa lỗi sau phản hồi ảnh 19/09:** chân Nhà chính/kho bị nền 3D che vì neo sprite sai chiều sâu. Đã sửa tọa độ chân chạm mặt đất cho cả nhà đặt và preview xoay; tái hiện trước/sau trong browser. 8/8 kiểm thử liên quan, typecheck và build module đạt. Kiểm biên file ảnh trước đây không đủ để xác nhận hiển thị trong map. Xem [bản sửa](ARRIVAL_AND_SPRITES_2026-09-19.md).
+
+**Mới nhất 19/09 — khởi đầu và công trình ảnh:** [ARRIVAL_AND_SPRITES_2026-09-19](ARRIVAL_AND_SPRITES_2026-09-19.md): bảo đảm 20 tài nguyên cấp 1, 696 ảnh công trình đủ góc/cấp, bụi quả gen, tiến độ thi công + búa/cưa, chọn cloud ưu tiên khi đăng nhập, lời chào và nhiệm vụ dẫn đường. Lối trang viên có 6 chất liệu theo Home hoàn tất. Typecheck, 160/160 suite + 1/1 kiểm tra toàn bộ ảnh và build module/host đạt. Chưa deploy, chưa thử chọn cloud Google thật hoặc nghiệm thu Android.
+
 **Icon năng lượng 18/09:** Thay toàn bộ ký tự Unicode năng lượng trong HUD, nút khai phá, phần thưởng quả và hiệu ứng bay bằng EnergyIcon.tsx (SVG tia sét vàng, viền và mặt sáng vẽ riêng). Chỉnh kích thước desktop/mobile, thêm tên nút đầy đủ cho trình đọc màn hình. Typecheck module và diff check đạt; không đổi cơ chế hoặc save, chưa deploy.
 
 **Gia đình tự sinh hoạt 18/09:** [FAMILY_LIFE](FAMILY_LIFE.md): bốn người tự tìm đường trong đất đã mở, ghé nhà/cây/đồ vật, nghỉ và vẫy chào; ưu tiên lệnh khai phá, không tác động kinh tế. Lưới đi tránh công trình/ruộng/nước/vách, nhận cầu đã xây. Giảm chuyển động tắt đi dạo. 26/26 kiểm tra liên quan, typecheck và build module đạt; chưa deploy hoặc đo Android thật.

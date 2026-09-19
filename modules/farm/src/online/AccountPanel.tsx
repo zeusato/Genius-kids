@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import type { SupabaseClient, User } from '@supabase/supabase-js';
-import { homeLevel } from '../core/progression';
 import { serializeBackup } from '../core/validation';
 import { Icon } from '../ui/Icon';
 import type { CloudFarmSession } from './session';
 import type { SyncStatus } from './types';
 import { authRedirect, signInWithGoogle } from './google';
+import { FarmSaveChoice } from './FarmSaveChoice';
 
 function GoogleMark() {
     return <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.89-1.74 2.98-4.31 2.98-7.36Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.92A6 6 0 0 1 6.09 12c0-.67.11-1.31.31-1.92V7.49H3.05A10 10 0 0 0 2 12c0 1.61.38 3.14 1.05 4.51l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.5 3.82 1.49l2.86-2.86A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.95 5.49l3.35 2.59A6.01 6.01 0 0 1 12 5.96Z"/></svg>;
@@ -69,10 +69,7 @@ export function AccountPanel({ client, user, session, status, recovery, recovere
         </> : <>
             <p className="farm-account-status" role="status">{syncLabel(status)}{status.syncedAt && status.phase === 'saved' ? ` · ${new Date(status.syncedAt).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}` : ''}</p>
             {status.message && <p className="farm-note">{status.message}</p>}
-            {choice && local && <div className="farm-account-choice"><p>{remote ? 'Chọn khu vườn sẽ tiếp tục chơi. Bản còn lại được giữ làm bản sao trên máy.' : 'Chưa có nông trại online. Liên kết khu vườn này với tài khoản?'}</p>
-                <div><section><Icon name="home"/><b>Trên máy này</b><small>Nhà chính {homeLevel(local)} · {local.plots.length} luống</small><button disabled={busy} onClick={() => void action(() => session!.choose('local'))}>{remote ? 'Dùng bản trên máy' : 'Liên kết nông trại'}</button></section>
-                {remote && <section><Icon name="sprout"/><b>Trên tài khoản</b><small>Nhà chính {homeLevel(remote.state)} · {remote.state.plots.length} luống</small><small>{new Date(remote.updated_at).toLocaleString('vi-VN')}</small><button className="farm-primary" disabled={busy} onClick={() => void action(() => session!.choose('cloud'))}>Dùng bản online</button></section>}</div>
-            </div>}
+            {choice && local && remote !== undefined && <FarmSaveChoice key={remote ? 'cloud-present' : 'no-cloud'} local={local} remote={remote} busy={busy} choose={source => void action(() => session!.choose(source))}/>}
             {!choice && <button disabled={busy || !session} onClick={() => void action(() => session!.sync())}>Đồng bộ ngay</button>}
             <details><summary>Bản sao & đăng xuất</summary><p className="farm-note">Đăng xuất sẽ trở về vườn khách. Vườn tài khoản được giữ riêng trên máy này; phần chưa đồng bộ sẽ gửi tiếp khi đăng nhập lại.</p><button disabled={busy || !session} onClick={() => void action(async () => { const backup = await session!.recovery(); if (backup) download(serializeBackup(backup)); else setMessage('Chưa có bản lưu bị thay thế.'); })}>Tải bản trước khi thay thế</button>
                 {!logout ? <button disabled={busy} onClick={() => setLogout(true)}>Đăng xuất</button> : <div><p>Trở về vườn khách trên máy này?</p><button disabled={busy} onClick={() => void action(async () => { const { error } = await client.auth.signOut({ scope: 'local' }); if (error) throw new Error(authMessage(error)); })}>Đăng xuất tài khoản</button><button disabled={busy} onClick={() => setLogout(false)}>Ở lại</button></div>}

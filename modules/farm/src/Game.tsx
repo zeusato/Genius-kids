@@ -2,7 +2,10 @@ import { NATURAL_VARIANTS, obstacleName, type NaturalVariant } from './core/scen
 import { naturalAssetUrl } from './render/naturalAssets';
 import {MiniTerrain} from './ui/MiniTerrain';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ASSETS, CROPS, type AssetId, type CropId } from './core/catalog';
+import { ASSETS, CROPS, type AssetId, type BuildingId, type CropId } from './core/catalog';
+import { buildingStep } from './core/guidance';
+import { roadName } from './render/roadAssets';
+import { Welcome } from './ui/Welcome';
 import { expansionCost } from './core/engine';
 import { homeLevel, regionCap, storageCap, usedStorage, CHAPTER_TITLES, upgradePrice, upgradeRequirements } from './core/progression';
 import { previewStroke, type Tool } from './core/interaction';
@@ -25,11 +28,14 @@ import { SubjectMenu } from './ui/SubjectMenu';
 import { HarvestCursor, HarvestEffects, Sickle, type HarvestFlight } from './ui/HarvestEffects';
 import { Panels, menus, type Panel, type Confirmation } from './ui/Panels';
 import './farm.css';
-export default function Game({ openSession, accountPanel, accountStatus, openAccount, onExit, initialFocus }: {
+import './ui/arrival.css';
+import './ui/construction.css';
+export default function Game({ openSession, accountPanel, accountStatus, openAccount, accountChecking = false, onExit, initialFocus }: {
     openSession?: () => Promise<FarmSession>;
     accountPanel?: ReactNode;
     accountStatus?: string;
     openAccount?: boolean;
+    accountChecking?: boolean;
     onExit?: () => void;
     initialFocus?: { x: number; z: number };
 } = {}) {
@@ -40,6 +46,7 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
     const [settings, setSettings] = useState(false), [gallery, setGallery] = useState(false), [galleryAsset, setGalleryAsset] = useState<AssetId>('home'), [galleryLevel, setGalleryLevel] = useState(1), [galleryCrop, setGalleryCrop] = useState<CropId | undefined>(), [galleryStage, setGalleryStage] = useState(4), [backup, setBackup] = useState(''), [pending, setPending] = useState<FarmState | null>(null), [backupError, setBackupError] = useState('');
     const [confirm, setConfirm] = useState<Confirmation | null>(null), [map, setMap] = useState(false), [fish, setFish] = useState(false), [fishMoves, setFishMoves] = useState<number[]>([]), [fishMemory, setFishMemory] = useState(true);
     const [seedChoices, setSeedChoices] = useState(false);
+    const [welcome, setWelcome] = useState(true), [buildTarget, setBuildTarget] = useState<AssetId>();
     const basket = useRef<HTMLButtonElement>(null), [flights, setFlights] = useState<HarvestFlight[]>([]);
     const energyTarget = useRef<HTMLDivElement>(null);
     const [familyWork, setFamilyWork] = useState<FamilyWork[]>([]);
@@ -69,7 +76,20 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
     function cam(kind: CameraIntent['kind'], x?: number, z?: number) { setCamera(c => ({ serial: c.serial + 1, kind, x, z })); }
     function select(id: string) { setSelected(id); setPanelOpen(false); setTool('select'); setStroke([]); }
     function useTool(next: Tool) { setSeedChoices(next === 'plant'); setTool(next); setSelected(null); setPanelOpen(false); setPlacement(null); setStroke([]); }
-    function openPanel(next: Panel) { useTool('select'); setPanel(next); setPanelOpen(true); }
+    function openPanel(next: Panel) { setBuildTarget(undefined); useTool('select'); setPanel(next); setPanelOpen(true); }
+    function guide(asset: BuildingId, target: number) {
+        if (!s) return;
+        const step = buildingStep(s, asset, target);
+        setWelcome(false); setPlacement(null); setTool('select'); setStroke([]);
+        if (step.entityId) {
+            select(step.entityId); setPanelOpen(true);
+            const e = s.entities.find(e => e.id === step.entityId)!;
+            cam('focus', e.x, e.z);
+            notify(step.action === 'wait' ? 'Công trình đang thi công. Có thể xem tiến độ hoặc dùng phiếu tăng tốc.' : step.action === 'upgrade' ? 'Chọn nâng cấp khi đã đủ vật liệu.' : 'Công trình cần cho nhiệm vụ ở đây.');
+        } else {
+            setSelected(null); setBuildTarget(step.asset); setPanel('build'); setPanelOpen(true);
+        }
+    }
     function begin(asset: AssetId | 'plot', moveId?: string) { const old = s?.entities.find(e => e.id === moveId); setPlacement({ asset, moveId, rotation: old?.rotation ?? 0, x: old?.x ?? 8, z: old?.z ?? 11 }); setTool('arrange'); setPanelOpen(false); setStroke([]); }
     async function place(p: Placement) { const ok = await act(p.asset === 'plot' ? { type: 'dig', x: p.x, z: p.z } : p.moveId ? { type: 'move', entityId: p.moveId, x: p.x, z: p.z, rotation: p.rotation } : { type: 'build', asset: p.asset, x: p.x, z: p.z, rotation: p.rotation }); if (ok || p.moveId)
         setPlacement(null); }
@@ -86,13 +106,14 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
         return <main className="farm-root farm-loading"><Icon name="sprout" size={48}/><h1>Làng Mầm</h1><p>{error || 'Mở cánh cổng nông trại…'}</p>{error && <button onClick={() => location.reload()}>Tải lại</button>}{onExit && <button onClick={onExit}>Về trò chơi</button>}</main>;
     const level = homeLevel(s), entity = s.entities.find(e => e.id === selected), plot = s.plots.find(p => p.id === selected), obstacle = s.world.obstacles.find(o => o.id === selected), bridge = s.world.bridges.find(b => b.id === selected);
     const chapter = Array.from({ length: 25 }, (_, i) => i + 1).find(n => !s.claimed.includes(`chapter:${n}`)) ?? 25, home = s.entities.find(e => e.asset === 'home')!, preview = ['plant', 'water', 'harvest'].includes(tool) ? previewStroke(s, tool as 'plant' | 'water' | 'harvest', seed, stroke) : null;
-    const selectedTitle = entity ? ASSETS[entity.asset].name : plot ? plot.crop ? CROPS[plot.crop].name : 'Luống đất trống' : obstacle ? obstacleName(s.world, obstacle) : bridge ? 'Cầu qua sông' : menus.find(m => m.id === panel)!.label;
+    const selectedTitle = entity ? entity.asset === 'path' ? roadName(level) : ASSETS[entity.asset].name : plot ? plot.crop ? CROPS[plot.crop].name : 'Luống đất trống' : obstacle ? obstacleName(s.world, obstacle) : bridge ? 'Cầu qua sông' : menus.find(m => m.id === panel)!.label;
     const upgradeId = confirm?.command.type === 'upgrade' ? confirm.command.entityId : null;
     const upgradeEntity = upgradeId ? s.entities.find(e => e.id === upgradeId) : undefined;
     const pendingPrice = upgradeEntity && upgradeEntity.level < 25 ? upgradePrice(upgradeEntity) : null;
     const pendingRequirements = upgradeEntity ? upgradeRequirements(s, upgradeEntity) : [];
     const upgradeBlocked = !!upgradeId && (!pendingPrice || !!pendingRequirements.length || !hasUpgradeResources(s, pendingPrice));
-    const auxiliaryModal = settings || gallery || !!confirm || map || fish || seedChoices;
+    const showWelcome = welcome && !settings && !openAccount && !accountChecking;
+    const auxiliaryModal = showWelcome || settings || gallery || !!confirm || map || fish || seedChoices;
     const modal = auxiliaryModal || panelOpen;
     return <main className={`farm-root ${tool === 'harvest' ? 'harvesting' : ''}`}>
  <div inert={modal || undefined} className="farm-play">
@@ -121,10 +142,11 @@ export default function Game({ openSession, accountPanel, accountStatus, openAcc
  </section>
  </div></div>
  {panelOpen && !auxiliaryModal && <Dialog title={selectedTitle} wide onClose={() => { setPanelOpen(false); setSelected(null); }}>
- {!selected && <nav className="farm-window-tabs" aria-label="Sổ nông trại">{menus.map(m => <button key={m.id} aria-pressed={panel === m.id} onClick={() => setPanel(m.id)}><Icon name={m.icon}/>{m.label}</button>)}</nav>}
- <div className={`farm-panel-body farm-window-page farm-page-${selected ? 'subject' : panel}`}><Panels key={selected ?? panel} s={s} panel={panel} selected={selected} busy={busy || !!error} act={act} confirm={setConfirm} select={id => { select(id); setPanelOpen(true); const e = s.entities.find(e => e.id === id); if (e)
+ {!selected && <nav className="farm-window-tabs" aria-label="Sổ nông trại">{menus.map(m => <button key={m.id} aria-pressed={panel === m.id} onClick={() => { setBuildTarget(undefined); setPanel(m.id); }}><Icon name={m.icon}/>{m.label}</button>)}</nav>}
+ <div className={`farm-panel-body farm-window-page farm-page-${selected ? 'subject' : panel}`}><Panels key={`${selected ?? panel}:${buildTarget ?? ''}`} guide={guide} buildTarget={buildTarget} s={s} panel={panel} selected={selected} busy={busy || !!error} act={act} confirm={setConfirm} select={id => { select(id); setPanelOpen(true); const e = s.entities.find(e => e.id === id); if (e)
         cam('focus', e.x, e.z); }} begin={begin} map={() => setMap(true)} plant={id => { if (id)
         setSeed(id); setSeedChoices(!id); setSelected(null); setTool('plant'); setPanelOpen(false); }} fish={() => { setFish(true); setFishMoves([]); setFishMemory(true); }}/></div></Dialog>}
+ {showWelcome && <Welcome state={s} onClose={() => setWelcome(false)} onStart={() => { setWelcome(false); if (chapter === 1 && s.stats.harvest < 3) { const ripe = s.plots.find(p => p.crop && p.readyAt! <= s.clock); if (ripe) { useTool('harvest'); cam('focus', ripe.x, ripe.z); } else openPanel('quests'); } else openPanel('quests'); }}/>}
  {seedChoices && <Dialog title="Chọn hạt giống" wide onClose={() => setSeedChoices(false)}><p className="farm-seed-intro">Chọn cây cho mùa mới. Hạt giống chỉ được trừ xu khi gieo xuống luống.</p><SeedCards level={level} selected={seed} choose={id => { setSeed(id); setSeedChoices(false); setTool('plant'); setSelected(null); setPanelOpen(false); }}/></Dialog>}
  {tool === 'harvest' && !modal && <HarvestCursor/>}
  <HarvestEffects flights={flights} basket={basket} energyTarget={energyTarget} reduced={reduced} done={key => setFlights(f => f.filter(v => v.key !== key))}/>
