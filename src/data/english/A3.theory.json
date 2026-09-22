@@ -1,0 +1,221 @@
+{
+  "id": "A3",
+  "title": "Tính từ & Sở hữu (Tính từ sở hữu, Sở hữu cách và Whose)",
+  "level": "A3",
+  "summary": "Học cách sử dụng tính từ miêu tả (đứng sau to be và trước danh từ), tính từ sở hữu (my, your, his, her, its, our, their), sở hữu cách ('s và ') và mẫu câu hỏi Whose.",
+  "formulas": [
+    {
+      "label": "Tính từ đứng sau To Be",
+      "pattern": "S + be (am / is / are) + Adjective",
+      "example": "The cat is cute. / My brother is tall."
+    },
+    {
+      "label": "Tính từ đứng trước Danh từ",
+      "pattern": "a / an / the / Đại từ chỉ định + Adjective + Noun",
+      "example": "This is a big elephant. / These are sweet apples."
+    },
+    {
+      "label": "Tính từ sở hữu",
+      "pattern": "my / your / his / her / its / our / their + Noun",
+      "example": "This is my bag. / Her eyes are blue."
+    },
+    {
+      "label": "Sở hữu cách ('s / ')",
+      "pattern": "Danh từ số ít + 's + Noun / Danh từ số nhiều tận cùng s + ' + Noun",
+      "example": "Nam's bike / the students' classroom"
+    },
+    {
+      "label": "Câu hỏi sở hữu với Whose",
+      "pattern": "Whose + Noun + is this / are these? → It is... / They are...",
+      "example": "Whose book is this? → It is my book."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Tính từ miêu tả: Vị trí trong câu",
+      "body": "Tính từ dùng để miêu tả đặc điểm, màu sắc, kích thước, cảm xúc của người và sự vật. Trong tiếng Anh, tính từ có hai vị trí cơ bản:\n- Đứng SAU động từ To Be để làm vị ngữ: Subject + am/is/are + Adjective (ví dụ: The sun is hot, His shoes are new).\n- Đứng TRƯỚC danh từ để bổ nghĩa trực tiếp cho danh từ đó (ví dụ: a big elephant, sweet apples).",
+      "table": {
+        "columns": [
+          "Vị trí",
+          "Cấu trúc",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Sau To Be",
+            "S + be + Adjective",
+            "The cat is cute. / My hands are clean."
+          ],
+          [
+            "Trước Danh từ",
+            "a/an/the + Adj + Noun",
+            "This is a new bike. / These are red balls."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A3-s-0001",
+        "A3-s-0002",
+        "A3-s-0041",
+        "A3-s-0046"
+      ]
+    },
+    {
+      "heading": "2. Tính từ sở hữu (Possessive Determiners)",
+      "body": "Tính từ sở hữu đứng trước danh từ để chỉ sự vật đó thuộc về ai. Mỗi đại từ nhân xưng có một tính từ sở hữu tương ứng:\n- I → my (của tôi)\n- You → your (của bạn)\n- He → his (của cậu ấy)\n- She → her (của cô ấy)\n- It → its (của nó)\n- We → our (của chúng tôi)\n- They → their (của họ)\nLưu ý: Không nhầm lẫn giữa its (tính từ sở hữu) và it's (dạng viết tắt của it is).",
+      "table": {
+        "columns": [
+          "Đại từ",
+          "Tính từ sở hữu",
+          "Nghĩa",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "I",
+            "my",
+            "của tôi",
+            "This is my bag."
+          ],
+          [
+            "You",
+            "your",
+            "của bạn",
+            "Is this your ruler?"
+          ],
+          [
+            "He",
+            "his",
+            "của anh ấy/cậu ấy",
+            "His car is black."
+          ],
+          [
+            "She",
+            "her",
+            "của chị ấy/cô ấy",
+            "Her dress is pink."
+          ],
+          [
+            "It",
+            "its",
+            "của nó",
+            "Its tail is short."
+          ],
+          [
+            "We",
+            "our",
+            "của chúng tôi",
+            "Our house is big."
+          ],
+          [
+            "They",
+            "their",
+            "của họ",
+            "Their car is red."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A3-s-0081",
+        "A3-s-0087",
+        "A3-s-0093",
+        "A3-s-0100",
+        "A3-s-0107",
+        "A3-s-0113",
+        "A3-s-0120"
+      ]
+    },
+    {
+      "heading": "3. Sở hữu cách với 's và '",
+      "body": "Sở hữu cách dùng để thể hiện quyền sở hữu của người hoặc động vật đối với đồ vật hoặc mối quan hệ:\n- Với danh từ số ít hoặc tên riêng: Thêm 's (ví dụ: Nam's bike, my mother's bag, the cat's tail).\n- Với danh từ số nhiều có đuôi -s: Chỉ cần thêm dấu phẩy trên ' (ví dụ: the students' classroom, the girls' hats).\n- Với danh từ số nhiều bất quy tắc (không có đuôi s): Vẫn thêm 's như số ít (ví dụ: the children's toys, the men's cars).",
+      "table": {
+        "columns": [
+          "Dạng danh từ",
+          "Quy tắc",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Số ít / Tên riêng",
+            "Thêm 's",
+            "Nam's bike, Tom's dog, the teacher's desk"
+          ],
+          [
+            "Số nhiều tận cùng bằng -s",
+            "Chỉ thêm dấu '",
+            "the students' classroom, the boys' football"
+          ],
+          [
+            "Số nhiều bất quy tắc (men, children...)",
+            "Thêm 's",
+            "the children's toys, the women's bags"
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A3-s-0126",
+        "A3-s-0127",
+        "A3-s-0161",
+        "A3-s-0168"
+      ]
+    },
+    {
+      "heading": "4. Câu hỏi sở hữu với Whose (Của ai)",
+      "body": "Từ để hỏi Whose dùng để hỏi về quyền sở hữu (Của ai):\n- Số ít: Whose + danh từ số ít + is this / that? → Trả lời: It is + cụm sở hữu.\n- Số nhiều: Whose + danh từ số nhiều + are these / those? → Trả lời: They are + cụm sở hữu.",
+      "table": {
+        "columns": [
+          "Mẫu câu hỏi",
+          "Cách trả lời",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Whose + N (số ít) + is this/that?",
+            "It is [my / his / Nam's] N.",
+            "Whose book is this? → It is my book."
+          ],
+          [
+            "Whose + N (số nhiều) + are these/those?",
+            "They are [my / her / Lan's] N.",
+            "Whose shoes are these? → They are my shoes."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A3-s-0171",
+        "A3-s-0172",
+        "A3-s-0173",
+        "A3-s-0174",
+        "A3-s-0181",
+        "A3-s-0182"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "It's tail is long.",
+      "right": "Its tail is long.",
+      "why": "Its là tính từ sở hữu (của nó), không có dấu nháy. It's là viết tắt của It is."
+    },
+    {
+      "wrong": "I bag is red.",
+      "right": "My bag is red.",
+      "why": "Trước danh từ bag phải dùng tính từ sở hữu 'my', không dùng đại từ nhân xưng 'I'."
+    },
+    {
+      "wrong": "This is a ball red.",
+      "right": "This is a red ball.",
+      "why": "Trong tiếng Anh, tính từ miêu tả đứng TRƯỚC danh từ, ngược lại với tiếng Việt."
+    },
+    {
+      "wrong": "The students's classroom",
+      "right": "The students' classroom",
+      "why": "Danh từ số nhiều kết thúc bằng 's' chỉ cần thêm dấu nháy đơn ('), không thêm 's."
+    }
+  ],
+  "tips": [
+    "Vị trí tính từ: Trong tiếng Anh tính từ đứng trước danh từ (a cute cat, a big ball). Hãy nhớ đảo vị trí so với tiếng Việt nhé!",
+    "Phân biệt Its và It's: 'Its' là của nó (chỉ quyền sở hữu), còn 'It's' là viết tắt của 'It is'.",
+    "Sở hữu cách: Số ít thêm 's (Nam's car), số nhiều có sẵn s chỉ thêm dấu phẩy trên ' (the students' books)."
+  ]
+}

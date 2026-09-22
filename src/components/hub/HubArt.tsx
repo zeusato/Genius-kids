@@ -35,7 +35,7 @@ function SudokuScene() {
 }
 export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }) {
     let art: React.ReactNode;
-    if (['farm', 'study', 'library', 'riddle', 'science'].includes(kind) || kind.startsWith('science-')) art = <ArtImage name={kind} eager={eager}/>;
+    if (['english', 'farm', 'study', 'library', 'riddle', 'science'].includes(kind) || kind.startsWith('science-')) art = <ArtImage name={kind} eager={eager}/>;
     else if (kind === 'board-games') art = <span className="hub-board-collection"><img src={chessCover} alt="" loading={eager?'eager':'lazy'}/><img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} alt="" loading={eager?'eager':'lazy'}/><img src={`${import.meta.env.BASE_URL}o-an-quan/art/cover.webp`} alt="" loading={eager?'eager':'lazy'}/></span>;
     else if (kind === 'co-vua' || kind === 'co-tuong') art = <img src={kind === 'co-vua' ? chessCover : xiangqiCover} alt="" loading={eager?'eager':'lazy'} decoding="async" width={800} height={450} style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'horse-race') art = <img src={`${import.meta.env.BASE_URL}horse-race/art/cover.webp`} srcSet={`${import.meta.env.BASE_URL}horse-race/art/cover-sm.webp 400w, ${import.meta.env.BASE_URL}horse-race/art/cover.webp 800w`} sizes='(max-width: 600px) 120px, (max-width: 960px) 45vw, 380px' width={800} height={450} alt='' loading={eager?'eager':'lazy'} decoding='async' style={{width:'100%',height:'100%',objectFit:'cover'}}/>;

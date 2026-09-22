@@ -1,0 +1,1997 @@
+[
+  {
+    "id": "A2-v-0001",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cat",
+    "vi": "con mèo",
+    "pos": "noun",
+    "ipa": "/kæt/",
+    "forms": {
+      "plural": "cats"
+    },
+    "exampleEn": "The cat is small.",
+    "exampleVi": "Con mèo nhỏ bé.",
+    "image": "🐱",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0002",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "dog",
+    "vi": "con chó",
+    "pos": "noun",
+    "ipa": "/dɔːɡ/",
+    "forms": {
+      "plural": "dogs"
+    },
+    "exampleEn": "The dogs are friendly.",
+    "exampleVi": "Những con chó rất thân thiện.",
+    "image": "🐶",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0003",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "elephant",
+    "vi": "con voi",
+    "pos": "noun",
+    "ipa": "/ˈel.ə.fənt/",
+    "forms": {
+      "plural": "elephants"
+    },
+    "exampleEn": "It is an elephant.",
+    "exampleVi": "Nó là một con voi.",
+    "image": "🐘",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0004",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "lion",
+    "vi": "con sư tử",
+    "pos": "noun",
+    "ipa": "/ˈlaɪ.ən/",
+    "forms": {
+      "plural": "lions"
+    },
+    "exampleEn": "The lion is strong.",
+    "exampleVi": "Con sư tử rất khỏe mạnh.",
+    "image": "🦁",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0005",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "tiger",
+    "vi": "con hổ",
+    "pos": "noun",
+    "ipa": "/ˈtaɪ.ɡɚ/",
+    "forms": {
+      "plural": "tigers"
+    },
+    "exampleEn": "Those tigers are big.",
+    "exampleVi": "Những con hổ kia to lớn.",
+    "image": "🐯",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0006",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "monkey",
+    "vi": "con khỉ",
+    "pos": "noun",
+    "ipa": "/ˈmʌŋ.ki/",
+    "forms": {
+      "plural": "monkeys"
+    },
+    "exampleEn": "The monkeys are funny.",
+    "exampleVi": "Những con khỉ rất vui nhộn.",
+    "image": "🐵",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0007",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "rabbit",
+    "vi": "con thỏ",
+    "pos": "noun",
+    "ipa": "/ˈræb.ɪt/",
+    "forms": {
+      "plural": "rabbits"
+    },
+    "exampleEn": "This is a white rabbit.",
+    "exampleVi": "Đây là một con thỏ trắng.",
+    "image": "🐰",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0008",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bird",
+    "vi": "con chim",
+    "pos": "noun",
+    "ipa": "/bɝːd/",
+    "forms": {
+      "plural": "birds"
+    },
+    "exampleEn": "There are two birds.",
+    "exampleVi": "Có hai con chim.",
+    "image": "🐦",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0009",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "duck",
+    "vi": "con vịt",
+    "pos": "noun",
+    "ipa": "/dʌk/",
+    "forms": {
+      "plural": "ducks"
+    },
+    "exampleEn": "The ducks are yellow.",
+    "exampleVi": "Những con vịt màu vàng.",
+    "image": "🦆",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0010",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bear",
+    "vi": "con gấu",
+    "pos": "noun",
+    "ipa": "/ber/",
+    "forms": {
+      "plural": "bears"
+    },
+    "exampleEn": "The bear is brown.",
+    "exampleVi": "Con gấu màu nâu.",
+    "image": "🐻",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0011",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "horse",
+    "vi": "con ngựa",
+    "pos": "noun",
+    "ipa": "/hɔːrs/",
+    "forms": {
+      "plural": "horses"
+    },
+    "exampleEn": "There is a horse.",
+    "exampleVi": "Có một con ngựa.",
+    "image": "🐴",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0012",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "pig",
+    "vi": "con lợn, heo",
+    "pos": "noun",
+    "ipa": "/pɪɡ/",
+    "forms": {
+      "plural": "pigs"
+    },
+    "exampleEn": "The pigs are pink.",
+    "exampleVi": "Những chú lợn màu hồng.",
+    "image": "🐷",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0013",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cow",
+    "vi": "con bò",
+    "pos": "noun",
+    "ipa": "/kaʊ/",
+    "forms": {
+      "plural": "cows"
+    },
+    "exampleEn": "The cows are big.",
+    "exampleVi": "Những con bò to lớn.",
+    "image": "🐮",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0014",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "chicken",
+    "vi": "con gà",
+    "pos": "noun",
+    "ipa": "/ˈtʃɪk.ɪn/",
+    "forms": {
+      "plural": "chickens"
+    },
+    "exampleEn": "There are three chickens.",
+    "exampleVi": "Có ba con gà.",
+    "image": "🐔",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0015",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "frog",
+    "vi": "con ếch",
+    "pos": "noun",
+    "ipa": "/frɑːɡ/",
+    "forms": {
+      "plural": "frogs"
+    },
+    "exampleEn": "The frog is green.",
+    "exampleVi": "Con ếch màu xanh lá.",
+    "image": "🐸",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0016",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "snake",
+    "vi": "con rắn",
+    "pos": "noun",
+    "ipa": "/sneɪk/",
+    "forms": {
+      "plural": "snakes"
+    },
+    "exampleEn": "The snake is long.",
+    "exampleVi": "Con rắn dài.",
+    "image": "🐍",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0017",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bee",
+    "vi": "con ong",
+    "pos": "noun",
+    "ipa": "/biː/",
+    "forms": {
+      "plural": "bees"
+    },
+    "exampleEn": "There is a bee.",
+    "exampleVi": "Có một con ong.",
+    "image": "🐝",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0018",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "fox",
+    "vi": "con cáo",
+    "pos": "noun",
+    "ipa": "/fɑːks/",
+    "forms": {
+      "plural": "foxes"
+    },
+    "exampleEn": "The fox is clever.",
+    "exampleVi": "Con cáo rất ranh mãnh.",
+    "image": "🦊",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0019",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "puppy",
+    "vi": "chó con",
+    "pos": "noun",
+    "ipa": "/ˈpʌp.i/",
+    "forms": {
+      "plural": "puppies"
+    },
+    "exampleEn": "These puppies are cute.",
+    "exampleVi": "Những chú cún con này rất dễ thương.",
+    "image": "🐕",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0020",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "fly",
+    "vi": "con ruồi",
+    "pos": "noun",
+    "ipa": "/flaɪ/",
+    "forms": {
+      "plural": "flies"
+    },
+    "exampleEn": "There are two flies.",
+    "exampleVi": "Có hai con ruồi.",
+    "image": "🪰",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0021",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "fish",
+    "vi": "con cá",
+    "pos": "noun",
+    "ipa": "/fɪʃ/",
+    "forms": {
+      "plural": "fish"
+    },
+    "exampleEn": "There are five fish.",
+    "exampleVi": "Có năm con cá.",
+    "image": "🐟",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0022",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "sheep",
+    "vi": "con cừu",
+    "pos": "noun",
+    "ipa": "/ʃiːp/",
+    "forms": {
+      "plural": "sheep"
+    },
+    "exampleEn": "The sheep are white.",
+    "exampleVi": "Những con cừu màu trắng.",
+    "image": "🐑",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0023",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "mouse",
+    "vi": "con chuột",
+    "pos": "noun",
+    "ipa": "/maʊs/",
+    "forms": {
+      "plural": "mice"
+    },
+    "exampleEn": "There is a mouse.",
+    "exampleVi": "Có một con chuột.",
+    "image": "🐭",
+    "tags": [
+      "animal"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0024",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "apple",
+    "vi": "quả táo",
+    "pos": "noun",
+    "ipa": "/ˈæp.əl/",
+    "forms": {
+      "plural": "apples"
+    },
+    "exampleEn": "It is an apple.",
+    "exampleVi": "Nó là một quả táo.",
+    "image": "🍎",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0025",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "orange",
+    "vi": "quả cam",
+    "pos": "noun",
+    "ipa": "/ˈɔːr.ɪndʒ/",
+    "forms": {
+      "plural": "oranges"
+    },
+    "exampleEn": "This is an orange.",
+    "exampleVi": "Đây là một quả cam.",
+    "image": "🍊",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0026",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "egg",
+    "vi": "quả trứng",
+    "pos": "noun",
+    "ipa": "/eɡ/",
+    "forms": {
+      "plural": "eggs"
+    },
+    "exampleEn": "There is an egg.",
+    "exampleVi": "Có một quả trứng.",
+    "image": "🥚",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0027",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "onion",
+    "vi": "củ hành tây",
+    "pos": "noun",
+    "ipa": "/ˈʌn.jən/",
+    "forms": {
+      "plural": "onions"
+    },
+    "exampleEn": "It is an onion.",
+    "exampleVi": "Nó là một củ hành tây.",
+    "image": "🧅",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0028",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "banana",
+    "vi": "quả chuối",
+    "pos": "noun",
+    "ipa": "/bəˈnæn.ə/",
+    "forms": {
+      "plural": "bananas"
+    },
+    "exampleEn": "The bananas are yellow.",
+    "exampleVi": "Những quả chuối màu vàng.",
+    "image": "🍌",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0029",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "mango",
+    "vi": "quả xoài",
+    "pos": "noun",
+    "ipa": "/ˈmæŋ.ɡoʊ/",
+    "forms": {
+      "plural": "mangoes"
+    },
+    "exampleEn": "The mangoes are sweet.",
+    "exampleVi": "Những quả xoài rất ngọt.",
+    "image": "🥭",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0030",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "tomato",
+    "vi": "quả cà chua",
+    "pos": "noun",
+    "ipa": "/təˈmeɪ.t̬oʊ/",
+    "forms": {
+      "plural": "tomatoes"
+    },
+    "exampleEn": "These tomatoes are red.",
+    "exampleVi": "Những quả cà chua này màu đỏ.",
+    "image": "🍅",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0031",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "potato",
+    "vi": "củ khoai tây",
+    "pos": "noun",
+    "ipa": "/pəˈteɪ.t̬oʊ/",
+    "forms": {
+      "plural": "potatoes"
+    },
+    "exampleEn": "There are four potatoes.",
+    "exampleVi": "Có bốn củ khoai tây.",
+    "image": "🥔",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0032",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "carrot",
+    "vi": "củ cà rốt",
+    "pos": "noun",
+    "ipa": "/ˈker.ət/",
+    "forms": {
+      "plural": "carrots"
+    },
+    "exampleEn": "The carrot is orange.",
+    "exampleVi": "Củ cà rốt màu cam.",
+    "image": "🥕",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0033",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "strawberry",
+    "vi": "quả dâu tây",
+    "pos": "noun",
+    "ipa": "/ˈstrɑːˌber.i/",
+    "forms": {
+      "plural": "strawberries"
+    },
+    "exampleEn": "Those strawberries are fresh.",
+    "exampleVi": "Những quả dâu tây kia rất tươi.",
+    "image": "🍓",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0034",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cherry",
+    "vi": "quả anh đào",
+    "pos": "noun",
+    "ipa": "/ˈtʃer.i/",
+    "forms": {
+      "plural": "cherries"
+    },
+    "exampleEn": "The cherries are small.",
+    "exampleVi": "Những quả anh đào nhỏ nhắn.",
+    "image": "🍒",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0035",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "peach",
+    "vi": "quả đào",
+    "pos": "noun",
+    "ipa": "/piːtʃ/",
+    "forms": {
+      "plural": "peaches"
+    },
+    "exampleEn": "These peaches are soft.",
+    "exampleVi": "Những quả đào này rất mềm.",
+    "image": "🍑",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0036",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cake",
+    "vi": "chiếc bánh ngọt",
+    "pos": "noun",
+    "ipa": "/keɪk/",
+    "forms": {
+      "plural": "cakes"
+    },
+    "exampleEn": "There is a cake.",
+    "exampleVi": "Có một chiếc bánh ngọt.",
+    "image": "🎂",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0037",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "sandwich",
+    "vi": "bánh kẹp",
+    "pos": "noun",
+    "ipa": "/ˈsæn.wɪtʃ/",
+    "forms": {
+      "plural": "sandwiches"
+    },
+    "exampleEn": "Two sandwiches are on the plate.",
+    "exampleVi": "Hai chiếc bánh kẹp ở trên đĩa.",
+    "image": "🥪",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0038",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cookie",
+    "vi": "bánh quy",
+    "pos": "noun",
+    "ipa": "/ˈkʊk.i/",
+    "forms": {
+      "plural": "cookies"
+    },
+    "exampleEn": "The cookies are sweet.",
+    "exampleVi": "Những chiếc bánh quy rất ngọt.",
+    "image": "🍪",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0039",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "candy",
+    "vi": "viên kẹo",
+    "pos": "noun",
+    "ipa": "/ˈkæn.di/",
+    "forms": {
+      "plural": "candies"
+    },
+    "exampleEn": "There are some candies.",
+    "exampleVi": "Có vài viên kẹo.",
+    "image": "🍬",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0040",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "pizza",
+    "vi": "bánh pizza",
+    "pos": "noun",
+    "ipa": "/ˈpiːt.sə/",
+    "forms": {
+      "plural": "pizzas"
+    },
+    "exampleEn": "It is a big pizza.",
+    "exampleVi": "Nó là một chiếc bánh pizza to.",
+    "image": "🍕",
+    "tags": [
+      "food"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0041",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "book",
+    "vi": "quyển sách",
+    "pos": "noun",
+    "ipa": "/bʊk/",
+    "forms": {
+      "plural": "books"
+    },
+    "exampleEn": "There are three books.",
+    "exampleVi": "Có ba quyển sách.",
+    "image": "📖",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0042",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "notebook",
+    "vi": "cuốn vở",
+    "pos": "noun",
+    "ipa": "/ˈnoʊt.bʊk/",
+    "forms": {
+      "plural": "notebooks"
+    },
+    "exampleEn": "The notebooks are blue.",
+    "exampleVi": "Những cuốn vở màu xanh dương.",
+    "image": "📓",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0043",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "pen",
+    "vi": "chiếc bút",
+    "pos": "noun",
+    "ipa": "/pen/",
+    "forms": {
+      "plural": "pens"
+    },
+    "exampleEn": "There are five pens.",
+    "exampleVi": "Có năm chiếc bút.",
+    "image": "🖊️",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0044",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "pencil",
+    "vi": "bút chì",
+    "pos": "noun",
+    "ipa": "/ˈpen.səl/",
+    "forms": {
+      "plural": "pencils"
+    },
+    "exampleEn": "These pencils are new.",
+    "exampleVi": "Những chiếc bút chì này mới.",
+    "image": "✏️",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0045",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "ruler",
+    "vi": "thước kẻ",
+    "pos": "noun",
+    "ipa": "/ˈruː.lɚ/",
+    "forms": {
+      "plural": "rulers"
+    },
+    "exampleEn": "Two rulers are on the desk.",
+    "exampleVi": "Hai chiếc thước kẻ ở trên bàn.",
+    "image": "📏",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0046",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "eraser",
+    "vi": "cục tẩy",
+    "pos": "noun",
+    "ipa": "/ɪˈreɪ.sɚ/",
+    "forms": {
+      "plural": "erasers"
+    },
+    "exampleEn": "It is an eraser.",
+    "exampleVi": "Nó là một cục tẩy.",
+    "image": "🧼",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0047",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bag",
+    "vi": "cặp sách",
+    "pos": "noun",
+    "ipa": "/bæɡ/",
+    "forms": {
+      "plural": "bags"
+    },
+    "exampleEn": "The bags are heavy.",
+    "exampleVi": "Những chiếc cặp sách rất nặng.",
+    "image": "🎒",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0048",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "box",
+    "vi": "cái hộp",
+    "pos": "noun",
+    "ipa": "/bɑːks/",
+    "forms": {
+      "plural": "boxes"
+    },
+    "exampleEn": "There are three boxes.",
+    "exampleVi": "Có ba cái hộp.",
+    "image": "📦",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0049",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "clock",
+    "vi": "đồng hồ",
+    "pos": "noun",
+    "ipa": "/klɑːk/",
+    "forms": {
+      "plural": "clocks"
+    },
+    "exampleEn": "The clock is round.",
+    "exampleVi": "Chiếc đồng hồ hình tròn.",
+    "image": "⏰",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0050",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "watch",
+    "vi": "đồng hồ đeo tay",
+    "pos": "noun",
+    "ipa": "/wɑːtʃ/",
+    "forms": {
+      "plural": "watches"
+    },
+    "exampleEn": "These watches are expensive.",
+    "exampleVi": "Những chiếc đồng hồ đeo tay này đắt tiền.",
+    "image": "⌚",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0051",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "dish",
+    "vi": "cái đĩa, món ăn",
+    "pos": "noun",
+    "ipa": "/dɪʃ/",
+    "forms": {
+      "plural": "dishes"
+    },
+    "exampleEn": "The dishes are clean.",
+    "exampleVi": "Những chiếc đĩa rất sạch sẽ.",
+    "image": "🍽️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0052",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "glass",
+    "vi": "cốc thủy tinh",
+    "pos": "noun",
+    "ipa": "/ɡlæs/",
+    "forms": {
+      "plural": "glasses"
+    },
+    "exampleEn": "There are two glasses.",
+    "exampleVi": "Có hai chiếc cốc thủy tinh.",
+    "image": "🥛",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0053",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "table",
+    "vi": "cái bàn",
+    "pos": "noun",
+    "ipa": "/ˈteɪ.bəl/",
+    "forms": {
+      "plural": "tables"
+    },
+    "exampleEn": "There is a wooden table.",
+    "exampleVi": "Có một cái bàn gỗ.",
+    "image": "🪵",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0054",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "chair",
+    "vi": "cái ghế",
+    "pos": "noun",
+    "ipa": "/tʃer/",
+    "forms": {
+      "plural": "chairs"
+    },
+    "exampleEn": "Four chairs are in the room.",
+    "exampleVi": "Bốn chiếc ghế ở trong phòng.",
+    "image": "🪑",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0055",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "door",
+    "vi": "cửa ra vào",
+    "pos": "noun",
+    "ipa": "/dɔːr/",
+    "forms": {
+      "plural": "doors"
+    },
+    "exampleEn": "The doors are brown.",
+    "exampleVi": "Những cánh cửa màu nâu.",
+    "image": "🚪",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0056",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "window",
+    "vi": "cửa sổ",
+    "pos": "noun",
+    "ipa": "/ˈwɪn.doʊ/",
+    "forms": {
+      "plural": "windows"
+    },
+    "exampleEn": "There are two windows.",
+    "exampleVi": "Có hai cửa sổ.",
+    "image": "🪟",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0057",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "picture",
+    "vi": "bức tranh",
+    "pos": "noun",
+    "ipa": "/ˈpɪk.tʃɚ/",
+    "forms": {
+      "plural": "pictures"
+    },
+    "exampleEn": "The pictures are beautiful.",
+    "exampleVi": "Những bức tranh rất đẹp.",
+    "image": "🖼️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0058",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "lamp",
+    "vi": "chiếc đèn",
+    "pos": "noun",
+    "ipa": "/læmp/",
+    "forms": {
+      "plural": "lamps"
+    },
+    "exampleEn": "The lamp is bright.",
+    "exampleVi": "Chiếc đèn sáng.",
+    "image": "🛋️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0059",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bed",
+    "vi": "chiếc giường",
+    "pos": "noun",
+    "ipa": "/bed/",
+    "forms": {
+      "plural": "beds"
+    },
+    "exampleEn": "There is a comfortable bed.",
+    "exampleVi": "Có một chiếc giường êm ái.",
+    "image": "🛏️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0060",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "umbrella",
+    "vi": "chiếc ô, dù",
+    "pos": "noun",
+    "ipa": "/ʌmˈbrel.ə/",
+    "forms": {
+      "plural": "umbrellas"
+    },
+    "exampleEn": "It is an umbrella.",
+    "exampleVi": "Nó là một chiếc ô.",
+    "image": "☂️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0061",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "toy",
+    "vi": "đồ chơi",
+    "pos": "noun",
+    "ipa": "/tɔɪ/",
+    "forms": {
+      "plural": "toys"
+    },
+    "exampleEn": "These toys are new.",
+    "exampleVi": "Những món đồ chơi này mới.",
+    "image": "🧸",
+    "tags": [
+      "toy"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0062",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "ball",
+    "vi": "quả bóng",
+    "pos": "noun",
+    "ipa": "/bɑːl/",
+    "forms": {
+      "plural": "balls"
+    },
+    "exampleEn": "There are three balls.",
+    "exampleVi": "Có ba quả bóng.",
+    "image": "⚽",
+    "tags": [
+      "toy"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0063",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "doll",
+    "vi": "búp bê",
+    "pos": "noun",
+    "ipa": "/dɑːl/",
+    "forms": {
+      "plural": "dolls"
+    },
+    "exampleEn": "The doll is cute.",
+    "exampleVi": "Búp bê dễ thương.",
+    "image": "🪆",
+    "tags": [
+      "toy"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0064",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "robot",
+    "vi": "người máy",
+    "pos": "noun",
+    "ipa": "/ˈroʊ.bɑːt/",
+    "forms": {
+      "plural": "robots"
+    },
+    "exampleEn": "Those robots are cool.",
+    "exampleVi": "Những con rô-bốt kia thật ngầu.",
+    "image": "🤖",
+    "tags": [
+      "toy"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0065",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "kite",
+    "vi": "con diều",
+    "pos": "noun",
+    "ipa": "/kaɪt/",
+    "forms": {
+      "plural": "kites"
+    },
+    "exampleEn": "There is a colorful kite.",
+    "exampleVi": "Có một con diều nhiều màu sắc.",
+    "image": "🪁",
+    "tags": [
+      "toy"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0066",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "car",
+    "vi": "xe ô tô",
+    "pos": "noun",
+    "ipa": "/kɑːr/",
+    "forms": {
+      "plural": "cars"
+    },
+    "exampleEn": "The cars are fast.",
+    "exampleVi": "Những chiếc xe ô tô chạy nhanh.",
+    "image": "🚗",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0067",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bus",
+    "vi": "xe buýt",
+    "pos": "noun",
+    "ipa": "/bʌs/",
+    "forms": {
+      "plural": "buses"
+    },
+    "exampleEn": "There are two buses.",
+    "exampleVi": "Có hai chiếc xe buýt.",
+    "image": "🚌",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0068",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "train",
+    "vi": "tàu hỏa",
+    "pos": "noun",
+    "ipa": "/treɪn/",
+    "forms": {
+      "plural": "trains"
+    },
+    "exampleEn": "The train is long.",
+    "exampleVi": "Đoàn tàu rất dài.",
+    "image": "🚂",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0069",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "plane",
+    "vi": "máy bay",
+    "pos": "noun",
+    "ipa": "/pleɪn/",
+    "forms": {
+      "plural": "planes"
+    },
+    "exampleEn": "It is an airplane.",
+    "exampleVi": "Nó là một chiếc máy bay.",
+    "image": "✈️",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0070",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "boat",
+    "vi": "thuyền",
+    "pos": "noun",
+    "ipa": "/boʊt/",
+    "forms": {
+      "plural": "boats"
+    },
+    "exampleEn": "There is a white boat.",
+    "exampleVi": "Có một chiếc thuyền trắng.",
+    "image": "⛵",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0071",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bicycle",
+    "vi": "xe đạp",
+    "pos": "noun",
+    "ipa": "/ˈbaɪ.sə.kəl/",
+    "forms": {
+      "plural": "bicycles"
+    },
+    "exampleEn": "These bicycles are blue.",
+    "exampleVi": "Những chiếc xe đạp này màu xanh dương.",
+    "image": "🚲",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0072",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "truck",
+    "vi": "xe tải",
+    "pos": "noun",
+    "ipa": "/trʌk/",
+    "forms": {
+      "plural": "trucks"
+    },
+    "exampleEn": "The truck is big.",
+    "exampleVi": "Chiếc xe tải to lớn.",
+    "image": "🚛",
+    "tags": [
+      "vehicle"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0073",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "child",
+    "vi": "đứa trẻ",
+    "pos": "noun",
+    "ipa": "/tʃaɪld/",
+    "forms": {
+      "plural": "children"
+    },
+    "exampleEn": "The children are happy.",
+    "exampleVi": "Những đứa trẻ đang vui vẻ.",
+    "image": "🧒",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0074",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "man",
+    "vi": "người đàn ông",
+    "pos": "noun",
+    "ipa": "/mæn/",
+    "forms": {
+      "plural": "men"
+    },
+    "exampleEn": "Those men are tall.",
+    "exampleVi": "Những người đàn ông kia cao lớn.",
+    "image": "👨",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0075",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "woman",
+    "vi": "người phụ nữ",
+    "pos": "noun",
+    "ipa": "/ˈwʊm.ən/",
+    "forms": {
+      "plural": "women"
+    },
+    "exampleEn": "The women are kind.",
+    "exampleVi": "Những người phụ nữ rất tốt bụng.",
+    "image": "👩",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0076",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "person",
+    "vi": "người",
+    "pos": "noun",
+    "ipa": "/ˈpɝː.sən/",
+    "forms": {
+      "plural": "people"
+    },
+    "exampleEn": "There are ten people.",
+    "exampleVi": "Có mười người.",
+    "image": "🧑",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0077",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "baby",
+    "vi": "em bé",
+    "pos": "noun",
+    "ipa": "/ˈbeɪ.bi/",
+    "forms": {
+      "plural": "babies"
+    },
+    "exampleEn": "These babies are cute.",
+    "exampleVi": "Những em bé này rất đáng yêu.",
+    "image": "👶",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0078",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "boy",
+    "vi": "cậu bé",
+    "pos": "noun",
+    "ipa": "/bɔɪ/",
+    "forms": {
+      "plural": "boys"
+    },
+    "exampleEn": "The boys are strong.",
+    "exampleVi": "Những cậu bé rất khỏe mạnh.",
+    "image": "👦",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0079",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "girl",
+    "vi": "cô bé",
+    "pos": "noun",
+    "ipa": "/ɡɝːl/",
+    "forms": {
+      "plural": "girls"
+    },
+    "exampleEn": "Three girls are in the class.",
+    "exampleVi": "Ba cô bé ở trong lớp học.",
+    "image": "👧",
+    "tags": [
+      "people"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0080",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "foot",
+    "vi": "bàn chân",
+    "pos": "noun",
+    "ipa": "/fʊt/",
+    "forms": {
+      "plural": "feet"
+    },
+    "exampleEn": "His feet are big.",
+    "exampleVi": "Bàn chân của cậu ấy to.",
+    "image": "🦶",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0081",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "tooth",
+    "vi": "chiếc răng",
+    "pos": "noun",
+    "ipa": "/tuːθ/",
+    "forms": {
+      "plural": "teeth"
+    },
+    "exampleEn": "Her teeth are white.",
+    "exampleVi": "Hàm răng của cô bé trắng muốt.",
+    "image": "🦷",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0082",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "eye",
+    "vi": "con mắt",
+    "pos": "noun",
+    "ipa": "/aɪ/",
+    "forms": {
+      "plural": "eyes"
+    },
+    "exampleEn": "It is an eye.",
+    "exampleVi": "Nó là một con mắt.",
+    "image": "👁️",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0083",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "ear",
+    "vi": "cái tai",
+    "pos": "noun",
+    "ipa": "/ɪr/",
+    "forms": {
+      "plural": "ears"
+    },
+    "exampleEn": "It is an ear.",
+    "exampleVi": "Nó là một chiếc tai.",
+    "image": "👂",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0084",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "hand",
+    "vi": "bàn tay",
+    "pos": "noun",
+    "ipa": "/hænd/",
+    "forms": {
+      "plural": "hands"
+    },
+    "exampleEn": "Her hands are clean.",
+    "exampleVi": "Đôi bàn tay của cô bé rất sạch sẽ.",
+    "image": "✋",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0085",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "arm",
+    "vi": "cánh tay",
+    "pos": "noun",
+    "ipa": "/ɑːrm/",
+    "forms": {
+      "plural": "arms"
+    },
+    "exampleEn": "It is an arm.",
+    "exampleVi": "Nó là một cánh tay.",
+    "image": "💪",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0086",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "leg",
+    "vi": "cái chân",
+    "pos": "noun",
+    "ipa": "/leɡ/",
+    "forms": {
+      "plural": "legs"
+    },
+    "exampleEn": "His legs are long.",
+    "exampleVi": "Đôi chân của cậu ấy dài.",
+    "image": "🦵",
+    "tags": [
+      "body"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0087",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "tree",
+    "vi": "cái cây",
+    "pos": "noun",
+    "ipa": "/triː/",
+    "forms": {
+      "plural": "trees"
+    },
+    "exampleEn": "There are green trees.",
+    "exampleVi": "Có những cái cây màu xanh.",
+    "image": "🌳",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0088",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "flower",
+    "vi": "bông hoa",
+    "pos": "noun",
+    "ipa": "/ˈflaʊ.ɚ/",
+    "forms": {
+      "plural": "flowers"
+    },
+    "exampleEn": "These flowers are pretty.",
+    "exampleVi": "Những bông hoa này xinh đẹp.",
+    "image": "🌸",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0089",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "leaf",
+    "vi": "chiếc lá",
+    "pos": "noun",
+    "ipa": "/liːf/",
+    "forms": {
+      "plural": "leaves"
+    },
+    "exampleEn": "The leaves are yellow.",
+    "exampleVi": "Những chiếc lá màu vàng.",
+    "image": "🍂",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0090",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "lake",
+    "vi": "hồ nước",
+    "pos": "noun",
+    "ipa": "/leɪk/",
+    "forms": {
+      "plural": "lakes"
+    },
+    "exampleEn": "There is a blue lake.",
+    "exampleVi": "Có một hồ nước màu xanh.",
+    "image": "🌊",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0091",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "river",
+    "vi": "con sông",
+    "pos": "noun",
+    "ipa": "/ˈrɪv.ɚ/",
+    "forms": {
+      "plural": "rivers"
+    },
+    "exampleEn": "The river is long.",
+    "exampleVi": "Con sông dài.",
+    "image": "🏞️",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0092",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "park",
+    "vi": "công viên",
+    "pos": "noun",
+    "ipa": "/pɑːrk/",
+    "forms": {
+      "plural": "parks"
+    },
+    "exampleEn": "There are two parks.",
+    "exampleVi": "Có hai công viên.",
+    "image": "🛝",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0093",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "house",
+    "vi": "ngôi nhà",
+    "pos": "noun",
+    "ipa": "/haʊs/",
+    "forms": {
+      "plural": "houses"
+    },
+    "exampleEn": "Those houses are big.",
+    "exampleVi": "Những ngôi nhà kia to lớn.",
+    "image": "🏡",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0094",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "room",
+    "vi": "căn phòng",
+    "pos": "noun",
+    "ipa": "/ruːm/",
+    "forms": {
+      "plural": "rooms"
+    },
+    "exampleEn": "There are four rooms.",
+    "exampleVi": "Có bốn căn phòng.",
+    "image": "🛋️",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0095",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "garden",
+    "vi": "khu vườn",
+    "pos": "noun",
+    "ipa": "/ˈɡɑːr.dən/",
+    "forms": {
+      "plural": "gardens"
+    },
+    "exampleEn": "The garden is green.",
+    "exampleVi": "Khu vườn xanh tươi.",
+    "image": "🪴",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0096",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "shelf",
+    "vi": "cái giá, kệ",
+    "pos": "noun",
+    "ipa": "/ʃelf/",
+    "forms": {
+      "plural": "shelves"
+    },
+    "exampleEn": "There are shelves on the wall.",
+    "exampleVi": "Có những chiếc kệ trên tường.",
+    "image": "🗄️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0097",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "plate",
+    "vi": "cái đĩa",
+    "pos": "noun",
+    "ipa": "/pleɪt/",
+    "forms": {
+      "plural": "plates"
+    },
+    "exampleEn": "The plates are clean.",
+    "exampleVi": "Những cái đĩa sạch sẽ.",
+    "image": "🍽️",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0098",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "cup",
+    "vi": "cái cốc",
+    "pos": "noun",
+    "ipa": "/kʌp/",
+    "forms": {
+      "plural": "cups"
+    },
+    "exampleEn": "There is a cup on the desk.",
+    "exampleVi": "Có một cái cốc trên bàn.",
+    "image": "☕",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0099",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "fork",
+    "vi": "chiếc nĩa",
+    "pos": "noun",
+    "ipa": "/fɔːrk/",
+    "forms": {
+      "plural": "forks"
+    },
+    "exampleEn": "There are four forks.",
+    "exampleVi": "Có bốn chiếc nĩa.",
+    "image": "🍴",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0100",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "spoon",
+    "vi": "chiếc thìa",
+    "pos": "noun",
+    "ipa": "/spuːn/",
+    "forms": {
+      "plural": "spoons"
+    },
+    "exampleEn": "The spoon is silver.",
+    "exampleVi": "Chiếc thìa màu bạc.",
+    "image": "🥄",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0101",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "bench",
+    "vi": "ghế dài",
+    "pos": "noun",
+    "ipa": "/bentʃ/",
+    "forms": {
+      "plural": "benches"
+    },
+    "exampleEn": "Two benches are in the park.",
+    "exampleVi": "Hai chiếc ghế dài ở trong công viên.",
+    "image": "🪑",
+    "tags": [
+      "object"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0102",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "church",
+    "vi": "nhà thờ",
+    "pos": "noun",
+    "ipa": "/tʃɝːtʃ/",
+    "forms": {
+      "plural": "churches"
+    },
+    "exampleEn": "There is an old church.",
+    "exampleVi": "Có một nhà thờ cổ kính.",
+    "image": "⛪",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0103",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "city",
+    "vi": "thành phố",
+    "pos": "noun",
+    "ipa": "/ˈsɪt.i/",
+    "forms": {
+      "plural": "cities"
+    },
+    "exampleEn": "These cities are large.",
+    "exampleVi": "Những thành phố này rất lớn.",
+    "image": "🏙️",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0104",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "zoo",
+    "vi": "sở thú",
+    "pos": "noun",
+    "ipa": "/zuː/",
+    "forms": {
+      "plural": "zoos"
+    },
+    "exampleEn": "There are two zoos in the city.",
+    "exampleVi": "Có hai sở thú trong thành phố.",
+    "image": "🦁",
+    "tags": [
+      "place"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A2-v-0105",
+    "level": "A2",
+    "topic": "nouns-articles",
+    "en": "island",
+    "vi": "hòn đảo",
+    "pos": "noun",
+    "ipa": "/ˈaɪ.lənd/",
+    "forms": {
+      "plural": "islands"
+    },
+    "exampleEn": "It is an island.",
+    "exampleVi": "Nó là một hòn đảo.",
+    "image": "🏝️",
+    "tags": [
+      "nature"
+    ],
+    "source": "seed"
+  }
+]

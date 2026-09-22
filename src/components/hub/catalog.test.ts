@@ -36,11 +36,11 @@ describe('hub entry contracts', () => {
         expect(new Set(SCIENCE_CATALOG.map(item => item.id)).size).toBe(6);
     });
     it('keeps preschool destinations and order, including grade zero', () => {
-        expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','game','library','piano','science']);
+        expect(modesFor(Grade.Preschool).map(m => m.id)).toEqual(['alphabet','counting','colors','english','game','library','piano','science']);
         expect(gamesFor(Grade.Preschool).map(g => g.id)).toEqual(['board-games','farm','memory','sound-memory']);
         expect(boardGamesFor(Grade.Preschool).map(g => g.id)).toEqual(['o-an-quan','horse-race','caro']);
         expect(resolve('play=caro',Grade.Preschool)).toMatchObject({id:'caro',classic:false,needsSetup:false});
-        expect(modesFor(3).map(m => m.id)).toEqual(['study','game','library','riddle','piano','science']);
+        expect(modesFor(3).map(m => m.id)).toEqual(['study','english','game','library','riddle','piano','science']);
         expect(gamesFor(3)).toHaveLength(10);
         expect(gamesFor(3).some(g=>g.id==='coding')).toBe(true);
         expect(resolve('play=coding')).toMatchObject({id:'coding',needsSetup:false});

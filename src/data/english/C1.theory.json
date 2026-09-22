@@ -1,0 +1,70 @@
+{
+  "id": "C1",
+  "level": "C1",
+  "title": "Câu hỏi với Từ để hỏi Wh- (Wh-questions)",
+  "summary": "Câu hỏi Wh- dùng để tìm kiếm thông tin cụ thể (ai, cái gì, ở đâu, khi nào, tại sao, bằng cách nào) thay vì chỉ trả lời Có (Yes) hoặc Không (No).",
+  "formulas": [
+    {
+      "label": "Câu hỏi Wh- với động từ To Be",
+      "pattern": "Wh-word + am / is / are / was / were + S...?",
+      "example": "What is your name? (Tên bạn là gì?)\nWhere was he yesterday? (Hôm qua cậu ấy đã ở đâu?)\nWho are those students? (Những học sinh kia là ai?)"
+    },
+    {
+      "label": "Câu hỏi Wh- với Động từ thường (Hiện tại / Quá khứ / Tương lai)",
+      "pattern": "Wh-word + do / does / did / will + S + V(nguyên thể base)...?",
+      "example": "Where do you live? (Bạn sống ở đâu?)\nWhen did they arrive? (Họ đã đến khi nào?)\nWhat will you do tomorrow? (Ngày mai bạn sẽ làm gì?)"
+    },
+    {
+      "label": "Câu hỏi Wh- với thì Hiện tại tiếp diễn",
+      "pattern": "Wh-word + am / is / are + S + V-ing...?",
+      "example": "What are you doing? (Bạn đang làm gì thế?)\nWhere is he going? (Cậu ấy đang đi đâu vậy?)"
+    },
+    {
+      "label": "Hỏi chủ ngữ",
+      "pattern": "Who / What + động từ đã chia + ...?",
+      "example": "Who broke the cup?\nWhat happened yesterday?"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Ý nghĩa của 8 từ để hỏi Wh- cơ bản",
+      "body": "- WHAT: Cái gì, con gì, nghề gì (hỏi sự vật, hành động, thông tin).\n- WHERE: Ở đâu, nơi nào (hỏi nơi chốn, vị trí, địa điểm).\n- WHEN: Khi nào, bao giờ (hỏi mốc thời gian, giờ giấc, ngày tháng).\n- WHO: Ai, người nào (hỏi người làm chủ ngữ hoặc tân ngữ).\n- WHY: Tại sao, vì sao (hỏi nguyên nhân, lý do — câu trả lời thường bắt đầu bằng \"Because...\").\n- HOW: Như thế nào, bằng cách nào (hỏi tình trạng sức khỏe, cách thức, phương tiện đi lại).\n- WHICH: Cái nào, người nào (hỏi sự lựa chọn trong một nhóm giới hạn).\n- WHOSE: Của ai (hỏi người sở hữu đồ vật)."
+    },
+    {
+      "heading": "2. Các cụm từ hỏi với \"HOW\" cực kỳ quen thuộc",
+      "body": "- HOW OLD: Bao nhiêu tuổi? (How old are you?)\n- HOW MANY + Danh từ số nhiều: Có bao nhiêu? (How many books do you have?)\n- HOW MUCH + Danh từ không đếm được: Có bao nhiêu? Hoặc hỏi giá tiền: Bao nhiêu tiền? (How much is this bag?)\n- HOW FAR: Bao xa? (How far is it to your school?)"
+    },
+    {
+      "heading": "3. Quy tắc vàng về trật tự từ trong câu hỏi Wh-",
+      "body": "Câu hỏi về tân ngữ hoặc trạng ngữ dùng do/does/did/will trước chủ ngữ và động từ nguyên thể: What did Lan buy? Với be là động từ chính, đưa be trước chủ ngữ: Where is Lan? Với hiện tại tiếp diễn, giữ V-ing: What is Lan reading? Khi who/what chính là chủ ngữ, không thêm do/does/did chỉ để tạo câu hỏi: Who broke the cup? What happened? Động từ vẫn chia theo thì và chủ ngữ."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "Where you live?",
+      "right": "Where do you live?",
+      "why": "Khi hỏi nơi ở với động từ thường live và chủ ngữ you, dùng do trước chủ ngữ."
+    },
+    {
+      "wrong": "What did you ate yesterday?",
+      "right": "What did you eat yesterday?",
+      "why": "Đã có trợ động từ quá khứ \"did\" thì động từ chính bắt buộc phải về nguyên thể base (eat)."
+    },
+    {
+      "wrong": "How much pens do you have?",
+      "right": "How many pens do you have?",
+      "why": "\"Pens\" là danh từ đếm được số nhiều, phải dùng \"How many\", không dùng \"How much\"."
+    },
+    {
+      "wrong": "Who book is this?",
+      "right": "Whose book is this?",
+      "why": "Hỏi quyền sở hữu \"của ai\" phải dùng \"Whose\", không dùng \"Who\"."
+    }
+  ],
+  "tips": [
+    "Hỏi về NƠI CHỐN → nghĩ ngay tới WHERE.",
+    "Hỏi về THỜI GIAN → nghĩ ngay tới WHEN.",
+    "Hỏi LÝ DO (\"Tại sao\") → dùng WHY (trả lời bằng Because).",
+    "Nhớ thần chú: \"Có did/do/does/will đứng trước thì động từ phía sau luôn là V-base!\""
+  ]
+}

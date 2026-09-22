@@ -16,6 +16,17 @@ function setup(entries: AssetEntry[]) {
 }
 
 describe('offline downloads', () => {
+    it('installs every published English JSON family with the executable core', () => {
+        for (const level of ['A1','A2','A3','B1','B2','B3','B4','C1','C2','C3','K']) {
+            const kinds = level === 'K' ? ['vocab','phrases'] : level === 'C3' ? ['vocab','theory','passages','rewrites'] : ['sentences','vocab','theory'];
+            for (const kind of kinds) expect(isCoreAsset(entry(`assets/${level}.${kind}-revision123.json`))).toBe(true);
+        }
+        expect(isCoreAsset(entry('assets/optional-dataset.json'))).toBe(false);
+    });
+    it('preloads English illustrations so the first offline visit has no missing art', () => {
+        expect(['english/garden.webp', 'hub/art/english.webp', 'hub/art/english-sm.webp'].every(url => isCoreAsset(entry(url)))).toBe(true);
+        expect(isCoreAsset(entry('english/optional-extra.webp'))).toBe(false);
+    });
     it('keeps media out of installation but includes executable code and styles', () => {
         expect(['assets/game.js', 'assets/style.css', 'index.html', 'Logo.png'].every(url => isCoreAsset(entry(url)))).toBe(true);
         expect(['Album/art.webp', 'audio/vi/hello.mp3', 'dragon/model.glb'].some(url => isCoreAsset(entry(url)))).toBe(false);

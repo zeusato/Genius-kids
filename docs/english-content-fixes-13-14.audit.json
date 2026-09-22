@@ -1,0 +1,820 @@
+{
+  "reviewedAt": "2026-09-22T16:39:28.975Z",
+  "scope": [
+    "A1",
+    "A2",
+    "A3",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "files": {
+    "A1.sentences.json": {
+      "sha256": "df6b4b99dcc95f6be37769714705c87ae90f89382847d593d3e80626788006a4",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.theory.json": {
+      "sha256": "9a1212a45762dfd20a2faa4804d77308758173b3f0e8f83f3ad8917e68f3a3ff",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.vocab.json": {
+      "sha256": "f6b7f7b688dd6c6f2de4ffd1f4372d2ab557dbcf25d412f74eb3fb828829785f",
+      "count": 118,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.sentences.json": {
+      "sha256": "12a999ea23faf969b4a4ca55f88f81fd73e73fa5142a613f8a22472b4c2b4cb7",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.theory.json": {
+      "sha256": "bad89dcd6dc1806b80e36718b20bb4afc96ba11845d9a682f6413bde61124890",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.vocab.json": {
+      "sha256": "604f930cc43cab8a3878ee013882a0c5150ecb693f02b6e588857597493126d1",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.sentences.json": {
+      "sha256": "9cb5385e2bcedda535f400b04a6a167efabe440c33f11eddbfb5a82904c1c437",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.theory.json": {
+      "sha256": "0b37f28c2a01d25ddb97e3b5ea317ccbf0f5f410608cc409586456757fa8ec88",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.vocab.json": {
+      "sha256": "65e4938dc1790715d748c07a2c2e5e0c9533aedbd4c15a8fac09d7c278f7dd4b",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.sentences.json": {
+      "sha256": "2305841890b6d1f8f183a6c0f2e88649488db440765ecfd59c9fbf02779eb04f",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.theory.json": {
+      "sha256": "0c8f39c7506bdbf8385defcc2f459c0963a84fab7f74629dc47507f08a4d766d",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.vocab.json": {
+      "sha256": "a138bea611858749975c70b5b4a88c14e7c4480e1acce54fd71f3b95158724f7",
+      "count": 111,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.sentences.json": {
+      "sha256": "22a207a58c8764f0c4a31c203fb08984da681d46f2896101a100853c7c41016a",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.theory.json": {
+      "sha256": "5d9125ca8cca2ebcbdc28a2229775e6250d2c3bc119aa2561473c29da4381753",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.vocab.json": {
+      "sha256": "fbb8daa9caacf0249549d53b7c8d1161186ba62c60ebca3edf9a7b81c63884cc",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.sentences.json": {
+      "sha256": "bfa686d4412b10956c4159964a94f46ffbb812e7f87af099d2bf07d8dcb4ca58",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.theory.json": {
+      "sha256": "ec50ad50acf8d868e9e4b43fe6da0a2e58be6f7ad738ea85f782f3f0265a0d93",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.vocab.json": {
+      "sha256": "9a3bca180aec0b9ffbcfdb89656d169b3e6fb0fcc4dd987c6182ccc9a37374f4",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.sentences.json": {
+      "sha256": "81ddbdda388e18570f9990ced3e35d8630e7ebe1d262c3a41630d9553e4e1a8a",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.theory.json": {
+      "sha256": "872a881fde713a336d63c2a95c5d03a9bbbcfbf6e860a6a999e25ef01c406294",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.vocab.json": {
+      "sha256": "495945977358d029c4c99e75139f2cf0b91081f2f71fc347e25c51fb9f904e75",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.sentences.json": {
+      "sha256": "7a7e86d4d9deb02a5b268bb80f6bfc608733dd0011e65dd036925db6a85499ad",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.theory.json": {
+      "sha256": "cdc47c1f7ad09757a0a6050b5183c8b6ada02c6c19b066d8588d41592ec7cd0f",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].exampleIds: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].formulas[2].name: unknown field",
+        "theory[0].formulas[2].examples: unknown field",
+        "theory[0].formulas[2].label: missing field",
+        "theory[0].formulas[2].example: missing field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field",
+        "theory[0].sections[2].title: unknown field",
+        "theory[0].sections[2].content: unknown field",
+        "theory[0].sections[2].heading: missing field",
+        "theory[0].sections[2].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C1.vocab.json": {
+      "sha256": "dd822f195df88e0fafc1fa2238e7b5914ab5990e2c9eb64857b7da98e84878de",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.sentences.json": {
+      "sha256": "2687ce6e3cfe764b4ae5c54c6791c4bfdfd21423e0750f6656bc0c726b17c556",
+      "count": 207,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.theory.json": {
+      "sha256": "3f49b163699f6d637a1bb9418066ffa5a6d810c5431304e60049b8f2194756b1",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].formulas[2].name: unknown field",
+        "theory[0].formulas[2].examples: unknown field",
+        "theory[0].formulas[2].label: missing field",
+        "theory[0].formulas[2].example: missing field",
+        "theory[0].formulas[3].name: unknown field",
+        "theory[0].formulas[3].examples: unknown field",
+        "theory[0].formulas[3].label: missing field",
+        "theory[0].formulas[3].example: missing field",
+        "theory[0].sections[0].id: unknown field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].id: unknown field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field",
+        "theory[0].sections[2].id: unknown field",
+        "theory[0].sections[2].title: unknown field",
+        "theory[0].sections[2].content: unknown field",
+        "theory[0].sections[2].heading: missing field",
+        "theory[0].sections[2].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C2.vocab.json": {
+      "sha256": "bc0b5391e857da0de551e3c81a9ad2c48484bba00e09b41bbbc6d2ffdbee2d40",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.passages.json": {
+      "sha256": "63cf014f2cba7ab812c36fed0791961748a28a6d49cbd41ddf633cfdcc01eb9b",
+      "count": 40,
+      "errors": [
+        "passages[0] (C3-p-0001): TF answer must be true/false",
+        "passages[1] (C3-p-0002): TF answer must be true/false",
+        "passages[2] (C3-p-0003): TF answer must be true/false",
+        "passages[3] (C3-p-0004): TF answer must be true/false",
+        "passages[4] (C3-p-0005): TF answer must be true/false",
+        "passages[5] (C3-p-0006): wordCount must match 60–90 words",
+        "passages[5] (C3-p-0006): TF answer must be true/false",
+        "passages[6] (C3-p-0007): wordCount must match 60–90 words",
+        "passages[6] (C3-p-0007): TF answer must be true/false",
+        "passages[7] (C3-p-0008): wordCount must match 60–90 words",
+        "passages[7] (C3-p-0008): TF answer must be true/false",
+        "passages[8] (C3-p-0009): wordCount must match 60–90 words",
+        "passages[8] (C3-p-0009): TF answer must be true/false",
+        "passages[9] (C3-p-0010): wordCount must match 60–90 words",
+        "passages[9] (C3-p-0010): TF answer must be true/false",
+        "passages[10] (C3-p-0011): duplicate English text",
+        "passages[10] (C3-p-0011): wordCount must match 60–90 words",
+        "passages[10] (C3-p-0011): TF answer must be true/false",
+        "passages[11] (C3-p-0012): duplicate English text",
+        "passages[11] (C3-p-0012): wordCount must match 60–90 words",
+        "passages[11] (C3-p-0012): TF answer must be true/false",
+        "passages[12] (C3-p-0013): duplicate English text",
+        "passages[12] (C3-p-0013): wordCount must match 60–90 words",
+        "passages[12] (C3-p-0013): TF answer must be true/false",
+        "passages[13] (C3-p-0014): duplicate English text",
+        "passages[13] (C3-p-0014): wordCount must match 60–90 words",
+        "passages[13] (C3-p-0014): TF answer must be true/false",
+        "passages[14] (C3-p-0015): duplicate English text",
+        "passages[14] (C3-p-0015): wordCount must match 60–90 words",
+        "passages[14] (C3-p-0015): TF answer must be true/false",
+        "passages[15] (C3-p-0016): duplicate English text",
+        "passages[15] (C3-p-0016): wordCount must match 60–90 words",
+        "passages[15] (C3-p-0016): TF answer must be true/false",
+        "passages[16] (C3-p-0017): duplicate English text",
+        "passages[16] (C3-p-0017): wordCount must match 60–90 words",
+        "passages[16] (C3-p-0017): TF answer must be true/false",
+        "passages[17] (C3-p-0018): duplicate English text",
+        "passages[17] (C3-p-0018): wordCount must match 60–90 words",
+        "passages[17] (C3-p-0018): TF answer must be true/false",
+        "passages[18] (C3-p-0019): duplicate English text",
+        "passages[18] (C3-p-0019): wordCount must match 60–90 words",
+        "passages[18] (C3-p-0019): TF answer must be true/false",
+        "passages[19] (C3-p-0020): duplicate English text",
+        "passages[19] (C3-p-0020): wordCount must match 60–90 words",
+        "passages[19] (C3-p-0020): TF answer must be true/false",
+        "passages[20] (C3-p-0021): duplicate English text",
+        "passages[20] (C3-p-0021): wordCount must match 60–90 words",
+        "passages[20] (C3-p-0021): TF answer must be true/false",
+        "passages[21] (C3-p-0022): duplicate English text",
+        "passages[21] (C3-p-0022): wordCount must match 60–90 words",
+        "passages[21] (C3-p-0022): TF answer must be true/false",
+        "passages[22] (C3-p-0023): duplicate English text",
+        "passages[22] (C3-p-0023): wordCount must match 60–90 words",
+        "passages[22] (C3-p-0023): TF answer must be true/false",
+        "passages[23] (C3-p-0024): duplicate English text",
+        "passages[23] (C3-p-0024): wordCount must match 60–90 words",
+        "passages[23] (C3-p-0024): TF answer must be true/false",
+        "passages[24] (C3-p-0025): duplicate English text",
+        "passages[24] (C3-p-0025): wordCount must match 60–90 words",
+        "passages[24] (C3-p-0025): TF answer must be true/false",
+        "passages[25] (C3-p-0026): duplicate English text",
+        "passages[25] (C3-p-0026): wordCount must match 60–90 words",
+        "passages[25] (C3-p-0026): TF answer must be true/false",
+        "passages[26] (C3-p-0027): duplicate English text",
+        "passages[26] (C3-p-0027): wordCount must match 60–90 words",
+        "passages[26] (C3-p-0027): TF answer must be true/false",
+        "passages[27] (C3-p-0028): duplicate English text",
+        "passages[27] (C3-p-0028): wordCount must match 60–90 words",
+        "passages[27] (C3-p-0028): TF answer must be true/false",
+        "passages[28] (C3-p-0029): duplicate English text",
+        "passages[28] (C3-p-0029): wordCount must match 60–90 words",
+        "passages[28] (C3-p-0029): TF answer must be true/false",
+        "passages[29] (C3-p-0030): duplicate English text",
+        "passages[29] (C3-p-0030): wordCount must match 60–90 words",
+        "passages[29] (C3-p-0030): TF answer must be true/false",
+        "passages[30] (C3-p-0031): duplicate English text",
+        "passages[30] (C3-p-0031): wordCount must match 60–90 words",
+        "passages[30] (C3-p-0031): TF answer must be true/false",
+        "passages[31] (C3-p-0032): duplicate English text",
+        "passages[31] (C3-p-0032): wordCount must match 60–90 words",
+        "passages[31] (C3-p-0032): TF answer must be true/false",
+        "passages[32] (C3-p-0033): duplicate English text",
+        "passages[32] (C3-p-0033): wordCount must match 60–90 words",
+        "passages[32] (C3-p-0033): TF answer must be true/false",
+        "passages[33] (C3-p-0034): duplicate English text",
+        "passages[33] (C3-p-0034): wordCount must match 60–90 words",
+        "passages[33] (C3-p-0034): TF answer must be true/false",
+        "passages[34] (C3-p-0035): duplicate English text",
+        "passages[34] (C3-p-0035): wordCount must match 60–90 words",
+        "passages[34] (C3-p-0035): TF answer must be true/false",
+        "passages[35] (C3-p-0036): duplicate English text",
+        "passages[35] (C3-p-0036): wordCount must match 60–90 words",
+        "passages[35] (C3-p-0036): TF answer must be true/false",
+        "passages[36] (C3-p-0037): duplicate English text",
+        "passages[36] (C3-p-0037): wordCount must match 60–90 words",
+        "passages[36] (C3-p-0037): TF answer must be true/false",
+        "passages[37] (C3-p-0038): duplicate English text",
+        "passages[37] (C3-p-0038): wordCount must match 60–90 words",
+        "passages[37] (C3-p-0038): TF answer must be true/false",
+        "passages[38] (C3-p-0039): duplicate English text",
+        "passages[38] (C3-p-0039): wordCount must match 60–90 words",
+        "passages[38] (C3-p-0039): TF answer must be true/false",
+        "passages[39] (C3-p-0040): duplicate English text",
+        "passages[39] (C3-p-0040): wordCount must match 60–90 words",
+        "passages[39] (C3-p-0040): TF answer must be true/false"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C3.rewrites.json": {
+      "sha256": "f5ca114fcbba980cfb7ae3d1cd451cdc8ad467eb41c5980209fbd1a5ec7faffa",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.theory.json": {
+      "sha256": "06fb4305d0b40757a9bc1e0b0528a8140e53300992d75a8e2e59dbf683bdc6a6",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].sections[0].id: unknown field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].id: unknown field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C3.vocab.json": {
+      "sha256": "da7de3d6909492d8128347bf44d1b1c7fdf558d3388b2cce9e7aed80dbddc94b",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "K.phrases.json": {
+      "sha256": "9609491937a5a414178a2790ebb2b84db2754edfd02b4e3759584ab4a8d9ac40",
+      "count": 55,
+      "errors": [
+        "phrases[0].topic: unknown field",
+        "phrases[1].topic: unknown field",
+        "phrases[2].topic: unknown field",
+        "phrases[3].topic: unknown field",
+        "phrases[4].topic: unknown field",
+        "phrases[5].topic: unknown field",
+        "phrases[6].topic: unknown field",
+        "phrases[7].topic: unknown field",
+        "phrases[8].topic: unknown field",
+        "phrases[9].topic: unknown field",
+        "phrases[10].topic: unknown field",
+        "phrases[11].topic: unknown field",
+        "phrases[12].topic: unknown field",
+        "phrases[13].topic: unknown field",
+        "phrases[14].topic: unknown field",
+        "phrases[15].topic: unknown field",
+        "phrases[16].topic: unknown field",
+        "phrases[17].topic: unknown field",
+        "phrases[18].topic: unknown field",
+        "phrases[19].topic: unknown field",
+        "phrases[20].topic: unknown field",
+        "phrases[21].topic: unknown field",
+        "phrases[22].topic: unknown field",
+        "phrases[23].topic: unknown field",
+        "phrases[24].topic: unknown field",
+        "phrases[25].topic: unknown field",
+        "phrases[26].topic: unknown field",
+        "phrases[27].topic: unknown field",
+        "phrases[28].topic: unknown field",
+        "phrases[29].topic: unknown field",
+        "phrases[30].topic: unknown field",
+        "phrases[31].topic: unknown field",
+        "phrases[32].topic: unknown field",
+        "phrases[33].topic: unknown field",
+        "phrases[34].topic: unknown field",
+        "phrases[35].topic: unknown field",
+        "phrases[36].topic: unknown field",
+        "phrases[37].topic: unknown field",
+        "phrases[38].topic: unknown field",
+        "phrases[39].topic: unknown field",
+        "phrases[40].topic: unknown field",
+        "phrases[41].topic: unknown field",
+        "phrases[42].topic: unknown field",
+        "phrases[43].topic: unknown field",
+        "phrases[44].topic: unknown field",
+        "phrases[45].topic: unknown field",
+        "phrases[46].topic: unknown field",
+        "phrases[47].topic: unknown field",
+        "phrases[48].topic: unknown field",
+        "phrases[49].topic: unknown field",
+        "phrases[50].topic: unknown field",
+        "phrases[51].topic: unknown field",
+        "phrases[52].topic: unknown field",
+        "phrases[53].topic: unknown field",
+        "phrases[54].topic: unknown field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "K.vocab.json": {
+      "sha256": "9b3ed498bdef453f1633e8fad1174804a20457d7eded8f8b83ef828ca79053c6",
+      "count": 126,
+      "errors": [],
+      "unchangedDuringAudit": true
+    }
+  },
+  "coverage": {
+    "A1": {
+      "sentences": 200,
+      "vocab": 118,
+      "difficulty": [
+        75,
+        80,
+        45
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "A2": {
+      "sentences": 200,
+      "vocab": 105,
+      "difficulty": [
+        85,
+        70,
+        45
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "A3": {
+      "sentences": 200,
+      "vocab": 105,
+      "difficulty": [
+        81,
+        80,
+        39
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "B1": {
+      "sentences": 200,
+      "vocab": 111,
+      "difficulty": [
+        74,
+        83,
+        43
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "B2": {
+      "sentences": 200,
+      "vocab": 106,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "B3": {
+      "sentences": 200,
+      "vocab": 106,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    },
+    "B4": {
+      "sentences": 200,
+      "vocab": 105,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "duplicateSentenceIds": 0,
+      "duplicateVocabIds": 0,
+      "duplicateSentences": 0
+    }
+  },
+  "reproductions": [
+    {
+      "id": "A1-s-0031",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        0,
+        1,
+        4,
+        2,
+        3,
+        5
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "A1-s-0038",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "A2-s-0016",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        4,
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        7
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "A3-s-0171",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        0,
+        2,
+        3,
+        1,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B1-s-0189",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B1-s-0023",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        4,
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        7
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B2-s-0176",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        3,
+        0,
+        1,
+        2,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B3-s-0001",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        3,
+        0,
+        1,
+        2,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B4-s-0002",
+      "kind": "order",
+      "enabled": true,
+      "answer": [
+        5,
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B2-s-0001",
+      "kind": "roles",
+      "enabled": true,
+      "answer": [
+        3,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B2-s-0151",
+      "kind": "roles",
+      "enabled": true,
+      "answer": [
+        3,
+        4,
+        5
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B4-s-0116",
+      "kind": "roles",
+      "enabled": true,
+      "answer": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B4-s-0153",
+      "kind": "roles",
+      "enabled": true,
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "accepted": true,
+      "wrongRejected": true
+    },
+    {
+      "id": "B2-s-0071",
+      "kind": "fill",
+      "enabled": true,
+      "answer": "is not",
+      "accepted": true,
+      "wrongRejected": true
+    }
+  ],
+  "regeneration": {
+    "A1.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A1.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A2.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A2.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A2.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A3.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A3.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "A3.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B1.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B1.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B1.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B2.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B2.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B2.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B3.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B3.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B3.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B4.vocab.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B4.sentences.json": {
+      "matchesLive": true,
+      "differences": []
+    },
+    "B4.theory.json": {
+      "matchesLive": true,
+      "differences": []
+    }
+  },
+  "staticTheory": "A1.theory.json is hand-authored and validated; the A1 generator emits no theory.",
+  "sourceStable": true
+}

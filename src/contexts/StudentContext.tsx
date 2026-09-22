@@ -35,6 +35,8 @@ import { updateStats, checkAchievements, initializeStats } from '../../services/
 import { purchaseGachaSpin } from '../../services/shopService';
 import { Grade } from '../../types';
 import { AchievementModal } from '../components/achievements/AchievementModal';
+import { completeEnglish as persistEnglish, type CompletionResult } from '../english/completion';
+import { clearEnglishData } from '../english/storage';
 
 interface StudentContextType {
     students: StudentProfile[];
@@ -43,6 +45,7 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    completeEnglish: (owner: string, sessionId: string) => Promise<CompletionResult>;
     completeCaro: (owner: string, match: import('../../games/Caro/model').Match) => { ok: boolean };
     completeSudoku: (owner: string, draft: SudokuDraft) => { ok: boolean; earned: number; image: AlbumImage | null; isNew: boolean };
     savePiano: (owner: string, action: PianoAction) => { ok: boolean };
@@ -102,6 +105,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     // Load from localStorage on mount
     useEffect(() => {
         const loaded = getAllProfiles();
+        // Loading a tab must not re-save a stale snapshot over another tab's completion.
+        persistedRef.current = loaded;
         setStudents(loaded);
         if (loaded.length > 0) {
             // Auto-select first student or logic to remember last user
@@ -118,6 +123,22 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [students]);
 
     const currentStudent = students.find(s => s.id === currentStudentId) || null;
+
+    // Keep English completion and other tabs' profile snapshots in sync without re-saving stale state.
+    useEffect(() => {
+        const sync = (event: StorageEvent) => {
+            if (event.key !== 'math_profiles') return;
+            const loaded = getAllProfiles(); persistedRef.current = loaded; setStudents(loaded);
+        };
+        window.addEventListener('storage', sync);
+        return () => window.removeEventListener('storage', sync);
+    }, [setStudents]);
+
+    const completeEnglish = useCallback((owner: string, sessionId: string) => persistEnglish(owner, sessionId, {
+        readProfiles: getAllProfiles, writeProfiles: saveProfiles,
+        isOwner: () => countingOwnerRef.current === owner,
+        onSaved: profiles => { persistedRef.current = profiles; setStudents(profiles); },
+    }), [setStudents]);
 
     const completeCaro = useCallback((owner: string, match: import('../../games/Caro/model').Match) => {
         if (owner !== currentStudentId) return { ok: false };
@@ -265,10 +286,12 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [currentStudentId, setStudents]);
 
     const setStudent = useCallback((student: StudentProfile | null) => {
+        countingOwnerRef.current = student ? student.id : null;
         setCurrentStudentId(student ? student.id : null);
     }, []);
 
     const selectStudent = useCallback((id: string) => {
+        countingOwnerRef.current = id;
         setCurrentStudentId(id);
     }, []);
 
@@ -290,6 +313,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [setStudents]);
 
     const deleteStudent = useCallback((id: string) => {
+        void clearEnglishData(id).catch(error => console.warn('English data cleanup failed', error));
+        if (countingOwnerRef.current === id) countingOwnerRef.current = null;
         clearSoundProfileData(id);
         clearRacingData(id);
         clearWorkshopData(id);
@@ -616,6 +641,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     };
 
     const actions: StudentActionsType = {
+        completeEnglish,
         completeCaro,
         completeSudoku,
         savePiano,

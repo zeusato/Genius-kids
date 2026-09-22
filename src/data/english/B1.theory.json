@@ -1,0 +1,242 @@
+{
+  "id": "B1",
+  "title": "Thì Hiện tại đơn (Present Simple Tense)",
+  "level": "B1",
+  "summary": "Học cách sử dụng thì Hiện tại đơn để nói về thói quen, sự thật hiển nhiên; cách chia động từ theo các ngôi; cách dùng trợ động từ do/does trong câu phủ định, nghi vấn và các trạng từ tần suất.",
+  "formulas": [
+    {
+      "label": "Khẳng định với I / You / We / They / Số nhiều",
+      "pattern": "S + V (nguyên mẫu)",
+      "example": "I like apples. / They play soccer."
+    },
+    {
+      "label": "Khẳng định với He / She / It / Số ít",
+      "pattern": "S + V-s / -es / -ies / has",
+      "example": "She plays tennis. / He watches TV. / Nam studies English."
+    },
+    {
+      "label": "Phủ định",
+      "pattern": "S + don't / doesn't + V (nguyên mẫu)",
+      "example": "They don't like fish. / He doesn't drink coffee."
+    },
+    {
+      "label": "Nghi vấn Yes/No",
+      "pattern": "Do / Does + S + V (nguyên mẫu)? → Yes, S + do/does. | No, S + don't/doesn't.",
+      "example": "Do you play badminton? → Yes, I do. / Does she speak English? → No, she doesn't."
+    },
+    {
+      "label": "Trạng từ tần suất",
+      "pattern": "S + [always / usually / often / sometimes / never] + V",
+      "example": "He always gets up early. / She never drinks coffee."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Khẳng định: Quy tắc thêm -s / -es / -ies vào động từ",
+      "body": "Ở thì Hiện tại đơn, khi chủ ngữ là ngôi thứ ba số ít (he, she, it hoặc danh từ số ít như Nam, the cat, my brother), động từ phải chia thêm đuôi:\n- Thêm '-s' vào hầu hết các động từ thông thường: play → plays, read → reads, eat → eats.\n- Thêm '-es' vào động từ tận cùng bằng ch, sh, s, x, z, o: watch → watches, wash → washes, brush → brushes, teach → teaches, go → goes, do → does.\n- Động từ kết thúc bằng phụ âm + y: đổi y thành '-ies': study → studies, fly → flies.\n- Động từ bất quy tắc đặc biệt: have đổi thành has.",
+      "table": {
+        "columns": [
+          "Đuôi động từ",
+          "Quy tắc chia",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Thông thường",
+            "Thêm -s",
+            "plays, reads, eats, drinks, runs, cleans, cooks"
+          ],
+          [
+            "Tận cùng ch, sh, s, x, z, o",
+            "Thêm -es",
+            "watches, washes, brushes, teaches, goes, does"
+          ],
+          [
+            "Phụ âm + y",
+            "Đổi y thành -ies",
+            "study → studies, fly → flies"
+          ],
+          [
+            "Động từ have",
+            "has",
+            "have → has"
+          ]
+        ]
+      },
+      "exampleIds": [
+        "B1-s-0001",
+        "B1-s-0011",
+        "B1-s-0012",
+        "B1-s-0018",
+        "B1-s-0020"
+      ]
+    },
+    {
+      "heading": "2. Khẳng định với I, You, We, They và Danh từ số nhiều",
+      "body": "Khi chủ ngữ là I, You, We, They hoặc danh từ số nhiều (the students, my parents, cats), động từ giữ NGUYÊN MẪU (không thêm -s hay -es).",
+      "table": {
+        "columns": [
+          "Chủ ngữ",
+          "Dạng động từ",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "I / You / We / They",
+            "V nguyên mẫu",
+            "I like apples. / We play soccer. / They live in Hanoi."
+          ],
+          [
+            "Danh từ số nhiều",
+            "V nguyên mẫu",
+            "The students learn English. / My parents cook dinner."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "B1-s-0052",
+        "B1-s-0053",
+        "B1-s-0054",
+        "B1-s-0056"
+      ]
+    },
+    {
+      "heading": "3. Phủ định: Don't và Doesn't",
+      "body": "Để tạo câu phủ định, ta thêm trợ động từ do/does cùng với not (don't hoặc doesn't) đứng trước động từ chính:\n- Chủ ngữ I, You, We, They, danh từ số nhiều → dùng 'don't' (do not).\n- Chủ ngữ He, She, It, danh từ số ít → dùng 'doesn't' (does not).\nLưu ý quan trọng: Sau don't và doesn't, động từ chính luôn trở về NGUYÊN MẪU (bỏ đuôi -s/-es)!",
+      "table": {
+        "columns": [
+          "Chủ ngữ",
+          "Trợ động từ phủ định",
+          "Động từ chính",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "I / You / We / They",
+            "don't",
+            "V nguyên mẫu",
+            "They don't like fish. / I don't drink coffee."
+          ],
+          [
+            "He / She / It",
+            "doesn't",
+            "V nguyên mẫu (bỏ s)",
+            "He doesn't like spiders. / She doesn't eat meat."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "B1-s-0092",
+        "B1-s-0093",
+        "B1-s-0112",
+        "B1-s-0113"
+      ]
+    },
+    {
+      "heading": "4. Nghi vấn Yes/No với Do và Does",
+      "body": "Câu hỏi với động từ thường ở hiện tại đơn dùng Do/Does + chủ ngữ + động từ nguyên thể. Trả lời ngắn phải khớp người được hỏi: Do you like apples? → Yes, I do. / No, I don’t. Does he play soccer? → Yes, he does. / No, he doesn’t. Khi hỏi một nhóm bằng you, có thể trả lời bằng we tùy ngữ cảnh.",
+      "table": {
+        "columns": [
+          "Cấu trúc hỏi",
+          "Trả lời Yes",
+          "Trả lời No",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Do + you/they/we + V?",
+            "Yes, S + do.",
+            "No, S + don't.",
+            "Do you like apples? → Yes, I do."
+          ],
+          [
+            "Does + he/she/it + V?",
+            "Yes, S + does.",
+            "No, S + doesn't.",
+            "Does he play soccer? → No, he doesn't."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "B1-s-0131",
+        "B1-s-0132",
+        "B1-s-0133",
+        "B1-s-0151",
+        "B1-s-0152",
+        "B1-s-0153"
+      ]
+    },
+    {
+      "heading": "5. Trạng từ chỉ tần suất (Adverbs of Frequency)",
+      "body": "Trạng từ chỉ tần suất diễn tả mức độ thường xuyên của hành động:\n- always (100% - luôn luôn)\n- usually (~80% - thường xuyên)\n- often (~60% - thường)\n- sometimes (~40% - thỉnh thoảng)\n- never (0% - không bao giờ)\nVị trí: Đứng TRƯỚC động từ thường (He always gets up early) nhưng đứng SAU động từ To Be (He is always happy).",
+      "table": {
+        "columns": [
+          "Trạng từ",
+          "Mức độ",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "always",
+            "100% (luôn luôn)",
+            "He always gets up early."
+          ],
+          [
+            "usually",
+            "~80% (thường xuyên)",
+            "She usually walks to school."
+          ],
+          [
+            "often",
+            "~60% (thường)",
+            "They often play badminton in the park."
+          ],
+          [
+            "sometimes",
+            "~40% (thỉnh thoảng)",
+            "I sometimes read comics."
+          ],
+          [
+            "never",
+            "0% (không bao giờ)",
+            "She never drinks coffee."
+          ]
+        ]
+      },
+      "exampleIds": [
+        "B1-s-0172",
+        "B1-s-0178",
+        "B1-s-0184",
+        "B1-s-0190",
+        "B1-s-0196"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "He play soccer on Monday.",
+      "right": "He plays soccer on Monday.",
+      "why": "Chủ ngữ ngôi thứ ba số ít (he) ở câu khẳng định hiện tại đơn bắt buộc động từ phải thêm -s (plays)."
+    },
+    {
+      "wrong": "She doesn't likes apples.",
+      "right": "She doesn't like apples.",
+      "why": "Sau trợ động từ doesn't, động từ chính like bắt buộc trở về dạng nguyên mẫu (bỏ đuôi s)."
+    },
+    {
+      "wrong": "Does he plays tennis?",
+      "right": "Does he play tennis?",
+      "why": "Trong câu hỏi có trợ động từ Does, động từ chính play phải ở dạng nguyên mẫu."
+    },
+    {
+      "wrong": "He gets up always early.",
+      "right": "He always gets up early.",
+      "why": "Trạng từ chỉ tần suất (always) đứng trước động từ thường (gets up)."
+    }
+  ],
+  "tips": [
+    "Quy tắc -s/-es: Cứ thấy he, she, it hoặc danh từ số ít làm chủ ngữ khẳng định thì động từ phải \"thêm đuôi s/es\" nhé!",
+    "Quy tắc trợ động từ: Một khi đã có Do / Does / Don't / Doesn't \"gánh vác\" thì động từ chính phía sau được \"nghỉ ngơi\" ở dạng nguyên mẫu!",
+    "Vị trí trạng từ tần suất: Đứng TRƯỚC động từ thường (always play) nhưng đứng SAU To Be (is always)."
+  ]
+}

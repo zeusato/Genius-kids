@@ -1,0 +1,209 @@
+{
+  "id": "A2",
+  "title": "Danh từ (Số ít & Số nhiều) và Mạo từ (A, An, The)",
+  "level": "A2",
+  "summary": "Học cách phân biệt danh từ số ít và số nhiều, các quy tắc thêm -s/-es/-ies hoặc bất quy tắc, cách dùng mạo từ a/an/the và cấu trúc There is / There are.",
+  "formulas": [
+    {
+      "label": "Mạo từ A / An",
+      "pattern": "a / an + cụm danh từ đếm được số ít; chọn theo âm đầu của từ ngay sau mạo từ",
+      "example": "an honest boy / a university teacher / a red apple"
+    },
+    {
+      "label": "Cấu trúc There is / There are",
+      "pattern": "There is + Danh từ số ít / There are + Danh từ số nhiều",
+      "example": "There is an apple. / There are three cats."
+    },
+    {
+      "label": "Phủ định & Nghi vấn với There",
+      "pattern": "There isn't a... / There aren't any... | Is there a...? / Are there any...?",
+      "example": "There aren't any pens on the desk. / Is there a cat under the table?"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Mạo từ không xác định: A và An",
+      "body": "A và an dùng với cụm danh từ đếm được số ít khi nói về một người/vật chưa xác định. Chọn theo âm đầu của từ ngay sau mạo từ: a trước âm phụ âm, an trước âm nguyên âm. Không chỉ nhìn chữ cái đầu hoặc danh từ ở cuối cụm.\nVí dụ: an honest boy (h không phát âm), a university teacher (âm đầu /j/), a red apple (từ ngay sau mạo từ là red). Các chữ a, e, i, o, u không tương ứng một-một với các âm nguyên âm.",
+      "table": {
+        "columns": [
+          "Mạo từ",
+          "Âm đầu của từ ngay sau",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "a",
+            "Âm phụ âm",
+            "a cat, a university teacher, a red apple"
+          ],
+          [
+            "an",
+            "Âm nguyên âm",
+            "an apple, an honest boy, an old church"
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A2-s-0019",
+        "A2-s-0025",
+        "A2-s-0027"
+      ]
+    },
+    {
+      "heading": "2. Quy tắc chuyển Danh từ sang số nhiều (-s, -es, -ies)",
+      "body": "Danh từ đếm được có dạng số nhiều khi nói về nhiều hơn một người/vật. Hầu hết thêm -s: book → books. Nhiều từ tận cùng bằng ch, sh, s, x, z thêm -es: watch → watches, box → boxes. Phụ âm + y thường đổi y thành -ies: baby → babies; nguyên âm + y thêm -s: toy → toys.\nVới đuôi -o, phải học theo từng từ: tomato → tomatoes, potato → potatoes, nhưng piano → pianos, photo → photos. Không áp dụng “phụ âm + o luôn thêm -es”.",
+      "table": {
+        "columns": [
+          "Đuôi danh từ",
+          "Cách biến đổi",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Thông thường",
+            "Thêm -s",
+            "book → books, cat → cats"
+          ],
+          [
+            "ch, sh, s, x, z (các từ đang học)",
+            "Thường thêm -es",
+            "watch → watches, dish → dishes, bus → buses"
+          ],
+          [
+            "Phụ âm + y",
+            "Đổi y thành -ies",
+            "baby → babies, candy → candies"
+          ],
+          [
+            "Nguyên âm + y",
+            "Thêm -s",
+            "toy → toys, boy → boys"
+          ],
+          [
+            "o",
+            "Học dạng số nhiều của từng từ",
+            "tomato → tomatoes; piano → pianos; photo → photos"
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A2-s-0036",
+        "A2-s-0037",
+        "A2-s-0076",
+        "A2-s-0086"
+      ]
+    },
+    {
+      "heading": "3. Các danh từ số nhiều bất quy tắc cần ghi nhớ",
+      "body": "Một số danh từ không thêm -s hay -es mà biến đổi thành từ hoàn toàn mới, hoặc giữ nguyên dạng:",
+      "table": {
+        "columns": [
+          "Số ít (Singular)",
+          "Số nhiều (Plural)",
+          "Nghĩa tiếng Việt"
+        ],
+        "rows": [
+          [
+            "child",
+            "children",
+            "đứa trẻ → những đứa trẻ"
+          ],
+          [
+            "man",
+            "men",
+            "người đàn ông → những người đàn ông"
+          ],
+          [
+            "woman",
+            "women",
+            "người phụ nữ → những người phụ nữ"
+          ],
+          [
+            "person",
+            "people",
+            "người → mọi người"
+          ],
+          [
+            "foot",
+            "feet",
+            "bàn chân → đôi bàn chân"
+          ],
+          [
+            "tooth",
+            "teeth",
+            "chiếc răng → hàm răng"
+          ],
+          [
+            "mouse",
+            "mice",
+            "con chuột → những con chuột"
+          ],
+          [
+            "sheep",
+            "sheep",
+            "con cừu → đàn cừu (giữ nguyên)"
+          ],
+          [
+            "fish",
+            "fish",
+            "con cá → những con cá (giữ nguyên)"
+          ]
+        ]
+      },
+      "exampleIds": [
+        "A2-s-0111",
+        "A2-s-0112",
+        "A2-s-0113",
+        "A2-s-0114",
+        "A2-s-0118",
+        "A2-s-0119"
+      ]
+    },
+    {
+      "heading": "4. Cấu trúc There is và There are",
+      "body": "Cấu trúc 'There is / There are' dùng để diễn tả sự tồn tại ('Có cái gì ở đâu'):\n- 'There is' đi với danh từ số ít hoặc danh từ không đếm được.\n- 'There are' đi với danh từ số nhiều.\n- Phủ định: There isn't a... / There aren't any...\n- Câu hỏi đảo: Is there a...? / Are there any...?",
+      "exampleIds": [
+        "A2-s-0141",
+        "A2-s-0142",
+        "A2-s-0145",
+        "A2-s-0146"
+      ]
+    },
+    {
+      "heading": "5. Mạo từ xác định: The",
+      "body": "'The' được dùng khi cả người nói và người nghe đều biết rõ về người hoặc vật đó, hoặc dùng cho những vật thể duy nhất trong vũ trụ (The sun, The moon, The sky).",
+      "exampleIds": [
+        "A2-s-0181",
+        "A2-s-0182",
+        "A2-s-0183"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "There is three cats.",
+      "right": "There are three cats.",
+      "why": "Three cats là danh từ số nhiều, bắt buộc phải dùng 'There are'."
+    },
+    {
+      "wrong": "It is a apple.",
+      "right": "It is an apple.",
+      "why": "Apple phát âm bắt đầu bằng nguyên âm /æ/, bắt buộc dùng 'an'."
+    },
+    {
+      "wrong": "The childs are playing.",
+      "right": "The children are playing.",
+      "why": "Child là danh từ bất quy tắc, số nhiều là 'children', không thêm -s."
+    },
+    {
+      "wrong": "I have two tooths.",
+      "right": "I have two teeth.",
+      "why": "Tooth số nhiều đổi thành 'teeth'."
+    }
+  ],
+  "tips": [
+    "Đọc âm đầu của từ ngay sau a/an; an honest boy nhưng a university teacher và a red apple.",
+    "Số nhiều không chỉ phụ thuộc chữ cuối: học tomato → tomatoes cùng piano → pianos và photo → photos.",
+    "There is đi với danh từ số ít hoặc không đếm được; There are đi với danh từ số nhiều."
+  ]
+}

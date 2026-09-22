@@ -1,0 +1,2527 @@
+{
+  "A1-s-0031": {
+    "words": [
+      "The",
+      "weather",
+      "is",
+      "warm",
+      "today",
+      "."
+    ],
+    "alternatives": [
+      "Today the weather is warm.",
+      "The weather today is warm."
+    ]
+  },
+  "A1-s-0038": {
+    "words": [
+      "The",
+      "cute",
+      "little",
+      "puppy",
+      "is",
+      "very",
+      "playful",
+      "."
+    ],
+    "alternatives": [
+      "The little cute puppy is very playful."
+    ]
+  },
+  "A1-s-0074": {
+    "words": [
+      "Her",
+      "kind",
+      "grandmother",
+      "isn't",
+      "at",
+      "home",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Right now her kind grandmother isn't at home."
+    ]
+  },
+  "A1-s-0104": {
+    "words": [
+      "Is",
+      "it",
+      "sunny",
+      "today",
+      "?"
+    ],
+    "alternatives": [
+      "Today is it sunny?"
+    ]
+  },
+  "A1-s-0105": {
+    "words": [
+      "Are",
+      "they",
+      "tired",
+      "now",
+      "?"
+    ],
+    "alternatives": [
+      "Now are they tired?"
+    ]
+  },
+  "A1-s-0109": {
+    "words": [
+      "Are",
+      "you",
+      "fine",
+      "today",
+      "?"
+    ],
+    "alternatives": [
+      "Today are you fine?"
+    ]
+  },
+  "A1-s-0118": {
+    "words": [
+      "Is",
+      "Nam",
+      "at",
+      "school",
+      "now",
+      "?"
+    ],
+    "alternatives": [
+      "Now is Nam at school?"
+    ]
+  },
+  "A1-s-0130": {
+    "words": [
+      "Are",
+      "those",
+      "busy",
+      "firefighters",
+      "ready",
+      "now",
+      "?"
+    ],
+    "alternatives": [
+      "Now are those busy firefighters ready?"
+    ]
+  },
+  "A1-s-0189": {
+    "words": [
+      "Those",
+      "five",
+      "noisy",
+      "dogs",
+      "aren't",
+      "outside",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Right now those five noisy dogs aren't outside."
+    ]
+  },
+  "A2-s-0016": {
+    "words": [
+      "There",
+      "is",
+      "an",
+      "island",
+      "in",
+      "the",
+      "lake",
+      "."
+    ],
+    "alternatives": [
+      "In the lake there is an island."
+    ]
+  },
+  "A2-s-0017": {
+    "words": [
+      "There",
+      "is",
+      "an",
+      "airplane",
+      "in",
+      "the",
+      "sky",
+      "."
+    ],
+    "alternatives": [
+      "In the sky there is an airplane."
+    ]
+  },
+  "A2-s-0021": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "big",
+      "clock",
+      "on",
+      "the",
+      "wall",
+      "."
+    ],
+    "alternatives": [
+      "On the wall there is a big clock."
+    ]
+  },
+  "A2-s-0023": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "white",
+      "boat",
+      "on",
+      "the",
+      "river",
+      "."
+    ],
+    "alternatives": [
+      "On the river there is a white boat."
+    ]
+  },
+  "A2-s-0108": {
+    "words": [
+      "There",
+      "are",
+      "two",
+      "old",
+      "churches",
+      "in",
+      "this",
+      "small",
+      "town",
+      "."
+    ],
+    "alternatives": [
+      "In this small town there are two old churches."
+    ]
+  },
+  "A2-s-0156": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "cat",
+      "on",
+      "the",
+      "chair",
+      "."
+    ],
+    "alternatives": [
+      "On the chair there is a cat."
+    ]
+  },
+  "A2-s-0157": {
+    "words": [
+      "There",
+      "are",
+      "some",
+      "apples",
+      "in",
+      "the",
+      "basket",
+      "."
+    ],
+    "alternatives": [
+      "In the basket there are some apples."
+    ]
+  },
+  "A2-s-0158": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "big",
+      "clock",
+      "on",
+      "the",
+      "desk",
+      "."
+    ],
+    "alternatives": [
+      "On the desk there is a big clock."
+    ]
+  },
+  "A2-s-0159": {
+    "words": [
+      "There",
+      "are",
+      "two",
+      "rulers",
+      "in",
+      "my",
+      "bag",
+      "."
+    ],
+    "alternatives": [
+      "In my bag there are two rulers."
+    ]
+  },
+  "A2-s-0164": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "small",
+      "bird",
+      "in",
+      "the",
+      "tree",
+      "."
+    ],
+    "alternatives": [
+      "In the tree there is a small bird."
+    ]
+  },
+  "A2-s-0165": {
+    "words": [
+      "There",
+      "are",
+      "some",
+      "eggs",
+      "on",
+      "the",
+      "table",
+      "."
+    ],
+    "alternatives": [
+      "On the table there are some eggs."
+    ]
+  },
+  "A2-s-0168": {
+    "words": [
+      "There",
+      "are",
+      "three",
+      "ducks",
+      "on",
+      "the",
+      "pond",
+      "."
+    ],
+    "alternatives": [
+      "On the pond there are three ducks."
+    ]
+  },
+  "A2-s-0169": {
+    "words": [
+      "There",
+      "is",
+      "a",
+      "picture",
+      "on",
+      "the",
+      "wall",
+      "."
+    ],
+    "alternatives": [
+      "On the wall there is a picture."
+    ]
+  },
+  "A2-s-0198": {
+    "words": [
+      "Are",
+      "the",
+      "red",
+      "apples",
+      "on",
+      "that",
+      "tree",
+      "ripe",
+      "now",
+      "?"
+    ],
+    "alternatives": [
+      "Now are the red apples on that tree ripe?"
+    ]
+  },
+  "A3-s-0171": {
+    "words": [
+      "Whose",
+      "book",
+      "is",
+      "this",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is this book?"
+    ]
+  },
+  "A3-s-0173": {
+    "words": [
+      "Whose",
+      "pen",
+      "is",
+      "that",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is that pen?"
+    ]
+  },
+  "A3-s-0175": {
+    "words": [
+      "Whose",
+      "bag",
+      "is",
+      "this",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is this bag?"
+    ]
+  },
+  "A3-s-0177": {
+    "words": [
+      "Whose",
+      "ruler",
+      "is",
+      "that",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is that ruler?"
+    ]
+  },
+  "A3-s-0179": {
+    "words": [
+      "Whose",
+      "ball",
+      "is",
+      "this",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is this ball?"
+    ]
+  },
+  "A3-s-0181": {
+    "words": [
+      "Whose",
+      "shoes",
+      "are",
+      "these",
+      "?"
+    ],
+    "alternatives": [
+      "Whose are these shoes?"
+    ]
+  },
+  "A3-s-0183": {
+    "words": [
+      "Whose",
+      "pens",
+      "are",
+      "those",
+      "?"
+    ],
+    "alternatives": [
+      "Whose are those pens?"
+    ]
+  },
+  "A3-s-0185": {
+    "words": [
+      "Whose",
+      "hats",
+      "are",
+      "these",
+      "?"
+    ],
+    "alternatives": [
+      "Whose are these hats?"
+    ]
+  },
+  "A3-s-0187": {
+    "words": [
+      "Whose",
+      "puppy",
+      "is",
+      "this",
+      "?"
+    ],
+    "alternatives": [
+      "Whose is this puppy?"
+    ]
+  },
+  "A3-s-0189": {
+    "words": [
+      "Whose",
+      "toys",
+      "are",
+      "those",
+      "?"
+    ],
+    "alternatives": [
+      "Whose are those toys?"
+    ]
+  },
+  "B1-s-0022": {
+    "words": [
+      "He",
+      "plays",
+      "soccer",
+      "on",
+      "Monday",
+      "."
+    ],
+    "alternatives": [
+      "On Monday he plays soccer."
+    ]
+  },
+  "B1-s-0023": {
+    "words": [
+      "She",
+      "drinks",
+      "warm",
+      "milk",
+      "in",
+      "the",
+      "morning",
+      "."
+    ],
+    "alternatives": [
+      "In the morning she drinks warm milk."
+    ]
+  },
+  "B1-s-0025": {
+    "words": [
+      "Nam",
+      "studies",
+      "English",
+      "every",
+      "day",
+      "."
+    ],
+    "alternatives": [
+      "Every day Nam studies English."
+    ]
+  },
+  "B1-s-0028": {
+    "words": [
+      "Tom",
+      "washes",
+      "his",
+      "bicycle",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday Tom washes his bicycle."
+    ]
+  },
+  "B1-s-0030": {
+    "words": [
+      "He",
+      "swims",
+      "in",
+      "the",
+      "pool",
+      "on",
+      "Saturday",
+      "."
+    ],
+    "alternatives": [
+      "On Saturday he swims in the pool."
+    ]
+  },
+  "B1-s-0062": {
+    "words": [
+      "I",
+      "walk",
+      "to",
+      "school",
+      "every",
+      "day",
+      "."
+    ],
+    "alternatives": [
+      "Every day I walk to school."
+    ]
+  },
+  "B1-s-0066": {
+    "words": [
+      "My",
+      "friends",
+      "play",
+      "badminton",
+      "on",
+      "Saturday",
+      "."
+    ],
+    "alternatives": [
+      "On Saturday my friends play badminton."
+    ]
+  },
+  "B1-s-0067": {
+    "words": [
+      "We",
+      "clean",
+      "our",
+      "classroom",
+      "on",
+      "Friday",
+      "."
+    ],
+    "alternatives": [
+      "On Friday we clean our classroom."
+    ]
+  },
+  "B1-s-0075": {
+    "words": [
+      "I",
+      "buy",
+      "fresh",
+      "bread",
+      "every",
+      "morning",
+      "."
+    ],
+    "alternatives": [
+      "Every morning I buy fresh bread."
+    ]
+  },
+  "B1-s-0093": {
+    "words": [
+      "We",
+      "don't",
+      "watch",
+      "TV",
+      "in",
+      "the",
+      "morning",
+      "."
+    ],
+    "alternatives": [
+      "In the morning we don't watch TV."
+    ]
+  },
+  "B1-s-0098": {
+    "words": [
+      "We",
+      "don't",
+      "have",
+      "English",
+      "on",
+      "Wednesday",
+      "."
+    ],
+    "alternatives": [
+      "On Wednesday we don't have English."
+    ]
+  },
+  "B1-s-0106": {
+    "words": [
+      "We",
+      "don't",
+      "play",
+      "games",
+      "on",
+      "Monday",
+      "."
+    ],
+    "alternatives": [
+      "On Monday we don't play games."
+    ]
+  },
+  "B1-s-0113": {
+    "words": [
+      "Nam",
+      "doesn't",
+      "play",
+      "tennis",
+      "on",
+      "Monday",
+      "."
+    ],
+    "alternatives": [
+      "On Monday Nam doesn't play tennis."
+    ]
+  },
+  "B1-s-0118": {
+    "words": [
+      "Lan",
+      "doesn't",
+      "study",
+      "science",
+      "on",
+      "Tuesday",
+      "."
+    ],
+    "alternatives": [
+      "On Tuesday Lan doesn't study science."
+    ]
+  },
+  "B1-s-0121": {
+    "words": [
+      "His",
+      "father",
+      "doesn't",
+      "work",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday his father doesn't work."
+    ]
+  },
+  "B1-s-0124": {
+    "words": [
+      "The",
+      "bird",
+      "doesn't",
+      "fly",
+      "at",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "At night the bird doesn't fly."
+    ]
+  },
+  "B1-s-0138": {
+    "words": [
+      "Do",
+      "we",
+      "have",
+      "English",
+      "today",
+      "?"
+    ],
+    "alternatives": [
+      "Today do we have English?"
+    ]
+  },
+  "B1-s-0141": {
+    "words": [
+      "Do",
+      "you",
+      "drink",
+      "milk",
+      "every",
+      "morning",
+      "?"
+    ],
+    "alternatives": [
+      "Every morning do you drink milk?"
+    ]
+  },
+  "B1-s-0145": {
+    "words": [
+      "Do",
+      "your",
+      "friends",
+      "play",
+      "soccer",
+      "on",
+      "Sunday",
+      "?"
+    ],
+    "alternatives": [
+      "On Sunday do your friends play soccer?"
+    ]
+  },
+  "B1-s-0149": {
+    "words": [
+      "Do",
+      "we",
+      "clean",
+      "the",
+      "room",
+      "on",
+      "Friday",
+      "?"
+    ],
+    "alternatives": [
+      "On Friday do we clean the room?"
+    ]
+  },
+  "B1-s-0150": {
+    "words": [
+      "Do",
+      "you",
+      "wake",
+      "up",
+      "early",
+      "on",
+      "Monday",
+      "?"
+    ],
+    "alternatives": [
+      "On Monday do you wake up early?"
+    ]
+  },
+  "B1-s-0160": {
+    "words": [
+      "Does",
+      "Lan",
+      "study",
+      "math",
+      "on",
+      "Monday",
+      "?"
+    ],
+    "alternatives": [
+      "On Monday does Lan study math?"
+    ]
+  },
+  "B1-s-0162": {
+    "words": [
+      "Does",
+      "your",
+      "mother",
+      "cook",
+      "dinner",
+      "every",
+      "day",
+      "?"
+    ],
+    "alternatives": [
+      "Every day does your mother cook dinner?"
+    ]
+  },
+  "B1-s-0163": {
+    "words": [
+      "Does",
+      "he",
+      "watch",
+      "TV",
+      "in",
+      "the",
+      "evening",
+      "?"
+    ],
+    "alternatives": [
+      "In the evening does he watch TV?"
+    ]
+  },
+  "B1-s-0165": {
+    "words": [
+      "Does",
+      "Mary",
+      "do",
+      "her",
+      "homework",
+      "in",
+      "the",
+      "afternoon",
+      "?"
+    ],
+    "alternatives": [
+      "In the afternoon does Mary do her homework?"
+    ]
+  },
+  "B1-s-0167": {
+    "words": [
+      "Does",
+      "he",
+      "play",
+      "badminton",
+      "with",
+      "his",
+      "father",
+      "on",
+      "Saturday",
+      "?"
+    ],
+    "alternatives": [
+      "On Saturday does he play badminton with his father?"
+    ]
+  },
+  "B1-s-0168": {
+    "words": [
+      "Does",
+      "the",
+      "bird",
+      "sing",
+      "in",
+      "the",
+      "tree",
+      "every",
+      "morning",
+      "?"
+    ],
+    "alternatives": [
+      "Every morning does the bird sing in the tree?"
+    ]
+  },
+  "B1-s-0169": {
+    "words": [
+      "Does",
+      "she",
+      "buy",
+      "fresh",
+      "fruit",
+      "at",
+      "the",
+      "market",
+      "on",
+      "Sunday",
+      "?"
+    ],
+    "alternatives": [
+      "On Sunday does she buy fresh fruit at the market?"
+    ]
+  },
+  "B1-s-0181": {
+    "words": [
+      "We",
+      "usually",
+      "visit",
+      "our",
+      "grandparents",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday we usually visit our grandparents."
+    ]
+  },
+  "B1-s-0182": {
+    "words": [
+      "Lan",
+      "usually",
+      "does",
+      "her",
+      "homework",
+      "in",
+      "the",
+      "afternoon",
+      "."
+    ],
+    "alternatives": [
+      "In the afternoon Lan usually does her homework."
+    ]
+  },
+  "B1-s-0186": {
+    "words": [
+      "She",
+      "often",
+      "watches",
+      "movies",
+      "on",
+      "Saturday",
+      "."
+    ],
+    "alternatives": [
+      "On Saturday she often watches movies."
+    ]
+  },
+  "B1-s-0188": {
+    "words": [
+      "Tom",
+      "often",
+      "rides",
+      "his",
+      "bicycle",
+      "in",
+      "the",
+      "afternoon",
+      "."
+    ],
+    "alternatives": [
+      "In the afternoon Tom often rides his bicycle."
+    ]
+  },
+  "B1-s-0189": {
+    "words": [
+      "I",
+      "sometimes",
+      "read",
+      "comics",
+      "."
+    ],
+    "alternatives": [
+      "Sometimes I read comics.",
+      "I read comics sometimes."
+    ]
+  },
+  "B1-s-0190": {
+    "words": [
+      "She",
+      "sometimes",
+      "eats",
+      "ice",
+      "cream",
+      "."
+    ],
+    "alternatives": [
+      "Sometimes she eats ice cream.",
+      "She eats ice cream sometimes."
+    ]
+  },
+  "B1-s-0191": {
+    "words": [
+      "He",
+      "sometimes",
+      "plays",
+      "chess",
+      "with",
+      "his",
+      "father",
+      "."
+    ],
+    "alternatives": [
+      "Sometimes he plays chess with his father.",
+      "He plays chess with his father sometimes."
+    ]
+  },
+  "B1-s-0192": {
+    "words": [
+      "They",
+      "sometimes",
+      "go",
+      "to",
+      "the",
+      "cinema",
+      "."
+    ],
+    "alternatives": [
+      "Sometimes they go to the cinema.",
+      "They go to the cinema sometimes."
+    ]
+  },
+  "B1-s-0193": {
+    "words": [
+      "We",
+      "sometimes",
+      "cook",
+      "dinner",
+      "together",
+      "."
+    ],
+    "alternatives": [
+      "Sometimes we cook dinner together.",
+      "We cook dinner together sometimes."
+    ]
+  },
+  "B1-s-0197": {
+    "words": [
+      "They",
+      "never",
+      "wake",
+      "up",
+      "late",
+      "on",
+      "Monday",
+      "."
+    ],
+    "alternatives": [
+      "On Monday they never wake up late."
+    ]
+  },
+  "B2-s-0123": {
+    "words": [
+      "Is",
+      "your",
+      "father",
+      "working",
+      "now",
+      "?"
+    ],
+    "alternatives": [
+      "Now is your father working?"
+    ]
+  },
+  "B2-s-0176": {
+    "words": [
+      "He",
+      "is",
+      "running",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now he is running."
+    ]
+  },
+  "B2-s-0177": {
+    "words": [
+      "She",
+      "is",
+      "swimming",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": []
+  },
+  "B2-s-0178": {
+    "words": [
+      "They",
+      "are",
+      "eating",
+      "lunch",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now they are eating lunch."
+    ]
+  },
+  "B2-s-0180": {
+    "words": [
+      "Nam",
+      "is",
+      "riding",
+      "his",
+      "bike",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now Nam is riding his bike."
+    ]
+  },
+  "B2-s-0181": {
+    "words": [
+      "We",
+      "are",
+      "learning",
+      "English",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": []
+  },
+  "B2-s-0183": {
+    "words": [
+      "She",
+      "is",
+      "writing",
+      "a",
+      "letter",
+      "today",
+      "."
+    ],
+    "alternatives": [
+      "Today she is writing a letter."
+    ]
+  },
+  "B2-s-0184": {
+    "words": [
+      "They",
+      "are",
+      "playing",
+      "in",
+      "the",
+      "garden",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now they are playing in the garden."
+    ]
+  },
+  "B2-s-0185": {
+    "words": [
+      "He",
+      "is",
+      "cooking",
+      "dinner",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": []
+  },
+  "B2-s-0186": {
+    "words": [
+      "My",
+      "father",
+      "is",
+      "driving",
+      "to",
+      "work",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now my father is driving to work."
+    ]
+  },
+  "B2-s-0188": {
+    "words": [
+      "Lan",
+      "is",
+      "washing",
+      "her",
+      "shoes",
+      "today",
+      "."
+    ],
+    "alternatives": [
+      "Today Lan is washing her shoes."
+    ]
+  },
+  "B2-s-0189": {
+    "words": [
+      "We",
+      "are",
+      "staying",
+      "at",
+      "home",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now we are staying at home."
+    ]
+  },
+  "B2-s-0190": {
+    "words": [
+      "The",
+      "train",
+      "is",
+      "coming",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": []
+  },
+  "B3-s-0001": {
+    "words": [
+      "I",
+      "was",
+      "happy",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I was happy."
+    ]
+  },
+  "B3-s-0002": {
+    "words": [
+      "He",
+      "was",
+      "at",
+      "home",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night he was at home."
+    ]
+  },
+  "B3-s-0004": {
+    "words": [
+      "The",
+      "weather",
+      "was",
+      "sunny",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday the weather was sunny."
+    ]
+  },
+  "B3-s-0008": {
+    "words": [
+      "It",
+      "was",
+      "cold",
+      "last",
+      "week",
+      "."
+    ],
+    "alternatives": [
+      "Last week it was cold."
+    ]
+  },
+  "B3-s-0010": {
+    "words": [
+      "I",
+      "was",
+      "ten",
+      "years",
+      "old",
+      "last",
+      "year",
+      "."
+    ],
+    "alternatives": [
+      "Last year I was ten years old."
+    ]
+  },
+  "B3-s-0011": {
+    "words": [
+      "We",
+      "were",
+      "at",
+      "the",
+      "zoo",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday we were at the zoo."
+    ]
+  },
+  "B3-s-0013": {
+    "words": [
+      "You",
+      "were",
+      "late",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday you were late."
+    ]
+  },
+  "B3-s-0019": {
+    "words": [
+      "They",
+      "were",
+      "busy",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday they were busy."
+    ]
+  },
+  "B3-s-0021": {
+    "words": [
+      "He",
+      "wasn't",
+      "at",
+      "school",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday he wasn't at school."
+    ]
+  },
+  "B3-s-0041": {
+    "words": [
+      "I",
+      "watched",
+      "TV",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I watched TV."
+    ]
+  },
+  "B3-s-0042": {
+    "words": [
+      "He",
+      "played",
+      "football",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday he played football."
+    ]
+  },
+  "B3-s-0047": {
+    "words": [
+      "Nam",
+      "studied",
+      "English",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night Nam studied English."
+    ]
+  },
+  "B3-s-0048": {
+    "words": [
+      "She",
+      "walked",
+      "to",
+      "school",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday she walked to school."
+    ]
+  },
+  "B3-s-0051": {
+    "words": [
+      "I",
+      "helped",
+      "my",
+      "father",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I helped my father."
+    ]
+  },
+  "B3-s-0053": {
+    "words": [
+      "We",
+      "listened",
+      "to",
+      "music",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night we listened to music."
+    ]
+  },
+  "B3-s-0060": {
+    "words": [
+      "Grandfather",
+      "watered",
+      "the",
+      "flowers",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday grandfather watered the flowers."
+    ]
+  },
+  "B3-s-0072": {
+    "words": [
+      "She",
+      "cleaned",
+      "the",
+      "kitchen",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday she cleaned the kitchen."
+    ]
+  },
+  "B3-s-0076": {
+    "words": [
+      "Students",
+      "studied",
+      "math",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday students studied math."
+    ]
+  },
+  "B3-s-0087": {
+    "words": [
+      "They",
+      "danced",
+      "gracefully",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night they danced gracefully."
+    ]
+  },
+  "B3-s-0091": {
+    "words": [
+      "I",
+      "went",
+      "to",
+      "the",
+      "zoo",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I went to the zoo."
+    ]
+  },
+  "B3-s-0096": {
+    "words": [
+      "Lan",
+      "did",
+      "her",
+      "homework",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday Lan did her homework."
+    ]
+  },
+  "B3-s-0103": {
+    "words": [
+      "We",
+      "swam",
+      "in",
+      "the",
+      "pool",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday we swam in the pool."
+    ]
+  },
+  "B3-s-0110": {
+    "words": [
+      "I",
+      "got",
+      "up",
+      "at",
+      "six",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I got up at six."
+    ]
+  },
+  "B3-s-0120": {
+    "words": [
+      "Mr.",
+      "Brown",
+      "taught",
+      "math",
+      "last",
+      "year",
+      "."
+    ],
+    "alternatives": [
+      "Last year Mr. Brown taught math."
+    ]
+  },
+  "B3-s-0130": {
+    "words": [
+      "The",
+      "film",
+      "began",
+      "at",
+      "seven",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night the film began at seven."
+    ]
+  },
+  "B3-s-0141": {
+    "words": [
+      "She",
+      "didn't",
+      "go",
+      "to",
+      "school",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday she didn't go to school."
+    ]
+  },
+  "B3-s-0142": {
+    "words": [
+      "I",
+      "didn't",
+      "watch",
+      "television",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night I didn't watch television."
+    ]
+  },
+  "B3-s-0143": {
+    "words": [
+      "He",
+      "didn't",
+      "play",
+      "football",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday he didn't play football."
+    ]
+  },
+  "B3-s-0149": {
+    "words": [
+      "I",
+      "didn't",
+      "drink",
+      "coffee",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I didn't drink coffee."
+    ]
+  },
+  "B3-s-0153": {
+    "words": [
+      "Tom",
+      "didn't",
+      "come",
+      "to",
+      "the",
+      "party",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night Tom didn't come to the party."
+    ]
+  },
+  "B3-s-0156": {
+    "words": [
+      "I",
+      "didn't",
+      "sleep",
+      "well",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night I didn't sleep well."
+    ]
+  },
+  "B3-s-0158": {
+    "words": [
+      "He",
+      "didn't",
+      "wear",
+      "a",
+      "jacket",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday he didn't wear a jacket."
+    ]
+  },
+  "B3-s-0160": {
+    "words": [
+      "The",
+      "dog",
+      "didn't",
+      "bark",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night the dog didn't bark."
+    ]
+  },
+  "B3-s-0162": {
+    "words": [
+      "I",
+      "didn't",
+      "read",
+      "the",
+      "newspaper",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I didn't read the newspaper."
+    ]
+  },
+  "B3-s-0164": {
+    "words": [
+      "Mother",
+      "didn't",
+      "bake",
+      "a",
+      "cake",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday mother didn't bake a cake."
+    ]
+  },
+  "B3-s-0169": {
+    "words": [
+      "Tom",
+      "didn't",
+      "ride",
+      "his",
+      "bike",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday Tom didn't ride his bike."
+    ]
+  },
+  "B3-s-0171": {
+    "words": [
+      "Did",
+      "you",
+      "go",
+      "to",
+      "school",
+      "yesterday",
+      "?"
+    ],
+    "alternatives": [
+      "Yesterday did you go to school?"
+    ]
+  },
+  "B3-s-0172": {
+    "words": [
+      "Did",
+      "he",
+      "watch",
+      "TV",
+      "last",
+      "night",
+      "?"
+    ],
+    "alternatives": [
+      "Last night did he watch TV?"
+    ]
+  },
+  "B3-s-0173": {
+    "words": [
+      "Did",
+      "she",
+      "play",
+      "badminton",
+      "yesterday",
+      "?"
+    ],
+    "alternatives": [
+      "Yesterday did she play badminton?"
+    ]
+  },
+  "B3-s-0178": {
+    "words": [
+      "Did",
+      "they",
+      "visit",
+      "their",
+      "grandparents",
+      "last",
+      "week",
+      "?"
+    ],
+    "alternatives": [
+      "Last week did they visit their grandparents?"
+    ]
+  },
+  "B3-s-0187": {
+    "words": [
+      "Did",
+      "they",
+      "take",
+      "the",
+      "bus",
+      "yesterday",
+      "?"
+    ],
+    "alternatives": [
+      "Yesterday did they take the bus?"
+    ]
+  },
+  "B3-s-0191": {
+    "words": [
+      "Did",
+      "she",
+      "help",
+      "her",
+      "mother",
+      "yesterday",
+      "?"
+    ],
+    "alternatives": [
+      "Yesterday did she help her mother?"
+    ]
+  },
+  "B3-s-0200": {
+    "words": [
+      "Did",
+      "they",
+      "finish",
+      "the",
+      "project",
+      "yesterday",
+      "?"
+    ],
+    "alternatives": [
+      "Yesterday did they finish the project?"
+    ]
+  },
+  "B4-s-0002": {
+    "words": [
+      "He",
+      "will",
+      "visit",
+      "his",
+      "grandparents",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow he will visit his grandparents."
+    ]
+  },
+  "B4-s-0003": {
+    "words": [
+      "They",
+      "will",
+      "travel",
+      "to",
+      "Da",
+      "Nang",
+      "next",
+      "week",
+      "."
+    ],
+    "alternatives": [
+      "Next week they will travel to Da Nang."
+    ]
+  },
+  "B4-s-0004": {
+    "words": [
+      "She",
+      "will",
+      "learn",
+      "French",
+      "next",
+      "year",
+      "."
+    ],
+    "alternatives": [
+      "Next year she will learn French."
+    ]
+  },
+  "B4-s-0006": {
+    "words": [
+      "It",
+      "will",
+      "rain",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight it will rain."
+    ]
+  },
+  "B4-s-0012": {
+    "words": [
+      "We",
+      "will",
+      "fly",
+      "kites",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow we will fly kites."
+    ]
+  },
+  "B4-s-0016": {
+    "words": [
+      "They",
+      "will",
+      "have",
+      "a",
+      "party",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday they will have a party."
+    ]
+  },
+  "B4-s-0020": {
+    "words": [
+      "We",
+      "will",
+      "meet",
+      "at",
+      "the",
+      "cinema",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight we will meet at the cinema."
+    ]
+  },
+  "B4-s-0021": {
+    "words": [
+      "He",
+      "will",
+      "swim",
+      "in",
+      "the",
+      "pool",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow he will swim in the pool."
+    ]
+  },
+  "B4-s-0027": {
+    "words": [
+      "The",
+      "weather",
+      "will",
+      "be",
+      "sunny",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow the weather will be sunny."
+    ]
+  },
+  "B4-s-0029": {
+    "words": [
+      "They",
+      "will",
+      "stay",
+      "at",
+      "home",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight they will stay at home."
+    ]
+  },
+  "B4-s-0037": {
+    "words": [
+      "The",
+      "doctor",
+      "will",
+      "examine",
+      "the",
+      "patient",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow the doctor will examine the patient."
+    ]
+  },
+  "B4-s-0038": {
+    "words": [
+      "We",
+      "will",
+      "leave",
+      "for",
+      "Hue",
+      "early",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow we will leave for Hue early."
+    ]
+  },
+  "B4-s-0039": {
+    "words": [
+      "Students",
+      "will",
+      "plant",
+      "green",
+      "trees",
+      "next",
+      "month",
+      "."
+    ],
+    "alternatives": [
+      "Next month students will plant green trees."
+    ]
+  },
+  "B4-s-0043": {
+    "words": [
+      "She",
+      "will",
+      "eat",
+      "lunch",
+      "at",
+      "school",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow she will eat lunch at school."
+    ]
+  },
+  "B4-s-0046": {
+    "words": [
+      "They",
+      "won't",
+      "come",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow they won't come."
+    ]
+  },
+  "B4-s-0047": {
+    "words": [
+      "I",
+      "won't",
+      "be",
+      "late",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow I won't be late."
+    ]
+  },
+  "B4-s-0048": {
+    "words": [
+      "He",
+      "won't",
+      "go",
+      "to",
+      "school",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday he won't go to school."
+    ]
+  },
+  "B4-s-0051": {
+    "words": [
+      "It",
+      "won't",
+      "rain",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow it won't rain."
+    ]
+  },
+  "B4-s-0054": {
+    "words": [
+      "He",
+      "won't",
+      "watch",
+      "TV",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight he won't watch TV."
+    ]
+  },
+  "B4-s-0056": {
+    "words": [
+      "Mother",
+      "won't",
+      "cook",
+      "dinner",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight mother won't cook dinner."
+    ]
+  },
+  "B4-s-0060": {
+    "words": [
+      "The",
+      "teacher",
+      "won't",
+      "give",
+      "us",
+      "homework",
+      "today",
+      "."
+    ],
+    "alternatives": [
+      "Today the teacher won't give us homework."
+    ]
+  },
+  "B4-s-0079": {
+    "words": [
+      "The",
+      "weather",
+      "won't",
+      "be",
+      "cold",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow the weather won't be cold."
+    ]
+  },
+  "B4-s-0082": {
+    "words": [
+      "Will",
+      "they",
+      "come",
+      "tomorrow",
+      "?"
+    ],
+    "alternatives": [
+      "Tomorrow will they come?"
+    ]
+  },
+  "B4-s-0085": {
+    "words": [
+      "Will",
+      "it",
+      "rain",
+      "tomorrow",
+      "?"
+    ],
+    "alternatives": [
+      "Tomorrow will it rain?"
+    ]
+  },
+  "B4-s-0101": {
+    "words": [
+      "Will",
+      "you",
+      "eat",
+      "pizza",
+      "tonight",
+      "?"
+    ],
+    "alternatives": [
+      "Tonight will you eat pizza?"
+    ]
+  },
+  "B4-s-0107": {
+    "words": [
+      "Will",
+      "you",
+      "clean",
+      "your",
+      "room",
+      "tomorrow",
+      "?"
+    ],
+    "alternatives": [
+      "Tomorrow will you clean your room?"
+    ]
+  },
+  "B4-s-0115": {
+    "words": [
+      "Will",
+      "she",
+      "fly",
+      "to",
+      "Singapore",
+      "next",
+      "month",
+      "?"
+    ],
+    "alternatives": [
+      "Next month will she fly to Singapore?"
+    ]
+  },
+  "B4-s-0117": {
+    "words": [
+      "He",
+      "is",
+      "going",
+      "to",
+      "visit",
+      "Hanoi",
+      "next",
+      "week",
+      "."
+    ],
+    "alternatives": [
+      "Next week he is going to visit Hanoi."
+    ]
+  },
+  "B4-s-0119": {
+    "words": [
+      "She",
+      "is",
+      "going",
+      "to",
+      "cook",
+      "dinner",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight she is going to cook dinner."
+    ]
+  },
+  "B4-s-0122": {
+    "words": [
+      "Nam",
+      "is",
+      "going",
+      "to",
+      "clean",
+      "his",
+      "room",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow Nam is going to clean his room."
+    ]
+  },
+  "B4-s-0125": {
+    "words": [
+      "We",
+      "are",
+      "going",
+      "to",
+      "watch",
+      "a",
+      "movie",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight we are going to watch a movie."
+    ]
+  },
+  "B4-s-0127": {
+    "words": [
+      "Tom",
+      "is",
+      "going",
+      "to",
+      "fly",
+      "to",
+      "Da",
+      "Nang",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow Tom is going to fly to Da Nang."
+    ]
+  },
+  "B4-s-0132": {
+    "words": [
+      "My",
+      "father",
+      "is",
+      "going",
+      "to",
+      "wash",
+      "the",
+      "car",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow my father is going to wash the car."
+    ]
+  },
+  "B4-s-0150": {
+    "words": [
+      "They",
+      "are",
+      "going",
+      "to",
+      "open",
+      "their",
+      "gifts",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now they are going to open their gifts."
+    ]
+  },
+  "B4-s-0151": {
+    "words": [
+      "She",
+      "drinks",
+      "milk",
+      "every",
+      "morning",
+      "."
+    ],
+    "alternatives": [
+      "Every morning she drinks milk."
+    ]
+  },
+  "B4-s-0156": {
+    "words": [
+      "We",
+      "study",
+      "English",
+      "on",
+      "Monday",
+      "."
+    ],
+    "alternatives": [
+      "On Monday we study English."
+    ]
+  },
+  "B4-s-0163": {
+    "words": [
+      "He",
+      "is",
+      "running",
+      "in",
+      "the",
+      "park",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now he is running in the park."
+    ]
+  },
+  "B4-s-0164": {
+    "words": [
+      "She",
+      "is",
+      "reading",
+      "a",
+      "story",
+      "right",
+      "now",
+      "."
+    ],
+    "alternatives": []
+  },
+  "B4-s-0167": {
+    "words": [
+      "We",
+      "are",
+      "not",
+      "watching",
+      "TV",
+      "now",
+      "."
+    ],
+    "alternatives": [
+      "Now we are not watching TV."
+    ]
+  },
+  "B4-s-0175": {
+    "words": [
+      "I",
+      "went",
+      "to",
+      "school",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday I went to school."
+    ]
+  },
+  "B4-s-0176": {
+    "words": [
+      "She",
+      "watched",
+      "TV",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night she watched TV."
+    ]
+  },
+  "B4-s-0177": {
+    "words": [
+      "We",
+      "ate",
+      "pizza",
+      "for",
+      "dinner",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday we ate pizza for dinner."
+    ]
+  },
+  "B4-s-0178": {
+    "words": [
+      "He",
+      "was",
+      "tired",
+      "last",
+      "night",
+      "."
+    ],
+    "alternatives": [
+      "Last night he was tired."
+    ]
+  },
+  "B4-s-0179": {
+    "words": [
+      "They",
+      "were",
+      "at",
+      "the",
+      "zoo",
+      "last",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "Last Sunday they were at the zoo."
+    ]
+  },
+  "B4-s-0180": {
+    "words": [
+      "She",
+      "did",
+      "not",
+      "go",
+      "to",
+      "school",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday she did not go to school."
+    ]
+  },
+  "B4-s-0183": {
+    "words": [
+      "Nam",
+      "visited",
+      "his",
+      "uncle",
+      "last",
+      "week",
+      "."
+    ],
+    "alternatives": [
+      "Last week Nam visited his uncle."
+    ]
+  },
+  "B4-s-0184": {
+    "words": [
+      "They",
+      "cleaned",
+      "the",
+      "classroom",
+      "yesterday",
+      "."
+    ],
+    "alternatives": [
+      "Yesterday they cleaned the classroom."
+    ]
+  },
+  "B4-s-0190": {
+    "words": [
+      "Will",
+      "they",
+      "travel",
+      "by",
+      "plane",
+      "next",
+      "month",
+      "?"
+    ],
+    "alternatives": [
+      "Next month will they travel by plane?"
+    ]
+  },
+  "B4-s-0193": {
+    "words": [
+      "They",
+      "will",
+      "play",
+      "basketball",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow they will play basketball."
+    ]
+  },
+  "B4-s-0194": {
+    "words": [
+      "The",
+      "weather",
+      "will",
+      "be",
+      "nice",
+      "on",
+      "Sunday",
+      "."
+    ],
+    "alternatives": [
+      "On Sunday the weather will be nice."
+    ]
+  },
+  "B4-s-0195": {
+    "words": [
+      "I",
+      "will",
+      "buy",
+      "some",
+      "apples",
+      "tonight",
+      "."
+    ],
+    "alternatives": [
+      "Tonight I will buy some apples."
+    ]
+  },
+  "B4-s-0198": {
+    "words": [
+      "They",
+      "are",
+      "not",
+      "going",
+      "to",
+      "leave",
+      "today",
+      "."
+    ],
+    "alternatives": [
+      "Today they are not going to leave."
+    ]
+  },
+  "B4-s-0200": {
+    "words": [
+      "I",
+      "will",
+      "see",
+      "you",
+      "at",
+      "school",
+      "tomorrow",
+      "."
+    ],
+    "alternatives": [
+      "Tomorrow I will see you at school."
+    ]
+  }
+}

@@ -1,0 +1,2266 @@
+[
+  {
+    "id": "B3-v-0001",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "go",
+    "vi": "đi",
+    "pos": "verb",
+    "ipa": "/ɡoʊ/",
+    "forms": {
+      "thirdSg": "goes",
+      "past": "went",
+      "ing": "going",
+      "irregular": true
+    },
+    "image": "🚶",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She went to school yesterday.",
+    "exampleVi": "Hôm qua cô ấy đã đi học.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0002",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "eat",
+    "vi": "ăn",
+    "pos": "verb",
+    "ipa": "/iːt/",
+    "forms": {
+      "thirdSg": "eats",
+      "past": "ate",
+      "ing": "eating",
+      "irregular": true
+    },
+    "image": "🍽️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "We ate pizza last night.",
+    "exampleVi": "Tối qua chúng tôi đã ăn bánh pizza.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0003",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "drink",
+    "vi": "uống",
+    "pos": "verb",
+    "ipa": "/drɪŋk/",
+    "forms": {
+      "thirdSg": "drinks",
+      "past": "drank",
+      "ing": "drinking",
+      "irregular": true
+    },
+    "image": "🥤",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He drank orange juice.",
+    "exampleVi": "Cậu ấy đã uống nước cam.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0004",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "see",
+    "vi": "nhìn thấy",
+    "pos": "verb",
+    "ipa": "/siː/",
+    "forms": {
+      "thirdSg": "sees",
+      "past": "saw",
+      "ing": "seeing",
+      "irregular": true
+    },
+    "image": "👀",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "I saw a big elephant.",
+    "exampleVi": "Tôi đã nhìn thấy một con voi to.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0005",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "have",
+    "vi": "có, ăn (bữa)",
+    "pos": "verb",
+    "ipa": "/hæv/",
+    "forms": {
+      "thirdSg": "has",
+      "past": "had",
+      "ing": "having",
+      "irregular": true
+    },
+    "image": "🤝",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "They had lunch at noon.",
+    "exampleVi": "Họ đã ăn trưa vào buổi trưa.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0006",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "do",
+    "vi": "làm",
+    "pos": "verb",
+    "ipa": "/duː/",
+    "forms": {
+      "thirdSg": "does",
+      "past": "did",
+      "ing": "doing",
+      "irregular": true
+    },
+    "image": "✍️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She did her homework.",
+    "exampleVi": "Cô ấy đã làm bài tập về nhà.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0007",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "make",
+    "vi": "làm, chế tạo",
+    "pos": "verb",
+    "ipa": "/meɪk/",
+    "forms": {
+      "thirdSg": "makes",
+      "past": "made",
+      "ing": "making",
+      "irregular": true
+    },
+    "image": "🔨",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Mother made a delicious cake.",
+    "exampleVi": "Mẹ đã làm một chiếc bánh ngon.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0008",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "take",
+    "vi": "cầm, dẫn đi, chụp ảnh",
+    "pos": "verb",
+    "ipa": "/teɪk/",
+    "forms": {
+      "thirdSg": "takes",
+      "past": "took",
+      "ing": "taking",
+      "irregular": true
+    },
+    "image": "📸",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He took many photos.",
+    "exampleVi": "Cậu ấy đã chụp nhiều bức ảnh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0009",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "buy",
+    "vi": "mua",
+    "pos": "verb",
+    "ipa": "/baɪ/",
+    "forms": {
+      "thirdSg": "buys",
+      "past": "bought",
+      "ing": "buying",
+      "irregular": true
+    },
+    "image": "🛒",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "I bought a new storybook.",
+    "exampleVi": "Tôi đã mua một cuốn truyện mới.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0010",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "write",
+    "vi": "viết",
+    "pos": "verb",
+    "ipa": "/raɪt/",
+    "forms": {
+      "thirdSg": "writes",
+      "past": "wrote",
+      "ing": "writing",
+      "irregular": true
+    },
+    "image": "✍️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She wrote a letter to her friend.",
+    "exampleVi": "Cô ấy đã viết một bức thư cho bạn.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0011",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "read",
+    "vi": "đọc",
+    "pos": "verb",
+    "ipa": "/riːd/",
+    "forms": {
+      "thirdSg": "reads",
+      "past": "read",
+      "ing": "reading",
+      "irregular": true
+    },
+    "image": "📖",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He read a comic yesterday.",
+    "exampleVi": "Hôm qua cậu ấy đã đọc một cuốn truyện tranh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0012",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "run",
+    "vi": "chạy",
+    "pos": "verb",
+    "ipa": "/rʌn/",
+    "forms": {
+      "thirdSg": "runs",
+      "past": "ran",
+      "ing": "running",
+      "irregular": true
+    },
+    "image": "🏃",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The boy ran very fast.",
+    "exampleVi": "Cậu bé đã chạy rất nhanh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0013",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "swim",
+    "vi": "bơi",
+    "pos": "verb",
+    "ipa": "/swɪm/",
+    "forms": {
+      "thirdSg": "swims",
+      "past": "swam",
+      "ing": "swimming",
+      "irregular": true
+    },
+    "image": "🏊",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "We swam in the sea.",
+    "exampleVi": "Chúng tôi đã bơi ở biển.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0014",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "fly",
+    "vi": "bay",
+    "pos": "verb",
+    "ipa": "/flaɪ/",
+    "forms": {
+      "thirdSg": "flies",
+      "past": "flew",
+      "ing": "flying",
+      "irregular": true
+    },
+    "image": "🪁",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The birds flew away.",
+    "exampleVi": "Những chú chim đã bay đi.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0015",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "sing",
+    "vi": "hát",
+    "pos": "verb",
+    "ipa": "/sɪŋ/",
+    "forms": {
+      "thirdSg": "sings",
+      "past": "sang",
+      "ing": "singing",
+      "irregular": true
+    },
+    "image": "🎤",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The choir sang a beautiful song.",
+    "exampleVi": "Dàn hợp xướng đã hát một bài ca tuyệt đẹp.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0016",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "sleep",
+    "vi": "ngủ",
+    "pos": "verb",
+    "ipa": "/sliːp/",
+    "forms": {
+      "thirdSg": "sleeps",
+      "past": "slept",
+      "ing": "sleeping",
+      "irregular": true
+    },
+    "image": "😴",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The cat slept all afternoon.",
+    "exampleVi": "Con mèo đã ngủ suốt buổi chiều.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0017",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "sit",
+    "vi": "ngồi",
+    "pos": "verb",
+    "ipa": "/sɪt/",
+    "forms": {
+      "thirdSg": "sits",
+      "past": "sat",
+      "ing": "sitting",
+      "irregular": true
+    },
+    "image": "🪑",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "They sat on the bench.",
+    "exampleVi": "Họ đã ngồi trên ghế dài.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0018",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "stand",
+    "vi": "đứng",
+    "pos": "verb",
+    "ipa": "/stænd/",
+    "forms": {
+      "thirdSg": "stands",
+      "past": "stood",
+      "ing": "standing",
+      "irregular": true
+    },
+    "image": "🧍",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He stood by the window.",
+    "exampleVi": "Cậu ấy đã đứng bên cửa sổ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0019",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "give",
+    "vi": "cho, tặng",
+    "pos": "verb",
+    "ipa": "/ɡɪv/",
+    "forms": {
+      "thirdSg": "gives",
+      "past": "gave",
+      "ing": "giving",
+      "irregular": true
+    },
+    "image": "🎁",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She gave me a lovely present.",
+    "exampleVi": "Cô ấy đã tặng tôi một món quà đáng yêu.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0020",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "get",
+    "vi": "nhận được, thức dậy",
+    "pos": "verb",
+    "ipa": "/ɡet/",
+    "forms": {
+      "thirdSg": "gets",
+      "past": "got",
+      "ing": "getting",
+      "irregular": true
+    },
+    "image": "⏰",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "I got up early yesterday.",
+    "exampleVi": "Hôm qua tôi đã thức dậy sớm.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0021",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "come",
+    "vi": "đến",
+    "pos": "verb",
+    "ipa": "/kʌm/",
+    "forms": {
+      "thirdSg": "comes",
+      "past": "came",
+      "ing": "coming",
+      "irregular": true
+    },
+    "image": "🚪",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Tom came to my house.",
+    "exampleVi": "Tom đã đến nhà tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0022",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "draw",
+    "vi": "vẽ tranh",
+    "pos": "verb",
+    "ipa": "/drɔː/",
+    "forms": {
+      "thirdSg": "draws",
+      "past": "drew",
+      "ing": "drawing",
+      "irregular": true
+    },
+    "image": "✏️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She drew a lovely cat.",
+    "exampleVi": "Cô ấy đã vẽ một chú mèo đáng yêu.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0023",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "leave",
+    "vi": "rời khỏi",
+    "pos": "verb",
+    "ipa": "/liːv/",
+    "forms": {
+      "thirdSg": "leaves",
+      "past": "left",
+      "ing": "leaving",
+      "irregular": true
+    },
+    "image": "🚶",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "They left home at seven.",
+    "exampleVi": "Họ đã rời khỏi nhà lúc bảy giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0024",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "meet",
+    "vi": "gặp gỡ",
+    "pos": "verb",
+    "ipa": "/miːt/",
+    "forms": {
+      "thirdSg": "meets",
+      "past": "met",
+      "ing": "meeting",
+      "irregular": true
+    },
+    "image": "🤝",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "I met my friends at the park.",
+    "exampleVi": "Tôi đã gặp các bạn của mình ở công viên.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0025",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "ride",
+    "vi": "cưỡi, đạp xe",
+    "pos": "verb",
+    "ipa": "/raɪd/",
+    "forms": {
+      "thirdSg": "rides",
+      "past": "rode",
+      "ing": "riding",
+      "irregular": true
+    },
+    "image": "🚴",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He rode his bicycle to school.",
+    "exampleVi": "Cậu ấy đã đi xe đạp tới trường.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0026",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "drive",
+    "vi": "lái xe ô tô",
+    "pos": "verb",
+    "ipa": "/draɪv/",
+    "forms": {
+      "thirdSg": "drives",
+      "past": "drove",
+      "ing": "driving",
+      "irregular": true
+    },
+    "image": "🚗",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Dad drove us to the beach.",
+    "exampleVi": "Bố đã lái xe đưa chúng tôi ra bãi biển.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0027",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "win",
+    "vi": "chiến thắng",
+    "pos": "verb",
+    "ipa": "/wɪn/",
+    "forms": {
+      "thirdSg": "wins",
+      "past": "won",
+      "ing": "winning",
+      "irregular": true
+    },
+    "image": "🏆",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Our team won the match.",
+    "exampleVi": "Đội chúng tôi đã chiến thắng trận đấu.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0028",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "find",
+    "vi": "tìm thấy",
+    "pos": "verb",
+    "ipa": "/faɪnd/",
+    "forms": {
+      "thirdSg": "finds",
+      "past": "found",
+      "ing": "finding",
+      "irregular": true
+    },
+    "image": "🔍",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She found her lost pen.",
+    "exampleVi": "Cô ấy đã tìm thấy chiếc bút bị mất.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0029",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "catch",
+    "vi": "bắt, chụp được",
+    "pos": "verb",
+    "ipa": "/kætʃ/",
+    "forms": {
+      "thirdSg": "catches",
+      "past": "caught",
+      "ing": "catching",
+      "irregular": true
+    },
+    "image": "🧤",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The goalkeeper caught the ball.",
+    "exampleVi": "Thủ môn đã bắt được bóng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0030",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "teach",
+    "vi": "dạy dỗ",
+    "pos": "verb",
+    "ipa": "/tiːtʃ/",
+    "forms": {
+      "thirdSg": "teaches",
+      "past": "taught",
+      "ing": "teaching",
+      "irregular": true
+    },
+    "image": "🧑‍🏫",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Ms. Hoa taught us English.",
+    "exampleVi": "Cô Hoa đã dạy chúng tôi môn tiếng Anh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0031",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "bring",
+    "vi": "mang đến",
+    "pos": "verb",
+    "ipa": "/brɪŋ/",
+    "forms": {
+      "thirdSg": "brings",
+      "past": "brought",
+      "ing": "bringing",
+      "irregular": true
+    },
+    "image": "🎒",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He brought an umbrella.",
+    "exampleVi": "Cậu ấy đã mang theo một chiếc ô.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0032",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "think",
+    "vi": "suy nghĩ",
+    "pos": "verb",
+    "ipa": "/θɪŋk/",
+    "forms": {
+      "thirdSg": "thinks",
+      "past": "thought",
+      "ing": "thinking",
+      "irregular": true
+    },
+    "image": "💭",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "I thought about the question.",
+    "exampleVi": "Tôi đã suy nghĩ về câu hỏi.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0033",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "know",
+    "vi": "biết",
+    "pos": "verb",
+    "ipa": "/noʊ/",
+    "forms": {
+      "thirdSg": "knows",
+      "past": "knew",
+      "ing": "knowing",
+      "irregular": true
+    },
+    "image": "💡",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He knew the correct answer.",
+    "exampleVi": "Cậu ấy đã biết câu trả lời đúng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0034",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "tell",
+    "vi": "kể, bảo",
+    "pos": "verb",
+    "ipa": "/tel/",
+    "forms": {
+      "thirdSg": "tells",
+      "past": "told",
+      "ing": "telling",
+      "irregular": true
+    },
+    "image": "🗣️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "Grandma told us a fairy tale.",
+    "exampleVi": "Bà đã kể cho chúng tôi nghe một câu chuyện cổ tích.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0035",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "say",
+    "vi": "nói",
+    "pos": "verb",
+    "ipa": "/seɪ/",
+    "forms": {
+      "thirdSg": "says",
+      "past": "said",
+      "ing": "saying",
+      "irregular": true
+    },
+    "image": "💬",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He said hello to everyone.",
+    "exampleVi": "Cậu ấy đã nói lời chào với mọi người.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0036",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "wear",
+    "vi": "mặc, đội",
+    "pos": "verb",
+    "ipa": "/wer/",
+    "forms": {
+      "thirdSg": "wears",
+      "past": "wore",
+      "ing": "wearing",
+      "irregular": true
+    },
+    "image": "👕",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She wore a yellow dress.",
+    "exampleVi": "Cô ấy đã mặc một chiếc váy màu vàng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0037",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "cut",
+    "vi": "cắt",
+    "pos": "verb",
+    "ipa": "/kʌt/",
+    "forms": {
+      "thirdSg": "cuts",
+      "past": "cut",
+      "ing": "cutting",
+      "irregular": true
+    },
+    "image": "✂️",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "He cut the paper into two pieces.",
+    "exampleVi": "Cậu ấy đã cắt tờ giấy thành hai mảnh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0038",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "put",
+    "vi": "đặt, để",
+    "pos": "verb",
+    "ipa": "/pʊt/",
+    "forms": {
+      "thirdSg": "puts",
+      "past": "put",
+      "ing": "putting",
+      "irregular": true
+    },
+    "image": "📦",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "She put the book on the desk.",
+    "exampleVi": "Cô ấy đã để cuốn sách lên bàn học.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0039",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "hear",
+    "vi": "nghe thấy",
+    "pos": "verb",
+    "ipa": "/hɪr/",
+    "forms": {
+      "thirdSg": "hears",
+      "past": "heard",
+      "ing": "hearing",
+      "irregular": true
+    },
+    "image": "👂",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "We heard a strange sound.",
+    "exampleVi": "Chúng tôi đã nghe thấy một âm thanh lạ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0040",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "begin",
+    "vi": "bắt đầu",
+    "pos": "verb",
+    "ipa": "/bɪˈɡɪn/",
+    "forms": {
+      "thirdSg": "begins",
+      "past": "began",
+      "ing": "beginning",
+      "irregular": true
+    },
+    "image": "🏁",
+    "tags": [
+      "action",
+      "irregular"
+    ],
+    "exampleEn": "The concert began at eight.",
+    "exampleVi": "Buổi hòa nhạc đã bắt đầu lúc tám giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0041",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "play",
+    "vi": "chơi",
+    "pos": "verb",
+    "ipa": "/pleɪ/",
+    "forms": {
+      "thirdSg": "plays",
+      "past": "played",
+      "ing": "playing",
+      "irregular": false
+    },
+    "image": "⚽",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "They played football yesterday.",
+    "exampleVi": "Họ đã chơi bóng đá hôm qua.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0042",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "watch",
+    "vi": "xem",
+    "pos": "verb",
+    "ipa": "/wɑːtʃ/",
+    "forms": {
+      "thirdSg": "watches",
+      "past": "watched",
+      "ing": "watching",
+      "irregular": false
+    },
+    "image": "📺",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "I watched TV last night.",
+    "exampleVi": "Tôi đã xem tivi tối qua.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0043",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "clean",
+    "vi": "dọn dẹp, lau chùi",
+    "pos": "verb",
+    "ipa": "/kliːn/",
+    "forms": {
+      "thirdSg": "cleans",
+      "past": "cleaned",
+      "ing": "cleaning",
+      "irregular": false
+    },
+    "image": "🧹",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He cleaned his room.",
+    "exampleVi": "Cậu ấy đã dọn phòng của mình.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0044",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "wash",
+    "vi": "rửa, giặt",
+    "pos": "verb",
+    "ipa": "/wɑːʃ/",
+    "forms": {
+      "thirdSg": "washes",
+      "past": "washed",
+      "ing": "washing",
+      "irregular": false
+    },
+    "image": "🧼",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "She washed the dishes.",
+    "exampleVi": "Cô ấy đã rửa bát đĩa.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0045",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "cook",
+    "vi": "nấu nướng",
+    "pos": "verb",
+    "ipa": "/kʊk/",
+    "forms": {
+      "thirdSg": "cooks",
+      "past": "cooked",
+      "ing": "cooking",
+      "irregular": false
+    },
+    "image": "🍳",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "Father cooked dinner.",
+    "exampleVi": "Bố đã nấu bữa tối.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0046",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "study",
+    "vi": "học tập",
+    "pos": "verb",
+    "ipa": "/ˈstʌd.i/",
+    "forms": {
+      "thirdSg": "studies",
+      "past": "studied",
+      "ing": "studying",
+      "irregular": false
+    },
+    "image": "📚",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "Nam studied hard for the exam.",
+    "exampleVi": "Nam đã học bài chăm chỉ cho kỳ thi.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0047",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "visit",
+    "vi": "thăm, viếng",
+    "pos": "verb",
+    "ipa": "/ˈvɪz.ɪt/",
+    "forms": {
+      "thirdSg": "visits",
+      "past": "visited",
+      "ing": "visiting",
+      "irregular": false
+    },
+    "image": "🏡",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "We visited grandparents last Sunday.",
+    "exampleVi": "Chúng tôi đã thăm ông bà Chủ nhật trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0048",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "walk",
+    "vi": "đi bộ",
+    "pos": "verb",
+    "ipa": "/wɔːk/",
+    "forms": {
+      "thirdSg": "walks",
+      "past": "walked",
+      "ing": "walking",
+      "irregular": false
+    },
+    "image": "🚶",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "She walked to school.",
+    "exampleVi": "Cô ấy đã đi bộ tới trường.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0049",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "open",
+    "vi": "mở",
+    "pos": "verb",
+    "ipa": "/ˈoʊ.pən/",
+    "forms": {
+      "thirdSg": "opens",
+      "past": "opened",
+      "ing": "opening",
+      "irregular": false
+    },
+    "image": "🚪",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He opened the door.",
+    "exampleVi": "Cậu ấy đã mở cửa.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0050",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "close",
+    "vi": "đóng lại",
+    "pos": "verb",
+    "ipa": "/kloʊz/",
+    "forms": {
+      "thirdSg": "closes",
+      "past": "closed",
+      "ing": "closing",
+      "irregular": false
+    },
+    "image": "📕",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "She closed the window.",
+    "exampleVi": "Cô ấy đã đóng cửa sổ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0051",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "help",
+    "vi": "giúp đỡ",
+    "pos": "verb",
+    "ipa": "/help/",
+    "forms": {
+      "thirdSg": "helps",
+      "past": "helped",
+      "ing": "helping",
+      "irregular": false
+    },
+    "image": "🤝",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He helped his mother.",
+    "exampleVi": "Cậu ấy đã giúp đỡ mẹ mình.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0052",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "paint",
+    "vi": "vẽ tranh màu, sơn",
+    "pos": "verb",
+    "ipa": "/peɪnt/",
+    "forms": {
+      "thirdSg": "paints",
+      "past": "painted",
+      "ing": "painting",
+      "irregular": false
+    },
+    "image": "🎨",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "Lan painted a flower.",
+    "exampleVi": "Lan đã vẽ một bông hoa.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0053",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "listen",
+    "vi": "lắng nghe",
+    "pos": "verb",
+    "ipa": "/ˈlɪs.ən/",
+    "forms": {
+      "thirdSg": "listens",
+      "past": "listened",
+      "ing": "listening",
+      "irregular": false
+    },
+    "image": "🎧",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "We listened to music.",
+    "exampleVi": "Chúng tôi đã nghe nhạc.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0054",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "skip",
+    "vi": "nhảy dây",
+    "pos": "verb",
+    "ipa": "/skɪp/",
+    "forms": {
+      "thirdSg": "skips",
+      "past": "skipped",
+      "ing": "skipping",
+      "irregular": false
+    },
+    "image": "🪢",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The girls skipped in the yard.",
+    "exampleVi": "Các cô bé đã nhảy dây trong sân.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0055",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "stop",
+    "vi": "dừng lại",
+    "pos": "verb",
+    "ipa": "/stɑːp/",
+    "forms": {
+      "thirdSg": "stops",
+      "past": "stopped",
+      "ing": "stopping",
+      "irregular": false
+    },
+    "image": "🛑",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The bus stopped here.",
+    "exampleVi": "Xe buýt đã dừng lại ở đây.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0056",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "clap",
+    "vi": "vỗ tay",
+    "pos": "verb",
+    "ipa": "/klæp/",
+    "forms": {
+      "thirdSg": "claps",
+      "past": "clapped",
+      "ing": "clapping",
+      "irregular": false
+    },
+    "image": "👏",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The audience clapped happily.",
+    "exampleVi": "Khán giả đã vỗ tay vui vẻ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0057",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "hop",
+    "vi": "nhảy lò cò",
+    "pos": "verb",
+    "ipa": "/hɑːp/",
+    "forms": {
+      "thirdSg": "hops",
+      "past": "hopped",
+      "ing": "hopping",
+      "irregular": false
+    },
+    "image": "🦘",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The rabbit hopped away.",
+    "exampleVi": "Chú thỏ đã nhảy lò cò đi mất.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0058",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "wait",
+    "vi": "chờ đợi",
+    "pos": "verb",
+    "ipa": "/weɪt/",
+    "forms": {
+      "thirdSg": "waits",
+      "past": "waited",
+      "ing": "waiting",
+      "irregular": false
+    },
+    "image": "⏳",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "I waited for an hour.",
+    "exampleVi": "Tôi đã chờ đợi suốt một tiếng đồng hồ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0059",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "plant",
+    "vi": "trồng cây",
+    "pos": "verb",
+    "ipa": "/plænt/",
+    "forms": {
+      "thirdSg": "plants",
+      "past": "planted",
+      "ing": "planting",
+      "irregular": false
+    },
+    "image": "🌱",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "They planted trees.",
+    "exampleVi": "Họ đã trồng cây.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0060",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "water",
+    "vi": "tưới nước",
+    "pos": "verb",
+    "ipa": "/ˈwɑː.t̬ɚ/",
+    "forms": {
+      "thirdSg": "waters",
+      "past": "watered",
+      "ing": "watering",
+      "irregular": false
+    },
+    "image": "🚿",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "Grandpa watered the roses.",
+    "exampleVi": "Ông đã tưới những bông hoa hồng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0061",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "smile",
+    "vi": "mỉm cười",
+    "pos": "verb",
+    "ipa": "/smaɪl/",
+    "forms": {
+      "thirdSg": "smiles",
+      "past": "smiled",
+      "ing": "smiling",
+      "irregular": false
+    },
+    "image": "😊",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The baby smiled at me.",
+    "exampleVi": "Em bé đã mỉm cười với tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0062",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "live",
+    "vi": "sống, cư trú",
+    "pos": "verb",
+    "ipa": "/lɪv/",
+    "forms": {
+      "thirdSg": "lives",
+      "past": "lived",
+      "ing": "living",
+      "irregular": false
+    },
+    "image": "🏡",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "They lived in Hue.",
+    "exampleVi": "Họ đã từng sống ở Huế.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0063",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "dance",
+    "vi": "khiêu vũ, nhảy múa",
+    "pos": "verb",
+    "ipa": "/dæns/",
+    "forms": {
+      "thirdSg": "dances",
+      "past": "danced",
+      "ing": "dancing",
+      "irregular": false
+    },
+    "image": "💃",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "She danced gracefully.",
+    "exampleVi": "Cô ấy đã nhảy múa rất uyển chuyển.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0064",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "carry",
+    "vi": "mang, xách, vác",
+    "pos": "verb",
+    "ipa": "/ˈker.i/",
+    "forms": {
+      "thirdSg": "carries",
+      "past": "carried",
+      "ing": "carrying",
+      "irregular": false
+    },
+    "image": "🎒",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He carried the heavy box.",
+    "exampleVi": "Cậu ấy đã bê chiếc hộp nặng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0065",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "brush",
+    "vi": "chải, đánh (răng)",
+    "pos": "verb",
+    "ipa": "/brʌʃ/",
+    "forms": {
+      "thirdSg": "brushes",
+      "past": "brushed",
+      "ing": "brushing",
+      "irregular": false
+    },
+    "image": "🪥",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "I brushed my teeth.",
+    "exampleVi": "Tôi đã đánh răng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0066",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "start",
+    "vi": "bắt đầu",
+    "pos": "verb",
+    "ipa": "/stɑːrt/",
+    "forms": {
+      "thirdSg": "starts",
+      "past": "started",
+      "ing": "starting",
+      "irregular": false
+    },
+    "image": "🏁",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The movie started at seven.",
+    "exampleVi": "Bộ phim đã bắt đầu lúc bảy giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0067",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "finish",
+    "vi": "hoàn thành, kết thúc",
+    "pos": "verb",
+    "ipa": "/ˈfɪn.ɪʃ/",
+    "forms": {
+      "thirdSg": "finishes",
+      "past": "finished",
+      "ing": "finishing",
+      "irregular": false
+    },
+    "image": "🏁",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "She finished her work.",
+    "exampleVi": "Cô ấy đã hoàn thành công việc của mình.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0068",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "climb",
+    "vi": "leo trèo",
+    "pos": "verb",
+    "ipa": "/klaɪm/",
+    "forms": {
+      "thirdSg": "climbs",
+      "past": "climbed",
+      "ing": "climbing",
+      "irregular": false
+    },
+    "image": "🧗",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "The monkey climbed the tree.",
+    "exampleVi": "Con khỉ đã trèo lên cây.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0069",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "look",
+    "vi": "nhìn ngắm",
+    "pos": "verb",
+    "ipa": "/lʊk/",
+    "forms": {
+      "thirdSg": "looks",
+      "past": "looked",
+      "ing": "looking",
+      "irregular": false
+    },
+    "image": "👀",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He looked at the picture.",
+    "exampleVi": "Cậu ấy đã nhìn vào bức tranh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0070",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "kick",
+    "vi": "đá",
+    "pos": "verb",
+    "ipa": "/kɪk/",
+    "forms": {
+      "thirdSg": "kicks",
+      "past": "kicked",
+      "ing": "kicking",
+      "irregular": false
+    },
+    "image": "🦵",
+    "tags": [
+      "action",
+      "regular"
+    ],
+    "exampleEn": "He kicked the ball into the net.",
+    "exampleVi": "Cậu ấy đã đá bóng vào lưới.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0071",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "yesterday",
+    "vi": "hôm qua",
+    "pos": "adverb",
+    "ipa": "/ˈjes.tɚ.deɪ/",
+    "image": "📅",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "I went to school yesterday.",
+    "exampleVi": "Hôm qua tôi đã đi học.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0072",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last night",
+    "vi": "tối qua",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈnaɪt/",
+    "image": "🌙",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "They watched a movie last night.",
+    "exampleVi": "Họ đã xem phim tối qua.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0073",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last week",
+    "vi": "tuần trước",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈwiːk/",
+    "image": "📆",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "We visited grandparents last week.",
+    "exampleVi": "Chúng tôi đã thăm ông bà tuần trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0074",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last month",
+    "vi": "tháng trước",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈmʌnθ/",
+    "image": "🗓️",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "He bought a new bicycle last month.",
+    "exampleVi": "Cậu ấy đã mua một chiếc xe đạp mới tháng trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0075",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last year",
+    "vi": "năm ngoái",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈjɪr/",
+    "image": "🎆",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "They traveled to Da Nang last year.",
+    "exampleVi": "Họ đã đi du lịch Đà Nẵng năm ngoái.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0076",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last Sunday",
+    "vi": "Chủ nhật trước",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈsʌn.deɪ/",
+    "image": "☀️",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "We played soccer last Sunday.",
+    "exampleVi": "Chúng tôi đã chơi bóng đá Chủ nhật trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0077",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "ago",
+    "vi": "cách đây, trước đây",
+    "pos": "adverb",
+    "ipa": "/əˈɡoʊ/",
+    "image": "⏳",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "He left two hours ago.",
+    "exampleVi": "Cậu ấy đã rời đi cách đây hai tiếng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0078",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "two days ago",
+    "vi": "hai ngày trước",
+    "pos": "adverb",
+    "ipa": "/ˌtuː deɪz əˈɡoʊ/",
+    "image": "⏱️",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "I saw him two days ago.",
+    "exampleVi": "Tôi đã nhìn thấy cậu ấy hai ngày trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0079",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "three days ago",
+    "vi": "ba ngày trước",
+    "pos": "adverb",
+    "ipa": "/ˌθriː deɪz əˈɡoʊ/",
+    "image": "⏱️",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "She arrived three days ago.",
+    "exampleVi": "Cô ấy đã đến nơi ba ngày trước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0080",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "an hour ago",
+    "vi": "một giờ trước",
+    "pos": "adverb",
+    "ipa": "/ən ˈaʊ.ɚ əˈɡoʊ/",
+    "image": "⌛",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "The bell rang an hour ago.",
+    "exampleVi": "Chuông đã reo cách đây một giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0081",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "last summer",
+    "vi": "mùa hè năm ngoái",
+    "pos": "adverb",
+    "ipa": "/ˌlæst ˈsʌm.ɚ/",
+    "image": "🏖️",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "We went to the beach last summer.",
+    "exampleVi": "Chúng tôi đã đi biển vào mùa hè năm ngoái.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0082",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "then",
+    "vi": "khi đó, sau đó",
+    "pos": "adverb",
+    "ipa": "/ðen/",
+    "image": "🔜",
+    "tags": [
+      "time",
+      "past"
+    ],
+    "exampleEn": "We were young then.",
+    "exampleVi": "Khi đó chúng tôi còn trẻ.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0083",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "zoo",
+    "vi": "vườn bách thú",
+    "pos": "noun",
+    "ipa": "/zuː/",
+    "forms": {
+      "plural": "zoos"
+    },
+    "image": "🦁",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "We went to the zoo yesterday.",
+    "exampleVi": "Hôm qua chúng tôi đã đi vườn bách thú.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0084",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "museum",
+    "vi": "bảo tàng",
+    "pos": "noun",
+    "ipa": "/mjuːˈziː.əm/",
+    "forms": {
+      "plural": "museums"
+    },
+    "image": "🏛️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "They visited the history museum.",
+    "exampleVi": "Họ đã thăm bảo tàng lịch sử.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0085",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "cinema",
+    "vi": "rạp chiếu phim",
+    "pos": "noun",
+    "ipa": "/ˈsɪn.ə.mə/",
+    "forms": {
+      "plural": "cinemas"
+    },
+    "image": "🎬",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "We went to the cinema last night.",
+    "exampleVi": "Chúng tôi đã đi rạp chiếu phim tối qua.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0086",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "beach",
+    "vi": "bãi biển",
+    "pos": "noun",
+    "ipa": "/biːtʃ/",
+    "forms": {
+      "plural": "beaches"
+    },
+    "image": "🏖️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "They had fun at the beach.",
+    "exampleVi": "Họ đã vui chơi tại bãi biển.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0087",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "picnic",
+    "vi": "buổi dã ngoại",
+    "pos": "noun",
+    "ipa": "/ˈpɪk.nɪk/",
+    "forms": {
+      "plural": "picnics"
+    },
+    "image": "🧺",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "We had a picnic in the park.",
+    "exampleVi": "Chúng tôi đã có một buổi dã ngoại trong công viên.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0088",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "party",
+    "vi": "bữa tiệc",
+    "pos": "noun",
+    "ipa": "/ˈpɑːr.t̬i/",
+    "forms": {
+      "plural": "parties"
+    },
+    "image": "🎉",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "She went to a birthday party.",
+    "exampleVi": "Cô ấy đã đi dự một bữa tiệc sinh nhật.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0089",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "holiday",
+    "vi": "kỳ nghỉ, ngày lễ",
+    "pos": "noun",
+    "ipa": "/ˈhɑː.lə.deɪ/",
+    "forms": {
+      "plural": "holidays"
+    },
+    "image": "🌴",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We had a wonderful holiday.",
+    "exampleVi": "Chúng tôi đã có một kỳ nghỉ tuyệt vời.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0090",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "trip",
+    "vi": "chuyến đi",
+    "pos": "noun",
+    "ipa": "/trɪp/",
+    "forms": {
+      "plural": "trips"
+    },
+    "image": "🧳",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "He enjoyed the school trip.",
+    "exampleVi": "Cậu ấy đã rất thích chuyến dã ngoại của trường.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0091",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "present",
+    "vi": "món quà",
+    "pos": "noun",
+    "ipa": "/ˈprez.ənt/",
+    "forms": {
+      "plural": "presents"
+    },
+    "image": "🎁",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "I received a nice present.",
+    "exampleVi": "Tôi đã nhận được một món quà đẹp.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0092",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "letter",
+    "vi": "bức thư",
+    "pos": "noun",
+    "ipa": "/ˈlet̬.ɚ/",
+    "forms": {
+      "plural": "letters"
+    },
+    "image": "✉️",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "She wrote a letter to her aunt.",
+    "exampleVi": "Cô ấy đã viết một bức thư cho dì.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0093",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "storybook",
+    "vi": "sách truyện",
+    "pos": "noun",
+    "ipa": "/ˈstɔːr.i.bʊk/",
+    "forms": {
+      "plural": "storybooks"
+    },
+    "image": "📕",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "He read a great storybook.",
+    "exampleVi": "Cậu ấy đã đọc một cuốn truyện tuyệt hay.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0094",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "movie",
+    "vi": "bộ phim",
+    "pos": "noun",
+    "ipa": "/ˈmuː.vi/",
+    "forms": {
+      "plural": "movies"
+    },
+    "image": "🎥",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "We watched a funny movie.",
+    "exampleVi": "Chúng tôi đã xem một bộ phim hài hước.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0095",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "game",
+    "vi": "trận đấu, trò chơi",
+    "pos": "noun",
+    "ipa": "/ɡeɪm/",
+    "forms": {
+      "plural": "games"
+    },
+    "image": "🎮",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "They played a fun game.",
+    "exampleVi": "Họ đã chơi một trò chơi vui nhộn.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0096",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "song",
+    "vi": "bài hát",
+    "pos": "noun",
+    "ipa": "/sɔːŋ/",
+    "forms": {
+      "plural": "songs"
+    },
+    "image": "🎵",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "We sang an English song.",
+    "exampleVi": "Chúng tôi đã hát một bài hát tiếng Anh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0097",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "cake",
+    "vi": "bánh ngọt",
+    "pos": "noun",
+    "ipa": "/keɪk/",
+    "forms": {
+      "plural": "cakes"
+    },
+    "image": "🎂",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "Mother baked a chocolate cake.",
+    "exampleVi": "Mẹ đã nướng một chiếc bánh sô-cô-la.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0098",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "pizza",
+    "vi": "bánh pi-da",
+    "pos": "noun",
+    "ipa": "/ˈpiːt.sə/",
+    "forms": {
+      "plural": "pizzas"
+    },
+    "image": "🍕",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "We ate pizza for dinner.",
+    "exampleVi": "Chúng tôi đã ăn bánh pizza cho bữa tối.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0099",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "noodle",
+    "vi": "sợi mì (thường dùng số nhiều: noodles)",
+    "pos": "noun",
+    "ipa": "/ˈnuː.dəl/",
+    "forms": {
+      "plural": "noodles"
+    },
+    "image": "🍜",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "He ate noodles for breakfast yesterday.",
+    "exampleVi": "Hôm qua cậu ấy ăn mì vào bữa sáng.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0100",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "ice cream",
+    "vi": "kem",
+    "pos": "noun",
+    "ipa": "/ˌaɪs ˈkriːm/",
+    "image": "🍦",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "She bought an ice cream.",
+    "exampleVi": "Cô ấy đã mua một que kem.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0101",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "hospital",
+    "vi": "bệnh viện",
+    "pos": "noun",
+    "ipa": "/ˈhɑː.spɪ.t̬əl/",
+    "forms": {
+      "plural": "hospitals"
+    },
+    "image": "🏥",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "He was in the hospital yesterday.",
+    "exampleVi": "Hôm qua cậu ấy đã ở bệnh viện.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0102",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "countryside",
+    "vi": "miền quê, nông thôn",
+    "pos": "noun",
+    "ipa": "/ˈkʌn.tri.saɪd/",
+    "image": "🌾",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "They lived in the countryside.",
+    "exampleVi": "Họ đã từng sống ở vùng nông thôn.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0103",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "sea",
+    "vi": "biển",
+    "pos": "noun",
+    "ipa": "/siː/",
+    "forms": {
+      "plural": "seas"
+    },
+    "image": "🌊",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "We swam in the sea.",
+    "exampleVi": "Chúng tôi đã bơi ở biển.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0104",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "lion",
+    "vi": "sư tử",
+    "pos": "noun",
+    "ipa": "/ˈlaɪ.ən/",
+    "forms": {
+      "plural": "lions"
+    },
+    "image": "🦁",
+    "tags": [
+      "animal"
+    ],
+    "exampleEn": "We saw a big lion at the zoo.",
+    "exampleVi": "Chúng tôi đã thấy một chú sư tử lớn ở vườn thú.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0105",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "tiger",
+    "vi": "con hổ",
+    "pos": "noun",
+    "ipa": "/ˈtaɪ.ɡɚ/",
+    "forms": {
+      "plural": "tigers"
+    },
+    "image": "🐯",
+    "tags": [
+      "animal"
+    ],
+    "exampleEn": "The tiger ran fast.",
+    "exampleVi": "Con hổ đã chạy rất nhanh.",
+    "source": "seed"
+  },
+  {
+    "id": "B3-v-0106",
+    "level": "B3",
+    "topic": "past-simple",
+    "en": "elephant",
+    "vi": "con voi",
+    "pos": "noun",
+    "ipa": "/ˈel.ə.fənt/",
+    "forms": {
+      "plural": "elephants"
+    },
+    "image": "🐘",
+    "tags": [
+      "animal"
+    ],
+    "exampleEn": "We saw an elephant yesterday.",
+    "exampleVi": "Hôm qua chúng tôi đã nhìn thấy một con voi.",
+    "source": "seed"
+  }
+]

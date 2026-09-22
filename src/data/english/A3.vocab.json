@@ -1,0 +1,1824 @@
+[
+  {
+    "id": "A3-v-0001",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "big",
+    "vi": "to, lớn",
+    "pos": "adjective",
+    "ipa": "/bɪɡ/",
+    "image": "🐘",
+    "tags": [
+      "description",
+      "size"
+    ],
+    "exampleEn": "The elephant is big.",
+    "exampleVi": "Con voi thì to lớn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0002",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "small",
+    "vi": "nhỏ, bé",
+    "pos": "adjective",
+    "ipa": "/smɔːl/",
+    "image": "🐭",
+    "tags": [
+      "description",
+      "size"
+    ],
+    "exampleEn": "The mouse is small.",
+    "exampleVi": "Con chuột thì nhỏ bé.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0003",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "tall",
+    "vi": "cao",
+    "pos": "adjective",
+    "ipa": "/tɔːl/",
+    "image": "🦒",
+    "tags": [
+      "description",
+      "height"
+    ],
+    "exampleEn": "My brother is tall.",
+    "exampleVi": "Anh trai tôi thì cao.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0004",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "short",
+    "vi": "thấp, ngắn",
+    "pos": "adjective",
+    "ipa": "/ʃɔːrt/",
+    "image": "📏",
+    "tags": [
+      "description",
+      "size"
+    ],
+    "exampleEn": "Its tail is short.",
+    "exampleVi": "Cái đuôi của nó ngắn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0005",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "long",
+    "vi": "dài",
+    "pos": "adjective",
+    "ipa": "/lɔːŋ/",
+    "image": "🐍",
+    "tags": [
+      "description",
+      "size"
+    ],
+    "exampleEn": "The snake is long.",
+    "exampleVi": "Con rắn thì dài.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0006",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "fat",
+    "vi": "béo, mập",
+    "pos": "adjective",
+    "ipa": "/fæt/",
+    "image": "🐼",
+    "tags": [
+      "description",
+      "appearance"
+    ],
+    "exampleEn": "The panda is fat.",
+    "exampleVi": "Chú gấu trúc mập mạp.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0007",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "thin",
+    "vi": "gầy, mỏng",
+    "pos": "adjective",
+    "ipa": "/θɪn/",
+    "image": "🥢",
+    "tags": [
+      "description",
+      "appearance"
+    ],
+    "exampleEn": "This book is thin.",
+    "exampleVi": "Cuốn sách này mỏng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0008",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "heavy",
+    "vi": "nặng",
+    "pos": "adjective",
+    "ipa": "/ˈhev.i/",
+    "image": "🏋️",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "Her bag is heavy.",
+    "exampleVi": "Cặp của cô ấy nặng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0009",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "light",
+    "vi": "nhẹ",
+    "pos": "adjective",
+    "ipa": "/laɪt/",
+    "image": "🪶",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The feather is light.",
+    "exampleVi": "Chiếc lông vũ thì nhẹ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0010",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "fast",
+    "vi": "nhanh",
+    "pos": "adjective",
+    "ipa": "/fæst/",
+    "image": "🐆",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "His car is fast.",
+    "exampleVi": "Xe ô tô của anh ấy chạy nhanh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0011",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "slow",
+    "vi": "chậm",
+    "pos": "adjective",
+    "ipa": "/sloʊ/",
+    "image": "🐢",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The turtle is slow.",
+    "exampleVi": "Con rùa thì chậm chạp.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0012",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hot",
+    "vi": "nóng",
+    "pos": "adjective",
+    "ipa": "/hɑːt/",
+    "image": "☀️",
+    "tags": [
+      "description",
+      "weather"
+    ],
+    "exampleEn": "Today is hot.",
+    "exampleVi": "Hôm nay trời nóng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0013",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "cold",
+    "vi": "lạnh",
+    "pos": "adjective",
+    "ipa": "/koʊld/",
+    "image": "❄️",
+    "tags": [
+      "description",
+      "weather"
+    ],
+    "exampleEn": "The ice is cold.",
+    "exampleVi": "Đá thì lạnh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0014",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "warm",
+    "vi": "ấm áp",
+    "pos": "adjective",
+    "ipa": "/wɔːrm/",
+    "image": "🌤️",
+    "tags": [
+      "description",
+      "weather"
+    ],
+    "exampleEn": "My coat is warm.",
+    "exampleVi": "Áo khoác của tôi ấm áp.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0015",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "cool",
+    "vi": "mát mẻ",
+    "pos": "adjective",
+    "ipa": "/kuːl/",
+    "image": "🍃",
+    "tags": [
+      "description",
+      "weather"
+    ],
+    "exampleEn": "The room is cool.",
+    "exampleVi": "Căn phòng mát mẻ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0016",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "clean",
+    "vi": "sạch sẽ",
+    "pos": "adjective",
+    "ipa": "/kliːn/",
+    "image": "✨",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "Our classroom is clean.",
+    "exampleVi": "Lớp học của chúng tôi sạch sẽ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0017",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "dirty",
+    "vi": "bẩn thỉu",
+    "pos": "adjective",
+    "ipa": "/ˈdɜːr.t̬i/",
+    "image": "🧼",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "His shoes are dirty.",
+    "exampleVi": "Đôi giày của cậu ấy bị bẩn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0018",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "new",
+    "vi": "mới",
+    "pos": "adjective",
+    "ipa": "/nuː/",
+    "image": "🆕",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "This is my new bike.",
+    "exampleVi": "Đây là xe đạp mới của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0019",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "old",
+    "vi": "cũ, già",
+    "pos": "adjective",
+    "ipa": "/oʊld/",
+    "image": "🏚️",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "My grandfather is old.",
+    "exampleVi": "Ông của tôi đã già.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0020",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "young",
+    "vi": "trẻ tuổi",
+    "pos": "adjective",
+    "ipa": "/jʌŋ/",
+    "image": "👶",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "Her sister is young.",
+    "exampleVi": "Em gái của cô ấy còn nhỏ tuổi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0021",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "quiet",
+    "vi": "yên tĩnh",
+    "pos": "adjective",
+    "ipa": "/ˈkwaɪ.ət/",
+    "image": "🤫",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The library is quiet.",
+    "exampleVi": "Thư viện rất yên tĩnh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0022",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "noisy",
+    "vi": "ồn ào",
+    "pos": "adjective",
+    "ipa": "/ˈnɔɪ.zi/",
+    "image": "📢",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The street is noisy.",
+    "exampleVi": "Đường phố thì ồn ào.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0023",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "soft",
+    "vi": "mềm mại",
+    "pos": "adjective",
+    "ipa": "/sɔːft/",
+    "image": "🧸",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "Her pillow is soft.",
+    "exampleVi": "Chiếc gối của cô ấy rất êm mềm.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0024",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hard",
+    "vi": "cứng",
+    "pos": "adjective",
+    "ipa": "/hɑːrd/",
+    "image": "🪨",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The rock is hard.",
+    "exampleVi": "Hòn đá thì cứng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0025",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "sweet",
+    "vi": "ngọt ngào",
+    "pos": "adjective",
+    "ipa": "/swiːt/",
+    "image": "🍬",
+    "tags": [
+      "description",
+      "taste"
+    ],
+    "exampleEn": "These apples are sweet.",
+    "exampleVi": "Những quả táo này ngọt.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0026",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "cute",
+    "vi": "dễ thương",
+    "pos": "adjective",
+    "ipa": "/kjuːt/",
+    "image": "🐱",
+    "tags": [
+      "description",
+      "appearance"
+    ],
+    "exampleEn": "Your puppy is cute.",
+    "exampleVi": "Chú cún của bạn dễ thương.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0027",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "pretty",
+    "vi": "xinh xắn",
+    "pos": "adjective",
+    "ipa": "/ˈprɪt.i/",
+    "image": "🌸",
+    "tags": [
+      "description",
+      "appearance"
+    ],
+    "exampleEn": "She is a pretty girl.",
+    "exampleVi": "Cô ấy là một bé gái xinh xắn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0028",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "smart",
+    "vi": "thông minh",
+    "pos": "adjective",
+    "ipa": "/smɑːrt/",
+    "image": "💡",
+    "tags": [
+      "description",
+      "character"
+    ],
+    "exampleEn": "Nam is a smart student.",
+    "exampleVi": "Nam là một học sinh thông minh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0029",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "friendly",
+    "vi": "thân thiện",
+    "pos": "adjective",
+    "ipa": "/ˈfrend.li/",
+    "image": "🤝",
+    "tags": [
+      "description",
+      "character"
+    ],
+    "exampleEn": "Our neighbors are friendly.",
+    "exampleVi": "Hàng xóm của chúng tôi thân thiện.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0030",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "kind",
+    "vi": "tốt bụng",
+    "pos": "adjective",
+    "ipa": "/kaɪnd/",
+    "image": "❤️",
+    "tags": [
+      "description",
+      "character"
+    ],
+    "exampleEn": "Her grandmother is kind.",
+    "exampleVi": "Bà của cô ấy rất tốt bụng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0031",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "brave",
+    "vi": "dũng cảm",
+    "pos": "adjective",
+    "ipa": "/breɪv/",
+    "image": "🦁",
+    "tags": [
+      "description",
+      "character"
+    ],
+    "exampleEn": "The little boy is brave.",
+    "exampleVi": "Cậu bé rất dũng cảm.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0032",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "busy",
+    "vi": "bận rộn",
+    "pos": "adjective",
+    "ipa": "/ˈbɪz.i/",
+    "image": "🐝",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "My parents are busy.",
+    "exampleVi": "Bố mẹ tôi đang bận.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0033",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "happy",
+    "vi": "vui vẻ",
+    "pos": "adjective",
+    "ipa": "/ˈhæp.i/",
+    "image": "😊",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "We are happy.",
+    "exampleVi": "Chúng tôi vui vẻ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0034",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "sad",
+    "vi": "buồn bã",
+    "pos": "adjective",
+    "ipa": "/sæd/",
+    "image": "😢",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "The cat is sad.",
+    "exampleVi": "Chú mèo buồn bã.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0035",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "tired",
+    "vi": "mệt mỏi",
+    "pos": "adjective",
+    "ipa": "/ˈtaɪ.ərd/",
+    "image": "🥱",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "His father is tired.",
+    "exampleVi": "Bố cậu ấy bị mệt.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0036",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hungry",
+    "vi": "đói bụng",
+    "pos": "adjective",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "image": "🥪",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "The baby is hungry.",
+    "exampleVi": "Em bé đang đói bụng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0037",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "thirsty",
+    "vi": "khát nước",
+    "pos": "adjective",
+    "ipa": "/ˈθɜːr.sti/",
+    "image": "💧",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "I am thirsty.",
+    "exampleVi": "Tôi khát nước.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0038",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "funny",
+    "vi": "vui nhộn, hài hước",
+    "pos": "adjective",
+    "ipa": "/ˈfʌn.i/",
+    "image": "🤡",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "That clown is funny.",
+    "exampleVi": "Chú hề kia vui nhộn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0039",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "strong",
+    "vi": "khoẻ mạnh",
+    "pos": "adjective",
+    "ipa": "/strɔːŋ/",
+    "image": "💪",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "My uncle is strong.",
+    "exampleVi": "Chú của tôi rất khỏe mạnh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0040",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "neat",
+    "vi": "gọn gàng",
+    "pos": "adjective",
+    "ipa": "/niːt/",
+    "image": "📦",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "Her room is neat.",
+    "exampleVi": "Căn phòng của cô ấy rất gọn gàng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0041",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "messy",
+    "vi": "bừa bộn",
+    "pos": "adjective",
+    "ipa": "/ˈmes.i/",
+    "image": "🌪️",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "His desk is messy.",
+    "exampleVi": "Bàn học của cậu ấy bừa bộn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0042",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "bright",
+    "vi": "sáng sủa, rực rỡ",
+    "pos": "adjective",
+    "ipa": "/braɪt/",
+    "image": "🌟",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The sun is bright.",
+    "exampleVi": "Mặt trời rực sáng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0043",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "dark",
+    "vi": "tối tăm",
+    "pos": "adjective",
+    "ipa": "/dɑːrk/",
+    "image": "🌑",
+    "tags": [
+      "description"
+    ],
+    "exampleEn": "The night is dark.",
+    "exampleVi": "Màn đêm tối tăm.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0044",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "round",
+    "vi": "tròn",
+    "pos": "adjective",
+    "ipa": "/raʊnd/",
+    "image": "⚪",
+    "tags": [
+      "description",
+      "shape"
+    ],
+    "exampleEn": "The ball is round.",
+    "exampleVi": "Quả bóng thì tròn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0045",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "square",
+    "vi": "vuông vức",
+    "pos": "adjective",
+    "ipa": "/skwer/",
+    "image": "⬛",
+    "tags": [
+      "description",
+      "shape"
+    ],
+    "exampleEn": "The box is square.",
+    "exampleVi": "Chiếc hộp vuông vức.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0046",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "red",
+    "vi": "màu đỏ",
+    "pos": "adjective",
+    "ipa": "/red/",
+    "image": "🔴",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "My bag is red.",
+    "exampleVi": "Cặp của tôi màu đỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0047",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "blue",
+    "vi": "màu xanh da trời",
+    "pos": "adjective",
+    "ipa": "/bluː/",
+    "image": "🔵",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "The sky is blue.",
+    "exampleVi": "Bầu trời màu xanh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0048",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "green",
+    "vi": "màu xanh lá cây",
+    "pos": "adjective",
+    "ipa": "/ɡriːn/",
+    "image": "🟢",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "The grass is green.",
+    "exampleVi": "Bãi cỏ màu xanh lá cây.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0049",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "yellow",
+    "vi": "màu vàng",
+    "pos": "adjective",
+    "ipa": "/ˈjel.oʊ/",
+    "image": "🟡",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "The sun is yellow.",
+    "exampleVi": "Mặt trời màu vàng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0050",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "pink",
+    "vi": "màu hồng",
+    "pos": "adjective",
+    "ipa": "/pɪŋk/",
+    "image": "🌸",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "Her dress is pink.",
+    "exampleVi": "Chiếc váy của cô ấy màu hồng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0051",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "purple",
+    "vi": "màu tím",
+    "pos": "adjective",
+    "ipa": "/ˈpɜːr.pəl/",
+    "image": "🟣",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "These grapes are purple.",
+    "exampleVi": "Những quả nho này màu tím.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0052",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "orange",
+    "vi": "màu cam",
+    "pos": "adjective",
+    "ipa": "/ˈɔːr.ɪndʒ/",
+    "image": "🟠",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "His shirt is orange.",
+    "exampleVi": "Áo của cậu ấy màu cam.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0053",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "brown",
+    "vi": "màu nâu",
+    "pos": "adjective",
+    "ipa": "/braʊn/",
+    "image": "🟤",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "The bear is brown.",
+    "exampleVi": "Con gấu màu nâu.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0054",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "black",
+    "vi": "màu đen",
+    "pos": "adjective",
+    "ipa": "/blæk/",
+    "image": "⚫",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "His shoes are black.",
+    "exampleVi": "Đôi giày của cậu ấy màu đen.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0055",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "white",
+    "vi": "màu trắng",
+    "pos": "adjective",
+    "ipa": "/waɪt/",
+    "image": "⚪",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "Her teeth are white.",
+    "exampleVi": "Hàm răng của cô ấy trắng tinh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0056",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "gray",
+    "vi": "màu xám",
+    "pos": "adjective",
+    "ipa": "/ɡreɪ/",
+    "image": "🐘",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "The elephant is gray.",
+    "exampleVi": "Con voi màu xám.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0057",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "colorful",
+    "vi": "nhiều màu sắc",
+    "pos": "adjective",
+    "ipa": "/ˈkʌl.ɚ.fəl/",
+    "image": "🎨",
+    "tags": [
+      "color"
+    ],
+    "exampleEn": "Her kite is colorful.",
+    "exampleVi": "Chiếc diều của cô bé nhiều màu sắc.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0058",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "my",
+    "vi": "của tôi",
+    "pos": "determiner",
+    "ipa": "/maɪ/",
+    "image": "🙋",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "This is my cat.",
+    "exampleVi": "Đây là con mèo của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0059",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "your",
+    "vi": "của bạn",
+    "pos": "determiner",
+    "ipa": "/jʊr/",
+    "image": "👉",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "Is this your ruler?",
+    "exampleVi": "Đây có phải thước kẻ của bạn không?",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0060",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "his",
+    "vi": "của cậu ấy / anh ấy",
+    "pos": "determiner",
+    "ipa": "/hɪz/",
+    "image": "👦",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "His brother is tall.",
+    "exampleVi": "Anh trai của cậu ấy cao.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0061",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "her",
+    "vi": "của cô ấy / chị ấy",
+    "pos": "determiner",
+    "ipa": "/hɜːr/",
+    "image": "👧",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "Her eyes are brown.",
+    "exampleVi": "Mắt của cô ấy màu nâu.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0062",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "its",
+    "vi": "của nó",
+    "pos": "determiner",
+    "ipa": "/ɪts/",
+    "image": "🐾",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "Its tail is long.",
+    "exampleVi": "Đuôi của nó dài.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0063",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "our",
+    "vi": "của chúng tôi / chúng ta",
+    "pos": "determiner",
+    "ipa": "/ˈaʊ.ər/",
+    "image": "👥",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "Our house is big.",
+    "exampleVi": "Ngôi nhà của chúng tôi to lớn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0064",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "their",
+    "vi": "của họ / của chúng nó",
+    "pos": "determiner",
+    "ipa": "/ðer/",
+    "image": "👨‍👩‍👧‍👦",
+    "tags": [
+      "possessive"
+    ],
+    "exampleEn": "Their school is new.",
+    "exampleVi": "Trường học của họ mới.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0065",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "whose",
+    "vi": "của ai",
+    "pos": "determiner",
+    "ipa": "/huːz/",
+    "image": "❓",
+    "tags": [
+      "question-word",
+      "possessive"
+    ],
+    "exampleEn": "Whose bag is this?",
+    "exampleVi": "Chiếc cặp này là của ai?",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0066",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "father",
+    "vi": "bố, cha",
+    "pos": "noun",
+    "ipa": "/ˈfɑː.ðər/",
+    "forms": {
+      "plural": "fathers"
+    },
+    "image": "👨",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "My father is a doctor.",
+    "exampleVi": "Bố tôi là bác sĩ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0067",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "mother",
+    "vi": "mẹ",
+    "pos": "noun",
+    "ipa": "/ˈmʌð.ər/",
+    "forms": {
+      "plural": "mothers"
+    },
+    "image": "👩",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "Her mother is kind.",
+    "exampleVi": "Mẹ cô ấy rất tốt bụng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0068",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "brother",
+    "vi": "anh/em trai",
+    "pos": "noun",
+    "ipa": "/ˈbrʌð.ər/",
+    "forms": {
+      "plural": "brothers"
+    },
+    "image": "👦",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "His brother is nine.",
+    "exampleVi": "Anh trai cậu ấy chín tuổi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0069",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "sister",
+    "vi": "chị/em gái",
+    "pos": "noun",
+    "ipa": "/ˈsɪs.tər/",
+    "forms": {
+      "plural": "sisters"
+    },
+    "image": "👧",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "This is my sister.",
+    "exampleVi": "Đây là em gái của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0070",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "grandfather",
+    "vi": "ông",
+    "pos": "noun",
+    "ipa": "/ˈɡræn.fɑː.ðər/",
+    "forms": {
+      "plural": "grandfathers"
+    },
+    "image": "👴",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "My grandfather is old.",
+    "exampleVi": "Ông tôi đã già.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0071",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "grandmother",
+    "vi": "bà",
+    "pos": "noun",
+    "ipa": "/ˈɡræn.mʌð.ər/",
+    "forms": {
+      "plural": "grandmothers"
+    },
+    "image": "👵",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "Her grandmother is happy.",
+    "exampleVi": "Bà của cô ấy rất vui.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0072",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "uncle",
+    "vi": "chú, bác, cậu",
+    "pos": "noun",
+    "ipa": "/ˈʌŋ.kəl/",
+    "forms": {
+      "plural": "uncles"
+    },
+    "image": "🧔",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "His uncle is tall.",
+    "exampleVi": "Chú của cậu ấy cao.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0073",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "aunt",
+    "vi": "cô, dì, bác gái",
+    "pos": "noun",
+    "ipa": "/ænt/",
+    "forms": {
+      "plural": "aunts"
+    },
+    "image": "👩‍🦰",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "Her aunt is pretty.",
+    "exampleVi": "Dì của cô ấy rất xinh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0074",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "cousin",
+    "vi": "anh chị em họ",
+    "pos": "noun",
+    "ipa": "/ˈkʌz.ən/",
+    "forms": {
+      "plural": "cousins"
+    },
+    "image": "🧒",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "My cousin is funny.",
+    "exampleVi": "Anh họ của tôi vui tính.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0075",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "baby",
+    "vi": "em bé",
+    "pos": "noun",
+    "ipa": "/ˈbeɪ.bi/",
+    "forms": {
+      "plural": "babies"
+    },
+    "image": "👶",
+    "tags": [
+      "family",
+      "people"
+    ],
+    "exampleEn": "The baby is cute.",
+    "exampleVi": "Em bé dễ thương.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0076",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "parent",
+    "vi": "cha hoặc mẹ; phụ huynh",
+    "pos": "noun",
+    "ipa": "/ˈper.ənt/",
+    "forms": {
+      "plural": "parents"
+    },
+    "image": "👨‍👩‍👧",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "A parent is at the school gate.",
+    "exampleVi": "Một phụ huynh đang ở cổng trường.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0077",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "friend",
+    "vi": "bạn bè",
+    "pos": "noun",
+    "ipa": "/frend/",
+    "forms": {
+      "plural": "friends"
+    },
+    "image": "👫",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Nam is my best friend.",
+    "exampleVi": "Nam là bạn thân nhất của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0078",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "pet",
+    "vi": "thú cưng",
+    "pos": "noun",
+    "ipa": "/pet/",
+    "forms": {
+      "plural": "pets"
+    },
+    "image": "🐶",
+    "tags": [
+      "animal"
+    ],
+    "exampleEn": "Her pet is a small cat.",
+    "exampleVi": "Thú cưng của cô ấy là một chú mèo nhỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0079",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "puppy",
+    "vi": "chó con",
+    "pos": "noun",
+    "ipa": "/ˈpʌp.i/",
+    "forms": {
+      "plural": "puppies"
+    },
+    "image": "🐕",
+    "tags": [
+      "animal"
+    ],
+    "exampleEn": "This puppy is cute.",
+    "exampleVi": "Chú cún này dễ thương.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0080",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "eye",
+    "vi": "mắt",
+    "pos": "noun",
+    "ipa": "/aɪ/",
+    "forms": {
+      "plural": "eyes"
+    },
+    "image": "👁️",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Her eyes are blue.",
+    "exampleVi": "Đôi mắt của cô ấy màu xanh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0081",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "ear",
+    "vi": "tai",
+    "pos": "noun",
+    "ipa": "/ɪr/",
+    "forms": {
+      "plural": "ears"
+    },
+    "image": "👂",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Its ears are long.",
+    "exampleVi": "Đôi tai của nó dài.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0082",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "nose",
+    "vi": "mũi",
+    "pos": "noun",
+    "ipa": "/noʊz/",
+    "forms": {
+      "plural": "noses"
+    },
+    "image": "👃",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "His nose is small.",
+    "exampleVi": "Mũi của cậu ấy nhỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0083",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "mouth",
+    "vi": "miệng",
+    "pos": "noun",
+    "ipa": "/maʊθ/",
+    "forms": {
+      "plural": "mouths"
+    },
+    "image": "👄",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Her mouth is red.",
+    "exampleVi": "Khuôn miệng cô ấy đỏ thắm.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0084",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "face",
+    "vi": "khuôn mặt",
+    "pos": "noun",
+    "ipa": "/feɪs/",
+    "forms": {
+      "plural": "faces"
+    },
+    "image": "🙂",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Her face is round.",
+    "exampleVi": "Khuôn mặt cô bé tròn trịa.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0085",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hand",
+    "vi": "bàn tay",
+    "pos": "noun",
+    "ipa": "/hænd/",
+    "forms": {
+      "plural": "hands"
+    },
+    "image": "✋",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "His hands are clean.",
+    "exampleVi": "Đôi bàn tay cậu ấy sạch sẽ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0086",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "foot",
+    "vi": "bàn chân",
+    "pos": "noun",
+    "ipa": "/fʊt/",
+    "forms": {
+      "plural": "feet"
+    },
+    "image": "🦶",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "My feet are cold.",
+    "exampleVi": "Bàn chân tôi bị lạnh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0087",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hair",
+    "vi": "mái tóc",
+    "pos": "noun",
+    "ipa": "/her/",
+    "image": "💇",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Her hair is long and black.",
+    "exampleVi": "Mái tóc cô ấy dài và đen.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0088",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "leg",
+    "vi": "cẳng chân",
+    "pos": "noun",
+    "ipa": "/leɡ/",
+    "forms": {
+      "plural": "legs"
+    },
+    "image": "🦵",
+    "tags": [
+      "body"
+    ],
+    "exampleEn": "Its legs are short.",
+    "exampleVi": "Những chiếc chân của nó ngắn.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0089",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "tail",
+    "vi": "cái đuôi",
+    "pos": "noun",
+    "ipa": "/teɪl/",
+    "forms": {
+      "plural": "tails"
+    },
+    "image": "🐒",
+    "tags": [
+      "body",
+      "animal"
+    ],
+    "exampleEn": "The cat's tail is long.",
+    "exampleVi": "Đuôi của con mèo dài.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0090",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "bag",
+    "vi": "cặp, túi xách",
+    "pos": "noun",
+    "ipa": "/bæɡ/",
+    "forms": {
+      "plural": "bags"
+    },
+    "image": "🎒",
+    "tags": [
+      "school",
+      "object"
+    ],
+    "exampleEn": "This is my bag.",
+    "exampleVi": "Đây là chiếc cặp của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0091",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "bike",
+    "vi": "xe đạp",
+    "pos": "noun",
+    "ipa": "/baɪk/",
+    "forms": {
+      "plural": "bikes"
+    },
+    "image": "🚲",
+    "tags": [
+      "toy",
+      "transport"
+    ],
+    "exampleEn": "Nam's bike is blue.",
+    "exampleVi": "Xe đạp của Nam màu xanh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0092",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "car",
+    "vi": "xe ô tô",
+    "pos": "noun",
+    "ipa": "/kɑːr/",
+    "forms": {
+      "plural": "cars"
+    },
+    "image": "🚗",
+    "tags": [
+      "transport"
+    ],
+    "exampleEn": "My father's car is white.",
+    "exampleVi": "Xe ô tô của bố tôi màu trắng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0093",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "doll",
+    "vi": "búp bê",
+    "pos": "noun",
+    "ipa": "/dɑːl/",
+    "forms": {
+      "plural": "dolls"
+    },
+    "image": "🪆",
+    "tags": [
+      "toy"
+    ],
+    "exampleEn": "Her doll is pretty.",
+    "exampleVi": "Con búp bê của cô bé rất xinh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0094",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "ball",
+    "vi": "quả bóng",
+    "pos": "noun",
+    "ipa": "/bɔːl/",
+    "forms": {
+      "plural": "balls"
+    },
+    "image": "⚽",
+    "tags": [
+      "toy"
+    ],
+    "exampleEn": "Whose ball is this?",
+    "exampleVi": "Quả bóng này của ai?",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0095",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "kite",
+    "vi": "con diều",
+    "pos": "noun",
+    "ipa": "/kaɪt/",
+    "forms": {
+      "plural": "kites"
+    },
+    "image": "🪁",
+    "tags": [
+      "toy"
+    ],
+    "exampleEn": "Our kite is colorful.",
+    "exampleVi": "Con diều của chúng tôi nhiều màu sắc.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0096",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "robot",
+    "vi": "người máy",
+    "pos": "noun",
+    "ipa": "/ˈroʊ.bɑːt/",
+    "forms": {
+      "plural": "robots"
+    },
+    "image": "🤖",
+    "tags": [
+      "toy"
+    ],
+    "exampleEn": "His robot is smart.",
+    "exampleVi": "Người máy của cậu ấy thông minh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0097",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "hat",
+    "vi": "cái mũ, nón",
+    "pos": "noun",
+    "ipa": "/hæt/",
+    "forms": {
+      "plural": "hats"
+    },
+    "image": "👒",
+    "tags": [
+      "clothes"
+    ],
+    "exampleEn": "Her hat is yellow.",
+    "exampleVi": "Chiếc mũ của cô ấy màu vàng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0098",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "cap",
+    "vi": "mũ lưỡi trai",
+    "pos": "noun",
+    "ipa": "/kæp/",
+    "forms": {
+      "plural": "caps"
+    },
+    "image": "🧢",
+    "tags": [
+      "clothes"
+    ],
+    "exampleEn": "My cap is red.",
+    "exampleVi": "Mũ lưỡi trai của tôi màu đỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0099",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "shirt",
+    "vi": "áo sơ mi",
+    "pos": "noun",
+    "ipa": "/ʃɜːrt/",
+    "forms": {
+      "plural": "shirts"
+    },
+    "image": "👔",
+    "tags": [
+      "clothes"
+    ],
+    "exampleEn": "His shirt is white.",
+    "exampleVi": "Áo sơ mi của cậu ấy màu trắng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0100",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "dress",
+    "vi": "chiếc váy liền",
+    "pos": "noun",
+    "ipa": "/dres/",
+    "forms": {
+      "plural": "dresses"
+    },
+    "image": "👗",
+    "tags": [
+      "clothes"
+    ],
+    "exampleEn": "This dress is pretty.",
+    "exampleVi": "Chiếc váy này rất xinh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0101",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "shoe",
+    "vi": "chiếc giày",
+    "pos": "noun",
+    "ipa": "/ʃuː/",
+    "forms": {
+      "plural": "shoes"
+    },
+    "image": "👟",
+    "tags": [
+      "clothes"
+    ],
+    "exampleEn": "This shoe is new.",
+    "exampleVi": "Chiếc giày này còn mới.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0102",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "watch",
+    "vi": "đồng hồ đeo tay",
+    "pos": "noun",
+    "ipa": "/wɑːtʃ/",
+    "forms": {
+      "plural": "watches"
+    },
+    "image": "⌚",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "My watch is new.",
+    "exampleVi": "Đồng hồ của tôi mới tinh.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0103",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "umbrella",
+    "vi": "chiếc ô, chiếc dù",
+    "pos": "noun",
+    "ipa": "/ʌmˈbrel.ə/",
+    "forms": {
+      "plural": "umbrellas"
+    },
+    "image": "☂️",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "Her umbrella is pink.",
+    "exampleVi": "Chiếc ô của cô ấy màu hồng.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0104",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "pencil",
+    "vi": "bút chì",
+    "pos": "noun",
+    "ipa": "/ˈpen.səl/",
+    "forms": {
+      "plural": "pencils"
+    },
+    "image": "✏️",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "This is my short pencil.",
+    "exampleVi": "Đây là chiếc bút chì ngắn của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "A3-v-0105",
+    "level": "A3",
+    "topic": "adjectives-possessives",
+    "en": "ruler",
+    "vi": "thước kẻ",
+    "pos": "noun",
+    "ipa": "/ˈruː.lər/",
+    "forms": {
+      "plural": "rulers"
+    },
+    "image": "📏",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "Your ruler is long.",
+    "exampleVi": "Thước kẻ của bạn dài.",
+    "source": "seed"
+  }
+]

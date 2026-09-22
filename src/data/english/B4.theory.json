@@ -1,0 +1,99 @@
+{
+  "id": "B4",
+  "title": "Thì Tương lai & Tổng ôn 4 Thì Cốt lõi",
+  "level": "B4",
+  "summary": "Thì Tương lai đơn (will) và Tương lai gần (be going to) dùng để diễn tả các kế hoạch, dự định hoặc dự đoán trong tương lai. Đây cũng là trạm dừng chân để hệ thống hoá toàn bộ 4 thì cơ bản trong tiếng Anh.",
+  "formulas": [
+    {
+      "label": "Tương lai đơn với WILL",
+      "pattern": "Khẳng định: S + will + V(base) | Phủ định: S + won't + V(base) | Nghi vấn: Will + S + V(base)?",
+      "example": "I will help you. (Tôi sẽ giúp bạn.)"
+    },
+    {
+      "label": "Tương lai gần với BE GOING TO (kế hoạch dự định trước)",
+      "pattern": "Khẳng định: S + am/is/are + going to + V(base) | Phủ định: S + am/is/are + not + going to + V(base) | Nghi vấn: Am/Is/Are + S + going to + V(base)?",
+      "example": "She is not going to cook dinner tomorrow. / Is she going to cook dinner tomorrow?"
+    },
+    {
+      "label": "Bảng quy chiếu 4 thì cốt lõi",
+      "pattern": "Hiện tại đơn (thói quen) ↔ Hiện tại tiếp diễn (đang xảy ra) ↔ Quá khứ đơn (đã xong) ↔ Tương lai (sắp xảy ra)",
+      "example": "Hiện tại đơn: He plays football every Sunday."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Cách dùng thì Tương lai với \"Will\"",
+      "body": "- Diễn tả một quyết định đưa ra ngay tại thời điểm nói (ví dụ: \"I will help you with your bags\").\n- Diễn tả lời hứa hoặc dự đoán trong tương lai (\"It will rain tonight\").\n- Công thức luôn là: will + V(nguyên thể base) cho TẤT CẢ các ngôi (I, you, he, she, it, we, they đều dùng will).",
+      "exampleIds": [
+        "B4-s-0001",
+        "B4-s-0081"
+      ]
+    },
+    {
+      "heading": "2. Thể phủ định của Will: WON'T",
+      "body": "- \"won't\" là dạng viết tắt của \"will not\".\n- Sau won't, động từ CHÍNH luôn ở dạng nguyên thể không chia (base):\nVí dụ: \"They won't come tomorrow.\" (KHÔNG nói \"They won't coming\" hay \"won't came\").",
+      "exampleIds": [
+        "B4-s-0046"
+      ]
+    },
+    {
+      "heading": "3. Tương lai gần \"Be Going To\": Kế hoạch đã định",
+      "body": "Be going to diễn tả dự định có trước hoặc dự đoán dựa trên bằng chứng. Chọn am/is/are theo chủ ngữ; động từ sau going to ở dạng nguyên thể.\nPhủ định: đặt not ngay sau am/is/are. She is not going to cook dinner tomorrow.\nCâu hỏi: đưa am/is/are lên trước chủ ngữ. Is she going to cook dinner tomorrow? Không thêm do/does.\nKhi luyện các câu dự định trong nhóm này, hiểu rằng người nói đang hỏi hoặc thông báo kế hoạch đã có.",
+      "exampleIds": [
+        "B4-s-0116",
+        "B4-s-0117",
+        "B4-s-0133",
+        "B4-s-0134",
+        "B4-s-0135",
+        "B4-s-0136",
+        "B4-s-0143",
+        "B4-s-0144"
+      ]
+    },
+    {
+      "heading": "4. Dấu hiệu nhận biết thời gian trong tương lai",
+      "body": "Tomorrow, next week, soon, later hoặc someday gợi thời gian tương lai. Tonight tùy ngữ cảnh có thể nói về việc sắp xảy ra hoặc việc đã xảy ra trong tối nay. Các cụm thời gian không tự quyết định cấu trúc.\nTrong phạm vi bài: dùng will cho lời hứa, quyết định lúc nói hoặc dự đoán; dùng be going to cho dự định có trước hoặc dự đoán dựa trên bằng chứng. Tiếng Anh còn có các cách diễn đạt tương lai khác, chẳng hạn hiện tại đơn cho lịch trình: The train leaves tomorrow.",
+      "exampleIds": [
+        "B4-s-0002",
+        "B4-s-0188"
+      ]
+    },
+    {
+      "heading": "5. Chọn thì theo ý nghĩa và ngữ cảnh",
+      "body": "Trước hết xác định sự việc là thói quen/trạng thái, hành động đang diễn ra, việc đã kết thúc hay việc sắp xảy ra; sau đó đối chiếu mốc thời gian.\n- Thói quen: She plays tennis every Sunday.\n- Đang diễn ra: She is playing tennis now.\n- Đã kết thúc: She played tennis yesterday.\n- Lời hứa: I will help you tomorrow.\n- Dự định có trước: I am going to visit my aunt tomorrow.\nTừ chỉ thời gian chỉ là gợi ý: I know the answer now. và Today is Monday. vẫn dùng hiện tại đơn. Tomorrow cũng có thể đi với lịch trình ở hiện tại đơn: The train leaves tomorrow. Không chọn thì chỉ bằng một từ khóa.",
+      "exampleIds": [
+        "B4-s-0151",
+        "B4-s-0163",
+        "B4-s-0175",
+        "B4-s-0002"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "He will plays tennis tomorrow.",
+      "right": "He will play tennis tomorrow.",
+      "why": "Sau trợ động từ \"will\", động từ BẮT BUỘC giữ nguyên thể (base: play), không được thêm -s hay -es dù chủ ngữ là He."
+    },
+    {
+      "wrong": "They will going to school.",
+      "right": "They will go to school. / They are going to go to school.",
+      "why": "Không dùng đuôi -ing sau will. Nếu dùng be going to thì phải có to be: \"are going to go\"."
+    },
+    {
+      "wrong": "I am go to visit my grandma tomorrow.",
+      "right": "I am going to visit my grandma tomorrow.",
+      "why": "Cấu trúc tương lai gần bắt buộc phải có đủ \"going to\": am/is/are + going to + V-base."
+    },
+    {
+      "wrong": "Yesterday she will buy a book.",
+      "right": "Yesterday she bought a book.",
+      "why": "\"Yesterday\" là thời gian trong quá khứ, không thể dùng \"will\". Phải chia thì Quá khứ đơn: bought."
+    }
+  ],
+  "tips": [
+    "Sau will/won’t trong các cấu trúc đang học, dùng động từ nguyên thể: will play, won’t go.",
+    "Will không đổi theo ngôi của chủ ngữ.",
+    "Đọc ý nghĩa và mốc thời gian trước khi chọn thì; tomorrow hoặc next week không tự quyết định dùng will hay be going to."
+  ]
+}

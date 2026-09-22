@@ -228,6 +228,7 @@ export interface AchievementProgress {
 }
 
 export interface StudentProfile {
+  englishProgress?: import('./src/english/model').EnglishProgress;
   piano?: import('./games/Piano/progress').PianoProgress;
   counting?: import('./src/components/preschool/counting/model').Progress;
   alphabetGarden?: import('./src/components/preschool/alphabetGardenProgress').AlphabetGardenProgress;

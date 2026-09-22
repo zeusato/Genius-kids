@@ -1,0 +1,1964 @@
+[
+  {
+    "id": "C1-v-0001",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "what",
+    "vi": "cái gì, con gì",
+    "pos": "pronoun",
+    "ipa": "/wɑːt/",
+    "image": "❓",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "What is your name?",
+    "exampleVi": "Tên bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0002",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "where",
+    "vi": "ở đâu, nơi nào",
+    "pos": "adverb",
+    "ipa": "/wer/",
+    "image": "📍",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "Where do you live?",
+    "exampleVi": "Bạn sống ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0003",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "when",
+    "vi": "khi nào, bao giờ",
+    "pos": "adverb",
+    "ipa": "/wen/",
+    "image": "⏰",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "When does school start?",
+    "exampleVi": "Khi nào trường học bắt đầu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0004",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "who",
+    "vi": "ai, người nào",
+    "pos": "pronoun",
+    "ipa": "/huː/",
+    "image": "👤",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "Who is your teacher?",
+    "exampleVi": "Ai là giáo viên của bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0005",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "why",
+    "vi": "tại sao, vì sao",
+    "pos": "adverb",
+    "ipa": "/waɪ/",
+    "image": "🤔",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "Why are you crying?",
+    "exampleVi": "Tại sao bạn lại khóc?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0006",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "how",
+    "vi": "như thế nào, bằng cách nào",
+    "pos": "adverb",
+    "ipa": "/haʊ/",
+    "image": "🚲",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "How do you go to school?",
+    "exampleVi": "Bạn đến trường bằng cách nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0007",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "which",
+    "vi": "cái nào, người nào",
+    "pos": "determiner",
+    "ipa": "/wɪtʃ/",
+    "image": "👉",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "Which color do you like?",
+    "exampleVi": "Bạn thích màu nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0008",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "whose",
+    "vi": "của ai",
+    "pos": "determiner",
+    "ipa": "/huːz/",
+    "image": "🎒",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "Whose bag is this?",
+    "exampleVi": "Chiếc túi này của ai?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0009",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "how many",
+    "vi": "bao nhiêu (đếm được)",
+    "pos": "adverb",
+    "ipa": "/ˌhaʊ ˈmen.i/",
+    "image": "🔢",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "How many books do you have?",
+    "exampleVi": "Bạn có bao nhiêu cuốn sách?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0010",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "how much",
+    "vi": "bao nhiêu (không đếm được, giá tiền)",
+    "pos": "adverb",
+    "ipa": "/ˌhaʊ ˈmʌtʃ/",
+    "image": "💵",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "How much water do you drink?",
+    "exampleVi": "Bạn uống bao nhiêu nước?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0011",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "how old",
+    "vi": "bao nhiêu tuổi",
+    "pos": "adverb",
+    "ipa": "/ˌhaʊ ˈoʊld/",
+    "image": "🎂",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "How old are you?",
+    "exampleVi": "Bạn bao nhiêu tuổi?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0012",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "how far",
+    "vi": "bao xa",
+    "pos": "adverb",
+    "ipa": "/ˌhaʊ ˈfɑːr/",
+    "image": "📏",
+    "tags": [
+      "question-word"
+    ],
+    "exampleEn": "How far is it to school?",
+    "exampleVi": "Đến trường bao xa?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0013",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "name",
+    "vi": "tên gọi",
+    "pos": "noun",
+    "ipa": "/neɪm/",
+    "forms": {
+      "plural": "names"
+    },
+    "image": "🏷️",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What is your name?",
+    "exampleVi": "Tên của bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0014",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "age",
+    "vi": "tuổi tác",
+    "pos": "noun",
+    "ipa": "/eɪdʒ/",
+    "forms": {
+      "plural": "ages"
+    },
+    "image": "🎂",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What is your age?",
+    "exampleVi": "Tuổi của bạn là bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0015",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "birthday",
+    "vi": "ngày sinh nhật",
+    "pos": "noun",
+    "ipa": "/ˈbɜːrθ.deɪ/",
+    "forms": {
+      "plural": "birthdays"
+    },
+    "image": "🎉",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "When is your birthday?",
+    "exampleVi": "Sinh nhật của bạn vào khi nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0016",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "address",
+    "vi": "địa chỉ",
+    "pos": "noun",
+    "ipa": "/ˈæd.res/",
+    "forms": {
+      "plural": "addresses"
+    },
+    "image": "🏠",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What is your address?",
+    "exampleVi": "Địa chỉ của bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0017",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "color",
+    "vi": "màu sắc",
+    "pos": "noun",
+    "ipa": "/ˈkʌl.ɚ/",
+    "forms": {
+      "plural": "colors"
+    },
+    "image": "🎨",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What color is your shirt?",
+    "exampleVi": "Áo của bạn màu gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0018",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "time",
+    "vi": "thời gian, giờ giấc",
+    "pos": "noun",
+    "ipa": "/taɪm/",
+    "forms": {
+      "plural": "times"
+    },
+    "image": "⏰",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "What time is it?",
+    "exampleVi": "Mấy giờ rồi?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0019",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "hobby",
+    "vi": "sở thích",
+    "pos": "noun",
+    "ipa": "/ˈhɑː.bi/",
+    "forms": {
+      "plural": "hobbies"
+    },
+    "image": "🎮",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What is your hobby?",
+    "exampleVi": "Sở thích của bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0020",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "subject",
+    "vi": "môn học",
+    "pos": "noun",
+    "ipa": "/ˈsʌb.dʒekt/",
+    "forms": {
+      "plural": "subjects"
+    },
+    "image": "📚",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "Which subject do you like best?",
+    "exampleVi": "Bạn thích nhất môn học nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0021",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "season",
+    "vi": "mùa trong năm",
+    "pos": "noun",
+    "ipa": "/ˈsiː.zən/",
+    "forms": {
+      "plural": "seasons"
+    },
+    "image": "🍂",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "Which season do you like?",
+    "exampleVi": "Bạn thích mùa nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0022",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "weather",
+    "vi": "thời tiết",
+    "pos": "noun",
+    "ipa": "/ˈweð.ɚ/",
+    "image": "🌤️",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "What is the weather like?",
+    "exampleVi": "Thời tiết như thế nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0023",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "animal",
+    "vi": "động vật",
+    "pos": "noun",
+    "ipa": "/ˈæn.ə.məl/",
+    "forms": {
+      "plural": "animals"
+    },
+    "image": "🐾",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "What animal do you love?",
+    "exampleVi": "Bạn yêu thích con vật nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0024",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "fruit",
+    "vi": "trái cây",
+    "pos": "noun",
+    "ipa": "/fruːt/",
+    "image": "🍎",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "Which fruit do you want?",
+    "exampleVi": "Bạn muốn loại trái cây nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0025",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "sport",
+    "vi": "thể thao",
+    "pos": "noun",
+    "ipa": "/spɔːrt/",
+    "forms": {
+      "plural": "sports"
+    },
+    "image": "⚽",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "What sport do you play?",
+    "exampleVi": "Bạn chơi môn thể thao nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0026",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "food",
+    "vi": "đồ ăn, thức ăn",
+    "pos": "noun",
+    "ipa": "/fuːd/",
+    "forms": {
+      "plural": "foods"
+    },
+    "image": "🍱",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "What is your favorite food?",
+    "exampleVi": "Món ăn ưa thích của bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0027",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "juice",
+    "vi": "nước ép trái cây",
+    "pos": "noun",
+    "ipa": "/dʒuːs/",
+    "forms": {
+      "plural": "juices"
+    },
+    "image": "🧃",
+    "tags": [
+      "drink"
+    ],
+    "exampleEn": "What juice do you like?",
+    "exampleVi": "Bạn thích nước ép nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0028",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "city",
+    "vi": "thành phố",
+    "pos": "noun",
+    "ipa": "/ˈsɪt̬.i/",
+    "forms": {
+      "plural": "cities"
+    },
+    "image": "🏙️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Which city do you live in?",
+    "exampleVi": "Bạn sống ở thành phố nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0029",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "country",
+    "vi": "quốc gia, đất nước",
+    "pos": "noun",
+    "ipa": "/ˈkʌn.tri/",
+    "forms": {
+      "plural": "countries"
+    },
+    "image": "🌏",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Which country do you live in?",
+    "exampleVi": "Bạn sống ở quốc gia nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0030",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "village",
+    "vi": "ngôi làng",
+    "pos": "noun",
+    "ipa": "/ˈvɪl.ɪdʒ/",
+    "forms": {
+      "plural": "villages"
+    },
+    "image": "🏡",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the small village?",
+    "exampleVi": "Ngôi làng nhỏ ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0031",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "town",
+    "vi": "thị trấn",
+    "pos": "noun",
+    "ipa": "/taʊn/",
+    "forms": {
+      "plural": "towns"
+    },
+    "image": "🏘️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Which town do you visit?",
+    "exampleVi": "Bạn thăm thị trấn nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0032",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "street",
+    "vi": "đường phố",
+    "pos": "noun",
+    "ipa": "/striːt/",
+    "forms": {
+      "plural": "streets"
+    },
+    "image": "🛣️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "What street do you live on?",
+    "exampleVi": "Bạn sống trên con đường nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0033",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "question",
+    "vi": "câu hỏi",
+    "pos": "noun",
+    "ipa": "/ˈkwes.tʃən/",
+    "forms": {
+      "plural": "questions"
+    },
+    "image": "❓",
+    "tags": [
+      "study"
+    ],
+    "exampleEn": "Who asked this question?",
+    "exampleVi": "Ai đã hỏi câu hỏi này?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0034",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "answer",
+    "vi": "câu trả lời",
+    "pos": "noun",
+    "ipa": "/ˈæn.sɚ/",
+    "forms": {
+      "plural": "answers"
+    },
+    "image": "💡",
+    "tags": [
+      "study"
+    ],
+    "exampleEn": "What is the answer?",
+    "exampleVi": "Câu trả lời là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0035",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "reason",
+    "vi": "lý do",
+    "pos": "noun",
+    "ipa": "/ˈriː.zən/",
+    "forms": {
+      "plural": "reasons"
+    },
+    "image": "💬",
+    "tags": [
+      "info"
+    ],
+    "exampleEn": "What is the reason?",
+    "exampleVi": "Lý do là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0036",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "price",
+    "vi": "giá cả",
+    "pos": "noun",
+    "ipa": "/praɪs/",
+    "forms": {
+      "plural": "prices"
+    },
+    "image": "🏷️",
+    "tags": [
+      "shopping"
+    ],
+    "exampleEn": "What is the price of this book?",
+    "exampleVi": "Giá của cuốn sách này là bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0037",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "friend",
+    "vi": "người bạn",
+    "pos": "noun",
+    "ipa": "/frend/",
+    "forms": {
+      "plural": "friends"
+    },
+    "image": "🧑‍🤝‍🧑",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Who is your best friend?",
+    "exampleVi": "Ai là bạn thân nhất của bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0038",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "teacher",
+    "vi": "giáo viên",
+    "pos": "noun",
+    "ipa": "/ˈtiː.tʃɚ/",
+    "forms": {
+      "plural": "teachers"
+    },
+    "image": "🧑‍🏫",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Who is that teacher?",
+    "exampleVi": "Vị giáo viên đó là ai?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0039",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "doctor",
+    "vi": "bác sĩ",
+    "pos": "noun",
+    "ipa": "/ˈdɑːk.tɚ/",
+    "forms": {
+      "plural": "doctors"
+    },
+    "image": "👨‍⚕️",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Who is the doctor here?",
+    "exampleVi": "Ai là bác sĩ ở đây?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0040",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "police officer",
+    "vi": "cảnh sát viên",
+    "pos": "noun",
+    "ipa": "/pəˈliːs ˌɑː.fɪ.sɚ/",
+    "forms": {
+      "plural": "police officers"
+    },
+    "image": "👮",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Who is the police officer?",
+    "exampleVi": "Viên cảnh sát là ai?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0041",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "classmate",
+    "vi": "bạn cùng lớp",
+    "pos": "noun",
+    "ipa": "/ˈklæs.meɪt/",
+    "forms": {
+      "plural": "classmates"
+    },
+    "image": "🎒",
+    "tags": [
+      "people"
+    ],
+    "exampleEn": "Who is your new classmate?",
+    "exampleVi": "Ai là bạn cùng lớp mới của bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0042",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "parent",
+    "vi": "cha hoặc mẹ; phụ huynh",
+    "pos": "noun",
+    "ipa": "/ˈper.ənt/",
+    "forms": {
+      "plural": "parents"
+    },
+    "image": "👨‍👩‍👧",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "Where are your parents?",
+    "exampleVi": "Bố mẹ bạn đang ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0043",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "brother",
+    "vi": "anh/em trai",
+    "pos": "noun",
+    "ipa": "/ˈbrʌð.ɚ/",
+    "forms": {
+      "plural": "brothers"
+    },
+    "image": "👦",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "How old is your brother?",
+    "exampleVi": "Anh trai bạn bao nhiêu tuổi?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0044",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "sister",
+    "vi": "chị/em gái",
+    "pos": "noun",
+    "ipa": "/ˈsɪs.tɚ/",
+    "forms": {
+      "plural": "sisters"
+    },
+    "image": "👧",
+    "tags": [
+      "family"
+    ],
+    "exampleEn": "What is your sister doing?",
+    "exampleVi": "Em gái bạn đang làm gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0045",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "bus stop",
+    "vi": "trạm xe buýt",
+    "pos": "noun",
+    "ipa": "/ˈbʌs ˌstɑːp/",
+    "forms": {
+      "plural": "bus stops"
+    },
+    "image": "🚏",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the bus stop?",
+    "exampleVi": "Trạm xe buýt ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0046",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "train station",
+    "vi": "ga xe lửa",
+    "pos": "noun",
+    "ipa": "/ˈtreɪn ˌsteɪ.ʃən/",
+    "forms": {
+      "plural": "train stations"
+    },
+    "image": "🚉",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the train station?",
+    "exampleVi": "Ga xe lửa ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0047",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "post office",
+    "vi": "bưu điện",
+    "pos": "noun",
+    "ipa": "/ˈpoʊst ˌɑː.fɪs/",
+    "forms": {
+      "plural": "post offices"
+    },
+    "image": "📮",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the post office?",
+    "exampleVi": "Bưu điện ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0048",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "supermarket",
+    "vi": "siêu thị",
+    "pos": "noun",
+    "ipa": "/ˈsuː.pɚˌmɑːr.kɪt/",
+    "forms": {
+      "plural": "supermarkets"
+    },
+    "image": "🛒",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the nearest supermarket?",
+    "exampleVi": "Siêu thị gần nhất ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0049",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "zoo",
+    "vi": "vườn bách thú",
+    "pos": "noun",
+    "ipa": "/zuː/",
+    "forms": {
+      "plural": "zoos"
+    },
+    "image": "🦁",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "When do we go to the zoo?",
+    "exampleVi": "Khi nào chúng ta đi vườn thú?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0050",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "park",
+    "vi": "công viên",
+    "pos": "noun",
+    "ipa": "/pɑːrk/",
+    "forms": {
+      "plural": "parks"
+    },
+    "image": "🌳",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the nearest park?",
+    "exampleVi": "Công viên gần nhất ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0051",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "library",
+    "vi": "thư viện",
+    "pos": "noun",
+    "ipa": "/ˈlaɪ.brer.i/",
+    "forms": {
+      "plural": "libraries"
+    },
+    "image": "📚",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "When does the library open?",
+    "exampleVi": "Thư viện mở cửa khi nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0052",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "classroom",
+    "vi": "phòng học",
+    "pos": "noun",
+    "ipa": "/ˈklæs.ruːm/",
+    "forms": {
+      "plural": "classrooms"
+    },
+    "image": "🏫",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Which is your classroom?",
+    "exampleVi": "Phòng học của bạn là phòng nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0053",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "ask",
+    "vi": "hỏi",
+    "pos": "verb",
+    "ipa": "/æsk/",
+    "forms": {
+      "thirdSg": "asks",
+      "past": "asked",
+      "ing": "asking",
+      "irregular": false
+    },
+    "image": "🙋",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He asked a good question.",
+    "exampleVi": "Cậu ấy đã hỏi một câu hỏi hay.",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0054",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "reply",
+    "vi": "phản hồi, đáp lại",
+    "pos": "verb",
+    "ipa": "/rɪˈplaɪ/",
+    "forms": {
+      "thirdSg": "replies",
+      "past": "replied",
+      "ing": "replying",
+      "irregular": false
+    },
+    "image": "💡",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He replied to my message.",
+    "exampleVi": "Cậu ấy đã phản hồi tin nhắn của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0055",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "tell",
+    "vi": "kể, nói cho biết",
+    "pos": "verb",
+    "ipa": "/tel/",
+    "forms": {
+      "thirdSg": "tells",
+      "past": "told",
+      "ing": "telling",
+      "irregular": true
+    },
+    "image": "🗣️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What did she tell you?",
+    "exampleVi": "Cô ấy đã nói gì với bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0056",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "say",
+    "vi": "nói",
+    "pos": "verb",
+    "ipa": "/seɪ/",
+    "forms": {
+      "thirdSg": "says",
+      "past": "said",
+      "ing": "saying",
+      "irregular": true
+    },
+    "image": "💬",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What did he say?",
+    "exampleVi": "Cậu ấy đã nói gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0057",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "speak",
+    "vi": "nói chuyện, phát biểu",
+    "pos": "verb",
+    "ipa": "/spiːk/",
+    "forms": {
+      "thirdSg": "speaks",
+      "past": "spoke",
+      "ing": "speaking",
+      "irregular": true
+    },
+    "image": "🗣️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Who is speaking?",
+    "exampleVi": "Ai đang phát biểu vậy?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0058",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "know",
+    "vi": "biết",
+    "pos": "verb",
+    "ipa": "/noʊ/",
+    "forms": {
+      "thirdSg": "knows",
+      "past": "knew",
+      "ing": "knowing",
+      "irregular": true
+    },
+    "image": "🧠",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Do you know the answer?",
+    "exampleVi": "Bạn có biết câu trả lời không?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0059",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "think",
+    "vi": "nghĩ rằng",
+    "pos": "verb",
+    "ipa": "/θɪŋk/",
+    "forms": {
+      "thirdSg": "thinks",
+      "past": "thought",
+      "ing": "thinking",
+      "irregular": true
+    },
+    "image": "💭",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What do you think?",
+    "exampleVi": "Bạn nghĩ sao?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0060",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "mean",
+    "vi": "có nghĩa là",
+    "pos": "verb",
+    "ipa": "/miːn/",
+    "forms": {
+      "thirdSg": "means",
+      "past": "meant",
+      "ing": "meaning",
+      "irregular": true
+    },
+    "image": "📖",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What does this word mean?",
+    "exampleVi": "Từ này có nghĩa là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0061",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "spell",
+    "vi": "đánh vần",
+    "pos": "verb",
+    "ipa": "/spel/",
+    "forms": {
+      "thirdSg": "spells",
+      "past": "spelled",
+      "ing": "spelling",
+      "irregular": false
+    },
+    "image": "🔤",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "How do you spell your name?",
+    "exampleVi": "Bạn đánh vần tên mình thế nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0062",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "find",
+    "vi": "tìm thấy",
+    "pos": "verb",
+    "ipa": "/faɪnd/",
+    "forms": {
+      "thirdSg": "finds",
+      "past": "found",
+      "ing": "finding",
+      "irregular": true
+    },
+    "image": "🔍",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Where did you find it?",
+    "exampleVi": "Bạn tìm thấy nó ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0063",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "lose",
+    "vi": "làm mất",
+    "pos": "verb",
+    "ipa": "/luːz/",
+    "forms": {
+      "thirdSg": "loses",
+      "past": "lost",
+      "ing": "losing",
+      "irregular": true
+    },
+    "image": "🤷",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What did you lose?",
+    "exampleVi": "Bạn đã làm mất cái gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0064",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "want",
+    "vi": "muốn",
+    "pos": "verb",
+    "ipa": "/wɑːnt/",
+    "forms": {
+      "thirdSg": "wants",
+      "past": "wanted",
+      "ing": "wanting",
+      "irregular": false
+    },
+    "image": "🙋",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What do you want?",
+    "exampleVi": "Bạn muốn cái gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0065",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "like",
+    "vi": "thích",
+    "pos": "verb",
+    "ipa": "/laɪk/",
+    "forms": {
+      "thirdSg": "likes",
+      "past": "liked",
+      "ing": "liking",
+      "irregular": false
+    },
+    "image": "👍",
+    "tags": [
+      "feeling"
+    ],
+    "exampleEn": "Which one do you like?",
+    "exampleVi": "Bạn thích cái nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0066",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "prefer",
+    "vi": "thích hơn",
+    "pos": "verb",
+    "ipa": "/prɪˈfɝː/",
+    "forms": {
+      "thirdSg": "prefers",
+      "past": "preferred",
+      "ing": "preferring",
+      "irregular": false
+    },
+    "image": "⭐",
+    "tags": [
+      "feeling"
+    ],
+    "exampleEn": "Which do you prefer, tea or milk?",
+    "exampleVi": "Bạn thích thứ nào hơn, trà hay sữa?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0067",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "happen",
+    "vi": "xảy ra",
+    "pos": "verb",
+    "ipa": "/ˈhæp.ən/",
+    "forms": {
+      "thirdSg": "happens",
+      "past": "happened",
+      "ing": "happening",
+      "irregular": false
+    },
+    "image": "⚡",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What happened yesterday?",
+    "exampleVi": "Chuyện gì đã xảy ra hôm qua?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0068",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "cost",
+    "vi": "có giá là",
+    "pos": "verb",
+    "ipa": "/kɑːst/",
+    "forms": {
+      "thirdSg": "costs",
+      "past": "cost",
+      "ing": "costing",
+      "irregular": true
+    },
+    "image": "🏷️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "How much does it cost?",
+    "exampleVi": "Nó có giá bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0069",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "take",
+    "vi": "mất (thời gian)",
+    "pos": "verb",
+    "ipa": "/teɪk/",
+    "forms": {
+      "thirdSg": "takes",
+      "past": "took",
+      "ing": "taking",
+      "irregular": true
+    },
+    "image": "⏱️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "How long does it take?",
+    "exampleVi": "Mất bao lâu thời gian?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0070",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "live",
+    "vi": "sống",
+    "pos": "verb",
+    "ipa": "/lɪv/",
+    "forms": {
+      "thirdSg": "lives",
+      "past": "lived",
+      "ing": "living",
+      "irregular": false
+    },
+    "image": "🏡",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Where do you live?",
+    "exampleVi": "Bạn sống ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0071",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "work",
+    "vi": "làm việc",
+    "pos": "verb",
+    "ipa": "/wɜːrk/",
+    "forms": {
+      "thirdSg": "works",
+      "past": "worked",
+      "ing": "working",
+      "irregular": false
+    },
+    "image": "💼",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Where does your father work?",
+    "exampleVi": "Bố bạn làm việc ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0072",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "study",
+    "vi": "học",
+    "pos": "verb",
+    "ipa": "/ˈstʌd.i/",
+    "forms": {
+      "thirdSg": "studies",
+      "past": "studied",
+      "ing": "studying",
+      "irregular": false
+    },
+    "image": "📚",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What are you studying?",
+    "exampleVi": "Bạn đang học môn gì vậy?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0073",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "play",
+    "vi": "chơi",
+    "pos": "verb",
+    "ipa": "/pleɪ/",
+    "forms": {
+      "thirdSg": "plays",
+      "past": "played",
+      "ing": "playing",
+      "irregular": false
+    },
+    "image": "⚽",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Where are they playing?",
+    "exampleVi": "Họ đang chơi ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0074",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "go",
+    "vi": "đi",
+    "pos": "verb",
+    "ipa": "/ɡoʊ/",
+    "forms": {
+      "thirdSg": "goes",
+      "past": "went",
+      "ing": "going",
+      "irregular": true
+    },
+    "image": "🚶",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Where did you go yesterday?",
+    "exampleVi": "Hôm qua bạn đã đi đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0075",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "eat",
+    "vi": "ăn",
+    "pos": "verb",
+    "ipa": "/iːt/",
+    "forms": {
+      "thirdSg": "eats",
+      "past": "ate",
+      "ing": "eating",
+      "irregular": true
+    },
+    "image": "🍽️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What did you eat for lunch?",
+    "exampleVi": "Bạn đã ăn gì cho bữa trưa?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0076",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "drink",
+    "vi": "uống",
+    "pos": "verb",
+    "ipa": "/drɪŋk/",
+    "forms": {
+      "thirdSg": "drinks",
+      "past": "drank",
+      "ing": "drinking",
+      "irregular": true
+    },
+    "image": "🥤",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What do you want to drink?",
+    "exampleVi": "Bạn muốn uống gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0077",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "see",
+    "vi": "thấy",
+    "pos": "verb",
+    "ipa": "/siː/",
+    "forms": {
+      "thirdSg": "sees",
+      "past": "saw",
+      "ing": "seeing",
+      "irregular": true
+    },
+    "image": "👀",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Who did you see at the zoo?",
+    "exampleVi": "Bạn đã gặp ai ở sở thú?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0078",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "buy",
+    "vi": "mua",
+    "pos": "verb",
+    "ipa": "/baɪ/",
+    "forms": {
+      "thirdSg": "buys",
+      "past": "bought",
+      "ing": "buying",
+      "irregular": true
+    },
+    "image": "🛒",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "What will you buy tomorrow?",
+    "exampleVi": "Ngày mai bạn sẽ mua gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0079",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "meet",
+    "vi": "gặp",
+    "pos": "verb",
+    "ipa": "/miːt/",
+    "forms": {
+      "thirdSg": "meets",
+      "past": "met",
+      "ing": "meeting",
+      "irregular": true
+    },
+    "image": "🤝",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "When will we meet again?",
+    "exampleVi": "Khi nào chúng ta sẽ gặp lại nhau?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0080",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "arrive",
+    "vi": "đến nơi",
+    "pos": "verb",
+    "ipa": "/əˈraɪv/",
+    "forms": {
+      "thirdSg": "arrives",
+      "past": "arrived",
+      "ing": "arriving",
+      "irregular": false
+    },
+    "image": "🛬",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "When will the train arrive?",
+    "exampleVi": "Khi nào đoàn tàu sẽ đến?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0081",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "favorite",
+    "vi": "ưa thích nhất",
+    "pos": "adjective",
+    "ipa": "/ˈfeɪ.vər.ət/",
+    "image": "❤️",
+    "tags": [
+      "preference"
+    ],
+    "exampleEn": "What is your favorite color?",
+    "exampleVi": "Màu sắc ưa thích nhất của bạn là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0082",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "best",
+    "vi": "tốt nhất, nhất",
+    "pos": "adjective",
+    "ipa": "/best/",
+    "image": "🥇",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Who is your best friend?",
+    "exampleVi": "Ai là người bạn tốt nhất của bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0083",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "nearest",
+    "vi": "gần nhất",
+    "pos": "adjective",
+    "ipa": "/ˈnɪr.ɪst/",
+    "image": "📍",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Where is the nearest hospital?",
+    "exampleVi": "Bệnh viện gần nhất ở đâu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0084",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "far",
+    "vi": "xa",
+    "pos": "adjective",
+    "ipa": "/fɑːr/",
+    "image": "🛣️",
+    "tags": [
+      "distance"
+    ],
+    "exampleEn": "How far is your house?",
+    "exampleVi": "Nhà bạn xa bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0085",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "near",
+    "vi": "gần",
+    "pos": "adjective",
+    "ipa": "/nɪr/",
+    "image": "🏡",
+    "tags": [
+      "distance"
+    ],
+    "exampleEn": "Is your school near here?",
+    "exampleVi": "Trường bạn có gần đây không?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0086",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "late",
+    "vi": "muộn, trễ",
+    "pos": "adjective",
+    "ipa": "/leɪt/",
+    "image": "⏰",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "Why are you late?",
+    "exampleVi": "Tại sao bạn lại đến muộn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0087",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "early",
+    "vi": "sớm",
+    "pos": "adverb",
+    "ipa": "/ˈɜːr.li/",
+    "image": "🌅",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "Why did you wake up early?",
+    "exampleVi": "Tại sao bạn lại dậy sớm?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0088",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "sad",
+    "vi": "buồn bã",
+    "pos": "adjective",
+    "ipa": "/sæd/",
+    "image": "😢",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "Why is she sad?",
+    "exampleVi": "Tại sao cô ấy lại buồn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0089",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "happy",
+    "vi": "vui vẻ",
+    "pos": "adjective",
+    "ipa": "/ˈhæp.i/",
+    "image": "😊",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "Why are you happy?",
+    "exampleVi": "Tại sao bạn lại vui vẻ vậy?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0090",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "angry",
+    "vi": "tức giận",
+    "pos": "adjective",
+    "ipa": "/ˈæŋ.ɡri/",
+    "image": "😡",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "Why are you angry?",
+    "exampleVi": "Tại sao bạn lại tức giận?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0091",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "tired",
+    "vi": "mệt mỏi",
+    "pos": "adjective",
+    "ipa": "/taɪərd/",
+    "image": "🥱",
+    "tags": [
+      "feeling"
+    ],
+    "exampleEn": "Why are you tired?",
+    "exampleVi": "Tại sao bạn lại mệt?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0092",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "hungry",
+    "vi": "đói bụng",
+    "pos": "adjective",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "image": "🤤",
+    "tags": [
+      "feeling"
+    ],
+    "exampleEn": "Are you hungry?",
+    "exampleVi": "Bạn có đói không?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0093",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "expensive",
+    "vi": "đắt tiền",
+    "pos": "adjective",
+    "ipa": "/ɪkˈspen.sɪv/",
+    "image": "💎",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Why is this bag so expensive?",
+    "exampleVi": "Tại sao chiếc túi này lại đắt thế?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0094",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "cheap",
+    "vi": "rẻ tiền",
+    "pos": "adjective",
+    "ipa": "/tʃiːp/",
+    "image": "🏷️",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Which shirt is cheap?",
+    "exampleVi": "Chiếc áo nào rẻ?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0095",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "heavy",
+    "vi": "nặng",
+    "pos": "adjective",
+    "ipa": "/ˈhev.i/",
+    "image": "🏋️",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "How heavy is the box?",
+    "exampleVi": "Chiếc hộp nặng bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0096",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "tall",
+    "vi": "cao lớn",
+    "pos": "adjective",
+    "ipa": "/tɔːl/",
+    "image": "🦒",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "Who is the tall boy?",
+    "exampleVi": "Cậu bé cao lớn đó là ai?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0097",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "short",
+    "vi": "thấp, ngắn",
+    "pos": "adjective",
+    "ipa": "/ʃɔːrt/",
+    "image": "📏",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "Which pencil is short?",
+    "exampleVi": "Chiếc bút chì nào ngắn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0098",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "big",
+    "vi": "to, lớn",
+    "pos": "adjective",
+    "ipa": "/bɪɡ/",
+    "image": "🐘",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "Which house is big?",
+    "exampleVi": "Ngôi nhà nào to?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0099",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "small",
+    "vi": "nhỏ",
+    "pos": "adjective",
+    "ipa": "/smɑːl/",
+    "image": "🐁",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "How small is the bird?",
+    "exampleVi": "Chú chim nhỏ thế nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0100",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "long",
+    "vi": "dài",
+    "pos": "adjective",
+    "ipa": "/lɑːŋ/",
+    "image": "📏",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "How long is the river?",
+    "exampleVi": "Dòng sông dài bao nhiêu?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0101",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "fast",
+    "vi": "nhanh",
+    "pos": "adverb",
+    "ipa": "/fæst/",
+    "image": "🐆",
+    "tags": [
+      "speed"
+    ],
+    "exampleEn": "How fast does he run?",
+    "exampleVi": "Cậu ấy chạy nhanh đến mức nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0102",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "difficult",
+    "vi": "khó khăn",
+    "pos": "adjective",
+    "ipa": "/ˈdɪf.ə.kəlt/",
+    "image": "🧩",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Why is the test difficult?",
+    "exampleVi": "Tại sao bài kiểm tra lại khó?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0103",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "easy",
+    "vi": "dễ dàng",
+    "pos": "adjective",
+    "ipa": "/ˈiː.zi/",
+    "image": "👌",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Which question is easy?",
+    "exampleVi": "Câu hỏi nào dễ?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0104",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "kind",
+    "vi": "tử tế, tốt bụng",
+    "pos": "adjective",
+    "ipa": "/kaɪnd/",
+    "image": "😇",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "Who is kind to you?",
+    "exampleVi": "Ai là người đối xử tốt bụng với bạn?",
+    "source": "seed"
+  },
+  {
+    "id": "C1-v-0105",
+    "level": "C1",
+    "topic": "wh-questions",
+    "en": "interesting",
+    "vi": "thú vị",
+    "pos": "adjective",
+    "ipa": "/ˈɪn.trə.stɪŋ/",
+    "image": "💡",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "What is interesting about this book?",
+    "exampleVi": "Có điều gì thú vị về cuốn sách này?",
+    "source": "seed"
+  }
+]

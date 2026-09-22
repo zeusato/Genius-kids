@@ -15,6 +15,7 @@ export function ModeSelectionPage() {
 
     const handleSelectMode = (mode: SelectableMode) => {
         if (mode === 'study') navigate('/study');
+        else if (mode === 'english') navigate('/english');
         else if (mode === 'game') navigate('/game');
         else if (mode === 'profile') navigate('/profile');
         else if (mode === 'shop') navigate('/shop');

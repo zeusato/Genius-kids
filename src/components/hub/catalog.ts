@@ -1,7 +1,7 @@
 import { Grade } from '../../../types';
 import { isPreschool } from '../../utils/grade';
 
-export type ModeId = 'study' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors';
+export type ModeId = 'study' | 'english' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors';
 export type GameId = 'farm' | 'caro' | 'coding' | 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
 export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
 export type ArtId = ModeId | GameId | `science-${ScienceId}`;
@@ -10,6 +10,7 @@ export interface HubEntry<T extends string> { id: T; title: string; subtitle: st
 
 const modes: HubEntry<ModeId>[] = [
     { id: 'study', title: 'Ôn Luyện', subtitle: 'Mỗi ngày một chút tiến bộ', description: 'Luyện toán theo lớp của em.', art: 'study', label: 'TOÁN HỌC' },
+    { id: 'english', title: 'Tiếng Anh', subtitle: 'Từng từ nhỏ, một thế giới lớn', description: 'Học câu mới, luyện cùng bạn Cáo.', art: 'english', label: 'ENGLISH GARDEN' },
     { id: 'game', title: 'Trò Chơi', subtitle: 'Những thế giới đang chờ em', description: 'Chơi vui, khám phá điều mới.', art: 'game', label: 'HỌC QUA TRÒ CHƠI' },
     { id: 'library', title: 'Thư Viện', subtitle: 'Mở sách, mở một thế giới', description: 'Đọc sách và tìm điều em tò mò.', art: 'library', label: 'ĐỌC & KHÁM PHÁ' },
     { id: 'riddle', title: 'Đố Vui Nhân Sư', subtitle: 'Sphinx Riddle', description: 'Thử tài suy luận cùng Nhân sư.', art: 'riddle', label: 'SUY LUẬN' },
@@ -46,7 +47,7 @@ export const GEAR_CATALOG: HubEntry<GameId>[] = [
     { id: 'gears-guess', title: 'Đoán Chiều Quay', subtitle: 'Nhìn kỹ, nghĩ khéo', description: 'Dự đoán hướng chuyển động của bánh răng.', art: 'gears-guess', label: 'SUY LUẬN' },
 ];
 export function modesFor(grade?: Grade) {
-    return isPreschool(grade) ? [...preschoolModes, ...modes.filter(m => ['game', 'library', 'piano', 'science'].includes(m.id))] : modes;
+    return isPreschool(grade) ? [...preschoolModes, ...modes.filter(m => ['game', 'library', 'piano', 'science', 'english'].includes(m.id))] : modes;
 }
 export const SCIENCE_CATALOG: (HubEntry<ScienceId> & { route: `/science/${ScienceId}`; allowPreschool: boolean })[] = [
     { id: 'solar-system', title: 'Khám Phá Hệ Mặt Trời', subtitle: 'Một chuyến đi vào vũ trụ', description: 'Ghé thăm các hành tinh và ngắm thế giới ngoài Trái Đất.', art: 'science-solar-system', label: 'THIÊN VĂN', route: '/science/solar-system', allowPreschool: true },

@@ -1,0 +1,92 @@
+{
+  "id": "B2",
+  "title": "Thì Hiện tại tiếp diễn (Present Continuous Tense)",
+  "level": "B2",
+  "summary": "Thì Hiện tại tiếp diễn dùng để diễn tả một hành động hoặc sự việc đang diễn ra ngay tại thời điểm nói hoặc xung quanh thời điểm nói.",
+  "formulas": [
+    {
+      "label": "Khẳng định (Affirmative)",
+      "pattern": "S + am / is / are + V-ing",
+      "example": "I am reading a book. (Tôi đang đọc một cuốn sách.)"
+    },
+    {
+      "label": "Phủ định (Negative)",
+      "pattern": "S + am not / isn't / aren't + V-ing",
+      "example": "I am not sleeping. (Lúc này tôi không ngủ.)"
+    },
+    {
+      "label": "Nghi vấn Yes/No (Yes/No Question)",
+      "pattern": "Am / Is / Are + S + V-ing?",
+      "example": "Is he eating an apple? - Yes, he is. / No, he isn't."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Cách dùng thì Hiện tại tiếp diễn",
+      "body": "Hiện tại tiếp diễn diễn tả hành động đang xảy ra lúc nói hoặc hoạt động tạm thời quanh thời điểm nói; không nhất thiết đang ở ngay trước mắt. Cấu trúc cơ bản: am/is/are + V-ing.\nĐối chiếu: I read every evening. (Thói quen.) / I am reading now. (Đang đọc lúc này.) Với nghĩa trạng thái như biết hoặc thích, thường dùng hiện tại đơn: I know the answer now.",
+      "exampleIds": [
+        "B2-s-0001",
+        "B2-s-0012"
+      ]
+    },
+    {
+      "heading": "2. Quy tắc lựa chọn to be (am / is / are)",
+      "body": "I đi với am. He, she, it và danh từ số ít đi với is. We, they và danh từ số nhiều đi với are. You dùng are dù nói với một người hay nhiều người.\nPhủ định: am not, is not/isn’t, are not/aren’t. Ví dụ: You are reading. có thể nói với một bạn hoặc cả nhóm.",
+      "exampleIds": [
+        "B2-s-0001",
+        "B2-s-0011",
+        "B2-s-0021",
+        "B2-s-0031"
+      ]
+    },
+    {
+      "heading": "3. Các quy tắc cơ bản khi thêm -ing",
+      "body": "Thông thường thêm -ing: read → reading. Với nhiều từ tận cùng bằng e câm, bỏ e: write → writing, dance → dancing; các từ như see giữ e: see → seeing. Giữ y khi thêm -ing: play → playing, study → studying.\nKhi thêm đuôi bắt đầu bằng nguyên âm, thường gấp đôi phụ âm cuối nếu trước nó là một chữ nguyên âm trong âm tiết được nhấn: stop → stopped/stopping. Không gấp đôi w, x, y: snow → snowing, fix → fixed, play → playing. Với từ nhiều âm tiết, xét trọng âm: prefer → preferred, begin → beginning, nhưng visit → visited, open → opening. Đây là quy tắc cơ bản; tra từ điển khi gặp ngoại lệ hoặc khác biệt Anh–Anh/Anh–Mỹ.",
+      "exampleIds": [
+        "B2-s-0151",
+        "B2-s-0152",
+        "B2-s-0162",
+        "B2-s-0171"
+      ]
+    },
+    {
+      "heading": "4. Dấu hiệu thời gian và ngữ cảnh",
+      "body": "Now, right now, at the moment hoặc lời gọi Look!/Listen! có thể gợi ý hành động đang xảy ra, nhưng không tự quyết định thì. Hãy xét nghĩa của động từ và điều người nói muốn diễn đạt.\nI am drawing now. diễn tả hành động đang xảy ra. I know the answer now. diễn tả trạng thái biết nên dùng hiện tại đơn. Today is Monday. cũng dùng hiện tại đơn. Today có thể chỉ một thời điểm trong ngày hoặc cả ngày; không mặc định chọn tiếp diễn.\nĐối chiếu thói quen và hiện tại: She plays tennis every Sunday. / She is playing tennis at the moment.",
+      "exampleIds": [
+        "B2-s-0191",
+        "B2-s-0192",
+        "B2-s-0195",
+        "B2-s-0196",
+        "B2-s-0199",
+        "B2-s-0200"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "He running in the park.",
+      "right": "He is running in the park.",
+      "why": "Thì tiếp diễn BẮT BUỘC phải có cả to be và V-ing. Thiếu to be là sai ngữ pháp nghiêm trọng."
+    },
+    {
+      "wrong": "She is runing fast.",
+      "right": "She is running fast.",
+      "why": "Động từ \"run\" kết thúc bằng C-V-C (phụ âm - nguyên âm - phụ âm), cần gấp đôi phụ âm \"n\" thành \"running\"."
+    },
+    {
+      "wrong": "They are danceing.",
+      "right": "They are dancing.",
+      "why": "Động từ \"dance\" có tận cùng là chữ \"e\" câm, cần bỏ \"e\" trước khi thêm đuôi \"-ing\"."
+    },
+    {
+      "wrong": "I am playying chess.",
+      "right": "I am playing chess.",
+      "why": "Động từ tận cùng bằng \"y\" (play, fly, study) chỉ cần thêm \"-ing\", không được nhân đôi chữ \"y\"."
+    }
+  ],
+  "tips": [
+    "Với hành động đang diễn ra trong bài này, kiểm tra đủ dạng be phù hợp và V-ing.",
+    "Từ chỉ thời gian là gợi ý. Đọc cả câu để phân biệt hành động đang xảy ra, thói quen và trạng thái.",
+    "Gấp đôi phụ âm cần xét chữ đứng trước, phụ âm cuối và trọng âm; không gấp đôi w/x/y. Begin → beginning cho thấy quy tắc không chỉ dành cho từ một âm tiết."
+  ]
+}

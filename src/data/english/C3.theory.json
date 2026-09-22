@@ -1,0 +1,60 @@
+{
+  "id": "C3",
+  "level": "C3",
+  "title": "Kỹ năng Đọc hiểu & Viết lại câu (Reading Comprehension & Sentence Rewrite)",
+  "summary": "Luyện đọc hiểu đoạn văn 60–90 từ và sáu dạng biến đổi câu. Một số dạng đổi ý khẳng định/phủ định; các dạng đồng nghĩa, rút gọn và đổi vị trí trạng ngữ cần giữ thông điệp gốc.",
+  "formulas": [
+    {
+      "label": "Chiến lược Đọc hiểu 3 Bước (Skimming - Scanning - Evidence Checking)",
+      "pattern": "Bước 1: Đọc lướt nắm ý chính (Skim) -> Bước 2: Quét từ khóa trong câu hỏi (Scan) -> Bước 3: Đối chiếu chứng cứ trong bài (Verify)",
+      "example": "Xác định từ để hỏi (Who, Where, When, What, Why, How)\nTìm câu chứa thông tin then chốt trong đoạn văn\nSo sánh dữ kiện để trả lời MCQ, True/False hoặc Short Answer"
+    },
+    {
+      "label": "6 Dạng Viết lại câu Cốt lõi (Sentence Transformation)",
+      "pattern": "1. Khẳng định ↔ Phủ định | 2. Trần thuật ↔ Nghi vấn Yes/No | 3. Dạng Đầy đủ ↔ Rút gọn | 4. Viết lại Đồng nghĩa | 5. Đổi vị trí Trạng ngữ",
+      "example": "She is a doctor. ↔ She isn't a doctor.\nThey play football. ↔ Do they play football?\nShe will not come. ↔ She won't come.\nThe film is very good. ↔ The film is great.\nShe woke up early yesterday. ↔ Yesterday she woke up early."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Kỹ năng Đọc hiểu Đoạn văn (Reading Comprehension Skills)",
+      "body": "Để làm tốt bài đọc hiểu tiếng Anh:\n- Luôn đọc lướt qua tiêu đề và toàn bài để hiểu chủ đề chính (gia đình, trường học, kỳ nghỉ, thiên nhiên).\n- Đọc kỹ câu hỏi và gạch chân các từ khóa quan trọng.\n- Với câu hỏi trắc nghiệm (MCQ): loại bỏ các phương án có thông tin sai lệch so với bài đọc.\n- Với câu hỏi Đúng/Sai (True/False): \"True\" khi toàn bộ thông tin hoàn toàn trùng khớp với bài đọc; \"False\" khi có chi tiết trái ngược.\n- Với câu hỏi trả lời ngắn (Short Answer): chỉ viết từ hoặc cụm từ được yêu cầu, chú ý chính tả."
+    },
+    {
+      "heading": "2. Phương pháp Viết lại câu (Sentence Transformation Techniques)",
+      "body": "Đổi khẳng định/phủ định: thay đổi việc xác nhận hoặc phủ nhận, giữ thì và các thông tin còn lại. Đổi trần thuật thành câu hỏi: dùng be hoặc do/does/did/will phù hợp; sau do/does/did/will là động từ nguyên thể. Rút gọn: giữ nguyên nghĩa, dùng dạng như is not → isn't. Từ đồng nghĩa: thay từ được yêu cầu và kiểm tra sắc thái trong ngữ cảnh. Đổi vị trí trạng ngữ: ưu tiên cụm thời gian tự nhiên như yesterday hoặc after school. Ví dụ: Lan read a book yesterday. → Yesterday Lan read a book."
+    },
+    {
+      "heading": "3. Kiểm tra mục tiêu trước khi viết",
+      "body": "Phủ định: She is here. → She is not here. Hai câu có ý trái nhau theo yêu cầu. Câu hỏi: They play chess. → Do they play chess? Rút gọn: They do not play chess. → They don't play chess. Đọc yêu cầu, giữ đúng thì, viết hoa chữ đầu và chọn dấu chấm hoặc dấu hỏi phù hợp. Với bài đọc, chỉ trả lời thông tin được hỏi và dựa vào bằng chứng trong đoạn."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "She doesn't likes apples.",
+      "right": "She doesn't like apples.",
+      "why": "Khi đã dùng trợ động từ \"doesn't\", động từ chính phải trở về dạng nguyên mẫu \"like\", không thêm \"s\"."
+    },
+    {
+      "wrong": "Did he watched TV yesterday?",
+      "right": "Did he watch TV yesterday?",
+      "why": "Trong câu hỏi quá khứ với \"Did\", động từ chính phải ở dạng nguyên mẫu \"watch\", không chia đuôi \"-ed\"."
+    },
+    {
+      "wrong": "Yesterday, she wake up early.",
+      "right": "Yesterday she woke up early. (hoặc: Yesterday, she woke up early.)",
+      "why": "Dù đổi trạng từ \"Yesterday\" lên đầu câu, động từ chính vẫn phải chia đúng thì quá khứ đơn \"woke\"."
+    },
+    {
+      "wrong": "You will come. → Will you not come?",
+      "right": "You will come. → Will you come?",
+      "why": "Đổi câu trần thuật khẳng định thành câu hỏi Yes/No không tự thêm phủ định."
+    }
+  ],
+  "tips": [
+    "Khi đọc bài, chú ý các từ nối (First, Next, Then, Finally) để nắm rõ trình tự các sự việc.",
+    "Nhớ cặp rút gọn đặc biệt: \"will not\" rút gọn thành \"won't\", không phải \"willn't\".",
+    "Khi viết lại câu đồng nghĩa, luôn kiểm tra xem các từ xung quanh có cần thay đổi mạo từ a/an hay không (ví dụ: a good idea -> an excellent idea).",
+    "Với câu hỏi Short Answer, trả lời đúng trọng tâm cụm từ được hỏi, không chép cả câu dài."
+  ]
+}

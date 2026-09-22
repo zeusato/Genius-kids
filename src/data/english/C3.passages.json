@@ -1,0 +1,2269 @@
+[
+  {
+    "id": "C3-p-0001",
+    "level": "C3",
+    "title": "My Weekend in the Countryside",
+    "en": "On Saturday morning, Mai travels to the countryside with her family. They visit her grandparents in a small peaceful village. Mai loves the fresh air and green rice fields. In the afternoon, she helps her grandmother pick sweet oranges in the orchard. Her brother plays with a friendly brown puppy near the pond. In the evening, the whole family sits on the porch and eats warm dinner together under bright stars.",
+    "vi": "Vào sáng thứ Bảy, Mai cùng gia đình về quê. Họ thăm ông bà ở một ngôi làng nhỏ thanh bình. Mai thích không khí trong lành và những cánh đồng lúa xanh. Buổi chiều, cô giúp bà hái những quả cam ngọt trong vườn cây. Em trai cô chơi với một chú cún con màu nâu thân thiện gần bờ ao. Buổi tối, cả gia đình ngồi ngoài hiên và ăn bữa tối ấm cúng cùng nhau dưới bầu trời đầy sao.",
+    "wordCount": 71,
+    "questions": [
+      {
+        "id": "C3-p-0001-q1",
+        "type": "mcq",
+        "q": "Mai và gia đình về thăm ai ở quê?",
+        "options": [
+          "her teacher",
+          "her grandparents",
+          "her classmate",
+          "her aunt"
+        ],
+        "answer": "her grandparents",
+        "explain": "Đoạn văn có câu: \"They visit her grandparents in a small peaceful village.\""
+      },
+      {
+        "id": "C3-p-0001-q2",
+        "type": "tf",
+        "q": "Em trai của Mai chơi với một con mèo nhỏ bên bờ ao. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Đoạn văn viết cậu bé chơi với chú cún nâu (\"a friendly brown puppy\"), không phải mèo."
+      },
+      {
+        "id": "C3-p-0001-q3",
+        "type": "short",
+        "q": "Mai giúp bà làm công việc gì vào buổi chiều? Điền cụm hành động bằng tiếng Anh.",
+        "answer": "pick sweet oranges",
+        "alt": [
+          "pick oranges",
+          "picking sweet oranges",
+          "picking oranges"
+        ],
+        "explain": "Đoạn văn: \"she helps her grandmother pick sweet oranges in the orchard.\""
+      }
+    ],
+    "glossary": [
+      {
+        "en": "countryside",
+        "vi": "vùng quê"
+      },
+      {
+        "en": "fresh air",
+        "vi": "không khí trong lành"
+      },
+      {
+        "en": "orchard",
+        "vi": "vườn cây ăn quả"
+      },
+      {
+        "en": "porch",
+        "vi": "hiên nhà"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0002",
+    "level": "C3",
+    "title": "A Fun Day at School",
+    "en": "Today is Friday, and our class has a special science lesson. Mr. Nam brings small glass jars for all of us and green plant seeds. First, every student puts soft black soil into their own jar. Next, we carefully place two seeds into the soil and pour a little water. Mr. Nam tells us to place the jars near the bright sunny window. We are very excited to watch our green plants grow day by day.",
+    "vi": "Hôm nay là thứ Sáu, và lớp chúng tôi có một tiết học khoa học đặc biệt. Thầy Nam mang đến những chiếc lọ thủy tinh nhỏ cho tất cả chúng tôi và những hạt mầm màu xanh. Đầu tiên, mỗi học sinh cho đất đen tơi xốp vào lọ của mình. Tiếp theo, chúng tôi cẩn thận đặt hai hạt giống vào đất và tưới một ít nước. Thầy Nam bảo chúng tôi đặt các lọ gần cửa sổ đầy nắng. Chúng tôi rất hào hứng theo dõi những cái cây xanh lớn lên từng ngày.",
+    "wordCount": 76,
+    "questions": [
+      {
+        "id": "C3-p-0002-q1",
+        "type": "mcq",
+        "q": "Tiết học đặc biệt hôm nay của cả lớp là môn học nào?",
+        "options": [
+          "art",
+          "music",
+          "science",
+          "math"
+        ],
+        "answer": "science",
+        "explain": "Câu đầu: \"our class has a special science lesson.\""
+      },
+      {
+        "id": "C3-p-0002-q2",
+        "type": "tf",
+        "q": "Mỗi bạn học sinh đặt năm hạt giống vào chiếc lọ của mình. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Đoạn văn nêu: \"place two seeds into the soil\", tức là 2 hạt giống, không phải 5."
+      },
+      {
+        "id": "C3-p-0002-q3",
+        "type": "short",
+        "q": "Học sinh đặt các lọ cây ở đâu để đón ánh sáng? Điền cụm từ tiếng Anh.",
+        "answer": "near the window",
+        "alt": [
+          "near the sunny window",
+          "near the bright sunny window",
+          "by the window"
+        ],
+        "explain": "Câu: \"place the jars near the bright sunny window.\""
+      }
+    ],
+    "glossary": [
+      {
+        "en": "science",
+        "vi": "khoa học"
+      },
+      {
+        "en": "jar",
+        "vi": "lọ thủy tinh"
+      },
+      {
+        "en": "soil",
+        "vi": "đất trồng"
+      },
+      {
+        "en": "seed",
+        "vi": "hạt giống"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0003",
+    "level": "C3",
+    "title": "The Clever Little Squirrel",
+    "en": "In an ancient pine forest, a clever squirrel named Nutty lives inside a cozy tree hollow. Every autumn, Nutty wakes up early to gather ripe acorns and pine cones. He hides his food carefully under dry leaves and beneath old tree roots. When cold winter brings heavy white snow, Nutty stays warm in his nest. He enjoys his delicious stored food and waits patiently for gentle spring flowers to bloom.",
+    "vi": "Trong một khu rừng thông cổ thụ, một chú sóc khôn ngoan tên là Nutty sống trong một hốc cây ấm cúng. Mỗi mùa thu, Nutty thức dậy sớm để thu gom hạt sồi chín và quả thông. Chú giấu thức ăn cẩn thận dưới những chiếc lá khô và bên dưới những rễ cây già. Khi mùa đông lạnh giá mang tuyết trắng dày đặc đến, Nutty ở ấm áp trong tổ. Chú thưởng thức thức ăn ngon đã dự trữ và kiên nhẫn đợi hoa xuân dịu dàng nở rộ.",
+    "wordCount": 70,
+    "questions": [
+      {
+        "id": "C3-p-0003-q1",
+        "type": "mcq",
+        "q": "Chú sóc Nutty thức dậy sớm vào mùa nào để thu gom thức ăn?",
+        "options": [
+          "spring",
+          "summer",
+          "autumn",
+          "winter"
+        ],
+        "answer": "autumn",
+        "explain": "Đoạn văn viết: \"Every autumn, Nutty wakes up early to gather ripe acorns and pine cones.\""
+      },
+      {
+        "id": "C3-p-0003-q2",
+        "type": "tf",
+        "q": "Vào mùa đông lạnh giá, Nutty vẫn phải ra ngoài tìm kiếm quả thông mỗi ngày. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Đoạn văn nêu: \"Nutty stays warm in his nest. He enjoys his delicious stored food\"."
+      },
+      {
+        "id": "C3-p-0003-q3",
+        "type": "short",
+        "q": "Nutty sống ở đâu trong khu rừng thông? Điền nơi chốn tiếng Anh.",
+        "answer": "inside a tree hollow",
+        "alt": [
+          "a tree hollow",
+          "in a tree hollow",
+          "tree hollow",
+          "inside a cozy tree hollow"
+        ],
+        "explain": "Đoạn văn: \"lives inside a cozy tree hollow.\""
+      }
+    ],
+    "glossary": [
+      {
+        "en": "squirrel",
+        "vi": "con sóc"
+      },
+      {
+        "en": "tree hollow",
+        "vi": "hốc cây"
+      },
+      {
+        "en": "acorn",
+        "vi": "hạt sồi"
+      },
+      {
+        "en": "pine cone",
+        "vi": "quả thông"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0004",
+    "level": "C3",
+    "title": "A Visit to the City Library",
+    "en": "Every Wednesday afternoon, Huy and his sister Linh go to the city library. The library is a large modern building with thousands of colorful storybooks. Huy likes reading books about brave space astronauts and faraway planets. Linh prefers reading funny tales about magical talking animals. They sit at a clean wooden table near the bookshelf. They always keep quiet because everyone is reading quietly and attentively.",
+    "vi": "Mỗi chiều thứ Tư, Huy và em gái Linh đều đến thư viện thành phố. Thư viện là một tòa nhà hiện đại rộng lớn với hàng ngàn cuốn truyện nhiều màu sắc. Huy thích đọc sách về những nhà du hành vũ trụ dũng cảm và những hành tinh xa xôi. Linh thích đọc những câu chuyện vui nhộn về những con vật biết nói kỳ diệu. Họ ngồi bên chiếc bàn gỗ sạch sẽ gần giá sách. Họ luôn giữ trật tự vì mọi người đều đọc sách chăm chú và yên lặng.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0004-q1",
+        "type": "mcq",
+        "q": "Huy và Linh đến thư viện vào ngày nào trong tuần?",
+        "options": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Saturday"
+        ],
+        "answer": "Wednesday",
+        "explain": "Câu đầu: \"Every Wednesday afternoon, Huy and his sister Linh go to the city library.\""
+      },
+      {
+        "id": "C3-p-0004-q2",
+        "type": "tf",
+        "q": "Huy thích đọc sách về những nhà du hành vũ trụ. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Câu: \"Huy likes reading books about brave space astronauts\"."
+      },
+      {
+        "id": "C3-p-0004-q3",
+        "type": "short",
+        "q": "Tại sao hai bạn luôn giữ trật tự trong thư viện? Điền lý do ngắn bằng tiếng Anh.",
+        "answer": "everyone is reading quietly",
+        "alt": [
+          "everyone is reading",
+          "because everyone is reading quietly",
+          "everyone is reading quietly and attentively"
+        ],
+        "explain": "Câu cuối: \"because everyone is reading quietly and attentively.\""
+      }
+    ],
+    "glossary": [
+      {
+        "en": "modern",
+        "vi": "hiện đại"
+      },
+      {
+        "en": "astronaut",
+        "vi": "nhà du hành vũ trụ"
+      },
+      {
+        "en": "attentively",
+        "vi": "chăm chú"
+      },
+      {
+        "en": "bookshelf",
+        "vi": "giá sách"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0005",
+    "level": "C3",
+    "title": "Our Family Picnic by the Lake",
+    "en": "Last Sunday, my family had an unforgettable picnic by West Lake. The weather was bright and warm with a gentle breeze. My mother prepared ham sandwiches, boiled eggs, and fresh orange juice. My father brought a portable music player and a checkered blanket. We ate delicious food on the soft grass while white swans swam peacefully across the lake. Later, my brother and I flew a red kite.",
+    "vi": "Chủ nhật tuần trước, gia đình tôi đã có một buổi dã ngoại khó quên bên Hồ Tây. Thời tiết nắng ráo và ấm áp với một làn gió nhẹ. Mẹ tôi chuẩn bị bánh mì kẹp giăm bông, trứng luộc và nước cam tươi. Bố tôi mang theo một chiếc máy nghe nhạc cầm tay và một tấm thảm ca-rô. Chúng tôi ăn thức ăn ngon trên thảm cỏ êm trong khi những chú thiên nga trắng bơi lội yên bình qua hồ. Sau đó, tôi và em trai cùng thả một chiếc diều đỏ.",
+    "wordCount": 68,
+    "questions": [
+      {
+        "id": "C3-p-0005-q1",
+        "type": "mcq",
+        "q": "Mẹ đã chuẩn bị đồ uống gì cho buổi dã ngoại?",
+        "options": [
+          "apple juice",
+          "lemonade",
+          "orange juice",
+          "milk"
+        ],
+        "answer": "orange juice",
+        "explain": "Đoạn văn: \"prepared ham sandwiches, boiled eggs, and fresh orange juice.\""
+      },
+      {
+        "id": "C3-p-0005-q2",
+        "type": "tf",
+        "q": "Hai anh em thả một chiếc diều màu xanh lá cây. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Đoạn văn nêu: \"flew a red kite\", diều màu đỏ chứ không phải xanh."
+      },
+      {
+        "id": "C3-p-0005-q3",
+        "type": "short",
+        "q": "Loài vật nào bơi lội yên bình trên mặt hồ? Điền tên tiếng Anh.",
+        "answer": "white swans",
+        "alt": [
+          "swans",
+          "swan"
+        ],
+        "explain": "Câu: \"white swans swam peacefully across the lake.\""
+      }
+    ],
+    "glossary": [
+      {
+        "en": "unforgettable",
+        "vi": "khó quên"
+      },
+      {
+        "en": "swan",
+        "vi": "chim thiên nga"
+      },
+      {
+        "en": "breeze",
+        "vi": "cơn gió thoảng"
+      },
+      {
+        "en": "blanket",
+        "vi": "tấm thảm, chăn"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0006",
+    "level": "C3",
+    "title": "A Walk beside the River",
+    "en": "On Sunday, Linh and her father follow a stream through a forest. They stop on the riverbank and listen to the water. A small waterfall flows over dark rocks ahead of them. Linh draws the waterfall in her notebook while her father prepares lunch. After eating, they collect their rubbish and walk home. Linh puts her drawing above her desk to remember their quiet afternoon.",
+    "vi": "Chủ nhật, Linh và bố men theo một con suối xuyên qua khu rừng. Họ dừng trên bờ sông và lắng nghe tiếng nước. Phía trước, một thác nước nhỏ chảy qua những tảng đá sẫm màu. Linh vẽ thác nước vào sổ trong khi bố chuẩn bị bữa trưa. Ăn xong, họ thu gom rác của mình rồi đi bộ về nhà. Linh treo bức vẽ phía trên bàn học để nhớ buổi chiều yên tĩnh ấy.",
+    "wordCount": 65,
+    "questions": [
+      {
+        "id": "C3-p-0006-q1",
+        "type": "mcq",
+        "q": "Linh vẽ gì vào sổ?",
+        "options": [
+          "a waterfall",
+          "a bridge",
+          "a house",
+          "a boat"
+        ],
+        "answer": "a waterfall",
+        "explain": "Bằng chứng trong đoạn: “Linh draws the waterfall in her notebook while her father prepares lunch.” Đáp án: a waterfall."
+      },
+      {
+        "id": "C3-p-0006-q2",
+        "type": "tf",
+        "q": "Hai bố con để rác lại trên bờ sông. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Họ thu gom rác trước khi về."
+      },
+      {
+        "id": "C3-p-0006-q3",
+        "type": "short",
+        "q": "Linh treo tranh ở đâu? Trả lời bằng cụm chỉ vị trí.",
+        "answer": "above her desk",
+        "alt": [
+          "over her desk"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “above her desk”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "riverbank",
+        "vi": "bờ sông"
+      },
+      {
+        "en": "waterfall",
+        "vi": "thác nước"
+      },
+      {
+        "en": "stream",
+        "vi": "con suối"
+      },
+      {
+        "en": "forest",
+        "vi": "khu rừng"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0007",
+    "level": "C3",
+    "title": "The Island Journey",
+    "en": "Our journey to the island begins at a small harbor. My sister counts fishing boats from the ferry window. When we arrive, we walk along the seashore with our uncle. He shows us a path to a hill behind his house. From the top, we see a distant mountain and a green valley across the water. We return before sunset and eat noodles in his kitchen.",
+    "vi": "Chuyến đi ra đảo của chúng tôi bắt đầu tại một bến cảng nhỏ. Em gái tôi đếm thuyền đánh cá qua cửa sổ phà. Đến nơi, chúng tôi cùng chú đi dọc bờ biển. Chú chỉ cho chúng tôi một lối lên đồi phía sau nhà. Từ trên đỉnh, chúng tôi nhìn thấy một ngọn núi xa và thung lũng xanh bên kia mặt nước. Chúng tôi trở về trước hoàng hôn và ăn mì trong bếp nhà chú.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0007-q1",
+        "type": "mcq",
+        "q": "Họ ra đảo bằng phương tiện nào?",
+        "options": [
+          "a train",
+          "a bicycle",
+          "a plane",
+          "a ferry"
+        ],
+        "answer": "a ferry",
+        "explain": "Bằng chứng trong đoạn: “My sister counts fishing boats from the ferry window.” Đáp án: a ferry."
+      },
+      {
+        "id": "C3-p-0007-q2",
+        "type": "tf",
+        "q": "Họ trở về trước hoàng hôn. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Đoạn cuối nói họ trở về trước sunset."
+      },
+      {
+        "id": "C3-p-0007-q3",
+        "type": "short",
+        "q": "Họ ăn món gì trong bếp? Chỉ viết tên món ăn.",
+        "answer": "noodles",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “noodles”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "island",
+        "vi": "hòn đảo"
+      },
+      {
+        "en": "seashore",
+        "vi": "bờ biển"
+      },
+      {
+        "en": "mountain",
+        "vi": "ngọn núi"
+      },
+      {
+        "en": "valley",
+        "vi": "thung lũng"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0008",
+    "level": "C3",
+    "title": "Helping with the Harvest",
+    "en": "The rice harvest begins in our village this week. Golden sunshine covers the field behind my grandparents' house. The adults work in the field, and I help Grandma prepare lunch at home. We fill a basket with rice, vegetables, and boiled eggs. At noon, Grandpa meets us beside the gate. Everyone rests under a large tree, shares the food, and talks about the morning's work.",
+    "vi": "Tuần này, làng chúng tôi bắt đầu vụ gặt lúa. Ánh nắng vàng phủ lên cánh đồng sau nhà ông bà. Người lớn làm việc ngoài đồng, còn tôi giúp bà chuẩn bị bữa trưa ở nhà. Chúng tôi xếp cơm, rau và trứng luộc vào giỏ. Đến trưa, ông gặp chúng tôi cạnh cổng. Mọi người nghỉ dưới một cây lớn, chia nhau thức ăn và kể về công việc buổi sáng.",
+    "wordCount": 65,
+    "questions": [
+      {
+        "id": "C3-p-0008-q1",
+        "type": "mcq",
+        "q": "Người kể giúp bà làm gì?",
+        "options": [
+          "paint a basket",
+          "plant a tree",
+          "prepare lunch",
+          "repair a gate"
+        ],
+        "answer": "prepare lunch",
+        "explain": "Bằng chứng trong đoạn: “The adults work in the field, and I help Grandma prepare lunch at home.” Đáp án: prepare lunch."
+      },
+      {
+        "id": "C3-p-0008-q2",
+        "type": "tf",
+        "q": "Ông gặp mọi người lúc nửa đêm. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Ông gặp họ at noon, tức buổi trưa."
+      },
+      {
+        "id": "C3-p-0008-q3",
+        "type": "short",
+        "q": "Mọi người nghỉ ở đâu? Viết cụm chỉ vị trí.",
+        "answer": "under a large tree",
+        "alt": [
+          "under a tree"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “under a large tree”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "harvest",
+        "vi": "vụ thu hoạch"
+      },
+      {
+        "en": "sunshine",
+        "vi": "ánh nắng"
+      },
+      {
+        "en": "field",
+        "vi": "cánh đồng"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0009",
+    "level": "C3",
+    "title": "Watching the Weather",
+    "en": "Tuesday starts with a cloudy sky. At school, our class watches the weather through an open window. By lunchtime, it is windy, and leaves dance across the playground. Rain falls for a few minutes, then the sun appears. A rainbow stretches above the houses. We draw its colors on the board. In the afternoon, a gentle breeze moves the curtains while we finish our weather diaries.",
+    "vi": "Thứ Ba bắt đầu với bầu trời nhiều mây. Ở trường, lớp chúng tôi quan sát thời tiết qua cửa sổ mở. Đến giờ ăn trưa, trời có gió mạnh và lá bay khắp sân chơi. Mưa rơi trong vài phút rồi mặt trời xuất hiện. Một cầu vồng vắt ngang phía trên những ngôi nhà. Chúng tôi vẽ các màu của nó lên bảng. Buổi chiều, làn gió nhẹ làm rèm lay động khi chúng tôi hoàn thành nhật ký thời tiết.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0009-q1",
+        "type": "mcq",
+        "q": "Sau cơn mưa, thứ gì xuất hiện phía trên các ngôi nhà?",
+        "options": [
+          "a balloon",
+          "a rainbow",
+          "a kite",
+          "a plane"
+        ],
+        "answer": "a rainbow",
+        "explain": "Bằng chứng trong đoạn: “A rainbow stretches above the houses.” Đáp án: a rainbow."
+      },
+      {
+        "id": "C3-p-0009-q2",
+        "type": "tf",
+        "q": "Lớp vẽ các màu của cầu vồng lên bảng. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Các em draw its colors on the board."
+      },
+      {
+        "id": "C3-p-0009-q3",
+        "type": "short",
+        "q": "Lớp hoàn thành loại nhật ký nào? Viết cụm hai từ tiếng Anh.",
+        "answer": "weather diaries",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “weather diaries”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "cloudy",
+        "vi": "nhiều mây"
+      },
+      {
+        "en": "windy",
+        "vi": "có gió mạnh"
+      },
+      {
+        "en": "rainbow",
+        "vi": "cầu vồng"
+      },
+      {
+        "en": "breeze",
+        "vi": "làn gió nhẹ"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0010",
+    "level": "C3",
+    "title": "A Garden in Small Pots",
+    "en": "Mai fills four pots with soil and places one seed in each pot. She puts them near a sunny window and waters them every morning. Her brother writes a date on each label. Small green leaves appear after several days. In spring, the plants blossom, and yellow flowers brighten the room. Mai gives one pot to her teacher and keeps the other three on the windowsill.",
+    "vi": "Mai cho đất vào bốn chậu và đặt một hạt giống trong mỗi chậu. Cô đặt chậu gần cửa sổ có nắng rồi tưới mỗi sáng. Em trai ghi ngày lên từng nhãn. Vài ngày sau, những chiếc lá xanh nhỏ xuất hiện. Vào mùa xuân, cây nở hoa và những bông hoa vàng làm căn phòng sáng lên. Mai tặng cô giáo một chậu và giữ ba chậu còn lại trên bệ cửa sổ.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0010-q1",
+        "type": "mcq",
+        "q": "Ban đầu Mai chuẩn bị bao nhiêu chậu?",
+        "options": [
+          "four",
+          "two",
+          "three",
+          "five"
+        ],
+        "answer": "four",
+        "explain": "Bằng chứng trong đoạn: “Mai fills four pots with soil and places one seed in each pot.” Đáp án: four."
+      },
+      {
+        "id": "C3-p-0010-q2",
+        "type": "tf",
+        "q": "Mai tặng cô giáo cả bốn chậu. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Mai chỉ tặng một chậu và giữ ba chậu."
+      },
+      {
+        "id": "C3-p-0010-q3",
+        "type": "short",
+        "q": "Hoa có màu gì? Chỉ viết tên màu.",
+        "answer": "yellow",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “yellow”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "soil",
+        "vi": "đất trồng"
+      },
+      {
+        "en": "seed",
+        "vi": "hạt giống"
+      },
+      {
+        "en": "blossom",
+        "vi": "nở hoa"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0011",
+    "level": "C3",
+    "title": "One Paragraph at a Time",
+    "en": "Our teacher gives us a short passage about a rainy day. We read each paragraph together and discuss its meaning. Then everyone chooses one sentence to rewrite. I move the words about time to the beginning without changing the message. My partner checks my capital letter and full stop. We read both versions aloud and explain why they tell the same story in a different order.",
+    "vi": "Cô giáo đưa cho chúng tôi một bài đọc ngắn về ngày mưa. Chúng tôi cùng đọc từng đoạn và thảo luận ý nghĩa. Sau đó, mỗi bạn chọn một câu để viết lại. Tôi đưa những từ chỉ thời gian lên đầu mà không đổi thông điệp. Bạn cùng cặp kiểm tra chữ viết hoa và dấu chấm của tôi. Chúng tôi đọc to cả hai phiên bản và giải thích vì sao chúng kể cùng một chuyện với trật tự từ khác nhau.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0011-q1",
+        "type": "mcq",
+        "q": "Người kể đưa nhóm từ nào lên đầu câu?",
+        "options": [
+          "words about colors",
+          "words about food",
+          "words about animals",
+          "words about time"
+        ],
+        "answer": "words about time",
+        "explain": "Bằng chứng trong đoạn: “I move the words about time to the beginning without changing the message.” Đáp án: words about time."
+      },
+      {
+        "id": "C3-p-0011-q2",
+        "type": "tf",
+        "q": "Người kể giữ nguyên thông điệp của câu. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Bạn đổi vị trí từ without changing the message."
+      },
+      {
+        "id": "C3-p-0011-q3",
+        "type": "short",
+        "q": "Bạn cùng cặp kiểm tra chữ viết hoa và dấu gì? Viết tên dấu bằng tiếng Anh.",
+        "answer": "full stop",
+        "alt": [
+          "a full stop",
+          "period",
+          "a period"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “full stop”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "paragraph",
+        "vi": "đoạn văn"
+      },
+      {
+        "en": "passage",
+        "vi": "bài đọc"
+      },
+      {
+        "en": "rewrite",
+        "vi": "viết lại"
+      },
+      {
+        "en": "meaning",
+        "vi": "ý nghĩa"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0012",
+    "level": "C3",
+    "title": "The Dictionary Game",
+    "en": "Nam opens a dictionary during our word game. He searches for a synonym of small and finds little. Next, our teacher asks for a word with the opposite meaning. Hoa writes big on the board. We make three sentences about the same dog using these words. The dog changes size in our stories, and everyone laughs. Before lunch, we copy the new words into our notebooks.",
+    "vi": "Nam mở từ điển trong giờ chơi trò chơi từ vựng. Bạn tìm một từ đồng nghĩa với small và thấy little. Tiếp theo, cô giáo yêu cầu một từ có nghĩa trái ngược. Hoa viết big lên bảng. Chúng tôi đặt ba câu về cùng một con chó bằng các từ này. Con chó thay đổi kích thước trong những câu chuyện, khiến cả lớp cười. Trước bữa trưa, chúng tôi chép từ mới vào vở.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0012-q1",
+        "type": "mcq",
+        "q": "Nam tìm thấy từ nào đồng nghĩa với small?",
+        "options": [
+          "long",
+          "old",
+          "little",
+          "big"
+        ],
+        "answer": "little",
+        "explain": "Bằng chứng trong đoạn: “He searches for a synonym of small and finds little.” Đáp án: little."
+      },
+      {
+        "id": "C3-p-0012-q2",
+        "type": "tf",
+        "q": "Hoa viết little lên bảng. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Hoa viết big; Nam tìm được little."
+      },
+      {
+        "id": "C3-p-0012-q3",
+        "type": "short",
+        "q": "Chúng tôi đặt câu về con vật gì? Chỉ viết tên con vật.",
+        "answer": "dog",
+        "alt": [
+          "a dog"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “dog”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "dictionary",
+        "vi": "từ điển"
+      },
+      {
+        "en": "synonym",
+        "vi": "từ đồng nghĩa"
+      },
+      {
+        "en": "opposite meaning",
+        "vi": "nghĩa trái ngược"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0013",
+    "level": "C3",
+    "title": "Choosing a Library Book",
+    "en": "Lan chooses a library book with a bright blue cover. The title is The Lost Hat, and the author is a local teacher. Its main character is a boy who searches for his grandfather's hat. Lan reads the story after dinner and writes a short summary. She explains the beginning and ending in three sentences. The next morning, she shares her summary with the reading club.",
+    "vi": "Lan chọn một cuốn sách thư viện có bìa xanh dương sáng. Sách có tựa đề The Lost Hat, tác giả là một giáo viên địa phương. Nhân vật chính là cậu bé đi tìm mũ của ông. Lan đọc truyện sau bữa tối rồi viết một bản tóm tắt ngắn. Cô kể phần mở đầu và kết thúc trong ba câu. Sáng hôm sau, cô chia sẻ bản tóm tắt với câu lạc bộ đọc sách.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0013-q1",
+        "type": "mcq",
+        "q": "Ai là tác giả cuốn sách?",
+        "options": [
+          "a doctor",
+          "a local teacher",
+          "a bus driver",
+          "a farmer"
+        ],
+        "answer": "a local teacher",
+        "explain": "Bằng chứng trong đoạn: “The title is The Lost Hat, and the author is a local teacher.” Đáp án: a local teacher."
+      },
+      {
+        "id": "C3-p-0013-q2",
+        "type": "tf",
+        "q": "Lan viết bản tóm tắt gồm ba câu. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Lan kể mở đầu và kết thúc in three sentences."
+      },
+      {
+        "id": "C3-p-0013-q3",
+        "type": "short",
+        "q": "Bìa sách có màu gì? Chỉ viết tên màu.",
+        "answer": "blue",
+        "alt": [
+          "bright blue"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “blue”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "title",
+        "vi": "tựa đề"
+      },
+      {
+        "en": "author",
+        "vi": "tác giả"
+      },
+      {
+        "en": "character",
+        "vi": "nhân vật"
+      },
+      {
+        "en": "summary",
+        "vi": "bản tóm tắt"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0014",
+    "level": "C3",
+    "title": "Our Paper Bridge Project",
+    "en": "For our class project, we build two bridges from paper. One bridge is flat, and the other has folded sides. Our experiment tests their strength with small coins. The folded bridge holds more coins before it falls. We record the results on a chart. During our presentation, Minh shows both bridges while I explain the chart. Our classmates ask questions about the paper and the coins.",
+    "vi": "Trong dự án của lớp, chúng tôi làm hai cây cầu bằng giấy. Một cây cầu phẳng, cây còn lại có hai bên gấp lại. Thí nghiệm kiểm tra độ chắc bằng những đồng xu nhỏ. Cây cầu gấp giữ được nhiều xu hơn trước khi đổ. Chúng tôi ghi kết quả trên biểu đồ. Trong bài thuyết trình, Minh trưng hai cây cầu còn tôi giải thích biểu đồ. Các bạn hỏi về giấy và những đồng xu.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0014-q1",
+        "type": "mcq",
+        "q": "Cây cầu nào giữ được nhiều xu hơn?",
+        "options": [
+          "the folded bridge",
+          "the flat bridge",
+          "both equally",
+          "neither bridge"
+        ],
+        "answer": "the folded bridge",
+        "explain": "Bằng chứng trong đoạn: “The folded bridge holds more coins before it falls.” Đáp án: the folded bridge."
+      },
+      {
+        "id": "C3-p-0014-q2",
+        "type": "tf",
+        "q": "Nhóm dùng đá to để kiểm tra cầu. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Nhóm dùng small coins, những đồng xu nhỏ."
+      },
+      {
+        "id": "C3-p-0014-q3",
+        "type": "short",
+        "q": "Nhóm ghi kết quả lên đâu? Viết cụm danh từ.",
+        "answer": "a chart",
+        "alt": [
+          "chart"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a chart”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "project",
+        "vi": "dự án"
+      },
+      {
+        "en": "experiment",
+        "vi": "thí nghiệm"
+      },
+      {
+        "en": "presentation",
+        "vi": "bài thuyết trình"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0015",
+    "level": "C3",
+    "title": "A Visit to the Museum",
+    "en": "Dad takes me to the museum on a rainy morning. A new exhibition shows objects from old village homes. I see clay bowls, wooden chairs, and a stone sculpture of a bird. A guide explains how families used the bowls. I sketch the bird instead of touching it. At the exit, Dad buys a postcard of the exhibition for Grandma, and I write her a message.",
+    "vi": "Bố đưa tôi đến bảo tàng vào một buổi sáng mưa. Triển lãm mới trưng bày đồ dùng từ những ngôi nhà làng xưa. Tôi thấy bát đất sét, ghế gỗ và một tượng chim bằng đá. Hướng dẫn viên giải thích cách các gia đình dùng bát. Tôi phác họa con chim thay vì chạm vào nó. Ở lối ra, bố mua bưu thiếp của triển lãm tặng bà và tôi viết lời nhắn cho bà.",
+    "wordCount": 66,
+    "questions": [
+      {
+        "id": "C3-p-0015-q1",
+        "type": "mcq",
+        "q": "Tượng con chim làm bằng gì?",
+        "options": [
+          "paper",
+          "glass",
+          "cloth",
+          "stone"
+        ],
+        "answer": "stone",
+        "explain": "Bằng chứng trong đoạn: “I see clay bowls, wooden chairs, and a stone sculpture of a bird.” Đáp án: stone."
+      },
+      {
+        "id": "C3-p-0015-q2",
+        "type": "tf",
+        "q": "Người kể phác họa con chim. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Người kể sketch the bird thay vì chạm vào tượng."
+      },
+      {
+        "id": "C3-p-0015-q3",
+        "type": "short",
+        "q": "Bố mua món gì cho bà? Viết tên món đồ.",
+        "answer": "a postcard",
+        "alt": [
+          "postcard"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a postcard”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "museum",
+        "vi": "bảo tàng"
+      },
+      {
+        "en": "exhibition",
+        "vi": "triển lãm"
+      },
+      {
+        "en": "sculpture",
+        "vi": "tượng điêu khắc"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0016",
+    "level": "C3",
+    "title": "The School Chess Competition",
+    "en": "Our school chess competition takes place on Friday. I lose my first game but win the next two. My friend An reaches the final and plays against a student from another class. After a long game, An wins a silver trophy. My prize is a book of chess puzzles. We sit together after school and try the first puzzle before walking home with our families.",
+    "vi": "Cuộc thi cờ vua của trường diễn ra vào thứ Sáu. Tôi thua ván đầu nhưng thắng hai ván tiếp theo. Bạn An vào chung kết và đấu với một học sinh lớp khác. Sau một ván dài, An giành chiếc cúp bạc. Phần thưởng của tôi là sách câu đố cờ vua. Tan học, chúng tôi ngồi cùng nhau thử câu đố đầu tiên rồi đi bộ về với gia đình.",
+    "wordCount": 65,
+    "questions": [
+      {
+        "id": "C3-p-0016-q1",
+        "type": "mcq",
+        "q": "Ai giành chiếc cúp bạc?",
+        "options": [
+          "the teacher",
+          "a parent",
+          "An",
+          "the narrator"
+        ],
+        "answer": "An",
+        "explain": "Bằng chứng trong đoạn: “After a long game, An wins a silver trophy.” Đáp án: An."
+      },
+      {
+        "id": "C3-p-0016-q2",
+        "type": "tf",
+        "q": "Người kể thắng cả ba ván đầu. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Người kể thua ván đầu và thắng hai ván tiếp theo."
+      },
+      {
+        "id": "C3-p-0016-q3",
+        "type": "short",
+        "q": "Cuộc thi diễn ra vào thứ mấy? Viết tên thứ.",
+        "answer": "Friday",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “Friday”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "competition",
+        "vi": "cuộc thi"
+      },
+      {
+        "en": "prize",
+        "vi": "phần thưởng"
+      },
+      {
+        "en": "trophy",
+        "vi": "chiếc cúp"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0017",
+    "level": "C3",
+    "title": "A New Neighbor",
+    "en": "My grandparents live in a quiet neighborhood near our school. On Saturday, a new neighbor moves into the house next door. Grandma carries a basket of oranges to welcome her. I help Grandpa write our names and phone number on a card. Our new neighbor thanks us and introduces her daughter, Yen. Yen and I discover that we are in the same class, so we plan to walk to school together.",
+    "vi": "Ông bà tôi sống trong một khu phố yên tĩnh gần trường. Thứ Bảy, một người hàng xóm mới chuyển đến nhà bên cạnh. Bà mang giỏ cam sang chào đón cô ấy. Tôi giúp ông viết tên và số điện thoại của chúng tôi lên thiệp. Cô hàng xóm cảm ơn rồi giới thiệu con gái là Yến. Yến và tôi nhận ra mình học cùng lớp nên hẹn cùng đi bộ đến trường.",
+    "wordCount": 71,
+    "questions": [
+      {
+        "id": "C3-p-0017-q1",
+        "type": "mcq",
+        "q": "Bà mang gì sang chào hàng xóm?",
+        "options": [
+          "bread",
+          "oranges",
+          "books",
+          "flowers"
+        ],
+        "answer": "oranges",
+        "explain": "Bằng chứng trong đoạn: “Grandma carries a basket of oranges to welcome her.” Đáp án: oranges."
+      },
+      {
+        "id": "C3-p-0017-q2",
+        "type": "tf",
+        "q": "Yến và người kể học cùng lớp. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Hai bạn nhận ra mình in the same class."
+      },
+      {
+        "id": "C3-p-0017-q3",
+        "type": "short",
+        "q": "Ông viết tên và số điện thoại lên vật gì? Viết tên vật.",
+        "answer": "a card",
+        "alt": [
+          "card"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a card”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "grandparents",
+        "vi": "ông bà"
+      },
+      {
+        "en": "neighborhood",
+        "vi": "khu phố"
+      },
+      {
+        "en": "neighbor",
+        "vi": "người hàng xóm"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0018",
+    "level": "C3",
+    "title": "One Night at the Campsite",
+    "en": "We have a picnic at a campsite beside a lake. Dad puts up our tent while Mum spreads a blanket on the grass. After lunch, we play cards and watch ducks near the water. In the evening, the campsite leader lights a campfire in the fire area. We sit with our parents, sing two songs, and drink warm milk. Before bed, the leader puts the fire out.",
+    "vi": "Chúng tôi đi dã ngoại tại khu cắm trại bên hồ. Bố dựng lều còn mẹ trải chăn lên cỏ. Ăn trưa xong, chúng tôi chơi bài và ngắm vịt gần mặt nước. Buổi tối, người phụ trách khu trại đốt lửa trong khu vực dành riêng. Chúng tôi ngồi cùng bố mẹ, hát hai bài và uống sữa ấm. Trước giờ ngủ, người phụ trách dập tắt lửa.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0018-q1",
+        "type": "mcq",
+        "q": "Ai dựng lều?",
+        "options": [
+          "Dad",
+          "Mum",
+          "the narrator",
+          "the campsite leader"
+        ],
+        "answer": "Dad",
+        "explain": "Bằng chứng trong đoạn: “Dad puts up our tent while Mum spreads a blanket on the grass.” Đáp án: Dad."
+      },
+      {
+        "id": "C3-p-0018-q2",
+        "type": "tf",
+        "q": "Gia đình uống nước cam cạnh lửa trại. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Gia đình uống warm milk."
+      },
+      {
+        "id": "C3-p-0018-q3",
+        "type": "short",
+        "q": "Gia đình hát mấy bài? Chỉ viết số bằng chữ tiếng Anh.",
+        "answer": "two",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “two”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "picnic",
+        "vi": "buổi dã ngoại"
+      },
+      {
+        "en": "tent",
+        "vi": "lều"
+      },
+      {
+        "en": "campfire",
+        "vi": "lửa trại"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0019",
+    "level": "C3",
+    "title": "Following the Forest Trail",
+    "en": "Our adventure begins at the forest gate with a local guide. I carry water and a flashlight in my backpack. The guide uses a compass to show us north before we explore the marked trail. We stop at a wooden bridge and listen to birds. My brother draws our route on a map. We follow the same path back and reach the gate before the afternoon rain.",
+    "vi": "Chuyến phiêu lưu bắt đầu tại cổng rừng với một hướng dẫn viên địa phương. Tôi mang nước và đèn pin trong ba lô. Hướng dẫn viên dùng la bàn chỉ hướng bắc trước khi chúng tôi khám phá đường mòn có đánh dấu. Chúng tôi dừng tại cầu gỗ và nghe chim hót. Em trai vẽ đường đi lên bản đồ. Chúng tôi theo đường cũ trở lại, tới cổng trước cơn mưa chiều.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0019-q1",
+        "type": "mcq",
+        "q": "Hướng dẫn viên dùng gì để chỉ hướng bắc?",
+        "options": [
+          "a camera",
+          "a clock",
+          "a ruler",
+          "a compass"
+        ],
+        "answer": "a compass",
+        "explain": "Bằng chứng trong đoạn: “The guide uses a compass to show us north before we explore the marked trail.” Đáp án: a compass."
+      },
+      {
+        "id": "C3-p-0019-q2",
+        "type": "tf",
+        "q": "Nhóm trở về theo cùng đường mòn. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Nhóm follow the same path back."
+      },
+      {
+        "id": "C3-p-0019-q3",
+        "type": "short",
+        "q": "Em trai vẽ đường đi lên đâu? Viết cụm danh từ.",
+        "answer": "a map",
+        "alt": [
+          "map"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a map”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "backpack",
+        "vi": "ba lô"
+      },
+      {
+        "en": "flashlight",
+        "vi": "đèn pin"
+      },
+      {
+        "en": "compass",
+        "vi": "la bàn"
+      },
+      {
+        "en": "explore",
+        "vi": "khám phá"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0020",
+    "level": "C3",
+    "title": "A Photograph for Grandma",
+    "en": "Our class takes an excursion to an old town. I bring a camera and take a photograph of a yellow house beside the river. Its wooden windows remind me of Grandma's home. At a small shop, I choose a bookmark as a souvenir for her. Back at school, we print our pictures. I place my photograph inside a letter and tell Grandma about the house and the busy river.",
+    "vi": "Lớp chúng tôi đi tham quan một thị trấn cổ. Tôi mang máy ảnh và chụp một ngôi nhà vàng bên sông. Cửa sổ gỗ gợi tôi nhớ nhà bà. Ở cửa hàng nhỏ, tôi chọn một chiếc đánh dấu sách làm quà lưu niệm cho bà. Về trường, chúng tôi in ảnh. Tôi đặt ảnh vào thư và kể bà nghe về ngôi nhà cùng dòng sông tấp nập.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0020-q1",
+        "type": "mcq",
+        "q": "Người kể chọn quà gì cho bà?",
+        "options": [
+          "a cup",
+          "a scarf",
+          "a bookmark",
+          "a camera"
+        ],
+        "answer": "a bookmark",
+        "explain": "Bằng chứng trong đoạn: “At a small shop, I choose a bookmark as a souvenir for her.” Đáp án: a bookmark."
+      },
+      {
+        "id": "C3-p-0020-q2",
+        "type": "tf",
+        "q": "Ngôi nhà trong ảnh có màu xanh. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Đó là a yellow house, ngôi nhà màu vàng."
+      },
+      {
+        "id": "C3-p-0020-q3",
+        "type": "short",
+        "q": "Người kể đặt ảnh vào trong gì? Viết cụm danh từ.",
+        "answer": "a letter",
+        "alt": [
+          "letter"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a letter”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "excursion",
+        "vi": "chuyến tham quan"
+      },
+      {
+        "en": "camera",
+        "vi": "máy ảnh"
+      },
+      {
+        "en": "photograph",
+        "vi": "bức ảnh"
+      },
+      {
+        "en": "souvenir",
+        "vi": "quà lưu niệm"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0021",
+    "level": "C3",
+    "title": "A Costume Celebration",
+    "en": "An invitation arrives for our class celebration. Each child plans a costume using old clothes and paper. I make a pair of rabbit ears, and my friend wears a cardboard crown. At the party, we explain how we made our costumes. Then we play a guessing game about story characters. Our teacher takes a group picture, and everyone helps clear the tables before going home.",
+    "vi": "Chúng tôi nhận lời mời dự buổi liên hoan lớp. Mỗi bạn lên ý tưởng trang phục bằng quần áo cũ và giấy. Tôi làm đôi tai thỏ, còn bạn tôi đội vương miện bìa. Trong buổi tiệc, chúng tôi giải thích cách làm trang phục rồi chơi đoán nhân vật truyện. Cô giáo chụp ảnh chung và mọi người giúp dọn bàn trước khi về.",
+    "wordCount": 65,
+    "questions": [
+      {
+        "id": "C3-p-0021-q1",
+        "type": "mcq",
+        "q": "Người kể làm phụ kiện gì?",
+        "options": [
+          "a mask",
+          "rabbit ears",
+          "a crown",
+          "bird wings"
+        ],
+        "answer": "rabbit ears",
+        "explain": "Bằng chứng trong đoạn: “I make a pair of rabbit ears, and my friend wears a cardboard crown.” Đáp án: rabbit ears."
+      },
+      {
+        "id": "C3-p-0021-q2",
+        "type": "tf",
+        "q": "Cả lớp giúp dọn bàn trước khi về. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Everyone helps clear the tables."
+      },
+      {
+        "id": "C3-p-0021-q3",
+        "type": "short",
+        "q": "Cô giáo chụp loại ảnh gì? Viết cụm từ trong bài.",
+        "answer": "a group picture",
+        "alt": [
+          "group picture"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a group picture”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "invitation",
+        "vi": "lời mời"
+      },
+      {
+        "en": "celebration",
+        "vi": "buổi liên hoan"
+      },
+      {
+        "en": "costume",
+        "vi": "trang phục hóa trang"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0022",
+    "level": "C3",
+    "title": "Lights above the Square",
+    "en": "Every year, our town holds a festival in the main square. My family follows a tradition of making one paper lantern together. This year, ours looks like a yellow fish. We carry it to the square to celebrate with our neighbors. After the music ends, fireworks light up the sky above the river. We watch from the square, then walk home and hang our lantern beside the door.",
+    "vi": "Hằng năm, thị trấn tổ chức lễ hội ở quảng trường chính. Gia đình tôi giữ truyền thống cùng làm một chiếc đèn lồng giấy. Năm nay, đèn của chúng tôi giống cá vàng. Chúng tôi mang đến quảng trường chung vui với hàng xóm. Nhạc kết thúc, pháo hoa sáng trên bầu trời phía trên sông. Chúng tôi đứng ở quảng trường ngắm rồi đi bộ về, treo đèn cạnh cửa.",
+    "wordCount": 68,
+    "questions": [
+      {
+        "id": "C3-p-0022-q1",
+        "type": "mcq",
+        "q": "Đèn lồng của gia đình có hình gì?",
+        "options": [
+          "a fish",
+          "a bird",
+          "a star",
+          "a rabbit"
+        ],
+        "answer": "a fish",
+        "explain": "Bằng chứng trong đoạn: “This year, ours looks like a yellow fish.” Đáp án: a fish."
+      },
+      {
+        "id": "C3-p-0022-q2",
+        "type": "tf",
+        "q": "Gia đình bỏ đèn lồng lại quảng trường. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Họ đem đèn về treo cạnh cửa."
+      },
+      {
+        "id": "C3-p-0022-q3",
+        "type": "short",
+        "q": "Gia đình ngắm pháo hoa từ đâu? Viết tên địa điểm.",
+        "answer": "the square",
+        "alt": [
+          "the main square"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “the square”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "lantern",
+        "vi": "đèn lồng"
+      },
+      {
+        "en": "fireworks",
+        "vi": "pháo hoa"
+      },
+      {
+        "en": "tradition",
+        "vi": "truyền thống"
+      },
+      {
+        "en": "celebrate",
+        "vi": "ăn mừng"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0023",
+    "level": "C3",
+    "title": "Grandma's Soup Recipe",
+    "en": "Grandma keeps her favorite soup recipe in a small blue notebook. Today, she teaches me to make it. I wash the carrots and count three potatoes while she prepares the pot. We add water and vegetables, then wait for the soup to cook. The kitchen smells delicious. At dinner, my brother asks for another bowl. I write the recipe carefully so I remember the steps next time.",
+    "vi": "Bà ghi công thức món súp yêu thích trong sổ xanh nhỏ. Hôm nay, bà dạy tôi nấu món đó. Tôi rửa cà rốt và đếm ba củ khoai tây trong khi bà chuẩn bị nồi. Chúng tôi cho nước và rau vào rồi đợi súp chín. Căn bếp thơm hấp dẫn. Trong bữa tối, em trai xin thêm một bát. Tôi chép kỹ công thức để nhớ các bước cho lần sau.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0023-q1",
+        "type": "mcq",
+        "q": "Bà ghi công thức trong vật gì?",
+        "options": [
+          "a newspaper",
+          "a red folder",
+          "a postcard",
+          "a blue notebook"
+        ],
+        "answer": "a blue notebook",
+        "explain": "Bằng chứng trong đoạn: “Grandma keeps her favorite soup recipe in a small blue notebook.” Đáp án: a blue notebook."
+      },
+      {
+        "id": "C3-p-0023-q2",
+        "type": "tf",
+        "q": "Người kể chuẩn bị ba củ khoai tây. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Người kể counts three potatoes."
+      },
+      {
+        "id": "C3-p-0023-q3",
+        "type": "short",
+        "q": "Ai xin thêm một bát súp? Viết cụm từ chỉ người.",
+        "answer": "my brother",
+        "alt": [
+          "the narrator's brother",
+          "her brother",
+          "his brother"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “my brother”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "recipe",
+        "vi": "công thức nấu ăn"
+      },
+      {
+        "en": "delicious",
+        "vi": "ngon, thơm hấp dẫn"
+      },
+      {
+        "en": "pot",
+        "vi": "nồi"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0024",
+    "level": "C3",
+    "title": "Making Music Together",
+    "en": "Playing the guitar is my favorite hobby. My sister prefers the flute, so we practice a simple melody together after school. Each musical instrument has a different sound. At first, I play too fast, and my sister stops. We count slowly and begin again. On Sunday, we perform our song for our parents. They listen until the final note and clap with big smiles on their faces.",
+    "vi": "Chơi ghi-ta là sở thích của tôi. Chị thích sáo hơn nên tan học, chúng tôi cùng tập một giai điệu đơn giản. Mỗi nhạc cụ có âm thanh riêng. Ban đầu, tôi chơi quá nhanh khiến chị dừng lại. Chúng tôi đếm chậm rồi bắt đầu lại. Chủ nhật, chúng tôi biểu diễn cho bố mẹ. Bố mẹ nghe đến nốt cuối rồi mỉm cười thật tươi và vỗ tay.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0024-q1",
+        "type": "mcq",
+        "q": "Chị của người kể chơi nhạc cụ gì?",
+        "options": [
+          "the piano",
+          "the drum",
+          "the flute",
+          "the guitar"
+        ],
+        "answer": "the flute",
+        "explain": "Bằng chứng trong đoạn: “My sister prefers the flute, so we practice a simple melody together after school.” Đáp án: the flute."
+      },
+      {
+        "id": "C3-p-0024-q2",
+        "type": "tf",
+        "q": "Ban đầu người kể chơi quá chậm. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Người kể play too fast, tức quá nhanh."
+      },
+      {
+        "id": "C3-p-0024-q3",
+        "type": "short",
+        "q": "Hai chị em biểu diễn vào thứ mấy? Viết tên thứ.",
+        "answer": "Sunday",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “Sunday”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "hobby",
+        "vi": "sở thích"
+      },
+      {
+        "en": "musical instrument",
+        "vi": "nhạc cụ"
+      },
+      {
+        "en": "guitar",
+        "vi": "đàn ghi-ta"
+      },
+      {
+        "en": "flute",
+        "vi": "sáo"
+      },
+      {
+        "en": "melody",
+        "vi": "giai điệu"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0025",
+    "level": "C3",
+    "title": "A Painting of Our Street",
+    "en": "In art class, Bao places a blank canvas on his table. He chooses a wide paintbrush for the sky and a thin one for windows. His painting shows our street after rain. Instead of gray puddles, he paints reflections of colorful houses. Our teacher praises his creative idea. Bao lets the picture dry overnight. The next day, he hangs it beside the classroom door for his friends to see.",
+    "vi": "Trong giờ mỹ thuật, Bảo đặt tấm vải vẽ trắng lên bàn. Bạn chọn cọ bản rộng vẽ trời và cọ mảnh vẽ cửa sổ. Bức tranh thể hiện con phố sau mưa. Thay vì vẽ vũng nước xám, bạn vẽ hình những ngôi nhà nhiều màu phản chiếu. Cô khen ý tưởng sáng tạo ấy. Bảo để tranh khô qua đêm. Hôm sau, bạn treo tranh cạnh cửa lớp cho các bạn xem.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0025-q1",
+        "type": "mcq",
+        "q": "Bảo dùng cọ bản rộng để vẽ gì?",
+        "options": [
+          "the flowers",
+          "the sky",
+          "the windows",
+          "the doors"
+        ],
+        "answer": "the sky",
+        "explain": "Bằng chứng trong đoạn: “He chooses a wide paintbrush for the sky and a thin one for windows.” Đáp án: the sky."
+      },
+      {
+        "id": "C3-p-0025-q2",
+        "type": "tf",
+        "q": "Bảo để bức tranh khô qua đêm. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Bao lets the picture dry overnight."
+      },
+      {
+        "id": "C3-p-0025-q3",
+        "type": "short",
+        "q": "Bảo treo tranh cạnh đâu? Viết cụm chỉ vị trí.",
+        "answer": "beside the classroom door",
+        "alt": [
+          "next to the classroom door"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “beside the classroom door”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "canvas",
+        "vi": "vải vẽ tranh"
+      },
+      {
+        "en": "paintbrush",
+        "vi": "cọ vẽ"
+      },
+      {
+        "en": "painting",
+        "vi": "bức tranh"
+      },
+      {
+        "en": "creative",
+        "vi": "sáng tạo"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0026",
+    "level": "C3",
+    "title": "Folding a Paper Crane",
+    "en": "Our origami club meets in the library on Wednesdays. Today, we fold paper cranes from square sheets. The first step is easy, but the wings need careful folds. I press each edge with my finger and check the teacher's model. My first crane leans to one side. I try again with another sheet, and the second crane stands straight. I give both cranes to my little sister.",
+    "vi": "Câu lạc bộ gấp giấy họp ở thư viện vào thứ Tư. Hôm nay, chúng tôi gấp hạc từ giấy vuông. Bước đầu dễ nhưng phần cánh cần gấp cẩn thận. Tôi miết từng cạnh bằng ngón tay và xem mẫu của cô. Con hạc đầu nghiêng một bên. Tôi thử tờ giấy khác và con hạc thứ hai đứng thẳng. Tôi tặng cả hai cho em gái.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0026-q1",
+        "type": "mcq",
+        "q": "Câu lạc bộ họp ở đâu?",
+        "options": [
+          "the library",
+          "the kitchen",
+          "the gym",
+          "the garden"
+        ],
+        "answer": "the library",
+        "explain": "Bằng chứng trong đoạn: “Our origami club meets in the library on Wednesdays.” Đáp án: the library."
+      },
+      {
+        "id": "C3-p-0026-q2",
+        "type": "tf",
+        "q": "Con hạc đầu tiên đứng thẳng. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Con đầu leans to one side; con thứ hai mới đứng thẳng."
+      },
+      {
+        "id": "C3-p-0026-q3",
+        "type": "short",
+        "q": "Người kể tặng hạc cho ai? Viết cụm chỉ người.",
+        "answer": "my little sister",
+        "alt": [
+          "the narrator's little sister",
+          "her little sister",
+          "his little sister"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “my little sister”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "origami",
+        "vi": "nghệ thuật gấp giấy"
+      },
+      {
+        "en": "careful",
+        "vi": "cẩn thận"
+      },
+      {
+        "en": "fold",
+        "vi": "nếp gấp"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0027",
+    "level": "C3",
+    "title": "Inside the Aquarium",
+    "en": "At the aquarium, our class follows a guide through a glass tunnel. Fish swim above us, and a large turtle rests near a rock. In the next room, a film shows a dolphin jumping beside a boat. A model of a whale hangs from the ceiling. We compare its size with the tunnel. Before leaving, we draw our favorite sea animal and write one question for the guide.",
+    "vi": "Ở thủy cung, lớp đi theo hướng dẫn viên qua đường hầm kính. Cá bơi phía trên và một con rùa lớn nghỉ cạnh đá. Phòng tiếp theo chiếu phim cá heo nhảy bên thuyền. Một mô hình cá voi treo trên trần. Chúng tôi so kích thước nó với đường hầm. Trước khi về, mỗi bạn vẽ con vật biển yêu thích và viết một câu hỏi cho hướng dẫn viên.",
+    "wordCount": 68,
+    "questions": [
+      {
+        "id": "C3-p-0027-q1",
+        "type": "mcq",
+        "q": "Mô hình con vật nào treo trên trần?",
+        "options": [
+          "a turtle",
+          "a dolphin",
+          "a crab",
+          "a whale"
+        ],
+        "answer": "a whale",
+        "explain": "Bằng chứng trong đoạn: “A model of a whale hangs from the ceiling.” Đáp án: a whale."
+      },
+      {
+        "id": "C3-p-0027-q2",
+        "type": "tf",
+        "q": "Lớp xem cá heo trong một bộ phim. Đúng hay sai?",
+        "answer": "true",
+        "explain": "A film shows a dolphin jumping beside a boat."
+      },
+      {
+        "id": "C3-p-0027-q3",
+        "type": "short",
+        "q": "Rùa nghỉ cạnh vật gì? Viết cụm danh từ.",
+        "answer": "a rock",
+        "alt": [
+          "rock"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a rock”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "aquarium",
+        "vi": "thủy cung"
+      },
+      {
+        "en": "dolphin",
+        "vi": "cá heo"
+      },
+      {
+        "en": "whale",
+        "vi": "cá voi"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0028",
+    "level": "C3",
+    "title": "Three Animal Drawings",
+    "en": "Our classroom wall has three new animal drawings. One shows a penguin beside an icy sea. Another shows a kangaroo with a baby in its pouch. The third shows a koala resting in a tree. We use library books to label each picture. I draw leaves around the koala, and Linh adds rocks beside the penguin. Our teacher puts a map below the drawings to show the animals' homes.",
+    "vi": "Tường lớp có ba bức vẽ động vật mới. Một bức vẽ chim cánh cụt bên biển băng. Bức khác vẽ chuột túi có con trong túi. Bức thứ ba vẽ koala nghỉ trên cây. Chúng tôi dùng sách thư viện để ghi nhãn. Tôi vẽ lá quanh koala, Linh thêm đá cạnh chim cánh cụt. Cô đặt bản đồ dưới tranh để chỉ nơi sống của các con vật.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0028-q1",
+        "type": "mcq",
+        "q": "Con vật nào có con trong túi?",
+        "options": [
+          "the penguin",
+          "the rabbit",
+          "the kangaroo",
+          "the koala"
+        ],
+        "answer": "the kangaroo",
+        "explain": "Bằng chứng trong đoạn: “Another shows a kangaroo with a baby in its pouch.” Đáp án: the kangaroo."
+      },
+      {
+        "id": "C3-p-0028-q2",
+        "type": "tf",
+        "q": "Cô đặt bản đồ phía trên các bức vẽ. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Bản đồ nằm below the drawings, phía dưới."
+      },
+      {
+        "id": "C3-p-0028-q3",
+        "type": "short",
+        "q": "Ai thêm đá cạnh chim cánh cụt? Viết tên người.",
+        "answer": "Linh",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “Linh”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "penguin",
+        "vi": "chim cánh cụt"
+      },
+      {
+        "en": "kangaroo",
+        "vi": "chuột túi"
+      },
+      {
+        "en": "koala",
+        "vi": "koala"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0029",
+    "level": "C3",
+    "title": "The Squirrel beside the Bench",
+    "en": "I sit quietly beside Grandpa on a park bench. A squirrel runs down an oak tree and picks up an acorn. It holds the acorn between its front paws before running away. Grandpa points to a hollow in the tree. We wait without moving closer, and the squirrel returns with another acorn. I sketch the tree in my notebook and leave plenty of space for a tiny squirrel drawing.",
+    "vi": "Tôi ngồi yên cạnh ông trên ghế công viên. Một con sóc chạy xuống cây sồi và nhặt hạt sồi. Nó giữ hạt giữa hai chân trước rồi chạy đi. Ông chỉ hốc cây. Chúng tôi đợi, không lại gần hơn, và sóc trở lại với một hạt nữa. Tôi phác cây vào sổ, chừa nhiều chỗ cho hình con sóc tí hon.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0029-q1",
+        "type": "mcq",
+        "q": "Sóc nhặt thứ gì?",
+        "options": [
+          "a flower",
+          "an acorn",
+          "an apple",
+          "a leaf"
+        ],
+        "answer": "an acorn",
+        "explain": "Bằng chứng trong đoạn: “A squirrel runs down an oak tree and picks up an acorn.” Đáp án: an acorn."
+      },
+      {
+        "id": "C3-p-0029-q2",
+        "type": "tf",
+        "q": "Người kể chờ mà không tiến lại gần. Đúng hay sai?",
+        "answer": "true",
+        "explain": "We wait without moving closer."
+      },
+      {
+        "id": "C3-p-0029-q3",
+        "type": "short",
+        "q": "Người kể ngồi cùng ai? Viết từ chỉ người bằng tiếng Anh.",
+        "answer": "Grandpa",
+        "alt": [
+          "grandfather",
+          "my grandfather"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “Grandpa”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "squirrel",
+        "vi": "con sóc"
+      },
+      {
+        "en": "acorn",
+        "vi": "hạt sồi"
+      },
+      {
+        "en": "hollow",
+        "vi": "hốc cây"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0030",
+    "level": "C3",
+    "title": "The Palace Garden",
+    "en": "A magnificent palace stands beside the river in our town. On a school visit, we walk through its peaceful garden before entering the main hall. Colorful flowers grow along the paths, and tall trees shade a small pond. Our guide tells us about the old wooden doors. I count six doors facing the garden. After the visit, we sit outside and draw the door patterns in our notebooks.",
+    "vi": "Một cung điện tráng lệ đứng bên sông trong thị trấn. Trong chuyến tham quan của trường, chúng tôi đi qua khu vườn yên bình rồi vào sảnh chính. Hoa nhiều màu mọc dọc lối đi, cây cao che bóng ao nhỏ. Hướng dẫn viên kể về các cửa gỗ cổ. Tôi đếm sáu cửa hướng ra vườn. Tham quan xong, chúng tôi ngồi ngoài vẽ họa tiết cửa vào sổ.",
+    "wordCount": 68,
+    "questions": [
+      {
+        "id": "C3-p-0030-q1",
+        "type": "mcq",
+        "q": "Người kể đếm được bao nhiêu cửa hướng ra vườn?",
+        "options": [
+          "six",
+          "three",
+          "four",
+          "eight"
+        ],
+        "answer": "six",
+        "explain": "Bằng chứng trong đoạn: “I count six doors facing the garden.” Đáp án: six."
+      },
+      {
+        "id": "C3-p-0030-q2",
+        "type": "tf",
+        "q": "Lớp vẽ họa tiết trên những chiếc ghế. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Lớp vẽ door patterns, họa tiết cửa."
+      },
+      {
+        "id": "C3-p-0030-q3",
+        "type": "short",
+        "q": "Cung điện nằm cạnh đâu? Viết cụm danh từ chỉ địa điểm.",
+        "answer": "the river",
+        "alt": [
+          "a river"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “the river”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "magnificent",
+        "vi": "tráng lệ"
+      },
+      {
+        "en": "peaceful",
+        "vi": "yên bình"
+      },
+      {
+        "en": "colorful",
+        "vi": "nhiều màu sắc"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0031",
+    "level": "C3",
+    "title": "A Clever Way to Share",
+    "en": "Our friendly classmate Hoa brings a board game to school. Four children want to play, but the game has only two pieces. Hoa has a clever idea: we play in pairs and discuss each move together. I work with a new student and learn his name. We lose the first round but win the second. It is a wonderful way to spend a rainy break and make a new friend.",
+    "vi": "Bạn Hoa thân thiện mang trò chơi bàn cờ đến trường. Bốn bạn muốn chơi nhưng trò chỉ có hai quân. Hoa nghĩ ra cách hay: chơi theo cặp và bàn bạc mỗi nước đi. Tôi ghép với một bạn mới và biết tên bạn ấy. Chúng tôi thua lượt đầu nhưng thắng lượt sau. Đó là cách tuyệt vời để tận hưởng giờ nghỉ có mưa và kết bạn mới.",
+    "wordCount": 70,
+    "questions": [
+      {
+        "id": "C3-p-0031-q1",
+        "type": "mcq",
+        "q": "Hoa đề nghị các bạn chơi thế nào?",
+        "options": [
+          "alone",
+          "without pieces",
+          "outside",
+          "in pairs"
+        ],
+        "answer": "in pairs",
+        "explain": "Bằng chứng trong đoạn: “Hoa has a clever idea: we play in pairs and discuss each move together.” Đáp án: in pairs."
+      },
+      {
+        "id": "C3-p-0031-q2",
+        "type": "tf",
+        "q": "Người kể chơi cùng một học sinh mới. Đúng hay sai?",
+        "answer": "true",
+        "explain": "I work with a new student."
+      },
+      {
+        "id": "C3-p-0031-q3",
+        "type": "short",
+        "q": "Trò chơi có bao nhiêu quân? Chỉ viết số bằng chữ.",
+        "answer": "two",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “two”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "friendly",
+        "vi": "thân thiện"
+      },
+      {
+        "en": "clever",
+        "vi": "thông minh, khéo léo"
+      },
+      {
+        "en": "wonderful",
+        "vi": "tuyệt vời"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0032",
+    "level": "C3",
+    "title": "Questions about the Moon",
+    "en": "My curious brother asks why the moon looks different each week. Mum finds an educational video at the library, and we watch it together at home. The pictures show the moon from several positions. An entertaining song helps us remember the shapes. After the video, we draw the moon outside our window. We plan to draw it again next week and compare the two pictures on our wall.",
+    "vi": "Em trai tò mò hỏi vì sao mỗi tuần mặt trăng trông khác nhau. Mẹ tìm video giáo dục ở thư viện và cả nhà xem tại nhà. Hình ảnh cho thấy mặt trăng từ nhiều vị trí. Một bài hát vui giúp chúng tôi nhớ các hình dạng. Xem xong, chúng tôi vẽ mặt trăng ngoài cửa sổ. Chúng tôi định tuần sau vẽ lại rồi so hai bức trên tường.",
+    "wordCount": 68,
+    "questions": [
+      {
+        "id": "C3-p-0032-q1",
+        "type": "mcq",
+        "q": "Mẹ tìm video ở đâu?",
+        "options": [
+          "the park",
+          "the station",
+          "the library",
+          "the market"
+        ],
+        "answer": "the library",
+        "explain": "Bằng chứng trong đoạn: “Mum finds an educational video at the library, and we watch it together at home.” Đáp án: the library."
+      },
+      {
+        "id": "C3-p-0032-q2",
+        "type": "tf",
+        "q": "Gia đình định vẽ lại mặt trăng ngay sáng hôm sau. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Họ định vẽ lại next week, tuần sau."
+      },
+      {
+        "id": "C3-p-0032-q3",
+        "type": "short",
+        "q": "Điều gì giúp cả nhà nhớ các hình dạng? Viết cụm danh từ.",
+        "answer": "a song",
+        "alt": [
+          "an entertaining song"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a song”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "curious",
+        "vi": "tò mò"
+      },
+      {
+        "en": "educational",
+        "vi": "mang tính giáo dục"
+      },
+      {
+        "en": "entertaining",
+        "vi": "vui, có tính giải trí"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0033",
+    "level": "C3",
+    "title": "Everyone Joins Sports Day",
+    "en": "Our energetic coach invites every student to participate in sports day. There are running races, ball games, and a walking event. I choose the walk because I enjoy talking with friends along the path. We encourage each other when the final hill feels difficult. At the finish, everyone receives water and a banana. Our coach reminds us that regular movement is part of a healthy routine, not just a race.",
+    "vi": "Huấn luyện viên đầy năng lượng mời mọi học sinh tham gia ngày hội thể thao. Có chạy đua, trò chơi bóng và đi bộ. Tôi chọn đi bộ vì thích trò chuyện với bạn dọc đường. Chúng tôi động viên nhau khi ngọn đồi cuối trở nên khó đi. Đến đích, mỗi người nhận nước và chuối. Thầy nhắc vận động thường xuyên là một phần nếp sống lành mạnh, không chỉ là thi đấu.",
+    "wordCount": 70,
+    "questions": [
+      {
+        "id": "C3-p-0033-q1",
+        "type": "mcq",
+        "q": "Người kể chọn hoạt động nào?",
+        "options": [
+          "a swimming race",
+          "the walk",
+          "the running race",
+          "a ball game"
+        ],
+        "answer": "the walk",
+        "explain": "Bằng chứng trong đoạn: “I choose the walk because I enjoy talking with friends along the path.” Đáp án: the walk."
+      },
+      {
+        "id": "C3-p-0033-q2",
+        "type": "tf",
+        "q": "Các bạn động viên nhau trên đường. Đúng hay sai?",
+        "answer": "true",
+        "explain": "We encourage each other."
+      },
+      {
+        "id": "C3-p-0033-q3",
+        "type": "short",
+        "q": "Mỗi người nhận loại quả gì ở đích? Chỉ viết tên quả.",
+        "answer": "a banana",
+        "alt": [
+          "banana"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a banana”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "energetic",
+        "vi": "đầy năng lượng"
+      },
+      {
+        "en": "participate",
+        "vi": "tham gia"
+      },
+      {
+        "en": "encourage",
+        "vi": "động viên"
+      },
+      {
+        "en": "healthy",
+        "vi": "lành mạnh"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0034",
+    "level": "C3",
+    "title": "A Quiet Corner for Miso",
+    "en": "Our cat Miso moves into a new house with us. At first, she hides behind a chair. We prepare a comfortable bed in a quiet corner and place her familiar blanket inside it. My brother uses a gentle voice when he calls her. We protect her resting place from noisy games. By evening, Miso leaves the chair, smells the blanket, and curls up in her new bed.",
+    "vi": "Mèo Miso cùng chúng tôi chuyển nhà. Ban đầu, nó trốn sau ghế. Chúng tôi chuẩn bị chỗ nằm thoải mái ở góc yên tĩnh, đặt chiếc chăn quen vào đó. Em trai dùng giọng dịu dàng gọi nó. Chúng tôi giữ chỗ nghỉ của mèo tránh các trò ồn ào. Đến tối, Miso rời ghế, ngửi chăn rồi cuộn mình trong chỗ nằm mới.",
+    "wordCount": 67,
+    "questions": [
+      {
+        "id": "C3-p-0034-q1",
+        "type": "mcq",
+        "q": "Ban đầu Miso trốn ở đâu?",
+        "options": [
+          "behind a chair",
+          "under a bed",
+          "inside a box",
+          "behind a door"
+        ],
+        "answer": "behind a chair",
+        "explain": "Bằng chứng trong đoạn: “At first, she hides behind a chair.” Đáp án: behind a chair."
+      },
+      {
+        "id": "C3-p-0034-q2",
+        "type": "tf",
+        "q": "Các bạn chơi trò ồn ào ngay cạnh chỗ nằm của Miso. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Họ bảo vệ chỗ nghỉ khỏi các trò ồn ào."
+      },
+      {
+        "id": "C3-p-0034-q3",
+        "type": "short",
+        "q": "Đồ vật quen thuộc nào nằm trong chỗ ngủ mới? Viết tên vật.",
+        "answer": "a blanket",
+        "alt": [
+          "her blanket",
+          "a familiar blanket"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a blanket”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "comfortable",
+        "vi": "thoải mái"
+      },
+      {
+        "en": "gentle",
+        "vi": "dịu dàng"
+      },
+      {
+        "en": "protect",
+        "vi": "bảo vệ"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0035",
+    "level": "C3",
+    "title": "Our Classroom Paper Box",
+    "en": "We organize a paper collection in our classroom every Friday. One box holds clean sheets with an empty side for drawing. Another box holds used paper to recycle. Our teacher explains the difference, and we make clear labels for both boxes. I find three empty pages in an old notebook and use them for a comic. At the end of the month, our class compares how much new paper we used.",
+    "vi": "Mỗi thứ Sáu, lớp tổ chức thu gom giấy. Một hộp chứa giấy sạch còn một mặt trống để vẽ. Hộp khác chứa giấy đã dùng để tái chế. Cô giải thích sự khác biệt và chúng tôi làm nhãn rõ cho cả hai hộp. Tôi tìm được ba trang trống trong vở cũ, dùng vẽ truyện tranh. Cuối tháng, lớp so sánh lượng giấy mới đã sử dụng.",
+    "wordCount": 71,
+    "questions": [
+      {
+        "id": "C3-p-0035-q1",
+        "type": "mcq",
+        "q": "Một mặt giấy còn trống được giữ lại để làm gì?",
+        "options": [
+          "cooking",
+          "wrapping food",
+          "cleaning windows",
+          "drawing"
+        ],
+        "answer": "drawing",
+        "explain": "Bằng chứng trong đoạn: “One box holds clean sheets with an empty side for drawing.” Đáp án: drawing."
+      },
+      {
+        "id": "C3-p-0035-q2",
+        "type": "tf",
+        "q": "Lớp làm nhãn cho cả hai hộp. Đúng hay sai?",
+        "answer": "true",
+        "explain": "We make clear labels for both boxes."
+      },
+      {
+        "id": "C3-p-0035-q3",
+        "type": "short",
+        "q": "Người kể dùng ba trang trống để vẽ gì? Viết cụm danh từ.",
+        "answer": "a comic",
+        "alt": [
+          "comic"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a comic”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "organize",
+        "vi": "tổ chức"
+      },
+      {
+        "en": "recycle",
+        "vi": "tái chế"
+      },
+      {
+        "en": "collection",
+        "vi": "việc thu gom"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0036",
+    "level": "C3",
+    "title": "The Box under the Stairs",
+    "en": "While helping Dad tidy the house, I discover a small box under the stairs. Inside are old postcards from his childhood. Each card shows a different town. Dad asks me to describe the picture on my favorite card before he reads its message. I choose a snowy street with a red bus. We put the cards in an album and leave space for postcards from our future family trips.",
+    "vi": "Khi giúp bố dọn nhà, tôi tìm thấy hộp nhỏ dưới cầu thang. Trong đó là bưu thiếp thời thơ ấu của bố, mỗi tấm vẽ một thị trấn khác nhau. Bố bảo tôi miêu tả hình trên tấm mình thích trước khi bố đọc lời nhắn. Tôi chọn con phố có tuyết và xe buýt đỏ. Chúng tôi xếp bưu thiếp vào album, chừa chỗ cho bưu thiếp từ các chuyến đi gia đình sau này.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0036-q1",
+        "type": "mcq",
+        "q": "Chiếc hộp nằm ở đâu?",
+        "options": [
+          "beside the sofa",
+          "behind the door",
+          "under the stairs",
+          "on a shelf"
+        ],
+        "answer": "under the stairs",
+        "explain": "Bằng chứng trong đoạn: “While helping Dad tidy the house, I discover a small box under the stairs.” Đáp án: under the stairs."
+      },
+      {
+        "id": "C3-p-0036-q2",
+        "type": "tf",
+        "q": "Người kể chọn bức hình có xe buýt xanh. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Bức hình có a red bus."
+      },
+      {
+        "id": "C3-p-0036-q3",
+        "type": "short",
+        "q": "Hai bố con cất bưu thiếp vào đâu? Viết cụm danh từ.",
+        "answer": "an album",
+        "alt": [
+          "album"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “an album”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "discover",
+        "vi": "tìm thấy"
+      },
+      {
+        "en": "describe",
+        "vi": "miêu tả"
+      },
+      {
+        "en": "postcard",
+        "vi": "bưu thiếp"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0037",
+    "level": "C3",
+    "title": "Reading a Little Every Day",
+    "en": "I want to improve my reading, so I practice for ten minutes after dinner. On Monday, I read a page slowly and mark two unfamiliar words. On Tuesday, I find their meanings and read the page again. By Friday, the story feels easier to follow. I read it aloud to my sister without stopping at those words. She chooses the next story, and we begin a new week of reading.",
+    "vi": "Tôi muốn cải thiện việc đọc nên luyện mười phút sau bữa tối. Thứ Hai, tôi đọc chậm một trang và đánh dấu hai từ lạ. Thứ Ba, tôi tìm nghĩa rồi đọc lại trang ấy. Đến thứ Sáu, tôi theo dõi câu chuyện dễ hơn. Tôi đọc to cho em gái mà không dừng ở hai từ đó. Em chọn truyện tiếp theo và chúng tôi bắt đầu tuần đọc mới.",
+    "wordCount": 70,
+    "questions": [
+      {
+        "id": "C3-p-0037-q1",
+        "type": "mcq",
+        "q": "Mỗi ngày người kể luyện đọc bao lâu?",
+        "options": [
+          "one hour",
+          "ten minutes",
+          "five minutes",
+          "thirty minutes"
+        ],
+        "answer": "ten minutes",
+        "explain": "Bằng chứng trong đoạn: “I want to improve my reading, so I practice for ten minutes after dinner.” Đáp án: ten minutes."
+      },
+      {
+        "id": "C3-p-0037-q2",
+        "type": "tf",
+        "q": "Em gái chọn câu chuyện tiếp theo. Đúng hay sai?",
+        "answer": "true",
+        "explain": "She chooses the next story."
+      },
+      {
+        "id": "C3-p-0037-q3",
+        "type": "short",
+        "q": "Người kể đánh dấu mấy từ lạ vào thứ Hai? Chỉ viết số bằng chữ.",
+        "answer": "two",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “two”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "improve",
+        "vi": "cải thiện"
+      },
+      {
+        "en": "unfamiliar",
+        "vi": "chưa quen"
+      },
+      {
+        "en": "practice",
+        "vi": "luyện tập"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0038",
+    "level": "C3",
+    "title": "Birds outside the Classroom",
+    "en": "A pair of birds builds a nest in the tree outside our classroom. We watch from the window during quiet reading time. One bird carries a thin twig, and the other stays near the nest. Our teacher asks us to keep the window area calm. We draw what we see without going outside. At the end of the week, our drawings show how the nest changes from a few twigs into a bowl.",
+    "vi": "Một đôi chim làm tổ trên cây ngoài lớp. Chúng tôi quan sát qua cửa sổ trong giờ đọc yên lặng. Một con mang cành nhỏ, con kia ở gần tổ. Cô nhắc giữ khu vực cửa sổ yên tĩnh. Chúng tôi vẽ điều nhìn thấy mà không ra ngoài. Cuối tuần, các bức vẽ cho thấy tổ thay đổi từ vài cành nhỏ thành hình chiếc bát.",
+    "wordCount": 73,
+    "questions": [
+      {
+        "id": "C3-p-0038-q1",
+        "type": "mcq",
+        "q": "Lớp quan sát chim từ đâu?",
+        "options": [
+          "the window",
+          "the roof",
+          "the gate",
+          "the playground"
+        ],
+        "answer": "the window",
+        "explain": "Bằng chứng trong đoạn: “We watch from the window during quiet reading time.” Đáp án: the window."
+      },
+      {
+        "id": "C3-p-0038-q2",
+        "type": "tf",
+        "q": "Lớp ra ngoài để chạm vào tổ. Đúng hay sai?",
+        "answer": "false",
+        "explain": "Các em vẽ without going outside."
+      },
+      {
+        "id": "C3-p-0038-q3",
+        "type": "short",
+        "q": "Con chim mang vật gì? Viết cụm danh từ.",
+        "answer": "a thin twig",
+        "alt": [
+          "a twig"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “a thin twig”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "nest",
+        "vi": "tổ chim"
+      },
+      {
+        "en": "twig",
+        "vi": "cành cây nhỏ"
+      },
+      {
+        "en": "calm",
+        "vi": "yên tĩnh"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0039",
+    "level": "C3",
+    "title": "The Rainy Bus Ride",
+    "en": "Rain begins just before our bus leaves the station. I sit beside Mum and watch water slide down the window. At the next stop, an older man gets on with a wet umbrella. Mum offers him her seat and stands beside me. I move my bag onto my knees to make more space. When we reach our stop, the rain stops, and we walk the last two streets together.",
+    "vi": "Mưa bắt đầu ngay trước khi xe buýt rời bến. Tôi ngồi cạnh mẹ, nhìn nước trượt xuống cửa kính. Ở trạm tiếp, một ông lớn tuổi lên xe cùng chiếc ô ướt. Mẹ nhường ghế rồi đứng cạnh tôi. Tôi đặt túi lên đầu gối để có thêm chỗ. Đến trạm của chúng tôi, mưa tạnh và hai mẹ con cùng đi bộ qua hai con phố cuối.",
+    "wordCount": 69,
+    "questions": [
+      {
+        "id": "C3-p-0039-q1",
+        "type": "mcq",
+        "q": "Mẹ làm gì khi ông lớn tuổi lên xe?",
+        "options": [
+          "opens a window",
+          "leaves the bus",
+          "buys an umbrella",
+          "offers him her seat"
+        ],
+        "answer": "offers him her seat",
+        "explain": "Bằng chứng trong đoạn: “Mum offers him her seat and stands beside me.” Đáp án: offers him her seat."
+      },
+      {
+        "id": "C3-p-0039-q2",
+        "type": "tf",
+        "q": "Mưa tạnh khi hai mẹ con tới trạm cần xuống. Đúng hay sai?",
+        "answer": "true",
+        "explain": "When we reach our stop, the rain stops."
+      },
+      {
+        "id": "C3-p-0039-q3",
+        "type": "short",
+        "q": "Người kể chuyển túi lên đâu? Viết cụm chỉ vị trí.",
+        "answer": "onto my knees",
+        "alt": [
+          "on my knees",
+          "onto the narrator's knees"
+        ],
+        "explain": "Cụm trả lời theo thông tin trong bài: “onto my knees”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "station",
+        "vi": "bến xe"
+      },
+      {
+        "en": "umbrella",
+        "vi": "cái ô"
+      },
+      {
+        "en": "seat",
+        "vi": "chỗ ngồi"
+      }
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "C3-p-0040",
+    "level": "C3",
+    "title": "The Scarf at the Lost Property Desk",
+    "en": "After music class, I find a green scarf under my chair. It is not mine, so I take it to the lost property desk. The teacher writes down where I found it and hangs it beside two jackets. Later, my friend Hanh asks about a missing scarf. I tell her about the desk. She checks the scarf with the teacher and smiles when she sees her name on its label.",
+    "vi": "Sau giờ nhạc, tôi tìm thấy khăn xanh dưới ghế. Khăn không phải của tôi nên tôi mang đến bàn giữ đồ thất lạc. Cô ghi lại nơi tìm thấy rồi treo khăn cạnh hai áo khoác. Sau đó, Hạnh hỏi về chiếc khăn bị mất. Tôi chỉ bạn đến bàn. Bạn cùng cô kiểm tra và mỉm cười khi thấy tên mình trên nhãn.",
+    "wordCount": 70,
+    "questions": [
+      {
+        "id": "C3-p-0040-q1",
+        "type": "mcq",
+        "q": "Khăn được tìm thấy ở đâu?",
+        "options": [
+          "on a piano",
+          "beside a window",
+          "under a chair",
+          "inside a bag"
+        ],
+        "answer": "under a chair",
+        "explain": "Bằng chứng trong đoạn: “After music class, I find a green scarf under my chair.” Đáp án: under a chair."
+      },
+      {
+        "id": "C3-p-0040-q2",
+        "type": "tf",
+        "q": "Trên nhãn khăn có tên của Hạnh. Đúng hay sai?",
+        "answer": "true",
+        "explain": "Hanh sees her name on its label."
+      },
+      {
+        "id": "C3-p-0040-q3",
+        "type": "short",
+        "q": "Chiếc khăn có màu gì? Chỉ viết tên màu.",
+        "answer": "green",
+        "alt": [],
+        "explain": "Cụm trả lời theo thông tin trong bài: “green”."
+      }
+    ],
+    "glossary": [
+      {
+        "en": "scarf",
+        "vi": "khăn quàng"
+      },
+      {
+        "en": "label",
+        "vi": "nhãn"
+      },
+      {
+        "en": "missing",
+        "vi": "bị thất lạc"
+      }
+    ],
+    "source": "seed"
+  }
+]

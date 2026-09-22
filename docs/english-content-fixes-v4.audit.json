@@ -1,0 +1,1894 @@
+{
+  "reviewedAt": "2026-09-22T17:26:44.020Z",
+  "files": {
+    "A1.sentences.json": {
+      "sha256": "35e84055f1d7aae37d3ec142a99ad8a7eb71f6c0215486db02cc5f9ec8e5b806",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.theory.json": {
+      "sha256": "9a1212a45762dfd20a2faa4804d77308758173b3f0e8f83f3ad8917e68f3a3ff",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.vocab.json": {
+      "sha256": "f6b7f7b688dd6c6f2de4ffd1f4372d2ab557dbcf25d412f74eb3fb828829785f",
+      "count": 118,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.sentences.json": {
+      "sha256": "12a999ea23faf969b4a4ca55f88f81fd73e73fa5142a613f8a22472b4c2b4cb7",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.theory.json": {
+      "sha256": "bad89dcd6dc1806b80e36718b20bb4afc96ba11845d9a682f6413bde61124890",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.vocab.json": {
+      "sha256": "604f930cc43cab8a3878ee013882a0c5150ecb693f02b6e588857597493126d1",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.sentences.json": {
+      "sha256": "9cb5385e2bcedda535f400b04a6a167efabe440c33f11eddbfb5a82904c1c437",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.theory.json": {
+      "sha256": "0b37f28c2a01d25ddb97e3b5ea317ccbf0f5f410608cc409586456757fa8ec88",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.vocab.json": {
+      "sha256": "65e4938dc1790715d748c07a2c2e5e0c9533aedbd4c15a8fac09d7c278f7dd4b",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.sentences.json": {
+      "sha256": "65e76cd291b5772a06bc9d2368278594b7e83909b167c391067b7b59c5c80802",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.theory.json": {
+      "sha256": "0c8f39c7506bdbf8385defcc2f459c0963a84fab7f74629dc47507f08a4d766d",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.vocab.json": {
+      "sha256": "a138bea611858749975c70b5b4a88c14e7c4480e1acce54fd71f3b95158724f7",
+      "count": 111,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.sentences.json": {
+      "sha256": "d1f59834038e2ed4d223295705e2329911c5517f8a17ecdc6e83db873fbe5a3c",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.theory.json": {
+      "sha256": "5d9125ca8cca2ebcbdc28a2229775e6250d2c3bc119aa2561473c29da4381753",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.vocab.json": {
+      "sha256": "fbb8daa9caacf0249549d53b7c8d1161186ba62c60ebca3edf9a7b81c63884cc",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.sentences.json": {
+      "sha256": "934b47daca40ae2cb23c589f0c19cb8f14d88dd0af3d8de732af9807cd37651b",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.theory.json": {
+      "sha256": "ec50ad50acf8d868e9e4b43fe6da0a2e58be6f7ad738ea85f782f3f0265a0d93",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.vocab.json": {
+      "sha256": "9a3bca180aec0b9ffbcfdb89656d169b3e6fb0fcc4dd987c6182ccc9a37374f4",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.sentences.json": {
+      "sha256": "6b090e8ad8cd174aba8e89f7ee0fa8fa48fbff362e332f14fe007752559b0ecc",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.theory.json": {
+      "sha256": "872a881fde713a336d63c2a95c5d03a9bbbcfbf6e860a6a999e25ef01c406294",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.vocab.json": {
+      "sha256": "495945977358d029c4c99e75139f2cf0b91081f2f71fc347e25c51fb9f904e75",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.sentences.json": {
+      "sha256": "2431084b25d94fc8bd3dfbb56709746a6dfa4a1b54f2e02898c2e9797039f864",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.theory.json": {
+      "sha256": "7fe3d5290216125f42a1dedd2a911869da4cd4e6aade8744714b5f95ca021327",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.vocab.json": {
+      "sha256": "3acdd397091143e9fb899b1b75560c627a8d882b056fa0093f172875a6204e08",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.sentences.json": {
+      "sha256": "d1aa593f89e087db87ecaccde5a8e801cb220451c1a8452369d7c67a52d13a87",
+      "count": 207,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.theory.json": {
+      "sha256": "4a1afdd464a65f4c8c2a094ae908ba62e44be7d012a7565b04da084eb3678c56",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.vocab.json": {
+      "sha256": "79141f27791137f5d937212330847628103f58c8c4e24e85d5720d3cb9820ef6",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.passages.json": {
+      "sha256": "48077bf2187f4c10d3d294d970ef963cfd4a74d6c6799d9c83893d2bd83f4231",
+      "count": 40,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.rewrites.json": {
+      "sha256": "bb085cd1baa55ebae67a07035f24fcb13f3f1feb046a7dc8055f00f8f138ce2d",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.theory.json": {
+      "sha256": "5fcee907341bb35edbb8c047363fb2e6f3725f739a6ef53a7d2255b42476f771",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.vocab.json": {
+      "sha256": "b8ffe7eb659f2e2d5fdd4b955efa0cc015019bb09141593744ada1ba77839ee7",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "K.phrases.json": {
+      "sha256": "7c4d04dd384b22b01c1b285ca586a745de7c0c606125aff67f2c09703c583020",
+      "count": 55,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "K.vocab.json": {
+      "sha256": "2fe9baf91d35a82b7b0ef565f58d8e120fe35cf1462b322380bae28bf5dd4b4f",
+      "count": 126,
+      "errors": [],
+      "unchangedDuringAudit": true
+    }
+  },
+  "levels": {
+    "A1": {
+      "count": 200,
+      "difficulty": [
+        75,
+        80,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 180,
+        "fill": 200,
+        "order": 200,
+        "roles": 180
+      },
+      "grammarPoints": {
+        "be-affirmative": 45,
+        "be-negative": 45,
+        "be-question": 45,
+        "be-short-answer": 20,
+        "demonstratives": 45
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "A2": {
+      "count": 200,
+      "difficulty": [
+        85,
+        70,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 110
+      },
+      "grammarPoints": {
+        "a-an": 35,
+        "plural-regular-s": 40,
+        "plural-es-ies": 35,
+        "plural-irregular": 30,
+        "there-is-are": 40,
+        "the-determiners": 20
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "A3": {
+      "count": 200,
+      "difficulty": [
+        81,
+        80,
+        39
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 192
+      },
+      "grammarPoints": {
+        "adj-predicate": 40,
+        "adj-attributive": 39,
+        "adj-predicative": 1,
+        "possessive-determiner": 45,
+        "possessive-case": 45,
+        "whose-question": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B1": {
+      "count": 200,
+      "difficulty": [
+        74,
+        83,
+        43
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 152
+      },
+      "grammarPoints": {
+        "third-person-s": 50,
+        "first-second-person": 40,
+        "negative-don-doesnt": 40,
+        "question-do-does": 40,
+        "adverbs-frequency": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B2": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 199,
+        "fill": 200,
+        "order": 200,
+        "roles": 196
+      },
+      "grammarPoints": {
+        "affirmative": 100,
+        "negative": 45,
+        "yes-no-question": 45,
+        "present-simple-continuous-contrast": 10
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B3": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 199,
+        "fill": 200,
+        "order": 192,
+        "roles": 169
+      },
+      "grammarPoints": {
+        "was-were": 28,
+        "was-were-question": 4,
+        "was-were-short-answer": 8,
+        "regular-ed": 50,
+        "irregular-past": 50,
+        "did-support-negative": 30,
+        "did-question": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B4": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 196,
+        "fill": 200,
+        "order": 200,
+        "roles": 171
+      },
+      "grammarPoints": {
+        "will-affirmative": 45,
+        "will-negative": 35,
+        "will-question": 35,
+        "be-going-to": 35,
+        "review-present-simple": 12,
+        "review-present-continuous": 12,
+        "review-past-simple": 13,
+        "review-future": 13
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "C1": {
+      "count": 200,
+      "difficulty": [
+        80,
+        77,
+        43
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 159
+      },
+      "grammarPoints": {
+        "what": 37,
+        "where": 32,
+        "when": 26,
+        "who": 26,
+        "why": 21,
+        "how": 14,
+        "how-old": 5,
+        "how-many": 10,
+        "how-much": 7,
+        "which": 11,
+        "whose": 11
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [
+        {
+          "id": "C1-s-0054",
+          "index": 8,
+          "text": "last",
+          "pos": "adjective"
+        },
+        {
+          "id": "C1-s-0112",
+          "index": 4,
+          "text": "last",
+          "pos": "adjective"
+        },
+        {
+          "id": "C1-s-0131",
+          "index": 5,
+          "text": "last",
+          "pos": "adjective"
+        },
+        {
+          "id": "C1-s-0155",
+          "index": 4,
+          "text": "last",
+          "pos": "adjective"
+        },
+        {
+          "id": "C1-s-0160",
+          "index": 5,
+          "text": "next",
+          "pos": "adjective"
+        },
+        {
+          "id": "C1-s-0190",
+          "index": 4,
+          "text": "next",
+          "pos": "adjective"
+        }
+      ],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "C2": {
+      "count": 207,
+      "difficulty": [
+        80,
+        79,
+        48
+      ],
+      "exerciseTypes": {
+        "pos": 194,
+        "fill": 207,
+        "order": 207
+      },
+      "grammarPoints": {
+        "preposition-place": 77,
+        "preposition-time": 50,
+        "preposition-direction": 25,
+        "conjunction-and": 11,
+        "conjunction-but": 11,
+        "conjunction-or": 11,
+        "conjunction-so": 11,
+        "conjunction-because": 11
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "boundedChoicePrompts": [
+        {
+          "id": "C2-s-0001",
+          "prompt": "Chọn một từ trong nhóm [inside / on / at / in] theo nghĩa: “Con mèo ở trong chiếc hộp.”"
+        },
+        {
+          "id": "C2-s-0002",
+          "prompt": "Chọn một từ trong nhóm [on / at / in / inside] theo nghĩa: “Những chiếc bút chì ở trong ngăn kéo.”"
+        },
+        {
+          "id": "C2-s-0003",
+          "prompt": "Chọn một từ trong nhóm [at / in / inside / on] theo nghĩa: “Họ sống ở trong một thị trấn nhỏ.”"
+        },
+        {
+          "id": "C2-s-0004",
+          "prompt": "Chọn một từ trong nhóm [in / inside / on / at] theo nghĩa: “Cô ấy đã để những quả táo vào trong giỏ.”"
+        },
+        {
+          "id": "C2-s-0005",
+          "prompt": "Chọn một từ trong nhóm [inside / on / at / in] theo nghĩa: “Cá vàng đang bơi trong bể cá.”"
+        },
+        {
+          "id": "C2-s-0006",
+          "prompt": "Chọn một từ trong nhóm [on / at / in / inside] theo nghĩa: “Mẹ đang nấu bữa tối trong bếp.”"
+        },
+        {
+          "id": "C2-s-0007",
+          "prompt": "Chọn một từ trong nhóm [at / in / inside / on] theo nghĩa: “Có rất nhiều cuốn sách hay trong thư viện của chúng tôi.”"
+        },
+        {
+          "id": "C2-s-0008",
+          "prompt": "Chọn một từ trong nhóm [in / inside / on / at] theo nghĩa: “Sữa tươi ở trong tủ lạnh.”"
+        },
+        {
+          "id": "C2-s-0009",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Cuốn sách ở trên bàn.”"
+        },
+        {
+          "id": "C2-s-0010",
+          "prompt": "Chọn một từ trong nhóm [at / under / on / in] theo nghĩa: “Những quả táo ở trên đĩa.”"
+        },
+        {
+          "id": "C2-s-0011",
+          "prompt": "Chọn một từ trong nhóm [under / on / in / at] theo nghĩa: “Một bức tranh treo trên tường.”"
+        },
+        {
+          "id": "C2-s-0012",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Con mèo ngủ trên tấm thảm êm.”"
+        },
+        {
+          "id": "C2-s-0013",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Cậu ấy đặt máy tính xách tay lên bàn làm việc của mình.”"
+        },
+        {
+          "id": "C2-s-0014",
+          "prompt": "Chọn một từ trong nhóm [at / under / on / in] theo nghĩa: “Những chậu hoa đứng ở trên ban công.”"
+        },
+        {
+          "id": "C2-s-0015",
+          "prompt": "Chọn một từ trong nhóm [under / on / in / at] theo nghĩa: “Đừng giẫm lên bãi cỏ ướt.”"
+        },
+        {
+          "id": "C2-s-0016",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Một miếng dán rực rỡ ở trên bìa cuốn vở.”"
+        },
+        {
+          "id": "C2-s-0017",
+          "prompt": "Chọn một từ trong nhóm [above / under / behind / at] theo nghĩa: “Cô ấy đang đứng đợi ở trạm xe buýt.”"
+        },
+        {
+          "id": "C2-s-0018",
+          "prompt": "Chọn một từ trong nhóm [under / behind / at / above] theo nghĩa: “Chúng tôi đã đến sân bay sớm.”"
+        },
+        {
+          "id": "C2-s-0019",
+          "prompt": "Chọn một từ trong nhóm [behind / at / above / under] theo nghĩa: “Thầy giáo đang ở cửa ra vào.”"
+        },
+        {
+          "id": "C2-s-0020",
+          "prompt": "Chọn một từ trong nhóm [at / above / under / behind] theo nghĩa: “Các em học sinh đang học ở trường hôm nay.”"
+        },
+        {
+          "id": "C2-s-0021",
+          "prompt": "Chọn một từ trong nhóm [above / under / behind / at] theo nghĩa: “Cậu ấy đã ở nhà cả buổi chiều.”"
+        },
+        {
+          "id": "C2-s-0022",
+          "prompt": "Chọn một từ trong nhóm [under / behind / at / above] theo nghĩa: “Họ đã mua vé tại quầy.”"
+        },
+        {
+          "id": "C2-s-0023",
+          "prompt": "Chọn một từ trong nhóm [behind / at / above / under] theo nghĩa: “Một bác bảo vệ thân thiện đã đứng ở cổng trước.”"
+        },
+        {
+          "id": "C2-s-0024",
+          "prompt": "Chọn một từ trong nhóm [under / below / in / on] theo nghĩa: “Con mèo ở dưới cái bàn.”"
+        },
+        {
+          "id": "C2-s-0025",
+          "prompt": "Chọn một từ trong nhóm [below / in / on / under] theo nghĩa: “Những đôi giày ở dưới gầm giường.”"
+        },
+        {
+          "id": "C2-s-0026",
+          "prompt": "Chọn một từ trong nhóm [in / on / under / below] theo nghĩa: “Chúng tôi ngồi dưới một cái cây râm mát.”"
+        },
+        {
+          "id": "C2-s-0027",
+          "prompt": "Chọn một từ trong nhóm [on / under / below / in] theo nghĩa: “Chú cún con đã trốn dưới ghế sô pha.”"
+        },
+        {
+          "id": "C2-s-0028",
+          "prompt": "Chọn một từ trong nhóm [under / below / in / on] theo nghĩa: “Những con thuyền chạy qua dưới cây cầu lớn.”"
+        },
+        {
+          "id": "C2-s-0029",
+          "prompt": "Chọn một từ trong nhóm [below / in / on / under] theo nghĩa: “Cậu ấy đã tìm thấy chiếc chìa khóa bị mất dưới tấm thảm.”"
+        },
+        {
+          "id": "C2-s-0030",
+          "prompt": "Chọn một từ trong nhóm [in / on / under / below] theo nghĩa: “Nấm mọc dưới những chiếc lá rụng ẩm.”"
+        },
+        {
+          "id": "C2-s-0031",
+          "prompt": "Chọn một từ trong nhóm [at / behind / in / on] theo nghĩa: “Khu vườn ở phía sau ngôi nhà chúng tôi.”"
+        },
+        {
+          "id": "C2-s-0032",
+          "prompt": "Chọn một từ trong nhóm [behind / in / on / at] theo nghĩa: “Chiếc xe đạp ở phía sau cánh cửa.”"
+        },
+        {
+          "id": "C2-s-0033",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / behind] theo nghĩa: “Cậu bé đã đứng phía sau anh trai mình.”"
+        },
+        {
+          "id": "C2-s-0034",
+          "prompt": "Chọn một từ trong nhóm [on / at / behind / in] theo nghĩa: “Mặt trời ẩn sau những đám mây xám dày đặc.”"
+        },
+        {
+          "id": "C2-s-0035",
+          "prompt": "Chọn một từ trong nhóm [at / behind / in / on] theo nghĩa: “Chiếc xe hơi của chúng tôi ở phía sau chiếc xe buýt vàng.”"
+        },
+        {
+          "id": "C2-s-0036",
+          "prompt": "Chọn một từ trong nhóm [behind / in / on / at] theo nghĩa: “Cậu bé cao lớn đứng phía sau bạn là ai thế?”"
+        },
+        {
+          "id": "C2-s-0037",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / behind] theo nghĩa: “Con đường bí mật nằm ở phía sau thác nước.”"
+        },
+        {
+          "id": "C2-s-0048",
+          "prompt": "Chọn một từ trong nhóm [beside / by / in / on] theo nghĩa: “Cậu bé đi bộ bên cạnh ông nội vào buổi sáng.”"
+        },
+        {
+          "id": "C2-s-0049",
+          "prompt": "Chọn một từ trong nhóm [by / in / on / beside] theo nghĩa: “Chiếc ghế đẩu nhỏ ở bên cạnh tủ áo.”"
+        },
+        {
+          "id": "C2-s-0051",
+          "prompt": "Chọn một từ trong nhóm [on / beside / by / in] theo nghĩa: “Hộp bút màu đỏ ở bên cạnh cuốn vở đang mở.”"
+        },
+        {
+          "id": "C2-s-0052",
+          "prompt": "Chọn một từ trong nhóm [between / in / on / at] theo nghĩa: “Cái đèn ở giữa chiếc giường và cái bàn.”"
+        },
+        {
+          "id": "C2-s-0053",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / between] theo nghĩa: “Cô bé ngồi ở giữa bố và mẹ mình.”"
+        },
+        {
+          "id": "C2-s-0054",
+          "prompt": "Chọn một từ trong nhóm [on / at / between / in] theo nghĩa: “Quả bóng đã lăn vào giữa hai chiếc ghế.”"
+        },
+        {
+          "id": "C2-s-0055",
+          "prompt": "Chọn một từ trong nhóm [at / between / in / on] theo nghĩa: “Trường của chúng tôi ở giữa hiệu sách và hiệu thuốc.”"
+        },
+        {
+          "id": "C2-s-0056",
+          "prompt": "Chọn một từ trong nhóm [between / in / on / at] theo nghĩa: “Bạn có giữ thước kẻ giữa các ngón tay không?”"
+        },
+        {
+          "id": "C2-s-0057",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / between] theo nghĩa: “Thung lũng yên bình nằm ở giữa hai ngọn núi xanh.”"
+        },
+        {
+          "id": "C2-s-0058",
+          "prompt": "Chọn một từ trong nhóm [on / at / between / in] theo nghĩa: “Có sự khác biệt nào giữa hai bức tranh này không?”"
+        },
+        {
+          "id": "C2-s-0059",
+          "prompt": "Chọn một từ trong nhóm [at / near / in / on] theo nghĩa: “Nhà của chúng tôi ở gần công viên.”"
+        },
+        {
+          "id": "C2-s-0060",
+          "prompt": "Chọn một từ trong nhóm [near / in / on / at] theo nghĩa: “Cậu ấy sống ở gần ông bà mình.”"
+        },
+        {
+          "id": "C2-s-0061",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / near] theo nghĩa: “Siêu thị ở gần ga xe lửa.”"
+        },
+        {
+          "id": "C2-s-0062",
+          "prompt": "Chọn một từ trong nhóm [on / at / opposite / in] theo nghĩa: “Hiệu sách ở đối diện tiệm bánh.”"
+        },
+        {
+          "id": "C2-s-0063",
+          "prompt": "Chọn một từ trong nhóm [at / opposite / in / on] theo nghĩa: “Cô ấy đã ngồi đối diện tôi trong giờ ăn trưa.”"
+        },
+        {
+          "id": "C2-s-0064",
+          "prompt": "Chọn một từ trong nhóm [above / over / in / on] theo nghĩa: “Chiếc đồng hồ ở phía trên bảng trắng.”"
+        },
+        {
+          "id": "C2-s-0065",
+          "prompt": "Chọn một từ trong nhóm [over / in / on / above] theo nghĩa: “Những vì sao sáng tỏa chiếu phía trên ngôi làng yên tĩnh.”"
+        },
+        {
+          "id": "C2-s-0066",
+          "prompt": "Chọn một từ trong nhóm [in / on / above / over] theo nghĩa: “Chiếc gương nhỏ treo ở phía trên bồn rửa.”"
+        },
+        {
+          "id": "C2-s-0067",
+          "prompt": "Chọn một từ trong nhóm [at / below / in / on] theo nghĩa: “Nhiệt độ đã hạ xuống dưới nhiệt độ đóng băng.”"
+        },
+        {
+          "id": "C2-s-0068",
+          "prompt": "Chọn một từ trong nhóm [among / in / on / at] theo nghĩa: “Ngôi nhà nằm giữa những cây thông cao vút.”"
+        },
+        {
+          "id": "C2-s-0069",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / among] theo nghĩa: “Cô bé rất vui vẻ khi ở giữa bạn bè của mình.”"
+        },
+        {
+          "id": "C2-s-0070",
+          "prompt": "Chọn một từ trong nhóm [on / at / around / in] theo nghĩa: “Các bạn nhỏ nhảy múa xung quanh cái cây xanh.”"
+        },
+        {
+          "id": "C2-s-0071",
+          "prompt": "Chọn một từ trong nhóm [at / around / in / on] theo nghĩa: “Chúng tôi đã đi bộ dạo quanh hồ nước yên bình.”"
+        },
+        {
+          "id": "C2-s-0072",
+          "prompt": "Chọn một từ trong nhóm [around / in / on / at] theo nghĩa: “Một hàng rào gỗ bao quanh trang trại.”"
+        },
+        {
+          "id": "C2-s-0073",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / against] theo nghĩa: “Chiếc thang đang tựa vào bức tường gạch.”"
+        },
+        {
+          "id": "C2-s-0074",
+          "prompt": "Chọn một từ trong nhóm [on / at / inside / in] theo nghĩa: “Xin hãy ở yên bên trong nhà trong những cơn bão.”"
+        },
+        {
+          "id": "C2-s-0075",
+          "prompt": "Chọn một từ trong nhóm [at / outside / in / on] theo nghĩa: “Những chú mèo thích chơi ở bên ngoài khu vườn.”"
+        },
+        {
+          "id": "C2-s-0076",
+          "prompt": "Chọn một từ trong nhóm [by / beside / in / on] theo nghĩa: “Đôi dép lê cũ ở bên cạnh cửa ra vào.”"
+        },
+        {
+          "id": "C2-s-0077",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / across] theo nghĩa: “Một làn gió nhẹ thổi qua mặt hồ rộng lớn.”"
+        },
+        {
+          "id": "C2-s-0078",
+          "prompt": "Chọn một từ trong nhóm [at / under / in / on] theo nghĩa: “Tôi thức dậy sớm vào buổi sáng.”"
+        },
+        {
+          "id": "C2-s-0079",
+          "prompt": "Chọn một từ trong nhóm [under / in / on / at] theo nghĩa: “Chúng tôi chơi bóng đá vào buổi chiều.”"
+        },
+        {
+          "id": "C2-s-0080",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / under] theo nghĩa: “Họ xem phim vào buổi tối.”"
+        },
+        {
+          "id": "C2-s-0081",
+          "prompt": "Chọn một từ trong nhóm [on / at / under / in] theo nghĩa: “Sinh nhật của cô ấy vào tháng Tư.”"
+        },
+        {
+          "id": "C2-s-0082",
+          "prompt": "Chọn một từ trong nhóm [at / under / in / on] theo nghĩa: “Trường học bắt đầu vào tháng Chín.”"
+        },
+        {
+          "id": "C2-s-0083",
+          "prompt": "Chọn một từ trong nhóm [under / in / on / at] theo nghĩa: “Hoa nở rộ vào mùa xuân.”"
+        },
+        {
+          "id": "C2-s-0084",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / under] theo nghĩa: “Chúng tôi đi bơi vào mùa hè.”"
+        },
+        {
+          "id": "C2-s-0085",
+          "prompt": "Chọn một từ trong nhóm [on / at / under / in] theo nghĩa: “Những chiếc lá vàng rơi vào mùa thu.”"
+        },
+        {
+          "id": "C2-s-0086",
+          "prompt": "Chọn một từ trong nhóm [at / under / in / on] theo nghĩa: “Tuyết rơi dày đặc vào mùa đông.”"
+        },
+        {
+          "id": "C2-s-0087",
+          "prompt": "Chọn một từ trong nhóm [under / in / on / at] theo nghĩa: “Em trai tôi đến vào năm 2015.”"
+        },
+        {
+          "id": "C2-s-0088",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / under] theo nghĩa: “Họ đã chuyển đến thành phố này vào năm 2020.”"
+        },
+        {
+          "id": "C2-s-0089",
+          "prompt": "Chọn một từ trong nhóm [on / at / under / in] theo nghĩa: “Đoàn tàu sẽ đến trong 5 phút nữa.”"
+        },
+        {
+          "id": "C2-s-0090",
+          "prompt": "Chọn một từ trong nhóm [at / under / in / on] theo nghĩa: “Chúng tôi sẽ hoàn thành dự án trong 2 tuần nữa.”"
+        },
+        {
+          "id": "C2-s-0091",
+          "prompt": "Chọn một từ trong nhóm [under / in / on / at] theo nghĩa: “Chim hót líu lo vào lúc sáng sớm.”"
+        },
+        {
+          "id": "C2-s-0092",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Tôi có tiết học piano vào thứ Hai.”"
+        },
+        {
+          "id": "C2-s-0093",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Chúng tôi không đi học vào ngày Chủ nhật.”"
+        },
+        {
+          "id": "C2-s-0094",
+          "prompt": "Chọn một từ trong nhóm [at / under / on / in] theo nghĩa: “Họ đến thăm ông bà vào thứ Bảy.”"
+        },
+        {
+          "id": "C2-s-0095",
+          "prompt": "Chọn một từ trong nhóm [under / on / in / at] theo nghĩa: “Ngày hội thể thao của chúng tôi vào thứ Sáu.”"
+        },
+        {
+          "id": "C2-s-0096",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Cậu ấy đến vào ngày 10 tháng 10.”"
+        },
+        {
+          "id": "C2-s-0097",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Chúng tôi tặng quà nhau vào ngày Giáng sinh.”"
+        },
+        {
+          "id": "C2-s-0098",
+          "prompt": "Chọn một từ trong nhóm [at / under / on / in] theo nghĩa: “Bạn thường làm gì vào các ngày cuối tuần?”"
+        },
+        {
+          "id": "C2-s-0099",
+          "prompt": "Chọn một từ trong nhóm [under / on / in / at] theo nghĩa: “Cô ấy đã đi dã ngoại vào một ngày nắng ấm.”"
+        },
+        {
+          "id": "C2-s-0100",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Cửa hàng đóng cửa vào ngày Tết Dương lịch.”"
+        },
+        {
+          "id": "C2-s-0101",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Chúng tôi đã ăn bắp rang bơ vào tối thứ Bảy.”"
+        },
+        {
+          "id": "C2-s-0102",
+          "prompt": "Chọn một từ trong nhóm [at / under / on / in] theo nghĩa: “Cuộc thi sẽ diễn ra vào ngày 15 tháng 7.”"
+        },
+        {
+          "id": "C2-s-0103",
+          "prompt": "Chọn một từ trong nhóm [under / on / in / at] theo nghĩa: “Những vị khách đặc biệt sẽ đến vào sáng thứ Hai.”"
+        },
+        {
+          "id": "C2-s-0104",
+          "prompt": "Chọn một từ trong nhóm [on / in / at / under] theo nghĩa: “Tôi luôn dọn dẹp phòng ngủ vào chiều thứ Sáu.”"
+        },
+        {
+          "id": "C2-s-0105",
+          "prompt": "Chọn một từ trong nhóm [in / at / under / on] theo nghĩa: “Nhiều du khách đến thăm thành phố vào các ngày quốc lễ.”"
+        },
+        {
+          "id": "C2-s-0106",
+          "prompt": "Chọn một từ trong nhóm [on / under / at / in] theo nghĩa: “Trường học bắt đầu lúc 7 giờ đúng.”"
+        },
+        {
+          "id": "C2-s-0107",
+          "prompt": "Chọn một từ trong nhóm [under / at / in / on] theo nghĩa: “Chúng tôi ăn trưa vào buổi trưa.”"
+        },
+        {
+          "id": "C2-s-0108",
+          "prompt": "Chọn một từ trong nhóm [at / in / on / under] theo nghĩa: “Những vì sao tỏa sáng rực rỡ vào ban đêm.”"
+        },
+        {
+          "id": "C2-s-0109",
+          "prompt": "Chọn một từ trong nhóm [in / on / under / at] theo nghĩa: “Tôi đi ngủ lúc 9 giờ 30.”"
+        },
+        {
+          "id": "C2-s-0110",
+          "prompt": "Chọn một từ trong nhóm [on / under / at / in] theo nghĩa: “Chuông đã reo vào lúc 8 giờ rưỡi.”"
+        },
+        {
+          "id": "C2-s-0111",
+          "prompt": "Chọn một từ trong nhóm [under / at / in / on] theo nghĩa: “Thị trấn rất yên tĩnh vào lúc nửa đêm.”"
+        },
+        {
+          "id": "C2-s-0112",
+          "prompt": "Chọn một từ trong nhóm [at / in / on / under] theo nghĩa: “Đoàn tàu rời đi lúc 6 giờ tối.”"
+        },
+        {
+          "id": "C2-s-0113",
+          "prompt": "Chọn một từ trong nhóm [in / on / under / at] theo nghĩa: “Cậu ấy đã gọi cho tôi vào giờ ăn trưa hôm qua.”"
+        },
+        {
+          "id": "C2-s-0114",
+          "prompt": "Chọn một từ trong nhóm [on / under / at / in] theo nghĩa: “Tất cả chúng tôi đã tụ họp vào lúc hoàng hôn.”"
+        },
+        {
+          "id": "C2-s-0115",
+          "prompt": "Chọn một từ trong nhóm [under / At / in / on] theo nghĩa: “Vào thời điểm này, họ đang hát cùng nhau.”"
+        },
+        {
+          "id": "C2-s-0116",
+          "prompt": "Chọn một từ trong nhóm [at / in / on / under] theo nghĩa: “Trận đấu hào hứng sẽ bắt đầu lúc 3 giờ chiều.”"
+        },
+        {
+          "id": "C2-s-0117",
+          "prompt": "Chọn một từ trong nhóm [in / on / under / at] theo nghĩa: “Cú mèo săn những con thú nhỏ vào ban đêm.”"
+        },
+        {
+          "id": "C2-s-0118",
+          "prompt": "Chọn một từ trong nhóm [on / at / before / in] theo nghĩa: “Hãy rửa tay trước khi ăn tối.”"
+        },
+        {
+          "id": "C2-s-0119",
+          "prompt": "Chọn một từ trong nhóm [at / before / in / on] theo nghĩa: “Hãy đánh răng trước giờ đi ngủ.”"
+        },
+        {
+          "id": "C2-s-0120",
+          "prompt": "Chọn một từ trong nhóm [after / in / on / at] theo nghĩa: “Chúng tôi chơi bóng đá sau giờ học.”"
+        },
+        {
+          "id": "C2-s-0121",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / after] theo nghĩa: “Cô ấy tắm nước ấm sau bữa tối.”"
+        },
+        {
+          "id": "C2-s-0122",
+          "prompt": "Chọn một từ trong nhóm [on / at / during / in] theo nghĩa: “Đừng nói chuyện trong suốt giờ kiểm tra.”"
+        },
+        {
+          "id": "C2-s-0123",
+          "prompt": "Chọn một từ trong nhóm [at / during / in / on] theo nghĩa: “Họ đã đi du lịch trong kỳ nghỉ hè.”"
+        },
+        {
+          "id": "C2-s-0124",
+          "prompt": "Chọn một từ trong nhóm [until / in / on / at] theo nghĩa: “Hãy đợi ở đây cho đến 5 giờ.”"
+        },
+        {
+          "id": "C2-s-0125",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / until] theo nghĩa: “Cửa hàng mở cửa cho đến 9 giờ tối nay.”"
+        },
+        {
+          "id": "C2-s-0126",
+          "prompt": "Chọn một từ trong nhóm [but / or / until / and] theo nghĩa: “Chúng tôi đã ở lại thư viện cho đến khi đóng cửa.”"
+        },
+        {
+          "id": "C2-s-0127",
+          "prompt": "Chọn một từ trong nhóm [at / during / in / on] theo nghĩa: “Em bé đã ngủ yên trong chuyến bay.”"
+        },
+        {
+          "id": "C2-s-0128",
+          "prompt": "Chọn một từ trong nhóm [to / in / on / at] theo nghĩa: “Tôi đi bộ đến trường mỗi buổi sáng.”"
+        },
+        {
+          "id": "C2-s-0129",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / to] theo nghĩa: “Cô ấy đi đến chợ bằng xe đạp.”"
+        },
+        {
+          "id": "C2-s-0130",
+          "prompt": "Chọn một từ trong nhóm [on / at / from / in] theo nghĩa: “Chúng tôi đã đi du lịch từ Hà Nội đến Đà Nẵng.”"
+        },
+        {
+          "id": "C2-s-0131",
+          "prompt": "Chọn một từ trong nhóm [at / into / in / on] theo nghĩa: “Con ếch đã nhảy vào trong ao.”"
+        },
+        {
+          "id": "C2-s-0132",
+          "prompt": "Chọn một từ trong nhóm [into / in / on / at] theo nghĩa: “Cậu bé đã chạy vào trong ngôi nhà ấm cúng.”"
+        },
+        {
+          "id": "C2-s-0133",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / into] theo nghĩa: “Cô ấy đã để cuốn vở vào trong ba lô của mình.”"
+        },
+        {
+          "id": "C2-s-0136",
+          "prompt": "Chọn một từ trong nhóm [through / in / on / at] theo nghĩa: “Đoàn tàu tốc hành đã chạy qua đường hầm.”"
+        },
+        {
+          "id": "C2-s-0137",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / through] theo nghĩa: “Chúng tôi đi bộ xuyên qua rừng trúc xanh mát.”"
+        },
+        {
+          "id": "C2-s-0138",
+          "prompt": "Chọn một từ trong nhóm [on / at / through / in] theo nghĩa: “Ánh sáng chiếu qua khung cửa sổ kính trong veo.”"
+        },
+        {
+          "id": "C2-s-0139",
+          "prompt": "Chọn một từ trong nhóm [at / toward / in / on] theo nghĩa: “Lũ trẻ đang chạy về phía sân chơi.”"
+        },
+        {
+          "id": "C2-s-0140",
+          "prompt": "Chọn một từ trong nhóm [toward / in / on / at] theo nghĩa: “Con tàu giương buồm về phía hòn đảo xa xôi.”"
+        },
+        {
+          "id": "C2-s-0141",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / along] theo nghĩa: “Chúng tôi đi bộ dọc theo bãi biển cát yên bình.”"
+        },
+        {
+          "id": "C2-s-0142",
+          "prompt": "Chọn một từ trong nhóm [on / at / along / in] theo nghĩa: “Những cột đèn đường cao đứng dọc theo con đường.”"
+        },
+        {
+          "id": "C2-s-0143",
+          "prompt": "Chọn một từ trong nhóm [at / past / in / on] theo nghĩa: “Chiếc xe buýt đỏ đã chạy ngang qua trường chúng tôi.”"
+        },
+        {
+          "id": "C2-s-0144",
+          "prompt": "Chọn một từ trong nhóm [past / in / on / at] theo nghĩa: “Cậu ấy đi lướt qua tôi mà không nói lời nào.”"
+        },
+        {
+          "id": "C2-s-0145",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / up] theo nghĩa: “Con mèo trèo lên hàng rào gỗ cao.”"
+        },
+        {
+          "id": "C2-s-0146",
+          "prompt": "Chọn một từ trong nhóm [on / at / up / in] theo nghĩa: “Chúng tôi đã đi bộ leo lên ngọn đồi dốc.”"
+        },
+        {
+          "id": "C2-s-0147",
+          "prompt": "Chọn một từ trong nhóm [at / down / in / on] theo nghĩa: “Nước chảy xuôi xuống dưới núi.”"
+        },
+        {
+          "id": "C2-s-0148",
+          "prompt": "Chọn một từ trong nhóm [down / in / on / at] theo nghĩa: “Cậu bé cẩn thận lăn xuống ngọn đồi xanh.”"
+        },
+        {
+          "id": "C2-s-0149",
+          "prompt": "Chọn một từ trong nhóm [in / on / at / across] theo nghĩa: “Hãy nhìn cả hai phía trước khi bạn đi qua đường.”"
+        },
+        {
+          "id": "C2-s-0150",
+          "prompt": "Chọn một từ trong nhóm [on / at / across / in] theo nghĩa: “Cây cầu bắc ngang qua dòng sông xanh rộng lớn.”"
+        },
+        {
+          "id": "C2-s-0151",
+          "prompt": "Chọn một từ trong nhóm [at / to / in / on] theo nghĩa: “Cô ấy đã bay từ Luân Đôn đến Paris hôm qua.”"
+        },
+        {
+          "id": "C2-s-0152",
+          "prompt": "Chọn một từ trong nhóm [into / in / on / at] theo nghĩa: “Một chú bướm đã bay vào trong phòng khách của chúng tôi.”"
+        },
+        {
+          "id": "C2-s-0153",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Tôi thích táo và cam.”"
+        },
+        {
+          "id": "C2-s-0154",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Cô ấy có một con mèo và một con chó.”"
+        },
+        {
+          "id": "C2-s-0155",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Cậu ấy thức dậy sớm và rửa mặt.”"
+        },
+        {
+          "id": "C2-s-0156",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / so] theo nghĩa: “Anh trai tôi cao ráo và đẹp trai.”"
+        },
+        {
+          "id": "C2-s-0157",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Họ hát và khiêu vũ vui vẻ cùng nhau.”"
+        },
+        {
+          "id": "C2-s-0158",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Chúng tôi đã mua sữa tươi và bánh mì ngọt.”"
+        },
+        {
+          "id": "C2-s-0159",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Thời tiết hôm qua đã rất lạnh và nhiều gió.”"
+        },
+        {
+          "id": "C2-s-0160",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / so] theo nghĩa: “Hãy mở sách ra và chuyển đến trang mười.”"
+        },
+        {
+          "id": "C2-s-0161",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Cô ấy chơi đàn dương cầm và hát rất hay.”"
+        },
+        {
+          "id": "C2-s-0162",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Cậu ấy xếp đồ vào cặp rồi họ lên đường đến trường.”"
+        },
+        {
+          "id": "C2-s-0163",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Mặt trời mọc rực rỡ, và đàn chim bắt đầu hót.”"
+        },
+        {
+          "id": "C2-s-0164",
+          "prompt": "Chọn một từ trong nhóm [but / and / or / so] theo nghĩa: “Tôi thích trà nhưng cô ấy thích cà phê.”"
+        },
+        {
+          "id": "C2-s-0165",
+          "prompt": "Chọn một từ trong nhóm [and / or / so / but] theo nghĩa: “Cậu ấy nhỏ con nhưng cậu ấy rất khỏe.”"
+        },
+        {
+          "id": "C2-s-0166",
+          "prompt": "Chọn một từ trong nhóm [or / so / but / and] theo nghĩa: “Cô ấy đã chạy rất nhanh nhưng vẫn lỡ chuyến xe buýt.”"
+        },
+        {
+          "id": "C2-s-0167",
+          "prompt": "Chọn một từ trong nhóm [so / but / and / or] theo nghĩa: “Câu hỏi thì khó nhưng cậu ấy đã giải quyết được.”"
+        },
+        {
+          "id": "C2-s-0168",
+          "prompt": "Chọn một từ trong nhóm [but / and / or / so] theo nghĩa: “Tôi đã gõ cửa, nhưng không có ai trả lời.”"
+        },
+        {
+          "id": "C2-s-0169",
+          "prompt": "Chọn một từ trong nhóm [and / or / so / but] theo nghĩa: “Chiếc áo này đẹp nhưng rất đắt.”"
+        },
+        {
+          "id": "C2-s-0170",
+          "prompt": "Chọn một từ trong nhóm [or / so / but / and] theo nghĩa: “Cậu ấy muốn chơi bên ngoài, nhưng trời lại mưa.”"
+        },
+        {
+          "id": "C2-s-0171",
+          "prompt": "Chọn một từ trong nhóm [so / but / and / or] theo nghĩa: “Họ đã học chăm chỉ, nhưng họ vẫn thấy lo lắng.”"
+        },
+        {
+          "id": "C2-s-0172",
+          "prompt": "Chọn một từ trong nhóm [but / and / or / so] theo nghĩa: “Tôi đã tìm khắp nơi nhưng không tìm thấy bút của mình.”"
+        },
+        {
+          "id": "C2-s-0173",
+          "prompt": "Chọn một từ trong nhóm [and / or / so / but] theo nghĩa: “Căn phòng tối om, nhưng lũ trẻ không hề sợ hãi.”"
+        },
+        {
+          "id": "C2-s-0174",
+          "prompt": "Chọn một từ trong nhóm [or / so / but / and] theo nghĩa: “Cậu ấy đã cố gắng hết sức, nhưng cậu ấy về đích thứ hai.”"
+        },
+        {
+          "id": "C2-s-0175",
+          "prompt": "Chọn một từ trong nhóm [so / or / and / but] theo nghĩa: “Bạn muốn trà hay sữa?”"
+        },
+        {
+          "id": "C2-s-0176",
+          "prompt": "Chọn một từ trong nhóm [or / and / but / so] theo nghĩa: “Kia là một con mèo hay một con chó?”"
+        },
+        {
+          "id": "C2-s-0177",
+          "prompt": "Chọn một từ trong nhóm [and / but / so / or] theo nghĩa: “Bạn sẽ đi xe buýt hoặc đi bộ.”"
+        },
+        {
+          "id": "C2-s-0178",
+          "prompt": "Chọn một từ trong nhóm [but / so / or / and] theo nghĩa: “Bạn muốn một quả táo hay một quả cam?”"
+        },
+        {
+          "id": "C2-s-0179",
+          "prompt": "Chọn một từ trong nhóm [so / or / and / but] theo nghĩa: “Nhanh lên, nếu không bạn sẽ bị muộn đấy.”"
+        },
+        {
+          "id": "C2-s-0180",
+          "prompt": "Chọn một từ trong nhóm [or / and / but / so] theo nghĩa: “Chúng ta rẽ trái hay rẽ phải ở đây?”"
+        },
+        {
+          "id": "C2-s-0181",
+          "prompt": "Chọn một từ trong nhóm [and / but / so / or] theo nghĩa: “Mặc áo ấm vào, nếu không bạn sẽ bị cảm lạnh đấy.”"
+        },
+        {
+          "id": "C2-s-0182",
+          "prompt": "Chọn một từ trong nhóm [but / so / or / and] theo nghĩa: “Bạn sẽ đến bằng ô tô hay đi bộ?”"
+        },
+        {
+          "id": "C2-s-0183",
+          "prompt": "Chọn một từ trong nhóm [so / or / and / but] theo nghĩa: “Hãy ăn sáng ngay đi, nếu không sữa sẽ bị nguội.”"
+        },
+        {
+          "id": "C2-s-0184",
+          "prompt": "Chọn một từ trong nhóm [or / and / but / so] theo nghĩa: “Bạn thích chơi đá bóng hay đi bơi hơn vào mùa hè?”"
+        },
+        {
+          "id": "C2-s-0185",
+          "prompt": "Chọn một từ trong nhóm [and / but / so / or] theo nghĩa: “Hãy làm xong bài tập của em, nếu không cô giáo sẽ giận.”"
+        },
+        {
+          "id": "C2-s-0186",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Trời đã mưa nên chúng tôi ở nhà.”"
+        },
+        {
+          "id": "C2-s-0187",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Tôi đói bụng, vì thế tôi đã ăn một quả táo.”"
+        },
+        {
+          "id": "C2-s-0188",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Cậu ấy bị mệt, vì thế cậu ấy đã đi ngủ sớm.”"
+        },
+        {
+          "id": "C2-s-0189",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / so] theo nghĩa: “Bài kiểm tra dễ, vì thế mọi người đều vượt qua.”"
+        },
+        {
+          "id": "C2-s-0190",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Trời rất nóng, vì thế chúng tôi đã bật quạt lên.”"
+        },
+        {
+          "id": "C2-s-0191",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Cô ấy làm mất bút chì, vì thế cô ấy đã mượn bút của tôi.”"
+        },
+        {
+          "id": "C2-s-0192",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Xe buýt bị hỏng, vì thế chúng tôi đã đi bộ về nhà.”"
+        },
+        {
+          "id": "C2-s-0193",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / so] theo nghĩa: “Tôi đã luyện tập mỗi ngày, vì thế tôi đã thắng trận đấu.”"
+        },
+        {
+          "id": "C2-s-0194",
+          "prompt": "Chọn một từ trong nhóm [but / or / so / and] theo nghĩa: “Sữa đã bị chua, vì thế mẹ đã bỏ nó đi.”"
+        },
+        {
+          "id": "C2-s-0195",
+          "prompt": "Chọn một từ trong nhóm [or / so / and / but] theo nghĩa: “Hôm nay chúng tôi được nghỉ học, vì thế chúng tôi đã đi sở thú.”"
+        },
+        {
+          "id": "C2-s-0196",
+          "prompt": "Chọn một từ trong nhóm [so / and / but / or] theo nghĩa: “Đồng hồ báo thức không kêu, vì thế cậu ấy đã dậy rất muộn.”"
+        },
+        {
+          "id": "C2-s-0197",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / because] theo nghĩa: “Cô ấy đang mỉm cười bởi vì cô ấy đã thắng trò chơi.”"
+        },
+        {
+          "id": "C2-s-0198",
+          "prompt": "Chọn một từ trong nhóm [but / or / because / and] theo nghĩa: “Tôi ở nhà bởi vì tôi bị ốm.”"
+        },
+        {
+          "id": "C2-s-0199",
+          "prompt": "Chọn một từ trong nhóm [or / because / and / but] theo nghĩa: “Cậu ấy đến muộn vì cậu ấy đã bị lỡ chuyến tàu.”"
+        },
+        {
+          "id": "C2-s-0200",
+          "prompt": "Chọn một từ trong nhóm [because / and / but / or] theo nghĩa: “Em bé đã khóc vì em làm rơi món đồ chơi.”"
+        },
+        {
+          "id": "C2-s-0201",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / because] theo nghĩa: “Chúng tôi thích mùa hè vì chúng tôi đi bơi.”"
+        },
+        {
+          "id": "C2-s-0202",
+          "prompt": "Chọn một từ trong nhóm [but / or / because / and] theo nghĩa: “Chú cún sủa bởi vì có người lạ ở bên ngoài.”"
+        },
+        {
+          "id": "C2-s-0203",
+          "prompt": "Chọn một từ trong nhóm [or / because / and / but] theo nghĩa: “Họ đã rất vui vì họ đạt điểm tuyệt đối.”"
+        },
+        {
+          "id": "C2-s-0204",
+          "prompt": "Chọn một từ trong nhóm [because / and / but / or] theo nghĩa: “Chúng tôi đã hủy chuyến đi vì thời tiết xấu.”"
+        },
+        {
+          "id": "C2-s-0205",
+          "prompt": "Chọn một từ trong nhóm [and / but / or / because] theo nghĩa: “Cậu ấy quàng khăn dày vì gió lạnh buốt.”"
+        },
+        {
+          "id": "C2-s-0206",
+          "prompt": "Chọn một từ trong nhóm [but / or / because / and] theo nghĩa: “Cô ấy đã uống nhiều nước vì thấy khát.”"
+        },
+        {
+          "id": "C2-s-0207",
+          "prompt": "Chọn một từ trong nhóm [or / because / and / but] theo nghĩa: “Những cái cây đã chết vì không có ai tưới nước cho chúng.”"
+        }
+      ],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    }
+  },
+  "reproductions": [
+    {
+      "id": "C1-s-0068",
+      "kind": "roles",
+      "expected": "do get up",
+      "stored": "do get up",
+      "accepted": true
+    },
+    {
+      "id": "C1-s-0125",
+      "kind": "roles",
+      "expected": "did not call",
+      "stored": "did not call",
+      "accepted": true
+    },
+    {
+      "id": "C1-s-0129",
+      "kind": "roles",
+      "expected": "will not come",
+      "stored": "will not come",
+      "accepted": true
+    },
+    {
+      "id": "C1-s-0194",
+      "kind": "roles",
+      "expected": "the girl wearing pink shoes",
+      "stored": "the girl wearing pink shoes",
+      "accepted": true
+    },
+    {
+      "id": "C1-s-0195",
+      "kind": "roles",
+      "expected": "do wake up",
+      "stored": "do wake up",
+      "accepted": true
+    },
+    {
+      "id": "B1-s-0030",
+      "kind": "roles",
+      "enabled": false,
+      "issue": "ambiguous-same-clause-target",
+      "role": "adverbial",
+      "phrases": [
+        "in the pool",
+        "on Saturday"
+      ],
+      "secondValidPhraseAccepted": false,
+      "allValidPhrasesAccepted": false
+    },
+    {
+      "id": "C1-s-0038",
+      "kind": "roles",
+      "enabled": false,
+      "issue": "ambiguous-same-clause-target",
+      "role": "adverbial",
+      "phrases": [
+        "Where",
+        "yesterday"
+      ],
+      "secondValidPhraseAccepted": false,
+      "allValidPhrasesAccepted": false
+    },
+    {
+      "id": "C1-s-0104",
+      "kind": "roles",
+      "enabled": false,
+      "issue": "ambiguous-same-clause-target",
+      "role": "object",
+      "phrases": [
+        "you",
+        "that present"
+      ],
+      "secondValidPhraseAccepted": false,
+      "allValidPhrasesAccepted": false
+    },
+    {
+      "id": "B2-s-0071",
+      "kind": "fill",
+      "prompt": "Điền dạng phủ định của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+      "answer": "is not",
+      "accepted": true
+    },
+    {
+      "id": "C2-s-0045",
+      "kind": "fill",
+      "prompt": "Điền một từ vào cụm giới từ còn thiếu theo nghĩa: “Bàn học của tôi ở cạnh cửa sổ.”",
+      "answer": "beside",
+      "accepted": false
+    }
+  ],
+  "passages": {
+    "count": 40,
+    "uniqueEnglish": 40,
+    "duplicateGroups": [],
+    "wordCounts": [
+      {
+        "id": "C3-p-0001",
+        "stored": 71,
+        "actual": 71
+      },
+      {
+        "id": "C3-p-0002",
+        "stored": 76,
+        "actual": 76
+      },
+      {
+        "id": "C3-p-0003",
+        "stored": 70,
+        "actual": 70
+      },
+      {
+        "id": "C3-p-0004",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0005",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0006",
+        "stored": 65,
+        "actual": 65
+      },
+      {
+        "id": "C3-p-0007",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0008",
+        "stored": 65,
+        "actual": 65
+      },
+      {
+        "id": "C3-p-0009",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0010",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0011",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0012",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0013",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0014",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0015",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0016",
+        "stored": 65,
+        "actual": 65
+      },
+      {
+        "id": "C3-p-0017",
+        "stored": 71,
+        "actual": 71
+      },
+      {
+        "id": "C3-p-0018",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0019",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0020",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0021",
+        "stored": 65,
+        "actual": 65
+      },
+      {
+        "id": "C3-p-0022",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0023",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0024",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0025",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0026",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0027",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0028",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0029",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0030",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0031",
+        "stored": 70,
+        "actual": 70
+      },
+      {
+        "id": "C3-p-0032",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0033",
+        "stored": 70,
+        "actual": 70
+      },
+      {
+        "id": "C3-p-0034",
+        "stored": 67,
+        "actual": 67
+      },
+      {
+        "id": "C3-p-0035",
+        "stored": 71,
+        "actual": 71
+      },
+      {
+        "id": "C3-p-0036",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0037",
+        "stored": 70,
+        "actual": 70
+      },
+      {
+        "id": "C3-p-0038",
+        "stored": 73,
+        "actual": 73
+      },
+      {
+        "id": "C3-p-0039",
+        "stored": 69,
+        "actual": 69
+      },
+      {
+        "id": "C3-p-0040",
+        "stored": 70,
+        "actual": 70
+      }
+    ],
+    "outOfLength": [],
+    "tfCase": [],
+    "genericTail": [],
+    "placeholderGlossary": [],
+    "genericMcq": [],
+    "genericShort": [],
+    "shortExactPhraseCandidates": [
+      {
+        "id": "C3-p-0003-q3",
+        "answer": "inside a cozy tree hollow",
+        "acceptedByNormalizedExactMatch": true,
+        "note": "Data membership only; C3 grader is not implemented."
+      },
+      {
+        "id": "C3-p-0004-q3",
+        "answer": "everyone is reading quietly and attentively",
+        "acceptedByNormalizedExactMatch": true,
+        "note": "Data membership only; C3 grader is not implemented."
+      }
+    ]
+  },
+  "vocabWithoutPassageMatch": [],
+  "k": {
+    "vocab": 126,
+    "phrases": 55,
+    "alphabet": [
+      {
+        "id": "K-v-0001",
+        "en": "apple",
+        "letter": "letter-a",
+        "example": "A is for apple.",
+        "image": "🍎"
+      },
+      {
+        "id": "K-v-0002",
+        "en": "ball",
+        "letter": "letter-b",
+        "example": "B is for ball.",
+        "image": "⚽"
+      },
+      {
+        "id": "K-v-0003",
+        "en": "cat",
+        "letter": "letter-c",
+        "example": "C is for cat.",
+        "image": "🐱"
+      },
+      {
+        "id": "K-v-0004",
+        "en": "dog",
+        "letter": "letter-d",
+        "example": "D is for dog.",
+        "image": "🐶"
+      },
+      {
+        "id": "K-v-0005",
+        "en": "elephant",
+        "letter": "letter-e",
+        "example": "E is for elephant.",
+        "image": "🐘"
+      },
+      {
+        "id": "K-v-0006",
+        "en": "fish",
+        "letter": "letter-f",
+        "example": "F is for fish.",
+        "image": "🐟"
+      },
+      {
+        "id": "K-v-0007",
+        "en": "giraffe",
+        "letter": "letter-g",
+        "example": "G is for giraffe.",
+        "image": "🦒"
+      },
+      {
+        "id": "K-v-0008",
+        "en": "hat",
+        "letter": "letter-h",
+        "example": "H is for hat.",
+        "image": "👒"
+      },
+      {
+        "id": "K-v-0009",
+        "en": "ice cream",
+        "letter": "letter-i",
+        "example": "I is for ice cream.",
+        "image": "🍦"
+      },
+      {
+        "id": "K-v-0010",
+        "en": "juice",
+        "letter": "letter-j",
+        "example": "J is for juice.",
+        "image": "🧃"
+      },
+      {
+        "id": "K-v-0011",
+        "en": "kite",
+        "letter": "letter-k",
+        "example": "K is for kite.",
+        "image": "🪁"
+      },
+      {
+        "id": "K-v-0012",
+        "en": "lion",
+        "letter": "letter-l",
+        "example": "L is for lion.",
+        "image": "🦁"
+      },
+      {
+        "id": "K-v-0013",
+        "en": "monkey",
+        "letter": "letter-m",
+        "example": "M is for monkey.",
+        "image": "🐵"
+      },
+      {
+        "id": "K-v-0014",
+        "en": "nest",
+        "letter": "letter-n",
+        "example": "N is for nest.",
+        "image": "🪺"
+      },
+      {
+        "id": "K-v-0015",
+        "en": "orange",
+        "letter": "letter-o",
+        "example": "O is for orange.",
+        "image": "🍊"
+      },
+      {
+        "id": "K-v-0016",
+        "en": "pig",
+        "letter": "letter-p",
+        "example": "P is for pig.",
+        "image": "🐷"
+      },
+      {
+        "id": "K-v-0017",
+        "en": "queen",
+        "letter": "letter-q",
+        "example": "Q is for queen.",
+        "image": "👸"
+      },
+      {
+        "id": "K-v-0018",
+        "en": "rabbit",
+        "letter": "letter-r",
+        "example": "R is for rabbit.",
+        "image": "🐰"
+      },
+      {
+        "id": "K-v-0019",
+        "en": "sun",
+        "letter": "letter-s",
+        "example": "S is for sun.",
+        "image": "☀️"
+      },
+      {
+        "id": "K-v-0020",
+        "en": "tiger",
+        "letter": "letter-t",
+        "example": "T is for tiger.",
+        "image": "🐯"
+      },
+      {
+        "id": "K-v-0021",
+        "en": "umbrella",
+        "letter": "letter-u",
+        "example": "U is for umbrella.",
+        "image": "☂️"
+      },
+      {
+        "id": "K-v-0022",
+        "en": "violin",
+        "letter": "letter-v",
+        "example": "V is for violin.",
+        "image": "🎻"
+      },
+      {
+        "id": "K-v-0023",
+        "en": "water",
+        "letter": "letter-w",
+        "example": "W is for water.",
+        "image": "💧"
+      },
+      {
+        "id": "K-v-0024",
+        "en": "xylophone",
+        "letter": "letter-x",
+        "example": "X is for xylophone.",
+        "image": "🎵"
+      },
+      {
+        "id": "K-v-0025",
+        "en": "yo-yo",
+        "letter": "letter-y",
+        "example": "Y is for yo-yo.",
+        "image": "🪀"
+      },
+      {
+        "id": "K-v-0026",
+        "en": "zebra",
+        "letter": "letter-z",
+        "example": "Z is for zebra.",
+        "image": "🦓"
+      }
+    ],
+    "exampleWordCountOutside2to5": [],
+    "phraseWordCountOutside2to5": [
+      {
+        "id": "K-ph-0001",
+        "en": "Hello!"
+      },
+      {
+        "id": "K-ph-0005",
+        "en": "Goodbye!"
+      }
+    ]
+  },
+  "generatorDiff": {
+    "C1.vocab.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": []
+    },
+    "C1.sentences.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": []
+    },
+    "C1.theory.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": []
+    },
+    "C2.vocab.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": []
+    },
+    "C2.sentences.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": []
+    },
+    "C2.theory.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": []
+    },
+    "C3.vocab.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.passages.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.rewrites.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.theory.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "K.vocab.json": {
+      "generator": "build-k-full.mjs",
+      "differences": []
+    },
+    "K.phrases.json": {
+      "generator": "build-k-full.mjs",
+      "differences": []
+    }
+  },
+  "normalizedTheoryRemainingErrors": {
+    "C1": [],
+    "C2": [],
+    "C3": []
+  },
+  "sourceStable": true
+}

@@ -1,0 +1,1995 @@
+[
+  {
+    "id": "B4-v-0001",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "tomorrow",
+    "vi": "ngày mai",
+    "pos": "adverb",
+    "ipa": "/təˈmɑːr.oʊ/",
+    "image": "📅",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "They will come tomorrow.",
+    "exampleVi": "Ngày mai họ sẽ đến.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0002",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "tonight",
+    "vi": "tối nay",
+    "pos": "adverb",
+    "ipa": "/təˈnaɪt/",
+    "image": "🌙",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "I will watch a movie tonight.",
+    "exampleVi": "Tối nay tôi sẽ xem một bộ phim.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0003",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "soon",
+    "vi": "sớm, chẳng bao lâu nữa",
+    "pos": "adverb",
+    "ipa": "/suːn/",
+    "image": "⏳",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "We will meet soon.",
+    "exampleVi": "Chúng ta sẽ sớm gặp lại.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0004",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "next week",
+    "vi": "tuần tới",
+    "pos": "adverb",
+    "ipa": "/ˌnekst ˈwiːk/",
+    "image": "📆",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "He will travel next week.",
+    "exampleVi": "Tuần tới cậu ấy sẽ đi du lịch.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0005",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "next month",
+    "vi": "tháng tới",
+    "pos": "adverb",
+    "ipa": "/ˌnekst ˈmʌnθ/",
+    "image": "🗓️",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "We will move to a new house next month.",
+    "exampleVi": "Tháng tới chúng tôi sẽ chuyển sang nhà mới.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0006",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "next year",
+    "vi": "năm tới",
+    "pos": "adverb",
+    "ipa": "/ˌnekst ˈjɪr/",
+    "image": "🎆",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "She will be ten next year.",
+    "exampleVi": "Năm tới cô ấy sẽ lên mười tuổi.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0007",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "next Sunday",
+    "vi": "Chủ nhật tới",
+    "pos": "adverb",
+    "ipa": "/ˌnekst ˈsʌn.deɪ/",
+    "image": "☀️",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "They will visit the zoo next Sunday.",
+    "exampleVi": "Chủ nhật tới họ sẽ đi thăm sở thú.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0008",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "someday",
+    "vi": "một ngày nào đó",
+    "pos": "adverb",
+    "ipa": "/ˈsʌm.deɪ/",
+    "image": "🔮",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "I will fly a plane someday.",
+    "exampleVi": "Một ngày nào đó tôi sẽ lái máy bay.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0009",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "later",
+    "vi": "sau này, lát nữa",
+    "pos": "adverb",
+    "ipa": "/ˈleɪ.t̬ɚ/",
+    "image": "⏰",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "I will call you later.",
+    "exampleVi": "Lát nữa tôi sẽ gọi cho bạn.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0010",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "in the future",
+    "vi": "trong tương lai",
+    "pos": "adverb",
+    "ipa": "/ɪn ðə ˈfjuː.tʃɚ/",
+    "image": "🚀",
+    "tags": [
+      "time",
+      "future"
+    ],
+    "exampleEn": "Robots will help us in the future.",
+    "exampleVi": "Người máy sẽ giúp chúng ta trong tương lai.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0011",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "probably",
+    "vi": "có lẽ, có thể",
+    "pos": "adverb",
+    "ipa": "/ˈprɑː.bə.bli/",
+    "image": "🤔",
+    "tags": [
+      "adverb"
+    ],
+    "exampleEn": "It will probably rain.",
+    "exampleVi": "Có lẽ trời sẽ mưa.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0012",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "maybe",
+    "vi": "có thể",
+    "pos": "adverb",
+    "ipa": "/ˈmeɪ.bi/",
+    "image": "🎲",
+    "tags": [
+      "adverb"
+    ],
+    "exampleEn": "Maybe he will come.",
+    "exampleVi": "Có thể cậu ấy sẽ đến.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0013",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "together",
+    "vi": "cùng nhau",
+    "pos": "adverb",
+    "ipa": "/təˈɡeð.ɚ/",
+    "image": "🤝",
+    "tags": [
+      "manner"
+    ],
+    "exampleEn": "We will learn together.",
+    "exampleVi": "Chúng ta sẽ học cùng nhau.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0014",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "always",
+    "vi": "luôn luôn",
+    "pos": "adverb",
+    "ipa": "/ˈɔːl.weɪz/",
+    "image": "💯",
+    "tags": [
+      "frequency",
+      "review"
+    ],
+    "exampleEn": "He always helps me.",
+    "exampleVi": "Cậu ấy luôn giúp đỡ tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0015",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "never",
+    "vi": "không bao giờ",
+    "pos": "adverb",
+    "ipa": "/ˈnev.ər/",
+    "image": "🚫",
+    "tags": [
+      "frequency",
+      "review"
+    ],
+    "exampleEn": "I will never give up.",
+    "exampleVi": "Tôi sẽ không bao giờ bỏ cuộc.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0016",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "travel",
+    "vi": "du lịch",
+    "pos": "verb",
+    "ipa": "/ˈtræv.əl/",
+    "forms": {
+      "thirdSg": "travels",
+      "past": "traveled",
+      "ing": "traveling",
+      "irregular": false
+    },
+    "image": "✈️",
+    "tags": [
+      "action",
+      "future"
+    ],
+    "exampleEn": "They will travel to Da Nang.",
+    "exampleVi": "Họ sẽ đi du lịch Đà Nẵng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0017",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "visit",
+    "vi": "thăm, viếng",
+    "pos": "verb",
+    "ipa": "/ˈvɪz.ɪt/",
+    "forms": {
+      "thirdSg": "visits",
+      "past": "visited",
+      "ing": "visiting",
+      "irregular": false
+    },
+    "image": "🏡",
+    "tags": [
+      "action",
+      "future"
+    ],
+    "exampleEn": "We will visit our grandparents.",
+    "exampleVi": "Chúng tôi sẽ thăm ông bà.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0018",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "join",
+    "vi": "tham gia",
+    "pos": "verb",
+    "ipa": "/dʒɔɪn/",
+    "forms": {
+      "thirdSg": "joins",
+      "past": "joined",
+      "ing": "joining",
+      "irregular": false
+    },
+    "image": "👥",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He will join the football club.",
+    "exampleVi": "Cậu ấy sẽ tham gia câu lạc bộ bóng đá.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0019",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "learn",
+    "vi": "học hỏi",
+    "pos": "verb",
+    "ipa": "/lɜːrn/",
+    "forms": {
+      "thirdSg": "learns",
+      "past": "learned",
+      "ing": "learning",
+      "irregular": false
+    },
+    "image": "💡",
+    "tags": [
+      "action",
+      "school"
+    ],
+    "exampleEn": "She will learn French.",
+    "exampleVi": "Cô ấy sẽ học tiếng Pháp.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0020",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "build",
+    "vi": "xây dựng",
+    "pos": "verb",
+    "ipa": "/bɪld/",
+    "forms": {
+      "thirdSg": "builds",
+      "past": "built",
+      "ing": "building",
+      "irregular": true
+    },
+    "image": "🧱",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "They will build a treehouse.",
+    "exampleVi": "Họ sẽ xây một ngôi nhà trên cây.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0021",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "buy",
+    "vi": "mua",
+    "pos": "verb",
+    "ipa": "/baɪ/",
+    "forms": {
+      "thirdSg": "buys",
+      "past": "bought",
+      "ing": "buying",
+      "irregular": true
+    },
+    "image": "🛒",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "I will buy a new bike.",
+    "exampleVi": "Tôi sẽ mua một chiếc xe đạp mới.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0022",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "become",
+    "vi": "trở thành",
+    "pos": "verb",
+    "ipa": "/bɪˈkʌm/",
+    "forms": {
+      "thirdSg": "becomes",
+      "past": "became",
+      "ing": "becoming",
+      "irregular": true
+    },
+    "image": "🌟",
+    "tags": [
+      "action",
+      "future"
+    ],
+    "exampleEn": "He will become a doctor.",
+    "exampleVi": "Cậu ấy sẽ trở thành một bác sĩ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0023",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "grow",
+    "vi": "lớn lên, phát triển",
+    "pos": "verb",
+    "ipa": "/ɡroʊ/",
+    "forms": {
+      "thirdSg": "grows",
+      "past": "grew",
+      "ing": "growing",
+      "irregular": true
+    },
+    "image": "🌱",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "These trees will grow fast.",
+    "exampleVi": "Những cái cây này sẽ lớn rất nhanh.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0024",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "help",
+    "vi": "giúp đỡ",
+    "pos": "verb",
+    "ipa": "/help/",
+    "forms": {
+      "thirdSg": "helps",
+      "past": "helped",
+      "ing": "helping",
+      "irregular": false
+    },
+    "image": "🤝",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "I will help you with your homework.",
+    "exampleVi": "Tôi sẽ giúp bạn làm bài tập.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0025",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "fly",
+    "vi": "bay",
+    "pos": "verb",
+    "ipa": "/flaɪ/",
+    "forms": {
+      "thirdSg": "flies",
+      "past": "flew",
+      "ing": "flying",
+      "irregular": true
+    },
+    "image": "🪁",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will fly a kite tomorrow.",
+    "exampleVi": "Ngày mai chúng tôi sẽ thả diều.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0026",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "swim",
+    "vi": "bơi",
+    "pos": "verb",
+    "ipa": "/swɪm/",
+    "forms": {
+      "thirdSg": "swims",
+      "past": "swam",
+      "ing": "swimming",
+      "irregular": true
+    },
+    "image": "🏊",
+    "tags": [
+      "action",
+      "sport"
+    ],
+    "exampleEn": "He will swim in the lake.",
+    "exampleVi": "Cậu ấy sẽ bơi ở hồ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0027",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "cook",
+    "vi": "nấu ăn",
+    "pos": "verb",
+    "ipa": "/kʊk/",
+    "forms": {
+      "thirdSg": "cooks",
+      "past": "cooked",
+      "ing": "cooking",
+      "irregular": false
+    },
+    "image": "🍳",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "My mother will cook a special dinner.",
+    "exampleVi": "Mẹ tôi sẽ nấu một bữa tối đặc biệt.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0028",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "bake",
+    "vi": "nướng bánh",
+    "pos": "verb",
+    "ipa": "/beɪk/",
+    "forms": {
+      "thirdSg": "bakes",
+      "past": "baked",
+      "ing": "baking",
+      "irregular": false
+    },
+    "image": "🧁",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will bake cookies tomorrow.",
+    "exampleVi": "Ngày mai chúng tôi sẽ nướng bánh quy.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0029",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "clean",
+    "vi": "dọn dẹp",
+    "pos": "verb",
+    "ipa": "/kliːn/",
+    "forms": {
+      "thirdSg": "cleans",
+      "past": "cleaned",
+      "ing": "cleaning",
+      "irregular": false
+    },
+    "image": "🧹",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He will clean his desk.",
+    "exampleVi": "Cậu ấy sẽ dọn dẹp bàn học của mình.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0030",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "paint",
+    "vi": "vẽ tranh màu, sơn",
+    "pos": "verb",
+    "ipa": "/peɪnt/",
+    "forms": {
+      "thirdSg": "paints",
+      "past": "painted",
+      "ing": "painting",
+      "irregular": false
+    },
+    "image": "🎨",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "She will paint the room.",
+    "exampleVi": "Cô ấy sẽ sơn căn phòng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0031",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "sing",
+    "vi": "hát",
+    "pos": "verb",
+    "ipa": "/sɪŋ/",
+    "forms": {
+      "thirdSg": "sings",
+      "past": "sang",
+      "ing": "singing",
+      "irregular": true
+    },
+    "image": "🎤",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "They will sing at the festival.",
+    "exampleVi": "Họ sẽ hát tại lễ hội.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0032",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "dance",
+    "vi": "nhảy múa",
+    "pos": "verb",
+    "ipa": "/dæns/",
+    "forms": {
+      "thirdSg": "dances",
+      "past": "danced",
+      "ing": "dancing",
+      "irregular": false
+    },
+    "image": "💃",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The children will dance happily.",
+    "exampleVi": "Lũ trẻ sẽ nhảy múa vui vẻ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0033",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "write",
+    "vi": "viết",
+    "pos": "verb",
+    "ipa": "/raɪt/",
+    "forms": {
+      "thirdSg": "writes",
+      "past": "wrote",
+      "ing": "writing",
+      "irregular": true
+    },
+    "image": "✍️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "I will write a storybook.",
+    "exampleVi": "Tôi sẽ viết một cuốn truyện.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0034",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "read",
+    "vi": "đọc",
+    "pos": "verb",
+    "ipa": "/riːd/",
+    "forms": {
+      "thirdSg": "reads",
+      "past": "read",
+      "ing": "reading",
+      "irregular": true
+    },
+    "image": "📖",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He will read this book soon.",
+    "exampleVi": "Cậu ấy sẽ sớm đọc cuốn sách này.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0035",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "meet",
+    "vi": "gặp gỡ",
+    "pos": "verb",
+    "ipa": "/miːt/",
+    "forms": {
+      "thirdSg": "meets",
+      "past": "met",
+      "ing": "meeting",
+      "irregular": true
+    },
+    "image": "🤝",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will meet at the cinema.",
+    "exampleVi": "Chúng ta sẽ gặp nhau ở rạp chiếu phim.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0036",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "stay",
+    "vi": "ở lại",
+    "pos": "verb",
+    "ipa": "/steɪ/",
+    "forms": {
+      "thirdSg": "stays",
+      "past": "stayed",
+      "ing": "staying",
+      "irregular": false
+    },
+    "image": "🏠",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "They will stay at a hotel.",
+    "exampleVi": "Họ sẽ ở tại một khách sạn.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0037",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "arrive",
+    "vi": "đến nơi",
+    "pos": "verb",
+    "ipa": "/əˈraɪv/",
+    "forms": {
+      "thirdSg": "arrives",
+      "past": "arrived",
+      "ing": "arriving",
+      "irregular": false
+    },
+    "image": "🛬",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The plane will arrive on time.",
+    "exampleVi": "Máy bay sẽ hạ cánh đúng giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0038",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "leave",
+    "vi": "rời khỏi",
+    "pos": "verb",
+    "ipa": "/liːv/",
+    "forms": {
+      "thirdSg": "leaves",
+      "past": "left",
+      "ing": "leaving",
+      "irregular": true
+    },
+    "image": "🚶",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will leave early tomorrow.",
+    "exampleVi": "Ngày mai chúng tôi sẽ rời đi sớm.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0039",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "finish",
+    "vi": "hoàn thành",
+    "pos": "verb",
+    "ipa": "/ˈfɪn.ɪʃ/",
+    "forms": {
+      "thirdSg": "finishes",
+      "past": "finished",
+      "ing": "finishing",
+      "irregular": false
+    },
+    "image": "🏁",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "She will finish her project.",
+    "exampleVi": "Cô ấy sẽ hoàn thành dự án của mình.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0040",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "start",
+    "vi": "bắt đầu",
+    "pos": "verb",
+    "ipa": "/stɑːrt/",
+    "forms": {
+      "thirdSg": "starts",
+      "past": "started",
+      "ing": "starting",
+      "irregular": false
+    },
+    "image": "🏁",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "School will start in September.",
+    "exampleVi": "Trường học sẽ bắt đầu vào tháng Chín.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0041",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "win",
+    "vi": "chiến thắng",
+    "pos": "verb",
+    "ipa": "/wɪn/",
+    "forms": {
+      "thirdSg": "wins",
+      "past": "won",
+      "ing": "winning",
+      "irregular": true
+    },
+    "image": "🏆",
+    "tags": [
+      "action",
+      "sport"
+    ],
+    "exampleEn": "Our team will win the game.",
+    "exampleVi": "Đội của chúng tôi sẽ chiến thắng trận đấu.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0042",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "see",
+    "vi": "thấy, xem",
+    "pos": "verb",
+    "ipa": "/siː/",
+    "forms": {
+      "thirdSg": "sees",
+      "past": "saw",
+      "ing": "seeing",
+      "irregular": true
+    },
+    "image": "👀",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will see a movie tonight.",
+    "exampleVi": "Tối nay chúng tôi sẽ xem phim.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0043",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "eat",
+    "vi": "ăn",
+    "pos": "verb",
+    "ipa": "/iːt/",
+    "forms": {
+      "thirdSg": "eats",
+      "past": "ate",
+      "ing": "eating",
+      "irregular": true
+    },
+    "image": "🍽️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will eat pizza.",
+    "exampleVi": "Chúng tôi sẽ ăn bánh pizza.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0044",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "drink",
+    "vi": "uống",
+    "pos": "verb",
+    "ipa": "/drɪŋk/",
+    "forms": {
+      "thirdSg": "drinks",
+      "past": "drank",
+      "ing": "drinking",
+      "irregular": true
+    },
+    "image": "🥤",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "She will drink fruit juice.",
+    "exampleVi": "Cô ấy sẽ uống nước ép hoa quả.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0045",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "take",
+    "vi": "cầm, mang, dẫn đi",
+    "pos": "verb",
+    "ipa": "/teɪk/",
+    "forms": {
+      "thirdSg": "takes",
+      "past": "took",
+      "ing": "taking",
+      "irregular": true
+    },
+    "image": "📸",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "I will take an umbrella.",
+    "exampleVi": "Tôi sẽ mang theo một chiếc ô.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0046",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "bring",
+    "vi": "mang tới",
+    "pos": "verb",
+    "ipa": "/brɪŋ/",
+    "forms": {
+      "thirdSg": "brings",
+      "past": "brought",
+      "ing": "bringing",
+      "irregular": true
+    },
+    "image": "🎒",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He will bring some cookies.",
+    "exampleVi": "Cậu ấy sẽ mang tới một ít bánh quy.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0047",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "wear",
+    "vi": "mặc, đội",
+    "pos": "verb",
+    "ipa": "/wer/",
+    "forms": {
+      "thirdSg": "wears",
+      "past": "wore",
+      "ing": "wearing",
+      "irregular": true
+    },
+    "image": "👗",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "She will wear a pretty dress.",
+    "exampleVi": "Cô ấy sẽ mặc một chiếc váy xinh.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0048",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "watch",
+    "vi": "xem, theo dõi",
+    "pos": "verb",
+    "ipa": "/wɑːtʃ/",
+    "forms": {
+      "thirdSg": "watches",
+      "past": "watched",
+      "ing": "watching",
+      "irregular": false
+    },
+    "image": "📺",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We will watch the match.",
+    "exampleVi": "Chúng tôi sẽ xem trận đấu.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0049",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "play",
+    "vi": "chơi",
+    "pos": "verb",
+    "ipa": "/pleɪ/",
+    "forms": {
+      "thirdSg": "plays",
+      "past": "played",
+      "ing": "playing",
+      "irregular": false
+    },
+    "image": "⚽",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "They will play basketball.",
+    "exampleVi": "Họ sẽ chơi bóng rổ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0050",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "open",
+    "vi": "mở",
+    "pos": "verb",
+    "ipa": "/ˈoʊ.pən/",
+    "forms": {
+      "thirdSg": "opens",
+      "past": "opened",
+      "ing": "opening",
+      "irregular": false
+    },
+    "image": "🚪",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "They will open a new shop.",
+    "exampleVi": "Họ sẽ mở một cửa hàng mới.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0051",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "robot",
+    "vi": "người máy",
+    "pos": "noun",
+    "ipa": "/ˈroʊ.bɑːt/",
+    "forms": {
+      "plural": "robots"
+    },
+    "image": "🤖",
+    "tags": [
+      "science"
+    ],
+    "exampleEn": "A robot will clean the house.",
+    "exampleVi": "Một người máy sẽ lau dọn nhà cửa.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0052",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "future",
+    "vi": "tương lai",
+    "pos": "noun",
+    "ipa": "/ˈfjuː.tʃɚ/",
+    "image": "🔮",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "The future will be bright.",
+    "exampleVi": "Tương lai sẽ tươi sáng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0053",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "plan",
+    "vi": "kế hoạch",
+    "pos": "noun",
+    "ipa": "/plæn/",
+    "forms": {
+      "plural": "plans"
+    },
+    "image": "📋",
+    "tags": [
+      "activity"
+    ],
+    "exampleEn": "We have a great plan.",
+    "exampleVi": "Chúng tôi có một kế hoạch tuyệt vời.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0054",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "club",
+    "vi": "câu lạc bộ",
+    "pos": "noun",
+    "ipa": "/klʌb/",
+    "forms": {
+      "plural": "clubs"
+    },
+    "image": "🏆",
+    "tags": [
+      "group"
+    ],
+    "exampleEn": "He will join the chess club.",
+    "exampleVi": "Cậu ấy sẽ tham gia câu lạc bộ cờ vua.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0055",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "festival",
+    "vi": "lễ hội",
+    "pos": "noun",
+    "ipa": "/ˈfes.tə.vəl/",
+    "forms": {
+      "plural": "festivals"
+    },
+    "image": "🏮",
+    "tags": [
+      "event"
+    ],
+    "exampleEn": "The music festival will take place soon.",
+    "exampleVi": "Lễ hội âm nhạc sẽ sớm diễn ra.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0056",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "hotel",
+    "vi": "khách sạn",
+    "pos": "noun",
+    "ipa": "/hoʊˈtel/",
+    "forms": {
+      "plural": "hotels"
+    },
+    "image": "🏨",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "We will stay at that hotel.",
+    "exampleVi": "Chúng tôi sẽ ở tại khách sạn đó.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0057",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "island",
+    "vi": "hòn đảo",
+    "pos": "noun",
+    "ipa": "/ˈaɪ.lənd/",
+    "forms": {
+      "plural": "islands"
+    },
+    "image": "🏝️",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "They will visit Phu Quoc island.",
+    "exampleVi": "Họ sẽ đến thăm đảo Phú Quốc.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0058",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "mountain",
+    "vi": "ngọn núi",
+    "pos": "noun",
+    "ipa": "/ˈmaʊn.tən/",
+    "forms": {
+      "plural": "mountains"
+    },
+    "image": "⛰️",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "We will climb the mountain.",
+    "exampleVi": "Chúng tôi sẽ leo ngọn núi đó.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0059",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "country",
+    "vi": "đất nước",
+    "pos": "noun",
+    "ipa": "/ˈkʌn.tri/",
+    "forms": {
+      "plural": "countries"
+    },
+    "image": "🌏",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "She will travel to another country.",
+    "exampleVi": "Cô ấy sẽ đi du lịch tới một đất nước khác.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0060",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "astronaut",
+    "vi": "phi hành gia",
+    "pos": "noun",
+    "ipa": "/ˈæs.trə.nɑːt/",
+    "forms": {
+      "plural": "astronauts"
+    },
+    "image": "👨‍🚀",
+    "tags": [
+      "job"
+    ],
+    "exampleEn": "He wants to become an astronaut.",
+    "exampleVi": "Cậu ấy muốn trở thành một phi hành gia.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0061",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "scientist",
+    "vi": "nhà khoa học",
+    "pos": "noun",
+    "ipa": "/ˈsaɪ.ən.tɪst/",
+    "forms": {
+      "plural": "scientists"
+    },
+    "image": "🔬",
+    "tags": [
+      "job"
+    ],
+    "exampleEn": "She will be a scientist.",
+    "exampleVi": "Cô ấy sẽ là một nhà khoa học.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0062",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "pilot",
+    "vi": "phi công",
+    "pos": "noun",
+    "ipa": "/ˈpaɪ.lət/",
+    "forms": {
+      "plural": "pilots"
+    },
+    "image": "👨‍✈️",
+    "tags": [
+      "job"
+    ],
+    "exampleEn": "Nam will become a pilot.",
+    "exampleVi": "Nam sẽ trở thành một phi công.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0063",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "artist",
+    "vi": "họa sĩ",
+    "pos": "noun",
+    "ipa": "/ˈɑːr.tɪst/",
+    "forms": {
+      "plural": "artists"
+    },
+    "image": "👨‍🎨",
+    "tags": [
+      "job"
+    ],
+    "exampleEn": "Lan will be a talented artist.",
+    "exampleVi": "Lan sẽ là một họa sĩ tài năng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0064",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "singer",
+    "vi": "ca sĩ",
+    "pos": "noun",
+    "ipa": "/ˈsɪŋ.ɚ/",
+    "forms": {
+      "plural": "singers"
+    },
+    "image": "🧑‍🎤",
+    "tags": [
+      "job"
+    ],
+    "exampleEn": "She will be a famous singer.",
+    "exampleVi": "Cô ấy sẽ là một ca sĩ nổi tiếng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0065",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "concert",
+    "vi": "buổi hòa nhạc",
+    "pos": "noun",
+    "ipa": "/ˈkɑːn.sɚt/",
+    "forms": {
+      "plural": "concerts"
+    },
+    "image": "🎶",
+    "tags": [
+      "music"
+    ],
+    "exampleEn": "We will go to the concert tonight.",
+    "exampleVi": "Tối nay chúng tôi sẽ đi xem hòa nhạc.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0066",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "project",
+    "vi": "dự án, bài tập lớn",
+    "pos": "noun",
+    "ipa": "/ˈprɑː.dʒekt/",
+    "forms": {
+      "plural": "projects"
+    },
+    "image": "📑",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "They will finish the science project.",
+    "exampleVi": "Họ sẽ hoàn thành dự án khoa học.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0067",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "exam",
+    "vi": "kỳ thi",
+    "pos": "noun",
+    "ipa": "/ɪɡˈzæm/",
+    "forms": {
+      "plural": "exams"
+    },
+    "image": "📝",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "We will have an exam next week.",
+    "exampleVi": "Chúng tôi sẽ có một kỳ thi vào tuần tới.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0068",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "vacation",
+    "vi": "kỳ nghỉ hè",
+    "pos": "noun",
+    "ipa": "/veɪˈkeɪ.ʃən/",
+    "forms": {
+      "plural": "vacations"
+    },
+    "image": "🏖️",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "Summer vacation will begin in June.",
+    "exampleVi": "Kỳ nghỉ hè sẽ bắt đầu vào tháng Sáu.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0069",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "season",
+    "vi": "mùa trong năm",
+    "pos": "noun",
+    "ipa": "/ˈsiː.zən/",
+    "forms": {
+      "plural": "seasons"
+    },
+    "image": "🍂",
+    "tags": [
+      "nature"
+    ],
+    "exampleEn": "Spring is my favorite season.",
+    "exampleVi": "Mùa xuân là mùa yêu thích của tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0070",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "weather",
+    "vi": "thời tiết",
+    "pos": "noun",
+    "ipa": "/ˈweð.ɚ/",
+    "image": "🌤️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "The weather will be nice tomorrow.",
+    "exampleVi": "Thời tiết ngày mai sẽ đẹp.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0071",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "rain",
+    "vi": "mưa (trời mưa)",
+    "pos": "verb",
+    "ipa": "/reɪn/",
+    "image": "🌧️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will rain tomorrow.",
+    "exampleVi": "Ngày mai trời sẽ mưa.",
+    "source": "seed",
+    "forms": {
+      "thirdSg": "rains",
+      "past": "rained",
+      "ing": "raining"
+    }
+  },
+  {
+    "id": "B4-v-0072",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "sunshine",
+    "vi": "ánh nắng mặt trời",
+    "pos": "noun",
+    "ipa": "/ˈsʌn.ʃaɪn/",
+    "image": "☀️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "There will be warm sunshine.",
+    "exampleVi": "Sẽ có ánh nắng ấm áp.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0073",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "snow",
+    "vi": "có tuyết rơi",
+    "pos": "verb",
+    "ipa": "/snoʊ/",
+    "image": "❄️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will snow in winter.",
+    "exampleVi": "Trời sẽ có tuyết vào mùa đông.",
+    "source": "seed",
+    "forms": {
+      "thirdSg": "snows",
+      "past": "snowed",
+      "ing": "snowing"
+    }
+  },
+  {
+    "id": "B4-v-0074",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "wind",
+    "vi": "gió",
+    "pos": "noun",
+    "ipa": "/wɪnd/",
+    "image": "💨",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "The wind will blow gently.",
+    "exampleVi": "Gió sẽ thổi nhẹ nhàng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0075",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "present",
+    "vi": "món quà",
+    "pos": "noun",
+    "ipa": "/ˈprez.ənt/",
+    "forms": {
+      "plural": "presents"
+    },
+    "image": "🎁",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "I will give you a nice present.",
+    "exampleVi": "Tôi sẽ tặng bạn một món quà xinh xắn.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0076",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "ticket",
+    "vi": "vé (tàu, xe, phim)",
+    "pos": "noun",
+    "ipa": "/ˈtɪk.ɪt/",
+    "forms": {
+      "plural": "tickets"
+    },
+    "image": "🎟️",
+    "tags": [
+      "object"
+    ],
+    "exampleEn": "He will buy two tickets.",
+    "exampleVi": "Cậu ấy sẽ mua hai tấm vé.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0077",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "cookie",
+    "vi": "bánh quy",
+    "pos": "noun",
+    "ipa": "/ˈkʊk.i/",
+    "forms": {
+      "plural": "cookies"
+    },
+    "image": "🍪",
+    "tags": [
+      "food"
+    ],
+    "exampleEn": "We will eat delicious cookies.",
+    "exampleVi": "Chúng tôi sẽ ăn những chiếc bánh quy thơm ngon.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0078",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "backpack",
+    "vi": "ba lô",
+    "pos": "noun",
+    "ipa": "/ˈbæk.pæk/",
+    "forms": {
+      "plural": "backpacks"
+    },
+    "image": "🎒",
+    "tags": [
+      "school"
+    ],
+    "exampleEn": "She will carry a blue backpack.",
+    "exampleVi": "Cô ấy sẽ đeo một chiếc ba lô màu xanh.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0079",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "museum",
+    "vi": "viện bảo tàng",
+    "pos": "noun",
+    "ipa": "/mjuːˈziː.əm/",
+    "forms": {
+      "plural": "museums"
+    },
+    "image": "🏛️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "We will visit the art museum.",
+    "exampleVi": "Chúng tôi sẽ đi thăm bảo tàng mỹ thuật.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0080",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "zoo",
+    "vi": "vườn thú",
+    "pos": "noun",
+    "ipa": "/zuː/",
+    "forms": {
+      "plural": "zoos"
+    },
+    "image": "🦁",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "They will visit the zoo tomorrow.",
+    "exampleVi": "Ngày mai họ sẽ đi thăm vườn thú.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0081",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "famous",
+    "vi": "nổi tiếng",
+    "pos": "adjective",
+    "ipa": "/ˈfeɪ.məs/",
+    "image": "⭐",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "She will be a famous singer.",
+    "exampleVi": "Cô ấy sẽ là một ca sĩ nổi tiếng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0082",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "great",
+    "vi": "tuyệt vời",
+    "pos": "adjective",
+    "ipa": "/ɡreɪt/",
+    "image": "🌟",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "It will be a great trip.",
+    "exampleVi": "Đó sẽ là một chuyến đi tuyệt vời.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0083",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "wonderful",
+    "vi": "kỳ diệu, tuyệt diệu",
+    "pos": "adjective",
+    "ipa": "/ˈwʌn.dɚ.fəl/",
+    "image": "✨",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "We will have a wonderful holiday.",
+    "exampleVi": "Chúng tôi sẽ có một kỳ nghỉ kỳ diệu.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0084",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "sunny",
+    "vi": "nắng, có nắng",
+    "pos": "adjective",
+    "ipa": "/ˈsʌn.i/",
+    "image": "☀️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will be sunny tomorrow.",
+    "exampleVi": "Ngày mai trời sẽ có nắng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0085",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "rainy",
+    "vi": "mưa, có mưa",
+    "pos": "adjective",
+    "ipa": "/ˈreɪ.ni/",
+    "image": "🌧️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will be rainy next Sunday.",
+    "exampleVi": "Chủ nhật tới trời sẽ mưa.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0086",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "cloudy",
+    "vi": "nhiều mây",
+    "pos": "adjective",
+    "ipa": "/ˈklaʊ.di/",
+    "image": "☁️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "The sky will be cloudy tonight.",
+    "exampleVi": "Tối nay bầu trời sẽ nhiều mây.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0087",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "windy",
+    "vi": "nhiều gió",
+    "pos": "adjective",
+    "ipa": "/ˈwɪn.di/",
+    "image": "💨",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will be windy tomorrow morning.",
+    "exampleVi": "Sáng mai trời sẽ nhiều gió.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0088",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "cold",
+    "vi": "lạnh giá",
+    "pos": "adjective",
+    "ipa": "/koʊld/",
+    "image": "🥶",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will be cold in the evening.",
+    "exampleVi": "Trời sẽ lạnh vào buổi tối.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0089",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "warm",
+    "vi": "ấm áp",
+    "pos": "adjective",
+    "ipa": "/wɔːrm/",
+    "image": "🌡️",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "The weather will be warm.",
+    "exampleVi": "Thời tiết sẽ ấm áp.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0090",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "hot",
+    "vi": "nóng bức",
+    "pos": "adjective",
+    "ipa": "/hɑːt/",
+    "image": "🥵",
+    "tags": [
+      "weather"
+    ],
+    "exampleEn": "It will be hot this afternoon.",
+    "exampleVi": "Chiều nay trời sẽ nóng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0091",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "ready",
+    "vi": "sẵn sàng",
+    "pos": "adjective",
+    "ipa": "/ˈred.i/",
+    "image": "✅",
+    "tags": [
+      "state"
+    ],
+    "exampleEn": "I will be ready at seven.",
+    "exampleVi": "Tôi sẽ sẵn sàng lúc bảy giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0092",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "busy",
+    "vi": "bận rộn",
+    "pos": "adjective",
+    "ipa": "/ˈbɪz.i/",
+    "image": "🏃",
+    "tags": [
+      "state"
+    ],
+    "exampleEn": "He will be busy tomorrow.",
+    "exampleVi": "Ngày mai cậu ấy sẽ bận.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0093",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "excited",
+    "vi": "hào hứng",
+    "pos": "adjective",
+    "ipa": "/ɪkˈsaɪ.t̬ɪd/",
+    "image": "🤩",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "The kids will be excited.",
+    "exampleVi": "Lũ trẻ sẽ rất hào hứng.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0094",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "happy",
+    "vi": "hạnh phúc, vui vẻ",
+    "pos": "adjective",
+    "ipa": "/ˈhæp.i/",
+    "image": "😊",
+    "tags": [
+      "emotion"
+    ],
+    "exampleEn": "You will be happy there.",
+    "exampleVi": "Bạn sẽ hạnh phúc ở đó.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0095",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "careful",
+    "vi": "cẩn thận",
+    "pos": "adjective",
+    "ipa": "/ˈker.fəl/",
+    "image": "⚠️",
+    "tags": [
+      "manner"
+    ],
+    "exampleEn": "He will be careful.",
+    "exampleVi": "Cậu ấy sẽ cẩn thận.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0096",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "tired",
+    "vi": "mệt mỏi",
+    "pos": "adjective",
+    "ipa": "/taɪərd/",
+    "image": "🥱",
+    "tags": [
+      "feeling",
+      "review"
+    ],
+    "exampleEn": "She was tired yesterday.",
+    "exampleVi": "Hôm qua cô ấy đã mệt.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0097",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "hungry",
+    "vi": "đói bụng",
+    "pos": "adjective",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "image": "🤤",
+    "tags": [
+      "feeling",
+      "review"
+    ],
+    "exampleEn": "He was hungry after school.",
+    "exampleVi": "Cậu ấy đã bị đói sau giờ học.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0098",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "thirsty",
+    "vi": "khát nước",
+    "pos": "adjective",
+    "ipa": "/ˈθɜːr.sti/",
+    "image": "🥛",
+    "tags": [
+      "feeling",
+      "review"
+    ],
+    "exampleEn": "I am thirsty now.",
+    "exampleVi": "Bây giờ tôi đang khát nước.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0099",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "new",
+    "vi": "mới",
+    "pos": "adjective",
+    "ipa": "/nuː/",
+    "image": "✨",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "She has a new bicycle.",
+    "exampleVi": "Cô ấy có một chiếc xe đạp mới.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0100",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "old",
+    "vi": "cũ, già",
+    "pos": "adjective",
+    "ipa": "/oʊld/",
+    "image": "👴",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "The tree is very old.",
+    "exampleVi": "Cái cây rất già.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0101",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "big",
+    "vi": "to lớn",
+    "pos": "adjective",
+    "ipa": "/bɪɡ/",
+    "image": "🐘",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "We will visit a big museum.",
+    "exampleVi": "Chúng tôi sẽ đi thăm một bảo tàng to lớn.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0102",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "small",
+    "vi": "nhỏ bé",
+    "pos": "adjective",
+    "ipa": "/smɑːl/",
+    "image": "🐜",
+    "tags": [
+      "size"
+    ],
+    "exampleEn": "They live in a small house.",
+    "exampleVi": "Họ sống trong một ngôi nhà nhỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0103",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "fast",
+    "vi": "nhanh nhẹn",
+    "pos": "adjective",
+    "ipa": "/fæst/",
+    "image": "⚡",
+    "tags": [
+      "speed"
+    ],
+    "exampleEn": "The train will be fast.",
+    "exampleVi": "Chuyến tàu sẽ chạy rất nhanh.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0104",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "slow",
+    "vi": "chậm chạp",
+    "pos": "adjective",
+    "ipa": "/sloʊ/",
+    "image": "🐢",
+    "tags": [
+      "speed"
+    ],
+    "exampleEn": "The turtle is slow.",
+    "exampleVi": "Con rùa thì chậm chạp.",
+    "source": "seed"
+  },
+  {
+    "id": "B4-v-0105",
+    "level": "B4",
+    "topic": "future-review",
+    "en": "interesting",
+    "vi": "thú vị",
+    "pos": "adjective",
+    "ipa": "/ˈɪn.trə.stɪŋ/",
+    "image": "💡",
+    "tags": [
+      "quality"
+    ],
+    "exampleEn": "The film will be interesting.",
+    "exampleVi": "Bộ phim sẽ rất thú vị.",
+    "source": "seed"
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "id": "B3",
+  "title": "Thì Quá khứ đơn (Past Simple Tense)",
+  "level": "B3",
+  "summary": "Thì Quá khứ đơn dùng để diễn tả một hành động, sự việc đã xảy ra và kết thúc hoàn toàn trong quá khứ, thường có thời gian xác định rõ ràng.",
+  "formulas": [
+    {
+      "label": "Động từ To Be trong quá khứ",
+      "pattern": "Khẳng định: S + was / were | Phủ định: S + wasn't / weren't | Nghi vấn: Was / Were + S...?",
+      "example": "I was happy yesterday. (Hôm qua tôi đã rất vui.)"
+    },
+    {
+      "label": "Động từ thường - Khẳng định (Affirmative)",
+      "pattern": "S + V-ed (có quy tắc) HOẶC V2 (bất quy tắc)",
+      "example": "I watched TV yesterday. (Hôm qua tôi đã xem tivi.)"
+    },
+    {
+      "label": "Động từ thường - Phủ định (Negative)",
+      "pattern": "S + didn't + V(nguyên thể base)",
+      "example": "He didn't play football yesterday. (Hôm qua cậu ấy đã không chơi bóng đá.)"
+    },
+    {
+      "label": "Động từ thường - Nghi vấn Yes/No (Yes/No Question)",
+      "pattern": "Did + S + V(nguyên thể base)?",
+      "example": "Did you see the elephant? - Yes, I did. / No, I didn't."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Cách dùng thì Quá khứ đơn",
+      "body": "Thì Quá khứ đơn dùng để nói về những sự việc đã xảy ra và chấm dứt trong quá khứ.\nVí dụ: Hôm qua bạn đi chơi công viên, ăn kem, xem phim. Mọi hành động đó đã diễn ra ngày hôm qua và kết thúc rồi, ta dùng thì Quá khứ đơn.",
+      "exampleIds": [
+        "B3-s-0041",
+        "B3-s-0091"
+      ]
+    },
+    {
+      "heading": "2. Động từ To Be trong quá khứ: WAS hay WERE?",
+      "body": "Trong câu kể quá khứ đơn, I, he, she, it và danh từ số ít dùng was; we, they và danh từ số nhiều dùng were. You dùng were khi nói với một người hoặc nhiều người. Phủ định: was not/wasn’t, were not/weren’t.\nVí dụ: You were at home yesterday. có thể nói với một bạn hoặc cả nhóm. Câu hỏi đảo: Were you at home yesterday?\nTrả lời ngắn phải khớp câu hỏi: Was he tired yesterday? → Yes, he was. / No, he wasn’t. Were you happy yesterday? → Yes, I was. / No, I wasn’t. Ở ví dụ cuối, you hỏi một người nên người trả lời dùng I; nếu hỏi cả nhóm, câu trả lời có thể dùng we were.",
+      "exampleIds": [
+        "B3-s-0025",
+        "B3-s-0026",
+        "B3-s-0027",
+        "B3-s-0028",
+        "B3-s-0029",
+        "B3-s-0030",
+        "B3-s-0036",
+        "B3-s-0037",
+        "B3-s-0038"
+      ]
+    },
+    {
+      "heading": "3. Động từ có quy tắc (Regular Verbs - thêm -ed)",
+      "body": "Động từ có quy tắc thường thêm -ed: watch → watched, clean → cleaned. Tận cùng e thì thêm -d: live → lived. Phụ âm + y đổi y thành i rồi thêm -ed: study → studied; nguyên âm + y giữ y: play → played.\nKhi thêm đuôi bắt đầu bằng nguyên âm, thường gấp đôi phụ âm cuối nếu trước nó là một chữ nguyên âm trong âm tiết được nhấn: stop → stopped/stopping. Không gấp đôi w, x, y: snow → snowing, fix → fixed, play → playing. Với từ nhiều âm tiết, xét trọng âm: prefer → preferred, begin → beginning, nhưng visit → visited, open → opening. Đây là quy tắc cơ bản; tra từ điển khi gặp ngoại lệ hoặc khác biệt Anh–Anh/Anh–Mỹ.\nQuy tắc gấp đôi chỉ hướng dẫn chính tả khi thêm đuôi; quá khứ của động từ bất quy tắc vẫn phải học riêng: begin → began, không phải beginned.",
+      "exampleIds": [
+        "B3-s-0041",
+        "B3-s-0055"
+      ]
+    },
+    {
+      "heading": "4. Động từ bất quy tắc (Irregular Verbs) cực kỳ thông dụng",
+      "body": "Động từ bất quy tắc không tạo quá khứ theo quy tắc thêm -ed. Một số đổi dạng, một số giữ cách viết nhưng có thể đổi cách đọc:\n- go → went; eat → ate; drink → drank; see → saw\n- have → had; do → did; make → made; buy → bought\n- write → wrote; swim → swam; run → ran\n- read → read: giữ cách viết, dạng quá khứ đọc /red/\n- cut → cut; put → put: giữ nguyên dạng.",
+      "exampleIds": [
+        "B3-s-0091",
+        "B3-s-0092",
+        "B3-s-0094"
+      ]
+    },
+    {
+      "heading": "5. Phủ định và Câu hỏi với DID: Thần chú \"mượn Did thì trả về Base\"",
+      "body": "Trong câu phủ định và câu hỏi của động từ thường:\n- Ta mượn trợ động từ \"didn't\" hoặc \"Did\".\n- Vì \"did\" đã gánh thì quá khứ rồi, nên ĐỘNG TỪ CHÍNH PHẢI ĐƯA VỀ NGUYÊN THỂ (base)!\nVí dụ: \"He didn't go to school\" (KHÔNG nói \"He didn't went\").",
+      "exampleIds": [
+        "B3-s-0141",
+        "B3-s-0171"
+      ]
+    },
+    {
+      "heading": "6. Các dấu hiệu nhận biết thời gian trong quá khứ",
+      "body": "- yesterday (hôm qua), yesterday morning (sáng hôm qua).\n- last night (tối qua), last week (tuần trước), last month (tháng trước), last year (năm ngoái), last Sunday (Chủ nhật trước).\n- ... ago (cách đây...): two days ago (hai ngày trước), an hour ago (một giờ trước).\n- in + năm trong quá khứ (ví dụ: in 2020).",
+      "exampleIds": [
+        "B3-s-0011"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "She didn't went to school yesterday.",
+      "right": "She didn't go to school yesterday.",
+      "why": "Sau trợ động từ phủ định \"didn't\", động từ chính BẮT BUỘC phải ở dạng nguyên thể (base: go)."
+    },
+    {
+      "wrong": "Did you watched TV last night?",
+      "right": "Did you watch TV last night?",
+      "why": "Trong câu hỏi bắt đầu bằng \"Did\", động từ chính phải giữ nguyên thể không chia -ed (watch)."
+    },
+    {
+      "wrong": "We was at the park yesterday.",
+      "right": "We were at the park yesterday.",
+      "why": "Chủ ngữ \"We\" là số nhiều, phải dùng to be quá khứ là \"were\", không dùng \"was\"."
+    },
+    {
+      "wrong": "He buyed a new bicycle.",
+      "right": "He bought a new bicycle.",
+      "why": "Động từ \"buy\" là động từ bất quy tắc, quá khứ là \"bought\", không thêm đuôi \"-ed\"."
+    }
+  ],
+  "tips": [
+    "Trong câu hỏi/phủ định với did/didn’t, động từ chính dùng dạng nguyên thể: Did she go? / She didn’t go.",
+    "I/he/she/it dùng was; we/they dùng were. You dùng were ở cả số ít và số nhiều.",
+    "Yesterday, last week hoặc ago thường gợi một thời điểm đã qua. Xét toàn câu và sự việc đã kết thúc khi chọn quá khứ đơn.",
+    "Gấp đôi phụ âm cần xét trọng âm; không gấp đôi w/x/y. Prefer → preferred nhưng visit → visited. Động từ bất quy tắc có dạng quá khứ riêng."
+  ]
+}

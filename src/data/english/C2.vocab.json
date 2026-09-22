@@ -1,0 +1,1945 @@
+[
+  {
+    "id": "C2-v-0001",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "in",
+    "vi": "ở trong",
+    "pos": "preposition",
+    "ipa": "/ɪn/",
+    "image": "📦",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The pen is in the pencil case.",
+    "exampleVi": "Chiếc bút ở trong hộp bút.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0002",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "on",
+    "vi": "ở trên (tiếp xúc bề mặt)",
+    "pos": "preposition",
+    "ipa": "/ɑːn/",
+    "image": "📖",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The book is on the desk.",
+    "exampleVi": "Cuốn sách ở trên bàn học.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0003",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "at",
+    "vi": "ở tại (địa điểm cụ thể)",
+    "pos": "preposition",
+    "ipa": "/æt/",
+    "image": "📍",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "She is waiting at the bus stop.",
+    "exampleVi": "Cô ấy đang đợi ở trạm xe buýt.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0004",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "under",
+    "vi": "ở dưới, phía dưới",
+    "pos": "preposition",
+    "ipa": "/ˈʌn.dɚ/",
+    "image": "⬇️",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The cat is sleeping under the bed.",
+    "exampleVi": "Con mèo đang ngủ dưới gầm giường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0005",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "behind",
+    "vi": "ở đằng sau, phía sau",
+    "pos": "preposition",
+    "ipa": "/bɪˈhaɪnd/",
+    "image": "🔙",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The bicycle is behind the house.",
+    "exampleVi": "Chiếc xe đạp ở phía sau ngôi nhà.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0006",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "next to",
+    "vi": "ở bên cạnh",
+    "pos": "preposition",
+    "ipa": "/ˈnekst tuː/",
+    "image": "👉",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "My chair is next to the window.",
+    "exampleVi": "Ghế của tôi ở bên cạnh cửa sổ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0007",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "between",
+    "vi": "ở giữa các đối tượng phân biệt rõ",
+    "pos": "preposition",
+    "ipa": "/bɪˈtwiːn/",
+    "image": "↔️",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The lamp is between the bed and the table.",
+    "exampleVi": "Cái đèn ở giữa giường và bàn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0008",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "in front of",
+    "vi": "ở phía trước",
+    "pos": "preposition",
+    "ipa": "/ɪn ˈfrʌnt əv/",
+    "image": "⏭️",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "A big car is in front of the gate.",
+    "exampleVi": "Một chiếc ô tô lớn ở phía trước cổng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0009",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "near",
+    "vi": "ở gần",
+    "pos": "preposition",
+    "ipa": "/nɪr/",
+    "image": "🏡",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "Our school is near the park.",
+    "exampleVi": "Trường học của chúng tôi ở gần công viên.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0010",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "above",
+    "vi": "ở phía trên (không chạm vào)",
+    "pos": "preposition",
+    "ipa": "/əˈbʌv/",
+    "image": "⬆️",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The clock is above the board.",
+    "exampleVi": "Chiếc đồng hồ ở phía trên bảng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0011",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "below",
+    "vi": "ở phía dưới (thấp hơn)",
+    "pos": "preposition",
+    "ipa": "/bɪˈloʊ/",
+    "image": "⬇️",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The mirror is below the shelf.",
+    "exampleVi": "Chiếc gương ở phía dưới cái kệ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0012",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "opposite",
+    "vi": "ở đối diện",
+    "pos": "preposition",
+    "ipa": "/ˈɑː.pə.zɪt/",
+    "image": "🔄",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The bookstore is opposite the bakery.",
+    "exampleVi": "Hiệu sách ở đối diện tiệm bánh.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0013",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "inside",
+    "vi": "ở bên trong",
+    "pos": "preposition",
+    "ipa": "/ɪnˈsaɪd/",
+    "image": "🏠",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The puppies are inside the basket.",
+    "exampleVi": "Những chú cún con đang ở bên trong chiếc giỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0014",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "outside",
+    "vi": "ở bên ngoài",
+    "pos": "preposition",
+    "ipa": "/ˌaʊtˈsaɪd/",
+    "image": "🌳",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The children are playing outside the classroom.",
+    "exampleVi": "Lũ trẻ đang chơi ở bên ngoài lớp học.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0015",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "beside",
+    "vi": "ngay bên cạnh",
+    "pos": "preposition",
+    "ipa": "/bɪˈsaɪd/",
+    "image": "👥",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "She sat beside her mother.",
+    "exampleVi": "Cô bé ngồi ngay cạnh mẹ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0016",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "among",
+    "vi": "ở giữa (nhiều đối tượng)",
+    "pos": "preposition",
+    "ipa": "/əˈmʌŋ/",
+    "image": "🌲",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The small house is among tall trees.",
+    "exampleVi": "Ngôi nhà nhỏ nằm giữa những cái cây cao.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0017",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "around",
+    "vi": "xung quanh",
+    "pos": "preposition",
+    "ipa": "/əˈraʊnd/",
+    "image": "🔄",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "We walked around the lake.",
+    "exampleVi": "Chúng tôi đi bộ xung quanh hồ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0018",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "against",
+    "vi": "dựa vào, tựa vào",
+    "pos": "preposition",
+    "ipa": "/əˈɡenst/",
+    "image": "🧱",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The ladder is against the wall.",
+    "exampleVi": "Chiếc thang đang tựa vào tường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0019",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "across",
+    "vi": "băng qua, ở bên kia",
+    "pos": "preposition",
+    "ipa": "/əˈkrɑːs/",
+    "image": "🌉",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "He walked across the street.",
+    "exampleVi": "Cậu ấy đã đi bộ băng qua đường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0020",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "by",
+    "vi": "ở bên cạnh, gần",
+    "pos": "preposition",
+    "ipa": "/baɪ/",
+    "image": "🚪",
+    "tags": [
+      "preposition",
+      "place"
+    ],
+    "exampleEn": "The shoes are by the door.",
+    "exampleVi": "Đôi giày ở bên cạnh cửa ra vào.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0021",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "before",
+    "vi": "trước khi, trước",
+    "pos": "preposition",
+    "ipa": "/bɪˈfɔːr/",
+    "image": "⏮️",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "Wash your hands before dinner.",
+    "exampleVi": "Hãy rửa tay trước bữa tối.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0022",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "after",
+    "vi": "sau khi, sau",
+    "pos": "preposition",
+    "ipa": "/ˈæf.tɚ/",
+    "image": "⏭️",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "We played games after school.",
+    "exampleVi": "Chúng tôi chơi trò chơi sau giờ học.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0023",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "during",
+    "vi": "trong suốt (khoảng thời gian)",
+    "pos": "preposition",
+    "ipa": "/ˈdʊr.ɪŋ/",
+    "image": "⏳",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "Do not talk during the exam.",
+    "exampleVi": "Đừng nói chuyện trong suốt giờ kiểm tra.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0024",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "until",
+    "vi": "cho đến khi",
+    "pos": "preposition",
+    "ipa": "/ənˈtɪl/",
+    "image": "⏱️",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "Wait here until five o'clock.",
+    "exampleVi": "Hãy đợi ở đây cho đến 5 giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0025",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "since",
+    "vi": "từ khi, kể từ",
+    "pos": "preposition",
+    "ipa": "/sɪns/",
+    "image": "📅",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "The first rain since Monday fell today.",
+    "exampleVi": "Cơn mưa đầu tiên kể từ thứ Hai đã rơi hôm nay.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0026",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "for",
+    "vi": "trong khoảng (thời gian)",
+    "pos": "preposition",
+    "ipa": "/fɔːr/",
+    "image": "⌛",
+    "tags": [
+      "preposition",
+      "time"
+    ],
+    "exampleEn": "We rested for two hours.",
+    "exampleVi": "Chúng tôi đã nghỉ ngơi trong 2 giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0027",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "from",
+    "vi": "từ (nơi chốn hoặc thời gian)",
+    "pos": "preposition",
+    "ipa": "/frʌm/",
+    "image": "🛫",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "I walked from the park to my house.",
+    "exampleVi": "Tôi đi bộ từ công viên về nhà tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0028",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "to",
+    "vi": "đến, tới",
+    "pos": "preposition",
+    "ipa": "/tuː/",
+    "image": "🎯",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "She goes to school by bicycle.",
+    "exampleVi": "Cô ấy đi đến trường bằng xe đạp.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0029",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "into",
+    "vi": "vào bên trong",
+    "pos": "preposition",
+    "ipa": "/ˈɪn.tuː/",
+    "image": "📥",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "The frog jumped into the pond.",
+    "exampleVi": "Con ếch nhảy vào trong ao.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0030",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "out of",
+    "vi": "ra khỏi",
+    "pos": "preposition",
+    "ipa": "/ˌaʊt əv/",
+    "image": "📤",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "The cat jumped out of the box.",
+    "exampleVi": "Con mèo nhảy ra khỏi chiếc hộp.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0031",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "through",
+    "vi": "xuyên qua, qua",
+    "pos": "preposition",
+    "ipa": "/θruː/",
+    "image": "🚇",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "The train went through the tunnel.",
+    "exampleVi": "Đoàn tàu đi qua đường hầm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0032",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "toward",
+    "vi": "về phía, hướng tới",
+    "pos": "preposition",
+    "ipa": "/tɔːrd/",
+    "image": "🧭",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "They are running toward the finish line.",
+    "exampleVi": "Họ đang chạy về phía vạch đích.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0033",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "along",
+    "vi": "dọc theo",
+    "pos": "preposition",
+    "ipa": "/əˈlɑːŋ/",
+    "image": "🚶",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "We walked along the quiet river.",
+    "exampleVi": "Chúng tôi đi bộ dọc theo con sông yên bình.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0034",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "past",
+    "vi": "băng qua, đi qua",
+    "pos": "preposition",
+    "ipa": "/pæst/",
+    "image": "⏩",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "The bus drove past our school.",
+    "exampleVi": "Chiếc xe buýt chạy qua trường học của chúng tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0035",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "up",
+    "vi": "lên trên",
+    "pos": "preposition",
+    "ipa": "/ʌp/",
+    "image": "🧗",
+    "tags": [
+      "preposition",
+      "direction"
+    ],
+    "exampleEn": "The monkey climbed up the tall tree.",
+    "exampleVi": "Chú khỉ trèo lên cái cây cao.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0036",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "and",
+    "vi": "và (nối bổ sung)",
+    "pos": "conjunction",
+    "ipa": "/ænd/",
+    "image": "➕",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "I like apples and oranges.",
+    "exampleVi": "Tôi thích táo và cam.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0037",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "but",
+    "vi": "nhưng (nối tương phản)",
+    "pos": "conjunction",
+    "ipa": "/bʌt/",
+    "image": "⚡",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "He is small but he is strong.",
+    "exampleVi": "Cậu ấy nhỏ con nhưng cậu ấy rất khỏe.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0038",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "or",
+    "vi": "hoặc, hay là (lựa chọn)",
+    "pos": "conjunction",
+    "ipa": "/ɔːr/",
+    "image": "🔀",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "Do you want tea or milk?",
+    "exampleVi": "Bạn muốn trà hay sữa?",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0039",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "so",
+    "vi": "vì vậy, cho nên (kết quả)",
+    "pos": "conjunction",
+    "ipa": "/soʊ/",
+    "image": "👉",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "It was raining, so we stayed home.",
+    "exampleVi": "Trời mưa, vì vậy chúng tôi ở nhà.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0040",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "because",
+    "vi": "bởi vì (nguyên nhân)",
+    "pos": "conjunction",
+    "ipa": "/bɪˈkɑːz/",
+    "image": "💡",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "She is happy because she won.",
+    "exampleVi": "Cô ấy vui vì cô ấy đã chiến thắng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0041",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "if",
+    "vi": "nếu (điều kiện)",
+    "pos": "conjunction",
+    "ipa": "/ɪf/",
+    "image": "❓",
+    "tags": [
+      "conjunction"
+    ],
+    "exampleEn": "Take an umbrella if it rains.",
+    "exampleVi": "Hãy mang theo ô nếu trời mưa.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0042",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "then",
+    "vi": "sau đó, rồi thì",
+    "pos": "adverb",
+    "ipa": "/ðen/",
+    "image": "➡️",
+    "tags": [
+      "connector"
+    ],
+    "exampleEn": "Wash your face, then eat breakfast.",
+    "exampleVi": "Hãy rửa mặt, sau đó ăn sáng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0043",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "desk",
+    "vi": "bàn học, bàn làm việc",
+    "pos": "noun",
+    "ipa": "/desk/",
+    "forms": {
+      "plural": "desks"
+    },
+    "image": "🪑",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The notebook is on the desk.",
+    "exampleVi": "Vở ghi ở trên bàn học.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0044",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "chair",
+    "vi": "chiếc ghế",
+    "pos": "noun",
+    "ipa": "/tʃer/",
+    "forms": {
+      "plural": "chairs"
+    },
+    "image": "🪑",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "He sat on the chair.",
+    "exampleVi": "Cậu ấy ngồi trên ghế.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0045",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "bed",
+    "vi": "chiếc giường",
+    "pos": "noun",
+    "ipa": "/bed/",
+    "forms": {
+      "plural": "beds"
+    },
+    "image": "🛏️",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "My doll is on the bed.",
+    "exampleVi": "Búp bê của tôi ở trên giường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0046",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "sofa",
+    "vi": "ghế sô pha",
+    "pos": "noun",
+    "ipa": "/ˈsoʊ.fə/",
+    "forms": {
+      "plural": "sofas"
+    },
+    "image": "🛋️",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The cat is sleeping on the sofa.",
+    "exampleVi": "Con mèo đang ngủ trên ghế sô pha.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0047",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "table",
+    "vi": "cái bàn ăn",
+    "pos": "noun",
+    "ipa": "/ˈteɪ.bəl/",
+    "forms": {
+      "plural": "tables"
+    },
+    "image": "🍽️",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "Dinner is on the table.",
+    "exampleVi": "Bữa tối đã dọn trên bàn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0048",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "shelf",
+    "vi": "cái giá, cái kệ",
+    "pos": "noun",
+    "ipa": "/ʃelf/",
+    "forms": {
+      "plural": "shelves"
+    },
+    "image": "🧱",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The books are on the shelf.",
+    "exampleVi": "Những cuốn sách ở trên kệ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0049",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "drawer",
+    "vi": "ngăn kéo",
+    "pos": "noun",
+    "ipa": "/drɔːr/",
+    "forms": {
+      "plural": "drawers"
+    },
+    "image": "🗄️",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The keys are in the drawer.",
+    "exampleVi": "Chìa khóa ở trong ngăn kéo.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0050",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "closet",
+    "vi": "tủ quần áo",
+    "pos": "noun",
+    "ipa": "/ˈklɑː.zət/",
+    "forms": {
+      "plural": "closets"
+    },
+    "image": "🚪",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "Hangers are in the closet.",
+    "exampleVi": "Móc treo ở trong tủ áo.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0051",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "carpet",
+    "vi": "tấm thảm trải sàn",
+    "pos": "noun",
+    "ipa": "/ˈkɑːr.pɪt/",
+    "forms": {
+      "plural": "carpets"
+    },
+    "image": "🧶",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The dog lies on the carpet.",
+    "exampleVi": "Chú chó nằm trên thảm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0052",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "pillow",
+    "vi": "cái gối",
+    "pos": "noun",
+    "ipa": "/ˈpɪl.oʊ/",
+    "forms": {
+      "plural": "pillows"
+    },
+    "image": "🛏️",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The pillow is soft.",
+    "exampleVi": "Chiếc gối rất êm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0053",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "blanket",
+    "vi": "cái chăn",
+    "pos": "noun",
+    "ipa": "/ˈblæŋ.kɪt/",
+    "forms": {
+      "plural": "blankets"
+    },
+    "image": "🛌",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The warm blanket is on the bed.",
+    "exampleVi": "Chiếc chăn ấm ở trên giường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0054",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "lamp",
+    "vi": "cây đèn bàn",
+    "pos": "noun",
+    "ipa": "/læmp/",
+    "forms": {
+      "plural": "lamps"
+    },
+    "image": "💡",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "Turn on the desk lamp.",
+    "exampleVi": "Hãy bật đèn bàn lên.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0055",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "mirror",
+    "vi": "cái gương",
+    "pos": "noun",
+    "ipa": "/ˈmɪr.ɚ/",
+    "forms": {
+      "plural": "mirrors"
+    },
+    "image": "🪞",
+    "tags": [
+      "furniture"
+    ],
+    "exampleEn": "The mirror is on the wall.",
+    "exampleVi": "Chiếc gương treo trên tường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0056",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "door",
+    "vi": "cánh cửa ra vào",
+    "pos": "noun",
+    "ipa": "/dɔːr/",
+    "forms": {
+      "plural": "doors"
+    },
+    "image": "🚪",
+    "tags": [
+      "house"
+    ],
+    "exampleEn": "Please close the door.",
+    "exampleVi": "Làm ơn đóng cửa lại.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0057",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "window",
+    "vi": "cửa sổ",
+    "pos": "noun",
+    "ipa": "/ˈwɪn.doʊ/",
+    "forms": {
+      "plural": "windows"
+    },
+    "image": "🪟",
+    "tags": [
+      "house"
+    ],
+    "exampleEn": "Look out the window.",
+    "exampleVi": "Hãy nhìn ra ngoài cửa sổ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0058",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "wall",
+    "vi": "bức tường",
+    "pos": "noun",
+    "ipa": "/wɑːl/",
+    "forms": {
+      "plural": "walls"
+    },
+    "image": "🧱",
+    "tags": [
+      "house"
+    ],
+    "exampleEn": "A picture is on the wall.",
+    "exampleVi": "Bức tranh treo trên tường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0059",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "floor",
+    "vi": "sàn nhà",
+    "pos": "noun",
+    "ipa": "/flɔːr/",
+    "forms": {
+      "plural": "floors"
+    },
+    "image": "🪵",
+    "tags": [
+      "house"
+    ],
+    "exampleEn": "Do not drop trash on the floor.",
+    "exampleVi": "Đừng vứt rác ra sàn nhà.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0060",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "ceiling",
+    "vi": "trần nhà",
+    "pos": "noun",
+    "ipa": "/ˈsiː.lɪŋ/",
+    "forms": {
+      "plural": "ceilings"
+    },
+    "image": "🏠",
+    "tags": [
+      "house"
+    ],
+    "exampleEn": "The fan hangs from the ceiling.",
+    "exampleVi": "Chiếc quạt treo trên trần nhà.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0061",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "corner",
+    "vi": "góc (phòng, đường)",
+    "pos": "noun",
+    "ipa": "/ˈkɔːr.nɚ/",
+    "forms": {
+      "plural": "corners"
+    },
+    "image": "📐",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "The box is in the corner.",
+    "exampleVi": "Chiếc hộp ở trong góc phòng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0062",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "middle",
+    "vi": "phần giữa, ở giữa",
+    "pos": "noun",
+    "ipa": "/ˈmɪd.əl/",
+    "image": "🎯",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Stand in the middle of the room.",
+    "exampleVi": "Hãy đứng ở giữa phòng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0063",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "center",
+    "vi": "trung tâm",
+    "pos": "noun",
+    "ipa": "/ˈsen.tɚ/",
+    "forms": {
+      "plural": "centers"
+    },
+    "image": "📍",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "The fountain is in the center of the park.",
+    "exampleVi": "Đài phun nước ở trung tâm công viên.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0064",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "left",
+    "vi": "bên trái",
+    "pos": "noun",
+    "ipa": "/left/",
+    "image": "⬅️",
+    "tags": [
+      "direction"
+    ],
+    "exampleEn": "Turn to the left.",
+    "exampleVi": "Hãy rẽ sang bên trái.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0065",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "right",
+    "vi": "bên phải",
+    "pos": "noun",
+    "ipa": "/raɪt/",
+    "image": "➡️",
+    "tags": [
+      "direction"
+    ],
+    "exampleEn": "The shop is on the right.",
+    "exampleVi": "Cửa hàng ở bên phải.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0066",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "kitchen",
+    "vi": "nhà bếp",
+    "pos": "noun",
+    "ipa": "/ˈkɪtʃ.ən/",
+    "forms": {
+      "plural": "kitchens"
+    },
+    "image": "🍳",
+    "tags": [
+      "room"
+    ],
+    "exampleEn": "Mom is cooking in the kitchen.",
+    "exampleVi": "Mẹ đang nấu ăn trong bếp.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0067",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "bedroom",
+    "vi": "phòng ngủ",
+    "pos": "noun",
+    "ipa": "/ˈbed.ruːm/",
+    "forms": {
+      "plural": "bedrooms"
+    },
+    "image": "🛏️",
+    "tags": [
+      "room"
+    ],
+    "exampleEn": "My brother is reading in the bedroom.",
+    "exampleVi": "Anh tôi đang đọc sách trong phòng ngủ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0068",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "bathroom",
+    "vi": "phòng tắm",
+    "pos": "noun",
+    "ipa": "/ˈbæθ.ruːm/",
+    "forms": {
+      "plural": "bathrooms"
+    },
+    "image": "🛁",
+    "tags": [
+      "room"
+    ],
+    "exampleEn": "Brush your teeth in the bathroom.",
+    "exampleVi": "Hãy đánh răng trong phòng tắm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0069",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "garden",
+    "vi": "khu vườn",
+    "pos": "noun",
+    "ipa": "/ˈɡɑːr.dən/",
+    "forms": {
+      "plural": "gardens"
+    },
+    "image": "🌻",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Roses bloom in the garden.",
+    "exampleVi": "Hoa hồng nở rộ trong vườn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0070",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "yard",
+    "vi": "cái sân",
+    "pos": "noun",
+    "ipa": "/jɑːrd/",
+    "forms": {
+      "plural": "yards"
+    },
+    "image": "🏡",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "The dog is barking in the yard.",
+    "exampleVi": "Chú chó đang sủa trong sân.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0071",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "balcony",
+    "vi": "ban công",
+    "pos": "noun",
+    "ipa": "/ˈbæl.kə.ni/",
+    "forms": {
+      "plural": "balconies"
+    },
+    "image": "🏢",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "Flower pots are on the balcony.",
+    "exampleVi": "Những chậu hoa ở trên ban công.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0072",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "gate",
+    "vi": "cổng ra vào",
+    "pos": "noun",
+    "ipa": "/ɡeɪt/",
+    "forms": {
+      "plural": "gates"
+    },
+    "image": "⛩️",
+    "tags": [
+      "place"
+    ],
+    "exampleEn": "The postman is at the gate.",
+    "exampleVi": "Người đưa thư đang ở cổng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0073",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "morning",
+    "vi": "buổi sáng",
+    "pos": "noun",
+    "ipa": "/ˈmɔːr.nɪŋ/",
+    "forms": {
+      "plural": "mornings"
+    },
+    "image": "🌅",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We have English in the morning.",
+    "exampleVi": "Chúng tôi học tiếng Anh vào buổi sáng.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0074",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "afternoon",
+    "vi": "buổi chiều",
+    "pos": "noun",
+    "ipa": "/ˌæf.tɚˈnuːn/",
+    "forms": {
+      "plural": "afternoons"
+    },
+    "image": "☀️",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "I play soccer in the afternoon.",
+    "exampleVi": "Tôi chơi bóng đá vào buổi chiều.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0075",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "evening",
+    "vi": "buổi tối",
+    "pos": "noun",
+    "ipa": "/ˈiːv.nɪŋ/",
+    "forms": {
+      "plural": "evenings"
+    },
+    "image": "🌆",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We watch TV in the evening.",
+    "exampleVi": "Chúng tôi xem TV vào buổi tối.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0076",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "night",
+    "vi": "đêm, ban đêm",
+    "pos": "noun",
+    "ipa": "/naɪt/",
+    "forms": {
+      "plural": "nights"
+    },
+    "image": "🌙",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "Stars shine brightly at night.",
+    "exampleVi": "Những vì sao tỏa sáng lấp lánh vào ban đêm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0077",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "noon",
+    "vi": "buổi trưa (12 giờ trưa)",
+    "pos": "noun",
+    "ipa": "/nuːn/",
+    "image": "🕛",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We have lunch at noon.",
+    "exampleVi": "Chúng tôi ăn trưa vào buổi trưa.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0078",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "midnight",
+    "vi": "nửa đêm (12 giờ đêm)",
+    "pos": "noun",
+    "ipa": "/ˈmɪd.naɪt/",
+    "image": "🌃",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "The town is quiet at midnight.",
+    "exampleVi": "Thị trấn yên tĩnh lúc nửa đêm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0079",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "weekend",
+    "vi": "cuối tuần",
+    "pos": "noun",
+    "ipa": "/ˈwiːk.end/",
+    "forms": {
+      "plural": "weekends"
+    },
+    "image": "🏖️",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We visit grandparents on the weekend.",
+    "exampleVi": "Chúng tôi thăm ông bà vào cuối tuần.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0080",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "weekday",
+    "vi": "ngày trong tuần (từ thứ 2 đến thứ 6)",
+    "pos": "noun",
+    "ipa": "/ˈwiːk.deɪ/",
+    "forms": {
+      "plural": "weekdays"
+    },
+    "image": "💼",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "Students go to school on weekdays.",
+    "exampleVi": "Học sinh đi học vào các ngày trong tuần.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0081",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "holiday",
+    "vi": "kỳ nghỉ, ngày lễ",
+    "pos": "noun",
+    "ipa": "/ˈhɑː.lə.deɪ/",
+    "forms": {
+      "plural": "holidays"
+    },
+    "image": "🎉",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We travel during the summer holiday.",
+    "exampleVi": "Chúng tôi đi du lịch trong kỳ nghỉ hè.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0082",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "month",
+    "vi": "tháng",
+    "pos": "noun",
+    "ipa": "/mʌnθ/",
+    "forms": {
+      "plural": "months"
+    },
+    "image": "📅",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "My birthday is this month.",
+    "exampleVi": "Sinh nhật tôi vào tháng này.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0083",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "year",
+    "vi": "năm",
+    "pos": "noun",
+    "ipa": "/jɪr/",
+    "forms": {
+      "plural": "years"
+    },
+    "image": "🗓️",
+    "tags": [
+      "time"
+    ],
+    "exampleEn": "We will enter grade five next year.",
+    "exampleVi": "Chúng tôi sẽ lên lớp 5 vào năm sau.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0084",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "spring",
+    "vi": "mùa xuân",
+    "pos": "noun",
+    "ipa": "/sprɪŋ/",
+    "forms": {
+      "plural": "springs"
+    },
+    "image": "🌸",
+    "tags": [
+      "season"
+    ],
+    "exampleEn": "Flowers bloom in spring.",
+    "exampleVi": "Hoa nở rộ vào mùa xuân.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0085",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "summer",
+    "vi": "mùa hè",
+    "pos": "noun",
+    "ipa": "/ˈsʌm.ɚ/",
+    "forms": {
+      "plural": "summers"
+    },
+    "image": "☀️",
+    "tags": [
+      "season"
+    ],
+    "exampleEn": "We swim in the summer.",
+    "exampleVi": "Chúng tôi đi bơi vào mùa hè.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0086",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "autumn",
+    "vi": "mùa thu",
+    "pos": "noun",
+    "ipa": "/ˈɑː.t̬əm/",
+    "forms": {
+      "plural": "autumns"
+    },
+    "image": "🍁",
+    "tags": [
+      "season"
+    ],
+    "exampleEn": "Leaves turn yellow in autumn.",
+    "exampleVi": "Lá chuyển vàng vào mùa thu.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0087",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "winter",
+    "vi": "mùa đông",
+    "pos": "noun",
+    "ipa": "/ˈwɪn.t̬ɚ/",
+    "forms": {
+      "plural": "winters"
+    },
+    "image": "❄️",
+    "tags": [
+      "season"
+    ],
+    "exampleEn": "It is very cold in winter.",
+    "exampleVi": "Trời rất lạnh vào mùa đông.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0088",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "put",
+    "vi": "đặt, để",
+    "pos": "verb",
+    "ipa": "/pʊt/",
+    "forms": {
+      "thirdSg": "puts",
+      "past": "put",
+      "ing": "putting",
+      "irregular": true
+    },
+    "image": "📥",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Put the book on the table.",
+    "exampleVi": "Hãy đặt cuốn sách lên bàn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0089",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "hang",
+    "vi": "treo",
+    "pos": "verb",
+    "ipa": "/hæŋ/",
+    "forms": {
+      "thirdSg": "hangs",
+      "past": "hung",
+      "ing": "hanging",
+      "irregular": true
+    },
+    "image": "🖼️",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Hang the clock on the wall.",
+    "exampleVi": "Hãy treo đồng hồ lên tường.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0090",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "stand",
+    "vi": "đứng",
+    "pos": "verb",
+    "ipa": "/stænd/",
+    "forms": {
+      "thirdSg": "stands",
+      "past": "stood",
+      "ing": "standing",
+      "irregular": true
+    },
+    "image": "🧍",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He stood in front of the class.",
+    "exampleVi": "Cậu ấy đã đứng trước cả lớp.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0091",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "sit",
+    "vi": "ngồi",
+    "pos": "verb",
+    "ipa": "/sɪt/",
+    "forms": {
+      "thirdSg": "sits",
+      "past": "sat",
+      "ing": "sitting",
+      "irregular": true
+    },
+    "image": "🪑",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Sit between your parents.",
+    "exampleVi": "Hãy ngồi ở giữa bố mẹ của bạn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0092",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "lie",
+    "vi": "nằm",
+    "pos": "verb",
+    "ipa": "/laɪ/",
+    "forms": {
+      "thirdSg": "lies",
+      "past": "lay",
+      "ing": "lying",
+      "irregular": true
+    },
+    "image": "🛌",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The cat lies under the warm blanket.",
+    "exampleVi": "Con mèo nằm dưới tấm chăn ấm.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0093",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "hide",
+    "vi": "trốn, giấu",
+    "pos": "verb",
+    "ipa": "/haɪd/",
+    "forms": {
+      "thirdSg": "hides",
+      "past": "hid",
+      "ing": "hiding",
+      "irregular": true
+    },
+    "image": "🙈",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The boy hid behind the big door.",
+    "exampleVi": "Cậu bé đã trốn phía sau cánh cửa lớn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0094",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "jump",
+    "vi": "nhảy",
+    "pos": "verb",
+    "ipa": "/dʒʌmp/",
+    "forms": {
+      "thirdSg": "jumps",
+      "past": "jumped",
+      "ing": "jumping",
+      "irregular": false
+    },
+    "image": "🦘",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The rabbit jumped over the log.",
+    "exampleVi": "Chú thỏ nhảy qua khúc gỗ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0095",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "walk",
+    "vi": "đi bộ",
+    "pos": "verb",
+    "ipa": "/wɑːk/",
+    "forms": {
+      "thirdSg": "walks",
+      "past": "walked",
+      "ing": "walking",
+      "irregular": false
+    },
+    "image": "🚶",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We walked through the green park.",
+    "exampleVi": "Chúng tôi đi bộ qua công viên xanh mát.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0096",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "run",
+    "vi": "chạy",
+    "pos": "verb",
+    "ipa": "/rʌn/",
+    "forms": {
+      "thirdSg": "runs",
+      "past": "ran",
+      "ing": "running",
+      "irregular": true
+    },
+    "image": "🏃",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "He ran into the classroom.",
+    "exampleVi": "Cậu ấy chạy vào trong lớp học.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0097",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "look",
+    "vi": "nhìn (vào)",
+    "pos": "verb",
+    "ipa": "/lʊk/",
+    "forms": {
+      "thirdSg": "looks",
+      "past": "looked",
+      "ing": "looking",
+      "irregular": false
+    },
+    "image": "👀",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Look at the colorful picture.",
+    "exampleVi": "Hãy nhìn vào bức tranh rực rỡ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0098",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "listen",
+    "vi": "lắng nghe",
+    "pos": "verb",
+    "ipa": "/ˈlɪs.ən/",
+    "forms": {
+      "thirdSg": "listens",
+      "past": "listened",
+      "ing": "listening",
+      "irregular": false
+    },
+    "image": "👂",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Listen to the cheerful music.",
+    "exampleVi": "Hãy lắng nghe bản nhạc vui tươi.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0099",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "wait",
+    "vi": "chờ đợi",
+    "pos": "verb",
+    "ipa": "/weɪt/",
+    "forms": {
+      "thirdSg": "waits",
+      "past": "waited",
+      "ing": "waiting",
+      "irregular": false
+    },
+    "image": "⏳",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Wait for me at the bus stop.",
+    "exampleVi": "Hãy đợi tôi ở trạm xe buýt.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0100",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "stay",
+    "vi": "ở lại",
+    "pos": "verb",
+    "ipa": "/steɪ/",
+    "forms": {
+      "thirdSg": "stays",
+      "past": "stayed",
+      "ing": "staying",
+      "irregular": false
+    },
+    "image": "🏠",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Stay at home on rainy days.",
+    "exampleVi": "Hãy ở nhà vào những ngày mưa.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0101",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "arrive",
+    "vi": "đến nơi",
+    "pos": "verb",
+    "ipa": "/əˈraɪv/",
+    "forms": {
+      "thirdSg": "arrives",
+      "past": "arrived",
+      "ing": "arriving",
+      "irregular": false
+    },
+    "image": "🛬",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "We arrived at the station on time.",
+    "exampleVi": "Chúng tôi đã đến nhà ga đúng giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0102",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "leave",
+    "vi": "rời đi, rời khỏi",
+    "pos": "verb",
+    "ipa": "/liːv/",
+    "forms": {
+      "thirdSg": "leaves",
+      "past": "left",
+      "ing": "leaving",
+      "irregular": true
+    },
+    "image": "🛫",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "The bus leaves at eight.",
+    "exampleVi": "Xe buýt rời đi lúc 8 giờ.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0103",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "return",
+    "vi": "trở về, quay lại",
+    "pos": "verb",
+    "ipa": "/rɪˈtɝːn/",
+    "forms": {
+      "thirdSg": "returns",
+      "past": "returned",
+      "ing": "returning",
+      "irregular": false
+    },
+    "image": "🔙",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Dad returned from work late.",
+    "exampleVi": "Bố đã đi làm về muộn.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0104",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "belong",
+    "vi": "thuộc về",
+    "pos": "verb",
+    "ipa": "/bɪˈlɑːŋ/",
+    "forms": {
+      "thirdSg": "belongs",
+      "past": "belonged",
+      "ing": "belonging",
+      "irregular": false
+    },
+    "image": "🏷️",
+    "tags": [
+      "relation"
+    ],
+    "exampleEn": "This book belongs to my sister.",
+    "exampleVi": "Cuốn sách này thuộc về em gái tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "C2-v-0105",
+    "level": "C2",
+    "topic": "prepositions-conjunctions",
+    "en": "cross",
+    "vi": "băng qua",
+    "pos": "verb",
+    "ipa": "/krɑːs/",
+    "forms": {
+      "thirdSg": "crosses",
+      "past": "crossed",
+      "ing": "crossing",
+      "irregular": false
+    },
+    "image": "🚶",
+    "tags": [
+      "action"
+    ],
+    "exampleEn": "Look both ways before you cross the street.",
+    "exampleVi": "Hãy nhìn hai phía trước khi bạn băng qua đường.",
+    "source": "seed"
+  }
+]

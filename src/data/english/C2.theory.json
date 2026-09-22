@@ -1,0 +1,92 @@
+{
+  "id": "C2",
+  "level": "C2",
+  "title": "Giới từ & Liên từ (Prepositions & Conjunctions)",
+  "summary": "Giới từ xác định vị trí nơi chốn, mốc thời gian và hướng di chuyển. Liên từ kết nối các từ, cụm từ và mệnh đề lại với nhau một cách mạch lạc, tạo nên các câu văn phong phú.",
+  "formulas": [
+    {
+      "label": "Giới từ nơi chốn cốt lõi (Prepositions of Place)",
+      "pattern": "S + be / V + in / on / at / under / behind / next to / between / in front of + Noun...",
+      "example": "The cat is under the table. (Con mèo ở dưới cái bàn.)\nShe is waiting at the bus stop. (Cô ấy đang đợi ở trạm xe buýt.)\nA mirror hangs on the wall. (Một chiếc gương treo trên tường.)"
+    },
+    {
+      "label": "Giới từ thời gian In - On - At (Tam giác thời gian)",
+      "pattern": "AT + giờ / mốc cụ thể | ON + thứ / ngày cụ thể | IN + tháng / năm / mùa / buổi",
+      "example": "at 7 o'clock, at noon, at night\non Monday, on October 10th, on the weekend\nin the morning, in April, in summer, in 2024"
+    },
+    {
+      "label": "Liên từ kết hợp (Coordinating Conjunctions: And, But, Or, So)",
+      "pattern": "Mệnh đề 1 + , + and / but / or / so + Mệnh đề 2",
+      "example": "I like tea, but she likes coffee. (Tôi thích trà, nhưng cô ấy thích cà phê.)\nIt rained, so we stayed home. (Trời mưa, vì thế chúng tôi ở nhà.)\nHurry up, or you will be late. (Nhanh lên, nếu không bạn sẽ muộn đấy.)"
+    },
+    {
+      "label": "Liên từ chỉ nguyên nhân (Conjunction of Cause: Because)",
+      "pattern": "Mệnh đề kết quả + because + Mệnh đề nguyên nhân",
+      "example": "She is smiling because she won the game. (Cô ấy cười vì cô ấy đã thắng.)\nI stayed home because I was sick. (Tôi ở nhà bởi vì tôi bị ốm.)"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Giới từ chỉ vị trí và nơi chốn (Prepositions of Place)",
+      "body": "Giới từ nơi chốn cho biết đối tượng đang ở vị trí nào trong không gian:\n- in: ở trong không gian kín hoặc khu vực (in the room, in the box, in Hanoi).\n- on: ở trên bề mặt tiếp xúc (on the table, on the wall, on the floor).\n- at: ở tại một địa điểm hoặc tọa độ cụ thể (at school, at home, at the bus stop).\n- under: ở phía dưới, gầm (under the bed, under the tree).\n- behind: ở đằng sau (behind the door, behind the house).\n- in front of: ở đằng trước (in front of the class, in front of the TV).\n- next to / beside: ngay bên cạnh (next to the window, beside her mother).\n- between ... and ...: ở giữa các đối tượng phân biệt rõ; ví dụ cơ bản là hai người hoặc hai vật.",
+      "exampleIds": [
+        "C2-s-0001",
+        "C2-s-0009",
+        "C2-s-0017",
+        "C2-s-0024",
+        "C2-s-0031",
+        "C2-s-0038"
+      ]
+    },
+    {
+      "heading": "2. Giới từ chỉ thời gian: In, On, At & Before, After, During, Until",
+      "body": "Quy tắc tam giác thời gian giúp nhớ dễ dàng:\n- AT (đỉnh nhọn - hẹp nhất): dùng cho giờ giấc chính xác (at 6 pm) và các cụm từ cố định: at noon, at night, at midnight, at the moment.\n- ON (khoảng giữa): dùng cho thứ trong tuần (on Monday) và ngày tháng cụ thể (on July 15th, on Christmas Day).\n- IN (đáy rộng nhất): dùng cho buổi trong ngày (in the morning/afternoon/evening), tháng (in May), mùa (in spring) và năm (in 2025).\nNgoài ra còn có:\n- before: trước khi (before dinner).\n- after: sau khi (after school).\n- during: trong một khoảng thời gian (cả khoảng hoặc một thời điểm bên trong) (during the summer).\n- until: cho tới tận khi nào (until 5 o'clock).\nVới cụm chỉ thời gian bắt đầu bằng this/next/last/every, thường không thêm in/on/at: this month, next Monday, last year, every day. Before/until đứng trước một mệnh đề là liên từ: before you leave, until it closes.",
+      "exampleIds": [
+        "C2-s-0085",
+        "C2-s-0099",
+        "C2-s-0111",
+        "C2-s-0113",
+        "C2-s-0115"
+      ]
+    },
+    {
+      "heading": "3. Các liên từ cốt lõi (Conjunctions: And, But, Or, So, Because)",
+      "body": "Liên từ dùng để nối từ, cụm từ hoặc hai mệnh đề lại với nhau:\n- AND (và): bổ sung thông tin tương đồng.\n- BUT (nhưng): thể hiện sự tương phản, trái ngược.\n- OR (hoặc, hay là): đưa ra sự lựa chọn hoặc cảnh báo điều kiện (\"nếu không thì\").\n- SO (vì vậy, cho nên): chỉ kết quả của mệnh đề đứng trước (Mệnh đề chỉ Nguyên nhân + , so + Mệnh đề chỉ Kết quả).\n- BECAUSE (bởi vì): chỉ nguyên nhân của hành động (Mệnh đề chỉ Kết quả + because + Mệnh đề chỉ Nguyên nhân).",
+      "exampleIds": [
+        "C2-s-0157",
+        "C2-s-0168",
+        "C2-s-0179",
+        "C2-s-0190",
+        "C2-s-0197"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "I have English in Monday.",
+      "right": "I have English on Monday.",
+      "why": "Trước thứ trong tuần bắt buộc phải dùng giới từ \"on\", không dùng \"in\"."
+    },
+    {
+      "wrong": "The cat is sleeping on the room.",
+      "right": "The cat is sleeping in the room.",
+      "why": "Bên trong một căn phòng là không gian 3 chiều khép kín, bắt buộc dùng \"in\", không dùng \"on\"."
+    },
+    {
+      "wrong": "It rained because we stayed home.",
+      "right": "It rained, so we stayed home. (hoặc: We stayed home because it rained.)",
+      "why": "\"So\" chỉ kết quả của vế trước (trời mưa -> kết quả là ở nhà). \"Because\" giải thích nguyên nhân."
+    },
+    {
+      "wrong": "She walked school yesterday.",
+      "right": "She walked to school yesterday.",
+      "why": "Đi đến một địa điểm cần giới từ chỉ phương hướng \"to\" (walk to school)."
+    }
+  ],
+  "tips": [
+    "Quy tắc Kim Tự Tháp In-On-At: AT nhỏ nhất (giờ) -> ON vừa (ngày/thứ) -> IN lớn nhất (buổi, tháng, mùa, năm).",
+    "Between dùng khi xét các đối tượng phân biệt rõ; among dùng khi xét vị trí hoặc quan hệ trong một nhóm. Không phân biệt chỉ bằng quy tắc hai/nhiều.",
+    "Khi nối 2 mệnh đề độc lập bằng \"and, but, or, so\", hãy nhớ đặt dấu phẩy trước liên từ.",
+    "Để phân biệt \"so\" và \"because\": đặt câu hỏi \"Vì sao?\", vế trả lời sẽ đi liền sau \"because\"."
+  ]
+}

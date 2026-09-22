@@ -11,7 +11,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dev-dist
 *.local
+
+# Local scratch scripts and diagnostic output
+/.tmp-*
+/ts_error.txt
 
 # Editor directories and files
 .vscode/*

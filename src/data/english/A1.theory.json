@@ -1,0 +1,105 @@
+{
+  "id": "A1",
+  "title": "Đại từ nhân xưng & Động từ To Be (am / is / are)",
+  "level": "A1",
+  "summary": "Học cách dùng 7 đại từ nhân xưng (I, you, we, they, he, she, it) và phối hợp chính xác với động từ to be ở hiện tại (am, is, are) qua 3 thể: khẳng định, phủ định và câu hỏi.",
+  "formulas": [
+    {
+      "label": "Khẳng định (+)",
+      "pattern": "S + am / is / are + Bổ ngữ (Danh từ / Tính từ)",
+      "example": "I am happy. / She is a teacher."
+    },
+    {
+      "label": "Phủ định (-)",
+      "pattern": "S + am not / isn't / aren't + Bổ ngữ",
+      "example": "I am not sad. / She isn't a student."
+    },
+    {
+      "label": "Nghi vấn (?) & Trả lời",
+      "pattern": "Am / Is / Are + S + Bổ ngữ? → Yes, S + be. / No, S + be not.",
+      "example": "Are you ready? → Yes, I am. / No, I am not."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Bảy đại từ nhân xưng làm chủ ngữ",
+      "body": "Đại từ nhân xưng đứng ở vị trí chủ ngữ (Subject) để chỉ người hoặc vật đang được nói đến. Tiếng Anh có 7 đại từ chủ ngữ cơ bản cần ghi nhớ:",
+      "table": {
+        "columns": ["Đại từ", "Nghĩa tiếng Việt", "Ngôi & Số lượng", "To Be tương ứng"],
+        "rows": [
+          ["I", "Tôi, mình, con", "Ngôi thứ 1 số ít", "am"],
+          ["You", "Bạn, các bạn", "Ngôi thứ 2 (ít hoặc nhiều)", "are"],
+          ["He", "Cậu ấy, anh ấy, chú ấy", "Ngôi thứ 3 số ít (nam)", "is"],
+          ["She", "Cô ấy, chị ấy, bà ấy", "Ngôi thứ 3 số ít (nữ)", "is"],
+          ["It", "Nó (con vật, đồ vật, thời tiết)", "Ngôi thứ 3 số ít (vật)", "is"],
+          ["We", "Chúng tôi, chúng ta", "Ngôi thứ 1 số nhiều", "are"],
+          ["They", "Họ, chúng nó", "Ngôi thứ 3 số nhiều", "are"]
+        ]
+      },
+      "exampleIds": ["A1-s-0001", "A1-s-0003", "A1-s-0004", "A1-s-0005"],
+      "interactive": "pronoun-swap"
+    },
+    {
+      "heading": "2. Quy tắc chia động từ To Be ở hiện tại",
+      "body": "Động từ 'To Be' mang nghĩa là 'thì, là, ở'. Ở hiện tại, To Be có đúng 3 dạng: am, is, are.\n- I luôn đi với am.\n- He, She, It và danh từ số ít (Nam, the cat, my father) luôn đi với is.\n- You, We, They và danh từ số nhiều (Nam and Mai, the dogs) luôn đi với are.",
+      "table": {
+        "columns": ["Chủ ngữ", "Khẳng định đầy đủ", "Phủ định (rút gọn)", "Câu hỏi đảo"],
+        "rows": [
+          ["I", "I am", "I am not", "Am I...?"],
+          ["You", "You are", "You aren't", "Are you...?"],
+          ["He / She / It", "He / She / It is", "He / She / It isn't", "Is he / she / it...?"],
+          ["We", "We are", "We aren't", "Are we...?"],
+          ["They", "They are", "They aren't", "Are they...?"]
+        ]
+      },
+      "exampleIds": ["A1-s-0011", "A1-s-0046", "A1-s-0057", "A1-s-0091"]
+    },
+    {
+      "heading": "3. Câu hỏi Yes/No và Câu trả lời ngắn",
+      "body": "Khi muốn đặt câu hỏi Có/Không, ta chỉ cần đảo động từ To Be (Am / Is / Are) lên trước chủ ngữ. Khi trả lời ngắn:\n- Đồng ý: Yes, + đại từ + to be (KHÔNG dùng dạng rút gọn ở câu khẳng định ngắn, ví dụ nói 'Yes, I am', không nói 'Yes, I'm').\n- Phủ định: No, + đại từ + to be not / isn't / aren't.",
+      "exampleIds": ["A1-s-0091", "A1-s-0136", "A1-s-0137", "A1-s-0092", "A1-s-0138", "A1-s-0139"]
+    },
+    {
+      "heading": "4. Đại từ chỉ định: This, That, These, Those",
+      "body": "Đại từ chỉ định dùng để chỉ người hoặc vật ở gần hoặc ở xa:\n- This is...: Đây là (1 người/vật ở gần).\n- That is...: Kia là (1 người/vật ở xa).\n- These are...: Đây là những (nhiều người/vật ở gần).\n- Those are...: Kia là những (nhiều người/vật ở xa).",
+      "exampleIds": ["A1-s-0156", "A1-s-0157", "A1-s-0158", "A1-s-0159"]
+    },
+    {
+      "heading": "5. Phân biệt Loại từ (POS) và Vai trò cụm (Role)",
+      "body": "Trong câu tiếng Anh, mỗi từ có một loại từ (danh từ, động từ, tính từ, đại từ...). Khi kết hợp trong câu, chúng tạo thành các thành phần đóng vai trò cụ thể:\n- Chủ ngữ (Subject): người hoặc vật mà câu đang nói đến (ví dụ: 'The little cat' trong 'The little cat is cute.').\n- Động từ (Verb): từ to be ('is', 'are'...). Trong câu phủ định, nhóm động từ gồm cả to be và từ phủ định ('isn't' hoặc 'is not').\n- Bổ ngữ (Complement): đứng sau to be để mô tả đặc điểm hoặc vai trò của chủ ngữ (ví dụ: 'a student', 'very kind'). Sau to be không gọi là tân ngữ (object).",
+      "exampleIds": ["A1-s-0001", "A1-s-0002", "A1-s-0010"]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "wrong": "I is a student.",
+      "right": "I am a student.",
+      "why": "Chủ ngữ I chỉ đi duy nhất với am, không dùng is."
+    },
+    {
+      "wrong": "She are a teacher.",
+      "right": "She is a teacher.",
+      "why": "She là đại từ ngôi thứ 3 số ít, bắt buộc dùng is."
+    },
+    {
+      "wrong": "Are you ready? → Yes, I'm.",
+      "right": "Are you ready? → Yes, I am.",
+      "why": "Trong câu trả lời ngắn khẳng định, tuyệt đối không được rút gọn to be ở cuối câu."
+    },
+    {
+      "wrong": "I amn't tired.",
+      "right": "I am not tired (hoặc I'm not tired).",
+      "why": "Trong bài học này và tiếng Anh chuẩn, ta dùng 'am not' hoặc 'I'm not', không dùng 'amn't'."
+    },
+    {
+      "wrong": "These is my books.",
+      "right": "These are my books.",
+      "why": "These là đại từ chỉ định số nhiều (những cái này), bắt buộc đi với are."
+    }
+  ],
+  "tips": [
+    "Quy tắc hợp ngôi: I luôn đi với am; he / she / it và danh từ số ít luôn đi với is; you / we / they và danh từ số nhiều luôn đi với are.",
+    "Hỏi thì đảo lên đầu: Cứ bốc To Be (Am, Is, Are) đặt lên trước chủ ngữ là có ngay một câu hỏi Yes/No.",
+    "Bổ ngữ sau to be: Nhớ rằng sau to be là Bổ ngữ (Complement) chỉ tính chất hoặc danh tính của chủ ngữ, chứ không phải Tân ngữ (Object)."
+  ]
+}

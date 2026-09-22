@@ -19,6 +19,7 @@ const __PreviewRace = React.lazy(() => import('./games/MathRacing/MathRacingGame
 const HomePage = React.lazy(() => import('@/src/pages/HomePage').then(module => ({ default: module.HomePage })));
 const ModeSelectionPage = React.lazy(() => import('@/src/pages/ModeSelectionPage').then(module => ({ default: module.ModeSelectionPage })));
 const StudyPage = React.lazy(() => import('@/src/pages/StudyPage').then(module => ({ default: module.StudyPage })));
+const EnglishPage = React.lazy(() => import('@/src/english/EnglishPage'));
 const GamePage = React.lazy(() => import('@/src/pages/GamePage').then(module => ({ default: module.GamePage })));
 const ProfilePage = React.lazy(() => import('@/src/pages/ProfilePage').then(module => ({ default: module.ProfilePage })));
 const ShopPage = React.lazy(() => import('@/src/pages/ShopPage').then(module => ({ default: module.ShopPage })));
@@ -250,6 +251,10 @@ export default function App() {
                     <ModeSelectionPage />
                   </ProtectedRoute>
                 }
+              />
+              <Route
+                path="/english/*"
+                element={<ProtectedRoute><EnglishPage /></ProtectedRoute>}
               />
               <Route
                 path="/study/*"

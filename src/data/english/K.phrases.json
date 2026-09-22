@@ -1,0 +1,717 @@
+[
+  {
+    "id": "K-ph-0001",
+    "level": "K",
+    "en": "Hello!",
+    "vi": "Xin chào!",
+    "image": "👋",
+    "audioHint": "Hello!",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0002",
+    "level": "K",
+    "en": "Good morning!",
+    "vi": "Chào buổi sáng!",
+    "image": "🌅",
+    "audioHint": "Good morning!",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0003",
+    "level": "K",
+    "en": "Good afternoon!",
+    "vi": "Chào buổi chiều!",
+    "image": "☀️",
+    "audioHint": "Good afternoon!",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0004",
+    "level": "K",
+    "en": "Good night!",
+    "vi": "Chúc ngủ ngon!",
+    "image": "🌙",
+    "audioHint": "Good night!",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0005",
+    "level": "K",
+    "en": "Goodbye!",
+    "vi": "Tạm biệt!",
+    "image": "👋",
+    "audioHint": "Goodbye!",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0006",
+    "level": "K",
+    "en": "Thank you!",
+    "vi": "Cảm ơn bạn!",
+    "image": "🙏",
+    "audioHint": "Thank you!",
+    "tags": [
+      "politeness",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0007",
+    "level": "K",
+    "en": "You are welcome!",
+    "vi": "Không có chi!",
+    "image": "😊",
+    "audioHint": "You are welcome!",
+    "tags": [
+      "politeness",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0008",
+    "level": "K",
+    "en": "How are you?",
+    "vi": "Bạn khỏe không?",
+    "image": "😃",
+    "audioHint": "How are you?",
+    "tags": [
+      "greeting",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0009",
+    "level": "K",
+    "en": "I am fine.",
+    "vi": "Tôi khỏe.",
+    "image": "😄",
+    "audioHint": "I am fine.",
+    "tags": [
+      "feeling",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0010",
+    "level": "K",
+    "en": "I am happy.",
+    "vi": "Tôi vui vẻ.",
+    "image": "😊",
+    "audioHint": "I am happy.",
+    "tags": [
+      "feeling",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0011",
+    "level": "K",
+    "en": "I am hungry.",
+    "vi": "Tôi đói bụng.",
+    "image": "🤤",
+    "audioHint": "I am hungry.",
+    "tags": [
+      "feeling",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0012",
+    "level": "K",
+    "en": "I am thirsty.",
+    "vi": "Tôi khát nước.",
+    "image": "🥤",
+    "audioHint": "I am thirsty.",
+    "tags": [
+      "feeling",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0013",
+    "level": "K",
+    "en": "I am sleepy.",
+    "vi": "Tôi buồn ngủ.",
+    "image": "🥱",
+    "audioHint": "I am sleepy.",
+    "tags": [
+      "feeling",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0014",
+    "level": "K",
+    "en": "It is red.",
+    "vi": "Nó màu đỏ.",
+    "image": "🔴",
+    "audioHint": "It is red.",
+    "tags": [
+      "color",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0015",
+    "level": "K",
+    "en": "It is blue.",
+    "vi": "Nó màu xanh dương.",
+    "image": "🔵",
+    "audioHint": "It is blue.",
+    "tags": [
+      "color",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0016",
+    "level": "K",
+    "en": "It is yellow.",
+    "vi": "Nó màu vàng.",
+    "image": "🟡",
+    "audioHint": "It is yellow.",
+    "tags": [
+      "color",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0017",
+    "level": "K",
+    "en": "It is green.",
+    "vi": "Nó màu xanh lá.",
+    "image": "🟢",
+    "audioHint": "It is green.",
+    "tags": [
+      "color",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0018",
+    "level": "K",
+    "en": "It is pink.",
+    "vi": "Nó màu hồng.",
+    "image": "🌸",
+    "audioHint": "It is pink.",
+    "tags": [
+      "color",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0019",
+    "level": "K",
+    "en": "I see a cat.",
+    "vi": "Tôi thấy một con mèo.",
+    "image": "🐱",
+    "audioHint": "I see a cat.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0020",
+    "level": "K",
+    "en": "I see a dog.",
+    "vi": "Tôi thấy một con chó.",
+    "image": "🐶",
+    "audioHint": "I see a dog.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0021",
+    "level": "K",
+    "en": "I see a bird.",
+    "vi": "Tôi thấy một con chim.",
+    "image": "🐦",
+    "audioHint": "I see a bird.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0022",
+    "level": "K",
+    "en": "I see a fish.",
+    "vi": "Tôi thấy một con cá.",
+    "image": "🐟",
+    "audioHint": "I see a fish.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0023",
+    "level": "K",
+    "en": "A big elephant.",
+    "vi": "Một chú voi to lớn.",
+    "image": "🐘",
+    "audioHint": "A big elephant.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0024",
+    "level": "K",
+    "en": "A tiny mouse.",
+    "vi": "Một chú chuột nhỏ xíu.",
+    "image": "🐭",
+    "audioHint": "A tiny mouse.",
+    "tags": [
+      "animal",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0025",
+    "level": "K",
+    "en": "This is my mom.",
+    "vi": "Đây là mẹ của tôi.",
+    "image": "👩",
+    "audioHint": "This is my mom.",
+    "tags": [
+      "family",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0026",
+    "level": "K",
+    "en": "This is my dad.",
+    "vi": "Đây là bố của tôi.",
+    "image": "👨",
+    "audioHint": "This is my dad.",
+    "tags": [
+      "family",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0027",
+    "level": "K",
+    "en": "This is a baby.",
+    "vi": "Đây là một em bé.",
+    "image": "👶",
+    "audioHint": "This is a baby.",
+    "tags": [
+      "family",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0028",
+    "level": "K",
+    "en": "I love my family.",
+    "vi": "Tôi yêu gia đình tôi.",
+    "image": "👨‍👩‍👧",
+    "audioHint": "I love my family.",
+    "tags": [
+      "family",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0029",
+    "level": "K",
+    "en": "I like apples.",
+    "vi": "Tôi thích những quả táo.",
+    "image": "🍎",
+    "audioHint": "I like apples.",
+    "tags": [
+      "food",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0030",
+    "level": "K",
+    "en": "I like milk.",
+    "vi": "Tôi thích sữa.",
+    "image": "🥛",
+    "audioHint": "I like milk.",
+    "tags": [
+      "drink",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0031",
+    "level": "K",
+    "en": "I like bread.",
+    "vi": "Tôi thích bánh mì.",
+    "image": "🍞",
+    "audioHint": "I like bread.",
+    "tags": [
+      "food",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0032",
+    "level": "K",
+    "en": "Eat the cake.",
+    "vi": "Hãy ăn bánh ngọt.",
+    "image": "🎂",
+    "audioHint": "Eat the cake.",
+    "tags": [
+      "food",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0033",
+    "level": "K",
+    "en": "Drink some water.",
+    "vi": "Hãy uống chút nước.",
+    "image": "💧",
+    "audioHint": "Drink some water.",
+    "tags": [
+      "drink",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0034",
+    "level": "K",
+    "en": "Touch your nose.",
+    "vi": "Chạm vào mũi bạn nào.",
+    "image": "👃",
+    "audioHint": "Touch your nose.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0035",
+    "level": "K",
+    "en": "Touch your ears.",
+    "vi": "Chạm vào đôi tai bạn nào.",
+    "image": "👂",
+    "audioHint": "Touch your ears.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0036",
+    "level": "K",
+    "en": "Close your eyes.",
+    "vi": "Hãy nhắm mắt lại.",
+    "image": "👁️",
+    "audioHint": "Close your eyes.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0037",
+    "level": "K",
+    "en": "Open your mouth.",
+    "vi": "Hãy mở miệng ra.",
+    "image": "👄",
+    "audioHint": "Open your mouth.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0038",
+    "level": "K",
+    "en": "Clap your hands.",
+    "vi": "Hãy vỗ tay nào.",
+    "image": "👏",
+    "audioHint": "Clap your hands.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0039",
+    "level": "K",
+    "en": "Stomp your feet.",
+    "vi": "Hãy dậm chân nào.",
+    "image": "🦶",
+    "audioHint": "Stomp your feet.",
+    "tags": [
+      "body",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0040",
+    "level": "K",
+    "en": "Wave your hand.",
+    "vi": "Hãy vẫy tay nào.",
+    "image": "👋",
+    "audioHint": "Wave your hand.",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0041",
+    "level": "K",
+    "en": "Stand up!",
+    "vi": "Hãy đứng lên!",
+    "image": "🧍",
+    "audioHint": "Stand up!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0042",
+    "level": "K",
+    "en": "Sit down!",
+    "vi": "Hãy ngồi xuống!",
+    "image": "🪑",
+    "audioHint": "Sit down!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0043",
+    "level": "K",
+    "en": "Jump up high!",
+    "vi": "Hãy nhảy cao lên!",
+    "image": "🦘",
+    "audioHint": "Jump up high!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0044",
+    "level": "K",
+    "en": "Run very fast!",
+    "vi": "Hãy chạy thật nhanh!",
+    "image": "🏃",
+    "audioHint": "Run very fast!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0045",
+    "level": "K",
+    "en": "Walk slowly.",
+    "vi": "Hãy đi bộ từ tốn.",
+    "image": "🚶",
+    "audioHint": "Walk slowly.",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0046",
+    "level": "K",
+    "en": "Dance and sing!",
+    "vi": "Hãy múa và hát ca!",
+    "image": "💃",
+    "audioHint": "Dance and sing!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0047",
+    "level": "K",
+    "en": "Smile brightly.",
+    "vi": "Hãy cười thật tươi.",
+    "image": "😊",
+    "audioHint": "Smile brightly.",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0048",
+    "level": "K",
+    "en": "A soccer ball.",
+    "vi": "Một quả bóng đá.",
+    "image": "⚽",
+    "audioHint": "A soccer ball.",
+    "tags": [
+      "toy",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0049",
+    "level": "K",
+    "en": "A pretty doll.",
+    "vi": "Một con búp bê xinh.",
+    "image": "🪆",
+    "audioHint": "A pretty doll.",
+    "tags": [
+      "toy",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0050",
+    "level": "K",
+    "en": "A fast car.",
+    "vi": "Một chiếc ô tô chạy nhanh.",
+    "image": "🚗",
+    "audioHint": "A fast car.",
+    "tags": [
+      "toy",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0051",
+    "level": "K",
+    "en": "Fly the kite.",
+    "vi": "Thả chiếc diều bay.",
+    "image": "🪁",
+    "audioHint": "Fly the kite.",
+    "tags": [
+      "toy",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0052",
+    "level": "K",
+    "en": "A teddy bear.",
+    "vi": "Một chú gấu bông.",
+    "image": "🧸",
+    "audioHint": "A teddy bear.",
+    "tags": [
+      "toy",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0053",
+    "level": "K",
+    "en": "One, two, three!",
+    "vi": "Một, hai, ba!",
+    "image": "🔢",
+    "audioHint": "One, two, three!",
+    "tags": [
+      "number",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0054",
+    "level": "K",
+    "en": "Look at that!",
+    "vi": "Hãy nhìn kìa!",
+    "image": "👀",
+    "audioHint": "Look at that!",
+    "tags": [
+      "action",
+      "kindergarten"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "K-ph-0055",
+    "level": "K",
+    "en": "Good job!",
+    "vi": "Làm tốt lắm!",
+    "image": "🌟",
+    "audioHint": "Good job!",
+    "tags": [
+      "praise",
+      "kindergarten"
+    ],
+    "source": "seed"
+  }
+]

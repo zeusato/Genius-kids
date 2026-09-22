@@ -17,7 +17,10 @@ export const emptyProgress = (): DownloadProgress => ({ completed: 0, total: 0, 
 
 // Keep the app executable before offering the optional media download.
 export function isCoreAsset(entry: AssetEntry): boolean {
-    return /\.(?:js|css|html|woff2?|ico)$/.test(entry.url) || /(?:^|\/)Logo\.png$/.test(entry.url);
+    return /(?:^|\/)[A-C][1-4]\.(?:sentences|vocab|theory|passages|rewrites)-[^/]+\.json$/.test(entry.url) || /(?:^|\/)K\.(?:vocab|phrases)-[^/]+\.json$/.test(entry.url) || /\.(?:js|css|html|woff2?|ico)$/.test(entry.url) || /(?:^|\/)Logo\.png$/.test(entry.url)
+        // Small essential English illustrations must survive the first offline reload,
+        // even when their initial request preceded service-worker activation.
+        || /(?:^|\/)(?:english\/garden|hub\/art\/english(?:-sm)?)\.webp$/.test(entry.url);
 }
 
 interface DownloadOptions {

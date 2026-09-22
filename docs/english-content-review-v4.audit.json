@@ -1,0 +1,6131 @@
+{
+  "reviewedAt": "2026-09-22T16:46:06.646Z",
+  "files": {
+    "A1.sentences.json": {
+      "sha256": "df6b4b99dcc95f6be37769714705c87ae90f89382847d593d3e80626788006a4",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.theory.json": {
+      "sha256": "9a1212a45762dfd20a2faa4804d77308758173b3f0e8f83f3ad8917e68f3a3ff",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A1.vocab.json": {
+      "sha256": "f6b7f7b688dd6c6f2de4ffd1f4372d2ab557dbcf25d412f74eb3fb828829785f",
+      "count": 118,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.sentences.json": {
+      "sha256": "12a999ea23faf969b4a4ca55f88f81fd73e73fa5142a613f8a22472b4c2b4cb7",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.theory.json": {
+      "sha256": "bad89dcd6dc1806b80e36718b20bb4afc96ba11845d9a682f6413bde61124890",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A2.vocab.json": {
+      "sha256": "604f930cc43cab8a3878ee013882a0c5150ecb693f02b6e588857597493126d1",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.sentences.json": {
+      "sha256": "9cb5385e2bcedda535f400b04a6a167efabe440c33f11eddbfb5a82904c1c437",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.theory.json": {
+      "sha256": "0b37f28c2a01d25ddb97e3b5ea317ccbf0f5f410608cc409586456757fa8ec88",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "A3.vocab.json": {
+      "sha256": "65e4938dc1790715d748c07a2c2e5e0c9533aedbd4c15a8fac09d7c278f7dd4b",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.sentences.json": {
+      "sha256": "2305841890b6d1f8f183a6c0f2e88649488db440765ecfd59c9fbf02779eb04f",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.theory.json": {
+      "sha256": "0c8f39c7506bdbf8385defcc2f459c0963a84fab7f74629dc47507f08a4d766d",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B1.vocab.json": {
+      "sha256": "a138bea611858749975c70b5b4a88c14e7c4480e1acce54fd71f3b95158724f7",
+      "count": 111,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.sentences.json": {
+      "sha256": "22a207a58c8764f0c4a31c203fb08984da681d46f2896101a100853c7c41016a",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.theory.json": {
+      "sha256": "5d9125ca8cca2ebcbdc28a2229775e6250d2c3bc119aa2561473c29da4381753",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B2.vocab.json": {
+      "sha256": "fbb8daa9caacf0249549d53b7c8d1161186ba62c60ebca3edf9a7b81c63884cc",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.sentences.json": {
+      "sha256": "bfa686d4412b10956c4159964a94f46ffbb812e7f87af099d2bf07d8dcb4ca58",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.theory.json": {
+      "sha256": "ec50ad50acf8d868e9e4b43fe6da0a2e58be6f7ad738ea85f782f3f0265a0d93",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B3.vocab.json": {
+      "sha256": "9a3bca180aec0b9ffbcfdb89656d169b3e6fb0fcc4dd987c6182ccc9a37374f4",
+      "count": 106,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.sentences.json": {
+      "sha256": "81ddbdda388e18570f9990ced3e35d8630e7ebe1d262c3a41630d9553e4e1a8a",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.theory.json": {
+      "sha256": "872a881fde713a336d63c2a95c5d03a9bbbcfbf6e860a6a999e25ef01c406294",
+      "count": 1,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "B4.vocab.json": {
+      "sha256": "495945977358d029c4c99e75139f2cf0b91081f2f71fc347e25c51fb9f904e75",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.sentences.json": {
+      "sha256": "7a7e86d4d9deb02a5b268bb80f6bfc608733dd0011e65dd036925db6a85499ad",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C1.theory.json": {
+      "sha256": "cdc47c1f7ad09757a0a6050b5183c8b6ada02c6c19b066d8588d41592ec7cd0f",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].exampleIds: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].formulas[2].name: unknown field",
+        "theory[0].formulas[2].examples: unknown field",
+        "theory[0].formulas[2].label: missing field",
+        "theory[0].formulas[2].example: missing field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field",
+        "theory[0].sections[2].title: unknown field",
+        "theory[0].sections[2].content: unknown field",
+        "theory[0].sections[2].heading: missing field",
+        "theory[0].sections[2].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C1.vocab.json": {
+      "sha256": "dd822f195df88e0fafc1fa2238e7b5914ab5990e2c9eb64857b7da98e84878de",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.sentences.json": {
+      "sha256": "2687ce6e3cfe764b4ae5c54c6791c4bfdfd21423e0750f6656bc0c726b17c556",
+      "count": 207,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C2.theory.json": {
+      "sha256": "3f49b163699f6d637a1bb9418066ffa5a6d810c5431304e60049b8f2194756b1",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].formulas[2].name: unknown field",
+        "theory[0].formulas[2].examples: unknown field",
+        "theory[0].formulas[2].label: missing field",
+        "theory[0].formulas[2].example: missing field",
+        "theory[0].formulas[3].name: unknown field",
+        "theory[0].formulas[3].examples: unknown field",
+        "theory[0].formulas[3].label: missing field",
+        "theory[0].formulas[3].example: missing field",
+        "theory[0].sections[0].id: unknown field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].id: unknown field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field",
+        "theory[0].sections[2].id: unknown field",
+        "theory[0].sections[2].title: unknown field",
+        "theory[0].sections[2].content: unknown field",
+        "theory[0].sections[2].heading: missing field",
+        "theory[0].sections[2].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C2.vocab.json": {
+      "sha256": "bc0b5391e857da0de551e3c81a9ad2c48484bba00e09b41bbbc6d2ffdbee2d40",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.passages.json": {
+      "sha256": "63cf014f2cba7ab812c36fed0791961748a28a6d49cbd41ddf633cfdcc01eb9b",
+      "count": 40,
+      "errors": [
+        "passages[0] (C3-p-0001): TF answer must be true/false",
+        "passages[1] (C3-p-0002): TF answer must be true/false",
+        "passages[2] (C3-p-0003): TF answer must be true/false",
+        "passages[3] (C3-p-0004): TF answer must be true/false",
+        "passages[4] (C3-p-0005): TF answer must be true/false",
+        "passages[5] (C3-p-0006): wordCount must match 60–90 words",
+        "passages[5] (C3-p-0006): TF answer must be true/false",
+        "passages[6] (C3-p-0007): wordCount must match 60–90 words",
+        "passages[6] (C3-p-0007): TF answer must be true/false",
+        "passages[7] (C3-p-0008): wordCount must match 60–90 words",
+        "passages[7] (C3-p-0008): TF answer must be true/false",
+        "passages[8] (C3-p-0009): wordCount must match 60–90 words",
+        "passages[8] (C3-p-0009): TF answer must be true/false",
+        "passages[9] (C3-p-0010): wordCount must match 60–90 words",
+        "passages[9] (C3-p-0010): TF answer must be true/false",
+        "passages[10] (C3-p-0011): duplicate English text",
+        "passages[10] (C3-p-0011): wordCount must match 60–90 words",
+        "passages[10] (C3-p-0011): TF answer must be true/false",
+        "passages[11] (C3-p-0012): duplicate English text",
+        "passages[11] (C3-p-0012): wordCount must match 60–90 words",
+        "passages[11] (C3-p-0012): TF answer must be true/false",
+        "passages[12] (C3-p-0013): duplicate English text",
+        "passages[12] (C3-p-0013): wordCount must match 60–90 words",
+        "passages[12] (C3-p-0013): TF answer must be true/false",
+        "passages[13] (C3-p-0014): duplicate English text",
+        "passages[13] (C3-p-0014): wordCount must match 60–90 words",
+        "passages[13] (C3-p-0014): TF answer must be true/false",
+        "passages[14] (C3-p-0015): duplicate English text",
+        "passages[14] (C3-p-0015): wordCount must match 60–90 words",
+        "passages[14] (C3-p-0015): TF answer must be true/false",
+        "passages[15] (C3-p-0016): duplicate English text",
+        "passages[15] (C3-p-0016): wordCount must match 60–90 words",
+        "passages[15] (C3-p-0016): TF answer must be true/false",
+        "passages[16] (C3-p-0017): duplicate English text",
+        "passages[16] (C3-p-0017): wordCount must match 60–90 words",
+        "passages[16] (C3-p-0017): TF answer must be true/false",
+        "passages[17] (C3-p-0018): duplicate English text",
+        "passages[17] (C3-p-0018): wordCount must match 60–90 words",
+        "passages[17] (C3-p-0018): TF answer must be true/false",
+        "passages[18] (C3-p-0019): duplicate English text",
+        "passages[18] (C3-p-0019): wordCount must match 60–90 words",
+        "passages[18] (C3-p-0019): TF answer must be true/false",
+        "passages[19] (C3-p-0020): duplicate English text",
+        "passages[19] (C3-p-0020): wordCount must match 60–90 words",
+        "passages[19] (C3-p-0020): TF answer must be true/false",
+        "passages[20] (C3-p-0021): duplicate English text",
+        "passages[20] (C3-p-0021): wordCount must match 60–90 words",
+        "passages[20] (C3-p-0021): TF answer must be true/false",
+        "passages[21] (C3-p-0022): duplicate English text",
+        "passages[21] (C3-p-0022): wordCount must match 60–90 words",
+        "passages[21] (C3-p-0022): TF answer must be true/false",
+        "passages[22] (C3-p-0023): duplicate English text",
+        "passages[22] (C3-p-0023): wordCount must match 60–90 words",
+        "passages[22] (C3-p-0023): TF answer must be true/false",
+        "passages[23] (C3-p-0024): duplicate English text",
+        "passages[23] (C3-p-0024): wordCount must match 60–90 words",
+        "passages[23] (C3-p-0024): TF answer must be true/false",
+        "passages[24] (C3-p-0025): duplicate English text",
+        "passages[24] (C3-p-0025): wordCount must match 60–90 words",
+        "passages[24] (C3-p-0025): TF answer must be true/false",
+        "passages[25] (C3-p-0026): duplicate English text",
+        "passages[25] (C3-p-0026): wordCount must match 60–90 words",
+        "passages[25] (C3-p-0026): TF answer must be true/false",
+        "passages[26] (C3-p-0027): duplicate English text",
+        "passages[26] (C3-p-0027): wordCount must match 60–90 words",
+        "passages[26] (C3-p-0027): TF answer must be true/false",
+        "passages[27] (C3-p-0028): duplicate English text",
+        "passages[27] (C3-p-0028): wordCount must match 60–90 words",
+        "passages[27] (C3-p-0028): TF answer must be true/false",
+        "passages[28] (C3-p-0029): duplicate English text",
+        "passages[28] (C3-p-0029): wordCount must match 60–90 words",
+        "passages[28] (C3-p-0029): TF answer must be true/false",
+        "passages[29] (C3-p-0030): duplicate English text",
+        "passages[29] (C3-p-0030): wordCount must match 60–90 words",
+        "passages[29] (C3-p-0030): TF answer must be true/false",
+        "passages[30] (C3-p-0031): duplicate English text",
+        "passages[30] (C3-p-0031): wordCount must match 60–90 words",
+        "passages[30] (C3-p-0031): TF answer must be true/false",
+        "passages[31] (C3-p-0032): duplicate English text",
+        "passages[31] (C3-p-0032): wordCount must match 60–90 words",
+        "passages[31] (C3-p-0032): TF answer must be true/false",
+        "passages[32] (C3-p-0033): duplicate English text",
+        "passages[32] (C3-p-0033): wordCount must match 60–90 words",
+        "passages[32] (C3-p-0033): TF answer must be true/false",
+        "passages[33] (C3-p-0034): duplicate English text",
+        "passages[33] (C3-p-0034): wordCount must match 60–90 words",
+        "passages[33] (C3-p-0034): TF answer must be true/false",
+        "passages[34] (C3-p-0035): duplicate English text",
+        "passages[34] (C3-p-0035): wordCount must match 60–90 words",
+        "passages[34] (C3-p-0035): TF answer must be true/false",
+        "passages[35] (C3-p-0036): duplicate English text",
+        "passages[35] (C3-p-0036): wordCount must match 60–90 words",
+        "passages[35] (C3-p-0036): TF answer must be true/false",
+        "passages[36] (C3-p-0037): duplicate English text",
+        "passages[36] (C3-p-0037): wordCount must match 60–90 words",
+        "passages[36] (C3-p-0037): TF answer must be true/false",
+        "passages[37] (C3-p-0038): duplicate English text",
+        "passages[37] (C3-p-0038): wordCount must match 60–90 words",
+        "passages[37] (C3-p-0038): TF answer must be true/false",
+        "passages[38] (C3-p-0039): duplicate English text",
+        "passages[38] (C3-p-0039): wordCount must match 60–90 words",
+        "passages[38] (C3-p-0039): TF answer must be true/false",
+        "passages[39] (C3-p-0040): duplicate English text",
+        "passages[39] (C3-p-0040): wordCount must match 60–90 words",
+        "passages[39] (C3-p-0040): TF answer must be true/false"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C3.rewrites.json": {
+      "sha256": "f5ca114fcbba980cfb7ae3d1cd451cdc8ad467eb41c5980209fbd1a5ec7faffa",
+      "count": 200,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "C3.theory.json": {
+      "sha256": "06fb4305d0b40757a9bc1e0b0528a8140e53300992d75a8e2e59dbf683bdc6a6",
+      "count": 1,
+      "errors": [
+        "theory[0].topic: unknown field",
+        "theory[0].formulas[0].name: unknown field",
+        "theory[0].formulas[0].examples: unknown field",
+        "theory[0].formulas[0].label: missing field",
+        "theory[0].formulas[0].example: missing field",
+        "theory[0].formulas[1].name: unknown field",
+        "theory[0].formulas[1].examples: unknown field",
+        "theory[0].formulas[1].label: missing field",
+        "theory[0].formulas[1].example: missing field",
+        "theory[0].sections[0].id: unknown field",
+        "theory[0].sections[0].title: unknown field",
+        "theory[0].sections[0].content: unknown field",
+        "theory[0].sections[0].heading: missing field",
+        "theory[0].sections[0].body: missing field",
+        "theory[0].sections[1].id: unknown field",
+        "theory[0].sections[1].title: unknown field",
+        "theory[0].sections[1].content: unknown field",
+        "theory[0].sections[1].heading: missing field",
+        "theory[0].sections[1].body: missing field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "C3.vocab.json": {
+      "sha256": "da7de3d6909492d8128347bf44d1b1c7fdf558d3388b2cce9e7aed80dbddc94b",
+      "count": 105,
+      "errors": [],
+      "unchangedDuringAudit": true
+    },
+    "K.phrases.json": {
+      "sha256": "9609491937a5a414178a2790ebb2b84db2754edfd02b4e3759584ab4a8d9ac40",
+      "count": 55,
+      "errors": [
+        "phrases[0].topic: unknown field",
+        "phrases[1].topic: unknown field",
+        "phrases[2].topic: unknown field",
+        "phrases[3].topic: unknown field",
+        "phrases[4].topic: unknown field",
+        "phrases[5].topic: unknown field",
+        "phrases[6].topic: unknown field",
+        "phrases[7].topic: unknown field",
+        "phrases[8].topic: unknown field",
+        "phrases[9].topic: unknown field",
+        "phrases[10].topic: unknown field",
+        "phrases[11].topic: unknown field",
+        "phrases[12].topic: unknown field",
+        "phrases[13].topic: unknown field",
+        "phrases[14].topic: unknown field",
+        "phrases[15].topic: unknown field",
+        "phrases[16].topic: unknown field",
+        "phrases[17].topic: unknown field",
+        "phrases[18].topic: unknown field",
+        "phrases[19].topic: unknown field",
+        "phrases[20].topic: unknown field",
+        "phrases[21].topic: unknown field",
+        "phrases[22].topic: unknown field",
+        "phrases[23].topic: unknown field",
+        "phrases[24].topic: unknown field",
+        "phrases[25].topic: unknown field",
+        "phrases[26].topic: unknown field",
+        "phrases[27].topic: unknown field",
+        "phrases[28].topic: unknown field",
+        "phrases[29].topic: unknown field",
+        "phrases[30].topic: unknown field",
+        "phrases[31].topic: unknown field",
+        "phrases[32].topic: unknown field",
+        "phrases[33].topic: unknown field",
+        "phrases[34].topic: unknown field",
+        "phrases[35].topic: unknown field",
+        "phrases[36].topic: unknown field",
+        "phrases[37].topic: unknown field",
+        "phrases[38].topic: unknown field",
+        "phrases[39].topic: unknown field",
+        "phrases[40].topic: unknown field",
+        "phrases[41].topic: unknown field",
+        "phrases[42].topic: unknown field",
+        "phrases[43].topic: unknown field",
+        "phrases[44].topic: unknown field",
+        "phrases[45].topic: unknown field",
+        "phrases[46].topic: unknown field",
+        "phrases[47].topic: unknown field",
+        "phrases[48].topic: unknown field",
+        "phrases[49].topic: unknown field",
+        "phrases[50].topic: unknown field",
+        "phrases[51].topic: unknown field",
+        "phrases[52].topic: unknown field",
+        "phrases[53].topic: unknown field",
+        "phrases[54].topic: unknown field"
+      ],
+      "unchangedDuringAudit": true
+    },
+    "K.vocab.json": {
+      "sha256": "9b3ed498bdef453f1633e8fad1174804a20457d7eded8f8b83ef828ca79053c6",
+      "count": 126,
+      "errors": [],
+      "unchangedDuringAudit": true
+    }
+  },
+  "levels": {
+    "A1": {
+      "count": 200,
+      "difficulty": [
+        75,
+        80,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 180,
+        "fill": 200,
+        "order": 200,
+        "roles": 180
+      },
+      "grammarPoints": {
+        "be-affirmative": 45,
+        "be-negative": 45,
+        "be-question": 45,
+        "be-short-answer": 20,
+        "demonstratives": 45
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "A2": {
+      "count": 200,
+      "difficulty": [
+        85,
+        70,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 110
+      },
+      "grammarPoints": {
+        "a-an": 35,
+        "plural-regular-s": 40,
+        "plural-es-ies": 35,
+        "plural-irregular": 30,
+        "there-is-are": 40,
+        "the-determiners": 20
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "A3": {
+      "count": 200,
+      "difficulty": [
+        81,
+        80,
+        39
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 192
+      },
+      "grammarPoints": {
+        "adj-predicate": 40,
+        "adj-attributive": 39,
+        "adj-predicative": 1,
+        "possessive-determiner": 45,
+        "possessive-case": 45,
+        "whose-question": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B1": {
+      "count": 200,
+      "difficulty": [
+        74,
+        83,
+        43
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 189
+      },
+      "grammarPoints": {
+        "third-person-s": 50,
+        "first-second-person": 40,
+        "negative-don-doesnt": 40,
+        "question-do-does": 40,
+        "adverbs-frequency": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [
+        {
+          "id": "B1-s-0030",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0037",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0041",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0044",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0045",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0048",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0062",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0083",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0087",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0088",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0107",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0110",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0130",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0150",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0167",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0168",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0169",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0170",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0171",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0175",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0177",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0178",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0179",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0181",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0182",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0183",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0184",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0186",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0187",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0188",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0191",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0192",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0193",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0194",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0197",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0198",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "B1-s-0199",
+          "roles": [
+            "c1/adverbial"
+          ]
+        }
+      ],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B2": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 199,
+        "fill": 200,
+        "order": 200,
+        "roles": 196
+      },
+      "grammarPoints": {
+        "affirmative": 100,
+        "negative": 45,
+        "yes-no-question": 45,
+        "present-simple-continuous-contrast": 10
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [
+        {
+          "id": "B2-s-0071",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0073",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0074",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0075",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0076",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0078",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0079",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0080",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0081",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0083",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0085",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0086",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0087",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0088",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "isn't",
+          "alt": [
+            "is not"
+          ]
+        },
+        {
+          "id": "B2-s-0089",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0090",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0091",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0092",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0093",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0094",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0095",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0096",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0097",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0098",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0100",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0101",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0102",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0103",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        },
+        {
+          "id": "B2-s-0105",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+          "answer": "aren't",
+          "alt": [
+            "are not"
+          ]
+        }
+      ],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B3": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 199,
+        "fill": 200,
+        "order": 192,
+        "roles": 169
+      },
+      "grammarPoints": {
+        "was-were": 28,
+        "was-were-question": 4,
+        "was-were-short-answer": 8,
+        "regular-ed": 50,
+        "irregular-past": 50,
+        "did-support-negative": 30,
+        "did-question": 30
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [
+        {
+          "id": "B3-s-0021",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "wasn't",
+          "alt": [
+            "was not"
+          ]
+        },
+        {
+          "id": "B3-s-0022",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "wasn't",
+          "alt": [
+            "was not"
+          ]
+        },
+        {
+          "id": "B3-s-0023",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "wasn't",
+          "alt": [
+            "was not"
+          ]
+        },
+        {
+          "id": "B3-s-0024",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "wasn't",
+          "alt": [
+            "was not"
+          ]
+        },
+        {
+          "id": "B3-s-0031",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "weren't",
+          "alt": [
+            "were not"
+          ]
+        },
+        {
+          "id": "B3-s-0032",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "weren't",
+          "alt": [
+            "were not"
+          ]
+        },
+        {
+          "id": "B3-s-0039",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "weren't",
+          "alt": [
+            "were not"
+          ]
+        },
+        {
+          "id": "B3-s-0040",
+          "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì quá khứ đơn.",
+          "answer": "weren't",
+          "alt": [
+            "were not"
+          ]
+        },
+        {
+          "id": "B3-s-0141",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0143",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0145",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0149",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0155",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0160",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0162",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0166",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        },
+        {
+          "id": "B3-s-0168",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì quá khứ đơn.",
+          "answer": "didn't",
+          "alt": [
+            "did not"
+          ]
+        }
+      ],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "B4": {
+      "count": 200,
+      "difficulty": [
+        80,
+        75,
+        45
+      ],
+      "exerciseTypes": {
+        "pos": 196,
+        "fill": 200,
+        "order": 200,
+        "roles": 171
+      },
+      "grammarPoints": {
+        "will-affirmative": 45,
+        "will-negative": 35,
+        "will-question": 35,
+        "be-going-to": 35,
+        "review-present-simple": 12,
+        "review-present-continuous": 12,
+        "review-past-simple": 13,
+        "review-future": 13
+      },
+      "multiwordTokens": [],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [],
+      "contractedOnlyPromptWithFullAlt": [
+        {
+          "id": "B4-s-0046",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0047",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0049",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0050",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0051",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0053",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0055",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0056",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0058",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0061",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0063",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0065",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0067",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0070",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0071",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0072",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0076",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0078",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0079",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        },
+        {
+          "id": "B4-s-0080",
+          "prompt": "Điền trợ động từ phủ định dạng viết tắt ở thì tương lai đơn.",
+          "answer": "won't",
+          "alt": [
+            "will not"
+          ]
+        }
+      ],
+      "prepLocalRoleCandidates": [],
+      "lastNextPosCandidates": [],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    },
+    "C1": {
+      "count": 200,
+      "difficulty": [
+        58,
+        129,
+        13
+      ],
+      "exerciseTypes": {
+        "pos": 200,
+        "fill": 200,
+        "order": 200,
+        "roles": 200
+      },
+      "grammarPoints": {
+        "what": 37,
+        "where": 32,
+        "when": 26,
+        "who": 26,
+        "why": 21,
+        "how": 14,
+        "how-old": 5,
+        "how-many": 10,
+        "how-much": 7,
+        "which": 11,
+        "whose": 11
+      },
+      "multiwordTokens": [],
+      "roleGaps": [
+        {
+          "id": "C1-s-0004",
+          "missing": [
+            {
+              "index": 4,
+              "text": "to"
+            },
+            {
+              "index": 5,
+              "text": "eat"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0010",
+          "missing": [
+            {
+              "index": 5,
+              "text": "like"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0062",
+          "missing": [
+            {
+              "index": 3,
+              "text": "from"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0068",
+          "missing": [
+            {
+              "index": 4,
+              "text": "up"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0125",
+          "missing": [
+            {
+              "index": 3,
+              "text": "not"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0129",
+          "missing": [
+            {
+              "index": 3,
+              "text": "not"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0152",
+          "missing": [
+            {
+              "index": 4,
+              "text": "there"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0171",
+          "missing": [
+            {
+              "index": 5,
+              "text": "to"
+            },
+            {
+              "index": 6,
+              "text": "read"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0187",
+          "missing": [
+            {
+              "index": 4,
+              "text": "to"
+            },
+            {
+              "index": 5,
+              "text": "speak"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0194",
+          "missing": [
+            {
+              "index": 4,
+              "text": "wearing"
+            },
+            {
+              "index": 5,
+              "text": "pink"
+            },
+            {
+              "index": 6,
+              "text": "shoes"
+            }
+          ]
+        },
+        {
+          "id": "C1-s-0195",
+          "missing": [
+            {
+              "index": 4,
+              "text": "up"
+            }
+          ]
+        }
+      ],
+      "repeatedRoleTargets": [
+        {
+          "id": "C1-s-0020",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0033",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0038",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0039",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0040",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0047",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0049",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0052",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0053",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0054",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0058",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0063",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0064",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0068",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0076",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0081",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0085",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0086",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0104",
+          "roles": [
+            "c1/object"
+          ]
+        },
+        {
+          "id": "C1-s-0106",
+          "roles": [
+            "c1/object"
+          ]
+        },
+        {
+          "id": "C1-s-0116",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0119",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0120",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0121",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0123",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0127",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0131",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0134",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0137",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0146",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0154",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0159",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0164",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0168",
+          "roles": [
+            "c1/adverbial"
+          ]
+        },
+        {
+          "id": "C1-s-0195",
+          "roles": [
+            "c1/adverbial",
+            "c1/adverbial"
+          ]
+        }
+      ],
+      "promptCopiesAnswer": [
+        {
+          "id": "C1-s-0002",
+          "answer": "What",
+          "prompt": "Điền What để hỏi về màu sắc."
+        },
+        {
+          "id": "C1-s-0003",
+          "answer": "What",
+          "prompt": "Điền What để hỏi giờ."
+        },
+        {
+          "id": "C1-s-0010",
+          "answer": "What",
+          "prompt": "Hỏi thời tiết: What ... like?"
+        },
+        {
+          "id": "C1-s-0011",
+          "answer": "What",
+          "prompt": "Điền What để hỏi sở thích."
+        },
+        {
+          "id": "C1-s-0012",
+          "answer": "What",
+          "prompt": "Hỏi nghề nghiệp: What does ... do?"
+        },
+        {
+          "id": "C1-s-0016",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0017",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0018",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0019",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0020",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0021",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0022",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0023",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0024",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0025",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0026",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0027",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0028",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0029",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0030",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0031",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0032",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0033",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0034",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0035",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0041",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0042",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0043",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0044",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0045",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0046",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0047",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0048",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0049",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0050",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0051",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0052",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0053",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0054",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0055",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0056",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0057",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0058",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0059",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0060",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0061",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0062",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0063",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0064",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0065",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0068",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0069",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0070",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0071",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0072",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0073",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0074",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0075",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0076",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0077",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0078",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0079",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0080",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0081",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0082",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0083",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0084",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0085",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0086",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0087",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0088",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0089",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0090",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0091",
+          "answer": "Who",
+          "prompt": "Hỏi người: Who."
+        },
+        {
+          "id": "C1-s-0092",
+          "answer": "Who",
+          "prompt": "Hỏi người: Who."
+        },
+        {
+          "id": "C1-s-0093",
+          "answer": "Who",
+          "prompt": "Điền Who làm chủ ngữ."
+        },
+        {
+          "id": "C1-s-0094",
+          "answer": "Who",
+          "prompt": "Hỏi người làm tân ngữ: Who."
+        },
+        {
+          "id": "C1-s-0095",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0096",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0097",
+          "answer": "Who",
+          "prompt": "Điền Who làm chủ ngữ."
+        },
+        {
+          "id": "C1-s-0098",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0099",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0100",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0101",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0102",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0103",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0104",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0105",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0106",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0107",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0108",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0109",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0110",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0111",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0112",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0113",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0114",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0115",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0116",
+          "answer": "Why",
+          "prompt": "Hỏi lý do: Why."
+        },
+        {
+          "id": "C1-s-0117",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0118",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0119",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0120",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0121",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0122",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0123",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0124",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0125",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0126",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0127",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0128",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0129",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0130",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0131",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0132",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0133",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0134",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0135",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0136",
+          "answer": "How",
+          "prompt": "Hỏi thăm sức khỏe: How."
+        },
+        {
+          "id": "C1-s-0137",
+          "answer": "How",
+          "prompt": "Hỏi cách thức di chuyển: How."
+        },
+        {
+          "id": "C1-s-0138",
+          "answer": "How",
+          "prompt": "Hỏi tuổi: How old."
+        },
+        {
+          "id": "C1-s-0139",
+          "answer": "How",
+          "prompt": "Hỏi tuổi: How old."
+        },
+        {
+          "id": "C1-s-0140",
+          "answer": "many",
+          "prompt": "Hỏi số lượng danh từ đếm được: How many."
+        },
+        {
+          "id": "C1-s-0141",
+          "answer": "many",
+          "prompt": "Điền many sau How."
+        },
+        {
+          "id": "C1-s-0142",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0143",
+          "answer": "much",
+          "prompt": "Hỏi lượng danh từ không đếm được: How much."
+        },
+        {
+          "id": "C1-s-0144",
+          "answer": "How",
+          "prompt": "Hỏi giá tiền: How much."
+        },
+        {
+          "id": "C1-s-0145",
+          "answer": "How",
+          "prompt": "Hỏi cách đánh vần: How."
+        },
+        {
+          "id": "C1-s-0146",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0147",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0148",
+          "answer": "much",
+          "prompt": "Điền much trong How much does it cost."
+        },
+        {
+          "id": "C1-s-0149",
+          "answer": "How",
+          "prompt": "Hỏi cảm nhận: How was..."
+        },
+        {
+          "id": "C1-s-0150",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0151",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0152",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0153",
+          "answer": "much",
+          "prompt": "Sữa không đếm được: How much."
+        },
+        {
+          "id": "C1-s-0154",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0155",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0156",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0157",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0158",
+          "answer": "much",
+          "prompt": "Điền much."
+        },
+        {
+          "id": "C1-s-0159",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0160",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0161",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0162",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0163",
+          "answer": "much",
+          "prompt": "Gạo (rice) không đếm được: How much."
+        },
+        {
+          "id": "C1-s-0164",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0165",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0166",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0167",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0168",
+          "answer": "many",
+          "prompt": "Điền many."
+        },
+        {
+          "id": "C1-s-0169",
+          "answer": "much",
+          "prompt": "Đường không đếm được: How much."
+        },
+        {
+          "id": "C1-s-0170",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0171",
+          "answer": "Which",
+          "prompt": "Hỏi lựa chọn: Which."
+        },
+        {
+          "id": "C1-s-0173",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0174",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0175",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0176",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0177",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0178",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0179",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0180",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0181",
+          "answer": "Whose",
+          "prompt": "Hỏi sở hữu của ai: Whose."
+        },
+        {
+          "id": "C1-s-0182",
+          "answer": "Whose",
+          "prompt": "Hỏi sở hữu: Whose."
+        },
+        {
+          "id": "C1-s-0183",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0184",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0185",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0186",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0187",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0188",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0189",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0190",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0191",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0192",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        },
+        {
+          "id": "C1-s-0193",
+          "answer": "When",
+          "prompt": "Điền When."
+        },
+        {
+          "id": "C1-s-0194",
+          "answer": "Who",
+          "prompt": "Điền Who."
+        },
+        {
+          "id": "C1-s-0195",
+          "answer": "Why",
+          "prompt": "Điền Why."
+        },
+        {
+          "id": "C1-s-0196",
+          "answer": "How",
+          "prompt": "Điền How."
+        },
+        {
+          "id": "C1-s-0197",
+          "answer": "Which",
+          "prompt": "Điền Which."
+        },
+        {
+          "id": "C1-s-0198",
+          "answer": "Whose",
+          "prompt": "Điền Whose."
+        },
+        {
+          "id": "C1-s-0199",
+          "answer": "What",
+          "prompt": "Điền What."
+        },
+        {
+          "id": "C1-s-0200",
+          "answer": "Where",
+          "prompt": "Điền Where."
+        }
+      ],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [
+        {
+          "id": "C1-s-0008",
+          "index": 4,
+          "text": "at",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0017",
+          "index": 4,
+          "text": "at",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0018",
+          "index": 4,
+          "text": "for",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0020",
+          "index": 5,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0021",
+          "index": 4,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0025",
+          "index": 2,
+          "text": "of",
+          "role": "object"
+        },
+        {
+          "id": "C1-s-0030",
+          "index": 4,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0033",
+          "index": 4,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0035",
+          "index": 5,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0047",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0049",
+          "index": 4,
+          "text": "for",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0058",
+          "index": 5,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0063",
+          "index": 4,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0068",
+          "index": 5,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0081",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0085",
+          "index": 5,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0093",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0095",
+          "index": 4,
+          "text": "with",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0099",
+          "index": 3,
+          "text": "at",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0102",
+          "index": 3,
+          "text": "next",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0102",
+          "index": 4,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0111",
+          "index": 4,
+          "text": "over",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0114",
+          "index": 3,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0123",
+          "index": 5,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0137",
+          "index": 4,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0141",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0146",
+          "index": 5,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0147",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0152",
+          "index": 5,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0153",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0154",
+          "index": 4,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0157",
+          "index": 6,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0165",
+          "index": 6,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0168",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0169",
+          "index": 6,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0186",
+          "index": 4,
+          "text": "in",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0195",
+          "index": 6,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0197",
+          "index": 3,
+          "text": "to",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0198",
+          "index": 4,
+          "text": "on",
+          "role": "adverbial"
+        },
+        {
+          "id": "C1-s-0199",
+          "index": 4,
+          "text": "for",
+          "role": "adverbial"
+        }
+      ],
+      "lastNextPosCandidates": [
+        {
+          "id": "C1-s-0054",
+          "index": 3,
+          "text": "last",
+          "pos": "adverb"
+        },
+        {
+          "id": "C1-s-0112",
+          "index": 4,
+          "text": "last",
+          "pos": "adverb"
+        },
+        {
+          "id": "C1-s-0131",
+          "index": 5,
+          "text": "last",
+          "pos": "adverb"
+        },
+        {
+          "id": "C1-s-0155",
+          "index": 4,
+          "text": "last",
+          "pos": "adverb"
+        },
+        {
+          "id": "C1-s-0160",
+          "index": 5,
+          "text": "next",
+          "pos": "adverb"
+        },
+        {
+          "id": "C1-s-0190",
+          "index": 4,
+          "text": "next",
+          "pos": "adverb"
+        }
+      ],
+      "notPos": [],
+      "beAuxWithoutLexicalVerb": [
+        "C1-s-0053",
+        "C1-s-0054",
+        "C1-s-0105",
+        "C1-s-0127",
+        "C1-s-0149",
+        "C1-s-0155"
+      ],
+      "rolesOnExistential": [
+        "C1-s-0152"
+      ]
+    },
+    "C2": {
+      "count": 207,
+      "difficulty": [
+        47,
+        112,
+        48
+      ],
+      "exerciseTypes": {
+        "pos": 207,
+        "fill": 207,
+        "order": 207
+      },
+      "grammarPoints": {
+        "preposition-place": 77,
+        "preposition-time": 50,
+        "preposition-direction": 25,
+        "conjunction-and": 11,
+        "conjunction-but": 11,
+        "conjunction-or": 11,
+        "conjunction-so": 11,
+        "conjunction-because": 11
+      },
+      "multiwordTokens": [
+        {
+          "id": "C2-s-0038",
+          "index": 3,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0039",
+          "index": 2,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0040",
+          "index": 3,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0041",
+          "index": 3,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0042",
+          "index": 4,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0043",
+          "index": 4,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0044",
+          "index": 4,
+          "text": "in front of"
+        },
+        {
+          "id": "C2-s-0045",
+          "index": 3,
+          "text": "next to"
+        },
+        {
+          "id": "C2-s-0046",
+          "index": 2,
+          "text": "next to"
+        },
+        {
+          "id": "C2-s-0047",
+          "index": 3,
+          "text": "next to"
+        },
+        {
+          "id": "C2-s-0050",
+          "index": 3,
+          "text": "next to"
+        },
+        {
+          "id": "C2-s-0134",
+          "index": 3,
+          "text": "out of"
+        },
+        {
+          "id": "C2-s-0135",
+          "index": 4,
+          "text": "out of"
+        }
+      ],
+      "roleGaps": [],
+      "repeatedRoleTargets": [],
+      "promptCopiesAnswer": [
+        {
+          "id": "C2-s-0005",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0006",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0007",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0008",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0010",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0011",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0012",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0013",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0014",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0015",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0016",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0017",
+          "answer": "at",
+          "prompt": "Điền giới từ at chỉ địa điểm cụ thể."
+        },
+        {
+          "id": "C2-s-0018",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0019",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0020",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0021",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0022",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0023",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0025",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0026",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0027",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0028",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0029",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0030",
+          "answer": "under",
+          "prompt": "Điền under."
+        },
+        {
+          "id": "C2-s-0032",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0033",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0034",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0035",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0036",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0037",
+          "answer": "behind",
+          "prompt": "Điền behind."
+        },
+        {
+          "id": "C2-s-0039",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0040",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0041",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0042",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0043",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0044",
+          "answer": "in front of",
+          "prompt": "Điền in front of."
+        },
+        {
+          "id": "C2-s-0046",
+          "answer": "next to",
+          "prompt": "Điền next to."
+        },
+        {
+          "id": "C2-s-0047",
+          "answer": "next to",
+          "prompt": "Điền next to."
+        },
+        {
+          "id": "C2-s-0048",
+          "answer": "beside",
+          "prompt": "Điền beside."
+        },
+        {
+          "id": "C2-s-0049",
+          "answer": "beside",
+          "prompt": "Điền beside."
+        },
+        {
+          "id": "C2-s-0050",
+          "answer": "next to",
+          "prompt": "Điền next to."
+        },
+        {
+          "id": "C2-s-0051",
+          "answer": "beside",
+          "prompt": "Điền beside."
+        },
+        {
+          "id": "C2-s-0053",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0054",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0055",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0056",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0057",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0058",
+          "answer": "between",
+          "prompt": "Điền between."
+        },
+        {
+          "id": "C2-s-0060",
+          "answer": "near",
+          "prompt": "Điền near."
+        },
+        {
+          "id": "C2-s-0061",
+          "answer": "near",
+          "prompt": "Điền near."
+        },
+        {
+          "id": "C2-s-0063",
+          "answer": "opposite",
+          "prompt": "Điền opposite."
+        },
+        {
+          "id": "C2-s-0065",
+          "answer": "above",
+          "prompt": "Điền above."
+        },
+        {
+          "id": "C2-s-0066",
+          "answer": "above",
+          "prompt": "Điền above."
+        },
+        {
+          "id": "C2-s-0067",
+          "answer": "below",
+          "prompt": "Điền below."
+        },
+        {
+          "id": "C2-s-0068",
+          "answer": "among",
+          "prompt": "Điền giới từ among mang nghĩa ở giữa nhiều đối tượng."
+        },
+        {
+          "id": "C2-s-0069",
+          "answer": "among",
+          "prompt": "Điền among."
+        },
+        {
+          "id": "C2-s-0070",
+          "answer": "around",
+          "prompt": "Điền around."
+        },
+        {
+          "id": "C2-s-0071",
+          "answer": "around",
+          "prompt": "Điền around."
+        },
+        {
+          "id": "C2-s-0072",
+          "answer": "around",
+          "prompt": "Điền around."
+        },
+        {
+          "id": "C2-s-0073",
+          "answer": "against",
+          "prompt": "Điền against."
+        },
+        {
+          "id": "C2-s-0074",
+          "answer": "inside",
+          "prompt": "Điền inside."
+        },
+        {
+          "id": "C2-s-0075",
+          "answer": "outside",
+          "prompt": "Điền outside."
+        },
+        {
+          "id": "C2-s-0076",
+          "answer": "by",
+          "prompt": "Điền by."
+        },
+        {
+          "id": "C2-s-0077",
+          "answer": "across",
+          "prompt": "Điền across."
+        },
+        {
+          "id": "C2-s-0078",
+          "answer": "in",
+          "prompt": "Điền giới từ in trước buổi trong ngày."
+        },
+        {
+          "id": "C2-s-0079",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0080",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0081",
+          "answer": "in",
+          "prompt": "Điền giới từ in trước tên tháng."
+        },
+        {
+          "id": "C2-s-0082",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0083",
+          "answer": "in",
+          "prompt": "Điền in trước mùa."
+        },
+        {
+          "id": "C2-s-0084",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0085",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0086",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0087",
+          "answer": "in",
+          "prompt": "Điền in trước năm."
+        },
+        {
+          "id": "C2-s-0088",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0089",
+          "answer": "in",
+          "prompt": "Điền in mang nghĩa trong bao lâu nữa."
+        },
+        {
+          "id": "C2-s-0090",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0091",
+          "answer": "in",
+          "prompt": "Điền in."
+        },
+        {
+          "id": "C2-s-0092",
+          "answer": "on",
+          "prompt": "Điền giới từ on trước thứ trong tuần."
+        },
+        {
+          "id": "C2-s-0093",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0094",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0095",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0096",
+          "answer": "on",
+          "prompt": "Điền on trước ngày tháng cụ thể."
+        },
+        {
+          "id": "C2-s-0097",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0098",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0099",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0100",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0101",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0102",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0103",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0104",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0105",
+          "answer": "on",
+          "prompt": "Điền on."
+        },
+        {
+          "id": "C2-s-0106",
+          "answer": "at",
+          "prompt": "Điền giới từ at trước giờ giấc."
+        },
+        {
+          "id": "C2-s-0107",
+          "answer": "at",
+          "prompt": "Điền at trước noon."
+        },
+        {
+          "id": "C2-s-0108",
+          "answer": "at",
+          "prompt": "Điền at trước night."
+        },
+        {
+          "id": "C2-s-0109",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0110",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0111",
+          "answer": "at",
+          "prompt": "Điền at trước midnight."
+        },
+        {
+          "id": "C2-s-0112",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0113",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0114",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0115",
+          "answer": "At",
+          "prompt": "Điền At trong cụm At the moment."
+        },
+        {
+          "id": "C2-s-0116",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0117",
+          "answer": "at",
+          "prompt": "Điền at."
+        },
+        {
+          "id": "C2-s-0118",
+          "answer": "before",
+          "prompt": "Điền giới từ before mang nghĩa trước khi."
+        },
+        {
+          "id": "C2-s-0119",
+          "answer": "before",
+          "prompt": "Điền before."
+        },
+        {
+          "id": "C2-s-0120",
+          "answer": "after",
+          "prompt": "Điền giới từ after mang nghĩa sau khi."
+        },
+        {
+          "id": "C2-s-0121",
+          "answer": "after",
+          "prompt": "Điền after."
+        },
+        {
+          "id": "C2-s-0122",
+          "answer": "during",
+          "prompt": "Điền giới từ during mang nghĩa trong suốt."
+        },
+        {
+          "id": "C2-s-0123",
+          "answer": "during",
+          "prompt": "Điền during."
+        },
+        {
+          "id": "C2-s-0124",
+          "answer": "until",
+          "prompt": "Điền giới từ until mang nghĩa cho đến khi."
+        },
+        {
+          "id": "C2-s-0125",
+          "answer": "until",
+          "prompt": "Điền until."
+        },
+        {
+          "id": "C2-s-0126",
+          "answer": "until",
+          "prompt": "Điền until."
+        },
+        {
+          "id": "C2-s-0127",
+          "answer": "during",
+          "prompt": "Điền during."
+        },
+        {
+          "id": "C2-s-0128",
+          "answer": "to",
+          "prompt": "Điền giới từ to chỉ phương hướng đến."
+        },
+        {
+          "id": "C2-s-0129",
+          "answer": "to",
+          "prompt": "Điền to."
+        },
+        {
+          "id": "C2-s-0130",
+          "answer": "from",
+          "prompt": "Điền giới từ from mang nghĩa từ đâu."
+        },
+        {
+          "id": "C2-s-0131",
+          "answer": "into",
+          "prompt": "Điền giới từ into mang nghĩa vào trong."
+        },
+        {
+          "id": "C2-s-0132",
+          "answer": "into",
+          "prompt": "Điền into."
+        },
+        {
+          "id": "C2-s-0133",
+          "answer": "into",
+          "prompt": "Điền into."
+        },
+        {
+          "id": "C2-s-0134",
+          "answer": "out of",
+          "prompt": "Điền out of mang nghĩa ra khỏi."
+        },
+        {
+          "id": "C2-s-0135",
+          "answer": "out of",
+          "prompt": "Điền out of."
+        },
+        {
+          "id": "C2-s-0136",
+          "answer": "through",
+          "prompt": "Điền giới từ through mang nghĩa xuyên qua."
+        },
+        {
+          "id": "C2-s-0137",
+          "answer": "through",
+          "prompt": "Điền through."
+        },
+        {
+          "id": "C2-s-0138",
+          "answer": "through",
+          "prompt": "Điền through."
+        },
+        {
+          "id": "C2-s-0139",
+          "answer": "toward",
+          "prompt": "Điền giới từ toward mang nghĩa về phía."
+        },
+        {
+          "id": "C2-s-0140",
+          "answer": "toward",
+          "prompt": "Điền toward."
+        },
+        {
+          "id": "C2-s-0141",
+          "answer": "along",
+          "prompt": "Điền giới từ along mang nghĩa dọc theo."
+        },
+        {
+          "id": "C2-s-0142",
+          "answer": "along",
+          "prompt": "Điền along."
+        },
+        {
+          "id": "C2-s-0143",
+          "answer": "past",
+          "prompt": "Điền past mang nghĩa đi qua."
+        },
+        {
+          "id": "C2-s-0144",
+          "answer": "past",
+          "prompt": "Điền past."
+        },
+        {
+          "id": "C2-s-0145",
+          "answer": "up",
+          "prompt": "Điền giới từ up mang nghĩa lên trên."
+        },
+        {
+          "id": "C2-s-0146",
+          "answer": "up",
+          "prompt": "Điền up."
+        },
+        {
+          "id": "C2-s-0147",
+          "answer": "down",
+          "prompt": "Điền down mang nghĩa xuống dưới."
+        },
+        {
+          "id": "C2-s-0148",
+          "answer": "down",
+          "prompt": "Điền down."
+        },
+        {
+          "id": "C2-s-0149",
+          "answer": "across",
+          "prompt": "Điền across."
+        },
+        {
+          "id": "C2-s-0150",
+          "answer": "across",
+          "prompt": "Điền across."
+        },
+        {
+          "id": "C2-s-0151",
+          "answer": "to",
+          "prompt": "Điền to."
+        },
+        {
+          "id": "C2-s-0152",
+          "answer": "into",
+          "prompt": "Điền into."
+        },
+        {
+          "id": "C2-s-0154",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0155",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0156",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0157",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0158",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0159",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0160",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0161",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0162",
+          "answer": "and",
+          "prompt": "Điền and nối hai mệnh đề."
+        },
+        {
+          "id": "C2-s-0163",
+          "answer": "and",
+          "prompt": "Điền and."
+        },
+        {
+          "id": "C2-s-0165",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0166",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0167",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0168",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0169",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0170",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0171",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0172",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0173",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0174",
+          "answer": "but",
+          "prompt": "Điền but."
+        },
+        {
+          "id": "C2-s-0175",
+          "answer": "or",
+          "prompt": "Điền liên từ or mang nghĩa hoặc, hay là."
+        },
+        {
+          "id": "C2-s-0176",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0177",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0178",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0179",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0180",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0181",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0182",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0183",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0184",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0185",
+          "answer": "or",
+          "prompt": "Điền or."
+        },
+        {
+          "id": "C2-s-0186",
+          "answer": "so",
+          "prompt": "Điền liên từ so mang nghĩa vì vậy, cho nên."
+        },
+        {
+          "id": "C2-s-0187",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0188",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0189",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0190",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0191",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0192",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0193",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0194",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0195",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0196",
+          "answer": "so",
+          "prompt": "Điền so."
+        },
+        {
+          "id": "C2-s-0197",
+          "answer": "because",
+          "prompt": "Điền liên từ because chỉ nguyên nhân."
+        },
+        {
+          "id": "C2-s-0198",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0199",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0200",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0201",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0202",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0203",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0204",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0205",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0206",
+          "answer": "because",
+          "prompt": "Điền because."
+        },
+        {
+          "id": "C2-s-0207",
+          "answer": "because",
+          "prompt": "Điền because."
+        }
+      ],
+      "contractedOnlyPromptWithFullAlt": [],
+      "prepLocalRoleCandidates": [
+        {
+          "id": "C2-s-0110",
+          "index": 5,
+          "text": "past",
+          "role": "modifier"
+        }
+      ],
+      "lastNextPosCandidates": [],
+      "notPos": [
+        "C2-s-0015",
+        "C2-s-0043",
+        "C2-s-0093",
+        "C2-s-0122",
+        "C2-s-0172",
+        "C2-s-0173",
+        "C2-s-0196"
+      ],
+      "beAuxWithoutLexicalVerb": [],
+      "rolesOnExistential": []
+    }
+  },
+  "reproductions": [
+    {
+      "id": "A1-s-0074",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "Her kind grandmother isn't at home right now.",
+      "wrong": "Now her kind grandmother isn't at home right.",
+      "wrongAccepted": true,
+      "correct": "Right now her kind grandmother isn't at home.",
+      "correctAccepted": true
+    },
+    {
+      "id": "A1-s-0189",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "Those five noisy dogs aren't outside right now.",
+      "wrong": "Now those five noisy dogs aren't outside right.",
+      "wrongAccepted": true,
+      "correct": "Right now those five noisy dogs aren't outside.",
+      "correctAccepted": true
+    },
+    {
+      "id": "B2-s-0177",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "She is swimming right now.",
+      "wrong": "Now she is swimming right.",
+      "wrongAccepted": true,
+      "correct": "Right now she is swimming.",
+      "correctAccepted": false
+    },
+    {
+      "id": "B2-s-0181",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "We are learning English right now.",
+      "wrong": "Now we are learning English right.",
+      "wrongAccepted": true,
+      "correct": "Right now we are learning English.",
+      "correctAccepted": false
+    },
+    {
+      "id": "B2-s-0185",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "He is cooking dinner right now.",
+      "wrong": "Now he is cooking dinner right.",
+      "wrongAccepted": true,
+      "correct": "Right now he is cooking dinner.",
+      "correctAccepted": false
+    },
+    {
+      "id": "B2-s-0190",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "The train is coming right now.",
+      "wrong": "Now the train is coming right.",
+      "wrongAccepted": true,
+      "correct": "Right now the train is coming.",
+      "correctAccepted": false
+    },
+    {
+      "id": "B4-s-0164",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "She is reading a story right now.",
+      "wrong": "Now she is reading a story right.",
+      "wrongAccepted": true,
+      "correct": "Right now she is reading a story.",
+      "correctAccepted": false
+    },
+    {
+      "id": "C1-s-0164",
+      "kind": "order",
+      "issue": "right-now-split",
+      "source": "How do you feel right now?",
+      "wrong": "Now how do you feel right?",
+      "wrongAccepted": true,
+      "correct": "Right now how do you feel?",
+      "correctAccepted": false
+    },
+    {
+      "id": "C1-s-0068",
+      "kind": "roles",
+      "expected": "do get up",
+      "stored": "do get",
+      "accepted": false
+    },
+    {
+      "id": "C1-s-0125",
+      "kind": "roles",
+      "expected": "did not call",
+      "stored": "did call",
+      "accepted": false
+    },
+    {
+      "id": "C1-s-0129",
+      "kind": "roles",
+      "expected": "will not come",
+      "stored": "will come",
+      "accepted": false
+    },
+    {
+      "id": "C1-s-0194",
+      "kind": "roles",
+      "expected": "the girl wearing pink shoes",
+      "stored": "the girl",
+      "accepted": false
+    },
+    {
+      "id": "C1-s-0195",
+      "kind": "roles",
+      "expected": "do wake up",
+      "stored": "do wake",
+      "accepted": false
+    },
+    {
+      "id": "B2-s-0071",
+      "kind": "fill",
+      "prompt": "Điền dạng phủ định viết tắt của be để hoàn thành câu ở thì hiện tại tiếp diễn.",
+      "answer": "is not",
+      "accepted": true
+    },
+    {
+      "id": "C2-s-0045",
+      "kind": "fill",
+      "prompt": "Điền giới từ mang nghĩa ở bên cạnh.",
+      "answer": "beside",
+      "accepted": false
+    }
+  ],
+  "passages": {
+    "count": 40,
+    "uniqueEnglish": 10,
+    "duplicateGroups": [
+      [
+        "C3-p-0006",
+        "C3-p-0011",
+        "C3-p-0016",
+        "C3-p-0021",
+        "C3-p-0026",
+        "C3-p-0031",
+        "C3-p-0036"
+      ],
+      [
+        "C3-p-0007",
+        "C3-p-0012",
+        "C3-p-0017",
+        "C3-p-0022",
+        "C3-p-0027",
+        "C3-p-0032",
+        "C3-p-0037"
+      ],
+      [
+        "C3-p-0008",
+        "C3-p-0013",
+        "C3-p-0018",
+        "C3-p-0023",
+        "C3-p-0028",
+        "C3-p-0033",
+        "C3-p-0038"
+      ],
+      [
+        "C3-p-0009",
+        "C3-p-0014",
+        "C3-p-0019",
+        "C3-p-0024",
+        "C3-p-0029",
+        "C3-p-0034",
+        "C3-p-0039"
+      ],
+      [
+        "C3-p-0010",
+        "C3-p-0015",
+        "C3-p-0020",
+        "C3-p-0025",
+        "C3-p-0030",
+        "C3-p-0035",
+        "C3-p-0040"
+      ]
+    ],
+    "wordCounts": [
+      {
+        "id": "C3-p-0001",
+        "stored": 71,
+        "actual": 71
+      },
+      {
+        "id": "C3-p-0002",
+        "stored": 73,
+        "actual": 73
+      },
+      {
+        "id": "C3-p-0003",
+        "stored": 70,
+        "actual": 70
+      },
+      {
+        "id": "C3-p-0004",
+        "stored": 66,
+        "actual": 66
+      },
+      {
+        "id": "C3-p-0005",
+        "stored": 68,
+        "actual": 68
+      },
+      {
+        "id": "C3-p-0006",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0007",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0008",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0009",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0010",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0011",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0012",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0013",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0014",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0015",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0016",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0017",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0018",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0019",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0020",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0021",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0022",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0023",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0024",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0025",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0026",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0027",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0028",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0029",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0030",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0031",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0032",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0033",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0034",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0035",
+        "stored": 102,
+        "actual": 102
+      },
+      {
+        "id": "C3-p-0036",
+        "stored": 99,
+        "actual": 99
+      },
+      {
+        "id": "C3-p-0037",
+        "stored": 97,
+        "actual": 97
+      },
+      {
+        "id": "C3-p-0038",
+        "stored": 100,
+        "actual": 100
+      },
+      {
+        "id": "C3-p-0039",
+        "stored": 101,
+        "actual": 101
+      },
+      {
+        "id": "C3-p-0040",
+        "stored": 102,
+        "actual": 102
+      }
+    ],
+    "outOfLength": [
+      "C3-p-0006",
+      "C3-p-0007",
+      "C3-p-0008",
+      "C3-p-0009",
+      "C3-p-0010",
+      "C3-p-0011",
+      "C3-p-0012",
+      "C3-p-0013",
+      "C3-p-0014",
+      "C3-p-0015",
+      "C3-p-0016",
+      "C3-p-0017",
+      "C3-p-0018",
+      "C3-p-0019",
+      "C3-p-0020",
+      "C3-p-0021",
+      "C3-p-0022",
+      "C3-p-0023",
+      "C3-p-0024",
+      "C3-p-0025",
+      "C3-p-0026",
+      "C3-p-0027",
+      "C3-p-0028",
+      "C3-p-0029",
+      "C3-p-0030",
+      "C3-p-0031",
+      "C3-p-0032",
+      "C3-p-0033",
+      "C3-p-0034",
+      "C3-p-0035",
+      "C3-p-0036",
+      "C3-p-0037",
+      "C3-p-0038",
+      "C3-p-0039",
+      "C3-p-0040"
+    ],
+    "tfCase": [
+      "C3-p-0001-q2",
+      "C3-p-0002-q2",
+      "C3-p-0003-q2",
+      "C3-p-0004-q2",
+      "C3-p-0005-q2",
+      "C3-p-0006-q2",
+      "C3-p-0007-q2",
+      "C3-p-0008-q2",
+      "C3-p-0009-q2",
+      "C3-p-0010-q2",
+      "C3-p-0011-q2",
+      "C3-p-0012-q2",
+      "C3-p-0013-q2",
+      "C3-p-0014-q2",
+      "C3-p-0015-q2",
+      "C3-p-0016-q2",
+      "C3-p-0017-q2",
+      "C3-p-0018-q2",
+      "C3-p-0019-q2",
+      "C3-p-0020-q2",
+      "C3-p-0021-q2",
+      "C3-p-0022-q2",
+      "C3-p-0023-q2",
+      "C3-p-0024-q2",
+      "C3-p-0025-q2",
+      "C3-p-0026-q2",
+      "C3-p-0027-q2",
+      "C3-p-0028-q2",
+      "C3-p-0029-q2",
+      "C3-p-0030-q2",
+      "C3-p-0031-q2",
+      "C3-p-0032-q2",
+      "C3-p-0033-q2",
+      "C3-p-0034-q2",
+      "C3-p-0035-q2",
+      "C3-p-0036-q2",
+      "C3-p-0037-q2",
+      "C3-p-0038-q2",
+      "C3-p-0039-q2",
+      "C3-p-0040-q2"
+    ],
+    "genericTail": [
+      "C3-p-0006",
+      "C3-p-0007",
+      "C3-p-0008",
+      "C3-p-0009",
+      "C3-p-0010",
+      "C3-p-0011",
+      "C3-p-0012",
+      "C3-p-0013",
+      "C3-p-0014",
+      "C3-p-0015",
+      "C3-p-0016",
+      "C3-p-0017",
+      "C3-p-0018",
+      "C3-p-0019",
+      "C3-p-0020",
+      "C3-p-0021",
+      "C3-p-0022",
+      "C3-p-0023",
+      "C3-p-0024",
+      "C3-p-0025",
+      "C3-p-0026",
+      "C3-p-0027",
+      "C3-p-0028",
+      "C3-p-0029",
+      "C3-p-0030",
+      "C3-p-0031",
+      "C3-p-0032",
+      "C3-p-0033",
+      "C3-p-0034",
+      "C3-p-0035",
+      "C3-p-0036",
+      "C3-p-0037",
+      "C3-p-0038",
+      "C3-p-0039",
+      "C3-p-0040"
+    ],
+    "placeholderGlossary": [
+      {
+        "id": "C3-p-0006",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0006",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0006",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0006",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0007",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0007",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0007",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0007",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0008",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0008",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0008",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0008",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0009",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0009",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0009",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0009",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0010",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0010",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0010",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0010",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0011",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0011",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0011",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0011",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0012",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0012",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0012",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0012",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0013",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0013",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0013",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0013",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0014",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0014",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0014",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0014",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0015",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0015",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0015",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0015",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0016",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0016",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0016",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0016",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0017",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0017",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0017",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0017",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0018",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0018",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0018",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0018",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0019",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0019",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0019",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0019",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0020",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0020",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0020",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0020",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0021",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0021",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0021",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0021",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0022",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0022",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0022",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0022",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0023",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0023",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0023",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0023",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0024",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0024",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0024",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0024",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0025",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0025",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0025",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0025",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0026",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0026",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0026",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0026",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0027",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0027",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0027",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0027",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0028",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0028",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0028",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0028",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0029",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0029",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0029",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0029",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0030",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0030",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0030",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0030",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0031",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0031",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0031",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0031",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0032",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0032",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0032",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0032",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0033",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0033",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0033",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0033",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0034",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0034",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0034",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0034",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0035",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0035",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0035",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0035",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0036",
+        "en": "dolphin",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0036",
+        "en": "waves",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0036",
+        "en": "ocean",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0036",
+        "en": "encounter",
+        "vi": "thuộc chủ đề sea"
+      },
+      {
+        "id": "C3-p-0037",
+        "en": "broth",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0037",
+        "en": "cinnamon",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0037",
+        "en": "porcelain",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0037",
+        "en": "flavorful",
+        "vi": "thuộc chủ đề home"
+      },
+      {
+        "id": "C3-p-0038",
+        "en": "annual",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0038",
+        "en": "uniform",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0038",
+        "en": "championship",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0038",
+        "en": "memorable",
+        "vi": "thuộc chủ đề sports"
+      },
+      {
+        "id": "C3-p-0039",
+        "en": "pleasant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0039",
+        "en": "sidewalk",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0039",
+        "en": "fragrant",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0039",
+        "en": "lantern",
+        "vi": "thuộc chủ đề season"
+      },
+      {
+        "id": "C3-p-0040",
+        "en": "ancient",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0040",
+        "en": "bronze bell",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0040",
+        "en": "architecture",
+        "vi": "thuộc chủ đề city"
+      },
+      {
+        "id": "C3-p-0040",
+        "en": "echo",
+        "vi": "thuộc chủ đề city"
+      }
+    ],
+    "genericMcq": [
+      {
+        "id": "C3-p-0006-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0007-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0008-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0009-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0010-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0011-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0012-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0013-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0014-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0015-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0016-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0017-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0018-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0019-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0020-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0021-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0022-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0023-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0024-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0025-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0026-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0027-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0028-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0029-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0030-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0031-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0032-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0033-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0034-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0035-q1",
+        "answer": "over eighty years ago"
+      },
+      {
+        "id": "C3-p-0036-q1",
+        "answer": "a silver dolphin"
+      },
+      {
+        "id": "C3-p-0037-q1",
+        "answer": "beef noodle soup"
+      },
+      {
+        "id": "C3-p-0038-q1",
+        "answer": "nine o'clock"
+      },
+      {
+        "id": "C3-p-0039-q1",
+        "answer": "Phan Dinh Phung"
+      },
+      {
+        "id": "C3-p-0040-q1",
+        "answer": "over eighty years ago"
+      }
+    ],
+    "genericShort": [
+      "C3-p-0006-q3",
+      "C3-p-0007-q3",
+      "C3-p-0008-q3",
+      "C3-p-0009-q3",
+      "C3-p-0010-q3",
+      "C3-p-0011-q3",
+      "C3-p-0012-q3",
+      "C3-p-0013-q3",
+      "C3-p-0014-q3",
+      "C3-p-0015-q3",
+      "C3-p-0016-q3",
+      "C3-p-0017-q3",
+      "C3-p-0018-q3",
+      "C3-p-0019-q3",
+      "C3-p-0020-q3",
+      "C3-p-0021-q3",
+      "C3-p-0022-q3",
+      "C3-p-0023-q3",
+      "C3-p-0024-q3",
+      "C3-p-0025-q3",
+      "C3-p-0026-q3",
+      "C3-p-0027-q3",
+      "C3-p-0028-q3",
+      "C3-p-0029-q3",
+      "C3-p-0030-q3",
+      "C3-p-0031-q3",
+      "C3-p-0032-q3",
+      "C3-p-0033-q3",
+      "C3-p-0034-q3",
+      "C3-p-0035-q3",
+      "C3-p-0036-q3",
+      "C3-p-0037-q3",
+      "C3-p-0038-q3",
+      "C3-p-0039-q3",
+      "C3-p-0040-q3"
+    ],
+    "shortExactPhraseCandidates": [
+      {
+        "id": "C3-p-0003-q3",
+        "answer": "inside a cozy tree hollow",
+        "acceptedByNormalizedExactMatch": false,
+        "note": "Data membership only; C3 grader is not implemented."
+      },
+      {
+        "id": "C3-p-0004-q3",
+        "answer": "everyone is reading quietly and attentively",
+        "acceptedByNormalizedExactMatch": false,
+        "note": "Data membership only; C3 grader is not implemented."
+      }
+    ]
+  },
+  "vocabWithoutPassageMatch": [
+    {
+      "id": "C3-v-0004",
+      "en": "riverbank"
+    },
+    {
+      "id": "C3-v-0005",
+      "en": "waterfall"
+    },
+    {
+      "id": "C3-v-0007",
+      "en": "mountain"
+    },
+    {
+      "id": "C3-v-0008",
+      "en": "valley"
+    },
+    {
+      "id": "C3-v-0009",
+      "en": "stream"
+    },
+    {
+      "id": "C3-v-0010",
+      "en": "island"
+    },
+    {
+      "id": "C3-v-0011",
+      "en": "seashore"
+    },
+    {
+      "id": "C3-v-0012",
+      "en": "harvest"
+    },
+    {
+      "id": "C3-v-0014",
+      "en": "rainbow"
+    },
+    {
+      "id": "C3-v-0015",
+      "en": "cloudy"
+    },
+    {
+      "id": "C3-v-0016",
+      "en": "windy"
+    },
+    {
+      "id": "C3-v-0020",
+      "en": "blossom"
+    },
+    {
+      "id": "C3-v-0021",
+      "en": "paragraph"
+    },
+    {
+      "id": "C3-v-0022",
+      "en": "sentence"
+    },
+    {
+      "id": "C3-v-0023",
+      "en": "passage"
+    },
+    {
+      "id": "C3-v-0024",
+      "en": "rewrite"
+    },
+    {
+      "id": "C3-v-0025",
+      "en": "meaning"
+    },
+    {
+      "id": "C3-v-0026",
+      "en": "synonym"
+    },
+    {
+      "id": "C3-v-0027",
+      "en": "opposite meaning"
+    },
+    {
+      "id": "C3-v-0028",
+      "en": "summary"
+    },
+    {
+      "id": "C3-v-0029",
+      "en": "title"
+    },
+    {
+      "id": "C3-v-0030",
+      "en": "author"
+    },
+    {
+      "id": "C3-v-0031",
+      "en": "character"
+    },
+    {
+      "id": "C3-v-0032",
+      "en": "dictionary"
+    },
+    {
+      "id": "C3-v-0033",
+      "en": "project"
+    },
+    {
+      "id": "C3-v-0034",
+      "en": "presentation"
+    },
+    {
+      "id": "C3-v-0035",
+      "en": "experiment"
+    },
+    {
+      "id": "C3-v-0036",
+      "en": "museum"
+    },
+    {
+      "id": "C3-v-0037",
+      "en": "exhibition"
+    },
+    {
+      "id": "C3-v-0038",
+      "en": "competition"
+    },
+    {
+      "id": "C3-v-0039",
+      "en": "prize"
+    },
+    {
+      "id": "C3-v-0042",
+      "en": "neighborhood"
+    },
+    {
+      "id": "C3-v-0043",
+      "en": "neighbor"
+    },
+    {
+      "id": "C3-v-0045",
+      "en": "campfire"
+    },
+    {
+      "id": "C3-v-0046",
+      "en": "tent"
+    },
+    {
+      "id": "C3-v-0047",
+      "en": "backpack"
+    },
+    {
+      "id": "C3-v-0048",
+      "en": "flashlight"
+    },
+    {
+      "id": "C3-v-0049",
+      "en": "compass"
+    },
+    {
+      "id": "C3-v-0050",
+      "en": "journey"
+    },
+    {
+      "id": "C3-v-0051",
+      "en": "adventure"
+    },
+    {
+      "id": "C3-v-0052",
+      "en": "souvenir"
+    },
+    {
+      "id": "C3-v-0053",
+      "en": "celebration"
+    },
+    {
+      "id": "C3-v-0054",
+      "en": "invitation"
+    },
+    {
+      "id": "C3-v-0055",
+      "en": "costume"
+    },
+    {
+      "id": "C3-v-0057",
+      "en": "firework"
+    },
+    {
+      "id": "C3-v-0058",
+      "en": "tradition"
+    },
+    {
+      "id": "C3-v-0060",
+      "en": "recipe"
+    },
+    {
+      "id": "C3-v-0061",
+      "en": "hobby"
+    },
+    {
+      "id": "C3-v-0062",
+      "en": "musical instrument"
+    },
+    {
+      "id": "C3-v-0063",
+      "en": "guitar"
+    },
+    {
+      "id": "C3-v-0064",
+      "en": "flute"
+    },
+    {
+      "id": "C3-v-0065",
+      "en": "melody"
+    },
+    {
+      "id": "C3-v-0066",
+      "en": "painting"
+    },
+    {
+      "id": "C3-v-0067",
+      "en": "paintbrush"
+    },
+    {
+      "id": "C3-v-0068",
+      "en": "canvas"
+    },
+    {
+      "id": "C3-v-0069",
+      "en": "photograph"
+    },
+    {
+      "id": "C3-v-0070",
+      "en": "camera"
+    },
+    {
+      "id": "C3-v-0071",
+      "en": "origami"
+    },
+    {
+      "id": "C3-v-0072",
+      "en": "sculpture"
+    },
+    {
+      "id": "C3-v-0073",
+      "en": "excursion"
+    },
+    {
+      "id": "C3-v-0074",
+      "en": "aquarium"
+    },
+    {
+      "id": "C3-v-0076",
+      "en": "whale"
+    },
+    {
+      "id": "C3-v-0077",
+      "en": "penguin"
+    },
+    {
+      "id": "C3-v-0078",
+      "en": "kangaroo"
+    },
+    {
+      "id": "C3-v-0079",
+      "en": "koala"
+    },
+    {
+      "id": "C3-v-0087",
+      "en": "curious"
+    },
+    {
+      "id": "C3-v-0088",
+      "en": "creative"
+    },
+    {
+      "id": "C3-v-0089",
+      "en": "careful"
+    },
+    {
+      "id": "C3-v-0090",
+      "en": "energetic"
+    },
+    {
+      "id": "C3-v-0092",
+      "en": "healthy"
+    },
+    {
+      "id": "C3-v-0093",
+      "en": "comfortable"
+    },
+    {
+      "id": "C3-v-0094",
+      "en": "entertaining"
+    },
+    {
+      "id": "C3-v-0095",
+      "en": "educational"
+    },
+    {
+      "id": "C3-v-0096",
+      "en": "protect"
+    },
+    {
+      "id": "C3-v-0097",
+      "en": "recycle"
+    },
+    {
+      "id": "C3-v-0098",
+      "en": "explore"
+    },
+    {
+      "id": "C3-v-0099",
+      "en": "organize"
+    },
+    {
+      "id": "C3-v-0101",
+      "en": "celebrate"
+    },
+    {
+      "id": "C3-v-0102",
+      "en": "discover"
+    },
+    {
+      "id": "C3-v-0103",
+      "en": "describe"
+    },
+    {
+      "id": "C3-v-0104",
+      "en": "encourage"
+    },
+    {
+      "id": "C3-v-0105",
+      "en": "improve"
+    }
+  ],
+  "k": {
+    "vocab": 126,
+    "phrases": 55,
+    "alphabet": [
+      {
+        "id": "K-v-0001",
+        "en": "apple",
+        "letter": "letter-a",
+        "example": "A is for apple.",
+        "image": "🍎"
+      },
+      {
+        "id": "K-v-0002",
+        "en": "ball",
+        "letter": "letter-b",
+        "example": "B is for ball.",
+        "image": "⚽"
+      },
+      {
+        "id": "K-v-0003",
+        "en": "cat",
+        "letter": "letter-c",
+        "example": "C is for cat.",
+        "image": "🐱"
+      },
+      {
+        "id": "K-v-0004",
+        "en": "dog",
+        "letter": "letter-d",
+        "example": "D is for dog.",
+        "image": "🐶"
+      },
+      {
+        "id": "K-v-0005",
+        "en": "elephant",
+        "letter": "letter-e",
+        "example": "E is for elephant.",
+        "image": "🐘"
+      },
+      {
+        "id": "K-v-0006",
+        "en": "fish",
+        "letter": "letter-f",
+        "example": "F is for fish.",
+        "image": "🐟"
+      },
+      {
+        "id": "K-v-0007",
+        "en": "giraffe",
+        "letter": "letter-g",
+        "example": "G is for giraffe.",
+        "image": "🦒"
+      },
+      {
+        "id": "K-v-0008",
+        "en": "hat",
+        "letter": "letter-h",
+        "example": "H is for hat.",
+        "image": "👒"
+      },
+      {
+        "id": "K-v-0009",
+        "en": "ice cream",
+        "letter": "letter-i",
+        "example": "I is for ice cream.",
+        "image": "🍦"
+      },
+      {
+        "id": "K-v-0010",
+        "en": "juice",
+        "letter": "letter-j",
+        "example": "J is for juice.",
+        "image": "🧃"
+      },
+      {
+        "id": "K-v-0011",
+        "en": "kite",
+        "letter": "letter-k",
+        "example": "K is for kite.",
+        "image": "🪁"
+      },
+      {
+        "id": "K-v-0012",
+        "en": "lion",
+        "letter": "letter-l",
+        "example": "L is for lion.",
+        "image": "🦁"
+      },
+      {
+        "id": "K-v-0013",
+        "en": "monkey",
+        "letter": "letter-m",
+        "example": "M is for monkey.",
+        "image": "🐵"
+      },
+      {
+        "id": "K-v-0014",
+        "en": "nest",
+        "letter": "letter-n",
+        "example": "N is for nest.",
+        "image": "🪺"
+      },
+      {
+        "id": "K-v-0015",
+        "en": "orange",
+        "letter": "letter-o",
+        "example": "O is for orange.",
+        "image": "🍊"
+      },
+      {
+        "id": "K-v-0016",
+        "en": "pig",
+        "letter": "letter-p",
+        "example": "P is for pig.",
+        "image": "🐷"
+      },
+      {
+        "id": "K-v-0017",
+        "en": "queen",
+        "letter": "letter-q",
+        "example": "Q is for queen.",
+        "image": "👸"
+      },
+      {
+        "id": "K-v-0018",
+        "en": "rabbit",
+        "letter": "letter-r",
+        "example": "R is for rabbit.",
+        "image": "🐰"
+      },
+      {
+        "id": "K-v-0019",
+        "en": "sun",
+        "letter": "letter-s",
+        "example": "S is for sun.",
+        "image": "☀️"
+      },
+      {
+        "id": "K-v-0020",
+        "en": "tiger",
+        "letter": "letter-t",
+        "example": "T is for tiger.",
+        "image": "🐯"
+      },
+      {
+        "id": "K-v-0021",
+        "en": "umbrella",
+        "letter": "letter-u",
+        "example": "U is for umbrella.",
+        "image": "☂️"
+      },
+      {
+        "id": "K-v-0022",
+        "en": "violin",
+        "letter": "letter-v",
+        "example": "V is for violin.",
+        "image": "🎻"
+      },
+      {
+        "id": "K-v-0023",
+        "en": "water",
+        "letter": "letter-w",
+        "example": "W is for water.",
+        "image": "💧"
+      },
+      {
+        "id": "K-v-0024",
+        "en": "xylophone",
+        "letter": "letter-x",
+        "example": "X is for xylophone.",
+        "image": "🎵"
+      },
+      {
+        "id": "K-v-0025",
+        "en": "yo-yo",
+        "letter": "letter-y",
+        "example": "Y is for yo-yo.",
+        "image": "🪀"
+      },
+      {
+        "id": "K-v-0026",
+        "en": "zebra",
+        "letter": "letter-z",
+        "example": "Z is for zebra.",
+        "image": "🦓"
+      }
+    ],
+    "exampleWordCountOutside2to5": [],
+    "phraseWordCountOutside2to5": [
+      {
+        "id": "K-ph-0001",
+        "en": "Hello!"
+      },
+      {
+        "id": "K-ph-0005",
+        "en": "Goodbye!"
+      }
+    ]
+  },
+  "generatorDiff": {
+    "C1.vocab.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": []
+    },
+    "C1.sentences.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": [
+        "C1-s-0003.orderAlternatives",
+        "C1-s-0005.orderAlternatives",
+        "C1-s-0007.orderAlternatives",
+        "C1-s-0009.orderAlternatives",
+        "C1-s-0020.orderAlternatives",
+        "C1-s-0027.orderAlternatives",
+        "C1-s-0033.orderAlternatives",
+        "C1-s-0038.orderAlternatives",
+        "C1-s-0039.orderAlternatives",
+        "C1-s-0040.orderAlternatives",
+        "C1-s-0054.orderAlternatives",
+        "C1-s-0064.orderAlternatives",
+        "C1-s-0068.orderAlternatives",
+        "C1-s-0076.orderAlternatives",
+        "C1-s-0094.orderAlternatives",
+        "C1-s-0098.orderAlternatives",
+        "C1-s-0103.orderAlternatives",
+        "C1-s-0108.orderAlternatives",
+        "C1-s-0112.orderAlternatives",
+        "C1-s-0116.orderAlternatives",
+        "C1-s-0120.orderAlternatives",
+        "C1-s-0121.orderAlternatives",
+        "C1-s-0127.orderAlternatives",
+        "C1-s-0131.orderAlternatives",
+        "C1-s-0134.orderAlternatives",
+        "C1-s-0136.orderAlternatives",
+        "C1-s-0143.orderAlternatives",
+        "C1-s-0155.orderAlternatives",
+        "C1-s-0157.orderAlternatives",
+        "C1-s-0159.orderAlternatives",
+        "C1-s-0160.orderAlternatives",
+        "C1-s-0161.orderAlternatives",
+        "C1-s-0163.orderAlternatives",
+        "C1-s-0164.orderAlternatives",
+        "C1-s-0168.orderAlternatives",
+        "C1-s-0175.orderAlternatives",
+        "C1-s-0176.orderAlternatives",
+        "C1-s-0179.orderAlternatives",
+        "C1-s-0181.orderAlternatives",
+        "C1-s-0182.orderAlternatives",
+        "C1-s-0185.orderAlternatives",
+        "C1-s-0195.orderAlternatives"
+      ]
+    },
+    "C1.theory.json": {
+      "generator": "build-c1-full.mjs",
+      "differences": []
+    },
+    "C2.vocab.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": []
+    },
+    "C2.sentences.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": [
+        "C2-s-0007.orderAlternatives",
+        "C2-s-0020.orderAlternatives",
+        "C2-s-0048.orderAlternatives",
+        "C2-s-0078.orderAlternatives",
+        "C2-s-0079.orderAlternatives",
+        "C2-s-0080.orderAlternatives",
+        "C2-s-0092.orderAlternatives",
+        "C2-s-0093.orderAlternatives",
+        "C2-s-0094.orderAlternatives",
+        "C2-s-0095.orderAlternatives",
+        "C2-s-0098.orderAlternatives",
+        "C2-s-0107.orderAlternatives",
+        "C2-s-0108.orderAlternatives",
+        "C2-s-0113.orderAlternatives",
+        "C2-s-0117.orderAlternatives",
+        "C2-s-0125.orderAlternatives",
+        "C2-s-0128.orderAlternatives",
+        "C2-s-0151.orderAlternatives",
+        "C2-s-0159.orderAlternatives"
+      ]
+    },
+    "C2.theory.json": {
+      "generator": "build-c2-full.mjs",
+      "differences": []
+    },
+    "C3.vocab.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.passages.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.rewrites.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "C3.theory.json": {
+      "generator": "build-c3-full.mjs",
+      "differences": []
+    },
+    "K.vocab.json": {
+      "generator": "build-k-full.mjs",
+      "differences": []
+    },
+    "K.phrases.json": {
+      "generator": "build-k-full.mjs",
+      "differences": []
+    }
+  },
+  "normalizedTheoryRemainingErrors": {
+    "C1": [
+      "theory[0] (theory-C1): invalid id prefix"
+    ],
+    "C2": [
+      "theory[0] (theory-C2): invalid id prefix"
+    ],
+    "C3": [
+      "theory[0] (theory-C3): invalid id prefix",
+      "theory[0] (theory-C3): missing example C3-p-0001",
+      "theory[0] (theory-C3): missing example C3-p-0002",
+      "theory[0] (theory-C3): missing example C3-p-0003",
+      "theory[0] (theory-C3): missing example C3-p-0004",
+      "theory[0] (theory-C3): missing example C3-p-0005",
+      "theory[0] (theory-C3): missing example C3-r-0001",
+      "theory[0] (theory-C3): missing example C3-r-0036",
+      "theory[0] (theory-C3): missing example C3-r-0071",
+      "theory[0] (theory-C3): missing example C3-r-0106",
+      "theory[0] (theory-C3): missing example C3-r-0141",
+      "theory[0] (theory-C3): missing example C3-r-0171"
+    ]
+  },
+  "sourceStable": true
+}

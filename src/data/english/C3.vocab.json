@@ -1,0 +1,2093 @@
+[
+  {
+    "id": "C3-v-0001",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "countryside",
+    "vi": "vùng quê, nông thôn",
+    "pos": "noun",
+    "ipa": "/ˈkʌn.tri.saɪd/",
+    "image": "🌾",
+    "tags": [
+      "nature",
+      "passage:C3-p-0001"
+    ],
+    "exampleEn": "We visit the countryside in summer.",
+    "exampleVi": "Chúng tôi về thăm vùng quê vào mùa hè.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0002",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "fresh air",
+    "vi": "không khí trong lành",
+    "pos": "noun",
+    "ipa": "/ˌfreʃ ˈer/",
+    "image": "🍃",
+    "tags": [
+      "nature",
+      "passage:C3-p-0001"
+    ],
+    "exampleEn": "I love breathing the fresh air.",
+    "exampleVi": "Tôi thích hít thở không khí trong lành.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0003",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "field",
+    "vi": "cánh đồng",
+    "pos": "noun",
+    "ipa": "/fiːld/",
+    "forms": {
+      "plural": "fields"
+    },
+    "image": "🌱",
+    "tags": [
+      "nature",
+      "passage:C3-p-0001",
+      "passage:C3-p-0008"
+    ],
+    "exampleEn": "Cows are grazing in the green field.",
+    "exampleVi": "Những chú bò đang gặm cỏ trên cánh đồng xanh.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0004",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "riverbank",
+    "vi": "bờ sông",
+    "pos": "noun",
+    "ipa": "/ˈrɪv.ɚ.bæŋk/",
+    "forms": {
+      "plural": "riverbanks"
+    },
+    "image": "🏞️",
+    "tags": [
+      "nature",
+      "passage:C3-p-0006"
+    ],
+    "exampleEn": "Children fish along the riverbank.",
+    "exampleVi": "Lũ trẻ câu cá dọc theo bờ sông.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0005",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "waterfall",
+    "vi": "thác nước",
+    "pos": "noun",
+    "ipa": "/ˈwɑː.t̬ɚ.fɑːl/",
+    "forms": {
+      "plural": "waterfalls"
+    },
+    "image": "🌊",
+    "tags": [
+      "nature",
+      "passage:C3-p-0006"
+    ],
+    "exampleEn": "The waterfall is magnificent.",
+    "exampleVi": "Thác nước thật hùng vĩ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0006",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "forest",
+    "vi": "khu rừng",
+    "pos": "noun",
+    "ipa": "/ˈfɔːr.ɪst/",
+    "forms": {
+      "plural": "forests"
+    },
+    "image": "🌲",
+    "tags": [
+      "nature",
+      "passage:C3-p-0003",
+      "passage:C3-p-0006",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "Many wild animals live in the forest.",
+    "exampleVi": "Nhiều loài động vật hoang dã sống trong rừng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0007",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "mountain",
+    "vi": "ngọn núi",
+    "pos": "noun",
+    "ipa": "/ˈmaʊn.tən/",
+    "forms": {
+      "plural": "mountains"
+    },
+    "image": "⛰️",
+    "tags": [
+      "nature",
+      "passage:C3-p-0007"
+    ],
+    "exampleEn": "They climbed the high mountain.",
+    "exampleVi": "Họ đã leo lên ngọn núi cao.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0008",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "valley",
+    "vi": "thung lũng",
+    "pos": "noun",
+    "ipa": "/ˈvæl.i/",
+    "forms": {
+      "plural": "valleys"
+    },
+    "image": "🌄",
+    "tags": [
+      "nature",
+      "passage:C3-p-0007"
+    ],
+    "exampleEn": "A peaceful village lies in the valley.",
+    "exampleVi": "Một ngôi làng yên bình nằm trong thung lũng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0009",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "stream",
+    "vi": "con suối",
+    "pos": "noun",
+    "ipa": "/striːm/",
+    "forms": {
+      "plural": "streams"
+    },
+    "image": "🌊",
+    "tags": [
+      "nature",
+      "passage:C3-p-0006"
+    ],
+    "exampleEn": "Clear water flows in the stream.",
+    "exampleVi": "Nước trong vắt chảy trong dòng suối.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0010",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "island",
+    "vi": "hòn đảo",
+    "pos": "noun",
+    "ipa": "/ˈaɪ.lənd/",
+    "forms": {
+      "plural": "islands"
+    },
+    "image": "🏝️",
+    "tags": [
+      "nature",
+      "passage:C3-p-0007"
+    ],
+    "exampleEn": "We took a boat to the small island.",
+    "exampleVi": "Chúng tôi đi thuyền ra hòn đảo nhỏ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0011",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "seashore",
+    "vi": "bờ biển",
+    "pos": "noun",
+    "ipa": "/ˈsiː.ʃɔːr/",
+    "forms": {
+      "plural": "seashores"
+    },
+    "image": "🏖️",
+    "tags": [
+      "nature",
+      "passage:C3-p-0007"
+    ],
+    "exampleEn": "They collected pretty seashells by the seashore.",
+    "exampleVi": "Họ nhặt những vỏ sò xinh đẹp bên bờ biển.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0012",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "harvest",
+    "vi": "mùa thu hoạch",
+    "pos": "noun",
+    "ipa": "/ˈhɑːr.vəst/",
+    "forms": {
+      "plural": "harvests"
+    },
+    "image": "🌾",
+    "tags": [
+      "nature",
+      "passage:C3-p-0008"
+    ],
+    "exampleEn": "Farmers are busy during the rice harvest.",
+    "exampleVi": "Những người nông dân bận rộn trong mùa thu hoạch lúa.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0013",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "sunshine",
+    "vi": "ánh nắng mặt trời",
+    "pos": "noun",
+    "ipa": "/ˈsʌn.ʃaɪn/",
+    "image": "☀️",
+    "tags": [
+      "nature",
+      "passage:C3-p-0008"
+    ],
+    "exampleEn": "We enjoyed the warm morning sunshine.",
+    "exampleVi": "Chúng tôi tận hưởng ánh nắng sáng ấm áp.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0014",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "rainbow",
+    "vi": "cầu vồng",
+    "pos": "noun",
+    "ipa": "/ˈreɪn.boʊ/",
+    "forms": {
+      "plural": "rainbows"
+    },
+    "image": "🌈",
+    "tags": [
+      "nature",
+      "passage:C3-p-0009"
+    ],
+    "exampleEn": "A rainbow appeared after the heavy rain.",
+    "exampleVi": "Một chiếc cầu vồng xuất hiện sau cơn mưa rào.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0015",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "cloudy",
+    "vi": "nhiều mây",
+    "pos": "adjective",
+    "ipa": "/ˈklaʊ.di/",
+    "image": "☁️",
+    "tags": [
+      "weather",
+      "passage:C3-p-0009"
+    ],
+    "exampleEn": "The sky is cloudy today.",
+    "exampleVi": "Hôm nay bầu trời nhiều mây.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0016",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "windy",
+    "vi": "nhiều gió",
+    "pos": "adjective",
+    "ipa": "/ˈwɪn.di/",
+    "image": "💨",
+    "tags": [
+      "weather",
+      "passage:C3-p-0009"
+    ],
+    "exampleEn": "It is a windy day for flying kites.",
+    "exampleVi": "Hôm nay là một ngày nhiều gió thích hợp để thả diều.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0017",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "breeze",
+    "vi": "cơn gió thoảng nhẹ",
+    "pos": "noun",
+    "ipa": "/briːz/",
+    "forms": {
+      "plural": "breezes"
+    },
+    "image": "🍃",
+    "tags": [
+      "weather",
+      "passage:C3-p-0005",
+      "passage:C3-p-0009"
+    ],
+    "exampleEn": "A cool breeze blew from the river.",
+    "exampleVi": "Một cơn gió mát thoảng từ dòng sông.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0018",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "soil",
+    "vi": "đất trồng",
+    "pos": "noun",
+    "ipa": "/sɔɪl/",
+    "image": "🪴",
+    "tags": [
+      "nature",
+      "passage:C3-p-0002",
+      "passage:C3-p-0010"
+    ],
+    "exampleEn": "Plants grow well in rich soil.",
+    "exampleVi": "Cây cối phát triển tốt trên đất màu mỡ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0019",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "seed",
+    "vi": "hạt giống",
+    "pos": "noun",
+    "ipa": "/siːd/",
+    "forms": {
+      "plural": "seeds"
+    },
+    "image": "🌰",
+    "tags": [
+      "nature",
+      "passage:C3-p-0002",
+      "passage:C3-p-0010"
+    ],
+    "exampleEn": "He planted a flower seed in the pot.",
+    "exampleVi": "Cậu ấy gieo một hạt hoa vào chậu.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0020",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "blossom",
+    "vi": "nở hoa rực rỡ",
+    "pos": "verb",
+    "ipa": "/ˈblɑː.səm/",
+    "forms": {
+      "thirdSg": "blossoms",
+      "past": "blossomed",
+      "ing": "blossoming",
+      "irregular": false
+    },
+    "image": "🌸",
+    "tags": [
+      "nature",
+      "passage:C3-p-0010"
+    ],
+    "exampleEn": "Cherry trees blossom in spring.",
+    "exampleVi": "Cây hoa anh đào nở rộ vào mùa xuân.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0021",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "paragraph",
+    "vi": "đoạn văn",
+    "pos": "noun",
+    "ipa": "/ˈper.ə.ɡræf/",
+    "forms": {
+      "plural": "paragraphs"
+    },
+    "image": "📄",
+    "tags": [
+      "reading",
+      "passage:C3-p-0011"
+    ],
+    "exampleEn": "Read the first paragraph carefully.",
+    "exampleVi": "Hãy đọc kỹ đoạn văn đầu tiên.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0022",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "sentence",
+    "vi": "câu văn",
+    "pos": "noun",
+    "ipa": "/ˈsen.təns/",
+    "forms": {
+      "plural": "sentences"
+    },
+    "image": "📝",
+    "tags": [
+      "reading",
+      "passage:C3-p-0011",
+      "passage:C3-p-0012",
+      "passage:C3-p-0013"
+    ],
+    "exampleEn": "Write a complete sentence in English.",
+    "exampleVi": "Hãy viết một câu hoàn chỉnh bằng tiếng Anh.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0023",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "passage",
+    "vi": "bài đọc, đoạn văn trích",
+    "pos": "noun",
+    "ipa": "/ˈpæs.ɪdʒ/",
+    "forms": {
+      "plural": "passages"
+    },
+    "image": "📖",
+    "tags": [
+      "reading",
+      "passage:C3-p-0011"
+    ],
+    "exampleEn": "Answer three questions about the passage.",
+    "exampleVi": "Hãy trả lời ba câu hỏi về bài đọc.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0024",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "rewrite",
+    "vi": "viết lại",
+    "pos": "verb",
+    "ipa": "/ˌriːˈraɪt/",
+    "forms": {
+      "thirdSg": "rewrites",
+      "past": "rewrote",
+      "ing": "rewriting",
+      "irregular": true
+    },
+    "image": "✍️",
+    "tags": [
+      "writing",
+      "passage:C3-p-0011"
+    ],
+    "exampleEn": "Rewrite the sentence without changing its meaning.",
+    "exampleVi": "Hãy viết lại câu mà không làm thay đổi nghĩa.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0025",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "meaning",
+    "vi": "ý nghĩa",
+    "pos": "noun",
+    "ipa": "/ˈmiː.nɪŋ/",
+    "forms": {
+      "plural": "meanings"
+    },
+    "image": "💡",
+    "tags": [
+      "reading",
+      "passage:C3-p-0011",
+      "passage:C3-p-0012",
+      "passage:C3-p-0037"
+    ],
+    "exampleEn": "What is the meaning of this word?",
+    "exampleVi": "Ý nghĩa của từ này là gì?",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0026",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "synonym",
+    "vi": "từ đồng nghĩa",
+    "pos": "noun",
+    "ipa": "/ˈsɪn.ə.nɪm/",
+    "forms": {
+      "plural": "synonyms"
+    },
+    "image": "🔤",
+    "tags": [
+      "writing",
+      "passage:C3-p-0012"
+    ],
+    "exampleEn": "Find a synonym for \"happy\".",
+    "exampleVi": "Hãy tìm một từ đồng nghĩa với \"happy\".",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0027",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "opposite meaning",
+    "vi": "nghĩa trái ngược",
+    "pos": "noun",
+    "ipa": "/ˌɑː.pə.zɪt ˈmiː.nɪŋ/",
+    "image": "🔄",
+    "tags": [
+      "reading",
+      "passage:C3-p-0012"
+    ],
+    "exampleEn": "Big and small have opposite meanings.",
+    "exampleVi": "Big và small có nghĩa trái ngược nhau.",
+    "source": "seed",
+    "forms": {
+      "plural": "opposite meanings"
+    }
+  },
+  {
+    "id": "C3-v-0028",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "summary",
+    "vi": "bản tóm tắt",
+    "pos": "noun",
+    "ipa": "/ˈsʌm.ɚ.i/",
+    "forms": {
+      "plural": "summaries"
+    },
+    "image": "📋",
+    "tags": [
+      "reading",
+      "passage:C3-p-0013"
+    ],
+    "exampleEn": "Write a short summary of the story.",
+    "exampleVi": "Hãy viết một bản tóm tắt ngắn về câu chuyện.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0029",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "title",
+    "vi": "tiêu đề, tựa đề",
+    "pos": "noun",
+    "ipa": "/ˈtaɪ.t̬əl/",
+    "forms": {
+      "plural": "titles"
+    },
+    "image": "🏷️",
+    "tags": [
+      "reading",
+      "passage:C3-p-0013"
+    ],
+    "exampleEn": "Choose the best title for the text.",
+    "exampleVi": "Hãy chọn tiêu đề hay nhất cho bài đọc.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0030",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "author",
+    "vi": "tác giả",
+    "pos": "noun",
+    "ipa": "/ˈɑː.θɚ/",
+    "forms": {
+      "plural": "authors"
+    },
+    "image": "✍️",
+    "tags": [
+      "reading",
+      "passage:C3-p-0013"
+    ],
+    "exampleEn": "Who is the author of this book?",
+    "exampleVi": "Ai là tác giả của cuốn sách này?",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0031",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "character",
+    "vi": "nhân vật",
+    "pos": "noun",
+    "ipa": "/ˈker.ək.tɚ/",
+    "forms": {
+      "plural": "characters"
+    },
+    "image": "🎭",
+    "tags": [
+      "reading",
+      "passage:C3-p-0013",
+      "passage:C3-p-0021"
+    ],
+    "exampleEn": "Who is your favorite character in the tale?",
+    "exampleVi": "Ai là nhân vật ưa thích của bạn trong câu chuyện?",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0032",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "dictionary",
+    "vi": "từ điển",
+    "pos": "noun",
+    "ipa": "/ˈdɪk.ʃən.er.i/",
+    "forms": {
+      "plural": "dictionaries"
+    },
+    "image": "📕",
+    "tags": [
+      "study",
+      "passage:C3-p-0012"
+    ],
+    "exampleEn": "Look up new words in the dictionary.",
+    "exampleVi": "Hãy tra từ mới trong từ điển.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0033",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "project",
+    "vi": "dự án, bài tập lớn",
+    "pos": "noun",
+    "ipa": "/ˈprɑː.dʒekt/",
+    "forms": {
+      "plural": "projects"
+    },
+    "image": "📊",
+    "tags": [
+      "school",
+      "passage:C3-p-0014"
+    ],
+    "exampleEn": "We worked on a science project together.",
+    "exampleVi": "Chúng tôi đã cùng nhau làm một dự án khoa học.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0034",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "presentation",
+    "vi": "bài thuyết trình",
+    "pos": "noun",
+    "ipa": "/ˌprez.ənˈteɪ.ʃən/",
+    "forms": {
+      "plural": "presentations"
+    },
+    "image": "🎤",
+    "tags": [
+      "school",
+      "passage:C3-p-0014"
+    ],
+    "exampleEn": "Lan gave a great presentation about animals.",
+    "exampleVi": "Lan đã có bài thuyết trình tuyệt vời về động vật.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0035",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "experiment",
+    "vi": "thí nghiệm",
+    "pos": "noun",
+    "ipa": "/ɪkˈsper.ə.mənt/",
+    "forms": {
+      "plural": "experiments"
+    },
+    "image": "🧪",
+    "tags": [
+      "science",
+      "passage:C3-p-0014"
+    ],
+    "exampleEn": "The chemistry experiment was exciting.",
+    "exampleVi": "Thí nghiệm hóa học rất hào hứng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0036",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "museum",
+    "vi": "viện bảo tàng",
+    "pos": "noun",
+    "ipa": "/mjuːˈziː.əm/",
+    "forms": {
+      "plural": "museums"
+    },
+    "image": "🏛️",
+    "tags": [
+      "place",
+      "passage:C3-p-0015"
+    ],
+    "exampleEn": "Our class visited the history museum.",
+    "exampleVi": "Lớp chúng tôi đã đến thăm bảo tàng lịch sử.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0037",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "exhibition",
+    "vi": "buổi triển lãm",
+    "pos": "noun",
+    "ipa": "/ˌek.səˈbɪʃ.ən/",
+    "forms": {
+      "plural": "exhibitions"
+    },
+    "image": "🖼️",
+    "tags": [
+      "art",
+      "passage:C3-p-0015"
+    ],
+    "exampleEn": "We saw wonderful paintings at the exhibition.",
+    "exampleVi": "Chúng tôi đã xem nhiều tranh tuyệt đẹp tại buổi triển lãm.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0038",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "competition",
+    "vi": "cuộc thi",
+    "pos": "noun",
+    "ipa": "/ˌkɑːm.pəˈtɪʃ.ən/",
+    "forms": {
+      "plural": "competitions"
+    },
+    "image": "🏆",
+    "tags": [
+      "activity",
+      "passage:C3-p-0016"
+    ],
+    "exampleEn": "He won first prize in the math competition.",
+    "exampleVi": "Cậu ấy đoạt giải nhất trong cuộc thi toán.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0039",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "prize",
+    "vi": "giải thưởng",
+    "pos": "noun",
+    "ipa": "/praɪz/",
+    "forms": {
+      "plural": "prizes"
+    },
+    "image": "🥇",
+    "tags": [
+      "activity",
+      "passage:C3-p-0016"
+    ],
+    "exampleEn": "She received a shiny prize on stage.",
+    "exampleVi": "Cô bé nhận một giải thưởng sáng lấp lánh trên sân khấu.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0040",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "trophy",
+    "vi": "chiếc cúp chiến thắng",
+    "pos": "noun",
+    "ipa": "/ˈtroʊ.fi/",
+    "forms": {
+      "plural": "trophies"
+    },
+    "image": "🏆",
+    "tags": [
+      "activity",
+      "passage:C3-p-0016"
+    ],
+    "exampleEn": "Our soccer team lifted the gold trophy.",
+    "exampleVi": "Đội bóng của chúng tôi đã nâng cao chiếc cúp vàng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0041",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "grandparents",
+    "vi": "ông bà",
+    "pos": "noun",
+    "ipa": "/ˈɡræn.per.ənts/",
+    "image": "👵👴",
+    "tags": [
+      "family",
+      "passage:C3-p-0001",
+      "passage:C3-p-0008",
+      "passage:C3-p-0017"
+    ],
+    "exampleEn": "We love visiting our kind grandparents.",
+    "exampleVi": "Chúng tôi thích về thăm ông bà hiền hậu.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0042",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "neighborhood",
+    "vi": "khu xóm, khu phố lân cận",
+    "pos": "noun",
+    "ipa": "/ˈneɪ.bɚ.hʊd/",
+    "forms": {
+      "plural": "neighborhoods"
+    },
+    "image": "🏘️",
+    "tags": [
+      "community",
+      "passage:C3-p-0017"
+    ],
+    "exampleEn": "Our neighborhood has many friendly people.",
+    "exampleVi": "Khu phố của chúng tôi có nhiều người thân thiện.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0043",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "neighbor",
+    "vi": "người hàng xóm",
+    "pos": "noun",
+    "ipa": "/ˈneɪ.bɚ/",
+    "forms": {
+      "plural": "neighbors"
+    },
+    "image": "🧑",
+    "tags": [
+      "community",
+      "passage:C3-p-0017",
+      "passage:C3-p-0022"
+    ],
+    "exampleEn": "Mr. Nam is our helpful neighbor.",
+    "exampleVi": "Bác Nam là người hàng xóm hay giúp đỡ chúng tôi.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0044",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "picnic",
+    "vi": "buổi dã ngoại ngoài trời",
+    "pos": "noun",
+    "ipa": "/ˈpɪk.nɪk/",
+    "forms": {
+      "plural": "picnics"
+    },
+    "image": "🧺",
+    "tags": [
+      "activity",
+      "passage:C3-p-0005",
+      "passage:C3-p-0018"
+    ],
+    "exampleEn": "We had a lovely picnic in the botanic park.",
+    "exampleVi": "Chúng tôi đã có buổi dã ngoại thú vị trong công viên bách thảo.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0045",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "campfire",
+    "vi": "lửa trại",
+    "pos": "noun",
+    "ipa": "/ˈkæmp.faɪər/",
+    "forms": {
+      "plural": "campfires"
+    },
+    "image": "🔥",
+    "tags": [
+      "activity",
+      "passage:C3-p-0018"
+    ],
+    "exampleEn": "We sat around the warm campfire and sang.",
+    "exampleVi": "Chúng tôi ngồi quanh ánh lửa trại ấm áp và hát ca.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0046",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "tent",
+    "vi": "chiếc lều cắm trại",
+    "pos": "noun",
+    "ipa": "/tent/",
+    "forms": {
+      "plural": "tents"
+    },
+    "image": "⛺",
+    "tags": [
+      "activity",
+      "passage:C3-p-0018"
+    ],
+    "exampleEn": "Dad set up a green tent near the lake.",
+    "exampleVi": "Bố dựng một chiếc lều xanh gần bờ hồ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0047",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "backpack",
+    "vi": "ba lô đeo vai",
+    "pos": "noun",
+    "ipa": "/ˈbæk.pæk/",
+    "forms": {
+      "plural": "backpacks"
+    },
+    "image": "🎒",
+    "tags": [
+      "things",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "She packed water and snacks in her backpack.",
+    "exampleVi": "Cô ấy gói ghém nước và đồ ăn vặt vào ba lô.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0048",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "flashlight",
+    "vi": "đèn pin",
+    "pos": "noun",
+    "ipa": "/ˈflæʃ.laɪt/",
+    "forms": {
+      "plural": "flashlights"
+    },
+    "image": "🔦",
+    "tags": [
+      "things",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "Turn on the flashlight in the dark cave.",
+    "exampleVi": "Hãy bật đèn pin lên trong hang tối.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0049",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "compass",
+    "vi": "la bàn chỉ hướng",
+    "pos": "noun",
+    "ipa": "/ˈkʌm.pəs/",
+    "forms": {
+      "plural": "compasses"
+    },
+    "image": "🧭",
+    "tags": [
+      "things",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "Use a compass to find the north direction.",
+    "exampleVi": "Hãy dùng la bàn để tìm hướng bắc.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0050",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "journey",
+    "vi": "hành trình, chuyến đi",
+    "pos": "noun",
+    "ipa": "/ˈdʒɝː.ni/",
+    "forms": {
+      "plural": "journeys"
+    },
+    "image": "🗺️",
+    "tags": [
+      "travel",
+      "passage:C3-p-0007"
+    ],
+    "exampleEn": "It was a long and exciting journey.",
+    "exampleVi": "Đó là một hành trình dài và hào hứng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0051",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "adventure",
+    "vi": "chuyến phiêu lưu",
+    "pos": "noun",
+    "ipa": "/ədˈven.tʃɚ/",
+    "forms": {
+      "plural": "adventures"
+    },
+    "image": "🧗",
+    "tags": [
+      "travel",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "The children enjoyed their jungle adventure.",
+    "exampleVi": "Lũ trẻ thích chuyến phiêu lưu trong rừng rậm.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0052",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "souvenir",
+    "vi": "món quà lưu niệm",
+    "pos": "noun",
+    "ipa": "/ˌsuː.vəˈnɪr/",
+    "forms": {
+      "plural": "souvenirs"
+    },
+    "image": "🎁",
+    "tags": [
+      "shopping",
+      "passage:C3-p-0020"
+    ],
+    "exampleEn": "Mom bought a handmade souvenir at the market.",
+    "exampleVi": "Mẹ mua một món quà lưu niệm thủ công ở chợ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0053",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "celebration",
+    "vi": "buổi lễ kỷ niệm, liên hoan",
+    "pos": "noun",
+    "ipa": "/ˌsel.əˈbreɪ.ʃən/",
+    "forms": {
+      "plural": "celebrations"
+    },
+    "image": "🎉",
+    "tags": [
+      "activity",
+      "passage:C3-p-0021"
+    ],
+    "exampleEn": "We joined the colorful Mid-Autumn celebration.",
+    "exampleVi": "Chúng tôi tham gia buổi lễ Trung thu rực rỡ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0054",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "invitation",
+    "vi": "thiệp mời",
+    "pos": "noun",
+    "ipa": "/ˌɪn.vəˈteɪ.ʃən/",
+    "forms": {
+      "plural": "invitations"
+    },
+    "image": "💌",
+    "tags": [
+      "things",
+      "passage:C3-p-0021"
+    ],
+    "exampleEn": "Lan sent me an invitation to her birthday party.",
+    "exampleVi": "Lan gửi cho tôi thiệp mời đến dự tiệc sinh nhật.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0055",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "costume",
+    "vi": "trang phục hóa trang",
+    "pos": "noun",
+    "ipa": "/ˈkɑː.stuːm/",
+    "forms": {
+      "plural": "costumes"
+    },
+    "image": "👘",
+    "tags": [
+      "clothes",
+      "passage:C3-p-0021"
+    ],
+    "exampleEn": "The kids wore funny animal costumes.",
+    "exampleVi": "Lũ trẻ mặc những bộ trang phục thú vui nhộn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0056",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "lantern",
+    "vi": "chiếc lồng đèn",
+    "pos": "noun",
+    "ipa": "/ˈlæn.tɚn/",
+    "forms": {
+      "plural": "lanterns"
+    },
+    "image": "🏮",
+    "tags": [
+      "things",
+      "passage:C3-p-0022"
+    ],
+    "exampleEn": "We carried star lanterns on the full moon night.",
+    "exampleVi": "Chúng tôi rước đèn lồng ngôi sao vào đêm rằm.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0057",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "firework",
+    "vi": "pháo hoa",
+    "pos": "noun",
+    "ipa": "/ˈfaɪr.wɝːk/",
+    "forms": {
+      "plural": "fireworks"
+    },
+    "image": "🎆",
+    "tags": [
+      "things",
+      "passage:C3-p-0022"
+    ],
+    "exampleEn": "Bright fireworks lit up the midnight sky.",
+    "exampleVi": "Pháo hoa rực sáng thắp sáng bầu trời đêm.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0058",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "tradition",
+    "vi": "truyền thống",
+    "pos": "noun",
+    "ipa": "/trəˈdɪʃ.ən/",
+    "forms": {
+      "plural": "traditions"
+    },
+    "image": "📜",
+    "tags": [
+      "culture",
+      "passage:C3-p-0022"
+    ],
+    "exampleEn": "Making sticky rice cakes is a Tet tradition.",
+    "exampleVi": "Gói bánh chưng là một nét truyền thống ngày Tết.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0059",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "delicious",
+    "vi": "ngon miệng",
+    "pos": "adjective",
+    "ipa": "/dɪˈlɪʃ.əs/",
+    "image": "😋",
+    "tags": [
+      "food",
+      "passage:C3-p-0003",
+      "passage:C3-p-0005",
+      "passage:C3-p-0023"
+    ],
+    "exampleEn": "Grandma made delicious vegetable soup.",
+    "exampleVi": "Bà nấu món súp rau củ rất ngon miệng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0060",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "recipe",
+    "vi": "công thức nấu ăn",
+    "pos": "noun",
+    "ipa": "/ˈres.ə.pi/",
+    "forms": {
+      "plural": "recipes"
+    },
+    "image": "📖",
+    "tags": [
+      "food",
+      "passage:C3-p-0023"
+    ],
+    "exampleEn": "Follow this simple recipe to bake cookies.",
+    "exampleVi": "Hãy làm theo công thức đơn giản này để nướng bánh quy.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0061",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "hobby",
+    "vi": "sở thích cá nhân",
+    "pos": "noun",
+    "ipa": "/ˈhɑː.bi/",
+    "forms": {
+      "plural": "hobbies"
+    },
+    "image": "🎨",
+    "tags": [
+      "hobby",
+      "passage:C3-p-0024"
+    ],
+    "exampleEn": "Collecting stamps is an entertaining hobby.",
+    "exampleVi": "Sưu tầm tem là một sở thích giải trí.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0062",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "musical instrument",
+    "vi": "nhạc cụ",
+    "pos": "noun",
+    "ipa": "/ˌmjuː.zɪ.kəl ˈɪn.strə.mənt/",
+    "forms": {
+      "plural": "musical instruments"
+    },
+    "image": "🎸",
+    "tags": [
+      "music",
+      "passage:C3-p-0024"
+    ],
+    "exampleEn": "Which musical instrument do you play?",
+    "exampleVi": "Bạn chơi nhạc cụ nào?",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0063",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "guitar",
+    "vi": "đàn ghi-ta",
+    "pos": "noun",
+    "ipa": "/ɡɪˈtɑːr/",
+    "forms": {
+      "plural": "guitars"
+    },
+    "image": "🎸",
+    "tags": [
+      "music",
+      "passage:C3-p-0024"
+    ],
+    "exampleEn": "He plays acoustic guitar very well.",
+    "exampleVi": "Cậu ấy chơi đàn ghi-ta mộc rất giỏi.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0064",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "flute",
+    "vi": "cây sáo trúc",
+    "pos": "noun",
+    "ipa": "/fluːt/",
+    "forms": {
+      "plural": "flutes"
+    },
+    "image": "🪈",
+    "tags": [
+      "music",
+      "passage:C3-p-0024"
+    ],
+    "exampleEn": "The boy plays sweet tunes on his bamboo flute.",
+    "exampleVi": "Cậu bé thổi những giai điệu ngọt ngào trên cây sáo trúc.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0065",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "melody",
+    "vi": "giai điệu",
+    "pos": "noun",
+    "ipa": "/ˈmel.ə.di/",
+    "forms": {
+      "plural": "melodies"
+    },
+    "image": "🎵",
+    "tags": [
+      "music",
+      "passage:C3-p-0024"
+    ],
+    "exampleEn": "This gentle melody helps me relax.",
+    "exampleVi": "Giai điệu êm dịu này giúp tôi thư giãn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0066",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "painting",
+    "vi": "bức tranh vẽ",
+    "pos": "noun",
+    "ipa": "/ˈpeɪn.tɪŋ/",
+    "forms": {
+      "plural": "paintings"
+    },
+    "image": "🖼️",
+    "tags": [
+      "art",
+      "passage:C3-p-0025"
+    ],
+    "exampleEn": "Her oil painting won the school contest.",
+    "exampleVi": "Bức tranh sơn dầu của cô bé đoạt giải cuộc thi trường.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0067",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "paintbrush",
+    "vi": "cây cọ vẽ",
+    "pos": "noun",
+    "ipa": "/ˈpeɪnt.brʌʃ/",
+    "forms": {
+      "plural": "paintbrushes"
+    },
+    "image": "🖌️",
+    "tags": [
+      "art",
+      "passage:C3-p-0025"
+    ],
+    "exampleEn": "Dip the paintbrush into watercolor.",
+    "exampleVi": "Hãy nhúng cọ vẽ vào màu nước.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0068",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "canvas",
+    "vi": "khung vải vẽ tranh",
+    "pos": "noun",
+    "ipa": "/ˈkæn.vəs/",
+    "forms": {
+      "plural": "canvases"
+    },
+    "image": "🎨",
+    "tags": [
+      "art",
+      "passage:C3-p-0025"
+    ],
+    "exampleEn": "The artist painted a sunset on canvas.",
+    "exampleVi": "Họa sĩ vẽ cảnh hoàng hôn lên khung vải.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0069",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "photograph",
+    "vi": "bức ảnh chụp",
+    "pos": "noun",
+    "ipa": "/ˈfoʊ.t̬ə.ɡræf/",
+    "forms": {
+      "plural": "photographs"
+    },
+    "image": "📷",
+    "tags": [
+      "art",
+      "passage:C3-p-0020"
+    ],
+    "exampleEn": "Dad took a lovely family photograph.",
+    "exampleVi": "Bố chụp một bức ảnh gia đình đáng yêu.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0070",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "camera",
+    "vi": "máy ảnh",
+    "pos": "noun",
+    "ipa": "/ˈkæm.rə/",
+    "forms": {
+      "plural": "cameras"
+    },
+    "image": "📷",
+    "tags": [
+      "things",
+      "passage:C3-p-0020"
+    ],
+    "exampleEn": "She bought a new digital camera.",
+    "exampleVi": "Cô ấy đã mua một chiếc máy ảnh kỹ thuật số mới.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0071",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "origami",
+    "vi": "nghệ thuật gấp giấy",
+    "pos": "noun",
+    "ipa": "/ˌɔːr.ɪˈɡɑː.mi/",
+    "image": "🦢",
+    "tags": [
+      "craft",
+      "passage:C3-p-0026"
+    ],
+    "exampleEn": "He folded paper into pretty origami cranes.",
+    "exampleVi": "Cậu ấy gấp giấy thành những chú hạc origami xinh xắn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0072",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "sculpture",
+    "vi": "tượng điêu khắc",
+    "pos": "noun",
+    "ipa": "/ˈskʌlp.tʃɚ/",
+    "forms": {
+      "plural": "sculptures"
+    },
+    "image": "🗿",
+    "tags": [
+      "art",
+      "passage:C3-p-0015"
+    ],
+    "exampleEn": "We admired the stone sculpture in the square.",
+    "exampleVi": "Chúng tôi chiêm ngưỡng bức tượng đá ở quảng trường.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0073",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "excursion",
+    "vi": "chuyến dã ngoại tham quan",
+    "pos": "noun",
+    "ipa": "/ɪkˈskɝː.ʒən/",
+    "forms": {
+      "plural": "excursions"
+    },
+    "image": "🚌",
+    "tags": [
+      "travel",
+      "passage:C3-p-0020"
+    ],
+    "exampleEn": "Our weekend excursion to the botanical garden was educational.",
+    "exampleVi": "Chuyến tham quan công viên bách thảo cuối tuần rất bổ ích.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0074",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "aquarium",
+    "vi": "thủy cung",
+    "pos": "noun",
+    "ipa": "/əˈkwer.i.əm/",
+    "forms": {
+      "plural": "aquariums"
+    },
+    "image": "🐠",
+    "tags": [
+      "place",
+      "passage:C3-p-0027"
+    ],
+    "exampleEn": "Colorful marine fish swim in the giant aquarium.",
+    "exampleVi": "Những loài cá biển rực rỡ bơi trong thủy cung khổng lồ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0075",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "dolphin",
+    "vi": "cá heo",
+    "pos": "noun",
+    "ipa": "/ˈdɑːl.fɪn/",
+    "forms": {
+      "plural": "dolphins"
+    },
+    "image": "🐬",
+    "tags": [
+      "animal",
+      "passage:C3-p-0027"
+    ],
+    "exampleEn": "Smart dolphins jumped high above the water waves.",
+    "exampleVi": "Những chú cá heo thông minh nhảy cao trên mặt sóng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0076",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "whale",
+    "vi": "cá voi",
+    "pos": "noun",
+    "ipa": "/weɪl/",
+    "forms": {
+      "plural": "whales"
+    },
+    "image": "🐋",
+    "tags": [
+      "animal",
+      "passage:C3-p-0027"
+    ],
+    "exampleEn": "The blue whale is the largest mammal on earth.",
+    "exampleVi": "Cá voi xanh là loài thú lớn nhất trên trái đất.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0077",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "penguin",
+    "vi": "chim cánh cụt",
+    "pos": "noun",
+    "ipa": "/ˈpeŋ.ɡwɪn/",
+    "forms": {
+      "plural": "penguins"
+    },
+    "image": "🐧",
+    "tags": [
+      "animal",
+      "passage:C3-p-0028"
+    ],
+    "exampleEn": "Cute penguins waddle happily on white snow.",
+    "exampleVi": "Những chú chim cánh cụt lắc lư bước đi vui vẻ trên tuyết trắng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0078",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "kangaroo",
+    "vi": "chuột túi",
+    "pos": "noun",
+    "ipa": "/ˌkæŋ.ɡəˈruː/",
+    "forms": {
+      "plural": "kangaroos"
+    },
+    "image": "🦘",
+    "tags": [
+      "animal",
+      "passage:C3-p-0028"
+    ],
+    "exampleEn": "A baby kangaroo rests inside its mother's pouch.",
+    "exampleVi": "Một chú chuột túi con nghỉ ngơi trong túi mẹ.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0079",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "koala",
+    "vi": "gấu túi koala",
+    "pos": "noun",
+    "ipa": "/koʊˈɑː.lə/",
+    "forms": {
+      "plural": "koalas"
+    },
+    "image": "🐨",
+    "tags": [
+      "animal",
+      "passage:C3-p-0028"
+    ],
+    "exampleEn": "The sleepy koala hugs the eucalyptus branch.",
+    "exampleVi": "Chú gấu túi koala ngái ngủ ôm cành cây bạch đàn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0080",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "squirrel",
+    "vi": "con sóc",
+    "pos": "noun",
+    "ipa": "/ˈskwɝː.əl/",
+    "forms": {
+      "plural": "squirrels"
+    },
+    "image": "🐿️",
+    "tags": [
+      "animal",
+      "passage:C3-p-0003",
+      "passage:C3-p-0029"
+    ],
+    "exampleEn": "The quick squirrel gathers acorns for winter.",
+    "exampleVi": "Chú sóc nhanh nhẹn thu lượm hạt sồi cho mùa đông.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0081",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "magnificent",
+    "vi": "tráng lệ, nguy nga",
+    "pos": "adjective",
+    "ipa": "/mæɡˈnɪf.ə.sənt/",
+    "image": "✨",
+    "tags": [
+      "quality",
+      "passage:C3-p-0030"
+    ],
+    "exampleEn": "The palace looked magnificent under the sun.",
+    "exampleVi": "Tòa lâu đài trông thật tráng lệ dưới ánh mặt trời.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0082",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "peaceful",
+    "vi": "yên bình, thanh bình",
+    "pos": "adjective",
+    "ipa": "/ˈpiːs.fəl/",
+    "image": "🕊️",
+    "tags": [
+      "quality",
+      "passage:C3-p-0001",
+      "passage:C3-p-0030"
+    ],
+    "exampleEn": "The village is quiet and peaceful.",
+    "exampleVi": "Ngôi làng thật yên tĩnh và thanh bình.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0083",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "colorful",
+    "vi": "rực rỡ sắc màu",
+    "pos": "adjective",
+    "ipa": "/ˈkʌl.ɚ.fəl/",
+    "image": "🎨",
+    "tags": [
+      "quality",
+      "passage:C3-p-0004",
+      "passage:C3-p-0025",
+      "passage:C3-p-0030"
+    ],
+    "exampleEn": "Butterflies have colorful wings.",
+    "exampleVi": "Những chú bướm có đôi cánh rực rỡ sắc màu.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0084",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "wonderful",
+    "vi": "tuyệt vời",
+    "pos": "adjective",
+    "ipa": "/ˈwʌn.dɚ.fəl/",
+    "image": "🌟",
+    "tags": [
+      "quality",
+      "passage:C3-p-0031"
+    ],
+    "exampleEn": "We had a wonderful vacation by the sea.",
+    "exampleVi": "Chúng tôi đã có một kỳ nghỉ tuyệt vời bên bờ biển.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0085",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "friendly",
+    "vi": "thân thiện",
+    "pos": "adjective",
+    "ipa": "/ˈfrend.li/",
+    "image": "🤝",
+    "tags": [
+      "people",
+      "passage:C3-p-0001",
+      "passage:C3-p-0031"
+    ],
+    "exampleEn": "The local people are kind and friendly.",
+    "exampleVi": "Người dân địa phương rất tốt bụng và thân thiện.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0086",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "clever",
+    "vi": "khôn ngoan, khéo léo",
+    "pos": "adjective",
+    "ipa": "/ˈklev.ɚ/",
+    "image": "💡",
+    "tags": [
+      "people",
+      "passage:C3-p-0003",
+      "passage:C3-p-0031"
+    ],
+    "exampleEn": "The clever boy solved the tricky riddle.",
+    "exampleVi": "Cậu bé thông minh đã giải được câu đố hóc búa.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0087",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "curious",
+    "vi": "tò mò, thích khám phá",
+    "pos": "adjective",
+    "ipa": "/ˈkjʊr.i.əs/",
+    "image": "🧐",
+    "tags": [
+      "people",
+      "passage:C3-p-0032"
+    ],
+    "exampleEn": "Children are always curious about nature.",
+    "exampleVi": "Trẻ em luôn tò mò về thế giới tự nhiên.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0088",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "creative",
+    "vi": "sáng tạo",
+    "pos": "adjective",
+    "ipa": "/kriˈeɪ.t̬ɪv/",
+    "image": "💡",
+    "tags": [
+      "people",
+      "passage:C3-p-0025"
+    ],
+    "exampleEn": "She makes creative drawings from fallen leaves.",
+    "exampleVi": "Cô bé tạo ra những bức tranh sáng tạo từ lá cây rụng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0089",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "careful",
+    "vi": "cẩn thận",
+    "pos": "adjective",
+    "ipa": "/ˈker.fəl/",
+    "image": "👀",
+    "tags": [
+      "quality",
+      "passage:C3-p-0026"
+    ],
+    "exampleEn": "Be careful when carrying the glass bowl.",
+    "exampleVi": "Hãy cẩn thận khi bê chiếc bát thủy tinh.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0090",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "energetic",
+    "vi": "tràn đầy năng lượng",
+    "pos": "adjective",
+    "ipa": "/ˌen.ɚˈdʒet̬.ɪk/",
+    "image": "⚡",
+    "tags": [
+      "quality",
+      "passage:C3-p-0033"
+    ],
+    "exampleEn": "Puppies are very energetic and playful.",
+    "exampleVi": "Những chú cún con rất giàu năng lượng và thích đùa nghịch.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0091",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "gentle",
+    "vi": "nhẹ nhàng, dịu dàng",
+    "pos": "adjective",
+    "ipa": "/ˈdʒen.t̬əl/",
+    "image": "🌸",
+    "tags": [
+      "quality",
+      "passage:C3-p-0003",
+      "passage:C3-p-0005",
+      "passage:C3-p-0009",
+      "passage:C3-p-0034"
+    ],
+    "exampleEn": "He spoke in a soft and gentle voice.",
+    "exampleVi": "Cậu ấy nói bằng giọng nói êm dịu và nhẹ nhàng.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0092",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "healthy",
+    "vi": "khỏe mạnh, lành mạnh",
+    "pos": "adjective",
+    "ipa": "/ˈhel.θi/",
+    "image": "🥗",
+    "tags": [
+      "health",
+      "passage:C3-p-0033"
+    ],
+    "exampleEn": "Eating fresh fruit keeps our bodies healthy.",
+    "exampleVi": "Ăn hoa quả tươi giúp cơ thể chúng ta khỏe mạnh.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0093",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "comfortable",
+    "vi": "thoải mái, tiện nghi",
+    "pos": "adjective",
+    "ipa": "/ˈkʌm.fɚ.t̬ə.bəl/",
+    "image": "🛋️",
+    "tags": [
+      "feeling",
+      "passage:C3-p-0034"
+    ],
+    "exampleEn": "This armchair is soft and comfortable.",
+    "exampleVi": "Chiếc ghế bành này rất êm ái và thoải mái.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0094",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "entertaining",
+    "vi": "có tính giải trí, vui nhộn",
+    "pos": "adjective",
+    "ipa": "/ˌen.t̬ɚˈteɪ.nɪŋ/",
+    "image": "🎭",
+    "tags": [
+      "quality",
+      "passage:C3-p-0032"
+    ],
+    "exampleEn": "The animated movie was funny and entertaining.",
+    "exampleVi": "Bộ phim hoạt hình rất hài hước và tính giải trí cao.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0095",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "educational",
+    "vi": "mang tính giáo dục",
+    "pos": "adjective",
+    "ipa": "/ˌedʒ.əˈkeɪ.ʃən.əl/",
+    "image": "📚",
+    "tags": [
+      "quality",
+      "passage:C3-p-0032"
+    ],
+    "exampleEn": "The documentary was informative and educational.",
+    "exampleVi": "Bộ phim tài liệu rất nhiều thông tin và mang tính giáo dục cao.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0096",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "protect",
+    "vi": "bảo vệ",
+    "pos": "verb",
+    "ipa": "/prəˈtekt/",
+    "forms": {
+      "thirdSg": "protects",
+      "past": "protected",
+      "ing": "protecting",
+      "irregular": false
+    },
+    "image": "🛡️",
+    "tags": [
+      "action",
+      "passage:C3-p-0034"
+    ],
+    "exampleEn": "We protect the trees in our garden.",
+    "exampleVi": "Chúng tôi bảo vệ những cây trong vườn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0097",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "recycle",
+    "vi": "tái chế",
+    "pos": "verb",
+    "ipa": "/ˌriːˈsaɪ.kəl/",
+    "forms": {
+      "thirdSg": "recycles",
+      "past": "recycled",
+      "ing": "recycling",
+      "irregular": false
+    },
+    "image": "♻️",
+    "tags": [
+      "action",
+      "passage:C3-p-0035"
+    ],
+    "exampleEn": "Students recycle plastic bottles for crafts.",
+    "exampleVi": "Học sinh tái chế chai nhựa để làm đồ thủ công.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0098",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "explore",
+    "vi": "khám phá",
+    "pos": "verb",
+    "ipa": "/ɪkˈsplɔːr/",
+    "forms": {
+      "thirdSg": "explores",
+      "past": "explored",
+      "ing": "exploring",
+      "irregular": false
+    },
+    "image": "🧭",
+    "tags": [
+      "action",
+      "passage:C3-p-0019"
+    ],
+    "exampleEn": "We love exploring new hiking trails.",
+    "exampleVi": "Chúng tôi thích khám phá những cung đường mòn mới.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0099",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "organize",
+    "vi": "tổ chức, sắp xếp",
+    "pos": "verb",
+    "ipa": "/ˈɔːr.ɡən.aɪz/",
+    "forms": {
+      "thirdSg": "organizes",
+      "past": "organized",
+      "ing": "organizing",
+      "irregular": false
+    },
+    "image": "📋",
+    "tags": [
+      "action",
+      "passage:C3-p-0035"
+    ],
+    "exampleEn": "The school organized an eco-friendly festival.",
+    "exampleVi": "Nhà trường đã tổ chức một ngày hội thân thiện với môi trường.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0100",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "participate",
+    "vi": "tham gia",
+    "pos": "verb",
+    "ipa": "/pɑːrˈtɪs.ə.peɪt/",
+    "forms": {
+      "thirdSg": "participates",
+      "past": "participated",
+      "ing": "participating",
+      "irregular": false
+    },
+    "image": "🙋",
+    "tags": [
+      "action",
+      "passage:C3-p-0033"
+    ],
+    "exampleEn": "Many pupils participate in the running race.",
+    "exampleVi": "Nhiều bạn học sinh tham gia vào cuộc chạy đua.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0101",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "celebrate",
+    "vi": "ăn mừng, kỷ niệm",
+    "pos": "verb",
+    "ipa": "/ˈsel.ə.breɪt/",
+    "forms": {
+      "thirdSg": "celebrates",
+      "past": "celebrated",
+      "ing": "celebrating",
+      "irregular": false
+    },
+    "image": "🥳",
+    "tags": [
+      "action",
+      "passage:C3-p-0022"
+    ],
+    "exampleEn": "We celebrate Vietnamese Teachers' Day in November.",
+    "exampleVi": "Chúng tôi kỷ niệm ngày Nhà giáo Việt Nam vào tháng 11.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0102",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "discover",
+    "vi": "phát hiện, tìm ra",
+    "pos": "verb",
+    "ipa": "/dɪˈskʌv.ɚ/",
+    "forms": {
+      "thirdSg": "discovers",
+      "past": "discovered",
+      "ing": "discovering",
+      "irregular": false
+    },
+    "image": "🔍",
+    "tags": [
+      "action",
+      "passage:C3-p-0017",
+      "passage:C3-p-0036"
+    ],
+    "exampleEn": "Scientists discovered an ancient stone tool.",
+    "exampleVi": "Các nhà khoa học đã phát hiện một công cụ bằng đá cổ xưa.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0103",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "describe",
+    "vi": "miêu tả, mô tả",
+    "pos": "verb",
+    "ipa": "/dɪˈskraɪb/",
+    "forms": {
+      "thirdSg": "describes",
+      "past": "described",
+      "ing": "describing",
+      "irregular": false
+    },
+    "image": "🗣️",
+    "tags": [
+      "action",
+      "passage:C3-p-0036"
+    ],
+    "exampleEn": "Please describe your pet dog.",
+    "exampleVi": "Hãy miêu tả chú chó cưng của bạn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0104",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "encourage",
+    "vi": "động viên, khích lệ",
+    "pos": "verb",
+    "ipa": "/ɪnˈkɝː.ɪdʒ/",
+    "forms": {
+      "thirdSg": "encourages",
+      "past": "encouraged",
+      "ing": "encouraging",
+      "irregular": false
+    },
+    "image": "👏",
+    "tags": [
+      "action",
+      "passage:C3-p-0033"
+    ],
+    "exampleEn": "Teachers encourage students to read more books.",
+    "exampleVi": "Thầy cô khuyến khích học sinh đọc nhiều sách hơn.",
+    "source": "seed"
+  },
+  {
+    "id": "C3-v-0105",
+    "level": "C3",
+    "topic": "reading-rewrite",
+    "en": "improve",
+    "vi": "cải thiện, nâng cao",
+    "pos": "verb",
+    "ipa": "/ɪmˈpruːv/",
+    "forms": {
+      "thirdSg": "improves",
+      "past": "improved",
+      "ing": "improving",
+      "irregular": false
+    },
+    "image": "📈",
+    "tags": [
+      "action",
+      "passage:C3-p-0037"
+    ],
+    "exampleEn": "Practice English daily to improve your fluency.",
+    "exampleVi": "Luyện tập tiếng Anh hàng ngày để nâng cao sự trôi chảy.",
+    "source": "seed"
+  }
+]

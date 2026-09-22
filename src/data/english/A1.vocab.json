@@ -1,0 +1,2027 @@
+[
+  {
+    "id": "A1-v-0001",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "I",
+    "vi": "tôi, mình, con",
+    "pos": "pronoun",
+    "ipa": "/aɪ/",
+    "exampleEn": "I am a student.",
+    "exampleVi": "Tôi là một học sinh.",
+    "image": "🙋",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0002",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "you",
+    "vi": "bạn, các bạn",
+    "pos": "pronoun",
+    "ipa": "/juː/",
+    "exampleEn": "You are kind.",
+    "exampleVi": "Bạn thật tốt bụng.",
+    "image": "👉",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0003",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "he",
+    "vi": "anh ấy, cậu ấy, chú ấy",
+    "pos": "pronoun",
+    "ipa": "/hiː/",
+    "exampleEn": "He is my brother.",
+    "exampleVi": "Cậu ấy là em trai tôi.",
+    "image": "👦",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0004",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "she",
+    "vi": "cô ấy, chị ấy, bà ấy",
+    "pos": "pronoun",
+    "ipa": "/ʃiː/",
+    "exampleEn": "She is a doctor.",
+    "exampleVi": "Cô ấy là một bác sĩ.",
+    "image": "👧",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0005",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "it",
+    "vi": "nó (con vật, đồ vật)",
+    "pos": "pronoun",
+    "ipa": "/ɪt/",
+    "exampleEn": "It is cute.",
+    "exampleVi": "Nó thật dễ thương.",
+    "image": "📦",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0006",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "we",
+    "vi": "chúng tôi, chúng ta",
+    "pos": "pronoun",
+    "ipa": "/wiː/",
+    "exampleEn": "We are ready.",
+    "exampleVi": "Chúng tôi đã sẵn sàng.",
+    "image": "👨‍👩‍👧",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0007",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "they",
+    "vi": "họ, chúng nó",
+    "pos": "pronoun",
+    "ipa": "/ðeɪ/",
+    "exampleEn": "They are doctors.",
+    "exampleVi": "Họ là những bác sĩ.",
+    "image": "👥",
+    "tags": [
+      "pronoun"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0008",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "this",
+    "vi": "đây, cái này",
+    "pos": "pronoun",
+    "ipa": "/ðɪs/",
+    "exampleEn": "This is my pen.",
+    "exampleVi": "Đây là chiếc bút của tôi.",
+    "image": "👇",
+    "tags": [
+      "demonstrative"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0009",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "that",
+    "vi": "kia, cái kia",
+    "pos": "pronoun",
+    "ipa": "/ðæt/",
+    "exampleEn": "That is my school.",
+    "exampleVi": "Kia là trường học của tôi.",
+    "image": "👉",
+    "tags": [
+      "demonstrative"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0010",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "these",
+    "vi": "những cái này",
+    "pos": "pronoun",
+    "ipa": "/ðiːz/",
+    "exampleEn": "These are my books.",
+    "exampleVi": "Đây là những cuốn sách của tôi.",
+    "image": "📚",
+    "tags": [
+      "demonstrative"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0011",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "those",
+    "vi": "những cái kia",
+    "pos": "pronoun",
+    "ipa": "/ðoʊz/",
+    "exampleEn": "Those are big dogs.",
+    "exampleVi": "Kia là những con chó to.",
+    "image": "🐕",
+    "tags": [
+      "demonstrative"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0012",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "teacher",
+    "vi": "giáo viên",
+    "pos": "noun",
+    "ipa": "/ˈtiː.tʃɚ/",
+    "forms": {
+      "plural": "teachers"
+    },
+    "exampleEn": "She is a teacher.",
+    "exampleVi": "Cô ấy là một giáo viên.",
+    "image": "🧑‍🏫",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0013",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "student",
+    "vi": "học sinh",
+    "pos": "noun",
+    "ipa": "/ˈstuː.dənt/",
+    "forms": {
+      "plural": "students"
+    },
+    "exampleEn": "I am a student.",
+    "exampleVi": "Tôi là một học sinh.",
+    "image": "🧑‍🎓",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0014",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pupil",
+    "vi": "học sinh nhỏ",
+    "pos": "noun",
+    "ipa": "/ˈpjuː.pəl/",
+    "forms": {
+      "plural": "pupils"
+    },
+    "exampleEn": "He is a good pupil.",
+    "exampleVi": "Cậu ấy là một học sinh ngoan.",
+    "image": "🧒",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0015",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "doctor",
+    "vi": "bác sĩ",
+    "pos": "noun",
+    "ipa": "/ˈdɑːk.tɚ/",
+    "forms": {
+      "plural": "doctors"
+    },
+    "exampleEn": "My father is a doctor.",
+    "exampleVi": "Bố tôi là bác sĩ.",
+    "image": "👨‍⚕️",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0016",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "nurse",
+    "vi": "y tá",
+    "pos": "noun",
+    "ipa": "/nɝːs/",
+    "forms": {
+      "plural": "nurses"
+    },
+    "exampleEn": "She is a kind nurse.",
+    "exampleVi": "Cô ấy là một y tá tốt bụng.",
+    "image": "👩‍⚕️",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0017",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "engineer",
+    "vi": "kỹ sư",
+    "pos": "noun",
+    "ipa": "/ˌen.dʒəˈnɪr/",
+    "forms": {
+      "plural": "engineers"
+    },
+    "exampleEn": "He is an engineer.",
+    "exampleVi": "Anh ấy là một kỹ sư.",
+    "image": "👷",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0018",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "singer",
+    "vi": "ca sĩ",
+    "pos": "noun",
+    "ipa": "/ˈsɪŋ.ɚ/",
+    "forms": {
+      "plural": "singers"
+    },
+    "exampleEn": "She is a famous singer.",
+    "exampleVi": "Cô ấy là một ca sĩ nổi tiếng.",
+    "image": "🎤",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0019",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "dancer",
+    "vi": "vũ công",
+    "pos": "noun",
+    "ipa": "/ˈdæn.sɚ/",
+    "forms": {
+      "plural": "dancers"
+    },
+    "exampleEn": "They are dancers.",
+    "exampleVi": "Họ là những vũ công.",
+    "image": "💃",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0020",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "farmer",
+    "vi": "nông dân",
+    "pos": "noun",
+    "ipa": "/ˈfɑːr.mɚ/",
+    "forms": {
+      "plural": "farmers"
+    },
+    "exampleEn": "My grandfather is a farmer.",
+    "exampleVi": "Ông tôi là nông dân.",
+    "image": "🧑‍🌾",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0021",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "driver",
+    "vi": "tài xế",
+    "pos": "noun",
+    "ipa": "/ˈdraɪ.vɚ/",
+    "forms": {
+      "plural": "drivers"
+    },
+    "exampleEn": "He is a bus driver.",
+    "exampleVi": "Bác ấy là tài xế xe buýt.",
+    "image": "🚌",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0022",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pilot",
+    "vi": "phi công",
+    "pos": "noun",
+    "ipa": "/ˈpaɪ.lət/",
+    "forms": {
+      "plural": "pilots"
+    },
+    "exampleEn": "My uncle is a pilot.",
+    "exampleVi": "Chú tôi là phi công.",
+    "image": "👨‍✈️",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0023",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "police officer",
+    "vi": "cảnh sát",
+    "pos": "noun",
+    "ipa": "/pəˈliːs ˌɑː.fɪ.sɚ/",
+    "forms": {
+      "plural": "police officers"
+    },
+    "exampleEn": "He is a police officer.",
+    "exampleVi": "Anh ấy là cảnh sát.",
+    "image": "👮",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0024",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "firefighter",
+    "vi": "lính cứu hỏa",
+    "pos": "noun",
+    "ipa": "/ˈfaɪrˌfaɪ.t̬ɚ/",
+    "forms": {
+      "plural": "firefighters"
+    },
+    "exampleEn": "They are firefighters.",
+    "exampleVi": "Họ là lính cứu hỏa.",
+    "image": "🧑‍🚒",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0025",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "chef",
+    "vi": "đầu bếp",
+    "pos": "noun",
+    "ipa": "/ʃef/",
+    "forms": {
+      "plural": "chefs"
+    },
+    "exampleEn": "She is a great chef.",
+    "exampleVi": "Cô ấy là một đầu bếp giỏi.",
+    "image": "🧑‍🍳",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0026",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "artist",
+    "vi": "họa sĩ",
+    "pos": "noun",
+    "ipa": "/ˈɑːr.t̬ɪst/",
+    "forms": {
+      "plural": "artists"
+    },
+    "exampleEn": "He is an artist.",
+    "exampleVi": "Anh ấy là một họa sĩ.",
+    "image": "🎨",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0027",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "worker",
+    "vi": "công nhân",
+    "pos": "noun",
+    "ipa": "/ˈwɝː.kɚ/",
+    "forms": {
+      "plural": "workers"
+    },
+    "exampleEn": "They are workers.",
+    "exampleVi": "Họ là công nhân.",
+    "image": "🏭",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0028",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "dentist",
+    "vi": "nha sĩ",
+    "pos": "noun",
+    "ipa": "/ˈden.t̬ɪst/",
+    "forms": {
+      "plural": "dentists"
+    },
+    "exampleEn": "She is a dentist.",
+    "exampleVi": "Cô ấy là nha sĩ.",
+    "image": "🦷",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0029",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "vet",
+    "vi": "bác sĩ thú y",
+    "pos": "noun",
+    "ipa": "/vet/",
+    "forms": {
+      "plural": "vets"
+    },
+    "exampleEn": "He is a vet.",
+    "exampleVi": "Chú ấy là bác sĩ thú y.",
+    "image": "🐕‍🦺",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0030",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "baker",
+    "vi": "thợ làm bánh",
+    "pos": "noun",
+    "ipa": "/ˈbeɪ.kɚ/",
+    "forms": {
+      "plural": "bakers"
+    },
+    "exampleEn": "My aunt is a baker.",
+    "exampleVi": "Dì tôi là một thợ làm bánh.",
+    "image": "🥖",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0031",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "cook",
+    "vi": "người nấu ăn",
+    "pos": "noun",
+    "ipa": "/kʊk/",
+    "forms": {
+      "plural": "cooks"
+    },
+    "exampleEn": "He is a good cook.",
+    "exampleVi": "Cậu ấy là một người nấu ăn giỏi.",
+    "image": "🍳",
+    "tags": [
+      "profession"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0032",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "happy",
+    "vi": "vui vẻ, hạnh phúc",
+    "pos": "adjective",
+    "ipa": "/ˈhæp.i/",
+    "exampleEn": "I am happy today.",
+    "exampleVi": "Hôm nay tôi rất vui.",
+    "image": "😊",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0033",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "sad",
+    "vi": "buồn bã",
+    "pos": "adjective",
+    "ipa": "/sæd/",
+    "exampleEn": "She is not sad.",
+    "exampleVi": "Cô ấy không buồn.",
+    "image": "😢",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0034",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "angry",
+    "vi": "tức giận",
+    "pos": "adjective",
+    "ipa": "/ˈæŋ.ɡri/",
+    "exampleEn": "He is angry.",
+    "exampleVi": "Cậu ấy đang tức giận.",
+    "image": "😠",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0035",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "tired",
+    "vi": "mệt mỏi",
+    "pos": "adjective",
+    "ipa": "/ˈtaɪ.ɚd/",
+    "exampleEn": "We are tired now.",
+    "exampleVi": "Bây giờ chúng tôi đang mệt.",
+    "image": "🥱",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0036",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "hungry",
+    "vi": "đói bụng",
+    "pos": "adjective",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "exampleEn": "Are you hungry?",
+    "exampleVi": "Bạn có đói không?",
+    "image": "🍔",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0037",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "thirsty",
+    "vi": "khát nước",
+    "pos": "adjective",
+    "ipa": "/ˈθɝː.sti/",
+    "exampleEn": "I am thirsty.",
+    "exampleVi": "Tôi khát nước.",
+    "image": "🥤",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0038",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "scared",
+    "vi": "sợ hãi",
+    "pos": "adjective",
+    "ipa": "/skerd/",
+    "exampleEn": "The cat is scared.",
+    "exampleVi": "Chú mèo đang sợ hãi.",
+    "image": "😨",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0039",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "excited",
+    "vi": "hào hứng",
+    "pos": "adjective",
+    "ipa": "/ɪkˈsaɪ.t̬ɪd/",
+    "exampleEn": "They are excited.",
+    "exampleVi": "Họ đang rất hào hứng.",
+    "image": "🤩",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0040",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "sleepy",
+    "vi": "buồn ngủ",
+    "pos": "adjective",
+    "ipa": "/ˈsliː.pi/",
+    "exampleEn": "The baby is sleepy.",
+    "exampleVi": "Em bé đang buồn ngủ.",
+    "image": "😴",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0041",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "bored",
+    "vi": "chán nản",
+    "pos": "adjective",
+    "ipa": "/bɔːrd/",
+    "exampleEn": "He is bored.",
+    "exampleVi": "Cậu ấy thấy chán.",
+    "image": "😐",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0042",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "surprised",
+    "vi": "ngạc nhiên",
+    "pos": "adjective",
+    "ipa": "/sɚˈpraɪzd/",
+    "exampleEn": "We are surprised.",
+    "exampleVi": "Chúng tôi rất ngạc nhiên.",
+    "image": "😲",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0043",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "proud",
+    "vi": "tự hào",
+    "pos": "adjective",
+    "ipa": "/praʊd/",
+    "exampleEn": "My parents are proud.",
+    "exampleVi": "Bố mẹ tôi rất tự hào.",
+    "image": "🥰",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0044",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "fine",
+    "vi": "khỏe, ổn",
+    "pos": "adjective",
+    "ipa": "/faɪn/",
+    "exampleEn": "I am fine.",
+    "exampleVi": "Tôi khỏe.",
+    "image": "👌",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0045",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "great",
+    "vi": "tuyệt vời",
+    "pos": "adjective",
+    "ipa": "/ɡreɪt/",
+    "exampleEn": "Everything is great.",
+    "exampleVi": "Mọi thứ đều tuyệt vời.",
+    "image": "🌟",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0046",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "calm",
+    "vi": "bình tĩnh",
+    "pos": "adjective",
+    "ipa": "/kɑːm/",
+    "exampleEn": "He is calm.",
+    "exampleVi": "Cậu ấy rất bình tĩnh.",
+    "image": "😌",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0047",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "well",
+    "vi": "khỏe mạnh",
+    "pos": "adjective",
+    "ipa": "/wel/",
+    "exampleEn": "She is well today.",
+    "exampleVi": "Hôm nay cô ấy khỏe.",
+    "image": "💪",
+    "tags": [
+      "emotion"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0048",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "tall",
+    "vi": "cao lớn",
+    "pos": "adjective",
+    "ipa": "/tɑːl/",
+    "exampleEn": "He is tall.",
+    "exampleVi": "Cậu ấy cao.",
+    "image": "🦒",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0049",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "short",
+    "vi": "thấp, lùn",
+    "pos": "adjective",
+    "ipa": "/ʃɔːrt/",
+    "exampleEn": "He isn't short.",
+    "exampleVi": "Cậu ấy không thấp.",
+    "image": "📏",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0050",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "big",
+    "vi": "to lớn",
+    "pos": "adjective",
+    "ipa": "/bɪɡ/",
+    "exampleEn": "The dog is big.",
+    "exampleVi": "Con chó to lớn.",
+    "image": "🐘",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0051",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "small",
+    "vi": "nhỏ bé",
+    "pos": "adjective",
+    "ipa": "/smɑːl/",
+    "exampleEn": "It is small.",
+    "exampleVi": "Nó nhỏ bé.",
+    "image": "🐁",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0052",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "strong",
+    "vi": "khỏe mạnh",
+    "pos": "adjective",
+    "ipa": "/strɑːŋ/",
+    "exampleEn": "They are strong.",
+    "exampleVi": "Họ rất khỏe mạnh.",
+    "image": "🦾",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0053",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "weak",
+    "vi": "yếu ớt",
+    "pos": "adjective",
+    "ipa": "/wiːk/",
+    "exampleEn": "I am not weak.",
+    "exampleVi": "Tôi không yếu.",
+    "image": "🩹",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0054",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "fat",
+    "vi": "béo tròn",
+    "pos": "adjective",
+    "ipa": "/fæt/",
+    "exampleEn": "The pig is fat.",
+    "exampleVi": "Chú lợn béo tròn.",
+    "image": "🐷",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0055",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "thin",
+    "vi": "gầy, ốm",
+    "pos": "adjective",
+    "ipa": "/θɪn/",
+    "exampleEn": "The boy is thin.",
+    "exampleVi": "Cậu bé gầy.",
+    "image": "🧍",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0056",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "young",
+    "vi": "trẻ tuổi",
+    "pos": "adjective",
+    "ipa": "/jʌŋ/",
+    "exampleEn": "They are young.",
+    "exampleVi": "Họ còn trẻ.",
+    "image": "🧒",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0057",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "old",
+    "vi": "già, cao tuổi",
+    "pos": "adjective",
+    "ipa": "/oʊld/",
+    "exampleEn": "My grandfather is old.",
+    "exampleVi": "Ông tôi đã cao tuổi.",
+    "image": "👴",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0058",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "beautiful",
+    "vi": "xinh đẹp",
+    "pos": "adjective",
+    "ipa": "/ˈbjuː.t̬ə.fəl/",
+    "exampleEn": "She is beautiful.",
+    "exampleVi": "Cô ấy xinh đẹp.",
+    "image": "🌸",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0059",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pretty",
+    "vi": "xinh xắn",
+    "pos": "adjective",
+    "ipa": "/ˈprɪt̬.i/",
+    "exampleEn": "The girl is pretty.",
+    "exampleVi": "Cô bé xinh xắn.",
+    "image": "🌺",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0060",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "handsome",
+    "vi": "đẹp trai",
+    "pos": "adjective",
+    "ipa": "/ˈhæn.səm/",
+    "exampleEn": "He is handsome.",
+    "exampleVi": "Cậu ấy đẹp trai.",
+    "image": "🤴",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0061",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "cute",
+    "vi": "dễ thương",
+    "pos": "adjective",
+    "ipa": "/kjuːt/",
+    "exampleEn": "The cat is cute.",
+    "exampleVi": "Chú mèo rất dễ thương.",
+    "image": "🐱",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0062",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "clean",
+    "vi": "sạch sẽ",
+    "pos": "adjective",
+    "ipa": "/kliːn/",
+    "exampleEn": "The room is clean.",
+    "exampleVi": "Căn phòng sạch sẽ.",
+    "image": "✨",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0063",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "dirty",
+    "vi": "bẩn thỉu",
+    "pos": "adjective",
+    "ipa": "/ˈdɝː.t̬i/",
+    "exampleEn": "The shoes are dirty.",
+    "exampleVi": "Đôi giày bị bẩn.",
+    "image": "👟",
+    "tags": [
+      "appearance"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0064",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "kind",
+    "vi": "tốt bụng, hiền từ",
+    "pos": "adjective",
+    "ipa": "/kaɪnd/",
+    "exampleEn": "My teacher is kind.",
+    "exampleVi": "Cô giáo của tôi rất tốt bụng.",
+    "image": "❤️",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0065",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "nice",
+    "vi": "dễ thương, tốt tính",
+    "pos": "adjective",
+    "ipa": "/naɪs/",
+    "exampleEn": "You are very nice.",
+    "exampleVi": "Bạn rất tốt tính.",
+    "image": "😇",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0066",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "smart",
+    "vi": "thông minh",
+    "pos": "adjective",
+    "ipa": "/smɑːrt/",
+    "exampleEn": "She is very smart.",
+    "exampleVi": "Cô bé rất thông minh.",
+    "image": "💡",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0067",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "clever",
+    "vi": "khôn ngoan, lanh lợi",
+    "pos": "adjective",
+    "ipa": "/ˈklev.ɚ/",
+    "exampleEn": "He is clever.",
+    "exampleVi": "Cậu ấy lanh lợi.",
+    "image": "🦊",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0068",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "funny",
+    "vi": "hài hước",
+    "pos": "adjective",
+    "ipa": "/ˈfʌn.i/",
+    "exampleEn": "The clown is funny.",
+    "exampleVi": "Chú hề rất hài hước.",
+    "image": "🤡",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0069",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "brave",
+    "vi": "dũng cảm",
+    "pos": "adjective",
+    "ipa": "/breɪv/",
+    "exampleEn": "The boy is brave.",
+    "exampleVi": "Cậu bé dũng cảm.",
+    "image": "🦁",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0070",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "polite",
+    "vi": "lễ phép, lịch sự",
+    "pos": "adjective",
+    "ipa": "/pəˈlaɪt/",
+    "exampleEn": "We are polite pupils.",
+    "exampleVi": "Chúng tôi là những học sinh lễ phép.",
+    "image": "🤝",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0071",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "quiet",
+    "vi": "yên lặng",
+    "pos": "adjective",
+    "ipa": "/ˈkwaɪ.ət/",
+    "exampleEn": "The class is quiet.",
+    "exampleVi": "Cả lớp đang yên lặng.",
+    "image": "🤫",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0072",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "busy",
+    "vi": "bận rộn",
+    "pos": "adjective",
+    "ipa": "/ˈbɪz.i/",
+    "exampleEn": "My father is busy.",
+    "exampleVi": "Bố tôi đang bận.",
+    "image": "💼",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0073",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "ready",
+    "vi": "sẵn sàng",
+    "pos": "adjective",
+    "ipa": "/ˈred.i/",
+    "exampleEn": "We are ready.",
+    "exampleVi": "Chúng tôi đã sẵn sàng.",
+    "image": "🏁",
+    "tags": [
+      "character"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0074",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "book",
+    "vi": "quyển sách",
+    "pos": "noun",
+    "ipa": "/bʊk/",
+    "forms": {
+      "plural": "books"
+    },
+    "exampleEn": "This is a new book.",
+    "exampleVi": "Đây là một cuốn sách mới.",
+    "image": "📖",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0075",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "notebook",
+    "vi": "vở ghi chép",
+    "pos": "noun",
+    "ipa": "/ˈnoʊt.bʊk/",
+    "forms": {
+      "plural": "notebooks"
+    },
+    "exampleEn": "It is my notebook.",
+    "exampleVi": "Nó là cuốn vở của tôi.",
+    "image": "📓",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0076",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pen",
+    "vi": "bút mực",
+    "pos": "noun",
+    "ipa": "/pen/",
+    "forms": {
+      "plural": "pens"
+    },
+    "exampleEn": "This is my pen.",
+    "exampleVi": "Đây là chiếc bút của tôi.",
+    "image": "🖊️",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0077",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pencil",
+    "vi": "bút chì",
+    "pos": "noun",
+    "ipa": "/ˈpen.səl/",
+    "forms": {
+      "plural": "pencils"
+    },
+    "exampleEn": "The pencil is yellow.",
+    "exampleVi": "Chiếc bút chì màu vàng.",
+    "image": "✏️",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0078",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "ruler",
+    "vi": "thước kẻ",
+    "pos": "noun",
+    "ipa": "/ˈruː.lɚ/",
+    "forms": {
+      "plural": "rulers"
+    },
+    "exampleEn": "The ruler is long.",
+    "exampleVi": "Chiếc thước kẻ dài.",
+    "image": "📏",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0079",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "eraser",
+    "vi": "cục tẩy",
+    "pos": "noun",
+    "ipa": "/ɪˈreɪ.sɚ/",
+    "forms": {
+      "plural": "erasers"
+    },
+    "exampleEn": "This is an eraser.",
+    "exampleVi": "Đây là một cục tẩy.",
+    "image": "🧼",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0080",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "bag",
+    "vi": "cặp sách, túi",
+    "pos": "noun",
+    "ipa": "/bæɡ/",
+    "forms": {
+      "plural": "bags"
+    },
+    "exampleEn": "My bag is blue.",
+    "exampleVi": "Cặp sách của tôi màu xanh dương.",
+    "image": "🎒",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0081",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "desk",
+    "vi": "bàn học",
+    "pos": "noun",
+    "ipa": "/desk/",
+    "forms": {
+      "plural": "desks"
+    },
+    "exampleEn": "That is a big desk.",
+    "exampleVi": "Kia là một cái bàn học to.",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0082",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "chair",
+    "vi": "cái ghế",
+    "pos": "noun",
+    "ipa": "/tʃer/",
+    "forms": {
+      "plural": "chairs"
+    },
+    "exampleEn": "The chair is brown.",
+    "exampleVi": "Cái ghế màu nâu.",
+    "image": "🪑",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0083",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "board",
+    "vi": "bảng lớp",
+    "pos": "noun",
+    "ipa": "/bɔːrd/",
+    "forms": {
+      "plural": "boards"
+    },
+    "exampleEn": "The board is green.",
+    "exampleVi": "Cái bảng màu xanh lá.",
+    "image": "📋",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0084",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "classroom",
+    "vi": "phòng học",
+    "pos": "noun",
+    "ipa": "/ˈklæs.ruːm/",
+    "forms": {
+      "plural": "classrooms"
+    },
+    "exampleEn": "Our classroom is bright.",
+    "exampleVi": "Lớp học của chúng tôi sáng sủa.",
+    "image": "👩‍🏫",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0085",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "school",
+    "vi": "trường học",
+    "pos": "noun",
+    "ipa": "/skuːl/",
+    "forms": {
+      "plural": "schools"
+    },
+    "exampleEn": "This is my school.",
+    "exampleVi": "Đây là trường của tôi.",
+    "image": "🏫",
+    "tags": [
+      "school"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0086",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "door",
+    "vi": "cửa ra vào",
+    "pos": "noun",
+    "ipa": "/dɔːr/",
+    "forms": {
+      "plural": "doors"
+    },
+    "exampleEn": "The door is open.",
+    "exampleVi": "Cửa đang mở.",
+    "image": "🚪",
+    "tags": [
+      "house"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0087",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "window",
+    "vi": "cửa sổ",
+    "pos": "noun",
+    "ipa": "/ˈwɪn.doʊ/",
+    "forms": {
+      "plural": "windows"
+    },
+    "exampleEn": "The window is small.",
+    "exampleVi": "Cửa sổ thì nhỏ.",
+    "image": "🪟",
+    "tags": [
+      "house"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0088",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "clock",
+    "vi": "đồng hồ",
+    "pos": "noun",
+    "ipa": "/klɑːk/",
+    "forms": {
+      "plural": "clocks"
+    },
+    "exampleEn": "The clock is round.",
+    "exampleVi": "Đồng hồ có hình tròn.",
+    "image": "⏰",
+    "tags": [
+      "house"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0089",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "room",
+    "vi": "căn phòng",
+    "pos": "noun",
+    "ipa": "/ruːm/",
+    "forms": {
+      "plural": "rooms"
+    },
+    "exampleEn": "The room is warm.",
+    "exampleVi": "Căn phòng ấm áp.",
+    "image": "🏠",
+    "tags": [
+      "house"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0090",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "family",
+    "vi": "gia đình",
+    "pos": "noun",
+    "ipa": "/ˈfæm.əl.i/",
+    "forms": {
+      "plural": "families"
+    },
+    "exampleEn": "We are a happy family.",
+    "exampleVi": "Chúng tôi là một gia đình hạnh phúc.",
+    "image": "👨‍👩‍👧‍👦",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0091",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "father",
+    "vi": "bố, cha",
+    "pos": "noun",
+    "ipa": "/ˈfɑː.ðɚ/",
+    "forms": {
+      "plural": "fathers"
+    },
+    "exampleEn": "He is my father.",
+    "exampleVi": "Ông ấy là bố của tôi.",
+    "image": "👨",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0092",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "mother",
+    "vi": "mẹ",
+    "pos": "noun",
+    "ipa": "/ˈmʌð.ɚ/",
+    "forms": {
+      "plural": "mothers"
+    },
+    "exampleEn": "She is my mother.",
+    "exampleVi": "Bà ấy là mẹ của tôi.",
+    "image": "👩",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0093",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "brother",
+    "vi": "anh/em trai",
+    "pos": "noun",
+    "ipa": "/ˈbrʌð.ɚ/",
+    "forms": {
+      "plural": "brothers"
+    },
+    "exampleEn": "He is my brother.",
+    "exampleVi": "Cậu ấy là em trai tôi.",
+    "image": "👦",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0094",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "sister",
+    "vi": "chị/em gái",
+    "pos": "noun",
+    "ipa": "/ˈsɪs.tɚ/",
+    "forms": {
+      "plural": "sisters"
+    },
+    "exampleEn": "This is my sister.",
+    "exampleVi": "Đây là chị gái của tôi.",
+    "image": "👧",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0095",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "baby",
+    "vi": "em bé",
+    "pos": "noun",
+    "ipa": "/ˈbeɪ.bi/",
+    "forms": {
+      "plural": "babies"
+    },
+    "exampleEn": "The baby is cute.",
+    "exampleVi": "Em bé thật dễ thương.",
+    "image": "👶",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0096",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "grandfather",
+    "vi": "ông nội/ngoại",
+    "pos": "noun",
+    "ipa": "/ˈɡrænˌfɑː.ðɚ/",
+    "forms": {
+      "plural": "grandfathers"
+    },
+    "exampleEn": "My grandfather is kind.",
+    "exampleVi": "Ông tôi rất hiền từ.",
+    "image": "👴",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0097",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "grandmother",
+    "vi": "bà nội/ngoại",
+    "pos": "noun",
+    "ipa": "/ˈɡrænˌmʌð.ɚ/",
+    "forms": {
+      "plural": "grandmothers"
+    },
+    "exampleEn": "She is my grandmother.",
+    "exampleVi": "Bà ấy là bà của tôi.",
+    "image": "👵",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0098",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "friend",
+    "vi": "người bạn",
+    "pos": "noun",
+    "ipa": "/frend/",
+    "forms": {
+      "plural": "friends"
+    },
+    "exampleEn": "They are good friends.",
+    "exampleVi": "Họ là những người bạn tốt.",
+    "image": "🤝",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0099",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "classmate",
+    "vi": "bạn cùng lớp",
+    "pos": "noun",
+    "ipa": "/ˈklæs.meɪt/",
+    "forms": {
+      "plural": "classmates"
+    },
+    "exampleEn": "Nam is my classmate.",
+    "exampleVi": "Nam là bạn cùng lớp của tôi.",
+    "image": "🧑‍🤝‍🧑",
+    "tags": [
+      "family"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0100",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "hot",
+    "vi": "nóng bức",
+    "pos": "adjective",
+    "ipa": "/hɑːt/",
+    "exampleEn": "It is hot today.",
+    "exampleVi": "Hôm nay trời nóng.",
+    "image": "☀️",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0101",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "cold",
+    "vi": "lạnh giá",
+    "pos": "adjective",
+    "ipa": "/koʊld/",
+    "exampleEn": "It is cold outside.",
+    "exampleVi": "Bên ngoài trời lạnh.",
+    "image": "❄️",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0102",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "warm",
+    "vi": "ấm áp",
+    "pos": "adjective",
+    "ipa": "/wɔːrm/",
+    "exampleEn": "The weather is warm.",
+    "exampleVi": "Thời tiết ấm áp.",
+    "image": "🌤️",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0103",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "cool",
+    "vi": "mát mẻ",
+    "pos": "adjective",
+    "ipa": "/kuːl/",
+    "exampleEn": "It is cool today.",
+    "exampleVi": "Hôm nay trời mát mẻ.",
+    "image": "🍃",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0104",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "sunny",
+    "vi": "nắng rực rỡ",
+    "pos": "adjective",
+    "ipa": "/ˈsʌn.i/",
+    "exampleEn": "It is sunny now.",
+    "exampleVi": "Bây giờ trời có nắng.",
+    "image": "🌞",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0105",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "rainy",
+    "vi": "có mưa",
+    "pos": "adjective",
+    "ipa": "/ˈreɪ.ni/",
+    "exampleEn": "It is rainy.",
+    "exampleVi": "Trời đang mưa.",
+    "image": "🌧️",
+    "tags": [
+      "weather"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0106",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "red",
+    "vi": "màu đỏ",
+    "pos": "adjective",
+    "ipa": "/red/",
+    "exampleEn": "My bag is red.",
+    "exampleVi": "Cặp của tôi màu đỏ.",
+    "image": "🔴",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0107",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "blue",
+    "vi": "màu xanh dương",
+    "pos": "adjective",
+    "ipa": "/bluː/",
+    "exampleEn": "The sky is blue.",
+    "exampleVi": "Bầu trời màu xanh dương.",
+    "image": "🔵",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0108",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "green",
+    "vi": "màu xanh lá",
+    "pos": "adjective",
+    "ipa": "/ɡriːn/",
+    "exampleEn": "The board is green.",
+    "exampleVi": "Cái bảng màu xanh lá.",
+    "image": "🟢",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0109",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "yellow",
+    "vi": "màu vàng",
+    "pos": "adjective",
+    "ipa": "/ˈjel.oʊ/",
+    "exampleEn": "The pencil is yellow.",
+    "exampleVi": "Bút chì màu vàng.",
+    "image": "🟡",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0110",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "white",
+    "vi": "màu trắng",
+    "pos": "adjective",
+    "ipa": "/waɪt/",
+    "exampleEn": "The cat is white.",
+    "exampleVi": "Chú mèo màu trắng.",
+    "image": "⚪",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0111",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "black",
+    "vi": "màu đen",
+    "pos": "adjective",
+    "ipa": "/blæk/",
+    "exampleEn": "The dog is black.",
+    "exampleVi": "Chú chó màu đen.",
+    "image": "⚫",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0112",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "pink",
+    "vi": "màu hồng",
+    "pos": "adjective",
+    "ipa": "/pɪŋk/",
+    "exampleEn": "Her pen is pink.",
+    "exampleVi": "Bút của cô bé màu hồng.",
+    "image": "🌸",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0113",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "brown",
+    "vi": "màu nâu",
+    "pos": "adjective",
+    "ipa": "/braʊn/",
+    "exampleEn": "The chair is brown.",
+    "exampleVi": "Cái ghế màu nâu.",
+    "image": "🟤",
+    "tags": [
+      "color"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0114",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "Vietnamese",
+    "vi": "(thuộc) Việt Nam, người Việt Nam",
+    "pos": "adjective",
+    "ipa": "/ˌvjet.nəˈmiːz/",
+    "exampleEn": "I am Vietnamese.",
+    "exampleVi": "Tôi là người Việt Nam.",
+    "image": "🇻🇳",
+    "tags": [
+      "nationality"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0115",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "American",
+    "vi": "(thuộc) Mỹ, người Mỹ",
+    "pos": "adjective",
+    "ipa": "/əˈmer.ɪ.kən/",
+    "exampleEn": "He is American.",
+    "exampleVi": "Anh ấy là người Mỹ.",
+    "image": "🇺🇸",
+    "tags": [
+      "nationality"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0116",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "English",
+    "vi": "(thuộc) Anh, người Anh",
+    "pos": "adjective",
+    "ipa": "/ˈɪŋ.ɡlɪʃ/",
+    "exampleEn": "She is English.",
+    "exampleVi": "Cô ấy là người Anh.",
+    "image": "🇬🇧",
+    "tags": [
+      "nationality"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0117",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "Japanese",
+    "vi": "(thuộc) Nhật Bản, người Nhật Bản",
+    "pos": "adjective",
+    "ipa": "/ˌdʒæp.əˈniːz/",
+    "exampleEn": "They are Japanese.",
+    "exampleVi": "Họ là người Nhật Bản.",
+    "image": "🇯🇵",
+    "tags": [
+      "nationality"
+    ],
+    "source": "seed"
+  },
+  {
+    "id": "A1-v-0118",
+    "level": "A1",
+    "topic": "to-be-pronouns",
+    "en": "Korean",
+    "vi": "(thuộc) Hàn Quốc, người Hàn Quốc",
+    "pos": "adjective",
+    "ipa": "/kəˈriː.ən/",
+    "exampleEn": "My friend is Korean.",
+    "exampleVi": "Bạn tôi là người Hàn Quốc.",
+    "image": "🇰🇷",
+    "tags": [
+      "nationality"
+    ],
+    "source": "seed"
+  }
+]
