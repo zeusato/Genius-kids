@@ -97,9 +97,11 @@ export function hasVietnameseVoice(): boolean {
     return hasVoice('vi-VN');
 }
 
-/** Có cách nào đọc được không: giọng hệ thống HOẶC có audio tạo sẵn (chỉ tiếng Việt). */
-export function canSpeak(lang: SpeechLang = 'vi-VN', audioId?: string): boolean {
-    return hasVoice(lang) || (lang === 'vi-VN' && !!audioId);
+/** Có thể thử đọc bằng giọng hệ thống hoặc audio (MP3 / TTS online).
+ * Không yêu cầu danh sách giọng đã tải; lỗi mạng được báo qua onError khi phát.
+ */
+export function canSpeak(lang: SpeechLang = 'vi-VN', _audioId?: string): boolean {
+    return hasVoice(lang) || typeof Audio !== 'undefined';
 }
 
 export function canSpeakVietnamese(audioId?: string): boolean {
@@ -156,8 +158,8 @@ function playPregeneratedAudio(
  * Endpoint translate_tts chỉ nhận ~200 ký tự/lần → văn bản dài (vd câu trả lời
  * trong Tell Me Why) được CẮT thành nhiều đoạn và phát tuần tự bằng nhiều <audio>.
  *
- * Quy ước lỗi: nếu ĐOẠN ĐẦU lỗi (offline/bị chặn) → gọi onError để caller rơi
- * xuống MP3 built-in. Các đoạn sau lỗi thì bỏ qua đoạn đó và đọc tiếp.
+ * Bất kỳ đoạn nào lỗi (offline/bị chặn) đều gọi onError; không báo đã đọc xong
+ * khi nội dung mới chỉ phát được một phần.
  *
  * Nhận `capturedToken` từ caller (không tự tăng playToken) để hoạt động đúng
  * cả trong speak() đơn lẫn giữa chuỗi speakSequence().
@@ -181,7 +183,6 @@ function playGoogleTTS(
     const playNext = () => {
         if (capturedToken !== playToken) return; // đã huỷ
         if (i >= chunks.length) { currentAudio = null; opts.onEnd?.(); return; }
-        const isFirst = i === 0;
         const chunk = chunks[i++];
         const qs = `ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${tl}&client=tw-ob`;
         // Dev: qua Vite proxy (tránh 403). Prod: qua proxy tự host nếu có, nếu không gọi thẳng Google.
@@ -199,8 +200,7 @@ function playGoogleTTS(
             settled = true;
             if (capturedToken !== playToken) return;
             currentAudio = null;
-            if (isFirst) opts.onError?.(); // đoạn đầu hỏng → để caller dùng MP3
-            else playNext();               // đoạn sau hỏng → đọc tiếp đoạn kế
+            opts.onError?.();
         };
         audio.onended = () => {
             if (settled) return;
@@ -225,7 +225,7 @@ export interface SpeakOptions {
 }
 
 /**
- * Đọc MỘT phần theo đúng thứ tự ưu tiên: thiết bị → Google → MP3 built-in.
+ * Đọc MỘT phần theo đúng thứ tự ưu tiên: thiết bị → MP3 built-in → Google.
  * `token` là playToken đã capture (caller tự gọi cancelSpeech trước). Không tự cancel.
  * `onDone` được gọi khi phần này đọc xong (hoặc đã thử hết cách) — chỉ khi token còn hiệu lực.
  * Trả về true nếu đã bắt đầu phát được bằng một cách nào đó.
@@ -237,9 +237,14 @@ function startChain(
     rate: number,
     pitch: number,
     token: number,
-    onDone: () => void,
+    onDone: (success: boolean) => void,
 ): boolean {
-    const finish = () => { if (token === playToken) onDone(); };
+    let settled = false;
+    const finish = (success: boolean) => {
+        if (settled || token !== playToken) return;
+        settled = true;
+        onDone(success);
+    };
 
     // Slug MP3 built-in cho nội dung tiếng Việt (khớp nội dung hoặc audioId thủ công).
     const mp3Slug = (): string | null => {
@@ -251,16 +256,16 @@ function startChain(
 
     // Google TTS (online). Lỗi → finish (đã thử hết cách).
     const tryGoogle = (): boolean => {
-        if (typeof Audio === 'undefined') { finish(); return false; }
-        return playGoogleTTS(text, lang, token, { onEnd: finish, onError: finish });
+        if (typeof Audio === 'undefined') { finish(false); return false; }
+        return playGoogleTTS(text, lang, token, { onEnd: () => finish(true), onError: () => finish(false) });
     };
 
     // 1. TTS của thiết bị (Web Speech) — chất lượng tốt nhất, chạy offline.
     const voice = getVoice(lang);
     if (voice && typeof window !== 'undefined' && 'speechSynthesis' in window) {
         const chunks = chunkText(text);
-        if (chunks.length === 0) { finish(); return true; }
-        const lastDone = () => { stopKeepAlive(); finish(); };
+        if (chunks.length === 0) { finish(true); return true; }
+        const lastDone = (success: boolean) => { stopKeepAlive(); finish(success); };
         // Hoãn 1 nhịp sau cancel() để Chrome không "nuốt" utterance đầu tiên.
         window.setTimeout(() => {
             if (token !== playToken) return;
@@ -271,7 +276,8 @@ function startChain(
                 u.lang = voice.lang;
                 u.rate = rate;
                 u.pitch = pitch;
-                if (idx === chunks.length - 1) { u.onend = lastDone; u.onerror = lastDone; }
+                if (idx === chunks.length - 1) u.onend = () => lastDone(true);
+                u.onerror = () => lastDone(false);
                 ss.speak(u);
             });
             if (chunks.length > 1) startKeepAlive(); // câu dài → giữ cho Chrome không tự ngắt
@@ -283,7 +289,8 @@ function startChain(
     //    Nếu MP3 lỗi (thiếu file) → mới thử Google.
     const slug = mp3Slug();
     if (slug) {
-        return playPregeneratedAudio(slug, { onEnd: finish, onError: () => { tryGoogle(); } }, token);
+        if (playPregeneratedAudio(slug, { onEnd: () => finish(true), onError: () => { tryGoogle(); } }, token)) return true;
+        return tryGoogle();
     }
 
     // 3. Google TTS — chỉ dùng cho nội dung KHÔNG có MP3 (vd câu trả lời động).
@@ -295,7 +302,7 @@ export function speak(text: string, opts: SpeakOptions = {}): boolean {
     cancelSpeech(); // dừng mọi thứ đang đọc — playToken đã tăng sau đây
     const token = playToken;
     const lang = opts.lang ?? 'vi-VN';
-    const onDone = () => { opts.onEnd ? opts.onEnd() : opts.onError?.(); };
+    const onDone = (success: boolean) => { if (success) opts.onEnd?.(); else opts.onError?.(); };
     return startChain(text, lang, opts.audioId, opts.rate ?? 0.8, opts.pitch ?? 1.05, token, onDone);
 }
 
@@ -336,7 +343,7 @@ export function speakSequence(
         const p = parts[i++];
         const lang = p.lang ?? 'vi-VN';
         const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
-        // Mỗi phần đi qua đúng chuỗi ưu tiên: thiết bị → Google → MP3 built-in.
+        // Mỗi phần đi qua đúng chuỗi ưu tiên: thiết bị → MP3 built-in → Google.
         startChain(p.text, lang, undefined, rate, pitch, token, advance);
     };
 
