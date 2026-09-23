@@ -1,5 +1,6 @@
 import type { EnglishSession } from "./model";
 import { clearAI } from "./ai";
+import { clearLibrary } from './library';
 const DB = "genius-english-v1";
 const STORE = "sessions";
 export class SessionConflict extends Error {
@@ -100,6 +101,7 @@ export function saveSession(
   });
 }
 export async function clearEnglishData(owner: string): Promise<void> {
+  await clearLibrary(owner);
   await clearAI(owner);
   return transaction("readwrite", (store, set) => {
     const r = store.index("owner").openCursor(IDBKeyRange.only(owner));

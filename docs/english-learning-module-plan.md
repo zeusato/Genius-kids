@@ -4,6 +4,8 @@
 > Nguyên tắc: hệ thống hoá kiến thức từ thấp → cao, offline-first (thư viện tĩnh) + làm giàu bằng AI.
 > File này gói trọn: (1) thiết kế module, (2) schema dữ liệu, (3) **toàn bộ prompt để bảo Gemini sinh nội dung**.
 
+> **Cập nhật trải nghiệm 23/09/2026:** bố cục one-page ở §4.1 được thay bằng sách có bìa, mục lục và các trang kiến thức ngắn. Tên chương nêu rõ kiến thức; ôn luyện, từ điển/thẻ từ và AI ra đề truy cập trực tiếp từ thanh điều hướng. Chi tiết thiết kế và kiểm chứng: [english-book-experience.md](english-book-experience.md). Schema và nội dung biên soạn tiếp tục dùng như bên dưới.
+
 ---
 
 ## 0. Mục tiêu & phạm vi

@@ -1,10 +1,24 @@
 import type { Level } from '../data/english/schema';
 export const LEVELS: Level[] = ['K','A1','A2','A3','B1','B2','B3','B4','C1','C2','C3'];
-export const LEVEL_NAMES: Record<Level,string> = {
+export const LEVEL_STORIES: Record<Level,string> = {
   K:'Chữ cái và những từ đầu tiên', A1:'Hello! Mình là ai?', A2:'Danh từ và mạo từ',
   A3:'Miêu tả và sở hữu', B1:'Thói quen mỗi ngày', B2:'Điều đang diễn ra',
   B3:'Chuyện đã qua', B4:'Dự định ngày mai', C1:'Cùng đặt câu hỏi',
   C2:'Nối ý và chỉ vị trí', C3:'Đọc hiểu và viết lại',
+};
+export const LEVEL_NAMES: Record<Level,string> = {
+  K:'Chữ cái & từ vựng đầu tiên', A1:'Đại từ nhân xưng & động từ to be', A2:'Danh từ & mạo từ',
+  A3:'Tính từ & sở hữu', B1:'Thì hiện tại đơn', B2:'Thì hiện tại tiếp diễn',
+  B3:'Thì quá khứ đơn', B4:'Thì tương lai & ôn tập 4 thì', C1:'Câu hỏi Wh-',
+  C2:'Giới từ & liên từ', C3:'Đọc hiểu & viết lại câu',
+};
+export const LEVEL_OUTLINES: Record<Level,string> = {
+  K:'ABC · số đếm · màu sắc · lời chào', A1:'I / you / he / she · am / is / are · this / that',
+  A2:'Số ít, số nhiều · a / an / the · there is / are', A3:'Miêu tả · my / your / his / her · sở hữu cách',
+  B1:'Thói quen · V-s/es · do / does', B2:'Hành động đang diễn ra · am / is / are + V-ing',
+  B3:'Chuyện đã qua · was / were · V-ed · did', B4:'Will · be going to · phân biệt các thì',
+  C1:'What / where / when / who / why / how', C2:'Vị trí, thời gian · and / but / because / so',
+  C3:'Tìm ý và chi tiết · trả lời ngắn · biến đổi câu',
 };
 export const requiredSkills: Record<Level,string[]> = {
   K:[], A1:['be-affirmative','be-negative','be-question','be-short-answer','demonstratives'],

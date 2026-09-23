@@ -16,47 +16,38 @@ import {
   Check,
   CheckCircle2,
   Clock3,
-  Headphones,
   Lightbulb,
   PencilLine,
   RotateCcw,
-  Search,
   Sprout,
   Star,
-  Volume2,
 } from "lucide-react";
 import { useStudent, useStudentActions } from "../contexts/StudentContext";
-import { HubShell } from "../components/hub/HubShell";
+import { BookShell, BookCover, BookContents, BookReader, PracticeDesk } from './BookExperience';
+import { VocabularyLab } from './VocabularyLab';
+import { AudioButton, ColoredSentence } from './LessonParts';
 import { isPreschool } from "../utils/grade";
 import {
-  canSpeak,
   cancelSpeech,
-  onSpeechAvailabilityChanged,
-  speak,
 } from "../utils/speech";
 import type { StudentProfile } from "../../types";
-import type { Sentence } from "../data/english/schema";
 import { loadContent, type EnglishContent } from "./content";
 import {
   answerText,
   checkResponse,
   correctAnswer,
-  createSession,
   grade,
   joinTokens,
   submitSession,
 } from "./engine";
 import {
   getSession,
-  listSessions,
   saveSession,
   SessionConflict,
 } from "./storage";
 import {
   POS_NAMES,
   ROLE_NAMES,
-  SKILLS,
-  SKILL_NAMES,
   type Answer,
   type EnglishSession,
   type Exercise,
@@ -64,14 +55,13 @@ import {
   type Response,
   type SessionSummary,
 } from "./model";
-import { LEVEL_NAMES, isLevel, requiredSkills, skillTitle } from './catalog';
-import { Catalog, ExtendedSetup, ExtraInput, EarlyLearn, Rulebook, OfflineNote, activityNames } from './ExtendedActivities';
+import { LEVEL_NAMES, isLevel, skillTitle } from './catalog';
+import { ExtendedSetup, ExtraInput, Rulebook, OfflineNote, activityNames } from './ExtendedActivities';
 import { isSentenceExercise, exerciseLevel } from './model';
-import { GrammarWidget, IrregularVerbs } from './GrammarWidgets';
 import { ParentContent } from './ParentContent';
 import './english.css';
+import './book.css';
 
-const art = `${import.meta.env.BASE_URL}english/garden.webp`;
 const duration = (seconds: number) =>
   `${Math.floor(seconds / 60)
     .toString()
@@ -102,537 +92,6 @@ function Loading() {
       <span />
       Đang mở trang sách…
     </div>
-  );
-}
-function AudioButton({ text }: { text: string }) {
-  const [available, setAvailable] = useState(() => canSpeak("en-US"));
-  const [error, setError] = useState(false);
-  useEffect(
-    () => onSpeechAvailabilityChanged(() => setAvailable(canSpeak("en-US"))),
-    [],
-  );
-  return (
-    <span className="en-audio">
-      <button
-        type="button"
-        className="en-icon"
-        aria-label={`Nghe: ${text}`}
-        disabled={!available}
-        title={
-          available ? "Nghe tiếng Anh" : "Thiết bị chưa có giọng tiếng Anh"
-        }
-        onClick={() => {
-          setError(false);
-          if (
-            !speak(text, {
-              lang: "en-US",
-              onEnd: () => {},
-              onError: () => setError(true),
-            })
-          )
-            setError(true);
-        }}
-      >
-        <Volume2 size={18} />
-      </button>
-      {error && <small role="status">Chưa phát được âm thanh.</small>}
-    </span>
-  );
-}
-function ColoredSentence({ sentence }: { sentence: Sentence }) {
-  return (
-    <div className="en-analysis">
-      <div className="en-sentence" lang="en">
-        {sentence.tokens.map((t, i) => (
-          <span
-            key={i}
-            className={`en-word en-pos-${t.pos}`}
-            title={POS_NAMES[t.pos]}
-          >
-            {t.text}
-            <small>{t.pos === "punct" ? "" : POS_NAMES[t.pos]}</small>
-          </span>
-        ))}
-      </div>
-      <div className="en-role-groups" aria-label="Thành phần câu">
-        {sentence.roleSpans.map((span, i) => (
-          <span key={i}>
-            <b lang="en">
-              {joinTokens(
-                span.tokenIndices.map((n) => sentence.tokens[n].text),
-              )}
-            </b>
-            <small>{ROLE_NAMES[span.role]}</small>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-function Progress({ student }: { student: StudentProfile }) {
-  const [level,setLevel]=useState(student.englishProgress?.selectedLevel || "A1");
-  return (
-    <div className="en-skills">
-      <select aria-label="Chủ đề tiến bộ" value={level} onChange={e=>setLevel(e.target.value as typeof level)}>{Object.entries(LEVEL_NAMES).filter(([id])=>id!=="K").map(([id,title])=><option key={id} value={id}>{title}</option>)}</select>
-      {requiredSkills[level].map((skill) => {
-        const data = student.englishProgress?.skills[level+":"+skill] || (level === "A1" ? student.englishProgress?.skills[skill] : undefined);
-        const accuracy = data?.attempts
-          ? Math.round((data.firstTryCorrect / data.attempts) * 100)
-          : 0;
-        return (
-          <div key={skill}>
-            <div>
-              <span>{skillTitle(skill)}</span>
-              <small>{data?.attempts ? `${accuracy}%` : "Chưa luyện"}</small>
-            </div>
-            <progress
-              max={100}
-              value={accuracy}
-              aria-label={`${skillTitle(skill)}: ${accuracy}%`}
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-function Home({
-  student,
-  content,
-}: {
-  student: StudentProfile;
-  content: EnglishContent | null;
-}) {
-  const [drafts, setDrafts] = useState<EnglishSession[]>([]);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    let active = true;
-    listSessions(student.id)
-      .then((s) => {
-        if (active)
-          setDrafts(
-            s.filter(
-              (x) =>
-                x.status !== "completed" &&
-                !student.englishProgress?.ledger[x.id],
-            ),
-          );
-      })
-      .catch(() => {
-        if (active)
-          setError(
-            "Chưa đọc được bài đang học. Hãy kiểm tra quyền lưu trữ của trình duyệt.",
-          );
-      });
-    return () => {
-      active = false;
-    };
-  }, [student.id, student.englishProgress]);
-  const level=content?.level || (isPreschool(student.grade)?"K":"A1");
-  const mastered = student.englishProgress?.masteryByLevel[level]?.mastered;
-  const recent = student.englishProgress?.recentSessions || [];
-  return (
-    <>
-      <section className="en-hero">
-        <div className="en-hero-copy">
-          <span className="en-eyebrow">
-            <Sprout size={16} /> ENGLISH GARDEN
-          </span>
-          <h1>
-            Từ những câu nhỏ,
-            <br />
-            <em>mở một thế giới lớn.</em>
-          </h1>
-          <p>
-            Cùng bạn Cáo học cách giới thiệu bản thân, nói điều mình thích và
-            hỏi thăm một người bạn.
-          </p>
-          <Link className="en-button" to={`/english/learn/${level}`}>
-            Mở bài học đầu tiên <ArrowRight size={19} />
-          </Link>
-          <span className="en-hero-note">
-            <Headphones size={15} /> Học từng chút. Tự tin mỗi ngày.
-          </span>
-        </div>
-        <div className="en-hero-art">
-          <img
-            src={art}
-            alt="Bạn Cáo đọc sách trong khu vườn, bên những chữ cái A, B, C"
-            width={1100}
-            height={733}
-          />
-          <span className="en-art-caption">A little English, every day.</span>
-        </div>
-      </section>
-      {error && <ErrorNotice>{error}</ErrorNotice>}
-      {drafts.length > 0 && (
-        <section className="en-resume">
-          <div>
-            <span className="en-eyebrow">TRANG SÁCH ĐANG MỞ</span>
-            <h2>Học tiếp từ chỗ em dừng</h2>
-          </div>
-          {drafts.slice(0, 3).map((s) => (
-            <Link
-              className="en-text-link"
-              key={s.id}
-              to={
-                s.status === "submitted"
-                  ? `/english/result/${s.id}`
-                  : `/english/${s.mode}?session=${s.id}`
-              }
-            >
-              {modeLabel(s.mode)} ·{" "}
-              {
-                Object.values(s.responses).filter(
-                  (r) =>
-                    r.attempts > 0 ||
-                    (Array.isArray(r.answer)
-                      ? r.answer.length > 0
-                      : r.answer.trim()),
-                ).length
-              }
-              /{s.exercises.length} câu <ArrowRight size={17} />
-            </Link>
-          ))}
-        </section>
-      )}
-      <div className="en-home-grid">
-        <section className="en-chapter">
-          <div className="en-section-heading">
-            <span className="en-eyebrow">BẮT ĐẦU THẬT VỮNG</span>
-            <span className="en-badge">
-              {mastered ? (
-                <>
-                  <Check size={14} /> Đã vững
-                </>
-              ) : (
-                "Cùng khám phá"
-              )}
-            </span>
-          </div>
-          <h2>{LEVEL_NAMES[level]}</h2>
-          <p>{level === "K" ? "Chữ cái · màu sắc · số đếm · lời chào" : "Đại từ nhân xưng · am, is, are · this, that, these, those"}</p>
-          <div className="en-book-strip" lang="en">
-            <span>I</span>
-            <span>am</span>
-            <span>happy.</span>
-            <AudioButton text="I am happy." />
-          </div>
-          <div className="en-chapter-meta">
-            <span>
-              <BookOpen size={16} />
-              {content
-                ? `${level === "K" ? content.phrases.length : content.sentences.length} ${level === "K" ? "cụm từ" : "mẫu câu"}`
-                : "Đang tải mẫu câu"}
-            </span>
-            <span>{content ? `${content.vocab.length} từ vựng` : ""}</span>
-          </div>
-          <div className="en-chapter-actions">
-            <Link to={`/english/learn/${level}`} className="en-button">
-              Học bài <ArrowRight size={17} />
-            </Link>
-            <Link to={`/english/practice?level=${level}`} className="en-text-link">
-              Luyện ngay <PencilLine size={16} />
-            </Link>
-          </div>
-        </section>
-        {level !== "K" && <aside className="en-growth">
-          <span className="en-eyebrow">GÓC TIẾN BỘ</span>
-          <h2>Mỗi lần thử, một bước mới.</h2>
-          <Progress student={student} />
-          <Link className="en-text-link" to="/english/test">
-            Thử sức với 10 câu <ArrowRight size={17} />
-          </Link>
-          <p className="en-small">
-            Hai bài kiểm tra đạt từ 80%, với ít nhất một nửa câu mới, giúp em
-            ghi dấu “Đã vững”.
-          </p>
-        </aside>}
-      </div>
-      <Catalog student={student} />
-      <section className="en-history">
-        <h2>Những lần em đã thử</h2>
-        {recent.length ? (
-          <div>
-            {recent.slice(0, 6).map((r) => (
-              <Link key={r.id} to={`/english/result/${r.id}`}>
-                <span className="en-history-icon">
-                  {r.mode === "test" ? (
-                    <CheckCircle2 size={19} />
-                  ) : (
-                    <PencilLine size={19} />
-                  )}
-                </span>
-                <span>
-                  <strong>{modeLabel(r.mode)} · {LEVEL_NAMES[r.level]}</strong>
-                  <small>
-                    {new Date(r.date).toLocaleDateString("vi-VN")} ·{" "}
-                    {duration(r.seconds)}
-                  </small>
-                </span>
-                <b>
-                  {r.score}/{r.total}
-                </b>
-                <span className="en-stars">
-                  +{r.stars} <Star size={14} />
-                </span>
-                <ArrowRight size={17} />
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <p className="en-empty">
-            Lần luyện đầu tiên của em sẽ xuất hiện ở đây. Chọn bài học và bắt đầu
-            nhé.
-          </p>
-        )}
-      </section>
-    </>
-  );
-}
-function PronounSwap() {
-  const [pronoun, setPronoun] = useState("I");
-  const be =
-    pronoun === "I"
-      ? "am"
-      : ["He", "She", "It"].includes(pronoun)
-        ? "is"
-        : "are";
-  return (
-    <aside className="en-swap">
-      <span className="en-eyebrow">THỬ ĐỔI MỘT TỪ</span>
-      <h3>Đổi bạn, đổi cả “to be”</h3>
-      <div className="en-options" aria-label="Chọn đại từ">
-        {["I", "You", "He", "She", "It", "We", "They"].map((p) => (
-          <button
-            type="button"
-            aria-pressed={pronoun === p}
-            key={p}
-            onClick={() => setPronoun(p)}
-          >
-            {p}
-          </button>
-        ))}
-      </div>
-      <p className="en-swap-sentence" lang="en" aria-live="polite">
-        <span>{pronoun}</span> <strong>{be}</strong> happy.
-      </p>
-      <AudioButton text={`${pronoun} ${be} happy.`} />
-      <p className="en-small">
-        {pronoun} đi cùng <strong>{be}</strong>. Em thử chọn một đại từ khác
-        nhé.
-      </p>
-    </aside>
-  );
-}
-function Vocabulary({ content }: { content: EnglishContent }) {
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(0);
-  const [revealed, setRevealed] = useState<string[]>([]);
-  const filtered = content.vocab.filter((v) =>
-    `${v.en} ${v.vi}`.toLowerCase().includes(query.toLowerCase()),
-  );
-  return (
-    <section className="en-vocabulary" id="vocabulary">
-      <div className="en-section-heading">
-        <div>
-          <span className="en-eyebrow">TỪ MỚI, BẠN MỚI</span>
-          <h2>Sổ từ vựng · {LEVEL_NAMES[content.level]}</h2>
-        </div>
-        <label className="en-search">
-          <Search size={17} />
-          <input
-            aria-label="Tìm từ vựng"
-            placeholder="Tìm một từ…"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setPage(0);
-            }}
-          />
-        </label>
-      </div>
-      <p className="en-small">Chạm vào thẻ để xem nghĩa và câu ví dụ.</p>
-      <div className="en-vocab-grid">
-        {filtered.slice(page * 12, page * 12 + 12).map((v) => (
-          <article className="en-vocab-card" key={v.id}>
-            <button
-              className="en-vocab-flip"
-              aria-expanded={revealed.includes(v.id)}
-              onClick={() =>
-                setRevealed((old) =>
-                  old.includes(v.id)
-                    ? old.filter((id) => id !== v.id)
-                    : [...old, v.id],
-                )
-              }
-            >
-              {v.image && !v.image.includes("/") && (
-                <span className="en-vocab-picture">{v.image}</span>
-              )}
-              <strong lang="en">{v.en}</strong>
-              <small>
-                {v.ipa} · {POS_NAMES[v.pos]}
-              </small>
-              {revealed.includes(v.id) ? (
-                <>
-                  <b>{v.vi}</b>
-                  <span lang="en">{v.exampleEn}</span>
-                  <small>{v.exampleVi}</small>
-                </>
-              ) : (
-                <span className="en-vocab-prompt">Chạm để mở nghĩa</span>
-              )}
-            </button>
-            <AudioButton text={v.en} />
-          </article>
-        ))}
-      </div>
-      {!filtered.length && (
-        <p className="en-empty">
-          Chưa tìm thấy từ này. Em thử một từ khác nhé.
-        </p>
-      )}
-      <div className="en-pagination">
-        <button
-          className="en-icon"
-          aria-label="Trang từ vựng trước"
-          disabled={page === 0}
-          onClick={() => setPage((p) => p - 1)}
-        >
-          <ArrowLeft size={17} />
-        </button>
-        <span>
-          {page + 1} / {Math.max(1, Math.ceil(filtered.length / 12))}
-        </span>
-        <button
-          className="en-icon"
-          aria-label="Trang từ vựng sau"
-          disabled={(page + 1) * 12 >= filtered.length}
-          onClick={() => setPage((p) => p + 1)}
-        >
-          <ArrowRight size={17} />
-        </button>
-      </div>
-    </section>
-  );
-}
-function Learn({ content }: { content: EnglishContent }) {
-  const { level } = useParams();
-  if (content.level === "K") return <><EarlyLearn content={content}/><Vocabulary content={content}/></>;
-  if (!content.theory) return null;
-  const t = content.theory;
-  return (
-    <>
-      <header className="en-page-heading">
-        <span className="en-eyebrow">TRANG SÁCH · {LEVEL_NAMES[content.level]}</span>
-        <h1>{t.title}</h1>
-        <p>{t.summary}</p>
-      </header>
-      <div className="en-learn-layout">
-        <nav className="en-toc" aria-label="Mục lục bài học">
-          <span className="en-eyebrow">TRONG BÀI NÀY</span>
-          {t.sections.map((s, i) => (
-            <a href={`#section-${i}`} key={i}>
-              {s.heading}
-            </a>
-          ))}
-          <a href="#vocabulary">Sổ từ vựng</a>
-          <Link className="en-button" to={`/english/practice?level=${content.level}`}>
-            Đi luyện tập <ArrowRight size={16} />
-          </Link>
-        </nav>
-        <div className="en-lesson">
-          <div className="en-formulas">
-            {t.formulas.map((f) => (
-              <div key={f.label}>
-                <span>{f.label}</span>
-                <strong>{f.pattern}</strong>
-                <p lang="en">{f.example}</p>
-              </div>
-            ))}
-          </div>
-          {t.sections.map((section, i) => (
-            <section id={`section-${i}`} key={i} className="en-lesson-section">
-              <h2>{section.heading}</h2>
-              <p className="en-body">{section.body}</p>
-              {section.table && (
-                <div
-                  className="en-table-scroll"
-                  tabIndex={0}
-                  role="region"
-                  aria-label={section.heading}
-                >
-                  <table>
-                    <thead>
-                      <tr>
-                        {section.table.columns.map((c) => (
-                          <th key={c} scope="col">
-                            {c}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {section.table.rows.map((row, r) => (
-                        <tr key={r}>
-                          {row.map((cell, c) => (
-                            <td key={c}>{cell}</td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-              {section.exampleIds?.map((id) => {
-                const sentence = content.sentences.find((s) => s.id === id);
-                return sentence ? (
-                  <div className="en-example" key={id}>
-                    <ColoredSentence sentence={sentence} />
-                    <div>
-                      <p>{sentence.vi}</p>
-                      <AudioButton text={sentence.en} />
-                    </div>
-                  </div>
-                ) : null;
-              })}
-              {section.interactive === "pronoun-swap" ? <PronounSwap /> : section.interactive && <GrammarWidget content={content} kind={section.interactive}/> }
-            </section>
-          ))}
-          <IrregularVerbs content={content}/>
-          <section className="en-lesson-section">
-            <h2>Những chỗ dễ nhầm</h2>
-            {t.commonMistakes.map((m, i) => (
-              <div className="en-mistake" key={i}>
-                <del lang="en">{m.wrong}</del>
-                <strong lang="en">
-                  <Check size={16} />
-                  {m.right}
-                </strong>
-                <p>{m.why}</p>
-              </div>
-            ))}
-            {t.tips.map((tip) => (
-              <p className="en-tip" key={tip}>
-                <Lightbulb size={18} />
-                {tip}
-              </p>
-            ))}
-          </section>
-        </div>
-      </div>
-      <Vocabulary content={content} />
-      <div className="en-next">
-        <div>
-          <span className="en-eyebrow">ĐẾN LƯỢT EM RỒI</span>
-          <h2>Thử dùng những điều vừa học.</h2>
-        </div>
-        <Link className="en-button" to={`/english/practice?level=${content.level}`}>
-          Bắt đầu luyện <ArrowRight size={18} />
-        </Link>
-      </div>
-    </>
   );
 }
 function ExerciseInput({
@@ -1450,13 +909,9 @@ export default function EnglishPage() {
     return () => cancelSpeech();
   }, [location.pathname, location.search, currentStudent?.id]);
   if (!currentStudent) return null;
-  const atHome = location.pathname.replace(/\/$/, "") === "/english";
   return (
-    <HubShell
+    <BookShell
       student={currentStudent}
-      section="Góc Tiếng Anh"
-      onBack={() => navigate(atHome ? "/mode" : "/english")}
-      backLabel={atHome ? "Về khám phá" : "Về góc Tiếng Anh"}
       onProfile={() => navigate("/profile")}
       onLogout={() => {
         cancelSpeech();
@@ -1465,12 +920,6 @@ export default function EnglishPage() {
       }}
     >
       <main className="en-main" key={currentStudent.id}>
-        {!online && (
-          <div className="en-notice">
-            Đang ngoại tuyến. Có thể mở lại bài đã lưu trên thiết bị.
-          </div>
-        )}
-        {content && (atHome || location.pathname.includes("/learn/")) && <OfflineNote key={content.level} content={content}/>}
         {contentError && (
           <ErrorNotice>
             Chưa thể mở bài học. {contentError}
@@ -1483,15 +932,18 @@ export default function EnglishPage() {
           </ErrorNotice>
         )}
           <Routes>
+            <Route path="contents" element={<BookContents student={currentStudent}/>}/>
+            <Route path="workshop" element={<PracticeDesk student={currentStudent}/>}/>
+            <Route path="vocabulary" element={content ? <VocabularyLab key={currentStudent.id+content.level} content={content} student={currentStudent}/> : <Loading/>}/>
             <Route
               index
-              element={<Home student={currentStudent} content={content} />}
+              element={<BookCover student={currentStudent} />}
             />
             <Route
               path="learn/:level"
               element={
                 content ? (
-                  <Learn content={content} />
+                  <BookReader key={currentStudent.id+content.level} content={content} student={currentStudent} />
                 ) : loading ? (
                   <Loading />
                 ) : null
@@ -1536,8 +988,14 @@ export default function EnglishPage() {
           <Link to="/mode">
             Sảnh khám phá <ArrowRight size={14} />
           </Link>
+          {(!online || (content && location.pathname.includes("/learn/"))) && (
+            <div className="book-footer-status" role="note" aria-label="Thông tin bài học và kết nối">
+              {!online && <p>Đang ngoại tuyến. Có thể mở lại bài đã lưu trên thiết bị.</p>}
+              {content && location.pathname.includes("/learn/") && <OfflineNote key={content.level} content={content}/>}
+            </div>
+          )}
         </footer>
       </main>
-    </HubShell>
+    </BookShell>
   );
 }

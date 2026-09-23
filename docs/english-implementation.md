@@ -2,6 +2,8 @@
 
 Updated 2026-09-23. The reviewed A1–C3 curriculum and the independent K track are now published. The dated Phase 1 report below is historical.
 
+The book experience now replaces the original game-style home and long theory page: cover, contents, paginated chapters with bookmarks/read progress, a directly accessible practice desk, dictionary/saved words/recall cards, and an AI authoring-to-practice workflow. See [English book experience](english-book-experience.md) for the implementation and verification details. Vietnamese headings use bundled Noto Serif normal/italic; body text uses bundled Nunito.
+
 ## Completed expansion
 
 - Topic catalog for all 11 tracks; preschool profiles enter English Garden directly. Learn pages load the selected topic, with theory, vocabulary, reviewed examples, supported grammar widgets and irregular verb tables. K offers letters, paginated phrases and vocabulary.
@@ -11,7 +13,7 @@ Updated 2026-09-23. The reviewed A1–C3 curriculum and the independent K track 
 - Progress keys migrate from legacy A1 names to level:skill. Review stores snapshots of missed/hinted sources. Only correct due-review attempts advance 1 → 3 → 7 → 14 days; same-day repeats do not accelerate the schedule. Review currently awards no stars.
 - Existing IndexedDB revision checks, Web Locks, reward ledger, daily reward caps and immutable session snapshots remain in use. Results preserve first-attempt grading.
 - Listening requires successful playback before checking. Playback failure offers retry or a written meaning question before any attempt, without a wrong-answer penalty. Device English voice availability still varies.
-- Parent content tools reuse Gemini settings/client. Explicit generation creates draft envelopes in a separate owner-scoped IndexedDB store; invalid/duplicate output is quarantined. Approval is required for practice inclusion; seed-only exams and placement exclude AI. Limits: 3 requested items, at most 5 returned items, 200 stored items / 2 MB per profile; 60-second cancellation timeout. Profile deletion clears both stores.
+- Parent content tools reuse Gemini settings/client. Explicit generation creates draft envelopes in a separate owner-scoped IndexedDB store; invalid/duplicate output is quarantined. Approval is required for practice inclusion; seed-only exams and placement exclude AI. Limits: 3 or 5 requested items, at most 5 returned items, 200 stored items / 2 MB per profile; 60-second cancellation timeout. Profile deletion clears sessions, AI drafts and the reading/vocabulary library.
 - All 33 canonical JSON files are validated at build, emitted as versioned assets and included in the PWA core cache. UI cache readiness checks actual cached URLs; loading a page alone is not claimed as durable offline availability.
 
 ## Verification of the expansion
