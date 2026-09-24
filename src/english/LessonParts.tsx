@@ -19,14 +19,13 @@ export function AudioButton({ text }: { text: string }) {
         aria-label={`Nghe: ${text}`}
         disabled={!available}
         title={
-          available ? "Nghe tiếng Anh" : "Thiết bị chưa có giọng tiếng Anh"
+          available ? "Nghe tiếng Anh" : "Trình duyệt chưa hỗ trợ phát âm thanh"
         }
         onClick={() => {
           setError(false);
           if (
             !speak(text, {
               lang: "en-US",
-              onEnd: () => {},
               onError: () => setError(true),
             })
           )

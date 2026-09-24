@@ -15,7 +15,7 @@ export const activityNames: Record<ActivityKind|'mixed',string> = { mixed:'Một
 export function OfflineNote({content}:{content:EnglishContent}) {
   const [cached,setCached]=useState(false);
   useEffect(()=>{let active=true;contentCacheStatus(content.level).then(value=>{if(active)setCached(value);}).catch(()=>{});return()=>{active=false;};},[content]);
-  return <p className="en-small en-cache-state">{LEVEL_NAMES[content.level]} · {cached?'✓ Bài học này đã lưu để mở lại ngoại tuyến.':'Bài đang mở. Chưa xác nhận đủ tệp ngoại tuyến.'} Giọng đọc phụ thuộc thiết bị.</p>;
+  return <p className="en-small en-cache-state">{LEVEL_NAMES[content.level]} · {cached?'✓ Bài học này đã lưu để mở lại ngoại tuyến.':'Bài đang mở. Chưa xác nhận đủ tệp ngoại tuyến.'} Nếu máy chưa có giọng đọc, cần kết nối mạng để nghe.</p>;
 }
 
 export function Catalog({student}: {student:StudentProfile}) {
@@ -60,7 +60,7 @@ export function ExtendedSetup({student,content,mode}: {student:StudentProfile;co
     <p>{mode==='placement'?'8 câu giúp gợi ý nơi bắt đầu. Không tính sao hay chứng nhận đã vững.':mode==='review'?'Ôn những câu đến hạn, xem lại lời giải và thử lại.':mode==='test'?`${total} câu từ các nguồn khác nhau. Đáp án chỉ xuất hiện sau khi nộp bài. Bài trộn nhiều chủ đề không xét Đã vững.`:'Chọn chủ đề, thử từng câu rồi xem lời giải.'}</p>
     {!['review','placement'].includes(mode)&&<fieldset><legend>Chủ đề</legend><div className="en-options">{LEVELS.filter(l=>mode!=='test'||l!=='K').map(l=><button key={l} aria-pressed={levels.includes(l)} onClick={()=>{setLevels(old=>old.includes(l)?old.filter(x=>x!==l):[...old,l]);setFamily('mixed');}}>{LEVEL_NAMES[l]}</button>)}</div></fieldset>}
     {mode!=='placement'&&<fieldset><legend>Số câu</legend><div className="en-options">{(mode==='test'?[10,15]:[5,10,15]).map(n=><button key={n} aria-pressed={count===n} onClick={()=>setCount(n)}>{n} câu</button>)}</div></fieldset>}
-    {mode==='practice'&&<fieldset><legend>Cách luyện</legend><div className="en-options">{available.map(k=><button key={k} aria-pressed={family===k} disabled={k==='listen'&&!canSpeak('en-US')} onClick={()=>setFamily(k as ActivityKind|'mixed')}>{activityNames[k]}</button>)}</div>{!canSpeak('en-US')&&<p className="en-small">Thiết bị chưa có giọng tiếng Anh. Các dạng luyện không cần âm thanh vẫn dùng được.</p>}</fieldset>}
+    {mode==='practice'&&<fieldset><legend>Cách luyện</legend><div className="en-options">{available.map(k=><button key={k} aria-pressed={family===k} disabled={k==='listen'&&!canSpeak('en-US')} onClick={()=>setFamily(k as ActivityKind|'mixed')}>{activityNames[k]}</button>)}</div>{!canSpeak('en-US')&&<p className="en-small">Trình duyệt chưa hỗ trợ phát âm thanh. Các dạng luyện không cần âm thanh vẫn dùng được.</p>}</fieldset>}
     {mode==='review'&&<div className="en-review-schedule"><p>{dueCount?`${dueCount} câu đã đến hẹn ôn.`:'Chưa có câu đến hạn. Em có thể luyện thêm hoặc quay lại vào ngày hẹn.'}</p>{reviewItems.slice().sort((a,b)=>a.nextReviewAt.localeCompare(b.nextReviewAt)).slice(0,10).map(item=><p key={item.sourceId}>{skillTitle(item.skill)} · {new Date(item.nextReviewAt).toLocaleDateString('vi-VN')}</p>)}{!dueCount&&<Link className="en-text-link" to="/english/practice">Chọn bài luyện →</Link>}</div>}
     {error&&<p className="en-notice en-error" role="alert">{error}</p>}<button className="en-button" disabled={busy||!levels.length||(mode==='review'&&!dueCount)} onClick={start}>{busy?'Đang mở sách…':'Bắt đầu →'}</button>
   </section>;
