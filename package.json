@@ -10,6 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "textures": "node scripts/convert-textures.mjs",
+    "sky": "node scripts/build-sky.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

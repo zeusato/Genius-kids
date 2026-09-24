@@ -69,6 +69,36 @@ export function playSlice(): void {
     src.stop(c.currentTime + dur + 0.02);
 }
 
+// Tiếng "vút" khi camera bay tới thiên thể — nhiễu hồng qua lowpass quét lên rồi xuống, rất nhẹ
+export function playWhoosh(): void {
+    if (!soundOn()) return;
+    const c = audioCtx();
+    if (!c) return;
+    const dur = 0.9;
+    const buf = c.createBuffer(1, Math.ceil(c.sampleRate * dur), c.sampleRate);
+    const data = buf.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < data.length; i++) {
+        last = last * 0.96 + (Math.random() * 2 - 1) * 0.04; // lọc thấp → tiếng gió mềm
+        data[i] = last * 6;
+    }
+    const src = c.createBufferSource();
+    src.buffer = buf;
+    const lp = c.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.Q.value = 3;
+    lp.frequency.setValueAtTime(300, c.currentTime);
+    lp.frequency.exponentialRampToValueAtTime(1800, c.currentTime + dur * 0.45);
+    lp.frequency.exponentialRampToValueAtTime(260, c.currentTime + dur);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.09, c.currentTime + dur * 0.4);
+    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur);
+    src.connect(lp).connect(g).connect(c.destination);
+    src.start();
+    src.stop(c.currentTime + dur + 0.02);
+}
+
 // Chuỗi nốt vui khi trả lời đúng / nhận huy hiệu
 export function playSuccess(): void {
     if (!soundOn()) return;

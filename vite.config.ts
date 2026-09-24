@@ -86,7 +86,7 @@ export default defineConfig(({ mode }) => {
         },
         injectManifest: {
           maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp,jpg,jpeg,json,webmanifest,mp3,ogg,wav,glb,ktx2,wasm}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp,jpg,jpeg,json,webmanifest,mp3,ogg,wav,glb,ktx2,wasm,bin}'],
           globIgnores: ['**/version.json', '**/*-preview.html', '**/horse-race/art/concept.webp', '**/404.html'],
           manifestTransforms: [async entries => {
             const manifest = await Promise.all(entries.map(async entry => {

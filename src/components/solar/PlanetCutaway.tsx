@@ -1,10 +1,12 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { X, Volume2, Square } from 'lucide-react';
 import { CUTAWAY_BODIES, CutawayBody, PlanetLayer } from '../../data/planetLayersData';
 import { SOLAR_SYSTEM_DATA, SUN_DATA } from '../../data/solarData';
 import { CutawayControls, CutawayPlanet, createCutawayControls } from './scene3d/CutawayPlanet';
 import { supportsWebGL } from './scene3d/core';
+import { StarsBackground } from './scene3d/StarsBackground';
 import { playBlip, playSlice } from './sfx';
 import { canSpeakVietnamese, onSpeechAvailabilityChanged, speakVietnamese, cancelSpeech } from './speech';
 
@@ -187,7 +189,8 @@ export const PlanetCutaway: React.FC<PlanetCutawayProps> = ({ onClose, initialBo
 
     const body = CUTAWAY_BODIES.find(b => b.id === bodyId) ?? CUTAWAY_BODIES[0];
     const outerIdx = body.layers.length - 1;
-    const selectedLayer: PlanetLayer | undefined = body.layers.find(l => l.id === selectedLayerId);
+    const selectedLayer: PlanetLayer | undefined = body.layers.find(l => l.id === selectedLayerId)
+        ?? (body.atmosphere && body.atmosphere.id === selectedLayerId ? body.atmosphere : undefined);
 
     const markCut = (id: string) => setCutSet(prev => (prev.has(id) ? prev : new Set(prev).add(id)));
 
@@ -239,6 +242,8 @@ export const PlanetCutaway: React.FC<PlanetCutawayProps> = ({ onClose, initialBo
         if (idx >= 0 && idx >= body.layers.length - peelCount) {
             setPeelCount(outerIdx - idx);
         }
+        // Bầu khí quyển là lớp ngoài cùng: đã bóc bất kỳ lớp nào thì đắp lại hết cho khí quyển hiện ra
+        if (body.atmosphere && id === body.atmosphere.id && peelCount > 0) setPeelCount(0);
         // Lớp trong mà múi đang khép → tự động chém mở cho thấy
         if (webgl && idx < outerIdx && angleDeg < 25) doSlice(null);
     };
@@ -400,16 +405,21 @@ export const PlanetCutaway: React.FC<PlanetCutawayProps> = ({ onClose, initialBo
                         dpr={[1, 1.5]}
                         camera={{ fov: FOV, position: [0, CAM_Y, CAM_Z], near: 0.1, far: 50 }}
                         gl={{ antialias: true }}
-                        onCreated={({ gl }) => { gl.localClippingEnabled = true; }}
+                        onCreated={({ gl }) => {
+                            gl.localClippingEnabled = true;
+                            gl.toneMapping = THREE.NeutralToneMapping; // cùng tone mapping với scene chính
+                        }}
                         onPointerMissed={() => {
                             // Bấm vào khoảng không (không trúng lớp nào) = hủy chọn lớp
                             if (!gest.current.dragged) setSelectedLayerId(null);
                         }}
                     >
-                        <color attach="background" args={['#05060f']} />
-                        <ambientLight intensity={0.55} />
+                        <color attach="background" args={['#03040b']} />
+                        {/* ambient thấp hơn để khối cầu + mặt cắt có sáng tối rõ (lõi nóng tự phát sáng) */}
+                        <ambientLight intensity={0.32} />
                         <directionalLight position={[2.5, 3, 5]} intensity={1.5} color="#FFF4E0" />
                         <Suspense fallback={null}>
+                            <StarsBackground quality="low" />
                             <CutawayPlanet
                                 key={body.id}
                                 body={body}
@@ -441,9 +451,10 @@ export const PlanetCutaway: React.FC<PlanetCutawayProps> = ({ onClose, initialBo
 
                     {/* Danh sách lớp — ngoài → trong */}
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 max-w-[46vw] z-10">
-                        {[...body.layers].reverse().map(layer => {
+                        {[...(body.atmosphere ? [body.atmosphere] : []), ...[...body.layers].reverse()].map(layer => {
                             const idx = body.layers.findIndex(l => l.id === layer.id);
-                            const peeled = idx >= body.layers.length - peelCount;
+                            // khí quyển (idx −1) ở ngoài cùng → bay mất ngay khi bóc lớp đầu tiên
+                            const peeled = idx < 0 ? peelCount > 0 : idx >= body.layers.length - peelCount;
                             const active = layer.id === selectedLayerId;
                             return (
                                 <button

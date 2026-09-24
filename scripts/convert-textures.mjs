@@ -38,7 +38,8 @@ const DOWNLOADS = [
   { file: '2k_neptune.jpg', url: SSS + '2k_neptune.jpg' },
   { file: '2k_sun.jpg', url: SSS + '2k_sun.jpg' },
   { file: '8k_saturn_ring_alpha.png', url: SSS + '8k_saturn_ring_alpha.png' },
-  { file: '8k_stars_milky_way.jpg', url: SSS + '8k_stars_milky_way.jpg' },
+  { file: '2k_moon.jpg', url: SSS + '2k_moon.jpg' },
+  { file: '2k_earth_specular_map.tif', url: SSS + '2k_earth_specular_map.tif' },
   {
     file: 'BlackMarble_2016_01deg.jpg',
     url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg',
@@ -64,12 +65,15 @@ const TARGETS = [
   ['uranus.webp', '2k_uranus.jpg', 512, 256, { quality: 78 }],
   ['neptune.webp', '2k_neptune.jpg', 512, 256, { quality: 78 }],
   ['sun.webp', '2k_sun.jpg', 1024, 512, { quality: 78 }],
-  ['stars_2k.webp', '8k_stars_milky_way.jpg', 2048, 1024, { quality: 70 }],
-  ['stars_4k.webp', '8k_stars_milky_way.jpg', 4096, 2048, { quality: 70 }],
+  ['moon.webp', '2k_moon.jpg', 1024, 512, { quality: 80 }],
+  // Mặt nạ đại dương (trắng = nước) cho ánh Mặt Trời lấp lánh trên biển
+  ['earth_ocean.webp', '2k_earth_specular_map.tif', 1024, 512, { quality: 80 }],
+  // Nền sao + dải Ngân Hà: xem scripts/build-sky.mjs (catalog sao thật + ảnh Ngân Hà đã tách sao)
 ];
 
 const MAGIC = {
   jpg: (b) => b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff,
+  tif: (b) => (b[0] === 0x49 && b[1] === 0x49) || (b[0] === 0x4d && b[1] === 0x4d),
   png: (b) =>
     b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4e && b[3] === 0x47,
 };
@@ -97,8 +101,9 @@ async function verify(dest, file) {
   const s = await stat(dest);
   if (s.size < 50 * 1024) return false;
   const fd = await readFile(dest);
-  const isPng = file.endsWith('.png');
-  return isPng ? MAGIC.png(fd) : MAGIC.jpg(fd);
+  if (file.endsWith('.png')) return MAGIC.png(fd);
+  if (file.endsWith('.tif')) return MAGIC.tif(fd);
+  return MAGIC.jpg(fd);
 }
 
 async function convert([out, srcFile, width, height, webpOpts]) {

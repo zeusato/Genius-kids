@@ -1,9 +1,10 @@
 import React, { useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { Html } from '@react-three/drei';
+import { Html, useTexture } from '@react-three/drei';
 import { MoonData } from '../../../data/solarData';
-import { SHARED_SPHERE, SimClock } from './core';
+import { LOW_SPHERE, SHARED_SPHERE, SimClock, texUrl } from './core';
+import { initialPhase } from './sceneParams';
 
 interface MoonMeshProps {
     moon: MoonData;
@@ -12,13 +13,25 @@ interface MoonMeshProps {
     onSelect: (id: string) => void;
 }
 
+// Mặt Trăng có ảnh thật (NASA/Solar System Scope) — các vệ tinh khác chỉ vài pixel nên giữ màu đặc
+function TexturedMoon({ size }: { size: number }) {
+    const map = useTexture(texUrl('moon'));
+    map.colorSpace = THREE.SRGBColorSpace;
+    return (
+        <mesh geometry={SHARED_SPHERE} scale={size}>
+            <meshStandardMaterial map={map} roughness={1} metalness={0} />
+        </mesh>
+    );
+}
+
 // Vệ tinh quay quanh hành tinh — đặt trong group quỹ đạo của hành tinh (theo nó quanh Mặt Trời).
 // Chạm → mở thẻ info (không fly-to vì chấm quá nhỏ). Label hiện khi hover.
+// Chiều quay: ngược chiều kim đồng hồ nhìn từ bắc (+Y), như Mặt Trăng thật.
 export const MoonMesh: React.FC<MoonMeshProps> = ({ moon, parentRadius, clock, onSelect }) => {
     const groupRef = useRef<THREE.Group>(null);
     const [hovered, setHovered] = useState(false);
-    const phase0 = useMemo(() => Math.random() * Math.PI * 2, []);
     const orbitR = moon.relOrbit * parentRadius;
+    const phase0 = useMemo(() => initialPhase(`moon:${moon.id}`), [moon.id]);
 
     useFrame(() => {
         if (!groupRef.current) return;
@@ -26,7 +39,7 @@ export const MoonMesh: React.FC<MoonMeshProps> = ({ moon, parentRadius, clock, o
         groupRef.current.position.set(
             Math.cos(a) * orbitR,
             Math.sin(a) * orbitR * moon.tilt,
-            Math.sin(a) * orbitR
+            -Math.sin(a) * orbitR
         );
     });
 
@@ -34,9 +47,13 @@ export const MoonMesh: React.FC<MoonMeshProps> = ({ moon, parentRadius, clock, o
 
     return (
         <group ref={groupRef}>
-            <mesh geometry={SHARED_SPHERE} scale={moon.size}>
-                <meshStandardMaterial color={moon.color} roughness={1} metalness={0} />
-            </mesh>
+            {moon.id === 'moon' ? (
+                <TexturedMoon size={moon.size} />
+            ) : (
+                <mesh geometry={LOW_SPHERE} scale={moon.size}>
+                    <meshStandardMaterial color={moon.color} roughness={1} metalness={0} />
+                </mesh>
+            )}
 
             {/* Vùng chạm to hơn cho ngón tay trẻ em */}
             <mesh

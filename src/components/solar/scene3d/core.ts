@@ -20,6 +20,10 @@ export function texUrl(name: string): string {
 export const SHARED_SPHERE = new THREE.SphereGeometry(1, 48, 32);
 // Bản nét hơn cho modal chi tiết
 export const DETAIL_SPHERE = new THREE.SphereGeometry(1, 64, 48);
+// Bản thô cho thiên thể chỉ vài pixel (vệ tinh, Pluto, nhân sao chổi) và vỏ khí quyển:
+// 360 tam giác thay vì 2.976 — mắt thường không phân biệt được ở kích thước đó
+export const LOW_SPHERE = new THREE.SphereGeometry(1, 16, 12);
+export const SHELL_SPHERE = new THREE.SphereGeometry(1, 32, 24);
 
 // Texture glow cho Mặt Trời — vẽ canvas, không cần file
 let glowTexture: THREE.CanvasTexture | null = null;
@@ -43,6 +47,8 @@ export function getGlowTexture(): THREE.CanvasTexture {
 export interface BodyEntry {
     object: THREE.Object3D;
     radius: number; // bán kính hiển thị (scene units)
+    ringNormal?: THREE.Vector3; // pháp tuyến mặt phẳng vành (world) — để góc tới nơi luôn thấy vành mở
+    spinGroup?: THREE.Object3D; // group tự quay — để xoay một địa danh (Vết Đỏ Lớn, Việt Nam...) ra trước camera
 }
 export type BodyRegistry = Record<string, BodyEntry>;
 
@@ -50,7 +56,25 @@ export type BodyRegistry = Record<string, BodyEntry>;
 export interface Scene3DApi {
     zoomIn: () => void;
     zoomOut: () => void;
+    skipIntro: () => void;
+    triggerStorm: () => void; // bão Mặt Trời → cực quang
 }
+
+// Mỗi component trong Canvas gắn phần API của mình (render ở React root riêng nên không biết thứ tự)
+export function mergeApi(ref: { current: Scene3DApi | null }, part: Partial<Scene3DApi>): void {
+    ref.current = { ...(ref.current ?? { zoomIn() {}, zoomOut() {}, skipIntro() {}, triggerStorm() {} }), ...part };
+}
+
+// Nhãn tên (Html) đăng ký để LabelDeclutter ẩn khi: nằm sau Mặt Trời, đang được focus,
+// hoặc đè lên nhãn gần camera hơn (nhãn đè từng "cướp" cú chạm của bé)
+export interface LabelEntry {
+    id: string;
+    anchor: THREE.Object3D;
+    offsetY: number;
+    // ref (không phải element) — nội dung <Html> render ở React root riêng nên element có sau
+    el: { readonly current: HTMLElement | null };
+}
+export type LabelRegistry = Map<string, LabelEntry>;
 
 export function supportsWebGL(): boolean {
     try {

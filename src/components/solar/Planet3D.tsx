@@ -1,6 +1,6 @@
 import React, { Suspense, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, useTexture } from '@react-three/drei';
 import { PlanetData } from '../../data/solarData';
 import { DETAIL_SPHERE, getGlowTexture, texUrl } from './scene3d/core';
@@ -14,6 +14,8 @@ interface Planet3DProps {
 }
 
 const BODY_RADIUS = 1.15;
+// Hướng đèn của modal — khí quyển/vành/ngày-đêm Trái Đất dùng chung để khớp bóng đổ
+const MODAL_LIGHT: [number, number, number] = [5, 2, 4];
 
 // Quả cầu texture NASA thay cho GLB cũ (9.7MB, chất lượng lệch nhau) —
 // cùng component shader/vành với scene chính → hình ảnh nhất quán toàn app.
@@ -53,20 +55,21 @@ function TexturedBody({ planet }: { planet: PlanetData }) {
     return (
         <group rotation-z={-THREE.MathUtils.degToRad(tiltDeg)}>
             {planet.id === 'earth' ? (
-                <EarthSurface radius={BODY_RADIUS} geometry={DETAIL_SPHERE} showClouds />
+                <EarthSurface radius={BODY_RADIUS} geometry={DETAIL_SPHERE} showClouds lightDir={MODAL_LIGHT} />
             ) : (
                 <mesh geometry={DETAIL_SPHERE} scale={BODY_RADIUS}>
                     <meshStandardMaterial map={texture} roughness={1} metalness={0} />
                 </mesh>
             )}
-            {planet.id === 'saturn' && <SaturnRings radius={BODY_RADIUS} />}
+            {planet.id === 'saturn' && <SaturnRings radius={BODY_RADIUS} lightDir={MODAL_LIGHT} />}
             {planet.id === 'uranus' && <UranusRings radius={BODY_RADIUS} />}
             {atmosphereColor && (
                 <AtmosphereRim
                     radius={BODY_RADIUS}
                     color={atmosphereColor}
-                    strength={planet.id === 'mars' ? 0.5 : 0.9}
+                    strength={planet.id === 'mars' ? 0.55 : 0.95}
                     geometry={DETAIL_SPHERE}
+                    lightDir={MODAL_LIGHT}
                 />
             )}
         </group>
@@ -113,6 +116,22 @@ function AsteroidCluster() {
     );
 }
 
+// Khung 3D của modal có thể hẹp và cao (bố cục 2 cột) → FOV ngang nhỏ, hành tinh + vành bị cắt.
+// Lùi camera theo tỉ lệ khung để vật thể (kể cả vành Sao Thổ ~2,3× bán kính) luôn lọt khung.
+function FitCamera({ extent }: { extent: number }) {
+    const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+    const size = useThree((s) => s.size);
+    useLayoutEffect(() => {
+        const aspect = size.width / Math.max(size.height, 1);
+        const halfV = THREE.MathUtils.degToRad(camera.fov / 2);
+        const halfH = Math.atan(Math.tan(halfV) * aspect);
+        const dist = Math.min(8, Math.max(4.2, (extent * 1.15) / Math.tan(Math.min(halfV, halfH))));
+        camera.position.setLength(dist);
+        camera.updateProjectionMatrix();
+    }, [camera, size.width, size.height, extent]);
+    return null;
+}
+
 export const Planet3D: React.FC<Planet3DProps> = ({ planet }) => {
     const isSun = planet.id === 'sun';
     return (
@@ -126,7 +145,7 @@ export const Planet3D: React.FC<Planet3DProps> = ({ planet }) => {
                 <Suspense fallback={null}>
                     <StarsBackground quality="low" />
                     <ambientLight intensity={isSun ? 1 : 0.3} />
-                    {!isSun && <directionalLight position={[5, 2, 4]} intensity={2.2} color="#FFF4E0" />}
+                    {!isSun && <directionalLight position={MODAL_LIGHT} intensity={2.2} color="#FFF4E0" />}
 
                     {planet.id === 'asteroid-belt' ? (
                         <AsteroidCluster />
@@ -134,6 +153,7 @@ export const Planet3D: React.FC<Planet3DProps> = ({ planet }) => {
                         <TexturedBody planet={planet} />
                     )}
 
+                    <FitCamera extent={BODY_RADIUS * (planet.id === 'saturn' ? 2.3 : planet.id === 'uranus' ? 1.9 : 1.1)} />
                     <OrbitControls
                         autoRotate
                         autoRotateSpeed={0.8}

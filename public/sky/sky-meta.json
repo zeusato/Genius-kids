@@ -1,0 +1,23 @@
+{
+  "source": "Yale Bright Star Catalogue 5th ed. (Hoffleit & Warren 1991, NASA ADC); Milky Way: Solar System Scope (CC BY 4.0)",
+  "starCount": 9096,
+  "magEncoding": "vmag = byte/25 - 2",
+  "bvEncoding": "bv = byte/85 - 0.5",
+  "milkyWay": {
+    "gain": 9.25925925925926,
+    "lonSign": -1,
+    "lonOffset": 0,
+    "latSign": -1
+  },
+  "sceneToGalactic": [
+    -0.05487556,
+    -0.096476626,
+    0.993821379,
+    0.494109428,
+    0.862285875,
+    0.110990734,
+    -0.867666149,
+    0.497147192,
+    0.00035159
+  ]
+}

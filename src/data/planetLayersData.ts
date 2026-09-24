@@ -14,11 +14,19 @@ export interface PlanetLayer {
     funFact?: string;
 }
 
+// Bầu khí quyển của hành tinh đá — lớp NGOÀI bề mặt (bán kính > 1), bị cắt cùng hành tinh và
+// có mặt cắt riêng (dải khí loãng dần theo độ cao). Độ dày đã phóng to như lớp vỏ.
+// Hành tinh khí khổng lồ không cần mục này: lớp khí ngoài cùng đã nằm trong `layers`.
+export interface CutawayAtmosphere extends PlanetLayer {
+    heightFrac: number;    // mép ngoài lớp khí theo bán kính hành tinh (>1), đã phóng to
+}
+
 export interface CutawayBody {
     id: string;            // khớp id trong solarData + tên file texture
     name: string;
     tagline: string;       // 1 câu "chốt hạ" về ruột thiên thể
     layers: PlanetLayer[]; // sắp xếp từ TRONG ra NGOÀI
+    atmosphere?: CutawayAtmosphere;
 }
 
 export const CUTAWAY_BODIES: CutawayBody[] = [
@@ -78,6 +86,12 @@ export const CUTAWAY_BODIES: CutawayBody[] = [
         id: 'venus',
         name: 'Sao Kim',
         tagline: 'Bên trong khá giống Trái Đất — nhưng bề mặt là "lò nướng" 460°C!',
+        atmosphere: {
+            id: 'atmosphere', name: 'Bầu khí quyển CO₂ dày đặc', color: '#E8D6A8', radiusFrac: 1, heightFrac: 1.09,
+            thickness: '~250 km (đã phóng to) — nặng gấp 90 lần khí quyển Trái Đất', temperature: '~460°C sát mặt đất',
+            description: 'Lớp khí CO₂ cực dày cùng mây axit giữ nhiệt như một cái nồi đậy kín, khiến Sao Kim nóng nhất Hệ Mặt Trời.',
+            funFact: 'Đứng trên mặt Sao Kim, bạn sẽ bị ép nặng như đang lặn sâu gần 1 km dưới biển!'
+        },
         layers: [
             {
                 id: 'core', name: 'Lõi sắt - niken', color: '#FFB74D', radiusFrac: 0.5,
@@ -101,6 +115,12 @@ export const CUTAWAY_BODIES: CutawayBody[] = [
         id: 'earth',
         name: 'Trái Đất',
         tagline: 'Ngôi nhà của chúng ta là một "củ hành" 4 lớp nóng rực bên trong!',
+        atmosphere: {
+            id: 'atmosphere', name: 'Bầu khí quyển', color: '#7FB8FF', radiusFrac: 1, heightFrac: 1.06,
+            thickness: '~100 km tới "ranh giới vũ trụ" (đã phóng to)', temperature: '15°C sát mặt đất → −90°C ở độ cao 80 km',
+            description: 'Lớp không khí mỏng cho ta oxy để thở, giữ hơi ấm và che chắn tia cực tím của Mặt Trời. Càng lên cao không khí càng loãng.',
+            funFact: 'Nếu Trái Đất to bằng quả táo, lớp không khí còn mỏng hơn cả vỏ táo!'
+        },
         layers: [
             {
                 id: 'inner-core', name: 'Lõi trong', color: '#FFF176', radiusFrac: 0.19,
@@ -131,6 +151,12 @@ export const CUTAWAY_BODIES: CutawayBody[] = [
         id: 'mars',
         name: 'Sao Hỏa',
         tagline: 'Hành tinh đỏ có lõi lỏng mà tàu InSight đã "nghe" thấy bằng động đất!',
+        atmosphere: {
+            id: 'atmosphere', name: 'Bầu khí quyển mỏng', color: '#E3A986', radiusFrac: 1, heightFrac: 1.045,
+            thickness: '~100 km (đã phóng to), loãng hơn Trái Đất hơn 100 lần', temperature: 'trung bình −63°C',
+            description: 'Lớp khí CO₂ rất loãng nên không giữ được hơi ấm. Bão bụi có thể phủ kín cả hành tinh nhiều tuần liền!',
+            funFact: 'Hoàng hôn trên Sao Hỏa lại có màu xanh lam — ngược hẳn với Trái Đất!'
+        },
         layers: [
             {
                 id: 'core', name: 'Lõi lỏng', color: '#FFB74D', radiusFrac: 0.5,

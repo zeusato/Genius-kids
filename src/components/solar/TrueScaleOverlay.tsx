@@ -9,6 +9,9 @@ import { DETAIL_SPHERE, getGlowTexture, texUrl, supportsWebGL } from './scene3d/
 import { AtmosphereRim, ATMOSPHERE_COLORS } from './scene3d/AtmosphereRim';
 import { SaturnRings, UranusRings } from './scene3d/PlanetRings';
 
+// Hướng đèn của dãy so sánh — khí quyển & vành dùng chung để khớp phía sáng
+const LINEUP_LIGHT: [number, number, number] = [-4, 6, 8];
+
 // "Kích thước thật" — khoảnh khắc dạy học đập tan ngộ nhận phổ biến nhất:
 // trẻ em tưởng các hành tinh to gần bằng nhau. Mọi thiên thể là QUẢ CẦU 3D
 // texture NASA tự xoay, đường kính ĐÚNG tỷ lệ (Trái Đất = 0.5 unit chuẩn),
@@ -141,7 +144,7 @@ function LineupBody({ entry }: { entry: LineupEntry }) {
                         <meshStandardMaterial map={texture} roughness={1} metalness={0} />
                     </mesh>
                 </group>
-                {planet.id === 'saturn' && <SaturnRings radius={r} />}
+                {planet.id === 'saturn' && <SaturnRings radius={r} lightDir={LINEUP_LIGHT} />}
                 {planet.id === 'uranus' && <UranusRings radius={r} />}
                 {atmosphereColor && (
                     <AtmosphereRim
@@ -149,6 +152,7 @@ function LineupBody({ entry }: { entry: LineupEntry }) {
                         color={atmosphereColor}
                         strength={planet.id === 'mars' ? 0.45 : 0.75}
                         geometry={DETAIL_SPHERE}
+                        lightDir={LINEUP_LIGHT}
                     />
                 )}
             </group>
@@ -215,7 +219,7 @@ function TrueScale3D() {
             >
                 <color attach="background" args={['#05060f']} />
                 <ambientLight intensity={0.55} />
-                <directionalLight position={[-4, 6, 8]} intensity={1.7} color="#FFF4E0" />
+                <directionalLight position={LINEUP_LIGHT} intensity={1.7} color="#FFF4E0" />
                 <Suspense fallback={null}>
                     <LineupSun />
                     {LINEUP.entries.map(entry => (

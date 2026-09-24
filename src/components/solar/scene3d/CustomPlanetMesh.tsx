@@ -3,7 +3,8 @@ import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import { SimClock } from './core';
-import { orbitRadius, hitRadius, scenePeriodSeconds } from './scale';
+import { orbitRadius, hitRadius } from './scale';
+import { orbitAngle, orbitPoint } from './orbit';
 import { PlanetModel } from '../../planetmaker/PlanetModel';
 import { createTerrain, deserializeTerrain, randomizeTerrain } from '../../planetmaker/terrainOps';
 import { CustomPlanetDoc } from '../../planetmaker/planetStore';
@@ -38,15 +39,12 @@ export const CustomPlanetMesh: React.FC<CustomPlanetMeshProps> = ({ doc, clock, 
     }, [doc]);
 
     const d = orbitRadius(CUSTOM_AU);
-    const period = scenePeriodSeconds(CUSTOM_PERIOD_YEARS);
     const hitR = hitRadius(CUSTOM_RADIUS);
-    const phase0 = useMemo(() => Math.random() * Math.PI * 2, []);
 
     useFrame(() => {
         const g = orbitGroupRef.current;
         if (!g) return;
-        const alpha = phase0 + clock.t * ((2 * Math.PI) / period);
-        g.position.set(Math.cos(alpha) * d, 0, Math.sin(alpha) * d);
+        orbitPoint(d, 0, orbitAngle('custom-planet', CUSTOM_PERIOD_YEARS, clock.t), g.position);
     });
 
     return (
