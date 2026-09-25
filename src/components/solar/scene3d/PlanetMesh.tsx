@@ -115,6 +115,7 @@ export const PlanetMesh: React.FC<PlanetMeshProps> = ({ data, clock, onSelect, r
                             orbitGroupRef={orbitGroupRef}
                             showClouds={quality === 'high'}
                             auroraRef={auroraRef}
+                            sceneFill
                         />
                     ) : (
                         <mesh geometry={SHARED_SPHERE} material={material} scale={r} />

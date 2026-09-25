@@ -67,6 +67,28 @@ export function overridePhase(id: string, radians: number): void {
     phaseCache.set(id, radians);
 }
 
+// Độ sáng toàn hệ (0 = thực tế: mặt đêm tối đen, 1 = sáng rõ cho trẻ dễ nhìn). Object mutable
+// dùng chung — shader đọc mỗi frame (EarthSurface, bầu trời), UI ghi qua setSceneBrightness.
+// Nhớ theo máy (localStorage, lỗi thì dùng mặc định).
+const BRIGHTNESS_KEY = 'solarBrightness';
+export const DEFAULT_BRIGHTNESS = 0.6;
+
+function loadBrightness(): number {
+    try {
+        const v = parseFloat(localStorage.getItem(BRIGHTNESS_KEY) ?? '');
+        return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : DEFAULT_BRIGHTNESS;
+    } catch {
+        return DEFAULT_BRIGHTNESS;
+    }
+}
+
+export const sceneLighting = { brightness: typeof window === 'undefined' ? DEFAULT_BRIGHTNESS : loadBrightness() };
+
+export function setSceneBrightness(v: number): void {
+    sceneLighting.brightness = Math.min(1, Math.max(0, v));
+    try { localStorage.setItem(BRIGHTNESS_KEY, String(sceneLighting.brightness)); } catch { /* chế độ riêng tư */ }
+}
+
 export function prefersReducedMotion(): boolean {
     if (typeof window === 'undefined' || !window.matchMedia) return false;
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;

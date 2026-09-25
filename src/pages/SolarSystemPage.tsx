@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, Pause, Rocket } from 'lucide-react';
+import { ArrowLeft, ZoomIn, ZoomOut, ChevronDown, ChevronUp, Pause, Rocket, Eye, EyeOff } from 'lucide-react';
 import { PlanetDetail } from '../components/solar/PlanetDetail';
 import { Legacy2DView } from '../components/solar/Legacy2DView';
 import { SolarCollection } from '../components/solar/SolarCollection';
@@ -13,7 +13,7 @@ import { useStudent } from '../contexts/StudentContext';
 import { COLLECTIBLE_BODY_IDS } from '../data/solarQuizData';
 import { Scene3D } from '../components/solar/scene3d/Scene3D';
 import { createSimClock, Scene3DApi, supportsWebGL } from '../components/solar/scene3d/core';
-import { INTRO_DISABLED, overridePhase, prefersReducedMotion } from '../components/solar/scene3d/sceneParams';
+import { INTRO_DISABLED, overridePhase, prefersReducedMotion, sceneLighting, setSceneBrightness } from '../components/solar/scene3d/sceneParams';
 import { heliocentricLongitude, REAL_POSITION_BODIES } from '../components/solar/scene3d/astro';
 import { ArrivalCard } from '../components/solar/ArrivalCard';
 import { SolarQuiz } from '../components/solar/SolarQuiz';
@@ -60,11 +60,24 @@ export function SolarSystemPage() {
     const [dateValue, setDateValue] = useState(() => new Date().toISOString().slice(0, 10));
     const [snapshotDate, setSnapshotDate] = useState<string | null>(null); // đang hiển thị vị trí thật ngày này
     const [portrait, setPortrait] = useState(() => window.innerHeight >= window.innerWidth);
+    // Màn hẹp (điện thoại): cột công cụ mặc định gập lại, ẩn nút zoom (đã có pinch) để nhường chỗ cho cảnh
+    const [compact, setCompact] = useState(() => window.innerWidth < 640);
     useEffect(() => {
-        const onResize = () => setPortrait(window.innerHeight >= window.innerWidth);
+        const onResize = () => {
+            setPortrait(window.innerHeight >= window.innerWidth);
+            setCompact(window.innerWidth < 640);
+        };
         window.addEventListener('resize', onResize);
         return () => window.removeEventListener('resize', onResize);
     }, []);
+    const [toolsOpen, setToolsOpen] = useState(() => window.innerWidth >= 640);
+    const [uiHidden, setUiHidden] = useState(false);          // 👁 ẩn toàn bộ nút để ngắm cảnh
+    const [brightness, setBrightness] = useState(sceneLighting.brightness);
+    const [brightnessPanel, setBrightnessPanel] = useState(false);
+    const changeBrightness = (v: number) => {
+        setBrightness(v);
+        setSceneBrightness(v); // scene đọc mỗi frame — không cần re-render Canvas
+    };
     // Cảnh bay mở màn: mỗi phiên một lần, bỏ khi giảm chuyển động hoặc ?intro=0
     const [introActive, setIntroActive] = useState(() => {
         try {
@@ -262,7 +275,7 @@ export function SolarSystemPage() {
 
             {/* UI Controls */}
             {/* z-[60]: cao hơn cột nút bên dưới (z-50) — trước đây menu thả xuống bị cột nút đè */}
-            <div className="absolute top-4 left-4 z-[60] flex gap-4">
+            {!uiHidden && <div className="absolute top-4 left-4 z-[60] flex gap-3 sm:gap-4">
                 <button
                     onClick={() => navigate('/science')}
                     className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
@@ -274,9 +287,9 @@ export function SolarSystemPage() {
                 {!touring && <div className="relative">
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="flex items-center gap-2 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                        className={`flex items-center gap-2 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all ${compact ? 'px-3' : 'px-4'}`}
                     >
-                        <span className="text-sm font-semibold">Chọn thiên thể</span>
+                        <span className="text-sm font-semibold">{compact ? 'Thiên thể' : 'Chọn thiên thể'}</span>
                         <ChevronDown size={16} className={`transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} />
                     </button>
 
@@ -327,15 +340,38 @@ export function SolarSystemPage() {
                         </div>
                     )}
                 </div>}
-            </div>
+            </div>}
 
-            <div className="absolute top-4 right-4 z-50">
-                <MusicControls />
+            {/* Góc phải: 👁 ẩn/hiện nút (luôn còn để bật lại) + nhạc */}
+            <div className="absolute top-4 right-4 z-[60] flex items-center gap-2">
+                {!use2D && (
+                    <button
+                        onClick={() => { setUiHidden((v) => !v); setIsMenuOpen(false); setBrightnessPanel(false); setDatePanel(false); }}
+                        title={uiHidden ? 'Hiện các nút' : 'Ẩn các nút để ngắm cảnh'}
+                        className={`p-2.5 sm:p-3 rounded-full backdrop-blur-md border text-white transition-all ${uiHidden ? 'bg-white/5 border-white/15 opacity-70 hover:opacity-100' : 'bg-white/10 border-white/20 hover:bg-white/20'}`}
+                    >
+                        {uiHidden ? <Eye size={20} /> : <EyeOff size={20} />}
+                    </button>
+                )}
+                {!uiHidden && <MusicControls />}
             </div>
 
             {/* Bộ sưu tập huy hiệu + Kích thước thật + Du hành */}
-            {!selectedPlanet && !touring && !arrivedId && (
-                <div className="absolute top-20 left-4 z-50 flex flex-col gap-2">
+            {/* Màn hẹp + đang gập: chỉ một nút mở hộp công cụ */}
+            {!selectedPlanet && !touring && !arrivedId && !uiHidden && !toolsOpen && (
+                <button
+                    onClick={() => setToolsOpen(true)}
+                    title="Mở hộp công cụ"
+                    className="absolute top-20 left-4 z-50 flex items-center gap-2 px-3.5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+                >
+                    <span className="text-lg leading-none">🧰</span>
+                    <span className="text-xs font-bold">Công cụ</span>
+                    <ChevronDown size={14} />
+                </button>
+            )}
+
+            {!selectedPlanet && !touring && !arrivedId && !uiHidden && toolsOpen && (
+                <div className="absolute top-20 left-4 z-50 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
                     {!use2D && (
                         <button
                             onClick={startTour}
@@ -375,6 +411,13 @@ export function SolarSystemPage() {
                     {!use2D && (
                         <div className="relative flex gap-2">
                             <button
+                                onClick={() => { setBrightnessPanel((v) => !v); setDatePanel(false); }}
+                                title="Chỉnh độ sáng"
+                                className={`w-11 h-11 flex items-center justify-center rounded-full backdrop-blur-md border text-lg transition-all ${brightnessPanel ? 'bg-yellow-300/25 border-yellow-200/60' : 'bg-white/10 border-white/20 hover:bg-white/20'}`}
+                            >
+                                ☀️
+                            </button>
+                            <button
                                 onClick={() => setShowConstellations((v) => !v)}
                                 title="Chòm sao trên bầu trời thật"
                                 className={`w-11 h-11 flex items-center justify-center rounded-full backdrop-blur-md border text-lg transition-all ${showConstellations ? 'bg-sky-400/30 border-sky-300/60' : 'bg-white/10 border-white/20 hover:bg-white/20'}`}
@@ -389,12 +432,32 @@ export function SolarSystemPage() {
                                 🌞
                             </button>
                             <button
-                                onClick={() => setDatePanel((v) => !v)}
+                                onClick={() => { setDatePanel((v) => !v); setBrightnessPanel(false); }}
                                 title="Các hành tinh ở đâu vào một ngày?"
                                 className={`w-11 h-11 flex items-center justify-center rounded-full backdrop-blur-md border text-lg transition-all ${datePanel || snapshotDate ? 'bg-amber-400/25 border-amber-300/60' : 'bg-white/10 border-white/20 hover:bg-white/20'}`}
                             >
                                 📅
                             </button>
+                            {brightnessPanel && (
+                                <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl bg-slate-900/95 backdrop-blur-md border border-white/20 p-3 text-white shadow-xl">
+                                    <div className="flex items-center justify-between text-xs font-bold mb-2">
+                                        <span>🌑 Thực tế</span>
+                                        <span>☀️ Sáng rõ</span>
+                                    </div>
+                                    <input
+                                        type="range"
+                                        min={0}
+                                        max={100}
+                                        value={Math.round(brightness * 100)}
+                                        onChange={(e) => changeBrightness(Number(e.target.value) / 100)}
+                                        className="w-full accent-yellow-300"
+                                        aria-label="Độ sáng"
+                                    />
+                                    <p className="text-[11px] text-white/70 mt-2 leading-relaxed">
+                                        Ngoài vũ trụ, phía hành tinh không được Mặt Trời chiếu thì tối đen. Kéo sang phải để nhìn rõ hơn nhé!
+                                    </p>
+                                </div>
+                            )}
                             {datePanel && (
                                 <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl bg-slate-900/95 backdrop-blur-md border border-white/20 p-3 text-white shadow-xl">
                                     <p className="text-xs text-white/80 mb-2 leading-relaxed">
@@ -426,11 +489,18 @@ export function SolarSystemPage() {
                             )}
                         </div>
                     )}
+                    <button
+                        onClick={() => { setToolsOpen(false); setBrightnessPanel(false); setDatePanel(false); }}
+                        title="Thu gọn hộp công cụ"
+                        className="self-start flex items-center gap-1 px-3 py-1.5 rounded-full bg-black/30 border border-white/15 text-white/70 text-[11px] font-semibold hover:bg-white/15 hover:text-white transition-all"
+                    >
+                        <ChevronUp size={14} /> Thu gọn
+                    </button>
                 </div>
             )}
 
             {/* Nhãn "ảnh chụp" vị trí thật theo ngày */}
-            {snapshotDate && !touring && !arrivedId && !selectedPlanet && (
+            {snapshotDate && !touring && !arrivedId && !selectedPlanet && !uiHidden && (
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40 mt-16 sm:mt-0 max-w-[92vw] px-4 py-2 rounded-2xl bg-amber-500/15 border border-amber-300/40 backdrop-blur-md text-amber-50 text-xs sm:text-sm text-center">
                     📅 {snapshotDate.split('-').reverse().join('/')} — {speed === 0
                         ? 'vị trí thật của các hành tinh ngày này (khoảng cách đã thu nhỏ)'
@@ -440,7 +510,7 @@ export function SolarSystemPage() {
             )}
 
             {/* Bão Mặt Trời — lời giải thích */}
-            {stormNote && !touring && !selectedPlanet && (
+            {stormNote && !touring && !selectedPlanet && !uiHidden && (
                 <div className="absolute left-1/2 -translate-x-1/2 bottom-24 z-50 w-[min(560px,92vw)] rounded-2xl bg-slate-900/90 border border-orange-300/40 backdrop-blur-md p-4 text-white shadow-2xl animate-in slide-in-from-bottom duration-500">
                     <div className="flex items-start gap-3">
                         <span className="text-2xl">🌞</span>
@@ -486,8 +556,8 @@ export function SolarSystemPage() {
             {quizBody && <SolarQuiz planet={quizBody} onClose={() => setQuizBody(null)} />}
 
             {/* Điều khiển thời gian — chỉ ở chế độ 3D, ẩn khi modal mở / khi tour */}
-            {!use2D && !selectedPlanet && !touring && !arrivedId && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 px-2 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+            {!use2D && !selectedPlanet && !touring && !arrivedId && !uiHidden && (
+                <div className={`absolute left-1/2 -translate-x-1/2 z-50 flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full ${compact ? 'bottom-12 gap-1 px-1.5 py-1' : 'bottom-6 gap-1.5 px-2 py-1.5'}`}>
                     <button
                         onClick={() => handleSpeedChange(0)}
                         title="Tạm dừng"
@@ -509,7 +579,8 @@ export function SolarSystemPage() {
             )}
 
             {/* Zoom buttons — giữ song song với pinch/wheel cho dễ khám phá */}
-            {!use2D && !selectedPlanet && !touring && !arrivedId && (
+            {/* Zoom: ẩn trên điện thoại (đã có pinch 2 ngón) để nhường chỗ cho cảnh */}
+            {!use2D && !selectedPlanet && !touring && !arrivedId && !uiHidden && !compact && (
                 <div className="absolute bottom-8 right-8 z-50 flex flex-col gap-2">
                     <button
                         onClick={() => sceneApiRef.current?.zoomIn()}
@@ -528,7 +599,7 @@ export function SolarSystemPage() {
 
             {/* Ghi công nguồn ảnh (CC BY 4.0 yêu cầu hiển thị trong UI) + lưu ý tỷ lệ */}
             {!selectedPlanet && !touring && (
-                <div className="absolute bottom-2 left-3 z-40 text-[10px] text-white/40 pointer-events-none leading-tight">
+                <div className={`absolute bottom-2 left-3 z-40 text-[10px] text-white/40 pointer-events-none leading-tight ${compact ? 'right-3 text-center' : ''}`}>
                     <div>Hình ảnh: NASA · Solar System Scope (CC BY 4.0) · Sao: Yale Bright Star Catalogue</div>
                     <div>Kích thước và tốc độ đã được điều chỉnh để dễ quan sát</div>
                 </div>

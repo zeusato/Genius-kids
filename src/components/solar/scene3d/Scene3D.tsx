@@ -17,7 +17,7 @@ import { LabelDeclutter } from './LabelDeclutter';
 import { FeatureSpotlight } from './FeatureSpotlight';
 import { SolarStorm, StormState } from './SolarStorm';
 import { PerfOverlay } from './PerfOverlay';
-import { DEBUG_PERF, FORCED_TIER, QualityTier } from './sceneParams';
+import { DEBUG_PERF, FORCED_TIER, QualityTier, sceneLighting } from './sceneParams';
 import { CustomPlanetDoc } from '../../planetmaker/planetStore';
 
 // Bloom chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
@@ -30,6 +30,29 @@ function ClockTicker({ clock }: { clock: SimClock }) {
         clock.t += Math.min(delta, 0.1) * clock.timeScale;
     }, -1);
     return null;
+}
+
+// Ánh sáng phụ theo thanh "độ sáng" (sceneLighting.brightness, đọc mỗi frame — kéo thanh không
+// re-render). 0 = thực tế: ambient gần 0, lằn ranh ngày/đêm sắc, mặt đêm tối đen. Tăng lên thì
+// thêm đèn phụ chiếu TỪ PHÍA CAMERA (+ chút ambient): mặt đêm lộ màu thật mà hành tinh vẫn còn khối
+// (ambient thuần sẽ làm hành tinh phẳng dẹt). Trẻ nhìn rõ, không "tăm tối".
+function SceneFillLights() {
+    const ambientRef = useRef<THREE.AmbientLight>(null);
+    const fillRef = useRef<THREE.DirectionalLight>(null);
+    useFrame(({ camera }) => {
+        const b = sceneLighting.brightness;
+        if (ambientRef.current) ambientRef.current.intensity = 0.04 + 0.22 * b;
+        if (fillRef.current) {
+            fillRef.current.intensity = 1.05 * b;
+            fillRef.current.position.copy(camera.position); // hướng: camera → gốc (target mặc định)
+        }
+    });
+    return (
+        <>
+            <ambientLight ref={ambientRef} intensity={0.04} />
+            <directionalLight ref={fillRef} intensity={0} color="#dfe8ff" />
+        </>
+    );
 }
 
 interface Scene3DProps {
@@ -93,9 +116,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
             }}
         >
             <color attach="background" args={['#02040c']} />
-            {/* Ambient gần 0 để lằn ranh ngày/đêm sắc nét (0.15 cũ làm mặt đêm sáng ~25–30%
-                mặt ngày sau mã hoá sRGB → hành tinh trông phẳng). Viền mờ mặt đêm do planetSurface lo. */}
-            <ambientLight intensity={0.04} />
+            <SceneFillLights />
             <ClockTicker clock={clock} />
 
             <Suspense fallback={null}>

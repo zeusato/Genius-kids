@@ -4,6 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import { SHARED_SPHERE, texUrl } from './core';
 import { GLSL_NOISE } from './glslNoise';
+import { sceneLighting } from './sceneParams';
 
 interface EarthSurfaceProps {
     radius: number;
@@ -16,6 +17,8 @@ interface EarthSurfaceProps {
     lightDir?: [number, number, number];
     // 0..1 — cường độ cực quang (bão Mặt Trời vừa tới). Đọc qua ref để không re-render.
     auroraRef?: React.MutableRefObject<number>;
+    // scene chính: mặt đêm được nâng sáng theo thanh "độ sáng" (sceneLighting) — modal có đèn riêng
+    sceneFill?: boolean;
 }
 
 // Trái Đất: shader ngày/đêm (đèn thành phố NASA Black Marble) + lớp mây riêng. Chi tiết trẻ
@@ -32,7 +35,8 @@ export const EarthSurface: React.FC<EarthSurfaceProps> = ({
     showClouds = true,
     cloudsSpeed = 0.015,
     lightDir = [1, 0.35, 0.6],
-    auroraRef
+    auroraRef,
+    sceneFill = false
 }) => {
     const [dayMap, nightMap, cloudsMap, oceanMap] = useTexture([
         texUrl('earth_day'),
@@ -56,6 +60,7 @@ export const EarthSurface: React.FC<EarthSurfaceProps> = ({
             uCloudShift: { value: 0 },
             uSunDir: { value: new THREE.Vector3(...lightDir).normalize() },
             uAurora: { value: 0 },
+            uFill: { value: 0 },
             uTime: { value: 0 }
         },
         vertexShader: /* glsl */`
@@ -80,6 +85,7 @@ export const EarthSurface: React.FC<EarthSurfaceProps> = ({
             uniform float uCloudShift;
             uniform vec3 uSunDir;
             uniform float uAurora;
+            uniform float uFill;
             uniform float uTime;
             varying vec2 vUv;
             varying vec3 vWorldNormal;
@@ -106,6 +112,8 @@ export const EarthSurface: React.FC<EarthSurfaceProps> = ({
                 day += vec3(1.0, 0.93, 0.8) * spec * 0.85;
 
                 vec3 night = texture2D(uNight, vUv).rgb * vec3(1.0, 0.85, 0.6) * 1.6;
+                // thanh "độ sáng": mặt đêm lộ lục địa/biển (như có đèn phụ), đèn thành phố vẫn thấy
+                night += texture2D(uDay, vUv).rgb * (1.0 - cloud * 0.35) * uFill * 0.42;
                 vec3 col = mix(night, day, k);
 
                 // viền khí quyển + ửng hoàng hôn ở lằn ranh
@@ -149,6 +157,7 @@ export const EarthSurface: React.FC<EarthSurfaceProps> = ({
         }
         material.uniforms.uTime.value = state.clock.elapsedTime;
         material.uniforms.uAurora.value = auroraRef?.current ?? 0;
+        material.uniforms.uFill.value = sceneFill ? sceneLighting.brightness : 0;
     });
 
     return (

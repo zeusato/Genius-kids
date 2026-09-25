@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Html, useTexture } from '@react-three/drei';
 import { texUrl } from './core';
+import { sceneLighting } from './sceneParams';
 
 // Bầu trời THẬT (xem scripts/build-sky.mjs):
 //  - 9.096 sao của Yale Bright Star Catalogue vẽ bằng MỘT Points: nét ở mọi DPR, cỡ theo cấp sáng,
@@ -218,6 +219,8 @@ export function StarsBackground({ quality = 'high', showConstellations = false }
             groupRef.current.scale.setScalar(Math.min(1, (far * 0.85) / SKY_R));
         }
         if (stars) stars.mat.uniforms.uDpr.value = dpr;
+        // thanh "độ sáng": dải Ngân Hà rõ hơn một chút cho bầu trời bớt "tăm tối"
+        if (milkyWay && data) milkyWay.uniforms.uIntensity.value = (0.16 / data.meta.milkyWay.gain) * 9 * (1 + 0.9 * sceneLighting.brightness);
     });
 
     useEffect(() => () => {
