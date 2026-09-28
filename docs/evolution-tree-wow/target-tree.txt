@@ -1,0 +1,251 @@
+life_origin
+  luca
+    bacteria
+      proteobacteria
+        alpha_proteobacteria
+          rhizobiales
+            rhizobium_example
+        gamma_proteobacteria
+          enterobacterales
+            ecoli_example
+            salmonella_example
+          pseudomonadales
+            pseudomonas_example
+        beta_proteobacteria
+      delta_epsilon_proteobacteria
+      bacillota_firmicutes
+        bacilli
+          lactobacillales
+            lactobacillus_example
+          bacillales
+            bacillus_example
+        clostridia
+          clostridiales
+            clostridium_example
+      cyanobacteria
+        cyanophyceae_simple
+          nostocales
+            anabaena_example
+      actinobacteria
+        actinobacteria_class
+          actinomycetales_simple
+            streptomyces_example
+      bacteroidota
+        bacteroidia
+          bacteroidales
+            bacteroides_example
+      spirochaetota
+        spirochaetia
+          spirochaetales
+            borrelia_example
+    archaea
+      euryarchaeota
+        methanogens
+          methanobacteriales
+            methanobrevibacter_example
+          methanosarcinales
+            methanosarcina_example
+        extreme_halophiles
+          halobacteriales
+            halobacterium_example
+      crenarchaeota_simple
+        thermophiles_acidophiles
+          sulfolobales
+            sulfolobus_example
+          thermoproteales
+            thermoproteus_example
+      thaumarchaeota
+        ammonia_oxidizing_archaea
+          nitrosopumilales
+            nitrosopumilus_example
+      asgard_archaea_simple
+        lokiarchaeota_simple
+          lokiarchaeum_example
+        eukarya
+          amorphea *
+            amoebozoa *
+              amoebas
+                amoeba_example
+              slime_molds
+                physarum_example
+            opisthokonta *
+              fungi_simple
+                chytrids
+                  chytrid_example
+                zygomycetes_simple
+                  bread_mold_example
+                    rhizopus_example
+                dikarya *
+                  ascomycota_simple
+                    penicillium_example
+                      blue_mold_example
+                    morels_truffles_example
+                      truffle_example
+                    baker_yeast_example
+                  basidiomycota_simple
+                    button_mushroom_example
+                      agaricus_example
+                    bracket_mushroom_example
+                      polypore_example
+                    puffball_example
+                      puffball_detail_example
+              animalia
+                porifera
+                  calcarea
+                  demospongiae
+                  hexactinellida
+                  homoscleromorpha
+                eumetazoa
+                  cnidaria
+                    hydrozoa
+                    scyphozoa
+                    anthozoa
+                    cubozoa
+                  bilateria
+                    protostomes
+                      spiralia *
+                        flatworms
+                          planarians
+                          tapeworms
+                          flukes
+                        segmented_worms
+                          earthworms
+                          leeches
+                          polychaetes
+                        mollusca
+                          gastropods
+                            snails
+                            slugs
+                          bivalves
+                            clams_oysters
+                          cephalopods
+                            octopuses
+                            squids
+                            nautilus
+                            ammonites * X
+                      ecdysozoa *
+                        roundworms
+                          pinworms
+                          hookworms
+                        arthropoda
+                          trilobites * X
+                          arachnids
+                            spiders_scorpions_ticks
+                          myriapods
+                            centipedes_millipedes
+                          pancrustacea *
+                            crustaceans
+                              crabs_shrimps_lobsters
+                            insects
+                              butterflies_beetles_bees
+                    deuterostomes
+                      echinodermata
+                        sea_stars
+                        sea_urchins
+                        sea_cucumbers
+                        brittle_stars
+                      vertebrates
+                        jawless_fish
+                        gnathostomes *
+                          cartilaginous_fish
+                          bony_fish
+                            ray_finned_fish
+                            lobe_finned_fish
+                              coelacanths *
+                              rhipidistia *
+                                lungfish *
+                                tetrapods
+                                  amphibians
+                                    frogs_toads
+                                    salamanders_newts
+                                    caecilians
+                                  amniotes
+                                    synapsids
+                                      early_synapsids X
+                                      therapsids
+                                        dicynodonts X
+                                        cynodonts
+                                          mammals
+                                            monotremes
+                                            marsupials
+                                            placental_mammals
+                                              proboscidea *
+                                                african_elephant *
+                                                asian_elephant *
+                                                mammoth * X
+                                              euarchontoglires *
+                                                primates
+                                                  lemurs *
+                                                  simians *
+                                                    new_world_monkeys *
+                                                    old_world_monkeys *
+                                                    great_apes *
+                                                      orangutans *
+                                                      gorillas *
+                                                      hominini *
+                                                        chimpanzees *
+                                                        humans *
+                                                rodents
+                                              laurasiatheria *
+                                                bats
+                                                carnivores
+                                                odd_toed *
+                                                even_toed *
+                                                  cows_deer *
+                                                  pigs *
+                                                  hippos *
+                                                  whales_dolphins
+                                    sauropsids
+                                      reptiles_phylo
+                                        testudines
+                                          turtles
+                                        lepidosauria
+                                          tuatara
+                                          lizards_snakes
+                                        archosauria
+                                          crocodilians
+                                          dinosaurs
+                                            ornithischia X
+                                            saurischia
+                                              sauropods X
+                                              theropods
+                                                trex * X
+                                                birds
+                                                  flightless_birds
+                                                  birds_of_prey
+                                                  songbirds
+          archaeplastida *
+            red_algae
+              red_algae_example
+            viridiplantae *
+              green_algae
+                chlamydomonas_example
+              plantae_simple
+                algae_plants_bridge
+                  green_algae_plants
+                land_plants
+                  mosses
+                  vascular_plants *
+                    ferns
+                    seed_plants *
+                      gymnosperms
+                        conifers
+                          pine_spruce_fir_examples
+                      angiosperms
+                        flowering_plants_monocots
+                        flowering_plants_dicots
+          sar *
+            stramenopiles *
+              brown_algae
+                kelp_example
+              diatoms
+                diatom_example
+              water_molds
+                phytophthora_example
+            alveolates *
+              ciliates
+                paramecium_example
+              sporozoans
+                plasmodium_example
+          flagellates
+            euglena_example

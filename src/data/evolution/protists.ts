@@ -1,294 +1,246 @@
+// Tái cấu trúc 28/09/2026 (GĐ0) theo docs/evolution-tree-wow/target-tree.txt + data-spec.md.
+// Sửa trực tiếp file này; engine/engine.test.ts kiểm cấu trúc khớp target-tree.txt (sửa cây thì sửa cả dàn ý).
 import { EvolutionNode } from './types';
 
-export const protists: EvolutionNode = {
-    id: 'protists_simple',
-    label: 'Nguyên Sinh Vật',
-    englishLabel: 'Protists',
-    type: 'kingdom',
-    description: 'Vương quốc của những sinh vật nhân thực đầu tiên, đa dạng tuyệt vời từ vi sinh vật đơn bào đến tảo khổng lồ. Chúng là tổ tiên của Nấm, Thực vật và Động vật.',
-    era: 'Proterozoic (2.5 tỷ năm trước)',
-    color: '#7e22ce', // Purple-700
-    traits: ['Nhân thực (Eukaryote)', 'Chủ yếu đơn bào', 'Dinh dưỡng đa dạng'],
-    infographicUrl: 'evolution/Protists.jpeg',
-    drillable: true,
+export const amoebozoa: EvolutionNode = {
+    id: "amoebozoa",
+    label: "Amip & nấm nhầy",
+    englishLabel: "Amoebozoa",
+    type: "clade",
+    description: "Nguyên sinh vật di chuyển bằng chân giả, gồm các loài amip và nấm nhầy.",
+    era: "Nguyên Sinh",
+    color: "#c084fc",
+    traits: ["Chân giả", "Không có vỏ cứng"],
     children: [
         {
-            id: 'protozoa_simple',
-            label: 'Nguyên sinh động vật',
-            englishLabel: 'Animal-like Protists (Protozoa)',
-            type: 'branch',
-            color: '#6b21a8', // Purple-800
-            description: 'Những "thợ săn" tí hon trong thế giới vi mô. Chúng di chuyển tích cực để tìm kiếm thức ăn giống như động vật.',
-            era: 'Proterozoic',
-            traits: ['Dị dưỡng', 'Di chuyển tích cực', 'Không có thành tế bào'],
-            infographicUrl: 'evolution/Animal-like Protists (Protozoa).jpeg',
+            id: "amoebas",
+            label: "Trùng amip",
+            englishLabel: "Amoebas",
+            type: "class",
+            description: "Bậc thầy biến hình! Chúng di chuyển và bắt mồi bằng cách vươn ra các \"chân giả\" (pseudopods).",
+            era: "1 tỷ năm trước",
+            color: "#581c87",
+            traits: ["Chân giả", "Biến hình liên tục", "Thực bào"],
+            infographicUrl: "evolution/Amoebas.jpeg",
             children: [
                 {
-                    id: 'amoebas',
-                    label: 'Trùng amip',
-                    englishLabel: 'Amoebas',
-                    type: 'class',
-                    color: '#581c87', // Purple-900
-                    description: 'Bậc thầy biến hình! Chúng di chuyển và bắt mồi bằng cách vươn ra các "chân giả" (pseudopods).',
-                    era: '1 tỷ năm trước',
-                    traits: ['Chân giả', 'Biến hình liên tục', 'Thực bào'],
-                    infographicUrl: 'evolution/Amoebas.jpeg',
+                    id: "amoeba_example",
+                    label: "Amip (ví dụ)",
+                    englishLabel: "Amoeba proteus",
+                    type: "species",
+                    description: "Một đại diện điển hình, thường sống trong nước ngọt và bùn ao.",
+                    era: "Hiện đại",
+                    color: "#3b0764",
+                    traits: ["Kích thước lớn (so với vi khuẩn)", "Trong suốt"],
+                    infographicUrl: "evolution/Amoeba proteus.jpeg"
+                }
+            ]
+        },
+        {
+            id: "slime_molds",
+            label: "Nấm nhầy",
+            englishLabel: "Slime molds",
+            type: "class",
+            description: "Sinh vật kỳ quặc có thể \"bò\" tập thể để tìm thức ăn.",
+            era: "Cổ đại",
+            color: "#9a3412",
+            traits: ["Hợp bào khổng lồ", "Di chuyển được", "Màu sắc sặc sỡ"],
+            infographicUrl: "evolution/Slime molds.jpeg",
+            children: [
+                {
+                    id: "physarum_example",
+                    label: "Nấm nhầy Physarum",
+                    englishLabel: "Physarum polycephalum",
+                    type: "species",
+                    description: "Có khả năng giải mê cung để tìm thức ăn dù không có não!",
+                    era: "Hiện đại",
+                    color: "#7c2d12",
+                    traits: ["Thông minh không não", "Màu vàng tươi"],
+                    infographicUrl: "evolution/Physarum polycephalum.jpeg"
+                }
+            ]
+        }
+    ]
+};
+
+export const sar: EvolutionNode = {
+    id: "sar",
+    label: "Nhánh SAR",
+    englishLabel: "SAR (Stramenopiles, Alveolata, Rhizaria)",
+    type: "clade",
+    description: "Một nhánh nhân thực rất đông, gồm tảo bẹ, tảo cát, nấm nước, trùng giày và ký sinh trùng sốt rét.",
+    era: "Nguyên Sinh",
+    color: "#c084fc",
+    traits: ["Rất đa dạng", "Phần lớn sống dưới nước"],
+    children: [
+        {
+            id: "stramenopiles",
+            label: "Tảo nâu, tảo cát & nấm nước",
+            englishLabel: "Stramenopiles",
+            type: "clade",
+            description: "Tế bào bơi của nhóm này có một roi phủ đầy lông nhỏ. Gồm tảo bẹ, tảo cát và nấm nước. Nấm nước không phải nấm thật!",
+            era: "Nguyên Sinh",
+            color: "#a78bfa",
+            traits: ["Roi có lông", "Nhiều loài quang hợp"],
+            children: [
+                {
+                    id: "brown_algae",
+                    label: "Tảo nâu",
+                    englishLabel: "Brown algae",
+                    type: "class",
+                    description: "Những gã khổng lồ dưới biển, tạo nên những \"rừng tảo\" hùng vĩ.",
+                    era: "Jurassic",
+                    color: "#854d0e",
+                    traits: ["Đa bào phức tạp", "Sắc tố nâu (Fucoxanthin)", "Kích thước lớn"],
+                    infographicUrl: "evolution/Brown algae.jpeg",
                     children: [
                         {
-                            id: 'amoeba_example',
-                            label: 'Amip (ví dụ)',
-                            englishLabel: 'Amoeba proteus',
-                            type: 'species',
-                            color: '#3b0764', // Purple-950
-                            description: 'Một đại diện điển hình, thường sống trong nước ngọt và bùn ao.',
-                            era: 'Hiện đại',
-                            traits: ['Kích thước lớn (so với vi khuẩn)', 'Trong suốt'],
-                            infographicUrl: 'evolution/Amoeba proteus.jpeg'
+                            id: "kelp_example",
+                            label: "Rong biển Kelp",
+                            englishLabel: "Kelp",
+                            type: "species",
+                            description: "Có thể mọc dài tới 60 mét, tạo môi trường sống cho rái cá biển.",
+                            era: "Hiện đại",
+                            color: "#713f12",
+                            traits: ["Siêu lớn", "Tăng trưởng cực nhanh"],
+                            infographicUrl: "evolution/kelp.jpeg"
                         }
                     ]
                 },
                 {
-                    id: 'ciliates',
-                    label: 'Trùng lông bơi',
-                    englishLabel: 'Ciliates',
-                    type: 'class',
-                    color: '#581c87',
-                    description: 'Những tay bơi lội cự phách, phủ đầy lông nhỏ rung động nhịp nhàng để di chuyển và lùa thức ăn.',
-                    era: '800 triệu năm trước',
-                    traits: ['Lông bơi (Cilia)', '2 nhân tế bào', 'Không bào co bóp'],
-                    infographicUrl: 'evolution/Ciliates.jpeg',
+                    id: "diatoms",
+                    label: "Tảo cát",
+                    englishLabel: "Diatoms",
+                    type: "class",
+                    description: "Những viên ngọc quý của biển cả với lớp vỏ thủy tinh tinh xảo.",
+                    era: "Jurassic",
+                    color: "#b45309",
+                    traits: ["Vỏ Silic (Thủy tinh)", "Đối xứng hoàn hảo", "Phù du sinh vật"],
+                    infographicUrl: "evolution/Diatoms.jpeg",
                     children: [
                         {
-                            id: 'paramecium_example',
-                            label: 'Trùng giày',
-                            englishLabel: 'Paramecium',
-                            type: 'species',
-                            color: '#3b0764',
-                            description: 'Có hình dạng giống chiếc giày, bơi rất nhanh và lôi cuốn.',
-                            era: 'Hiện đại',
-                            traits: ['Hình đế giày', 'Rất phổ biến'],
-                            infographicUrl: 'evolution/Paramecium.jpeg'
+                            id: "diatom_example",
+                            label: "Tảo cát",
+                            englishLabel: "Diatom",
+                            type: "species",
+                            description: "Tạo ra 20% lượng oxy trên Trái Đất.",
+                            era: "Hiện đại",
+                            color: "#92400e",
+                            traits: ["Sản xuất Oxy cực lớn", "Dùng lọc nước"],
+                            infographicUrl: "evolution/Diatom.jpeg"
                         }
                     ]
                 },
                 {
-                    id: 'flagellates',
-                    label: 'Trùng roi',
-                    englishLabel: 'Flagellates',
-                    type: 'class',
-                    color: '#581c87',
-                    description: 'Sử dụng một hoặc nhiều "chiếc roi" dài để bơi xoắn trong nước.',
-                    era: '1.5 tỷ năm trước',
-                    traits: ['Roi bơi (Flagella)', 'Vừa tự dưỡng vừa dị dưỡng'],
-                    infographicUrl: 'evolution/Flagellates.jpeg',
+                    id: "water_molds",
+                    label: "Nấm nước",
+                    englishLabel: "Water molds (Oomycetes)",
+                    type: "class",
+                    description: "Kẻ thù của cá và cây trồng. Sống trong nước hoặc đất ẩm.",
+                    era: "Cổ đại",
+                    color: "#9a3412",
+                    traits: ["Sợi nấm", "Thành Cellulose (Nấm thật là Chitin)", "Ký sinh thực vật"],
+                    infographicUrl: "evolution/Water molds (Oomycetes).jpeg",
                     children: [
                         {
-                            id: 'euglena_example',
-                            label: 'Trùng roi xanh',
-                            englishLabel: 'Euglena',
-                            type: 'species',
-                            color: '#3b0764',
-                            description: 'Sinh vật kỳ thú: Có lục lạp để quang hợp như cây, nhưng bơi được như thú.',
-                            era: 'Hiện đại',
-                            traits: ['Điểm mắt đỏ', 'Cảm quang'],
-                            infographicUrl: 'evolution/Euglena.jpeg'
-                        }
-                    ]
-                },
-                {
-                    id: 'sporozoans',
-                    label: 'Ký sinh bào tử',
-                    englishLabel: 'Sporozoans',
-                    type: 'class',
-                    color: '#581c87',
-                    description: 'Những kẻ "di cư" nguy hiểm, sống ký sinh trong cơ thể vật chủ và sinh sản bằng bào tử.',
-                    era: 'Tiến hóa muộn hơn',
-                    traits: ['Ký sinh bắt buộc', 'Không bộ phận di chuyển', 'Vòng đời phức tạp'],
-                    infographicUrl: 'evolution/Sporozoans.jpeg',
-                    children: [
-                        {
-                            id: 'plasmodium_example',
-                            label: 'Ký sinh trùng sốt rét',
-                            englishLabel: 'Plasmodium',
-                            type: 'species',
-                            color: '#3b0764',
-                            description: 'Thủ phạm gây bệnh sốt rét, truyền qua muỗi Anophen.',
-                            era: 'Hiện đại',
-                            traits: ['Gây bệnh nguy hiểm', 'Phá hủy hồng cầu'],
-                            infographicUrl: 'evolution/Plasmodium.jpeg'
+                            id: "phytophthora_example",
+                            label: "Nấm mốc sương",
+                            englishLabel: "Phytophthora",
+                            type: "species",
+                            description: "Thủ phạm gây ra Nạn đói khoai tây Ireland lịch sử.",
+                            era: "Hiện đại",
+                            color: "#7c2d12",
+                            traits: ["Gây bệnh cây trồng", "Lây lan nhanh"],
+                            infographicUrl: "evolution/Phytophthora.jpeg"
                         }
                     ]
                 }
             ]
         },
         {
-            id: 'algae_simple',
-            label: 'Tảo',
-            englishLabel: 'Algae',
-            type: 'branch',
-            color: '#0f766e', // Teal-700
-            description: 'Những "nhà máy oxy" của đại dương. Chúng quang hợp giống thực vật nhưng cấu trúc đơn giản hơn.',
-            era: 'Proterozoic',
-            traits: ['Quang hợp', 'Sống dưới nước', 'Không có rễ/thân/lá thật'],
-            infographicUrl: 'evolution/Algae.jpeg',
+            id: "alveolates",
+            label: "Trùng giày & ký sinh trùng sốt rét",
+            englishLabel: "Alveolata",
+            type: "clade",
+            description: "Tế bào có những túi nhỏ nằm ngay dưới màng. Gồm trùng giày và ký sinh trùng sốt rét.",
+            era: "Nguyên Sinh",
+            color: "#a78bfa",
+            traits: ["Túi dưới màng", "Đơn bào"],
             children: [
                 {
-                    id: 'green_algae',
-                    label: 'Tảo xanh',
-                    englishLabel: 'Green algae',
-                    type: 'class',
-                    color: '#115e59', // Teal-800
-                    description: 'Họ hàng gần nhất của thực vật trên cạn. Có màu xanh lục tươi.',
-                    era: '1.2 tỷ năm trước',
-                    traits: ['Diệp lục a & b', 'Thành tế bào Cellulose', 'Dự trữ tinh bột'],
-                    infographicUrl: 'evolution/green algae.jpeg',
+                    id: "ciliates",
+                    label: "Trùng lông bơi",
+                    englishLabel: "Ciliates",
+                    type: "class",
+                    description: "Những tay bơi lội cự phách, phủ đầy lông nhỏ rung động nhịp nhàng để di chuyển và lùa thức ăn.",
+                    era: "800 triệu năm trước",
+                    color: "#581c87",
+                    traits: ["Lông bơi (Cilia)", "2 nhân tế bào", "Không bào co bóp"],
+                    infographicUrl: "evolution/Ciliates.jpeg",
                     children: [
                         {
-                            id: 'chlamydomonas_example',
-                            label: 'Tảo đơn bào',
-                            englishLabel: 'Chlamydomonas',
-                            type: 'species',
-                            color: '#134e4a', // Teal-900
-                            description: 'Tảo lục bơi bằng 2 roi, thường gặp trong vũng nước đọng.',
-                            era: 'Hiện đại',
-                            traits: ['Đơn bào', '2 roi bơi']
+                            id: "paramecium_example",
+                            label: "Trùng giày",
+                            englishLabel: "Paramecium",
+                            type: "species",
+                            description: "Có hình dạng giống chiếc giày, bơi rất nhanh và lôi cuốn.",
+                            era: "Hiện đại",
+                            color: "#3b0764",
+                            traits: ["Hình đế giày", "Rất phổ biến"],
+                            infographicUrl: "evolution/Paramecium.jpeg"
                         }
                     ]
                 },
                 {
-                    id: 'brown_algae',
-                    label: 'Tảo nâu',
-                    englishLabel: 'Brown algae',
-                    type: 'class',
-                    color: '#854d0e', // Yellow-800
-                    description: 'Những gã khổng lồ dưới biển, tạo nên những "rừng tảo" hùng vĩ.',
-                    era: 'Jurassic',
-                    traits: ['Đa bào phức tạp', 'Sắc tố nâu (Fucoxanthin)', 'Kích thước lớn'],
-                    infographicUrl: 'evolution/Brown algae.jpeg',
+                    id: "sporozoans",
+                    label: "Ký sinh bào tử",
+                    englishLabel: "Sporozoans",
+                    type: "class",
+                    description: "Những kẻ \"di cư\" nguy hiểm, sống ký sinh trong cơ thể vật chủ và sinh sản bằng bào tử.",
+                    era: "Tiến hóa muộn hơn",
+                    color: "#581c87",
+                    traits: ["Ký sinh bắt buộc", "Không bộ phận di chuyển", "Vòng đời phức tạp"],
+                    infographicUrl: "evolution/Sporozoans.jpeg",
                     children: [
                         {
-                            id: 'kelp_example',
-                            label: 'Rong biển Kelp',
-                            englishLabel: 'Kelp',
-                            type: 'species',
-                            color: '#713f12', // Yellow-900
-                            description: 'Có thể mọc dài tới 60 mét, tạo môi trường sống cho rái cá biển.',
-                            era: 'Hiện đại',
-                            traits: ['Siêu lớn', 'Tăng trưởng cực nhanh'],
-                            infographicUrl: 'evolution/kelp.jpeg'
-                        }
-                    ]
-                },
-                {
-                    id: 'red_algae',
-                    label: 'Tảo đỏ',
-                    englishLabel: 'Red algae',
-                    type: 'class',
-                    color: '#be185d', // Pink-700
-                    description: 'Sống ở những vùng nước sâu nơi ánh sáng xanh dương xuyên tới được.',
-                    era: '1.2 tỷ năm trước',
-                    traits: ['Sắc tố đỏ (Phycoerythrin)', 'Không có roi bơi', 'Làm thạch (Agar)'],
-                    infographicUrl: 'evolution/red algae.jpeg',
-                    children: [
-                        {
-                            id: 'red_algae_example',
-                            label: 'Rong đỏ',
-                            englishLabel: 'Rhodophyta',
-                            type: 'species',
-                            color: '#9d174d', // Pink-800
-                            description: 'Dùng làm thực phẩm (Nori cuốn sushi) và công nghiệp.',
-                            era: 'Hiện đại',
-                            traits: ['Ăn được', 'Tạo rạn san hô'],
-                            infographicUrl: 'evolution/Rhodophyta.jpeg'
-                        }
-                    ]
-                },
-                {
-                    id: 'diatoms',
-                    label: 'Tảo cát',
-                    englishLabel: 'Diatoms',
-                    type: 'class',
-                    color: '#b45309', // Amber-700
-                    description: 'Những viên ngọc quý của biển cả với lớp vỏ thủy tinh tinh xảo.',
-                    era: 'Jurassic',
-                    traits: ['Vỏ Silic (Thủy tinh)', 'Đối xứng hoàn hảo', 'Phù du sinh vật'],
-                    infographicUrl: 'evolution/Diatoms.jpeg',
-                    children: [
-                        {
-                            id: 'diatom_example',
-                            label: 'Tảo cát',
-                            englishLabel: 'Diatom',
-                            type: 'species',
-                            color: '#92400e', // Amber-800
-                            description: 'Tạo ra 20% lượng oxy trên Trái Đất.',
-                            era: 'Hiện đại',
-                            traits: ['Sản xuất Oxy cực lớn', 'Dùng lọc nước'],
-                            infographicUrl: 'evolution/Diatom.jpeg'
+                            id: "plasmodium_example",
+                            label: "Ký sinh trùng sốt rét",
+                            englishLabel: "Plasmodium",
+                            type: "species",
+                            description: "Thủ phạm gây bệnh sốt rét, truyền qua muỗi Anophen.",
+                            era: "Hiện đại",
+                            color: "#3b0764",
+                            traits: ["Gây bệnh nguy hiểm", "Phá hủy hồng cầu"],
+                            infographicUrl: "evolution/Plasmodium.jpeg"
                         }
                     ]
                 }
             ]
-        },
+        }
+    ]
+};
+
+export const flagellates: EvolutionNode = {
+    id: "flagellates",
+    label: "Trùng roi",
+    englishLabel: "Flagellates",
+    type: "class",
+    description: "Sử dụng một hoặc nhiều \"chiếc roi\" dài để bơi xoắn trong nước.",
+    era: "1.5 tỷ năm trước",
+    color: "#581c87",
+    traits: ["Roi bơi (Flagella)", "Vừa tự dưỡng vừa dị dưỡng"],
+    infographicUrl: "evolution/Flagellates.jpeg",
+    children: [
         {
-            id: 'funguslike_protists',
-            label: 'Nguyên sinh giống nấm',
-            englishLabel: 'Fungus-like Protists',
-            type: 'branch',
-            color: '#c2410c', // Orange-700
-            description: 'Trông giống nấm mốc nhưng thực ra là nguyên sinh vật. Chúng thường phân hủy xác bã hữu cơ.',
-            era: 'Proterozoic',
-            traits: ['Sinh sản bằng bào tử', 'Dị dưỡng hoại sinh', 'Thành tế bào khác nấm thật'],
-            infographicUrl: 'evolution/Fungus-like Protists.jpeg',
-            children: [
-                {
-                    id: 'slime_molds',
-                    label: 'Nấm nhầy',
-                    englishLabel: 'Slime molds',
-                    type: 'class',
-                    color: '#9a3412', // Orange-800
-                    description: 'Sinh vật kỳ quặc có thể "bò" tập thể để tìm thức ăn.',
-                    era: 'Cổ đại',
-                    traits: ['Hợp bào khổng lồ', 'Di chuyển được', 'Màu sắc sặc sỡ'],
-                    infographicUrl: 'evolution/Slime molds.jpeg',
-                    children: [
-                        {
-                            id: 'physarum_example',
-                            label: 'Nấm nhầy Physarum',
-                            englishLabel: 'Physarum polycephalum',
-                            type: 'species',
-                            color: '#7c2d12', // Orange-900
-                            description: 'Có khả năng giải mê cung để tìm thức ăn dù không có não!',
-                            era: 'Hiện đại',
-                            traits: ['Thông minh không não', 'Màu vàng tươi'],
-                            infographicUrl: 'evolution/Physarum polycephalum.jpeg'
-                        }
-                    ]
-                },
-                {
-                    id: 'water_molds',
-                    label: 'Nấm nước',
-                    englishLabel: 'Water molds (Oomycetes)',
-                    type: 'class',
-                    color: '#9a3412',
-                    description: 'Kẻ thù của cá và cây trồng. Sống trong nước hoặc đất ẩm.',
-                    era: 'Cổ đại',
-                    traits: ['Sợi nấm', 'Thành Cellulose (Nấm thật là Chitin)', 'Ký sinh thực vật'],
-                    infographicUrl: 'evolution/Water molds (Oomycetes).jpeg',
-                    children: [
-                        {
-                            id: 'phytophthora_example',
-                            label: 'Nấm mốc sương',
-                            englishLabel: 'Phytophthora',
-                            type: 'species',
-                            color: '#7c2d12',
-                            description: 'Thủ phạm gây ra Nạn đói khoai tây Ireland lịch sử.',
-                            era: 'Hiện đại',
-                            traits: ['Gây bệnh cây trồng', 'Lây lan nhanh'],
-                            infographicUrl: 'evolution/Phytophthora.jpeg'
-                        }
-                    ]
-                }
-            ]
+            id: "euglena_example",
+            label: "Trùng roi xanh",
+            englishLabel: "Euglena",
+            type: "species",
+            description: "Sinh vật kỳ thú: Có lục lạp để quang hợp như cây, nhưng bơi được như thú.",
+            era: "Hiện đại",
+            color: "#3b0764",
+            traits: ["Điểm mắt đỏ", "Cảm quang"],
+            infographicUrl: "evolution/Euglena.jpeg"
         }
     ]
 };
