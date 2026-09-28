@@ -15,6 +15,7 @@ import { PerfOverlay } from '../../solar/scene3d/PerfOverlay';
 import { Tissue } from './Tissue';
 import { WorkFx } from './WorkFx';
 import { Mitosis } from './experiments/Mitosis';
+import { SceneInteractionBoundary } from '../../shared/SceneInteractionBoundary';
 
 // Hậu kỳ chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
 const Effects = lazy(() => import('./Effects'));
@@ -148,6 +149,7 @@ export const CellScene3D: React.FC<CellScene3DProps> = ({
     }, [ready, pageVisible]);
 
     return (
+        <SceneInteractionBoundary>
         <Canvas
             dpr={quality === 'high' ? [1, 1.75] : 1}
             frameloop={paused || !ready ? 'never' : 'always'}
@@ -217,5 +219,6 @@ export const CellScene3D: React.FC<CellScene3DProps> = ({
             {!FORCED_TIER && monitor && <PerformanceMonitor onDecline={() => setQuality('low')} />}
             {DEBUG_PERF && <PerfOverlay tier={quality} />}
         </Canvas>
+        </SceneInteractionBoundary>
     );
 };

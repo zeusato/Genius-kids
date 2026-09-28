@@ -19,6 +19,7 @@ import { SolarStorm, StormState } from './SolarStorm';
 import { PerfOverlay } from './PerfOverlay';
 import { DEBUG_PERF, FORCED_TIER, QualityTier, sceneLighting } from './sceneParams';
 import { CustomPlanetDoc } from '../../planetmaker/planetStore';
+import { SceneInteractionBoundary } from '../../shared/SceneInteractionBoundary';
 
 // Bloom chỉ tải ở tier cao — tablet yếu không bao giờ download chunk postprocessing
 const Effects = lazy(() => import('./Effects'));
@@ -98,6 +99,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
     const [quality, setQuality] = useState<QualityTier>(FORCED_TIER ?? 'high');
 
     return (
+        <SceneInteractionBoundary>
         <Canvas
             dpr={quality === 'high' ? [1, 1.5] : 1}
             frameloop={paused ? 'never' : 'always'}
@@ -178,5 +180,6 @@ export const Scene3D: React.FC<Scene3DProps> = ({
             {!FORCED_TIER && <PerformanceMonitor onDecline={() => setQuality('low')} />}
             {DEBUG_PERF && <PerfOverlay tier={quality} />}
         </Canvas>
+        </SceneInteractionBoundary>
     );
 };
