@@ -23,6 +23,7 @@ interface Props {
     onSelect: (i: number) => void;
     onJourney: (i: number) => void;
     onOpenCell: (cell: 'animal' | 'plant' | 'bacteria') => void;
+    onSymbiosis?: (id: 'mito' | 'chloro') => void;
 }
 
 function cellLinkFor(world: EvoWorld, i: number): 'animal' | 'plant' | 'bacteria' | null {
@@ -34,7 +35,9 @@ function cellLinkFor(world: EvoWorld, i: number): 'animal' | 'plant' | 'bacteria
     return null;
 }
 
-export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, autoSpeak, onClose, onSelect, onJourney, onOpenCell }) => {
+const SYMBIOSIS_OF: Record<string, 'mito' | 'chloro'> = { alpha_proteobacteria: 'mito', eukarya: 'mito', cyanobacteria: 'chloro', archaeplastida: 'chloro' };
+
+export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, autoSpeak, onClose, onSelect, onJourney, onOpenCell, onSymbiosis }) => {
     const t = world.tree;
     const n = t.nodes[index];
     const [info, setInfo] = useState<string | null>(null);
@@ -134,7 +137,8 @@ export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, auto
                             <div className="grid grid-cols-2 gap-2">
                                 {n.data.gallery.items.map(g => (
                                     <button key={g.label + g.englishLabel} type="button" disabled={!g.infographicUrl} onClick={() => g.infographicUrl && setInfo(g.infographicUrl)}
-                                        className="text-left rounded-xl bg-white/6 hover:bg-white/12 border border-white/10 p-2">
+                                        className="text-left rounded-xl bg-white/6 hover:bg-white/12 border border-white/10 p-2 overflow-hidden">
+                                        {g.infographicUrl && <InfoThumb url={g.infographicUrl} className="h-20 -mx-2 -mt-2 mb-1.5" />}
                                         <div className="text-sm font-bold">{g.label}</div>
                                         {g.description && <div className="text-[11px] text-white/55 line-clamp-2">{g.description}</div>}
                                     </button>
@@ -143,8 +147,9 @@ export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, auto
                         </div>
                     )}
                     {n.data.infographicUrl && (
-                        <button type="button" onClick={() => setInfo(n.data.infographicUrl!)} className="w-full flex items-center gap-3 rounded-2xl bg-gradient-to-r from-sky-600/70 to-cyan-600/60 hover:from-sky-500/80 p-3 font-bold text-sm">
-                            <ImageIcon size={20} /> Xem tranh chi tiết (infographic)
+                        <button type="button" onClick={() => setInfo(n.data.infographicUrl!)} className="group w-full block rounded-2xl overflow-hidden border border-sky-300/25 bg-sky-900/30 text-left">
+                            <InfoThumb url={n.data.infographicUrl} className="h-40" />
+                            <span className="flex items-center gap-2 px-3 py-2 font-bold text-sm text-sky-100 group-hover:text-white"><ImageIcon size={18} /> Xem tranh chi tiết (chạm để phóng to)</span>
                         </button>
                     )}
                     {(groups.length > 0 || kingdom5) && (
@@ -154,6 +159,7 @@ export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, auto
                     )}
                     <div className="flex flex-wrap gap-2 pt-1">
                         {n.isLeaf && <button type="button" onClick={() => onJourney(index)} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-400 text-amber-950 font-bold text-sm"><Route size={16} /> Hành trình về tổ tiên</button>}
+                        {SYMBIOSIS_OF[n.id] && onSymbiosis && <button type="button" onClick={() => onSymbiosis(SYMBIOSIS_OF[n.id])} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-orange-400/20 hover:bg-orange-400/30 border border-orange-300/30 font-bold text-sm">{SYMBIOSIS_OF[n.id] === 'mito' ? '🔋 Chuyện ty thể' : '🌿 Chuyện lục lạp'}</button>}
                         {cell && <button type="button" onClick={() => onOpenCell(cell)} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 font-bold text-sm"><Microscope size={16} /> Xem tế bào</button>}
                     </div>
                 </div>
@@ -167,6 +173,20 @@ export const NodeSheet: React.FC<Props> = ({ world, atlas, index, portrait, auto
             </aside>
             {info && <InfographicViewer url={info} onClose={() => setInfo(null)} />}
         </>
+    );
+};
+
+/** Ảnh xem trước infographic (tải lười từ Supabase). Lỗi / offline → ô trống nhẹ, vẫn bấm mở được. */
+export const InfoThumb: React.FC<{ url: string; className?: string }> = ({ url, className = '' }) => {
+    const [src, setSrc] = useState(() => getInfographicUrl(url));
+    const [failed, setFailed] = useState(!src);
+    useEffect(() => { const u = getInfographicUrl(url); setSrc(u); setFailed(!u); }, [url]);
+    return (
+        <span className={`block relative w-full bg-slate-800/60 ${className}`}>
+            {!failed && <img src={src} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover object-top"
+                onError={() => { if (src.endsWith('.jpeg')) setSrc(src.replace('.jpeg', '.png')); else setFailed(true); }} />}
+            {failed && <span className="absolute inset-0 grid place-items-center text-xs text-white/40">Cần mạng để xem tranh</span>}
+        </span>
     );
 };
 

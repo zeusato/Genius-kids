@@ -1,5 +1,5 @@
 // Các mốc lớn của cỗ máy thời gian (data-spec mục I). ma = triệu năm trước.
-export type FxId = 'lava' | 'spark' | 'oxygen-sky' | 'symbiosis-mito' | 'frost' | 'burst' | 'green-haze' | 'great-dying' | 'impact' | 'you-are-here';
+export type FxId = 'lava' | 'spark' | 'oxygen-sky' | 'symbiosis-mito' | 'symbiosis-chloro' | 'frost' | 'burst' | 'green-haze' | 'great-dying' | 'impact' | 'you-are-here';
 
 export interface TimeEvent {
     id: string;
@@ -17,6 +17,7 @@ export const TIME_EVENTS: TimeEvent[] = [
     { id: 'stromatolite', ma: 3480, title: 'Hóa thạch cổ nhất', text: 'Vi khuẩn xây những "gò đá" dưới biển, nay vẫn còn hóa thạch.', icon: '🪨' },
     { id: 'goe', ma: 2400, toMa: 2000, title: 'Ôxi xuất hiện', text: 'Vi khuẩn lam thải ôxi, không khí dần có ôxi như bây giờ.', icon: '💨', fx: 'oxygen-sky' },
     { id: 'eukaryote', ma: 1800, title: 'Tế bào có nhân ra đời', text: 'Một cổ khuẩn "nuốt" một vi khuẩn, và ty thể ra đời!', icon: '🦠', fx: 'symbiosis-mito' },
+    { id: 'chloroplast', ma: 1600, title: 'Lục lạp ra đời', text: 'Một vi khuẩn lam bị nuốt và ở lại thành lục lạp: tổ tiên cây xanh biết quang hợp!', icon: '🌿', fx: 'symbiosis-chloro' },
     { id: 'snowball', ma: 717, toMa: 635, title: 'Trái Đất quả cầu tuyết', text: 'Băng phủ gần kín Trái Đất suốt hàng chục triệu năm.', icon: '❄️', fx: 'frost' },
     { id: 'cambrian', ma: 538.8, title: 'Bùng nổ kỷ Cambri', text: 'Rất nhiều loài động vật mới xuất hiện gần như cùng lúc!', icon: '💥', fx: 'burst' },
     { id: 'land', ma: 470, title: 'Cây lên cạn', text: 'Những cây rêu đầu tiên phủ xanh mặt đất.', icon: '🌱', fx: 'green-haze' },

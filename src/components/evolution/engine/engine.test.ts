@@ -45,6 +45,15 @@ describe('dữ liệu cây', () => {
         for (const s of SYMBIOSES) { expect(tree.byId.has(s.from)).toBe(true); expect(tree.byId.has(s.to)).toBe(true); }
         expect(TIME_EVENTS.every((e, k) => k === 0 || e.ma < TIME_EVENTS[k - 1].ma)).toBe(true);
     });
+    it('không lãng phí tranh: đủ 229 infographic của cây cũ vẫn mở được (node, bộ sưu tập, lớp phủ SGK)', () => {
+        const urls = new Set<string>();
+        for (const n of tree.nodes) {
+            if (n.data.infographicUrl) urls.add(n.data.infographicUrl);
+            for (const g of n.data.gallery?.items ?? []) if (g.infographicUrl) urls.add(g.infographicUrl);
+        }
+        for (const g of TEXTBOOK_GROUPS) if (g.infographicUrl) urls.add(g.infographicUrl);
+        expect(urls.size).toBe(229);
+    });
     it('sector: nấm cạnh động vật, eukarya là thân cây', () => {
         const s = (id: string) => tree.nodes[idx(tree, id)].sector;
         expect(s('eukarya')).toBe('trunk');

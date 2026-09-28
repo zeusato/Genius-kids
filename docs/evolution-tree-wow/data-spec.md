@@ -279,6 +279,7 @@ Màu lớp phủ: dùng `color` của node cũ. Nhóm không có node cũ thì d
 | stromatolite | 3480 | | Hóa thạch cổ nhất | Vi khuẩn xây những "gò đá" dưới biển, nay vẫn còn hóa thạch. | — |
 | goe | 2400 | 2000 | Ôxi xuất hiện | Vi khuẩn lam thải ôxi, không khí dần có ôxi như bây giờ. | oxygen-sky |
 | eukaryote | 1800 | | Tế bào có nhân ra đời | Một cổ khuẩn "nuốt" một vi khuẩn, và ty thể ra đời! | symbiosis-mito |
+| chloroplast | 1600 | | Lục lạp ra đời | Một vi khuẩn lam bị nuốt và ở lại thành lục lạp: tổ tiên cây xanh biết quang hợp! | symbiosis-chloro |
 | snowball | 717 | 635 | Trái Đất quả cầu tuyết | Băng phủ gần kín Trái Đất suốt hàng chục triệu năm. | frost |
 | cambrian | 538.8 | | Bùng nổ kỷ Cambri | Rất nhiều loài động vật mới xuất hiện gần như cùng lúc! | burst |
 | land | 470 | | Cây lên cạn | Những cây rêu đầu tiên phủ xanh mặt đất. | green-haze |

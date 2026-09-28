@@ -631,8 +631,8 @@ Mỗi sự kiện chỉ chạy **một lần mỗi lượt đi qua** (lưu trạ
 | GĐ0 Dữ liệu và engine | ✅ 28/09 | 251 node/116 ngọn, 24 test engine; restructure bằng script một lần (đã xóa) |
 | GĐ1 Nền render | ✅ 28/09 | cảnh R3F: 6 draw call cho vật thể, shader biên dịch ~230 ms |
 | GĐ2 Mỹ thuật | ✅ 28/09 (cần người dùng duyệt thêm) | atlas 117 ô (95 PhyloPic + 22 glyph, 145 KB), nhựa sống, gió, hóa đá, bloom, hologram, cây mọc |
-| GĐ3 Thẻ và điều hướng | ✅ 28/09 | sheet, tìm kiếm, đường dẫn, lớp phủ SGK, bàn phím, liên kết Tế bào (?cell=) — **chưa có MiniMap** |
-| GĐ4 Cỗ máy thời gian | ✅ 28/09 | thanh kéo, sự kiện + hiệu ứng (thiên thạch, đại tuyệt chủng, băng giá, ôxi), lịch 1 năm, thời gian thật — **cung ty thể/lục lạp mới là nhấp nháy, chưa vẽ cung** |
+| GĐ3 Thẻ và điều hướng | ✅ 28/09 | sheet, tìm kiếm, đường dẫn, lớp phủ SGK, bàn phím, liên kết Tế bào (?cell=), MiniMap (màn ngang ≥ 900 px, chạm/kéo để dời camera); 229/229 infographic cũ vẫn dùng (ảnh xem trước trong thẻ, bộ sưu tập, chú giải lớp phủ — có test) |
+| GĐ4 Cỗ máy thời gian | ✅ 28/09 | thanh kéo, sự kiện + hiệu ứng (thiên thạch, đại tuyệt chủng, băng giá, ôxi), lịch 1 năm, thời gian thật, cung ty thể / lục lạp (sự kiện 1,8 & 1,6 tỷ năm + nút "Chuyện ty thể/lục lạp" trong thẻ) |
 | GĐ5 Chơi | ✅ 28/09 | 3 trò chơi + sổ tay + 9 huy hiệu (evoBadges, +10 ⭐) |
 | GĐ6 Hoàn thiện | ⏳ | build production qua; cần đo fps trên tablet/điện thoại thật; xóa legacy/ sau 1 bản phát hành |
 

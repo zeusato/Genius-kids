@@ -12,6 +12,8 @@ import { TimeMachine } from '@/src/components/evolution/ui/TimeMachine';
 import { ContextLostVeil, CreditsModal, EventToast, LoadingVeil, NotebookPanel, OverlayMenu, SearchBox, TopBar } from '@/src/components/evolution/ui/Panels';
 import { AncestorJourney, MysteryKey, RelativesQuiz } from '@/src/components/evolution/ui/Games';
 import { IconButton } from '@/src/components/evolution/ui/common';
+import { MiniMap } from '@/src/components/evolution/ui/MiniMap';
+import { SYMBIOSES } from '@/src/data/evolution/overlays';
 import { addTo, EvoNotebook, loadEvoNotebook } from '@/src/components/evolution/notebookStore';
 import { idx } from '@/src/components/evolution/engine/tree';
 import { fanBounds } from '@/src/components/evolution/engine/layout';
@@ -180,7 +182,8 @@ const EvolutionTree3D: React.FC = () => {
             case 'great-dying': setFlash('dying'); setFlashKey(k => k + 1); world.pulse(['trilobites']); break;
             case 'burst': world.pulse(Object.entries(SPLIT_TIMES).filter(([, s]) => s.ma >= 500 && s.ma <= 545).map(([id]) => id)); break;
             case 'green-haze': world.pulse(['land_plants', 'mosses']); break;
-            case 'symbiosis-mito': world.pulse(['alpha_proteobacteria', 'eukarya']); break;
+            case 'symbiosis-mito': world.pulse(['alpha_proteobacteria', 'eukarya']); world.showSymbiosis('mito', 6); break;
+            case 'symbiosis-chloro': world.pulse(['cyanobacteria', 'archaeplastida']); world.showSymbiosis('chloro', 6); break;
             case 'you-are-here': world.pulse(['humans']); break;
         }
     }, [world, sayIfIdle, autoSpeak]);
@@ -316,7 +319,16 @@ const EvolutionTree3D: React.FC = () => {
                 <NodeSheet world={world} atlas={atlas} index={selected} portrait={bottomSheet} autoSpeak={autoSpeak}
                     onClose={() => { setSelected(null); world.select(null); cancelSpeech(); }}
                     onSelect={(i) => select(i)} onJourney={(i) => startJourney(i)}
-                    onOpenCell={(cell) => navigate(`/science/cell-biology?cell=${cell}`)} />
+                    onOpenCell={(cell) => navigate(`/science/cell-biology?cell=${cell}`)}
+                    onSymbiosis={(id) => {
+                        const sym = SYMBIOSES.find(x => x.id === id)!;
+                        world.showSymbiosis(id, 10);
+                        camera.current?.fitNodes([idx(world.tree, sym.from), idx(world.tree, sym.to)], 1.6);
+                        const ev: TimeEvent = { id: `sym-${id}`, ma: sym.ma, title: id === 'mito' ? 'Ty thể từng là vi khuẩn!' : 'Lục lạp từng là vi khuẩn lam!', text: sym.text, icon: id === 'mito' ? '🔋' : '🌿' };
+                        setToast(ev);
+                        window.setTimeout(() => setToast(cur => (cur?.id === ev.id ? null : cur)), Math.max(5000, readingMs(sym.text) + 1500));
+                        say(`${ev.title} ${sym.text}`);
+                    }} />
             )}
 
             {mode === 'quiz' && <RelativesQuiz {...gameProps} />}
@@ -325,6 +337,9 @@ const EvolutionTree3D: React.FC = () => {
                 <AncestorJourney {...gameProps} leaf={journeyLeaf} onDone={(id) => { setNotebook(nb => addTo(nb, 'journeys', id, currentStudent?.id)); award('journey'); }} />
             )}
 
+            {showChrome && !bottomSheet && vw >= 900 && !overlayMenu && (
+                <MiniMap world={world} camera={camera} className="absolute left-3 bottom-9 z-20" />
+            )}
             <EventToast event={toast} />
             {badgeToast && <div className="absolute left-1/2 -translate-x-1/2 top-36 z-50 rounded-full bg-amber-300 text-amber-950 font-extrabold px-4 py-2 shadow-2xl evo-sheet-enter-bottom">{badgeToast}</div>}
 

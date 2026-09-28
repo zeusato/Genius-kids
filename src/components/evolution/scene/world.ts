@@ -192,6 +192,12 @@ export class EvoWorld {
         this.uniforms.uOverlayOn.value = this.overlay ? 1 : 0;
     }
 
+    /** Cung cộng sinh (ty thể / lục lạp): độ hiện 0..1 hiện tại + hạn giờ. */
+    readonly symbiosis = { mito: 0, chloro: 0 };
+    private symbiosisUntil = { mito: 0, chloro: 0 };
+    private clock = 0;
+    showSymbiosis(id: 'mito' | 'chloro', seconds = 7) { this.symbiosisUntil[id] = this.clock + seconds; }
+
     pulse(ids: string[]) {
         this.pulseSet = new Set(ids.map(id => idx(this.tree, id)));
         this.pulseT = 0;
@@ -239,6 +245,11 @@ export class EvoWorld {
     // ---------- vòng frame ----------
     update(dt: number, elapsed: number) {
         this.uniforms.uTime.value = elapsed;
+        this.clock = elapsed;
+        for (const k of ['mito', 'chloro'] as const) {
+            const target = elapsed < this.symbiosisUntil[k] ? 1 : 0;
+            this.symbiosis[k] += (target - this.symbiosis[k]) * Math.min(1, dt * 3);
+        }
         if (this.mixT < 1) {
             this.mixT = Math.min(1, this.mixT + dt / 1.2);
             const e = this.mixT < 0.5 ? 2 * this.mixT * this.mixT : 1 - Math.pow(-2 * this.mixT + 2, 2) / 2;

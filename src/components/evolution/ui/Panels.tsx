@@ -8,7 +8,7 @@ import { EVO_BADGES } from '../../../data/evolution/games';
 import type { TimeEvent } from '../../../data/evolution/events';
 import { getInfographicUrl } from '@/src/lib/supabase';
 import { NodeIcon, Panel } from './common';
-import { InfographicViewer } from './NodeSheet';
+import { InfographicViewer, InfoThumb } from './NodeSheet';
 import type { EvoNotebook } from '../notebookStore';
 
 // ---------------------------------------------------------------- thanh trên: quay lại + đường dẫn tổ tiên + tìm
@@ -96,7 +96,12 @@ export const OverlayMenu: React.FC<{ active: string | null; onPick: (id: string 
                         {g.parts && <div className="flex flex-wrap gap-2 mb-2">{g.parts.map(p => <span key={p.label} className="flex items-center gap-1 text-xs"><span className="w-3 h-3 rounded-full" style={{ background: p.color }} />{p.label}</span>)}</div>}
                         <p className="text-white/80">{g.description}</p>
                         <p className="mt-2 text-amber-100/90"><b>Vì sao đây không phải một nhánh?</b> {g.why}</p>
-                        {g.infographicUrl && <button type="button" onClick={() => setInfo(g.infographicUrl!)} className="mt-2 text-xs font-bold text-sky-300 hover:underline">Xem tranh chi tiết →</button>}
+                        {g.infographicUrl && (
+                            <button type="button" onClick={() => setInfo(g.infographicUrl!)} className="mt-2 block w-full rounded-xl overflow-hidden border border-white/10 text-left">
+                                <InfoThumb url={g.infographicUrl} className="h-28" />
+                                <span className="block px-2 py-1 text-xs font-bold text-sky-300">Xem tranh chi tiết →</span>
+                            </button>
+                        )}
                     </div>
                 )}
             </Panel>

@@ -7,6 +7,7 @@ import { PerfOverlay } from '../../solar/scene3d/PerfOverlay';
 import { Backdrop, Branches, EraRings, Tips } from './TreeMeshes';
 import { CameraApi, CameraRig, FOV, Insets } from './CameraRig';
 import { LabelLayer } from './LabelLayer';
+import { SymbiosisArcs } from './Symbiosis';
 import { DEBUG_PERF, FORCED_TIER, FX_DISABLED, QualityTier } from './params';
 import type { AtlasInfo, EvoWorld } from './world';
 
@@ -162,6 +163,7 @@ export const EvoScene3D: React.FC<Props> = ({ world, atlasInfo, cameraApi, inset
                         <Branches world={world} tier={tier} />
                         <Suspense fallback={null}>
                             <Tips world={world} atlasInfo={atlasInfo} />
+                            <SymbiosisArcs world={world} />
                             <ShaderWarmup tier={tier} onReady={() => { setReady(true); onReady(); }} />
                         </Suspense>
                     </group>

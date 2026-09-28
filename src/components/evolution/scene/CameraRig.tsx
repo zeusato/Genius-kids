@@ -17,6 +17,10 @@ export interface CameraApi {
     zoomBy(dir: 1 | -1): void;
     fitNodes(is: number[], pad?: number): void;
     focus(i: number, radius: number): void;
+    /** Khung nhìn hiện tại trên mặt phẳng cây (cho bản đồ nhỏ). */
+    view(): { cx: number; cy: number; halfW: number; halfH: number };
+    /** Dời camera tới điểm (giữ độ zoom). */
+    panTo(x: number, y: number, animate?: boolean): void;
 }
 
 const FOV = 30;
@@ -78,6 +82,16 @@ export function CameraRig({ world, insets, apiRef, reducedMotion }: {
     apiRef.current = {
         fitBox,
         fitAll: (animate = true) => fitBox(world.bounds(), animate, 1.04),
+        view: () => {
+            const d = Math.max(1, camera.position.z);
+            const halfH = d * TAN;
+            return { cx: camera.position.x, cy: camera.position.y, halfW: halfH * (size.width / size.height), halfH };
+        },
+        panTo: (x, y, animate = true) => {
+            const c = controls.current;
+            if (!c) return;
+            c.setLookAt(x, y, c.distance, x, y, 0, animate);
+        },
         flyToNode: (i, subtree = true) => {
             const n = world.tree.nodes[i];
             let box: [number, number, number, number];
