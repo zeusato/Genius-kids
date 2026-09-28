@@ -222,14 +222,14 @@ export function subtreeBounds(t: EvoTree, pr: Projected, i: number): [minX: numb
   - Ở `mix` bất kỳ, `project` dùng `r = R·frac(ma(s), mix)`.
   - Mốc cuối: node trong dùng `ma` của nó, ngọn dùng `endMa` (0 hoặc lúc tuyệt chủng).
 - **Ribbon**: mỗi mẫu 2 đỉnh ± pháp tuyến. Pháp tuyến tính từ sai phân của các mẫu kề nhau. Độ dày `lerp(w·TAPER, w, s)`. `dist` là quãng cộng dồn từ gốc (tính ở mix 0, giữ cố định).
-- **Hướng**: landscape giữ nguyên (gốc ở giữa đáy, quạt mở lên trên). Portrait xoay −90°: `(x, y) → (y, −x)`, gốc ở giữa cạnh trái, quạt mở sang phải.
+- **Hướng**: cây LUÔN mọc từ dưới lên (gốc ở giữa đáy, quạt mở lên trên). Portrait giãn chiều đứng: `(x, y) → (x, 1,7·y)` (`PORTRAIT_STRETCH`) thành vòm elip lấp đầy màn cao — theo góp ý của người dùng 28/09 (bản xoay −90° bị bỏ vì cây nằm ngang).
 - Morph "Thời gian thật" chạy mỗi frame trong 1,2 s: `project` + `updateRibbon` trên ~16k đỉnh (dưới 2 ms).
 - **Test**:
   - mọi ngọn nằm ở `r = R·frac(endMa)`;
   - bán kính con ≥ cha;
   - hai ngọn liền nhau cách nhau ≥ 21 đơn vị;
   - thứ tự sector từ trái sang phải: bacteria, archaea, protist(amoebozoa), fungi, animal, plant, protist(sar), protist(flagellates);
-  - portrait = landscape xoay −90°;
+  - portrait = landscape giãn chiều đứng ×1,7;
   - `project(mix=1)` cho ngọn còn sống ở `r = R`.
 
 ### 5.5 `lod.ts`
@@ -357,7 +357,7 @@ gl_FragColor = vec4(col, alpha);
   - đường ranh các đại sáng hơn, **vòng 66 Ma màu đỏ** #f87171;
   - vành "hôm nay" (r ≥ R) có quầng ấm như bình minh;
   - khi cỗ máy chạy, phần có `ma < uNow` bị ẩn.
-- Tên vòng (DOM, trong `Labels.tsx`) đặt dọc mép trái của quạt ở giữa mỗi dải. Màn dọc thì đặt ở mép trên.
+- Tên vòng (DOM, trong `Labels.tsx`) đặt dọc mép trái của quạt ở giữa mỗi dải.
 
 ### 6.5 `Backdrop.tsx`
 - Mặt phẳng trời ở z = −400: gradient, sáng ở tâm đáy.
@@ -418,7 +418,7 @@ Mỗi sự kiện chỉ chạy **một lần mỗi lượt đi qua** (lưu trạ
   - TimeMachine là nút viên thuốc ở giữa đáy;
   - sheet rộng 400 px bên phải.
 - **Dọc**:
-  - quạt xoay sang phải;
+  - quạt giãn chiều đứng (vẫn mọc lên);
   - Toolbar ngang ở đáy;
   - sheet từ dưới lên, cao 46%, kéo lên được tới 85%;
   - không có MiniMap.
@@ -628,16 +628,23 @@ Mỗi sự kiện chỉ chạy **một lần mỗi lượt đi qua** (lưu trạ
 | GĐ | Trạng thái | Ghi chú |
 | --- | --- | --- |
 | Plan + spec dữ liệu | ✅ 28/09/2026 | Đã kiểm: cây đích 251/116, thời gian 75 điểm rẽ, bố cục tham chiếu, API PhyloPic |
-| GĐ0 Dữ liệu và engine | ⏳ | |
-| GĐ1 Nền render | ⏳ | |
-| GĐ2 Mỹ thuật | ⏳ | |
-| GĐ3 Thẻ và điều hướng | ⏳ | |
-| GĐ4 Cỗ máy thời gian | ⏳ | |
-| GĐ5 Chơi | ⏳ | |
-| GĐ6 Hoàn thiện | ⏳ | |
+| GĐ0 Dữ liệu và engine | ✅ 28/09 | 251 node/116 ngọn, 24 test engine; restructure bằng script một lần (đã xóa) |
+| GĐ1 Nền render | ✅ 28/09 | cảnh R3F: 6 draw call cho vật thể, shader biên dịch ~230 ms |
+| GĐ2 Mỹ thuật | ✅ 28/09 (cần người dùng duyệt thêm) | atlas 117 ô (95 PhyloPic + 22 glyph, 145 KB), nhựa sống, gió, hóa đá, bloom, hologram, cây mọc |
+| GĐ3 Thẻ và điều hướng | ✅ 28/09 | sheet, tìm kiếm, đường dẫn, lớp phủ SGK, bàn phím, liên kết Tế bào (?cell=) — **chưa có MiniMap** |
+| GĐ4 Cỗ máy thời gian | ✅ 28/09 | thanh kéo, sự kiện + hiệu ứng (thiên thạch, đại tuyệt chủng, băng giá, ôxi), lịch 1 năm, thời gian thật — **cung ty thể/lục lạp mới là nhấp nháy, chưa vẽ cung** |
+| GĐ5 Chơi | ✅ 28/09 | 3 trò chơi + sổ tay + 9 huy hiệu (evoBadges, +10 ⭐) |
+| GĐ6 Hoàn thiện | ⏳ | build production qua; cần đo fps trên tablet/điện thoại thật; xóa legacy/ sau 1 bản phát hành |
 
 ## 13. Bài học triển khai
-(Ghi trong lúc làm.)
+- **Ribbon cành bị loại mặt sau**: 16.000 tam giác vẫn "được vẽ" (renderer.info đếm đủ) nhưng không hiện gì. Thứ tự đỉnh của ribbon nhìn từ camera là chiều kim đồng hồ → phải `side: DoubleSide`.
+- **Màn dọc**: bản đầu xoay quạt −90° (gốc bên trái) → người dùng thấy cây "nằm ngang", mất ẩn dụ cây mọc lên. Nay màn dọc giữ cây mọc từ dưới lên, **kéo giãn chiều đứng ×1,7** (`PORTRAIT_STRETCH` trong layout.ts); shader vòng đại chia lại `y / 1.7`.
+- **Đọc to bị cắt** (góp ý người dùng): hành trình cố định 4,2 s/chặng làm câu dài bị ngắt. Nay chuyển chặng khi `speak` báo `onEnd` (+1 s); máy không có giọng thì chờ theo độ dài câu; hẹn giờ an toàn vì Chrome đôi khi không báo onend. Chú thích sự kiện chỉ đọc khi không có câu nào đang đọc; mở màn không đọc từng mốc.
+- Quầng vành "hôm nay" phải tính theo pixel (`fwidth`), không theo đơn vị thế giới — zoom gần thì dải 35 đơn vị thành mảng vàng lớn.
+- Cành ngọn nhìn xa chỉ còn < 1 px → vertex shader nới tối thiểu `0.8 / uPxPerUnit` (attribute `aHalfW`).
+- Thêm `camera-controls` lần đầu làm Vite tối ưu dependency rồi **tải lại trang** (mất hồ sơ đang chọn trong pane) — đã khai báo trong package.json.
+- PhyloPic: SVG có viewBox lớn → sharp báo vượt giới hạn pixel ở density 300; tính density theo kích thước; loại hình "đặc kín" (SVG có nền).
+- Test chạy chung đôi khi hỏng vì quá thời gian (DragonQuest, MathRacing, CoTuong, CoVua) — chạy riêng đều xanh, không liên quan.
 
 ## Nguồn khoa học chính
 - LUCA ~4,2 tỷ năm: Moody và cs. 2024, *Nature Ecology & Evolution* — https://www.nature.com/articles/s41559-024-02461-1

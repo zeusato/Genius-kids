@@ -106,3 +106,38 @@ export function playSuccess(): void {
     if (!c) return;
     [523, 659, 784].forEach((f, i) => tone(c, f, f, i * 0.1, 0.16, 0.09));
 }
+
+// Tiếng "bùm" trầm khi thiên thạch 66 triệu năm (Cây Tiến Hóa): nhiễu qua lowpass + sóng sin tụt 45→30 Hz, nhẹ nhàng
+export function playImpact(): void {
+    if (!soundOn()) return;
+    const c = audioCtx();
+    if (!c) return;
+    const dur = 1.2;
+    const buf = c.createBuffer(1, Math.ceil(c.sampleRate * dur), c.sampleRate);
+    const data = buf.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < data.length; i++) { last = last * 0.985 + (Math.random() * 2 - 1) * 0.015; data[i] = last * 10; }
+    const src = c.createBufferSource();
+    src.buffer = buf;
+    const lp = c.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(900, c.currentTime);
+    lp.frequency.exponentialRampToValueAtTime(120, c.currentTime + dur);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.22, c.currentTime + 0.03);
+    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur);
+    src.connect(lp).connect(g).connect(c.destination);
+    src.start();
+    src.stop(c.currentTime + dur + 0.02);
+    const o = c.createOscillator();
+    const og = c.createGain();
+    o.frequency.setValueAtTime(45, c.currentTime);
+    o.frequency.exponentialRampToValueAtTime(30, c.currentTime + dur);
+    og.gain.setValueAtTime(0.0001, c.currentTime);
+    og.gain.exponentialRampToValueAtTime(0.18, c.currentTime + 0.04);
+    og.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur);
+    o.connect(og).connect(c.destination);
+    o.start();
+    o.stop(c.currentTime + dur + 0.02);
+}

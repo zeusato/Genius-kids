@@ -1,0 +1,590 @@
+{
+ "size": 2048,
+ "cell": 128,
+ "cols": 16,
+ "items": {
+  "rhizobium_example": {
+   "i": 0,
+   "aspect": 1
+  },
+  "ecoli_example": {
+   "i": 1,
+   "aspect": 1
+  },
+  "salmonella_example": {
+   "i": 2,
+   "aspect": 1
+  },
+  "pseudomonas_example": {
+   "i": 3,
+   "aspect": 1
+  },
+  "beta_proteobacteria": {
+   "i": 4,
+   "aspect": 1
+  },
+  "delta_epsilon_proteobacteria": {
+   "i": 5,
+   "aspect": 1
+  },
+  "lactobacillus_example": {
+   "i": 6,
+   "aspect": 1
+  },
+  "bacillus_example": {
+   "i": 7,
+   "aspect": 1
+  },
+  "clostridium_example": {
+   "i": 8,
+   "aspect": 1
+  },
+  "anabaena_example": {
+   "i": 9,
+   "aspect": 1
+  },
+  "streptomyces_example": {
+   "i": 10,
+   "aspect": 1
+  },
+  "bacteroides_example": {
+   "i": 11,
+   "aspect": 1
+  },
+  "borrelia_example": {
+   "i": 12,
+   "aspect": 1
+  },
+  "methanobrevibacter_example": {
+   "i": 13,
+   "aspect": 1
+  },
+  "methanosarcina_example": {
+   "i": 14,
+   "aspect": 1
+  },
+  "halobacterium_example": {
+   "i": 15,
+   "aspect": 1
+  },
+  "sulfolobus_example": {
+   "i": 16,
+   "aspect": 1
+  },
+  "thermoproteus_example": {
+   "i": 17,
+   "aspect": 1
+  },
+  "nitrosopumilus_example": {
+   "i": 18,
+   "aspect": 1
+  },
+  "lokiarchaeum_example": {
+   "i": 19,
+   "aspect": 1
+  },
+  "amoeba_example": {
+   "i": 20,
+   "aspect": 1
+  },
+  "physarum_example": {
+   "i": 21,
+   "aspect": 1
+  },
+  "kelp_example": {
+   "i": 22,
+   "aspect": 1
+  },
+  "diatom_example": {
+   "i": 23,
+   "aspect": 1
+  },
+  "phytophthora_example": {
+   "i": 24,
+   "aspect": 1
+  },
+  "paramecium_example": {
+   "i": 25,
+   "aspect": 1
+  },
+  "plasmodium_example": {
+   "i": 26,
+   "aspect": 1
+  },
+  "euglena_example": {
+   "i": 27,
+   "aspect": 1
+  },
+  "red_algae_example": {
+   "i": 28,
+   "aspect": 1
+  },
+  "chlamydomonas_example": {
+   "i": 29,
+   "aspect": 1
+  },
+  "green_algae_plants": {
+   "i": 30,
+   "aspect": 1
+  },
+  "chytrid_example": {
+   "i": 31,
+   "aspect": 1
+  },
+  "rhizopus_example": {
+   "i": 32,
+   "aspect": 1
+  },
+  "blue_mold_example": {
+   "i": 33,
+   "aspect": 1
+  },
+  "truffle_example": {
+   "i": 34,
+   "aspect": 1
+  },
+  "baker_yeast_example": {
+   "i": 35,
+   "aspect": 1
+  },
+  "agaricus_example": {
+   "i": 36,
+   "aspect": 1
+  },
+  "polypore_example": {
+   "i": 37,
+   "aspect": 1
+  },
+  "puffball_detail_example": {
+   "i": 38,
+   "aspect": 1
+  },
+  "mosses": {
+   "i": 39,
+   "aspect": 1
+  },
+  "ferns": {
+   "i": 40,
+   "aspect": 1
+  },
+  "pine_spruce_fir_examples": {
+   "i": 41,
+   "aspect": 1
+  },
+  "flowering_plants_monocots": {
+   "i": 42,
+   "aspect": 1
+  },
+  "flowering_plants_dicots": {
+   "i": 43,
+   "aspect": 1
+  },
+  "calcarea": {
+   "i": 44,
+   "aspect": 1
+  },
+  "demospongiae": {
+   "i": 45,
+   "aspect": 1
+  },
+  "hexactinellida": {
+   "i": 46,
+   "aspect": 1
+  },
+  "homoscleromorpha": {
+   "i": 47,
+   "aspect": 1
+  },
+  "hydrozoa": {
+   "i": 48,
+   "aspect": 1
+  },
+  "scyphozoa": {
+   "i": 49,
+   "aspect": 1
+  },
+  "anthozoa": {
+   "i": 50,
+   "aspect": 1
+  },
+  "cubozoa": {
+   "i": 51,
+   "aspect": 1
+  },
+  "planarians": {
+   "i": 52,
+   "aspect": 1
+  },
+  "tapeworms": {
+   "i": 53,
+   "aspect": 1
+  },
+  "flukes": {
+   "i": 54,
+   "aspect": 1
+  },
+  "earthworms": {
+   "i": 55,
+   "aspect": 1
+  },
+  "leeches": {
+   "i": 56,
+   "aspect": 1
+  },
+  "polychaetes": {
+   "i": 57,
+   "aspect": 1
+  },
+  "snails": {
+   "i": 58,
+   "aspect": 1
+  },
+  "slugs": {
+   "i": 59,
+   "aspect": 1
+  },
+  "clams_oysters": {
+   "i": 60,
+   "aspect": 1
+  },
+  "octopuses": {
+   "i": 61,
+   "aspect": 1
+  },
+  "squids": {
+   "i": 62,
+   "aspect": 1
+  },
+  "nautilus": {
+   "i": 63,
+   "aspect": 1
+  },
+  "ammonites": {
+   "i": 64,
+   "aspect": 1
+  },
+  "pinworms": {
+   "i": 65,
+   "aspect": 1
+  },
+  "hookworms": {
+   "i": 66,
+   "aspect": 1
+  },
+  "trilobites": {
+   "i": 67,
+   "aspect": 1
+  },
+  "spiders_scorpions_ticks": {
+   "i": 68,
+   "aspect": 1
+  },
+  "centipedes_millipedes": {
+   "i": 69,
+   "aspect": 1
+  },
+  "crabs_shrimps_lobsters": {
+   "i": 70,
+   "aspect": 1
+  },
+  "butterflies_beetles_bees": {
+   "i": 71,
+   "aspect": 1
+  },
+  "sea_stars": {
+   "i": 72,
+   "aspect": 1
+  },
+  "sea_urchins": {
+   "i": 73,
+   "aspect": 1
+  },
+  "sea_cucumbers": {
+   "i": 74,
+   "aspect": 1
+  },
+  "brittle_stars": {
+   "i": 75,
+   "aspect": 1
+  },
+  "jawless_fish": {
+   "i": 76,
+   "aspect": 1
+  },
+  "cartilaginous_fish": {
+   "i": 77,
+   "aspect": 1
+  },
+  "ray_finned_fish": {
+   "i": 78,
+   "aspect": 1
+  },
+  "coelacanths": {
+   "i": 79,
+   "aspect": 1
+  },
+  "lungfish": {
+   "i": 80,
+   "aspect": 1
+  },
+  "frogs_toads": {
+   "i": 81,
+   "aspect": 1
+  },
+  "salamanders_newts": {
+   "i": 82,
+   "aspect": 1
+  },
+  "caecilians": {
+   "i": 83,
+   "aspect": 1
+  },
+  "early_synapsids": {
+   "i": 84,
+   "aspect": 1
+  },
+  "dicynodonts": {
+   "i": 85,
+   "aspect": 1
+  },
+  "monotremes": {
+   "i": 86,
+   "aspect": 1
+  },
+  "marsupials": {
+   "i": 87,
+   "aspect": 1
+  },
+  "african_elephant": {
+   "i": 88,
+   "aspect": 1
+  },
+  "asian_elephant": {
+   "i": 89,
+   "aspect": 1
+  },
+  "mammoth": {
+   "i": 90,
+   "aspect": 1
+  },
+  "lemurs": {
+   "i": 91,
+   "aspect": 1
+  },
+  "new_world_monkeys": {
+   "i": 92,
+   "aspect": 1
+  },
+  "old_world_monkeys": {
+   "i": 93,
+   "aspect": 1
+  },
+  "orangutans": {
+   "i": 94,
+   "aspect": 1
+  },
+  "gorillas": {
+   "i": 95,
+   "aspect": 1
+  },
+  "chimpanzees": {
+   "i": 96,
+   "aspect": 1
+  },
+  "humans": {
+   "i": 97,
+   "aspect": 1
+  },
+  "rodents": {
+   "i": 98,
+   "aspect": 1
+  },
+  "bats": {
+   "i": 99,
+   "aspect": 1
+  },
+  "carnivores": {
+   "i": 100,
+   "aspect": 1
+  },
+  "odd_toed": {
+   "i": 101,
+   "aspect": 1
+  },
+  "cows_deer": {
+   "i": 102,
+   "aspect": 1
+  },
+  "pigs": {
+   "i": 103,
+   "aspect": 1
+  },
+  "hippos": {
+   "i": 104,
+   "aspect": 1
+  },
+  "whales_dolphins": {
+   "i": 105,
+   "aspect": 1
+  },
+  "turtles": {
+   "i": 106,
+   "aspect": 1
+  },
+  "tuatara": {
+   "i": 107,
+   "aspect": 1
+  },
+  "lizards_snakes": {
+   "i": 108,
+   "aspect": 1
+  },
+  "crocodilians": {
+   "i": 109,
+   "aspect": 1
+  },
+  "ornithischia": {
+   "i": 110,
+   "aspect": 1
+  },
+  "sauropods": {
+   "i": 111,
+   "aspect": 1
+  },
+  "trex": {
+   "i": 112,
+   "aspect": 1
+  },
+  "flightless_birds": {
+   "i": 113,
+   "aspect": 1
+  },
+  "birds_of_prey": {
+   "i": 114,
+   "aspect": 1
+  },
+  "songbirds": {
+   "i": 115,
+   "aspect": 1
+  },
+  "eukarya": {
+   "i": 116,
+   "aspect": 1
+  },
+  "bacteria": {
+   "i": 1,
+   "aspect": 1,
+   "rep": "ecoli_example"
+  },
+  "archaea": {
+   "i": 16,
+   "aspect": 1,
+   "rep": "sulfolobus_example"
+  },
+  "amoebozoa": {
+   "i": 20,
+   "aspect": 1,
+   "rep": "amoeba_example"
+  },
+  "fungi_simple": {
+   "i": 36,
+   "aspect": 1,
+   "rep": "agaricus_example"
+  },
+  "animalia": {
+   "i": 100,
+   "aspect": 1,
+   "rep": "carnivores"
+  },
+  "porifera": {
+   "i": 46,
+   "aspect": 1,
+   "rep": "hexactinellida"
+  },
+  "cnidaria": {
+   "i": 49,
+   "aspect": 1,
+   "rep": "scyphozoa"
+  },
+  "arthropoda": {
+   "i": 71,
+   "aspect": 1,
+   "rep": "butterflies_beetles_bees"
+  },
+  "mollusca": {
+   "i": 61,
+   "aspect": 1,
+   "rep": "octopuses"
+  },
+  "echinodermata": {
+   "i": 72,
+   "aspect": 1,
+   "rep": "sea_stars"
+  },
+  "vertebrates": {
+   "i": 78,
+   "aspect": 1,
+   "rep": "ray_finned_fish"
+  },
+  "tetrapods": {
+   "i": 81,
+   "aspect": 1,
+   "rep": "frogs_toads"
+  },
+  "mammals": {
+   "i": 88,
+   "aspect": 1,
+   "rep": "african_elephant"
+  },
+  "primates": {
+   "i": 96,
+   "aspect": 1,
+   "rep": "chimpanzees"
+  },
+  "dinosaurs": {
+   "i": 112,
+   "aspect": 1,
+   "rep": "trex"
+  },
+  "birds": {
+   "i": 115,
+   "aspect": 1,
+   "rep": "songbirds"
+  },
+  "archaeplastida": {
+   "i": 28,
+   "aspect": 1,
+   "rep": "red_algae_example"
+  },
+  "plantae_simple": {
+   "i": 43,
+   "aspect": 1,
+   "rep": "flowering_plants_dicots"
+  },
+  "land_plants": {
+   "i": 40,
+   "aspect": 1,
+   "rep": "ferns"
+  },
+  "seed_plants": {
+   "i": 41,
+   "aspect": 1,
+   "rep": "pine_spruce_fir_examples"
+  },
+  "sar": {
+   "i": 22,
+   "aspect": 1,
+   "rep": "kelp_example"
+  },
+  "stramenopiles": {
+   "i": 23,
+   "aspect": 1,
+   "rep": "diatom_example"
+  },
+  "alveolates": {
+   "i": 25,
+   "aspect": 1,
+   "rep": "paramecium_example"
+  }
+ }
+}

@@ -170,6 +170,16 @@ export const CellBiologyPage: React.FC = () => {
         }, 650);
     };
 
+    // Liên kết sâu từ Cây Tiến Hóa: /science/cell-biology?cell=animal|plant|bacteria → vào thẳng mẫu đó
+    const deepLinked = useRef(false);
+    useEffect(() => {
+        if (deepLinked.current) return;
+        deepLinked.current = true;
+        const want = new URLSearchParams(window.location.search).get('cell');
+        if (want === 'animal' || want === 'plant' || want === 'bacteria') pickSpecimen(want);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const switchCell = (id: CellId) => {
         resetView();
         if (id === cellId) return;

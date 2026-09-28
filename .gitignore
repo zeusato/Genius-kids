@@ -37,3 +37,7 @@ dev-dist
 .env.*
 !.env.example
 
+
+# Cây tiến hóa: cache tải PhyloPic
+scripts/evo-art/cache/
+scripts/evo-art/contact-sheet.png

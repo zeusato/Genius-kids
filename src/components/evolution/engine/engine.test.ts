@@ -126,7 +126,7 @@ describe('bố cục quạt', () => {
         for (const l of tree.leaves) { const s = tree.nodes[l].sector; if (seq[seq.length - 1] !== s) seq.push(s); }
         expect(seq).toEqual(['bacteria', 'archaea', 'protist', 'fungi', 'animal', 'plant', 'protist']);
     });
-    it('màn dọc = màn ngang xoay −90°; thời gian thật đẩy ngọn sống ra vành', () => {
+    it('màn dọc = màn ngang giãn theo chiều đứng (cây vẫn mọc lên); thời gian thật đẩy ngọn sống ra vành', () => {
         const pp = project(tree, polar, times, 0, 'portrait');
         const i = idx(tree, 'mammals');
         const [x, y] = rotate('portrait', pr.nodeXY[i * 2], pr.nodeXY[i * 2 + 1]);

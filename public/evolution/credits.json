@@ -1,0 +1,1062 @@
+[
+ {
+  "id": "rhizobium_example",
+  "source": "procedural",
+  "glyph": "rod"
+ },
+ {
+  "id": "ecoli_example",
+  "source": "procedural",
+  "glyph": "rod-flagella"
+ },
+ {
+  "id": "salmonella_example",
+  "source": "procedural",
+  "glyph": "rod-flagella"
+ },
+ {
+  "id": "pseudomonas_example",
+  "source": "procedural",
+  "glyph": "rod-polar"
+ },
+ {
+  "id": "beta_proteobacteria",
+  "source": "procedural",
+  "glyph": "coccobacillus"
+ },
+ {
+  "id": "delta_epsilon_proteobacteria",
+  "source": "procedural",
+  "glyph": "vibrio"
+ },
+ {
+  "id": "lactobacillus_example",
+  "source": "procedural",
+  "glyph": "rod-chain"
+ },
+ {
+  "id": "bacillus_example",
+  "source": "procedural",
+  "glyph": "rod-spore"
+ },
+ {
+  "id": "clostridium_example",
+  "source": "procedural",
+  "glyph": "rod-spore-end"
+ },
+ {
+  "id": "anabaena_example",
+  "source": "procedural",
+  "glyph": "filament"
+ },
+ {
+  "id": "streptomyces_example",
+  "source": "procedural",
+  "glyph": "hyphae"
+ },
+ {
+  "id": "bacteroides_example",
+  "source": "procedural",
+  "glyph": "rod"
+ },
+ {
+  "id": "borrelia_example",
+  "source": "procedural",
+  "glyph": "spirochete"
+ },
+ {
+  "id": "methanobrevibacter_example",
+  "source": "procedural",
+  "glyph": "coccobacillus"
+ },
+ {
+  "id": "methanosarcina_example",
+  "source": "procedural",
+  "glyph": "coccus-cluster"
+ },
+ {
+  "id": "halobacterium_example",
+  "source": "procedural",
+  "glyph": "rod"
+ },
+ {
+  "id": "sulfolobus_example",
+  "source": "procedural",
+  "glyph": "lobed"
+ },
+ {
+  "id": "thermoproteus_example",
+  "source": "procedural",
+  "glyph": "rod-thin"
+ },
+ {
+  "id": "nitrosopumilus_example",
+  "source": "procedural",
+  "glyph": "rod-thin"
+ },
+ {
+  "id": "lokiarchaeum_example",
+  "source": "procedural",
+  "glyph": "tentacled"
+ },
+ {
+  "id": "amoeba_example",
+  "source": "phylopic",
+  "uuid": "4227f7b5-b1e5-4af6-99cc-af68795f5855",
+  "taxon": "Amoeba proteus",
+  "attribution": "Carlo De Rito",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/4227f7b5-b1e5-4af6-99cc-af68795f5855"
+ },
+ {
+  "id": "physarum_example",
+  "source": "phylopic",
+  "uuid": "703b83c3-665c-4c9d-aa2c-cc7e62675cdc",
+  "taxon": "Physarum polycephalum",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/703b83c3-665c-4c9d-aa2c-cc7e62675cdc"
+ },
+ {
+  "id": "kelp_example",
+  "source": "phylopic",
+  "uuid": "9acf11fa-89dd-4a56-b3da-8665c406c6f5",
+  "taxon": "Macrocystis pyrifera",
+  "attribution": "Harold N Eyster",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "pageUrl": "https://www.phylopic.org/images/9acf11fa-89dd-4a56-b3da-8665c406c6f5"
+ },
+ {
+  "id": "diatom_example",
+  "source": "phylopic",
+  "uuid": "1ac6db29-fe9e-49d2-87de-4dbbd1767af5",
+  "taxon": "Coscinodiscophyceae",
+  "attribution": "Levi Simons",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1ac6db29-fe9e-49d2-87de-4dbbd1767af5"
+ },
+ {
+  "id": "phytophthora_example",
+  "source": "phylopic",
+  "uuid": "f2e0f985-daba-4eb1-8727-eb667d2c3f96",
+  "taxon": "Phytophthora",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f2e0f985-daba-4eb1-8727-eb667d2c3f96"
+ },
+ {
+  "id": "paramecium_example",
+  "source": "phylopic",
+  "uuid": "4bc4ab1b-852e-413a-87b5-6c63fb059d40",
+  "taxon": "Paramecium tetraurelia",
+  "attribution": "Arcadia Science",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/4bc4ab1b-852e-413a-87b5-6c63fb059d40"
+ },
+ {
+  "id": "plasmodium_example",
+  "source": "phylopic",
+  "uuid": "1fbf2158-aab2-40be-9561-94ed6f7d1758",
+  "taxon": "Plasmodium falciparum",
+  "attribution": "Livio Ruzzante",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1fbf2158-aab2-40be-9561-94ed6f7d1758"
+ },
+ {
+  "id": "euglena_example",
+  "source": "phylopic",
+  "uuid": "9c80947d-eb46-4a7e-b29a-208a6f0c0f93",
+  "taxon": "Euglena",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9c80947d-eb46-4a7e-b29a-208a6f0c0f93"
+ },
+ {
+  "id": "red_algae_example",
+  "source": "phylopic",
+  "uuid": "a309ba95-f8cf-4a2f-a7bd-e62df84b3caa",
+  "taxon": "Picomonas judraskeda",
+  "attribution": "Nina Pohl",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/a309ba95-f8cf-4a2f-a7bd-e62df84b3caa"
+ },
+ {
+  "id": "chlamydomonas_example",
+  "source": "phylopic",
+  "uuid": "56538f18-f0db-4323-b969-594357da11fe",
+  "taxon": "Chlamydomonas reinhardtii",
+  "attribution": "Arcadia Science",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/56538f18-f0db-4323-b969-594357da11fe"
+ },
+ {
+  "id": "green_algae_plants",
+  "source": "phylopic",
+  "uuid": "65414989-e801-4d0e-acc1-4309cd35ab7e",
+  "taxon": "Chara vulgaris",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/65414989-e801-4d0e-acc1-4309cd35ab7e"
+ },
+ {
+  "id": "chytrid_example",
+  "source": "phylopic",
+  "uuid": "91004e51-f3b3-4070-9605-aca753ed315a",
+  "taxon": "Chytridiomycota",
+  "attribution": "Levi Simons",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/91004e51-f3b3-4070-9605-aca753ed315a"
+ },
+ {
+  "id": "rhizopus_example",
+  "source": "phylopic",
+  "uuid": "8cff2d66-6549-44d2-8304-d2dfecf53d78",
+  "taxon": "Rhizopus oryzae",
+  "attribution": "T. Michael Keesey",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/8cff2d66-6549-44d2-8304-d2dfecf53d78"
+ },
+ {
+  "id": "blue_mold_example",
+  "source": "phylopic",
+  "uuid": "410b4773-dfe7-4c7c-a4d8-75dbb8ec555f",
+  "taxon": "Penicillium chrysogenum",
+  "attribution": "Arcadia Science",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/410b4773-dfe7-4c7c-a4d8-75dbb8ec555f"
+ },
+ {
+  "id": "truffle_example",
+  "source": "phylopic",
+  "uuid": "44f455da-febf-4b68-b62d-3ec79318481a",
+  "taxon": "Gyromitra esculenta",
+  "attribution": "Alden Dirks",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/44f455da-febf-4b68-b62d-3ec79318481a"
+ },
+ {
+  "id": "baker_yeast_example",
+  "source": "phylopic",
+  "uuid": "347bc4ab-c1e0-4313-9ea1-939c2ad71232",
+  "taxon": "Saccharomyces cerevisiae",
+  "attribution": "Wayne Decatur",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/347bc4ab-c1e0-4313-9ea1-939c2ad71232"
+ },
+ {
+  "id": "agaricus_example",
+  "source": "phylopic",
+  "uuid": "c511abe7-208f-4d69-b18b-9f7aa521abed",
+  "taxon": "Amanita muscaria",
+  "attribution": "Wouter Koch",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/c511abe7-208f-4d69-b18b-9f7aa521abed"
+ },
+ {
+  "id": "polypore_example",
+  "source": "phylopic",
+  "uuid": "831e01d4-4ecb-453a-ba4b-a84407c8e28e",
+  "taxon": "Fomitopsis pinicola",
+  "attribution": "Faith Jones",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/831e01d4-4ecb-453a-ba4b-a84407c8e28e"
+ },
+ {
+  "id": "puffball_detail_example",
+  "source": "procedural",
+  "glyph": "puffball"
+ },
+ {
+  "id": "mosses",
+  "source": "phylopic",
+  "uuid": "2b8aac96-adca-45f6-9b9d-03934136d993",
+  "taxon": "Takakia lepidozioides",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/2b8aac96-adca-45f6-9b9d-03934136d993"
+ },
+ {
+  "id": "ferns",
+  "source": "phylopic",
+  "uuid": "2d2bd6f4-be5e-48de-a61a-510f09692e48",
+  "taxon": "Polystichum lonchitis",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/2d2bd6f4-be5e-48de-a61a-510f09692e48"
+ },
+ {
+  "id": "pine_spruce_fir_examples",
+  "source": "phylopic",
+  "uuid": "1b329337-8f8b-4380-8aae-23d50e0db14f",
+  "taxon": "Pinus",
+  "attribution": "T. Michael Keesey",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1b329337-8f8b-4380-8aae-23d50e0db14f"
+ },
+ {
+  "id": "flowering_plants_monocots",
+  "source": "phylopic",
+  "uuid": "bdae8ff7-6c00-4af9-8464-a44b3e6c65f9",
+  "taxon": "Oryza sativa",
+  "attribution": "Mason McNair",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/bdae8ff7-6c00-4af9-8464-a44b3e6c65f9"
+ },
+ {
+  "id": "flowering_plants_dicots",
+  "source": "phylopic",
+  "uuid": "40b91c6c-4ef8-4a5a-9b90-85fb50d74c5b",
+  "taxon": "Helianthus annuus",
+  "attribution": "Mason McNair",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/40b91c6c-4ef8-4a5a-9b90-85fb50d74c5b"
+ },
+ {
+  "id": "calcarea",
+  "source": "phylopic",
+  "uuid": "6f416bc2-8aa8-424d-910d-2ec7c8d74020",
+  "taxon": "Leucosolenia complicata",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/6f416bc2-8aa8-424d-910d-2ec7c8d74020"
+ },
+ {
+  "id": "demospongiae",
+  "source": "phylopic",
+  "uuid": "31acf3d7-716a-4594-846e-f7d20f04b45a",
+  "taxon": "Acarnidae",
+  "attribution": "Tree of Life App",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/31acf3d7-716a-4594-846e-f7d20f04b45a"
+ },
+ {
+  "id": "hexactinellida",
+  "source": "phylopic",
+  "uuid": "9d6fc9d2-cbd1-49fe-bb39-ac8355466e48",
+  "taxon": "Euplectella aspergillum",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9d6fc9d2-cbd1-49fe-bb39-ac8355466e48"
+ },
+ {
+  "id": "homoscleromorpha",
+  "source": "phylopic",
+  "uuid": "0d580fdc-83f3-4860-8043-feb9deaf7a30",
+  "taxon": "Oscarella tuberculata",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/0d580fdc-83f3-4860-8043-feb9deaf7a30"
+ },
+ {
+  "id": "hydrozoa",
+  "source": "phylopic",
+  "uuid": "02d00693-af87-4323-889a-8afc7d8529f3",
+  "taxon": "Hydra",
+  "attribution": "Steven Traver",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/02d00693-af87-4323-889a-8afc7d8529f3"
+ },
+ {
+  "id": "scyphozoa",
+  "source": "phylopic",
+  "uuid": "f0494167-77f6-46eb-841d-c4cefb683bbd",
+  "taxon": "Aurelia aurita",
+  "attribution": "Lodewijk van Walraven",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f0494167-77f6-46eb-841d-c4cefb683bbd"
+ },
+ {
+  "id": "anthozoa",
+  "source": "phylopic",
+  "uuid": "0219fce6-63c5-4c77-93f3-78ef33f1852e",
+  "taxon": "Metridium senile",
+  "attribution": "Darrin Schultz",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/0219fce6-63c5-4c77-93f3-78ef33f1852e"
+ },
+ {
+  "id": "cubozoa",
+  "source": "phylopic",
+  "uuid": "9a9b00b8-6abc-491f-a3cf-2cc0dc65e4cf",
+  "taxon": "Chironex fleckeri",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9a9b00b8-6abc-491f-a3cf-2cc0dc65e4cf"
+ },
+ {
+  "id": "planarians",
+  "source": "phylopic",
+  "uuid": "04b4a930-1a3d-469a-b23b-3015bb3caa5c",
+  "taxon": "Cercyra hastata",
+  "attribution": "Markus A. Grohme",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/04b4a930-1a3d-469a-b23b-3015bb3caa5c"
+ },
+ {
+  "id": "tapeworms",
+  "source": "phylopic",
+  "uuid": "04f9e4ab-8e1f-4525-9da1-1f810a57a14f",
+  "taxon": "Taenia saginata",
+  "attribution": "Centers for Disease Control and Prevention",
+  "license": "Public Domain Mark",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/04f9e4ab-8e1f-4525-9da1-1f810a57a14f"
+ },
+ {
+  "id": "flukes",
+  "source": "phylopic",
+  "uuid": "607b10e4-e036-44fd-ad17-4395c6ecc0c6",
+  "taxon": "Fasciola hepatica",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/607b10e4-e036-44fd-ad17-4395c6ecc0c6"
+ },
+ {
+  "id": "earthworms",
+  "source": "phylopic",
+  "uuid": "f0d839a1-5a3e-42b2-828a-c5e536f0f7b7",
+  "taxon": "Lumbricus terrestris",
+  "attribution": "Carlo De Rito",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f0d839a1-5a3e-42b2-828a-c5e536f0f7b7"
+ },
+ {
+  "id": "leeches",
+  "source": "phylopic",
+  "uuid": "f82af611-1d90-4f77-8163-f0ea74a04813",
+  "taxon": "Hirudo medicinalis",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f82af611-1d90-4f77-8163-f0ea74a04813"
+ },
+ {
+  "id": "polychaetes",
+  "source": "phylopic",
+  "uuid": "b4b022e5-b8ba-471a-a994-c352ba7ade01",
+  "taxon": "Nereis virens",
+  "attribution": "Caleb M. Gordon",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/b4b022e5-b8ba-471a-a994-c352ba7ade01"
+ },
+ {
+  "id": "snails",
+  "source": "phylopic",
+  "uuid": "4ce5601f-cf94-4d21-b3a1-07bd58a811c2",
+  "taxon": "Helix pomatia",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/4ce5601f-cf94-4d21-b3a1-07bd58a811c2"
+ },
+ {
+  "id": "slugs",
+  "source": "phylopic",
+  "uuid": "2df5ac90-523f-4071-8f92-4181b94dd04e",
+  "taxon": "Arion rufus",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/2df5ac90-523f-4071-8f92-4181b94dd04e"
+ },
+ {
+  "id": "clams_oysters",
+  "source": "phylopic",
+  "uuid": "837c4173-e322-4d37-af25-3b8c8ee4f15e",
+  "taxon": "Mytilus",
+  "attribution": "Filippo Nicolini",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "pageUrl": "https://www.phylopic.org/images/837c4173-e322-4d37-af25-3b8c8ee4f15e"
+ },
+ {
+  "id": "octopuses",
+  "source": "phylopic",
+  "uuid": "f400b519-3564-4183-b4bd-c3b922cc7c5e",
+  "taxon": "Octopus vulgaris",
+  "attribution": "Margot Michaud",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f400b519-3564-4183-b4bd-c3b922cc7c5e"
+ },
+ {
+  "id": "squids",
+  "source": "phylopic",
+  "uuid": "22a8e316-7f4d-4270-b6af-b5ef9e84c2c2",
+  "taxon": "Loligo vulgaris",
+  "attribution": "Cagri Cevrim",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/22a8e316-7f4d-4270-b6af-b5ef9e84c2c2"
+ },
+ {
+  "id": "nautilus",
+  "source": "phylopic",
+  "uuid": "a5d0c0e8-c737-40c3-8f5d-dbca473e1c33",
+  "taxon": "Nautilus pompilius",
+  "attribution": "Margot Michaud",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/a5d0c0e8-c737-40c3-8f5d-dbca473e1c33"
+ },
+ {
+  "id": "ammonites",
+  "source": "phylopic",
+  "uuid": "7f94ad46-8b4d-487c-8e86-f1fb392dcd6f",
+  "taxon": "Goniatitida",
+  "attribution": "Vincent BACHA",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/7f94ad46-8b4d-487c-8e86-f1fb392dcd6f"
+ },
+ {
+  "id": "pinworms",
+  "source": "phylopic",
+  "uuid": "988b097a-953d-493a-baac-95b7d8a220f6",
+  "taxon": "Nematoda",
+  "attribution": "Graham Montgomery",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "pageUrl": "https://www.phylopic.org/images/988b097a-953d-493a-baac-95b7d8a220f6"
+ },
+ {
+  "id": "hookworms",
+  "source": "phylopic",
+  "uuid": "988b097a-953d-493a-baac-95b7d8a220f6",
+  "taxon": "Nematoda",
+  "attribution": "Graham Montgomery",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "pageUrl": "https://www.phylopic.org/images/988b097a-953d-493a-baac-95b7d8a220f6"
+ },
+ {
+  "id": "trilobites",
+  "source": "phylopic",
+  "uuid": "02020aea-5c46-4f8f-8405-eb0cabe86596",
+  "taxon": "Holmia kjerulfi",
+  "attribution": "Jagged Fang Designs",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/02020aea-5c46-4f8f-8405-eb0cabe86596"
+ },
+ {
+  "id": "spiders_scorpions_ticks",
+  "source": "phylopic",
+  "uuid": "882a9d18-5724-44a9-b439-1b2686339a00",
+  "taxon": "Liphistius desultor",
+  "attribution": "T. Michael Keesey",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/882a9d18-5724-44a9-b439-1b2686339a00"
+ },
+ {
+  "id": "centipedes_millipedes",
+  "source": "phylopic",
+  "uuid": "8239930a-8d3f-4f4b-be78-9d7fe64108af",
+  "taxon": "Scutigeridae",
+  "attribution": "Andy Wilson",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/8239930a-8d3f-4f4b-be78-9d7fe64108af"
+ },
+ {
+  "id": "crabs_shrimps_lobsters",
+  "source": "phylopic",
+  "uuid": "035b0041-ec5b-4a9c-ac8e-5a3cc3ee02a1",
+  "taxon": "Eoprosopon klugi",
+  "attribution": "Joanna Wolfe",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/035b0041-ec5b-4a9c-ac8e-5a3cc3ee02a1"
+ },
+ {
+  "id": "butterflies_beetles_bees",
+  "source": "phylopic",
+  "uuid": "5fdc4327-2881-4664-9e42-f176d95568c9",
+  "taxon": "Apis mellifera",
+  "attribution": "Kamil S. Jaron",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/5fdc4327-2881-4664-9e42-f176d95568c9"
+ },
+ {
+  "id": "sea_stars",
+  "source": "phylopic",
+  "uuid": "37d1d45b-66c7-4240-a81c-bad76f27443d",
+  "taxon": "Odontaster validus",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/37d1d45b-66c7-4240-a81c-bad76f27443d"
+ },
+ {
+  "id": "sea_urchins",
+  "source": "phylopic",
+  "uuid": "e1bfc57f-9c0b-4edb-aa64-d1b6a8907962",
+  "taxon": "Prionocidaris bispinosa",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/e1bfc57f-9c0b-4edb-aa64-d1b6a8907962"
+ },
+ {
+  "id": "sea_cucumbers",
+  "source": "phylopic",
+  "uuid": "249f4533-e205-4e65-bfa8-c0926939716e",
+  "taxon": "Elpidia glacialis",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/249f4533-e205-4e65-bfa8-c0926939716e"
+ },
+ {
+  "id": "brittle_stars",
+  "source": "phylopic",
+  "uuid": "31027995-abf6-436a-95b3-bd5e005ec63e",
+  "taxon": "Ophiuroidea",
+  "attribution": "Kurtis Wothe",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/31027995-abf6-436a-95b3-bd5e005ec63e"
+ },
+ {
+  "id": "jawless_fish",
+  "source": "phylopic",
+  "uuid": "1e04eace-cee7-4fd1-ac33-bb34c5f24fb6",
+  "taxon": "Petromyzon marinus",
+  "attribution": "Arcadia Science",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1e04eace-cee7-4fd1-ac33-bb34c5f24fb6"
+ },
+ {
+  "id": "cartilaginous_fish",
+  "source": "phylopic",
+  "uuid": "00f208a3-887d-4ae8-838c-2124f53b9fc1",
+  "taxon": "Carcharodon carcharias",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/00f208a3-887d-4ae8-838c-2124f53b9fc1"
+ },
+ {
+  "id": "ray_finned_fish",
+  "source": "phylopic",
+  "uuid": "f6c6590d-8aa1-4d08-a25f-e6c90727c071",
+  "taxon": "Salmo salar",
+  "attribution": "Domino Joyce",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/f6c6590d-8aa1-4d08-a25f-e6c90727c071"
+ },
+ {
+  "id": "coelacanths",
+  "source": "phylopic",
+  "uuid": "12c38a8a-6d68-4af3-ada3-05cafdfc25c2",
+  "taxon": "Latimeria chalumnae",
+  "attribution": "Chuanixn Yu",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/12c38a8a-6d68-4af3-ada3-05cafdfc25c2"
+ },
+ {
+  "id": "lungfish",
+  "source": "phylopic",
+  "uuid": "104f2094-9617-492d-8875-207f242bbf21",
+  "taxon": "Protopterus",
+  "attribution": "Steven Traver",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/104f2094-9617-492d-8875-207f242bbf21"
+ },
+ {
+  "id": "frogs_toads",
+  "source": "phylopic",
+  "uuid": "b41b4b2e-e22d-4ddf-bc24-601c8bc76d79",
+  "taxon": "Pelophylax esculentus",
+  "attribution": "Luca Leicht",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "pageUrl": "https://www.phylopic.org/images/b41b4b2e-e22d-4ddf-bc24-601c8bc76d79"
+ },
+ {
+  "id": "salamanders_newts",
+  "source": "phylopic",
+  "uuid": "0a948f02-6e35-42d5-a835-b9360f450d39",
+  "taxon": "Salamandra salamandra",
+  "attribution": "Beth Reinke",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/0a948f02-6e35-42d5-a835-b9360f450d39"
+ },
+ {
+  "id": "caecilians",
+  "source": "phylopic",
+  "uuid": "ac0368c5-05ad-4b01-bf0c-c5bc7cf85203",
+  "taxon": "Chikila gaiduwani",
+  "attribution": "Jose Carlos Arenas-Monroy",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/ac0368c5-05ad-4b01-bf0c-c5bc7cf85203"
+ },
+ {
+  "id": "early_synapsids",
+  "source": "phylopic",
+  "uuid": "b9b73c89-7609-4524-b068-7c7c7f566979",
+  "taxon": "Dimetrodon",
+  "attribution": "Alessio Ciaffi",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "pageUrl": "https://www.phylopic.org/images/b9b73c89-7609-4524-b068-7c7c7f566979"
+ },
+ {
+  "id": "dicynodonts",
+  "source": "phylopic",
+  "uuid": "03efb48d-b735-4812-bf65-39279d9f7067",
+  "taxon": "Lystrosaurus murrayi",
+  "attribution": "Matt Celeskey",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/03efb48d-b735-4812-bf65-39279d9f7067"
+ },
+ {
+  "id": "monotremes",
+  "source": "phylopic",
+  "uuid": "162021b6-349b-4a64-906f-33d4a191b30e",
+  "taxon": "Ornithorhynchus anatinus",
+  "attribution": "Rachel T Mason",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/162021b6-349b-4a64-906f-33d4a191b30e"
+ },
+ {
+  "id": "marsupials",
+  "source": "phylopic",
+  "uuid": "624e3d80-cba2-4465-8f3a-c9ae4025198b",
+  "taxon": "Macropus giganteus",
+  "attribution": "Michael Scroggie",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/624e3d80-cba2-4465-8f3a-c9ae4025198b"
+ },
+ {
+  "id": "african_elephant",
+  "source": "phylopic",
+  "uuid": "2a070808-0874-409d-81c0-d0c1995e54bb",
+  "taxon": "Loxodonta africana",
+  "attribution": "Margot Michaud",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/2a070808-0874-409d-81c0-d0c1995e54bb"
+ },
+ {
+  "id": "asian_elephant",
+  "source": "phylopic",
+  "uuid": "6e47a104-e62a-4901-81f7-fca2ecacdb0e",
+  "taxon": "Elephas maximus",
+  "attribution": "An Ignorant Atheist",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/6e47a104-e62a-4901-81f7-fca2ecacdb0e"
+ },
+ {
+  "id": "mammoth",
+  "source": "phylopic",
+  "uuid": "6f0acd79-1f7d-402f-8679-dc3036b1a504",
+  "taxon": "Mammuthus primigenius",
+  "attribution": "Amy Beauvois",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/6f0acd79-1f7d-402f-8679-dc3036b1a504"
+ },
+ {
+  "id": "lemurs",
+  "source": "phylopic",
+  "uuid": "8a187391-82a3-4d9b-a402-3a310bf7dc38",
+  "taxon": "Lemur catta",
+  "attribution": "Ferran Sayol",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/8a187391-82a3-4d9b-a402-3a310bf7dc38"
+ },
+ {
+  "id": "new_world_monkeys",
+  "source": "phylopic",
+  "uuid": "1600eef8-bf4c-4c09-81c8-bc85a2508cf7",
+  "taxon": "Ateles",
+  "attribution": "Steven Traver",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1600eef8-bf4c-4c09-81c8-bc85a2508cf7"
+ },
+ {
+  "id": "old_world_monkeys",
+  "source": "phylopic",
+  "uuid": "13daf9fe-04c7-483c-bacd-4da045f7a7ec",
+  "taxon": "Haemulon sciurus",
+  "attribution": "John Hlavin",
+  "license": "Public Domain Mark",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/13daf9fe-04c7-483c-bacd-4da045f7a7ec"
+ },
+ {
+  "id": "orangutans",
+  "source": "phylopic",
+  "uuid": "3d940099-f674-49bf-b1a1-f5e745db4048",
+  "taxon": "Pongo",
+  "attribution": "d.j.ardesch",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/3d940099-f674-49bf-b1a1-f5e745db4048"
+ },
+ {
+  "id": "gorillas",
+  "source": "phylopic",
+  "uuid": "142e0571-3b5f-443d-a887-b572a224ea22",
+  "taxon": "Gorilla gorilla",
+  "attribution": "Margot Michaud",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/142e0571-3b5f-443d-a887-b572a224ea22"
+ },
+ {
+  "id": "chimpanzees",
+  "source": "phylopic",
+  "uuid": "7133ab33-cc79-4d7c-9656-48717359abb4",
+  "taxon": "Pan troglodytes",
+  "attribution": "Jonathan Lawley",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/7133ab33-cc79-4d7c-9656-48717359abb4"
+ },
+ {
+  "id": "humans",
+  "source": "phylopic",
+  "uuid": "9c6af553-390c-4bdd-baeb-6992cbc540b1",
+  "taxon": "Homo rhodesiensis rhodesiensis",
+  "attribution": "T. Michael Keesey",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9c6af553-390c-4bdd-baeb-6992cbc540b1"
+ },
+ {
+  "id": "rodents",
+  "source": "phylopic",
+  "uuid": "36dc0476-ae7d-49ed-85c4-220139930bfc",
+  "taxon": "Mus musculus",
+  "attribution": "Cagri CEVRIM",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/36dc0476-ae7d-49ed-85c4-220139930bfc"
+ },
+ {
+  "id": "bats",
+  "source": "phylopic",
+  "uuid": "1dda6a3d-e407-47fb-add8-fb6b0572f688",
+  "taxon": "Pteropus medius",
+  "attribution": "Margot Michaud",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/1dda6a3d-e407-47fb-add8-fb6b0572f688"
+ },
+ {
+  "id": "carnivores",
+  "source": "phylopic",
+  "uuid": "d67d3bf6-3509-4ab6-819a-cd409985347e",
+  "taxon": "Vulpes vulpes",
+  "attribution": "Anthony Caravaggi",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/d67d3bf6-3509-4ab6-819a-cd409985347e"
+ },
+ {
+  "id": "odd_toed",
+  "source": "phylopic",
+  "uuid": "9f550f9e-b8df-43c4-9f00-396548507424",
+  "taxon": "Equus ferus przewalskii",
+  "attribution": "Andy Wilson",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9f550f9e-b8df-43c4-9f00-396548507424"
+ },
+ {
+  "id": "cows_deer",
+  "source": "phylopic",
+  "uuid": "415714b4-859c-4d1c-9ce0-9e1081613df7",
+  "taxon": "Bos primigenius taurus",
+  "attribution": "Steven Traver",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/415714b4-859c-4d1c-9ce0-9e1081613df7"
+ },
+ {
+  "id": "pigs",
+  "source": "phylopic",
+  "uuid": "3d8acaf6-4355-491e-8e86-4a411b53b98b",
+  "taxon": "Sus scrofa",
+  "attribution": "Steven Traver",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/3d8acaf6-4355-491e-8e86-4a411b53b98b"
+ },
+ {
+  "id": "hippos",
+  "source": "phylopic",
+  "uuid": "3769e205-b10c-4aab-affc-b4f0302f4eaa",
+  "taxon": "Hippopotamus amphibius",
+  "attribution": "Evan Boucher",
+  "license": "Public Domain Mark",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/3769e205-b10c-4aab-affc-b4f0302f4eaa"
+ },
+ {
+  "id": "whales_dolphins",
+  "source": "phylopic",
+  "uuid": "012afb33-55c3-4fc6-9ae3-3a91fda32fd5",
+  "taxon": "Balaenoptera novaeangliae",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/012afb33-55c3-4fc6-9ae3-3a91fda32fd5"
+ },
+ {
+  "id": "turtles",
+  "source": "phylopic",
+  "uuid": "09e1c81c-459f-4b44-b475-546380fa1998",
+  "taxon": "Chelonia mydas",
+  "attribution": "Edwin Price",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/09e1c81c-459f-4b44-b475-546380fa1998"
+ },
+ {
+  "id": "tuatara",
+  "source": "phylopic",
+  "uuid": "9f520fca-0497-40f6-9bc3-6fc03cd47e57",
+  "taxon": "Sphenodon punctatus",
+  "attribution": "Beth Reinke",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/9f520fca-0497-40f6-9bc3-6fc03cd47e57"
+ },
+ {
+  "id": "lizards_snakes",
+  "source": "phylopic",
+  "uuid": "7841b1e3-1bbe-4c13-b4ab-3dbd207bfee8",
+  "taxon": "Varanus caerulivirens",
+  "attribution": "Guillaume Dera",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/7841b1e3-1bbe-4c13-b4ab-3dbd207bfee8"
+ },
+ {
+  "id": "crocodilians",
+  "source": "phylopic",
+  "uuid": "8fe79f7c-833c-4b7d-8d32-9682e1b5d146",
+  "taxon": "Crocodylus",
+  "attribution": "Becky Barnes",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/8fe79f7c-833c-4b7d-8d32-9682e1b5d146"
+ },
+ {
+  "id": "ornithischia",
+  "source": "phylopic",
+  "uuid": "57d2507a-be74-453b-8522-f6993b2fc401",
+  "taxon": "Triceratops",
+  "attribution": "Richard Rich",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/57d2507a-be74-453b-8522-f6993b2fc401"
+ },
+ {
+  "id": "sauropods",
+  "source": "phylopic",
+  "uuid": "2003b4f6-7b8d-4c98-9797-1aca028dc2ac",
+  "taxon": "Brachiosaurus altithorax",
+  "attribution": "Amy Beauvois",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/2003b4f6-7b8d-4c98-9797-1aca028dc2ac"
+ },
+ {
+  "id": "trex",
+  "source": "phylopic",
+  "uuid": "0c393043-8916-49b7-95df-5216285e7d17",
+  "taxon": "Tyrannosaurus rex",
+  "attribution": "artrociraptor",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/0c393043-8916-49b7-95df-5216285e7d17"
+ },
+ {
+  "id": "flightless_birds",
+  "source": "phylopic",
+  "uuid": "31789d9c-30e0-4f40-8c21-6f76cd5d339b",
+  "taxon": "Struthio camelus",
+  "attribution": "Marie Attard",
+  "license": "Public Domain Mark",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/31789d9c-30e0-4f40-8c21-6f76cd5d339b"
+ },
+ {
+  "id": "birds_of_prey",
+  "source": "phylopic",
+  "uuid": "7779e472-9159-4219-8e8e-68197bb73557",
+  "taxon": "Aquila chrysaetos",
+  "attribution": "Andy Wilson",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/7779e472-9159-4219-8e8e-68197bb73557"
+ },
+ {
+  "id": "songbirds",
+  "source": "phylopic",
+  "uuid": "3a4cdd72-e553-40ad-838e-3b23037b2010",
+  "taxon": "Passer domesticus",
+  "attribution": "Andy Wilson",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "pageUrl": "https://www.phylopic.org/images/3a4cdd72-e553-40ad-838e-3b23037b2010"
+ },
+ {
+  "id": "eukarya",
+  "source": "procedural",
+  "glyph": "eukaryote-cell"
+ }
+]

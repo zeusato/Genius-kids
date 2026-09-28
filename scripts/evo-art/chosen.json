@@ -1,0 +1,382 @@
+{
+ "amoeba_example": {
+  "uuid": "4227f7b5-b1e5-4af6-99cc-af68795f5855",
+  "taxon": "Amoeba proteus"
+ },
+ "physarum_example": {
+  "uuid": "703b83c3-665c-4c9d-aa2c-cc7e62675cdc",
+  "taxon": "Physarum polycephalum"
+ },
+ "kelp_example": {
+  "uuid": "9acf11fa-89dd-4a56-b3da-8665c406c6f5",
+  "taxon": "Macrocystis pyrifera"
+ },
+ "diatom_example": {
+  "uuid": "1ac6db29-fe9e-49d2-87de-4dbbd1767af5",
+  "taxon": "Coscinodiscophyceae"
+ },
+ "phytophthora_example": {
+  "uuid": "f2e0f985-daba-4eb1-8727-eb667d2c3f96",
+  "taxon": "Phytophthora"
+ },
+ "paramecium_example": {
+  "uuid": "4bc4ab1b-852e-413a-87b5-6c63fb059d40",
+  "taxon": "Paramecium tetraurelia"
+ },
+ "plasmodium_example": {
+  "uuid": "1fbf2158-aab2-40be-9561-94ed6f7d1758",
+  "taxon": "Plasmodium falciparum"
+ },
+ "euglena_example": {
+  "uuid": "9c80947d-eb46-4a7e-b29a-208a6f0c0f93",
+  "taxon": "Euglena"
+ },
+ "red_algae_example": {
+  "uuid": "a309ba95-f8cf-4a2f-a7bd-e62df84b3caa",
+  "taxon": "Picomonas judraskeda"
+ },
+ "chlamydomonas_example": {
+  "uuid": "56538f18-f0db-4323-b969-594357da11fe",
+  "taxon": "Chlamydomonas reinhardtii"
+ },
+ "green_algae_plants": {
+  "uuid": "65414989-e801-4d0e-acc1-4309cd35ab7e",
+  "taxon": "Chara vulgaris"
+ },
+ "chytrid_example": {
+  "uuid": "91004e51-f3b3-4070-9605-aca753ed315a",
+  "taxon": "Chytridiomycota"
+ },
+ "rhizopus_example": {
+  "uuid": "8cff2d66-6549-44d2-8304-d2dfecf53d78",
+  "taxon": "Rhizopus oryzae"
+ },
+ "blue_mold_example": {
+  "uuid": "410b4773-dfe7-4c7c-a4d8-75dbb8ec555f",
+  "taxon": "Penicillium chrysogenum"
+ },
+ "truffle_example": {
+  "uuid": "44f455da-febf-4b68-b62d-3ec79318481a",
+  "taxon": "Gyromitra esculenta"
+ },
+ "baker_yeast_example": {
+  "uuid": "347bc4ab-c1e0-4313-9ea1-939c2ad71232",
+  "taxon": "Saccharomyces cerevisiae"
+ },
+ "polypore_example": {
+  "uuid": "831e01d4-4ecb-453a-ba4b-a84407c8e28e",
+  "taxon": "Fomitopsis pinicola"
+ },
+ "mosses": {
+  "uuid": "2b8aac96-adca-45f6-9b9d-03934136d993",
+  "taxon": "Takakia lepidozioides"
+ },
+ "ferns": {
+  "uuid": "2d2bd6f4-be5e-48de-a61a-510f09692e48",
+  "taxon": "Polystichum lonchitis"
+ },
+ "pine_spruce_fir_examples": {
+  "uuid": "1b329337-8f8b-4380-8aae-23d50e0db14f",
+  "taxon": "Pinus"
+ },
+ "flowering_plants_monocots": {
+  "uuid": "bdae8ff7-6c00-4af9-8464-a44b3e6c65f9",
+  "taxon": "Oryza sativa"
+ },
+ "flowering_plants_dicots": {
+  "uuid": "40b91c6c-4ef8-4a5a-9b90-85fb50d74c5b",
+  "taxon": "Helianthus annuus"
+ },
+ "calcarea": {
+  "uuid": "6f416bc2-8aa8-424d-910d-2ec7c8d74020",
+  "taxon": "Leucosolenia complicata"
+ },
+ "demospongiae": {
+  "uuid": "31acf3d7-716a-4594-846e-f7d20f04b45a",
+  "taxon": "Acarnidae"
+ },
+ "hexactinellida": {
+  "uuid": "9d6fc9d2-cbd1-49fe-bb39-ac8355466e48",
+  "taxon": "Euplectella aspergillum"
+ },
+ "homoscleromorpha": {
+  "uuid": "0d580fdc-83f3-4860-8043-feb9deaf7a30",
+  "taxon": "Oscarella tuberculata"
+ },
+ "hydrozoa": {
+  "uuid": "02d00693-af87-4323-889a-8afc7d8529f3",
+  "taxon": "Hydra"
+ },
+ "scyphozoa": {
+  "uuid": "f0494167-77f6-46eb-841d-c4cefb683bbd",
+  "taxon": "Aurelia aurita"
+ },
+ "anthozoa": {
+  "uuid": "0219fce6-63c5-4c77-93f3-78ef33f1852e",
+  "taxon": "Metridium senile"
+ },
+ "cubozoa": {
+  "uuid": "9a9b00b8-6abc-491f-a3cf-2cc0dc65e4cf",
+  "taxon": "Chironex fleckeri"
+ },
+ "planarians": {
+  "uuid": "04b4a930-1a3d-469a-b23b-3015bb3caa5c",
+  "taxon": "Cercyra hastata"
+ },
+ "tapeworms": {
+  "uuid": "04f9e4ab-8e1f-4525-9da1-1f810a57a14f",
+  "taxon": "Taenia saginata"
+ },
+ "flukes": {
+  "uuid": "607b10e4-e036-44fd-ad17-4395c6ecc0c6",
+  "taxon": "Fasciola hepatica"
+ },
+ "earthworms": {
+  "uuid": "f0d839a1-5a3e-42b2-828a-c5e536f0f7b7",
+  "taxon": "Lumbricus terrestris"
+ },
+ "leeches": {
+  "uuid": "f82af611-1d90-4f77-8163-f0ea74a04813",
+  "taxon": "Hirudo medicinalis"
+ },
+ "polychaetes": {
+  "uuid": "b4b022e5-b8ba-471a-a994-c352ba7ade01",
+  "taxon": "Nereis virens"
+ },
+ "snails": {
+  "uuid": "4ce5601f-cf94-4d21-b3a1-07bd58a811c2",
+  "taxon": "Helix pomatia"
+ },
+ "slugs": {
+  "uuid": "2df5ac90-523f-4071-8f92-4181b94dd04e",
+  "taxon": "Arion rufus"
+ },
+ "octopuses": {
+  "uuid": "f400b519-3564-4183-b4bd-c3b922cc7c5e",
+  "taxon": "Octopus vulgaris"
+ },
+ "squids": {
+  "uuid": "22a8e316-7f4d-4270-b6af-b5ef9e84c2c2",
+  "taxon": "Loligo vulgaris"
+ },
+ "nautilus": {
+  "uuid": "a5d0c0e8-c737-40c3-8f5d-dbca473e1c33",
+  "taxon": "Nautilus pompilius"
+ },
+ "ammonites": {
+  "uuid": "7f94ad46-8b4d-487c-8e86-f1fb392dcd6f",
+  "taxon": "Goniatitida"
+ },
+ "pinworms": {
+  "uuid": "988b097a-953d-493a-baac-95b7d8a220f6",
+  "taxon": "Nematoda"
+ },
+ "hookworms": {
+  "uuid": "988b097a-953d-493a-baac-95b7d8a220f6",
+  "taxon": "Nematoda"
+ },
+ "trilobites": {
+  "uuid": "02020aea-5c46-4f8f-8405-eb0cabe86596",
+  "taxon": "Holmia kjerulfi"
+ },
+ "spiders_scorpions_ticks": {
+  "uuid": "882a9d18-5724-44a9-b439-1b2686339a00",
+  "taxon": "Liphistius desultor"
+ },
+ "centipedes_millipedes": {
+  "uuid": "8239930a-8d3f-4f4b-be78-9d7fe64108af",
+  "taxon": "Scutigeridae"
+ },
+ "crabs_shrimps_lobsters": {
+  "uuid": "035b0041-ec5b-4a9c-ac8e-5a3cc3ee02a1",
+  "taxon": "Eoprosopon klugi"
+ },
+ "butterflies_beetles_bees": {
+  "uuid": "5fdc4327-2881-4664-9e42-f176d95568c9",
+  "taxon": "Apis mellifera"
+ },
+ "sea_stars": {
+  "uuid": "37d1d45b-66c7-4240-a81c-bad76f27443d",
+  "taxon": "Odontaster validus"
+ },
+ "sea_urchins": {
+  "uuid": "e1bfc57f-9c0b-4edb-aa64-d1b6a8907962",
+  "taxon": "Prionocidaris bispinosa"
+ },
+ "sea_cucumbers": {
+  "uuid": "249f4533-e205-4e65-bfa8-c0926939716e",
+  "taxon": "Elpidia glacialis"
+ },
+ "brittle_stars": {
+  "uuid": "31027995-abf6-436a-95b3-bd5e005ec63e",
+  "taxon": "Ophiuroidea"
+ },
+ "jawless_fish": {
+  "uuid": "1e04eace-cee7-4fd1-ac33-bb34c5f24fb6",
+  "taxon": "Petromyzon marinus"
+ },
+ "cartilaginous_fish": {
+  "uuid": "00f208a3-887d-4ae8-838c-2124f53b9fc1",
+  "taxon": "Carcharodon carcharias"
+ },
+ "ray_finned_fish": {
+  "uuid": "f6c6590d-8aa1-4d08-a25f-e6c90727c071",
+  "taxon": "Salmo salar"
+ },
+ "coelacanths": {
+  "uuid": "12c38a8a-6d68-4af3-ada3-05cafdfc25c2",
+  "taxon": "Latimeria chalumnae"
+ },
+ "lungfish": {
+  "uuid": "104f2094-9617-492d-8875-207f242bbf21",
+  "taxon": "Protopterus"
+ },
+ "frogs_toads": {
+  "uuid": "b41b4b2e-e22d-4ddf-bc24-601c8bc76d79",
+  "taxon": "Pelophylax esculentus"
+ },
+ "salamanders_newts": {
+  "uuid": "0a948f02-6e35-42d5-a835-b9360f450d39",
+  "taxon": "Salamandra salamandra"
+ },
+ "caecilians": {
+  "uuid": "ac0368c5-05ad-4b01-bf0c-c5bc7cf85203",
+  "taxon": "Chikila gaiduwani"
+ },
+ "early_synapsids": {
+  "uuid": "b9b73c89-7609-4524-b068-7c7c7f566979",
+  "taxon": "Dimetrodon"
+ },
+ "dicynodonts": {
+  "uuid": "03efb48d-b735-4812-bf65-39279d9f7067",
+  "taxon": "Lystrosaurus murrayi"
+ },
+ "monotremes": {
+  "uuid": "162021b6-349b-4a64-906f-33d4a191b30e",
+  "taxon": "Ornithorhynchus anatinus"
+ },
+ "african_elephant": {
+  "uuid": "2a070808-0874-409d-81c0-d0c1995e54bb",
+  "taxon": "Loxodonta africana"
+ },
+ "asian_elephant": {
+  "uuid": "6e47a104-e62a-4901-81f7-fca2ecacdb0e",
+  "taxon": "Elephas maximus"
+ },
+ "mammoth": {
+  "uuid": "6f0acd79-1f7d-402f-8679-dc3036b1a504",
+  "taxon": "Mammuthus primigenius"
+ },
+ "lemurs": {
+  "uuid": "8a187391-82a3-4d9b-a402-3a310bf7dc38",
+  "taxon": "Lemur catta"
+ },
+ "new_world_monkeys": {
+  "uuid": "1600eef8-bf4c-4c09-81c8-bc85a2508cf7",
+  "taxon": "Ateles"
+ },
+ "old_world_monkeys": {
+  "uuid": "13daf9fe-04c7-483c-bacd-4da045f7a7ec",
+  "taxon": "Haemulon sciurus"
+ },
+ "orangutans": {
+  "uuid": "3d940099-f674-49bf-b1a1-f5e745db4048",
+  "taxon": "Pongo"
+ },
+ "gorillas": {
+  "uuid": "142e0571-3b5f-443d-a887-b572a224ea22",
+  "taxon": "Gorilla gorilla"
+ },
+ "chimpanzees": {
+  "uuid": "7133ab33-cc79-4d7c-9656-48717359abb4",
+  "taxon": "Pan troglodytes"
+ },
+ "humans": {
+  "uuid": "9c6af553-390c-4bdd-baeb-6992cbc540b1",
+  "taxon": "Homo rhodesiensis rhodesiensis"
+ },
+ "rodents": {
+  "uuid": "36dc0476-ae7d-49ed-85c4-220139930bfc",
+  "taxon": "Mus musculus"
+ },
+ "bats": {
+  "uuid": "1dda6a3d-e407-47fb-add8-fb6b0572f688",
+  "taxon": "Pteropus medius"
+ },
+ "carnivores": {
+  "uuid": "d67d3bf6-3509-4ab6-819a-cd409985347e",
+  "taxon": "Vulpes vulpes"
+ },
+ "odd_toed": {
+  "uuid": "9f550f9e-b8df-43c4-9f00-396548507424",
+  "taxon": "Equus ferus przewalskii"
+ },
+ "cows_deer": {
+  "uuid": "415714b4-859c-4d1c-9ce0-9e1081613df7",
+  "taxon": "Bos primigenius taurus"
+ },
+ "pigs": {
+  "uuid": "3d8acaf6-4355-491e-8e86-4a411b53b98b",
+  "taxon": "Sus scrofa"
+ },
+ "hippos": {
+  "uuid": "3769e205-b10c-4aab-affc-b4f0302f4eaa",
+  "taxon": "Hippopotamus amphibius"
+ },
+ "whales_dolphins": {
+  "uuid": "012afb33-55c3-4fc6-9ae3-3a91fda32fd5",
+  "taxon": "Balaenoptera novaeangliae"
+ },
+ "turtles": {
+  "uuid": "09e1c81c-459f-4b44-b475-546380fa1998",
+  "taxon": "Chelonia mydas"
+ },
+ "tuatara": {
+  "uuid": "9f520fca-0497-40f6-9bc3-6fc03cd47e57",
+  "taxon": "Sphenodon punctatus"
+ },
+ "lizards_snakes": {
+  "uuid": "7841b1e3-1bbe-4c13-b4ab-3dbd207bfee8",
+  "taxon": "Varanus caerulivirens"
+ },
+ "crocodilians": {
+  "uuid": "8fe79f7c-833c-4b7d-8d32-9682e1b5d146",
+  "taxon": "Crocodylus"
+ },
+ "ornithischia": {
+  "uuid": "57d2507a-be74-453b-8522-f6993b2fc401",
+  "taxon": "Triceratops"
+ },
+ "sauropods": {
+  "uuid": "2003b4f6-7b8d-4c98-9797-1aca028dc2ac",
+  "taxon": "Brachiosaurus altithorax"
+ },
+ "trex": {
+  "uuid": "0c393043-8916-49b7-95df-5216285e7d17",
+  "taxon": "Tyrannosaurus rex"
+ },
+ "flightless_birds": {
+  "uuid": "31789d9c-30e0-4f40-8c21-6f76cd5d339b",
+  "taxon": "Struthio camelus"
+ },
+ "birds_of_prey": {
+  "uuid": "7779e472-9159-4219-8e8e-68197bb73557",
+  "taxon": "Aquila chrysaetos"
+ },
+ "songbirds": {
+  "uuid": "3a4cdd72-e553-40ad-838e-3b23037b2010",
+  "taxon": "Passer domesticus"
+ },
+ "agaricus_example": {
+  "uuid": "c511abe7-208f-4d69-b18b-9f7aa521abed",
+  "taxon": "Amanita muscaria"
+ },
+ "clams_oysters": {
+  "uuid": "837c4173-e322-4d37-af25-3b8c8ee4f15e",
+  "taxon": "Mytilus"
+ },
+ "marsupials": {
+  "uuid": "624e3d80-cba2-4465-8f3a-c9ae4025198b",
+  "taxon": "Macropus giganteus"
+ }
+}

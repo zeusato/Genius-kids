@@ -12,7 +12,7 @@ export const LAYOUT = {
     SECTOR_GAP: 0.6 * Math.PI / 180,
     SAMPLES: 32,
     BEND: 0.45,        // góc đổi hết trong 45% đầu cành
-    W0: 0.6, W1: 1.1,  // nửa độ dày cành = W0 + W1·√leafCount (đơn vị thế giới)
+    W0: 1.1, W1: 1.5,  // nửa độ dày cành = W0 + W1·√leafCount (đơn vị thế giới)
     TAPER: 1.15,       // gốc cành dày hơn ngọn cành
     TIP_FRAC: 0.42, TIP_MAX: 20,
     ORGANIC: 0.006,    // độ cong nhẹ (rad) cho cành dài
@@ -106,8 +106,11 @@ export interface Projected {
     sampleFrac: Float32Array; // 1 số / mẫu
 }
 
+/** Màn dọc: cây VẪN mọc từ dưới lên (giữ ẩn dụ gốc ở đất, hôm nay là bầu trời) nhưng quạt được kéo giãn theo
+ * chiều đứng thành vòm elip để lấp đầy màn cao — bán kính chuẩn hóa (= thời gian) không đổi. */
+export const PORTRAIT_STRETCH = 1.7;
 export function rotate(o: Orientation, x: number, y: number): [number, number] {
-    return o === 'portrait' ? [y, -x] : [x, y];
+    return o === 'portrait' ? [x, y * PORTRAIT_STRETCH] : [x, y];
 }
 
 export function project(t: EvoTree, p: PolarLayout, times: NodeTimes, mix: number, o: Orientation, out?: Projected): Projected {
@@ -133,7 +136,7 @@ export function project(t: EvoTree, p: PolarLayout, times: NodeTimes, mix: numbe
 }
 
 export interface RibbonBuffers {
-    position: Float32Array; side: Float32Array; s: Float32Array; frac: Float32Array;
+    position: Float32Array; normal: Float32Array; halfW: Float32Array; side: Float32Array; s: Float32Array; frac: Float32Array;
     dist: Float32Array; branch: Float32Array; color: Float32Array; index: Uint32Array;
 }
 
@@ -148,7 +151,7 @@ export function sectorRgb(sector: SectorId): [number, number, number] { return h
 export function buildRibbon(t: EvoTree, p: PolarLayout, pr: Projected): RibbonBuffers {
     const S = LAYOUT.SAMPLES + 1, B = p.branches.length, V = B * S * 2;
     const buf: RibbonBuffers = {
-        position: new Float32Array(V * 3), side: new Float32Array(V), s: new Float32Array(V), frac: new Float32Array(V),
+        position: new Float32Array(V * 3), normal: new Float32Array(V * 2), halfW: new Float32Array(V), side: new Float32Array(V), s: new Float32Array(V), frac: new Float32Array(V),
         dist: new Float32Array(V), branch: new Float32Array(V), color: new Float32Array(V * 3),
         index: new Uint32Array(B * (S - 1) * 6),
     };
@@ -196,6 +199,9 @@ export function updateRibbon(buf: RibbonBuffers, p: PolarLayout, pr: Projected):
                 buf.position[v * 3] = x - ty * w * sg;
                 buf.position[v * 3 + 1] = y + tx * w * sg;
                 buf.position[v * 3 + 2] = 0;
+                buf.normal[v * 2] = -ty * sg;
+                buf.normal[v * 2 + 1] = tx * sg;
+                buf.halfW[v] = w;
                 buf.frac[v] = pr.sampleFrac[j];
             }
         }
@@ -246,5 +252,5 @@ export function fanBounds(o: Orientation): [number, number, number, number] {
     const R = LAYOUT.R;
     const lx = -R * 1.02, hx = R * 1.02, ly = -R * 0.06, hy = R * 1.02;
     if (o === 'landscape') return [lx, ly, hx, hy];
-    return [ly, -hx, hy, -lx]; // xoay −90°: (x,y) → (y,−x)
+    return [lx, ly * PORTRAIT_STRETCH, hx, hy * PORTRAIT_STRETCH];
 }

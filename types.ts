@@ -265,6 +265,8 @@ export interface StudentProfile {
   solarBadges?: string[];
   // Cell explorer: huy hiệu loại tế bào đã chinh phục (id: animal, plant, bacteria)
   cellBadges?: string[];
+  // Cây Tiến Hóa: huy hiệu (bacteria, archaea, protist, plant, fungi, animal, relatives, key, journey)
+  evoBadges?: string[];
   // Preschool (Mầm non): các mục đã hoàn thành/thành thạo trong từng module mầm non.
   preschoolProgress?: {
     alphabet?: string[]; // id chữ cái đã học (a-z)
