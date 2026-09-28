@@ -6,6 +6,10 @@ describe('alphabet background music', () => {
         expect(getMusicTrackForRoute(path)).toBeNull();
     });
 
+    it.each(['/english', '/Genius-kids/english', '/Genius-kids/english/', '/Genius-kids/english/learn/3', '/Genius-kids/english/workshop'])('keeps the English section %s quiet', path => {
+        expect(getMusicTrackForRoute(path)).toBeNull();
+    });
+
     it('preserves the music of menus, other preschool topics and games', () => {
         for (const path of ['/mode', '/preschool/colors']) {
             expect(getMusicTrackForRoute(path)).toBe(MusicTrack.MAIN_THEME);

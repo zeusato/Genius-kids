@@ -7,32 +7,6 @@ export interface OrganelleDetail {
     analogy: string;
 }
 
-// Loại hình học procedural để dựng bào quan trong scene 3D (không dùng model GLB).
-export type GeometryKind =
-    | 'nucleus'      // cầu lớn + nhân con + lỗ nhân + vỏ fresnel
-    | 'sphere'       // cầu đặc nhỏ (tiêu thể, peroxisome)
-    | 'bean'         // ty thể (capsule + gờ răng lược)
-    | 'chloroplast'  // lục lạp (ellipsoid + chồng grana)
-    | 'golgi'        // bộ máy Golgi (chồng túi dẹt + túi tiết)
-    | 'er'           // lưới nội chất (ống quấn quanh nhân)
-    | 'vacuole'      // không bào / nucleoid (cầu lớn trong mờ)
-    | 'ribosomes'    // ribôxôm (chấm li ti, instanced)
-    | 'centrosome'   // trung thể (2 trụ vuông góc)
-    | 'flagellum'    // roi (ống sóng sin)
-    | 'pili'         // pili (sợi mảnh tỏa ra)
-    | 'shell';       // màng/thành/vỏ nhầy (vỏ bọc — vẽ bởi CellBody)
-
-export interface OrganelleThreeD {
-    geometry: GeometryKind;
-    position: [number, number, number]; // scene units (gốc = tâm tế bào)
-    scale: number | [number, number, number];
-    count?: number;                       // số bản instance (>1 = rải)
-    spread?: number;                      // bán kính vỏ cầu để rải (count>1)
-    scatter?: 'shell' | 'rod';            // kiểu rải: vỏ cầu (mặc định) hoặc dọc thân (vi khuẩn)
-    rotation?: [number, number, number];
-    shellRadius?: number;                 // cho geometry 'shell': bán kính vỏ bọc
-}
-
 export interface Organelle {
     id: string;
     name: string;
@@ -41,7 +15,9 @@ export interface Organelle {
     funFact: string;
     color: string;
     iconPath?: string;
-    threeD?: OrganelleThreeD; // thông tin dựng 3D (additive — không ảnh hưởng DetailPanel/2D)
+    emoji: string;   // biểu tượng trên nhãn 3D — cho bé chưa đọc được
+    short: string;   // "so sánh vui" rút gọn hiện dưới tên (Nhà máy điện, Bưu điện...)
+    kid: string;     // bào quan tự giới thiệu ("Tớ là...") — câu đọc to cho bé nhỏ
 }
 
 export interface CellType {
@@ -65,6 +41,9 @@ export const CELL_DATA: CellType[] = [
                 name: 'Màng Tế Bào',
                 nameEn: 'Cell Membrane',
                 color: '#7DD3FC', // Sky
+                emoji: '🛡️',
+                short: 'Cổng an ninh',
+                kid: 'Tớ là màng tế bào! Tớ mềm dẻo như bong bóng và canh cổng, chỉ cho chất có ích đi vào.',
                 details: {
                     summary: 'Lớp vỏ mỏng, mềm dẻo bao bọc và bảo vệ toàn bộ tế bào.',
                     structure: 'Lớp phospholipid kép với các protein xuyên màng, mềm và linh hoạt.',
@@ -72,14 +51,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Lớp ngoài cùng của tế bào động vật.',
                     analogy: 'Giống như "Cổng an ninh" quyết định ai được vào, ai phải ra.'
                 },
-                funFact: 'Màng tế bào động vật mềm dẻo nên tế bào có thể đổi hình dạng — khác hẳn thành cứng của thực vật!',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 2.4 }
+                funFact: 'Màng tế bào động vật mềm dẻo nên tế bào có thể đổi hình dạng — khác hẳn thành cứng của thực vật!'
             },
             {
                 id: 'nucleus',
                 name: 'Nhân Tế Bào',
                 nameEn: 'Nucleus',
                 color: '#A855F7', // Purple
+                emoji: '🧠',
+                short: 'Trung tâm điều khiển',
+                kid: 'Tớ là nhân tế bào — trung tâm điều khiển! Trong tớ cất cuốn sách hướng dẫn ADN.',
                 details: {
                     summary: 'Trung tâm điều khiển của tế bào, chứa thông tin di truyền.',
                     structure: 'Hình cầu, được bao bọc bởi lớp màng nhân kép có các lỗ nhỏ.',
@@ -87,14 +68,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Thường nằm ở trung tâm tế bào.',
                     analogy: 'Giống như "Bộ não" hoặc "Thư viện trung tâm" của thành phố.'
                 },
-                funFact: 'Nhân chứa khoảng 2 mét DNA được cuộn chặt lại siêu nhỏ!',
-                threeD: { geometry: 'nucleus', position: [0, 0, 0], scale: 0.82 }
+                funFact: 'Nhân chứa khoảng 2 mét DNA được cuộn chặt lại siêu nhỏ!'
             },
             {
                 id: 'er',
                 name: 'Lưới Nội Chất',
                 nameEn: 'Endoplasmic Reticulum',
                 color: '#F472B6', // Pink
+                emoji: '🛣️',
+                short: 'Băng chuyền sản xuất',
+                kid: 'Tớ là lưới nội chất — băng chuyền của nhà máy. Các bạn ribôxôm ngồi trên tớ làm protein.',
                 details: {
                     summary: 'Hệ thống giao thông nội bộ của tế bào.',
                     structure: 'Mạng lưới các túi dẹt và ống thông với nhau. Có 2 loại: Hạt (gắn Ribosome) và Trơn.',
@@ -102,14 +85,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Bao quanh nhân tế bào.',
                     analogy: 'Giống như "Băng chuyền sản xuất" và "Hệ thống đường cao tốc".'
                 },
-                funFact: 'Lưới nội chất hạt trông "sần sùi" là do hàng ngàn hạt Ribosome bám trên bề mặt.',
-                threeD: { geometry: 'er', position: [0, 0, 0], scale: 1.35 }
+                funFact: 'Lưới nội chất hạt trông "sần sùi" là do hàng ngàn hạt Ribosome bám trên bề mặt.'
             },
             {
                 id: 'golgi',
                 name: 'Bộ Máy Golgi',
                 nameEn: 'Golgi Apparatus',
                 color: '#FB923C', // Orange
+                emoji: '📦',
+                short: 'Bưu điện đóng gói',
+                kid: 'Tớ là bộ máy Golgi — bưu điện của tế bào. Tớ đóng gói hàng rồi gửi đi khắp nơi.',
                 details: {
                     summary: 'Nơi đóng gói và phân phối sản phẩm của tế bào.',
                     structure: 'Chồng túi màng dẹt xếp lớp lên nhau (giống chồng bánh kếp).',
@@ -117,14 +102,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Gần lưới nội chất.',
                     analogy: 'Giống như "Bưu điện" hoặc "Trung tâm đóng gói hàng hóa".'
                 },
-                funFact: 'Bộ máy Golgi được đặt theo tên của nhà bác học Camillo Golgi, người phát hiện ra nó năm 1898.',
-                threeD: { geometry: 'golgi', position: [1.25, -0.7, 0.4], scale: 0.5, rotation: [0.3, 0, 0.2] }
+                funFact: 'Bộ máy Golgi được đặt theo tên của nhà bác học Camillo Golgi, người phát hiện ra nó năm 1898.'
             },
             {
                 id: 'mitochondria',
                 name: 'Ty Thể',
                 nameEn: 'Mitochondria',
                 color: '#EF4444', // Red
+                emoji: '⚡',
+                short: 'Nhà máy điện',
+                kid: 'Tớ là ty thể — nhà máy điện! Tớ biến đường thành năng lượng cho tế bào chạy nhảy.',
                 details: {
                     summary: 'Nhà máy sản xuất năng lượng cho tế bào hoạt động.',
                     structure: 'Hình hạt đậu, có 2 lớp màng. Màng trong gấp nếp tạo thành các mào.',
@@ -132,14 +119,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Trôi nổi tự do trong tế bào chất.',
                     analogy: 'Giống như "Nhà máy điện" cung cấp điện cho cả thành phố.'
                 },
-                funFact: 'Một tế bào thật có hàng trăm đến hàng nghìn ty thể, và chúng có DNA riêng để tự nhân đôi!',
-                threeD: { geometry: 'bean', position: [0, 0, 0], scale: 0.42, count: 6, spread: 1.6 }
+                funFact: 'Một tế bào thật có hàng trăm đến hàng nghìn ty thể, và chúng có DNA riêng để tự nhân đôi!'
             },
             {
                 id: 'ribosome',
                 name: 'Ribôxôm',
                 nameEn: 'Ribosome',
                 color: '#C084FC', // Light purple
+                emoji: '🔧',
+                short: 'Thợ lắp ráp protein',
+                kid: 'Tớ là ribôxôm, bé xíu thôi nhưng chăm lắm: tớ lắp ráp protein cả ngày!',
                 details: {
                     summary: 'Những hạt nhỏ li ti chuyên sản xuất protein cho tế bào.',
                     structure: 'Hạt gồm 2 phần (tiểu đơn vị lớn + nhỏ) ghép lại, làm từ RNA và protein.',
@@ -147,14 +136,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Trôi tự do trong tế bào chất và bám trên lưới nội chất hạt.',
                     analogy: 'Giống như "Dây chuyền lắp ráp" trong nhà máy sản xuất.'
                 },
-                funFact: 'Một tế bào có hàng triệu ribôxôm — chính chúng làm lưới nội chất hạt trông sần sùi!',
-                threeD: { geometry: 'ribosomes', position: [0, 0, 0], scale: 0.09, count: 14, spread: 1.9 }
+                funFact: 'Một tế bào có hàng triệu ribôxôm — chính chúng làm lưới nội chất hạt trông sần sùi!'
             },
             {
                 id: 'lysosome',
                 name: 'Tiêu Thể',
                 nameEn: 'Lysosome',
                 color: '#60A5FA', // Blue
+                emoji: '♻️',
+                short: 'Đội dọn rác',
+                kid: 'Tớ là tiêu thể — đội dọn rác. Rác và đồ cũ vào tớ là được tái chế ngay!',
                 details: {
                     summary: 'Nhà máy xử lý rác thải của tế bào.',
                     structure: 'Túi cầu nhỏ chứa các enzyme tiêu hóa mạnh.',
@@ -162,14 +153,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Rải rác trong tế bào chất.',
                     analogy: 'Giống như "Xe rác" hoặc "Nhà máy tái chế".'
                 },
-                funFact: 'Tiêu thể có thể tái chế cả những bộ phận già cỗi của tế bào để dùng lại!',
-                threeD: { geometry: 'sphere', position: [0, 0, 0], scale: 0.24, count: 3, spread: 1.45 }
+                funFact: 'Tiêu thể có thể tái chế cả những bộ phận già cỗi của tế bào để dùng lại!'
             },
             {
                 id: 'centrosome',
                 name: 'Trung Thể',
                 nameEn: 'Centrosome',
                 color: '#FDE047', // Yellow
+                emoji: '🧭',
+                short: 'Người chỉ huy phân chia',
+                kid: 'Tớ là trung thể. Khi tế bào chia đôi, tớ kéo ADN về hai phía cho thật đều.',
                 details: {
                     summary: 'Trung tâm tổ chức ống vi thể, quan trọng khi tế bào phân chia.',
                     structure: 'Gồm 2 trung tử xếp vuông góc với nhau.',
@@ -177,14 +170,33 @@ export const CELL_DATA: CellType[] = [
                     location: 'Gần nhân tế bào.',
                     analogy: 'Giống như "Người điều phối" giao thông.'
                 },
-                funFact: 'Trung thể giúp chia đều DNA cho 2 tế bào con khi tế bào phân chia.',
-                threeD: { geometry: 'centrosome', position: [0.55, 1.05, 0.35], scale: 0.32 }
+                funFact: 'Trung thể giúp chia đều DNA cho 2 tế bào con khi tế bào phân chia.'
+            },
+            {
+                id: 'cytoskeleton',
+                name: 'Bộ Khung Tế Bào',
+                nameEn: 'Cytoskeleton',
+                color: '#67E8F9', // Cyan
+                emoji: '🦴',
+                short: 'Bộ khung & đường ray',
+                kid: 'Tớ là bộ khung tế bào. Tớ vừa là bộ xương, vừa là đường ray cho xe chở hàng chạy.',
+                details: {
+                    summary: 'Mạng lưới sợi protein làm khung, giữ hình dạng cho tế bào.',
+                    structure: 'Gồm vi ống (ống rỗng), vi sợi và sợi trung gian đan khắp tế bào chất.',
+                    function: 'Giữ hình dạng, giúp tế bào di chuyển và làm "đường ray" để protein vận động chở túi hàng đi khắp tế bào.',
+                    location: 'Khắp tế bào chất; các vi ống tỏa ra từ trung thể.',
+                    analogy: 'Giống như "Khung nhà" kết hợp "Đường ray tàu hỏa".'
+                },
+                funFact: 'Protein vận động kinesin "đi bộ" trên vi ống: mỗi bước chỉ 8 nanômét nhưng bước khoảng 100 bước mỗi giây!'
             },
             {
                 id: 'cytoplasm', // chuẩn hóa từ 'cytoplasms'
                 name: 'Tế Bào Chất',
                 nameEn: 'Cytoplasm',
                 color: '#CBD5E1', // Slate
+                emoji: '🌊',
+                short: 'Biển thạch bên trong',
+                kid: 'Tớ là tế bào chất — biển thạch mềm, nơi mọi bào quan bơi và làm việc.',
                 details: {
                     summary: 'Môi trường dạng keo lấp đầy không gian bên trong tế bào.',
                     structure: 'Dạng dịch keo (cytosol) chứa nước, muối khoáng và các phân tử hữu cơ.',
@@ -193,7 +205,6 @@ export const CELL_DATA: CellType[] = [
                     analogy: 'Giống như "Bầu không khí" hoặc "Hệ thống đường xá" nơi mọi thứ diễn ra.'
                 },
                 funFact: 'Tế bào chất luôn chuyển động không ngừng (chuyển động dòng chất nguyên sinh).'
-                // không có threeD — là vùng nền, click vào khoảng trống để chọn
             }
         ]
     },
@@ -208,6 +219,9 @@ export const CELL_DATA: CellType[] = [
                 name: 'Thành Tế Bào',
                 nameEn: 'Cell Wall',
                 color: '#166534', // Dark Green
+                emoji: '🧱',
+                short: 'Bức tường thành',
+                kid: 'Tớ là thành tế bào — bức tường cứng cáp giúp cây đứng thẳng.',
                 details: {
                     summary: 'Lớp vỏ cứng bao bên ngoài màng tế bào thực vật.',
                     structure: 'Cấu tạo chủ yếu từ cellulose sợi bền chắc.',
@@ -215,14 +229,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Lớp ngoài cùng của tế bào thực vật.',
                     analogy: 'Giống như "Bức tường thành" hoặc "Bộ khung xương".'
                 },
-                funFact: 'Thành tế bào là lý do tại sao gỗ lại cứng và rau quả lại giòn.',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 2.7 }
+                funFact: 'Thành tế bào là lý do tại sao gỗ lại cứng và rau quả lại giòn. Tờ giấy em viết cũng làm từ xenlulôzơ của thành tế bào đấy!'
             },
             {
                 id: 'plasma_membrane',
                 name: 'Màng Tế Bào',
                 nameEn: 'Cell Membrane',
                 color: '#4ADE80', // Green
+                emoji: '🛡️',
+                short: 'Cổng an ninh',
+                kid: 'Tớ là màng tế bào, nằm ngay sau bức tường. Tớ canh cổng cho chất ra vào.',
                 details: {
                     summary: 'Lớp màng mỏng nằm ngay bên trong thành tế bào cứng.',
                     structure: 'Lớp phospholipid kép mềm dẻo, lót sát mặt trong của thành.',
@@ -230,14 +246,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Ngay bên trong thành tế bào.',
                     analogy: 'Giống như "Lớp lót mềm" bên trong một chiếc hộp cứng.'
                 },
-                funFact: 'Nhiều bạn nhầm thành và màng là một — thực ra thực vật có cả hai lớp riêng biệt!',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 2.5 }
+                funFact: 'Nhiều bạn nhầm thành và màng là một — thực ra thực vật có cả hai lớp riêng biệt!'
             },
             {
                 id: 'vacuole',
                 name: 'Không Bào Trung Tâm',
                 nameEn: 'Central Vacuole',
                 color: '#0EA5E9', // Sky Blue
+                emoji: '💧',
+                short: 'Kho chứa nước',
+                kid: 'Tớ là không bào — kho nước khổng lồ. Tưới cây là tớ căng phồng lên!',
                 details: {
                     summary: 'Túi chứa nước khổng lồ chiếm phần lớn thể tích tế bào.',
                     structure: 'Một túi màng lớn chứa đầy dịch bào (nước và chất tan).',
@@ -245,14 +263,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Trung tâm tế bào thực vật, đẩy nhân và các bào quan ra sát màng.',
                     analogy: 'Giống như "Kho chứa nước" hoặc "Két sắt" của tế bào.'
                 },
-                funFact: 'Không bào chiếm tới 80-90% thể tích, đẩy mọi thứ ra rìa. Khi quên tưới cây, không bào mất nước làm cây héo.',
-                threeD: { geometry: 'vacuole', position: [0.25, 0, 0], scale: 1.55 }
+                funFact: 'Không bào chiếm tới 80-90% thể tích, đẩy mọi thứ ra rìa. Khi quên tưới cây, không bào mất nước làm cây héo.'
             },
             {
                 id: 'nucleus',
                 name: 'Nhân Tế Bào',
                 nameEn: 'Nucleus',
                 color: '#A855F7', // Purple
+                emoji: '🧠',
+                short: 'Trung tâm điều khiển',
+                kid: 'Tớ là nhân tế bào. Không bào to quá nên tớ bị đẩy ra sát mép.',
                 details: {
                     summary: 'Trung tâm điều khiển của tế bào thực vật.',
                     structure: 'Hình cầu, bị đẩy sát màng do không bào lớn chiếm chỗ.',
@@ -260,14 +280,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Nằm sát màng tế bào, thường ở góc.',
                     analogy: 'Giống như "Bộ não" của tế bào.'
                 },
-                funFact: 'Trong tế bào thực vật, nhân thường bị đẩy sang một bên vì không bào quá to!',
-                threeD: { geometry: 'nucleus', position: [-1.55, 1.05, 0.2], scale: 0.68 }
+                funFact: 'Trong tế bào thực vật, nhân thường bị đẩy sang một bên vì không bào quá to!'
             },
             {
                 id: 'chloroplast',
                 name: 'Lục Lạp',
                 nameEn: 'Chloroplast',
                 color: '#22C55E', // Green
+                emoji: '☀️',
+                short: 'Bếp năng lượng Mặt Trời',
+                kid: 'Tớ là lục lạp! Tớ hứng nắng để nấu đường và thở ra khí ôxi cho các bạn.',
                 details: {
                     summary: 'Bào quan đặc biệt chỉ có ở thực vật, giúp cây quang hợp.',
                     structure: 'Hình bầu dục, chứa chất diệp lục màu xanh lá cây xếp thành chồng đĩa (grana).',
@@ -275,14 +297,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Nằm trong tế bào chất, thường tập trung ở bề mặt lá.',
                     analogy: 'Giống như "Tấm pin năng lượng mặt trời" kết hợp "Nhà bếp".'
                 },
-                funFact: 'Một tế bào lá có hàng chục lục lạp — nhờ chúng mà cây xanh tạo ra oxy cho chúng ta thở!',
-                threeD: { geometry: 'chloroplast', position: [0, 0, 0], scale: 0.52, count: 6, spread: 2.1 }
+                funFact: 'Một tế bào lá có hàng chục lục lạp — nhờ chúng mà cây xanh tạo ra oxy cho chúng ta thở!'
             },
             {
                 id: 'mitochondria',
                 name: 'Ty Thể',
                 nameEn: 'Mitochondria',
                 color: '#EF4444', // Red
+                emoji: '⚡',
+                short: 'Nhà máy điện',
+                kid: 'Tớ là ty thể. Cây cũng cần tớ để có năng lượng, nhất là ban đêm.',
                 details: {
                     summary: 'Nhà máy năng lượng, giúp tế bào hô hấp.',
                     structure: 'Hình hạt đậu với màng trong gấp nếp.',
@@ -290,14 +314,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Rải rác trong lớp tế bào chất sát màng.',
                     analogy: 'Giống như "Nhà máy điện" cho thành phố.'
                 },
-                funFact: 'Tế bào thực vật vẫn cần ty thể để hô hấp vào ban đêm khi không có ánh sáng!',
-                threeD: { geometry: 'bean', position: [0, 0, 0], scale: 0.38, count: 4, spread: 2.0 }
+                funFact: 'Tế bào thực vật vẫn cần ty thể để hô hấp vào ban đêm khi không có ánh sáng!'
             },
             {
                 id: 'er',
                 name: 'Lưới Nội Chất',
                 nameEn: 'Endoplasmic Reticulum',
                 color: '#F472B6', // Pink
+                emoji: '🛣️',
+                short: 'Băng chuyền sản xuất',
+                kid: 'Tớ là lưới nội chất — băng chuyền của nhà máy, nối liền với nhân tế bào.',
                 details: {
                     summary: 'Mạng lưới vận chuyển và sản xuất của tế bào.',
                     structure: 'Hệ thống màng nối liền với nhân và bộ máy Golgi.',
@@ -305,14 +331,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Bao quanh nhân, lan rộng trong tế bào chất.',
                     analogy: 'Giống như "Băng chuyền sản xuất" trong nhà máy.'
                 },
-                funFact: 'Lưới nội chất "hạt" có những chấm nhỏ là Ribosome - nơi sản xuất protein.',
-                threeD: { geometry: 'er', position: [-1.55, 1.05, 0.2], scale: 0.95 }
+                funFact: 'Lưới nội chất "hạt" có những chấm nhỏ là Ribosome - nơi sản xuất protein.'
             },
             {
                 id: 'golgi',
                 name: 'Bộ Máy Golgi',
                 nameEn: 'Golgi Apparatus',
                 color: '#FB923C', // Orange
+                emoji: '📦',
+                short: 'Bưu điện đóng gói',
+                kid: 'Tớ là bộ máy Golgi. Tớ đóng gói hàng và gửi vật liệu đi xây thành tế bào.',
                 details: {
                     summary: 'Nơi đóng gói và phân phối sản phẩm.',
                     structure: 'Các túi dẹt xếp chồng lên nhau.',
@@ -320,14 +348,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Gần nhân và lưới nội chất.',
                     analogy: 'Giống như "Bưu điện" hoặc "Trung tâm phân phối hàng".'
                 },
-                funFact: 'Bộ máy Golgi đặc biệt quan trọng trong việc tạo thành tế bào mới!',
-                threeD: { geometry: 'golgi', position: [-1.75, -0.85, 0.5], scale: 0.42, rotation: [0.2, 0.3, 0] }
+                funFact: 'Bộ máy Golgi đặc biệt quan trọng trong việc tạo thành tế bào mới!'
             },
             {
                 id: 'ribosome',
                 name: 'Ribôxôm',
                 nameEn: 'Ribosome',
                 color: '#C084FC', // Light purple
+                emoji: '🔧',
+                short: 'Thợ lắp ráp protein',
+                kid: 'Tớ là ribôxôm, thợ lắp ráp protein bé xíu của cây.',
                 details: {
                     summary: 'Những hạt nhỏ li ti chuyên sản xuất protein.',
                     structure: 'Hạt gồm 2 tiểu đơn vị làm từ RNA và protein.',
@@ -335,14 +365,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Trôi tự do trong tế bào chất và bám trên lưới nội chất hạt.',
                     analogy: 'Giống như "Dây chuyền lắp ráp" trong nhà máy.'
                 },
-                funFact: 'Cây cối cũng cần rất nhiều ribôxôm để sản xuất protein cho mọi hoạt động sống!',
-                threeD: { geometry: 'ribosomes', position: [0, 0, 0], scale: 0.085, count: 10, spread: 2.2 }
+                funFact: 'Cây cối cũng cần rất nhiều ribôxôm để sản xuất protein cho mọi hoạt động sống!'
             },
             {
                 id: 'cytoplasm',
                 name: 'Tế Bào Chất',
                 nameEn: 'Cytoplasm',
                 color: '#CBD5E1', // Slate
+                emoji: '🌊',
+                short: 'Lớp thạch mỏng',
+                kid: 'Tớ là tế bào chất, bị không bào ép thành lớp mỏng sát màng. Tớ chảy vòng quanh, chở lục lạp đi dạo!',
                 details: {
                     summary: 'Lớp keo mỏng bị không bào lớn ép sát vào màng tế bào.',
                     structure: 'Dịch keo chứa nước, enzyme và các bào quan.',
@@ -350,8 +382,7 @@ export const CELL_DATA: CellType[] = [
                     location: 'Lớp mỏng giữa màng tế bào và không bào trung tâm.',
                     analogy: 'Giống như "Lớp nhân mỏng" bao quanh viên kẹo lớn ở giữa.'
                 },
-                funFact: 'Vì không bào quá to, tế bào chất thực vật bị ép thành một lớp mỏng sát màng!'
-                // vùng nền, không threeD
+                funFact: 'Vì không bào quá to, tế bào chất thực vật bị ép thành một lớp mỏng sát màng — và nó chảy vòng quanh như băng chuyền, mang lục lạp đi tìm ánh sáng!'
             }
         ]
     },
@@ -367,6 +398,9 @@ export const CELL_DATA: CellType[] = [
                 name: 'Vỏ Nhầy',
                 nameEn: 'Capsule',
                 color: '#FB923C', // Orange light
+                emoji: '🧥',
+                short: 'Áo khoác nhầy',
+                kid: 'Tớ là vỏ nhầy — chiếc áo khoác trơn giúp vi khuẩn bám dính và trốn kẻ thù.',
                 details: {
                     summary: 'Lớp bảo vệ dày, nhầy bao bọc bên ngoài cùng.',
                     structure: 'Lớp polysaccharide hoặc protein nhầy, dính.',
@@ -374,14 +408,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Lớp ngoài cùng, bao quanh thành tế bào.',
                     analogy: 'Giống như "Áo giáp thần kỳ" hoặc "Lớp keo bảo vệ".'
                 },
-                funFact: 'Vỏ nhầy giúp vi khuẩn "vô hình" trước hệ miễn dịch của chúng ta!',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 1.25 }
+                funFact: 'Vỏ nhầy giúp vi khuẩn "vô hình" trước hệ miễn dịch của chúng ta!'
             },
             {
                 id: 'cell_wall_bac',
                 name: 'Thành Tế Bào',
                 nameEn: 'Cell Wall',
                 color: '#92400E', // Brown
+                emoji: '🧱',
+                short: 'Khung thép',
+                kid: 'Tớ là thành tế bào, giữ cho vi khuẩn khỏi bị vỡ.',
                 details: {
                     summary: 'Lớp vỏ cứng bảo vệ bên trong vi khuẩn.',
                     structure: 'Cấu tạo từ peptidoglycan - loại đường đặc biệt kết hợp protein.',
@@ -389,14 +425,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Nằm giữa màng sinh chất và vỏ nhầy.',
                     analogy: 'Giống như "Bộ xương ngoài" hoặc "Khung thép" của tòa nhà.'
                 },
-                funFact: 'Thuốc kháng sinh penicillin tấn công thành tế bào vi khuẩn, khiến chúng "nổ tung"!',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 1.12 }
+                funFact: 'Thuốc kháng sinh penicillin tấn công thành tế bào vi khuẩn, khiến chúng "nổ tung"!'
             },
             {
                 id: 'plasma_membrane',
                 name: 'Màng Sinh Chất',
                 nameEn: 'Plasma Membrane',
                 color: '#CA8A04', // Dark yellow
+                emoji: '🛡️',
+                short: 'Cổng bảo vệ',
+                kid: 'Tớ là màng sinh chất, canh cổng cho chất ra vào vi khuẩn.',
                 details: {
                     summary: 'Lớp màng mỏng bao bọc tế bào chất.',
                     structure: 'Lớp phospholipid kép với protein xuyên màng.',
@@ -404,14 +442,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Nằm ngay dưới thành tế bào.',
                     analogy: 'Giống như "Cổng bảo vệ" kiểm tra ai được vào ra.'
                 },
-                funFact: 'Màng sinh chất vi khuẩn không có cholesterol như động vật!',
-                threeD: { geometry: 'shell', position: [0, 0, 0], scale: 1, shellRadius: 1.02 }
+                funFact: 'Màng sinh chất vi khuẩn không có cholesterol như động vật!'
             },
             {
                 id: 'nucleoid',
                 name: 'Vùng Nhân',
                 nameEn: 'Nucleoid',
                 color: '#F59E0B', // Amber
+                emoji: '🧶',
+                short: 'Cuộn chỉ ADN',
+                kid: 'Tớ là vùng nhân. ADN của vi khuẩn cuộn rối ở đây mà không có màng bọc.',
                 details: {
                     summary: 'Khu vực chứa vật chất di truyền của vi khuẩn (do chưa có màng nhân).',
                     structure: 'Một phân tử DNA vòng trần, xoắn lại.',
@@ -419,14 +459,33 @@ export const CELL_DATA: CellType[] = [
                     location: 'Nằm lơ lửng trong tế bào chất.',
                     analogy: 'Giống như "Cuộn dây chỉ rối" nằm giữa phòng.'
                 },
-                funFact: 'DNA của vi khuẩn không được bảo vệ trong "két sắt" (nhân) như động vật.',
-                threeD: { geometry: 'vacuole', position: [0, 0, 0], scale: [1.3, 0.8, 0.8] }
+                funFact: 'DNA của vi khuẩn không được bảo vệ trong "két sắt" (nhân) như động vật.'
+            },
+            {
+                id: 'plasmid',
+                name: 'Plasmid',
+                nameEn: 'Plasmid',
+                color: '#FDE68A', // Pale gold
+                emoji: '💍',
+                short: 'Nhẫn ADN tí hon',
+                kid: 'Tớ là plasmid — chiếc nhẫn ADN tí hon. Vi khuẩn còn tặng tớ cho bạn khác được!',
+                details: {
+                    summary: 'Những vòng ADN nhỏ, nằm riêng bên ngoài vùng nhân.',
+                    structure: 'Phân tử ADN dạng vòng, nhỏ hơn nhiều so với ADN ở vùng nhân.',
+                    function: 'Mang thêm vài "bí kíp" có ích, ví dụ giúp vi khuẩn chống lại thuốc kháng sinh.',
+                    location: 'Trôi trong tế bào chất của vi khuẩn.',
+                    analogy: 'Giống như "Tờ ghi chú bỏ túi" kẹp ngoài cuốn sách lớn.'
+                },
+                funFact: 'Các nhà khoa học gắn công thức làm insulin vào plasmid để "nhờ" vi khuẩn sản xuất thuốc chữa bệnh tiểu đường!'
             },
             {
                 id: 'ribosome',
-                name: 'Ribosome',
+                name: 'Ribôxôm',
                 nameEn: 'Ribosome',
                 color: '#A3E635', // Lime green
+                emoji: '🔧',
+                short: 'Thợ lắp ráp protein',
+                kid: 'Tớ là ribôxôm của vi khuẩn, nhỏ hơn ribôxôm trong cơ thể em đấy!',
                 details: {
                     summary: 'Các hạt nhỏ li ti chịu trách nhiệm sản xuất protein.',
                     structure: 'Hạt tròn nhỏ cấu tạo từ RNA và protein.',
@@ -434,14 +493,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Rải rác khắp tế bào chất.',
                     analogy: 'Giống như "Nhà máy lắp ráp" sản xuất linh kiện cho thành phố.'
                 },
-                funFact: 'Ribosome của vi khuẩn nhỏ hơn của động vật, đó là lý do thuốc kháng sinh có thể tấn công chúng mà không hại ta!',
-                threeD: { geometry: 'ribosomes', position: [0, 0, 0], scale: 0.08, count: 18, spread: 0.85, scatter: 'rod' }
+                funFact: 'Ribosome của vi khuẩn nhỏ hơn của động vật, đó là lý do thuốc kháng sinh có thể tấn công chúng mà không hại ta!'
             },
             {
                 id: 'flagellum',
                 name: 'Roi (Tiên Mao)',
                 nameEn: 'Flagellum',
                 color: '#EAB308', // Yellow
+                emoji: '🌀',
+                short: 'Chân vịt',
+                kid: 'Tớ là roi — cái chân vịt xoay tít đẩy vi khuẩn bơi đi.',
                 details: {
                     summary: 'Cơ quan giúp vi khuẩn di chuyển.',
                     structure: 'Sợi dài, mảnh như cái đuôi, có thể xoay tròn.',
@@ -449,14 +510,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Gắn ở đuôi hoặc xung quanh tế bào.',
                     analogy: 'Giống như "Động cơ chân vịt" của tàu ngầm.'
                 },
-                funFact: 'Một số vi khuẩn có thể bơi cực nhanh nhờ quay roi này với tốc độ hàng trăm vòng mỗi giây!',
-                threeD: { geometry: 'flagellum', position: [-2.05, 0, 0], scale: 1, rotation: [0, 0, 0] }
+                funFact: 'Một số vi khuẩn có thể bơi cực nhanh nhờ quay roi này với tốc độ hàng trăm vòng mỗi giây!'
             },
             {
                 id: 'pili',
                 name: 'Lông (Pili)',
                 nameEn: 'Pili/Fimbriae',
                 color: '#D97706', // Orange-brown
+                emoji: '🖐️',
+                short: 'Tay bám',
+                kid: 'Tớ là lông pili — những cánh tay bé xíu giúp vi khuẩn bám thật chặt.',
                 details: {
                     summary: 'Những sợi lông ngắn mọc xung quanh thân vi khuẩn.',
                     structure: 'Các sợi protein ngắn, thẳng, mảnh hơn roi.',
@@ -464,14 +527,16 @@ export const CELL_DATA: CellType[] = [
                     location: 'Mọc rải rác hoặc phủ khắp bề mặt tế bào.',
                     analogy: 'Giống như "Móng vuốt" hoặc "Tay bám" của vi khuẩn.'
                 },
-                funFact: 'Một số vi khuẩn dùng pili để "bắt tay" và trao đổi DNA với nhau!',
-                threeD: { geometry: 'pili', position: [0, 0, 0], scale: 0.5, count: 10, spread: 1.05 }
+                funFact: 'Một số vi khuẩn dùng pili để "bắt tay" và trao đổi DNA với nhau!'
             },
             {
                 id: 'cytoplasm_bac',
                 name: 'Tế Bào Chất',
                 nameEn: 'Cytoplasm',
                 color: '#FBBF24', // Yellow
+                emoji: '🌊',
+                short: 'Biển thạch bên trong',
+                kid: 'Tớ là tế bào chất, nơi vi khuẩn làm mọi việc.',
                 details: {
                     summary: 'Chất keo lỏng chứa đầy bên trong tế bào.',
                     structure: 'Dịch keo chứa nước, enzyme, ribosome và các chất dinh dưỡng.',
@@ -480,7 +545,6 @@ export const CELL_DATA: CellType[] = [
                     analogy: 'Giống như "Nước biển" chứa đầy bên trong tàu ngầm.'
                 },
                 funFact: 'Tế bào chất của vi khuẩn chứa hàng nghìn ribosome để sản xuất protein!'
-                // vùng nền, không threeD
             }
         ]
     }
