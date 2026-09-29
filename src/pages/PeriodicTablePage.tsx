@@ -35,7 +35,7 @@ import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { getAvatarById } from '@/services/avatarService';
 import { Grade } from '@/types';
 import { speak, cancelSpeech, setScopedDefaultVoice, GOOGLE_VOICE } from '@/src/utils/speech';
-import { speakMixed, speakAndWait } from '@/src/components/periodic/engine/speech';
+import { speakMixed, speakAndWait, prefetchSpeech } from '@/src/components/periodic/engine/speech';
 import { playBlip, playWhoosh, playSuccess, playImpact, playFizz, playPop, playZap, playBoom, playLaunch, playChime, playGeigerClick } from '@/src/components/solar/sfx';
 import '@/src/components/periodic/periodic.css';
 
@@ -238,8 +238,9 @@ export const PeriodicTablePage: React.FC = () => {
         const colors = new Map<number, string>(), fxOf = new Map<number, typeof INTRO_BEATS[number]['fx']>();
         ELEMENTS.forEach(e => { const o = dominantOrigin(e); colors.set(e.atomicNumber, ORIGIN_INFO[o].color); fxOf.set(e.atomicNumber, INTRO_BEATS.find(b => b.origin === o)?.fx ?? 'stars'); });
         setCanvasOn(true);
+        prefetchSpeech(INTRO_BEATS.map(b => b.text.replace('✨', '')));
         setDarkSet(new Set(ELEMENTS.map(e => e.atomicNumber)));
-        setIntro({ start: performance.now() / 1000 + 0.6, ignite, colors, fxOf });
+        setIntro({ start: performance.now() / 1000 + 0.6, clock: { t: -0.6 }, ignite, colors, fxOf });
     }, []);
     useEffect(() => {
         if (!webgl || reduced || INTRO_DISABLED || START_ELEMENT) return;
@@ -252,12 +253,22 @@ export const PeriodicTablePage: React.FC = () => {
         const lit = new Set<number>();
         const end = () => {
             cancelAnimationFrame(raf);
+            stopNarr(); cancelSpeech();
             setIntro(null); setDarkSet(null); setCaption(null); setFlash(0); setYouBeat(false);
             try { sessionStorage.setItem(INTRO_KEY, '1'); } catch { /* bỏ qua */ }
         };
         introEnd.current = end;
+        // Đọc to từng nhịp. Thời gian ảo: hết nhịp mà câu chưa đọc xong thì chạy chậm (×0,12) chờ — hình và lời
+        // luôn khớp, không cắt câu (bài học Cây Tiến Hóa: mọi thuyết minh tự chuyển phải chờ onEnd).
+        let narrating = false, stopNarr = () => { }, lastNow = performance.now();
         const tick = () => {
-            const t = performance.now() / 1000 - intro.start;
+            const now = performance.now(), dt = Math.min(0.25, (now - lastNow) / 1000); lastNow = now;
+            const cur = INTRO_BEATS[beat], nextAt = beat >= 0 ? (INTRO_BEATS[beat + 1]?.at ?? INTRO_LENGTH - 0.3) : Infinity;
+            // còn ~1 s tới nhịp sau mà câu chưa đọc xong → chạy chậm; tới sát mốc thì đứng chờ, không vượt
+            const holding = narrating && cur && intro.clock.t >= nextAt - 1;
+            intro.clock.t += dt * (holding ? 0.12 : 1);
+            if (narrating && cur) intro.clock.t = Math.min(intro.clock.t, nextAt - 0.02);
+            const t = intro.clock.t;
             intro.ignite.forEach((ti, z) => { if (t >= ti && !lit.has(z)) { lit.add(z); if (t - lastChime > 0.07) { lastChime = t; playChime(lit.size % 24); } } });
             if (lit.size !== lastLit) { lastLit = lit.size; setDarkSet(new Set(ELEMENTS.map(e => e.atomicNumber).filter(z => !lit.has(z)))); }
             const bi = INTRO_BEATS.findIndex((b, i) => t >= b.at && (i === INTRO_BEATS.length - 1 || t < INTRO_BEATS[i + 1].at));
@@ -265,16 +276,18 @@ export const PeriodicTablePage: React.FC = () => {
                 beat = bi;
                 const b = INTRO_BEATS[bi];
                 setCaption(b ? b.text : null);
+                stopNarr();
+                if (b) { narrating = true; stopNarr = speakAndWait(b.text.replace('✨', ''), () => { narrating = false; }, { rate: 0.95 }); }
                 if (b?.fx === 'bigbang' || b?.fx === 'supernova') playImpact();
                 if (b?.fx === 'kilonova') playBoom(false);
                 setYouBeat(b?.fx === 'you');
             }
             setFlash(t > 0.6 && t < 1.4 ? 1 - (t - 0.6) / 0.8 : 0);
-            if (t >= INTRO_LENGTH) { end(); return; }
+            if (t >= INTRO_LENGTH && !narrating) { end(); return; }
             raf = requestAnimationFrame(tick);
         };
         raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
+        return () => { cancelAnimationFrame(raf); stopNarr(); };
     }, [intro]);
     const skipIntro = useCallback(() => introEnd.current(), []);
 
@@ -289,7 +302,7 @@ export const PeriodicTablePage: React.FC = () => {
         const stop = speakAndWait(b.say, () => { t = window.setTimeout(() => setStoryIdx(i => (i === null ? null : i + 1)), 900); }, { rate: 0.92 });
         return () => { stop(); window.clearTimeout(t); };
     }, [storyIdx, setCol, showToast]);
-    const toggleStory = () => { if (storyIdx !== null) { cancelSpeech(); setStoryIdx(null); } else setStoryIdx(0); };
+    const toggleStory = () => { if (storyIdx !== null) { cancelSpeech(); setStoryIdx(null); } else { prefetchSpeech(STORY_BEATS.map(b => b.say)); setStoryIdx(0); } };
 
     // ---------------------------------------------------------------- cỗ máy thời gian ▶
     const [histPlay, setHistPlay] = useState(false);

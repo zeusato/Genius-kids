@@ -56,3 +56,44 @@ for (const j of jobs) {
 manifest.en.sort(); manifest.vi.sort();
 writeFileSync(path.join(ROOT, 'src', 'data', 'periodic', 'nameAudio.json'), JSON.stringify(manifest, null, 1) + '\n');
 console.log(`tải ${fetched}, có sẵn ${skipped}, lỗi ${failed.length}${failed.length ? ': ' + failed.join(', ') : ''}`);
+
+// ---------------------------------------------------------------- câu cố định (mở màn, chuyện vũ trụ, lịch sử)
+// Tách đúng như lúc đọc (toSpeechParts): tên nguyên tố đã có file riêng, chỉ tải các đoạn tiếng Việt.
+//   public/audio/vi/ptable/<slug>-<hash>.mp3 + src/data/periodic/phraseAudio.json { "đoạn chữ": "file" }
+{
+    const { createHash } = await import('node:crypto');
+    const bundle = (entry) => {
+        const r = esbuild.buildSync({ entryPoints: [path.join(ROOT, entry)], bundle: true, format: 'cjs', platform: 'node', write: false,
+            logLevel: 'silent', alias: { '@': ROOT }, loader: { '.json': 'json' }, define: { 'import.meta.env': '{"BASE_URL":"/"}' } });
+        const m = { exports: {} };
+        new Function('module', 'exports', 'require', r.outputFiles[0].text)(m, m.exports, require);
+        return m.exports;
+    };
+    const { toSpeechParts } = bundle('src/components/periodic/engine/speech.ts');
+    const { INTRO_BEATS, STORY_BEATS } = bundle('src/components/periodic/engine/intro.ts');
+    const { HISTORY_EVENTS } = bundle('src/data/periodic/discovery.ts');
+    const texts = [...INTRO_BEATS.map(b => b.text), ...STORY_BEATS.map(b => b.say), ...HISTORY_EVENTS.map(e => e.say)];
+    const norm = (t) => t.replace(/✨/g, '').trim();
+    const frags = [...new Set(texts.flatMap(t => toSpeechParts(norm(t))).filter(p => p.lang === 'vi-VN').map(p => norm(p.text)))];
+    const dir = path.join(ROOT, 'public', 'audio', 'vi', 'ptable');
+    mkdirSync(dir, { recursive: true });
+    const phraseMap = {};
+    let got = 0, fail = [];
+    for (const t of frags) {
+        const file = `${slug(t).slice(0, 40)}-${createHash('sha1').update(t).digest('hex').slice(0, 8)}.mp3`;
+        const out = path.join(dir, file);
+        if (!force && existsSync(out) && statSync(out).size > 1000) { phraseMap[t] = file; continue; }
+        let ok = false;
+        for (let a = 0; a < 3 && !ok; a++) {
+            try {
+                const r = await fetch(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodeURIComponent(t)}`, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36', Referer: 'https://translate.google.com/' } });
+                if (r.ok) { const buf = Buffer.from(await r.arrayBuffer()); if (buf.length > 1000) { writeFileSync(out, buf); ok = true; } }
+            } catch { /* thử lại */ }
+            if (!ok) await sleep(1500 * (a + 1));
+        }
+        if (ok) { phraseMap[t] = file; got++; } else fail.push(t);
+        await sleep(250);
+    }
+    writeFileSync(path.join(ROOT, 'src', 'data', 'periodic', 'phraseAudio.json'), JSON.stringify(phraseMap, null, 1) + '\n');
+    console.log(`câu cố định: ${frags.length} đoạn, tải ${got}, lỗi ${fail.length}${fail.length ? ': ' + fail.join(' / ') : ''}`);
+}

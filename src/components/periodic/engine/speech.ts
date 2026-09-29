@@ -4,8 +4,18 @@ import { ELEMENTS } from './elements';
 import { VIET_NAMES } from '../../../data/periodic/names';
 import { speakSequence, isSpeaking, type SpeechLang } from '../../../utils/speech';
 import NAME_AUDIO from '../../../data/periodic/nameAudio.json';
+import PHRASE_AUDIO from '../../../data/periodic/phraseAudio.json';
 
 export interface SpeechPart { text: string; lang: SpeechLang; src?: string }
+
+const PHRASES = PHRASE_AUDIO as Record<string, string>;
+/** File tải sẵn cho đoạn tiếng Việt cố định (mở màn, chuyện vũ trụ, lịch sử) — scripts/build-element-name-audio.mjs. */
+function phraseSrc(text: string): string | undefined {
+    const f = PHRASES[text.replace(/✨/g, '').trim()];
+    const base = (import.meta as any).env?.BASE_URL ?? '/';
+    return f ? `${base}audio/vi/ptable/${f}` : undefined;
+}
+const viPart = (text: string): SpeechPart => { const src = phraseSrc(text); return src ? { text, lang: 'vi-VN', src } : { text, lang: 'vi-VN' }; };
 
 /** Slug file audio tên nguyên tố — khớp scripts/build-element-name-audio.mjs. */
 export const nameSlug = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -30,15 +40,21 @@ export function toSpeechParts(text: string): SpeechPart[] {
     for (const m of text.matchAll(EN_RE)) {
         const i = m.index ?? 0;
         const vi = text.slice(last, i).trim();
-        if (/[\p{L}\p{N}]/u.test(vi)) parts.push({ text: vi, lang: 'vi-VN' });
+        if (/[\p{L}\p{N}]/u.test(vi)) parts.push(viPart(vi));
         // mỗi tên một phần riêng để phát đúng file local của nó (không gộp "oxygen, silicon")
         const src = nameAudioSrc(m[0]);
         parts.push(src ? { text: m[0], lang: 'en-US', src } : { text: m[0], lang: 'en-US' });
         last = i + m[0].length;
     }
     const tail = text.slice(last).trim();
-    if (/[\p{L}\p{N}]/u.test(tail)) parts.push({ text: tail, lang: 'vi-VN' });
+    if (/[\p{L}\p{N}]/u.test(tail)) parts.push(viPart(tail));
     return parts;
+}
+
+/** Tải trước file giọng của các câu (vào cache HTTP/Service Worker) để lúc đọc phát ngay, không khựng. */
+export function prefetchSpeech(texts: string[]): void {
+    const srcs = new Set(texts.flatMap(t => toSpeechParts(t)).map(p => p.src).filter((x): x is string => !!x));
+    srcs.forEach(src => { fetch(src).catch(() => undefined); });
 }
 
 /** Đọc câu lẫn tên tiếng Anh; onEnd gọi khi đọc xong phần cuối. */
@@ -60,7 +76,7 @@ export function speakAndWait(text: string, done: () => void, opts: { rate?: numb
         if (fired) return;
         quiet = isSpeaking() ? 0 : quiet + 1;
         if (performance.now() - t0 > minMs && quiet >= 2) { finish(); return; }
-        if (performance.now() - t0 > 90_000) { finish(); return; }
+        if (performance.now() - t0 > 45_000) { finish(); return; }   // lưới an toàn cuối cùng
         timer = window.setTimeout(poll, 400);
     };
     timer = window.setTimeout(poll, 600);

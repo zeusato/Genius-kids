@@ -221,3 +221,17 @@ describe('file giọng tên nguyên tố', () => {
         }
     });
 });
+
+describe('file giọng câu cố định', () => {
+    it('mọi đoạn của mở màn / chuyện vũ trụ / lịch sử đều có file local', async () => {
+        const fs = await import('node:fs');
+        const { toSpeechParts } = await import('./speech');
+        const { INTRO_BEATS, STORY_BEATS } = await import('./intro');
+        const { HISTORY_EVENTS } = await import('../../../data/periodic/discovery');
+        const texts = [...INTRO_BEATS.map(b => b.text.replace('✨', '')), ...STORY_BEATS.map(b => b.say), ...HISTORY_EVENTS.map(e => e.say)];
+        for (const t of texts) for (const p of toSpeechParts(t)) {
+            expect(p.src, `${p.lang}: ${p.text}`).toBeTruthy();
+            expect(fs.statSync('public' + p.src!).size).toBeGreaterThan(1000);
+        }
+    });
+});

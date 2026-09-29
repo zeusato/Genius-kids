@@ -69,7 +69,8 @@ export const CellFx: React.FC<{ rects: CellRects; state: CellFxState }> = ({ rec
 };
 
 // ---------------------------------------------------------------- mở màn
-export interface IntroPlan { start: number; ignite: Map<number, number>; colors: Map<number, string>; fxOf: Map<number, IntroFx> }
+/** clock.t = thời gian ảo của mở màn (giây) — trang ghi, có thể chạy chậm lại khi đang chờ đọc xong. */
+export interface IntroPlan { start: number; clock: { t: number }; ignite: Map<number, number>; colors: Map<number, string>; fxOf: Map<number, IntroFx> }
 
 const SPARKS = 9;
 
@@ -85,7 +86,7 @@ export const IntroFxLayer: React.FC<{ rects: CellRects; plan: IntroPlan }> = ({ 
     const cols = useMemo(() => new Map([...plan.colors].map(([z, c]) => [z, new THREE.Color(c)])), [plan]);
     const src = new THREE.Vector2();
     useFrame(() => {
-        const t = performance.now() / 1000 - plan.start;
+        const t = plan.clock.t;
         const vp = { w: size.width, h: size.height };
         let k = 0;
         const put = (x: number, y: number, c: THREE.Color, a: number) => { pxToWorld(x, y, vp, v); P.pos.set([v.x, v.y, 0.5], k * 3); P.col.set([c.r * a, c.g * a, c.b * a], k * 3); k++; };

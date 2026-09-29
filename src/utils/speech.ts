@@ -157,6 +157,8 @@ export function onSpeechAvailabilityChanged(cb: () => void): () => void {
 // Hiệu ứng giọng (Bảng tuần hoàn: hít helium / xenon). Giọng máy dùng pitch; nhánh audio (MP3/Google)
 // không có pitch nên đổi playbackRate và tắt preservesPitch — giọng cao/trầm như thật.
 let audioFxRate: number | null = null;
+// token của lượt đọc đang diễn ra (speak/speakSequence); -1 = rảnh. cancelSpeech tăng playToken nên tự vô hiệu.
+let activeToken = -1;
 function applyAudioFx(a: HTMLAudioElement): void {
     if (audioFxRate === null) return;
     (a as any).preservesPitch = false; (a as any).mozPreservesPitch = false; (a as any).webkitPreservesPitch = false;
@@ -353,7 +355,8 @@ export function speak(text: string, opts: SpeakOptions = {}): boolean {
     cancelSpeech(); // dừng mọi thứ đang đọc — playToken đã tăng sau đây
     const token = playToken;
     const lang = opts.lang ?? 'vi-VN';
-    const onDone = (success: boolean) => { if (success) opts.onEnd?.(); else opts.onError?.(); };
+    activeToken = token;
+    const onDone = (success: boolean) => { if (activeToken === token) activeToken = -1; if (success) opts.onEnd?.(); else opts.onError?.(); };
     audioFxRate = opts.voiceFx === 'helium' ? 1.6 : opts.voiceFx === 'xenon' ? 0.72 : null;
     const pitch = opts.voiceFx === 'helium' ? 2 : opts.voiceFx === 'xenon' ? 0.1 : (opts.pitch ?? 1.05);
     return startChain(text, lang, opts.audioId, opts.rate ?? 0.8, pitch, token, onDone);
@@ -386,6 +389,7 @@ export function speakSequence(
     audioFxRate = null;
 
     const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
+    activeToken = token;     // isSpeaking() = true suốt chuỗi, kể cả lúc chờ tải audio giữa các phần
     const gap = opts.gapMs ?? 200;       // khoảng nghỉ giữa các phần (ms)
     const rate = opts.rate ?? 0.8;       // chậm rãi cho trẻ
     const pitch = opts.pitch ?? 1.05;
@@ -393,7 +397,7 @@ export function speakSequence(
 
     const playNext = () => {
         if (token !== playToken) return;          // đã bị huỷ bởi cancel/đọc mới
-        if (i >= parts.length) { opts.onEnd?.(); return; }
+        if (i >= parts.length) { if (activeToken === token) activeToken = -1; opts.onEnd?.(); return; }
         const p = parts[i++];
         const lang = p.lang ?? 'vi-VN';
         const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
@@ -422,6 +426,7 @@ export function speakSequence(
 
 /** Có đang đọc không (giọng máy hoặc audio MP3/Google) — dùng để chờ đọc xong thật thay vì hẹn giờ đoán. */
 export function isSpeaking(): boolean {
+    if (activeToken !== -1 && activeToken === playToken) return true;   // chuỗi đọc chưa xong (có thể đang tải audio)
     if (currentAudio && !currentAudio.paused && !currentAudio.ended) return true;
     return typeof window !== 'undefined' && 'speechSynthesis' in window && (window.speechSynthesis.speaking || window.speechSynthesis.pending);
 }
