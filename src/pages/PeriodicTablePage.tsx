@@ -468,7 +468,7 @@ export const PeriodicTablePage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent" />
 
             {/* Header */}
             <header className="sticky top-0 z-40 flex items-center justify-between px-4 py-4 bg-black/30 backdrop-blur-md border-b border-white/10">
@@ -510,7 +510,7 @@ export const PeriodicTablePage: React.FC = () => {
                 </div>
             )}
 
-            <main className="py-4 sm:py-6 space-y-3">
+            <main className="relative py-4 sm:py-6 space-y-3">
                 <LensBar lens={lens} onLens={(l) => { setLens(l); playBlip(); }} hintUses={young} />
                 <LensControls lens={lens} ctx={ctx} onCtx={onCtx} playing={histPlay} onPlay={() => setHistPlay(p => !p)} onStory={toggleStory} storyOn={storyIdx !== null} onInfo={() => setShowInfo(true)} />
                 <div ref={wrapRef} className="w-full overflow-x-auto pt-2">

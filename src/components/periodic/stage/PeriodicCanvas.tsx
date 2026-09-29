@@ -86,6 +86,15 @@ export const PeriodicCanvas: React.FC<Props> = ({ mode, active, warmKey, onReady
         return () => document.removeEventListener('visibilitychange', on);
     }, []);
     const running = ready && visible && (mode !== 'table' || active);
+    // Ngừng vẽ (frameloop 'never') thì canvas GIỮ khung hình cuối → thoát game/lab hay đóng thẻ xong vẫn còn
+    // pháo hoa / nguyên tử / mẫu vật đóng băng trên bảng. Khi dừng: xóa trắng canvas một lần.
+    useEffect(() => {
+        if (running) return;
+        const gl = glRef.current;
+        if (!gl) return;
+        const id = requestAnimationFrame(() => { gl.setRenderTarget(null); gl.setClearColor(0x000000, 0); gl.clear(true, true, true); });
+        return () => cancelAnimationFrame(id);
+    }, [running]);
     if (import.meta.env.DEV) (window as any).__ptDebug = { readyKey, warmKey, tier, visible, mode, active, running };
     const [monitor, setMonitor] = useState(false);
     useEffect(() => {
@@ -101,7 +110,9 @@ export const PeriodicCanvas: React.FC<Props> = ({ mode, active, warmKey, onReady
                 frameloop={running ? 'always' : 'never'}
                 camera={{ fov: FOV, position: [0, 0, CAM_Z], near: 0.05, far: 100 }}
                 gl={{ alpha: true, antialias: false, premultipliedAlpha: true, stencil: false, powerPreference: 'high-performance' }}
-                style={{ touchAction: 'none', background: 'transparent' }}
+                // R3F tự gắn pointer-events: auto cho div của nó (đè 'none' của lớp ngoài) → ở chế độ bảng canvas chặn
+                // mọi cú chạm lên ô DOM (lỗi: sau mở màn không bấm được gì). Phải đặt tường minh ở đây.
+                style={{ touchAction: 'none', background: 'transparent', pointerEvents: mode === 'table' ? 'none' : 'auto' }}
                 onCreated={(state) => {
                     const { gl } = state;
                     glRef.current = gl;
