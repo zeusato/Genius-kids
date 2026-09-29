@@ -671,37 +671,48 @@ export function identify(p: number, n: number, e: number): { z: number; A: numbe
 
 ---
 
-## 10. Câu hỏi mở (cần người dùng chốt trước GĐ0)
-1. **Tên trên ô**: đổi sang tên SGK (IUPAC + 13 tên Việt) và để tên cũ làm tên phụ?
-   - Khuyến nghị: **có**. Đúng chương trình mới, khớp infographic.
-   - Hệ quả: ô H ghi "Hydrogen", thẻ ghi thêm "tên cũ: hiđro".
-2. **Ảnh thật** của mẫu nguyên tố (Wikimedia, chỉ khi có mạng, có màn ghi nguồn) bên cạnh mẫu vật 3D?
-   - Khuyến nghị: **để đợt 2**. 3D procedural đã đủ wow, ảnh thật cần kiểm giấy phép từng file.
-3. **Thí nghiệm "nguy hiểm"** (kim loại kiềm + nước, giọng heli, magie cháy)?
-   - Khuyến nghị: **có**, kèm huy hiệu an toàn và lời nhắc đọc to "Chỉ nhà khoa học làm trong phòng thí nghiệm".
-   - Không bao giờ hướng dẫn cách làm.
-4. **Phạm vi đợt 1**: GĐ0–3 (bảng sống + mẫu vật + mở màn)?
-   - Hay ưu tiên pháo hoa / Xưởng nguyên tử lên trước?
-5. **Pháo hoa**: bối cảnh Hồ Gươm (Tháp Rùa), hay trung tính (sông + thành phố)?
-
----
+## 10. Quyết định đã chốt (người dùng 29/09: "làm theo gợi ý")
+1. **Tên trên ô = tên SGK** (IUPAC + 13 tên Việt), tên cũ làm tên phụ và từ khóa tìm kiếm. Dữ liệu gốc giữ `name` = tên cũ; engine sinh `sgkName`.
+2. **Ảnh thật của mẫu vật: để đợt 2** (cần kiểm giấy phép từng ảnh). Mẫu vật 3D procedural là chính.
+3. **Giữ thí nghiệm "nguy hiểm"** kèm huy hiệu an toàn và câu nhắc; không hướng dẫn cách làm.
+4. **Làm toàn bộ** GĐ0 → GĐ7 theo thứ tự.
+5. **Pháo hoa ở Hồ Gươm** (bóng Tháp Rùa).
+6. *(người dùng dặn thêm)* **Không bỏ phí 118 infographic**:
+   - ảnh xem trước ngay trong thẻ nguyên tố;
+   - trình xem phóng/kéo dùng chung (`shared/Infographic.tsx`);
+   - tranh của các mẫu mới sưu tầm trong Tủ sưu tập;
+   - test `engine.test.ts` giữ đủ 118 đường dẫn ảnh.
 
 ## 11. Bảng trạng thái
 
 | GĐ | Trạng thái | Ghi chú |
 | --- | --- | --- |
-| Nghiên cứu + plan | ✅ 29/09/2026 | ảnh ý tưởng 7 tấm, kiểm dữ liệu, căn cứ tên SGK, bản thử canvas trong suốt + bloom |
-| GĐ0 Dữ liệu + engine | ⏳ | chờ chốt mục 10 |
-| GĐ1 Bảng sống | ⏳ | |
-| GĐ2 Sân khấu mẫu vật | ⏳ | |
-| GĐ3 Mở màn + kể chuyện | ⏳ | |
-| GĐ4 Lặn vào nguyên tử | ⏳ | |
-| GĐ5 Thí nghiệm | ⏳ | |
-| GĐ6 Lab + trò chơi + huy hiệu | ⏳ | |
-| GĐ7 Tùy chọn | ⏳ | |
-| GĐ8 Hoàn thiện | ⏳ | |
+| Nghiên cứu + plan | ✅ 29/09/2026 | ảnh ý tưởng, kiểm dữ liệu, căn cứ tên SGK, bản thử canvas trong suốt + bloom |
+| GĐ0 Dữ liệu + engine | ✅ 29/09 | `src/data/periodic/*` + `components/periodic/engine/*`, 28 test; sửa Sm, fact Mc |
+| GĐ1 Bảng sống | ✅ 29/09 | 8 kính; khoang giữa (nguyên tố của ngày / ô phóng to); vừa màn (`zoom`, tối thiểu 0,55 + gợi ý xoay ngang); ô 57–71/89–103; tìm không dấu; phím mũi tên; dấu ✦ |
+| GĐ2 Sân khấu mẫu vật | ✅ 29/09 | 8 kiểu mẫu vật, bay ra từ ô, thẻ mới + infographic; modal cũ ở `legacy/` (`?view=legacy` / không WebGL2), hạt nhân cũ đã sửa |
+| GĐ3 Mở màn + kể chuyện | ✅ 29/09 | `TableFx`: tia bay vào ô, siêu tân tinh, kilonova, bọt khí bám ô; "Chuyện của vũ trụ" chờ đọc xong; cỗ máy thời gian ▶ + sự kiện |
+| GĐ4 Lặn vào nguyên tử | ✅ 29/09 | 4 tầng, Bohr kiểu SGK, mây electron (bật tay), hạt nhân đúng đồng vị + alpha; tầng dựng lười |
+| GĐ5 Thí nghiệm | ✅ 29/09 | 11 mẫu; giọng helium/xenon (pitch, hoặc playbackRate cho nhánh audio); biển neon tên bé; mã vạch ánh sáng |
+| GĐ6 Lab + trò chơi + huy hiệu | ✅ 29/09 | Pháo hoa (4 thử thách), Xưởng nguyên tử 4 cấp, Truy tìm, Tọa độ, Ai nặng hơn, Rắn-lỏng-khí, Tủ sưu tập, 9 huy hiệu `periodicBadges` (+10 ⭐) |
+| GĐ7 Tùy chọn | ✅ 29/09 | 🏙️ Thành phố nguyên tố (4 tính chất, chạm cột mở nguyên tố); 🧪 Bếp phân tử (13 công thức, sổ công thức) |
+| GĐ8 Hoàn thiện | ⏳ | build production qua; **cần đo fps trên máy thật** (headless dùng SwiftShader nên tự hạ tier); ảnh thật mẫu vật; xóa `legacy/` sau 1 bản phát hành |
 
----
+## 12. Bài học triển khai
+- **`compileAsync` có thể không bao giờ resolve.**
+  - three văng lỗi nội bộ (`checkMaterialsReady`: program undefined) khi vật liệu bị thay giữa chừng, và màn chờ kẹt mãi.
+  - `ShaderWarmup` giờ có hẹn giờ an toàn 2,5 s.
+- **Mở nguyên tố chậm** vì dựng cả 4 tầng và lấy mẫu 16k điểm mây electron ngay lúc mở. Nay tầng chỉ dựng khi sắp lặn tới, mây chỉ tính khi bật.
+- **Đồng hồ thí nghiệm phải là thời gian thật** (`performance.now`), không cộng `dt` đã kẹp. Nếu cộng `dt`, máy chậm làm thí nghiệm chạy chậm và lệch âm thanh.
+- **Chip chọn muối pháo hoa** phải cập nhật dạng hàm (`setPicks(p => …)`). Hai lần bấm trong cùng nhịp dùng closure cũ nên mất lựa chọn.
+- **Nền sân khấu**: gradient có tâm trong suốt làm bảng lộ ra. Nay dùng nền 2 lớp: lớp tint trong suốt + lớp tối đặc.
+- **Chunk 3D**:
+  - trang import giá trị (không chỉ type) từ `ElementStage` nên kéo cả three/R3F vào chunk trang → đã tách `stage/live.ts`;
+  - modal cũ (có Canvas) cũng chuyển sang lazy.
+- **Chụp ảnh kiểm tra**:
+  - browser pane nhỏ và bị ẩn (rAF dừng), nên dùng Chrome headless qua CDP (script trong scratchpad);
+  - các bước: tạo hồ sơ Test bằng JS, `pushState` vào route, chụp 1280×800 và 390×844;
+  - SwiftShader không có KHR_parallel_shader_compile nên lần mở đầu chậm vài giây — không phản ánh máy thật.
 
 ## Nguồn chính
 - Chương trình GDPT môn Khoa học tự nhiên (Thông tư 32/2018/TT-BGDĐT), mục VIII.1 "Giải thích thuật ngữ" — tên 13 nguyên tố giữ tiếng Việt; yêu cầu cần đạt KHTN 7 (Nguyên tử, Nguyên tố, Sơ lược bảng tuần hoàn).

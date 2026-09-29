@@ -19,7 +19,8 @@ import type { ExperimentSpec } from '@/src/data/periodic/experiments';
 import { LensBar, LensControls, TableBay } from '@/src/components/periodic/ui/LensUI';
 import { ElementSheet, ScaleHud } from '@/src/components/periodic/ui/ElementSheet';
 import { FindGame, CoordGame, ScaleGame, StateGame, GAMES, Frame, type GameId } from '@/src/components/periodic/ui/Games';
-import { Cabinet, FireworksUI, BuilderUI, IntroOverlay, TowerSilhouette } from '@/src/components/periodic/ui/Panels';
+import { Cabinet, FireworksUI, BuilderUI, IntroOverlay, TowerSilhouette, CityUI, KitchenUI } from '@/src/components/periodic/ui/Panels';
+import { ATOMS, RECIPES, matchRecipe, nearestRecipe, type Counts } from '@/src/components/periodic/engine/molecules';
 import { InfographicViewer } from '@/src/components/shared/Infographic';
 import type { CellMark } from '@/src/components/periodic/ElementCell';
 import { loadCollection, saveCollection, addUnique, earnedBadges, PERIODIC_BADGES, type Collection } from '@/src/components/periodic/collectionStore';
@@ -41,7 +42,7 @@ const Stage3D = lazy(() => import('@/src/components/periodic/stage/Stage3D'));
 // Modal cũ cho máy không có WebGL2 / ?view=legacy
 const ElementDetail = lazy(() => import('@/src/components/periodic/legacy/ElementDetail').then(m => ({ default: m.ElementDetail })));
 
-type Lab = 'fireworks' | 'builder' | null;
+type Lab = 'fireworks' | 'builder' | 'city' | 'kitchen' | null;
 const BADGE_STARS = 10;
 const INTRO_KEY = 'ptIntroSeen';
 
@@ -374,6 +375,17 @@ export const PeriodicTablePage: React.FC = () => {
         const t = window.setTimeout(() => setBGoal(i => i + 1), 1500);
         return () => window.clearTimeout(t);
     }, [lab, bp, bLevel, bGoal, showToast]);
+    // 🏙️ thành phố + 🧪 bếp phân tử
+    const [cityProp, setCityProp] = useState<'melt' | 'density' | 'age' | 'crust'>('melt');
+    const [kCounts, setKCounts] = useState<Counts>({ H: 2, O: 1 });
+    const kRecipe = useMemo(() => matchRecipe(kCounts), [kCounts]);
+    const [kFound, setKFound] = useState<string[]>(() => { try { return JSON.parse(localStorage.getItem('ptable_kitchen_v1') || '[]'); } catch { return []; } });
+    useEffect(() => {
+        if (lab !== 'kitchen' || !kRecipe || kFound.includes(kRecipe.id)) return;
+        const next = [...kFound, kRecipe.id]; setKFound(next); playSuccess(); showToast(`${kRecipe.emoji} Em vừa tạo ra ${kRecipe.name}!`);
+        try { localStorage.setItem('ptable_kitchen_v1', JSON.stringify(next)); } catch { /* bỏ qua */ }
+    }, [lab, kRecipe, kFound, showToast]);
+    const kHint = useMemo(() => { const n = nearestRecipe(kCounts); return `Thử công thức ${n.formula} (${n.name.toLowerCase()})`; }, [kCounts]);
     const openLab = (l: Lab) => { setGamesMenu(false); endGame(); setCanvasOn(true); setLab(l); if (l === 'fireworks') setFwMsg(null); };
 
     // ---------------------------------------------------------------- phím
@@ -502,7 +514,7 @@ export const PeriodicTablePage: React.FC = () => {
                 <LensBar lens={lens} onLens={(l) => { setLens(l); playBlip(); }} hintUses={young} />
                 <LensControls lens={lens} ctx={ctx} onCtx={onCtx} playing={histPlay} onPlay={() => setHistPlay(p => !p)} onStory={toggleStory} storyOn={storyIdx !== null} onInfo={() => setShowInfo(true)} />
                 <div ref={wrapRef} className="w-full overflow-x-auto pt-2">
-                    <div ref={tableRef} style={{ zoom }} className="w-fit mx-auto">
+                    <div ref={tableRef} style={{ zoom, opacity: lab === 'city' ? 0 : 1, transition: 'opacity .8s' }} className="w-fit mx-auto">
                         <PeriodicTable onSelectElement={onCell} onHoverElement={setHover} lookOf={lookOf} collected={collected} marks={marks} darkSet={darkSet}
                             bay={<TableBay hover={hover} lens={lens} onOpen={openElement} avatar={youBeat || storyOrigin === 'you' ? avatar : undefined}
                                 caption={intro ? (youBeat ? caption : null) : storyIdx !== null ? (STORY_BEATS[storyIdx]?.say ?? null) : null} />} />
@@ -525,6 +537,7 @@ export const PeriodicTablePage: React.FC = () => {
                     <TowerSilhouette />
                 </div>
             )}
+            {lab === 'kitchen' && <div className="fixed inset-0 z-[42]" style={{ background: 'radial-gradient(ellipse at 35% 45%, #1f2b4f 0%, #0b1026 55%, #030512 100%)' }} />}
             {lab === 'builder' && <div className="fixed inset-0 z-[42]" style={{ background: 'radial-gradient(ellipse at 35% 45%, #1e2a5a 0%, #0b1026 50%, #030512 100%)' }} />}
 
             {canvasOn && webgl && !contextLost && (
@@ -534,6 +547,7 @@ export const PeriodicTablePage: React.FC = () => {
                         active={!!intro || lens === 'state' || burstOn} rects={rects} fx={fx.current} intro={intro}
                         selected={selected} closing={closing} onClosed={onStageClosed} live={live} experiment={experiment} expPower={expPower}
                         cloud={cloud} tempC={ctx.tempC} onCue={onCue} lab={lab} fwApi={fwApi} onBoom={() => playBoom()} builder={bp}
+                        cityProp={cityProp} onCityPick={(e) => { setLab(null); openElement(e); }} kitchen={{ counts: kCounts, recipe: kRecipe }}
                     />
                 </Suspense>
             )}
@@ -554,6 +568,8 @@ export const PeriodicTablePage: React.FC = () => {
             )}
 
             {lab === 'fireworks' && <FireworksUI picks={picks} setPicks={setPicks} shape={shape} setShape={setShape} done={col.fireworks} onBack={() => setLab(null)} lastMsg={fwMsg} />}
+            {lab === 'city' && <CityUI prop={cityProp} setProp={setCityProp} onBack={() => setLab(null)} />}
+            {lab === 'kitchen' && <KitchenUI counts={kCounts as Record<string, number>} set={(a, d) => { playBlip(); setKCounts(c => ({ ...c, [a]: Math.max(0, Math.min(6, (c[a as keyof Counts] ?? 0) + d)) })); }} clear={() => setKCounts({})} found={kFound} recipe={kRecipe} hint={kHint} onBack={() => setLab(null)} atoms={ATOMS} recipes={RECIPES} />}
             {lab === 'builder' && <BuilderUI p={bp.p} n={bp.n} e={bp.e} set={setB} reset={() => setBp({ p: 1, n: 0, e: 1 })} level={bLevel} setLevel={(l) => { setBLevel(l); setBGoal(0); }} goalIndex={bGoal} onBack={() => setLab(null)} built={col.built.length} />}
 
             {game === 'find' && <FindGame easy={young} register={register} setMarks={setMarks} onDone={(s) => onGameDone(s, 'find')} onClose={endGame} />}
@@ -567,6 +583,8 @@ export const PeriodicTablePage: React.FC = () => {
                     <div className="grid grid-cols-2 gap-2 mb-4">
                         <button onClick={() => openLab('fireworks')} className="rounded-2xl p-3 text-left bg-gradient-to-br from-rose-500/30 to-amber-400/20 border border-white/15 hover:border-white/40"><p className="text-2xl">🎆</p><b>Pháo hoa giao thừa</b><p className="text-xs text-white/60">Pha muối kim loại để có màu pháo hoa</p></button>
                         <button onClick={() => openLab('builder')} className="rounded-2xl p-3 text-left bg-gradient-to-br from-cyan-500/30 to-indigo-500/20 border border-white/15 hover:border-white/40"><p className="text-2xl">⚛️</p><b>Xưởng nguyên tử</b><p className="text-xs text-white/60">Lắp proton, nơtron, electron</p></button>
+                        <button onClick={() => openLab('kitchen')} className="rounded-2xl p-3 text-left bg-gradient-to-br from-emerald-500/30 to-sky-500/20 border border-white/15 hover:border-white/40"><p className="text-2xl">🧪</p><b>Bếp phân tử</b><p className="text-xs text-white/60">Ghép nguyên tử thành nước, muối, khí CO₂…</p></button>
+                        <button onClick={() => openLab('city')} className="rounded-2xl p-3 text-left bg-gradient-to-br from-fuchsia-500/30 to-amber-400/20 border border-white/15 hover:border-white/40"><p className="text-2xl">🏙️</p><b>Thành phố nguyên tố</b><p className="text-xs text-white/60">Bảng dựng đứng thành các tòa nhà</p></button>
                     </div>
                     <p className="text-sm font-bold mb-2">🎮 Trò chơi</p>
                     <div className="grid grid-cols-2 gap-2">

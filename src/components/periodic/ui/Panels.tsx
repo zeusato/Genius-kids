@@ -181,3 +181,52 @@ export const IntroOverlay: React.FC<{ caption: string | null; onSkip: () => void
         <button className="absolute right-4 bottom-4 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm">Chạm để bỏ qua</button>
     </div>
 );
+
+// ---------------------------------------------------------------- 🏙️ thành phố nguyên tố
+export const CITY_PROPS: { id: 'melt' | 'density' | 'age' | 'crust'; label: string; say: string }[] = [
+    { id: 'melt', label: '🔥 Khó nóng chảy', say: 'Cột càng cao, nguyên tố càng khó chảy lỏng. Tòa cao nhất là carbon và tungsten!' },
+    { id: 'density', label: '⚖️ Nặng', say: 'Cột càng cao, khối 1 cm³ càng nặng. Osmium và iridium cao nhất.' },
+    { id: 'age', label: '🕰️ Được biết lâu đời', say: 'Cột càng cao, loài người biết nguyên tố đó càng lâu — vàng, đồng, sắt từ thời cổ đại.' },
+    { id: 'crust', label: '🌍 Nhiều trong đất đá', say: 'Cột càng cao, nguyên tố càng nhiều trong vỏ Trái Đất — oxygen và silicon dẫn đầu.' },
+];
+
+export const CityUI: React.FC<{ prop: string; setProp: (p: 'melt' | 'density' | 'age' | 'crust') => void; onBack: () => void }> = ({ prop, setProp, onBack }) => (
+    <>
+        <button onClick={onBack} className="fixed top-3 left-3 z-[56] flex items-center gap-1.5 h-11 px-4 rounded-full bg-slate-900/70 border border-white/15 text-white backdrop-blur-md"><ArrowLeft size={18} /> Bảng phẳng</button>
+        <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-[56] w-[min(720px,96vw)] rounded-3xl bg-slate-900/80 border border-white/15 backdrop-blur-md p-3 text-white">
+            <p className="text-sm font-bold mb-2">🏙️ Thành phố nguyên tố — mỗi ô dựng thành một tòa nhà</p>
+            <div className="flex flex-wrap gap-1.5">{CITY_PROPS.map(p => <button key={p.id} onClick={() => setProp(p.id)} className={`px-3 py-1.5 rounded-full text-xs ${prop === p.id ? 'bg-cyan-400 text-slate-900 font-bold' : 'bg-white/10 hover:bg-white/20'}`}>{p.label}</button>)}</div>
+            <p className="text-xs text-white/75 mt-2">{CITY_PROPS.find(p => p.id === prop)?.say} Chạm vào một tòa để mở nguyên tố.</p>
+        </div>
+    </>
+);
+
+// ---------------------------------------------------------------- 🧪 bếp phân tử
+export const KitchenUI: React.FC<{ counts: Record<string, number>; set: (a: string, d: number) => void; clear: () => void; found: string[]; recipe: { formula: string; name: string; emoji: string; use: string } | null; hint: string; onBack: () => void; atoms: { id: string; color: string; name: string }[]; recipes: { id: string; formula: string; name: string; emoji: string }[] }> = ({ counts, set, clear, found, recipe, hint, onBack, atoms, recipes }) => (
+    <>
+        <button onClick={onBack} className="fixed top-3 left-3 z-[56] flex items-center gap-1.5 h-11 px-4 rounded-full bg-slate-900/70 border border-white/15 text-white backdrop-blur-md"><ArrowLeft size={18} /> Bảng tuần hoàn</button>
+        <div className="fixed z-[55] right-3 top-3 bottom-3 w-[min(380px,44vw)] max-md:left-3 max-md:top-auto max-md:w-auto max-md:h-[50vh] rounded-3xl bg-slate-900/88 border border-white/12 backdrop-blur-xl p-4 text-slate-100 overflow-y-auto ptable-scroll">
+            <b className="text-lg">🧪 Bếp phân tử</b>
+            <p className="text-xs text-white/60">Chọn số nguyên tử của mỗi loại. Đúng công thức là phân tử hiện ra!</p>
+            <div className="grid grid-cols-2 gap-2 mt-3">
+                {atoms.map(a => (
+                    <div key={a.id} className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 p-1.5">
+                        <span className="w-7 h-7 rounded-full grid place-items-center text-[11px] font-bold" style={{ background: a.color, color: a.id === 'H' ? '#111' : '#fff' }}>{a.id}</span>
+                        <button onClick={() => set(a.id, -1)} className="w-7 h-7 grid place-items-center rounded-full bg-white/10" aria-label={`Bớt ${a.name}`}><Minus size={14} /></button>
+                        <b className="w-5 text-center tabular-nums">{counts[a.id] ?? 0}</b>
+                        <button onClick={() => set(a.id, +1)} className="w-7 h-7 grid place-items-center rounded-full bg-white/10" aria-label={`Thêm ${a.name}`}><Plus size={14} /></button>
+                    </div>
+                ))}
+            </div>
+            <div className={`mt-3 rounded-2xl p-3 border ${recipe ? 'bg-emerald-400/15 border-emerald-300/40' : 'bg-white/5 border-white/10'}`}>
+                {recipe ? (<><p className="text-2xl font-bold">{recipe.emoji} {recipe.formula}</p><p className="font-semibold">{recipe.name}</p><p className="text-sm text-white/75">{recipe.use}</p></>)
+                    : <p className="text-sm text-white/70">💡 {hint}</p>}
+            </div>
+            <p className="text-sm font-bold mt-3 mb-1">📖 Sổ công thức ({found.length}/{recipes.length})</p>
+            <div className="grid grid-cols-3 gap-1.5">
+                {recipes.map(r => <span key={r.id} className={`rounded-lg px-2 py-1 text-xs text-center ${found.includes(r.id) ? 'bg-emerald-400/20 text-emerald-100' : 'bg-white/5 text-white/40'}`}>{found.includes(r.id) ? `${r.emoji} ${r.formula}` : '❔ ???'}</span>)}
+            </div>
+            <button onClick={clear} className="mt-3 flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-xs"><RotateCcw size={14} /> Dọn bếp</button>
+        </div>
+    </>
+);

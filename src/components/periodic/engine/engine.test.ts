@@ -177,3 +177,15 @@ describe('nội dung khác', () => {
         expect(byZ(2)!.experiments.some(x => x.id === 'voice')).toBe(true);
     });
 });
+
+describe('bếp phân tử', () => {
+    it('nhận ra phân tử theo số nguyên tử', async () => {
+        const { matchRecipe, RECIPES } = await import('./molecules');
+        expect(matchRecipe({ H: 2, O: 1 })?.id).toBe('h2o');
+        expect(matchRecipe({ C: 1, O: 2 })?.id).toBe('co2');
+        expect(matchRecipe({ Na: 1, Cl: 1 })?.id).toBe('nacl');
+        expect(matchRecipe({ H: 3 })).toBeNull();
+        expect(new Set(RECIPES.map(r => JSON.stringify(r.counts))).size).toBe(RECIPES.length);
+        for (const r of RECIPES) for (const [i, j] of r.bonds) { expect(r.atoms[i]).toBeTruthy(); expect(r.atoms[j]).toBeTruthy(); }
+    });
+});

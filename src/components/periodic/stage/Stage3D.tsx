@@ -10,13 +10,15 @@ import type { ExperimentSpec } from '../../../data/periodic/experiments';
 import type { Cue } from './Experiments';
 import type { QualityTier } from './params';
 import { identify } from '../engine/builder';
+import { CityScape, MoleculeView, type CityProp } from './Extras';
+import type { Counts, Recipe } from '../engine/molecules';
 
 interface Props {
     mode: CanvasMode; warmKey: string; onReady: (k: string) => void; onTier: (t: QualityTier) => void; onContextLost: () => void;
     active: boolean; rects: CellRects; fx: CellFxState; intro: IntroPlan | null;
     selected: ElementFull | null; closing: boolean; onClosed: () => void; live: StageLive; experiment: ExperimentSpec | null; expPower: boolean;
     cloud: boolean; tempC: number; onCue: (c: Cue, p?: number) => void;
-    lab: 'fireworks' | 'builder' | null; fwApi: React.MutableRefObject<FireworksApi | null>; onBoom: () => void; builder: { p: number; n: number; e: number };
+    lab: 'fireworks' | 'builder' | 'city' | 'kitchen' | null; cityProp: CityProp; onCityPick: (e: ElementFull) => void; kitchen: { counts: Counts; recipe: Recipe | null }; fwApi: React.MutableRefObject<FireworksApi | null>; onBoom: () => void; builder: { p: number; n: number; e: number };
 }
 
 export default function Stage3D(p: Props) {
@@ -32,6 +34,8 @@ export default function Stage3D(p: Props) {
                             experiment={p.experiment} experimentPower={p.expPower} cloud={p.cloud} tempC={p.tempC} onCue={p.onCue} />
                     )}
                     {p.lab === 'fireworks' && <Fireworks apiRef={p.fwApi} tier={tier} onBoom={p.onBoom} />}
+                    {p.lab === 'city' && <CityScape rects={p.rects} prop={p.cityProp} tier={tier} onPick={p.onCityPick} />}
+                    {p.lab === 'kitchen' && <MoleculeView recipe={p.kitchen.recipe} counts={p.kitchen.counts} tier={tier} />}
                     {p.lab === 'builder' && <BuilderAtom p={p.builder.p} n={p.builder.n} e={p.builder.e} tier={tier} unstable={id.stable === false} />}
                 </>
             )}
