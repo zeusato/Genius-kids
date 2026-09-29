@@ -205,33 +205,121 @@ const Heat: React.FC<EProps> = ({ el, spec, tier, clock, onCue }) => {
 };
 
 // ---------------------------------------------------------------- 🧲 nam châm
-const Magnet: React.FC<EProps> = ({ el, spec, tier, clock }) => {
-    const attracts = !spec.params?.none;
-    const red = useSurface(tier, { color: '#ef4444', metal: false, roughness: 0.4 }), grey = useSurface(tier, { color: '#cbd5e1', metal: true, roughness: 0.3 });
-    const sample = useRef<THREE.Group>(null), magnet = useRef<THREE.Group>(null);
-    const strong = !!spec.params?.strong;
-    const clips = useMemo(() => Array.from({ length: strong ? 8 : 0 }, (_, i) => i), [strong]);
-    const clipMat = useSurface(tier, { color: '#d1d5db', metal: true, roughness: 0.25 });
-    const clipRefs = useRef<(THREE.Mesh | null)[]>([]);
-    useFrame(() => {
-        const t = clock.t, come = easeOut(t / 1.5);
-        if (magnet.current) magnet.current.position.x = strong ? -0.9 : 1.9 - come * 0.9;
-        if (sample.current) { const pull = attracts && !strong ? easeOut((t - 1.3) / 0.4) : 0; sample.current.position.x = -0.6 + pull * 1.05; }
-        clipRefs.current.forEach((c, i) => { if (!c) return; const k = easeOut((t - 0.3 - i * 0.12) / 0.5); c.position.set(1.6 - k * 1.95 + (i % 3) * 0.05, -0.6 + (i % 4) * 0.2 * k, (i % 2) * 0.1); });
-    });
+// Nam châm chữ U thật (thân ống cong đỏ, hai cực bạc N/S) trượt tới; vật bị hút thì tăng tốc lao vào, dính hai
+// cực và nảy nhẹ; đường sức từ (cung sáng) hiện dần khi nam châm lại gần. Không bị hút: vật đứng yên + dấu ✕.
+// Nd: nam châm tròn hút chùm kẹp giấy. O lỏng: giọt xanh nhạt rơi xuống, bị giữ lơ lửng giữa hai cực.
+const POLE_Y = 0.24, POLE_LEN = 0.22, BEND = 0.72;
+function letterTex(ch: string, bg: string): THREE.Texture {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const x = c.getContext('2d')!;
+    x.fillStyle = bg; x.fillRect(0, 0, 64, 64);
+    x.fillStyle = '#ffffff'; x.font = 'bold 44px Verdana'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(ch, 32, 35);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const Horseshoe: React.FC<{ tier: QualityTier }> = ({ tier }) => {
+    const body = useSurface(tier, { color: '#dc2626', metal: false, roughness: 0.32 });
+    const steel = useSurface(tier, { color: '#d1d5db', metal: true, roughness: 0.22 });
+    // thân chữ U nằm ngang, hai cực quay về −x; mặt cực ở x = 0
+    const path = useMemo(() => new THREE.CatmullRomCurve3([
+        new THREE.Vector3(POLE_LEN, POLE_Y, 0), new THREE.Vector3(BEND, POLE_Y, 0),
+        new THREE.Vector3(BEND + POLE_Y * 0.9, POLE_Y * 0.7, 0), new THREE.Vector3(BEND + POLE_Y * 1.25, 0, 0),
+        new THREE.Vector3(BEND + POLE_Y * 0.9, -POLE_Y * 0.7, 0), new THREE.Vector3(BEND, -POLE_Y, 0),
+        new THREE.Vector3(POLE_LEN, -POLE_Y, 0)]), []);
+    const n = useMemo(() => new THREE.MeshBasicMaterial({ map: letterTex('N', '#dc2626'), transparent: true }), []);
+    const sMat = useMemo(() => new THREE.MeshBasicMaterial({ map: letterTex('S', '#2563eb'), transparent: true }), []);
     return (
-        <group position={[0, -0.2, 0]}>
-            <group ref={magnet}>
-                {strong ? <group ref={sample}><Specimen el={el} tier={tier} /></group> : (
-                    <group rotation={[0, 0, Math.PI / 2]} scale={0.8}>
-                        <mesh material={red} position={[0, 0.35, 0]} rotation={[0, 0, 0]}><torusGeometry args={[0.35, 0.12, 12, 32, Math.PI]} /></mesh>
-                        <mesh material={red} position={[-0.35, 0.05, 0]}><boxGeometry args={[0.24, 0.6, 0.24]} /></mesh>
-                        <mesh material={grey} position={[0.35, 0.05, 0]}><boxGeometry args={[0.24, 0.6, 0.24]} /></mesh>
-                    </group>
-                )}
+        <group>
+            <mesh material={body}><tubeGeometry args={[path, 64, 0.11, 20, false]} /></mesh>
+            {[POLE_Y, -POLE_Y].map((y, i) => (
+                <group key={i}>
+                    <mesh material={steel} position={[POLE_LEN / 2, y, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.11, 0.11, POLE_LEN, 20]} /></mesh>
+                    <mesh material={i ? sMat : n} position={[POLE_LEN + 0.22, y, 0.111]}><planeGeometry args={[0.13, 0.13]} /></mesh>
+                </group>
+            ))}
+        </group>
+    );
+};
+
+const FieldLines: React.FC<{ strength: { v: number } }> = ({ strength }) => {
+    const lines = useMemo(() => [0.18, 0.34, 0.52].flatMap(r => [1, -1].map(side => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(
+        Array.from({ length: 17 }, (_, i) => { const a = (i / 16) * Math.PI; return new THREE.Vector3(-Math.sin(a) * r * 1.2, Math.cos(a) * POLE_Y, side * Math.sin(a) * r * 0.25); })), 48, 0.008, 6, false))), []);
+    const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#7dd3fc').multiplyScalar(1.6), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending }), []);
+    useFrame((st) => { mat.opacity = strength.v * (0.45 + 0.25 * Math.sin(st.clock.elapsedTime * 4)); });
+    return <group>{lines.map((g, i) => <mesh key={i} geometry={g} material={mat} />)}</group>;
+};
+
+const Magnet: React.FC<EProps> = ({ el, spec, tier, clock }) => {
+    const attracts = !spec.params?.none, strong = !!spec.params?.strong, liquid = !!spec.params?.liquid;
+    const mag = useRef<THREE.Group>(null), obj = useRef<THREE.Group>(null), cross = useRef<THREE.Group>(null), drop = useRef<THREE.Mesh>(null);
+    const field = useRef({ v: 0 }).current;
+    const sample = useSurface(tier, { color: el.specimen.color, metal: el.specimen.metal, roughness: el.specimen.roughness });
+    const plate = useGlass(tier, '#cbd5e1', 0.22);
+    const crossMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#f87171').multiplyScalar(1.4), transparent: true, opacity: 0 }), []);
+    const lox = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#a5d8ff', roughness: 0.05, transmission: tier === 'high' ? 0.6 : 0, transparent: true, opacity: 0.85 }), [tier]);
+    const clipMat = useSurface(tier, { color: '#e5e7eb', metal: true, roughness: 0.25 });
+    const clips = useMemo(() => { const R = rng(60); return Array.from({ length: strong ? 10 : 0 }, (_, i) => ({ y0: (R() - 0.5) * 1.4, z0: (R() - 0.5) * 0.6, d: 0.2 + i * 0.13, a: R() * 6.28, sy: (R() - 0.5) * 0.5, sz: (R() - 0.5) * 0.3 })); }, [strong]);
+    const clipRefs = useRef<(THREE.Group | null)[]>([]);
+    const HALF = 0.2, START = -0.95;          // nửa cạnh khối mẫu, vị trí ban đầu
+    useFrame(() => {
+        const t = clock.t;
+        if (strong) {                          // Nd: nam châm tròn đứng giữa, kẹp giấy bay tới dính quanh
+            field.v = 0;
+            clips.forEach((c, i) => {
+                const g = clipRefs.current[i]; if (!g) return;
+                const k = clamp01((t - c.d) / 0.45), e = k * k;
+                const sx = 0.36 + Math.cos(c.a) * 0.05, stickY = c.sy, stickZ = c.sz;
+                g.position.set(1.7 + (sx - 1.7) * e, c.y0 + (stickY - c.y0) * e, c.z0 + (stickZ - c.z0) * e);
+                g.rotation.set(c.a * (1 - e), 0, c.a + (Math.PI / 2 - c.a) * e);
+            });
+            return;
+        }
+        const come = easeOut(t / 1.6);
+        const poleX = 1.9 - (1.9 - HALF * 1.0) * come;                   // mặt cực dừng ở x = 0,2
+        if (mag.current) mag.current.position.x = liquid ? HALF : poleX;
+        field.v = clamp01((2.2 - poleX) / 1.6) * (attracts ? 1 : 0.7);
+        if (liquid && drop.current) {
+            const k = clamp01((t - 0.6) / 0.9), fall = 1 - (1 - k) * (1 - k);
+            drop.current.position.set(0, 1.1 - fall * 1.1, 0);
+            drop.current.scale.set(0.16 + 0.05 * k, (0.16 + 0.05 * k) * (1 + 0.08 * Math.sin(t * 9)), 0.16);
+        }
+        if (obj.current && !liquid) {
+            let x = START;
+            if (attracts) {
+                const k = clamp01((t - 1.45) / 0.35);                    // tăng tốc như bị hút thật (x ∝ k²)
+                const target = HALF - HALF;                               // mặt phải khối chạm mặt cực
+                x = START + (target - START) * k * k;
+                if (k >= 1) x = target - Math.max(0, Math.sin((t - 1.8) * 30) * 0.03 * Math.exp(-(t - 1.8) * 8));   // nảy nhẹ
+                obj.current.rotation.z = -0.25 * k * (1 - k) * 4 * 0.2;
+            }
+            obj.current.position.x = x;
+        }
+        if (cross.current) { const k = !attracts && t > 2 ? clamp01((t - 2) / 0.3) : 0; crossMat.opacity = k; cross.current.visible = k > 0; }
+    });
+    if (strong) return (
+        <group position={[0, -0.1, 0]}>
+            <mesh material={sample} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.34, 0.34, 0.22, 48]} /></mesh>
+            {clips.map((c, i) => (
+                <group key={i} ref={g => { clipRefs.current[i] = g; }}>
+                    <mesh material={clipMat} scale={[1, 1.7, 1]}><torusGeometry args={[0.06, 0.011, 6, 20]} /></mesh>
+                </group>
+            ))}
+        </group>
+    );
+    return (
+        <group position={[0, -0.35, 0]}>
+            <mesh material={plate} position={[-0.4, -HALF - 0.03, 0]}><boxGeometry args={[2.6, 0.05, 0.9]} /></mesh>
+            <group ref={mag}>
+                <Horseshoe tier={tier} />
+                <group position={[0, 0, 0]}><FieldLines strength={field} /></group>
             </group>
-            {!strong && <group ref={sample} position={[-0.6, 0, 0]} scale={0.45}><Specimen el={el} tier={tier} /></group>}
-            {clips.map(i => <mesh key={i} ref={m => { clipRefs.current[i] = m; }} material={clipMat} rotation={[Math.PI / 2, 0, i]}><torusGeometry args={[0.07, 0.012, 6, 16]} /></mesh>)}
+            {liquid
+                ? <mesh ref={drop} material={lox}><sphereGeometry args={[1, 32, 20]} /></mesh>
+                : <group ref={obj} position={[START, 0, 0]}><RoundedBox args={[HALF * 2, HALF * 2, HALF * 2]} radius={0.03} material={sample} /></group>}
+            {!attracts && (
+                <group ref={cross} position={[START, HALF + 0.32, 0]} visible={false}>
+                    {[Math.PI / 4, -Math.PI / 4].map(r => <mesh key={r} material={crossMat} rotation={[0, 0, r]}><boxGeometry args={[0.3, 0.06, 0.02]} /></mesh>)}
+                </group>
+            )}
         </group>
     );
 };
