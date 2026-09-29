@@ -1,0 +1,80 @@
+
+## 1 pin + 1 bóng
+pin            I=0.1750 A  V=1.465 V  P=0.2563 W
+bóng           I=0.1750 A  V=1.458 V  P=0.2551 W brightness(P/Prated)=0.340  glow=0.58
+
+## 2 pin nối tiếp + 1 bóng
+pin1           I=0.3419 A  V=1.432 V  P=0.4895 W
+pin2           I=0.3419 A  V=1.432 V  P=0.4895 W
+bóng           I=0.3419 A  V=2.850 V  P=0.9744 W brightness(P/Prated)=1.299  glow=1.14
+
+## 1 pin + 2 bóng NỐI TIẾP
+pin            I=0.0887 A  V=1.482 V  P=0.1315 W
+bóng1          I=0.0887 A  V=0.739 V  P=0.0656 W brightness(P/Prated)=0.087  glow=0.30
+bóng2          I=0.0887 A  V=0.739 V  P=0.0656 W brightness(P/Prated)=0.087  glow=0.30
+
+## 1 pin + 2 bóng SONG SONG
+pin            I=0.3404 A  V=1.432 V  P=0.4874 W
+bóng1          I=0.1702 A  V=1.418 V  P=0.2414 W brightness(P/Prated)=0.322  glow=0.57
+bóng2          I=0.1702 A  V=1.418 V  P=0.2414 W brightness(P/Prated)=0.322  glow=0.57
+
+## 2 pin + 3 bóng nối tiếp
+pin1           I=0.1179 A  V=1.476 V  P=0.1741 W
+pin2           I=0.1179 A  V=1.476 V  P=0.1741 W
+bóng1          I=0.1179 A  V=0.983 V  P=0.1159 W brightness(P/Prated)=0.155  glow=0.39
+bóng2          I=0.1179 A  V=0.983 V  P=0.1159 W brightness(P/Prated)=0.155  glow=0.39
+bóng3          I=0.1179 A  V=0.983 V  P=0.1159 W brightness(P/Prated)=0.155  glow=0.39
+
+## 4 pin nối tiếp + 1 bóng (quá tải?)
+pin1           I=0.6541 A  V=1.369 V  P=0.8955 W
+pin2           I=0.6541 A  V=1.369 V  P=0.8955 W
+pin3           I=0.6541 A  V=1.369 V  P=0.8955 W
+pin4           I=0.6541 A  V=1.369 V  P=0.8955 W
+bóng           I=0.6541 A  V=5.451 V  P=3.5651 W brightness(P/Prated)=4.753  glow=1.30
+
+## Đoản mạch (dây nối thẳng 2 cực, có bóng song song)
+pin            I=6.8197 A  V=0.136 V  P=0.9279 W
+dây tắt        I=6.8034 A  V=0.136 V  P=0.9257 W
+bóng           I=0.0163 A  V=0.135 V  P=0.0022 W brightness(P/Prated)=0.003  glow=0.05
+
+## 1 quả chanh + LED đỏ
+chanh1         I=0.0000 A  V=0.950 V  P=0.0000 W
+LED đỏ         I=0.0000 A  V=0.950 V  P=0.0000 W LED off  I=0.00 mA
+
+## 2 quả chanh + LED đỏ
+chanh1         I=0.0001 A  V=0.901 V  P=0.0001 W
+chanh2         I=0.0001 A  V=0.901 V  P=0.0001 W
+LED đỏ         I=0.0001 A  V=1.802 V  P=0.0002 W LED ON  I=0.11 mA
+
+## 3 quả chanh + LED đỏ
+chanh1         I=0.0008 A  V=0.604 V  P=0.0005 W
+chanh2         I=0.0008 A  V=0.604 V  P=0.0005 W
+chanh3         I=0.0008 A  V=0.604 V  P=0.0005 W
+LED đỏ         I=0.0008 A  V=1.812 V  P=0.0014 W LED ON  I=0.77 mA
+
+## 4 quả chanh + LED đỏ
+chanh1         I=0.0011 A  V=0.454 V  P=0.0005 W
+chanh2         I=0.0011 A  V=0.454 V  P=0.0005 W
+chanh3         I=0.0011 A  V=0.454 V  P=0.0005 W
+chanh4         I=0.0011 A  V=0.454 V  P=0.0005 W
+LED đỏ         I=0.0011 A  V=1.817 V  P=0.0020 W LED ON  I=1.10 mA
+
+## 4 quả chanh + bóng sợi đốt
+chanh1         I=0.0021 A  V=0.004 V  P=0.0000 W
+chanh2         I=0.0021 A  V=0.004 V  P=0.0000 W
+chanh3         I=0.0021 A  V=0.004 V  P=0.0000 W
+chanh4         I=0.0021 A  V=0.004 V  P=0.0000 W
+bóng           I=0.0021 A  V=0.018 V  P=0.0000 W brightness(P/Prated)=0.000  glow=0.01
+
+## 2 pin + LED lắp NGƯỢC
+pin1           I=0.0000 A  V=1.500 V  P=0.0000 W
+pin2           I=0.0000 A  V=1.500 V  P=0.0000 W
+LED ngược      I=0.0000 A  V=3.000 V  P=0.0000 W LED off  I=0.00 mA
+
+## 2 pin + LED thuận + điện trở 100 Ω
+pin1           I=0.0104 A  V=1.498 V  P=0.0156 W
+pin2           I=0.0104 A  V=1.498 V  P=0.0156 W
+LED            I=0.0104 A  V=1.956 V  P=0.0203 W LED ON  I=10.40 mA
+điện trở       I=0.0104 A  V=1.040 V  P=0.0108 W
+
+## Tốc độ: 1000 lần giải mạch 63 nút / 92 phần tử: 826 ms

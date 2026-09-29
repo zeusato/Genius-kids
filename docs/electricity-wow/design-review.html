@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102b29">
+  <title>Xưởng Ánh Sáng · Bản thiết kế</title>
+  <style>
+    :root{color-scheme:light;--ink:#17312e;--muted:#596961;--paper:#f6f2e8;--line:#d9ddce;--teal:#105e56;--amber:#ffc777;--coral:#e9947e}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit;text-underline-offset:4px}button:focus-visible,a:focus-visible{outline:3px solid #dd6c42;outline-offset:5px}button{min-height:44px}main{overflow:hidden}.wrap{width:min(1120px,calc(100% - 64px));margin:auto}.eyebrow{font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}.muted{color:var(--muted)}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.13;letter-spacing:-.035em}h1{font-size:clamp(40px,6.2vw,76px);font-weight:650}h2{font-size:clamp(28px,4vw,44px);font-weight:650}h3{font-size:23px;font-weight:620}.hero{background:#102b29;color:#f8f3e8;padding:26px 0 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-size:17px;font-weight:650;letter-spacing:-.025em}.brand b{color:var(--amber);margin-right:8px}.top a{font-size:12px;text-decoration:none;border-bottom:1px solid #5d7a73}.status{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#c8d6c8;border:1px solid #52726a;border-radius:30px;padding:6px 12px}.intro{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;align-items:end;margin:45px 0 35px}.intro .eyebrow{color:#afc6b8;margin-bottom:14px}h1 em{font-style:normal;color:var(--amber)}.intro p{font-size:16px;line-height:1.8;color:#c7d5cc;max-width:350px;margin:0 0 5px}.stage{border:1px solid #40584d;border-radius:20px;overflow:hidden;background:#050e0c;box-shadow:0 28px 80px #001a1540}.stage-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 20px;background:#193630;font-size:12px;color:#d4e0d1}.stage-top span:last-child{color:#9ab9aa}.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:14px 18px;background:#18332e}.tabs button{border:1px solid transparent;border-radius:9px;padding:0 16px;background:transparent;color:#c6d6cd;font-size:13px}.tabs button[aria-pressed=true]{background:var(--paper);color:var(--ink);font-weight:650}.tabs button:hover{border-color:#708e7e}.visual{margin:0}.visual img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#020c08}.caption{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:18px 22px;background:#f2eddf;color:var(--ink)}.caption strong{display:block;font-size:15px;line-height:1.4;margin-bottom:4px}.caption p{font-size:12px;color:#56655b;max-width:770px}.caption a{font-size:12px;white-space:nowrap}.hero-bottom{display:flex;gap:28px;justify-content:space-between;margin-top:19px;font-size:11px;color:#a6bcae}.hero-bottom b{color:#e1ecdc;font-weight:500}.section{padding:78px 0}.section-head{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:end;margin-bottom:32px}.section-head .eyebrow{margin-bottom:16px;color:var(--teal)}.section-head p{color:var(--muted);font-size:15px;max-width:390px}.moments{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.moment{padding:26px;border:1px solid var(--line);border-radius:15px;background:#fffdf7}.number{font-size:12px;letter-spacing:.12em;color:#7e897d;display:block;margin-bottom:34px}.moment h3{margin-bottom:14px}.moment p{font-size:14px;color:var(--muted);margin-bottom:23px}.moment button{border:0;background:transparent;color:var(--teal);font-size:12px;font-weight:650;padding:0;text-align:left}.moment button:hover{text-decoration:underline}.rule{border-left:3px solid var(--coral);margin-top:28px;padding:4px 20px;font-size:14px;color:var(--muted)}.rule strong{color:var(--ink)}.roadmap{background:#e5eadd;border-top:1px solid #d2d9c9;border-bottom:1px solid #d2d9c9}.releases{display:flex;gap:7px;margin:30px 0 22px}.releases button{border:1px solid #a6b6a7;background:transparent;padding:9px 18px;border-radius:30px;font-size:13px;color:var(--ink)}.releases button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#f9f5e9}.release-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.phase{background:#f7f8ef;border-radius:12px;padding:20px 22px;display:flex;gap:18px}.phase>span{font-size:12px;color:#607665;padding-top:4px;font-variant-numeric:tabular-nums}.phase h3{font-size:18px;letter-spacing:-.02em;margin-bottom:7px}.phase p{font-size:13px;color:#5c6e5e}.release-note{margin-top:19px;font-size:12px;color:#5c6e5e}.contracts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.contract{padding:23px 0;border-top:2px solid #b8c5b6;text-decoration:none}.contract:hover{border-color:var(--teal)}.contract .eyebrow{color:#66836c}.contract h3{font-size:21px;margin:17px 0 11px}.contract p{font-size:13px;color:var(--muted)}.contract .arrow{display:block;margin-top:20px;color:var(--teal)}.verification{margin-top:35px;padding:21px 24px;border-radius:13px;background:#e8eee0;display:flex;gap:22px;align-items:center}.verification b{font-size:27px;letter-spacing:-.05em;white-space:nowrap}.verification p{font-size:12px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:12px;color:var(--muted)}footer .wrap{display:flex;justify-content:space-between;gap:20px}footer a{font-weight:600}.skip{position:absolute;top:-100px}.skip:focus{top:10px;left:10px;background:#fff;padding:10px;z-index:5}
+    @media(max-width:760px){.wrap{width:calc(100% - 32px)}.top .status{display:none}.intro,.section-head{grid-template-columns:1fr;gap:22px}.intro{margin-top:34px}.intro p{max-width:none}.hero{padding-bottom:28px}.stage-top{padding:11px 13px}.stage-top span:last-child{display:none}.tabs{padding:8px;gap:1px}.tabs button{padding:0 10px;font-size:12px}.caption{grid-template-columns:1fr;gap:12px;padding:16px}.caption a{justify-self:start}.hero-bottom{gap:12px;flex-wrap:wrap}.section{padding:48px 0}.section-head{margin-bottom:26px}.moments,.contracts{grid-template-columns:1fr}.moment{padding:22px}.number{margin-bottom:20px}.moment p{margin-bottom:14px}.release-grid{grid-template-columns:1fr}.verification{align-items:flex-start;gap:14px;padding:20px}.verification b{font-size:24px}footer .wrap{flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#experience">Đến nội dung thiết kế</a>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <header class="top"><div class="brand"><b>✳</b> Xưởng Ánh Sáng</div><span class="status">Bản thiết kế · 29.09.2026</span><a href="../electricity-wow-plan.md">Đọc plan đầy đủ ↗</a></header>
+      <div class="intro"><div><div class="eyebrow">Điện & Mạch Điện / Genius Kids</div><h1>Bé tự tay<br>làm ra <em>ánh sáng.</em></h1></div><p>Một sợi dây khép mạch. Một bóng đèn bừng lên. Từ điều vừa làm được, bé bắt đầu hiểu thế giới điện bên trong.</p></div>
+      <div class="stage" id="stage">
+        <div class="stage-top"><span>01 — Phòng xem trước</span><span>Cảnh dựng từ bản thử 3D · chưa phải app mới</span></div>
+        <div class="tabs" role="group" aria-label="Chọn ảnh thiết kế">
+          <button type="button" data-view="parallel" aria-pressed="true" aria-controls="concept-image">Hai cách mắc</button>
+          <button type="button" data-view="bench" aria-pressed="false" aria-controls="concept-image">Bàn thí nghiệm</button>
+          <button type="button" data-view="schematic" aria-pressed="false" aria-controls="concept-image">Thành sơ đồ</button>
+          <button type="button" data-view="dive" aria-pressed="false" aria-controls="concept-image">Soi bên trong</button>
+        </div>
+        <figure class="visual"><img id="concept-image" src="concept-parallel-clear.png" alt="So sánh nối tiếp và song song: bên phải mỗi bóng có hai dây riêng về hai cực pin, hai nhánh tách rõ." width="1280" height="720"><figcaption class="caption"><div aria-live="polite" aria-atomic="true"><strong id="caption-title">Hai bóng. Hai nhánh. Bốn dây riêng.</strong><p id="caption-text">Mỗi bóng tự nối về cả hai cực pin. Không nối chuyền từ bóng A qua bóng B, nên mắt có thể lần theo từng nhánh. Mẫu này đã sửa theo góp ý về độ rõ.</p></div><a id="scene-link" href="proto/bench.html?scene=compare&night=1&t=2">Mở cảnh 3D ↗</a></figcaption></figure>
+      </div>
+      <div class="hero-bottom"><span><b>01</b> Một mạch · nhiều cách nhìn</span><span><b>02</b> Mỗi hiệu ứng có ý nghĩa</span><span><b>03</b> Tự thử để tự hiểu</span></div>
+    </div>
+  </section>
+  <section class="section wrap" id="experience">
+    <div class="section-head"><div><div class="eyebrow">Trải nghiệm được thiết kế từ hành động</div><h2>Không chỉ nhìn.<br>Được tự mình khám phá.</h2></div><p>Ba khoảnh khắc nối tiếp trên chính mạch bé vừa lắp. Giữ nguyên công tắc, dây nối và kết quả điện khi đổi cách nhìn.</p></div>
+    <div class="moments">
+      <article class="moment"><span class="number">01 / CHẠM</span><h3>Thắp đèn đầu tiên</h3><p>Nối sợi dây còn thiếu. Dây tóc ấm lên, ánh sáng soi ra góc bàn và những món đồ đang chờ được thử.</p><button type="button" data-jump="bench">Xem hướng bàn 3D →</button></article>
+      <article class="moment"><span class="number">02 / HIỂU</span><h3>Biến thành sơ đồ</h3><p>Vỏ đồ chơi mờ dần, kí hiệu hiện đúng chỗ. Bé nhận ra sơ đồ chính là món đồ vừa cầm trong tay.</p><button type="button" data-jump="schematic">Xem hướng sơ đồ →</button></article>
+      <article class="moment"><span class="number">03 / KHÁM PHÁ</span><h3>Đi vào sợi dây</h3><p>Đi qua vỏ nhựa đến lõi đồng. Bật công tắc và nhận ra electron trôi có hướng trong mạng tinh thể.</p><button type="button" data-jump="dive">Xem hướng soi dây →</button></article>
+    </div>
+    <p class="rule"><strong>Chi tiết làm nên sự rõ ràng:</strong> chọn bóng A sẽ làm nổi toàn bộ nhánh A. Vặn lỏng A, bé kiểm tra bóng B còn sáng. Đây là hành vi phải triển khai và nghiệm thu, chưa có trong cảnh mẫu.</p>
+  </section>
+  <section class="section roadmap"><div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">Lộ trình có điểm kết thúc cụ thể</div><h2>Chơi trọn một phần.<br>Rồi mở rộng thế giới.</h2></div><p>Đưa thí nghiệm dẫn điện và cảnh an toàn lên trước bài học cần chúng. Mỗi đợt có thể chơi trọn, lưu được và kiểm chứng được.</p></div>
+    <div class="releases" role="group" aria-label="Chọn đợt triển khai"><button type="button" data-release="1" aria-pressed="true" aria-controls="release-content">Đợt 1 · Bàn khám phá</button><button type="button" data-release="2" aria-pressed="false" aria-controls="release-content">Đợt 2 · Thế giới điện</button></div>
+    <div id="release-content" aria-live="polite" aria-atomic="true"><div class="release-grid" id="phase-grid"></div><p class="release-note" id="release-note"></p></div>
+  </div></section>
+  <section class="section wrap">
+    <div class="section-head"><div><div class="eyebrow">Từ ý tưởng đến đặc tả</div><h2>Có đủ căn cứ<br>để bắt đầu làm.</h2></div><p>Ba phụ lục khóa những điều không thể đoán bằng mắt: tính đúng điện, học được gì và dữ liệu thuộc về ai.</p></div>
+    <div class="contracts">
+      <a class="contract" href="research/engine-spec.md"><span class="eyebrow">01 / Engine</span><h3>Ánh sáng có căn cứ</h3><p>Thông số điện, chiều dòng, hội tụ, nhiệt và sự kiện hỏng. Hiệu ứng lấy từ kết quả tính toán.</p><span class="arrow">Đọc đặc tả engine ↗</span></a>
+      <a class="contract" href="research/content-spec.md"><span class="eyebrow">02 / Nội dung</span><h3>Mỗi bài có bằng chứng</h3><p>13 bài · 16 vật mẫu · 12 nhiệm vụ · 12 ca sửa mạch. Có nguồn, lời dẫn và điều kiện chấm.</p><span class="arrow">Đọc đặc tả nội dung ↗</span></a>
+      <a class="contract" href="research/interaction-progress-spec.md"><span class="eyebrow">03 / Tương tác</span><h3>Chạm được. Lưu được.</h3><p>Hai cách nối dây, màn dọc, bàn phím, dữ liệu cũ, sao theo hồ sơ và SVG khi thiếu WebGL.</p><span class="arrow">Đọc đặc tả tương tác ↗</span></a>
+    </div>
+    <div class="verification"><b>21/21</b><p>Ca kiểm số điện cơ bản của <strong>bản thử</strong> đã qua với công thức đối chiếu độc lập, gồm hai bố cục ba dây nối tiếp và bốn dây song song. Đây chưa phải chứng nhận engine production; kiểm thời gian, hội tụ, lưu trữ và thiết bị vẫn là cổng nghiệm thu khi triển khai.</p></div>
+  </section>
+</main>
+<footer><div class="wrap"><span>Bản trình bày của plan · Chưa triển khai tính năng mới vào app.</span><a href="../electricity-wow-plan.md">Mở kế hoạch triển khai đầy đủ ↗</a></div></footer>
+<script>
+  const concepts = {
+    parallel: { image: 'concept-parallel-clear.png', title: 'Hai bóng. Hai nhánh. Bốn dây riêng.', text: 'Mỗi bóng tự nối về cả hai cực pin. Không nối chuyền từ bóng A qua bóng B, nên mắt có thể lần theo từng nhánh. Mẫu này đã sửa theo góp ý về độ rõ.', alt: 'So sánh nối tiếp và song song: bên phải mỗi bóng có hai dây riêng về hai cực pin, hai nhánh tách rõ.', scene: '?scene=compare&night=1&t=2' },
+    bench: { image: 'concept-bench.webp', title: 'Một góc bàn khiến bé muốn tự tay thử.', text: 'Hướng vật liệu: bảng kem, cọc đồng, dây xanh ngọc và san hô. Đây là ảnh ý tưởng cũ về mỹ thuật; cách đi dây song song cuối cùng dùng mẫu “Hai cách mắc”.', alt: 'Bản thử bàn đồ chơi 3D với pin, bóng đèn, cầu dao và dây dẫn.', scene: '?scene=main&t=2' },
+    schematic: { image: 'concept-schematic.webp', title: 'Cùng một mạch, thêm một cách hiểu.', text: 'Mẫu hướng kí hiệu và đường dây. Bản triển khai phải giữ nguyên kết nối, trạng thái và lựa chọn khi chuyển giữa vật thật với sơ đồ; bố cục song song theo mẫu đã sửa.', alt: 'Hướng trình bày sơ đồ điện với kí hiệu pin, bóng đèn, công tắc và các điểm nối.', scene: '?scene=main&view=schem&t=2' },
+    dive: { image: 'concept-wire-dive.webp', title: 'Sợi dây nhỏ mở ra một thế giới bên trong.', text: 'Mạng đồng và electron được phóng đại để nhìn thấy. Mũi tên trôi liên hệ với dòng điện, không biểu diễn tốc độ hoặc kích thước thật.', alt: 'Mô hình minh họa mạng tinh thể đồng và electron bên trong sợi dây.', scene: '?scene=dive&t=2' }
+  };
+  const releases = {
+    1: { phases: [['GĐ 0','Khóa nền tảng','Bộ giải, dữ liệu, bằng chứng học, tiến độ và chuyển dữ liệu cũ.'],['GĐ 1','Bàn đủ dùng','Lắp và nối mạch bằng chạm, kéo hoặc bàn phím; 3D và SVG chung kết quả.'],['GĐ 2','Nhìn sâu hơn','Sơ đồ, soi dây, hai cách mắc, 16 mẫu dẫn điện và cảnh an toàn nhỏ.'],['GĐ 3','Một hành trình trọn vẹn','Bài 1–11, bốn nhiệm vụ, bốn ca thám tử, giọng đọc và sổ sáng chế.']], note: 'Giữ 15 thử thách cũ để luyện thêm qua adapter dùng engine mới. Bản cũ không phát lại sao.' },
+    2: { phases: [['GĐ 4','Những phòng thí nghiệm mới','Pin trái cây, nam châm điện, chuông, tĩnh điện và máy phát.'],['GĐ 5','Ngôi nhà và nguồn điện','Nhà cắt lớp, tiết kiệm theo kWh, an toàn, bài 12–13 và hành trình năng lượng.'],['GĐ 6','Đủ bộ nhiệm vụ','Hoàn thiện 12 nhiệm vụ, 12 ca lỗi, huy hiệu và các cách giải hợp lệ.'],['GĐ 7','Kiểm định phát hành','Kiểm kiến thức, cảm ứng, lưu trữ, hiệu năng máy thật và phiên chơi trọn.']], note: 'Lab và nhà có thể làm song song sau đợt 1. Chưa đo thiết bị nào thì ghi chưa xác minh; SVG tiếp tục được giữ lâu dài.' }
+  };
+  function showConcept(key, moveFocus = false) {
+    const c = concepts[key];
+    document.querySelector('#concept-image').src = c.image;
+    document.querySelector('#concept-image').alt = c.alt;
+    document.querySelector('#caption-title').textContent = c.title;
+    document.querySelector('#caption-text').textContent = c.text;
+    document.querySelector('#scene-link').href = 'proto/bench.html' + c.scene;
+    document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === key)));
+    if (moveFocus) {
+      document.querySelector('[data-view="' + key + '"]').focus({preventScroll:true});
+      document.querySelector('#stage').scrollIntoView({block:'start'});
+    }
+  }
+  function showRelease(key) {
+    const release = releases[key];
+    const grid = document.querySelector('#phase-grid');
+    grid.replaceChildren();
+    release.phases.forEach(([number, title, detail]) => {
+      const article = document.createElement('article'); article.className = 'phase';
+      const badge = document.createElement('span'); badge.textContent = number;
+      const body = document.createElement('div');
+      const heading = document.createElement('h3'); heading.textContent = title;
+      const paragraph = document.createElement('p'); paragraph.textContent = detail;
+      body.append(heading, paragraph); article.append(badge, body); grid.append(article);
+    });
+    document.querySelector('#release-note').textContent = release.note;
+    document.querySelectorAll('[data-release]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.release === key)));
+  }
+  document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => showConcept(button.dataset.view)));
+  document.querySelectorAll('[data-jump]').forEach(button => button.addEventListener('click', () => showConcept(button.dataset.jump, true)));
+  document.querySelectorAll('[data-release]').forEach(button => button.addEventListener('click', () => showRelease(button.dataset.release)));
+  showRelease('1');
+</script>
+</body>
+</html>
