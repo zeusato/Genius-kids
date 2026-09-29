@@ -455,6 +455,17 @@ export const PeriodicTablePage: React.FC = () => {
         openElement(e);
     }, [intro, lens, openElement]);
 
+    // chạm ô "La–Lu" / "Ac–Lr": dãy 15 nguyên tố ở hàng dưới sáng lên + cuộn tới
+    const showSeries = useCallback((series: 'lanthanide' | 'actinide') => {
+        if (gameClick.current) return;
+        const zs = ELEMENTS.filter(e => e.category === series || (series === 'lanthanide' ? e.atomicNumber === 71 || e.atomicNumber === 57 : e.atomicNumber === 103 || e.atomicNumber === 89)).map(e => e.atomicNumber);
+        playBlip();
+        setMarks(new Map(zs.map(z => [z, 'target' as const])));
+        document.querySelector<HTMLElement>(`button[data-z="${zs[0]}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        showToast(series === 'lanthanide' ? 'Dãy Lanthanide (57–71) được xếp riêng ở hàng dưới cho bảng gọn gàng.' : 'Dãy Actinide (89–103) được xếp riêng ở hàng dưới cho bảng gọn gàng.');
+        window.setTimeout(() => setMarks(new Map()), 2200);
+    }, [showToast]);
+
     // ---------------------------------------------------------------- look của từng ô
     const storyOrigin = storyIdx !== null ? STORY_BEATS[storyIdx]?.origin : null;
     const lookOf = useMemo(() => {
@@ -540,7 +551,7 @@ export const PeriodicTablePage: React.FC = () => {
                 <LensControls lens={lens} ctx={ctx} onCtx={onCtx} playing={histPlay} onPlay={() => setHistPlay(p => !p)} onStory={toggleStory} storyOn={storyIdx !== null} onInfo={() => setShowInfo(true)} />
                 <div ref={wrapRef} className="w-full overflow-x-auto pt-2">
                     <div ref={tableRef} style={{ zoom, opacity: lab === 'city' ? 0 : 1, transition: 'opacity .8s' }} className="w-fit mx-auto">
-                        <PeriodicTable onSelectElement={onCell} onHoverElement={setHover} lookOf={lookOf} collected={collected} marks={marks} darkSet={darkSet}
+                        <PeriodicTable onSelectElement={onCell} onHoverElement={setHover} onSeries={showSeries} lookOf={lookOf} collected={collected} marks={marks} darkSet={darkSet}
                             bay={<TableBay hover={hover} lens={lens} onOpen={openElement} avatar={youBeat || storyOrigin === 'you' ? avatar : undefined}
                                 caption={intro ? (youBeat ? caption : null) : storyIdx !== null ? (STORY_BEATS[storyIdx]?.say ?? null) : null} />} />
                     </div>

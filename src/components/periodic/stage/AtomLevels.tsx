@@ -121,20 +121,15 @@ function cloudPoints(kind: 's' | 'p' | 'd' | 'f', n: number, seed: number): { po
 export const BohrAtom: React.FC<{ el: ElementFull; tier: QualityTier; cloud: boolean }> = ({ el, tier, cloud }) => {
     const shells = el.electronShells;
     const R0 = 0.28, step = Math.min(0.17, 0.95 / Math.max(1, shells.length));
-    const ringMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#6b7bd6', transparent: true, opacity: 0.55 }), []);
-    const eMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#67e8f9').multiplyScalar(1.5), transparent: true }), []);
-    const vMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#fde047').multiplyScalar(2.6), transparent: true }), []);
     const nuc = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#fb7185').multiplyScalar(2), transparent: true }), []);
     const halo = useMemo(() => makeHalo('#fb7185', tier === 'high' ? 0.4 : 0.9), [tier]);
-    const groups = useRef<(THREE.Group | null)[]>([]);
     const cloudGeo = useMemo(() => {
         if (!cloud) return null;
         const { pos, col } = cloudPoints(lastSubshell(el.electronConfig), tier === 'high' ? 16000 : 6000, el.atomicNumber);
         const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3)); return g;
     }, [el.electronConfig, el.atomicNumber, tier, cloud]);
     const cloudRef = useRef<THREE.Points>(null);
-    useFrame((st, dt) => {
-        groups.current.forEach((g, i) => { if (g) g.rotation.z += dt * 0.9 / (i + 1); });
+    useFrame((st) => {
         if (cloudRef.current) cloudRef.current.rotation.y = st.clock.elapsedTime * 0.25;
     });
     return (
@@ -142,20 +137,7 @@ export const BohrAtom: React.FC<{ el: ElementFull; tier: QualityTier; cloud: boo
             <mesh material={nuc}><sphereGeometry args={[0.1, 20, 14]} /></mesh>
             <mesh material={halo}><sphereGeometry args={[0.2, 20, 14]} /></mesh>
             <group visible={!cloud}>
-                {shells.map((n, s) => {
-                    const r = R0 + s * step, outer = s === shells.length - 1;
-                    return (
-                        <group key={s}>
-                            <mesh material={ringMat}><torusGeometry args={[r, 0.005, 6, 160]} /></mesh>
-                            <group ref={g => { groups.current[s] = g; }}>
-                                {Array.from({ length: n }, (_, i) => {
-                                    const a = (i / n) * Math.PI * 2;
-                                    return <mesh key={i} material={outer ? vMat : eMat} position={[Math.cos(a) * r, Math.sin(a) * r, 0]}><sphereGeometry args={[outer ? 0.034 : 0.026, 10, 8]} /></mesh>;
-                                })}
-                            </group>
-                        </group>
-                    );
-                })}
+                <ElectronShells3D shells={shells} radius={(i) => R0 + i * step} eSize={0.026} vSize={0.036} />
             </group>
             {cloud && cloudGeo && (
                 <points ref={cloudRef} geometry={cloudGeo}>
@@ -202,6 +184,67 @@ export const Nucleus: React.FC<{ el: ElementFull; tier: QualityTier }> = ({ el, 
             <group ref={alpha} scale={scale}>
                 {[[0, 0, 0, 1], [2, 0, 0, 0], [1, 1.7, 0, 1], [1, 0.6, 1.6, 0]].map(([x, y, z, p], i) => <mesh key={i} material={p ? red : blue} position={[x, y, z]}><sphereGeometry args={[1, 14, 10]} /></mesh>)}
             </group>
+        </group>
+    );
+};
+
+// ---------------------------------------------------------------- lớp electron 3D (dùng chung tầng Nguyên tử + Xưởng)
+// Mỗi lớp là một vỏ cầu mờ; mỗi electron bay trên quỹ đạo RIÊNG, mặt phẳng nghiêng theo một hướng khác nhau
+// (hướng pháp tuyến rải đều kiểu Fibonacci trên mặt cầu) — xoay thế nào cũng không thành "cái đĩa".
+// Lớp ngoài cùng sáng vàng và có vệt quỹ đạo.
+const GOLDEN = Math.PI * (3 - Math.sqrt(5));
+interface Orbit { r: number; u: THREE.Vector3; v: THREE.Vector3; phase: number; w: number; valence: boolean; normal: THREE.Vector3 }
+function buildOrbits(shells: number[], radius: (s: number) => number): Orbit[] {
+    const out: Orbit[] = [];
+    shells.forEach((n, s) => {
+        for (let i = 0; i < n; i++) {
+            const k = (i + 0.5) / n, y = 1 - 2 * k, rr = Math.sqrt(Math.max(0, 1 - y * y)), th = GOLDEN * i + s * 1.3;
+            const normal = new THREE.Vector3(Math.cos(th) * rr, y, Math.sin(th) * rr).normalize();
+            const u = new THREE.Vector3(0, 1, 0).cross(normal); if (u.lengthSq() < 1e-4) u.set(1, 0, 0); u.normalize();
+            const v = normal.clone().cross(u).normalize();
+            out.push({ r: radius(s), u, v, normal, phase: (i / n) * Math.PI * 2 + s, w: (i % 2 ? -1 : 1) * 1.5 / Math.pow(s + 1, 0.7), valence: s === shells.length - 1 });
+        }
+    });
+    return out;
+}
+
+export const ElectronShells3D: React.FC<{ shells: number[]; radius: (s: number) => number; eSize: number; vSize: number }> = ({ shells, radius, eSize, vSize }) => {
+    const key = shells.join(',');
+    const orbits = useMemo(() => buildOrbits(shells, radius), [key]);   // eslint-disable-line react-hooks/exhaustive-deps
+    const inner = orbits.filter(o => !o.valence), outer = orbits.filter(o => o.valence);
+    const eMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#67e8f9').multiplyScalar(1.5), transparent: true }), []);
+    const vMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#fde047').multiplyScalar(2.6), transparent: true }), []);
+    // vỏ lớp như bong bóng: chỉ sáng ở viền (fresnel), giữa trong suốt → các lớp lồng nhau không thành khối đục
+    const shellMat = useMemo(() => new THREE.ShaderMaterial({
+        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+        uniforms: { uColor: { value: new THREE.Color('#7c8cf0') } },
+        vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); vN = normalize(normalMatrix*normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }',
+        fragmentShader: `uniform vec3 uColor; varying vec3 vN; varying vec3 vV;
+void main(){ float f = pow(1.0 - abs(dot(normalize(vN), normalize(vV))), 3.0); gl_FragColor = vec4(uColor * f * 0.55, f * 0.55);
+#include <tonemapping_fragment>
+#include <colorspace_fragment>
+}`,
+    }), []);
+    const trailMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#fde047', transparent: true, opacity: 0.28, depthWrite: false }), []);
+    const iRef = useRef<THREE.InstancedMesh>(null), oRef = useRef<THREE.InstancedMesh>(null);
+    const m4 = useMemo(() => new THREE.Matrix4(), []), p = useMemo(() => new THREE.Vector3(), []);
+    const place = (mesh: THREE.InstancedMesh | null, list: Orbit[], t: number) => {
+        if (!mesh) return;
+        list.forEach((o, i) => { const a = o.phase + t * o.w; p.copy(o.u).multiplyScalar(Math.cos(a) * o.r).addScaledVector(o.v, Math.sin(a) * o.r); m4.makeTranslation(p.x, p.y, p.z); mesh.setMatrixAt(i, m4); });
+        mesh.instanceMatrix.needsUpdate = true;
+    };
+    useFrame((st) => { const t = st.clock.elapsedTime; place(iRef.current, inner, t); place(oRef.current, outer, t); });
+    const radii = shells.map((_, s) => radius(s));
+    return (
+        <group>
+            {radii.map((r, s) => <mesh key={s} material={shellMat}><sphereGeometry args={[r, 32, 20]} /></mesh>)}
+            {outer.map((o, i) => (
+                <mesh key={`t${i}`} material={trailMat} quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), o.normal)}>
+                    <torusGeometry args={[o.r, 0.004, 6, 120]} />
+                </mesh>
+            ))}
+            {inner.length > 0 && <instancedMesh key={`i${key}`} ref={iRef} args={[undefined, undefined, inner.length]} material={eMat}><sphereGeometry args={[eSize, 10, 8]} /></instancedMesh>}
+            {outer.length > 0 && <instancedMesh key={`o${key}`} ref={oRef} args={[undefined, undefined, outer.length]} material={vMat}><sphereGeometry args={[vSize, 12, 10]} /></instancedMesh>}
         </group>
     );
 };

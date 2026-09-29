@@ -8,6 +8,8 @@ import { ElementCell, type CellMark } from './ElementCell';
 interface PeriodicTableProps {
     onSelectElement: (element: ElementFull) => void;
     onHoverElement?: (element: ElementFull | null) => void;
+    /** Chạm ô chỗ trống nhóm 3 (chu kỳ 6/7) → làm sáng dãy Lanthanide / Actinide bên dưới. */
+    onSeries?: (series: 'lanthanide' | 'actinide') => void;
     lookOf: (element: ElementFull) => CellLook;
     collected?: ReadonlySet<number>;
     marks?: ReadonlyMap<number, CellMark>;
@@ -102,7 +104,7 @@ const Empty: React.FC<{ slot?: string; children?: React.ReactNode }> = ({ slot, 
 );
 
 // Bố cục: [chu kỳ][cột] như bản cũ — 7 hàng chính + khoảng cách + 2 hàng f. KHÔNG đổi kích thước/khoảng cách.
-export const PeriodicTable: React.FC<PeriodicTableProps> = ({ onSelectElement, onHoverElement, lookOf, collected, marks, darkSet, bay }) => {
+export const PeriodicTable: React.FC<PeriodicTableProps> = ({ onSelectElement, onHoverElement, onSeries, lookOf, collected, marks, darkSet, bay }) => {
     const grid = useMemo(() => {
         const m = new Map<string, ElementFull>();
         ELEMENTS.forEach(e => { const p = gridPos(e); m.set(`${p.row}-${p.col}`, e); });
@@ -112,10 +114,22 @@ export const PeriodicTable: React.FC<PeriodicTableProps> = ({ onSelectElement, o
     const cell = (row: number, col: number) => {
         const e = grid.get(`${row}-${col}`);
         if (!e) {
-            const marker = row === 6 && col === 3 ? '57–71' : row === 7 && col === 3 ? '89–103' : null;
+            const series = row === 6 && col === 3 ? 'lanthanide' as const : row === 7 && col === 3 ? 'actinide' as const : null;
             return (
                 <Empty key={`${row}-${col}`} slot={`${row}-${col}`}>
-                    {marker && <span className="w-full h-full rounded-lg border border-dashed border-slate-400/30 text-slate-400/70 text-[8px] sm:text-[10px] flex items-center justify-center">{marker}</span>}
+                    {series && (() => {
+                        // Không phải ô thiếu: 15 nguyên tố của dãy nằm ở hàng riêng bên dưới (cách trình bày chuẩn của SGK)
+                        const c = CATEGORY_COLORS[series].color;
+                        return (
+                            <button type="button" onClick={() => onSeries?.(series)} title={series === 'lanthanide' ? 'Dãy Lanthanide (57–71) ở hàng bên dưới' : 'Dãy Actinide (89–103) ở hàng bên dưới'}
+                                className="w-full h-full rounded-lg flex flex-col items-center justify-center leading-tight hover:scale-105 transition-transform"
+                                style={{ border: `2px dashed ${c}`, background: `${c}14`, color: c }}>
+                                <span className="text-[9px] sm:text-[11px] font-bold">{series === 'lanthanide' ? 'La–Lu' : 'Ac–Lr'}</span>
+                                <span className="text-[8px] sm:text-[9px] opacity-80">{series === 'lanthanide' ? '57–71' : '89–103'}</span>
+                                <span className="text-[9px] sm:text-[10px]">↓</span>
+                            </button>
+                        );
+                    })()}
                 </Empty>
             );
         }

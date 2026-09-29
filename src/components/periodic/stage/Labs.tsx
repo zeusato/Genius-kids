@@ -7,6 +7,7 @@ import { nucleusPack, protonMask, rng, simpleShells } from '../engine/atom';
 import type { QualityTier } from './params';
 import { pxToWorld, stageFrame, worldPerPx } from './screen';
 import { makeHalo, softDot, useSurface } from './common';
+import { ElectronShells3D } from './AtomLevels';
 
 // ---------------------------------------------------------------- pháo hoa
 export interface FireworksApi { launch: (x: number, y: number, zs: number[], shape: ShellShape) => void }
@@ -117,15 +118,10 @@ export const BuilderAtom: React.FC<{ p: number; n: number; e: number; tier: Qual
         m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true;
     }, [pack, mask, A]);
     const shells = simpleShells(e);
-    const ringMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#6b7bd6', transparent: true, opacity: 0.6 }), []);
-    const eMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#67e8f9').multiplyScalar(1.5) }), []);
-    const vMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#fde047').multiplyScalar(2.4) }), []);
     const halo = useMemo(() => makeHalo('#fb7185', 0.5), []);
-    const rings = useRef<(THREE.Group | null)[]>([]);
-    useFrame((st, dt) => {
+    useFrame((st) => {
         const vp = { w: size.width, h: size.height }, f = stageFrame(vp), k = worldPerPx(vp);
         if (root.current) { pxToWorld(f.cx, f.cy, vp, root.current.position); root.current.scale.setScalar((f.size * k) / 2.6); }
-        rings.current.forEach((g, i) => { if (g) g.rotation.z += dt * 0.8 / (i + 1); });
         if (nuc.current) { nuc.current.rotation.y = st.clock.elapsedTime * 0.4; const sh = unstable ? 0.01 : 0; nuc.current.position.set(Math.sin(st.clock.elapsedTime * 40) * sh, Math.cos(st.clock.elapsedTime * 47) * sh, 0); }
     });
     return (
@@ -134,17 +130,8 @@ export const BuilderAtom: React.FC<{ p: number; n: number; e: number; tier: Qual
                 {A > 0 && <instancedMesh key={A} ref={inst} args={[undefined, undefined, A]} material={mat}><sphereGeometry args={[1, 16, 12]} /></instancedMesh>}
             </group>
             {A > 0 && <mesh material={halo}><sphereGeometry args={[0.42, 20, 14]} /></mesh>}
-            {[0, 1, 2, 3].map(s => {
-                const r = 0.55 + s * 0.2, cnt = shells[s] ?? 0, outer = s === shells.length - 1;
-                return (
-                    <group key={s} visible={s < Math.max(2, shells.length)}>
-                        <mesh material={ringMat}><torusGeometry args={[r, 0.006, 6, 160]} /></mesh>
-                        <group ref={g => { rings.current[s] = g; }}>
-                            {Array.from({ length: cnt }, (_, i) => { const a = (i / cnt) * Math.PI * 2; return <mesh key={i} material={outer ? vMat : eMat} position={[Math.cos(a) * r, Math.sin(a) * r, 0]}><sphereGeometry args={[0.045, 12, 10]} /></mesh>; })}
-                        </group>
-                    </group>
-                );
-            })}
+            <ElectronShells3D shells={shells} radius={(i) => 0.55 + i * 0.2} eSize={0.045} vSize={0.05} />
+
         </group>
     );
 };
