@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { ElementData, CATEGORY_COLORS } from '@/src/data/elementsData';
+import { nucleonCounts, nucleusPack, protonMask } from '../engine/atom';
 
 interface Atom3DProps {
     element: ElementData;
@@ -20,52 +21,25 @@ const Nucleus: React.FC<{ element: ElementData }> = ({ element }) => {
         }
     });
 
-    // Calculate nucleon positions (simplified - creates a cluster)
-    const nucleons = useMemo(() => {
-        const protons = element.atomicNumber;
-        // Neutrons roughly equal to protons for light elements, more for heavy
-        const neutrons = Math.round(element.atomicMass - protons);
-        const totalNucleons = Math.min(protons + neutrons, 50); // Limit for performance
-
-        const positions: { pos: [number, number, number]; isProton: boolean }[] = [];
-        const nucleonRadius = 0.12;
-
-        // Create clustered positions using golden spiral for even distribution
-        for (let i = 0; i < totalNucleons; i++) {
-            const isProton = i < protons;
-            const phi = Math.acos(1 - 2 * (i + 0.5) / totalNucleons);
-            const theta = Math.PI * (1 + Math.sqrt(5)) * i;
-
-            // Radius varies slightly for natural look
-            const r = nucleonRadius * 2 * Math.pow(totalNucleons / 8, 0.4) * (0.9 + Math.random() * 0.2);
-
-            positions.push({
-                pos: [
-                    r * Math.sin(phi) * Math.cos(theta),
-                    r * Math.sin(phi) * Math.sin(theta),
-                    r * Math.cos(phi)
-                ],
-                isProton
-            });
-        }
-
-        return positions;
-    }, [element.atomicNumber, element.atomicMass]);
+    // Hạt nhân đúng đồng vị (ISOTOPES), xếp khít tất định — bản cũ chặn 50 hạt nên Z > 50 hiện 0 nơtron.
+    const { pos, mask, A } = useMemo(() => {
+        const { A } = nucleonCounts(element.atomicNumber);
+        return { pos: nucleusPack(element.atomicNumber, A, 0.12), mask: protonMask(element.atomicNumber, A), A };
+    }, [element.atomicNumber]);
+    const inst = useRef<THREE.InstancedMesh>(null);
+    React.useLayoutEffect(() => {
+        const m = inst.current; if (!m) return;
+        const mat = new THREE.Matrix4(), red = new THREE.Color('#FF4444'), blue = new THREE.Color('#4488FF');
+        for (let i = 0; i < A; i++) { mat.makeTranslation(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]); m.setMatrixAt(i, mat); m.setColorAt(i, mask[i] ? red : blue); }
+        m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true;
+    }, [pos, mask, A]);
 
     return (
         <group ref={groupRef}>
-            {nucleons.map((nucleon, i) => (
-                <mesh key={i} position={nucleon.pos}>
-                    <sphereGeometry args={[0.12, 24, 24]} />
-                    <meshStandardMaterial
-                        color={nucleon.isProton ? '#FF4444' : '#4488FF'}
-                        emissive={nucleon.isProton ? '#FF2222' : '#2266FF'}
-                        emissiveIntensity={0.3}
-                        metalness={0.4}
-                        roughness={0.3}
-                    />
-                </mesh>
-            ))}
+            <instancedMesh key={A} ref={inst} args={[undefined, undefined, A]}>
+                <sphereGeometry args={[0.12, 16, 12]} />
+                <meshStandardMaterial metalness={0.2} roughness={0.35} />
+            </instancedMesh>
         </group>
     );
 };
@@ -81,7 +55,7 @@ const ElectronShells: React.FC<{ element: ElementData }> = ({ element }) => {
         const shells = element.electronShells;
         const total = shells.reduce((sum, n) => sum + n, 0);
         // Increase base radius to be further from nucleus
-        const radii = shells.map((_, i) => 1.2 + i * 0.7);
+        const radii = shells.map((_, i) => 1.2 + Math.cbrt(nucleonCounts(element.atomicNumber).A) * 0.12 + i * 0.7);
         // Random tilt for each shell for 3D effect
         const tilts = shells.map((_, i) => ({
             x: (Math.random() - 0.5) * Math.PI * 0.5 + i * 0.2,

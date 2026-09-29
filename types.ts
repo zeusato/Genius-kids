@@ -267,6 +267,8 @@ export interface StudentProfile {
   cellBadges?: string[];
   // Cây Tiến Hóa: huy hiệu (bacteria, archaea, protist, plant, fungi, animal, relatives, key, journey)
   evoBadges?: string[];
+  // Bảng tuần hoàn: huy hiệu (first20, alkali, noble, collector50, stardust, mendeleev, fireworks, builder, detective)
+  periodicBadges?: string[];
   // Preschool (Mầm non): các mục đã hoàn thành/thành thạo trong từng module mầm non.
   preschoolProgress?: {
     alphabet?: string[]; // id chữ cái đã học (a-z)

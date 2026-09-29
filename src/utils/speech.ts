@@ -115,6 +115,15 @@ export function onSpeechAvailabilityChanged(cb: () => void): () => void {
     return () => window.speechSynthesis.removeEventListener('voiceschanged', cb);
 }
 
+// Hiệu ứng giọng (Bảng tuần hoàn: hít helium / xenon). Giọng máy dùng pitch; nhánh audio (MP3/Google)
+// không có pitch nên đổi playbackRate và tắt preservesPitch — giọng cao/trầm như thật.
+let audioFxRate: number | null = null;
+function applyAudioFx(a: HTMLAudioElement): void {
+    if (audioFxRate === null) return;
+    (a as any).preservesPitch = false; (a as any).mozPreservesPitch = false; (a as any).webkitPreservesPitch = false;
+    a.playbackRate = audioFxRate;
+}
+
 export function cancelSpeech(): void {
     playToken++;
     stopKeepAlive();
@@ -136,6 +145,7 @@ function playPregeneratedAudio(
     const token = customToken !== undefined ? customToken : ++playToken;
     const base = (import.meta as any).env?.BASE_URL || '/';
     const audio = new Audio(`${base}audio/vi/${audioId}.mp3`);
+    applyAudioFx(audio);
     currentAudio = audio;
     // 'error' và rejection của play() có thể CÙNG kích hoạt → chỉ xử lý kết thúc đúng MỘT lần.
     let settled = false;
@@ -192,6 +202,7 @@ function playGoogleTTS(
                 ? `${proxy}?${qs}`
                 : `https://translate.google.com/translate_tts?${qs}`;
         const audio = new Audio(url);
+        applyAudioFx(audio);
         currentAudio = audio;
         // 'error' và rejection của play() có thể CÙNG kích hoạt → mỗi đoạn chỉ xử lý 1 lần.
         let settled = false;
@@ -220,6 +231,7 @@ export interface SpeakOptions {
     audioId?: string;        // file audio tạo sẵn (chỉ vi) dùng khi máy không có giọng
     rate?: number;           // tốc độ đọc (mặc định 0.95 — chậm rãi cho trẻ)
     pitch?: number;          // cao độ (mặc định 1.05 — giọng tươi vui)
+    voiceFx?: 'helium' | 'xenon'; // giọng cao chí chóe / trầm ồm (thí nghiệm Bảng tuần hoàn)
     onEnd?: () => void;
     onError?: () => void;
 }
@@ -303,7 +315,9 @@ export function speak(text: string, opts: SpeakOptions = {}): boolean {
     const token = playToken;
     const lang = opts.lang ?? 'vi-VN';
     const onDone = (success: boolean) => { if (success) opts.onEnd?.(); else opts.onError?.(); };
-    return startChain(text, lang, opts.audioId, opts.rate ?? 0.8, opts.pitch ?? 1.05, token, onDone);
+    audioFxRate = opts.voiceFx === 'helium' ? 1.6 : opts.voiceFx === 'xenon' ? 0.72 : null;
+    const pitch = opts.voiceFx === 'helium' ? 2 : opts.voiceFx === 'xenon' ? 0.1 : (opts.pitch ?? 1.05);
+    return startChain(text, lang, opts.audioId, opts.rate ?? 0.8, pitch, token, onDone);
 }
 
 /** Danh sách giọng đã tải xong chưa (Chrome/Android tải bất đồng bộ). */
@@ -330,6 +344,7 @@ export function speakSequence(
     opts: { gapMs?: number; rate?: number; pitch?: number; onEnd?: () => void } = {}
 ): void {
     cancelSpeech();
+    audioFxRate = null;
 
     const token = playToken; // capture sau cancelSpeech; dùng để kiểm tra huỷ giữa chừng
     const gap = opts.gapMs ?? 200;       // khoảng nghỉ giữa các phần (ms)

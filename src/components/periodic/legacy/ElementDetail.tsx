@@ -3,6 +3,7 @@ import { X, Atom, Thermometer, Scale, Calendar, Lightbulb, Image as ImageIcon, M
 import { ElementData, CATEGORY_COLORS } from '@/src/data/elementsData';
 import { Atom3D } from './Atom3D';
 import { getInfographicUrl } from '@/src/lib/supabase';
+import { nucleonCounts } from '../engine/atom';
 
 interface ElementDetailProps {
     element: ElementData;
@@ -63,7 +64,7 @@ export const ElementDetail: React.FC<ElementDetailProps> = ({ element, onClose }
     // Calculate particle counts
     const protons = element.atomicNumber;
     const electrons = element.atomicNumber; // Neutral atom
-    const neutrons = Math.round(element.atomicMass - protons);
+    const neutrons = nucleonCounts(element.atomicNumber).neutrons; // đồng vị phổ biến nhất, không làm tròn khối lượng
 
     // Get infographic URL from Supabase Storage
     const getElementInfographicPath = () => {
