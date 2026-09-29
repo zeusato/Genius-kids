@@ -1,6 +1,6 @@
 # Xưởng Ánh Sáng — kế hoạch nâng cấp Điện & Mạch Điện
 
-Bản hoàn thiện ngày 29/09/2026 · Phạm vi hiện tại: thiết kế, nghiên cứu và bản thử; **chưa triển khai tính năng vào app**.
+Bản hoàn thiện ngày 29/09/2026 · Đã triển khai nội dung GĐ0–6 trên nhánh `codex/electricity-wow`. Kiểm định GĐ7 có kết quả tự động và trình duyệt; thiết bị Android/iOS thật và các mục chưa kiểm được ghi riêng trong [báo cáo triển khai](electricity-wow/implementation-report.md). Chưa deploy.
 Route giữ `/science/electricity`. Tên trên sảnh khoa học vẫn là **Điện & Mạch Điện**; **Xưởng Ánh Sáng** là tên trải nghiệm bên trong.
 
 > Bé tự tay làm ra ánh sáng, rồi nhìn xuyên qua điều vừa xảy ra.
@@ -50,7 +50,7 @@ Một số chữ/số trên ảnh bản thử cũ chưa theo đặc tả cuối;
 
 Nếu có khác biệt: engine-spec quyết định đại lượng vật lý; content-spec quyết định ID/nội dung/điều kiện học; interaction-progress-spec quyết định dữ liệu và thao tác. Thay đổi ảnh hoặc câu quảng bá phải theo các hợp đồng này.
 
-### 1.1 Hiện trạng đã đối chiếu code
+### 1.1 Baseline trước triển khai
 
 - `circuitEngine.ts` xét đồ thị cọc và vòng kín, chưa tính V/A/W. Cần giữ các ca hành vi đúng thành kiểm thử, **không coi mọi kết luận của engine cũ là chân lý**.
 - Cọc bóng đèn đang có nhãn cực như pin; bài công tắc chỉ kiểm có tải sáng. Cần nhãn cọc trung tính và kiểm bật/tắt thực sự điều khiển tải.
@@ -422,8 +422,9 @@ Những quyết định dưới đây là lựa chọn thiết kế để ngư�
 | Plan chính và ba phụ lục | Đã hoàn thiện đặc tả; dùng làm đầu vào GĐ0 |
 | Bản trình bày trực quan | Minh họa định hướng; không phải màn production |
 | Bản thử solver | 21/21 ca kiểm số điện qua với công thức độc lập, gồm bố cục song song bốn dây; cần viết lại theo hợp đồng production |
-| Editor, thao tác chạm, storage, nội dung production | Chưa triển khai |
-| GĐ0–7 và benchmark thiết bị | Chưa nghiệm thu |
+| Editor, storage, nội dung production | Đã triển khai bàn 3D/SVG, 13 bài, 5 lab, 12 nhiệm vụ, 12 ca sửa, nhà 3D/SVG và adapter 15 đề cũ |
+| GĐ0–6 | Đã có code và kiểm thử; xem báo cáo và ảnh thực tế |
+| GĐ7 và benchmark thiết bị | Regression/build/browser đã chạy; nghiệm thu Android/iOS thật, offline thực và clip tương tác còn chưa xác minh, không đánh dấu đạt |
 
 Khi bắt đầu triển khai, cập nhật trạng thái theo bằng chứng test/ảnh/clip, không dùng dấu hoàn thành cho việc chỉ mới được mô tả.
 

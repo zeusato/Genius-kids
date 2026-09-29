@@ -1,0 +1,4 @@
+modules/farm/src/ui/renderSnapshot.ts(26,23): error TS2322: Type '{ heights: number[]; water: number[]; owned: number[]; obstacles: object[]; bridges: object[]; seed: number; version: 1 | 2; templateId?: "lake-valley-v2"; family: (typeof FAMILIES)[number]; biome: Biome; }' is not assignable to type 'World'.
+  Types of property 'obstacles' are incompatible.
+    Type 'object[]' is not assignable to type 'Obstacle[]'.
+      Type '{}' is missing the following properties from type 'Obstacle': id, x, z, kind, cleared

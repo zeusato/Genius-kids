@@ -1,520 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Gamepad2, Zap, Check, Star } from 'lucide-react';
-import { MusicControls } from '@/src/components/MusicControls';
-import { LESSONS, CircuitData, CircuitComponentData } from '@/src/data/electricityData';
-import { PlaygroundView } from '@/src/components/electricity/PlaygroundView';
-import { CircuitCanvas } from '@/src/components/electricity/CircuitCanvas';
-import { CircuitStatus, POWERED_OFF_STATUS } from '@/src/components/electricity/circuitEngine';
-import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
-
-type Mode = 'menu' | 'lessons' | 'lesson-detail' | 'playground' | 'sandbox';
-
-const LESSON_PROGRESS_KEY = 'electricity_completed_lessons';
-
-// What it takes to "pass" each lesson's exercise.
-const lessonGoal = (lessonId: number, status: CircuitStatus, quizAnswer: string | null, correctAnswer?: string): boolean => {
-    switch (lessonId) {
-        case 1:
-        case 8:
-            return !!quizAnswer && quizAnswer === correctAnswer;
-        case 6: // series of 2 bulbs
-            return status.loadConnection === 'series';
-        case 7: // parallel of 2 bulbs
-            return status.loadConnection === 'parallel';
-        default: // 2,3,4,5 — just get a load lit on a real closed loop
-            return status.isComplete && status.hasClosedLoop;
+import { useStudent, useStudentActions } from '../contexts/StudentContext';
+import { Grade } from '../../types';
+import { ContentSpec, FAULTS, LESSONS, MISSIONS, SOURCES } from '../data/electricity/content';
+import { CHALLENGES } from '../data/electricityData';
+import { LEGACY_CONTENT } from '../components/electricity/legacy/adapter';
+import { CircuitThumbnail } from '../components/electricity/ui/CircuitThumbnail';
+import { Workshop } from '../components/electricity/ui/Workshop';
+import { Conductors, FruitLab, GeneratorLab, House, MagnetLab, PowerJourney, SafetyRoom, StaticLab } from '../components/electricity/ui/Activities';
+import { Compare } from '../components/electricity/ui/Compare';
+import { archiveLegacy, LegacyArchive } from '../components/electricity/progress/progress';
+import { CircuitDocument, deleteDocument, listDocuments, parseDocument, saveDocument } from '../components/electricity/progress/notebook';
+import { PartGlyph } from '../components/electricity/flat/FlatBench';
+import { newPart } from '../components/electricity/engine/circuit';
+import '../components/electricity/ui/electricity.css';
+type Screen = 'home' | 'lessons' | 'missions' | 'faults' | 'labs' | 'notebook' | 'legacy' | 'sources' | 'house' | 'safety' | 'journey' | 'compare';
+const BADGES: Record<string, string> = { firstLight: 'Ánh sáng đầu tiên', sorter: 'Nhà phân loại', designer: 'Người đọc sơ đồ', detective: 'Thám tử tài ba', inventor: 'Nhà sáng chế', energyKeeper: 'Người giữ năng lượng', explorer: 'Nhà khám phá' };
+function ElectricityExperience() {
+    const navigate = useNavigate(), { currentStudent, students } = useStudent(), { claimElectricityLegacy } = useStudentActions(), owner = currentStudent?.id ?? 'guest';
+    const [screen, setScreen] = useState<Screen>('home'), [work, setWork] = useState<{
+        spec?: ContentSpec;
+        document?: CircuitDocument;
+        practice?: boolean;
+        key: number;
+    } | null>(null), [lab, setLab] = useState('materials'), [documents, setDocuments] = useState<CircuitDocument[]>([]), [archive, setArchive] = useState<LegacyArchive | null>(null), [message, setMessage] = useState('');
+    const progress = currentStudent?.electricity, completed = LESSONS.filter(l => progress?.completions[`lesson:${l.id}`]).length;
+    useEffect(() => { try {
+        setArchive(archiveLegacy(localStorage));
     }
-};
-
-// Lesson-specific nudge when the goal isn't met yet.
-const buildHint = (lessonId: number, status: CircuitStatus): string => {
-    if (lessonId === 6) {
-        if (status.loadConnection === 'parallel') return 'Hai đèn đang mắc song song — hãy mắc NỐI TIẾP (nối thành một hàng).';
-        return 'Hãy nối 2 đèn NỐI TIẾP thành một vòng kín rồi bật nguồn.';
+    catch {
+        setMessage('Thành tích cũ vẫn được giữ; hiện chưa đọc hoặc lưu được kho lịch sử.');
+    } }, []);
+    useEffect(() => { if (screen === 'notebook')
+        void listDocuments(owner).then(setDocuments).catch(() => setMessage('Sổ chưa mở được. Mạch đang làm vẫn có thể tải dưới dạng JSON.')); }, [screen, owner]);
+    useEffect(() => { const previous = document.title; document.title = 'Xưởng Ánh Sáng · Điện & Mạch Điện'; return () => { document.title = previous; }; }, []);
+    if (currentStudent?.grade === Grade.Preschool)
+        return <main className="electricity-world"><section className="ew-preschool"><h1>Xưởng Ánh Sáng dành cho lớp 1–5</h1><p>Chọn một hoạt động phù hợp trong sảnh khám phá nhé.</p><button onClick={() => navigate('/science')}>Về sảnh khoa học</button></section></main>;
+    const start = (spec?: ContentSpec, document?: CircuitDocument, practice = false) => setWork({ spec, document, practice, key: Date.now() });
+    if (work)
+        return <main className="electricity-world"><Workshop key={work.key} owner={owner} grade={currentStudent?.grade ?? 3} spec={work.spec} initialDocument={work.document} practice={work.practice} onBack={() => setWork(null)}/></main>;
+    const rows = screen === 'lessons' ? LESSONS : screen === 'missions' ? MISSIONS : FAULTS;
+    const importFile = async (file: File) => { try {
+        const doc = parseDocument(await file.text());
+        const next = { ...doc, id: crypto.randomUUID(), ownerId: owner, revision: 1 };
+        await saveDocument(next);
+        setDocuments(await listDocuments(owner));
+        setMessage('Đã nhập mạch vào sổ của hồ sơ này.');
     }
-    if (lessonId === 7) {
-        if (status.loadConnection === 'series') return 'Hai đèn đang mắc nối tiếp — hãy mắc SONG SONG (mỗi đèn một nhánh riêng).';
-        return 'Hãy nối 2 đèn SONG SONG, mỗi đèn một nhánh nối với pin.';
-    }
-    if (!status.hasClosedLoop) return 'Hãy nối mạch thành vòng kín: từ (+) qua thiết bị rồi về (−).';
-    if (status.hasShortCircuit && !status.isComplete) return 'Mạch đang bị đoản mạch — hãy cho dòng điện đi qua đèn.';
-    if (!status.isComplete) return 'Mạch kín rồi — bấm "Bật nguồn" để đèn sáng.';
-    return 'Hãy hoàn thiện mạch theo yêu cầu của bài.';
-};
-
-// Helper to create initial circuits for each lesson exercise
-const getLessonInitialCircuit = (lessonId: number): CircuitData => {
-    const circuits: Record<number, CircuitData> = {
-        // Lesson 2: Mạch hở - cần nối thêm dây
-        2: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 80, y: 180, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 300, y: 80, state: 'on', isActive: false },
-            ],
-            wires: [
-                // Chỉ có 1 dây, còn thiếu 1 dây để tạo mạch kín
-                { id: 'w1', fromId: 'bat1', fromPort: 'output', toId: 'bulb1', toPort: 'input' },
-            ]
-        },
-        // Lesson 3: Pin - battery positioned
-        3: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 100, y: 150, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 300, y: 150, state: 'on', isActive: false },
-            ],
-            wires: []
-        },
-        // Lesson 4: Công tắc - switch exercise
-        4: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 80, y: 180, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 320, y: 80, state: 'on', isActive: false },
-                { id: 'sw1', type: 'switch', x: 200, y: 180, state: 'off', isActive: false },
-            ],
-            wires: []
-        },
-        // Lesson 5: Mạch đơn giản hoàn chỉnh
-        5: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 100, y: 200, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 300, y: 100, state: 'on', isActive: false },
-            ],
-            wires: []
-        },
-        // Lesson 6: Mạch nối tiếp - 2 bulbs
-        6: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 80, y: 200, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 220, y: 80, state: 'on', isActive: false },
-                { id: 'bulb2', type: 'bulb', x: 360, y: 80, state: 'on', isActive: false },
-                { id: 'sw1', type: 'switch', x: 220, y: 200, state: 'off', isActive: false },
-            ],
-            wires: []
-        },
-        // Lesson 7: Mạch song song - 2 bulbs
-        7: {
-            components: [
-                { id: 'bat1', type: 'battery', x: 100, y: 200, state: 'on', isActive: false },
-                { id: 'bulb1', type: 'bulb', x: 280, y: 80, state: 'on', isActive: false },
-                { id: 'bulb2', type: 'bulb', x: 400, y: 80, state: 'on', isActive: false },
-            ],
-            wires: []
-        },
-    };
-    return circuits[lessonId] || { components: [], wires: [] };
-};
-
-// Quiz data for each lesson (only lessons 1 & 8 are quizzes)
-interface QuizOption {
-    id: string;
-    text: string;
-    explanation: string;
+    catch (e) {
+        setMessage((e as Error).message);
+    } };
+    const claim = async () => { if (!archive || owner === 'guest')
+        return; const result = await claimElectricityLegacy(owner, archive); setMessage(result.ok ? 'Đã nhận thông tin lịch sử. Sao đang có được giữ nguyên.' : result.pending ? 'Chưa lưu được. Thử lại sau nhé.' : 'Kho lịch sử này đã được nhận hoặc hồ sơ đã thay đổi.'); };
+    const claimed = archive?.claimedOwner || students.find(p => p.electricity?.legacy?.snapshotId === archive?.snapshotId)?.id;
+    return <main className="electricity-world"><div className="ew-shell"><header className="ew-shell-header"><button className="ew-back" onClick={() => screen === 'home' ? navigate('/science') : setScreen('home')}>← {screen === 'home' ? 'Sảnh khoa học' : 'Về xưởng'}</button><button className="ew-wordmark" onClick={() => setScreen('home')}><span className="ew-brand-mark">✳</span> Xưởng Ánh Sáng</button><button className="ew-profile-chip" onClick={() => setScreen('notebook')}>{currentStudent?.name ?? 'Khách khám phá'} <span>· {completed}/13 bài</span></button></header>
+ {screen === 'home' ? <>
+  <section className="ew-hero"><div className="ew-hero-copy"><span className="ew-eyebrow">Điện & mạch điện / Xưởng 01</span><h1>Một sợi dây.<br />Một điều <em>kỳ diệu.</em></h1><p>Tự tay thắp sáng, nhìn dòng điện chuyển động và tìm hiểu điều xảy ra bên trong.</p><div className="ew-hero-actions"><button className="ew-primary" onClick={() => start(LESSONS[2])}>{progress?.introDone ? 'Thắp đèn lần nữa' : 'Thắp bóng đầu tiên'} <span>↗</span></button><button className="ew-text-link" onClick={() => start()}>Vào bàn tự do →</button></div><div className="ew-hero-caption"><span>01 — NỐI MẠCH</span><i /><span>02 — QUAN SÁT</span><i /><span>03 — KHÁM PHÁ</span></div></div><div className="ew-hero-art"><svg viewBox="0 0 780 610" role="img" aria-label="Bàn đồ chơi màu kem với pin, bóng đèn sáng và dây đồng"><defs><radialGradient id="hero-lamp"><stop stopColor="#ffe1a0" stopOpacity=".8"/><stop offset="1" stopColor="#f0cf87" stopOpacity="0"/></radialGradient><pattern id="hero-holes" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="14" cy="14" r="1.5" fill="#b3a384" opacity=".45"/></pattern><filter id="hero-glow"><feGaussianBlur stdDeviation="12"/></filter></defs><g transform="translate(15 35) rotate(-7 380 270)"><rect x="20" y="45" width="715" height="510" rx="40" fill="#cbb895"/><rect x="20" y="25" width="715" height="510" rx="40" fill="#eee2c7"/><rect x="40" y="45" width="675" height="465" rx="25" fill="url(#hero-holes)"/><circle cx="540" cy="210" r="205" fill="url(#hero-lamp)"/><path d="M140 330V110H450V210" stroke="#b36350" strokeWidth="16" fill="none" strokeLinejoin="round"/><path d="M610 210H667V442H140V365" stroke="#417b73" strokeWidth="16" fill="none" strokeLinejoin="round"/><g transform="translate(160 350)"><PartGlyph part={newPart('battery', 'B', 0, 0)}/></g><g transform="translate(530 210) scale(1.2)"><PartGlyph part={newPart('bulb', 'L', 0, 0)} brightness={.8} scope="hero"/></g><text x="365" y="495" textAnchor="middle" fill="#7f745b" fontSize="14" letterSpacing="3">TÒ MÒ LÀ ĐIỂM KHỞI ĐẦU</text></g></svg><span className="ew-art-note">Cắm vào trí tò mò của mình.</span></div></section>
+  <section className="ew-destinations"><button className="ew-destination ew-journey-card" onClick={() => setScreen('lessons')}><span className="ew-destination-number">01 / HÀNH TRÌNH</span><h2>Từ tia sáng đầu tiên<br />đến cả một ngôi nhà.</h2><p>13 khám phá có hướng dẫn</p><span className="ew-destination-arrow">↗</span><div className="ew-progress-track"><i style={{ width: `${completed / 13 * 100}%` }}/></div></button><div className="ew-destination-stack"><button className="ew-destination" onClick={() => setScreen('labs')}><span className="ew-destination-number">02 / PHÒNG THÍ NGHIỆM</span><h2>Thử một điều bất ngờ.</h2><p>Vật dẫn · trái cây · nam châm · tĩnh điện · máy phát</p><span className="ew-destination-arrow">↗</span></button><button className="ew-destination" onClick={() => setScreen('missions')}><span className="ew-destination-number">03 / SÁNG CHẾ</span><h2>Làm đồ có ích.</h2><p>12 nhiệm vụ · nhiều cách giải</p><span className="ew-destination-arrow">↗</span></button></div></section>
+  <nav className="ew-explore-links"><button onClick={() => setScreen('faults')}><span>⌕</span><b>Thám tử mạch điện</b><small>12 vụ việc cần chứng cứ</small></button><button onClick={() => setScreen('house')}><span>⌂</span><b>Ngôi nhà của mình</b><small>Giữ ánh sáng, tiết kiệm điện</small></button><button onClick={() => setScreen('compare')}><span>⑂</span><b>Hai cách nối</b><small>Đặt nối tiếp và song song cạnh nhau</small></button><button onClick={() => setScreen('notebook')}><span>▤</span><b>Sổ sáng chế</b><small>Lưu lại điều vừa khám phá</small></button></nav>
+  <div className="ew-badge-shelf">{Object.entries(BADGES).map(([id, name]) => <span key={id} className={progress?.badges.includes(id) ? 'earned' : ''}>{progress?.badges.includes(id) ? '✦' : '◇'} {name}</span>)}</div>
+ </> : ['lessons', 'missions', 'faults'].includes(screen) ? <section className="ew-catalog"><span className="ew-eyebrow">{screen === 'lessons' ? '13 khám phá · tự chọn nhịp của mình' : screen === 'missions' ? '12 sáng chế · kiểm từng trạng thái' : '12 vụ việc · quan sát, suy luận, sửa chữa'}</span><h1>{screen === 'lessons' ? 'Hành trình ánh sáng' : screen === 'missions' ? 'Làm điều mình nghĩ ra' : 'Có chuyện gì với mạch này?'}</h1><div className="ew-content-list">{rows.map((s, i) => { const best = progress?.completions[`${s.kind}:${s.id}`]?.best; return <button key={s.id} onClick={() => start(s)}><span className="ew-content-index">{String(i + 1).padStart(2, '0')}</span><span><h2>{s.title}</h2><p>{s.intro}</p></span><span className="ew-content-tail">{best ? '★'.repeat(best) : '↗'}</span></button>; })}</div></section> : screen === 'labs' ? <section><div className="ew-page-intro"><span className="ew-eyebrow">Năm bàn thí nghiệm</span><h1>Cứ thử. Rồi nhìn thật kỹ.</h1></div><nav className="ew-lab-tabs">{[['materials', 'Vật dẫn điện'], ['fruit', 'Pin trái cây'], ['magnet', 'Nam châm điện'], ['static', 'Tĩnh điện'], ['generator', 'Máy phát']].map(([id, name]) => <button key={id} aria-pressed={lab === id} onClick={() => setLab(id)}>{name}</button>)}</nav><div key={lab}>{lab === 'materials' ? <Conductors onEvidence={() => { }}/> : lab === 'fruit' ? <FruitLab /> : lab === 'magnet' ? <MagnetLab /> : lab === 'static' ? <StaticLab /> : <GeneratorLab />}</div><p className="ew-lab-footer">Muốn ghi nhận bài học? <button onClick={() => start(LESSONS[6])}>Làm bài Vật nào dẫn điện →</button></p></section> : screen === 'house' ? <><nav className="ew-lab-tabs"><button onClick={() => setScreen('safety')}>Tìm mối nguy</button><button onClick={() => setScreen('journey')}>Điện từ đâu đến?</button><button onClick={() => start(LESSONS[11])}>Nhận nhiệm vụ tiết kiệm</button></nav><House onEvidence={() => { }}/></> : screen === 'safety' ? <SafetyRoom all onEvidence={() => { }}/> : screen === 'journey' ? <PowerJourney onEvidence={() => { }}/> : screen === 'compare' ? <Compare onClose={() => setScreen('home')}/> : screen === 'notebook' ? <section className="ew-notebook"><div className="ew-page-intro"><span className="ew-eyebrow">Sổ của {currentStudent?.name ?? 'khách'}</span><h1>Những ý tưởng đã thành hình.</h1><p>{documents.length}/12 sáng chế · Mạch giữ nguyên pin đã dùng và linh kiện đang hỏng.</p><label className="ew-file-label">Nhập mạch JSON<input type="file" accept=".json,application/json" onChange={e => { const file = e.target.files?.[0]; if (file)
+            void importFile(file); e.target.value = ''; }}/></label></div>{documents.length ? <div className="ew-notebook-grid">{documents.map(doc => <article key={doc.id}><button className="ew-notebook-preview" onClick={() => start(undefined, doc)}><CircuitThumbnail circuit={doc.circuit} title={doc.title}/><h2>{doc.title}</h2></button><p>{new Date(doc.updatedAt).toLocaleDateString('vi-VN')} · {doc.circuit.parts.length} linh kiện</p><button onClick={async () => { await deleteDocument(doc.id, owner); setDocuments(await listDocuments(owner)); }}>Xóa bản lưu</button></article>)}</div> : <div className="ew-empty"><span>▤</span><h2>Trang đầu đang chờ một sáng chế.</h2><p>Lắp mạch, đặt tên rồi lưu lại từ bàn tự do.</p><button className="ew-primary" onClick={() => start()}>Mở bàn tự do →</button></div>}</section> : screen === 'legacy' ? <section className="ew-catalog"><span className="ew-eyebrow">Kho trên máy · giữ nguyên thành tích</span><h1>Những khám phá trước đây.</h1><p>Đã làm {archive?.lessonIds.length ?? 0}/8 bài và {archive?.challengeIds.length ?? 0}/15 thử thách bản cũ. Luyện thêm không phát sao mới.</p>{archive && <><p>Thành tích cũ dùng chung trên máy. Đưa vào hồ sơ chỉ nhận thông tin lịch sử; sao đang có được giữ nguyên.</p><button disabled={owner === 'guest' || !!claimed} onClick={() => void claim()}>{claimed ? 'Kho lịch sử đã được nhận' : `Đưa vào hồ sơ ${currentStudent?.name ?? 'đang chọn'}`}</button></>}<h2>8 bài cũ · tiếp tục bằng trải nghiệm mới</h2><div className="ew-legacy-grid">{['Dòng điện', 'Mạch kín và hở', 'Nguồn điện', 'Công tắc', 'Lắp mạch', 'Nối tiếp', 'Song song', 'So sánh'].map((label, i) => <button key={label} onClick={() => start(LESSONS[[2, 3, 5, 4, 2, 9, 10, 10][i]], undefined, true)}>{archive?.lessonIds.includes(i + 1) ? '✓ ' : ''}{i + 1}. {label}</button>)}</div><h2>15 đề luyện thêm</h2><div className="ew-legacy-grid">{CHALLENGES.map(c => { return <button key={c.id} onClick={() => start(LEGACY_CONTENT.find(s => s.id === `legacy-${c.id}`), undefined, true)}>{archive?.challengeIds.includes(c.id) ? '✓ ' : ''}{c.title}</button>; })}</div></section> : <section className="ew-sources"><span className="ew-eyebrow">Dành cho phụ huynh</span><h1>Điều mô hình nói và không nói.</h1><p>Bàn sử dụng mô hình DC giáo dục theo Ohm và Kirchhoff. Thông số pin, bóng, LED, nội trở và các ngưỡng hỏng là mẫu hiệu chuẩn; không phải dự báo chính xác cho mọi linh kiện thật.</p><p>Chuyển động electron, lực hút kẹp, tĩnh điện và tay quay được minh họa. Ngôi nhà dùng công suất và lịch giả định, không phải hóa đơn điện thực tế. Hoạt động về điện nhà chỉ dạy tránh chạm và báo người lớn.</p><ul>{SOURCES.map(s => <li key={s.id}><a href={s.url} target="_blank" rel="noreferrer">{s.name} ↗</a></li>)}</ul><p>Kiến thức lõi theo Khoa học 5; đo điện, tĩnh điện, nối tiếp/song song và cảm ứng là phần khám phá thêm THCS.</p></section>}
+ {message && <p role="status" className="ew-status">{message}</p>}<footer className="ew-shell-footer"><span>Học bằng cách tự tay thử.</span><div><button onClick={() => setScreen('legacy')}>Thành tích cũ trên máy</button><button onClick={() => setScreen('sources')}>Mô hình & nguồn kiến thức</button></div></footer></div></main>;
 }
-
-const quizData: Record<number, QuizOption[]> = {
-    1: [
-        { id: 'electron-movement', text: 'A. Electron di chuyển trong dây dẫn', explanation: 'Chính xác! Dòng điện là dòng các electron di chuyển trong dây dẫn.' },
-        { id: 'light-creation', text: 'B. Pin tạo ra ánh sáng', explanation: 'Chưa đúng. Pin tạo ra năng lượng để đẩy electron, còn ánh sáng là do đèn phát ra.' },
-        { id: 'wire-electricity', text: 'C. Dây dẫn tự phát điện', explanation: 'Chưa đúng. Dây dẫn chỉ là đường đi cho electron, không tự tạo ra điện.' },
-    ],
-    8: [
-        { id: 'series', text: 'A. Mạch nối tiếp - tất cả đèn tắt cùng nhau', explanation: 'Chưa đúng. Nối tiếp thì 1 đèn hỏng là cả dãy tắt — không an toàn cho đèn trong nhà.' },
-        { id: 'parallel', text: 'B. Mạch song song - các đèn hoạt động độc lập', explanation: 'Chính xác! Song song giúp 1 đèn hỏng mà các đèn khác vẫn sáng.' },
-        { id: 'no-difference', text: 'C. Không có sự khác biệt', explanation: 'Chưa đúng. Hai loại mạch khác nhau rõ rệt khi một đèn bị hỏng.' },
-    ],
-};
-
-// QuizOptions component
-interface QuizOptionsProps {
-    lessonId: number;
-    correctAnswer: string;
-    selectedAnswer: string | null;
-    onSelectAnswer: (answer: string) => void;
-}
-
-const QuizOptions: React.FC<QuizOptionsProps> = ({
-    lessonId,
-    correctAnswer,
-    selectedAnswer,
-    onSelectAnswer,
-}) => {
-    const options = quizData[lessonId] || [];
-    const selectedOption = options.find(o => o.id === selectedAnswer);
-    const selectedIsCorrect = selectedAnswer === correctAnswer;
-
-    return (
-        <div className="space-y-2">
-            {options.map(option => {
-                const isSelected = selectedAnswer === option.id;
-                const isCorrect = option.id === correctAnswer;
-                const showCorrect = isSelected && isCorrect;
-
-                return (
-                    <button
-                        key={option.id}
-                        onClick={() => onSelectAnswer(option.id)}
-                        className={`w-full p-3 rounded-lg text-left transition-all border flex items-center justify-between ${showCorrect
-                            ? 'bg-emerald-100 border-emerald-400 text-emerald-800'
-                            : isSelected && !isCorrect
-                                ? 'bg-red-100 border-red-300 text-red-800'
-                                : 'bg-sky-50 hover:bg-sky-100 border-sky-200 text-sky-800'
-                            }`}
-                    >
-                        <span>{option.text}</span>
-                        {showCorrect && (
-                            <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                                <Check size={16} className="text-white" />
-                            </div>
-                        )}
-                    </button>
-                );
-            })}
-
-            {/* Explanation for the picked answer */}
-            {selectedOption && (
-                <div className={`flex items-start gap-2 p-3 rounded-lg border text-sm ${selectedIsCorrect
-                    ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
-                    : 'bg-amber-50 border-amber-300 text-amber-800'
-                    }`}>
-                    <span className="text-base leading-none">{selectedIsCorrect ? '✅' : '💡'}</span>
-                    <span>{selectedOption.explanation}</span>
-                </div>
-            )}
-        </div>
-    );
-};
-
-export const ElectricityPage: React.FC = () => {
-    const navigate = useNavigate();
-    const { currentStudent } = useStudent();
-    const { updateStudent } = useStudentActions();
-    const [mode, setMode] = useState<Mode>('menu');
-    const [selectedLessonId, setSelectedLessonId] = useState<number | null>(null);
-    const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
-    const [circuitStatus, setCircuitStatus] = useState<CircuitStatus>(POWERED_OFF_STATUS);
-    const [completedLessons, setCompletedLessons] = useState<Set<number>>(() => {
-        try {
-            const raw = localStorage.getItem(LESSON_PROGRESS_KEY);
-            return new Set<number>(raw ? JSON.parse(raw) : []);
-        } catch {
-            return new Set();
-        }
-    });
-
-    const selectedLesson = LESSONS.find(l => l.id === selectedLessonId);
-
-    // Scroll to top when entering the page
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
-
-    const handleLessonComplete = (stars: number) => {
-        if (!currentStudent || stars <= 0) return;
-
-        // Add stars to student profile
-        updateStudent({
-            ...currentStudent,
-            stars: currentStudent.stars + stars
-        });
-    };
-
-    const markLessonComplete = (lessonId: number) => {
-        if (completedLessons.has(lessonId)) return;
-        const next = new Set(completedLessons).add(lessonId);
-        setCompletedLessons(next);
-        try {
-            localStorage.setItem(LESSON_PROGRESS_KEY, JSON.stringify([...next]));
-        } catch { /* ignore quota errors */ }
-        handleLessonComplete(1); // 1 star per lesson, once
-    };
-
-    // Award + record completion the moment the current lesson's goal is met.
-    const lessonPassed = selectedLesson
-        ? lessonGoal(selectedLesson.id, circuitStatus, quizAnswer,
-            selectedLesson.exercise.type === 'quiz' ? (selectedLesson.exercise.correctAnswer as string) : undefined)
-        : false;
-
-    useEffect(() => {
-        if (mode === 'lesson-detail' && selectedLesson && lessonPassed) {
-            markLessonComplete(selectedLesson.id);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lessonPassed, mode, selectedLessonId]);
-
-    const renderMenu = () => (
-        <div className="max-w-4xl mx-auto py-8">
-            <div className="text-center mb-12">
-                <div className="text-7xl mb-4 animate-bounce">⚡</div>
-                <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400">
-                    Điện & Mạch điện
-                </h1>
-                <p className="text-orange-700 mt-2 text-lg">
-                    Học cách lắp ráp mạch điện qua thí nghiệm tương tác 🔌
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Lessons */}
-                <button
-                    onClick={() => setMode('lessons')}
-                    className="group p-6 bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl border-2 border-sky-300 hover:border-white shadow-lg shadow-blue-500/30 transition-all hover:scale-105 hover:shadow-xl text-center"
-                >
-                    <div className="w-16 h-16 mx-auto bg-white/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <BookOpen size={32} className="text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">📚 Học theo bài</h3>
-                    <p className="text-white/90 text-sm">
-                        8 bài học từ cơ bản đến nâng cao với lý thuyết và bài tập
-                    </p>
-                </button>
-
-                {/* Playground */}
-                <button
-                    onClick={() => setMode('playground')}
-                    className="group p-6 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl border-2 border-emerald-300 hover:border-white shadow-lg shadow-green-500/30 transition-all hover:scale-105 hover:shadow-xl text-center"
-                >
-                    <div className="w-16 h-16 mx-auto bg-white/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <Gamepad2 size={32} className="text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">🎮 Thử thách</h3>
-                    <p className="text-white/90 text-sm">
-                        Hoàn thành các nhiệm vụ lắp mạch và nhận sao thưởng ⭐
-                    </p>
-                </button>
-
-                {/* Sandbox */}
-                <button
-                    onClick={() => setMode('sandbox')}
-                    className="group p-6 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl border-2 border-violet-300 hover:border-white shadow-lg shadow-purple-500/30 transition-all hover:scale-105 hover:shadow-xl text-center"
-                >
-                    <div className="w-16 h-16 mx-auto bg-white/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <Zap size={32} className="text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">🧪 Tự do</h3>
-                    <p className="text-white/90 text-sm">
-                        Thoải mái thí nghiệm và sáng tạo mạch điện của riêng bạn 💡
-                    </p>
-                </button>
-            </div>
-        </div>
-    );
-
-    const renderLessons = () => (
-        <div className="max-w-4xl mx-auto py-8">
-            <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-                <h2 className="text-2xl font-bold text-orange-800">📚 Danh sách bài học</h2>
-                <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300 text-sm font-semibold">
-                    Đã học {completedLessons.size}/{LESSONS.length} bài
-                </span>
-            </div>
-
-            <div className="space-y-3">
-                {LESSONS.map(lesson => {
-                    const done = completedLessons.has(lesson.id);
-                    return (
-                        <button
-                            key={lesson.id}
-                            onClick={() => {
-                                setSelectedLessonId(lesson.id);
-                                setQuizAnswer(null);
-                                setCircuitStatus(POWERED_OFF_STATUS);
-                                setMode('lesson-detail');
-                            }}
-                            className={`w-full flex items-center gap-4 p-4 rounded-xl border-2 shadow-sm hover:shadow-md transition-all text-left ${done
-                                ? 'bg-emerald-50 border-emerald-300 hover:border-emerald-400'
-                                : 'bg-white border-orange-200 hover:border-orange-400 hover:bg-orange-50'
-                                }`}
-                        >
-                            <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shrink-0 ${done ? 'bg-gradient-to-br from-emerald-400 to-green-500' : 'bg-gradient-to-br from-orange-400 to-amber-500'
-                                }`}>
-                                {lesson.id}
-                                {done && (
-                                    <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center">
-                                        <Check size={11} className="text-white" />
-                                    </span>
-                                )}
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <h3 className="text-orange-900 font-semibold">{lesson.title}</h3>
-                                <p className="text-orange-600/70 text-sm">{lesson.subtitle}</p>
-                            </div>
-                            <ArrowLeft size={20} className="text-orange-400 rotate-180 shrink-0" />
-                        </button>
-                    );
-                })}
-            </div>
-        </div>
-    );
-
-    const renderLessonDetail = () => {
-        if (!selectedLesson) return null;
-
-        return (
-            <div className="max-w-4xl mx-auto py-8">
-                <div className="space-y-6">
-                    {/* Title */}
-                    <div className="text-center bg-white rounded-2xl p-6 shadow-md border-2 border-orange-200">
-                        <span className="text-orange-500 text-sm font-semibold">📖 Bài {selectedLesson.id}</span>
-                        <h2 className="text-3xl font-bold text-orange-800 mt-1">{selectedLesson.title}</h2>
-                        <p className="text-orange-600/80">{selectedLesson.subtitle}</p>
-                    </div>
-
-                    {/* Theory */}
-                    <div className="bg-white rounded-xl p-6 border-2 border-sky-200 shadow-md">
-                        <h3 className="text-lg font-semibold text-sky-600 mb-3">📖 Lý thuyết</h3>
-                        <p className="text-gray-700 leading-relaxed mb-4">
-                            {selectedLesson.theory.content}
-                        </p>
-                        <div className="space-y-2">
-                            {selectedLesson.theory.keyPoints.map((point, i) => (
-                                <div key={i} className="flex items-start gap-2 text-gray-600">
-                                    <span className="text-sky-500">•</span>
-                                    {point}
-                                </div>
-                            ))}
-                        </div>
-
-                        {selectedLesson.theory.funFact && (
-                            <div className="mt-4 flex items-start gap-2 p-3 rounded-xl bg-gradient-to-r from-violet-50 to-fuchsia-50 border border-violet-200">
-                                <span className="text-lg leading-none">💡</span>
-                                <div>
-                                    <p className="text-violet-700 font-semibold text-sm">Em có biết?</p>
-                                    <p className="text-violet-900/80 text-sm">{selectedLesson.theory.funFact}</p>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Exercise */}
-                    <div className="bg-white rounded-xl p-6 border-2 border-emerald-200 shadow-md">
-                        <h3 className="text-lg font-semibold text-emerald-600 mb-3">✏️ Bài tập</h3>
-                        <p className="text-gray-700 mb-4">{selectedLesson.exercise.instruction}</p>
-
-
-                        {(selectedLesson.exercise.type === 'build' || selectedLesson.exercise.type === 'fix') && (
-                            <div className="space-y-3">
-                                <div className="h-[350px] bg-gradient-to-br from-sky-50 to-blue-100 rounded-xl border border-sky-200 overflow-hidden">
-                                    <CircuitCanvas
-                                        key={selectedLesson.id}
-                                        initialCircuit={getLessonInitialCircuit(selectedLesson.id)}
-                                        hideToolbar={true}
-                                        onCircuitStatusChange={setCircuitStatus}
-                                    />
-                                </div>
-                                {/* Auto-validate result */}
-                                {lessonPassed ? (
-                                    <div className="flex items-center gap-3 p-4 bg-emerald-100 border-2 border-emerald-400 rounded-xl">
-                                        <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                                            <Check size={24} className="text-white" />
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-emerald-800">🎉 Tuyệt vời! Hoàn thành bài tập!</p>
-                                            <p className="text-emerald-600 text-sm">Bạn nhận được 1 ⭐ cho bài học này.</p>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center gap-3 p-4 bg-amber-50 border-2 border-amber-300 rounded-xl">
-                                        <div className="text-2xl shrink-0">💡</div>
-                                        <div>
-                                            <p className="font-medium text-amber-800">{buildHint(selectedLesson.id, circuitStatus)}</p>
-                                            <p className="text-amber-600 text-sm">Nhấn vào đầu xanh (−) rồi đầu đỏ (+) để nối dây, sau đó bấm "Bật nguồn".</p>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-
-                        {selectedLesson.exercise.type === 'quiz' && (
-                            <QuizOptions
-                                lessonId={selectedLesson.id}
-                                correctAnswer={selectedLesson.exercise.correctAnswer}
-                                selectedAnswer={quizAnswer}
-                                onSelectAnswer={setQuizAnswer}
-                            />
-                        )}
-                    </div>
-
-                    {/* Navigation */}
-                    <div className="flex justify-between pt-4">
-                        <button
-                            onClick={() => {
-                                if (selectedLesson.id > 1) {
-                                    setSelectedLessonId(selectedLesson.id - 1);
-                                    setQuizAnswer(null);
-                                    setCircuitStatus(POWERED_OFF_STATUS);
-                                }
-                            }}
-                            disabled={selectedLesson.id === 1}
-                            className="px-4 py-2 bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-gray-700 transition-colors"
-                        >
-                            ← Bài trước
-                        </button>
-                        <button
-                            onClick={() => {
-                                if (selectedLesson.id < LESSONS.length) {
-                                    setSelectedLessonId(selectedLesson.id + 1);
-                                    setQuizAnswer(null);
-                                    setCircuitStatus(POWERED_OFF_STATUS);
-                                }
-                            }}
-                            disabled={selectedLesson.id === LESSONS.length}
-                            className="px-4 py-2 bg-gradient-to-r from-orange-400 to-amber-500 hover:from-orange-500 hover:to-amber-600 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-white font-semibold shadow-md transition-colors"
-                        >
-                            Bài tiếp →
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
-    const renderPlayground = () => (
-        <div className="h-[calc(100vh-120px)]">
-            <div className="bg-white rounded-2xl border-2 border-orange-200 shadow-lg h-full overflow-hidden">
-                <PlaygroundView onComplete={handleLessonComplete} />
-            </div>
-        </div>
-    );
-
-    const renderSandbox = () => (
-        <div className="h-[calc(100vh-120px)]">
-            <div className="text-center text-orange-700 mb-2 font-medium text-lg">
-                🧪 Chế độ tự do - Thỏa sức sáng tạo! 💡
-            </div>
-            <div className="h-[calc(100%-40px)] bg-white rounded-2xl border-2 border-purple-200 shadow-lg overflow-hidden">
-                <CircuitCanvas />
-            </div>
-        </div>
-    );
-
-    return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-100 to-yellow-100 px-4 py-4">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-6">
-                <button
-                    onClick={() => mode === 'menu' ? navigate('/science') : setMode('menu')}
-                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 rounded-xl text-white shadow-md transition-colors"
-                >
-                    <ArrowLeft size={20} />
-                    <span className="hidden sm:inline">
-                        {mode === 'menu' ? 'Khoa học' : 'Menu'}
-                    </span>
-                </button>
-
-                <h1 className="text-xl font-bold text-orange-800 flex items-center gap-2">
-                    ⚡ Điện & Mạch điện
-                </h1>
-
-                <MusicControls />
-            </div>
-
-            {/* Content */}
-            {mode === 'menu' && renderMenu()}
-            {mode === 'lessons' && renderLessons()}
-            {mode === 'lesson-detail' && renderLessonDetail()}
-            {mode === 'playground' && renderPlayground()}
-            {mode === 'sandbox' && renderSandbox()}
-        </div>
-    );
-};
+export function ElectricityPage() { const { currentStudent } = useStudent(); return <ElectricityExperience key={currentStudent?.id ?? 'guest'}/>; }

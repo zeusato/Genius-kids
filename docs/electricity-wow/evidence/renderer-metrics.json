@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-29",
+  "browser": "Codex in-app Chromium, development Vite server",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "device": "Windows desktop, GPU not identified",
+  "renderer": "3D, copper posts and electrons instanced",
+  "fixture": {
+    "parts": 12,
+    "wires": 14,
+    "description": "trafficLight + ammeter + parallel voltmeter"
+  },
+  "observation": {
+    "fps": 60,
+    "frameP95ms": 20.1,
+    "drawCalls": 56,
+    "triangles": 25066,
+    "dpr": 1
+  },
+  "caveat": "Short interactive observation, not a certified 30-second device benchmark. Physical Android/iOS not tested."
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-29T14:37:15.800Z",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1195G7 @ 2.90GHz",
+  "os": "win32 10.0.26200",
+  "runtime": "v22.18.0",
+  "build": "esbuild production bundle, Node CPU timing; not Android or browser",
+  "results": [
+    {
+      "fixture": "12 parts / 14 wires",
+      "nodes": 24,
+      "branches": 24,
+      "warmup": 100,
+      "samples": 1000,
+      "medianMs": 0.1146,
+      "p95Ms": 0.3542
+    },
+    {
+      "fixture": "63 nodes / 92 branches",
+      "nodes": 63,
+      "branches": 92,
+      "warmup": 100,
+      "samples": 1000,
+      "medianMs": 0.5427,
+      "p95Ms": 0.7913
+    }
+  ]
+}

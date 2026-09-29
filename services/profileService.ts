@@ -138,6 +138,8 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         alphabetPractice: oldProfile.alphabetPractice,
         counting: oldProfile.counting,
         englishProgress: oldProfile.englishProgress,
+        electricity: oldProfile.electricity,
+        electricityBadges: oldProfile.electricityBadges,
         achievements: oldProfile.achievements || [],
     };
 

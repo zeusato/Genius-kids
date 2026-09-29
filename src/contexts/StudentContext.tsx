@@ -37,6 +37,9 @@ import { Grade } from '../../types';
 import { AchievementModal } from '../components/achievements/AchievementModal';
 import { completeEnglish as persistEnglish, type CompletionResult } from '../english/completion';
 import { clearEnglishData } from '../english/storage';
+import { completeElectricity as persistElectricity, claimLegacy as persistElectricityLegacy, type LegacyArchive, type CompletionResult as ElectricityCompletionResult } from '../components/electricity/progress/progress';
+import { clearElectricityData } from '../components/electricity/progress/notebook';
+import type { Run as ElectricityRun } from '../components/electricity/engine/evidence';
 
 interface StudentContextType {
     students: StudentProfile[];
@@ -45,6 +48,8 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    completeElectricity: (owner: string, run: ElectricityRun) => Promise<ElectricityCompletionResult>;
+    claimElectricityLegacy: (owner: string, archive: LegacyArchive) => Promise<ElectricityCompletionResult>;
     completeEnglish: (owner: string, sessionId: string) => Promise<CompletionResult>;
     completeCaro: (owner: string, match: import('../../games/Caro/model').Match) => { ok: boolean };
     completeSudoku: (owner: string, draft: SudokuDraft) => { ok: boolean; earned: number; image: AlbumImage | null; isNew: boolean };
@@ -135,6 +140,17 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [setStudents]);
 
     const completeEnglish = useCallback((owner: string, sessionId: string) => persistEnglish(owner, sessionId, {
+        readProfiles: getAllProfiles, writeProfiles: saveProfiles,
+        isOwner: () => countingOwnerRef.current === owner,
+        onSaved: profiles => { persistedRef.current = profiles; setStudents(profiles); },
+    }), [setStudents]);
+
+    const completeElectricity = useCallback((owner: string, run: ElectricityRun) => persistElectricity(owner, run, {
+        readProfiles: getAllProfiles, writeProfiles: saveProfiles,
+        isOwner: () => countingOwnerRef.current === owner,
+        onSaved: profiles => { persistedRef.current = profiles; setStudents(profiles); },
+    }), [setStudents]);
+    const claimElectricityLegacy = useCallback((owner: string, archive: LegacyArchive) => persistElectricityLegacy(owner, archive, {
         readProfiles: getAllProfiles, writeProfiles: saveProfiles,
         isOwner: () => countingOwnerRef.current === owner,
         onSaved: profiles => { persistedRef.current = profiles; setStudents(profiles); },
@@ -313,6 +329,12 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [setStudents]);
 
     const deleteStudent = useCallback((id: string) => {
+        void clearElectricityData(id).catch(error => console.warn('Electricity notebook cleanup failed', error));
+        try {
+            const archive = localStorage.getItem('electricity_legacy_archive_v1');
+            const claim = studentsRef.current.find(p => p.id === id)?.electricity?.legacy;
+            if (archive && claim) localStorage.setItem('electricity_legacy_archive_v1', JSON.stringify({ ...JSON.parse(archive), claimedOwner: id }));
+        } catch { /* Original legacy keys are retained even when storage is unavailable. */ }
         void clearEnglishData(id).catch(error => console.warn('English data cleanup failed', error));
         if (countingOwnerRef.current === id) countingOwnerRef.current = null;
         clearSoundProfileData(id);
@@ -645,6 +667,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeCaro,
         completeSudoku,
         savePiano,
+        completeElectricity,
+        claimElectricityLegacy,
         addStudent,
         setStudent,
         selectStudent,

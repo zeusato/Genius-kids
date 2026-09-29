@@ -1,0 +1,7 @@
+Baseline: 93 files, 1319 tests passed.
+Final full regression: 101 files, 1459 tests passed.
+Follow-up type-only test correction: lesson-negative.test.ts, 14 tests passed.
+Final Vite 6.4.1 production build passed; PWA injectManifest: 1747 entries.
+Typecheck: only pre-existing modules/farm/src/ui/renderSnapshot.ts:26 error remains.
+Production desktop offline smoke passed: 1746/1746 content files cached; preview server stopped; app reloaded, profile and saved circuit reopened, 3D scene and solver operational.
+No deployment performed.
