@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Periodic dive proto</title>
+<style>
+  html { background: #070b18; }
+  html, body { margin: 0; height: 100%; overflow: hidden; font-family: 'Comic Sans MS', Verdana, sans-serif;
+    background: radial-gradient(ellipse at 50% 40%, #1b1f4a 0%, #0b1026 55%, #050814 100%); color: #e2e8f0; }
+  canvas { position: fixed; inset: 0; }
+  .cap { position: fixed; bottom: 70px; transform: translateX(-50%); text-align: center; width: 270px; }
+  .cap b { display: block; font-size: 20px; color: #fde68a; margin-bottom: 4px; }
+  .cap span { font-size: 13px; color: #cbd5e1; line-height: 1.35; display: block; }
+  .arrow { position: fixed; top: 44%; transform: translate(-50%, -50%); font-size: 13px; color: #a5b4fc; text-align: center; }
+  .arrow i { display: block; font-style: normal; font-size: 30px; color: #818cf8; }
+  h2 { position: fixed; top: 16px; left: 0; right: 0; text-align: center; margin: 0; font-size: 24px;
+    background: linear-gradient(90deg, #fde68a, #f472b6, #93c5fd); -webkit-background-clip: text; color: transparent; }
+  .hud { position: fixed; top: 58px; left: 0; right: 0; text-align: center; font-size: 13px; color: #94a3b8; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/",
+  "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.39.1/build/index.js"
+} }
+</script>
+</head>
+<body>
+<h2>Lặn vào một khối vàng</h2>
+<div class="hud">Kéo thanh phóng to — mỗi tầng nhỏ hơn tầng trước hàng triệu lần (hình minh họa phóng to có chủ ý)</div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { EffectComposer, RenderPass, EffectPass, BloomEffect, ToneMappingEffect, ToneMappingMode } from 'postprocessing';
+
+const q = new URLSearchParams(location.search);
+const T_FIXED = q.has('t') ? +q.get('t') : null;
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+renderer.setSize(innerWidth, innerHeight);
+renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.NoToneMapping;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 200);
+const W = 17.5;   // bề ngang cảnh cần vừa khung
+function fit() { camera.aspect = innerWidth / innerHeight; const d = (W / 2) / (Math.tan(THREE.MathUtils.degToRad(15)) * camera.aspect); camera.position.set(0, 0.4, d); camera.lookAt(0, 0.2, 0); camera.updateProjectionMatrix(); }
+fit();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(4, 6, 5); scene.add(key);
+scene.add(new THREE.AmbientLight(0x8899ff, 0.25));
+const X = [-6.6, -2.2, 2.2, 6.6];
+function rng(seed) { return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+const R = rng(11);
+const GOLD = new THREE.Color().setRGB(1.0, 0.71, 0.29);
+
+// 1. khối vàng 1 cm³
+const cube = new THREE.Mesh(new RoundedBoxGeometry(2.2, 2.2, 2.2, 6, 0.12), new THREE.MeshPhysicalMaterial({ color: GOLD, metalness: 1, roughness: 0.17 }));
+cube.position.set(X[0], 0.3, 0); scene.add(cube);
+
+// 2. mạng lập phương tâm mặt (fcc) — nguyên tử vàng xếp khít
+const lat = new THREE.Group(); lat.position.set(X[1], 0.3, 0); scene.add(lat);
+const N = 4, a = 0.62, basis = [[0, 0, 0], [0.5, 0.5, 0], [0.5, 0, 0.5], [0, 0.5, 0.5]];
+const pts = [];
+for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) for (let k = 0; k < N; k++) for (const b of basis) pts.push([(i + b[0]) * a, (j + b[1]) * a, (k + b[2]) * a]);
+for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) for (let k = 0; k <= N; k++) if (i === N || j === N || k === N) pts.push([i * a, j * a, k * a]);
+const atomMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.215, 20, 14), new THREE.MeshPhysicalMaterial({ color: GOLD, metalness: 0.85, roughness: 0.3 }), pts.length);
+const c0 = (N * a) / 2, m4 = new THREE.Matrix4();
+pts.forEach((p, i) => { m4.makeTranslation(p[0] - c0, p[1] - c0, p[2] - c0); atomMesh.setMatrixAt(i, m4); });
+lat.add(atomMesh); lat.rotation.set(0.5, 0.7, 0);
+
+// 3. nguyên tử Bohr kiểu SGK: các lớp là vòng tròn đồng tâm, electron chia đều; lớp ngoài cùng sáng
+const bohr = new THREE.Group(); bohr.position.set(X[2], 0.3, 0); scene.add(bohr);
+const shells = [2, 8, 18, 32, 18, 1];
+const ringMat = new THREE.MeshBasicMaterial({ color: 0x6b7bd6, transparent: true, opacity: 0.55 });
+const eMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#67e8f9').multiplyScalar(1.6) });
+const vMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#fde047').multiplyScalar(3.0) });
+const eGeo = new THREE.SphereGeometry(0.055, 12, 10);
+const electrons = [];
+shells.forEach((n, s) => {
+  const r = 0.42 + s * 0.3;
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(r, 0.008, 6, 160), ringMat); bohr.add(ring);
+  for (let i = 0; i < n; i++) { const e = new THREE.Mesh(eGeo, s === shells.length - 1 ? vMat : eMat); bohr.add(e); electrons.push({ e, r, a0: (i / n) * Math.PI * 2, w: 0.9 / (s + 1) }); }
+});
+const tiny = new THREE.Mesh(new THREE.SphereGeometry(0.13, 20, 14), new THREE.MeshBasicMaterial({ color: new THREE.Color('#fb7185').multiplyScalar(2.2) }));
+bohr.add(tiny);
+bohr.rotation.set(-0.35, 0.25, 0);
+
+// 4. hạt nhân Au-197: 79 p + 118 n, xếp khít tất định
+const nucG = new THREE.Group(); nucG.position.set(X[3], 0.3, 0); scene.add(nucG);
+const A = 197, Z = 79, rN = 0.16;
+const P = []; for (let i = 0; i < A; i++) { const u = R() * 2 - 1, t = R() * Math.PI * 2, rr = Math.cbrt(R()) * rN * 6; const s = Math.sqrt(1 - u * u); P.push(new THREE.Vector3(Math.cos(t) * s * rr, Math.sin(t) * s * rr, u * rr)); }
+for (let it = 0; it < 80; it++) {
+  for (let i = 0; i < A; i++) for (let j = i + 1; j < A; j++) { const d = P[i].clone().sub(P[j]); const L = d.length(); if (L < rN * 2) { d.multiplyScalar((rN * 2 - L) / (L + 1e-6) * 0.5); P[i].add(d); P[j].sub(d); } }
+  for (const p of P) p.multiplyScalar(0.99);
+}
+const nuc = new THREE.InstancedMesh(new THREE.SphereGeometry(rN, 20, 14), new THREE.MeshPhysicalMaterial({ roughness: 0.35, metalness: 0.0, clearcoat: 0.6 }), A);
+const order = [...Array(A).keys()].sort(() => R() - 0.5);
+order.forEach((k, i) => { m4.makeTranslation(P[i].x, P[i].y, P[i].z); nuc.setMatrixAt(i, m4); nuc.setColorAt(i, new THREE.Color(k < Z ? '#ef4444' : '#93c5fd')); });
+nucG.add(nuc);
+
+// chú thích
+const caps = [
+  ['1 cm', 'Khối vàng 1 cm³ nặng 19,3 g — nặng gấp 19 lần khối nước cùng cỡ'],
+  ['1 nanômét', 'Nguyên tử vàng xếp khít thành mạng "lập phương tâm mặt" (phóng to 10 triệu lần)'],
+  ['0,3 nanômét', 'Một nguyên tử: 79 electron trên 6 lớp · 2·8·18·32·18·1 — lớp ngoài cùng có 1 electron'],
+  ['Nhỏ hơn 30.000 lần', 'Hạt nhân vàng-197: 79 proton 🔴 + 118 nơtron 🔵 — nếu nguyên tử to bằng sân vận động, hạt nhân chỉ bằng hạt đậu'],
+];
+const capEls = caps.map(([t, s]) => { const d = document.createElement('div'); d.className = 'cap'; d.innerHTML = `<b>${t}</b><span>${s}</span>`; document.body.appendChild(d); return d; });
+const arrows = ['×10 triệu', '×3', '×30.000'].map(t => { const d = document.createElement('div'); d.className = 'arrow'; d.innerHTML = `<i>➜</i>${t}`; document.body.appendChild(d); return d; });
+
+const composer = new EffectComposer(renderer, { frameBufferType: THREE.HalfFloatType, multisampling: 4 });
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new EffectPass(camera, new BloomEffect({ intensity: 1.0, luminanceThreshold: 0.85, mipmapBlur: true, radius: 0.65 }), new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL })));
+addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight); fit(); });
+const clock = new THREE.Clock(), v = new THREE.Vector3();
+function place(el, x, y) { v.set(x, y, 0).project(camera); el.style.left = ((v.x + 1) / 2 * innerWidth) + 'px'; if (y !== null) el.style.top = ((1 - v.y) / 2 * innerHeight) + 'px'; }
+function frame() {
+  const t = T_FIXED ?? clock.getElapsedTime();
+  cube.rotation.set(0.42, 0.7 + t * 0.3, 0.1);
+  lat.rotation.y = 0.7 + t * 0.2;
+  for (const { e, r, a0, w } of electrons) { const ang = a0 + t * w; e.position.set(Math.cos(ang) * r, Math.sin(ang) * r, 0); }
+  nucG.rotation.set(0.3, t * 0.25, 0);
+  capEls.forEach((el, i) => { v.set(X[i], 0, 0).project(camera); el.style.left = ((v.x + 1) / 2 * innerWidth) + 'px'; });
+  arrows.forEach((el, i) => { v.set((X[i] + X[i + 1]) / 2, 0.3, 0).project(camera); el.style.left = ((v.x + 1) / 2 * innerWidth) + 'px'; });
+  composer.render();
+  requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>

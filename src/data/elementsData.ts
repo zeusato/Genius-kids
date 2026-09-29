@@ -1100,7 +1100,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         color: '#F783AC', glowColor: '#F783AC80',
         description: 'Samari được dùng trong nam châm samaria-coban chịu nhiệt cao, dùng trong hàng không vũ trụ.',
         facts: ['Samari được đặt tên theo khoáng vật samarskite.', 'Nam châm samari-coban chịu được nhiệt độ cao hơn neodymium.', 'Samari-153 được dùng điều trị đau xương do ung thư.'],
-        discoveryYear: 1879, meltingPoint: 1072, boilingPoint: 1900, density: 7.52, state: 'solid', infographicPath: 'element/Samarium.jpeg'
+        discoveryYear: 1879, meltingPoint: 1072, boilingPoint: 1794, density: 7.52, state: 'solid', infographicPath: 'element/Samarium.jpeg'
     },
     {
         atomicNumber: 63, symbol: 'Eu', name: 'Europi', nameEn: 'Europium',
@@ -1580,7 +1580,7 @@ export const ELEMENTS_DATA: ElementData[] = [
         electronConfig: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p³', electronShells: [2, 8, 18, 32, 32, 18, 5],
         color: '#868E96', glowColor: '#868E9680',
         description: 'Moscovi được đặt tên theo vùng Moscow, Nga.',
-        facts: ['Moscovi được đặt tên theo vùng Moscow.', 'Đồng vị bền nhất có chu kỳ bán rã 0.65 giây.', 'Moscovi nổi tiếng trong thuyết âm mưu về UFO (không có cơ sở).'],
+        facts: ['Moscovi được đặt tên theo vùng Moscow.', 'Đồng vị bền nhất có chu kỳ bán rã 0.65 giây.', 'Moscovi được tạo ra bằng cách bắn hạt nhân calcium vào americium.'],
         discoveryYear: 2003, meltingPoint: undefined, boilingPoint: undefined, density: 13.5, state: 'solid', infographicPath: 'element/Moscovium.png'
     },
     {

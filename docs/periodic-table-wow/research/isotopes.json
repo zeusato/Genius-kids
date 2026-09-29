@@ -1,0 +1,926 @@
+{
+ "1": {
+  "A": 1,
+  "stable": true,
+  "abundancePct": 99.9855,
+  "abundanceRangePct": [
+   99.972,
+   99.999
+  ],
+  "stableIsotopes": 2
+ },
+ "2": {
+  "A": 4,
+  "stable": true,
+  "abundancePct": 99.9998,
+  "stableIsotopes": 2
+ },
+ "3": {
+  "A": 7,
+  "stable": true,
+  "abundancePct": 95.15,
+  "abundanceRangePct": [
+   92.2,
+   98.1
+  ],
+  "stableIsotopes": 2
+ },
+ "4": {
+  "A": 9,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "5": {
+  "A": 11,
+  "stable": true,
+  "abundancePct": 80.35,
+  "abundanceRangePct": [
+   79.6,
+   81.1
+  ],
+  "stableIsotopes": 2
+ },
+ "6": {
+  "A": 12,
+  "stable": true,
+  "abundancePct": 98.94,
+  "abundanceRangePct": [
+   98.84,
+   99.04
+  ],
+  "stableIsotopes": 2
+ },
+ "7": {
+  "A": 14,
+  "stable": true,
+  "abundancePct": 99.6205,
+  "abundanceRangePct": [
+   99.578,
+   99.663
+  ],
+  "stableIsotopes": 2
+ },
+ "8": {
+  "A": 16,
+  "stable": true,
+  "abundancePct": 99.757,
+  "abundanceRangePct": [
+   99.738,
+   99.776
+  ],
+  "stableIsotopes": 3
+ },
+ "9": {
+  "A": 19,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "10": {
+  "A": 20,
+  "stable": true,
+  "abundancePct": 90.48,
+  "stableIsotopes": 3
+ },
+ "11": {
+  "A": 23,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "12": {
+  "A": 24,
+  "stable": true,
+  "abundancePct": 78.97,
+  "abundanceRangePct": [
+   78.88,
+   79.05
+  ],
+  "stableIsotopes": 3
+ },
+ "13": {
+  "A": 27,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "14": {
+  "A": 28,
+  "stable": true,
+  "abundancePct": 92.25,
+  "abundanceRangePct": [
+   92.191,
+   92.318
+  ],
+  "stableIsotopes": 3
+ },
+ "15": {
+  "A": 31,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "16": {
+  "A": 32,
+  "stable": true,
+  "abundancePct": 94.85,
+  "abundanceRangePct": [
+   94.41,
+   95.29
+  ],
+  "stableIsotopes": 4
+ },
+ "17": {
+  "A": 35,
+  "stable": true,
+  "abundancePct": 75.8,
+  "abundanceRangePct": [
+   75.5,
+   76.1
+  ],
+  "stableIsotopes": 2
+ },
+ "18": {
+  "A": 40,
+  "stable": true,
+  "abundancePct": 96.8,
+  "abundanceRangePct": [
+   93.6,
+   100
+  ],
+  "stableIsotopes": 3
+ },
+ "19": {
+  "A": 39,
+  "stable": true,
+  "abundancePct": 93.26,
+  "stableIsotopes": 2
+ },
+ "20": {
+  "A": 40,
+  "stable": true,
+  "abundancePct": 96.94,
+  "stableIsotopes": 5
+ },
+ "21": {
+  "A": 45,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "22": {
+  "A": 48,
+  "stable": true,
+  "abundancePct": 73.72,
+  "stableIsotopes": 5
+ },
+ "23": {
+  "A": 51,
+  "stable": true,
+  "abundancePct": 99.75,
+  "stableIsotopes": 1
+ },
+ "24": {
+  "A": 52,
+  "stable": true,
+  "abundancePct": 83.79,
+  "stableIsotopes": 4
+ },
+ "25": {
+  "A": 55,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "26": {
+  "A": 56,
+  "stable": true,
+  "abundancePct": 91.75,
+  "stableIsotopes": 4
+ },
+ "27": {
+  "A": 59,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "28": {
+  "A": 58,
+  "stable": true,
+  "abundancePct": 68.08,
+  "stableIsotopes": 5
+ },
+ "29": {
+  "A": 63,
+  "stable": true,
+  "abundancePct": 69.15,
+  "stableIsotopes": 2
+ },
+ "30": {
+  "A": 64,
+  "stable": true,
+  "abundancePct": 49.17,
+  "stableIsotopes": 5
+ },
+ "31": {
+  "A": 69,
+  "stable": true,
+  "abundancePct": 60.11,
+  "stableIsotopes": 2
+ },
+ "32": {
+  "A": 74,
+  "stable": true,
+  "abundancePct": 36.52,
+  "stableIsotopes": 4
+ },
+ "33": {
+  "A": 75,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "34": {
+  "A": 80,
+  "stable": true,
+  "abundancePct": 49.8,
+  "stableIsotopes": 5
+ },
+ "35": {
+  "A": 79,
+  "stable": true,
+  "abundancePct": 50.65,
+  "abundanceRangePct": [
+   50.5,
+   50.8
+  ],
+  "stableIsotopes": 2
+ },
+ "36": {
+  "A": 84,
+  "stable": true,
+  "abundancePct": 56.99,
+  "stableIsotopes": 6
+ },
+ "37": {
+  "A": 85,
+  "stable": true,
+  "abundancePct": 72.17,
+  "stableIsotopes": 1
+ },
+ "38": {
+  "A": 88,
+  "stable": true,
+  "abundancePct": 82.58,
+  "stableIsotopes": 4
+ },
+ "39": {
+  "A": 89,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "40": {
+  "A": 90,
+  "stable": true,
+  "abundancePct": 51.47,
+  "stableIsotopes": 4
+ },
+ "41": {
+  "A": 93,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "42": {
+  "A": 98,
+  "stable": true,
+  "abundancePct": 24.29,
+  "stableIsotopes": 6
+ },
+ "43": {
+  "A": 97,
+  "stable": false,
+  "halfLife": "4.21 million years",
+  "halfLifeSec": 132900000000000,
+  "halfLifeCIAAW": "4.21(16) Ma",
+  "alt": [
+   {
+    "A": 98,
+    "halfLife": "4.2 million years",
+    "halfLifeCIAAW": "4.2(3) Ma"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "44": {
+  "A": 102,
+  "stable": true,
+  "abundancePct": 31.55,
+  "stableIsotopes": 7
+ },
+ "45": {
+  "A": 103,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "46": {
+  "A": 106,
+  "stable": true,
+  "abundancePct": 27.33,
+  "stableIsotopes": 6
+ },
+ "47": {
+  "A": 107,
+  "stable": true,
+  "abundancePct": 51.84,
+  "stableIsotopes": 2
+ },
+ "48": {
+  "A": 114,
+  "stable": true,
+  "abundancePct": 28.75,
+  "stableIsotopes": 6
+ },
+ "49": {
+  "A": 115,
+  "stable": true,
+  "abundancePct": 95.72,
+  "halfLife": "4.41×10^14 years",
+  "halfLifeSec": 1.392e+22,
+  "stableIsotopes": 1,
+  "note": "most abundant isotope In-115 is primordial but very weakly radioactive"
+ },
+ "50": {
+  "A": 120,
+  "stable": true,
+  "abundancePct": 32.58,
+  "stableIsotopes": 10
+ },
+ "51": {
+  "A": 121,
+  "stable": true,
+  "abundancePct": 57.21,
+  "stableIsotopes": 2
+ },
+ "52": {
+  "A": 130,
+  "stable": true,
+  "abundancePct": 34.08,
+  "halfLife": "7.91×10^20 years",
+  "halfLifeSec": 2.496e+28,
+  "stableIsotopes": 6,
+  "note": "most abundant isotope Te-130 is primordial but very weakly radioactive"
+ },
+ "53": {
+  "A": 127,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "54": {
+  "A": 132,
+  "stable": true,
+  "abundancePct": 26.91,
+  "stableIsotopes": 8
+ },
+ "55": {
+  "A": 133,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "56": {
+  "A": 138,
+  "stable": true,
+  "abundancePct": 71.7,
+  "stableIsotopes": 7
+ },
+ "57": {
+  "A": 139,
+  "stable": true,
+  "abundancePct": 99.9112,
+  "stableIsotopes": 1
+ },
+ "58": {
+  "A": 140,
+  "stable": true,
+  "abundancePct": 88.45,
+  "stableIsotopes": 4
+ },
+ "59": {
+  "A": 141,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "60": {
+  "A": 142,
+  "stable": true,
+  "abundancePct": 27.15,
+  "stableIsotopes": 5
+ },
+ "61": {
+  "A": 145,
+  "stable": false,
+  "halfLife": "17.7 years",
+  "halfLifeSec": 558600000,
+  "halfLifeCIAAW": "17.7(4) a"
+ },
+ "62": {
+  "A": 152,
+  "stable": true,
+  "abundancePct": 26.74,
+  "stableIsotopes": 5
+ },
+ "63": {
+  "A": 153,
+  "stable": true,
+  "abundancePct": 52.19,
+  "stableIsotopes": 1
+ },
+ "64": {
+  "A": 158,
+  "stable": true,
+  "abundancePct": 24.82,
+  "stableIsotopes": 6
+ },
+ "65": {
+  "A": 159,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "66": {
+  "A": 164,
+  "stable": true,
+  "abundancePct": 28.26,
+  "stableIsotopes": 7
+ },
+ "67": {
+  "A": 165,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "68": {
+  "A": 166,
+  "stable": true,
+  "abundancePct": 33.5,
+  "stableIsotopes": 6
+ },
+ "69": {
+  "A": 169,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "70": {
+  "A": 174,
+  "stable": true,
+  "abundancePct": 31.9,
+  "stableIsotopes": 7
+ },
+ "71": {
+  "A": 175,
+  "stable": true,
+  "abundancePct": 97.41,
+  "stableIsotopes": 1
+ },
+ "72": {
+  "A": 180,
+  "stable": true,
+  "abundancePct": 35.12,
+  "stableIsotopes": 5
+ },
+ "73": {
+  "A": 181,
+  "stable": true,
+  "abundancePct": 99.9882,
+  "stableIsotopes": 2
+ },
+ "74": {
+  "A": 184,
+  "stable": true,
+  "abundancePct": 30.64,
+  "stableIsotopes": 4
+ },
+ "75": {
+  "A": 187,
+  "stable": true,
+  "abundancePct": 62.6,
+  "halfLife": "41.6 billion years",
+  "halfLifeSec": 1313000000000000000,
+  "stableIsotopes": 1,
+  "note": "most abundant isotope Re-187 is primordial but very weakly radioactive"
+ },
+ "76": {
+  "A": 192,
+  "stable": true,
+  "abundancePct": 40.78,
+  "stableIsotopes": 5
+ },
+ "77": {
+  "A": 193,
+  "stable": true,
+  "abundancePct": 62.77,
+  "stableIsotopes": 2
+ },
+ "78": {
+  "A": 195,
+  "stable": true,
+  "abundancePct": 33.77,
+  "stableIsotopes": 5
+ },
+ "79": {
+  "A": 197,
+  "stable": true,
+  "abundancePct": 100,
+  "stableIsotopes": 1
+ },
+ "80": {
+  "A": 202,
+  "stable": true,
+  "abundancePct": 29.74,
+  "stableIsotopes": 7
+ },
+ "81": {
+  "A": 205,
+  "stable": true,
+  "abundancePct": 70.48,
+  "abundanceRangePct": [
+   70.41,
+   70.56
+  ],
+  "stableIsotopes": 2
+ },
+ "82": {
+  "A": 208,
+  "stable": true,
+  "abundancePct": 50.57,
+  "abundanceRangePct": [
+   3.38,
+   97.75
+  ],
+  "stableIsotopes": 4
+ },
+ "83": {
+  "A": 209,
+  "stable": true,
+  "abundancePct": 100,
+  "halfLife": "2.01×10^19 years",
+  "halfLifeSec": 6.343e+26,
+  "note": "Bi-209 is technically radioactive (alpha, t1/2 ~2.01e19 y, far longer than the age of the universe); treated as effectively stable"
+ },
+ "84": {
+  "A": 209,
+  "stable": false,
+  "halfLife": "124 years",
+  "halfLifeSec": 3913000000,
+  "halfLifeCIAAW": "124(3) a"
+ },
+ "85": {
+  "A": 210,
+  "stable": false,
+  "halfLife": "8.1 hours",
+  "halfLifeSec": 29160,
+  "halfLifeCIAAW": "8.1(4) h"
+ },
+ "86": {
+  "A": 222,
+  "stable": false,
+  "halfLife": "3.8215 days",
+  "halfLifeSec": 330200,
+  "halfLifeCIAAW": "3.8215(2) d"
+ },
+ "87": {
+  "A": 223,
+  "stable": false,
+  "halfLife": "22.00 minutes",
+  "halfLifeSec": 1320,
+  "halfLifeCIAAW": "22.00(7) min"
+ },
+ "88": {
+  "A": 226,
+  "stable": false,
+  "halfLife": "1.600 thousand years",
+  "halfLifeSec": 50490000000,
+  "halfLifeCIAAW": "1600(7) a"
+ },
+ "89": {
+  "A": 227,
+  "stable": false,
+  "halfLife": "21.772 years",
+  "halfLifeSec": 687100000,
+  "halfLifeCIAAW": "21.772(3) a"
+ },
+ "90": {
+  "A": 232,
+  "stable": false,
+  "abundancePct": 99.98,
+  "halfLife": "14.0 billion years",
+  "halfLifeSec": 441800000000000000,
+  "note": "no stable isotopes; natural (primordial/decay-chain) composition per CIAAW"
+ },
+ "91": {
+  "A": 231,
+  "stable": false,
+  "abundancePct": 100,
+  "halfLife": "32.65 thousand years",
+  "halfLifeSec": 1030000000000,
+  "note": "no stable isotopes; natural (primordial/decay-chain) composition per CIAAW"
+ },
+ "92": {
+  "A": 238,
+  "stable": false,
+  "abundancePct": 99.2742,
+  "halfLife": "4.463 billion years",
+  "halfLifeSec": 140800000000000000,
+  "note": "no stable isotopes; natural (primordial/decay-chain) composition per CIAAW"
+ },
+ "93": {
+  "A": 237,
+  "stable": false,
+  "halfLife": "2.144 million years",
+  "halfLifeSec": 67660000000000,
+  "halfLifeCIAAW": "2144(7) ka"
+ },
+ "94": {
+  "A": 244,
+  "stable": false,
+  "halfLife": "81.3 million years",
+  "halfLifeSec": 2566000000000000,
+  "halfLifeCIAAW": "81.3(3) Ma"
+ },
+ "95": {
+  "A": 243,
+  "stable": false,
+  "halfLife": "7.350 thousand years",
+  "halfLifeSec": 231900000000,
+  "halfLifeCIAAW": "7.350(9) ka"
+ },
+ "96": {
+  "A": 247,
+  "stable": false,
+  "halfLife": "15.6 million years",
+  "halfLifeSec": 492300000000000,
+  "halfLifeCIAAW": "15.6(5) Ma"
+ },
+ "97": {
+  "A": 247,
+  "stable": false,
+  "halfLife": "1.38 thousand years",
+  "halfLifeSec": 43550000000,
+  "halfLifeCIAAW": "1.38(25) ka"
+ },
+ "98": {
+  "A": 251,
+  "stable": false,
+  "halfLife": "898 years",
+  "halfLifeSec": 28340000000,
+  "halfLifeCIAAW": "898(44) a"
+ },
+ "99": {
+  "A": 252,
+  "stable": false,
+  "halfLife": "471.7 days",
+  "halfLifeSec": 40750000,
+  "halfLifeCIAAW": "471.7(1.9) d"
+ },
+ "100": {
+  "A": 257,
+  "stable": false,
+  "halfLife": "100.5 days",
+  "halfLifeSec": 8683000,
+  "halfLifeCIAAW": "100.5(2) d"
+ },
+ "101": {
+  "A": 258,
+  "stable": false,
+  "halfLife": "51.59 days",
+  "halfLifeSec": 4457000,
+  "halfLifeCIAAW": "51.6(3) d"
+ },
+ "102": {
+  "A": 259,
+  "stable": false,
+  "halfLife": "58 minutes",
+  "halfLifeSec": 3480,
+  "halfLifeCIAAW": "58(5) min"
+ },
+ "103": {
+  "A": 266,
+  "stable": false,
+  "halfLife": "22 hours",
+  "halfLifeSec": 79200,
+  "halfLifeCIAAW": "22(14) h",
+  "alt": [
+   {
+    "A": 262,
+    "halfLife": "~4 hours",
+    "halfLifeCIAAW": "approx. 4 h"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "104": {
+  "A": 267,
+  "stable": false,
+  "halfLife": "2.5 hours",
+  "halfLifeSec": 9000,
+  "halfLifeCIAAW": "2.5(1.5) h"
+ },
+ "105": {
+  "A": 268,
+  "stable": false,
+  "halfLife": "29 hours",
+  "halfLifeSec": 104400,
+  "halfLifeCIAAW": "29(3) h"
+ },
+ "106": {
+  "A": 269,
+  "stable": false,
+  "halfLife": "5 minutes",
+  "halfLifeSec": 300,
+  "halfLifeCIAAW": "5(2) min",
+  "alt": [
+   {
+    "A": 271,
+    "halfLife": "2.2 minutes",
+    "halfLifeCIAAW": "2.2(1.1) min"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "107": {
+  "A": 270,
+  "stable": false,
+  "halfLife": "3.8 minutes",
+  "halfLifeSec": 228,
+  "halfLifeCIAAW": "3.8(3.0) min",
+  "alt": [
+   {
+    "A": 274,
+    "halfLife": "57 seconds",
+    "halfLifeCIAAW": "57(27) s"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "108": {
+  "A": 269,
+  "stable": false,
+  "halfLife": "15 seconds",
+  "halfLifeSec": 15,
+  "halfLifeCIAAW": "15(7) s",
+  "alt": [
+   {
+    "A": 270,
+    "halfLife": "9 seconds",
+    "halfLifeCIAAW": "9(4) s"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "109": {
+  "A": 277,
+  "stable": false,
+  "halfLife": "9 seconds",
+  "halfLifeSec": 9,
+  "halfLifeCIAAW": "9(6) s",
+  "alt": [
+   {
+    "A": 278,
+    "halfLife": "6 seconds",
+    "halfLifeCIAAW": "6(3) s"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "110": {
+  "A": 281,
+  "stable": false,
+  "halfLife": "14 seconds",
+  "halfLifeSec": 14,
+  "halfLifeCIAAW": "14(3) s"
+ },
+ "111": {
+  "A": 282,
+  "stable": false,
+  "halfLife": "130 seconds",
+  "halfLifeSec": 130,
+  "halfLifeCIAAW": "130(50) s"
+ },
+ "112": {
+  "A": 285,
+  "stable": false,
+  "halfLife": "30 seconds",
+  "halfLifeSec": 30,
+  "halfLifeCIAAW": "30(8) s"
+ },
+ "113": {
+  "A": 286,
+  "stable": false,
+  "halfLife": "12 seconds",
+  "halfLifeSec": 12,
+  "halfLifeCIAAW": "12(5) s",
+  "alt": [
+   {
+    "A": 285,
+    "halfLife": "4.6 seconds",
+    "halfLifeCIAAW": "4.6(1.1) s"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "114": {
+  "A": 290,
+  "stable": false,
+  "halfLife": "80 seconds",
+  "halfLifeSec": 80,
+  "halfLifeCIAAW": "80(60) s",
+  "alt": [
+   {
+    "A": 289,
+    "halfLife": "2.1 seconds",
+    "halfLifeCIAAW": "2.1(6) s"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "115": {
+  "A": 290,
+  "stable": false,
+  "halfLife": "840 milliseconds",
+  "halfLifeSec": 0.84,
+  "halfLifeCIAAW": "840(360) ms",
+  "alt": [
+   {
+    "A": 288,
+    "halfLife": "177 milliseconds",
+    "halfLifeCIAAW": "177(20) ms"
+   },
+   {
+    "A": 289,
+    "halfLife": "410 milliseconds",
+    "halfLifeCIAAW": "410(150) ms"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "116": {
+  "A": 293,
+  "stable": false,
+  "halfLife": "70 milliseconds",
+  "halfLifeSec": 0.07,
+  "halfLifeCIAAW": "70(30) ms",
+  "alt": [
+   {
+    "A": 291,
+    "halfLife": "26 milliseconds",
+    "halfLifeCIAAW": "26(12) ms"
+   },
+   {
+    "A": 292,
+    "halfLife": "16 milliseconds",
+    "halfLifeCIAAW": "16(6) ms"
+   }
+  ],
+  "note": "CIAAW lists several candidates; half-lives overlap within uncertainty"
+ },
+ "117": {
+  "A": 294,
+  "stable": false,
+  "halfLife": "70 milliseconds",
+  "halfLifeSec": 0.07,
+  "halfLifeCIAAW": "70(30) ms"
+ },
+ "118": {
+  "A": 294,
+  "stable": false,
+  "halfLife": "0.7 milliseconds",
+  "halfLifeSec": 0.0007,
+  "halfLifeCIAAW": "0.7(3) ms"
+ },
+ "_meta": {
+  "description": "Representative isotope per element. Natural elements: most abundant isotope (CIAAW 2024 representative isotopic composition; interval midpoint when only a range is given). Elements without stable isotopes and without a CIAAW natural composition: longest-lived isotope (CIAAW list of most stable isotopes, from NUBASE2020; longest central half-life, alternatives in alt).",
+  "sources": [
+   "CIAAW Isotopic Compositions of the Elements 2024 https://ciaaw.org/isotopic-abundances.htm",
+   "CIAAW Radioactive elements (most stable isotopes, NUBASE2020) https://ciaaw.org/radioactive-elements.htm",
+   "NUBASE2020: F.G. Kondev et al., Chin. Phys. C 45, 030001 (2021) https://www-nds.iaea.org/amdc/ame2020/nubase_4.mas20.txt"
+  ],
+  "fields": {
+   "A": "mass number",
+   "stable": "element has at least one stable isotope (Bi treated as stable)",
+   "abundancePct": "natural abundance of isotope A (%)",
+   "abundanceRangePct": "CIAAW interval when composition varies in nature",
+   "halfLife": "half-life of isotope A when it is radioactive",
+   "halfLifeSec": "half-life in seconds",
+   "stableIsotopes": "number of stable nuclides (NUBASE2020 \"stbl\", incl. Ta-180m)",
+   "alt": "other CIAAW candidates for most stable isotope"
+  },
+  "generated": "2026-09-29"
+ }
+}

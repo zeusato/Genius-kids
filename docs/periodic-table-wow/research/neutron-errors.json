@@ -1,0 +1,364 @@
+[
+ {
+  "Z": 28,
+  "sym": "Ni",
+  "atomicMass": 58.693,
+  "appA": 59,
+  "appN": 31,
+  "correctA": 58,
+  "correctN": 30,
+  "status": "radioactive (t1/2 81 thousand years), not natural"
+ },
+ {
+  "Z": 29,
+  "sym": "Cu",
+  "atomicMass": 63.546,
+  "appA": 64,
+  "appN": 35,
+  "correctA": 63,
+  "correctN": 34,
+  "status": "radioactive (t1/2 12.7004 hours), not natural"
+ },
+ {
+  "Z": 30,
+  "sym": "Zn",
+  "atomicMass": 65.38,
+  "appA": 65,
+  "appN": 35,
+  "correctA": 64,
+  "correctN": 34,
+  "status": "radioactive (t1/2 243.94 days), not natural"
+ },
+ {
+  "Z": 31,
+  "sym": "Ga",
+  "atomicMass": 69.723,
+  "appA": 70,
+  "appN": 39,
+  "correctA": 69,
+  "correctN": 38,
+  "status": "radioactive (t1/2 21.14 minutes), not natural"
+ },
+ {
+  "Z": 32,
+  "sym": "Ge",
+  "atomicMass": 72.63,
+  "appA": 73,
+  "appN": 41,
+  "correctA": 74,
+  "correctN": 42,
+  "status": "stable, but only 7.76% abundance"
+ },
+ {
+  "Z": 34,
+  "sym": "Se",
+  "atomicMass": 78.971,
+  "appA": 79,
+  "appN": 45,
+  "correctA": 80,
+  "correctN": 46,
+  "status": "radioactive (t1/2 327 thousand years), not natural"
+ },
+ {
+  "Z": 35,
+  "sym": "Br",
+  "atomicMass": 79.904,
+  "appA": 80,
+  "appN": 45,
+  "correctA": 79,
+  "correctN": 44,
+  "status": "radioactive (t1/2 17.68 minutes), not natural"
+ },
+ {
+  "Z": 40,
+  "sym": "Zr",
+  "atomicMass": 91.224,
+  "appA": 91,
+  "appN": 51,
+  "correctA": 90,
+  "correctN": 50,
+  "status": "stable, but only 11.23% abundance"
+ },
+ {
+  "Z": 42,
+  "sym": "Mo",
+  "atomicMass": 95.95,
+  "appA": 96,
+  "appN": 54,
+  "correctA": 98,
+  "correctN": 56,
+  "status": "stable, but only 16.67% abundance"
+ },
+ {
+  "Z": 43,
+  "sym": "Tc",
+  "atomicMass": 98,
+  "appA": 98,
+  "appN": 55,
+  "correctA": 97,
+  "correctN": 54,
+  "status": "radioactive (t1/2 4.2 million years), not natural",
+  "alt": [
+   98
+  ]
+ },
+ {
+  "Z": 44,
+  "sym": "Ru",
+  "atomicMass": 101.07,
+  "appA": 101,
+  "appN": 57,
+  "correctA": 102,
+  "correctN": 58,
+  "status": "stable, but only 17.06% abundance"
+ },
+ {
+  "Z": 47,
+  "sym": "Ag",
+  "atomicMass": 107.87,
+  "appA": 108,
+  "appN": 61,
+  "correctA": 107,
+  "correctN": 60,
+  "status": "radioactive (t1/2 2.382 minutes), not natural"
+ },
+ {
+  "Z": 48,
+  "sym": "Cd",
+  "atomicMass": 112.41,
+  "appA": 112,
+  "appN": 64,
+  "correctA": 114,
+  "correctN": 66,
+  "status": "stable, but only 24.11% abundance"
+ },
+ {
+  "Z": 50,
+  "sym": "Sn",
+  "atomicMass": 118.71,
+  "appA": 119,
+  "appN": 69,
+  "correctA": 120,
+  "correctN": 70,
+  "status": "stable, but only 8.59% abundance"
+ },
+ {
+  "Z": 51,
+  "sym": "Sb",
+  "atomicMass": 121.76,
+  "appA": 122,
+  "appN": 71,
+  "correctA": 121,
+  "correctN": 70,
+  "status": "radioactive (t1/2 2.7238 days), not natural"
+ },
+ {
+  "Z": 52,
+  "sym": "Te",
+  "atomicMass": 127.6,
+  "appA": 128,
+  "appN": 76,
+  "correctA": 130,
+  "correctN": 78,
+  "status": "radioactive (t1/2 2.25×10^24 years), natural 31.74%"
+ },
+ {
+  "Z": 54,
+  "sym": "Xe",
+  "atomicMass": 131.29,
+  "appA": 131,
+  "appN": 77,
+  "correctA": 132,
+  "correctN": 78,
+  "status": "stable, but only 21.23% abundance"
+ },
+ {
+  "Z": 56,
+  "sym": "Ba",
+  "atomicMass": 137.33,
+  "appA": 137,
+  "appN": 81,
+  "correctA": 138,
+  "correctN": 82,
+  "status": "stable, but only 11.23% abundance"
+ },
+ {
+  "Z": 60,
+  "sym": "Nd",
+  "atomicMass": 144.24,
+  "appA": 144,
+  "appN": 84,
+  "correctA": 142,
+  "correctN": 82,
+  "status": "radioactive (t1/2 2.29×10^15 years), natural 23.8%"
+ },
+ {
+  "Z": 62,
+  "sym": "Sm",
+  "atomicMass": 150.36,
+  "appA": 150,
+  "appN": 88,
+  "correctA": 152,
+  "correctN": 90,
+  "status": "stable, but only 7.37% abundance"
+ },
+ {
+  "Z": 63,
+  "sym": "Eu",
+  "atomicMass": 151.96,
+  "appA": 152,
+  "appN": 89,
+  "correctA": 153,
+  "correctN": 90,
+  "status": "radioactive (t1/2 13.517 years), not natural"
+ },
+ {
+  "Z": 64,
+  "sym": "Gd",
+  "atomicMass": 157.25,
+  "appA": 157,
+  "appN": 93,
+  "correctA": 158,
+  "correctN": 94,
+  "status": "stable, but only 15.66% abundance"
+ },
+ {
+  "Z": 66,
+  "sym": "Dy",
+  "atomicMass": 162.5,
+  "appA": 163,
+  "appN": 97,
+  "correctA": 164,
+  "correctN": 98,
+  "status": "stable, but only 24.9% abundance"
+ },
+ {
+  "Z": 68,
+  "sym": "Er",
+  "atomicMass": 167.26,
+  "appA": 167,
+  "appN": 99,
+  "correctA": 166,
+  "correctN": 98,
+  "status": "stable, but only 22.87% abundance"
+ },
+ {
+  "Z": 70,
+  "sym": "Yb",
+  "atomicMass": 173.05,
+  "appA": 173,
+  "appN": 103,
+  "correctA": 174,
+  "correctN": 104,
+  "status": "stable, but only 16.1% abundance"
+ },
+ {
+  "Z": 72,
+  "sym": "Hf",
+  "atomicMass": 178.49,
+  "appA": 178,
+  "appN": 106,
+  "correctA": 180,
+  "correctN": 108,
+  "status": "stable, but only 27.28% abundance"
+ },
+ {
+  "Z": 75,
+  "sym": "Re",
+  "atomicMass": 186.21,
+  "appA": 186,
+  "appN": 111,
+  "correctA": 187,
+  "correctN": 112,
+  "status": "radioactive (t1/2 3.7185 days), not natural"
+ },
+ {
+  "Z": 76,
+  "sym": "Os",
+  "atomicMass": 190.23,
+  "appA": 190,
+  "appN": 114,
+  "correctA": 192,
+  "correctN": 116,
+  "status": "stable, but only 26.26% abundance"
+ },
+ {
+  "Z": 77,
+  "sym": "Ir",
+  "atomicMass": 192.22,
+  "appA": 192,
+  "appN": 115,
+  "correctA": 193,
+  "correctN": 116,
+  "status": "radioactive (t1/2 73.820 days), not natural"
+ },
+ {
+  "Z": 80,
+  "sym": "Hg",
+  "atomicMass": 200.59,
+  "appA": 201,
+  "appN": 121,
+  "correctA": 202,
+  "correctN": 122,
+  "status": "stable, but only 13.17% abundance"
+ },
+ {
+  "Z": 81,
+  "sym": "Tl",
+  "atomicMass": 204.38,
+  "appA": 204,
+  "appN": 123,
+  "correctA": 205,
+  "correctN": 124,
+  "status": "radioactive (t1/2 3.783 years), not natural"
+ },
+ {
+  "Z": 82,
+  "sym": "Pb",
+  "atomicMass": 207.2,
+  "appA": 207,
+  "appN": 125,
+  "correctA": 208,
+  "correctN": 126,
+  "status": "stable, but only 11.93% abundance"
+ },
+ {
+  "Z": 108,
+  "sym": "Hs",
+  "atomicMass": 277,
+  "appA": 277,
+  "appN": 169,
+  "correctA": 269,
+  "correctN": 161,
+  "status": "radioactive (t1/2 12 milliseconds), not natural",
+  "alt": [
+   270
+  ]
+ },
+ {
+  "Z": 109,
+  "sym": "Mt",
+  "atomicMass": 278,
+  "appA": 278,
+  "appN": 169,
+  "correctA": 277,
+  "correctN": 168,
+  "status": "radioactive (t1/2 6 seconds), not natural",
+  "alt": [
+   278
+  ]
+ },
+ {
+  "Z": 114,
+  "sym": "Fl",
+  "atomicMass": 289,
+  "appA": 289,
+  "appN": 175,
+  "correctA": 290,
+  "correctN": 176,
+  "status": "radioactive (t1/2 2.1 seconds), not natural",
+  "alt": [
+   289
+  ]
+ }
+]

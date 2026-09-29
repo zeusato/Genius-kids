@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Periodic specimens proto</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; font-family: system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b 50%, #0f172a); }
+  .grid { position: absolute; left: 24px; bottom: 24px; display: grid; grid-template-columns: repeat(6, 60px); gap: 4px; }
+  .cell { width: 60px; height: 60px; border-radius: 8px; border: 2px solid var(--c); box-sizing: border-box;
+    background: color-mix(in srgb, var(--c) 13%, transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--c) 50%, transparent), inset 0 0 10px color-mix(in srgb, var(--c) 50%, transparent);
+    color: var(--c); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+  .cell small { font-size: 9px; font-weight: 500; opacity: .8 }
+  canvas { position: fixed; inset: 0; pointer-events: none; }
+  .lbl { position: fixed; color: #e2e8f0; font-size: 13px; text-align: center; transform: translateX(-50%); text-shadow: 0 1px 4px #000; }
+  .lbl b { display: block; font-size: 15px; }
+  #mode { position: fixed; right: 12px; top: 10px; color: #94a3b8; font-size: 12px; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/",
+  "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.39.1/build/index.js"
+} }
+</script>
+</head>
+<body>
+<div class="grid" id="grid"></div>
+<div id="mode"></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { EffectComposer, RenderPass, EffectPass, BloomEffect, ToneMappingEffect, ToneMappingMode } from 'postprocessing';
+
+const q = new URLSearchParams(location.search);
+const FX = q.get('fx') !== '0';
+const T_FIXED = q.has('t') ? +q.get('t') : null;   // thời điểm cố định cho ảnh chụp
+
+// --- lưới DOM giả (để thử phát sáng cộng lên DOM qua canvas trong suốt)
+const CELLS = [['Au', 'Vàng', '#FFD43B'], ['Ne', 'Neon', '#DA77F2'], ['Hg', 'Thủy ngân', '#FFD43B'], ['Bi', 'Bitmut', '#69DB7C'], ['C', 'Cacbon', '#4DABF7'], ['Na', 'Natri', '#FF6B6B'],
+  ['Cu', 'Đồng', '#FFD43B'], ['He', 'Heli', '#DA77F2'], ['Br', 'Brom', '#748FFC'], ['S', 'Lưu huỳnh', '#4DABF7'], ['U', 'Urani', '#E599F7'], ['Og', 'Oganesson', '#DA77F2']];
+const grid = document.getElementById('grid');
+for (const [s, n, c] of CELLS) { const d = document.createElement('div'); d.className = 'cell'; d.style.setProperty('--c', c); d.innerHTML = `${s}<small>${n}</small>`; grid.appendChild(d); }
+document.getElementById('mode').textContent = FX ? 'composer: bloom + alpha' : 'no composer (halo only)';
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !FX, premultipliedAlpha: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+renderer.setSize(innerWidth, innerHeight);
+renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = FX ? THREE.NoToneMapping : THREE.NeutralToneMapping;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 100);
+const WSCENE = 12.6; function fit(){ camera.aspect = innerWidth / innerHeight; const d = (WSCENE/2) / (Math.tan(THREE.MathUtils.degToRad(16)) * camera.aspect); camera.position.set(0, 0.6, d); camera.lookAt(0, 0.3, 0); camera.updateProjectionMatrix(); }
+fit();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const key = new THREE.DirectionalLight(0xffffff, 1.2); key.position.set(3, 5, 4); scene.add(key);
+
+// ---------- 1. khối vàng 1 cm³
+const gold = new THREE.Mesh(new RoundedBoxGeometry(1.5, 1.5, 1.5, 6, 0.1),
+  new THREE.MeshPhysicalMaterial({ color: new THREE.Color().setRGB(1.0, 0.71, 0.29), metalness: 1, roughness: 0.16 }));
+gold.position.set(-4.6, 0.9, 0); scene.add(gold);
+// khối đồng nhỏ bên cạnh
+const copper = new THREE.Mesh(new RoundedBoxGeometry(0.9, 0.9, 0.9, 5, 0.07),
+  new THREE.MeshPhysicalMaterial({ color: new THREE.Color().setRGB(0.95, 0.64, 0.54), metalness: 1, roughness: 0.3 }));
+copper.position.set(-4.6, -1.0, 0.3); scene.add(copper);
+
+// ---------- 2. ống phóng điện neon: lõi phát sáng + vỏ thủy tinh + quầng
+const neonColor = new THREE.Color('#ff5a1f');
+const path = new THREE.CatmullRomCurve3([
+  new THREE.Vector3(-0.7, -1.3, 0), new THREE.Vector3(-0.7, 0.8, 0), new THREE.Vector3(-0.35, 1.25, 0),
+  new THREE.Vector3(0.35, 1.25, 0), new THREE.Vector3(0.7, 0.8, 0), new THREE.Vector3(0.7, -1.3, 0)]);
+const tube = new THREE.Group(); tube.position.set(-1.9, 0.3, 0); scene.add(tube);
+tube.add(new THREE.Mesh(new THREE.TubeGeometry(path, 160, 0.045, 12), new THREE.MeshBasicMaterial({ color: neonColor.clone().multiplyScalar(FX ? 3.2 : 1.6) })));
+tube.add(new THREE.Mesh(new THREE.TubeGeometry(path, 160, 0.11, 24),
+  new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: 0.02, transparent: true, opacity: 0.18, envMapIntensity: 1.4, depthWrite: false })));
+const haloMat = new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  uniforms: { uColor: { value: neonColor }, uStrength: { value: FX ? 0.35 : 0.9 } },
+  vertexShader: `varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); vN = normalize(normalMatrix*normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
+  fragmentShader: `uniform vec3 uColor; uniform float uStrength; varying vec3 vN; varying vec3 vV; void main(){ float f = pow(max(dot(normalize(vN), normalize(vV)), 0.), 2.5); gl_FragColor = vec4(uColor*f*uStrength, f*uStrength); }`
+});
+tube.add(new THREE.Mesh(new THREE.TubeGeometry(path, 160, 0.42, 24), haloMat));
+// điện cực
+for (const x of [-0.7, 0.7]) { const e = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.35, 20), new THREE.MeshStandardMaterial({ color: 0x777777, metalness: 1, roughness: 0.35 })); e.position.set(x, -1.45, 0); tube.add(e); }
+
+// ---------- 3. tinh thể bitmut "phễu" (hopper): khung vuông lồng nhau, xoắn nhẹ, óng ánh
+const bi = new THREE.Group(); bi.position.set(0.7, -0.2, 0); scene.add(bi);
+const biMat = new THREE.MeshPhysicalMaterial({ color: new THREE.Color().setRGB(0.78, 0.76, 0.8), metalness: 1, roughness: 0.22,
+  iridescence: 1, iridescenceIOR: 2.0, iridescenceThicknessRange: [180, 900] });
+const FILM = ["#f6c453", "#f59e0b", "#e879f9", "#a855f7", "#3b82f6", "#22d3ee", "#34d399", "#facc15"].map(c => new THREE.Color(c));
+function ringMat(i, seed) { const f = (i * 0.9 + seed * 5) % FILM.length; const a = FILM[Math.floor(f)], b = FILM[(Math.floor(f) + 1) % FILM.length]; return new THREE.MeshPhysicalMaterial({ color: a.clone().lerp(b, f % 1), metalness: 1, roughness: 0.2, iridescence: 0.6, iridescenceIOR: 1.6, iridescenceThicknessRange: [120, 480] }); }
+function hopper(g, size, levels, seedRot) {
+  for (let i = 0; i < levels; i++) {
+    const s = size * (1 - i / (levels + 1.5)), th = 0.07, y = i * 0.075;
+    const ring = new THREE.Group(); ring.position.y = y; ring.rotation.y = seedRot + i * 0.035;
+    for (let k = 0; k < 4; k++) {
+      const bar = new THREE.Mesh(new THREE.BoxGeometry(s, 0.07, th), ringMat(i, seedRot));
+      const a = k * Math.PI / 2; bar.position.set(Math.sin(a) * s / 2, 0, Math.cos(a) * s / 2); bar.rotation.y = a; ring.add(bar);
+    }
+    g.add(ring);
+  }
+}
+const h1 = new THREE.Group(); hopper(h1, 1.6, 12, 0); bi.add(h1);
+const h2 = new THREE.Group(); hopper(h2, 1.0, 9, 0.4); h2.position.set(0.55, 0.62, 0.3); h2.rotation.set(0.5, 0.3, -0.9); bi.add(h2);
+const h3 = new THREE.Group(); hopper(h3, 0.8, 8, 0.8); h3.position.set(-0.6, 0.5, -0.2); h3.rotation.set(-0.3, 0.2, 0.8); bi.add(h3);
+bi.rotation.x = 0.55;
+
+// ---------- 4. giọt thủy ngân rung rinh trên đĩa
+const hgMat = new THREE.MeshPhysicalMaterial({ color: new THREE.Color().setRGB(0.8, 0.8, 0.83), metalness: 1, roughness: 0.04 });
+const hgUniform = { value: 0 };
+hgMat.onBeforeCompile = (s) => {
+  s.uniforms.uT = hgUniform;
+  s.vertexShader = 'uniform float uT;\n' + s.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>
+    float w = sin(position.x*6.0 + uT*3.1)*0.018 + sin(position.z*7.0 - uT*2.3)*0.016;
+    transformed += normal * w * smoothstep(-0.2, 0.3, position.y);`);
+};
+const hg = new THREE.Mesh(new THREE.SphereGeometry(0.62, 128, 64), hgMat);
+hg.scale.set(1.25, 0.5, 1.25); hg.position.set(3.0, -0.95, 0.4); scene.add(hg);
+const dish = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.2, 0.12, 64), new THREE.MeshPhysicalMaterial({ color: 0xbfdcff, roughness: 0.05, transparent: true, opacity: 0.35, depthWrite: false }));
+dish.position.set(3.0, -1.28, 0.4); scene.add(dish);
+
+// ---------- 5. đám mây electron 3d_z² + 2p (điểm lấy mẫu từ mật độ xác suất) & hạt nhân Au-197
+const cloud = new THREE.Group(); cloud.position.set(3.1, 1.3, -0.5); scene.add(cloud);
+function rng(seed) { return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+const R = rng(7);
+function sampleOrbital(kind, n, scale) {
+  const pos = [], col = [];
+  const cA = new THREE.Color('#38bdf8'), cB = new THREE.Color('#f472b6');
+  let tries = 0;
+  while (pos.length / 3 < n && tries < n * 400) {
+    tries++;
+    const x = (R() * 2 - 1) * 14, y = (R() * 2 - 1) * 14, z = (R() * 2 - 1) * 14;
+    const r = Math.hypot(x, y, z) + 1e-6, ct = z / r;
+    let psi;
+    if (kind === 'dz2') psi = r * r * Math.exp(-r / 3) * (3 * ct * ct - 1) / 30;       // 3d_z²
+    else psi = r * Math.exp(-r / 2) * ct / 2.5;                                        // 2p_z
+    const p = psi * psi;
+    if (R() < p * (kind === 'dz2' ? 0.9 : 3.2)) {
+      pos.push(x * scale, z * scale, y * scale);
+      const c = psi >= 0 ? cA : cB; col.push(c.r, c.g, c.b);
+    }
+  }
+  return { pos, col };
+}
+const { pos, col } = sampleOrbital('dz2', 26000, 0.085);
+const g = new THREE.BufferGeometry();
+g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+const dotTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const gr = x.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.35, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = gr; x.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+cloud.add(new THREE.Points(g, new THREE.PointsMaterial({ size: 0.05, map: dotTex, vertexColors: true, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending })));
+// hạt nhân Au-197: 79 p + 118 n, xếp khít bằng vài vòng đẩy nhau (tất định)
+const A = 197, Z = 79, rN = 0.055;
+const P = []; for (let i = 0; i < A; i++) { const u = R() * 2 - 1, t = R() * Math.PI * 2, rr = Math.cbrt(R()) * rN * 5.5; const s = Math.sqrt(1 - u * u); P.push(new THREE.Vector3(Math.cos(t) * s * rr, Math.sin(t) * s * rr, u * rr)); }
+for (let it = 0; it < 60; it++) {
+  for (let i = 0; i < A; i++) for (let j = i + 1; j < A; j++) { const d = P[i].clone().sub(P[j]); const L = d.length(); if (L < rN * 2) { d.multiplyScalar((rN * 2 - L) / (L + 1e-6) * 0.5); P[i].add(d); P[j].sub(d); } }
+  for (const p of P) p.multiplyScalar(0.985);
+}
+const nuc = new THREE.InstancedMesh(new THREE.SphereGeometry(rN, 16, 12), new THREE.MeshStandardMaterial({ roughness: 0.45, metalness: 0.05 }), A);
+const idx = [...Array(A).keys()].sort(() => R() - 0.5);
+const m4 = new THREE.Matrix4();
+idx.forEach((k, i) => { m4.setPosition(P[i]); nuc.setMatrixAt(i, m4); nuc.setColorAt(i, new THREE.Color(k < Z ? '#ef4444' : '#60a5fa')); });
+cloud.add(nuc);
+
+// ---------- 6. bụi sao bay lên từ các ô DOM (thử cộng sáng qua canvas trong suốt)
+const NP = 900;
+const sp = new Float32Array(NP * 3), seeds = new Float32Array(NP), cellOf = new Float32Array(NP);
+for (let i = 0; i < NP; i++) { seeds[i] = R(); cellOf[i] = Math.floor(R() * CELLS.length); }
+const sg = new THREE.BufferGeometry();
+sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+const sparkColors = new Float32Array(NP * 3);
+for (let i = 0; i < NP; i++) { const c = new THREE.Color(CELLS[cellOf[i]][2]); sparkColors.set([c.r, c.g, c.b], i * 3); }
+sg.setAttribute('color', new THREE.BufferAttribute(sparkColors, 3));
+const sparks = new THREE.Points(sg, new THREE.PointsMaterial({ size: 0.075, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(sparks);
+const _v = new THREE.Vector3(), _dir = new THREE.Vector3();
+function screenToWorld(x, y, out) {   // giao tia qua pixel (x,y) với mặt z = 0
+  _v.set((x / innerWidth) * 2 - 1, -(y / innerHeight) * 2 + 1, 0.5).unproject(camera);
+  _dir.copy(_v).sub(camera.position).normalize();
+  const t = -camera.position.z / _dir.z; return out.copy(camera.position).addScaledVector(_dir, t);
+}
+
+// ---------- nhãn
+const labels = [[gold, 'Vàng · 1 cm³ = 19,3 g', 'Au'], [tube, 'Ống khí Neon', 'Ne'], [bi, 'Tinh thể Bitmut', 'Bi'], [hg, 'Giọt Thủy ngân', 'Hg'], [cloud, 'Mây electron 3d · hạt nhân Au-197', '']];
+const lblEls = labels.map(([, t, s]) => { const d = document.createElement('div'); d.className = 'lbl'; d.innerHTML = `<b>${s}</b>${t}`; document.body.appendChild(d); return d; });
+
+let composer = null;
+if (FX) {
+  composer = new EffectComposer(renderer, { frameBufferType: THREE.HalfFloatType, multisampling: 4 });
+  composer.addPass(new RenderPass(scene, camera));
+  composer.addPass(new EffectPass(camera, new BloomEffect({ intensity: 1.1, luminanceThreshold: 0.85, luminanceSmoothing: 0.2, mipmapBlur: true, radius: 0.7 }), new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL })));
+}
+function resize() { renderer.setSize(innerWidth, innerHeight); composer?.setSize(innerWidth, innerHeight); fit(); }
+addEventListener('resize', resize);
+
+const clock = new THREE.Clock();
+const cellRects = () => [...grid.children].map(el => el.getBoundingClientRect());
+function frame() {
+  const t = T_FIXED ?? clock.getElapsedTime();
+  gold.rotation.set(0.45, t * 0.4 + 0.6, 0.12); copper.rotation.set(0.3, -t * 0.3 + 2, 0);
+  tube.rotation.y = Math.sin(t * 0.5) * 0.5;
+  bi.rotation.y = t * 0.25 + 0.3;
+  hgUniform.value = t;
+  cloud.rotation.set(0.35, t * 0.2, 0);
+  const rects = cellRects();
+  for (let i = 0; i < NP; i++) {
+    const r = rects[cellOf[i]], life = (seeds[i] + t * 0.12) % 1;
+    const x = r.left + r.width * (0.15 + 0.7 * ((seeds[i] * 7.31) % 1)), y = r.top + r.height * 0.5 - life * 190;
+    screenToWorld(x + Math.sin(t * 2 + seeds[i] * 30) * 6, y, _v);
+    sp.set([_v.x, _v.y, _v.z], i * 3);
+  }
+  sg.attributes.position.needsUpdate = true;
+  labels.forEach(([o], i) => { const p = o.getWorldPosition(new THREE.Vector3()); p.y -= o === cloud ? 1.3 : 1.45; p.project(camera); lblEls[i].style.left = ((p.x + 1) / 2 * innerWidth) + 'px'; lblEls[i].style.top = ((1 - p.y) / 2 * innerHeight) + 'px'; });
+  if (composer) composer.render(); else renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+frame();
+window.__proto = { renderer, scene, camera };
+</script>
+</body>
+</html>

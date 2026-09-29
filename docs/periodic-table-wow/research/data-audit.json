@@ -1,0 +1,734 @@
+{
+ "mass": [
+  {
+   "Z": 43,
+   "sym": "Tc",
+   "ours": 98,
+   "ref": "mass number 97 or 98 (CIAAW)",
+   "pubchem": 96.90636,
+   "halfLives": [
+    {
+     "A": 97,
+     "halfLife": "4.21(16) Ma"
+    },
+    {
+     "A": 98,
+     "halfLife": "4.2(3) Ma"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 103,
+   "sym": "Lr",
+   "ours": 266,
+   "ref": "mass number 262 or 266 (CIAAW)",
+   "pubchem": 266.12,
+   "halfLives": [
+    {
+     "A": 262,
+     "halfLife": "approx. 4 h"
+    },
+    {
+     "A": 266,
+     "halfLife": "22(14) h"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 108,
+   "sym": "Hs",
+   "ours": 277,
+   "ref": "mass number 269 or 270 (CIAAW/NUBASE2020 most stable)",
+   "pubchem": 269.1336,
+   "halfLives": [
+    {
+     "A": 269,
+     "halfLife": "15(7) s"
+    },
+    {
+     "A": 270,
+     "halfLife": "9(4) s"
+    }
+   ]
+  },
+  {
+   "Z": 109,
+   "sym": "Mt",
+   "ours": 278,
+   "ref": "mass number 277 or 278 (CIAAW)",
+   "pubchem": 277.154,
+   "halfLives": [
+    {
+     "A": 277,
+     "halfLife": "9(6) s"
+    },
+    {
+     "A": 278,
+     "halfLife": "6(3) s"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 110,
+   "sym": "Ds",
+   "ours": 281,
+   "ref": "mass number 281 (CIAAW)",
+   "pubchem": 282.166,
+   "halfLives": [
+    {
+     "A": 281,
+     "halfLife": "14(3) s"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 112,
+   "sym": "Cn",
+   "ours": 285,
+   "ref": "mass number 285 (CIAAW)",
+   "pubchem": 286.179,
+   "halfLives": [
+    {
+     "A": 285,
+     "halfLife": "30(8) s"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 113,
+   "sym": "Nh",
+   "ours": 286,
+   "ref": "mass number 285 or 286 (CIAAW)",
+   "pubchem": 286.182,
+   "halfLives": [
+    {
+     "A": 285,
+     "halfLife": "4.6(1.1) s"
+    },
+    {
+     "A": 286,
+     "halfLife": "12(5) s"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 114,
+   "sym": "Fl",
+   "ours": 289,
+   "ref": "mass number 289 or 290 (CIAAW)",
+   "pubchem": 290.192,
+   "halfLives": [
+    {
+     "A": 289,
+     "halfLife": "2.1(6) s"
+    },
+    {
+     "A": 290,
+     "halfLife": "80(60) s"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 115,
+   "sym": "Mc",
+   "ours": 290,
+   "ref": "mass number 288 or 289 or 290 (CIAAW)",
+   "pubchem": 290.196,
+   "halfLives": [
+    {
+     "A": 288,
+     "halfLife": "177(20) ms"
+    },
+    {
+     "A": 289,
+     "halfLife": "410(150) ms"
+    },
+    {
+     "A": 290,
+     "halfLife": "840(360) ms"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 116,
+   "sym": "Lv",
+   "ours": 293,
+   "ref": "mass number 291 or 292 or 293 (CIAAW)",
+   "pubchem": 293.205,
+   "halfLives": [
+    {
+     "A": 291,
+     "halfLife": "26(12) ms"
+    },
+    {
+     "A": 292,
+     "halfLife": "16(6) ms"
+    },
+    {
+     "A": 293,
+     "halfLife": "70(30) ms"
+    }
+   ],
+   "minor": true
+  },
+  {
+   "Z": 118,
+   "sym": "Og",
+   "ours": 294,
+   "ref": "mass number 294 (CIAAW)",
+   "pubchem": 295.216,
+   "halfLives": [
+    {
+     "A": 294,
+     "halfLife": "0.7(3) ms"
+    }
+   ],
+   "minor": true
+  }
+ ],
+ "config": [
+  {
+   "Z": 103,
+   "sym": "Lr",
+   "ours": "[Rn] 5f¹⁴ 7s² 7p¹",
+   "ref": "NIST ASD: [Rn].5f14.7s2.7p",
+   "pubchem": "[Rn]7s2 5f14 6d1",
+   "note": "PubChem differs from NIST: 6d: ours 1 vs ref 0; 7p: ours 0 vs ref 1",
+   "infoOnly": true
+  }
+ ],
+ "shells": [],
+ "shellsInternal": [],
+ "mp": [
+  {
+   "Z": 39,
+   "sym": "Y",
+   "ours": 1526,
+   "ref": 1521.85,
+   "delta": 4.15,
+   "relKPct": 0.23
+  },
+  {
+   "Z": 60,
+   "sym": "Nd",
+   "ours": 1024,
+   "ref": 1020.85,
+   "delta": 3.15,
+   "relKPct": 0.24
+  },
+  {
+   "Z": 70,
+   "sym": "Yb",
+   "ours": 824,
+   "ref": 818.85,
+   "delta": 5.15,
+   "relKPct": 0.47
+  },
+  {
+   "Z": 88,
+   "sym": "Ra",
+   "ours": 696,
+   "ref": 699.85,
+   "delta": -3.85,
+   "relKPct": 0.4
+  },
+  {
+   "Z": 97,
+   "sym": "Bk",
+   "ours": 986,
+   "ref": 1049.85,
+   "delta": -63.85,
+   "relKPct": 4.83
+  },
+  {
+   "Z": 104,
+   "sym": "Rf",
+   "ours": 2100,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  }
+ ],
+ "bp": [
+  {
+   "Z": 5,
+   "sym": "B",
+   "ours": 3927,
+   "ref": 3999.85,
+   "delta": -72.85,
+   "relKPct": 1.7
+  },
+  {
+   "Z": 6,
+   "sym": "C",
+   "ours": 4027,
+   "ref": 3824.85,
+   "delta": 202.15,
+   "relKPct": 4.93
+  },
+  {
+   "Z": 56,
+   "sym": "Ba",
+   "ours": 1845,
+   "ref": 1896.85,
+   "delta": -51.85,
+   "relKPct": 2.39
+  },
+  {
+   "Z": 58,
+   "sym": "Ce",
+   "ours": 3443,
+   "ref": 3423.85,
+   "delta": 19.15,
+   "relKPct": 0.52
+  },
+  {
+   "Z": 62,
+   "sym": "Sm",
+   "ours": 1900,
+   "ref": 1793.85,
+   "delta": 106.15,
+   "relKPct": 5.14
+  },
+  {
+   "Z": 85,
+   "sym": "At",
+   "ours": 337,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 87,
+   "sym": "Fr",
+   "ours": 677,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 88,
+   "sym": "Ra",
+   "ours": 1737,
+   "ref": 1139.85,
+   "delta": 597.15,
+   "relKPct": 42.26
+  },
+  {
+   "Z": 91,
+   "sym": "Pa",
+   "ours": 4000,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 96,
+   "sym": "Cm",
+   "ours": 3110,
+   "ref": 3126.85,
+   "delta": -16.85,
+   "relKPct": 0.5
+  },
+  {
+   "Z": 97,
+   "sym": "Bk",
+   "ours": 2627,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 98,
+   "sym": "Cf",
+   "ours": 1470,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 99,
+   "sym": "Es",
+   "ours": 996,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  },
+  {
+   "Z": 104,
+   "sym": "Rf",
+   "ours": 5500,
+   "ref": null,
+   "note": "PubChem has no value (ours may be a prediction/estimate)"
+  }
+ ],
+ "density": [
+  {
+   "Z": 19,
+   "sym": "K",
+   "ours": 0.862,
+   "ref": 0.89,
+   "relPct": 3.1
+  },
+  {
+   "Z": 43,
+   "sym": "Tc",
+   "ours": 11.5,
+   "ref": 11,
+   "relPct": 4.5
+  },
+  {
+   "Z": 87,
+   "sym": "Fr",
+   "ours": 1.87,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 88,
+   "sym": "Ra",
+   "ours": 5.5,
+   "ref": 5,
+   "relPct": 10
+  },
+  {
+   "Z": 97,
+   "sym": "Bk",
+   "ours": 14.79,
+   "ref": 14,
+   "relPct": 5.6
+  },
+  {
+   "Z": 98,
+   "sym": "Cf",
+   "ours": 15.1,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 99,
+   "sym": "Es",
+   "ours": 8.84,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 100,
+   "sym": "Fm",
+   "ours": 9.7,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 101,
+   "sym": "Md",
+   "ours": 10.3,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 102,
+   "sym": "No",
+   "ours": 9.9,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 103,
+   "sym": "Lr",
+   "ours": 14.4,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 104,
+   "sym": "Rf",
+   "ours": 23.2,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 105,
+   "sym": "Db",
+   "ours": 29.3,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 106,
+   "sym": "Sg",
+   "ours": 35,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 107,
+   "sym": "Bh",
+   "ours": 37.1,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 108,
+   "sym": "Hs",
+   "ours": 40.7,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 109,
+   "sym": "Mt",
+   "ours": 37.4,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 110,
+   "sym": "Ds",
+   "ours": 34.8,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 111,
+   "sym": "Rg",
+   "ours": 28.7,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 112,
+   "sym": "Cn",
+   "ours": 23.7,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 113,
+   "sym": "Nh",
+   "ours": 16,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 114,
+   "sym": "Fl",
+   "ours": 14,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 115,
+   "sym": "Mc",
+   "ours": 13.5,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 116,
+   "sym": "Lv",
+   "ours": 12.9,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 117,
+   "sym": "Ts",
+   "ours": 7.2,
+   "ref": null,
+   "note": "PubChem has no value"
+  },
+  {
+   "Z": 118,
+   "sym": "Og",
+   "ours": 4.9,
+   "ref": null,
+   "note": "PubChem has no value"
+  }
+ ],
+ "state": [
+  {
+   "Z": 110,
+   "sym": "Ds",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 111,
+   "sym": "Rg",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 112,
+   "sym": "Cn",
+   "ours": "unknown",
+   "ref": "Expected to be a Solid",
+   "match": false
+  },
+  {
+   "Z": 113,
+   "sym": "Nh",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 114,
+   "sym": "Fl",
+   "ours": "unknown",
+   "ref": "Expected to be a Solid",
+   "match": false
+  },
+  {
+   "Z": 115,
+   "sym": "Mc",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 116,
+   "sym": "Lv",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 117,
+   "sym": "Ts",
+   "ours": "solid",
+   "ref": "Expected to be a Solid",
+   "match": true
+  },
+  {
+   "Z": 118,
+   "sym": "Og",
+   "ours": "unknown",
+   "ref": "Expected to be a Gas",
+   "match": false
+  }
+ ],
+ "discovery": [
+  {
+   "Z": 9,
+   "sym": "F",
+   "ours": 1886,
+   "ref": 1670,
+   "delta": 216
+  },
+  {
+   "Z": 12,
+   "sym": "Mg",
+   "ours": 1755,
+   "ref": 1808,
+   "delta": -53
+  },
+  {
+   "Z": 13,
+   "sym": "Al",
+   "ours": 1825,
+   "ref": "Ancient"
+  },
+  {
+   "Z": 14,
+   "sym": "Si",
+   "ours": 1824,
+   "ref": 1854,
+   "delta": -30
+  },
+  {
+   "Z": 20,
+   "sym": "Ca",
+   "ours": 1808,
+   "ref": "Ancient"
+  },
+  {
+   "Z": 33,
+   "sym": "As",
+   "ours": 1250,
+   "ref": "Ancient"
+  },
+  {
+   "Z": 44,
+   "sym": "Ru",
+   "ours": 1844,
+   "ref": 1827,
+   "delta": 17
+  },
+  {
+   "Z": 104,
+   "sym": "Rf",
+   "ours": 1969,
+   "ref": 1964,
+   "delta": 5
+  },
+  {
+   "Z": 107,
+   "sym": "Bh",
+   "ours": 1981,
+   "ref": 1976,
+   "delta": 5
+  }
+ ],
+ "category": [
+  {
+   "Z": 109,
+   "sym": "Mt",
+   "ours": "unknown",
+   "ref": "Transition metal"
+  },
+  {
+   "Z": 110,
+   "sym": "Ds",
+   "ours": "unknown",
+   "ref": "Transition metal"
+  },
+  {
+   "Z": 111,
+   "sym": "Rg",
+   "ours": "unknown",
+   "ref": "Transition metal"
+  },
+  {
+   "Z": 112,
+   "sym": "Cn",
+   "ours": "unknown",
+   "ref": "Transition metal"
+  },
+  {
+   "Z": 113,
+   "sym": "Nh",
+   "ours": "unknown",
+   "ref": "Post-transition metal"
+  },
+  {
+   "Z": 114,
+   "sym": "Fl",
+   "ours": "unknown",
+   "ref": "Post-transition metal"
+  },
+  {
+   "Z": 115,
+   "sym": "Mc",
+   "ours": "unknown",
+   "ref": "Post-transition metal"
+  },
+  {
+   "Z": 116,
+   "sym": "Lv",
+   "ours": "unknown",
+   "ref": "Post-transition metal"
+  },
+  {
+   "Z": 117,
+   "sym": "Ts",
+   "ours": "unknown",
+   "ref": "Halogen"
+  }
+ ],
+ "missing": []
+}
