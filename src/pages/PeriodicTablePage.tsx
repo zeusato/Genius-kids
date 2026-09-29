@@ -161,7 +161,7 @@ export const PeriodicTablePage: React.FC = () => {
         else if (c === 'geiger') playGeigerClick(); else playWhoosh();
     }, []);
     const chooseExperiment = useCallback((x: ExperimentSpec | null) => {
-        setExperiment(x); live.expStart = performance.now(); live.zoom = 0; setExpPower(true);
+        setExperiment(x); live.expStart = performance.now(); live.zoom = 0; if (x) { live.rotY = Math.round(live.rotY / (Math.PI * 2)) * Math.PI * 2; live.rotX = 0.12; } setExpPower(true);
         if (x) { if (x.id === 'discharge') playZap(); if (selected) { const z = selected.atomicNumber; setCol(c => (c.seen.includes(z) ? c : { ...c, seen: [...c.seen, z] })); } }
     }, [live, selected, setCol]);
     const voice = useCallback((x: ExperimentSpec) => {

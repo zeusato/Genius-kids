@@ -78,7 +78,7 @@ export const ElementStage: React.FC<Props> = ({ el, tier, live, closing, onClose
         live.zoomNow += (live.zoom - live.zoomNow) * Math.min(1, dt * 5);
         if (Math.abs(live.zoom - live.zoomNow) < 0.002) live.zoomNow = live.zoom;
         if (spin.current) {
-            if (!live.dragging && live.zoomNow < 0.5) live.rotY += dt * 0.35;
+            if (!live.dragging && live.zoomNow < 0.5 && !experiment) live.rotY += dt * 0.35;   // thí nghiệm: đứng yên cho dễ nhìn
             const flip = (1 - e) * Math.PI * 1.2;       // lộn một vòng khi bay ra khỏi ô
             spin.current.rotation.y += (live.rotY + flip - spin.current.rotation.y) * Math.min(1, dt * 8);
             spin.current.rotation.x += (live.rotX - spin.current.rotation.x) * Math.min(1, dt * 8);

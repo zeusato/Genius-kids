@@ -366,27 +366,53 @@ const Burn: React.FC<EProps> = ({ el, spec, tier, clock, onCue }) => {
 };
 
 // ---------------------------------------------------------------- ⚖️ nổi hay chìm
-const LIQ: Record<string, { d: number; color: string; metal: boolean }> = { water: { d: 1, color: '#3aa6ff', metal: false }, oil: { d: 0.85, color: '#e0b04e', metal: false }, mercury: { d: 13.53, color: '#d8dadf', metal: true } };
-const FloatSink: React.FC<EProps> = ({ el, spec, tier, clock }) => {
-    const liq = LIQ[String(spec.params?.liquid ?? 'water')];
+// Cốc có nhãn (tên + khối lượng riêng); thí nghiệm "trên thủy ngân" luôn đặt CẠNH cốc nước để thấy sự tương
+// phản (sắt chìm trong nước nhưng nổi trên thủy ngân). Phần chìm = khối lượng riêng vật / khối lượng riêng chất lỏng.
+const LIQ: Record<string, { d: number; color: string; metal: boolean; name: string }> = {
+    water: { d: 1, color: '#3aa6ff', metal: false, name: 'Nước' },
+    oil: { d: 0.85, color: '#e0b04e', metal: false, name: 'Dầu ăn' },
+    mercury: { d: 13.53, color: '#d8dadf', metal: true, name: 'Thủy ngân' },
+};
+function labelTex(lines: [string, string]): THREE.Texture {
+    const c = document.createElement('canvas'); c.width = 256; c.height = 96;
+    const x = c.getContext('2d')!;
+    x.fillStyle = 'rgba(15,23,42,0.85)'; x.beginPath(); x.roundRect(4, 4, 248, 88, 18); x.fill();
+    x.fillStyle = '#ffffff'; x.textAlign = 'center'; x.font = 'bold 36px Verdana'; x.fillText(lines[0], 128, 44);
+    x.fillStyle = '#93c5fd'; x.font = '24px Verdana'; x.fillText(lines[1], 128, 78);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const Beaker: React.FC<{ liq: typeof LIQ[string]; el: ElementFull; tier: QualityTier; clock: { t: number }; x: number; delay: number }> = ({ liq, el, tier, clock, x, delay }) => {
     const glass = useGlass(tier, '#e8f4ff', 0.18);
     const liquidMat = useMemo(() => liq.metal ? new THREE.MeshStandardMaterial({ color: liq.color, metalness: 1, roughness: 0.06, transparent: true, opacity: 0.92 })
         : new THREE.MeshStandardMaterial({ color: liq.color, transparent: true, opacity: 0.4, roughness: 0.1, depthWrite: false }), [liq]);
     const cube = useSurface(tier, { color: el.specimen.color, metal: true, roughness: 0.25 });
+    const d = el.density ?? 1, sub = Math.min(1, d / liq.d), floats = sub < 1;
+    const label = useMemo(() => new THREE.MeshBasicMaterial({ map: labelTex([liq.name, `${liq.d.toLocaleString('vi-VN')} g/cm³`]), transparent: true }), [liq]);
+    const verdict = useMemo(() => new THREE.MeshBasicMaterial({ map: labelTex([floats ? 'NỔI ⬆' : 'CHÌM ⬇', floats ? 'nhẹ hơn chất lỏng' : 'nặng hơn chất lỏng']), transparent: true, opacity: 0 }), [floats]);
     const ref = useRef<THREE.Mesh>(null);
-    const d = el.density ?? 1;
-    const sub = Math.min(1, d / liq.d);
+    const R = 0.46, H = 1.3, top = 0.05, bottom = -0.6, size = 0.3;
     useFrame(() => {
-        const t = clock.t, k = easeOut(t / 1.4);
-        const surface = 0.1, size = 0.36;
-        const restY = sub >= 1 ? -0.72 + size / 2 : surface + size / 2 - sub * size;
-        if (ref.current) { ref.current.position.y = 1.2 + (restY - 1.2) * k + (sub < 1 && k >= 1 ? Math.sin(t * 2) * 0.01 : 0); ref.current.rotation.y = t * 0.3; }
+        const t = clock.t - delay, k = easeOut(t / 1.3);
+        const restY = floats ? top + size / 2 - sub * size : bottom + size / 2 + 0.02;
+        if (ref.current) { ref.current.position.y = 1.1 + (restY - 1.1) * clamp01(k) + (floats && k >= 1 ? Math.sin(clock.t * 2) * 0.008 : 0); ref.current.rotation.y = clock.t * 0.3; }
+        verdict.opacity = clamp01((t - 1.4) / 0.4);
     });
     return (
-        <group position={[0, -0.2, 0]}>
-            <mesh material={glass}><cylinderGeometry args={[0.8, 0.8, 1.7, 48, 1, true]} /></mesh>
-            <mesh material={liquidMat} position={[0, -0.32, 0]}><cylinderGeometry args={[0.77, 0.77, 0.84, 48]} /></mesh>
-            <RoundedBox ref={ref} args={[0.36, 0.36, 0.36]} radius={0.04} material={cube} />
+        <group position={[x, -0.15, 0]}>
+            <mesh material={glass}><cylinderGeometry args={[R, R, H, 48, 1, true]} /></mesh>
+            <mesh material={liquidMat} position={[0, (top + bottom) / 2, 0]}><cylinderGeometry args={[R - 0.02, R - 0.02, top - bottom, 48]} /></mesh>
+            <RoundedBox ref={ref} args={[size, size, size]} radius={0.03} material={cube} />
+            <mesh material={label} position={[0, H / 2 + 0.26, 0]}><planeGeometry args={[0.8, 0.3]} /></mesh>
+            <mesh material={verdict} position={[0, H / 2 + 0.6, 0]}><planeGeometry args={[0.8, 0.3]} /></mesh>
+        </group>
+    );
+};
+const FloatSink: React.FC<EProps> = ({ el, spec, tier, clock }) => {
+    const main = String(spec.params?.liquid ?? 'water');
+    const list = main === 'mercury' ? ['water', 'mercury'] : [main];
+    return (
+        <group>
+            {list.map((k, i) => <Beaker key={k} liq={LIQ[k]} el={el} tier={tier} clock={clock} x={list.length === 1 ? 0 : (i - 0.5) * 1.35} delay={i * 0.5} />)}
         </group>
     );
 };
