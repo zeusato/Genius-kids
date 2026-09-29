@@ -119,11 +119,14 @@ export const PeriodicTable: React.FC<PeriodicTableProps> = ({ onSelectElement, o
                 <Empty key={`${row}-${col}`} slot={`${row}-${col}`}>
                     {series && (() => {
                         // Không phải ô thiếu: 15 nguyên tố của dãy nằm ở hàng riêng bên dưới (cách trình bày chuẩn của SGK)
-                        const c = CATEGORY_COLORS[series].color;
+                        // theo kính đang bật: lấy look của ô đầu dãy (La / Ac) — dãy mờ thì ô chỉ dẫn mờ theo
+                        const head = grid.get(series === 'lanthanide' ? '9-3' : '10-3')!;
+                        const look = lookOf(head), dim = look.dim || !!darkSet?.has(head.atomicNumber);
+                        const c = dim ? '#475569' : look.key === 'g' ? CATEGORY_COLORS[series].color : look.color;
                         return (
                             <button type="button" onClick={() => onSeries?.(series)} title={series === 'lanthanide' ? 'Dãy Lanthanide (57–71) ở hàng bên dưới' : 'Dãy Actinide (89–103) ở hàng bên dưới'}
                                 className="w-full h-full rounded-lg flex flex-col items-center justify-center leading-tight hover:scale-105 transition-transform"
-                                style={{ border: `2px dashed ${c}`, background: `${c}14`, color: c }}>
+                                style={{ border: `2px dashed ${c}`, background: dim ? 'transparent' : `${c}14`, color: c, opacity: dim ? 0.45 : 1 }}>
                                 <span className="text-[9px] sm:text-[11px] font-bold">{series === 'lanthanide' ? 'La–Lu' : 'Ac–Lr'}</span>
                                 <span className="text-[8px] sm:text-[9px] opacity-80">{series === 'lanthanide' ? '57–71' : '89–103'}</span>
                                 <span className="text-[9px] sm:text-[10px]">↓</span>
