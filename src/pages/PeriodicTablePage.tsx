@@ -34,7 +34,7 @@ import type { Cue } from '@/src/components/periodic/stage/Experiments';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { getAvatarById } from '@/services/avatarService';
 import { Grade } from '@/types';
-import { speak, cancelSpeech } from '@/src/utils/speech';
+import { speak, cancelSpeech, setScopedDefaultVoice, GOOGLE_VOICE } from '@/src/utils/speech';
 import { speakMixed, speakAndWait } from '@/src/components/periodic/engine/speech';
 import { playBlip, playWhoosh, playSuccess, playImpact, playFizz, playPop, playZap, playBoom, playLaunch, playChime, playGeigerClick } from '@/src/components/solar/sfx';
 import '@/src/components/periodic/periodic.css';
@@ -427,6 +427,12 @@ export const PeriodicTablePage: React.FC = () => {
         return () => window.removeEventListener('keydown', key);
     }, [selected, lab, game, infographic, openElement, closeElement, endGame]);
     useEffect(() => () => cancelSpeech(), []);
+    // Mặc định giọng online (Google, nữ) cho cả Việt và Anh — cùng giọng với file tên nguyên tố tải sẵn
+    // (public/audio/*/elements). Người dùng tự chọn giọng khác trong 🗣️ thì theo lựa chọn đó.
+    useEffect(() => {
+        setScopedDefaultVoice('vi-VN', GOOGLE_VOICE); setScopedDefaultVoice('en-US', GOOGLE_VOICE);
+        return () => { setScopedDefaultVoice('vi-VN', null); setScopedDefaultVoice('en-US', null); };
+    }, []);
 
     // ---------------------------------------------------------------- chạm ô
     const onCell = useCallback((e: ElementFull) => {

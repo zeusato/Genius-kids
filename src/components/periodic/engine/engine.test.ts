@@ -194,13 +194,30 @@ describe('đọc to: tách tên tiếng Anh', () => {
     it('tên IUPAC đọc bằng giọng en-US, phần còn lại vi-VN; 13 tên Việt giữ vi-VN', async () => {
         const { toSpeechParts } = await import('./speech');
         expect(toSpeechParts('Hydrogen. Hydrogen nhẹ nhất vũ trụ, nước có hydrogen.')).toEqual([
-            { text: 'Hydrogen, Hydrogen', lang: 'en-US' }, { text: 'nhẹ nhất vũ trụ, nước có', lang: 'vi-VN' }, { text: 'hydrogen', lang: 'en-US' },
+            { text: 'Hydrogen', lang: 'en-US', src: '/audio/en/elements/hydrogen.mp3' }, { text: 'Hydrogen', lang: 'en-US', src: '/audio/en/elements/hydrogen.mp3' },
+            { text: 'nhẹ nhất vũ trụ, nước có', lang: 'vi-VN' }, { text: 'hydrogen', lang: 'en-US', src: '/audio/en/elements/hydrogen.mp3' },
         ]);
         expect(toSpeechParts('Sắt là kim loại. Vàng óng ánh.')).toEqual([{ text: 'Sắt là kim loại. Vàng óng ánh.', lang: 'vi-VN' }]);
         const p = toSpeechParts('Vụ Nổ Lớn tạo ra hydrogen và helium.');
         expect(p.map(x => x.lang)).toEqual(['vi-VN', 'en-US', 'vi-VN', 'en-US']);
-        expect(toSpeechParts('oxygen, silicon, calcium').filter(x => x.lang === 'en-US').length).toBe(1);   // gộp tên liền nhau
-        expect(toSpeechParts('Caesium giúp làm đồng hồ')[0]).toEqual({ text: 'Caesium', lang: 'en-US' });
+        expect(toSpeechParts('oxygen, silicon, calcium').map(x => x.src)).toEqual(['oxygen', 'silicon', 'calcium'].map(n => `/audio/en/elements/${n}.mp3`));
+        expect(toSpeechParts('Caesium giúp làm đồng hồ')[0]).toMatchObject({ text: 'Caesium', lang: 'en-US', src: '/audio/en/elements/caesium.mp3' });
         expect(toSpeechParts('Neonatal').length).toBe(1);   // không bắt giữa từ
+    });
+});
+
+
+describe('file giọng tên nguyên tố', () => {
+    it('đủ 105 tên IUPAC + 13 tên Việt, file có thật', async () => {
+        const fs = await import('node:fs');
+        const man = (await import('../../../data/periodic/nameAudio.json')).default as { en: string[]; vi: string[] };
+        const { nameSlug } = await import('./speech');
+        expect(man.en.length).toBe(105); expect(man.vi.length).toBe(13);
+        for (const e of ELEMENTS) {
+            const lang = e.sgkName.match(/[^ -]/) || ['Nitơ', 'Natri', 'Nhôm', 'Kali', 'Sắt', 'Đồng', 'Kẽm', 'Bạc', 'Thiếc', 'Vàng', 'Chì', 'Lưu huỳnh', 'Thủy ngân'].includes(e.sgkName) ? 'vi' : 'en';
+            const k = nameSlug(e.sgkName);
+            expect(man[lang]).toContain(k);
+            expect(fs.statSync(`public/audio/${lang}/elements/${k}.mp3`).size).toBeGreaterThan(1000);
+        }
     });
 });

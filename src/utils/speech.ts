@@ -83,6 +83,17 @@ function chunkText(text: string, maxLen = 180): string[] {
 export const GOOGLE_VOICE = 'google';
 const prefKey = (prefix: string) => `tts_voice_${prefix}`;
 
+// Giọng mặc định theo trang (khi người dùng chưa tự chọn) — vd Bảng tuần hoàn mặc định giọng online nữ cho cả
+// Việt và Anh để khớp file tên nguyên tố tải sẵn. Trang đặt khi mount, xóa khi rời trang.
+const scopedDefault: Record<string, string | undefined> = {};
+export function setScopedDefaultVoice(lang: SpeechLang, voiceURI: string | null): void {
+    scopedDefault[lang.slice(0, 2).toLowerCase()] = voiceURI ?? undefined;
+}
+
+export function getScopedDefaultVoice(lang: SpeechLang): string | null {
+    return scopedDefault[lang.slice(0, 2).toLowerCase()] ?? null;
+}
+
 export function getPreferredVoice(lang: SpeechLang): string | null {
     try { return localStorage.getItem(prefKey(lang.slice(0, 2).toLowerCase())); } catch { return null; }
 }
@@ -106,7 +117,7 @@ export function listVoices(lang: SpeechLang): SpeechSynthesisVoice[] {
 
 export function getVoice(lang: SpeechLang = 'vi-VN'): SpeechSynthesisVoice | null {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
-    const pref = getPreferredVoice(lang);
+    const pref = getPreferredVoice(lang) ?? scopedDefault[lang.slice(0, 2).toLowerCase()] ?? null;
     if (pref === GOOGLE_VOICE) return null;          // → nhánh MP3/Google online
     const list = listVoices(lang);
     return (pref && list.find(v => v.voiceURI === pref)) || list[0] || null;
@@ -368,7 +379,7 @@ export function speakVietnamese(
  * Google Translate TTS thay vì bỏ qua, giúp trẻ luôn nghe được đủ nội dung.
  */
 export function speakSequence(
-    parts: { text: string; lang?: SpeechLang }[],
+    parts: { text: string; lang?: SpeechLang; src?: string }[],
     opts: { gapMs?: number; rate?: number; pitch?: number; onEnd?: () => void } = {}
 ): void {
     cancelSpeech();
@@ -386,6 +397,21 @@ export function speakSequence(
         const p = parts[i++];
         const lang = p.lang ?? 'vi-VN';
         const advance = () => { if (token === playToken) window.setTimeout(playNext, gap); };
+        // Phần có file local (vd tên nguyên tố tải sẵn): phát file trước — nhanh, không cần mạng; lỗi thì đọc thường.
+        if (p.src && typeof Audio !== 'undefined') {
+            const audio = new Audio(p.src);
+            currentAudio = audio;
+            let settled = false;
+            const end = (ok: boolean) => {
+                if (settled || token !== playToken) return;
+                settled = true; currentAudio = null;
+                if (ok) advance(); else startChain(p.text, lang, undefined, rate, pitch, token, advance);
+            };
+            audio.onended = () => end(true);
+            audio.onerror = () => end(false);
+            audio.play().catch(() => end(false));
+            return;
+        }
         // Mỗi phần đi qua đúng chuỗi ưu tiên: thiết bị → MP3 built-in → Google.
         startChain(p.text, lang, undefined, rate, pitch, token, advance);
     };

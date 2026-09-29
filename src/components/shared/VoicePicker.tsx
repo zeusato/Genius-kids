@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
-import { GOOGLE_VOICE, cancelSpeech, getPreferredVoice, listVoices, onSpeechAvailabilityChanged, setPreferredVoice, speak, type SpeechLang } from '@/src/utils/speech';
+import { GOOGLE_VOICE, cancelSpeech, getPreferredVoice, getScopedDefaultVoice, listVoices, onSpeechAvailabilityChanged, setPreferredVoice, speak, type SpeechLang } from '@/src/utils/speech';
 
 // Chọn giọng đọc cho tiếng Việt và tiếng Anh (lưu theo máy, dùng chung toàn app). Khi máy chỉ có giọng một
 // thứ tiếng, chọn "Giọng online" cho cả hai để nghe như cùng một người.
@@ -23,7 +23,7 @@ const Row: React.FC<{ lang: SpeechLang; label: string; tick: number }> = ({ lang
             <p className="text-sm font-semibold">{label}</p>
             <div className="flex gap-2">
                 <select value={value} onChange={e => choose(e.target.value)} className="flex-1 min-w-0 rounded-xl bg-slate-800 border border-white/15 px-3 py-2 text-sm text-white">
-                    <option value="">Tự chọn {voices[0] ? `(${voices[0].name})` : '(giọng online)'}</option>
+                    <option value="">Mặc định {getScopedDefaultVoice(lang) === GOOGLE_VOICE || !voices[0] ? '(🌐 giọng online nữ)' : `(${voices[0].name})`}</option>
                     {voices.map(v => <option key={v.voiceURI} value={v.voiceURI}>{v.name} · {v.lang}</option>)}
                     <option value={GOOGLE_VOICE}>🌐 Giọng online (cần mạng)</option>
                 </select>

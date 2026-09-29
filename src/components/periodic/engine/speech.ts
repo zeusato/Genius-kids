@@ -3,8 +3,19 @@
 import { ELEMENTS } from './elements';
 import { VIET_NAMES } from '../../../data/periodic/names';
 import { speakSequence, isSpeaking, type SpeechLang } from '../../../utils/speech';
+import NAME_AUDIO from '../../../data/periodic/nameAudio.json';
 
-export interface SpeechPart { text: string; lang: SpeechLang }
+export interface SpeechPart { text: string; lang: SpeechLang; src?: string }
+
+/** Slug file audio tên nguyên tố — khớp scripts/build-element-name-audio.mjs. */
+export const nameSlug = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const EN_FILES = new Set<string>(NAME_AUDIO.en);
+/** File MP3 tải sẵn (giọng online nữ) cho một tên tiếng Anh, nếu có. */
+export function nameAudioSrc(name: string): string | undefined {
+    const k = nameSlug(name);
+    const base = (import.meta as any).env?.BASE_URL ?? '/';
+    return EN_FILES.has(k) ? `${base}audio/en/elements/${k}.mp3` : undefined;
+}
 
 // Tên IUPAC + tên tiếng Anh Mỹ trong dữ liệu (Sodium, Aluminum, Cesium…), trừ 13 nguyên tố giữ tên Việt.
 const EN_NAMES = [...new Set(ELEMENTS.flatMap(e => [e.sgkName, e.nameEn])
@@ -20,8 +31,9 @@ export function toSpeechParts(text: string): SpeechPart[] {
         const i = m.index ?? 0;
         const vi = text.slice(last, i).trim();
         if (/[\p{L}\p{N}]/u.test(vi)) parts.push({ text: vi, lang: 'vi-VN' });
-        const prev = parts[parts.length - 1];
-        if (prev?.lang === 'en-US') prev.text += `, ${m[0]}`; else parts.push({ text: m[0], lang: 'en-US' });
+        // mỗi tên một phần riêng để phát đúng file local của nó (không gộp "oxygen, silicon")
+        const src = nameAudioSrc(m[0]);
+        parts.push(src ? { text: m[0], lang: 'en-US', src } : { text: m[0], lang: 'en-US' });
         last = i + m[0].length;
     }
     const tail = text.slice(last).trim();
