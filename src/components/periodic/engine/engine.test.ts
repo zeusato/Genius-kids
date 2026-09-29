@@ -189,3 +189,18 @@ describe('bếp phân tử', () => {
         for (const r of RECIPES) for (const [i, j] of r.bonds) { expect(r.atoms[i]).toBeTruthy(); expect(r.atoms[j]).toBeTruthy(); }
     });
 });
+
+describe('đọc to: tách tên tiếng Anh', () => {
+    it('tên IUPAC đọc bằng giọng en-US, phần còn lại vi-VN; 13 tên Việt giữ vi-VN', async () => {
+        const { toSpeechParts } = await import('./speech');
+        expect(toSpeechParts('Hydrogen. Hydrogen nhẹ nhất vũ trụ, nước có hydrogen.')).toEqual([
+            { text: 'Hydrogen, Hydrogen', lang: 'en-US' }, { text: 'nhẹ nhất vũ trụ, nước có', lang: 'vi-VN' }, { text: 'hydrogen', lang: 'en-US' },
+        ]);
+        expect(toSpeechParts('Sắt là kim loại. Vàng óng ánh.')).toEqual([{ text: 'Sắt là kim loại. Vàng óng ánh.', lang: 'vi-VN' }]);
+        const p = toSpeechParts('Vụ Nổ Lớn tạo ra hydrogen và helium.');
+        expect(p.map(x => x.lang)).toEqual(['vi-VN', 'en-US', 'vi-VN', 'en-US']);
+        expect(toSpeechParts('oxygen, silicon, calcium').filter(x => x.lang === 'en-US').length).toBe(1);   // gộp tên liền nhau
+        expect(toSpeechParts('Caesium giúp làm đồng hồ')[0]).toEqual({ text: 'Caesium', lang: 'en-US' });
+        expect(toSpeechParts('Neonatal').length).toBe(1);   // không bắt giữa từ
+    });
+});

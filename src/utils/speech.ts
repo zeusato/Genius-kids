@@ -77,11 +77,39 @@ function chunkText(text: string, maxLen = 180): string[] {
 }
 
 /** Tìm giọng phù hợp ngôn ngữ (vi-VN / en-US). Trả về null nếu thiết bị không có. */
+// ---------------------------------------------------------------- chọn giọng
+// Người dùng chọn giọng riêng cho tiếng Việt và tiếng Anh (lưu theo máy). Giá trị đặc biệt 'google' = bỏ qua
+// giọng máy, luôn dùng giọng online — để hai thứ tiếng nghe cùng một "người" khi máy chỉ có một thứ tiếng.
+export const GOOGLE_VOICE = 'google';
+const prefKey = (prefix: string) => `tts_voice_${prefix}`;
+
+export function getPreferredVoice(lang: SpeechLang): string | null {
+    try { return localStorage.getItem(prefKey(lang.slice(0, 2).toLowerCase())); } catch { return null; }
+}
+export function setPreferredVoice(lang: SpeechLang, voiceURI: string | null): void {
+    try {
+        const k = prefKey(lang.slice(0, 2).toLowerCase());
+        if (voiceURI) localStorage.setItem(k, voiceURI); else localStorage.removeItem(k);
+    } catch { /* chế độ riêng tư — bỏ qua */ }
+}
+
+/** Giọng máy của một thứ tiếng, giọng tự nhiên (Natural/Online/Google) và đúng vùng (en-US) xếp trước. */
+export function listVoices(lang: SpeechLang): SpeechSynthesisVoice[] {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return [];
+    const prefix = lang.slice(0, 2).toLowerCase();
+    const score = (v: SpeechSynthesisVoice) => (/natural|online|neural/i.test(v.name) ? 4 : 0) + (/google/i.test(v.name) ? 2 : 0)
+        + (v.lang.replace('_', '-').toLowerCase() === lang.toLowerCase() ? 1 : 0);
+    return window.speechSynthesis.getVoices()
+        .filter(v => v.lang.replace('_', '-').toLowerCase().startsWith(prefix))
+        .sort((x, y) => score(y) - score(x));
+}
+
 export function getVoice(lang: SpeechLang = 'vi-VN'): SpeechSynthesisVoice | null {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
-    const prefix = lang.slice(0, 2).toLowerCase(); // 'vi' | 'en'
-    const voices = window.speechSynthesis.getVoices();
-    return voices.find(v => v.lang.replace('_', '-').toLowerCase().startsWith(prefix)) ?? null;
+    const pref = getPreferredVoice(lang);
+    if (pref === GOOGLE_VOICE) return null;          // → nhánh MP3/Google online
+    const list = listVoices(lang);
+    return (pref && list.find(v => v.voiceURI === pref)) || list[0] || null;
 }
 
 /** Giọng tiếng Việt (giữ tên cũ cho code Hệ Mặt Trời). */
@@ -364,4 +392,10 @@ export function speakSequence(
 
     // Chờ một nhịp sau cancel để tránh lỗi Chrome "nuốt" câu đầu tiên.
     window.setTimeout(playNext, 120);
+}
+
+/** Có đang đọc không (giọng máy hoặc audio MP3/Google) — dùng để chờ đọc xong thật thay vì hẹn giờ đoán. */
+export function isSpeaking(): boolean {
+    if (currentAudio && !currentAudio.paused && !currentAudio.ended) return true;
+    return typeof window !== 'undefined' && 'speechSynthesis' in window && (window.speechSynthesis.speaking || window.speechSynthesis.pending);
 }

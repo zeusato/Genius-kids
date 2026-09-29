@@ -3,7 +3,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { SpeakButton } from '../../shared/SpeakButton';
-import { speak } from '@/src/utils/speech';
+import { speakMixed as speakMix, toSpeechParts } from '../engine/speech';
+const speak = (t: string, _o?: { rate?: number }) => speakMix(t, { rate: 0.92 });
 import { playBlip, playSuccess } from '../../solar/sfx';
 import { ELEMENTS, byZ, type ElementFull } from '../engine/elements';
 import { coordRound, findRound, HEAVY_PAIRS, heavier, stateQuestion } from '../engine/games';
@@ -74,7 +75,7 @@ export const FindGame: React.FC<TableGameProps> = ({ easy, register, setMarks, o
         <Banner title="🔎 Truy tìm nguyên tố" progress={`câu ${i + 1}/${round.length} · đúng ${score}`} onClose={onClose}>
             <div className="flex items-center gap-2">
                 <p className="flex-1 text-base sm:text-lg">"{clue.text}"</p>
-                <SpeakButton text={clue.text} autoPlay autoPlayKey={i} />
+                <SpeakButton parts={toSpeechParts(clue.text)} autoPlay autoPlayKey={i} />
             </div>
             {msg && <p className="text-sm text-amber-200 mt-1">{msg}</p>}
         </Banner>
@@ -105,7 +106,7 @@ export const CoordGame: React.FC<TableGameProps> = ({ easy, register, setMarks, 
     if (!q) return <Banner title="🧭 Tọa độ" progress="" onClose={onClose}><p>Xong! Đúng {score}/{round.length}.</p></Banner>;
     return (
         <Banner title="🧭 Tọa độ nguyên tố" progress={`câu ${i + 1}/${round.length} · đúng ${score}`} onClose={onClose}>
-            <div className="flex items-center gap-2"><p className="flex-1 text-base sm:text-lg">{text}</p><SpeakButton text={text} autoPlay autoPlayKey={i} /></div>
+            <div className="flex items-center gap-2"><p className="flex-1 text-base sm:text-lg">{text}</p><SpeakButton parts={toSpeechParts(text)} autoPlay autoPlayKey={i} /></div>
             {msg && <p className="text-sm text-amber-200 mt-1">{msg}</p>}
         </Banner>
     );
@@ -155,7 +156,7 @@ export const StateGame: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const choose = (s: MatterState) => { if (ans) return; setAns(s); if (s === q.answer) playSuccess(); else playBlip(); };
     return (
         <Frame title="🌡️ Rắn, lỏng hay khí?" onClose={onClose}>
-            <div className="flex items-center gap-2 justify-center"><p className="text-lg text-center">{text}</p><SpeakButton text={text} autoPlay autoPlayKey={seed} /></div>
+            <div className="flex items-center gap-2 justify-center"><p className="text-lg text-center">{text}</p><SpeakButton parts={toSpeechParts(text)} autoPlay autoPlayKey={seed} /></div>
             <div className="flex gap-2 justify-center mt-3">
                 {(['solid', 'liquid', 'gas'] as MatterState[]).map(s => (
                     <button key={s} onClick={() => choose(s)} className={`px-4 py-2 rounded-xl border text-sm font-bold ${ans ? (s === q.answer ? 'bg-emerald-400 text-slate-900' : s === ans ? 'bg-rose-400/60' : 'bg-white/5') : 'bg-white/10 hover:bg-white/20'}`} style={{ borderColor: STATE_STYLE[s].color }}>{STATE_STYLE[s].icon} {STATE_STYLE[s].label}</button>

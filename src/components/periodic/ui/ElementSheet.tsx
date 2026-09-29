@@ -11,6 +11,7 @@ import type { ElementFull } from '../engine/elements';
 import { dominantOrigin, formatHalfLife, formatPct } from '../engine/lenses';
 import { stateAt } from '../engine/states';
 import { compareLines } from '../engine/compare';
+import { toSpeechParts } from '../engine/speech';
 import { categoryNames } from '../PeriodicTable';
 
 const HAZARD: Record<string, string> = { radioactive: '☢️ Phóng xạ', toxic: '☠️ Độc', reactive: '💥 Phản ứng mạnh', flammable: '🔥 Dễ cháy' };
@@ -75,7 +76,7 @@ export const ElementSheet: React.FC<Props> = ({ el, compact, autoSpeak, portrait
             <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 ptable-scroll">
                 <div className="flex items-start gap-2 rounded-2xl bg-white/5 p-3 border border-white/10">
                     <p className="flex-1 text-[15px] leading-relaxed">{el.kid}</p>
-                    <SpeakButton text={`${el.sgkName}. ${el.kid}`} autoPlay={autoSpeak} autoPlayKey={el.atomicNumber} size={22} />
+                    <SpeakButton parts={toSpeechParts(el.kid.startsWith(el.sgkName) ? el.kid : `${el.sgkName}. ${el.kid}`)} gapMs={80} autoPlay={autoSpeak} autoPlayKey={el.atomicNumber} size={22} />
                 </div>
 
                 {el.experiments.length > 0 && (

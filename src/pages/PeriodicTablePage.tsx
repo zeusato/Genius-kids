@@ -22,6 +22,7 @@ import { FindGame, CoordGame, ScaleGame, StateGame, GAMES, Frame, type GameId } 
 import { Cabinet, FireworksUI, BuilderUI, IntroOverlay, TowerSilhouette, CityUI, KitchenUI } from '@/src/components/periodic/ui/Panels';
 import { ATOMS, RECIPES, matchRecipe, nearestRecipe, type Counts } from '@/src/components/periodic/engine/molecules';
 import { InfographicViewer } from '@/src/components/shared/Infographic';
+import { VoicePicker } from '@/src/components/shared/VoicePicker';
 import type { CellMark } from '@/src/components/periodic/ElementCell';
 import { loadCollection, saveCollection, addUnique, earnedBadges, PERIODIC_BADGES, type Collection } from '@/src/components/periodic/collectionStore';
 import { LEGACY_VIEW, INTRO_DISABLED, START_ELEMENT, START_LENS, START_TEMP, START_YEAR, supportsWebGL2, prefersReducedMotion, type QualityTier } from '@/src/components/periodic/stage/params';
@@ -34,6 +35,7 @@ import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { getAvatarById } from '@/services/avatarService';
 import { Grade } from '@/types';
 import { speak, cancelSpeech } from '@/src/utils/speech';
+import { speakMixed, speakAndWait } from '@/src/components/periodic/engine/speech';
 import { playBlip, playWhoosh, playSuccess, playImpact, playFizz, playPop, playZap, playBoom, playLaunch, playChime, playGeigerClick } from '@/src/components/solar/sfx';
 import '@/src/components/periodic/periodic.css';
 
@@ -164,7 +166,7 @@ export const PeriodicTablePage: React.FC = () => {
     }, [live, selected, setCol]);
     const voice = useCallback((x: ExperimentSpec) => {
         const fxv = x.params?.fx === 'xenon' ? 'xenon' : 'helium';
-        speak(fxv === 'helium' ? 'Xin chào! Tớ vừa hít helium nên giọng tớ cao chí chóe thế này đây!' : 'Xin chào... tớ vừa hít xenon... nên giọng tớ trầm ồm như người khổng lồ.', { voiceFx: fxv, rate: 0.95 });
+        speak(fxv === 'helium' ? 'Xin chào! Tớ vừa hít khí trong bóng bay nên giọng tớ cao chí chóe thế này đây!' : 'Xin chào... tớ vừa hít một loại khí rất nặng... nên giọng tớ trầm ồm như người khổng lồ.', { voiceFx: fxv, rate: 0.95 });
     }, []);
 
     // ---------------------------------------------------------------- điều khiển sân khấu: kéo xoay, cuộn/véo lặn
@@ -282,26 +284,28 @@ export const PeriodicTablePage: React.FC = () => {
         if (storyIdx === null) return;
         const b = STORY_BEATS[storyIdx];
         if (!b) { setStoryIdx(null); setCol(c => (c.story ? c : { ...c, story: true })); showToast('✨ Em vừa nghe trọn chuyện của vũ trụ!'); return; }
-        let done = false;
-        const next = () => { if (done) return; done = true; window.setTimeout(() => setStoryIdx(i => (i === null ? null : i + 1)), 900); };
-        speak(b.say, { rate: 0.92, onEnd: next, onError: next });
-        const safety = window.setTimeout(next, 2500 + b.say.length * 95);
-        return () => { done = true; window.clearTimeout(safety); };
+        // chuyển đoạn CHỈ khi đọc xong thật (onEnd / isSpeaking), không hẹn giờ đoán theo độ dài câu
+        let t = 0;
+        const stop = speakAndWait(b.say, () => { t = window.setTimeout(() => setStoryIdx(i => (i === null ? null : i + 1)), 900); }, { rate: 0.92 });
+        return () => { stop(); window.clearTimeout(t); };
     }, [storyIdx, setCol, showToast]);
     const toggleStory = () => { if (storyIdx !== null) { cancelSpeech(); setStoryIdx(null); } else setStoryIdx(0); };
 
     // ---------------------------------------------------------------- cỗ máy thời gian ▶
     const [histPlay, setHistPlay] = useState(false);
+    const narrating = useRef(false);
+    const stopNarr = useRef<() => void>(() => { });
     useEffect(() => {
         if (!histPlay) return;
         let raf = 0, last = performance.now();
         let f = fracYear(ctx.year) >= 0.999 ? 0 : fracYear(ctx.year);
         let prevYear = yearAtFrac(f);
         const tick = (now: number) => {
+            if (narrating.current) { last = now; raf = requestAnimationFrame(tick); return; }   // dừng thời gian khi đang kể sự kiện
             f = Math.min(1, f + (now - last) / 1000 / 32); last = now;
             const y = yearAtFrac(f);
             const ev = HISTORY_EVENTS.find(e => prevYear < e.year && y >= e.year);
-            if (ev) { showToast(ev.say, 4500); speak(ev.say, { rate: 0.95 }); }
+            if (ev) { showToast(ev.say, 60000); narrating.current = true; stopNarr.current = speakAndWait(ev.say, () => { narrating.current = false; setToast(null); }, { rate: 0.95 }); }
             if (prevYear < 1886 && y >= 1886) setCol(c => (c.mendeleev ? c : { ...c, mendeleev: true }));
             prevYear = y;
             setCtx(c => ({ ...c, year: y }));
@@ -309,7 +313,7 @@ export const PeriodicTablePage: React.FC = () => {
             raf = requestAnimationFrame(tick);
         };
         raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
+        return () => { cancelAnimationFrame(raf); stopNarr.current(); narrating.current = false; };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [histPlay]);
     useEffect(() => { if (lens === 'history' && ctx.year >= 1886 && !histPlay && ctx.year < 2016) setCol(c => (c.mendeleev ? c : { ...c, mendeleev: true })); }, [lens, ctx.year, histPlay, setCol]);
@@ -428,7 +432,7 @@ export const PeriodicTablePage: React.FC = () => {
     const onCell = useCallback((e: ElementFull) => {
         if (intro) return;
         if (gameClick.current) { gameClick.current(e); return; }
-        if (lens === 'uses') { speak(`${e.sgkName}. ${e.uses[0]?.text ?? ''}`, { rate: 0.92 }); }
+        if (lens === 'uses') { speakMixed(`${e.sgkName}. ${e.uses[0]?.text ?? ''}`, { rate: 0.92 }); }
         openElement(e);
     }, [intro, lens, openElement]);
 
@@ -456,6 +460,7 @@ export const PeriodicTablePage: React.FC = () => {
     const results = useMemo(() => searchElements(ELEMENTS, searchQuery, 10), [searchQuery]);
     const [showInfo, setShowInfo] = useState(false);
     const [cabinet, setCabinet] = useState(false);
+    const [voicePicker, setVoicePicker] = useState(false);
 
     const avatar = useMemo(() => {
         const a = currentStudent ? getAvatarById(currentStudent.currentAvatarId) : undefined;
@@ -482,6 +487,7 @@ export const PeriodicTablePage: React.FC = () => {
                         <Archive size={20} /><span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-amber-300 text-slate-900 text-[10px] font-bold grid place-items-center">{col.seen.length}</span>
                     </button>
                     <button onClick={() => setShowSearch(!showSearch)} className={`p-2 rounded-xl transition-colors ${showSearch ? 'bg-cyan-500 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`} title="Tìm nguyên tố"><Search size={20} /></button>
+                    <button onClick={() => setVoicePicker(true)} className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-lg leading-none" title="Chọn giọng đọc" aria-label="Chọn giọng đọc">🗣️</button>
                     <MusicControls />
                 </div>
             </header>
@@ -600,6 +606,7 @@ export const PeriodicTablePage: React.FC = () => {
             {intro && <IntroOverlay caption={youBeat ? null : caption} onSkip={skipIntro} flash={flash} />}
             {infographic && <InfographicViewer url={infographic} onClose={() => setInfographic(null)} />}
             {showInfo && <InfoModal onClose={() => setShowInfo(false)} />}
+            {voicePicker && <VoicePicker onClose={() => setVoicePicker(false)} />}
             {legacyEl && <Suspense fallback={null}><ElementDetail element={legacyEl} onClose={() => setLegacyEl(null)} /></Suspense>}
             {toast && <div className="fixed left-1/2 -translate-x-1/2 bottom-6 z-[80] max-w-[92vw] px-5 py-3 rounded-2xl bg-slate-900/95 border border-amber-300/50 text-amber-100 shadow-2xl text-sm sm:text-base ptable-fade-in">{toast}</div>}
             {import.meta.env.DEV && tier === 'low' && <div className="fixed bottom-1 left-1 z-[90] text-[10px] text-white/30">tier thấp</div>}
