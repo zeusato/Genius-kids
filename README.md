@@ -1,201 +1,99 @@
-# MathGenius Kids: Nền Tảng Giáo Dục STEM Tương Tác
+# Genius Kids (MathGenius Kids)
 
-![Project Banner](public/OG.png)
+![Genius Kids](public/OG.png)
 
-## 1. Giới Thiệu (Introduction)
+Ứng dụng học tập dạng web (PWA) cho trẻ từ mầm non đến lớp 5: ôn luyện Toán theo chương trình GDPT 2018, tiếng Anh, khoa học tương tác 3D, thư viện sách và nhiều trò chơi tư duy. Chạy offline sau khi tải gói nội dung; mỗi bé có hồ sơ, sao và bộ sưu tập riêng lưu trên máy.
 
-**MathGenius Kids** là một nền tảng ứng dụng web (Progressive Web App - PWA) được thiết kế nhằm mục đích hỗ trợ trẻ em (Lớp 1 - 5) tiếp cận các kiến thức Toán học, Khoa học tự nhiên và Tư duy lập trình một cách trực quan và sinh động. Hệ thống kết hợp giữa phương pháp giáo dục truyền thống và mô hình **Gamification** (trò chơi hóa) để tối đa hóa sự hứng thú và hiệu quả học tập.
+Bản chạy thật: <https://zeusato.github.io/Genius-kids/>
 
-Ứng dụng không chỉ là một công cụ luyện toán mà là một hệ sinh thái học tập đa dạng, từ việc mô phỏng các hiện tượng thiên văn, sinh học, hóa học đến rèn luyện tư duy thuật toán máy tính.
+## Nội dung chính
 
----
+Sảnh khám phá chia theo độ tuổi (mầm non / lớp 1–5). Các khu:
 
-## 2. Các Phân Hệ Giáo Dục (Core Modules)
+| Khu | Nội dung |
+| --- | --- |
+| **Ôn Luyện** (`/study`) | Câu hỏi sinh theo thuật toán, bám GDPT 2018 cho lớp 1–5; hai chế độ Luyện tập / Kiểm tra; lớp nhỏ có đọc to đề bài |
+| **Tiếng Anh** (`/english`) | Lộ trình K → A1–C3: sách tương tác, từ vựng, ngữ pháp, hội thoại, luyện tập có AI |
+| **Mầm non** (`/preschool/*`) | Vườn chữ cái A–Z và tập tô, đếm số, màu sắc & hình dạng |
+| **Khoa học** (`/science`) | Xem bảng dưới |
+| **Thư viện** (`/library`) | Sách lật trang, 1000 câu hỏi Vì Sao |
+| **Đố vui Nhân Sư**, **Piano Nhí** | Câu đố logic – ngôn ngữ; đàn và bài hát trong vườn |
+| **Trò chơi** (`/game`) | Xem bảng dưới |
 
-Hệ thống được chia thành **6 phân hệ chính**, đảm bảo phủ rộng các lĩnh vực trong giáo dục STEM (Science, Technology, Engineering, Mathematics).
+### Khoa học
 
-### 2.1. Phân Hệ Toán Học (Mathematics Engine)
-Đây là lõi của hệ thống, cung cấp chương trình học bám sát khung chương trình tiểu học (Lớp 1-5).
-*   **Cơ Chế Sinh Câu Hỏi Động (Dynamic Generation):** Hệ thống không sử dụng ngân hàng câu hỏi tĩnh mà sử dụng các thuật toán (Algorithms) để sinh câu hỏi mới mỗi lần truy cập, đảm bảo tính đa dạng vô hạn.
-*   **Phạm Vi Kiến Thức:**
-    *   Số học: Cộng, Trừ, Nhân, Chia, Số thập phân, Phân số.
-    *   Hình học: Nhận diện hình, Chu vi, Diện tích, Thể tích.
-    *   Đại lượng: Đổi đơn vị đo lường, Tiền tệ, Xem giờ.
-    *   Toán có lời văn & Tư duy logic.
-*   **Chế Độ Luyện Tập:** Trắc nghiệm, Điền khuyết, Chọn đúng/sai.
+| Mô-đun | Điểm nhấn |
+| --- | --- |
+| **Hệ Mặt Trời** | Mô hình 3D theo tỉ lệ số liệu NASA, texture CC BY 4.0, vị trí thật theo ngày, cắt lớp hành tinh |
+| **Xưởng Hành Tinh** | Tự nặn hành tinh và đưa vào hệ Mặt Trời |
+| **Bảng Tuần Hoàn** | 118 nguyên tố tên theo SGK, kính lọc, mẫu vật 3D, lặn vào nguyên tử, thí nghiệm, trò chơi |
+| **Điện & Mạch Điện** (Xưởng Ánh Sáng) | Bàn đồ chơi 3D nối dây thật, bộ giải mạch DC (Ohm/Kirchhoff), sơ đồ biến hình, so sánh nối tiếp/song song, soi dây tới mạng tinh thể, phòng thử vật dẫn, 13 bài · 12 nhiệm vụ · 12 vụ thám tử |
+| **Khám Phá Tế Bào** | Tế bào 3D có cửa sổ cắt, bào quan, thí nghiệm phân chia |
+| **Cây Tiến Hóa** | Cây sự sống theo thời gian, cỗ máy thời gian, infographic |
 
-### 2.2. Phân Hệ Khoa Học Tự Nhiên (Scientific Simulations) 🔬
-Cung cấp các phòng thí nghiệm ảo và mô hình trực quan để giải thích các khái niệm trừu tượng.
+### Trò chơi
 
-*   **🧬 Cây Tiến Hóa Sinh Học (Evolutionary Tree):**
-    *   Sơ đồ hóa lịch sử tiến hóa của sinh giới từ sinh vật đơn bào đến động vật có vú hiện đại.
-    *   Cấu trúc phân cấp khoa học: Giới (Kingdom) -> Ngành (Phylum) -> Lớp (Class) -> Bộ (Order) -> Họ (Family).
-    *   Tích hợp Infographic chi tiết cho từng mắt xích tiến hóa (Khủng long, Thú cổ, Chim, v.v.).
+Lật Thẻ, Giai Điệu Vui Nhộn, Đua Tốc Độ, Đại Chiến Rồng Thần, Đường Đua Thần Tốc, Sudoku, Kỹ Sư Máy Móc (bánh răng), Lập Trình Nhí (Rover), Làng Mầm (nông trại), và bàn cờ: Cờ Vua, Cờ Tướng, Cờ Ca-rô, Cờ Cá Ngựa, Ô Ăn Quan, Cờ Tỉ Phú.
 
-*   **🔬 Sinh Học Tế Bào (Cell Biology):** [MỚI]
-    *   Khám phá cấu trúc tế bào động vật và thực vật với mô hình 3D tương tác.
-    *   Tìm hiểu về các bào quan: Nhân, Ti thể, Lục lạp, Màng tế bào...
-    *   So sánh sự khác biệt giữa tế bào động vật và thực vật.
+### Thưởng và hồ sơ
 
-*   **🌌 Mô Phỏng Hệ Mặt Trời (Solar System 3D):**
-    *   Sử dụng công nghệ WebGL (Three.js) để dựng lại mô hình 3D thời gian thực của các hành tinh.
-    *   Cung cấp số liệu thiên văn chính xác: Chu kỳ quỹ đạo, đường kính, nhiệt độ bề mặt.
+Hoàn thành bài/nhiệm vụ nhận **sao** (ghi sổ theo hồ sơ, không cộng lặp), dùng sao đổi avatar, giao diện, mở thẻ sưu tập (gacha) và thành tích. Trợ lý **Bo Biết Tuốt** (Gemini) trả lời câu hỏi học tập — cần nhập API key trong phần cài đặt AI của ứng dụng.
 
-*   **🌈 Hiện Tượng Cầu Vồng (Rainbow Mode):**
-    *   Mô phỏng trực quan quá trình hình thành cầu vồng qua khúc xạ ánh sáng.
-    *   Bảng thông tin giáo dục về quang học cơ bản.
+## Công nghệ
 
-*   **⚛️ Bảng Tuần Hoàn Tương Tác (Interactive Periodic Table):**
-    *   Hiển thị tính chất hóa lý của 118 nguyên tố.
-    *   Mô hình nguyên tử Bohr 3D mô phỏng chuyển động của electron.
+- React 19 + TypeScript, Vite, React Router, Tailwind CSS
+- Three.js + React Three Fiber / drei / postprocessing cho các cảnh 3D (tải lười theo từng mô-đun)
+- PWA (vite-plugin-pwa, injectManifest) với gói tải offline chủ động
+- Vitest cho engine thuần (bộ giải mạch, luật cờ, sinh câu hỏi, nội dung…)
+- Gemini API qua `services/geminiClient.ts` (tự chọn model flash mới nhất); Supabase cho ảnh infographic
 
-*   **⚡ Phòng Thí Nghiệm Điện (Electrical Lab):**
-    *   Môi trường Sandbox cho phép kéo thả linh kiện (Pin, Đèn, Dây dẫn, Công tắc) để lắp ráp mạch điện.
-    *   Mô phỏng dòng electron và các định luật vật lý cơ bản về mạch điện.
+## Cấu trúc thư mục
 
-### 2.3. Phân Hệ Games Giáo Dục 🎮
-Bao gồm **8 trò chơi** rèn luyện kỹ năng tư duy, phản xạ và logic:
-
-*   **🧠 Ghép Thẻ Hình Ảnh (Memory Match):** Lật thẻ tìm cặp hình ảnh giống nhau, rèn luyện trí nhớ.
-*   **🎵 Giai Điệu Vui Nhộn (Sound Memory):** Ghi nhớ chuỗi âm thanh, thử thách trí nhớ thính giác.
-*   **⏱️ Đua Tốc Độ (Speed Math):** Trả lời nhanh câu hỏi Toán, Tiếng Việt, Tự nhiên xã hội.
-*   **🐉 Đại Chiến Rồng Thần (Dragon Quest):** Board game phiêu lưu với buff, combat và boss fight.
-*   **🏎️ Đường Đua Thần Tốc (Math Racing):** Lái xe tránh chướng ngại vật và chọn đáp án đúng.
-*   **🧩 Sudoku Logic:** Điền số vào ô trống theo luật Sudoku cổ điển.
-*   **⚙️ Kỹ Sư Máy Móc (Gears Game):** [MỚI]
-    *   **Chế độ Lắp Ráp:** Kết nối bánh răng từ nguồn đến đích.
-    *   **Chế độ Đoán Chiều:** Dự đoán hướng quay của bánh răng trong hệ thống.
-
-### 2.4. Phân Hệ Tư Duy Máy Tính (Computer Science) 🤖
-*   **KidCoder (Visual Programming):**
-    *   Môi trường lập trình kéo thả (Block-based coding) tương tự Scratch.
-    *   Rèn luyện tư duy thuật toán: Tuần tự (Sequence), Vòng lặp (Loops), Điều kiện (Conditionals).
-    *   Nhiệm vụ: Lập trình robot vượt chướng ngại vật thông qua các cấp độ tư duy tăng dần.
-
-### 2.5. Phân Hệ Xã Hội & Logic
-*   **1000 Câu Hỏi Vì Sao:** Cơ sở dữ liệu tri thức về tự nhiên, xã hội và con người.
-*   **Giải Đố Nhân Sư:** Các câu đố dân gia và logic giúp rèn luyện tư duy ngôn ngữ và suy luận.
-
-### 2.5. Trợ Lý Học Tập AI (AI Learning Assistant) 🤖 [MỚI]
-Hệ thống tích hợp **"Bo Biết Tuốt"** - một trợ lý ảo thông minh được phát triển dựa trên mô hình AI tiên tiến, đóng vai trò như một người bạn đồng hành trong học tập.
-
-*   **🤖 Tương Tác Thân Thiện:** Bo xưng hô gần gũi, gọi tên học sinh, có giọng văn khích lệ và phù hợp với tâm lý lứa tuổi tiểu học.
-*   **📚 Giải Đáp Kiến Thức:** Hỗ trợ giải bài tập toán (hướng dẫn từng bước), giải thích các hiện tượng khoa học, lịch sử và văn hóa.
-*   **🛡️ An Toàn Tuyệt Đối:** Hệ thống lọc nội dung nghiêm ngặt, chỉ trả lời các vấn đề liên quan đến giáo dục, kiên quyết từ chối nội dung độc hại.
-*   **🧪 Hỗ Trợ Công Thức & Markdown:** Hiển thị công thức toán học chuyên nghiệp (LaTeX) và định dạng văn bản trực quan.
-
-### 2.6. Thư Viện Sách (Book World) 📚 [MỚI]
-*   **Kho sách điện tử:** Bộ sưu tập sách dành cho trẻ em với nhiều chủ đề.
-*   **Trình đọc sách tương tác:** Hiệu ứng lật trang chân thực như sách thật.
-*   **Hỗ trợ đa định dạng:** Xem sách theo trang với thanh điều hướng tiện lợi.
-
----
-
-## 3. Kiến Trúc Gamification & Hệ Thống Thưởng
-
-Chúng tôi áp dụng các cơ chế tâm lý học hành vi để duy trì động lực học tập:
-
-1.  **Hệ Thống Tiền Tệ Ảo (Star System):**
-    *   Hoàn thành bài tập/nhiệm vụ -> Nhận Sao.
-    *   Sao được dùng để "đầu tư" vào Avatar hoặc mở khóa định dạng giao diện (Themes).
-
-2.  **Cơ Chế Gacha & Bộ Sưu Tập (Collectibles):**
-    *   Mô hình phần thưởng ngẫu nhiên (Variable Ratio Schedule) giúp tăng sự phấn khích.
-    *   Học sinh sưu tập các thẻ bài (Pokemon, Dragon Ball, v.v.) với độ hiếm khác nhau.
-    *   Khuyến khích sự kiên trì và hoàn thành mục tiêu dài hạn.
-
-3.  **Hệ Thống Thành Tích (Achievements):**
-    *   Ghi nhận các cột mốc quan trọng (Ví dụ: "Giải đúng 100 bài toán", "Hoàn thành 5 cấp độ code").
-    *   Cung cấp lộ trình phấn đấu rõ ràng cho người học.
-
----
-
-## 4. Đặc Tả Kỹ Thuật (Technical Specifications)
-
-Dự án được xây dựng trên nền tảng công nghệ web hiện đại, tối ưu hóa hiệu năng và trải nghiệm người dùng (UX).
-
-*   **Frontend Framework:** React 19 + TypeScript (Đảm bảo Type safety và maintainability).
-*   **Build Tool:** Vite (Tốc độ build và HMR siêu tốc).
-*   **Trí Tuệ Nhân Tạo (AI):**
-    *   **Google Gemini 2.5 Flash API:** Xử lý ngôn ngữ tự nhiên, tư duy logic và giải đáp kiến thức.
-    *   **KaTeX & Remark-math:** Hiển thị công thức toán học và định dạng Markdown chuyên nghiệp.
-*   **Đồ Họa & 3D:**
-    *   Three.js + React Three Fiber: Xử lý các mô hình 3D phức tạp (Hệ mặt trời, Nguyên tử).
-    *   Tailwind CSS: Xây dựng giao diện Responsive, hiện đại theo triết lý "Utility-first".
-*   **PWA Core:** Workbox (Hỗ trợ chạy Offline, Caching strategy, Installable trên mobile/desktop).
-*   **Data Visualization:** Recharts (Biểu đồ thống kê tiến độ học tập).
-*   **Deployment:** GitHub Pages (CI/CD Automated).
-
-### Cấu Trúc Thư Mục (Directory Structure)
-
-```
-Genius-kids/
-├── src/
-│   ├── data/               # Dữ liệu tĩnh (Evolution, Elements, Books...)
-│   ├── components/         # React Components (Presentation Layer)
-│   │   ├── solar/          # 3D Components cho Hệ Mặt Trời
-│   │   ├── electricity/    # Circuit Components cho Mạch Điện
-│   │   └── books/          # Book Reader Components
-│   └── pages/              # Application Views
-│       └── science/        # Science Pages (CellBiology, Evolution...)
-├── games/                  # Game Modules
-│   ├── MemoryMatch/        # Ghép thẻ hình ảnh
-│   ├── SoundMemory/        # Giai điệu vui nhộn
-│   ├── SpeedMath/          # Đua tốc độ
-│   ├── DragonQuest/        # Đại chiến rồng thần
-│   ├── MathRacing/         # Đường đua thần tốc
-│   ├── Sudoku/             # Sudoku Logic
-│   ├── GearsGame/          # Kỹ sư máy móc (bánh răng)
-│   └── KidCoder/           # Lập trình nhí
-├── tellMeWhy/              # 1000 Câu Hỏi Vì Sao (Data & Components)
-├── riddle/                 # Giải Đố Nhân Sư
-├── services/               # Business Logic Layer
-├── public/                 # Static Assets (Icons, Images, Audio)
-└── ...
+```text
+App.tsx, index.tsx        khởi động, định tuyến
+src/pages/                trang theo route (Science, Electricity, PeriodicTable, Study…)
+src/components/           mô-đun lớn: solar, planetmaker, periodic, electricity, cell,
+                          evolution, study, preschool, hub, achievements, shared
+src/english/              toàn bộ khu tiếng Anh (nội dung, engine, sách)
+src/data/                 dữ liệu tĩnh theo mô-đun
+games/                    từng trò chơi một thư mục (engine thuần + giao diện)
+modules/farm/             Làng Mầm
+tellMeWhy/, riddle/       Vì Sao, Đố vui
+services/                 hồ sơ, lưu trữ, AI, âm thanh, cập nhật
+pwa/                      service worker và tải gói offline
+scripts/                  sinh dữ liệu, texture, benchmark
+docs/                     kế hoạch nâng cấp và báo cáo từng mô-đun
+public/                   ảnh, âm thanh, font, texture
 ```
 
----
+Mỗi mô-đun lớn tách **engine thuần** (không React/Three, có test) khỏi lớp hiển thị; kế hoạch và quyết định thiết kế nằm trong `docs/<mô-đun>-plan.md`.
 
-## 5. Hướng Dẫn Cài Đặt (Installation Guide)
+## Chạy cục bộ
 
-Dành cho nhà phát triển muốn đóng góp hoặc chạy cục bộ.
+Yêu cầu Node.js 20+.
 
-### Yêu Cầu Hệ Thống
-*   Node.js (version 18 trở lên)
-*   npm hoặc yarn
+```bash
+git clone https://github.com/zeusato/Genius-kids.git
+cd Genius-kids
+npm install
+npm run dev
+```
 
-### Các Bước Triển Khai
+Mở <http://localhost:3000/Genius-kids/> (có dấu `/` cuối). Tạo một hồ sơ học sinh để vào các khu.
 
-1.  **Clone Repository:**
-    ```bash
-    git clone https://github.com/zeusato/Genius-kids.git
-    cd Genius-kids
-    ```
+| Lệnh | Việc |
+| --- | --- |
+| `npm run dev` | Máy chủ phát triển (cổng 3000) |
+| `npm test` | Chạy toàn bộ test Vitest |
+| `npm run build` | Build production vào `dist/` (kèm kiểm nội dung tiếng Anh) |
+| `npm run preview` | Xem bản build |
 
-2.  **Cài Đặt Thư Viện (Dependencies):**
-    ```bash
-    npm install
-    ```
+Tham số hữu ích khi kiểm tra cảnh 3D: `?tier=low|high`, `?fx=0`, `?debug=perf`, `?intro=0` (tùy mô-đun, xem file `params.ts` trong mô-đun đó).
 
-3.  **Khởi Chạy Môi Trường Phát Triển:**
-    ```bash
-    npm run dev
-    ```
-    Truy cập `http://localhost:5173` để xem ứng dụng.
+## Triển khai
 
-    *Lưu ý: Để sử dụng tính năng AI, bạn cần cấu hình Gemini API Key trong phần "Hồ sơ" của ứng dụng.*
+Push lên nhánh `main` → GitHub Actions (`.github/workflows/deploy.yml`) build và đưa lên GitHub Pages.
 
-4.  **Đóng Gói (Build Production):**
-    ```bash
-    npm run build
-    ```
+## Giấy phép
 
----
-
-## 6. Bản Quyền & Đóng Góp
-
-*   **License:** MIT License. Mã nguồn mở cho mục đích giáo dục phi lợi nhuận.
-*   **Credits:** Dữ liệu khoa học được tổng hợp từ NASA, Wikipedia và các nguồn tài liệu giáo dục chính thống.
-
----
-*Phát triển bởi đội ngũ kỹ sư yêu thích giáo dục & khoa học.*
+MIT, phục vụ giáo dục phi lợi nhuận. Dữ liệu khoa học tổng hợp từ NASA, IUPAC, SGK/Chương trình GDPT 2018 và các nguồn giáo dục chính thống; nguồn chi tiết ghi trong từng mô-đun.
