@@ -1,6 +1,6 @@
 # Xưởng Ánh Sáng — kế hoạch nâng cấp Điện & Mạch Điện
 
-Bản hoàn thiện ngày 29/09/2026 · Đã triển khai nội dung GĐ0–6 trên nhánh `codex/electricity-wow`. Kiểm định GĐ7 có kết quả tự động và trình duyệt; thiết bị Android/iOS thật và các mục chưa kiểm được ghi riêng trong [báo cáo triển khai](electricity-wow/implementation-report.md). Chưa deploy.
+Bản hoàn thiện ngày 29/09/2026 · GĐ0–6 triển khai lần đầu ở commit `9c15f8a` (trên `main`, không phải nhánh `codex/electricity-wow` như báo cáo cũ ghi). Ngày 30/09/2026 rà soát lại và làm mới toàn bộ lớp hình ảnh trên nhánh `feat/electricity-wow` (tag `electricity-before-wow` = bản trước) — xem [mục 12](#12-rà-soát-3009-và-làm-lại-lớp-hình-ảnh). Chưa deploy.
 Route giữ `/science/electricity`. Tên trên sảnh khoa học vẫn là **Điện & Mạch Điện**; **Xưởng Ánh Sáng** là tên trải nghiệm bên trong.
 
 > Bé tự tay làm ra ánh sáng, rồi nhìn xuyên qua điều vừa xảy ra.
@@ -427,6 +427,29 @@ Những quyết định dưới đây là lựa chọn thiết kế để ngư�
 | GĐ7 và benchmark thiết bị | Regression/build/browser đã chạy; nghiệm thu Android/iOS thật, offline thực và clip tương tác còn chưa xác minh, không đánh dấu đạt |
 
 Khi bắt đầu triển khai, cập nhật trạng thái theo bằng chứng test/ảnh/clip, không dùng dấu hoàn thành cho việc chỉ mới được mô tả.
+
+## 12. Rà soát 30/09 và làm lại lớp hình ảnh
+
+**Kết luận rà soát.** Đặc tả (plan + 3 phụ lục) vẫn dùng được làm nguồn chuẩn; engine DC (nút MNA, LED active-set, nội trở, cầu chì/bóng hỏng, chuông) đúng hợp đồng và qua test. Vấn đề nằm ở hai chỗ:
+
+1. **Lớp hình ảnh lệch hẳn hướng đã chốt** ở mục 3–4: camera nhìn gần thẳng xuống, linh kiện là hộp đơn giản, không bloom/ánh sáng đêm, so sánh nối tiếp/song song và soi dây vẽ phẳng, giao diện như biểu mẫu (lộ nút dev "Dùng SVG", "Kiểm tra renderer", danh sách cọc luôn mở).
+2. **Chấm bài có lỗi thật**: tiêu chí gắn ID cứng (`L1`, `K1/K2`, `F`), đòi dấu dòng điện với bóng không cực, mở nhiệm vụ dựng sẵn là được sao, "sửa" vụ việc bằng dây đi tắt vẫn qua, pin chanh bị nối tắt vẫn qua, đáp án đúng luôn đứng đầu, xóa hồ sơ làm khóa vĩnh viễn kho thành tích cũ.
+
+**Đã làm lại (theo đúng mục 3–4):**
+
+| Phần | Kết quả | Ảnh |
+| --- | --- | --- |
+| Bàn 3D | Camera phối cảnh vừa khung theo HUD (trượt mượt), bàn kem + lỗ chìm, linh kiện dựng chi tiết (bầu kính tiện + dây tóc + quầng Fresnel, hộp pin theo số viên, cầu dao gập, nút nhấn, chuông, còi, quạt, LED, điện trở có vạch màu, biến trở, cầu chì, ampe/vôn kế có kim, nam châm điện, máy phát, pin chanh/khoai, kẹp mẫu), cọc đồng instanced, dây vỏ trong + lõi đồng, electron chạy theo \|I\| và ngược dòng quy ước, 4 đèn điểm cố định có trễ, bloom tier cao | [ngày](electricity-wow/evidence-v2/bench-day.jpg) · [đêm](electricity-wow/evidence-v2/bench-night.jpg) · [chọn](electricity-wow/evidence-v2/inspector.jpg) |
+| Sơ đồ | Biến hình ngay trong cảnh 0,8 s: vật dẹt xuống, giấy kẻ ô hiện dần, kí hiệu SGK/IEC đúng tâm, cọc thành chấm mực, chấm nối chỉ ở cọc ≥ 2 dây, electron vẫn chạy trên nét; giữ nguyên lựa chọn, về đồ thật thì viền chọn nháy | [ảnh](electricity-wow/evidence-v2/schematic.jpg) |
+| Khung Workshop | Bàn tràn màn; chip trạng thái mạch + kiểu mắc; thẻ nhiệm vụ nổi; dock Đồ thật/Sơ đồ/Soi/Hai cách nối/Đồ nghề/Hoàn tác; thanh đồ nghề (máy rộng) hoặc khay (điện thoại) với icon chụp từ chính mô hình 3D; thẻ thuộc tính cột phải (bàn tự trượt tránh); số đo V/mA/W; menu gom lưu/JSON/danh sách cọc/cách nhìn dòng/bàn phẳng/dọn bàn | [điện thoại](electricity-wow/evidence-v2/phone.jpg) · [bài 3 xong](electricity-wow/evidence-v2/first-light.jpg) |
+| Hai cách nối | Hai bàn nhỏ trong phòng tối, cùng pin/bóng/góc máy; chọn dự đoán trước, vặn lỏng bóng 1 cả hai bàn hoặc chạm từng bóng; kết luận ngắn so với dự đoán | [ảnh](electricity-wow/evidence-v2/compare-loose.jpg) |
+| Soi dây | Ba lớp 3D: vỏ bổ dọc thấy bó sợi đồng → đầu sợi → mạng tinh thể đồng cạnh chuỗi nhựa; không điện chỉ dao động, có điện thêm trôi chậm; thước 0,5 nm; cầu dao mini điều khiển mạch ngoài | [vỏ](electricity-wow/evidence-v2/dive-sheath.jpg) · [lõi](electricity-wow/evidence-v2/dive-strands.jpg) · [tinh thể](electricity-wow/evidence-v2/dive-lattice.jpg) |
+| Phòng thử vật dẫn | Bàn 3D thật: pin 3 V → bóng thử → ampe kế → hai kẹp; đồ vật thật cho 16 mẫu; kết quả từ cùng bộ giải: đèn sáng / *đèn tắt nhưng ampe kế vẫn thấy dòng* / chỉ đo nhạy mới thấy / không có dòng | [bút chì](electricity-wow/evidence-v2/tester-graphite.jpg) |
+| Sảnh | Khung đầu trang tối, ảnh chụp từ chính bàn 3D (24 KB webp, có trong gói offline) | [ảnh](electricity-wow/evidence-v2/lobby.jpg) |
+
+**Hiệu năng (Chrome headless, ANGLE D3D11, i7-1195G7, 1280×760, DPR 1, mạch 10 linh kiện / 12 dây):** tier cao 156 lượt vẽ (gồm ~20 lượt bloom + lượt bóng), 107k tam giác, ~58 fps; tier thấp 105 lượt vẽ, 65k tam giác. Vượt mục tiêu "≤ 60 lượt vẽ phần scene" của mục 6.4 — chấp nhận để có hình khối đọc được; còn có thể gộp khối tĩnh theo vật liệu trong từng linh kiện. **Chưa đo trên Android/iOS thật.**
+
+**Còn lại / chưa làm:** ngôi nhà 3D và 4 phòng thí nghiệm còn lại (trái cây, nam châm điện, tĩnh điện, máy phát) vẫn là giao diện cũ; các linh kiện ngoài dây vẫn soi bằng hình cắt phẳng; hoạt động phân loại đồ vật (bài 1) và phòng an toàn chưa có hình minh họa; chưa có clip tương tác; chưa thử touch đa ngón/âm thanh trên máy thật.
 
 ## Nguồn và cách duy trì
 
