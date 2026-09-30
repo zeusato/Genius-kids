@@ -1,11 +1,12 @@
 import { HouseView } from './HouseView';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { ContentSpec } from '../../../data/electricity/content';
 import { APPLIANCES, dailyEnergy, earthHourEnergy, HAZARDS, POWER_OBJECTS, SAMPLES } from '../../../data/electricity/labs';
 import { Circuit, emptyCircuit, newPart, postIds } from '../engine/circuit';
 import { preset, wire } from '../engine/fixtures';
 import { compile } from '../engine/parts';
 import { reading, solve, solveNetlist } from '../engine/solver';
+import { bulbBrightness, startSimulation } from '../engine/simulation';
 import { PartGlyph } from '../flat/FlatBench';
 import { seededOrder } from '../engine/shuffle';
 type Evidence = (state: Record<string, unknown>) => void;
@@ -26,11 +27,65 @@ export function SafetyRoom({ onEvidence, all = false, initial = {} }: {
 }
 else
     setFeedback('Cách này vẫn có thể chạm vào chỗ nguy hiểm. Hãy tránh chạm và gọi người lớn.'); }}>{answer}</button>)}</div><p aria-live="polite">{feedback}</p></article> : <p>Chọn một dấu trên căn phòng để xem chuyện gì đang xảy ra.</p>}</section>; }
-function conductorCurrent(resistance: number | null) { return solveNetlist({ nodes: ['n', 'p', 'r', 'a', 'b'], branches: [{ id: 'source', partId: 'source', a: 'n', b: 'p', R: .4, E: 3, kind: 'battery' }, { id: 'protection', partId: 'protection', a: 'p', b: 'r', R: 100, kind: 'resistor' }, { id: 'wireA', partId: 'wireA', a: 'r', b: 'a', R: .02, kind: 'wire' }, ...(resistance === null ? [] : [{ id: 'sample', partId: 'sample', a: 'a', b: 'b', R: resistance, kind: 'sample' as const }]), { id: 'wireB', partId: 'wireB', a: 'b', b: 'n', R: .02, kind: 'wire' }] }); }
+/** Bàn thử vật dẫn: pin 3 V → bóng thử → ampe kế → hai kẹp mẫu. Chưa kẹp thì mạch hở. */
+export function testerCircuit(resistance: number | null | undefined): Circuit {
+    const c = emptyCircuit('tester'), b = newPart('battery', 'B', 3, 4.3);
+    b.cells = [{ polarity: 1, charge01: 1, present: true }, { polarity: 1, charge01: 1, present: true }];
+    const a = newPart('ammeter', 'A', 11, 4.3); a.rot = 90;
+    const x = newPart('sample', 'X', 7, 6.1); x.resistance = resistance ?? null;
+    c.parts = [b, newPart('bulb', 'L1', 7, 2), a, x];
+    c.wires = [wire('w0', 'B', 'plus', 'L1', 'a'), wire('w1', 'L1', 'b', 'A', 'a'), wire('w2', 'A', 'b', 'X', 'b'), wire('w3', 'X', 'a', 'B', 'minus')];
+    return c;
+}
+const ConductorBench = lazy(() => import('../bench/ConductorBench'));
+const hasWebGL = () => { try { return !!document.createElement('canvas').getContext('webgl2'); } catch { return false; } };
+const formatCurrent = (i: number) => i >= 0.1 ? `${(i).toFixed(2).replace('.', ',')} A` : i >= 1e-3 ? `${(i * 1000).toFixed(1).replace('.', ',')} mA` : `${(i * 1e6).toFixed(1).replace('.', ',')} µA`;
+
 export function Conductors({ onEvidence, initial = {} }: {
     onEvidence: Evidence;
     initial?: ActivityState;
-}) { const [index, setIndex] = useState(0), [prediction, setPrediction] = useState<boolean | null>(null), [tested, setTested] = useState<string[]>(initial.tested as string[] ?? []), [classified, setClassified] = useState<Record<string, boolean>>(initial.classified as Record<string, boolean> ?? {}), [measured, setMeasured] = useState(false), [sensitive, setSensitive] = useState(false); const sample = SAMPLES[index], current = reading(conductorCurrent(sample.resistance), 'wireA').Iab; return <section className="ew-activity"><div className="ew-section-intro"><div><span className="ew-eyebrow">Phòng vật liệu · 16 mẫu</span><h2>Bên trong có đường đi?</h2></div><strong>{SAMPLES.filter(s => s.core && tested.includes(s.id) && classified[s.id] === (s.resistance !== null)).length}/12 mẫu cơ bản</strong></div><div className="ew-lab-layout"><nav className="ew-sample-list" aria-label="Chọn mẫu vật">{SAMPLES.map((s, i) => <button key={s.id} aria-pressed={i === index} onClick={() => { setIndex(i); setPrediction(null); setMeasured(false); }}><span>{tested.includes(s.id) ? '✓' : String(i + 1).padStart(2, '0')}</span>{s.name}{!s.core && <small>Mở rộng</small>}</button>)}</nav><div className="ew-lab-main"><div className="ew-meter-stage"><div className="ew-clamp">Kẹp A</div><div className={`ew-sample-material material-${sample.id}`}><span>{sample.name}</span></div><div className="ew-clamp">Kẹp B</div></div><p>{sample.assumptions}</p><div className="ew-options"><button aria-pressed={prediction === true} onClick={() => setPrediction(true)}>Em đoán: có dẫn điện</button><button aria-pressed={prediction === false} onClick={() => setPrediction(false)}>Em đoán: chưa phát hiện dòng</button></div><button className="ew-primary" disabled={prediction === null} onClick={() => { setMeasured(true); const next = [...new Set([...tested, sample.id])]; setTested(next); onEvidence({ tested: next, classified }); }}>Kẹp thử mẫu này</button>{measured && <div className="ew-lab-result" aria-live="polite"><span className="ew-eyebrow">Kết quả đo</span><strong>{current > .0001 ? 'Có dòng điện' : current >= .000001 && sensitive ? 'Có dòng nhỏ' : 'Chưa phát hiện bằng chỉ báo thường'}</strong><label><input type="checkbox" checked={sensitive} onChange={e => setSensitive(e.target.checked)}/> Đo nhạy</label>{sensitive && <output>{current < .001 ? (current * 1e6).toFixed(3) + ' µA' : (current * 1000).toFixed(3) + ' mA'}</output>}<p>Ghi kết luận sau phép thử:</p><div className="ew-options">{[true, false].map(value => <button key={String(value)} aria-pressed={classified[sample.id] === value} onClick={() => { const next = { ...classified, [sample.id]: value }; setClassified(next); onEvidence({ tested, classified: next }); }}>{value ? 'Mẫu có dẫn điện' : 'Chưa phát hiện dòng ở mẫu này'}</button>)}</div>{classified[sample.id] !== undefined && <p>{classified[sample.id] === (sample.resistance !== null) ? 'Kết luận phù hợp phép đo.' : 'Thử bật đo nhạy và kiểm tra điểm kẹp nhé.'}</p>}</div>}<small>Điện trở mẫu là giả định minh họa. Chỉ thử bằng nguồn pin thấp; không thử với điện nhà. Bóng tắt chưa đủ để kết luận một vật không dẫn điện.</small></div></div></section>; }
+}) {
+    const [index, setIndex] = useState(0), [prediction, setPrediction] = useState<boolean | null>(null), [tested, setTested] = useState<string[]>(initial.tested as string[] ?? []), [classified, setClassified] = useState<Record<string, boolean>>(initial.classified as Record<string, boolean> ?? {}), [measured, setMeasured] = useState(false), [sensitive, setSensitive] = useState(false);
+    const sample = SAMPLES[index], reduced = useMemo(() => matchMedia('(prefers-reduced-motion: reduce)').matches, []), webgl = useMemo(hasWebGL, []);
+    const sim = useMemo(() => startSimulation(testerCircuit(measured ? sample.resistance : null)), [measured, sample.id]);
+    const current = Math.abs(reading(sim.solution, 'A').Iab), lit = bulbBrightness(reading(sim.solution, 'L1').Pabsorbed) > 0.05;
+    const verdict = !measured ? null : lit ? { tone: 'ok', title: 'Đèn sáng', text: 'Dòng điện đủ lớn để thắp bóng: mẫu dẫn điện tốt.' }
+        : current >= 1e-4 ? { tone: 'weak', title: 'Đèn tắt, nhưng ampe kế vẫn thấy dòng', text: 'Mẫu có dẫn điện, chỉ là dẫn yếu. Đèn tắt chưa đủ để kết luận vật không dẫn điện.' }
+            : current >= 1e-6 ? (sensitive ? { tone: 'weak', title: 'Có dòng rất nhỏ', text: 'Chỉ đồng hồ đo nhạy mới thấy. Nước vẫn dẫn điện, nên không bao giờ dùng điện gần nước.' } : { tone: 'none', title: 'Kim gần như không nhúc nhích', text: 'Thử bật "Đo nhạy" để kiểm tra kỹ hơn.' })
+                : { tone: 'none', title: 'Chưa phát hiện dòng điện', text: 'Kể cả khi đo nhạy. Mẫu này cách điện trong điều kiện thử pin.' };
+    const pick = (i: number) => { setIndex(i); setPrediction(null); setMeasured(false); };
+    const done = SAMPLES.filter(s => s.core && tested.includes(s.id) && classified[s.id] === (s.resistance !== null)).length;
+    return <section className="ew-activity ew-tester">
+        <div className="ew-section-intro"><div><span className="ew-eyebrow">Phòng vật liệu · 16 mẫu</span><h2>Bên trong có đường đi?</h2></div><strong>{done}/12 mẫu cơ bản</strong></div>
+        <div className="ew-lab-layout">
+            <nav className="ew-sample-list" aria-label="Chọn mẫu vật">{SAMPLES.map((s, i) => <button key={s.id} aria-pressed={i === index} onClick={() => pick(i)}><span>{tested.includes(s.id) ? '✓' : String(i + 1).padStart(2, '0')}</span>{s.name}{!s.core && <small>Mở rộng</small>}</button>)}</nav>
+            <div className="ew-lab-main">
+                <div className="ew-tester-stage">
+                    {webgl ? <Suspense fallback={<div className="ew-tester-loading">Đang bày bàn thử…</div>}><ConductorBench sim={sim} sampleId={sample.id} clamped={measured} sensitive={sensitive} reduced={reduced} /></Suspense>
+                        : <div className="ew-meter-stage"><div className="ew-clamp">Kẹp A</div><div className={`ew-sample-material material-${sample.id}`}><span>{sample.name}</span></div><div className="ew-clamp">Kẹp B</div></div>}
+                    <div className={`ew-tester-meter ${measured && current > 1e-6 ? 'is-live' : ''}`} aria-live="polite">
+                        <span>Ampe kế</span>
+                        <b>{!measured ? '—' : current < 1e-6 ? '0' : current < 1e-4 && !sensitive ? '≈ 0' : formatCurrent(current)}</b>
+                        <label><input type="checkbox" checked={sensitive} onChange={e => setSensitive(e.target.checked)} /> Đo nhạy</label>
+                    </div>
+                </div>
+                <p className="ew-tester-note"><b>{sample.name}.</b> {sample.assumptions}</p>
+                {!measured && <>
+                    <div className="ew-options"><button aria-pressed={prediction === true} onClick={() => setPrediction(true)}>Em đoán: có dẫn điện</button><button aria-pressed={prediction === false} onClick={() => setPrediction(false)}>Em đoán: không dẫn điện</button></div>
+                    <button className="ew-primary" disabled={prediction === null} onClick={() => { setMeasured(true); const next = [...new Set([...tested, sample.id])]; setTested(next); onEvidence({ tested: next, classified }); }}>Kẹp thử mẫu này</button>
+                </>}
+                {measured && verdict && <div className={`ew-lab-result is-${verdict.tone}`} aria-live="polite">
+                    <strong>{verdict.title}</strong><p>{verdict.text}</p>
+                    <p className="ew-lab-ask">Ghi kết luận của em:</p>
+                    <div className="ew-options">{[true, false].map(value => <button key={String(value)} aria-pressed={classified[sample.id] === value} onClick={() => { const next = { ...classified, [sample.id]: value }; setClassified(next); onEvidence({ tested, classified: next }); }}>{value ? 'Mẫu có dẫn điện' : 'Chưa phát hiện dòng ở mẫu này'}</button>)}</div>
+                    {classified[sample.id] !== undefined && <p>{classified[sample.id] === (sample.resistance !== null) ? 'Kết luận phù hợp phép đo.' : 'Nhìn lại ampe kế và thử bật đo nhạy nhé.'}</p>}
+                    <div className="ew-options">{index < SAMPLES.length - 1 && <button onClick={() => pick(index + 1)}>Mẫu tiếp theo →</button>}<button onClick={() => { setMeasured(false); setPrediction(null); }}>Tháo kẹp</button></div>
+                </div>}
+                <small>Điện trở mẫu là giả định minh họa. Chỉ thử bằng nguồn pin thấp; không thử với điện nhà.</small>
+            </div>
+        </div>
+    </section>;
+}
 function FruitCircuit(count: number, kind: 'lemon' | 'potato', load: 'led' | 'bulb'): Circuit { const c = emptyCircuit('fruit'); for (let i = 0; i < count; i++)
     c.parts.push(newPart(kind, `B${i}`, 2 + i * 3, 2)); c.parts.push(newPart(load, 'L', 7, 6)); let previous = 'L', port = postIds(c.parts.at(-1)!)[1]; for (let i = 0; i < count; i++) {
     c.wires.push(wire(`w${i}`, previous, port, `B${i}`, 'minus'));

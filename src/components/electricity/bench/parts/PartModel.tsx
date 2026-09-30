@@ -14,6 +14,7 @@ export interface LiveState {
     hdr: boolean;        // tier cao có bloom: màu phát sáng > 1
     reduced: boolean;
     morph: number;       // 0 = đồ thật, 1 = sơ đồ
+    hideSampleRod?: boolean; // bàn thử vật dẫn tự vẽ đồ vật thật giữa hai kẹp
 }
 export interface Emitter { position: THREE.Vector3; strength: number; color: THREE.Color }
 export type Emitters = Map<string, Emitter>;
@@ -383,15 +384,16 @@ function Fruit({ part }: ModelProps) {
         <mesh geometry={GEO.electrode()} material={m.copper} position={[0.34, 0.86, 0]} />
     </group>;
 }
-function Sample({ part }: ModelProps) {
-    const m = materials();
+function Sample({ part, live }: ModelProps) {
+    const m = materials(), rod = useRef<THREE.Mesh>(null);
+    useFrame(() => { if (rod.current) rod.current.visible = !live.current.hideSampleRod; });
     return <group>
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         {[-1, 1].map(s => <group key={s} position={[s * 0.5, BASE_TOP + 0.14, 0]} rotation={[0, s > 0 ? Math.PI : 0, 0]}>
             <mesh geometry={GEO.clipSleeve()} material={s > 0 ? m.teal : m.coral} position={[-0.12, 0, 0]} castShadow />
             {[-1, 1].map(k => <mesh key={k} geometry={GEO.clipJaw()} material={m.steel} position={[0.2, k * 0.04, 0]} rotation={[0, 0, k * 0.1]} />)}
         </group>)}
-        <mesh geometry={GEO.sampleRod()} material={part.resistance === null ? m.white : m.steel} position={[0, BASE_TOP + 0.14, 0]} castShadow />
+        <mesh ref={rod} geometry={GEO.sampleRod()} material={part.resistance === null ? m.white : m.steel} position={[0, BASE_TOP + 0.14, 0]} castShadow />
     </group>;
 }
 function Junction() {

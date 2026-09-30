@@ -30,3 +30,21 @@
   .ew-hero2-copy { padding: 0 22px 30px; }
 }
 @media (prefers-reduced-motion: reduce) { .ew-hero2-glow { animation: none; } }
+
+/* ---- bàn thử vật dẫn */
+.ew-tester-stage { position: relative; height: 360px; border-radius: 18px; overflow: hidden; background: #e9e8d6; }
+.ew-tester-stage > .ew-3d-canvas { position: absolute; inset: 0; }
+.ew-tester-stage > .ew-3d-canvas > div { width: 100%; height: 100%; }
+.ew-tester-loading { display: grid; place-items: center; height: 100%; color: #6e7b6e; font-weight: 800; }
+.ew-tester-meter { position: absolute; right: 12px; top: 12px; display: grid; justify-items: end; gap: 2px; padding: 10px 14px; border-radius: 14px; background: rgba(28, 44, 40, .88); color: #cfe3da; font-variant-numeric: tabular-nums; box-shadow: 0 6px 18px rgba(0, 0, 0, .2); }
+.ew-tester-meter span { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 850; opacity: .8; }
+.ew-tester-meter b { font-size: 28px; line-height: 1.1; color: #9ff0c9; font-family: ui-monospace, Consolas, monospace; }
+.ew-tester-meter.is-live b { text-shadow: 0 0 12px rgba(120, 255, 190, .55); }
+.electricity-world .ew-tester-meter label { margin: 4px 0 0; font-size: 12px; font-weight: 700; color: #f3ecd7; }
+.electricity-world .ew-tester-note { margin: 14px 0; color: #56645a; }
+.ew-lab-result.is-ok > strong { color: #1d7a4a; }
+.ew-lab-result.is-weak > strong { color: #a0661a; }
+.ew-lab-result.is-none > strong { color: #56645a; }
+.electricity-world .ew-lab-ask { font-weight: 800; margin-bottom: 8px; }
+.ew-lab-result .ew-options { margin-top: 10px; }
+@media (max-width: 760px) { .ew-tester-stage { height: 260px; } .ew-tester-meter b { font-size: 22px; } }
