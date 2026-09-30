@@ -164,18 +164,18 @@ function KnifeSwitch({ part, live }: ModelProps) {
     });
     if (door) return <group>
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
-        <mesh geometry={GEO.doorFrame()} material={m.tealDark} position={[-0.45, BASE_TOP + 0.31, 0]} castShadow />
-        <group ref={pivot} position={[-0.45, BASE_TOP + 0.31, 0]}><mesh geometry={GEO.doorPanel()} material={m.teal} castShadow /></group>
+        <mesh geometry={GEO.doorFrame()} material={m.tealDark} position={[-0.45, BASE_TOP + 0.31, 0]} />
+        <group ref={pivot} position={[-0.45, BASE_TOP + 0.31, 0]}><mesh geometry={GEO.doorPanel()} material={m.teal} /></group>
         {[-1, 1].map(s => <mesh key={s} geometry={GEO.strip()} material={m.brass} position={[s * 0.72, BASE_TOP + 0.015, 0.3]} />)}
     </group>;
     return <group>
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         {[-1, 1].map(s => <mesh key={s} geometry={GEO.strip()} material={m.brass} position={[s * 0.62, BASE_TOP + 0.015, 0]} />)}
         <mesh geometry={GEO.hinge()} material={m.brass} position={[-0.42, BASE_TOP + 0.15, 0]} castShadow />
-        {[-1, 1].map(s => <mesh key={s} geometry={GEO.jaw()} material={m.brass} position={[0.52, BASE_TOP + 0.16, s * 0.075]} castShadow />)}
+        {[-1, 1].map(s => <mesh key={s} geometry={GEO.jaw()} material={m.brass} position={[0.52, BASE_TOP + 0.16, s * 0.075]} />)}
         <group ref={pivot} position={[-0.42, BASE_TOP + 0.26, 0]} rotation={[0, 0, closed ? 0 : 0.95]}>
-            <mesh geometry={GEO.blade()} material={m.brass} castShadow />
-            <mesh geometry={GEO.handle()} material={m.coral} position={[1.02, 0.12, 0]} castShadow />
+            <mesh geometry={GEO.blade()} material={m.brass} />
+            <mesh geometry={GEO.handle()} material={m.coral} position={[1.02, 0.12, 0]} />
         </group>
     </group>;
 }
@@ -187,7 +187,7 @@ function PushButton({ part, live }: ModelProps) {
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         {[-1, 1].map(s => <mesh key={s} geometry={GEO.strip()} material={m.brass} position={[s * 0.6, BASE_TOP + 0.015, 0]} />)}
         <mesh geometry={GEO.buttonHousing()} material={m.teal} castShadow />
-        <mesh ref={cap} geometry={GEO.buttonCap()} material={m.coral} position={[0, BASE_TOP + 0.27, 0]} castShadow />
+        <mesh ref={cap} geometry={GEO.buttonCap()} material={m.coral} position={[0, BASE_TOP + 0.27, 0]} />
     </group>;
 }
 
@@ -200,8 +200,8 @@ function TwoWay({ part, live }: ModelProps) {
         <mesh geometry={GEO.hinge()} material={m.brass} position={[-0.4, BASE_TOP + 0.15, 0]} castShadow />
         {[-0.45, 0.45].map(z => [-1, 1].map(s => <mesh key={`${z}${s}`} geometry={GEO.jaw()} material={m.brass} position={[0.62, BASE_TOP + 0.16, z + s * 0.07]} scale={[0.8, 1, 1]} />))}
         <group ref={pivot} position={[-0.4, BASE_TOP + 0.24, 0]} rotation={[0, angle(part), 0]}>
-            <mesh geometry={GEO.blade()} material={m.brass} scale={[1.08, 1, 1]} castShadow />
-            <mesh geometry={GEO.handle()} material={m.coral} position={[0.6, 0.12, 0]} rotation={[0, 0, Math.PI / 2]} scale={0.8} castShadow />
+            <mesh geometry={GEO.blade()} material={m.brass} scale={[1.08, 1, 1]} />
+            <mesh geometry={GEO.handle()} material={m.coral} position={[0.6, 0.12, 0]} rotation={[0, 0, Math.PI / 2]} scale={0.8} />
         </group>
     </group>;
 }
@@ -220,7 +220,7 @@ function Bell({ part, live }: ModelProps) {
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         <mesh geometry={GEO.stand()} material={m.steel} position={[0, BASE_TOP + 0.24, -0.18]} />
         <mesh ref={dome} geometry={GEO.dome()} material={m.brass} position={[0, BASE_TOP + 0.48, -0.18]} castShadow />
-        <mesh geometry={GEO.coil()} material={m.coral} position={[-0.1, BASE_TOP + 0.15, 0.3]} castShadow />
+        <mesh geometry={GEO.coil()} material={m.coral} position={[-0.1, BASE_TOP + 0.15, 0.3]} />
         <group ref={arm} position={[0.2, BASE_TOP + 0.1, 0.3]}>
             <mesh geometry={GEO.arm()} material={m.steel} rotation={[-0.5, 0, 0]} />
             <mesh geometry={GEO.ball()} material={m.steel} position={[0, 0.3, -0.16]} />
@@ -255,7 +255,7 @@ function Motor({ part, live }: ModelProps) {
         <mesh geometry={GEO.cradle()} material={m.teal} castShadow />
         <mesh geometry={GEO.can()} material={m.steel} position={[0, BASE_TOP + 0.42, -0.08]} castShadow />
         <group ref={hub} position={[0, BASE_TOP + 0.42, 0.28]}>
-            {[0, 1, 2].map(k => <mesh key={k} geometry={GEO.fanBlade()} material={m.coral} rotation={[0, 0, k * Math.PI * 2 / 3 + 0.3]} castShadow />)}
+            {[0, 1, 2].map(k => <mesh key={k} geometry={GEO.fanBlade()} material={m.coral} rotation={[0, 0, k * Math.PI * 2 / 3 + 0.3]} />)}
             <mesh geometry={GEO.hub()} material={m.cream} />
         </group>
     </group>;
@@ -294,7 +294,7 @@ function Rheostat({ part }: ModelProps) {
             <mesh geometry={GEO.rheoWinding()} material={m.copper} />
         </group>
         <mesh geometry={GEO.rail()} material={m.brass} position={[0, BASE_TOP + 0.44, -0.05]} />
-        <mesh geometry={GEO.slider()} material={m.coral} position={[x, BASE_TOP + 0.4, -0.05]} castShadow />
+        <mesh geometry={GEO.slider()} material={m.coral} position={[x, BASE_TOP + 0.4, -0.05]} />
     </group>;
 }
 function Fuse({ part, live }: ModelProps) {
@@ -305,7 +305,7 @@ function Fuse({ part, live }: ModelProps) {
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         <Leads inner={0.42} />
         <group position={[0, BASE_TOP + 0.16, 0]}>
-            {[-1, 1].map(s => <mesh key={s} geometry={GEO.fuseCap()} material={m.steel} position={[s * 0.35, 0, 0]} castShadow />)}
+            {[-1, 1].map(s => <mesh key={s} geometry={GEO.fuseCap()} material={m.steel} position={[s * 0.35, 0, 0]} />)}
             {!part.broken && <mesh geometry={GEO.fuseWire()} material={wire} />}
             {part.broken && <mesh geometry={GEO.fuseWire()} material={m.rubber} scale={[0.3, 3, 3]} />}
             <mesh geometry={GEO.fuseTube()} material={m.glass} renderOrder={2} />
@@ -359,7 +359,7 @@ function Electromagnet({ part, live }: ModelProps) {
         <group position={[0, BASE_TOP + 0.14, 0]}>
             <mesh geometry={GEO.nail()} material={part.iron === false ? m.white : m.darkSteel} castShadow />
             <mesh geometry={GEO.nailHead()} material={m.darkSteel} position={[-0.62, 0, 0]} />
-            <mesh geometry={GEO.magnetCoil(turns)} material={coil} castShadow />
+            <mesh geometry={GEO.magnetCoil(turns)} material={coil} />
         </group>
     </group>;
 }
@@ -370,8 +370,8 @@ function Generator({ part, live }: ModelProps) {
         <mesh geometry={GEO.baseBattery()} material={m.teal} castShadow receiveShadow />
         <mesh geometry={GEO.can()} material={m.steel} position={[0, 0.62, -0.12]} scale={[1.2, 1.2, 1]} castShadow />
         <group ref={crank} position={[0, 0.62, 0.24]}>
-            <mesh geometry={GEO.crankArm()} material={m.coral} castShadow />
-            <mesh geometry={GEO.crankKnob()} material={m.cream} position={[0, 0.4, 0.12]} castShadow />
+            <mesh geometry={GEO.crankArm()} material={m.coral} />
+            <mesh geometry={GEO.crankKnob()} material={m.cream} position={[0, 0.4, 0.12]} />
         </group>
     </group>;
 }
@@ -390,10 +390,10 @@ function Sample({ part, live }: ModelProps) {
     return <group>
         <mesh geometry={GEO.base()} material={m.cream} castShadow receiveShadow />
         {[-1, 1].map(s => <group key={s} position={[s * 0.5, BASE_TOP + 0.14, 0]} rotation={[0, s > 0 ? Math.PI : 0, 0]}>
-            <mesh geometry={GEO.clipSleeve()} material={s > 0 ? m.teal : m.coral} position={[-0.12, 0, 0]} castShadow />
+            <mesh geometry={GEO.clipSleeve()} material={s > 0 ? m.teal : m.coral} position={[-0.12, 0, 0]} />
             {[-1, 1].map(k => <mesh key={k} geometry={GEO.clipJaw()} material={m.steel} position={[0.2, k * 0.04, 0]} rotation={[0, 0, k * 0.1]} />)}
         </group>)}
-        <mesh ref={rod} geometry={GEO.sampleRod()} material={part.resistance === null ? m.white : m.steel} position={[0, BASE_TOP + 0.14, 0]} castShadow />
+        <mesh ref={rod} geometry={GEO.sampleRod()} material={part.resistance === null ? m.white : m.steel} position={[0, BASE_TOP + 0.14, 0]} />
     </group>;
 }
 function Junction() {

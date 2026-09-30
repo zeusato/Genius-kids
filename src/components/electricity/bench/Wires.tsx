@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { reading } from '../engine/solver';
 import { materials, PALETTE } from './materials';
 import { GEO } from './parts/geometry';
@@ -35,31 +36,48 @@ export function sheathMaterials() {
 }
 
 function tube(curve: THREE.Curve<THREE.Vector3>, length: number, radius: number, radial: number) {
-    return new THREE.TubeGeometry(curve, Math.max(12, Math.ceil(length * 22)), radius, radial, false);
+    return new THREE.TubeGeometry(curve, Math.max(10, Math.ceil(length * (radial > 6 ? 14 : 8))), radius, radial, false);
 }
 
-function WireMesh({ view, highlight, live }: { view: WireView; highlight: boolean; live: React.MutableRefObject<LiveState> }) {
-    const m = materials(), sheaths = sheathMaterials();
-    // Dây đứt: chia đôi, chừa khe giữa với lõi đồng tua ra.
-    const geos = useMemo(() => {
-        if (!view.broken) return [{ sheath: tube(view.curve, view.length, 0.085, 12), core: tube(view.curve, view.length, 0.03, 6) }];
-        const gap = Math.min(0.2, 0.12 / Math.max(0.5, view.length));
-        return [[0, 0.5 - gap], [0.5 + gap, 1]].map(([u0, u1]) => {
-            const pts = Array.from({ length: 24 }, (_, i) => view.curve.getPointAt(u0 + (u1 - u0) * i / 23)), c = wireCurve(pts), l = c.getLength();
-            return { sheath: tube(c, l, 0.085, 12), core: tube(c, l, 0.03, 6) };
-        });
-    }, [view]);
-    useEffect(() => () => geos.forEach(g => { g.sheath.dispose(); g.core.dispose(); }), [geos]);
-    const core = useRef<THREE.Group>(null);
-    useFrame(() => { if (core.current) core.current.visible = live.current.morph < 0.55; });
-    const sheath = view.broken ? sheaths.grey : highlight ? sheaths.gold : sheaths[view.tone];
-    const [a, b] = [view.points[0], view.points[view.points.length - 1]];
-    return <group>
-        {geos.map((g, i) => <mesh key={i} geometry={g.sheath} material={sheath} castShadow renderOrder={1} userData={{ wireId: view.id }} />)}
-        <group ref={core}>
-            {geos.map((g, i) => <mesh key={i} geometry={g.core} material={m.copper} />)}
-            {[a, b].map((p, i) => <mesh key={i} geometry={GEO.lug()} material={m.brass} position={[p.x, p.y - 0.06, p.z]} />)}
-        </group>
+/** Hai nửa của dây đứt (chừa khe giữa); dây lành trả về chính đường cong. */
+function segments(view: WireView): { curve: THREE.Curve<THREE.Vector3>; length: number }[] {
+    if (!view.broken) return [{ curve: view.curve, length: view.length }];
+    const gap = Math.min(0.2, 0.12 / Math.max(0.5, view.length));
+    return [[0, 0.5 - gap], [0.5 + gap, 1]].map(([u0, u1]) => {
+        const c = wireCurve(Array.from({ length: 24 }, (_, i) => view.curve.getPointAt(u0 + (u1 - u0) * i / 23)));
+        return { curve: c, length: c.getLength() };
+    });
+}
+
+function Sheath({ view, highlight }: { view: WireView; highlight: boolean }) {
+    const sheaths = sheathMaterials();
+    const geos = useMemo(() => segments(view).map(sg => tube(sg.curve, sg.length, 0.085, 10)), [view]);
+    useEffect(() => () => geos.forEach(g => g.dispose()), [geos]);
+    const material = view.broken ? sheaths.grey : highlight ? sheaths.gold : sheaths[view.tone];
+    return <>{geos.map((g, i) => <mesh key={i} geometry={g} material={material} castShadow renderOrder={1} userData={{ wireId: view.id }} />)}</>;
+}
+
+/** Lõi đồng của mọi dây gộp một khối + khoen đồng đầu dây instanced: 2 lượt vẽ cho cả bàn. */
+function Cores({ views, live }: { views: WireView[]; live: React.MutableRefObject<LiveState> }) {
+    const m = materials(), group = useRef<THREE.Group>(null), lugs = useRef<THREE.InstancedMesh>(null);
+    const merged = useMemo(() => {
+        const list = views.flatMap(v => segments(v).map(sg => tube(sg.curve, sg.length, 0.03, 5).toNonIndexed()));
+        const g = list.length ? mergeGeometries(list) : null;
+        list.forEach(x => x.dispose());
+        return g;
+    }, [views]);
+    useEffect(() => () => { merged?.dispose(); }, [merged]);
+    const ends = useMemo(() => views.flatMap(v => [v.points[0], v.points[v.points.length - 1]]), [views]);
+    useEffect(() => {
+        const inst = lugs.current; if (!inst) return;
+        const m4 = new THREE.Matrix4();
+        ends.forEach((p, i) => inst.setMatrixAt(i, m4.makeTranslation(p.x, p.y - 0.06, p.z)));
+        inst.instanceMatrix.needsUpdate = true;
+    }, [ends]);
+    useFrame(() => { if (group.current) group.current.visible = live.current.morph < 0.55; });
+    return <group ref={group}>
+        {merged && <mesh geometry={merged} material={m.copper} />}
+        {ends.length > 0 && <instancedMesh key={ends.length} ref={lugs} args={[GEO.lug(), m.brass, ends.length]} frustumCulled={false} />}
     </group>;
 }
 
@@ -77,7 +95,8 @@ export function Wires({ views, highlighted, live, flow }: {
         for (const s of Object.values(sheaths)) s.visible = k > 0.01;
     });
     return <>
-        {views.map(v => <WireMesh key={`${v.id}:${v.tone}:${v.broken}`} view={v} highlight={highlighted.has(v.id)} live={live} />)}
+        {views.map(v => <Sheath key={`${v.id}:${v.tone}:${v.broken}`} view={v} highlight={highlighted.has(v.id)} />)}
+        <Cores views={views} live={live} />
         {flow !== 'off' && <Electrons views={views} live={live} flow={flow} />}
     </>;
 }
@@ -89,7 +108,7 @@ const CAPACITY = 1600;
  */
 function Electrons({ views, live, flow }: { views: WireView[]; live: React.MutableRefObject<LiveState>; flow: 'electron' | 'conventional' }) {
     const mesh = useRef<THREE.InstancedMesh>(null);
-    const geo = useMemo(() => new THREE.SphereGeometry(0.042, 10, 8), []);
+    const geo = useMemo(() => new THREE.IcosahedronGeometry(0.046, 0), []);
     const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#ffffff', toneMapped: false }), []);
     useEffect(() => () => { geo.dispose(); mat.dispose(); }, [geo, mat]);
     const frames = useMemo(() => views.map(v => ({ v, n: Math.max(3, Math.floor(v.length / 0.26)), phase: new Float32Array(Math.max(3, Math.floor(v.length / 0.26))).map((_, k) => (k * 2.39996) % (Math.PI * 2)) })), [views]);

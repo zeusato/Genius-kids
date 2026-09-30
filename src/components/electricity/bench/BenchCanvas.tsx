@@ -51,6 +51,8 @@ export default function BenchCanvas(props: BenchProps) {
     const glRef = useRef<THREE.WebGLRenderer | null>(null);
     const hdr = tier === 'high' && !FX_DISABLED;
     useEffect(() => { if (glRef.current) glRef.current.toneMapping = hdr ? THREE.NoToneMapping : THREE.NeutralToneMapping; }, [hdr]);
+    // Tier thấp: bỏ bản đồ bóng (mỗi vật đổ bóng tốn thêm một lượt vẽ).
+    useEffect(() => { const gl = glRef.current; if (gl) { gl.shadowMap.enabled = tier === 'high'; gl.shadowMap.needsUpdate = true; } }, [tier]);
     useEffect(() => { const on = () => setVisible(document.visibilityState === 'visible'); document.addEventListener('visibilitychange', on); return () => document.removeEventListener('visibilitychange', on); }, []);
     // Chỉ theo dõi hiệu năng sau khi đã ổn định vài giây và khi trang đang hiện (tránh hạ tier oan).
     const [monitor, setMonitor] = useState(false);
@@ -59,7 +61,7 @@ export default function BenchCanvas(props: BenchProps) {
     const isReady = ready === warmKey;
     return <div className="ew-3d-canvas" data-ready={isReady ? 'true' : 'false'}>
         <Canvas
-            shadows
+            shadows={tier === 'high'}
             dpr={tier === 'high' ? [1, 1.75] : 1}
             frameloop={visible ? 'always' : 'never'}
             camera={{ fov: 30, position: [0, 14, 10], near: 0.1, far: 400 }}
