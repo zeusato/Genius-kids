@@ -69,7 +69,7 @@ export function preset(name = 'single'): Circuit {
         for (let i = 0; i < 3; i++) {
             const z = 1.5 + i * 2.5;
             const k = add('switch', `K${i + 1}`, 6, z);
-            k.closed = i === 0;
+            k.closed = false;
             const r = add('resistor', `R${i + 1}`, 9, z);
             r.resistance = 220;
             const l = add('led', `L${i + 1}`, 12, z);

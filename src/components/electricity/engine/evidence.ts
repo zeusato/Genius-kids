@@ -51,7 +51,7 @@ function activityPass(spec: ContentSpec, r: Run) {
         return r.activity.sequence === 'source,transmission,distribution,house' && r.activity.matched === 4 && r.activity.night === true && ['storage', 'hydro', 'wind', 'thermal'].includes(String(r.activity.backup));
     return false;
 }
-function observedFault(spec: ContentSpec, r: Run) { const target: Record<string, string[]> = { missingWire: ['w0', 'w1', 'B', 'L1'], looseBulb: ['L1'], openSwitch: ['K'], reversedLed: ['L1', 'B'], brokenFilament: ['L1'], emptyBattery: ['B'], hiddenWireBreak: ['w0'], brokenSwitch: ['K'], shortedLoad: ['short'], blownFuse: ['F'], insulatedClip: ['X'], opposedCells: ['B'] }; const ids = target[spec.id] ?? []; return ids.every(id => r.observed.includes(id)) || (spec.id === 'missingWire' && r.observed.includes('L1')); }
+function observedFault(spec: ContentSpec, r: Run) { const target: Record<string, string[]> = { missingWire: ['w0', 'w1', 'B', 'L1'], looseBulb: ['L1'], openSwitch: ['K'], reversedLed: ['L1', 'B'], brokenFilament: ['L1'], emptyBattery: ['B'], hiddenWireBreak: ['w0'], brokenSwitch: ['K'], shortedLoad: ['short'], blownFuse: [r.initial.parts.find(p => p.kind === 'fuse')?.id ?? 'F'], insulatedClip: ['X'], opposedCells: ['B'] }; const ids = target[spec.id] ?? []; return ids.every(id => r.observed.includes(id)) || (spec.id === 'missingWire' && r.observed.includes('L1')); }
 export function predicate(spec: ContentSpec, run: Run, sim: Simulation): boolean {
     const step = spec.steps[run.step];
     if (!step)
@@ -72,6 +72,10 @@ export function predicate(spec: ContentSpec, run: Run, sim: Simulation): boolean
     const analysis = analyze(c, s, rt.strikes, rt.time), on = (id: string) => powered(c, s, id, rt.strikes, rt.time), off = (id: string) => { const p = c.parts.find(p => p.id === id); return p?.kind === 'bulb' ? reading(s, id).Pabsorbed / 0.75 < .005 : p?.kind === 'bell' ? !rt.strikes.some(e => e.id === id && e.time > (run.milestones.at(-1)?.time ?? 0)) : Math.abs(reading(s, id).Iab) < 1e-7; };
     const loads = c.parts.filter(p => loadKinds.includes(p.kind)), bulbs = c.parts.filter(p => p.kind === 'bulb'), cells = c.parts.filter(p => p.kind === 'battery').flatMap(p => p.cells ?? []), healthy = analysis.healthy && !Object.values(rt.heat).some(h => h >= 1);
     const hasControl = (id: string) => switched(c).some(k => controls(c, k.id, id));
+    // Vai trò thay cho ID cứng: bé có thể cất rồi lấy lại linh kiện (ID mới) mà bài vẫn chấm đúng.
+    const byId = (a: { id: string }, b: { id: string }) => a.id.localeCompare(b.id, undefined, { numeric: true });
+    const L1 = (c.parts.find(p => p.id === 'L1' && loadKinds.includes(p.kind)) ?? [...loads].sort(byId)[0])?.id ?? 'L1';
+    const fuse = c.parts.find(p => p.kind === 'fuse');
     const prev = run.milestones.find(m => ['one-cell', 'baseline'].includes(m.id));
     if (step.predicate.startsWith('legacy-')) {
         const code = step.predicate.slice(7), all = (kind: string) => loads.filter(p => p.kind === kind), works = (kind: string) => all(kind).some(p => on(p.id)), controlled = (kind: string) => all(kind).some(p => on(p.id) && hasControl(p.id));
@@ -96,49 +100,56 @@ export function predicate(spec: ContentSpec, run: Run, sim: Simulation): boolean
         }
     }
     switch (step.predicate) {
-        case 'light': return on('L1') && healthy;
-        case 'off': return off('L1');
-        case 'control-on': return on('L1') && healthy && hasControl('L1');
+        case 'light': return on(L1) && healthy;
+        case 'off': return off(L1);
+        case 'control-on': return on(L1) && healthy && hasControl(L1);
         case 'control-off': return loads.length > 0 && loads.every(l => off(l.id)) && loads.every(l => hasControl(l.id));
-        case 'reversed-light': return cells.length === 1 && cells[0].polarity === -1 && on('L1') && healthy && reading(s, 'L1').Iab < 0;
-        case 'schematic-light': return run.view === 'schematic' && on('L1') && healthy;
-        case 'schematic-control': return run.view === 'schematic' && on('L1') && healthy && hasControl('L1');
+        case 'reversed-light': return cells.length === 1 && cells[0].polarity === -1 && on(L1) && healthy;
+        case 'schematic-light': return run.view === 'schematic' && on(L1) && healthy;
+        case 'schematic-control': return run.view === 'schematic' && on(L1) && healthy && hasControl(L1);
         case 'schematic-bell': return run.view === 'schematic' && loads.some(l => l.kind === 'bell' && on(l.id) && c.parts.some(k => k.kind === 'button' && controls(c, k.id, l.id))) && healthy;
-        case 'one-cell': return cells.length === 1 && cells[0].polarity === 1 && bulbs.length === 1 && on('L1') && healthy;
-        case 'more-power': return cells.length === 2 && cells.every(v => v.polarity === 1 && v.present) && !!prev && reading(s, 'L1').Pabsorbed > prev.power.L1 && healthy && sameExceptBattery(prev.circuit, c);
-        case 'opposed': return cells.length === 2 && cells[0].polarity !== cells[1].polarity && off('L1') && !!prev && sameExceptBattery(prev.circuit, c);
+        case 'one-cell': return cells.length === 1 && cells[0].polarity === 1 && bulbs.length === 1 && on(L1) && healthy;
+        case 'more-power': return cells.length === 2 && cells.every(v => v.polarity === 1 && v.present) && !!prev && reading(s, L1).Pabsorbed > (prev.power[L1] ?? Infinity) && healthy && sameExceptBattery(prev.circuit, c);
+        case 'opposed': return cells.length === 2 && cells[0].polarity !== cells[1].polarity && off(L1) && !!prev && sameExceptBattery(prev.circuit, c);
         case 'series': return bulbs.length === 2 && topology(c) === 'series' && bulbs.every(l => on(l.id)) && healthy && reading(s, bulbs[0].id).Pabsorbed < (prev?.power.L1 ?? 0.2551);
         case 'parallel': return bulbs.length === 2 && topology(c) === 'parallel' && bulbs.every(l => on(l.id)) && healthy;
         case 'series-loose': return !!c.parts.find(p => p.id === 'L1')?.loose && bulbs.length === 2 && bulbs.every(l => off(l.id)) && run.milestones.some(m => m.id === 'series');
         case 'parallel-loose': return !!c.parts.find(p => p.id === 'L1')?.loose && off('L1') && on('L2') && run.milestones.some(m => m.id === 'parallel');
-        case 'button-bell': return c.parts.some(k => k.kind === 'button' && k.closed && controls(c, k.id, 'L1')) && on('L1') && healthy;
-        case 'bell-stopped': return c.parts.some(k => k.kind === 'button' && !k.closed) && off('L1') && hasControl('L1');
+        case 'button-bell': return c.parts.some(k => k.kind === 'button' && k.closed && controls(c, k.id, L1)) && on(L1) && healthy;
+        case 'bell-stopped': return c.parts.some(k => k.kind === 'button' && !k.closed) && off(L1) && hasControl(L1);
         case 'safe-led': return loads.some(l => l.kind === 'led' && reading(s, l.id).Iab >= .0005 && reading(s, l.id).Iab <= .02 && hasControl(l.id)) && healthy;
         case 'motor': return loads.some(l => l.kind === 'motor' && on(l.id) && hasControl(l.id)) && healthy;
         case 'bright-parallel': return bulbs.length === 2 && topology(c) === 'parallel' && bulbs.every(l => reading(s, l.id).Pabsorbed / .75 >= .25) && healthy;
-        case 'one-lemon': return c.parts.filter(p => p.kind === 'lemon').length === 1 && !c.parts.some(p => ['battery', 'generator'].includes(p.kind)) && loads.some(l => l.kind === 'led' && reading(s, l.id).Iab < .0005) && c.wires.length >= 2;
+        case 'one-lemon': return c.parts.filter(p => p.kind === 'lemon').length === 1 && !c.parts.some(p => ['battery', 'generator'].includes(p.kind)) && loads.some(l => l.kind === 'led' && reading(s, l.id).Iab < .0005 && Math.abs(reading(s, l.id).Uab) > 0.5) && healthy;
         case 'lemon-led': return c.parts.filter(p => p.kind === 'lemon').length >= 3 && !c.parts.some(p => ['battery', 'generator'].includes(p.kind)) && loads.some(l => l.kind === 'led' && reading(s, l.id).Iab >= .0005 && reading(s, l.id).Iab <= .02) && healthy;
-        case 'lemon-bulb': return c.parts.filter(p => p.kind === 'lemon').length >= 3 && bulbs.length === 1 && reading(s, bulbs[0].id).Iab > 1e-7 && reading(s, bulbs[0].id).Pabsorbed / .75 < .005;
-        case 'three-series': return bulbs.length === 3 && topology(c) === 'series' && bulbs.every(l => reading(s, l.id).Iab > 0) && healthy;
+        case 'lemon-bulb': return c.parts.filter(p => p.kind === 'lemon').length >= 3 && bulbs.length === 1 && Math.abs(reading(s, bulbs[0].id).Iab) > 1e-7 && reading(s, bulbs[0].id).Pabsorbed / .75 < .005;
+        case 'three-series': return bulbs.length === 3 && topology(c) === 'series' && bulbs.every(l => Math.abs(reading(s, l.id).Iab) > 1e-7) && healthy;
         case 'three-parallel': return bulbs.length === 3 && topology(c) === 'parallel' && bulbs.every(l => on(l.id)) && healthy;
-        case 'three-loose': return bulbs.length === 3 && !!bulbs.find(p => p.id === 'L1')?.loose && on('L2') && on('L3');
-        case 'door-on': return c.parts.some(p => p.actuator === 'doorContact' && !p.doorClosed) && on('L1') && on('L2') && healthy;
-        case 'door-off': return c.parts.some(p => p.actuator === 'doorContact' && p.doorClosed) && off('L1') && off('L2');
-        case 'fuse-normal': return c.parts.some(p => p.kind === 'fuse' && !p.broken) && on('L1') && healthy;
-        case 'fuse-open': return !!c.parts.find(p => p.id === 'F')?.broken && rt.events.some(e => e.id === 'F' && e.kind === 'fused') && Math.abs(reading(s, 'B').Iab) < 1e-7;
-        case 'fuse-repaired': return !!c.parts.find(p => p.id === 'F') && !c.parts.find(p => p.id === 'F')?.broken && on('L1') && healthy && !c.wires.some(w => w.id === 'fault');
+        case 'three-loose': { const sorted = [...bulbs].sort(byId), loose = sorted.filter(p => p.loose); return bulbs.length === 3 && loose.length === 1 && sorted.filter(p => !p.loose).every(p => on(p.id)); }
+        case 'door-on': return c.parts.some(p => p.actuator === 'doorContact' && !p.doorClosed) && loads.length >= 2 && loads.every(l => on(l.id)) && healthy;
+        case 'door-off': return c.parts.some(p => p.actuator === 'doorContact' && p.doorClosed) && loads.length >= 2 && loads.every(l => off(l.id));
+        case 'fuse-normal': return !!fuse && !fuse.broken && on(L1) && healthy;
+        case 'fuse-open': return !!fuse?.broken && rt.events.some(e => e.id === fuse.id && e.kind === 'fused') && c.parts.filter(p => p.kind === 'battery').every(b => Math.abs(reading(s, b.id).Iab) < 1e-7);
+        case 'fuse-repaired': return !!fuse && !fuse.broken && on(L1) && healthy && !c.wires.some(w => w.id === 'fault');
         case 'fault-repaired': {
             const sameParts = run.initial.parts.every(o => c.parts.some(p => o.id === p.id && o.kind === p.kind)) && c.parts.every(p => run.initial.parts.some(o => o.id === p.id) || ['ammeter', 'voltmeter'].includes(p.kind));
-            return sameParts && observedFault(spec, run) && on('L1') && healthy && (spec.id !== 'reversedLed' || reading(s, 'L1').Iab <= .02);
+            // Mọi linh kiện ban đầu (trừ đồng hồ đo) phải có dòng chạy qua: dây đi tắt bỏ qua mẫu/bóng không tính là sửa.
+            const noBypass = run.initial.parts.filter(p => !['ammeter', 'voltmeter', 'junction', 'spdt'].includes(p.kind)).every(p => Math.abs(reading(s, p.id).Iab) > 1e-6);
+            return sameParts && observedFault(spec, run) && on(L1) && healthy && noBypass && (spec.id !== 'reversedLed' || reading(s, L1).Iab <= .02);
         }
     }
     if (step.predicate.startsWith('independent-')) {
         const state = step.predicate.slice(-2);
-        return healthy && on('L1') === (state[0] === '1') && on('L2') === (state[1] === '1') && controls(c, 'K1', 'L1') && !controls(c, 'K1', 'L2') && controls(c, 'K2', 'L2') && !controls(c, 'K2', 'L1');
+        const [a, b] = [...loads].sort(byId), ks = switched(c);
+        if (!a || !b) return false;
+        const only = (load: string, other: string) => ks.some(k => controls(c, k.id, load) && !controls(c, k.id, other));
+        return healthy && on(a.id) === (state[0] === '1') && on(b.id) === (state[1] === '1') && only(a.id, b.id) && only(b.id, a.id);
     }
     if (step.predicate.startsWith('stairs-')) {
         const state = step.predicate.slice(-2);
-        return (c.parts.find(p => p.id === 'K1')?.position ?? 0) === (Number(state[0]) as 0 | 1) && (c.parts.find(p => p.id === 'K2')?.position ?? 0) === (Number(state[1]) as 0 | 1) && controls(c, 'K1', 'L1') && controls(c, 'K2', 'L1') && healthy;
+        const [k1, k2] = c.parts.filter(p => p.kind === 'spdt').sort(byId);
+        if (!k1 || !k2) return false;
+        return (k1.position ?? 0) === (Number(state[0]) as 0 | 1) && (k2.position ?? 0) === (Number(state[1]) as 0 | 1) && controls(c, k1.id, L1) && controls(c, k2.id, L1) && healthy;
     }
     if (step.predicate.startsWith('traffic-')) {
         const color = step.predicate.slice(8);
@@ -163,10 +174,14 @@ export function sampleEvidence(spec: ContentSpec, run: Run, sim: Simulation, dt:
 export function earnedTier(spec: ContentSpec, r: Run): 0 | 1 | 2 | 3 {
     if (!r.milestones.length)
         return 0;
-    if (spec.kind !== 'mission')
-        return r.done ? 1 : 0;
+    // Chỉ trao khi làm xong: mở nhiệm vụ dựng sẵn mà chưa thao tác thì không có sao.
     if (!r.done)
+        return 0;
+    if (spec.kind !== 'mission')
         return 1;
+    // Mạch dựng sẵn: tiêu chí "gọn" đã có sẵn trong preset nên không tính là thiết kế của bé.
+    if (!spec.build)
+        return 2;
     const c = r.milestones[0].circuit, cells = c.parts.filter(p => p.kind === 'battery').flatMap(p => p.cells ?? []).length;
     const perfect = spec.id === 'flashlight' ? cells === 1 && c.parts.length === 3 : spec.id === 'batterySaver' ? cells === 1 : spec.id === 'lantern' ? cells === 2 : spec.id === 'smartRoom' ? switched(c).length === 2 : spec.id === 'candleFan' ? cells <= 2 : spec.id === 'stairs' ? c.parts.filter(p => p.kind === 'spdt').length === 2 : spec.id === 'trafficLight' ? c.parts.filter(p => p.kind === 'resistor' && p.resistance === 220).length === 3 : true;
     return perfect ? 3 : 2;

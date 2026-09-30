@@ -333,7 +333,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         try {
             const archive = localStorage.getItem('electricity_legacy_archive_v1');
             const claim = studentsRef.current.find(p => p.id === id)?.electricity?.legacy;
-            if (archive && claim) localStorage.setItem('electricity_legacy_archive_v1', JSON.stringify({ ...JSON.parse(archive), claimedOwner: id }));
+            if (archive && claim) { const next = JSON.parse(archive); if (!next.claimedOwner || next.claimedOwner === id) delete next.claimedOwner; localStorage.setItem('electricity_legacy_archive_v1', JSON.stringify(next)); }
         } catch { /* Original legacy keys are retained even when storage is unavailable. */ }
         void clearEnglishData(id).catch(error => console.warn('English data cleanup failed', error));
         if (countingOwnerRef.current === id) countingOwnerRef.current = null;

@@ -10,6 +10,7 @@ import { freeSpot } from '../engine/route';
 import { reading } from '../engine/solver';
 import { applyCircuit, FixedClock, Simulation, startSimulation, tick } from '../engine/simulation';
 import { createRun, earnedTier, Run, sampleEvidence } from '../engine/evidence';
+import { seededOrder } from '../engine/shuffle';
 import { command, Command, emptyHistory, History, record, travel } from '../controller/commands';
 import { CircuitDocument, createDocument, downloadDocument, listDocuments, saveDocument, cacheThumbnail } from '../progress/notebook';
 import { BenchProps } from './benchTypes';
@@ -143,7 +144,7 @@ export function Workshop({ owner, grade, spec, initialDocument, onBack, practice
     const inspect = (id: string) => { if (runRef.current) { runRef.current.observed = [...new Set([...runRef.current.observed, id])]; publish(); } setInside(id); setPreview(null); releaseButtons(); };
     const add = (kind: PartKind) => {
         if (spec?.kind === 'fault' && !['ammeter', 'voltmeter'].includes(kind)) { setMessage('Giữ các linh kiện của vụ việc; sửa đúng món đang có nhé.'); return; }
-        const c = simRef.current.circuit, prefix = kind === 'bulb' || kind === 'led' || kind === 'motor' || kind === 'bell' ? 'L' : kind === 'switch' || kind === 'button' ? 'K' : kind === 'battery' ? 'B' : 'P';
+        const c = simRef.current.circuit, prefix = kind === 'bulb' || kind === 'led' || kind === 'motor' || kind === 'bell' ? 'L' : kind === 'switch' || kind === 'button' || kind === 'spdt' ? 'K' : kind === 'battery' ? 'B' : 'P';
         let id = prefix === 'L' ? 'L1' : prefix, n = 1;
         while (c.parts.some(p => p.id === id)) id = `${prefix}${n++}`;
         const placed = freeSpot(c, newPart(kind, id, 7, 4));
@@ -368,7 +369,7 @@ export function Workshop({ owner, grade, spec, initialDocument, onBack, practice
         <div className="ew-task-body">
             <p>{run?.done ? spec.takeaway : step?.text}</p>
             {!run?.done && hint > 0 && <small><Lightbulb size={13} /> {spec.hintRules[Math.min(2, hint - 1)]}</small>}
-            {step?.choice && !run?.done && <div className="ew-task-choices">{step.choice.options.map((text, i) => <button key={text} aria-pressed={run?.choices[step.id] === i} onClick={() => { if (runRef.current) { runRef.current.choices[step.id] = i; publish(); } }}>{text}</button>)}</div>}
+            {step?.choice && !run?.done && <div className="ew-task-choices">{seededOrder(step.choice.options.length, `${run?.id}:${step.id}`).map(i => { const text = step.choice!.options[i]; return <button key={text} aria-pressed={run?.choices[step.id] === i} onClick={() => { if (runRef.current) { runRef.current.choices[step.id] = i; publish(); } }}>{text}</button>; })}</div>}
             {run?.done && <div className="ew-task-done"><span>{practice ? 'Luyện tập đã hoàn thành.' : owner === 'guest' ? 'Kết quả của khách giữ trong phiên này.' : pending ? 'Kết quả đang chờ lưu.' : 'Đã ghi vào hồ sơ.'}</span><button className="ew-cta" onClick={leave}>Tiếp tục khám phá →</button></div>}
         </div>
         {!run?.done && <div className="ew-task-tools">
