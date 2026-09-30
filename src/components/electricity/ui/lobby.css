@@ -1,0 +1,32 @@
+/* Sảnh Xưởng Ánh Sáng — khung đầu trang tối như xưởng ban đêm, ảnh chụp từ chính bàn 3D. */
+.ew-hero2 {
+  position: relative; overflow: hidden; margin: 28px 0 30px; min-height: 520px; border-radius: 28px;
+  background: radial-gradient(circle at 70% 45%, #141d1a 0%, #070b0a 70%); color: #f4ead2;
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center;
+  box-shadow: 0 30px 60px rgba(30, 44, 38, .25);
+}
+.ew-hero2-art { position: absolute; inset: 0 0 0 30%; }
+.ew-hero2-art img { position: absolute; right: -4%; top: 50%; width: 108%; height: auto; transform: translateY(-50%); -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%); mask-composite: intersect; }
+.ew-hero2-glow { position: absolute; width: 22%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(255, 214, 140, .5), rgba(255, 190, 110, 0) 65%); mix-blend-mode: screen; animation: ew-breathe 3.6s ease-in-out infinite; pointer-events: none; }
+.ew-hero2-glow.is-a { left: 60.8%; top: 7%; }
+.ew-hero2-glow.is-b { left: 62.9%; top: 37.6%; animation-delay: -1.7s; }
+@keyframes ew-breathe { 50% { opacity: .55; transform: scale(.92); } }
+.ew-hero2-copy { position: relative; z-index: 2; padding: 48px 20px 48px 56px; }
+.ew-hero2 .ew-eyebrow { color: #a9b8a8; }
+.electricity-world .ew-hero2 h1 { font-size: clamp(40px, 4.6vw, 68px); margin: 22px 0; line-height: 1.06; letter-spacing: -.05em; color: #fff6e0; }
+.ew-hero2 h1 em { font-style: normal; color: #ffd27a; text-shadow: 0 0 28px rgba(255, 190, 90, .45); }
+.electricity-world .ew-hero2 p { max-width: 400px; color: #cfd6c6; font-size: 17px; }
+.ew-hero2 .ew-hero-actions { display: flex; align-items: center; gap: 22px; margin-top: 30px; flex-wrap: wrap; }
+.electricity-world .ew-hero2 .ew-primary { background: #ffd27a; border-color: #ffd27a; color: #2a2412; box-shadow: 0 5px 0 #b98d3c, 0 0 30px rgba(255, 200, 100, .35); }
+.electricity-world .ew-hero2 .ew-primary:hover { background: #ffdd95; }
+.electricity-world .ew-hero2 .ew-text-link { color: #f4ead2; }
+.ew-hero2 .ew-hero-caption { display: flex; align-items: center; gap: 12px; font-size: 9px; letter-spacing: .12em; color: #8fa196; margin-top: 34px; font-weight: 800; }
+.ew-hero2 .ew-hero-caption i { width: 24px; border-top: 1px solid #45574e; }
+@media (max-width: 860px) {
+  .ew-hero2 { grid-template-columns: 1fr; min-height: 0; margin: 16px 0 22px; }
+  .ew-hero2-art { position: relative; inset: auto; height: 230px; }
+  .ew-hero2-art img { right: -12%; width: 130%; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 60%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 60%, transparent); }
+  .ew-hero2-glow.is-a { left: 69%; top: 9%; } .ew-hero2-glow.is-b { left: 71%; top: 38%; }
+  .ew-hero2-copy { padding: 0 22px 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .ew-hero2-glow { animation: none; } }

@@ -263,12 +263,16 @@ export function Workshop({ owner, grade, spec, initialDocument, onBack, practice
     const [insets, setInsets] = useState({ top: 80, bottom: 100, left: 0, right: 0 });
     useLayoutEffect(() => {
         const measure = () => {
-            const s = stage.current?.getBoundingClientRect(); if (!s) return;
-            const top = Math.max(topRef.current ? topRef.current.getBoundingClientRect().bottom - s.top + 8 : 80, taskRef.current ? taskRef.current.getBoundingClientRect().bottom - s.top + 6 : 0);
-            const bottom = dockRef.current ? s.bottom - dockRef.current.getBoundingClientRect().top + 8 : 100;
-            const left = railRef.current && wide ? railRef.current.getBoundingClientRect().right - s.left + 8 : 0;
+            const s = stage.current?.getBoundingClientRect(); if (!s || !s.width || !s.height) return;
+            // Phần tử bị ẩn (display:none) có khung 0×0 → bỏ qua, không để bàn co lại.
+            const box = (el: Element | null) => { const r = el?.getBoundingClientRect(); return r && r.width > 0 && r.height > 0 ? r : null; };
+            const hdr = box(topRef.current), task = box(taskRef.current), dock = box(dockRef.current), rail = wide ? box(railRef.current) : null, insp = wide ? box(inspRef.current) : null;
+            const clampV = (v: number, max: number) => Math.max(0, Math.min(max, v));
+            const top = clampV(Math.max(hdr ? hdr.bottom - s.top + 8 : 0, task ? task.bottom - s.top + 6 : 0), s.height * 0.4);
+            const bottom = clampV(dock ? s.bottom - dock.top + 8 : 0, s.height * 0.3);
+            const left = clampV(rail ? rail.right - s.left + 8 : 0, s.width * 0.3);
             // Máy rộng: thẻ thuộc tính là cột bên phải → bàn trượt sang trái, không che linh kiện đang chọn.
-            const right = inspRef.current && wide ? s.right - inspRef.current.getBoundingClientRect().left + 8 : 0;
+            const right = clampV(insp ? s.right - insp.left + 8 : 0, s.width * 0.35);
             setInsets(v => (Math.abs(v.top - top) + Math.abs(v.bottom - bottom) + Math.abs(v.left - left) + Math.abs(v.right - right) > 2 ? { top, bottom, left, right } : v));
         };
         measure();

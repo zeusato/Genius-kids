@@ -7,6 +7,15 @@ export function preset(name = 'single'): Circuit {
     const series = (ids: string[]) => { c.wires = []; let prev = 'B', port = 'plus'; ids.forEach((id, i) => { const p = c.parts.find(p => p.id === id)!; const posts = postIds(p); c.wires.push(wire(`w${i}`, prev, port, id, posts[0])); prev = id; port = posts[1]; }); c.wires.push(wire(`w${ids.length}`, prev, port, 'B', 'minus')); };
     if (name === 'empty')
         return emptyCircuit();
+    if (name === 'showcase') {
+        // Mạch trưng bày cho ảnh sảnh: 2 pin → cầu dao → hai bóng song song.
+        c.parts[0].cells!.push({ polarity: 1, charge01: 1, present: true });
+        c.parts[1].z = 2;
+        add('bulb', 'L2', 10, 6);
+        add('switch', 'K', 6.5, 4).closed = true;
+        c.wires = [wire('w0', 'B', 'plus', 'K', 'a'), wire('w1', 'K', 'b', 'L1', 'a'), wire('w2', 'K', 'b', 'L2', 'a'), wire('w3', 'L1', 'b', 'B', 'minus'), wire('w4', 'L2', 'b', 'B', 'minus')];
+        return c;
+    }
     if (name === 'intro')
         return c;
     if (name === 'series' || name === 'parallel' || name === 'batterySaver' || name === 'tetLights') {
