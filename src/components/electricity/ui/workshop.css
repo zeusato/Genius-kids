@@ -179,7 +179,7 @@
 .ew-part-chip span { font-weight: 700; color: #5f6f66; font-size: 12px; }
 
 /* ---- bảng danh sách cọc & hộp thoại */
-.ew-sheet { position: absolute; z-index: 35; right: 16px; top: 72px; bottom: 100px; width: min(400px, calc(100% - 32px)); overflow: auto; padding: 14px 16px; border-radius: 20px; background: var(--glass-strong); border: 1px solid var(--glass-line); box-shadow: var(--glass-shadow); }
+.ew-sheet { position: absolute; z-index: 35; left: 144px; top: 72px; bottom: 100px; width: min(400px, calc(100% - 32px)); overflow: auto; padding: 14px 16px; border-radius: 20px; background: var(--glass-strong); border: 1px solid var(--glass-line); box-shadow: var(--glass-shadow); }
 .ew-sheet header { display: flex; justify-content: space-between; align-items: center; }
 .electricity-world .ew-sheet h2 { font-size: 18px; }
 .electricity-world .ew-sheet p { font-size: 13px; color: var(--ink-soft); margin: 6px 0 12px; }
@@ -234,4 +234,62 @@
 @media (prefers-reduced-motion: reduce) {
   .ew-chip.is-ok i, .ew-canvas-veil span::before { animation: none; }
   .ew-toast { animation: none; }
+}
+
+/* ---- so sánh nối tiếp / song song */
+.ew-compare-title { display: grid; justify-items: center; gap: 2px; white-space: nowrap; color: #f4ead2; text-shadow: 0 2px 10px rgba(0, 0, 0, .6); font-family: ElectricityNunito, Nunito, sans-serif; }
+.ew-compare-title b { font-size: 22px; letter-spacing: .08em; text-transform: uppercase; font-weight: 900; }
+.ew-compare-title span { font-size: 14px; font-weight: 700; opacity: .85; }
+.ew-compare-card { position: absolute; z-index: 18; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(700px, calc(100% - 24px)); padding: 14px 18px 16px; border-radius: 22px; background: rgba(255, 251, 242, .95); color: #213b38; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); display: grid; gap: 10px; text-align: center; transition: transform .2s; }
+.ew-compare-card.is-nudge { animation: ew-nudge .45s ease-in-out 2; }
+@keyframes ew-nudge { 25% { transform: translateX(calc(-50% - 8px)); } 75% { transform: translateX(calc(-50% + 8px)); } }
+.electricity-world .ew-compare-card p { margin: 0; font-size: 15px; line-height: 1.5; }
+.ew-compare-card .ew-task-choices { justify-content: center; margin: 0; }
+.ew-ws.ew-compare .ew-compare-card .ew-task-choices button { --glass-line: rgba(80, 100, 90, .2); background: #fffdf6; color: #213b38; }
+.ew-compare-result b:first-child { color: #1d7a4a; margin-right: 4px; }
+.ew-compare-actions { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.electricity-world .ew-compare-actions button:not(.ew-cta) { min-height: 44px; border-radius: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.ew-compare-flat { position: absolute; inset: 90px 12px 200px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ew-compare-flat article { display: grid; grid-template-rows: auto 1fr auto; color: #f4ead2; text-align: center; min-height: 0; }
+.ew-compare-flat svg { width: 100%; height: 100%; min-height: 0; }
+@media (max-width: 860px) {
+  .ew-compare-title b { font-size: 16px; }
+  .ew-compare-title span { font-size: 12px; }
+  .electricity-world .ew-compare-card p { font-size: 13.5px; }
+  .ew-compare-card { padding: 10px 12px 12px; gap: 8px; bottom: 8px; }
+  .ew-compare-flat { grid-template-columns: 1fr; }
+}
+
+/* ---- soi bên trong */
+.ew-ws.ew-inside { background: radial-gradient(circle at 50% 40%, #1b2a2f, #0d1822 70%); }
+.ew-ws.ew-inside.is-dive { background: #0d1822; }
+.ew-layer-bar { position: absolute; z-index: 18; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 4px; padding: 6px; border-radius: 22px; background: var(--glass); border: 1px solid var(--glass-line); box-shadow: var(--glass-shadow); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.electricity-world .ew-layer-bar button { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 16px; border: 0; border-radius: 16px; background: transparent; color: var(--ink); font-weight: 800; font-size: 14px; }
+.electricity-world .ew-layer-bar button b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(143, 230, 255, .14); font-size: 12px; }
+.electricity-world .ew-layer-bar button[aria-pressed=true] { background: var(--teal); color: #fff; }
+.ew-dive-caption { position: absolute; z-index: 16; left: 16px; bottom: 90px; width: min(380px, calc(100% - 32px)); padding: 14px 16px; border-radius: 18px; background: rgba(255, 251, 242, .94); color: #213b38; box-shadow: 0 8px 26px rgba(0, 0, 0, .35); display: grid; gap: 8px; }
+.electricity-world .ew-dive-caption p { margin: 0; font-size: 14.5px; line-height: 1.5; font-weight: 650; }
+.ew-dive-caption small { color: #5f6f66; font-size: 12.5px; }
+.ew-dive-switches { display: flex; flex-wrap: wrap; gap: 6px; }
+.electricity-world .ew-dive-caption button { min-height: 38px; padding: 6px 12px; font-size: 13px; border-radius: 12px; display: inline-flex; align-items: center; gap: 6px; }
+.electricity-world .ew-dive-caption button[aria-pressed=true] { background: #fff0c8; color: #6c4608; border-color: #f1cf8a; }
+.electricity-world .ew-dive-flat { justify-self: start; background: transparent; }
+.ew-dive-titles { position: absolute; z-index: 5; top: 84px; left: 0; right: 0; display: flex; justify-content: space-around; pointer-events: none; color: #f4ead2; text-align: center; }
+.ew-dive-titles div { display: grid; gap: 2px; }
+.ew-dive-titles b { font-size: 20px; letter-spacing: .06em; text-transform: uppercase; font-weight: 900; }
+.ew-dive-titles span { font-size: 14px; opacity: .8; }
+.ew-scale { position: absolute; z-index: 16; right: 16px; bottom: 90px; padding: 10px 14px; border-radius: 16px; background: rgba(255, 251, 242, .94); color: #213b38; display: grid; grid-template-columns: auto auto; align-items: center; gap: 2px 10px; }
+.ew-scale i { width: 64px; height: 6px; border-radius: 3px; background: #1f2a37; }
+.ew-scale span { grid-column: 1 / -1; font-size: 12px; color: #5f6f66; }
+.ew-inside-card { position: absolute; inset: 84px 16px 180px; display: grid; place-items: center; }
+.ew-inside-card .ew-cutaway { width: min(900px, 100%); max-height: 100%; color: #f1ead6; }
+@media (max-width: 860px) {
+  .ew-dive-caption { left: 8px; right: 8px; width: auto; bottom: 80px; padding: 10px 12px; }
+  .electricity-world .ew-dive-caption p { font-size: 13px; }
+  .ew-scale { top: 96px; bottom: auto; right: 10px; }
+  .ew-dive-titles { top: 150px; }
+  .ew-dive-titles b { font-size: 14px; }
+  .ew-dive-titles span { display: none; }
+  .electricity-world .ew-layer-bar button { padding: 6px 10px; font-size: 12.5px; }
+  .ew-inside-card { inset: 96px 8px 230px; }
 }

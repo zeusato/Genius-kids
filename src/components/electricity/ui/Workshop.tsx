@@ -382,12 +382,8 @@ export function Workshop({ owner, grade, spec, initialDocument, onBack, practice
         <div className="ew-ws-page"><Activity key={run?.id} spec={spec} initial={run?.activity} onEvidence={state => { if (runRef.current) runRef.current.activity = { ...runRef.current.activity, ...state }; scheduleDraft(); }} /></div>
         {message && <div className="ew-toast" role="status">{message}</div>}
     </div>;
-    if (inside || compare) return <div className={`ew-ws is-page ${night || compare ? 'is-night' : ''}`} onKeyDown={keydown}>
-        {header}
-        <div className="ew-ws-page">{inside
-            ? <Inside sim={sim} selected={inside} onClose={() => setInside(null)} onToggle={toggle} reduced={reduced} onObserve={id => { if (runRef.current) runRef.current.observed = [...new Set([...runRef.current.observed, id])]; }} />
-            : <Compare onClose={() => setCompare(false)} />}</div>
-    </div>;
+    if (compare) return <Compare onClose={() => setCompare(false)} />;
+    if (inside) return <Inside sim={sim} selected={inside} onClose={() => setInside(null)} onToggle={toggle} reduced={reduced} onObserve={id => { if (runRef.current) runRef.current.observed = [...new Set([...runRef.current.observed, id])]; }} />;
 
     // ------------------------------------------------------------------ bàn làm việc
     return <div className={`ew-ws ${night ? 'is-night' : ''} ${mode === 'schematic' ? 'is-schematic' : ''} ${portrait ? 'is-portrait' : ''}`} onKeyDown={keydown}>

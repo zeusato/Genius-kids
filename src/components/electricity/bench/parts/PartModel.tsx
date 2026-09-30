@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { Part } from '../../engine/circuit';
 import { reading } from '../../engine/solver';
-import type { Simulation } from '../../engine/simulation';
+import { bulbBrightness, Simulation } from '../../engine/simulation';
 import { glowColor, materials } from '../materials';
 import { BASE_TOP, GEO } from './geometry';
 
@@ -50,7 +50,9 @@ function Bulb({ part, live, emitters }: ModelProps) {
     const loose = !!part.loose, broken = !!part.broken;
     useFrame((_, dt) => {
         const { sim, night, morph, hdr } = live.current;
-        const target = broken ? 0 : (sim().runtime.visual[part.id]?.brightness ?? 0);
+        const now = sim(), vis = now.runtime.visual[part.id];
+        // Màn so sánh không chạy đồng hồ mô phỏng → lấy độ sáng thẳng từ lời giải.
+        const target = broken ? 0 : vis ? vis.brightness : bulbBrightness(reading(now.solution, part.id).Pabsorbed);
         glow.current = damp(glow.current, target, 12, Math.min(dt, 0.1));
         const L = glow.current * (1 - morph), e = Math.pow(L, 1.7) * (night ? 1.25 : 1);
         own.glass.emissive.set(L > 0.85 ? '#ffe6b0' : L > 0.5 ? '#ffc27a' : '#ffa050');
@@ -96,7 +98,8 @@ function Led({ part, live, emitters }: ModelProps) {
     useEffect(() => { (own.halo.uniforms.uColor.value as THREE.Color).set(hex); own.pool.color.set(hex); }, [own, hex]);
     useFrame((_, dt) => {
         const { sim, night, morph, hdr } = live.current;
-        const target = part.broken ? 0 : (sim().runtime.visual[part.id]?.brightness ?? 0);
+        const now = sim(), vis = now.runtime.visual[part.id];
+        const target = part.broken ? 0 : vis ? vis.brightness : Math.pow(Math.max(0, Math.min(1, reading(now.solution, part.id).Iab / 0.02)), 0.6);
         glow.current = damp(glow.current, target, 14, Math.min(dt, 0.1));
         const L = glow.current * (1 - morph);
         own.dome.emissiveIntensity = (hdr ? 3.2 : 1.2) * L;

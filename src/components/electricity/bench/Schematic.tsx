@@ -43,8 +43,8 @@ export function GlyphLayer({ items, opacity, renderOrder = 6, live }: { items: G
 export interface PlacedPart { part: Part; x: number; z: number; angle: number }
 
 /** Lớp sơ đồ: giấy kẻ ô, kí hiệu, nét dây, chấm nối và chữ trong kí hiệu. */
-export function Schematic({ placed, wires, junctions, W, D, live }: {
-    placed: PlacedPart[]; wires: WireView[]; junctions: [number, number][]; W: number; D: number; live: React.MutableRefObject<LiveState>;
+export function Schematic({ placed, wires, junctions, W, D, center = [0, 0], live }: {
+    placed: PlacedPart[]; wires: WireView[]; junctions: [number, number][]; W: number; D: number; center?: [number, number]; live: React.MutableRefObject<LiveState>;
 }) {
     const m = materials();
     const paperGeo = useMemo(() => { const g = new THREE.PlaneGeometry(W + 0.1, D + 0.1); g.rotateX(-Math.PI / 2); const uv = g.getAttribute('uv') as THREE.BufferAttribute; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * (W + 0.1), uv.getY(i) * (D + 0.1)); return g; }, [W, D]);
@@ -70,7 +70,7 @@ export function Schematic({ placed, wires, junctions, W, D, live }: {
         if (group.current) group.current.visible = live.current.morph > 0.02;
     });
     return <group ref={group}>
-        <mesh geometry={paperGeo} material={m.paper} position={[0, 0.06, 0]} receiveShadow renderOrder={2} />
+        <mesh geometry={paperGeo} material={m.paper} position={[center[0], 0.06, center[1]]} receiveShadow renderOrder={2} />
         {symbols.map(s => s.geo && <mesh key={s.part.id} geometry={s.geo} material={m.ink} position={[s.x, INK_Y, s.z]} rotation={[0, s.angle, 0]} renderOrder={3} />)}
         {wireInk && <mesh geometry={wireInk} material={m.ink} position={[0, INK_Y - 0.002, 0]} renderOrder={3} />}
         <GlyphLayer items={glyphs} opacity={l => inkAlpha(l.morph)} renderOrder={4} live={live} />
