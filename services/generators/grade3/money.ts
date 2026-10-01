@@ -19,7 +19,8 @@ export const templates: Template[] = [
             explanation: `Tiền trả lại = tiền đưa - giá tiền: ${fmtMoney(pay)} - ${fmtMoney(price)} = ${fmtMoney(pay - price)}.` });
     }),
     tpl('g3.money', 3, () => {
-        const [it, prices] = pickOne(ITEMS), price = pickOne(prices), n = rint(2, 3), cost = price * n, pay = [20000, 50000, 100000].find(p => p >= cost + 1000) ?? 100000;
+        const [it, prices] = pickOne(ITEMS), price = pickOne(prices), n = price * 3 <= 90000 ? rint(2, 3) : 2, cost = price * n, // phạm vi 100 000
+            pay = [20000, 50000, 100000].find(p => p >= cost + 1000) ?? 100000;
         if (cost >= pay) return single({ q: `Mua ${n} ${it}, mỗi ${it} giá ${fmtMoney(price)}. Hết bao nhiêu tiền?`, correct: cost, wrong: [price + n, cost + price, cost - 1000, cost + 1000], format: fmtMoney, min: 1000, explanation: `${fmtMoney(price)} × ${n} = ${fmtMoney(cost)}.` });
         return single({ q: `Mẹ mua ${n} ${it}, mỗi ${it} giá ${fmtMoney(price)}. Mẹ đưa cô bán hàng ${fmtMoney(pay)}. Cô bán hàng trả lại mẹ bao nhiêu tiền?`, correct: pay - cost, wrong: [pay - price, cost, pay - cost + 1000, pay - cost - 1000].filter(x => x > 0), format: fmtMoney, min: 1000,
             explanation: `Tiền mua hàng: ${fmtMoney(price)} × ${n} = ${fmtMoney(cost)}. Tiền trả lại: ${fmtMoney(pay)} - ${fmtMoney(cost)} = ${fmtMoney(pay - cost)}.`,

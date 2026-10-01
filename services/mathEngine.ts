@@ -1,5 +1,7 @@
 import { Grade, Question, Topic, QuestionType, StudentProfile } from '../types';
 import { generateAiQuiz } from './aiService';
+import { single } from './generators/kit';
+import { sanitize } from './study/session';
 import { generateG2Units } from './generators/grade2/units';
 import { generateG2Time } from './generators/grade2/time';
 import { generateG2Geometry } from './generators/grade2/geometry';
@@ -385,6 +387,11 @@ export const generateTestWithFallback = async (
             correctAnswer: q.correctAnswer,
             explanation: q.explanation || ''
          };
+         if (type === QuestionType.SingleChoice) {
+             Object.assign(parsedQ, single({ q: parsedQ.questionText, correct: parsedQ.correctAnswer!, wrong: (parsedQ.options || []).filter(o => o !== parsedQ.correctAnswer),
+                 count: Math.min(4, parsedQ.options!.length), closed: true, explanation: parsedQ.explanation }));
+         }
+         if (!sanitize(parsedQ)) throw new Error(`AI sinh câu ${index + 1} có lựa chọn không hợp lệ. Em có thể dùng đề có sẵn.`);
          
          if (q.visualRequest) {
             if (q.visualRequest.type === 'draw_objects') {

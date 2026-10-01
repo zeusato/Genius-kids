@@ -1,4 +1,5 @@
 // Dùng chung cho generator Lớp 2.
+import { fmt } from '../../study/value';
 import { rint } from '../kit';
 
 export const KIDS = ['Lan', 'Minh', 'An', 'Hoa', 'Nam', 'Mai', 'Bình', 'Linh', 'Hùng', 'Thảo'];
@@ -27,7 +28,7 @@ export function columnSteps(a: number, b: number, op: '+' | '-'): string[] {
     }
     if (op === '+' && carry) out.push('viết 1');
     out[0] = out[0].charAt(0).toUpperCase() + out[0].slice(1);
-    out.push(`Vậy ${a} ${op} ${b} = ${op === '+' ? a + b : a - b}`);
+    out.push(`Vậy ${fmt(a)} ${op} ${fmt(b)} = ${fmt(op === '+' ? a + b : a - b)}`);
     return out;
 }
 

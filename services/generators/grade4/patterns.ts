@@ -16,7 +16,7 @@ export const templates: Template[] = [
         return input({ q: `Tìm số thích hợp điền vào chỗ trống: ${seq.map((x, i) => (i === k ? '…' : x)).join(', ')}`, correct: seq[k], explanation: `Quy luật: ${rule}. Số cần điền là ${seq[k]}.`, hint: 'Tìm hiệu giữa hai số liền nhau.' });
     }),
     tpl('g4.sequence', 3, () => {
-        const { seq, rule } = make(rint(2, 3)), k = rint(3, 5);
+        const { seq, rule } = make(rint(2, 3)), k = rint(4, 5); // ≥ 4 số mới đủ xác định quy luật (2, 4, 8 → 16 hay 14?)
         return input({ q: `Tìm số thích hợp điền vào chỗ trống: ${seq.slice(0, k).join(', ')}, …`, correct: seq[k], explanation: `Quy luật: ${rule}. Số tiếp theo là ${seq[k]}.`, hint: 'Thử so sánh hai số liền nhau: hơn bao nhiêu? gấp mấy lần?' });
     }),
 ];

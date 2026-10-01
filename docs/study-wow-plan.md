@@ -4,6 +4,8 @@
 > Nhánh `feat/study-wow`, tag mốc `study-before-wow` trên `main` trước khi sửa.
 > Quyết định của chủ dự án (01/10): **(1) định dạng số theo SGK · (2) nội dung vượt lớp giữ lại, gắn nhãn "Nâng cao" · (3) làm trọn gói.**
 
+> **Bàn giao thực tế 01/10:** đã tiếp nhận code dở sau GĐ3, hoàn thiện giao diện/báo cáo/in và kiểm tra luồng. Xem [study-wow/README.md](study-wow/README.md) để biết chính xác kiểm chứng, thay đổi so với plan và lỗi TypeScript có sẵn ở module farm. Không suy diễn trạng thái từ danh sách kế hoạch bên dưới.
+
 ## 0. Cách dùng plan này (đọc trước mỗi phiên)
 
 1. Mỗi phiên chỉ làm **một mục GĐx.y**. Đọc mục 5 "Bẫy" trước khi sửa.
@@ -734,3 +736,8 @@ Không chạy các lớp GĐ2 song song: chúng cùng sửa `kit.ts`, `wrongs.ts
 ## 12. Nhật ký lệch plan
 
 (ghi ngày · mục · lý do · quyết định)
+
+- 01/10 · GĐ4–5 · Tiếp tục cấu trúc component Claude đã viết: dùng ReportView/PrintView và Answers.tsx; không đổi tên file chỉ để giống sơ đồ. Biểu đồ báo cáo dùng HTML/CSS, cùng dữ liệu và nội dung yêu cầu.
+- 01/10 · GĐ4.0/GĐ6 · Dùng sân thử DEV có dữ liệu cố định cho bộ ảnh, thêm kiểm lưu kết quả qua app thật. Chrome headless dùng profile riêng; mỗi kích thước dùng renderer mới để tránh ERR_INSUFFICIENT_RESOURCES khi tải lại hàng trăm module Vite nhiều lần.
+- 01/10 · GĐ6 · Kiến trúc lưu trong docs/study-mode-architecture.md để đi cùng repository. Không có ảnh trước trong log; dùng tag study-before-wow làm mốc so sánh.
+- 01/10 · Nghiệm thu · Typecheck toàn repo phát hiện lỗi có sẵn ở modules/farm/src/ui/renderSnapshot.ts:26. Ghi rõ trong bàn giao; không thay đổi module farm trong công việc Ôn Luyện.

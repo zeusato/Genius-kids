@@ -45,8 +45,9 @@ export const templates: Template[] = [
         const [x, y] = plus ? [b, c] : [Math.max(b, c) + 10, Math.min(b, c)];
         const r = plus ? a * (x + y) : a * (x - y);
         if (chance(0.4)) return input({ q: `Tính bằng cách thuận tiện: ${a} × ${x} ${plus ? '+' : '-'} ${a} × ${y}`, correct: r, explanation: `${a} × ${x} ${plus ? '+' : '-'} ${a} × ${y} = ${a} × (${x} ${plus ? '+' : '-'} ${y}) = ${a} × ${plus ? x + y : x - y} = ${fmt(r)}.`, hint: 'Nhân một số với một tổng (hiệu).' });
-        return single({ q: `Tính nhanh: ${a} × (${x} ${plus ? '+' : '-'} ${y}) = ?`, correct: r, wrong: [a * x + y, plus ? a * x - a * y : a * x + a * y, ...sameUnits(r, 2, 100)], min: 0,
-            explanation: `Nhân một số với một ${plus ? 'tổng' : 'hiệu'}: ${a} × ${x} ${plus ? '+' : '-'} ${a} × ${y} = ${fmt(a * x)} ${plus ? '+' : '-'} ${fmt(a * y)} = ${fmt(r)}.` });
+        // SGK: đưa a × x ± a × y về a × (x ± y) cho dễ tính, không làm ngược lại
+        return single({ q: `Tính nhanh: ${a} × ${x} ${plus ? '+' : '-'} ${a} × ${y} = ?`, correct: r, wrong: [a * x + (plus ? y : -y), plus ? a * x - a * y : a * x + a * y, ...sameUnits(r, 2, 100)], min: 0,
+            explanation: `Nhân một số với một ${plus ? 'tổng' : 'hiệu'}: ${a} × ${x} ${plus ? '+' : '-'} ${a} × ${y} = ${a} × (${x} ${plus ? '+' : '-'} ${y}) = ${a} × ${plus ? x + y : x - y} = ${fmt(r)}.`, hint: `Cả hai tích đều có thừa số ${a}.` });
     }),
 ];
 

@@ -10,8 +10,13 @@ import { isVisualFn, renderVisual } from './svg/render';
 import { QuestionType } from '../../types';
 import { questionKey } from '../study/session';
 import type { Generated, Template } from '../study/types';
+import { withGeneratorRandom } from './random';
 
-const N = 300;
+const N = 500;
+const randomFor = (key: string) => {
+    let seed = [...key].reduce((n, ch) => Math.imul(n, 31) + ch.charCodeAt(0) | 0, 1729);
+    return () => ((seed = Math.imul(seed, 1664525) + 1013904223 >>> 0) / 4294967296);
+};
 const BAD_TEXT = /undefined|NaN|Infinity|\\n|ai\/cái nào|tấtcả|÷|Tìm x\b|thối/;
 const COMMA_GROUP = /\d[,.]\d{3}(?!\d)/;
 const NEG_IN_TEXT = /(?:^|[\s(=:,])[-−]\d/;
@@ -60,6 +65,7 @@ function problems(t: Template, q: Generated): string[] {
         if (skill.grade <= 1 && (q.visual || q.visualSvg) && !q.speech) p.push('lớp ≤ 1 có hình nhưng thiếu speech');
     }
     if ((q.explanation || '').trim().length < 12) p.push(`lời giải quá ngắn: "${q.explanation}"`);
+    if (t.level >= 2 && !q.hint) p.push('thiếu gợi ý ở mức M2–M3');
     const c = t.check?.(q);
     if (c) p.push(`check: ${c}`);
     return p;
@@ -82,8 +88,9 @@ describe('Bất biến template', () => {
                 const errs = new Map<string, string>();
                 const rank = [0, 0, 0, 0], pos = [0, 0, 0, 0];
                 let rankable = 0, four = 0;
+                const random = randomFor(`${skillId}:${ti}`);
                 for (let i = 0; i < N; i++) {
-                    const q = stamp(t, t.make());
+                    const q = withGeneratorRandom(random, () => stamp(t, t.make()));
                     for (const e of problems(t, q)) if (!errs.has(e)) errs.set(e, q.questionText.slice(0, 80));
                     const o = q.options || [];
                     if (q.type === QuestionType.SingleChoice && o.length >= 3) {
@@ -99,10 +106,10 @@ describe('Bất biến template', () => {
                 if (!t.noRankCheck && rankable > N / 2) {
                     const ranks = rank.slice(0, Math.min(4, 4)).filter((_, i) => i < 4);
                     const max = Math.max(...ranks), min = Math.min(...ranks);
-                    expect(min / rankable, `${skillId}: đáp án dồn ở 1 hạng giá trị ${rank.join('/')}`).toBeGreaterThanOrEqual(0.06);
+                    expect(min / rankable, `${skillId}: đáp án dồn ở 1 hạng giá trị ${rank.join('/')}`).toBeGreaterThanOrEqual(0.10);
                     expect(max / rankable, `${skillId}: đáp án dồn vào 1 hạng ${rank.join('/')}`).toBeLessThan(0.6);
                 }
-                if (four > N / 2) for (const k of pos) expect(k / four, `${skillId}: vị trí đáp án lệch ${pos.join('/')}`).toBeGreaterThanOrEqual(0.12);
+                if (four > N / 2) for (const k of pos) expect(k / four, `${skillId}: vị trí đáp án lệch ${pos.join('/')}`).toBeGreaterThanOrEqual(0.15);
             }));
             it('đủ câu khác nhau', () => {
                 const skill = SKILL_MAP.get(skillId)!;

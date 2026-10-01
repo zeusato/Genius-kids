@@ -75,11 +75,13 @@ const FACTS: [string, boolean][] = [
 
 export const templates: Template[] = [
     tpl('g4.para_rhombus_id', 1, () => {
-        const kind = pickOne(['para', 'rhombus', 'rect', 'trapezoid'] as const);
-        const name = { para: 'Hình bình hành', rhombus: 'Hình thoi', rect: 'Hình chữ nhật', trapezoid: 'Hình thang' }[kind];
-        const visual = kind === 'para' ? { fn: 'parallelogramSVG', args: [rint(6, 10), rint(3, 5), { unit: '' }] } : kind === 'rhombus' ? { fn: 'rhombusSVG', args: [rint(6, 10), rint(4, 7), { unit: '' }] } : kind === 'rect' ? { fn: 'rectSVG', args: [rint(6, 10), rint(3, 5)] } : { fn: 'trapezoidSVG', args: [rint(3, 5), rint(7, 10), rint(3, 5)] };
-        return choices({ q: 'Hình vẽ là hình gì?', visual, options: shuffle(['Hình bình hành', 'Hình thoi', 'Hình chữ nhật', 'Hình thang']), correct: name,
-            explanation: { para: 'Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau.', rhombus: 'Hình thoi có bốn cạnh bằng nhau, hai cặp cạnh đối song song.', rect: 'Hình chữ nhật có bốn góc vuông.', trapezoid: 'Hình thang chỉ có một cặp cạnh đối diện song song.' }[kind] });
+        // Hình thang thuộc lớp 5. Hình thoi, hình chữ nhật cũng là hình bình hành → khi đó không đưa "Hình bình hành" làm lựa chọn.
+        const kind = pickOne(['para', 'rhombus', 'rect'] as const);
+        const name = { para: 'Hình bình hành', rhombus: 'Hình thoi', rect: 'Hình chữ nhật' }[kind];
+        const visual = kind === 'para' ? { fn: 'parallelogramSVG', args: [rint(6, 10), rint(3, 5), { unit: '' }] } : kind === 'rhombus' ? { fn: 'rhombusSVG', args: [rint(7, 10), rint(4, 6), { unit: '' }] } : { fn: 'rectSVG', args: [rint(6, 10), rint(3, 5), { unit: '' }] };
+        const options = kind === 'para' ? ['Hình bình hành', 'Hình thoi', 'Hình chữ nhật', 'Hình vuông'] : ['Hình thoi', 'Hình chữ nhật', 'Hình vuông', 'Hình tam giác'];
+        return choices({ q: 'Hình vẽ là hình gì?', visual, options: shuffle(options), correct: name,
+            explanation: { para: 'Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau, nhưng không có góc vuông và bốn cạnh không bằng nhau.', rhombus: 'Hình thoi có bốn cạnh bằng nhau, hai cặp cạnh đối song song.', rect: 'Hình chữ nhật có bốn góc vuông.' }[kind] });
     }),
     tpl('g4.para_rhombus_id', 2, () => {
         const [s, t] = pickOne(FACTS);

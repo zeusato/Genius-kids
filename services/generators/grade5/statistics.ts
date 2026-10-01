@@ -6,10 +6,13 @@ import { fmt } from '../../study/value';
 import { gcd } from '../fractions';
 import type { Template } from '../../study/types';
 
-const PIE: { title: string; labels: string[] }[] = [
-    { title: 'Tỉ lệ học sinh tham gia các môn thể thao', labels: ['Bóng đá', 'Cầu lông', 'Bơi', 'Cờ vua'] },
-    { title: 'Tỉ lệ các loại cây trong vườn', labels: ['Cam', 'Bưởi', 'Xoài', 'Nhãn'] },
-    { title: 'Tỉ lệ phương tiện học sinh đến trường', labels: ['Đi bộ', 'Xe đạp', 'Bố mẹ đưa', 'Xe buýt'] },
+const PIE: { title: string; labels: string[]; ask: (total: number, label: string) => string; unit: string }[] = [
+    { title: 'Tỉ lệ học sinh tham gia các môn thể thao', labels: ['Bóng đá', 'Cầu lông', 'Bơi', 'Cờ vua'], unit: 'học sinh',
+        ask: (t, l) => `Khối Năm có ${t} học sinh tham gia. Có bao nhiêu học sinh chọn môn ${l.toLowerCase()}?` },
+    { title: 'Tỉ lệ các loại cây trong vườn', labels: ['Cam', 'Bưởi', 'Xoài', 'Nhãn'], unit: 'cây',
+        ask: (t, l) => `Vườn có tất cả ${t} cây. Có bao nhiêu cây ${l.toLowerCase()}?` },
+    { title: 'Tỉ lệ phương tiện học sinh đến trường', labels: ['Đi bộ', 'Xe đạp', 'Bố mẹ đưa', 'Xe buýt'], unit: 'học sinh',
+        ask: (t, l) => `Trường có ${t} học sinh. Có bao nhiêu học sinh thuộc nhóm "${l}"?` },
 ];
 const pctSet = () => pickOne([[50, 25, 15, 10], [40, 30, 20, 10], [35, 25, 25, 15], [45, 25, 20, 10], [30, 30, 25, 15]]);
 
@@ -21,8 +24,8 @@ export const templates: Template[] = [
     }, { noRankCheck: true }),
     tpl('g5.pie_chart', 2, () => {
         const s = pickOne(PIE), ps = shuffle(pctSet()), k = rint(0, 3), total = pickOne([200, 400, 500, 800, 1000]), n = total * ps[k] / 100;
-        return single({ q: `Biểu đồ "${s.title}" khảo sát ${total} học sinh. Có bao nhiêu học sinh chọn "${s.labels[k]}"?`, visual: { fn: 'pieChartSVG', args: [s.labels.map((l, i) => ({ label: `${l} ${ps[i]}%`, value: ps[i] }))] }, correct: n, wrong: [ps[k], total - n, n * 2, ...around(n, { min: 1, step: 10 })], min: 0,
-            explanation: `${ps[k]}% của ${total}: ${total} × ${ps[k]} : 100 = ${n} (học sinh).`, hint: 'Tìm tỉ số phần trăm của một số.' });
+        return single({ q: `Biểu đồ "${s.title}". ${s.ask(total, s.labels[k])}`, visual: { fn: 'pieChartSVG', args: [s.labels.map((l, i) => ({ label: `${l} ${ps[i]}%`, value: ps[i] }))] }, correct: n, wrong: [ps[k], total - n, n * 2, ...around(n, { min: 1, step: 10 })], min: 0,
+            explanation: `${ps[k]}% của ${total}: ${total} × ${ps[k]} : 100 = ${n} (${s.unit}).`, hint: 'Tìm tỉ số phần trăm của một số.' });
     }),
     tpl('g5.bar_read', 1, () => {
         const labels = ['Lớp 5A', 'Lớp 5B', 'Lớp 5C', 'Lớp 5D'], vals = sample(Array.from({ length: 30 }, (_, i) => (i + 2) * 5), 4), k = rint(0, 3);

@@ -28,16 +28,18 @@ export const templates: Template[] = [
             explanation: `${total} : ${d} = ${w} dư ${n}, nên ${F(total, d)} = ${w} ${F(n, d)}.` });
     }, { noRankCheck: true }),
     tpl('g5.mixed_number', 2, () => {
-        const [n1, d] = coprime(2, 8), w1 = rint(1, 5), w2 = rint(1, 4), n2 = rint(1, d - 1);
+        const [n1, d] = coprime(3, 8), w1 = rint(1, 5), w2 = rint(1, 4);
+        let n2 = rint(1, d - 1);
+        for (let i = 0; i < 12 && (n1 + n2) % d === 0; i++) n2 = rint(1, d - 1); // kết quả không phải số tự nhiên
         const num = (w1 * d + n1) + (w2 * d + n2), right = fracText(num, d);
-        return single({ q: `Tính: ${w1} ${F(n1, d)} + ${w2} ${F(n2, d)} = ? (viết kết quả dưới dạng phân số)`, correct: right, wrong: [fracText(w1 + w2 + n1 + n2, d), fracText(num, d * 2), ...neigh(right)],
+        return single({ q: `Tính: ${w1} ${F(n1, d)} + ${w2} ${F(n2, d)} = ?${num % d ? ' (viết kết quả dưới dạng phân số)' : ''}`, correct: right, wrong: [fracText(w1 + w2 + n1 + n2, d), fracText(num, d * 2), ...neigh(right)],
             explanation: `${w1} ${F(n1, d)} = ${F(w1 * d + n1, d)}; ${w2} ${F(n2, d)} = ${F(w2 * d + n2, d)}; cộng: ${F(num, d)}${F(num, d) !== right ? ` = ${right}` : ''}.`, hint: 'Chuyển hỗn số thành phân số trước.' });
     }),
     tpl('g5.frac_addsub', 1, () => {
         const plus = chance(0.5);
         for (;;) {
             const b = rint(2, 9), d = rint(2, 9), a = rint(1, b - 1), c = rint(1, d - 1), m = lcm(b, d);
-            if (b === d || m === Math.max(b, d) && chance(0.5)) continue;
+            if (b === d || gcd(a, b) !== 1 || gcd(c, d) !== 1 || m === Math.max(b, d) && chance(0.5)) continue;
             const num = plus ? a * (m / b) + c * (m / d) : a * (m / b) - c * (m / d);
             if (num < 0) continue;
             const right = fracText(num, m);

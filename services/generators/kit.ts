@@ -8,6 +8,7 @@ import { generatorRandom } from './random';
 import { fmt, parseValue, sameValue } from '../study/value';
 import type { Generated, GenOpts, Level, Template } from '../study/types';
 import { skillById } from '../study/catalog';
+import { skillHint } from '../study/hints';
 import { renderVisual, type VisualSpec } from './svg/render';
 
 export const rint = (min: number, max: number): number => Math.floor(generatorRandom() * (max - min + 1)) + min;
@@ -195,7 +196,7 @@ export function selectWrong(o: Common & { rights: string[]; wrong: string }): Ge
 //  Template
 // ---------------------------------------------------------------------------
 export const tpl = (skillId: string, level: Level, make: () => Generated, extra: Partial<Omit<Template, 'skillId' | 'level' | 'make'>> = {}): Template =>
-    ({ skillId, level, make, ...extra });
+    ({ skillId, level, make: () => { const q = make(); return level >= 2 && !q.hint ? { ...q, hint: skillHint(skillId) } : q; }, ...extra });
 
 /** Gắn skillId / level / advanced / ops từ catalog vào câu. */
 export function stamp(t: Template, q: Generated): Generated {

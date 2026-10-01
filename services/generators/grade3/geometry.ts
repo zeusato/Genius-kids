@@ -61,7 +61,10 @@ export const templates: Template[] = [
     }),
     tpl('g3.rect_square', 1, () => {
         const [s, t] = pickOne(RECT_FACTS);
-        return yesNo({ q: `Đúng hay sai: ${s}`, yes: t, explanation: t ? `Đúng. ${s}` : 'Sai. Hình chữ nhật có 4 góc vuông, 2 cạnh dài bằng nhau, 2 cạnh ngắn bằng nhau; hình vuông có 4 góc vuông và 4 cạnh bằng nhau.' });
+        const reason = s.includes('tam giác') ? (s.includes('góc vuông') ? 'Một tam giác không thể có cả ba góc vuông.' : 'Hình tam giác có 3 cạnh, 3 đỉnh và 3 góc.')
+            : s.includes('Hình vuông') ? 'Hình vuông có 4 góc vuông và 4 cạnh bằng nhau.'
+                : 'Hình chữ nhật có 4 góc vuông, hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau.';
+        return yesNo({ q: `Đúng hay sai: ${s}`, yes: t, explanation: t ? `Đúng. ${s}` : `Sai. ${reason}` });
     }),
     tpl('g3.solids', 1, () => {
         const cube = chance(0.5);

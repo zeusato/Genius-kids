@@ -1,6 +1,6 @@
 // Lớp 4 — Biểu thức có dấu ngoặc (g4_parentheses). Dấu chia viết ":" theo SGK.
 // Giữ mẫu "(a + b) × c = ?" (MathRacing lọc biểu thức có × hoặc :).
-import { tpl, fromTemplates, single, compare, input, rint } from '../kit';
+import { tpl, fromTemplates, single, compare, input, rint, chance, pickOne } from '../kit';
 import { generateWrongAnswersWithSameUnits as sameUnits } from '../distractors';
 import { fmt } from '../../study/value';
 import type { Template } from '../../study/types';
@@ -22,11 +22,14 @@ export const templates: Template[] = [
         }
         if (kind === 1) {
             const a = rint(20, 99), b = rint(2, 9), c = rint(10, 50);
-            return compare({ q: `Điền dấu >, <, =: (${a} + ${c}) × ${b} ... ${a} + ${c} × ${b}`, left: (a + c) * b, right: a + c * b,
-                explanation: `(${a} + ${c}) × ${b} = ${(a + c) * b}; ${a} + ${c} × ${b} = ${a + c * b}. Vậy ${(a + c) * b} ${(a + c) * b > a + c * b ? '>' : '<'} ${a + c * b}.`, hint: 'Hai biểu thức trông giống nhau nhưng thứ tự tính khác nhau.' });
+            const other = pickOne([{ t: `${a} + ${c} × ${b}`, v: a + c * b }, { t: `${a} × ${b} + ${c} × ${b}`, v: a * b + c * b }, { t: `${a} × ${b} + ${c}`, v: a * b + c }]);
+            const sum = { t: `(${a} + ${c}) × ${b}`, v: (a + c) * b }, [L, R] = chance(0.5) ? [other, sum] : [sum, other];
+            const sign = L.v === R.v ? '=' : L.v > R.v ? '>' : '<';
+            return compare({ q: `Điền dấu >, <, =: ${L.t} ... ${R.t}`, left: L.v, right: R.v,
+                explanation: `${L.t} = ${fmt(L.v)}; ${R.t} = ${fmt(R.v)}. Vậy ${fmt(L.v)} ${sign} ${fmt(R.v)}.`, hint: 'Hai biểu thức trông giống nhau nhưng thứ tự tính khác nhau.' });
         }
         const price = rint(5, 25) * 1000, n1 = rint(2, 6), n2 = rint(2, 6), total = price * (n1 + n2);
-        return single({ q: `Mỗi quyển truyện giá ${fmt(price)} đồng. Lan mua ${n1} quyển, Hoa mua ${n2} quyển. Hai bạn trả hết bao nhiêu tiền?`, correct: total, wrong: [price * n1 + n2, price * n1 * n2, total + price, total - price], step: 1000, format: x => `${fmt(x)} đồng`, min: 0,
+        return single({ q: `Mỗi quyển truyện giá ${fmt(price)} đồng. Lan mua ${n1} quyển, Hoa mua ${n2} quyển. Hai bạn trả hết bao nhiêu tiền?`, correct: total, wrong: [price * n1, price * n2, total + price, total - price], step: 1000, format: x => `${fmt(x)} đồng`, min: 0,
             explanation: `${fmt(price)} × (${n1} + ${n2}) = ${fmt(price)} × ${n1 + n2} = ${fmt(total)} (đồng).`, steps: [`Số truyện cả hai mua: ${n1} + ${n2} = ${n1 + n2} (quyển)`, `Số tiền: ${fmt(price)} × ${n1 + n2} = ${fmt(total)} (đồng)`] });
     }),
 ];

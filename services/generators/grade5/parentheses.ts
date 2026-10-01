@@ -1,5 +1,5 @@
 // Lớp 5 — Biểu thức có dấu ngoặc (g5_parentheses), số lớn và số thập phân. Dấu chia viết ":".
-import { tpl, fromTemplates, single, compare, input, rint, chance } from '../kit';
+import { tpl, fromTemplates, single, compare, input, rint, chance, pickOne } from '../kit';
 import { generateWrongAnswersWithSameUnits as sameUnits } from '../distractors';
 import { fmt } from '../../study/value';
 import { dec, fix, fd } from './common';
@@ -19,8 +19,16 @@ export const templates: Template[] = [
             return input({ q: `Tìm số thích hợp: (? + ${b}) × ${c} = ${fmt(total)}`, correct: a, explanation: `? + ${b} = ${fmt(total)} : ${c} = ${a + b}; ? = ${a + b} - ${b} = ${a}.`, steps: [`? + ${b} = ${fmt(total)} : ${c} = ${a + b}`, `? = ${a + b} - ${b} = ${a}`], hint: 'Tìm giá trị trong ngoặc trước.' });
         }
         const a = rint(10, 99), b = rint(10, 99), c = rint(2, 9);
-        return compare({ q: `Điền dấu >, <, =: ${a} × ${c} + ${b} × ${c} ... (${a} + ${b}) × ${c}`, left: a * c + b * c, right: (a + b) * c,
-            explanation: `Nhân một tổng với một số: (${a} + ${b}) × ${c} = ${a} × ${c} + ${b} × ${c}, nên điền dấu =.`, hint: 'Nhớ tính chất nhân một tổng với một số.' });
+        // vế dễ nhầm: quên nhân b với c → không phải lúc nào cũng "="
+        const other = pickOne([
+            { t: `${a} × ${c} + ${b} × ${c}`, v: a * c + b * c },
+            { t: `${a} × ${c} + ${b}`, v: a * c + b },
+            { t: `${a} + ${b} × ${c}`, v: a + b * c },
+        ]);
+        const sum = { t: `(${a} + ${b}) × ${c}`, v: (a + b) * c }, [L, R] = chance(0.5) ? [other, sum] : [sum, other];
+        const sign = L.v === R.v ? '=' : L.v > R.v ? '>' : '<';
+        return compare({ q: `Điền dấu >, <, =: ${L.t} ... ${R.t}`, left: L.v, right: R.v,
+            explanation: `${L.t} = ${fmt(L.v)}; ${R.t} = ${fmt(R.v)}. Vậy điền dấu ${sign}.${sign === '=' ? ` (Nhân một tổng với một số: (${a} + ${b}) × ${c} = ${a} × ${c} + ${b} × ${c}.)` : ''}`, hint: 'Nhớ tính chất nhân một tổng với một số: phải nhân cả hai số hạng.' });
     }),
 ];
 

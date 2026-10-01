@@ -1,0 +1,239 @@
+{
+  "measurements": [
+    {
+      "scenario": "home-new",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "home-progress",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "g1-home",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "mn-home",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "choice",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "compare",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "input",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "order",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "multi",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "mn",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "result",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "report",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "print",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "home-new",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "home-progress",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "g1-home",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "mn-home",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "choice",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "compare",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "input",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "order",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "multi",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "mn",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "result",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "report",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "print",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "home-new",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "home-progress",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "g1-home",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "mn-home",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "choice",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "compare",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "input",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "order",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "multi",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "mn",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "result",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "report",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "print",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    }
+  ],
+  "errors": []
+}

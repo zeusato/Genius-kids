@@ -30,10 +30,12 @@ export const templates: Template[] = [
     tpl('g5.motion_two', 3, () => {
         const v1 = rint(30, 50), v2 = rint(30, 50), t = rint(2, 4);
         if (chance(0.5)) return single({ q: `Hai ô tô xuất phát cùng lúc từ hai tỉnh cách nhau ${(v1 + v2) * t} km, đi ngược chiều nhau. Ô tô thứ nhất đi ${v1} km/giờ, ô tô thứ hai đi ${v2} km/giờ. Sau bao lâu hai xe gặp nhau?`,
+            visual: { fn: 'segmentDiagramSVG', args: [[{ label: 'Xe 1 →', parts: [v1], labels: [`${v1} km`] }, { label: '← Xe 2', parts: [v2], labels: [`${v2} km`] }], 'Quãng đường mỗi xe đi trong 1 giờ'] },
             correct: t, wrong: [t + 1, t * 2, t + 2], format: hours, closed: true,
             explanation: `Sau mỗi giờ hai xe gần nhau thêm: ${v1} + ${v2} = ${v1 + v2} (km). Thời gian gặp nhau: ${(v1 + v2) * t} : ${v1 + v2} = ${t} (giờ).`, steps: [`Tổng vận tốc: ${v1} + ${v2} = ${v1 + v2} (km/giờ)`, `Thời gian: ${(v1 + v2) * t} : ${v1 + v2} = ${t} (giờ)`], hint: 'Ngược chiều: cộng hai vận tốc.' });
         const slow = rint(10, 30), fast = slow + rint(10, 25), gap = (fast - slow) * t;
         return single({ q: `Một xe đạp đi trước một ô tô ${gap} km, cùng chiều. Xe đạp đi ${slow} km/giờ, ô tô đi ${fast} km/giờ. Sau bao lâu ô tô đuổi kịp xe đạp?`, correct: t, wrong: [t + 1, t * 2, t + 2], format: hours, closed: true,
+            visual: { fn: 'segmentDiagramSVG', args: [[{ label: 'Xe đạp →', parts: [slow], labels: [`${slow} km`] }, { label: 'Ô tô →', parts: [slow, fast - slow], labels: [`${slow} km`, '?'] }], 'Quãng đường trong 1 giờ; phần hơn: ?'] },
             explanation: `Mỗi giờ ô tô gần xe đạp thêm: ${fast} - ${slow} = ${fast - slow} (km). Thời gian: ${gap} : ${fast - slow} = ${t} (giờ).`, steps: [`Hiệu vận tốc: ${fast} - ${slow} = ${fast - slow} (km/giờ)`, `Thời gian đuổi kịp: ${gap} : ${fast - slow} = ${t} (giờ)`], hint: 'Cùng chiều, đuổi nhau: lấy hiệu hai vận tốc.' });
     }, { noRankCheck: true }),
     tpl('g5.work_together', 3, () => {

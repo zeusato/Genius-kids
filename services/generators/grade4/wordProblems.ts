@@ -8,13 +8,14 @@ const KIDS = ['Lan', 'Minh', 'An', 'Hoa', 'Nam', 'Mai', 'Bình', 'Linh'];
 export const templates: Template[] = [
     tpl('g4.sum_diff', 2, () => {
         const small = rint(20, 400), diff = rint(10, 200), big = small + diff, sum = big + small, askBig = chance(0.5);
-        return single({ q: `Tổng của hai số là ${fmt(sum)}, hiệu của hai số là ${fmt(diff)}. Tìm số ${askBig ? 'lớn' : 'bé'}.`, correct: askBig ? big : small, wrong: [askBig ? small : big, sum - diff, sum + diff, (askBig ? big : small) + 1].filter(x => x !== (askBig ? big : small)), min: 0,
+        return single({ q: `Tổng của hai số là ${fmt(sum)}, hiệu của hai số là ${fmt(diff)}. Tìm số ${askBig ? 'lớn' : 'bé'}.`, visual: { fn: 'segmentDiagramSVG', args: [[{ label: 'Số bé', parts: [small], labels: ['?'] }, { label: 'Số lớn', parts: [small, diff], labels: ['?', fmt(diff)] }], `Tổng: ${fmt(sum)}`] }, correct: askBig ? big : small, wrong: [askBig ? small : big, sum - diff, sum + diff, (askBig ? big : small) + 1].filter(x => x !== (askBig ? big : small)), min: 0,
             explanation: askBig ? `Số lớn = (tổng + hiệu) : 2 = (${fmt(sum)} + ${fmt(diff)}) : 2 = ${fmt(big)}.` : `Số bé = (tổng - hiệu) : 2 = (${fmt(sum)} - ${fmt(diff)}) : 2 = ${fmt(small)}.`,
             hint: 'Số lớn = (tổng + hiệu) : 2; số bé = (tổng - hiệu) : 2.' });
     }),
     tpl('g4.sum_diff', 3, () => {
         const [a, b] = shuffle(KIDS).slice(0, 2), small = rint(10, 60), diff = rint(4, 30), big = small + diff;
         return choices({ q: `${a} và ${b} có tất cả ${big + small} viên bi. ${a} có nhiều hơn ${b} ${diff} viên. Hỏi mỗi bạn có bao nhiêu viên bi?`,
+            visual: { fn: 'segmentDiagramSVG', args: [[{ label: b, parts: [small], labels: ['?'] }, { label: a, parts: [small, diff], labels: ['?', `${diff} viên`] }], `Tổng: ${big + small} viên`] },
             options: shuffle([`${a}: ${big}, ${b}: ${small}`, `${a}: ${small}, ${b}: ${big}`, `${a}: ${big + diff}, ${b}: ${small - diff >= 0 ? small - diff : small + 1}`, `${a}: ${(big + small) / 2 | 0}, ${b}: ${(big + small) - ((big + small) / 2 | 0)}`]), correct: `${a}: ${big}, ${b}: ${small}`,
             explanation: `Số bi của ${a}: (${big + small} + ${diff}) : 2 = ${big}. Số bi của ${b}: ${big} - ${diff} = ${small}.`, steps: [`Số bi của ${a}: (${big + small} + ${diff}) : 2 = ${big} (viên)`, `Số bi của ${b}: ${big} - ${diff} = ${small} (viên)`] });
     }),

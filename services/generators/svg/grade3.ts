@@ -30,7 +30,8 @@ export function midpointSVG(len: number, at: number, names = 'AMB'): string {
 /** Góc đỉnh O có số đo `deg` (0–180), tia thứ hai quay NGƯỢC chiều kim đồng hồ phía trên tia ngang. */
 export function angleShapeSVG(deg: number, opts: { showDegree?: boolean; names?: string; protractor?: boolean; noMark?: boolean } = {}): string {
     const [n1, o, n2] = (opts.names ?? 'AOB').split('');
-    const r = 120, cx = deg > 90 ? 150 : 40, cy = 150, W = (deg > 90 ? 150 : 40) + r + 40, H = 180;
+    // có thước đo góc thì luôn chừa đủ nửa trái thước (bán kính 100)
+    const r = 120, cx = deg > 90 || opts.protractor ? 150 : 40, cy = 150, W = cx + r + 40, H = 180;
     const rad = deg * Math.PI / 180, x2 = cx + r * Math.cos(rad), y2 = cy - r * Math.sin(rad);
     let body = '';
     if (opts.protractor) {
@@ -51,10 +52,10 @@ export function angleShapeSVG(deg: number, opts: { showDegree?: boolean; names?:
     return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 340) });
 }
 
-/** Đa giác có tên đỉnh (tam giác ABC / tứ giác MNPQ), không ghi số đo. */
-export function namedPolygonSVG(n: 3 | 4, names: string, color: ColorKey = 'green'): string {
-    const pts: [number, number][] = n === 3 ? [[40, 160], [250, 160], [150, 30]] : [[40, 150], [80, 40], [240, 50], [260, 160]];
-    const offs: [number, number][] = n === 3 ? [[-14, 10], [14, 10], [0, -16]] : [[-14, 10], [-10, -14], [12, -12], [14, 12]];
+/** Đa giác có tên đỉnh (tam giác ABC / tứ giác MNPQ / hình chữ nhật nếu `rect`), không ghi số đo. */
+export function namedPolygonSVG(n: 3 | 4, names: string, color: ColorKey = 'green', rect = false): string {
+    const pts: [number, number][] = n === 3 ? [[40, 160], [250, 160], [150, 30]] : rect ? [[40, 40], [260, 40], [260, 160], [40, 160]] : [[40, 150], [80, 40], [240, 50], [260, 160]];
+    const offs: [number, number][] = n === 3 ? [[-14, 10], [14, 10], [0, -16]] : rect ? [[-12, -12], [12, -12], [12, 12], [-12, 12]] : [[-14, 10], [-10, -14], [12, -12], [14, 12]];
     let body = `<polygon points="${pts.map(p => p.join(',')).join(' ')}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}" stroke-linejoin="round"/>`;
     pts.forEach(([x, y], i) => { body += pt(x, y, names[i], offs[i][0], offs[i][1]); });
     return svgWrap(300, 200, body, { maxW: 320 });

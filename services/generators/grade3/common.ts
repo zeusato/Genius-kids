@@ -1,5 +1,6 @@
 // Dùng chung cho generator Lớp 3.
 import { rint } from '../kit';
+import { fmt } from '../../study/value';
 export { columnSteps } from '../grade2/common';
 
 export const KIDS = ['Lan', 'Minh', 'An', 'Hoa', 'Nam', 'Mai', 'Bình', 'Linh', 'Hùng', 'Thảo'];
@@ -25,6 +26,6 @@ export function mulSteps(a: number, b: number): string[] {
         out.push(`Hàng ${names[i]}: ${d} × ${b}${carry ? ` + ${carry} (nhớ)` : ''} = ${p}${p >= 10 && i < String(a).length - 1 ? `, viết ${p % 10} nhớ ${Math.floor(p / 10)}` : ''}`);
         carry = Math.floor(p / 10);
     });
-    out.push(`Kết quả: ${a * b}`);
+    out.push(`Kết quả: ${fmt(a)} × ${b} = ${fmt(a * b)}`);
     return out;
 }

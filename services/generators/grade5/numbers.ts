@@ -35,8 +35,10 @@ export const templates: Template[] = [
     tpl('g5.decimal_round', 2, () => {
         const x = dec(1, 99, 3), place = pickOne([0, 1, 2]), p = 10 ** place, r = Math.round(x * p) / p;
         const name = ['số tự nhiên gần nhất', 'hàng phần mười', 'hàng phần trăm'][place];
-        return single({ q: `Làm tròn số ${fd(x)} đến ${name}:`, correct: r, wrong: [fix(Math.floor(x * p) / p === r ? Math.ceil(x * p) / p : Math.floor(x * p) / p), fix(r + 1 / p), fix(r - 1 / p)].filter(v => v !== r && v >= 0), closed: true,
-            explanation: `Xét chữ số ngay bên phải: ${Number(fd(x).replace(',', '.').split('.')[1]?.[place] ?? 0) >= 5 ? 'từ 5 trở lên → làm tròn lên' : 'bé hơn 5 → làm tròn xuống'}: ${fd(r)}.` });
+        // giữ đủ chữ số tới hàng làm tròn: 19,397 → 19,40 (không viết 19,4)
+        const show = (v: number) => v.toFixed(place).replace('.', ',');
+        return single({ q: `Làm tròn số ${fd(x)} đến ${name}:`, correct: r, wrong: [fix(Math.floor(x * p) / p === r ? Math.ceil(x * p) / p : Math.floor(x * p) / p), fix(r + 1 / p), fix(r - 1 / p)].filter(v => v !== r && v >= 0), closed: true, format: show,
+            explanation: `Xét chữ số ngay bên phải: ${Number(fd(x).replace(',', '.').split('.')[1]?.[place] ?? 0) >= 5 ? 'từ 5 trở lên → làm tròn lên' : 'bé hơn 5 → làm tròn xuống'}: ${show(r)}.` });
     }, { decimal: true, noRankCheck: true }),
     tpl('g5.measure_decimal', 2, () => {
         const kind = pickOne([['m', 'cm', 100], ['kg', 'g', 1000], ['km', 'm', 1000], ['tấn', 'kg', 1000], ['m', 'dm', 10]] as const);

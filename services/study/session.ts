@@ -19,6 +19,8 @@ export interface SessionSpec {
     levelFor?: (skillId: string) => Level | undefined;
     /** Giữ thứ tự slot (không xáo câu). */
     keepOrder?: boolean;
+    /** Câu ôn đã có trong phiên: không sinh lại cùng câu ở phần luyện mới. */
+    excludeKeys?: string[];
 }
 export interface Session { questions: Question[]; shortBy: number }
 
@@ -87,9 +89,8 @@ export function buildSession(spec: SessionSpec): Session {
         }
     }
 
-    const seen = new Set<string>();
+    const seen = new Set<string>(spec.excludeKeys);
     const questions: Question[] = [];
-    let shortBy = 0;
     const tryMake = (skillId: string, level: Level | undefined): Question | null => {
         for (let attempt = 0; attempt < 25; attempt++) {
             let raw: Generated;
@@ -104,18 +105,19 @@ export function buildSession(spec: SessionSpec): Session {
         }
         return null;
     };
-    for (const slot of slots) {
+    for (const slot of slots.slice(0, spec.count)) {
         let q = tryMake(slot.skillId, slot.level);
         if (!q) {
             // kỹ năng đã cạn câu khác nhau → mượn kỹ năng khác cùng topic
             const def = skillDef(slot.skillId);
             for (const alt of shuffled(def ? skillsWithContent(def.topicId, spec.includeAdvanced) : [])) {
                 if (alt.id === slot.skillId) continue;
-                q = tryMake(alt.id, levelOf(alt.id));
+                if (slot.level && !alt.levels.includes(slot.level)) continue;
+                q = tryMake(alt.id, slot.level ?? levelOf(alt.id));
                 if (q) break;
             }
         }
-        if (q) questions.push(q); else shortBy++;
+        if (q) questions.push(q);
     }
-    return { questions: spec.keepOrder ? questions : shuffled(questions), shortBy };
+    return { questions: spec.keepOrder ? questions : shuffled(questions), shortBy: Math.max(0, spec.count - questions.length) };
 }

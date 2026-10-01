@@ -23,6 +23,7 @@ export const emptyProgress = (): StudyProgress => ({ version: 1, skills: {}, rev
 
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
 const isLevel = (x: unknown): x is Level => x === 1 || x === 2 || x === 3;
+const finite = (x: unknown) => Number.isFinite(Number(x)) ? Number(x) : 0;
 
 /** Làm sạch dữ liệu đọc từ localStorage (bỏ kỹ năng lạ, kẹp số, giới hạn kích thước). */
 export function readStudyProgress(raw: unknown): StudyProgress {
@@ -31,15 +32,21 @@ export function readStudyProgress(raw: unknown): StudyProgress {
     const r = raw as StudyProgress;
     for (const [id, s] of Object.entries(r.skills || {})) {
         if (!SKILL_MAP.has(id) || !s || typeof s !== 'object') continue;
-        const a = Math.max(0, Math.floor(Number(s.a) || 0)), c = Math.max(0, Math.min(a, Math.floor(Number(s.c) || 0)));
-        p.skills[id] = { a, c, m: clamp01(Number(s.m) || 0), lvl: isLevel(s.lvl) ? s.lvl : 1, last: typeof s.last === 'string' ? s.last : '' };
+        const a = Math.max(0, Math.floor(finite(s.a))), c = Math.max(0, Math.min(a, Math.floor(finite(s.c))));
+        const levels = SKILL_MAP.get(id)!.levels;
+        p.skills[id] = { a, c, m: clamp01(finite(s.m)), lvl: isLevel(s.lvl) && levels.includes(s.lvl) ? s.lvl : levels[0], last: typeof s.last === 'string' ? s.last : '' };
     }
     if (Array.isArray(r.review)) p.review = r.review
-        .filter(it => it && typeof it.key === 'string' && SKILL_MAP.has(it.skillId) && it.q && typeof it.q.questionText === 'string' && typeof it.due === 'string')
-        .map(it => ({ key: it.key, skillId: it.skillId, q: it.q, step: ([0, 1, 2, 3].includes(it.step) ? it.step : 0) as ReviewItem['step'], due: it.due }))
+        .filter(it => it && typeof it.key === 'string' && SKILL_MAP.has(it.skillId) && it.q && typeof it.q.questionText === 'string' && Number.isFinite(Date.parse(it.due)))
+        .map(it => ({ key: it.key, skillId: it.skillId, q: compactQuestion({ ...it.q, skillId: it.skillId }), step: ([0, 1, 2, 3].includes(it.step) ? it.step : 0) as ReviewItem['step'], due: new Date(it.due).toISOString() }))
+        .sort((a, b) => a.due.localeCompare(b.due))
+        .filter((it, i, arr) => arr.findIndex(x => x.key === it.key) === i)
         .slice(0, MAX_REVIEW);
-    for (const [d, v] of Object.entries(r.days || {})) if (/^\d{4}-\d\d-\d\d$/.test(d) && v) p.days[d] = { n: Math.max(0, Number(v.n) || 0), c: Math.max(0, Number(v.c) || 0) };
-    if (r.streak && typeof r.streak.last === 'string') p.streak = { count: Math.max(0, Math.floor(Number(r.streak.count) || 0)), last: r.streak.last };
+    for (const [d, v] of Object.entries(r.days || {}).filter(([d]) => /^\d{4}-\d\d-\d\d$/.test(d)).sort(([a], [b]) => a.localeCompare(b)).slice(-KEEP_DAYS)) if (v) {
+        const n = Math.max(0, Math.floor(finite(v.n)));
+        p.days[d] = { n, c: Math.max(0, Math.min(n, Math.floor(finite(v.c)))) };
+    }
+    if (r.streak && typeof r.streak.last === 'string') p.streak = { count: Math.max(0, Math.floor(finite(r.streak.count))), last: r.streak.last };
     if (typeof r.dailyDone === 'string') p.dailyDone = r.dailyDone;
     if (r.prefs && typeof r.prefs === 'object') p.prefs = { tts: typeof r.prefs.tts === 'boolean' ? r.prefs.tts : undefined, showAdvanced: !!r.prefs.showAdvanced };
     return p;
@@ -60,7 +67,7 @@ export const STATUS_LABEL: Record<SkillStatus, string> = { none: 'Chưa học', 
 /** % thành thạo của topic = trung bình m của các kỹ năng KHÔNG nâng cao (chưa học tính 0). */
 export function topicMastery(p: StudyProgress, skills: SkillDef[]): number {
     const basic = skills.filter(s => !s.advanced);
-    const list = basic.length ? basic : skills;
+    const list = basic;
     if (!list.length) return 0;
     return list.reduce((sum, s) => sum + (p.skills[s.id]?.m ?? 0), 0) / list.length;
 }
@@ -73,6 +80,8 @@ export interface AnswerRecord {
     q: Question;
     /** đúng ngay lần đầu */ firstTry: boolean;
     /** đúng (kể cả sau khi thử lại) */ correct: boolean;
+    /** khoá hàng đợi ôn của câu (câu ôn đã nén mất visualSvg nên không tính lại được khoá) */
+    key?: string;
 }
 export interface SessionOutcome { progress: StudyProgress; masteredNow: string[]; reviewCleared: number; firstTryCorrect: number }
 
@@ -94,7 +103,7 @@ export function applySession(prev: StudyProgress, records: AnswerRecord[], mode:
             const s0: SkillState = p.skills[skillId] ?? { a: 0, c: 0, m: 0, lvl: levelsOf(skillId)[0], last: '' };
             const s: SkillState = { ...s0, a: s0.a + 1, c: s0.c + (score === 1 ? 1 : 0), m: clamp01(s0.m + ALPHA * (score - s0.m)), last: nowIso };
             // mức gợi ý: 2 câu đúng ngay liên tiếp → lên 1 mức; sai → xuống 1 mức
-            const lv = levelsOf(skillId), run = score === 1 ? (streakBySkill.get(skillId) ?? 0) + 1 : 0;
+            const lv = levelsOf(skillId), run = score === 1 && (r.q.level ?? s.lvl) === s.lvl ? (streakBySkill.get(skillId) ?? 0) + 1 : 0;
             streakBySkill.set(skillId, run >= 2 ? 0 : run);
             const cur = lv.includes(s.lvl) ? s.lvl : lv[0];
             if (score === 0) s.lvl = lv[Math.max(0, lv.indexOf(cur) - 1)];
@@ -104,15 +113,15 @@ export function applySession(prev: StudyProgress, records: AnswerRecord[], mode:
         }
         // ôn câu sai
         if (!skillId || !SKILL_MAP.has(skillId)) continue;
-        const key = questionKey(r.q);
+        const key = r.key ?? questionKey(r.q);
         const idx = p.review.findIndex(it => it.key === key);
         if (mode === 'review' && idx >= 0) {
             const it = p.review[idx];
-            if (r.firstTry) {
+            if (r.firstTry && it.due <= nowIso) {
                 const step = it.step + 1;
                 if (step > 3) { p.review.splice(idx, 1); reviewCleared++; }
                 else p.review[idx] = { ...it, step: step as ReviewItem['step'], due: new Date(now.getTime() + REVIEW_STEPS_DAYS[step] * DAY).toISOString() };
-            } else p.review[idx] = { ...it, step: 0, due: new Date(now.getTime() + DAY).toISOString() };
+            } else if (!r.firstTry) p.review[idx] = { ...it, step: 0, due: new Date(now.getTime() + DAY).toISOString() };
         } else if (score === 0) {
             const item: ReviewItem = { key, skillId, q: compactQuestion(r.q), step: 0, due: new Date(now.getTime() + DAY).toISOString() };
             if (idx >= 0) p.review[idx] = item; else p.review.push(item);
@@ -166,7 +175,10 @@ export interface DailyPlan { review: ReviewItem[]; picks: { skillId: string; lev
 
 export function dailyPlan(p: StudyProgress, grade: Grade, available: (id: string) => boolean, now: Date = new Date()): DailyPlan {
     const count = dailyCount(grade);
-    const review = dueReviews(p, now).slice(0, Math.floor(count * 0.4));
+    const review = dueReviews(p, now).filter(it => {
+        const skill = SKILL_MAP.get(it.skillId);
+        return skill?.grade === grade && !skill.advanced;
+    }).slice(0, Math.floor(count * 0.4));
     let left = count - review.length;
     const term = currentTerm(now);
     const pool = practicableSkills(grade, available, term);
@@ -206,16 +218,40 @@ export function matrixPlan(grade: Grade, term: Term | 'all', count: number, avai
     strands.forEach((st, i) => { const extra = Math.floor(Math.max(0, remaining) * weights[i] / totalW); per.set(st, per.get(st)! + extra); });
     remaining = count - [...per.values()].reduce((a, b) => a + b, 0);
     for (let i = 0; remaining > 0; i++, remaining--) { const st = strands[i % strands.length]; per.set(st, per.get(st)! + 1); }
-    // slot kỹ năng xoay vòng trong mạch
-    const slots: string[] = [];
-    for (const st of strands) {
-        const ss = skills.filter(s => s.strand === st);
-        for (let k = 0; k < per.get(st)!; k++) slots.push(ss[k % ss.length].id);
-    }
-    // túi mức độ theo tỉ lệ 5:3:2
+    // Ghép mức với mạch chỉ khi có kỹ năng hỗ trợ mức đó. Gán mức ngẫu nhiên
+    // cho skill rồi để generator lấy mức gần nhất sẽ làm sai ma trận thực tế.
     const sum = MATRIX_RATIO.reduce((a, b) => a + b, 0);
     const n1 = Math.round(count * MATRIX_RATIO[0] / sum), n2 = Math.round(count * MATRIX_RATIO[1] / sum), n3 = Math.max(0, count - n1 - n2);
-    const bag: Level[] = [...Array(n1).fill(1), ...Array(n2).fill(2), ...Array(n3).fill(3)];
-    for (let i = bag.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [bag[i], bag[j]] = [bag[j], bag[i]]; }
-    return slots.slice(0, count).map((skillId, i) => ({ skillId, level: bag[i] ?? 1, count: 1 }));
+    const sink = 4 + strands.length;
+    const capacity = Array.from({ length: sink + 1 }, () => Array(sink + 1).fill(0));
+    [n1, n2, n3].forEach((n, i) => { capacity[0][i + 1] = n; });
+    strands.forEach((st, i) => {
+        capacity[i + 4][sink] = per.get(st)!;
+        for (const level of [1, 2, 3] as Level[]) if (skills.some(s => s.strand === st && s.levels.includes(level))) capacity[level][i + 4] = count;
+    });
+    while (true) {
+        const parent = Array(sink + 1).fill(-1), queue = [0]; parent[0] = 0;
+        for (let i = 0; i < queue.length && parent[sink] < 0; i++) {
+            const from = queue[i];
+            for (let to = 1; to <= sink; to++) if (parent[to] < 0 && capacity[from][to] > 0) { parent[to] = from; queue.push(to); }
+        }
+        if (parent[sink] < 0) break;
+        for (let to = sink; to !== 0; to = parent[to]) { capacity[parent[to]][to]--; capacity[to][parent[to]]++; }
+    }
+    const result: { skillId: string; level: Level; count: number }[] = [];
+    const used = new Map<string, number>();
+    const add = (st: string, level: Level) => {
+        const choices = skills.filter(s => s.strand === st && s.levels.includes(level));
+        const least = Math.min(...choices.map(s => used.get(s.id) ?? 0));
+        const pool = choices.filter(s => (used.get(s.id) ?? 0) === least);
+        const s = pool[Math.min(pool.length - 1, Math.floor(rnd() * pool.length))];
+        used.set(s.id, (used.get(s.id) ?? 0) + 1);
+        result.push({ skillId: s.id, level, count: 1 });
+    };
+    strands.forEach((st, i) => {
+        for (const level of [1, 2, 3] as Level[]) for (let k = 0; k < capacity[i + 4][level]; k++) add(st, level);
+        // Catalog quá hẹp (vd Mầm non): vẫn đủ câu và mức hợp lệ.
+        for (let k = 0; k < capacity[i + 4][sink]; k++) add(st, skills.find(s => s.strand === st)!.levels[0]);
+    });
+    return result.slice(0, count);
 }

@@ -1,0 +1,1632 @@
+
+### mn_counting
+ [single mn.combine M2 🖼] Gộp hai nhóm lại thì có tất cả mấy chú mèo?
+    8  |  6  |  9  |  7
+    ✔ "8"
+    💡 Bốn chú mèo và bốn chú mèo, gộp lại được tám chú mèo. | gợi ý: Bé đếm tiếp sang nhóm thứ hai.
+ [single mn.ordinal M2 🖼] Tính từ lá cờ, chú ếch đứng thứ mấy?
+    1  |  4  |  2  |  3
+    ✔ "2"
+    💡 Đếm từ lá cờ: chú ếch đứng thứ hai. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single mn.pattern M3 🖼] Hình nào điền vào ô dấu hỏi?
+    🐤  |  🌸  |  🐟  |  🐶
+    ✔ "🌸"
+    💡 Nhóm 🐟 🌸 🐶 được lặp lại, nên hình tiếp theo là 🌸. | gợi ý: Bé tìm nhóm hình được lặp đi lặp lại.
+ [single mn.numeral M1] Đâu là số ba?
+    3  |  6  |  7  |  2
+    ✔ "3"
+    💡 Số ba viết là 3.
+ [single mn.more_less M1 🖼] Nhóm nào ít hơn?
+    Nhóm 1  |  Nhóm 2  |  Bằng nhau
+    ✔ "Nhóm 1"
+    💡 Nhóm 1 có sáu, nhóm 2 có tám. | gợi ý: Bé đếm từng nhóm rồi so sánh nhé.
+
+### mn_shapes
+ [single mn.shapes3d M1 🖼] Đây là khối gì?
+    Khối cầu  |  Khối trụ  |  Khối vuông  |  Khối chữ nhật
+    ✔ "Khối cầu"
+    💡 Khối cầu tròn, lăn được về mọi phía.
+ [single mn.position M1 🖼] Chú chó ở trên hay ở dưới cái bàn?
+    Ở trên  |  Ở dưới
+    ✔ "Ở trên"
+    💡 Chú chó ở trên cái bàn.
+ [single mn.shapes2d M1 🖼] Đây là hình gì?
+    Hình chữ nhật  |  Hình vuông  |  Hình tròn  |  Hình tam giác
+    ✔ "Hình tròn"
+    💡 Hình tròn tròn đều, không có góc.
+ [single mn.size M1 🖼] Bút chì số mấy ngắn hơn?
+    1  |  2
+    ✔ "2"
+    💡 Bút chì số 2 ngắn hơn.
+ [single mn.position M1 🖼] Chú mèo ở trên hay ở dưới cái bàn?
+    Ở trên  |  Ở dưới
+    ✔ "Ở dưới"
+    💡 Chú mèo ở dưới cái bàn.
+
+### mn_colors
+ [single mn.colors M1 🖼] Quả cà chua có màu giống ô số mấy?
+    1  |  2  |  3  |  4
+    ✔ "4"
+    💡 Quả cà chua có màu đỏ.
+ [single mn.colors M1 🖼] Chùm nho có màu giống ô số mấy?
+    1  |  2  |  3  |  4
+    ✔ "3"
+    💡 Chùm nho có màu tím.
+ [single mn.colors M1 🖼] Ô số mấy có màu cam?
+    1  |  2  |  3  |  4
+    ✔ "4"
+    💡 Ô số 4 có màu cam.
+ [single mn.colors M1 🖼] Ô số mấy có màu nâu?
+    1  |  2  |  3  |  4
+    ✔ "4"
+    💡 Ô số 4 có màu nâu.
+ [single mn.colors M1 🖼] Đây là màu gì?
+    Hồng  |  Cam  |  Xanh dương  |  Nâu
+    ✔ "Cam"
+    💡 Đây là màu cam.
+
+### g1_numbers_5
+ [single g1.count5 M1] Số "không" viết là số nào?
+    2  |  0  |  4  |  3
+    ✔ "0"
+    💡 Số không viết là 0.
+ [single g1.order5 M2] Điền số còn thiếu: 0, 1, 2, □, 4
+    2  |  1  |  0  |  3
+    ✔ "3"
+    💡 Các số tăng dần thêm 1: 0, 1, 2, 3, 4. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g1.compare5 M1] Điền dấu thích hợp: 1 ... 5
+    >  |  <  |  =
+    ✔ "<"
+    💡 5 lớn hơn 1, nên 1 < 5. | gợi ý: Đầu nhọn của dấu chỉ vào số bé hơn.
+ [single g1.compare5 M1] Điền dấu thích hợp: 0 ... 3
+    >  |  <  |  =
+    ✔ "<"
+    💡 3 lớn hơn 0, nên 0 < 3. | gợi ý: Đầu nhọn của dấu chỉ vào số bé hơn.
+ [single g1.count5 M1 🖼] Có mấy con bướm?
+    0  |  3  |  5  |  2
+    ✔ "2"
+    💡 Đếm lần lượt: có hai con bướm, viết là 2. | gợi ý: Chỉ tay vào từng hình và đếm to.
+
+### g1_numbers_10
+ [single g1.split10 M2] Có 10 quả dâu chia vào hai đĩa. Đĩa thứ nhất có 9 quả dâu. Đĩa thứ hai có mấy quả dâu?
+    3  |  4  |  1  |  2
+    ✔ "1"
+    💡 10 gồm 9 và 1, nên đĩa thứ hai có 1 quả dâu. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g1.count10 M1 🖼] Có mấy con bướm?
+    3  |  4  |  2  |  5
+    ✔ "5"
+    💡 Đếm lần lượt từng con bướm: có năm con bướm. | gợi ý: Đếm theo từng hàng, đánh dấu hình đã đếm.
+ [single g1.compare10 M2] Số nào bé nhất: 6, 0, 9, 5?
+    6  |  0  |  9  |  5
+    ✔ "0"
+    💡 So sánh lần lượt: 0 là số bé nhất. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g1.split10 M2] Có 6 bông hoa chia vào hai đĩa. Đĩa thứ nhất có 3 bông hoa. Đĩa thứ hai có mấy bông hoa?
+    5  |  4  |  6  |  3
+    ✔ "3"
+    💡 6 gồm 3 và 3, nên đĩa thứ hai có 3 bông hoa. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g1.compare10 M1] Điền dấu thích hợp: 0 ... 4
+    >  |  <  |  =
+    ✔ "<"
+    💡 4 lớn hơn 0 nên 0 < 4. | gợi ý: Số nào đếm sau thì lớn hơn.
+
+### g1_addition_10
+ [single g1.add10_compare M2] Điền dấu thích hợp: 3 + 5 ... 6
+    >  |  <  |  =
+    ✔ ">"
+    💡 3 + 5 = 8, mà 8 > 6. | gợi ý: Tính tổng trước rồi mới so sánh.
+ [single g1.add10 M2] Tính: 0 + 8 = ?
+    7  |  8  |  0  |  5
+    ✔ "8"
+    💡 Đếm thêm 8 từ 0: 0 + 8 = 8. | gợi ý: Đếm thêm từ số lớn hơn sẽ nhanh hơn.
+ [single g1.add10_missing M2] Số nào điền vào ô trống: □ + 2 = 7
+    5  |  7  |  4  |  6
+    ✔ "5"
+    💡 Vì 5 + 2 = 7 nên số cần điền là 5. | gợi ý: Đếm thêm từ 2 cho tới 7.
+ [single g1.add10 M1 🖼] Tính: 5 + 4 = ?
+    9  |  8  |  1  |  10
+    ✔ "9"
+    💡 năm thêm bốn là chín: 5 + 4 = 9. | gợi ý: Đếm tiếp từ 5 thêm 4 nữa.
+ [input g1.add10_missing M2] Điền số vào ô trống: □ + 2 = 6
+    ✔ "4"
+    💡 Vì 4 + 2 = 6 nên số cần điền là 4. | gợi ý: Đếm thêm từ 2 cho tới 6.
+
+### g1_subtraction_10
+ [single g1.sub10_missing M2] Số nào điền vào ô trống: □ - 3 = 1
+    6  |  4  |  5  |  7
+    ✔ "4"
+    💡 Vì 1 + 3 = 4 nên số cần điền là 4. | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g1.write_eq M3 🖼] Phép tính nào cho biết còn lại bao nhiêu?
+    7 - 5 = 3  |  7 - 5 = 2  |  2 + 5 = 7  |  7 + 5 = 12
+    ✔ "7 - 5 = 2"
+    💡 Có 7, bớt đi 5, còn lại: 7 - 5 = 2. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g1.sub10 M2] Tính: 4 - 4 = ?
+    0  |  8  |  3  |  1
+    ✔ "0"
+    💡 4 - 4 = 0 (vì 0 + 4 = 4). | gợi ý: Đếm lùi 4 bước từ 4.
+ [single g1.chain10 M3] Tính: 7 - 1 - 5 = ?
+    1  |  0  |  2  |  6
+    ✔ "1"
+    💡 7 - 1 = 6; 6 - 5 = 1. | 7 - 1 = 6 → 6 - 5 = 1 | gợi ý: Tính từ trái sang phải.
+ [input g1.sub10_missing M2] Điền số vào ô trống: 9 - □ = 8
+    ✔ "1"
+    💡 Vì 9 - 1 = 8 nên số cần điền là 1. | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+
+### g1_numbers_20
+ [single g1.numbers20 M2] Điền dấu thích hợp: 16 ... 10
+    >  |  <  |  =
+    ✔ ">"
+    💡 Cùng có 1 chục; so sánh hàng đơn vị 6 và 0: 16 > 10. | gợi ý: So sánh số chục trước, rồi đến số đơn vị.
+ [single g1.numbers20 M2] Số liền sau của 19 là số nào?
+    19  |  18  |  20  |  17
+    ✔ "20"
+    💡 Thêm 1: 19 + 1 = 20. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g1.numbers20 M2] Số liền trước của 16 là số nào?
+    12  |  13  |  15  |  14
+    ✔ "15"
+    💡 Bớt 1: 16 - 1 = 15. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g1.numbers20 M2] Điền dấu thích hợp: 14 ... 11
+    >  |  <  |  =
+    ✔ ">"
+    💡 Cùng có 1 chục; so sánh hàng đơn vị 4 và 1: 14 > 11. | gợi ý: So sánh số chục trước, rồi đến số đơn vị.
+ [single g1.numbers20 M1 🖼] Có tất cả bao nhiêu que tính?
+    17  |  16  |  18  |  19
+    ✔ "19"
+    💡 1 bó là 1 chục (10 que) và 9 que rời: 19 que tính.
+
+### g1_operations_20
+ [single g1.addsub20 M2] Tính: 4 + 14 = ?
+    8  |  19  |  20  |  18
+    ✔ "18"
+    💡 Đổi chỗ: 14 + 4 = 18. | gợi ý: Đổi chỗ hai số hạng, tổng không đổi.
+ [single g1.addsub20 M2] Tính: 1 + 12 = ?
+    14  |  13  |  16  |  15
+    ✔ "13"
+    💡 Đổi chỗ: 12 + 1 = 13. | gợi ý: Đổi chỗ hai số hạng, tổng không đổi.
+ [single g1.addsub20 M2] Tính: 18 - 11 = ?
+    9  |  17  |  7  |  6
+    ✔ "7"
+    💡 18 - 11 = 7 (1 chục trừ 1 chục hết, còn 8 - 1). | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g1.addsub20 M1] Tính: 18 + 1 = ?
+    19  |  20  |  9  |  18
+    ✔ "19"
+    💡 Lấy 8 + 1 = 9, giữ 1 chục: 18 + 1 = 19. | gợi ý: Cộng hàng đơn vị, giữ nguyên 1 chục.
+ [single g1.addsub20 M2] Tính: 1 + 14 = ?
+    13  |  15  |  5  |  14
+    ✔ "15"
+    💡 Đổi chỗ: 14 + 1 = 15. | gợi ý: Đổi chỗ hai số hạng, tổng không đổi.
+
+### g1_numbers_100
+ [single g1.neighbors100 M1] Số liền trước của 86 là số nào?
+    87  |  86  |  85  |  88
+    ✔ "85"
+    💡 Số liền trước hơn kém 86 đúng 1 đơn vị: 85.
+ [single g1.neighbors100 M1] Số liền trước của 86 là số nào?
+    76  |  84  |  87  |  85
+    ✔ "85"
+    💡 Số liền trước hơn kém 86 đúng 1 đơn vị: 85.
+ [single g1.numbers100 M1] Số 22 gồm mấy chục và mấy đơn vị?
+    2 chục 2 đơn vị  |  1 chục 2 đơn vị  |  2 chục 3 đơn vị
+    ✔ "2 chục 2 đơn vị"
+    💡 Chữ số 2 ở hàng chục, chữ số 2 ở hàng đơn vị: 22 gồm 2 chục và 2 đơn vị.
+ [single g1.compare100 M1] Điền dấu thích hợp: 11 ... 48
+    >  |  <  |  =
+    ✔ "<"
+    💡 So sánh hàng chục: 1 chục < 4 chục, nên 11 < 48. | gợi ý: So sánh chữ số hàng chục trước.
+ [single g1.compare100 M1] Điền dấu thích hợp: 13 ... 28
+    >  |  <  |  =
+    ✔ "<"
+    💡 So sánh hàng chục: 1 chục < 2 chục, nên 13 < 28. | gợi ý: So sánh chữ số hàng chục trước.
+
+### g1_length
+ [single g1.length_ops M2] Tính: 24 cm - 4 cm = ?
+    17 cm  |  19 cm  |  18 cm  |  20 cm
+    ✔ "20 cm"
+    💡 Tính như với số rồi viết thêm đơn vị: 24 - 4 = 20, vậy 24 cm - 4 cm = 20 cm. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g1.length_ops M2] Tính: 55 cm - 2 cm = ?
+    53 cm  |  52 cm  |  54 cm  |  55 cm
+    ✔ "53 cm"
+    💡 Tính như với số rồi viết thêm đơn vị: 55 - 2 = 53, vậy 55 cm - 2 cm = 53 cm. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g1.length_compare M1] Băng giấy màu đỏ dài 6 cm, băng giấy màu xanh dài 8 cm. Băng giấy nào ngắn hơn?
+    Băng giấy màu đỏ  |  Băng giấy màu xanh
+    ✔ "Băng giấy màu đỏ"
+    💡 8 cm dài hơn 6 cm.
+ [single g1.length_cm M2 🖼] Vật được đặt bắt đầu từ vạch 1. Vật dài bao nhiêu xăng-ti-mét?
+    4 cm  |  3 cm  |  1 cm  |  2 cm
+    ✔ "3 cm"
+    💡 Cuối vật ở vạch 4, đầu vật ở vạch 1: 4 - 1 = 3 cm. | gợi ý: Vật không đặt từ vạch 0 — phải lấy vạch cuối trừ vạch đầu.
+ [single g1.length_cm M1 🖼] Cái bút chì màu dài bao nhiêu xăng-ti-mét?
+    11 cm  |  10 cm  |  8 cm  |  9 cm
+    ✔ "11 cm"
+    💡 Đầu vật ở vạch 0, cuối vật ở vạch 11: vật dài 11 cm. | gợi ý: Xem cuối vật thẳng với vạch số mấy.
+
+### g1_time
+ [single g1.daytime M1 🖼] Bức tranh vẽ buổi nào trong ngày?
+    Buổi sáng  |  Buổi trưa  |  Buổi chiều  |  Buổi tối
+    ✔ "Buổi chiều"
+    💡 Mặt trời sắp lặn: buổi chiều.
+ [single g1.calendar_day M1 🖼] Tờ lịch cho biết đang là tháng mấy?
+    Tháng 8  |  Tháng 4  |  Tháng 5  |  Tháng 3
+    ✔ "Tháng 3"
+    💡 Dòng trên cùng của tờ lịch ghi tháng 3.
+ [single g1.daytime M1] "Trên trời có trăng và sao" thường vào buổi nào?
+    Buổi sáng  |  Buổi trưa  |  Buổi chiều  |  Buổi tối
+    ✔ "Buổi tối"
+    💡 Trên trời có trăng và sao thường vào buổi tối.
+ [single g1.weekday M2] Hôm nay là thứ Bảy. 3 ngày nữa là thứ mấy?
+    Thứ Năm  |  Thứ Ba  |  Thứ Bảy  |  Thứ Sáu
+    ✔ "Thứ Ba"
+    💡 Đếm tiếp 3 ngày từ thứ Bảy: Chủ nhật, thứ Hai, thứ Ba. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g1.weekday M2] Hôm nay là thứ Ba. 4 ngày nữa là thứ mấy?
+    Thứ Bảy  |  Thứ Năm  |  Thứ Hai  |  Thứ Tư
+    ✔ "Thứ Bảy"
+    💡 Đếm tiếp 4 ngày từ thứ Ba: thứ Tư, thứ Năm, thứ Sáu, thứ Bảy. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+
+### g1_geometry
+ [single g1.shapes3d M1 🖼] Đây là khối gì?
+    Khối lập phương  |  Khối hộp chữ nhật
+    ✔ "Khối lập phương"
+    💡 Khối lập phương có các mặt đều là hình vuông.
+ [single g1.shapes2d M2 🖼] Trong hình có mấy hình tam giác?
+    6  |  4  |  5  |  3
+    ✔ "4"
+    💡 Đếm riêng các hình tam giác (kể cả hình bị xoay): có bốn hình tam giác. | gợi ý: Chỉ đếm hình tam giác, bỏ qua các hình khác.
+ [single g1.position M1 🖼] Bạn thỏ ở đâu so với cái bàn?
+    Ở trên  |  Ở dưới  |  Bên trái  |  Bên phải
+    ✔ "Bên phải"
+    💡 Nhìn từ phía em, bạn thỏ bên phải cái bàn.
+ [single g1.position M1 🖼] Bạn cáo ở đâu so với cái bàn?
+    Ở trên  |  Ở dưới  |  Bên trái  |  Bên phải
+    ✔ "Ở trên"
+    💡 Nhìn từ phía em, bạn cáo ở trên cái bàn.
+ [single g1.shapes2d M2 🖼] Trong hình có mấy hình tròn?
+    6  |  7  |  5  |  3
+    ✔ "5"
+    💡 Đếm riêng các hình tròn (kể cả hình bị xoay): có năm hình tròn. | gợi ý: Chỉ đếm hình tròn, bỏ qua các hình khác.
+
+### g1_word_problems
+ [single g1.word10 M3] Có 8 chú gà con, Bình lấy đi 7 chú gà con. Còn lại mấy chú gà con? Chọn phép tính đúng.
+    7 + 1 = 8  |  8 + 7 = 15  |  8 - 7 = 1  |  8 - 7 = 2
+    ✔ "8 - 7 = 1"
+    💡 Lấy đi: phép trừ — 8 - 7 = 1. | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g1.word10 M2 🖼] Bình có 3 quả chuối, được cho thêm 4 quả chuối. Hỏi Bình có tất cả mấy quả chuối?
+    7  |  9  |  1  |  8
+    ✔ "7"
+    💡 Thêm vào thì làm phép cộng: 3 + 4 = 7 (chuối). | gợi ý: "Thêm", "tất cả" thường là phép cộng.
+ [single g1.word10 M3] Linh có 3 quả bóng bay, Minh có 6 quả bóng bay. Cả hai bạn có mấy quả bóng bay? Chọn phép tính đúng.
+    3 + 6 = 9  |  6 - 3 = 3  |  3 + 6 = 10  |  9 - 6 = 3
+    ✔ "3 + 6 = 9"
+    💡 Gộp hai nhóm: phép cộng — 3 + 6 = 9. | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g1.word100 M2] Cửa hàng có 77 quả bóng, đã bán 15 quả bóng. Hỏi cửa hàng còn lại bao nhiêu quả bóng?
+    62  |  63  |  92  |  64
+    ✔ "62"
+    💡 Đã bán thì bớt đi: 77 - 15 = 62 (quả bóng). | Số bóng còn lại = số bóng có - số bóng đã bán → 77 - 15 = 62 | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g1.word100 M3] Vườn có 43 cây cam, người ta đã hái hết quả ở 13 cây. Hỏi còn bao nhiêu cây chưa hái? Chọn phép tính đúng.
+    43 - 13 = 40  |  43 - 13 = 29  |  43 + 13 = 56  |  43 - 13 = 30
+    ✔ "43 - 13 = 30"
+    💡 Bớt số cây đã hái: phép trừ — 43 - 13 = 30. | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+
+### g1_clock
+ [single g1.clock M1 🖼] Đồng hồ chỉ mấy giờ?
+    6 giờ  |  12 giờ  |  8 giờ  |  7 giờ
+    ✔ "6 giờ"
+    💡 Kim ngắn chỉ số 6, kim dài chỉ số 12: đồng hồ chỉ 6 giờ. | gợi ý: Kim ngắn chỉ giờ; kim dài chỉ số 12 là giờ đúng.
+ [single g1.clock M2 🖼] Lúc giờ đúng, kim dài (kim phút) chỉ vào số mấy?
+    9  |  6  |  12  |  3
+    ✔ "12"
+    💡 Giờ đúng thì kim dài luôn chỉ vào số 12. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g1.clock M1 🖼] Đồng hồ chỉ mấy giờ?
+    3 giờ  |  10 giờ  |  8 giờ  |  2 giờ
+    ✔ "2 giờ"
+    💡 Kim ngắn chỉ số 2, kim dài chỉ số 12: đồng hồ chỉ 2 giờ. | gợi ý: Kim ngắn chỉ giờ; kim dài chỉ số 12 là giờ đúng.
+ [single g1.clock M1 🖼] Đồng hồ chỉ mấy giờ?
+    6 giờ  |  12 giờ  |  11 giờ  |  1 giờ
+    ✔ "12 giờ"
+    💡 Kim ngắn chỉ số 12, kim dài chỉ số 12: đồng hồ chỉ 12 giờ. | gợi ý: Kim ngắn chỉ giờ; kim dài chỉ số 12 là giờ đúng.
+ [single g1.clock M2 🖼] Lúc giờ đúng, kim dài (kim phút) chỉ vào số mấy?
+    6  |  12  |  9  |  3
+    ✔ "12"
+    💡 Giờ đúng thì kim dài luôn chỉ vào số 12. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+
+### g2_add_sub_no_carry
+ [input g2.addsub100_nc M2 🖼] Đặt tính rồi tính: 45 + 34
+    ✔ "79"
+    💡 Viết các chữ số cùng hàng thẳng cột: 45 + 34 = 79. | 5 cộng 4 bằng 9, viết 9 → 4 cộng 3 bằng 7, viết 7 → Vậy 45 + 34 = 79 | gợi ý: Tính từ phải sang trái: hàng đơn vị trước.
+ [single g2.addsub100_nc M1] 22 + 56 = ?
+    75  |  76  |  78  |  68
+    ✔ "78"
+    💡 Tính hàng đơn vị rồi hàng chục: 22 + 56 = 78. | 2 cộng 6 bằng 8, viết 8 → 2 cộng 5 bằng 7, viết 7 → Vậy 22 + 56 = 78 | gợi ý: Cộng (trừ) đơn vị với đơn vị, chục với chục.
+ [single g2.addsub100_nc M1] 56 - 42 = ?
+    14  |  13  |  4  |  12
+    ✔ "14"
+    💡 Tính hàng đơn vị rồi hàng chục: 56 - 42 = 14. | 6 trừ 2 bằng 4, viết 4 → 5 trừ 4 bằng 1, viết 1 → Vậy 56 - 42 = 14 | gợi ý: Cộng (trừ) đơn vị với đơn vị, chục với chục.
+ [input g2.addsub100_nc M2 🖼] Đặt tính rồi tính: 40 + 24
+    ✔ "64"
+    💡 Viết các chữ số cùng hàng thẳng cột: 40 + 24 = 64. | 0 cộng 4 bằng 4, viết 4 → 4 cộng 2 bằng 6, viết 6 → Vậy 40 + 24 = 64 | gợi ý: Tính từ phải sang trái: hàng đơn vị trước.
+ [input g2.addsub100_nc M2] Điền số: 89 - ? = 78
+    ✔ "11"
+    💡 89 - 78 = 11, nên số cần điền là 11. | gợi ý: Muốn tìm số trừ, lấy số bị trừ trừ đi hiệu.
+
+### g2_add_sub_carry
+ [single g2.chain M2] Tính: 32 - 27 + 20 = ?
+    23  |  5  |  25  |  28
+    ✔ "25"
+    💡 Tính từ trái sang phải: 32 - 27 = 5; 5 + 20 = 25. | 32 - 27 = 5 → 5 + 20 = 25 | gợi ý: Tính lần lượt từ trái sang phải.
+ [input g2.addsub100_c M3 🖼] Đặt tính rồi tính: 25 + 65
+    ✔ "90"
+    💡 25 + 65 = 90 (có nhớ ở hàng đơn vị). | 5 cộng 5 bằng 10, viết 0 nhớ 1 → 2 cộng 6 bằng 8, thêm 1 bằng 9, viết 9 → Vậy 25 + 65 = 90 | gợi ý: Viết các chữ số cùng hàng thẳng cột.
+ [single g2.addsub100_c M2] 48 + 14 = ?
+    59  |  63  |  62  |  72
+    ✔ "62"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị, nhớ (mượn) 1 khi cần: 48 + 14 = 62. | 8 cộng 4 bằng 12, viết 2 nhớ 1 → 4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6 → Vậy 48 + 14 = 62 | gợi ý: Đừng quên số nhớ ở hàng chục.
+ [single g2.chain M2] Tính: 71 - 25 - 34 = ?
+    32  |  42  |  46  |  12
+    ✔ "12"
+    💡 Tính từ trái sang phải: 71 - 25 = 46; 46 - 34 = 12. | 71 - 25 = 46 → 46 - 34 = 12 | gợi ý: Tính lần lượt từ trái sang phải.
+ [single g2.addsub100_c M1] 48 + 5 = ?
+    55  |  54  |  63  |  53
+    ✔ "53"
+    💡 8 + 5 = 13, viết 3 nhớ 1 sang hàng chục: 48 + 5 = 53. | gợi ý: Hàng đơn vị cộng được từ 10 trở lên thì nhớ 1 sang hàng chục.
+
+### g2_arithmetic_advanced
+ [single g2.terms M1] Trong phép trừ 79 - 27 = 52, số 52 được gọi là gì?
+    Số bị trừ  |  Tổng  |  Số trừ  |  Hiệu
+    ✔ "Hiệu"
+    💡 79 là số bị trừ, 27 là số trừ, 52 là hiệu.
+ [single g2.word_more_less M3] Thảo có 38 viên bi, Bình có 16 viên bi. Hỏi Thảo có nhiều hơn Bình bao nhiêu viên bi?
+    22  |  23  |  54  |  20
+    ✔ "22"
+    💡 Muốn biết nhiều hơn bao nhiêu, lấy số lớn trừ số bé: 38 - 16 = 22 (viên bi). | gợi ý: So sánh hơn kém: lấy số lớn trừ số bé.
+ [input g2.missing M2] Tìm số hạng: ? + 23 = 83
+    ✔ "60"
+    💡 Muốn tìm số hạng, lấy tổng trừ đi số hạng kia: 83 - 23 = 60. | gợi ý: Muốn tìm số hạng, lấy tổng trừ đi số hạng kia.
+ [single g2.terms M1] Trong phép trừ 68 - 12 = 56, số 12 được gọi là gì?
+    Số bị trừ  |  Tổng  |  Số trừ  |  Hiệu
+    ✔ "Số trừ"
+    💡 68 là số bị trừ, 12 là số trừ, 56 là hiệu.
+ [single g2.compare_expr M2] Điền dấu >, <, =: 82 - 33 ... 48
+    >  |  <  |  =
+    ✔ ">"
+    💡 82 - 33 = 49, mà 49 > 48. | gợi ý: Tính giá trị phép tính trước rồi mới so sánh.
+
+### g2_units_measure
+ [single g2.kg M2] Tính: 60 kg + 5 kg = ?
+    66 kg  |  62 kg  |  68 kg  |  65 kg
+    ✔ "65 kg"
+    💡 Tính như với số rồi ghi đơn vị kg: 60 + 5 = 65, vậy 65 kg. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.liter M2] Thùng có 35 l nước. Mẹ dùng 12 l để tưới cây. Hỏi thùng còn lại bao nhiêu lít nước?
+    22 l  |  21 l  |  26 l  |  23 l
+    ✔ "23 l"
+    💡 Bớt đi: 35 - 12 = 23 (l). | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.kg M1 🖼] Vật nào nặng hơn?
+    Quả bí  |  Cái cặp
+    ✔ "Quả bí"
+    💡 Đĩa cân bên nào thấp xuống thì vật bên đó nặng hơn.
+ [single g2.length M2] Quãng đường từ Hà Nội đến Hải Phòng khoảng bao nhiêu?
+    120 cm  |  120 m  |  120 dm  |  120 km
+    ✔ "120 km"
+    💡 Quãng đường từ Hà Nội đến Hải Phòng khoảng 120 km. | gợi ý: Hãy tưởng tượng vật thật: dùng cm, dm, m hay km cho hợp lí?
+ [single g2.length M1] 7 m = ? cm
+    1000 cm  |  900 cm  |  800 cm  |  700 cm
+    ✔ "700 cm"
+    💡 1 m = 100 cm, nên 7 m = 700 cm.
+
+### g2_time_calendar
+ [single g2.clock M2] Em bắt đầu học bài lúc 9 giờ 15 phút, học trong 2 giờ. Em học xong lúc mấy giờ?
+    11 giờ 30 phút  |  11 giờ 15 phút  |  10 giờ 15 phút  |  12 giờ 15 phút
+    ✔ "11 giờ 15 phút"
+    💡 9 giờ 15 phút thêm 2 giờ là 11 giờ 15 phút. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.hours_day M2] 2 giờ = ? phút
+    200 phút  |  180 phút  |  20 phút  |  120 phút
+    ✔ "120 phút"
+    💡 1 giờ = 60 phút, nên 2 giờ = 120 phút. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.calendar_month M1 🖼] Xem tờ lịch tháng 10. Ngày 1 tháng 10 là thứ mấy?
+    Chủ nhật  |  Thứ Hai  |  Thứ Ba  |  Thứ Năm
+    ✔ "Chủ nhật"
+    💡 Ngày 1 (được khoanh tròn) nằm ở cột Chủ nhật. | gợi ý: Dóng thẳng ngày được khoanh lên hàng tên các thứ.
+ [single g2.calendar_month M1 🖼] Xem tờ lịch tháng 7. Ngày 23 tháng 7 là thứ mấy?
+    Thứ Năm  |  Chủ nhật  |  Thứ Sáu  |  Thứ Tư
+    ✔ "Thứ Tư"
+    💡 Ngày 23 (được khoanh tròn) nằm ở cột thứ Tư. | gợi ý: Dóng thẳng ngày được khoanh lên hàng tên các thứ.
+ [single g2.hours_day M1] 14 giờ còn gọi là mấy giờ?
+    2 giờ sáng  |  2 giờ chiều  |  3 giờ chiều  |  4 giờ chiều
+    ✔ "2 giờ chiều"
+    💡 Sau 12 giờ trưa, ta bớt 12: 14 - 12 = 2, nên 14 giờ là 2 giờ chiều.
+
+### g2_geometry_basic
+ [single g2.shapes3d M1 🖼] Cái trống có dạng khối gì?
+    Khối trụ  |  Khối cầu  |  Khối hộp chữ nhật  |  Khối lập phương
+    ✔ "Khối trụ"
+    💡 Khối trụ có hai mặt đáy là hình tròn.
+ [single g2.points_lines M2 🖼] Ba điểm M, N, P có thẳng hàng không?
+    Thẳng hàng  |  Không thẳng hàng
+    ✔ "Không thẳng hàng"
+    💡 Không kẻ được một đường thẳng đi qua cả ba điểm nên chúng không thẳng hàng. | gợi ý: Đặt thước thử: thước có đi qua cả ba điểm không?
+ [single g2.quadrilateral M2 🖼] Có bao nhiêu hình tứ giác?
+    2  |  0  |  4  |  1
+    ✔ "2"
+    💡 Hình vuông, hình chữ nhật cũng là hình tứ giác vì có 4 cạnh. | gợi ý: Đếm các hình có đúng 4 cạnh.
+ [single g2.shapes3d M1 🖼] Đây là khối gì?
+    Khối trụ  |  Khối hộp chữ nhật  |  Khối cầu  |  Khối lập phương
+    ✔ "Khối hộp chữ nhật"
+    💡 Khối hộp chữ nhật có các mặt là hình chữ nhật.
+ [single g2.polyline M1 🖼] Tính độ dài đường gấp khúc ABCD.
+    27 cm  |  13 cm  |  21 cm  |  22 cm
+    ✔ "22 cm"
+    💡 Độ dài đường gấp khúc là tổng độ dài các đoạn: 9 + 8 + 5 = 22 (cm). | gợi ý: Cộng độ dài tất cả các đoạn thẳng.
+
+### g2_numbers_1000
+ [single g2.compare1000 M2] Số nào bé nhất: 837; 884; 874; 841?
+    874  |  884  |  841  |  837
+    ✔ "837"
+    💡 Các số cùng 8 trăm, so sánh hàng chục rồi hàng đơn vị: 837 bé nhất. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [input g2.numbers1000 M1] Viết số: một trăm bốn mươi tám
+    ✔ "148"
+    💡 Một trăm bốn mươi tám viết là 148.
+ [order g2.compare1000 M2] Sắp xếp các số theo thứ tự từ bé đến lớn.
+    473  |  415  |  450  |  464
+    ✔ ["415","450","464","473"]
+    💡 Thứ tự đúng: 415, 450, 464, 473. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g2.compare1000 M1] Điền dấu >, <, =: 732 ... 438
+    >  |  <  |  =
+    ✔ ">"
+    💡 So sánh lần lượt hàng trăm, hàng chục, hàng đơn vị: 732 > 438. | gợi ý: So sánh hàng trăm trước; bằng nhau thì so hàng chục.
+ [single g2.numbers1000 M2] Số gồm 7 trăm, 1 chục và 3 đơn vị là:
+    713  |  714  |  715  |  731
+    ✔ "713"
+    💡 Viết lần lượt chữ số hàng trăm, hàng chục, hàng đơn vị: 713. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+
+### g2_multiplication
+ [single g2.mul_meaning M1] Viết tổng 3 + 3 + 3 + 3 thành phép nhân.
+    3 × 4  |  3 × 5  |  4 × 4  |  3 + 4
+    ✔ "3 × 4"
+    💡 Số 3 được lấy 4 lần, ta viết 3 × 4.
+ [single g2.mul_table M2] Mỗi bình có 5 bông hoa. Hỏi 9 bình có tất cả bao nhiêu bông hoa?
+    40  |  14  |  45  |  36
+    ✔ "45"
+    💡 5 bông hoa được lấy 9 lần: 5 × 9 = 45 (bông hoa). | Số bông hoa có tất cả: 5 × 9 = 45 (bông hoa) → Đáp số: 45 bông hoa | gợi ý: Dùng bảng nhân hoặc đặt tính, nhân lần lượt từ phải sang trái.
+ [single g2.mul_table M1] Tính: 2 × 8 = ?
+    10  |  14  |  24  |  16
+    ✔ "16"
+    💡 2 × 8 = 16 (cộng 8 lần số 2: 2 + 2 + 2 + 2 + 2 + 2 + …). | gợi ý: Đếm thêm 2: 2, 4, 6, …
+ [input g2.mul_table M2] 5 × ? = 35
+    ✔ "7"
+    💡 Vì 5 × 7 = 35 nên số cần điền là 7. | gợi ý: Nhẩm bảng nhân 5.
+ [single g2.mul_meaning M2] Trong phép nhân 2 × 8 = 16, số 2 được gọi là gì?
+    Số hạng  |  Thừa số  |  Thương  |  Tích
+    ✔ "Thừa số"
+    💡 2 và 8 là các thừa số, 16 là tích. | gợi ý: Dùng bảng nhân hoặc đặt tính, nhân lần lượt từ phải sang trái.
+
+### g2_division
+ [single g2.div_table M2] Có 15 bông hoa chia đều cho 5 bình. Hỏi mỗi bình được mấy bông hoa?
+    2  |  10  |  3  |  1
+    ✔ "3"
+    💡 Chia đều thì làm phép chia: 15 : 5 = 3 (bông hoa). | Số bông hoa mỗi bình: 15 : 5 = 3 (bông hoa) → Đáp số: 3 bông hoa | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [single g2.div_meaning M1] Trong phép chia 35 : 5 = 7, số 35 được gọi là gì?
+    Tích  |  Số chia  |  Số bị chia  |  Thương
+    ✔ "Số bị chia"
+    💡 35 là số bị chia, 5 là số chia, 7 là thương.
+ [single g2.div_table M1] Tính: 18 : 2 = ?
+    8  |  10  |  11  |  9
+    ✔ "9"
+    💡 Vì 2 × 9 = 18 nên 18 : 2 = 9. | gợi ý: Nhớ lại bảng nhân 2: 2 nhân mấy bằng 18?
+ [single g2.div_meaning M1] Trong phép chia 20 : 2 = 10, số 20 được gọi là gì?
+    Thương  |  Số chia  |  Số bị chia  |  Tích
+    ✔ "Số bị chia"
+    💡 20 là số bị chia, 2 là số chia, 10 là thương.
+ [single g2.div_meaning M1] Trong phép chia 16 : 2 = 8, số 8 được gọi là gì?
+    Số bị chia  |  Thương  |  Số chia  |  Tích
+    ✔ "Thương"
+    💡 16 là số bị chia, 2 là số chia, 8 là thương.
+
+### g2_money
+ [single g2.money M1 🖼] Có tất cả bao nhiêu tiền?
+    900 đồng  |  1000 đồng  |  700 đồng  |  800 đồng
+    ✔ "1000 đồng"
+    💡 500 đồng + 500 đồng = 1000 đồng. | gợi ý: Cộng từ tờ có giá trị lớn nhất.
+ [single g2.money M1 🖼] Có tất cả bao nhiêu tiền?
+    300 đồng  |  200 đồng  |  100 đồng  |  500 đồng
+    ✔ "300 đồng"
+    💡 200 đồng + 100 đồng = 300 đồng. | gợi ý: Cộng từ tờ có giá trị lớn nhất.
+ [single g2.money M2] Em mua một cái kẹo giá 400 đồng và đưa cô bán hàng tờ 1000 đồng. Cô bán hàng trả lại em bao nhiêu tiền?
+    900 đồng  |  800 đồng  |  700 đồng  |  600 đồng
+    ✔ "600 đồng"
+    💡 Tiền trả lại = tiền đưa - giá: 1000 - 400 = 600 (đồng). | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.money M1] Tờ 200 đồng đổi được mấy tờ 100 đồng?
+    2 tờ  |  3 tờ  |  1 tờ  |  5 tờ
+    ✔ "2 tờ"
+    💡 200 đồng = 100 đồng + 100 đồng, nên đổi được 2 tờ.
+ [single g2.money M2] Một cái kẹo giá 200 đồng, một cái bánh giá 300 đồng. Mua cả hai thứ hết bao nhiêu tiền?
+    600 đồng  |  700 đồng  |  500 đồng  |  800 đồng
+    ✔ "500 đồng"
+    💡 200 + 300 = 500 (đồng). | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+
+### g3_numbers
+ [single g3.round M2] Làm tròn số 84 705 đến hàng chục, ta được số:
+    84 710  |  84 740  |  84 720  |  84 730
+    ✔ "84 710"
+    💡 Xét chữ số ngay bên phải hàng chục: 5 ≥ 5 nên làm tròn lên: 84 710. | gợi ý: Chữ số bên phải hàng cần làm tròn từ 5 trở lên thì làm tròn lên.
+ [single g3.roman M2] Số 15 viết bằng chữ số La Mã là:
+    XVI  |  XIV  |  VX  |  XV
+    ✔ "XV"
+    💡 15 viết là XV. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g3.numbers10000 M1] Số 5019 đọc là:
+    Năm nghìn một trăm linh chín  |  Năm nghìn không trăm mười chín  |  Năm nghìn không trăm chín mươi mốt  |  Năm nghìn không trăm hai mươi chín
+    ✔ "Năm nghìn không trăm mười chín"
+    💡 Đọc từ trái sang phải theo từng hàng: năm nghìn không trăm mười chín.
+ [single g3.compare M1] Điền dấu >, <, =: 94 075 ... 63 937
+    >  |  <  |  =
+    ✔ ">"
+    💡 Cùng 5 chữ số, so sánh lần lượt từ hàng cao nhất: 94 075 > 63 937. | gợi ý: So sánh số chữ số trước, rồi so từng hàng từ trái sang phải.
+ [single g3.numbers100000 M2] Trong số 46 775, chữ số 6 ở hàng nào?
+    nghìn  |  đơn vị  |  chục nghìn  |  trăm
+    ✔ "nghìn"
+    💡 Đếm từ phải sang trái: đơn vị, chục, trăm, nghìn, chục nghìn. Chữ số 6 ở hàng nghìn. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+
+### g3_arithmetic
+ [single g3.addsub100000 M1] 9738 + 255 = ?
+    9983  |  9993  |  9992  |  9893
+    ✔ "9993"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị: 9738 + 255 = 9993. | 8 cộng 5 bằng 13, viết 3 nhớ 1 → 3 cộng 5 bằng 8, thêm 1 bằng 9, viết 9 → 7 cộng 2 bằng 9, viết 9 → hạ 9 → Vậy 9738 + 255 = 9993 | gợi ý: Nhớ (mượn) 1 sang hàng bên trái khi cần.
+ [single g3.muldiv_big M2] 53 091 : 3 = ?
+    17 687  |  17 697  |  17 696  |  1769
+    ✔ "17 697"
+    💡 Chia lần lượt từ hàng cao nhất: 53 091 : 3 = 17 697 (thử lại: 17 697 × 3 = 53 091). | gợi ý: Thử lại bằng phép nhân.
+ [single g3.addsub100000 M3] Thư viện có 5065 quyển sách. Năm nay mua thêm 338 quyển và thanh lí 430 quyển cũ. Hỏi thư viện còn bao nhiêu quyển sách?
+    4971  |  4972  |  4297  |  4973
+    ✔ "4973"
+    💡 5065 + 338 = 5403; 5403 - 430 = 4973 (quyển). | Sau khi mua thêm: 5065 + 338 = 5403 (quyển) → Còn lại: 5403 - 430 = 4973 (quyển) → Đáp số: 4973 quyển sách | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g3.muldiv_big M1] 1093 × 3 = ?
+    3479  |  4279  |  3279  |  3289
+    ✔ "3279"
+    💡 Nhân lần lượt từ hàng đơn vị: 1093 × 3 = 3279. | Hàng đơn vị: 3 × 3 = 9 → Hàng chục: 9 × 3 = 27, viết 7 nhớ 2 → Hàng trăm: 0 × 3 + 2 (nhớ) = 2 → Hàng nghìn: 1 × 3 = 3 → Kết quả: 1093 × 3 = 3279
+ [single g3.addsub100000 M3] Thư viện có 2239 quyển sách. Năm nay mua thêm 349 quyển và thanh lí 239 quyển cũ. Hỏi thư viện còn bao nhiêu quyển sách?
+    2349  |  2588  |  2348  |  1651
+    ✔ "2349"
+    💡 2239 + 349 = 2588; 2588 - 239 = 2349 (quyển). | Sau khi mua thêm: 2239 + 349 = 2588 (quyển) → Còn lại: 2588 - 239 = 2349 (quyển) → Đáp số: 2349 quyển sách | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+
+### g3_multiplication
+ [single g3.times_more M3] Bình có 9 nhãn vở. Số nhãn vở của Mai gấp 5 lần số nhãn vở của Bình. Hỏi Mai có bao nhiêu nhãn vở?
+    46  |  50  |  45  |  54
+    ✔ "45"
+    💡 Gấp 5 lần thì nhân với 5: 9 × 5 = 45 (nhãn vở). | Số nhãn vở của Mai: 9 × 5 = 45 (nhãn vở) → Đáp số: 45 nhãn vở | gợi ý: "Gấp lên mấy lần" là phép nhân, khác với "nhiều hơn mấy".
+ [input g3.mul_tables M2] 3 × ? = 9
+    ✔ "3"
+    💡 Vì 3 × 3 = 9 nên số cần điền là 3. | gợi ý: Nhẩm bảng nhân 3.
+ [single g3.times_more M3] Hoa có 11 nhãn vở. Số nhãn vở của Linh gấp 5 lần số nhãn vở của Hoa. Hỏi Linh có bao nhiêu nhãn vở?
+    66  |  56  |  55  |  60
+    ✔ "55"
+    💡 Gấp 5 lần thì nhân với 5: 11 × 5 = 55 (nhãn vở). | Số nhãn vở của Linh: 11 × 5 = 55 (nhãn vở) → Đáp số: 55 nhãn vở | gợi ý: "Gấp lên mấy lần" là phép nhân, khác với "nhiều hơn mấy".
+ [single g3.mul_1digit M1] 16 × 5 = ?
+    80  |  90  |  70  |  75
+    ✔ "80"
+    💡 Nhân từ hàng đơn vị: 16 × 5 = 80. | Hàng đơn vị: 6 × 5 = 30, viết 0 nhớ 3 → Hàng chục: 1 × 5 + 3 (nhớ) = 8 → Kết quả: 16 × 5 = 80 | gợi ý: Nhân từ phải sang trái, nhớ sang hàng tiếp theo.
+ [single g3.mul_tables M1] 6 × 7 = ?
+    42  |  13  |  35  |  36
+    ✔ "42"
+    💡 Bảng nhân 6: 6 × 7 = 42. | gợi ý: 6 × 7 = 6 × 6 + 6 = 36 + 6.
+
+### g3_division
+ [single g3.times_less M2] Giảm 14 đi 2 lần được bao nhiêu?
+    6  |  7  |  4  |  5
+    ✔ "7"
+    💡 Muốn giảm một số đi nhiều lần, ta chia số đó cho số lần: 14 : 2 = 7. | gợi ý: "Giảm đi mấy lần" là phép chia, khác với "bớt đi mấy".
+ [single g3.div_tables M1] 40 : 8 = ?
+    4  |  5  |  3  |  2
+    ✔ "5"
+    💡 Vì 8 × 5 = 40 nên 40 : 8 = 5. | gợi ý: 8 nhân mấy bằng 40?
+ [single g3.how_many_times M3] Mai có 27 viên bi, Minh có 9 viên bi. Hỏi số bi của Mai gấp mấy lần số bi của Minh?
+    2 lần  |  1 lần  |  4 lần  |  3 lần
+    ✔ "3 lần"
+    💡 27 : 9 = 3 (lần). | Số bi của Mai gấp số bi của Minh: 27 : 9 = 3 (lần) → Đáp số: 3 lần | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g3.div_1digit M2] 330 : 5 = ?
+    66  |  68  |  76  |  67
+    ✔ "66"
+    💡 Đặt tính và chia từ hàng trăm: 330 : 5 = 66 (thử lại: 66 × 5 = 330). | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [single g3.times_less M3] Bao gạo nặng 27 kg. Số gạo Linh mang về giảm đi 3 lần so với bao gạo. Hỏi Linh mang về bao nhiêu ki-lô-gam gạo?
+    6 kg  |  9 kg  |  8 kg  |  7 kg
+    ✔ "9 kg"
+    💡 Giảm 3 lần: 27 : 3 = 9 (kg). | Số gạo mang về: 27 : 3 = 9 (kg) → Đáp số: 9 kg | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g3_geometry
+ [single g3.circle M2] Hình tròn có bán kính 9 cm. Đường kính của hình tròn là:
+    18 cm  |  19 cm  |  9 cm  |  11 cm
+    ✔ "18 cm"
+    💡 Đường kính dài gấp 2 lần bán kính: 9 × 2 = 18 (cm). | gợi ý: Đường kính gấp đôi bán kính.
+ [single g3.polygon M1 🖼] Hình tứ giác ABCD có mấy góc?
+    4  |  3  |  5  |  6
+    ✔ "4"
+    💡 Hình tứ giác có 4 đỉnh, 4 cạnh và 4 góc.
+ [single g3.right_angle M1 🖼] Góc đỉnh O có phải là góc vuông không?
+    Có  |  Không
+    ✔ "Không"
+    💡 Đặt ê-ke: hai cạnh của góc không trùng khít với góc vuông của ê-ke, nên đây là góc không vuông. | gợi ý: Dùng ê-ke để kiểm tra góc vuông.
+ [single g3.rect_square M1] Đúng hay sai: Hình vuông có 3 góc vuông.
+    Đúng  |  Sai
+    ✔ "Sai"
+    💡 Sai. Hình vuông có 4 góc vuông và 4 cạnh bằng nhau.
+ [single g3.midpoint M2] Đoạn thẳng CD dài 28 cm, I là trung điểm của CD. Độ dài đoạn thẳng CI là:
+    11 cm  |  13 cm  |  12 cm  |  14 cm
+    ✔ "14 cm"
+    💡 Trung điểm chia đôi đoạn thẳng: 28 : 2 = 14 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+
+### g3_measurements
+ [single g3.temperature M1] Nhiệt độ ở Đà Lạt là 15°C, ở Hà Nội là 39°C. Nơi nào nóng hơn và hơn bao nhiêu độ?
+    Ở Hà Nội nóng hơn 23°C  |  Ở Hà Nội nóng hơn 24°C  |  Ở Hà Nội nóng hơn 22°C  |  Ở Hà Nội nóng hơn 29°C
+    ✔ "Ở Hà Nội nóng hơn 24°C"
+    💡 39°C cao hơn 15°C; 39 - 15 = 24 (°C).
+ [single g3.temperature M1] Nhiệt độ cơ thể người khoẻ mạnh khoảng bao nhiêu?
+    45°C  |  40°C  |  37°C  |  42°C
+    ✔ "37°C"
+    💡 Thân nhiệt người khoẻ mạnh khoảng 37°C.
+ [single g3.temperature M1] Nhiệt độ trong phòng là 19°C, ngoài sân là 30°C. Nơi nào nóng hơn và hơn bao nhiêu độ?
+    Ngoài sân nóng hơn 10°C  |  Ngoài sân nóng hơn 9°C  |  Ngoài sân nóng hơn 11°C  |  Ngoài sân nóng hơn 16°C
+    ✔ "Ngoài sân nóng hơn 11°C"
+    💡 30°C cao hơn 19°C; 30 - 19 = 11 (°C).
+ [single g3.small_units M2] 1 kg 539 g = ? g
+    1540 g  |  1000 g  |  1639 g  |  1539 g
+    ✔ "1539 g"
+    💡 1 kg = 1000 g; 1000 + 539 = 1539 (g). | gợi ý: Đổi 1 kg ra g trước rồi cộng.
+ [single g3.small_units M2] 4 m 665 mm = ? mm
+    669 mm  |  1065 mm  |  4665 mm  |  4000 mm
+    ✔ "4665 mm"
+    💡 4 m = 4000 mm; 4000 + 665 = 4665 (mm). | gợi ý: Đổi 4 m ra mm trước rồi cộng.
+
+### g3_word_problems
+ [single g3.word_2step M2] Có 72 quả cam xếp đều vào 6 giỏ. Mẹ lấy ra 9 quả từ một giỏ. Hỏi giỏ đó còn lại bao nhiêu quả cam?
+    21  |  2  |  3  |  6
+    ✔ "3"
+    💡 Mỗi giỏ: 72 : 6 = 12 (quả). Giỏ đó còn: 12 - 9 = 3 (quả). | Mỗi giỏ có: 72 : 6 = 12 (quả) → Giỏ đó còn lại: 12 - 9 = 3 (quả) → Đáp số: 3 quả cam | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g3.word_2step M3] Mua 6 quyển vở hết 36 nghìn đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu nghìn đồng?
+    12 nghìn đồng  |  34 nghìn đồng  |  6 nghìn đồng  |  11 nghìn đồng
+    ✔ "12 nghìn đồng"
+    💡 Một quyển: 36 : 6 = 6 (nghìn đồng). Hai quyển: 6 × 2 = 12 (nghìn đồng). | Giá một quyển: 36 : 6 = 6 (nghìn đồng) → Giá hai quyển: 6 × 2 = 12 (nghìn đồng) | gợi ý: Tìm giá một quyển trước (rút về đơn vị).
+ [single g3.word_2step M3] Mua 6 quyển vở hết 24 nghìn đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu nghìn đồng?
+    12 nghìn đồng  |  22 nghìn đồng  |  8 nghìn đồng  |  48 nghìn đồng
+    ✔ "8 nghìn đồng"
+    💡 Một quyển: 24 : 6 = 4 (nghìn đồng). Hai quyển: 4 × 2 = 8 (nghìn đồng). | Giá một quyển: 24 : 6 = 4 (nghìn đồng) → Giá hai quyển: 4 × 2 = 8 (nghìn đồng) | gợi ý: Tìm giá một quyển trước (rút về đơn vị).
+ [single g3.word_2step M2] Có 99 quả cam xếp đều vào 9 giỏ. Mẹ lấy ra 9 quả từ một giỏ. Hỏi giỏ đó còn lại bao nhiêu quả cam?
+    2  |  11  |  90  |  1
+    ✔ "2"
+    💡 Mỗi giỏ: 99 : 9 = 11 (quả). Giỏ đó còn: 11 - 9 = 2 (quả). | Mỗi giỏ có: 99 : 9 = 11 (quả) → Giỏ đó còn lại: 11 - 9 = 2 (quả) → Đáp số: 2 quả cam | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g3.word_2step M2] Có 40 quả cam xếp đều vào 8 giỏ. Mẹ lấy ra 4 quả từ một giỏ. Hỏi giỏ đó còn lại bao nhiêu quả cam?
+    5  |  8  |  1  |  0
+    ✔ "1"
+    💡 Mỗi giỏ: 40 : 8 = 5 (quả). Giỏ đó còn: 5 - 4 = 1 (quả). | Mỗi giỏ có: 40 : 8 = 5 (quả) → Giỏ đó còn lại: 5 - 4 = 1 (quả) → Đáp số: 1 quả cam | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+
+### g3_fractions
+ [single g3.unit_fraction M1 🖼] Đã tô màu một phần mấy của hình?
+    1/6  |  1/9  |  1/7  |  1/5
+    ✔ "1/5"
+    💡 Hình được chia thành 5 phần bằng nhau, tô màu 1 phần: đã tô 1/5 hình. | gợi ý: Đếm xem hình được chia thành mấy phần bằng nhau.
+ [single g3.fraction_of M3] Hoa có 24 nhãn vở, Hoa cho bạn 1/3 số nhãn vở đó. Hỏi Hoa còn lại bao nhiêu nhãn vở?
+    17  |  21  |  16  |  18
+    ✔ "16"
+    💡 Số nhãn vở đã cho: 24 : 3 = 8. Còn lại: 24 - 8 = 16 (nhãn vở). | Đã cho bạn: 24 : 3 = 8 (nhãn vở) → Còn lại: 24 - 8 = 16 (nhãn vở) → Đáp số: 16 nhãn vở | gợi ý: Tìm số nhãn vở đã cho trước.
+ [single g3.unit_fraction M1 🖼] Đã tô màu một phần mấy của hình?
+    1/5  |  1/4  |  1/9  |  1/7
+    ✔ "1/9"
+    💡 Hình được chia thành 9 phần bằng nhau, tô màu 1 phần: đã tô 1/9 hình. | gợi ý: Đếm xem hình được chia thành mấy phần bằng nhau.
+ [single g3.fraction_of M3] Linh có 20 nhãn vở, Linh cho bạn 1/4 số nhãn vở đó. Hỏi Linh còn lại bao nhiêu nhãn vở?
+    15  |  14  |  16  |  17
+    ✔ "15"
+    💡 Số nhãn vở đã cho: 20 : 4 = 5. Còn lại: 20 - 5 = 15 (nhãn vở). | Đã cho bạn: 20 : 4 = 5 (nhãn vở) → Còn lại: 20 - 5 = 15 (nhãn vở) → Đáp số: 15 nhãn vở | gợi ý: Tìm số nhãn vở đã cho trước.
+ [single g3.unit_fraction M1 🖼] Đã tô màu một phần mấy của hình?
+    1/10  |  1/7  |  1/8  |  1/4
+    ✔ "1/8"
+    💡 Hình được chia thành 8 phần bằng nhau, tô màu 1 phần: đã tô 1/8 hình. | gợi ý: Đếm xem hình được chia thành mấy phần bằng nhau.
+
+### g3_area
+ [single g3.perimeter M2 🖼] Tính chu vi hình tứ giác có độ dài các cạnh 8 cm, 12 cm, 11 cm, 3 cm.
+    34 cm  |  31 cm  |  35 cm  |  32 cm
+    ✔ "34 cm"
+    💡 Chu vi tứ giác = tổng độ dài bốn cạnh: 8 + 12 + 11 + 3 = 34 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g3.area_cm2 M1 🖼] Mỗi ô vuông có diện tích 1 cm². Hình tô màu có diện tích bao nhiêu xăng-ti-mét vuông?
+    7 cm²  |  3 cm²  |  2 cm²  |  4 cm²
+    ✔ "4 cm²"
+    💡 Đếm được 4 ô vuông 1 cm² được tô màu: diện tích là 4 cm². | gợi ý: Đếm số ô được tô màu.
+ [single g3.perimeter M3] Một hình vuông có chu vi 64 cm. Độ dài cạnh hình vuông là:
+    32 cm  |  15 cm  |  20 cm  |  16 cm
+    ✔ "16 cm"
+    💡 Cạnh = chu vi : 4 = 64 : 4 = 16 (cm). | gợi ý: Chu vi hình vuông bằng cạnh nhân 4.
+ [single g3.area_cm2 M3] Một hình chữ nhật có chiều rộng 7 cm, chiều dài gấp 3 lần chiều rộng. Tính diện tích hình chữ nhật đó.
+    148 cm²  |  147 cm²  |  28 cm²  |  154 cm²
+    ✔ "147 cm²"
+    💡 Chiều dài: 7 × 3 = 21 (cm). Diện tích: 21 × 7 = 147 (cm²). | Chiều dài: 7 × 3 = 21 (cm) → Diện tích: 21 × 7 = 147 (cm²) → Đáp số: 147 cm² | gợi ý: Tìm chiều dài trước.
+ [single g3.area_cm2 M3] Một hình chữ nhật có chiều rộng 9 cm, chiều dài gấp 3 lần chiều rộng. Tính diện tích hình chữ nhật đó.
+    243 cm²  |  244 cm²  |  245 cm²  |  252 cm²
+    ✔ "243 cm²"
+    💡 Chiều dài: 9 × 3 = 27 (cm). Diện tích: 27 × 9 = 243 (cm²). | Chiều dài: 9 × 3 = 27 (cm) → Diện tích: 27 × 9 = 243 (cm²) → Đáp số: 243 cm² | gợi ý: Tìm chiều dài trước.
+
+### g3_statistics
+ [single g3.data_table M1] **Số ki-lô-gam giấy vụn thu được** ⏎  ⏎ | Tổ | Tổ 1 | Tổ 2 | Tổ 3 | Tổ 4 | ⏎ | :-: | :-: | :-: | :-: | :-: | ⏎ | Số kg | 46 | 37 | 23 | 60 | ⏎  ⏎ Tổ 4 có bao nhiêu kg?
+    60  |  23  |  37  |  46
+    ✔ "60"
+    💡 Tìm cột "Tổ 4" trong bảng: 60 kg.
+ [single g3.data_table M2] **Số cây trồng được của các lớp** ⏎  ⏎ | Lớp | 3A | 3B | 3C | 3D | ⏎ | :-: | :-: | :-: | :-: | :-: | ⏎ | Số cây | 59 | 41 | 48 | 26 | ⏎  ⏎ Cả bốn lớp có tất cả bao nhiêu cây?
+    173  |  176  |  174  |  172
+    ✔ "174"
+    💡 59 + 41 + 48 + 26 = 174 (cây). | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+ [single g3.data_table M1] **Số ki-lô-gam giấy vụn thu được** ⏎  ⏎ | Tổ | Tổ 1 | Tổ 2 | Tổ 3 | Tổ 4 | ⏎ | :-: | :-: | :-: | :-: | :-: | ⏎ | Số kg | 44 | 35 | 36 | 12 | ⏎  ⏎ Tổ 1 có bao nhiêu kg?
+    35  |  12  |  44  |  36
+    ✔ "44"
+    💡 Tìm cột "Tổ 1" trong bảng: 44 kg.
+ [single g3.data_table M2] **Số học sinh tham gia câu lạc bộ** ⏎  ⏎ | Câu lạc bộ | Bóng đá | Cờ vua | Vẽ | Múa | ⏎ | :-: | :-: | :-: | :-: | :-: | ⏎ | Số học sinh | 12 | 35 | 19 | 57 | ⏎  ⏎ Câu lạc bộ nào có nhiều học sinh nhất?
+    Bóng đá  |  Cờ vua  |  Vẽ  |  Múa
+    ✔ "Múa"
+    💡 So sánh các số 12, 35, 19, 57: 57 là lớn nhất, thuộc về Múa. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+ [single g3.data_table M2] **Số cây trồng được của các lớp** ⏎  ⏎ | Lớp | 3A | 3B | 3C | 3D | ⏎ | :-: | :-: | :-: | :-: | :-: | ⏎ | Số cây | 10 | 32 | 16 | 12 | ⏎  ⏎ Lớp 3B nhiều hơn Lớp 3C bao nhiêu cây?
+    19  |  13  |  15  |  16
+    ✔ "16"
+    💡 32 - 16 = 16 (cây). | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+
+### g3_money
+ [single g3.money M3] Mẹ mua 2 quả bóng, mỗi quả bóng giá 45 000 đồng. Mẹ đưa cô bán hàng 100 000 đồng. Cô bán hàng trả lại mẹ bao nhiêu tiền?
+    55 000 đồng  |  11 000 đồng  |  9000 đồng  |  10 000 đồng
+    ✔ "10 000 đồng"
+    💡 Tiền mua hàng: 45 000 đồng × 2 = 90 000 đồng. Tiền trả lại: 100 000 đồng - 90 000 đồng = 10 000 đồng. | Số tiền mua 2 quả bóng: 45 000 đồng × 2 = 90 000 đồng → Tiền trả lại: 100 000 đồng - 90 000 đồng = 10 000 đồng | gợi ý: Tính số tiền phải trả trước.
+ [single g3.money M2] Em mua một cuốn vở giá 8000 đồng và đưa cho cô bán hàng 10 000 đồng. Cô bán hàng trả lại em bao nhiêu tiền?
+    18 000 đồng  |  5000 đồng  |  2000 đồng  |  1000 đồng
+    ✔ "2000 đồng"
+    💡 Tiền trả lại = tiền đưa - giá tiền: 10 000 đồng - 8000 đồng = 2000 đồng. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g3.money M2] Em mua một cái thước giá 3000 đồng và đưa cho cô bán hàng 10 000 đồng. Cô bán hàng trả lại em bao nhiêu tiền?
+    13 000 đồng  |  7000 đồng  |  9000 đồng  |  8000 đồng
+    ✔ "7000 đồng"
+    💡 Tiền trả lại = tiền đưa - giá tiền: 10 000 đồng - 3000 đồng = 7000 đồng. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g3.money M1 🖼] Có tất cả bao nhiêu tiền?
+    24 000 đồng  |  28 000 đồng  |  25 000 đồng  |  26 000 đồng
+    ✔ "26 000 đồng"
+    💡 20 000 đồng + 5000 đồng + 1000 đồng = 26 000 đồng. | gợi ý: Cộng lần lượt từ tờ có mệnh giá lớn nhất.
+ [single g3.money M2] Em mua một quả bóng giá 60 000 đồng và đưa cho cô bán hàng 100 000 đồng. Cô bán hàng trả lại em bao nhiêu tiền?
+    37 000 đồng  |  40 000 đồng  |  39 000 đồng  |  38 000 đồng
+    ✔ "40 000 đồng"
+    💡 Tiền trả lại = tiền đưa - giá tiền: 100 000 đồng - 60 000 đồng = 40 000 đồng. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+
+### g4_large_numbers
+ [single g4.even_odd M1] Số 74 986 là số chẵn hay số lẻ?
+    Số chẵn  |  Số lẻ
+    ✔ "Số chẵn"
+    💡 Chữ số tận cùng là 6 (0, 2, 4, 6, 8) nên 74 986 là số chẵn. | gợi ý: Nhìn chữ số hàng đơn vị.
+ [single g4.round M2] Làm tròn số 9 384 132 đến hàng trăm nghìn, ta được:
+    9 400 000  |  9 000 000  |  9 200 000  |  9 300 000
+    ✔ "9 400 000"
+    💡 Chữ số ngay bên phải hàng trăm nghìn là 8: từ 5 trở lên → làm tròn lên. Kết quả 9 400 000. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g4.compare M2] Số lớn nhất trong các số 3 201 505; 3 790 112; 3 698 390; 3 891 449 là:
+    3 201 505  |  3 790 112  |  3 891 449  |  3 698 390
+    ✔ "3 891 449"
+    💡 So sánh lần lượt từ hàng cao nhất: 3 891 449. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g4.read_write M2] Số gồm 10 triệu, 135 nghìn và 911 đơn vị là:
+    10 135 911  |  10 911 135  |  10 135 912  |  10 144 110
+    ✔ "10 135 911"
+    💡 10 triệu = 10 000 000; 135 nghìn = 135 000; cộng thêm 911: 10 135 911. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g4.place_class M2] Giá trị của chữ số 3 (thứ 4 từ trái) trong số 6 093 036 là:
+    3000  |  300  |  30 000  |  3
+    ✔ "3000"
+    💡 Chữ số 3 ở hàng nghìn nên có giá trị 3000. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g4_add_sub
+ [single g4.letter_expr M2] Tính giá trị của biểu thức a + b với a = 803, b = 600.
+    1403  |  1413  |  1404  |  8630
+    ✔ "1403"
+    💡 Thay chữ bằng số: a + b = 803 + 600 = 1403. | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [single g4.letter_expr M2] Tính giá trị của biểu thức a - b với a = 685, b = 497.
+    188  |  198  |  178  |  497
+    ✔ "188"
+    💡 a - b = 685 - 497 = 188. | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [single g4.properties_add M2] Tính bằng cách thuận tiện: 179 + 3147 + 821 = ?
+    4147  |  4157  |  4217  |  3247
+    ✔ "4147"
+    💡 Đổi chỗ và nhóm: (179 + 821) + 3147 = 1000 + 3147 = 4147. | 179 + 821 = 1000 → 1000 + 3147 = 4147 | gợi ý: Tìm hai số cộng lại tròn nghìn.
+ [single g4.addsub M1] 80 452 - 21 815 = ?
+    58 647  |  61 443  |  58 637  |  58 807
+    ✔ "58 637"
+    💡 Đặt tính thẳng hàng, tính từ phải sang trái: 80 452 - 21 815 = 58 637. | 2 không trừ được 5, lấy 12 trừ 5 bằng 7, viết 7, nhớ 1 → 1 thêm 1 bằng 2; 5 trừ 2 bằng 3, viết 3 → 4 không trừ được 8, lấy 14 trừ 8 bằng 6, viết 6, nhớ 1 → 1 thêm 1 bằng 2; 0 không trừ được 2, lấy 10 trừ 2 bằng 8, viết 8, nhớ 1 → 2 thêm 1 bằng 3; 8 trừ 3 bằng 5, viết 5 → Vậy 80 452 - 21 815 = 58 637 | gợi ý: Nhớ / mượn 1 khi cần.
+ [single g4.properties_add M2] Tính bằng cách thuận tiện: 707 + 4841 + 293 = ?
+    5548  |  5921  |  5841  |  5781
+    ✔ "5841"
+    💡 Đổi chỗ và nhóm: (707 + 293) + 4841 = 1000 + 4841 = 5841. | 707 + 293 = 1000 → 1000 + 4841 = 5841 | gợi ý: Tìm hai số cộng lại tròn nghìn.
+
+### g4_multiplication
+ [single g4.properties_mul M3] Tính nhanh: 45 × 48 - 45 × 19 = ?
+    1305  |  3015  |  2141  |  1385
+    ✔ "1305"
+    💡 Nhân một số với một hiệu: 45 × 48 - 45 × 19 = 45 × (48 - 19) = 45 × 29 = 1305. | gợi ý: Cả hai tích đều có thừa số 45.
+ [single g4.mul M3] Mỗi hộp có 24 cái bút. Hỏi 35 hộp như thế có bao nhiêu cái bút?
+    920  |  940  |  840  |  850
+    ✔ "840"
+    💡 24 × 35 = 840 (cái bút). | Số bút: 24 × 35 = 840 (cái) → Đáp số: 840 cái bút | gợi ý: Dùng bảng nhân hoặc đặt tính, nhân lần lượt từ phải sang trái.
+ [single g4.properties_mul M2] Tính nhanh: 50 × 30 × 2 = ?
+    3000  |  3070  |  3020  |  4000
+    ✔ "3000"
+    💡 Đổi chỗ, nhóm: (50 × 2) × 30 = 100 × 30 = 3000. | gợi ý: 50 × 2 = 100.
+ [single g4.mul M1] 58 660 × 7 = ?
+    411 000  |  410 620  |  410 630  |  411 160
+    ✔ "410 620"
+    💡 Nhân lần lượt từ hàng đơn vị, nhớ sang hàng bên trái: 58 660 × 7 = 410 620. | Hàng đơn vị: 0 × 7 = 0 → Hàng chục: 6 × 7 = 42, viết 2 nhớ 4 → Hàng trăm: 6 × 7 + 4 (nhớ) = 46, viết 6 nhớ 4 → Hàng nghìn: 8 × 7 + 4 (nhớ) = 60, viết 0 nhớ 6 → Hàng chục nghìn: 5 × 7 + 6 (nhớ) = 41 → Kết quả: 58 660 × 7 = 410 620
+ [single g4.mul10 M1] 3813 × 10 = ?
+    3813  |  3823  |  381 300  |  38 130
+    ✔ "38 130"
+    💡 Nhân với 10: viết thêm 1 chữ số 0 vào bên phải: 38 130. | gợi ý: Nhân với 10 thì thêm 1 chữ số 0.
+
+### g4_division
+ [single g4.div10 M1] 65 210 : 10 = ?
+    6531  |  6522  |  6521  |  65 210
+    ✔ "6521"
+    💡 Chia số tròn chục cho 10: bỏ 1 chữ số 0 ở tận cùng: 6521.
+ [single g4.div10 M1] 18 830 : 10 = ?
+    1882  |  1893  |  1883  |  188
+    ✔ "1883"
+    💡 Chia số tròn chục cho 10: bỏ 1 chữ số 0 ở tận cùng: 1883.
+ [single g4.div10 M2] 6720 : 20 = ?
+    336  |  337  |  3360  |  346
+    ✔ "336"
+    💡 Cùng bỏ một chữ số 0 ở số bị chia và số chia: 672 : 2 = 336. | gợi ý: Cùng xoá một chữ số 0 ở tận cùng của số bị chia và số chia.
+ [single g4.div M1] 167 055 : 5 = ?
+    34 241  |  334 110  |  33 411  |  33 631
+    ✔ "33 411"
+    💡 Chia lần lượt từ trái sang phải: 167 055 : 5 = 33 411 (thử lại: 33 411 × 5 = 167 055). | gợi ý: Thử lại bằng phép nhân.
+ [single g4.div M2] 21 805 : 49 = ?
+    447  |  446  |  455  |  445
+    ✔ "445"
+    💡 Ước lượng thương từng bước rồi thử lại: 445 × 49 = 21 805, nên 21 805 : 49 = 445. | gợi ý: Làm tròn số chia để ước lượng thương.
+
+### g4_units
+ [input g4.area_units M1] Điền số: 800 mm² = ? cm²
+    ✔ "8"
+    💡 100 mm² = 1 cm², nên 800 mm² = 8 cm².
+ [input g4.time_units M1] Điền số: 360 giây = ? phút
+    ✔ "6"
+    💡 60 giây = 1 phút, nên 360 giây = 6 phút.
+ [single g4.time_units M2] 4 thế kỉ 43 năm = ? năm
+    83 năm  |  830 năm  |  47 năm  |  443 năm
+    ✔ "443 năm"
+    💡 4 thế kỉ = 400 năm; 400 + 43 = 443 (năm). | gợi ý: Đổi 4 thế kỉ ra năm trước.
+ [single g4.area_units M1] 4 dm² = ? cm²
+    500 cm²  |  400 cm²  |  4000 cm²  |  600 cm²
+    ✔ "400 cm²"
+    💡 1 dm² = 100 cm², nên 4 dm² = 4 × 100 = 400 cm². | gợi ý: Nhớ: 1 dm² = 100 cm².
+ [input g4.mass M1] Điền số: 6000 kg = ? tấn
+    ✔ "6"
+    💡 1000 kg = 1 tấn, nên 6000 kg = 6 tấn.
+
+### g4_angles
+ [single g4.angle_measure M2 🖼] Đặt thước đo góc như hình. Góc đỉnh O có số đo bao nhiêu độ?
+    100°  |  110°  |  90°  |  80°
+    ✔ "100°"
+    💡 Một cạnh trùng vạch 0°, cạnh kia đi qua vạch 100°: góc có số đo 100°. | gợi ý: Đọc số trên vòng chia độ bắt đầu từ vạch 0 trùng với một cạnh của góc.
+ [single g4.angle_measure M2 🖼] Đặt thước đo góc như hình. Góc đỉnh I có số đo bao nhiêu độ?
+    40°  |  120°  |  50°  |  60°
+    ✔ "60°"
+    💡 Một cạnh trùng vạch 0°, cạnh kia đi qua vạch 60°: góc có số đo 60°. | gợi ý: Đọc số trên vòng chia độ bắt đầu từ vạch 0 trùng với một cạnh của góc.
+ [single g4.angle_compare M2] So sánh góc 60° và góc 100°: 60° ... 100°
+    >  |  <  |  =
+    ✔ "<"
+    💡 Góc 100° lớn hơn góc 60°. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g4.angle_types M1] Góc có số đo 90° là góc gì?
+    Góc nhọn  |  Góc tù  |  Góc bẹt  |  Góc vuông
+    ✔ "Góc vuông"
+    💡 90° bằng 90°: góc vuông.
+ [single g4.angle_compare M2] So sánh góc 30° và góc 40°: 30° ... 40°
+    >  |  <  |  =
+    ✔ "<"
+    💡 Góc 40° lớn hơn góc 30°. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+
+### g4_lines
+ [single g4.perp_parallel M1 🖼] Đường thẳng AB và đường thẳng CD trong hình:
+    Song song  |  Vuông góc  |  Cắt nhau nhưng không vuông góc
+    ✔ "Vuông góc"
+    💡 Hai đường thẳng cắt nhau tạo thành 4 góc vuông: vuông góc. | gợi ý: Dùng ê-ke kiểm tra góc tạo bởi hai đường thẳng.
+ [single g4.perp_parallel M1 🖼] Đường thẳng EG và đường thẳng HK trong hình:
+    Song song  |  Vuông góc  |  Cắt nhau nhưng không vuông góc
+    ✔ "Song song"
+    💡 Hai đường thẳng không bao giờ cắt nhau dù kéo dài mãi: song song. | gợi ý: Dùng ê-ke kiểm tra góc tạo bởi hai đường thẳng.
+ [single g4.perp_parallel M1 🖼] Đường thẳng MN và đường thẳng PQ trong hình:
+    Song song  |  Vuông góc  |  Cắt nhau nhưng không vuông góc
+    ✔ "Song song"
+    💡 Hai đường thẳng không bao giờ cắt nhau dù kéo dài mãi: song song. | gợi ý: Dùng ê-ke kiểm tra góc tạo bởi hai đường thẳng.
+ [single g4.perp_parallel M2] Hình chữ nhật có mấy cặp cạnh vuông góc với nhau?
+    0  |  4  |  3  |  1
+    ✔ "4"
+    💡 Hình chữ nhật có 4 góc vuông, mỗi góc là một cặp cạnh vuông góc: 4 cặp. | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.perp_parallel M2 🖼] Hình chữ nhật ABCD có mấy cặp cạnh song song?
+    2  |  0  |  3  |  1
+    ✔ "2"
+    💡 AB song song với DC, AD song song với BC: có 2 cặp cạnh song song. | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+
+### g4_geometry_2d
+ [single g4.para_rhombus_id M1 🖼] Hình vẽ là hình gì?
+    Hình chữ nhật  |  Hình vuông  |  Hình thoi  |  Hình tam giác
+    ✔ "Hình thoi"
+    💡 Hình thoi có bốn cạnh bằng nhau, hai cặp cạnh đối song song.
+ [single g4.rect_word M3] Một thửa ruộng hình chữ nhật dài 36 m, rộng 12 m. Cứ 1 m² thu được 2 kg thóc. Hỏi cả thửa ruộng thu được bao nhiêu ki-lô-gam thóc?
+    96 kg  |  864 kg  |  432 kg  |  876 kg
+    ✔ "864 kg"
+    💡 Diện tích: 36 × 12 = 432 (m²). Số thóc: 432 × 2 = 864 (kg). | Diện tích: 36 × 12 = 432 (m²) → Số thóc: 432 × 2 = 864 (kg) | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g4.para_rhombus_id M1 🖼] Hình vẽ là hình gì?
+    Hình chữ nhật  |  Hình vuông  |  Hình thoi  |  Hình bình hành
+    ✔ "Hình bình hành"
+    💡 Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau, nhưng không có góc vuông và bốn cạnh không bằng nhau.
+ [single g4.para_rhombus_id M2] Đúng hay sai: Hình thoi có hai đường chéo vuông góc với nhau.
+    Đúng  |  Sai
+    ✔ "Đúng"
+    💡 Đúng. Hình thoi có hai đường chéo vuông góc với nhau. | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.rect_word M3] Một thửa ruộng hình chữ nhật dài 28 m, rộng 14 m. Cứ 1 m² thu được 2 kg thóc. Hỏi cả thửa ruộng thu được bao nhiêu ki-lô-gam thóc?
+    168 kg  |  784 kg  |  84 kg  |  798 kg
+    ✔ "784 kg"
+    💡 Diện tích: 28 × 14 = 392 (m²). Số thóc: 392 × 2 = 784 (kg). | Diện tích: 28 × 14 = 392 (m²) → Số thóc: 392 × 2 = 784 (kg) | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+
+### g4_fractions
+ [single g4.fraction_concept M1] Phân số 4/8 có tử số là:
+    4  |  8  |  12  |  9
+    ✔ "4"
+    💡 Tử số là số viết trên gạch ngang: 4.
+ [single g4.fraction_equiv M1] Phân số nào bằng phân số 2/7?
+    7/28  |  8/28  |  6/29  |  2/28
+    ✔ "8/28"
+    💡 Nhân cả tử số và mẫu số với 4: 2/7 = 8/28. | gợi ý: Nhân (hoặc chia) cả tử và mẫu với cùng một số khác 0.
+ [single g4.fraction_common M2] Quy đồng mẫu số hai phân số 3/5 và 9/10 được:
+    5/10 và 9/10  |  6/10 và 18/20  |  6/10 và 9/10  |  3/10 và 9/10
+    ✔ "6/10 và 9/10"
+    💡 10 chia hết cho 5 (10 : 5 = 2), nên lấy 10 làm mẫu số chung: 3/5 = 6/10; giữ nguyên 9/10. | gợi ý: Mẫu số 10 chia hết cho 5.
+ [single g4.fraction_equiv M2] Rút gọn phân số 4/8 được phân số tối giản là:
+    1/4  |  2/2  |  1/2  |  4/2
+    ✔ "1/2"
+    💡 Chia cả tử và mẫu cho 4 (ước chung lớn nhất): 4/8 = 1/2. | gợi ý: Chia cả tử và mẫu cho cùng một số đến khi không chia được nữa.
+ [single g4.fraction_compare M2] Điền dấu >, <, =: 4/5 ... 6/15
+    >  |  <  |  =
+    ✔ ">"
+    💡 Quy đồng: 4/5 = 12/15. So sánh 12/15 với 6/15: >. | gợi ý: Quy đồng mẫu số rồi so sánh tử số.
+
+### g4_statistics
+ [single g4.data_series M1] Số đo chiều cao (cm) của một nhóm bạn là: 157; 145; 148; 137; 127; 133. Số thứ 1 của dãy số liệu là:
+    137  |  133  |  148  |  157
+    ✔ "157"
+    💡 Đếm từ trái sang phải, số thứ 1 là 157.
+ [single g4.events M1] Tung một đồng xu 30 lần, có 9 lần xuất hiện mặt sấp. Hỏi mặt ngửa xuất hiện bao nhiêu lần?
+    23  |  22  |  21  |  30
+    ✔ "21"
+    💡 Mỗi lần tung xuất hiện mặt sấp hoặc mặt ngửa: 30 - 9 = 21 (lần).
+ [single g4.bar_chart M1 🖼] Biểu đồ "Số ki-lô-gam giấy vụn". Tổ 4 có bao nhiêu kg?
+    30  |  20  |  33  |  29
+    ✔ "30"
+    💡 Cột "Tổ 4" ứng với 30 kg.
+ [single g4.events M2] Lấy bóng từ hộp 18 lần (lấy xong lại trả vào), kết quả: đỏ 9 lần, xanh 3 lần, vàng 6 lần. Màu nào xuất hiện ít lần nhất?
+    Màu đỏ  |  Màu xanh  |  Màu vàng
+    ✔ "Màu xanh"
+    💡 So sánh số lần: 9, 3, 6. Màu xanh xuất hiện 3 lần — ít nhất. | gợi ý: Xét tất cả trường hợp có thể xảy ra rồi so với điều đề bài hỏi.
+ [single g4.data_series M2] Số đo chiều cao (cm): 130; 146; 126; 136; 148. Bạn cao nhất cao bao nhiêu xăng-ti-mét?
+    148 cm  |  136 cm  |  130 cm  |  146 cm
+    ✔ "148 cm"
+    💡 So sánh các số trong dãy: 148 là số lớn nhất. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+
+### g4_word_problems
+ [single g4.sum_diff M3 🖼] Minh và Mai có tất cả 73 viên bi. Minh có nhiều hơn Mai 17 viên. Hỏi mỗi bạn có bao nhiêu viên bi?
+    Minh: 36, Mai: 37  |  Minh: 62, Mai: 11  |  Minh: 45, Mai: 28  |  Minh: 28, Mai: 45
+    ✔ "Minh: 45, Mai: 28"
+    💡 Số bi của Minh: (73 + 17) : 2 = 45. Số bi của Mai: 45 - 17 = 28. | Số bi của Minh: (73 + 17) : 2 = 45 (viên) → Số bi của Mai: 45 - 17 = 28 (viên) | gợi ý: Vẽ hai đoạn thẳng, đánh dấu tổng và phần chênh lệch rồi tìm từng số.
+ [single g4.sum_diff M3 🖼] Bình và Nam có tất cả 97 viên bi. Bình có nhiều hơn Nam 7 viên. Hỏi mỗi bạn có bao nhiêu viên bi?
+    Bình: 59, Nam: 38  |  Bình: 45, Nam: 52  |  Bình: 48, Nam: 49  |  Bình: 52, Nam: 45
+    ✔ "Bình: 52, Nam: 45"
+    💡 Số bi của Bình: (97 + 7) : 2 = 52. Số bi của Nam: 52 - 7 = 45. | Số bi của Bình: (97 + 7) : 2 = 52 (viên) → Số bi của Nam: 52 - 7 = 45 (viên) | gợi ý: Vẽ hai đoạn thẳng, đánh dấu tổng và phần chênh lệch rồi tìm từng số.
+ [single g4.word_multi M3] Một cửa hàng có 35 thùng, mỗi thùng 23 hộp sữa, ngoài ra còn 40 hộp lẻ. Hỏi cửa hàng có tất cả bao nhiêu hộp sữa?
+    805  |  765  |  845  |  868
+    ✔ "845"
+    💡 35 × 23 = 805; 805 + 40 = 845 (hộp). | Số hộp trong thùng: 35 × 23 = 805 (hộp) → Tất cả: 805 + 40 = 845 (hộp) → Đáp số: 845 hộp sữa | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g4.word_multi M3] Ngày thứ nhất cửa hàng bán được 261 kg gạo, ngày thứ hai bán nhiều hơn ngày thứ nhất 88 kg, ngày thứ ba bán được 272 kg. Hỏi trung bình mỗi ngày bán được bao nhiêu ki-lô-gam gạo?
+    284 kg  |  292 kg  |  294 kg  |  293 kg
+    ✔ "294 kg"
+    💡 Ngày thứ hai: 261 + 88 = 349 (kg). Cả ba ngày: 261 + 349 + 272 = 882 (kg). Trung bình: 882 : 3 = 294 (kg). | Ngày thứ hai: 261 + 88 = 349 (kg) → Cả ba ngày: 261 + 349 + 272 = 882 (kg) → Trung bình mỗi ngày: 882 : 3 = 294 (kg) → Đáp số: 294 kg | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g4.unit_rate M3] Mua 6 quyển vở hết 24 000 đồng. Hỏi với 32 000 đồng thì mua được bao nhiêu quyển vở như thế?
+    9  |  8  |  48  |  1
+    ✔ "8"
+    💡 Giá một quyển: 24 000 : 6 = 4000 (đồng). Số quyển: 32 000 : 4000 = 8 (quyển). | Giá một quyển: 24 000 : 6 = 4000 (đồng) → Số vở mua được: 32 000 : 4000 = 8 (quyển) | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g4_patterns
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 877, 872, 867, 862, 857, …
+    ✔ "852"
+    💡 Quy luật: mỗi số kém số liền trước 5 đơn vị. Số cần điền là 852. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 603, 577, 551, 525, 499, …
+    ✔ "473"
+    💡 Quy luật: mỗi số kém số liền trước 26 đơn vị. Số cần điền là 473. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+ [input g4.sequence M3] Tìm số thích hợp điền vào chỗ trống: 11, 13, 17, 23, 31, …
+    ✔ "41"
+    💡 Quy luật: khoảng cách giữa hai số liền nhau tăng dần: 2, 4, 6, …. Số tiếp theo là 41. | gợi ý: Thử so sánh hai số liền nhau: hơn bao nhiêu? gấp mấy lần?
+ [input g4.sequence M3] Tìm số thích hợp điền vào chỗ trống: 16, 18, 22, 28, …
+    ✔ "36"
+    💡 Quy luật: khoảng cách giữa hai số liền nhau tăng dần: 2, 4, 6, …. Số tiếp theo là 36. | gợi ý: Thử so sánh hai số liền nhau: hơn bao nhiêu? gấp mấy lần?
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 644, 620, 596, …, 548, 524
+    ✔ "572"
+    💡 Quy luật: mỗi số kém số liền trước 24 đơn vị. Số cần điền là 572. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+
+### g4_parentheses
+ [single g4.expr M2] 568 - 6 × 82 = ?
+    644  |  46 084  |  6  |  76
+    ✔ "76"
+    💡 Nhân trước, trừ sau: 6 × 82 = 492; 568 - 492 = 76. | 6 × 82 = 492 → 568 - 492 = 76 | gợi ý: Không có ngoặc: nhân, chia trước; cộng, trừ sau.
+ [single g4.expr M2] 7 × (21 + 41) = ?
+    524  |  435  |  436  |  434
+    ✔ "434"
+    💡 21 + 41 = 62; 7 × 62 = 434. | 21 + 41 = 62 → 7 × 62 = 434 | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [input g4.expr M3] Tìm số thích hợp: (? + 49) × 2 = 222
+    ✔ "62"
+    💡 ? + 49 = 222 : 2 = 111; ? = 111 - 49 = 62. | ? + 49 = 222 : 2 = 111 → ? = 111 - 49 = 62 | gợi ý: Tìm giá trị trong ngoặc trước.
+ [single g4.expr M2] (244 + 95) × 5 = ?
+    1315  |  719  |  1695  |  1625
+    ✔ "1695"
+    💡 Trong ngoặc trước: 244 + 95 = 339; 339 × 5 = 1695. | 244 + 95 = 339 → 339 × 5 = 1695 | gợi ý: Làm trong ngoặc trước.
+ [single g4.expr M3] Điền dấu >, <, =: (78 + 24) × 9 ... 78 + 24 × 9
+    >  |  <  |  =
+    ✔ ">"
+    💡 (78 + 24) × 9 = 918; 78 + 24 × 9 = 294. Vậy 918 > 294. | gợi ý: Hai biểu thức trông giống nhau nhưng thứ tự tính khác nhau.
+
+### g4_divisibility
+ [multi g4.divisibility M2] Chọn tất cả các số chia hết cho 2:
+    978  |  945  |  672  |  617  |  730  |  49
+    ✔ ["672","978","730"]
+    💡 Số chia hết cho 2 khi chữ số tận cùng là 0, 2, 4, 6, 8. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [input g4.divisibility M2] Điền một chữ số vào ô trống để số 92□ chia hết cho 9.
+    ✔ "7"
+    💡 Số chia hết cho 9 khi tổng các chữ số chia hết cho 9. Các chữ số điền được: 7. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [multi g4.divisibility M2] Chọn tất cả các số chia hết cho 3:
+    192  |  301  |  188  |  74  |  300  |  427
+    ✔ ["300","192"]
+    💡 Số chia hết cho 3 khi tổng các chữ số chia hết cho 3. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [input g4.divisibility M2] Điền một chữ số vào ô trống để số 33□ chia hết cho 5.
+    ✔ "0" (accept 5)
+    💡 Số chia hết cho 5 khi chữ số tận cùng là 0 hoặc 5. Các chữ số điền được: 0, 5. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [single g4.divisibility M2] Số 8674 có chia hết cho 5 không?
+    Có  |  Không
+    ✔ "Không"
+    💡 Số chia hết cho 5 khi chữ số tận cùng là 0 hoặc 5, nên 8674 không chia hết cho 5. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+
+### g4_average
+ [single g4.average M3] Bốn lớp khối Bốn quyên góp được lần lượt 31, 37, 38, 46 quyển sách. Hỏi trung bình mỗi lớp quyên góp được bao nhiêu quyển sách?
+    36  |  38  |  37  |  35
+    ✔ "38"
+    💡 (31 + 37 + 38 + 46) : 4 = 152 : 4 = 38 (quyển sách). | Tổng: 31 + 37 + 38 + 46 = 152 (quyển sách) → Trung bình: 152 : 4 = 38 (quyển sách) | gợi ý: Tổng các số bằng số trung bình cộng nhân với số các số hạng.
+ [single g4.average M2] Trung bình cộng của các số 27, 12, 5, 96 là bao nhiêu?
+    36  |  38  |  37  |  35
+    ✔ "35"
+    💡 Tổng các số chia cho 4: (27 + 12 + 5 + 96) : 4 = 140 : 4 = 35. | Tổng: 27 + 12 + 5 + 96 = 140 → Trung bình cộng: 140 : 4 = 35 | gợi ý: Cộng tất cả rồi chia cho số các số hạng.
+ [single g4.average M3] Bạn An đọc một quyển truyện trong 4 ngày, lần lượt được 30, 28, 43, 39 trang. Hỏi trung bình mỗi ngày An đọc được bao nhiêu trang?
+    35  |  36  |  38  |  34
+    ✔ "35"
+    💡 (30 + 28 + 43 + 39) : 4 = 140 : 4 = 35 (trang). | Tổng: 30 + 28 + 43 + 39 = 140 (trang) → Trung bình: 140 : 4 = 35 (trang) | gợi ý: Tổng các số bằng số trung bình cộng nhân với số các số hạng.
+ [single g4.average M2] Trung bình cộng của các số 33, 89, 55 là bao nhiêu?
+    56  |  58  |  59  |  60
+    ✔ "59"
+    💡 Tổng các số chia cho 3: (33 + 89 + 55) : 3 = 177 : 3 = 59. | Tổng: 33 + 89 + 55 = 177 → Trung bình cộng: 177 : 3 = 59 | gợi ý: Cộng tất cả rồi chia cho số các số hạng.
+ [single g4.average M3] Bạn An đọc một quyển truyện trong 3 ngày, lần lượt được 50, 44, 50 trang. Hỏi trung bình mỗi ngày An đọc được bao nhiêu trang?
+    48  |  45  |  46  |  47
+    ✔ "48"
+    💡 (50 + 44 + 50) : 3 = 144 : 3 = 48 (trang). | Tổng: 50 + 44 + 50 = 144 (trang) → Trung bình: 144 : 3 = 48 (trang) | gợi ý: Tổng các số bằng số trung bình cộng nhân với số các số hạng.
+
+### g4_para_rhombus
+ [single g4.para_area M2 🖼] Tính diện tích hình thoi có độ dài hai đường chéo là 12 cm và 3 cm.
+    18 cm²  |  15 cm²  |  36 cm²  |  30 cm²
+    ✔ "18 cm²"
+    💡 Diện tích hình thoi = (đường chéo × đường chéo) : 2 = (12 × 3) : 2 = 18 (cm²). | gợi ý: Đừng quên chia cho 2.
+ [single g4.para_area M2 🖼] Tính diện tích hình thoi có độ dài hai đường chéo là 18 cm và 3 cm.
+    26 cm²  |  25 cm²  |  21 cm²  |  27 cm²
+    ✔ "27 cm²"
+    💡 Diện tích hình thoi = (đường chéo × đường chéo) : 2 = (18 × 3) : 2 = 27 (cm²). | gợi ý: Đừng quên chia cho 2.
+ [single g4.para_area M2 🖼] Tính diện tích hình bình hành có độ dài đáy 13 cm, chiều cao 7 cm.
+    98 cm²  |  104 cm²  |  92 cm²  |  91 cm²
+    ✔ "91 cm²"
+    💡 Diện tích hình bình hành = đáy × chiều cao = 13 × 7 = 91 (cm²). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.para_area M2] Hình bình hành có diện tích 64 cm², độ dài đáy 8 cm. Tính chiều cao.
+    8 cm  |  16 cm  |  10 cm  |  56 cm
+    ✔ "8 cm"
+    💡 Chiều cao = diện tích : đáy = 64 : 8 = 8 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.para_area M2 🖼] Tính diện tích hình bình hành có độ dài đáy 9 cm, chiều cao 5 cm.
+    50 cm²  |  46 cm²  |  45 cm²  |  54 cm²
+    ✔ "45 cm²"
+    💡 Diện tích hình bình hành = đáy × chiều cao = 9 × 5 = 45 (cm²). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+
+### g4_fraction_ops
+ [single g4.frac_mul M2] 4/7 × 1/8 = ?
+    2/14  |  5/56  |  1/14  |  32/7
+    ✔ "1/14"
+    💡 Tử nhân tử, mẫu nhân mẫu: 4/56 = 1/14. | gợi ý: Tử nhân tử, mẫu nhân mẫu, rồi rút gọn.
+ [single g4.fraction_of M2] Tìm 1/6 của 48.
+    7  |  6  |  5  |  8
+    ✔ "8"
+    💡 1/6 của 48 là 48 × 1/6 = 48 : 6 × 1 = 8. | gợi ý: Chia 48 thành 6 phần bằng nhau rồi lấy 1 phần.
+ [single g4.frac_addsub M1] 2/12 + 3/12 = ?
+    1/3  |  6/12  |  5/24  |  5/12
+    ✔ "5/12"
+    💡 Cùng mẫu số: cộng hai tử số, giữ nguyên mẫu: 2/12 + 3/12 = 5/12. | gợi ý: Không cộng (trừ) hai mẫu số!
+ [single g4.frac_div M2] 3/8 : 6/5 = ?
+    5/16  |  16/5  |  9/20  |  5/15
+    ✔ "5/16"
+    💡 Chia cho một phân số là nhân với phân số đảo ngược: 3/8 × 5/6 = 15/48 = 5/16. | gợi ý: Đảo ngược phân số thứ hai thành 5/6.
+ [single g4.fraction_of M2] Tìm 7/8 của 160.
+    120  |  140  |  20  |  160
+    ✔ "140"
+    💡 7/8 của 160 là 160 × 7/8 = 160 : 8 × 7 = 140. | gợi ý: Chia 160 thành 8 phần bằng nhau rồi lấy 7 phần.
+
+### g5_numbers
+ [single g5.decimal_round M2] Làm tròn số 88,18 đến số tự nhiên gần nhất:
+    89  |  88  |  87
+    ✔ "88"
+    💡 Xét chữ số ngay bên phải: bé hơn 5 → làm tròn xuống: 88. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g5.decimal_round M2] Làm tròn số 87,773 đến hàng phần mười:
+    87,7  |  87,9  |  87,8
+    ✔ "87,8"
+    💡 Xét chữ số ngay bên phải: từ 5 trở lên → làm tròn lên: 87,8. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g5.measure_decimal M2] 18 km 492 m = ? km
+    18,0492 km  |  18,492 km  |  18,493 km  |  22,92 km
+    ✔ "18,492 km"
+    💡 492 m = 0,492 km, nên 18 km 492 m = 18,492 km. | gợi ý: 1 m = 0,001 km.
+ [single g5.decimal_compare M1] Điền dấu >, <, =: 25,1 ... 13,58
+    >  |  <  |  =
+    ✔ ">"
+    💡 So sánh phần nguyên trước: 25 > 13. | gợi ý: Số thập phân có nhiều chữ số hơn chưa chắc đã lớn hơn.
+ [single g5.decimal_read M1] Số thập phân 983,6 đọc là:
+    Chín nghìn tám trăm ba mươi sáu  |  Chín trăm tám mươi ba phẩy bảy  |  Chín trăm tám mươi ba phẩy sáu  |  Chín mươi tám phẩy ba mươi sáu
+    ✔ "Chín trăm tám mươi ba phẩy sáu"
+    💡 Đọc phần nguyên, đọc "phẩy", rồi đọc phần thập phân: chín trăm tám mươi ba phẩy sáu.
+
+### g5_decimal_ops
+ [single g5.dec_shift M2] 285 × 0,01 = ?
+    2,86  |  28 500  |  2,85  |  28,5
+    ✔ "2,85"
+    💡 Nhân với 0,01 chính là chia cho 100: chuyển dấu phẩy sang trái 2 chữ số: 2,85. | gợi ý: Nhân với 0,1 cũng như chia cho 10.
+ [single g5.dec_div M1] 110,7 : 3 = ?
+    37,1  |  37  |  369  |  36,9
+    ✔ "36,9"
+    💡 Chia như số tự nhiên, khi chia đến phần thập phân thì đặt dấu phẩy vào thương: 110,7 : 3 = 36,9.
+ [single g5.dec_mul M1] 16,4 × 2 = ?
+    328  |  32,8  |  34,8  |  3,28
+    ✔ "32,8"
+    💡 Nhân như số tự nhiên rồi đếm 1 chữ số ở phần thập phân để đặt dấu phẩy: 16,4 × 2 = 32,8. | gợi ý: Đếm số chữ số ở phần thập phân của thừa số.
+ [single g5.dec_addsub M2] 351,75 + 23,8 - 29,32 = ?
+    298,63  |  346,13  |  34,623  |  346,23
+    ✔ "346,23"
+    💡 Tính từ trái sang phải: 351,75 + 23,8 = 375,55; 375,55 - 29,32 = 346,23. | 351,75 + 23,8 = 375,55 → 375,55 - 29,32 = 346,23 | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g5.dec_addsub M1] 62 - 61,9 = ?
+    1  |  0,2  |  0,01  |  0,1
+    ✔ "0,1"
+    💡 Viết các chữ số cùng hàng thẳng cột (dấu phẩy thẳng dấu phẩy), trừ như số tự nhiên rồi đặt dấu phẩy: 62 - 61,9 = 0,1. | gợi ý: Đặt dấu phẩy thẳng cột với dấu phẩy.
+
+### g5_ratios
+ [single g5.sum_diff_ratio M3] Hiệu của hai số là 36. Tỉ số của hai số là 4/7. Tìm số lớn.
+    84  |  36  |  132  |  48
+    ✔ "84"
+    💡 Hiệu số phần: 7 - 4 = 3. Một phần: 36 : 3 = 12. Số lớn: 12 × 7 = 84. | Hiệu số phần: 7 - 4 = 3 → Một phần: 36 : 3 = 12 → Số lớn: 12 × 7 = 84 | gợi ý: Vẽ hai đoạn thẳng, đánh dấu tổng và phần chênh lệch rồi tìm từng số.
+ [single g5.map_scale M3] Một mảnh vườn dài 350 m. Trên bản đồ tỉ lệ 1 : 5000, chiều dài mảnh vườn là bao nhiêu xăng-ti-mét?
+    7 cm  |  6 cm  |  70 cm  |  35 cm
+    ✔ "7 cm"
+    💡 350 m = 35 000 cm; 35 000 : 5000 = 7 (cm). | gợi ý: Xác định hai đại lượng được so sánh và đơn vị của chúng trước khi tính.
+ [single g5.ratio M2] Lớp 5A có 14 bạn nam và 19 bạn nữ. Tỉ số của số bạn nữ và số bạn nam là:
+    19/33  |  14/33  |  19/14  |  14/19
+    ✔ "19/14"
+    💡 Tỉ số = số bạn nữ : số bạn nam = 19 : 14 = 19/14. | gợi ý: Xác định hai đại lượng được so sánh và đơn vị của chúng trước khi tính.
+ [single g5.ratio M2] Đội văn nghệ có 16 bạn nam và 11 bạn nữ. Tỉ số của số bạn nữ và số bạn nam là:
+    11/27  |  16/27  |  16/11  |  11/16
+    ✔ "11/16"
+    💡 Tỉ số = số bạn nữ : số bạn nam = 11 : 16 = 11/16. | gợi ý: Xác định hai đại lượng được so sánh và đơn vị của chúng trước khi tính.
+ [single g5.percent M2] Tìm 75% của 60.
+    450  |  55  |  45  |  15
+    ✔ "45"
+    💡 60 × 75 : 100 = 45. | gợi ý: Muốn tìm p% của một số, lấy số đó nhân với p rồi chia cho 100.
+
+### g5_fractions
+ [single g5.mixed_number M2] Tính: 4 2/7 + 2 1/7 = ? (viết kết quả dưới dạng phân số)
+    46/7  |  45/8  |  45/14  |  45/7
+    ✔ "45/7"
+    💡 4 2/7 = 30/7; 2 1/7 = 15/7; cộng: 45/7. | gợi ý: Chuyển hỗn số thành phân số trước.
+ [input g5.frac_muldiv M2] Một tấm vải dài 55 m, đã may áo hết 1/5 tấm vải. Hỏi đã dùng bao nhiêu mét vải?
+    ✔ "11"
+    💡 55 × 1/5 = 11 (m). | gợi ý: Quan sát tử số, mẫu số và các phần bằng nhau. Đọc kỹ phép tính cần làm.
+ [single g5.decimal_fraction M1] Viết 9/25 thành phân số thập phân:
+    36/100  |  36/1000  |  37/100
+    ✔ "36/100"
+    💡 Nhân cả tử và mẫu với 4 để mẫu số là 100: 9/25 = 36/100.
+ [single g5.frac_addsub M2] 3 + 3/7 - 2/9 = ?
+    202/62  |  202/126  |  202/63  |  404/63
+    ✔ "202/63"
+    💡 Viết 3 = 189/63, quy đồng mẫu số 63: 189/63 + 27/63 - 14/63 = 202/63. | gợi ý: Quan sát tử số, mẫu số và các phần bằng nhau. Đọc kỹ phép tính cần làm.
+ [single g5.frac_compare M2] Điền dấu >, <, =: 1/3 ... 1
+    >  |  <  |  =
+    ✔ "<"
+    💡 Phân số có tử số bé hơn mẫu số thì bé hơn 1. | gợi ý: Quan sát tử số, mẫu số và các phần bằng nhau. Đọc kỹ phép tính cần làm.
+
+### g5_geometry
+ [single g5.volume M1 🖼] Tính thể tích hình hộp chữ nhật có chiều dài 5 cm, chiều rộng 2 cm, chiều cao 10 cm.
+    140 cm³  |  200 cm³  |  100 cm³  |  105 cm³
+    ✔ "100 cm³"
+    💡 Thể tích = dài × rộng × cao = 5 × 2 × 10 = 100 (cm³).
+ [single g5.triangle_area M1 🖼] Tính diện tích hình tam giác có độ dài đáy 7 cm và chiều cao 13 cm.
+    52,5 cm²  |  45,6 cm²  |  45,5 cm²  |  91 cm²
+    ✔ "45,5 cm²"
+    💡 Diện tích tam giác = (đáy × chiều cao) : 2 = (7 × 13) : 2 = 45,5 (cm²). | gợi ý: Đừng quên chia cho 2.
+ [single g5.trapezoid_area M2] Hình thang có diện tích 58 cm², tổng hai đáy 29 cm. Tính chiều cao.
+    3 cm  |  1 cm  |  4 cm  |  2 cm
+    ✔ "4 cm"
+    💡 Chiều cao = diện tích × 2 : (tổng hai đáy) = 58 × 2 : 29 = 4 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g5.circle M2 🖼] Tính diện tích hình tròn có bán kính 3 cm.
+    9,42 cm²  |  18,84 cm²  |  28,26 cm²  |  29,26 cm²
+    ✔ "28,26 cm²"
+    💡 Diện tích = bán kính × bán kính × 3,14 = 3 × 3 × 3,14 = 28,26 (cm²). | gợi ý: S = r × r × 3,14
+ [single g5.solid_area M3] Một cái hộp hình hộp chữ nhật không có nắp, dài 7 dm, rộng 6 dm, cao 8 dm. Tính diện tích cần sơn mặt ngoài.
+    208 dm²  |  292 dm²  |  250 dm²  |  336 dm²
+    ✔ "250 dm²"
+    💡 Diện tích xung quanh: (7 + 6) × 2 × 8 = 208 (dm²); thêm một đáy: 7 × 6 = 42 (dm²). Tổng: 250 dm². | gợi ý: Không có nắp: chỉ cộng một mặt đáy.
+
+### g5_measurements
+ [single g5.area_units_big M2] 5 ha 38 m² = ? ha
+    5,038 ha  |  43 ha  |  5,0038 ha  |  5,00038 ha
+    ✔ "5,0038 ha"
+    💡 38 m² = 0,0038 ha, nên 5 ha 38 m² = 5,0038 ha. | gợi ý: 1 m² = 0,0001 ha.
+ [input g5.volume_units M1] Điền số: 5000 dm³ = ? m³
+    ✔ "5"
+    💡 1000 dm³ = 1 m³, nên 5000 dm³ = 5 m³.
+ [single g5.volume_units M2] 7 m³ 3 cm³ = ? m³
+    6,999003 m³  |  7,000003 m³  |  7,00003 m³  |  7 m³
+    ✔ "7,000003 m³"
+    💡 3 cm³ = 0,000003 m³, nên 7 m³ 3 cm³ = 7,000003 m³. | gợi ý: 1 cm³ = 0,000001 m³.
+ [single g5.area_units_big M1] 9 dm² = ? cm²
+    900 cm²  |  9000 cm²  |  910 cm²  |  90 cm²
+    ✔ "900 cm²"
+    💡 1 dm² = 100 cm², nên 9 dm² = 900 cm². | gợi ý: Nhớ: 1 dm² = 100 cm².
+ [single g5.volume_units M1] 2 m³ = ? cm³
+    2 000 000 cm³  |  20 000 000 cm³  |  200 000 000 cm³  |  1 000 002 cm³
+    ✔ "2 000 000 cm³"
+    💡 1 m³ = 1 000 000 cm³, nên 2 m³ = 2 000 000 cm³. | gợi ý: Nhớ: 1 m³ = 1 000 000 cm³.
+
+### g5_word_problems
+ [single g5.motion M2] Một ô tô đi quãng đường 114 km hết 2 giờ. Tính vận tốc.
+    59 km/giờ  |  57 km/giờ  |  228 km/giờ  |  114 km/giờ
+    ✔ "57 km/giờ"
+    💡 v = s : t = 114 : 2 = 57 (km/giờ). | gợi ý: Xác định quãng đường, vận tốc, thời gian và đổi về cùng đơn vị trước khi tính.
+ [single g5.motion_two M3 🖼] Một xe đạp đi trước một ô tô 45 km, cùng chiều. Xe đạp đi 11 km/giờ, ô tô đi 26 km/giờ. Sau bao lâu ô tô đuổi kịp xe đạp?
+    6 giờ  |  5 giờ  |  3 giờ  |  4 giờ
+    ✔ "3 giờ"
+    💡 Mỗi giờ ô tô gần xe đạp thêm: 26 - 11 = 15 (km). Thời gian: 45 : 15 = 3 (giờ). | Hiệu vận tốc: 26 - 11 = 15 (km/giờ) → Thời gian đuổi kịp: 45 : 15 = 3 (giờ) | gợi ý: Cùng chiều, đuổi nhau: lấy hiệu hai vận tốc.
+ [single g5.motion M1] Một xe máy đi với vận tốc 40 km/giờ trong 5 giờ. Tính quãng đường xe máy đi được.
+    240 km  |  200 km  |  45 km  |  160 km
+    ✔ "200 km"
+    💡 Quãng đường = vận tốc × thời gian = 40 × 5 = 200 (km). | gợi ý: s = v × t
+ [single g5.motion_two M3 🖼] Hai ô tô xuất phát cùng lúc từ hai tỉnh cách nhau 270 km, đi ngược chiều nhau. Ô tô thứ nhất đi 49 km/giờ, ô tô thứ hai đi 41 km/giờ. Sau bao lâu hai xe gặp nhau?
+    3 giờ  |  4 giờ  |  5 giờ  |  6 giờ
+    ✔ "3 giờ"
+    💡 Sau mỗi giờ hai xe gần nhau thêm: 49 + 41 = 90 (km). Thời gian gặp nhau: 270 : 90 = 3 (giờ). | Tổng vận tốc: 49 + 41 = 90 (km/giờ) → Thời gian: 270 : 90 = 3 (giờ) | gợi ý: Ngược chiều: cộng hai vận tốc.
+ [single g5.motion M3] Một ô tô khởi hành lúc 7 giờ và đến nơi lúc 11 giờ, đi với vận tốc 51 km/giờ. Tính quãng đường ô tô đã đi.
+    255 km  |  55 km  |  204 km  |  561 km
+    ✔ "204 km"
+    💡 Thời gian đi: 11 giờ - 7 giờ = 4 giờ. Quãng đường: 51 × 4 = 204 (km). | Thời gian: 11 giờ - 7 giờ = 4 giờ → Quãng đường: 51 × 4 = 204 (km) | gợi ý: Xác định quãng đường, vận tốc, thời gian và đổi về cùng đơn vị trước khi tính.
+
+### g5_parentheses
+ [single g5.expr M3] Điền dấu >, <, =: 27 + 69 × 5 ... (27 + 69) × 5
+    >  |  <  |  =
+    ✔ "<"
+    💡 27 + 69 × 5 = 372; (27 + 69) × 5 = 480. Vậy điền dấu <. | gợi ý: Nhớ tính chất nhân một tổng với một số: phải nhân cả hai số hạng.
+ [single g5.expr M2] (2469 - 493) : 4 = ?
+    504  |  484  |  594  |  494
+    ✔ "494"
+    💡 2469 - 493 = 1976; 1976 : 4 = 494. | 2469 - 493 = 1976 → 1976 : 4 = 494 | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [single g5.expr M2] (1635 + 151) × 8 = ?
+    14 288  |  2843  |  13 708  |  13 231
+    ✔ "14 288"
+    💡 Trong ngoặc trước: 1635 + 151 = 1786; 1786 × 8 = 14 288. | 1635 + 151 = 1786 → 1786 × 8 = 14 288 | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [single g5.expr M3] Điền dấu >, <, =: 35 + 88 × 6 ... (35 + 88) × 6
+    >  |  <  |  =
+    ✔ "<"
+    💡 35 + 88 × 6 = 563; (35 + 88) × 6 = 738. Vậy điền dấu <. | gợi ý: Nhớ tính chất nhân một tổng với một số: phải nhân cả hai số hạng.
+ [input g5.expr M3] Tìm số thích hợp: (? + 63) × 6 = 1212
+    ✔ "139"
+    💡 ? + 63 = 1212 : 6 = 202; ? = 202 - 63 = 139. | ? + 63 = 1212 : 6 = 202 → ? = 202 - 63 = 139 | gợi ý: Tìm giá trị trong ngoặc trước.
+
+### g5_statistics
+ [single g5.bar_read M1 🖼] Biểu đồ: Số ki-lô-gam giấy vụn các lớp thu được. Lớp 5D thu được bao nhiêu ki-lô-gam?
+    160 kg  |  155 kg  |  145 kg  |  140 kg
+    ✔ "145 kg"
+    💡 Cột Lớp 5D cao đến vạch 145: 145 kg.
+ [single g5.pie_chart M1 🖼] Biểu đồ "Tỉ lệ phương tiện học sinh đến trường". Phần "Xe đạp" chiếm bao nhiêu phần trăm?
+    20%  |  40%  |  30%  |  10%
+    ✔ "20%"
+    💡 Đọc nhãn trên biểu đồ: Xe đạp chiếm 20%.
+ [single g5.chance_ratio M2] Thực hiện 10 lần, có 2 lần xuất hiện mặt sấp khi tung đồng xu. Tỉ số của số lần xuất hiện mặt sấp và tổng số lần là:
+    1/5  |  5/1  |  2/8  |  4/5
+    ✔ "1/5"
+    💡 Tỉ số = 2 : 10 = 1/5. | gợi ý: Lấy số lần xuất hiện chia cho tổng số lần thực hiện.
+ [single g5.pie_chart M2 🖼] Biểu đồ "Tỉ lệ học sinh tham gia các môn thể thao". Khối Năm có 800 học sinh tham gia. Có bao nhiêu học sinh chọn môn cầu lông?
+    720  |  390  |  360  |  440
+    ✔ "360"
+    💡 45% của 800: 800 × 45 : 100 = 360 (học sinh). | gợi ý: Tìm tỉ số phần trăm của một số.
+ [single g5.chance_ratio M2] Thực hiện 50 lần, có 19 lần xuất hiện mặt sấp khi tung đồng xu. Tỉ số của số lần xuất hiện mặt sấp và tổng số lần là:
+    19/50  |  50/19  |  19/31  |  31/50
+    ✔ "19/50"
+    💡 Tỉ số = 19 : 50 = 19/50. | gợi ý: Lấy số lần xuất hiện chia cho tổng số lần thực hiện.
+
+### g5_time_ops
+ [single g5.time_addsub M2] Một chuyến tàu khởi hành lúc 9 giờ 10 phút và đi hết 2 giờ 30 phút. Hỏi tàu đến nơi lúc mấy giờ?
+    11 giờ 35 phút  |  12 giờ 40 phút  |  11 giờ 50 phút  |  11 giờ 40 phút
+    ✔ "11 giờ 40 phút"
+    💡 9 giờ 10 phút + 2 giờ 30 phút = 11 giờ 40 phút. | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g5.time_addsub M2] Một chuyến tàu khởi hành lúc 9 giờ 35 phút và đi hết 3 giờ 45 phút. Hỏi tàu đến nơi lúc mấy giờ?
+    11 giờ 40 phút  |  13 giờ 20 phút  |  13 giờ 15 phút  |  12 giờ 20 phút
+    ✔ "13 giờ 20 phút"
+    💡 9 giờ 35 phút + 3 giờ 45 phút = 13 giờ 20 phút. | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g5.time_muldiv M2] Tính: 2 giờ 31 phút × 2 = ?
+    6 giờ 2 phút  |  5 giờ 3 phút  |  5 giờ 12 phút  |  5 giờ 2 phút
+    ✔ "5 giờ 2 phút"
+    💡 Nhân lần lượt từng đơn vị rồi đổi: 2 giờ 31 phút × 2 = 5 giờ 2 phút. | gợi ý: 60 phút = 1 giờ.
+ [single g5.time_addsub M1] Tính: 2 giờ 25 phút - 20 phút = ?
+    1 giờ 5 phút  |  2 giờ 5 phút  |  2 giờ 4 phút  |  1 giờ 25 phút
+    ✔ "2 giờ 5 phút"
+    💡 Trừ phút với phút (không đủ thì đổi 1 giờ = 60 phút), giờ với giờ: 2 giờ 25 phút - 20 phút = 2 giờ 5 phút. | gợi ý: 1 giờ = 60 phút.
+ [single g5.time_muldiv M2] Tính: 11 giờ 30 phút : 3 = ?
+    3 giờ 50 phút  |  4 giờ 50 phút  |  4 giờ  |  3 giờ 40 phút
+    ✔ "3 giờ 50 phút"
+    💡 Đổi ra phút: 690 phút : 3 = 230 phút = 3 giờ 50 phút. | gợi ý: Đổi ra phút rồi chia.
+
+### mn_time
+ [single mn.daytime M2] Ngày mai bé đi xem xiếc. Việc đi xem xiếc đã xảy ra rồi hay chưa?
+    Đã xảy ra rồi  |  Chưa xảy ra
+    ✔ "Chưa xảy ra"
+    💡 Ngày mai là ngày sau hôm nay, nên việc đó chưa xảy ra. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single mn.daytime M1] Bé ăn cơm trưa ở lớp vào buổi nào?
+    Buổi sáng  |  Buổi trưa  |  Buổi chiều  |  Buổi tối
+    ✔ "Buổi trưa"
+    💡 Bé ăn cơm trưa ở lớp vào buổi trưa.
+ [single mn.daytime M1] Bé đánh răng, ăn sáng rồi đi học vào buổi nào?
+    Buổi sáng  |  Buổi trưa  |  Buổi chiều  |  Buổi tối
+    ✔ "Buổi sáng"
+    💡 Bé đánh răng, ăn sáng rồi đi học vào buổi sáng.
+ [single mn.daytime M1 🖼] Bức tranh vẽ buổi nào trong ngày?
+    Buổi sáng  |  Buổi trưa  |  Buổi chiều  |  Buổi tối
+    ✔ "Buổi chiều"
+    💡 Mặt trời sắp lặn: đó là buổi chiều.
+ [single mn.daytime M2] Bé đi công viên vào ngày trước hôm nay. Đó là ngày nào?
+    Hôm qua  |  Hôm nay  |  Ngày mai
+    ✔ "Hôm qua"
+    💡 Ngày trước hôm nay là hôm qua. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g1_add_sub_100
+ [input g1.addsub100 M3] Đặt tính rồi tính: 23 + 12
+    ✔ "35"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị: 23 + 12 = 35. | Hàng đơn vị: 3 + 2 = 5 → Hàng chục: 2 + 1 = 3 → Kết quả: 35 | gợi ý: Viết các chữ số cùng hàng thẳng cột, tính từ phải sang trái.
+ [single g1.addsub100 M3] Tính: 63 - 20 = ?
+    43  |  53  |  73  |  13
+    ✔ "43"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị: 63 - 20 = 43. | Hàng đơn vị: 3 - 0 = 3 → Hàng chục: 6 - 2 = 4 → Kết quả: 43 | gợi ý: Tính hàng đơn vị trước, rồi đến hàng chục.
+ [single g1.addsub100 M1] Tính: 30 + 10 = ?
+    50  |  40  |  60  |  41
+    ✔ "40"
+    💡 3 chục cộng 1 chục là 4 chục: 30 + 10 = 40. | gợi ý: Tính với số chục: 3 chục + 1 chục = 4 chục.
+ [single g1.addsub100 M3] Tính: 54 - 34 = ?
+    0  |  40  |  20  |  30
+    ✔ "20"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị: 54 - 34 = 20. | Hàng đơn vị: 4 - 4 = 0 → Hàng chục: 5 - 3 = 2 → Kết quả: 20 | gợi ý: Tính hàng đơn vị trước, rồi đến hàng chục.
+ [single g1.addsub100 M1] Tính: 20 + 60 = ?
+    80  |  100  |  90  |  81
+    ✔ "80"
+    💡 2 chục cộng 6 chục là 8 chục: 20 + 60 = 80. | gợi ý: Tính với số chục: 2 chục + 6 chục = 8 chục.
+
+### g2_add_sub_20
+ [single g2.addsub20 M2] Biết 2 + 9 = 11. Vậy 11 - 9 = ?
+    0  |  1  |  2  |  3
+    ✔ "2"
+    💡 Lấy tổng trừ đi một số hạng thì được số hạng kia: 11 - 9 = 2. | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g2.addsub20 M1] Tính: 2 + 9 = ?
+    1  |  12  |  11  |  10
+    ✔ "11"
+    💡 Tách 9 = 8 + 1: 2 + 8 = 10, 10 + 1 = 11. | 2 + 8 = 10 → 10 + 1 = 11 | gợi ý: Gộp 2 với 8 cho tròn 10 trước.
+ [input g2.addsub20 M2] Điền số: 6 + ? = 13
+    ✔ "7"
+    💡 13 - 6 = 7, nên 6 + 7 = 13. | gợi ý: Lấy tổng trừ đi số hạng đã biết.
+ [input g2.addsub20 M2] Điền số: 6 + ? = 12
+    ✔ "6"
+    💡 12 - 6 = 6, nên 6 + 6 = 12. | gợi ý: Lấy tổng trừ đi số hạng đã biết.
+ [single g2.addsub20 M1] Tính: 12 - 6 = ?
+    4  |  3  |  5  |  6
+    ✔ "6"
+    💡 Tách 6 = 2 + 4: 12 - 2 = 10, 10 - 4 = 6. | 12 - 2 = 10 → 10 - 4 = 6 | gợi ý: Trừ để còn 10 trước, rồi trừ tiếp.
+
+### g2_add_sub_1000
+ [single g2.addsub1000 M1] Tính: 437 - 137 = ?
+    302  |  300  |  299  |  303
+    ✔ "300"
+    💡 Cộng (trừ) theo từng hàng, không có nhớ: 437 - 137 = 300. | 7 trừ 7 bằng 0, viết 0 → 3 trừ 3 bằng 0, viết 0 → 4 trừ 1 bằng 3, viết 3 → Vậy 437 - 137 = 300
+ [input g2.addsub1000 M3 🖼] Đặt tính rồi tính: 257 + 338
+    ✔ "595"
+    💡 Đặt tính thẳng cột: 257 + 338 = 595. | 7 cộng 8 bằng 15, viết 5 nhớ 1 → 5 cộng 3 bằng 8, thêm 1 bằng 9, viết 9 → 2 cộng 3 bằng 5, viết 5 → Vậy 257 + 338 = 595 | gợi ý: Tính theo thứ tự, chú ý hàng đơn vị, hàng chục và số nhớ.
+ [single g2.addsub1000 M1] Tính: 101 + 201 = ?
+    303  |  312  |  302  |  304
+    ✔ "302"
+    💡 Cộng (trừ) theo từng hàng, không có nhớ: 101 + 201 = 302. | 1 cộng 1 bằng 2, viết 2 → 0 cộng 0 bằng 0, viết 0 → 1 cộng 2 bằng 3, viết 3 → Vậy 101 + 201 = 302
+ [single g2.addsub1000 M1] Tính nhẩm: 200 + 800 = ?
+    1000  |  700  |  900  |  800
+    ✔ "1000"
+    💡 2 trăm cộng 8 trăm bằng 10 trăm: 200 + 800 = 1000. | gợi ý: Nhẩm với số trăm.
+ [single g2.addsub1000 M2] Tính: 544 + 291 = ?
+    845  |  865  |  835  |  855
+    ✔ "835"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị, nhớ (mượn) 1 khi cần: 544 + 291 = 835. | 4 cộng 1 bằng 5, viết 5 → 4 cộng 9 bằng 13, viết 3 nhớ 1 → 5 cộng 2 bằng 7, thêm 1 bằng 8, viết 8 → Vậy 544 + 291 = 835 | gợi ý: Có một lần nhớ (mượn) — đừng quên!
+
+### g2_statistics
+ [single g2.pictograph M1 🖼] Theo biểu đồ tranh, "Lớp 2B" có bao nhiêu cây?
+    4  |  5  |  3  |  7
+    ✔ "4"
+    💡 Hàng "Lớp 2B" có 4 hình, mỗi hình là 1 cây.
+ [single g2.pictograph M2 🖼] Theo biểu đồ tranh, có tất cả bao nhiêu bạn?
+    14  |  16  |  17  |  13
+    ✔ "16"
+    💡 Cộng các hàng: 8 + 4 + 1 + 3 = 16. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+ [single g2.tally M1 🖼] Theo bảng kiểm đếm, "Lê" có bao nhiêu quả?
+    20  |  7  |  10  |  9
+    ✔ "10"
+    💡 Mỗi bó có 5 vạch (vạch thứ năm gạch chéo). "Lê" có 10 vạch. | gợi ý: Đếm theo từng bó 5 rồi đếm thêm vạch lẻ.
+ [single g2.pictograph M2 🖼] Theo biểu đồ tranh, "Thỏ" nhiều hơn "Gà" bao nhiêu con?
+    2  |  4  |  3  |  5
+    ✔ "2"
+    💡 3 - 1 = 2 (con). | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+ [single g2.tally M2 🖼] Theo bảng kiểm đếm, con vật nào có nhiều con nhất?
+    Vịt  |  Lợn  |  Thỏ
+    ✔ "Lợn"
+    💡 Đếm vạch: Vịt 2, Lợn 11, Thỏ 9. Lợn nhiều nhất. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+
+### g2_probability
+ [single g2.chance M1] Khả năng xảy ra của sự kiện: "Thứ Hai đến sau Chủ nhật" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Chắc chắn"
+    💡 Việc này luôn luôn xảy ra.
+ [single g2.chance M1] Khả năng xảy ra của sự kiện: "Sau mùa đông là mùa xuân" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Chắc chắn"
+    💡 Việc này luôn luôn xảy ra.
+ [single g2.chance M2 🖼] Lấy ra 1 viên bi từ hộp. Khả năng lấy được bi màu đỏ là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Không thể"
+    💡 Trong hộp không có bi màu đỏ, nên không thể lấy được. | gợi ý: Quan sát trong hộp có những màu bi nào.
+ [single g2.chance M1] Khả năng xảy ra của sự kiện: "Ngày mai mặt trời mọc ở đằng đông" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Chắc chắn"
+    💡 Việc này luôn luôn xảy ra.
+ [single g2.chance M2 🖼] Lấy ra 1 viên bi từ hộp. Khả năng lấy được bi màu đỏ là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Có thể"
+    💡 Hộp có bi màu đỏ và màu vàng, nên có thể lấy được bi màu đỏ. | gợi ý: Quan sát trong hộp có những màu bi nào.
+
+### g3_expressions
+ [single g3.expression M3] Tính giá trị biểu thức: (15 - 7) × 4
+    32  |  30  |  31  |  33
+    ✔ "32"
+    💡 Biểu thức có ngoặc: tính trong ngoặc trước. 15 - 7 = 8; 8 × 4 = 32. | 15 - 7 = 8 → 8 × 4 = 32 | gợi ý: Có dấu ngoặc thì làm trong ngoặc trước.
+ [single g3.expression M2] Tính giá trị biểu thức: 90 - 3 × 4
+    76  |  78  |  77  |  348
+    ✔ "78"
+    💡 Biểu thức có nhân và trừ: nhân trước. 3 × 4 = 12; 90 - 12 = 78. | 3 × 4 = 12 → 90 - 12 = 78 | gợi ý: Làm phép nhân (chia) trước, cộng (trừ) sau.
+ [input g3.missing M2] Tìm số chia: 48 : ? = 8
+    ✔ "6"
+    💡 Muốn tìm số chia, lấy số bị chia chia cho thương: 48 : 8 = 6. | gợi ý: Lấy số bị chia chia cho thương.
+ [input g3.missing M2] Tìm số bị chia: ? : 4 = 10
+    ✔ "40"
+    💡 Muốn tìm số bị chia, lấy thương nhân với số chia: 10 × 4 = 40. | gợi ý: Lấy thương nhân với số chia.
+ [single g3.expression M2] Tính giá trị biểu thức: 80 + 9 × 3
+    106  |  267  |  105  |  107
+    ✔ "107"
+    💡 Biểu thức có nhân và cộng: nhân trước. 9 × 3 = 27; 80 + 27 = 107. | 9 × 3 = 27 → 80 + 27 = 107 | gợi ý: Làm phép nhân (chia) trước, cộng (trừ) sau.
+
+### g3_time
+ [single g3.clock_minute M2] Đồng hồ chỉ 8 giờ 50 phút. Còn gọi là:
+    9 giờ kém 10 phút  |  9 giờ 10 phút  |  9 giờ kém 50 phút  |  8 giờ kém 10 phút
+    ✔ "9 giờ kém 10 phút"
+    💡 Còn 10 phút nữa là 9 giờ, nên 8 giờ 50 phút còn gọi là 9 giờ kém 10 phút. | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g3.duration M2] Bộ phim bắt đầu lúc 10 giờ 15 phút và kết thúc lúc 10 giờ 45 phút. Bộ phim dài bao lâu?
+    15 phút  |  1 giờ  |  30 phút  |  45 phút
+    ✔ "30 phút"
+    💡 Từ 10 giờ 15 phút đến 10 giờ 45 phút là 30 phút. | gợi ý: Đếm thêm từng giờ, rồi từng phút.
+ [single g3.duration M2] Bộ phim bắt đầu lúc 13 giờ 15 phút và kết thúc lúc 14 giờ 30 phút. Bộ phim dài bao lâu?
+    2 giờ 15 phút  |  1 giờ 30 phút  |  1 giờ 15 phút  |  1 giờ
+    ✔ "1 giờ 15 phút"
+    💡 Từ 13 giờ 15 phút đến 14 giờ 30 phút là 1 giờ 15 phút. | gợi ý: Đếm thêm từng giờ, rồi từng phút.
+ [single g3.month_year M2] Ngày 28 tháng 3 là thứ Năm. Hỏi ngày 2 tháng 4 là thứ mấy?
+    Chủ nhật  |  Thứ Tư  |  Thứ Ba  |  Thứ Hai
+    ✔ "Thứ Ba"
+    💡 Tháng 3 có 31 ngày. Từ ngày 28/3 đến ngày 2/4 là 5 ngày; đếm tiếp 5 ngày từ thứ Năm được thứ Ba. | gợi ý: Nhớ xem tháng đó có bao nhiêu ngày.
+ [single g3.month_year M1] Tháng 7 có bao nhiêu ngày?
+    30 ngày  |  28 ngày  |  31 ngày  |  29 ngày
+    ✔ "31 ngày"
+    💡 Tháng 7 có 31 ngày. | gợi ý: Nắm tay đếm khớp: tháng ở chỗ lồi có 31 ngày, chỗ lõm có 30 ngày (trừ tháng Hai).
+
+### g3_probability
+ [single g3.chance M2 🖼] Trong hộp có 2 quả bóng vàng và 4 quả bóng xanh lá. Sự kiện "Lấy 1 quả bóng: lấy được bóng xanh lá" là:
+    Có thể  |  Không thể  |  Chắc chắn
+    ✔ "Có thể"
+    💡 Hộp có bóng màu này nhưng cũng có màu khác. | gợi ý: Xét tất cả trường hợp có thể xảy ra rồi so với điều đề bài hỏi.
+ [single g3.chance M1] Sự kiện "Gieo một con xúc xắc, mặt xuất hiện có số chấm bé hơn 7" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Chắc chắn"
+    💡 Xúc xắc có các mặt từ 1 đến 6 chấm, đều bé hơn 7: chắc chắn xảy ra.
+ [single g3.chance M2 🖼] Trong hộp có 4 quả bóng vàng và 2 quả bóng xanh dương. Sự kiện "Lấy 7 quả bóng cùng lúc từ hộp" là:
+    Không thể  |  Có thể  |  Chắc chắn
+    ✔ "Không thể"
+    💡 Điều đó không thể xảy ra với số bóng và màu bóng trong hộp. | gợi ý: Xét tất cả trường hợp có thể xảy ra rồi so với điều đề bài hỏi.
+ [single g3.chance M2 🖼] Trong hộp có 4 quả bóng đỏ và 4 quả bóng vàng. Sự kiện "Lấy 1 quả bóng: lấy được bóng vàng" là:
+    Không thể  |  Có thể  |  Chắc chắn
+    ✔ "Có thể"
+    💡 Hộp có bóng màu này nhưng cũng có màu khác. | gợi ý: Xét tất cả trường hợp có thể xảy ra rồi so với điều đề bài hỏi.
+ [single g3.chance M2 🖼] Trong hộp có 4 quả bóng đỏ và 1 quả bóng xanh lá. Sự kiện "Lấy 1 quả bóng: lấy được bóng đỏ hoặc xanh lá" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Chắc chắn"
+    💡 Mọi quả bóng trong hộp đều thuộc hai màu đó. | gợi ý: Xét tất cả trường hợp có thể xảy ra rồi so với điều đề bài hỏi.
+
+
+┌─────────┬──────────────────────────┬──────┬───────────┬────────────────┐
+│ (index) │ unit                     │ uniq │ dupOptPct │ rank           │
+├─────────┼──────────────────────────┼──────┼───────────┼────────────────┤
+│ 0       │ 'mn_counting'            │ 256  │ 0         │ '37/56/68/39'  │
+│ 1       │ 'mn_shapes'              │ 155  │ 0         │ '17/14/15/16'  │
+│ 2       │ 'mn_colors'              │ 153  │ 0         │ '72/47/50/52'  │
+│ 3       │ 'g1_numbers_5'           │ 250  │ 0         │ '56/61/70/24'  │
+│ 4       │ 'g1_numbers_10'          │ 300  │ 0         │ '73/70/57/57'  │
+│ 5       │ 'g1_addition_10'         │ 300  │ 0         │ '32/43/36/41'  │
+│ 6       │ 'g1_subtraction_10'      │ 297  │ 0         │ '52/78/45/18'  │
+│ 7       │ 'g1_numbers_20'          │ 280  │ 0         │ '20/73/79/22'  │
+│ 8       │ 'g1_operations_20'       │ 300  │ 0         │ '60/89/90/61'  │
+│ 9       │ 'g1_numbers_100'         │ 300  │ 0         │ '61/44/58/62'  │
+│ 10      │ 'g1_length'              │ 300  │ 0         │ '44/63/56/37'  │
+│ 11      │ 'g1_time'                │ 298  │ 0         │ '23/23/36/21'  │
+│ 12      │ 'g1_geometry'            │ 217  │ 0         │ '11/12/12/12'  │
+│ 13      │ 'g1_word_problems'       │ 300  │ 0         │ '27/38/35/44'  │
+│ 14      │ 'g1_clock'               │ 206  │ 0         │ '38/62/63/45'  │
+│ 15      │ 'g2_add_sub_no_carry'    │ 300  │ 0         │ '41/31/39/43'  │
+│ 16      │ 'g2_add_sub_carry'       │ 300  │ 0         │ '55/65/68/65'  │
+│ 17      │ 'g2_arithmetic_advanced' │ 300  │ 0         │ '22/23/16/14'  │
+│ 18      │ 'g2_units_measure'       │ 283  │ 0         │ '59/57/60/61'  │
+│ 19      │ 'g2_time_calendar'       │ 297  │ 0         │ '44/54/62/42'  │
+│ 20      │ 'g2_geometry_basic'      │ 263  │ 0         │ '44/80/84/47'  │
+│ 21      │ 'g2_numbers_1000'        │ 300  │ 0         │ '89/34/21/41'  │
+│ 22      │ 'g2_multiplication'      │ 300  │ 0         │ '48/77/80/35'  │
+│ 23      │ 'g2_division'            │ 300  │ 0         │ '52/77/76/50'  │
+│ 24      │ 'g2_money'               │ 298  │ 0         │ '43/108/94/54' │
+│ 25      │ 'g3_numbers'             │ 300  │ 0         │ '56/29/45/25'  │
+│ 26      │ 'g3_arithmetic'          │ 300  │ 0         │ '82/59/71/71'  │
+│ 27      │ 'g3_multiplication'      │ 300  │ 0         │ '57/71/63/73'  │
+│ 28      │ 'g3_division'            │ 300  │ 0         │ '65/79/70/67'  │
+│ 29      │ 'g3_geometry'            │ 227  │ 0         │ '35/63/58/25'  │
+│ 30      │ 'g3_measurements'        │ 300  │ 0         │ '66/69/88/60'  │
+│ 31      │ 'g3_word_problems'       │ 300  │ 0         │ '79/87/78/56'  │
+│ 32      │ 'g3_fractions'           │ 299  │ 0         │ '55/91/76/78'  │
+│ 33      │ 'g3_area'                │ 298  │ 0         │ '79/88/71/62'  │
+│ 34      │ 'g3_statistics'          │ 300  │ 0         │ '71/71/58/81'  │
+│ 35      │ 'g3_money'               │ 299  │ 0         │ '68/94/88/50'  │
+│ 36      │ 'g4_large_numbers'       │ 300  │ 0         │ '74/34/33/38'  │
+│ 37      │ 'g4_add_sub'             │ 300  │ 0         │ '49/57/57/54'  │
+│ 38      │ 'g4_multiplication'      │ 300  │ 0         │ '77/65/73/70'  │
+│ 39      │ 'g4_division'            │ 300  │ 0         │ '77/96/70/57'  │
+│ 40      │ 'g4_units'               │ 300  │ 0         │ '45/59/60/57'  │
+│ 41      │ 'g4_angles'              │ 250  │ 0         │ '21/26/29/24'  │
+│ 42      │ 'g4_lines'               │ 21   │ 0         │ '0/2/2/4'      │
+│ 43      │ 'g4_geometry_2d'         │ 261  │ 0         │ '57/59/57/45'  │
+│ 44      │ 'g4_fractions'           │ 300  │ 0         │ '38/58/30/24'  │
+│ 45      │ 'g4_statistics'          │ 298  │ 0         │ '90/42/52/51'  │
+│ 46      │ 'g4_word_problems'       │ 300  │ 0         │ '58/71/109/62' │
+│ 47      │ 'g4_patterns'            │ 298  │ 0         │ '0/0/0/0'      │
+│ 48      │ 'g4_parentheses'         │ 300  │ 0         │ '53/59/50/53'  │
+│ 49      │ 'g4_divisibility'        │ 300  │ 0         │ '107/0/0/0'    │
+│ 50      │ 'g4_average'             │ 300  │ 0         │ '81/68/78/73'  │
+│ 51      │ 'g4_para_rhombus'        │ 300  │ 0         │ '71/86/74/69'  │
+│ 52      │ 'g4_fraction_ops'        │ 300  │ 0         │ '85/67/75/73'  │
+│ 53      │ 'g5_numbers'             │ 300  │ 0         │ '58/90/26/14'  │
+│ 54      │ 'g5_decimal_ops'         │ 300  │ 0         │ '78/63/79/66'  │
+│ 55      │ 'g5_ratios'              │ 300  │ 0         │ '58/71/70/64'  │
+│ 56      │ 'g5_fractions'           │ 300  │ 0         │ '49/60/77/44'  │
+│ 57      │ 'g5_geometry'            │ 254  │ 0         │ '72/77/90/61'  │
+│ 58      │ 'g5_measurements'        │ 300  │ 0         │ '66/65/67/43'  │
+│ 59      │ 'g5_word_problems'       │ 300  │ 0         │ '183/23/36/23' │
+│ 60      │ 'g5_parentheses'         │ 300  │ 0         │ '28/39/32/33'  │
+│ 61      │ 'g5_statistics'          │ 298  │ 0         │ '110/93/64/33' │
+│ 62      │ 'g5_time_ops'            │ 300  │ 0         │ '64/93/72/71'  │
+│ 63      │ 'mn_time'                │ 53   │ 0         │ '0/0/0/0'      │
+│ 64      │ 'g1_add_sub_100'         │ 300  │ 0         │ '61/63/68/81'  │
+│ 65      │ 'g2_add_sub_20'          │ 300  │ 0         │ '55/66/66/49'  │
+│ 66      │ 'g2_add_sub_1000'        │ 300  │ 0         │ '57/65/52/71'  │
+│ 67      │ 'g2_statistics'          │ 297  │ 0         │ '79/55/63/53'  │
+│ 68      │ 'g2_probability'         │ 27   │ 0         │ '0/0/0/0'      │
+│ 69      │ 'g3_expressions'         │ 300  │ 0         │ '33/39/42/36'  │
+│ 70      │ 'g3_time'                │ 300  │ 0         │ '53/115/57/19' │
+│ 71      │ 'g3_probability'         │ 153  │ 0         │ '0/0/0/0'      │
+└─────────┴──────────────────────────┴──────┴───────────┴────────────────┘

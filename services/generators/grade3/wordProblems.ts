@@ -26,16 +26,17 @@ export const templates: Template[] = [
         const kind = rint(0, 1), k = pickOne(KIDS);
         if (kind === 0) {
             const a = rint(5, 15), times = rint(2, 5), b = a * times;
-            return single({ q: `${k} gấp được ${a} ngôi sao. Bạn ${pickOne(KIDS.filter(x => x !== k))} gấp được số ngôi sao gấp ${times} lần của ${k}. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?`, correct: a + b, wrong: [b, a + times, a * (times - 1), a + b + a], min: 0,
-                explanation: `Bạn kia gấp: ${a} × ${times} = ${b} (ngôi sao). Cả hai: ${a} + ${b} = ${a + b} (ngôi sao).`, steps: [`Số sao bạn kia gấp: ${a} × ${times} = ${b}`, `Cả hai bạn: ${a} + ${b} = ${a + b}`, `Đáp số: ${a + b} ngôi sao`], hint: '"Gấp mấy lần" là nhân, khác với "nhiều hơn".' });
+            const k2 = pickOne(KIDS.filter(x => x !== k));
+            return single({ q: `${k} gấp được ${a} ngôi sao. Số ngôi sao ${k2} gấp được gấp ${times} lần số ngôi sao của ${k}. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?`, correct: a + b, wrong: [b, a + times, a * (times - 1), a + b + a], min: 0,
+                explanation: `${k2} gấp được: ${a} × ${times} = ${b} (ngôi sao). Cả hai bạn: ${a} + ${b} = ${a + b} (ngôi sao).`, steps: [`Số ngôi sao ${k2} gấp được: ${a} × ${times} = ${b} (ngôi sao)`, `Số ngôi sao cả hai bạn gấp được: ${a} + ${b} = ${a + b} (ngôi sao)`, `Đáp số: ${a + b} ngôi sao`], hint: '"Gấp mấy lần" là nhân, khác với "nhiều hơn".' });
         }
         const price = pickOne([4000, 5000, 6000, 8000]) / 1000, n = rint(3, 6), unit = price * n;
-        return single({ q: `Mua ${n} quyển vở hết ${unit} nghìn đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu nghìn đồng?`, correct: price * 2, wrong: [unit * 2, unit - 2, price, price * 3], format: x => `${x} nghìn đồng`, min: 0,
+        return single({ q: `Mua ${n} quyển vở hết ${unit} nghìn đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu nghìn đồng?`, correct: price * 2, wrong: [unit * 2, unit - 2, price, price * 3], format: x => `${x} nghìn đồng`, min: 1,
             explanation: `Một quyển: ${unit} : ${n} = ${price} (nghìn đồng). Hai quyển: ${price} × 2 = ${price * 2} (nghìn đồng).`, steps: [`Giá một quyển: ${unit} : ${n} = ${price} (nghìn đồng)`, `Giá hai quyển: ${price} × 2 = ${price * 2} (nghìn đồng)`], hint: 'Tìm giá một quyển trước (rút về đơn vị).' });
     }),
     tpl('g3.sum_diff', 3, () => {
         const small = rint(10, 60), diff = rint(4, 30), big = small + diff, sum = small + big;
-        return single({ q: `Tổng của hai số là ${sum}, hiệu của hai số là ${diff}. Tìm số lớn.`, correct: big, wrong: [small, sum - diff, (sum + diff), big + 1], min: 0,
+        return single({ q: `Tổng của hai số là ${sum}, hiệu của hai số là ${diff}. Tìm số lớn.`, visual: { fn: 'segmentDiagramSVG', args: [[{ label: 'Số bé', parts: [small], labels: ['?'] }, { label: 'Số lớn', parts: [small, diff], labels: ['?', String(diff)] }], `Tổng: ${sum}`] }, correct: big, wrong: [small, sum - diff, (sum + diff), big + 1], min: 0,
             explanation: `Số lớn = (tổng + hiệu) : 2 = (${sum} + ${diff}) : 2 = ${big}.`, steps: [`Số lớn: (${sum} + ${diff}) : 2 = ${big}`, `Số bé: ${big} - ${diff} = ${small}`] });
     }),
 ];

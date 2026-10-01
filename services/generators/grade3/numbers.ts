@@ -23,7 +23,9 @@ function readTpl(skill: 'g3.numbers10000' | 'g3.numbers100000', lo: number, hi: 
         tpl(skill, 2, () => {
             const n = nice(lo, hi), ds = String(n).split('').map(Number), len = ds.length;
             if (chance(0.5)) {
-                const k = rint(0, len - 1), place = PLACE[len - 1 - k];
+                // chỉ hỏi chữ số xuất hiện đúng một lần (8348: chữ số 8 vừa ở hàng nghìn vừa ở hàng đơn vị)
+                const once = ds.map((d, i) => i).filter(i => ds.filter(d => d === ds[i]).length === 1);
+                const k = once.length ? pickOne(once) : 0, place = PLACE[len - 1 - k];
                 return single({ q: `Trong số ${fmt(n)}, chữ số ${ds[k]} ở hàng nào?`, correct: place, wrong: PLACE.slice(0, len).filter(p => p !== place),
                     explanation: `Đếm từ phải sang trái: đơn vị, chục, trăm, nghìn${len > 4 ? ', chục nghìn' : ''}. Chữ số ${ds[k]} ở hàng ${place}.` });
             }

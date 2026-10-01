@@ -9,6 +9,9 @@ import type { Template } from '../../study/types';
 
 const pct = (x: number) => `${fmt(x)}%`;
 
+/** tỉ số p/q tối giản, p < q */
+const coprimePair = (): [number, number] => { for (;;) { const p = rint(1, 4), q = rint(p + 1, 7); if (gcd(p, q) === 1) return [p, q]; } };
+
 export const templates: Template[] = [
     tpl('g5.ratio', 1, () => {
         const a = rint(1, 12), b = pickOne([2, 3, 4, 5, 6, 7, 8, 9, 10, 11].filter(x => x !== a));
@@ -48,11 +51,11 @@ export const templates: Template[] = [
     }),
     tpl('g5.map_scale', 3, () => {
         const scale = pickOne([1000, 2000, 5000]), m = rint(2, 8) * scale / 100, cm = m * 100 / scale;
-        return single({ q: `Một mảnh vườn dài ${fmt(m)} m. Trên bản đồ tỉ lệ 1 : ${fmt(scale)}, chiều dài mảnh vườn là bao nhiêu xăng-ti-mét?`, correct: cm, wrong: [cm * 10, cm / 10, m / 10], format: x => `${fmt(x)} cm`, min: 0,
+        return single({ q: `Một mảnh vườn dài ${fmt(m)} m. Trên bản đồ tỉ lệ 1 : ${fmt(scale)}, chiều dài mảnh vườn là bao nhiêu xăng-ti-mét?`, correct: cm, wrong: [cm * 10, cm / 10, m / 10], format: x => `${fmt(x)} cm`, min: 1,
             explanation: `${fmt(m)} m = ${fmt(m * 100)} cm; ${fmt(m * 100)} : ${fmt(scale)} = ${fmt(cm)} (cm).` });
     }),
     tpl('g5.sum_diff_ratio', 3, () => {
-        const p = rint(1, 4), q = rint(p + 1, 7), unit = rint(3, 25), small = p * unit, big = q * unit, kind = chance(0.5);
+        const [p, q] = coprimePair(), unit = rint(3, 25), small = p * unit, big = q * unit, kind = chance(0.5);
         const [a, b] = shuffle(KIDS).slice(0, 2);
         if (kind) return single({ q: `${a} và ${b} có tất cả ${small + big} viên bi. Số bi của ${a} bằng ${p}/${q} số bi của ${b}. Hỏi ${a} có bao nhiêu viên bi?`, correct: small, wrong: [big, (small + big) / 2 % 1 ? small + unit : (small + big) / 2, small + unit, unit], min: 0,
             explanation: `Tổng số phần bằng nhau: ${p} + ${q} = ${p + q}. Mỗi phần: ${small + big} : ${p + q} = ${unit}. Số bi của ${a}: ${unit} × ${p} = ${small} (viên).`,

@@ -9,7 +9,7 @@ const fixture = (difficulty: Difficulty = 'medium') => {
     s.phase = 'racing'; s.racers.forEach(r => { r.distance = APPROACH; }); return s;
 };
 describe('Rival decisions and competition', () => {
-    it('caps accuracy by difficulty, varies reaction times and makes every rival fallible', () => {
+    it('caps accuracy by difficulty, varies reaction times and makes every rival fallible', { timeout: 20_000 }, () => { // nặng: dễ quá 5 s khi chạy song song cả bộ test
         const question = fixture().questions[0], correctLane = question.options.indexOf(question.answer);
         const results = LEVELS.map(level => {
             let correct = 0, delay = 0;

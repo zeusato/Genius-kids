@@ -6,7 +6,7 @@ import type { Template } from '../../study/types';
 
 export const templates: Template[] = [
     tpl('g1.count5', 1, () => {
-        const t = pickOne(THINGS), n = rint(1, 5);
+        const t = pickOne(THINGS), n = rint(0, 5);
         return single({
             q: `Có mấy ${t.name}?`, speech: `Đếm xem có mấy ${t.name}?`, visual: { fn: 'countingSVG', args: [t.e, n] },
             correct: n, wrong: around(n, { min: 0, max: 5 }), min: 0, max: 5,

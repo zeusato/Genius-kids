@@ -52,7 +52,7 @@ export const templates: Template[] = [
             explanation: `${fmt(a)} + ${fmt(b)} = ${fmt(a + b)}; ${fmt(a + b)} - ${fmt(c)} = ${fmt(r)} (quyển).`, steps: [`Sau khi mua thêm: ${fmt(a)} + ${fmt(b)} = ${fmt(a + b)} (quyển)`, `Còn lại: ${fmt(a + b)} - ${fmt(c)} = ${fmt(r)} (quyển)`, `Đáp số: ${fmt(r)} quyển sách`] });
     }),
     tpl('g3.muldiv_big', 1, () => {
-        const b = rint(2, 5), a = mulOperand(4, b, 2);
+        const b = rint(2, 5), a = mulOperand(4, b, 1); // GDPT 2018 lớp 3: nhớ không quá một lượt
         return single({ q: `${fmt(a)} × ${b} = ?`, correct: a * b, wrong: [a * b + 10, a * b - 10, a * b + 1000, ...around(a * b, { min: 0, step: 100 })], min: 0,
             explanation: `Nhân lần lượt từ hàng đơn vị: ${fmt(a)} × ${b} = ${fmt(a * b)}.`, steps: mulSteps(a, b) });
     }),

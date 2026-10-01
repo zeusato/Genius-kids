@@ -1,7 +1,7 @@
 // Lớp 3 — Phép nhân (g3_multiplication): bảng nhân 3, 4, 6, 7, 8, 9; nhân số có 2, 3 chữ số với số có 1 chữ số
 // (nhớ không quá một lượt); gấp một số lên nhiều lần. Nhân với số có 2 chữ số là "Nâng cao".
 // Giữ mẫu "a × b = ?" (MathRacing lọc theo mẫu này).
-import { tpl, fromTemplates, single, input, rint, pickOne, chance } from '../kit';
+import { tpl, fromTemplates, single, input, rint, pickOne, chance, sample } from '../kit';
 import { around, tableNeighbors, placeError } from '../wrongs';
 import { fmt } from '../../study/value';
 import { KIDS, TABLES, mulOperand, mulSteps } from './common';
@@ -43,7 +43,7 @@ export const templates: Template[] = [
             explanation: `Muốn gấp một số lên nhiều lần, ta lấy số đó nhân với số lần: ${a} × ${k} = ${a * k}.`, hint: 'Gấp lên nhiều lần thì làm phép nhân.' });
     }),
     tpl('g3.times_more', 3, () => {
-        const [k1, k2] = [pickOne(KIDS), pickOne(KIDS.slice(5))], a = rint(3, 15), k = rint(2, 6);
+        const [k1, k2] = sample(KIDS, 2), a = rint(3, 15), k = rint(2, 6);
         return single({ q: `${k1} có ${a} nhãn vở. Số nhãn vở của ${k2} gấp ${k} lần số nhãn vở của ${k1}. Hỏi ${k2} có bao nhiêu nhãn vở?`,
             correct: a * k, wrong: [a + k, a * k + a, a * k - a, a * k + k], min: 0,
             explanation: `Gấp ${k} lần thì nhân với ${k}: ${a} × ${k} = ${a * k} (nhãn vở).`, steps: [`Số nhãn vở của ${k2}: ${a} × ${k} = ${a * k} (nhãn vở)`, `Đáp số: ${a * k} nhãn vở`], hint: '"Gấp lên mấy lần" là phép nhân, khác với "nhiều hơn mấy".' });

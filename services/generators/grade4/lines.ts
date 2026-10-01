@@ -14,7 +14,7 @@ export const templates: Template[] = [
     }),
     tpl('g4.perp_parallel', 2, () => {
         const kind = rint(0, 2);
-        if (kind === 0) return single({ q: 'Hình chữ nhật ABCD có mấy cặp cạnh song song?', visual: { fn: 'namedPolygonSVG', args: [4, 'ABCD', 'blue'] }, correct: 2, wrong: [1, 3, 4, 0], closed: true, explanation: 'AB song song với DC, AD song song với BC: có 2 cặp cạnh song song.' });
+        if (kind === 0) return single({ q: 'Hình chữ nhật ABCD có mấy cặp cạnh song song?', visual: { fn: 'namedPolygonSVG', args: [4, 'ABCD', 'blue', true] }, correct: 2, wrong: [1, 3, 4, 0], closed: true, explanation: 'AB song song với DC, AD song song với BC: có 2 cặp cạnh song song.' });
         if (kind === 1) return single({ q: 'Hình chữ nhật có mấy cặp cạnh vuông góc với nhau?', correct: 4, wrong: [2, 3, 1, 0], closed: true, explanation: 'Hình chữ nhật có 4 góc vuông, mỗi góc là một cặp cạnh vuông góc: 4 cặp.' });
         return choices({ q: 'Hai đường thẳng cùng vuông góc với một đường thẳng thứ ba thì:', options: ['Song song với nhau', 'Vuông góc với nhau', 'Cắt nhau'], correct: 'Song song với nhau', explanation: 'Chúng cách đều nhau nên không bao giờ cắt nhau: song song.' });
     }, { noRankCheck: true }),

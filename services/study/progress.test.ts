@@ -29,7 +29,8 @@ describe('Tiến độ — thành thạo & mức', () => {
     it('lên mức sau 2 câu đúng liên tiếp, xuống mức khi sai, không vượt biên catalog', () => {
         let p = applySession(emptyProgress(), [rec('g2.addsub100_c', true), rec('g2.addsub100_c', true)], 'practice', now).progress;
         expect(p.skills['g2.addsub100_c'].lvl).toBe(2);
-        p = applySession(p, [rec('g2.addsub100_c', true), rec('g2.addsub100_c', true), rec('g2.addsub100_c', true), rec('g2.addsub100_c', true)], 'practice', now).progress;
+        const atLevel2 = () => ({ ...rec('g2.addsub100_c', true), q: { ...q('g2.addsub100_c'), level: 2 as const } });
+        p = applySession(p, [atLevel2(), atLevel2()], 'practice', now).progress;
         expect(p.skills['g2.addsub100_c'].lvl).toBe(3);
         p = applySession(p, [rec('g2.addsub100_c', false)], 'practice', now).progress;
         expect(p.skills['g2.addsub100_c'].lvl).toBe(2);
@@ -43,9 +44,21 @@ describe('Tiến độ — thành thạo & mức', () => {
         const pct = topicMastery(p, skillsOfTopic('g2_multiplication'));
         expect(pct).toBeCloseTo(0.25 / 2); // 2 kỹ năng cơ bản (mul_meaning, mul_table)
     });
+    it('làm lại câu dễ không tự nâng mức cao hơn', () => {
+        let p = applySession(emptyProgress(), [rec('g2.addsub100_c', true), rec('g2.addsub100_c', true)], 'practice', now).progress;
+        p = applySession(p, [rec('g2.addsub100_c', true), rec('g2.addsub100_c', true)], 'practice', now).progress;
+        expect(p.skills['g2.addsub100_c'].lvl).toBe(2);
+    });
 });
 
 describe('Ôn câu sai', () => {
+    it('ôn sớm không nhảy bậc hoặc xoá câu để nhận thưởng', () => {
+        const p = applySession(emptyProgress(), [rec('g3.mul_tables', false)], 'practice', now).progress;
+        const item = p.review[0];
+        const out = applySession(p, [{ q: { ...item.q, id: 'early' }, key: item.key, firstTry: true, correct: true }], 'review', now);
+        expect(out.progress.review).toEqual(p.review);
+        expect(out.reviewCleared).toBe(0);
+    });
     it('sai thì vào hàng đợi, đến hạn sau 1 ngày; đúng ở chế độ ôn thì giãn [1,3,7,14] rồi xoá', () => {
         let p = applySession(emptyProgress(), [rec('g3.mul_tables', false, false, 'X')], 'practice', now).progress;
         expect(p.review).toHaveLength(1);
@@ -122,6 +135,10 @@ describe('Kế hoạch phiên', () => {
         const plan = dailyPlan(p, Grade.Grade3, avail, new Date(now.getTime() + 2 * DAY));
         expect(plan.review.length).toBe(4);
         expect(plan.picks[0].skillId).toBe('g3.mul_tables'); // yếu nhất
+    });
+    it('daily loại câu ôn nâng cao và của lớp khác', () => {
+        const p = applySession(emptyProgress(), [rec('g2.mul_table34', false), rec('g3.mul_tables', false)], 'practice', now).progress;
+        expect(dailyPlan(p, Grade.Grade2, avail, new Date(now.getTime() + 2 * DAY)).review).toEqual([]);
     });
     it('ma trận: đủ số câu, tỉ lệ mức 5:3:2, mỗi mạch ≥ 1', () => {
         const plan = matrixPlan(Grade.Grade4, 1, 20, avail, () => 0.3);

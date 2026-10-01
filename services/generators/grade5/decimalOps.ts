@@ -2,7 +2,7 @@
 // Giữ mẫu "a,b + c,d = ?", "a,b × n = ?", "a,b : c,d = ?" (MathRacing lọc theo mẫu này). Tính chính xác bằng số nguyên.
 import { tpl, fromTemplates, single, input, rint, pickOne, chance } from '../kit';
 import { fmt } from '../../study/value';
-import { dec, fix, fd } from './common';
+import { dec, decStrict, fix, fd } from './common';
 import type { Template } from '../../study/types';
 
 const dWrong = (r: number, step: number) => [fix(r + step), fix(r - step), fix(r * 10), fix(r / 10), fix(r + step * 10)];
@@ -21,14 +21,15 @@ export const templates: Template[] = [
             explanation: `Tính từ trái sang phải: ${fd(a)} + ${fd(b)} = ${fd(fix(a + b))}; ${fd(fix(a + b))} - ${fd(c)} = ${fd(r)}.`, steps: [`${fd(a)} + ${fd(b)} = ${fd(fix(a + b))}`, `${fd(fix(a + b))} - ${fd(c)} = ${fd(r)}`] });
     }, { decimal: true }),
     tpl('g5.dec_mul', 1, () => {
-        const a = dec(1, 99, 1), n = rint(2, 9), r = fix(a * n);
+        const a = decStrict(1, 99, 1), n = rint(2, 9), r = fix(a * n);
         return single({ q: `${fd(a)} × ${n} = ?`, correct: r, wrong: [fix(r * 10), fix(r / 10), fix(r + n), fix(r - 0.1)], step: 0.1, min: 0,
             explanation: `Nhân như số tự nhiên rồi đếm 1 chữ số ở phần thập phân để đặt dấu phẩy: ${fd(a)} × ${n} = ${fd(r)}.`, hint: 'Đếm số chữ số ở phần thập phân của thừa số.' });
     }, { decimal: true, weight: 2 }),
     tpl('g5.dec_mul', 2, () => {
-        const a = dec(1, 20, 1), b = dec(0.1, 9.9, 1), r = fix(a * b, 2);
+        const a = decStrict(1, 20, 1), b = decStrict(0.1, 9.9, 1), r = fix(a * b, 2);
+        const ia = Math.round(a * 10), ib = Math.round(b * 10);
         return single({ q: `${fd(a)} × ${fd(b)} = ?`, correct: r, wrong: [fix(r * 10, 2), fix(r / 10, 3), fix(r + 0.1, 2), fix(a * b * 100, 2)], step: 0.01, min: 0,
-            explanation: `Nhân như số tự nhiên: ${Math.round(a * 10)} × ${Math.round(b * 10)} = ${Math.round(a * 10) * Math.round(b * 10)}; hai thừa số có tất cả 2 chữ số ở phần thập phân, nên ${fd(a)} × ${fd(b)} = ${fd(r)}.`, hint: 'Đếm tổng số chữ số ở phần thập phân của cả hai thừa số.' });
+            explanation: `Nhân như số tự nhiên: ${fmt(ia)} × ${fmt(ib)} = ${fmt(ia * ib)}; hai thừa số có tất cả 2 chữ số ở phần thập phân, nên ${fd(a)} × ${fd(b)} = ${fd(r)}.`, hint: 'Đếm tổng số chữ số ở phần thập phân của cả hai thừa số.' });
     }, { decimal: true }),
     tpl('g5.dec_div', 1, () => {
         const n = rint(2, 9), q = dec(1, 50, 1), a = fix(q * n);
@@ -36,7 +37,7 @@ export const templates: Template[] = [
             explanation: `Chia như số tự nhiên, khi chia đến phần thập phân thì đặt dấu phẩy vào thương: ${fd(a)} : ${n} = ${fd(q)}.` });
     }, { decimal: true, weight: 2 }),
     tpl('g5.dec_div', 2, () => {
-        const b = dec(0.2, 9.5, 1), q = rint(2, 60), a = fix(b * q);
+        const b = decStrict(0.2, 9.5, 1), q = rint(2, 60), a = fix(b * q);
         return single({ q: `${fd(a)} : ${fd(b)} = ?`, correct: q, wrong: [q * 10, fix(q / 10), q + 1, q - 1], min: 0,
             explanation: `Nhân cả số bị chia và số chia với 10 để số chia thành số tự nhiên: ${fd(fix(a * 10))} : ${Math.round(b * 10)} = ${q}.`, hint: 'Chuyển dấu phẩy sang phải ở cả hai số để số chia là số tự nhiên.' });
     }, { decimal: true }),
