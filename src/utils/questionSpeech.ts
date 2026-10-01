@@ -26,7 +26,12 @@ export function questionToSpeech(raw: string): string {
     // 2) Markdown
     s = s.replace(/\*\*([^*]*)\*\*/g, '$1').replace(/\*([^*]*)\*/g, '$1'); // đậm/nghiêng
     s = s.replace(/`([^`]*)`/g, '$1');                               // code
-    s = s.replace(/[|#_]/g, ' ');                                    // bảng | , tiêu đề # , gạch dưới _
+    s = s.replace(/[|#]/g, ' ');                                     // bảng | , tiêu đề #
+
+    // 2b) Ô trống (□, ___, _) → "ô trống"; nhóm nghìn "12 345" → "12345"; "0,5" → "0 phẩy 5"
+    s = s.replace(/□|\[\s*\]|_+/g, ' ô trống ');
+    s = s.replace(/(\d)[   ](?=\d{3}(?!\d))/g, '$1');
+    s = s.replace(/(\d),(\d)/g, '$1 phẩy $2');
 
     // 3) Phân số a/b → "a phần b" (làm trước khi xử lý dấu chia)
     s = s.replace(/(\d+)\s*\/\s*(\d+)/g, ' $1 phần $2 ');
@@ -43,6 +48,8 @@ export function questionToSpeech(raw: string): string {
     s = s.replace(/(\d)\s*[-−]\s*(\d)/g, '$1 trừ $2');
     s = s.replace(/(\d)\s*>\s*(\d)/g, '$1 lớn hơn $2');
     s = s.replace(/(\d)\s*<\s*(\d)/g, '$1 bé hơn $2');
+    // phép tính quanh "ô trống" (vd "ô trống + 2")
+    s = s.replace(/\s\+\s/g, ' cộng ').replace(/\s[-−]\s/g, ' trừ ').replace(/\s×\s/g, ' nhân ');
 
     // 6) Dấu chấm lửng (so sánh "a ... b") → ngắt nhẹ
     s = s.replace(/\.{2,}|…/g, ' ');

@@ -90,7 +90,8 @@ export enum QuestionType {
   MultipleSelect = 'multi',
   SelectWrong = 'wrong', // Select the wrong answer
   ManualInput = 'input',
-  Typing = 'typing'
+  Typing = 'typing',
+  Order = 'order' // Sắp xếp: correctAnswers = thứ tự đúng
 }
 
 export interface Question {
@@ -104,6 +105,24 @@ export interface Question {
   correctAnswers?: string[]; // For multiple select
   userAnswer?: string | string[];
   explanation: string;
+  // --- Ôn Luyện (2026-10): mọi trường dưới đây optional để dữ liệu cũ & câu AI vẫn hợp lệ ---
+  /** Dữ liệu hình nhỏ gọn (được lưu). visualSvg chỉ để hiển thị, KHÔNG lưu vào lịch sử. */
+  visual?: { fn: string; args: unknown[] };
+  /** Lời giải từng bước. */
+  steps?: string[];
+  /** Gợi ý ở lần sai đầu (Luyện tập) — không lộ đáp án. */
+  hint?: string;
+  /** Văn nói cho TTS; thiếu thì dùng questionToSpeech(questionText). */
+  speech?: string;
+  /** ManualInput: các đáp án hợp lệ khác (so theo giá trị). */
+  accept?: string[];
+  /** number → bàn phím số + so theo giá trị. */
+  answerKind?: 'number' | 'text';
+  skillId?: string;
+  level?: 1 | 2 | 3;
+  advanced?: boolean;
+  /** Nhãn phép tính / mạch, khớp topicId của thành tích (src/data/achievements.json). */
+  ops?: ('addition' | 'subtraction' | 'multiplication' | 'division' | 'geometry' | 'fractions')[];
 }
 
 export interface Topic {
@@ -113,7 +132,7 @@ export interface Topic {
   description: string;
 }
 
-export type StudyMode = 'practice' | 'test';
+export type StudyMode = 'practice' | 'test' | 'daily' | 'review' | 'matrix';
 
 export interface TestResult {
   id: string;
@@ -233,6 +252,8 @@ export interface StudentProfile {
   englishProgress?: import('./src/english/model').EnglishProgress;
   piano?: import('./games/Piano/progress').PianoProgress;
   counting?: import('./src/components/preschool/counting/model').Progress;
+  /** Tiến độ Ôn Luyện theo kỹ năng (services/study). */
+  study?: import('./services/study/types').StudyProgress;
   alphabetGarden?: import('./src/components/preschool/alphabetGardenProgress').AlphabetGardenProgress;
   alphabetPractice?: import('./src/components/preschool/alphabet-games/progress').AlphabetPracticeProgress;
   soundMemory?: import('./games/SoundMemory/progress/progress').SoundProgress;

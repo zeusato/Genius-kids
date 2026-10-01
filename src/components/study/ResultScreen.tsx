@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TestResult, QuestionType } from '@/types';
 import { Star, Brain, CheckCircle, XCircle } from 'lucide-react';
+import { isCorrect as gradeCorrect } from '@/services/study/grading';
 
 interface ResultScreenProps {
     result: TestResult;
@@ -50,7 +51,7 @@ export function ResultScreen({ result, onHome }: ResultScreenProps) {
                 </div>
                 <h1 className={`text-4xl font-black mb-2 ${msg.color}`}>{msg.text}</h1>
                 <p className="text-xl text-slate-600 mb-4">
-                    Đúng {result.score}/{result.totalQuestions} câu trong {Math.floor(result.durationSeconds / 60)} phút.
+                    Đúng {result.score}/{result.totalQuestions} câu trong {Math.floor(result.durationSeconds / 60)}:{String(result.durationSeconds % 60).padStart(2, '0')} phút.
                 </p>
 
                 {result.starsEarned > 0 && (
@@ -76,18 +77,7 @@ export function ResultScreen({ result, onHome }: ResultScreenProps) {
             {showReview && (
                 <div className="w-full max-w-3xl space-y-4 animate-in fade-in">
                     {result.questions.map((q, idx) => {
-                        let isCorrect = false;
-                        if (q.type === QuestionType.MultipleSelect) {
-                            const ua = Array.isArray(q.userAnswer) ? q.userAnswer.sort().toString() : "";
-                            const ca = q.correctAnswers ? [...q.correctAnswers].sort().toString() : "";
-                            isCorrect = ua === ca;
-                        } else if (q.type === QuestionType.ManualInput) {
-                            isCorrect = (q.userAnswer as string || "").toString().trim().toLowerCase() === (q.correctAnswer || "").toString().trim().toLowerCase();
-                        } else if (q.type === QuestionType.Typing) {
-                            isCorrect = q.userAnswer === q.correctAnswer;
-                        } else {
-                            isCorrect = q.userAnswer === q.correctAnswer;
-                        }
+                        const isCorrect = gradeCorrect(q, q.userAnswer);
 
                         return (
                             <Card key={q.id} className={`border-l-8 ${isCorrect ? 'border-l-green-400' : 'border-l-red-400'}`}>
@@ -138,7 +128,7 @@ export function ResultScreen({ result, onHome }: ResultScreenProps) {
                                             )}
                                         </div>
                                         <p className="text-slate-500 text-sm italic bg-slate-50 p-3 rounded-lg border border-slate-100">
-                                            💡 <span className="font-bold">Giải thích:</span> {q.explanation}
+                                            💡 <span className="font-bold">Giải thích:</span> <span className="whitespace-pre-line">{(q.explanation || '').replace(/\\n/g, '\n')}</span>
                                         </p>
                                     </div>
                                 </div>

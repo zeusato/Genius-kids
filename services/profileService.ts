@@ -3,6 +3,7 @@ import { getDefaultAvatarId, getRandomUnusedAvatar } from './avatarService';
 import { getDefaultThemeId } from './themeService';
 import { initializeShopDailyPhotos } from './shopService';
 import { initializeStats } from './achievementService';
+import { migrateHistory, historyNeedsCompaction } from './study/compact';
 
 export const MAX_PROFILE_NAME_LENGTH = 50;
 const STORAGE_KEY = 'math_profiles';
@@ -23,7 +24,15 @@ export const getAllProfiles = (): StudentProfile[] => {
 
 // Save all profiles to localStorage
 export const saveProfiles = (profiles: StudentProfile[]): void => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
+    } catch (e) {
+        // Đầy bộ nhớ: nén mạnh lịch sử Ôn Luyện (chỉ 10 bài gần nhất giữ chi tiết) rồi thử lại 1 lần.
+        console.warn('saveProfiles: hết dung lượng, nén lịch sử và thử lại', e);
+        const slim = profiles.map(p => ({ ...p, history: migrateHistory(p.history, 10) }));
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(slim)); }
+        catch (e2) { console.error('saveProfiles: không lưu được hồ sơ', e2); }
+    }
 };
 
 // Create new profile with defaults
@@ -96,6 +105,7 @@ export const getProfileById = (profileId: string): StudentProfile | undefined =>
 // Migrate old profile format to new format
 export const migrateProfile = (oldProfile: any): StudentProfile => {
     // Check if already migrated (has all critical fields)
+    if (historyNeedsCompaction(oldProfile.history)) oldProfile = { ...oldProfile, history: migrateHistory(oldProfile.history) };
     if (oldProfile.currentAvatarId && oldProfile.stars !== undefined && oldProfile.stats) {
         if (typeof oldProfile.name === 'string' && oldProfile.name.length > MAX_PROFILE_NAME_LENGTH) {
             return {
@@ -137,6 +147,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         alphabetGarden: oldProfile.alphabetGarden,
         alphabetPractice: oldProfile.alphabetPractice,
         counting: oldProfile.counting,
+        study: oldProfile.study,
         englishProgress: oldProfile.englishProgress,
         electricity: oldProfile.electricity,
         electricityBadges: oldProfile.electricityBadges,

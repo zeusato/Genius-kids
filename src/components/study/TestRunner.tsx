@@ -4,6 +4,7 @@ import { soundManager } from '@/utils/sound';
 import { cancelSpeech } from '@/src/utils/speech';
 import { questionToSpeech } from '@/src/utils/questionSpeech';
 import { SpeakButton } from '@/src/components/shared/SpeakButton';
+import { isCorrect } from '@/services/study/grading';
 import { Clock, X, CheckSquare, Type, Keyboard, Check, ChevronLeft, AlertTriangle, CheckCircle2, XCircle, Dumbbell } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -65,21 +66,20 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
 
     const elapsed = () => Math.round((Date.now() - startedAt.current) / 1000);
 
-    // Đồng hồ — chỉ chế độ Kiểm tra.
+    // Đồng hồ — chỉ chế độ Kiểm tra. Tính theo mốc bắt đầu (tab nền bị throttle vẫn đúng).
     useEffect(() => {
         if (isPractice) return;
-        const timer = setInterval(() => {
-            setTimeLeft(t => {
-                if (t <= 1) {
-                    clearInterval(timer);
-                    onFinish(answers, elapsed());
-                    return 0;
-                }
-                return t - 1;
-            });
-        }, 1000);
+        const timer = setInterval(() => setTimeLeft(Math.max(0, durationMinutes * 60 - elapsed())), 500);
         return () => clearInterval(timer);
-    }, [answers, isPractice, onFinish]);
+    }, [isPractice, durationMinutes]);
+    const answersRef = useRef(answers);
+    answersRef.current = answers;
+    const finished = useRef(false);
+    useEffect(() => {
+        if (isPractice || timeLeft > 0 || finished.current) return;
+        finished.current = true;
+        onFinish(answersRef.current, elapsed());
+    }, [timeLeft, isPractice, onFinish]);
 
     // Dừng đọc khi rời màn.
     useEffect(() => () => cancelSpeech(), []);
@@ -93,17 +93,7 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
         }
     }, [currentIndex, currentQ.id, currentQ.type]);
 
-    const checkCorrect = (q: Question, ua: string | string[] | undefined): boolean => {
-        if (q.type === QuestionType.MultipleSelect) {
-            const a = Array.isArray(ua) ? [...ua].sort().toString() : '';
-            const c = q.correctAnswers ? [...q.correctAnswers].sort().toString() : '';
-            return a === c;
-        }
-        if (q.type === QuestionType.ManualInput) {
-            return (ua as string || '').toString().trim().toLowerCase() === (q.correctAnswer || '').toString().trim().toLowerCase();
-        }
-        return ua === q.correctAnswer;
-    };
+    const checkCorrect = (q: Question, ua: string | string[] | undefined): boolean => isCorrect(q, ua);
 
     const handleAnswer = (val: string) => {
         if (revealed) return; // đã chấm (Luyện tập) thì khoá
@@ -145,12 +135,9 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
         setRevealedIds(prev => new Set(prev).add(currentQ.id));
     };
 
-    // Kiểm tra: chuyển câu (chỉ phát âm thanh đúng/sai, không lộ đáp án).
+    // Chuyển câu. Kiểm tra: KHÔNG phát tiếng đúng/sai (không lộ đáp án trước khi nộp).
     const handleNext = () => {
-        if (!isPractice) {
-            const correct = checkCorrect(currentQ, currentQ.type === QuestionType.Typing ? typingInput : currentAns);
-            correct ? soundManager.playCorrect() : soundManager.playWrong();
-        }
+        if (!isPractice) soundManager.playClick();
         if (!isLast) {
             cancelSpeech();
             setCurrentIndex(i => i + 1);
@@ -166,12 +153,12 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const handleSubmit = () => onFinish(answers, elapsed());
+    const handleSubmit = () => { if (finished.current) return; finished.current = true; onFinish(answers, elapsed()); };
 
     const formatTime = (s: number) => `${Math.floor(s / 60)}:${s % 60 < 10 ? '0' : ''}${s % 60}`;
     const progress = ((currentIndex + 1) / questions.length) * 100;
     const lowTime = !isPractice && timeLeft <= 30 && timeLeft > 0;
-    const speakText = questionToSpeech(currentQ.questionText);
+    const speakText = currentQ.speech || questionToSpeech(currentQ.questionText);
 
     const renderTypingVisual = () => {
         const target = currentQ.correctAnswer || '';
@@ -284,7 +271,7 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
                                     } else if (isSelected) cls = 'border-brand-500 bg-brand-50 text-brand-700 ring-2 ring-brand-200';
                                     return (
                                         <button key={idx} onClick={() => handleAnswer(opt)} disabled={revealed} className={`p-4 md:p-6 text-lg md:text-xl font-bold rounded-xl border-2 text-left transition-all flex items-center ${cls}`}>
-                                            <span className={`flex items-center justify-center w-8 h-8 rounded-full border-2 mr-3 shrink-0 ${isSelected ? 'bg-brand-500 border-brand-500 text-white' : 'bg-white border-gray-300 opacity-60'} ${revealed && isCorrectOpt ? 'bg-green-500 border-green-500 text-white' : ''}`}>
+                                            <span className={`flex items-center justify-center w-8 h-8 rounded-full border-2 mr-3 shrink-0 ${revealed && isCorrectOpt ? 'bg-green-500 border-green-500 text-white' : isSelected ? 'bg-brand-500 border-brand-500 text-white' : 'bg-white border-gray-300 opacity-60'}`}>
                                                 {revealed && isCorrectOpt ? <Check size={16} /> : currentQ.type === QuestionType.MultipleSelect ? (isSelected ? <CheckSquare size={16} /> : <span className="w-4 h-4 block" />) : String.fromCharCode(65 + idx)}
                                             </span>
                                             <div className="flex-1 text-left"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={mdComponents}>{opt}</ReactMarkdown></div>
@@ -303,7 +290,8 @@ export function TestRunner({ questions, durationMinutes, mode, ttsAutoRead, onFi
                             {(currentQ.type === QuestionType.ManualInput || currentQ.type === QuestionType.Typing) && (
                                 <p className="text-slate-700 mt-1">Đáp án: <span className="font-bold">{currentQ.correctAnswer}</span></p>
                             )}
-                            {currentQ.explanation && <p className="text-slate-600 mt-2 leading-relaxed">{currentQ.explanation}</p>}
+                            {currentQ.explanation && <p className="text-slate-600 mt-2 leading-relaxed whitespace-pre-line">{currentQ.explanation.replace(/\\n/g, '\n')}</p>}
+                            {currentQ.steps && currentQ.steps.length > 0 && <ol className="mt-2 list-decimal pl-5 text-slate-700 space-y-1">{currentQ.steps.map((st, i) => <li key={i}>{st}</li>)}</ol>}
                         </div>
                     )}
                 </div>

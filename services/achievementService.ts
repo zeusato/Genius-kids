@@ -1,6 +1,12 @@
 import { StudentProfile, UserStats, AchievementProgress, GameResult, TestResult } from '../types';
 import achievementsData from '../src/data/achievements.json';
 import { getAllImages } from './albumService';
+import { isCorrect as gradeCorrect } from './study/grading';
+
+/** Cộng 1 câu đúng vào thành thạo theo topicId và theo nhãn ops (khớp topicId của thành tích). */
+const addTopicCorrect = (counts: Record<string, number>, q: { topicId: string; ops?: string[] }) => {
+    for (const key of new Set([q.topicId, ...(q.ops || [])])) counts[key] = (counts[key] || 0) + 1;
+};
 
 // Define the shape of the JSON data
 interface AchievementTierConfig {
@@ -65,9 +71,7 @@ export const initializeStats = (profile: StudentProfile): UserStats => {
         // Topic mastery
         if (test.questions) {
             test.questions.forEach(q => {
-                if (q.userAnswer === q.correctAnswer) {
-                    stats.topicCorrectCount[q.topicId] = (stats.topicCorrectCount[q.topicId] || 0) + 1;
-                }
+                if (gradeCorrect(q, q.userAnswer)) addTopicCorrect(stats.topicCorrectCount, q);
             });
         }
     });
@@ -233,11 +237,10 @@ export const updateStats = (stats: UserStats, action: StatUpdateAction): UserSta
 
             if (action.testResult.questions) {
                 action.testResult.questions.forEach(q => {
-                    const isCorrect = q.userAnswer === q.correctAnswer;
-                    if (isCorrect) {
+                    if (gradeCorrect(q, q.userAnswer)) {
                         currentStreak++;
                         // Update topic mastery - ALWAYS update this, even if perfect
-                        newStats.topicCorrectCount[q.topicId] = (newStats.topicCorrectCount[q.topicId] || 0) + 1;
+                        addTopicCorrect(newStats.topicCorrectCount, q);
                     } else {
                         currentStreak = 0;
                     }

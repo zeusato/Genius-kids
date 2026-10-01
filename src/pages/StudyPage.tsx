@@ -9,6 +9,8 @@ import { generateQuestions, generateTestWithFallback } from '@/services/mathEngi
 import { exportTestToPDF } from '@/utils/pdfExport';
 import { processTestReward } from '@/services/rewardService';
 import { soundManager } from '@/utils/sound';
+import { isCorrect } from '@/services/study/grading';
+import { compactResult } from '@/services/study/compact';
 
 export function StudyPage() {
     const navigate = useNavigate();
@@ -78,34 +80,9 @@ export function StudyPage() {
     };
 
     const handleTestFinish = (answers: Record<string, string | string[]>, durationSeconds: number) => {
-        let score = 0;
-        const processedQuestions = activeTestQuestions.map(q => {
-            const userAnswer = answers[q.id];
-            let isCorrect = false;
-
-            if (q.type === QuestionType.MultipleSelect) {
-                const ua = Array.isArray(userAnswer) ? userAnswer.sort().toString() : "";
-                const ca = q.correctAnswers ? [...q.correctAnswers].sort().toString() : "";
-                isCorrect = ua === ca;
-            } else if (q.type === QuestionType.ManualInput) {
-                isCorrect = (userAnswer as string || "").toString().trim().toLowerCase() === (q.correctAnswer || "").toString().trim().toLowerCase();
-            } else if (q.type === QuestionType.Typing) {
-                isCorrect = userAnswer === q.correctAnswer;
-            } else {
-                isCorrect = userAnswer === q.correctAnswer;
-            }
-
-            if (isCorrect) score++;
-            return { ...q, userAnswer };
-        });
-
-        // Calculate typing score (count correct typing answers)
-        let typingScore = 0;
-        processedQuestions.forEach(q => {
-            if (q.type === QuestionType.Typing && q.userAnswer === q.correctAnswer) {
-                typingScore++;
-            }
-        });
+        const processedQuestions = activeTestQuestions.map(q => ({ ...q, userAnswer: answers[q.id] }));
+        const score = processedQuestions.filter(q => isCorrect(q, q.userAnswer)).length;
+        const typingScore = processedQuestions.filter(q => q.type === QuestionType.Typing && isCorrect(q, q.userAnswer)).length;
 
         // Process rewards using reward service
         const { reward } = processTestReward(
@@ -120,7 +97,7 @@ export function StudyPage() {
             score,
             totalQuestions: activeTestQuestions.length,
             durationSeconds,
-            topicIds: [],
+            topicIds: [...new Set(activeTestQuestions.map(q => q.topicId))],
             questions: processedQuestions,
             starsEarned: reward.stars,
             mode: testMode
@@ -134,6 +111,7 @@ export function StudyPage() {
         }
 
         setLastResult(result);
+        const stored = compactResult(result);
 
         // Handle gacha result
         let gachaImage: AlbumImage | undefined;
@@ -148,7 +126,7 @@ export function StudyPage() {
         }
 
         // Add result via context (handles history, stats, achievements, stars, gacha unlock)
-        addTestResult(result, gachaImage, typingScore);
+        addTestResult(stored, gachaImage, typingScore);
 
         navigate('/study/result');
     };

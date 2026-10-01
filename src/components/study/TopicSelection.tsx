@@ -50,9 +50,12 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
     });
     useEffect(() => { localStorage.setItem(TTS_KEY, String(ttsAutoRead)); }, [ttsAutoRead]);
 
-    if (!currentStudent) return null;
+    const gradeTopics = useMemo(() => currentStudent ? getTopicsByGrade(currentStudent.grade) : [], [currentStudent?.grade]);
+    // Số câu tối thiểu theo lứa tuổi: Mầm non 5, Lớp 1 8, còn lại 10.
+    const minCount = !currentStudent ? 10 : currentStudent.grade === Grade.Preschool ? 5 : currentStudent.grade === Grade.Grade1 ? 8 : 10;
+    useEffect(() => { setQuestionCount(minCount === 5 ? 6 : minCount === 8 ? 10 : 20); }, [minCount]);
 
-    const gradeTopics = useMemo(() => getTopicsByGrade(currentStudent.grade), [currentStudent.grade]);
+    if (!currentStudent) return null;
 
     const toggleTopic = (id: string) => {
         setSelectedTopics(prev => prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]);
@@ -79,7 +82,7 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
     };
 
     const handleBlurCount = () => {
-        if (questionCount < 20) setQuestionCount(20);
+        if (questionCount < minCount) setQuestionCount(minCount);
         if (questionCount > 100) setQuestionCount(100);
     }
 
@@ -210,7 +213,7 @@ export function TopicSelection({ onStartTest, onExport, onBack, isGenerating, ge
                                         <span className="text-sm text-slate-300 mr-2 whitespace-nowrap hidden sm:inline">Số câu:</span>
                                         <input
                                             type="number"
-                                            min="20"
+                                            min={minCount}
                                             max="100"
                                             value={questionCount}
                                             onChange={handleQuestionCountChange}
