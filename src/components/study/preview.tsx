@@ -30,6 +30,11 @@ const questions: Question[] = [
 ];
 const seeded = <T,>(run: () => T) => { let x = 1979; return withGeneratorRandom(() => ((x = Math.imul(x, 1664525) + 1013904223 >>> 0) / 4294967296), run); };
 const printQuestions = seeded(() => buildSession({ topicIds: ['g3_multiplication', 'g3_division', 'g3_geometry'], count: 20 }).questions);
+// case=fraction: phân số / hỗn số hiện tử số trên, mẫu số dưới
+const fractionQuestions = seeded(() => buildSession({ keepOrder: true, count: 4, picks: [
+    { skillId: 'g5.mixed_number', level: 2, count: 1 }, { skillId: 'g4.frac_addsub', level: 2, count: 1 },
+    { skillId: 'g5.mixed_number', level: 1, count: 1 }, { skillId: 'g5.ratio', level: 1, count: 1 },
+] }).questions);
 
 function populated() {
     const p = emptyProgress(), now = new Date();
@@ -43,11 +48,11 @@ function Preview() {
     const initial = new URLSearchParams(location.search).get('case') || 'home-new';
     const [screen, setScreen] = useState(initial);
     const [progress, setProgress] = useState(() => initial === 'home-new' ? emptyProgress() : populated());
-    const grade = initial.startsWith('mn') ? Grade.Preschool : initial.startsWith('g1') ? Grade.Grade1 : Grade.Grade3;
+    const grade = initial.startsWith('mn') ? Grade.Preschool : initial.startsWith('g1') ? Grade.Grade1 : initial === 'fraction' ? Grade.Grade5 : Grade.Grade3;
     const student = { ...base, id: grade === 1 ? 'g1kid' : grade === 0 ? 'mnkid' : 'g3kid', grade, study: progress,
         history: Array.from({ length: 10 }, (_, i) => ({ id: String(i), date: new Date(Date.now() - i * DAY).toISOString(), mode: 'matrix' as const, score: 12 + i % 8, totalQuestions: 20, durationSeconds: 800, topicIds: ['g3_multiplication'], questions: [], starsEarned: 2 })) };
     const sample = grade === 0 ? { ...questions[0], level: 1 as const, skillId: 'mn.count', topicId: 'mn_counting', speech: 'Đếm các quả táo trong hình. Có tất cả bao nhiêu quả táo?' } : questions.find(q => q.id === initial) ?? questions[0];
-    const [session, setSession] = useState<PlaySession>(() => ({ title: initial === 'test' ? 'Đề kiểm tra học kì 1' : 'Cùng luyện toán', questions: grade === 0 ? [sample, ...seeded(() => buildSession({ topicIds: ['mn_counting'], count: 5 }).questions)] : initial === 'test' || initial === 'timeout' ? questions : [sample, ...questions.filter(q => q.id !== sample.id)], mode: initial === 'test' || initial === 'timeout' ? 'test' : 'practice', durationSec: initial === 'timeout' ? 2 : 600, tts: false }));
+    const [session, setSession] = useState<PlaySession>(() => ({ title: initial === 'test' ? 'Đề kiểm tra học kì 1' : 'Cùng luyện toán', questions: grade === 0 ? [sample, ...seeded(() => buildSession({ topicIds: ['mn_counting'], count: 5 }).questions)] : initial === 'fraction' ? fractionQuestions : initial === 'test' || initial === 'timeout' ? questions : [sample, ...questions.filter(q => q.id !== sample.id)], mode: initial === 'test' || initial === 'timeout' ? 'test' : 'practice', durationSec: initial === 'timeout' ? 2 : 600, tts: false }));
     const sampleRecords = questions.map((q, i) => ({ q, answer: i === 0 ? '5' : q.correctAnswer ?? q.correctAnswers, correct: i !== 0, firstTry: i !== 0 }));
     const [summary, setSummary] = useState<SessionSummary>({ title: 'Ôn hôm nay', mode: 'daily', records: sampleRecords, seconds: 182, stars: 3, deltas: [{ skillId: 'g3.mul_tables', title: 'Bảng nhân', before: .45, after: .68, mastered: false }], reviewCleared: 0 });
     const home = () => setScreen('home-progress');

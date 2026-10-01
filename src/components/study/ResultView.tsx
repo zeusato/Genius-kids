@@ -90,14 +90,14 @@ export function ResultView({ summary, onHome, onRetryWrong, onPracticeWeak, onRe
                         <div key={r.q.id} className="study-review-item">
                             <button onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i}>
                                 <span className={`mark ${r.correct ? 'ok' : 'bad'}`}>{r.correct ? <Check size={15} /> : <X size={15} />}</span>
-                                <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Câu {i + 1}. {r.q.questionText.split('\n')[0].replace(/[*_|#]/g, '')}</span>
+                                <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Câu {i + 1}. <Md inline>{r.q.questionText.split('\n')[0].replace(/[*_|#]/g, '')}</Md></span>
                                 <ChevronDown size={18} style={{ transform: open === i ? 'rotate(180deg)' : 'none' }} />
                             </button>
                             {open === i && (
                                 <div>
                                     <div style={{ fontWeight: 700, fontSize: 16 }}><Md>{r.q.questionText}</Md></div>
                                     <QuestionVisual q={r.q} className="study-mini-visual" />
-                                    <p>Em trả lời: <b style={{ color: r.correct ? 'var(--st-ok)' : 'var(--st-bad)' }}>{answerText(r.answer)}</b></p>
+                                    <p>Em trả lời: <b style={{ color: r.correct ? 'var(--st-ok)' : 'var(--st-bad)' }}><Md inline>{answerText(r.answer)}</Md></b></p>
                                     <p>Đáp án đúng: <b style={{ color: 'var(--st-ok)' }}><Md inline>{correctText(r.q)}</Md></b></p>
                                     {r.q.explanation && <p style={{ whiteSpace: 'pre-line', color: 'var(--hub-muted)' }}><Md inline>{r.q.explanation}</Md></p>}
                                     <SolutionVisual q={r.q} />

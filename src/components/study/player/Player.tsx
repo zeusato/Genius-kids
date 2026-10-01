@@ -205,7 +205,7 @@ export function Player({ session, grade, themeId, onFinish, onExit, onToggleTts 
                         {!test && s.phase === 'retry' && (
                             <div className="study-feedback retry" role="status">
                                 <h3><Lightbulb size={20} />Chưa đúng, thử lại nhé!</h3>
-                                <p>{q.hint || GENERIC_HINT}</p>
+                                <p><Md inline>{q.hint || GENERIC_HINT}</Md></p>
                             </div>
                         )}
                         {!test && s.phase === 'done' && (

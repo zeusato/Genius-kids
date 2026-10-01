@@ -34,6 +34,18 @@ describe('questionToSpeech', () => {
     });
 });
 
+describe('questionToSpeech — hỗn số, ngày tháng', () => {
+    it('hỗn số đọc "và"', () => {
+        expect(questionToSpeech('Chuyển hỗn số 8 1/2 thành phân số:')).toBe('Chuyển hỗn số 8 và 1 phần 2 thành phân số:');
+        expect(questionToSpeech('4 2/3 + 1 2/3 = ?')).toBe('4 và 2 phần 3 cộng 1 và 2 phần 3 bằng mấy');
+        expect(questionToSpeech('1 + 3/7 = ?')).toBe('1 cộng 3 phần 7 bằng mấy');
+    });
+    it('ngày tháng không đọc thành phân số', () => {
+        expect(questionToSpeech('Từ ngày 27/1 đến ngày 31/1')).toBe('Từ ngày 27 tháng 1 đến ngày 31 tháng 1');
+        expect(questionToSpeech('Ngày 2/9/2026')).toBe('Ngày 2 tháng 9 năm 2026');
+    });
+});
+
 describe('questionToSpeech — ô trống, nhóm nghìn, thập phân', () => {
     it('ô trống', () => {
         expect(questionToSpeech('Điền số còn thiếu: □ + 2 = 5')).toBe('Điền số còn thiếu: ô trống cộng 2 bằng 5');

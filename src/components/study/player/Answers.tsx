@@ -57,7 +57,7 @@ function Choices(p: AnswerProps) {
     );
     if (isYesNo(q)) return (
         <div className="study-yn">
-            {opts.map(o => <button key={o} className={optClass(q, o, p)} onClick={() => pick(o)} aria-pressed={p.value === o} disabled={p.locked || p.reveal === 'final' || p.eliminated?.includes(o)}>{o}</button>)}
+            {opts.map(o => <button key={o} className={optClass(q, o, p)} onClick={() => pick(o)} aria-pressed={p.value === o} disabled={p.locked || p.reveal === 'final' || p.eliminated?.includes(o)}><Md inline>{o}</Md></button>)}
         </div>
     );
     const long = opts.some(o => o.length > 34 || o.includes('|'));
@@ -85,6 +85,8 @@ function NumberInput(p: AnswerProps) {
     const ref = useRef<HTMLInputElement>(null);
     useEffect(() => { if (!isNum || window.matchMedia('(pointer: fine)').matches) ref.current?.focus(); }, [q.id, isNum]);
     const done = p.reveal === 'final';
+    // phím "/" chỉ hiện khi đáp án là phân số; ô nhập có bản xem trước tử số / mẫu số
+    const fraction = [q.correctAnswer, ...(q.accept || [])].some(a => /\d\s*\/\s*\d/.test(a || ''));
     const press = (k: string) => {
         if (done || p.locked) return;
         if (k === 'del') p.onChange(text.slice(0, -1));
@@ -97,14 +99,15 @@ function NumberInput(p: AnswerProps) {
                     placeholder={isNum ? 'Nhập số…' : 'Nhập câu trả lời…'} aria-label="Câu trả lời"
                     onChange={e => !p.locked && p.onChange(isNum ? e.target.value.replace(/[^\d,./\s-]/g, '') : e.target.value)}
                     onKeyDown={e => { if (e.key === 'Enter' && text.trim()) { e.preventDefault(); p.onSubmit?.(); } }} />
+                {/\d\s*\/\s*\d/.test(text) && <span className="study-input-frac" aria-hidden><Md inline>{text}</Md></span>}
             </label>
             {isNum && !done && (
                 <div className="study-pad" aria-label="Bàn phím số">
-                    {['7', '8', '9', 'del', '4', '5', '6', ',', '1', '2', '3', '/'].map(k => (
+                    {['7', '8', '9', 'del', '4', '5', '6', ',', '1', '2', '3', fraction ? '/' : ''].map((k, i) => k ? (
                         <button key={k} onClick={() => press(k)} aria-label={k === 'del' ? 'Xoá' : k === ',' ? 'dấu phẩy' : k === '/' ? 'phần' : k}>
                             {k === 'del' ? <Delete size={22} /> : k}
                         </button>
-                    ))}
+                    ) : <span key={i} aria-hidden />)}
                     <button className="wide" onClick={() => press('0')}>0</button>
                     <button className="wide" onClick={() => p.onSubmit?.()} disabled={!text.trim()} aria-label="Xong" style={{ background: 'var(--hub-accent)', color: '#fff' }}><Check size={22} /></button>
                 </div>
@@ -145,7 +148,7 @@ function OrderInput(p: AnswerProps) {
                         p.onChange(next); setPicked(null);
                     }} onPointerCancel={() => { drag.current = null; }}><small style={{ opacity: .5 }}>{i + 1}.</small><Md inline>{x}</Md></button>)}
             </div>
-            {done && !right && <p className="study-order-hint">Thứ tự đúng: <b>{q.correctAnswers?.join(' ; ')}</b></p>}
+            {done && !right && <p className="study-order-hint">Thứ tự đúng: <b><Md inline>{(q.correctAnswers || []).join(' ; ')}</Md></b></p>}
             {!done && <p className="study-order-hint">Kéo thả hoặc chạm vào hai ô để đổi chỗ cho nhau.</p>}
         </div>
     );

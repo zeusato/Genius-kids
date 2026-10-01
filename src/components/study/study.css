@@ -262,6 +262,15 @@
   .study-sheet.answers { break-before:page; }
 }
 
+/* ---------- Phân số, hỗn số (src/utils/mathText.ts): tử số trên, mẫu số dưới ---------- */
+.mfrac-wrap, .mmixed { display:inline-flex; align-items:center; vertical-align:middle; white-space:nowrap; margin:0 .08em; }
+.mmixed { gap:.1em; }
+.mfrac { display:inline-flex; flex-direction:column; align-items:stretch; text-align:center; font-size:.88em; line-height:1.1; font-variant-numeric:lining-nums tabular-nums; }
+.mfrac-num, .mfrac-den { display:block; padding:0 .14em; }
+.mfrac-num { border-bottom:max(2px, .09em) solid currentColor; padding-bottom:.04em; }
+.mfrac-den { padding-top:.06em; }
+.study-input-frac { margin-left:auto; padding-left:14px; font-size:26px; color:var(--hub-accent); }
+
 /* nút đã chấm vẫn rõ (hub làm mờ mọi button:disabled) */
 .discovery-hub .study-opt:disabled { opacity:1; }
 .discovery-hub .study-opt.dim:disabled, .discovery-hub .study-opt.dim { opacity:.55; }

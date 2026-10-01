@@ -33,6 +33,10 @@ export function questionToSpeech(raw: string): string {
     s = s.replace(/(\d)[   ](?=\d{3}(?!\d))/g, '$1');
     s = s.replace(/(\d),(\d)/g, '$1 phẩy $2');
 
+    // 2c) Ngày tháng "ngày 27/1" → "ngày 27 tháng 1"; hỗn số "2 3/4" → "2 và 3/4" (phân số đọc ở bước 3)
+    s = s.replace(/([Nn]gày[  ]+)(\d{1,2})\/(\d{1,2})(?:\/(\d{4}))?(?![\d/])/g, (_m, n: string, d: string, mo: string, y?: string) => `${n}${d} tháng ${mo}${y ? ` năm ${y}` : ''}`);
+    s = s.replace(/(?<![\d/,])(\d+)[  ]+(\d+)\s*\/\s*(\d+)(?![\d/])/g, (all, w: string, a: string, b: string) => (Number(a) < Number(b) ? `${w} và ${a}/${b}` : all));
+
     // 3) Phân số a/b → "a phần b" (làm trước khi xử lý dấu chia)
     s = s.replace(/(\d+)\s*\/\s*(\d+)/g, ' $1 phần $2 ');
 

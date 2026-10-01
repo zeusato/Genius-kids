@@ -12,6 +12,7 @@ import {
 import type { Question } from '@/types';
 import { visualOf } from '@/services/generators/svg/render';
 import { parseValue } from '@/services/study/value';
+import { remarkMathText } from '@/src/utils/mathText';
 
 const ICONS: Record<string, LucideIcon> = {
     BarChart3, BookOpen, Box, Brackets, Calculator, CalendarDays, Clock, Coins, Compass, Dices, Divide, Hash, Keyboard,
@@ -23,11 +24,21 @@ export const TopicIcon = ({ name, size = 24 }: { name?: string; size?: number })
 };
 
 const mdComponents = { p: 'p' as const };
-export const Md = ({ children, inline = false }: { children: string; inline?: boolean }) => (
-    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={inline ? { p: 'span' } : mdComponents}>
-        {children.replace(/\\n/g, '\n')}
-    </ReactMarkdown>
-);
+const remarkPlugins = [remarkMath, remarkGfm, remarkMathText];
+/** Chữ inline (lựa chọn ">", "-", "1."…) không được thành khối Markdown: trích dẫn, danh sách, tiêu đề. */
+const keepInline = (s: string) => s
+    .replace(/^(\s*)([>#])/gm, '$1\\$2')
+    .replace(/^(\s*)([-+*])(?=\s|$)/gm, '$1\\$2')
+    .replace(/^(\s*)(\d+)([.)])(?=\s|$)/gm, '$1$2\\$3');
+/** Markdown + KaTeX; phân số "a/b", hỗn số "2 3/4" hiện tử số trên, mẫu số dưới. */
+export const Md = ({ children, inline = false }: { children: string; inline?: boolean }) => {
+    const text = children.replace(/\\n/g, '\n');
+    return (
+        <ReactMarkdown remarkPlugins={remarkPlugins} rehypePlugins={[rehypeKatex]} components={inline ? { p: 'span' } : mdComponents}>
+            {inline ? keepInline(text) : text}
+        </ReactMarkdown>
+    );
+};
 
 export const Ring = ({ value, done = false }: { value: number; done?: boolean }) => {
     const p = Math.round(Math.max(0, Math.min(1, value)) * 100);

@@ -7,7 +7,7 @@ import { skillsWithContent } from '@/services/study/registry';
 import { SKILLS, SKILL_MAP, STRAND_LABEL, topicMeta } from '@/services/study/catalog';
 import { DAY, STATUS_LABEL, dueReviews, liveStreak, localDay, skillStatus, topicMastery } from '@/services/study/progress';
 import type { StudyProgress } from '@/services/study/types';
-import { Ring } from './shared';
+import { Md, Ring } from './shared';
 import './study.css';
 
 const MODE: Record<string, string> = { practice: 'Luyện tập', test: 'Kiểm tra', daily: 'Ôn hôm nay', review: 'Ôn câu sai', matrix: 'Đề tổng hợp' };
@@ -54,7 +54,7 @@ export function ReportView({ student, progress, onPractice }: { student: Student
             <section className="study-panel">
                 <details><summary>Đã thành thạo: {mastered.length} kỹ năng</summary><ul className="study-mastered-list">{mastered.map(s => <li key={s.id}>{s.title}</li>)}</ul></details>
             </section>
-            {review.length > 0 && <section className="study-panel"><h2>Câu sai gần đây</h2>{review.map(it => <div className="study-report-row" key={it.key}><span>{it.q.questionText}<small>Ôn ngày {new Date(it.due).toLocaleDateString('vi-VN')}</small></span></div>)}</section>}
+            {review.length > 0 && <section className="study-panel"><h2>Câu sai gần đây</h2>{review.map(it => <div className="study-report-row" key={it.key}><span><Md inline>{it.q.questionText.split('\n')[0].replace(/[*_|#]/g, '')}</Md><small>Ôn ngày {new Date(it.due).toLocaleDateString('vi-VN')}</small></span></div>)}</section>}
 
             <section className="study-panel">
                 <h2>14 ngày gần đây</h2>

@@ -28,7 +28,7 @@ export function PrintView({ title, studentName, questions, onRegenerate }: { tit
                             <div className="q"><Md>{q.questionText}</Md></div>
                             <QuestionVisual q={q} className="study-sheet-visual" />
                             {q.type === QuestionType.ManualInput ? <p className="blank">Trả lời: ……………………………………</p>
-                                : q.type === QuestionType.Order ? <p className="blank">{(q.options || []).join(' ; ')}<br />Sắp xếp: ……………………………………</p>
+                                : q.type === QuestionType.Order ? <p className="blank"><Md inline>{(q.options || []).join(' ; ')}</Md><br />Sắp xếp: ……………………………………</p>
                                     : <div className="opts">{(q.options || []).map((o, i) => <span key={i}><b>{KEYS[i]}.</b> <Md inline>{o}</Md></span>)}</div>}
                         </li>
                     ))}
