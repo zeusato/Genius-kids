@@ -1,4 +1,5 @@
 import { persistResult as persistCoVua } from '../../games/CoVua/profile-adapter';
+import type { StudyProgress } from '@/services/study/types';
 import { persistResult as persistCaro } from '../../games/Caro/profile-adapter';
 import { clearCaroData } from '../../games/Caro/persistence';
 import { clearSudokuData, type SudokuDraft } from '../../games/Sudoku/persistence';
@@ -65,7 +66,7 @@ interface StudentActionsType {
     selectStudent: (id: string) => void;
     updateStudent: (student: StudentProfile) => void;
     deleteStudent: (id: string) => void;
-    addTestResult: (result: TestResult, gachaImage?: AlbumImage, typingScore?: number) => void;
+    addTestResult: (result: TestResult, gachaImage?: AlbumImage, typingScore?: number, study?: StudyProgress) => void;
     addGameResult: (result: GameResult, gachaImage?: AlbumImage) => void;
     completeKidCoder: (studentId: string, mission: Mission, program: ProgramNode[], seconds: number) => { ok: boolean; earned: number };
     completeMemoryGame: (studentId: string, session: MemorySession) => { ok: boolean; earned: number; bonusStars?: number; achievementNames?: string[] };
@@ -351,10 +352,11 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         if (currentStudentId === id) setCurrentStudentId(null);
     }, [currentStudentId]);
 
-    const addTestResult = useCallback((result: TestResult, gachaImage?: AlbumImage, typingScore?: number) => {
+    const addTestResult = useCallback((result: TestResult, gachaImage?: AlbumImage, typingScore?: number, study?: StudyProgress) => {
         if (!currentStudent) return;
 
         let updatedStudent = { ...currentStudent };
+        if (study) updatedStudent.study = study; // tiến độ Ôn Luyện, lưu cùng một lần ghi
 
         // 1. Update History
         updatedStudent.history = [...updatedStudent.history, result];
