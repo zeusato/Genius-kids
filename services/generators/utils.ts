@@ -11,43 +11,8 @@ export const capitalize = (str: string): string => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-// Format number to Vietnamese words with commas
-export const numberToVietnamese = (num: number): string => {
-    if (num === 0) return 'không';
-
-    const ones = ['', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
-    const tens = ['', 'mười', 'hai mươi', 'ba mươi', 'bốn mươi', 'năm mươi', 'sáu mươi', 'bảy mươi', 'tám mươi', 'chín mươi'];
-
-    const readGroup = (n: number): string => {
-        if (n === 0) return '';
-        const h = Math.floor(n / 100);
-        const t = Math.floor((n % 100) / 10);
-        const u = n % 10;
-
-        let result = h > 0 ? ones[h] + ' trăm' : '';
-        if (t > 0) {
-            result += (result ? ' ' : '') + (t === 1 ? 'mười' : ones[t] + ' mươi');
-        }
-        if (u > 0) {
-            if (t === 0 && h > 0) result += ' lẻ';
-            result += (result && !result.endsWith('lẻ') ? ' ' : result.endsWith('lẻ') ? ' ' : '') + ones[u];
-        }
-        return result.trim();
-    };
-
-    const billions = Math.floor(num / 1000000000);
-    const millions = Math.floor((num % 1000000000) / 1000000);
-    const thousands = Math.floor((num % 1000000) / 1000);
-    const units = num % 1000;
-
-    let result = '';
-    if (billions > 0) result += readGroup(billions) + ' tỷ';
-    if (millions > 0) result += (result ? ', ' : '') + readGroup(millions) + ' triệu';
-    if (thousands > 0) result += (result ? ', ' : '') + readGroup(thousands) + ' nghìn';
-    if (units > 0) result += (result ? ', ' : '') + readGroup(units);
-
-    return result.trim();
-};
+// Đọc số bằng chữ theo SGK (mốt, lăm, linh, không trăm) — xem services/study/value.ts
+export { readNumberVN as numberToVietnamese } from "../study/value";
 
 // Helper to ensure unique options
 export const ensureUniqueOptions = (correctAnswer: string, wrongOptions: string[], totalOptions: number = 4): string[] => {

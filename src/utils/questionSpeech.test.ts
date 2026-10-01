@@ -33,3 +33,14 @@ describe('questionToSpeech', () => {
         expect(questionToSpeech('')).toBe('');
     });
 });
+
+describe('questionToSpeech — ô trống, nhóm nghìn, thập phân', () => {
+    it('ô trống', () => {
+        expect(questionToSpeech('Điền số còn thiếu: □ + 2 = 5')).toBe('Điền số còn thiếu: ô trống cộng 2 bằng 5');
+        expect(questionToSpeech('Điền số còn thiếu vào dãy: 2 _ 4')).toBe('Điền số còn thiếu vào dãy: 2 ô trống 4');
+    });
+    it('nhóm nghìn và số thập phân', () => {
+        expect(questionToSpeech('12 345 + 5 = ?')).toBe('12345 cộng 5 bằng mấy');
+        expect(questionToSpeech('0,5 + 1,25 = ?')).toBe('0 phẩy 5 cộng 1 phẩy 25 bằng mấy');
+    });
+});

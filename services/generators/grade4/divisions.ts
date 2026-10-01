@@ -1,134 +1,42 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+// Lớp 4 — Phép chia (g4_division): chia cho số có một, hai chữ số; chia cho 10, 100, 1000.
+import { tpl, fromTemplates, single, choices, rint, pickOne, chance, shuffle } from '../kit';
+import { remainderError } from '../wrongs';
+import { generateWrongAnswersWithSameUnits as sameUnits } from '../distractors';
+import { fmt } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// Using generateWrongAnswersWithSameUnits from mathEngine
-
-export const generateDivision = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Basic division (no remainder) - 30%
-    if (type < 0.3) {
-        const typeD = randomInt(0, 1);
-        if (typeD === 0) {
-            // Large / 1 digit
-            const quotient = randomInt(1000, 99999);
-            const divisor = randomInt(2, 9);
-            const dividend = quotient * divisor;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính: ${formatNumber(dividend)} : ${divisor} = ?`,
-                correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 1000).map(n => formatNumber(n))]),
-                explanation: `Chia từng chữ số của ${formatNumber(dividend)} cho ${divisor} từ trái sang phải.`
-            };
-        } else {
-            // Medium / 2 digits
-            const quotient = randomInt(100, 9999);
-            const divisor = randomInt(11, 99);
-            const dividend = quotient * divisor;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính: ${formatNumber(dividend)} : ${divisor} = ?`,
-                correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 500).map(n => formatNumber(n))]),
-                explanation: `Chia ${formatNumber(dividend)} cho ${divisor} theo từng bước, tìm thương từng chữ số.`
-            };
+export const templates: Template[] = [
+    tpl('g4.div', 1, () => {
+        const b = rint(2, 9), q = rint(1000, 99999);
+        return single({ q: `${fmt(b * q)} : ${b} = ?`, correct: q, wrong: [Math.floor(q / 10), q * 10, ...sameUnits(q, 2, 1000)], step: 10, min: 0,
+            explanation: `Chia lần lượt từ trái sang phải: ${fmt(b * q)} : ${b} = ${fmt(q)} (thử lại: ${fmt(q)} × ${b} = ${fmt(b * q)}).`, hint: 'Thử lại bằng phép nhân.' });
+    }),
+    tpl('g4.div', 2, () => {
+        const b = rint(12, 99), q = rint(12, 999);
+        return single({ q: `${fmt(b * q)} : ${b} = ?`, correct: q, wrong: [q + 10, q - 10, q + 1, Math.floor(q / 10) || q + 2], min: 0,
+            explanation: `Ước lượng thương từng bước rồi thử lại: ${fmt(q)} × ${b} = ${fmt(b * q)}, nên ${fmt(b * q)} : ${b} = ${fmt(q)}.`, hint: 'Làm tròn số chia để ước lượng thương.' });
+    }),
+    tpl('g4.div', 3, () => {
+        const b = rint(12, 40), q = rint(15, 300), r = rint(1, b - 1), total = b * q + r;
+        if (chance(0.5)) {
+            const right = `${q} dư ${r}`;
+            const opts = shuffle([right, ...remainderError(q, r, b).slice(0, 3).map(([x, y]) => `${x} dư ${y}`)]);
+            return choices({ q: `${fmt(total)} : ${b} = ?`, options: [...new Set(opts)], correct: right, explanation: `${q} × ${b} = ${fmt(q * b)}; ${fmt(total)} - ${fmt(q * b)} = ${r} (bé hơn ${b}). Vậy được ${q} dư ${r}.`, hint: 'Số dư phải bé hơn số chia.' });
         }
-    }
+        return single({ q: `Có ${fmt(total)} quyển vở chia đều cho ${b} lớp. Hỏi còn thừa bao nhiêu quyển vở?`,
+            correct: r, wrong: [q, b - r, r + 1, b].filter(x => x !== r), min: 0,
+            explanation: `${fmt(total)} : ${b} = ${q} (dư ${r}). Mỗi lớp được ${q} quyển, còn thừa ${r} quyển.` });
+    }, { noRankCheck: true }),
+    tpl('g4.div10', 1, () => {
+        const k = pickOne([10, 100, 1000]), q = rint(2, 9999), n = q * k;
+        return single({ q: `${fmt(n)} : ${fmt(k)} = ?`, correct: q, wrong: [q * 10, Math.floor(q / 10) || q + 1, q + k], min: 0,
+            explanation: `Chia số tròn ${k === 10 ? 'chục' : k === 100 ? 'trăm' : 'nghìn'} cho ${fmt(k)}: bỏ ${String(k).length - 1} chữ số 0 ở tận cùng: ${fmt(q)}.` });
+    }),
+    tpl('g4.div10', 2, () => {
+        const b = rint(2, 9) * 10, q = rint(12, 999);
+        return single({ q: `${fmt(b * q)} : ${b} = ?`, correct: q, wrong: [q * 10, Math.floor(q / 10) || q + 2, q + 10, q - 10], min: 0,
+            explanation: `Cùng bỏ một chữ số 0 ở số bị chia và số chia: ${fmt(b * q / 10)} : ${b / 10} = ${fmt(q)}.`, hint: 'Cùng xoá một chữ số 0 ở tận cùng của số bị chia và số chia.' });
+    }),
+];
 
-    // 2. Division with remainder - 25%
-    else if (type < 0.55) {
-        const quotient = randomInt(100, 9999);
-        const divisor = randomInt(2, 99);
-        const remainder = randomInt(1, divisor - 1);
-        const dividend = quotient * divisor + remainder;
-
-        const qType = randomInt(0, 1);
-        if (qType === 0) {
-            // Find quotient
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Khi chia ${formatNumber(dividend)} cho ${divisor}, thương là bao nhiêu?`,
-                correctAnswer: formatNumber(quotient),
-                options: shuffleArray([formatNumber(quotient), ...generateWrongAnswersWithSameUnits(quotient, 3, 100).map(n => formatNumber(n))]),
-                explanation: `${formatNumber(dividend)} : ${divisor} = ${formatNumber(quotient)} (dư ${remainder})`
-            };
-        } else {
-            // Find remainder
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Khi chia ${formatNumber(dividend)} cho ${divisor}, số dư là bao nhiêu?`,
-                correctAnswer: remainder.toString(),
-                options: shuffleArray([remainder.toString(), (remainder + 1).toString(), (remainder - 1).toString(), (divisor - 1).toString()]),
-                explanation: `${formatNumber(dividend)} : ${divisor} = ${formatNumber(quotient)} (dư ${remainder})`
-            };
-        }
-    }
-
-    // 3. Find missing number - 20%
-    else if (type < 0.75) {
-        const findType = randomInt(0, 1);
-        if (findType === 0) {
-            // Find dividend: x : b = q
-            const quotient = randomInt(100, 9999);
-            const divisor = randomInt(2, 99);
-            const dividend = quotient * divisor;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tìm x biết: x : ${divisor} = ${formatNumber(quotient)}`,
-                correctAnswer: formatNumber(dividend),
-                options: shuffleArray([formatNumber(dividend), ...generateWrongAnswersWithSameUnits(dividend, 3, 5000).map(n => formatNumber(n))]),
-                explanation: `x = ${formatNumber(quotient)} × ${divisor} = ${formatNumber(dividend)}`
-            };
-        } else {
-            // Find divisor: a : x = q
-            const quotient = randomInt(10, 999);
-            const divisor = randomInt(2, 99);
-            const dividend = quotient * divisor;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tìm x biết: ${formatNumber(dividend)} : x = ${formatNumber(quotient)}`,
-                correctAnswer: divisor.toString(),
-                options: shuffleArray([divisor.toString(), ...generateWrongAnswersWithSameUnits(divisor, 3, 20).map(n => formatNumber(n))]),
-                explanation: `x = ${formatNumber(dividend)} : ${formatNumber(quotient)} = ${divisor}`
-            };
-        }
-    }
-
-    // 4. Word problems - 25%
-    else {
-        const scenarios = [
-            { total: 'học sinh', group: 'nhóm' },
-            { total: 'quyển sách', group: 'túi' },
-            { total: 'viên kẹo', group: 'em' },
-            { total: 'kg gạo', group: 'túi' }
-        ];
-        const sc = scenarios[randomInt(0, scenarios.length - 1)];
-        const perGroup = randomInt(2, 50);
-        const maxTotal = 9999;
-        const maxGroups = Math.floor(maxTotal / perGroup);
-        const groups = randomInt(10, maxGroups);
-        const total = groups * perGroup;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Chia ${formatNumber(total)} ${sc.total} đều cho ${perGroup} ${sc.group}. Hỏi mỗi ${sc.group} được bao nhiêu ${sc.total}?`,
-            correctAnswer: formatNumber(groups),
-            options: shuffleArray([formatNumber(groups), ...generateWrongAnswersWithSameUnits(groups, 3, 10).map(n => formatNumber(n))]),
-            explanation: `Mỗi ${sc.group} được: ${formatNumber(total)} : ${perGroup} = ${formatNumber(groups)} ${sc.total}`
-        };
-    }
-};
-
+export const generateDivision = fromTemplates(templates);

@@ -1,150 +1,44 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+// Lớp 3 — Bài toán giải bằng hai bước tính (g3_word_problems). Tổng – hiệu là "Nâng cao" (Lớp 4).
+import { tpl, fromTemplates, single, rint, pickOne } from '../kit';
+import { KIDS } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// Using generateWrongAnswersWithSameUnits from mathEngine
-
-export const generateG3WordProblems = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. One-step problems (30%)
-    if (type < 0.3) {
-        const operations = ['add', 'subtract', 'multiply', 'divide'];
-        const op = operations[randomInt(0, 3)];
-
-        if (op === 'add') {
-            const a = randomInt(100, 500);
-            const b = randomInt(100, 500);
-            const answer = a + b;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Lan có ${formatNumber(a)} viên bi, Hoa có ${formatNumber(b)} viên bi. Hỏi cả hai bạn có tất cả bao nhiêu viên bi?`,
-                correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 100).map(n => formatNumber(n))]),
-                explanation: `${formatNumber(a)} + ${formatNumber(b)} = ${formatNumber(answer)} viên bi`
-            };
-        } else if (op === 'subtract') {
-            const answer = randomInt(100, 500);
-            const b = randomInt(50, answer - 50);
-            const a = answer + b;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Cửa hàng có ${formatNumber(a)} quyển vở, đã bán ${formatNumber(b)} quyển. Hỏi còn lại bao nhiêu quyển vở?`,
-                correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 100).map(n => formatNumber(n))]),
-                explanation: `${formatNumber(a)} - ${formatNumber(b)} = ${formatNumber(answer)} quyển vở`
-            };
-        } else if (op === 'multiply') {
-            const a = randomInt(5, 50);
-            const b = randomInt(3, 9);
-            const answer = a * b;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Có ${a} hộp, mỗi hộp có ${b} cái kẹo. Hỏi cả thảy có bao nhiêu cái kẹo?`,
-                correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 30).map(n => formatNumber(n))]),
-                explanation: `${a} × ${b} = ${formatNumber(answer)} cái kẹo`
-            };
-        } else {
-            const divisor = randomInt(3, 9);
-            const quotient = randomInt(10, 50);
-            const dividend = divisor * quotient;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Chia ${formatNumber(dividend)} viên kẹo đều cho ${divisor} bạn. Hỏi mỗi bạn được bao nhiêu viên?`,
-                correctAnswer: quotient.toString(),
-                options: shuffleArray([quotient.toString(), (quotient + 1).toString(), (quotient - 1).toString(), (quotient + 2).toString()]),
-                explanation: `${formatNumber(dividend)} : ${divisor} = ${quotient} viên`
-            };
+export const templates: Template[] = [
+    tpl('g3.word_2step', 2, () => {
+        const kind = rint(0, 2), k = pickOne(KIDS);
+        if (kind === 0) {
+            const a = rint(12, 40), more = rint(5, 20), total = a + (a + more);
+            return single({ q: `Ngăn trên có ${a} quyển sách, ngăn dưới nhiều hơn ngăn trên ${more} quyển. Hỏi cả hai ngăn có bao nhiêu quyển sách?`, correct: total, wrong: [a + more, a * 2, total + more, total - more], min: 0,
+                explanation: `Ngăn dưới: ${a} + ${more} = ${a + more} (quyển). Cả hai ngăn: ${a} + ${a + more} = ${total} (quyển).`,
+                steps: [`Số sách ngăn dưới: ${a} + ${more} = ${a + more} (quyển)`, `Cả hai ngăn: ${a} + ${a + more} = ${total} (quyển)`, `Đáp số: ${total} quyển sách`], hint: 'Tìm số sách ngăn dưới trước.' });
         }
-    }
-
-    // 2. Two-step combined (40%)
-    else if (type < 0.7) {
-        const combos = ['add-multiply', 'multiply-subtract', 'subtract-divide'];
-        const combo = combos[randomInt(0, 2)];
-
-        if (combo === 'add-multiply') {
-            const boxes = randomInt(5, 20);
-            const perBox = randomInt(6, 12);
-            const extra = randomInt(5, 20);
-            const answer = boxes * perBox + extra;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Có ${boxes} hộp, mỗi hộp ${perBox} cái kẹo. Ngoài ra còn ${extra} cái lẻ. Hỏi cả thảy có bao nhiêu cái kẹo?`,
-                correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
-                explanation: `Bước 1: ${boxes} × ${perBox} = ${boxes * perBox}\\nBước 2: ${boxes * perBox} + ${extra} = ${formatNumber(answer)}`
-            };
-        } else if (combo === 'multiply-subtract') {
-            const boxes = randomInt(10, 30);
-            const perBox = randomInt(8, 15);
-            const sold = randomInt(50, boxes * perBox - 50);
-            const answer = boxes * perBox - sold;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Cửa hàng có ${boxes} thùng, mỗi thùng ${perBox} chai nước. Đã bán ${formatNumber(sold)} chai. Hỏi còn lại bao nhiêu chai?`,
-                correctAnswer: formatNumber(answer),
-                options: shuffleArray([formatNumber(answer), ...generateWrongAnswersWithSameUnits(answer, 3, 50).map(n => formatNumber(n))]),
-                explanation: `Bước 1: ${boxes} × ${perBox} = ${boxes * perBox}\\nBước 2: ${boxes * perBox} - ${formatNumber(sold)} = ${formatNumber(answer)}`
-            };
-        } else {
-            // Ensure divisible result
-            const groups = randomInt(3, 7);
-            const quotient = randomInt(20, 100);
-            const remaining = groups * quotient;
-            const used = randomInt(50, 200);
-            const initial = remaining + used;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Có ${formatNumber(initial)} viên bi, đã cho bạn ${formatNumber(used)} viên. Số còn lại chia đều cho ${groups} bạn. Hỏi mỗi bạn được bao nhiêu viên?`,
-                correctAnswer: quotient.toString(),
-                options: shuffleArray([quotient.toString(), (quotient + 1).toString(), (quotient - 1).toString(), groups.toString()]),
-                explanation: `Bước 1: ${formatNumber(initial)} - ${formatNumber(used)} = ${formatNumber(remaining)}\\nBước 2: ${formatNumber(remaining)} : ${groups} = ${quotient}`
-            };
+        if (kind === 1) {
+            const n = rint(3, 8), each = rint(4, 9), eaten = rint(2, n * each - 2);
+            return single({ q: `${k} có ${n} hộp bánh, mỗi hộp ${each} cái. ${k} đã cho bạn ${eaten} cái. Hỏi ${k} còn lại bao nhiêu cái bánh?`, correct: n * each - eaten, wrong: [n * each, n + each - eaten > 0 ? n + each - eaten : n * each + eaten, n * each - eaten + each, n * each + eaten], min: 0,
+                explanation: `Có tất cả: ${n} × ${each} = ${n * each} (cái). Còn lại: ${n * each} - ${eaten} = ${n * each - eaten} (cái).`,
+                steps: [`Số bánh có: ${n} × ${each} = ${n * each} (cái)`, `Còn lại: ${n * each} - ${eaten} = ${n * each - eaten} (cái)`, `Đáp số: ${n * each - eaten} cái bánh`] });
         }
-    }
+        const t = rint(3, 9), q = rint(4, 12), total = t * q, gave = rint(1, q - 1);
+        return single({ q: `Có ${total} quả cam xếp đều vào ${t} giỏ. Mẹ lấy ra ${gave} quả từ một giỏ. Hỏi giỏ đó còn lại bao nhiêu quả cam?`, correct: q - gave, wrong: [total - gave, q, q + gave, t], min: 0,
+            explanation: `Mỗi giỏ: ${total} : ${t} = ${q} (quả). Giỏ đó còn: ${q} - ${gave} = ${q - gave} (quả).`, steps: [`Mỗi giỏ có: ${total} : ${t} = ${q} (quả)`, `Giỏ đó còn lại: ${q} - ${gave} = ${q - gave} (quả)`, `Đáp số: ${q - gave} quả cam`] });
+    }, { weight: 2 }),
+    tpl('g3.word_2step', 3, () => {
+        const kind = rint(0, 1), k = pickOne(KIDS);
+        if (kind === 0) {
+            const a = rint(5, 15), times = rint(2, 5), b = a * times;
+            const k2 = pickOne(KIDS.filter(x => x !== k));
+            return single({ q: `${k} gấp được ${a} ngôi sao. Số ngôi sao ${k2} gấp được gấp ${times} lần số ngôi sao của ${k}. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?`, correct: a + b, wrong: [b, a + times, a * (times - 1), a + b + a], min: 0,
+                explanation: `${k2} gấp được: ${a} × ${times} = ${b} (ngôi sao). Cả hai bạn: ${a} + ${b} = ${a + b} (ngôi sao).`, steps: [`Số ngôi sao ${k2} gấp được: ${a} × ${times} = ${b} (ngôi sao)`, `Số ngôi sao cả hai bạn gấp được: ${a} + ${b} = ${a + b} (ngôi sao)`, `Đáp số: ${a + b} ngôi sao`], hint: '"Gấp mấy lần" là nhân, khác với "nhiều hơn".' });
+        }
+        const price = pickOne([4000, 5000, 6000, 8000]) / 1000, n = rint(3, 6), unit = price * n;
+        return single({ q: `Mua ${n} quyển vở hết ${unit} nghìn đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu nghìn đồng?`, correct: price * 2, wrong: [unit * 2, unit - 2, price, price * 3], format: x => `${x} nghìn đồng`, min: 1,
+            explanation: `Một quyển: ${unit} : ${n} = ${price} (nghìn đồng). Hai quyển: ${price} × 2 = ${price * 2} (nghìn đồng).`, steps: [`Giá một quyển: ${unit} : ${n} = ${price} (nghìn đồng)`, `Giá hai quyển: ${price} × 2 = ${price * 2} (nghìn đồng)`], hint: 'Tìm giá một quyển trước (rút về đơn vị).' });
+    }),
+    tpl('g3.sum_diff', 3, () => {
+        const small = rint(10, 60), diff = rint(4, 30), big = small + diff, sum = small + big;
+        return single({ q: `Tổng của hai số là ${sum}, hiệu của hai số là ${diff}. Tìm số lớn.`, visual: { fn: 'segmentDiagramSVG', args: [[{ label: 'Số bé', parts: [small], labels: ['?'] }, { label: 'Số lớn', parts: [small, diff], labels: ['?', String(diff)] }], `Tổng: ${sum}`] }, correct: big, wrong: [small, sum - diff, (sum + diff), big + 1], min: 0,
+            explanation: `Số lớn = (tổng + hiệu) : 2 = (${sum} + ${diff}) : 2 = ${big}.`, steps: [`Số lớn: (${sum} + ${diff}) : 2 = ${big}`, `Số bé: ${big} - ${diff} = ${small}`] });
+    }),
+];
 
-    // 3. Multiply/divide problems (20%)
-    else if (type < 0.9) {
-        const a = randomInt(5, 20);
-        const b = randomInt(3, 8);
-        const answer = a * b;
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Một quyển vở giá ${formatNumber(a * 1000)} đồng. Hỏi ${b} quyển vở giá bao nhiêu?`,
-            correctAnswer: formatNumber(answer * 1000),
-            options: shuffleArray([formatNumber(answer * 1000), ...generateWrongAnswersWithSameUnits(answer * 1000, 3, 5000).map(n => formatNumber(n))]),
-            explanation: `${formatNumber(a * 1000)} × ${b} = ${formatNumber(answer * 1000)} đồng`
-        };
-    }
-
-    // 4. Sum-difference problems (10%)
-    else {
-        // Ensure integer results by making sum and diff both even or both odd
-        const diff = randomInt(10, 40) * 2; // Even diff
-        const smaller = randomInt(50, 200);
-        const larger = smaller + diff;
-        const sum = larger + smaller;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hai số có tổng là ${formatNumber(sum)}, hiệu là ${diff}. Số lớn là bao nhiêu?`,
-            correctAnswer: formatNumber(larger),
-            options: shuffleArray([formatNumber(larger), formatNumber(smaller), formatNumber(sum), formatNumber(diff)]),
-            explanation: `Số lớn = (${formatNumber(sum)} + ${diff}) : 2 = ${formatNumber(larger)}`
-        };
-    }
-};
+export const generateG3WordProblems = fromTemplates(templates);

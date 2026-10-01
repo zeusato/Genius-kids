@@ -1,203 +1,48 @@
-import { Question, QuestionType } from '../../../types';
+// Lớp 2 — Khối lượng, dung tích, độ dài (g2_units_measure): kg, lít, dm – m – km.
+import { tpl, fromTemplates, single, choices, input, rint, pickOne, chance } from '../kit';
+import { around } from '../wrongs';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const OBJ: [string, string][] = [['🍉', 'Quả dưa'], ['🎃', 'Quả bí'], ['🍍', 'Quả dứa'], ['🎒', 'Cái cặp'], ['📦', 'Thùng hàng'], ['🧸', 'Gấu bông']];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g2.kg', 1, () => {
+        const [a, b] = [OBJ[rint(0, 2)], OBJ[rint(3, 5)]], wa = rint(1, 9), wb = pickOne([1, 2, 3, 4, 5, 6, 7, 8, 9].filter(x => x !== wa)), heavier = chance(0.5);
+        const correct = (wa > wb) === heavier ? a[1] : b[1];
+        return choices({ q: `Vật nào ${heavier ? 'nặng hơn' : 'nhẹ hơn'}?`, speech: `Quan sát cân. Vật nào ${heavier ? 'nặng hơn' : 'nhẹ hơn'}: ${a[1]} hay ${b[1]}?`,
+            visual: { fn: 'balanceSVG', args: [{ e: a[0], w: wa }, { e: b[0], w: wb }] }, options: [a[1], b[1]], correct,
+            explanation: 'Đĩa cân bên nào thấp xuống thì vật bên đó nặng hơn.' });
+    }),
+    tpl('g2.kg', 2, () => {
+        const op = chance(0.5) ? '+' : '-', a = rint(20, 60), b = rint(5, op === '+' ? 35 : a - 5), r = op === '+' ? a + b : a - b;
+        if (chance(0.5)) return single({ q: `Tính: ${a} kg ${op} ${b} kg = ?`, speech: `${a} ki-lô-gam ${op === '+' ? 'cộng' : 'trừ'} ${b} ki-lô-gam bằng bao nhiêu?`,
+            correct: r, wrong: around(r, { min: 0, max: 100 }), format: x => `${x} kg`, min: 0, max: 100, explanation: `Tính như với số rồi ghi đơn vị kg: ${a} ${op} ${b} = ${r}, vậy ${r} kg.` });
+        return single({ q: `Bao gạo thứ nhất nặng ${a} kg, bao thứ hai nặng hơn bao thứ nhất ${b} kg. Hỏi bao thứ hai nặng bao nhiêu ki-lô-gam?`, speech: `Bao gạo thứ nhất nặng ${a} ki-lô-gam, bao thứ hai nặng hơn ${b} ki-lô-gam. Hỏi bao thứ hai nặng bao nhiêu ki-lô-gam?`,
+            correct: a + b, wrong: [Math.abs(a - b), ...around(a + b, { min: 0, max: 100 })], format: x => `${x} kg`, min: 0, max: 100,
+            explanation: `Nặng hơn thì cộng: ${a} + ${b} = ${a + b} (kg).` });
+    }),
+    tpl('g2.liter', 1, () => {
+        const a = rint(2, 9), b = rint(2, 9);
+        return single({ q: `Can thứ nhất có ${a} l nước, can thứ hai có ${b} l nước. Cả hai can có bao nhiêu lít nước?`, speech: `Can thứ nhất có ${a} lít nước, can thứ hai có ${b} lít nước. Cả hai can có bao nhiêu lít nước?`,
+            correct: a + b, wrong: [Math.abs(a - b), ...around(a + b, { min: 0, max: 30 })], format: x => `${x} l`, min: 0, max: 30, explanation: `Gộp lại: ${a} + ${b} = ${a + b} (l).` });
+    }),
+    tpl('g2.liter', 2, () => {
+        const total = rint(10, 40), used = rint(2, total - 2);
+        return single({ q: `Thùng có ${total} l nước. Mẹ dùng ${used} l để tưới cây. Hỏi thùng còn lại bao nhiêu lít nước?`, speech: `Thùng có ${total} lít nước. Mẹ dùng ${used} lít để tưới cây. Hỏi thùng còn lại bao nhiêu lít nước?`,
+            correct: total - used, wrong: [total + used, ...around(total - used, { min: 0, max: 50 })], format: x => `${x} l`, min: 0, max: 80, explanation: `Bớt đi: ${total} - ${used} = ${total - used} (l).` });
+    }),
+    tpl('g2.length', 1, () => {
+        const kind = pickOne([['m', 'dm', 10], ['dm', 'cm', 10], ['m', 'cm', 100]] as const), n = rint(2, 9), [big, small, f] = kind;
+        return chance(0.5)
+            ? input({ q: `Điền số: ${n} ${big} = ? ${small}`, speech: `${n} ${big === 'm' ? 'mét' : 'đề-xi-mét'} bằng bao nhiêu ${small === 'cm' ? 'xăng-ti-mét' : 'đề-xi-mét'}?`, correct: n * f, explanation: `1 ${big} = ${f} ${small}, nên ${n} ${big} = ${n * f} ${small}.`, hint: `Nhớ: 1 ${big} = ${f} ${small}.` })
+            : single({ q: `${n} ${big} = ? ${small}`, speech: `${n} ${big === 'm' ? 'mét' : 'đề-xi-mét'} bằng bao nhiêu ${small === 'cm' ? 'xăng-ti-mét' : 'đề-xi-mét'}?`, correct: n * f, wrong: [n, n * f * 10, n * f / 10 >= 1 ? n * f / 10 : n + f, n + f], format: x => `${x} ${small}`, min: 1, max: 1000, explanation: `1 ${big} = ${f} ${small}, nên ${n} ${big} = ${n * f} ${small}.` });
+    }),
+    tpl('g2.length', 2, () => {
+        const items: [string, string, string[]][] = [['Chiều dài cái bút chì', '15 cm', ['15 m', '15 km', '15 dm']], ['Chiều cao của cửa ra vào', '2 m', ['2 cm', '2 km', '2 dm']], ['Quãng đường từ Hà Nội đến Hải Phòng', '120 km', ['120 m', '120 cm', '120 dm']], ['Chiều dài gang tay của em', '1 dm', ['1 km', '1 m', '10 m']], ['Chiều dài bảng lớp học', '3 m', ['3 cm', '3 km', '30 dm']]];
+        const [what, right, wrong] = pickOne(items);
+        return choices({ q: `${what} khoảng bao nhiêu?`, speech: `${what} khoảng bao nhiêu?`, options: [right, ...wrong.filter(w => w !== '30 dm')].slice(0, 4), shuffle: true, correct: right,
+            explanation: `${what} khoảng ${right}.`, hint: 'Hãy tưởng tượng vật thật: dùng cm, dm, m hay km cho hợp lí?' });
+    }, { noRankCheck: true }),
+];
 
-const generateWrongAnswers = (correct: number, count: number, range: number = 5): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val >= 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
-
-// --- SVG Helpers ---
-
-const createRulerSVG = (lengthCm: number) => {
-    // Draw a ruler showing the length
-    const pixelsPerCm = 30;
-    const rulerWidth = (lengthCm + 2) * pixelsPerCm;
-    const rulerHeight = 80;
-
-    let ticks = '';
-    for (let i = 0; i <= lengthCm + 1; i++) {
-        const x = (i + 0.5) * pixelsPerCm;
-        const h = i % 5 === 0 ? 20 : 10;
-        ticks += `<line x1="${x}" y1="0" x2="${x}" y2="${h}" stroke="black" stroke-width="1" />`;
-        if (i % 5 === 0) {
-            ticks += `<text x="${x}" y="35" font-size="12" text-anchor="middle">${i}</text>`;
-        }
-    }
-
-    // Object line
-    const objStart = 0.5 * pixelsPerCm;
-    const objEnd = (lengthCm + 0.5) * pixelsPerCm;
-
-    return `
-      <svg width="${rulerWidth}" height="${rulerHeight + 40}" viewBox="0 0 ${rulerWidth} ${rulerHeight + 40}" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ruler Body -->
-        <rect x="0" y="0" width="${rulerWidth}" height="${rulerHeight}" fill="#fefce8" stroke="#ca8a04" stroke-width="2" />
-        ${ticks}
-        <text x="${rulerWidth - 20}" y="35" font-size="12" font-weight="bold">cm</text>
-        
-        <!-- Object being measured -->
-        <rect x="${objStart}" y="50" width="${lengthCm * pixelsPerCm}" height="10" fill="#3b82f6" />
-        <line x1="${objStart}" y1="45" x2="${objStart}" y2="70" stroke="red" stroke-dasharray="4" />
-        <line x1="${objEnd}" y1="45" x2="${objEnd}" y2="70" stroke="red" stroke-dasharray="4" />
-      </svg>
-    `;
-};
-
-const createBalanceScaleSVG = (leftWeight: number, rightWeight: number) => {
-    // Simple balance scale
-    const w = 300;
-    const h = 150;
-    const cx = w / 2;
-    const cy = h - 20;
-
-    // Tilt calculation
-    let angle = 0;
-    if (leftWeight > rightWeight) angle = -15;
-    else if (leftWeight < rightWeight) angle = 15;
-
-    // Beam
-    const beamLen = 200;
-    const beamY = 50;
-
-    return `
-      <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">
-        <!-- Base -->
-        <path d="M ${cx} ${beamY} L ${cx - 20} ${cy} L ${cx + 20} ${cy} Z" fill="#94a3b8" />
-        <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${beamY}" stroke="#475569" stroke-width="4" />
-        
-        <!-- Rotating Group -->
-        <g transform="rotate(${angle}, ${cx}, ${beamY})">
-            <!-- Beam -->
-            <rect x="${cx - beamLen / 2}" y="${beamY - 2}" width="${beamLen}" height="4" fill="#334155" />
-            
-            <!-- Left Plate -->
-            <line x1="${cx - beamLen / 2 + 10}" y1="${beamY}" x2="${cx - beamLen / 2 + 10}" y2="${beamY + 40}" stroke="#cbd5e1" />
-            <rect x="${cx - beamLen / 2 - 10}" y="${beamY + 40}" width="40" height="10" fill="#cbd5e1" />
-            <text x="${cx - beamLen / 2 + 10}" y="${beamY + 35}" text-anchor="middle" font-size="14" font-weight="bold">${leftWeight}kg</text>
-            
-            <!-- Right Plate -->
-            <line x1="${cx + beamLen / 2 - 10}" y1="${beamY}" x2="${cx + beamLen / 2 - 10}" y2="${beamY + 40}" stroke="#cbd5e1" />
-            <rect x="${cx + beamLen / 2 - 30}" y="${beamY + 40}" width="40" height="10" fill="#cbd5e1" />
-            <text x="${cx + beamLen / 2 - 10}" y="${beamY + 35}" text-anchor="middle" font-size="14" font-weight="bold">${rightWeight}kg</text>
-        </g>
-      </svg>
-    `;
-};
-
-// --- Generators ---
-
-export const generateG2Units = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Length (Ruler Reading) - 25%
-    if (type < 0.25) {
-        const len = randomInt(1, 15);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Độ dài của thanh màu xanh là bao nhiêu xăng-ti-mét?`,
-            visualSvg: createRulerSVG(len),
-            correctAnswer: len.toString(),
-            options: shuffleArray([len.toString(), ...generateWrongAnswers(len, 3)]),
-            explanation: `Nhìn vào thước kẻ, thanh màu xanh kéo dài từ vạch 0 đến vạch ${len}.`
-        };
-    }
-
-    // 2. Mass (Balance Scale) - 25%
-    else if (type < 0.5) {
-        const w1 = randomInt(1, 10);
-        const w2 = randomInt(1, 10);
-
-        let ans = '';
-        let qText = '';
-
-        if (w1 > w2) {
-            ans = 'nặng hơn';
-            qText = `Bên trái (Left) ... bên phải (Right)`;
-        } else if (w1 < w2) {
-            ans = 'nhẹ hơn';
-            qText = `Bên trái (Left) ... bên phải (Right)`;
-        } else {
-            ans = 'bằng nhau';
-            qText = `Hai bên ...`;
-        }
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Quan sát cân và điền từ thích hợp: ${w1}kg ... ${w2}kg`,
-            visualSvg: createBalanceScaleSVG(w1, w2),
-            correctAnswer: ans,
-            options: shuffleArray(['nặng hơn', 'nhẹ hơn', 'bằng nhau']),
-            explanation: `${w1}kg so với ${w2}kg thì ${ans}.`
-        };
-    }
-
-    // 3. Volume (Word Problem) - 25%
-    else if (type < 0.75) {
-        const vol1 = randomInt(2, 10);
-        const vol2 = randomInt(2, 10);
-        const isAdd = Math.random() > 0.5;
-
-        if (isAdd) {
-            const total = vol1 + vol2;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Can thứ nhất đựng ${vol1} lít nước. Can thứ hai đựng ${vol2} lít nước. Hỏi cả hai can đựng bao nhiêu lít nước?`,
-                correctAnswer: total.toString(),
-                options: shuffleArray([total.toString(), ...generateWrongAnswers(total, 3)]),
-                explanation: `${vol1} + ${vol2} = ${total} (lít).`
-            };
-        } else {
-            const total = vol1 + vol2;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Trong thùng có ${total} lít nước. Mẹ múc ra ${vol1} lít để tưới cây. Hỏi trong thùng còn lại bao nhiêu lít nước?`,
-                correctAnswer: vol2.toString(),
-                options: shuffleArray([vol2.toString(), ...generateWrongAnswers(vol2, 3)]),
-                explanation: `${total} - ${vol1} = ${vol2} (lít).`
-            };
-        }
-    }
-
-    // 4. Unit Conversion (m <-> cm) - 25%
-    else {
-        const isToCm = Math.random() > 0.5;
-        if (isToCm) {
-            const m = randomInt(1, 9);
-            const cm = m * 100;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${m}m = ... cm`,
-                correctAnswer: cm.toString(),
-                options: shuffleArray([cm.toString(), (m * 10).toString(), (m + 100).toString(), (m * 1000).toString()]),
-                explanation: `1m = 100cm. Vậy ${m}m = ${cm}cm.`
-            };
-        } else {
-            const m = randomInt(1, 9);
-            const cm = m * 100;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Đổi đơn vị: ${cm}cm = ... m`,
-                correctAnswer: m.toString(),
-                options: shuffleArray([m.toString(), (m * 10).toString(), (m * 100).toString(), (cm - 100).toString()]),
-                explanation: `100cm = 1m. Vậy ${cm}cm = ${m}m.`
-            };
-        }
-    }
-};
+export const generateG2Units = fromTemplates(templates);

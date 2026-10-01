@@ -1,219 +1,37 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
-import { generateWrongAnswersWithSameUnits } from '../distractors';
+// Lớp 4 — Biểu thức có dấu ngoặc (g4_parentheses). Dấu chia viết ":" theo SGK.
+// Giữ mẫu "(a + b) × c = ?" (MathRacing lọc biểu thức có × hoặc :).
+import { tpl, fromTemplates, single, compare, input, rint, chance, pickOne } from '../kit';
+import { generateWrongAnswersWithSameUnits as sameUnits } from '../distractors';
+import { fmt } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// Evaluate expression with parentheses: (a op1 b) op2 c
-const evaluateExpression = (a: number, op1: string, b: number, op2: string, c: number): number | null => {
-    let innerResult: number | null = null;
-
-    // Calculate inner expression first
-    switch (op1) {
-        case '+': innerResult = a + b; break;
-        case '-': innerResult = a - b; break;
-        case '×': innerResult = a * b; break;
-        case '÷':
-            if (b === 0 || a % b !== 0) return null;
-            innerResult = a / b;
-            break;
-        default: return null;
-    }
-
-    if (innerResult === null || innerResult < 0) return null;
-
-    // Calculate final result
-    let finalResult: number | null = null;
-    switch (op2) {
-        case '+': finalResult = innerResult + c; break;
-        case '-':
-            finalResult = innerResult - c;
-            if (finalResult < 0) return null;
-            break;
-        case '×': finalResult = innerResult * c; break;
-        case '÷':
-            if (c === 0 || innerResult % c !== 0) return null;
-            finalResult = innerResult / c;
-            break;
-        default: return null;
-    }
-
-    return finalResult !== null && finalResult >= 0 ? finalResult : null;
-};
-
-// Generate a valid expression with guaranteed integer result
-const generateValidExpression = (useMultDiv: boolean, minNum: number, maxNum: number): {
-    a: number, op1: string, b: number, op2: string, c: number, result: number
-} | null => {
-    const addSubOps = ['+', '-'];
-    const allOps = ['+', '-', '×', '÷'];
-
-    const maxAttempts = 100;
-    for (let attempt = 0; attempt < maxAttempts; attempt++) {
-        const ops = useMultDiv ? allOps : addSubOps;
-
-        const a = randomInt(minNum, maxNum);
-        const b = randomInt(minNum, Math.min(maxNum, a)); // b <= a to avoid negative in subtraction
-        const c = randomInt(minNum, maxNum);
-
-        const op1 = ops[randomInt(0, ops.length - 1)];
-        const op2 = ops[randomInt(0, ops.length - 1)];
-
-        const result = evaluateExpression(a, op1, b, op2, c);
-
-        if (result !== null && result >= 0 && result < 10000) {
-            return { a, op1, b, op2, c, result };
+export const templates: Template[] = [
+    tpl('g4.expr', 2, () => {
+        const kind = rint(0, 3);
+        if (kind === 0) { const a = rint(20, 300), b = rint(10, 200), c = rint(2, 9), r = (a + b) * c; return single({ q: `(${a} + ${b}) × ${c} = ?`, correct: r, wrong: [a + b * c, a * c + b, ...sameUnits(r, 2, 100)], min: 0, explanation: `Trong ngoặc trước: ${a} + ${b} = ${a + b}; ${a + b} × ${c} = ${fmt(r)}.`, steps: [`${a} + ${b} = ${a + b}`, `${a + b} × ${c} = ${fmt(r)}`], hint: 'Làm trong ngoặc trước.' }); }
+        if (kind === 1) { const c = rint(2, 9), q = rint(20, 200), b = rint(10, 150), a = q * c + b, r = (a - b) / c; return single({ q: `(${a} - ${b}) : ${c} = ?`, correct: r, wrong: [a - b / c > 0 && Number.isInteger(b / c) ? a - b / c : r + 10, r * c, r + 1, r - 1], min: 0, explanation: `${a} - ${b} = ${a - b}; ${a - b} : ${c} = ${r}.`, steps: [`${a} - ${b} = ${a - b}`, `${a - b} : ${c} = ${r}`] }); }
+        if (kind === 2) { const b = rint(2, 9), c = rint(10, 99), a = rint(b * c + 10, b * c + 500), r = a - b * c; return single({ q: `${a} - ${b} × ${c} = ?`, correct: r, wrong: [(a - b) * c, a - b + c, ...sameUnits(Math.max(r, 11), 2, 100)], min: 0, explanation: `Nhân trước, trừ sau: ${b} × ${c} = ${b * c}; ${a} - ${b * c} = ${r}.`, steps: [`${b} × ${c} = ${b * c}`, `${a} - ${b * c} = ${r}`], hint: 'Không có ngoặc: nhân, chia trước; cộng, trừ sau.' }); }
+        const a = rint(2, 9), b = rint(10, 99), c = rint(10, 99), r = a * (b + c);
+        return single({ q: `${a} × (${b} + ${c}) = ?`, correct: r, wrong: [a * b + c, a + b + c, ...sameUnits(r, 2, 100)], min: 0, explanation: `${b} + ${c} = ${b + c}; ${a} × ${b + c} = ${fmt(r)}.`, steps: [`${b} + ${c} = ${b + c}`, `${a} × ${b + c} = ${fmt(r)}`] });
+    }, { weight: 2 }),
+    tpl('g4.expr', 3, () => {
+        const kind = rint(0, 2);
+        if (kind === 0) {
+            const a = rint(10, 90), b = rint(10, 90), c = rint(2, 9), total = (a + b) * c;
+            return input({ q: `Tìm số thích hợp: (? + ${b}) × ${c} = ${fmt(total)}`, correct: a, explanation: `? + ${b} = ${fmt(total)} : ${c} = ${a + b}; ? = ${a + b} - ${b} = ${a}.`, steps: [`? + ${b} = ${fmt(total)} : ${c} = ${a + b}`, `? = ${a + b} - ${b} = ${a}`], hint: 'Tìm giá trị trong ngoặc trước.' });
         }
-    }
-
-    return null;
-};
-
-// Find missing number in expression
-const findMissingNumber = (
-    result: number,
-    op1: string,
-    known1: number,
-    op2: string,
-    known2: number,
-    position: 'a' | 'b' | 'c'
-): number | null => {
-    // Try all possible values
-    for (let val = 1; val <= 999; val++) {
-        let testResult: number | null = null;
-
-        if (position === 'a') {
-            testResult = evaluateExpression(val, op1, known1, op2, known2);
-        } else if (position === 'b') {
-            testResult = evaluateExpression(known1, op1, val, op2, known2);
-        } else { // position === 'c'
-            const innerResult = evaluateExpression(known1, op1, known2, '+', 0);
-            if (innerResult === null) continue;
-
-            if (op2 === '+' && innerResult + val === result) return val;
-            if (op2 === '-' && innerResult - val === result) return val;
-            if (op2 === '×' && innerResult * val === result) return val;
-            if (op2 === '÷' && val !== 0 && innerResult % val === 0 && innerResult / val === result) return val;
+        if (kind === 1) {
+            const a = rint(20, 99), b = rint(2, 9), c = rint(10, 50);
+            const other = pickOne([{ t: `${a} + ${c} × ${b}`, v: a + c * b }, { t: `${a} × ${b} + ${c} × ${b}`, v: a * b + c * b }, { t: `${a} × ${b} + ${c}`, v: a * b + c }]);
+            const sum = { t: `(${a} + ${c}) × ${b}`, v: (a + c) * b }, [L, R] = chance(0.5) ? [other, sum] : [sum, other];
+            const sign = L.v === R.v ? '=' : L.v > R.v ? '>' : '<';
+            return compare({ q: `Điền dấu >, <, =: ${L.t} ... ${R.t}`, left: L.v, right: R.v,
+                explanation: `${L.t} = ${fmt(L.v)}; ${R.t} = ${fmt(R.v)}. Vậy ${fmt(L.v)} ${sign} ${fmt(R.v)}.`, hint: 'Hai biểu thức trông giống nhau nhưng thứ tự tính khác nhau.' });
         }
+        const price = rint(5, 25) * 1000, n1 = rint(2, 6), n2 = rint(2, 6), total = price * (n1 + n2);
+        return single({ q: `Mỗi quyển truyện giá ${fmt(price)} đồng. Lan mua ${n1} quyển, Hoa mua ${n2} quyển. Hai bạn trả hết bao nhiêu tiền?`, correct: total, wrong: [price * n1, price * n2, total + price, total - price], step: 1000, format: x => `${fmt(x)} đồng`, min: 0,
+            explanation: `${fmt(price)} × (${n1} + ${n2}) = ${fmt(price)} × ${n1 + n2} = ${fmt(total)} (đồng).`, steps: [`Số truyện cả hai mua: ${n1} + ${n2} = ${n1 + n2} (quyển)`, `Số tiền: ${fmt(price)} × ${n1 + n2} = ${fmt(total)} (đồng)`] });
+    }),
+];
 
-        if (testResult === result) return val;
-    }
-
-    return null;
-};
-
-export const generateG4Parentheses = (): Omit<Question, 'id' | 'topicId'> => {
-    // 60% only +/-, 40% with */÷
-    const useMultDiv = generatorRandom() > 0.6;
-    const minNum = 10;
-    const maxNum = 999;
-
-    const exerciseType = generatorRandom();
-
-    // 1. Calculate result (30%)
-    if (exerciseType < 0.3) {
-        const expr = generateValidExpression(useMultDiv, minNum, maxNum);
-        if (!expr) return generateG4Parentheses(); // Retry if generation failed
-
-        const { a, op1, b, op2, c, result } = expr;
-        const wrongAnswers = generateWrongAnswersWithSameUnits(result, 3, 100);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: (${formatNumber(a)} ${op1} ${formatNumber(b)}) ${op2} ${formatNumber(c)} = ?`,
-            correctAnswer: formatNumber(result),
-            options: shuffleArray([formatNumber(result), ...wrongAnswers.map(n => formatNumber(n))]),
-            explanation: `Thực hiện phép tính trong ngoặc trước:\n(${formatNumber(a)} ${op1} ${formatNumber(b)}) = ${formatNumber(op1 === '+' ? a + b : op1 === '-' ? a - b : op1 === '×' ? a * b : a / b)}\nSau đó: ${formatNumber(op1 === '+' ? a + b : op1 === '-' ? a - b : op1 === '×' ? a * b : a / b)} ${op2} ${formatNumber(c)} = ${formatNumber(result)}`
-        };
-    }
-
-    // 2. Find missing number (30%)
-    else if (exerciseType < 0.6) {
-        const expr = generateValidExpression(useMultDiv, minNum, maxNum);
-        if (!expr) return generateG4Parentheses();
-
-        const { a, op1, b, op2, c, result } = expr;
-
-        // Randomly choose which number to hide
-        const positions: Array<'a' | 'b' | 'c'> = ['a', 'b', 'c'];
-        const hidePosition = positions[randomInt(0, 2)];
-
-        let questionText = '';
-        let missingValue = 0;
-
-        if (hidePosition === 'a') {
-            questionText = `Tìm số còn thiếu: (? ${op1} ${formatNumber(b)}) ${op2} ${formatNumber(c)} = ${formatNumber(result)}`;
-            missingValue = a;
-        } else if (hidePosition === 'b') {
-            questionText = `Tìm số còn thiếu: (${formatNumber(a)} ${op1} ?) ${op2} ${formatNumber(c)} = ${formatNumber(result)}`;
-            missingValue = b;
-        } else {
-            questionText = `Tìm số còn thiếu: (${formatNumber(a)} ${op1} ${formatNumber(b)}) ${op2} ? = ${formatNumber(result)}`;
-            missingValue = c;
-        }
-
-        const wrongAnswers = generateWrongAnswersWithSameUnits(missingValue, 3, 100);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText,
-            correctAnswer: formatNumber(missingValue),
-            options: shuffleArray([formatNumber(missingValue), ...wrongAnswers.map(n => formatNumber(n))]),
-            explanation: `Số còn thiếu là ${formatNumber(missingValue)}\nKiểm tra: (${formatNumber(a)} ${op1} ${formatNumber(b)}) ${op2} ${formatNumber(c)} = ${formatNumber(result)}`
-        };
-    }
-
-    // 3. Find missing operator (20%)
-    else if (exerciseType < 0.8) {
-        const a = randomInt(minNum, maxNum);
-        const b = randomInt(minNum, a);
-        const c = randomInt(minNum, maxNum);
-
-        const ops = useMultDiv ? ['+', '-', '×', '÷'] : ['+', '-'];
-        const correctOp1 = ops[randomInt(0, ops.length - 1)];
-
-        const result = evaluateExpression(a, correctOp1, b, '+', c);
-        if (result === null) return generateG4Parentheses();
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tìm dấu phép tính còn thiếu: (${formatNumber(a)} ? ${formatNumber(b)}) + ${formatNumber(c)} = ${formatNumber(result)}`,
-            correctAnswer: correctOp1,
-            options: useMultDiv ? shuffleArray(['+', '-', '×', '÷']) : shuffleArray(['+', '-', '×']),
-            explanation: `Dấu cần tìm là "${correctOp1}"\nKiểm tra: (${formatNumber(a)} ${correctOp1} ${formatNumber(b)}) + ${formatNumber(c)} = ${formatNumber(result)}`
-        };
-    }
-
-    // 4. Compare two expressions (20%)
-    else {
-        const expr1 = generateValidExpression(useMultDiv, minNum, maxNum);
-        const expr2 = generateValidExpression(useMultDiv, minNum, maxNum);
-
-        if (!expr1 || !expr2) return generateG4Parentheses();
-
-        const val1 = expr1.result;
-        const val2 = expr2.result;
-
-        let ans = '=';
-        if (val1 > val2) ans = '>';
-        if (val1 < val2) ans = '<';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh (điền >, <, =):\n(${formatNumber(expr1.a)} ${expr1.op1} ${formatNumber(expr1.b)}) ${expr1.op2} ${formatNumber(expr1.c)} ... (${formatNumber(expr2.a)} ${expr2.op1} ${formatNumber(expr2.b)}) ${expr2.op2} ${formatNumber(expr2.c)}`,
-            correctAnswer: ans,
-            options: shuffleArray(['>', '<', '=']),
-            explanation: `(${formatNumber(expr1.a)} ${expr1.op1} ${formatNumber(expr1.b)}) ${expr1.op2} ${formatNumber(expr1.c)} = ${formatNumber(val1)}\n(${formatNumber(expr2.a)} ${expr2.op1} ${formatNumber(expr2.b)}) ${expr2.op2} ${formatNumber(expr2.c)} = ${formatNumber(val2)}\nVậy ${formatNumber(val1)} ${ans} ${formatNumber(val2)}`
-        };
-    }
-};
+export const generateG4Parentheses = fromTemplates(templates);

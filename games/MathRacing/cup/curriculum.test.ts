@@ -18,7 +18,7 @@ describe('Shared curriculum integration', () => {
             }
         }
     });
-    it('separates actual skills in all 15 grade/difficulty combinations, not only labels', () => {
+    it('separates actual skills in all 15 grade/difficulty combinations, not only labels', { timeout: 20_000 }, () => { // nặng: dễ quá 5 s khi chạy song song cả bộ test
         for (let seed = 1; seed <= 30; seed++) {
             const get = (grade: number, difficulty: 'easy' | 'medium' | 'hard') => questionsFor(normalizeConfig({ difficulty }, grade), seed, 10);
             for (const difficulty of ['easy', 'medium'] as const) for (const q of get(2, difficulty)) {

@@ -1,212 +1,51 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
-import { generateUniqueWrongAnswers } from './decimalOps';
+// Lớp 5 — Số thập phân (g5_numbers): đọc, viết, hàng; so sánh, sắp xếp; làm tròn; viết số đo dưới dạng số thập phân.
+import { tpl, fromTemplates, single, compare, choices, input, order, rint, pickOne, chance, shuffle } from '../kit';
+import { readNumberVN } from '../../study/value';
+import { dec, fix, fd } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const PLACES = ['phần mười', 'phần trăm', 'phần nghìn'];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g5.decimal_read', 1, () => {
+        const x = dec(1, 999, rint(1, 3));
+        if (chance(0.5)) return choices({ q: `Số thập phân ${fd(x)} đọc là:`, options: shuffle([...new Set([x, fix(x * 10), fix(x / 10), fix(x + 0.1)].map(v => cap(readNumberVN(v))))]), correct: cap(readNumberVN(x)),
+            explanation: `Đọc phần nguyên, đọc "phẩy", rồi đọc phần thập phân: ${readNumberVN(x)}.` });
+        return input({ q: `Viết số thập phân: ${readNumberVN(x)}`, correct: fd(x), answerKind: 'number', explanation: `${cap(readNumberVN(x))} viết là ${fd(x)}.`, hint: 'Phần nguyên viết trước dấu phẩy.' });
+    }, { decimal: true }),
+    tpl('g5.decimal_read', 2, () => {
+        const x = dec(1, 99, 3), s = fd(x).split(',')[1] ?? '', k = rint(0, Math.max(0, s.length - 1)), d = s[k];
+        if (!d) return single({ q: `Số ${fd(x)} có phần nguyên là:`, correct: Math.floor(x), wrong: [Math.floor(x) + 1, Math.floor(x * 10), Math.round(x * 100) % 100 || 3], explanation: `Phần nguyên là phần đứng trước dấu phẩy: ${Math.floor(x)}.` });
+        return choices({ q: `Trong số ${fd(x)}, chữ số ${d} (thứ ${k + 1} sau dấu phẩy) thuộc hàng nào?`, options: shuffle([PLACES[k], ...PLACES.filter(p => p !== PLACES[k]), 'đơn vị']).slice(0, 4), correct: PLACES[k],
+            explanation: `Sau dấu phẩy lần lượt là hàng phần mười, phần trăm, phần nghìn: chữ số thứ ${k + 1} thuộc hàng ${PLACES[k]}.` });
+    }, { decimal: true }),
+    tpl('g5.decimal_compare', 1, () => {
+        const a = dec(1, 30, rint(1, 2)), b = chance(0.5) ? fix(Math.floor(a) + dec(0, 0.99, rint(1, 3))) : dec(1, 30, rint(1, 3));
+        return compare({ q: `Điền dấu >, <, =: ${fd(a)} ... ${fd(b)}`, left: a, right: b,
+            explanation: Math.floor(a) !== Math.floor(b) ? `So sánh phần nguyên trước: ${Math.floor(a)} ${a > b ? '>' : '<'} ${Math.floor(b)}.` : a === b ? 'Hai số bằng nhau.' : `Phần nguyên bằng nhau, so sánh lần lượt từng hàng của phần thập phân: ${fd(a)} ${a > b ? '>' : '<'} ${fd(b)}.`,
+            hint: 'Số thập phân có nhiều chữ số hơn chưa chắc đã lớn hơn.' });
+    }, { decimal: true }),
+    tpl('g5.decimal_compare', 2, () => {
+        const base = rint(1, 9), nums = [...new Set(Array.from({ length: 8 }, () => fix(base + dec(0, 0.99, rint(1, 3)))))].slice(0, 4), asc = chance(0.5);
+        if (nums.length < 4) nums.push(fix(base + 0.5), fix(base + 0.05));
+        const four = nums.slice(0, 4), sorted = [...four].sort((x, y) => (asc ? x - y : y - x));
+        return order({ q: `Sắp xếp các số theo thứ tự từ ${asc ? 'bé đến lớn' : 'lớn đến bé'}.`, items: sorted.map(fd), explanation: `So sánh phần thập phân từng hàng: ${sorted.map(fd).join('; ')}.` });
+    }, { decimal: true }),
+    tpl('g5.decimal_round', 2, () => {
+        const x = dec(1, 99, 3), place = pickOne([0, 1, 2]), p = 10 ** place, r = Math.round(x * p) / p;
+        const name = ['số tự nhiên gần nhất', 'hàng phần mười', 'hàng phần trăm'][place];
+        // giữ đủ chữ số tới hàng làm tròn: 19,397 → 19,40 (không viết 19,4)
+        const show = (v: number) => v.toFixed(place).replace('.', ',');
+        return single({ q: `Làm tròn số ${fd(x)} đến ${name}:`, correct: r, wrong: [fix(Math.floor(x * p) / p === r ? Math.ceil(x * p) / p : Math.floor(x * p) / p), fix(r + 1 / p), fix(r - 1 / p)].filter(v => v !== r && v >= 0), closed: true, format: show,
+            explanation: `Xét chữ số ngay bên phải: ${Number(fd(x).replace(',', '.').split('.')[1]?.[place] ?? 0) >= 5 ? 'từ 5 trở lên → làm tròn lên' : 'bé hơn 5 → làm tròn xuống'}: ${show(r)}.` });
+    }, { decimal: true, noRankCheck: true }),
+    tpl('g5.measure_decimal', 2, () => {
+        const kind = pickOne([['m', 'cm', 100], ['kg', 'g', 1000], ['km', 'm', 1000], ['tấn', 'kg', 1000], ['m', 'dm', 10]] as const);
+        const [big, small, f] = kind, a = rint(1, 20), b = rint(1, f - 1), r = fix(a + b / f);
+        return single({ q: `${a} ${big} ${b} ${small} = ? ${big}`, correct: r, wrong: [fix(a + b / (f * 10)), fix(a + b / (f / 10)), fix(a + b / 100 === r ? a + b / 1000 : a + b / 100)].filter(v => v !== r), format: v => `${fd(v)} ${big}`, min: 0,
+            explanation: `${b} ${small} = ${fd(fix(b / f))} ${big}, nên ${a} ${big} ${b} ${small} = ${fd(r)} ${big}.`, hint: `1 ${small} = ${fd(1 / f)} ${big}.` });
+    }, { decimal: true }),
+];
 
-// Format decimal with proper Vietnamese notation
-const formatDecimal = (num: number, maxDecimals: number = 4): string => {
-    const str = num.toFixed(maxDecimals);
-    const trimmed = parseFloat(str).toString();
-    return trimmed.replace('.', ',');
-};
-
-// SVG for decimal visualization (grid)
-const createDecimalGridSVG = (value: number): string => {
-    const whole = Math.floor(value);
-    const decimal = value - whole;
-    const tenths = Math.floor(decimal * 10);
-
-    return `
-    <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-      ${[...Array(10)].map((_, i) => `
-        <rect x="${30 + i * 24}" y="40" width="22" height="80" 
-              fill="${i < tenths ? '#60a5fa' : '#e5e7eb'}" 
-              stroke="#0f172a" stroke-width="2"/>
-      `).join('')}
-    </svg>
-  `;
-};
-
-export const generateG5Numbers = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Read/write large numbers (20%)
-    if (type < 0.2) {
-        const num = randomInt(1000000, 99999999);
-        const millions = Math.floor(num / 1000000);
-        const thousands = Math.floor((num % 1000000) / 1000);
-        const ones = num % 1000;
-
-        let wordForm = `${millions} triệu`;
-        if (thousands > 0) wordForm += ` ${formatNumber(thousands)} nghìn`;
-        if (ones > 0) wordForm += ` ${formatNumber(ones)}`;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Viết số: ${wordForm}`,
-            correctAnswer: formatNumber(num),
-            options: shuffleArray([
-                formatNumber(num),
-                formatNumber(num + 1000),
-                formatNumber(num - 1000),
-                formatNumber(num + 10000)
-            ]),
-            explanation: `${wordForm} = ${formatNumber(num)}`
-        };
-    }
-
-    // 2. Compare large numbers (10%)
-    else if (type < 0.3) {
-        const num1 = randomInt(100000, 9999999);
-        const num2 = randomInt(100000, 9999999);
-        const operators = ['>', '<', '='];
-        const correctOp = num1 > num2 ? '>' : num1 < num2 ? '<' : '=';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh: ${formatNumber(num1)} ... ${formatNumber(num2)}`,
-            correctAnswer: correctOp,
-            options: shuffleArray(operators),
-            explanation: `${formatNumber(num1)} ${correctOp} ${formatNumber(num2)}`
-        };
-    }
-
-    // 3. Expanded form (10%)
-    else if (type < 0.4) {
-        const num = randomInt(10000, 999999);
-        const digits = num.toString().split('').map(Number);
-        const place = Math.pow(10, digits.length - 1);
-
-        const expanded = digits.map((d, i) => {
-            const placeValue = Math.pow(10, digits.length - 1 - i);
-            return d > 0 ? `${formatNumber(d * placeValue)}` : null;
-        }).filter(Boolean).join(' + ');
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Viết số ${formatNumber(num)} dưới dạng tổng?`,
-            correctAnswer: expanded,
-            options: shuffleArray([
-                expanded,
-                digits.map((d, i) => d).join(' + '),
-                formatNumber(num),
-                `${Math.floor(num / 1000)} + ${num % 1000}`
-            ]),
-            explanation: `${formatNumber(num)} = ${expanded}`
-        };
-    }
-
-    // 4. Decimal place value expansion (20%)
-    else if (type < 0.6) {
-        // Tạo số thập phân 2 chữ số (VD: 23,45)
-        const tens = randomInt(1, 9);
-        const ones = randomInt(0, 9);
-        const tenths = randomInt(0, 9);
-        const hundredths = randomInt(1, 9); // Đảm bảo có chữ số hàng phần trăm
-
-        const value = tens * 10 + ones + tenths * 0.1 + hundredths * 0.01;
-
-        // Phân tích đúng
-        const parts = [];
-        if (tens > 0) parts.push(`${tens} × 10`);
-        if (ones > 0) parts.push(`${ones} × 1`);
-        if (tenths > 0) parts.push(`${tenths} × 0,1`);
-        if (hundredths > 0) parts.push(`${hundredths} × 0,01`);
-
-        const correctExpansion = parts.join(' + ');
-
-        // Tạo đáp án sai
-        // Sai 1: Nhầm hàng phần thập phân (4×1 thay vì 4×0,1)
-        const wrong1Parts = [];
-        if (tens > 0) wrong1Parts.push(`${tens} × 10`);
-        if (ones > 0) wrong1Parts.push(`${ones} × 1`);
-        if (tenths > 0) wrong1Parts.push(`${tenths} × 1`); // SAI: nhầm hàng
-        if (hundredths > 0) wrong1Parts.push(`${hundredths} × 0,1`); // SAI: nhầm hàng
-        const wrong1 = wrong1Parts.join(' + ');
-
-        // Sai 2: Đổi chỗ giá trị
-        const wrong2Parts = [];
-        if (tens > 0) wrong2Parts.push(`${ones} × 10`); // SAI: đổi chỗ
-        if (ones > 0) wrong2Parts.push(`${tens} × 1`); // SAI: đổi chỗ
-        if (tenths > 0) wrong2Parts.push(`${tenths} × 0,1`);
-        if (hundredths > 0) wrong2Parts.push(`${hundredths} × 0,01`);
-        const wrong2 = wrong2Parts.join(' + ');
-
-        // Sai 3: Thiếu một hạng tử
-        const wrong3Parts = [];
-        if (tens > 0) wrong3Parts.push(`${tens} × 10`);
-        // Bỏ qua ones
-        if (tenths > 0) wrong3Parts.push(`${tenths} × 0,1`);
-        if (hundredths > 0) wrong3Parts.push(`${hundredths} × 0,01`);
-        const wrong3 = wrong3Parts.join(' + ');
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Phân tích giá trị các chữ số trong số ${formatDecimal(value, 2)}?`,
-            correctAnswer: correctExpansion,
-            options: shuffleArray([
-                correctExpansion,
-                wrong1,
-                wrong2,
-                wrong3
-            ]),
-            explanation: `Số ${formatDecimal(value, 2)} có:\n- ${tens} ở hàng chục (${tens}×10)\n- ${ones} ở hàng đơn vị (${ones}×1)\n- ${tenths} ở hàng phần mười (${tenths}×0,1)\n- ${hundredths} ở hàng phần trăm (${hundredths}×0,01)`
-        };
-    }
-
-    // 5. Decimal structure with visualization (20%)
-    else if (type < 0.8) {
-        const tenths = randomInt(1, 9);
-        const value = tenths / 10;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Phần tô màu biểu diễn số thập phân nào?`,
-            visualSvg: createDecimalGridSVG(value),
-            correctAnswer: formatDecimal(value, 1),
-            options: shuffleArray([
-                formatDecimal(value, 1),
-                formatDecimal(value + 0.1, 1),
-                formatDecimal(value - 0.1, 1),
-                formatDecimal(1 - value, 1)
-            ]),
-            explanation: `${tenths} phần trên 10 = ${tenths}/10 = ${formatDecimal(value, 1)}`
-        };
-    }
-
-    // 6. Convert Fraction to Decimal (20%)
-    else {
-        // Only use denominators that result in terminating decimals: 2, 4, 5, 8, 10, 20, 25, 40, 50
-        const validDens = [2, 4, 5, 8, 10, 20, 25, 40, 50];
-        const den = validDens[randomInt(0, validDens.length - 1)];
-        const num = randomInt(1, den - 1);
-
-        const decimalVal = num / den;
-
-        // Use helper to generate distractors with same unit digit logic if possible
-        // But generateUniqueWrongAnswers takes a number and returns numbers.
-        // We need to format them.
-        const wrongAnswers = generateUniqueWrongAnswers(decimalVal, 3, 3);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Chuyển phân số ${num}/${den} thành số thập phân?`,
-            correctAnswer: formatDecimal(decimalVal, 3),
-            options: shuffleArray([
-                formatDecimal(decimalVal, 3),
-                ...wrongAnswers.map(w => formatDecimal(w, 3))
-            ]),
-            explanation: `${num}/${den} = ${num} : ${den} = ${formatDecimal(decimalVal, 3)}`
-        };
-    }
-};
+export const generateG5Numbers = fromTemplates(templates);

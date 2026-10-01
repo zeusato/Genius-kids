@@ -1,196 +1,53 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
-import { fractionBarSVG } from '../svg';
+// Lớp 4 — Phân số (g4_fractions): khái niệm; tính chất cơ bản, rút gọn; quy đồng (mẫu này chia hết cho mẫu kia); so sánh.
+import { tpl, fromTemplates, single, compare, choices, rint, chance, shuffle, sample } from '../kit';
+import { gcd, fracNeighbors } from '../fractions';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const F = (a: number, b: number) => `${a}/${b}`;
+const val = (f: string) => { const [p, q] = f.split('/').map(Number); return q ? p / q : p; };
+/** Lọc các phân số khác giá trị với nhau và với `exclude`. */
+const distinctFr = (xs: string[], exclude: string[]) => xs.filter((x, i) => !exclude.some(e => Math.abs(val(e) - val(x)) < 1e-9) && xs.findIndex(y => Math.abs(val(y) - val(x)) < 1e-9) === i);
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g4.fraction_concept', 1, () => {
+        const b = rint(3, 10), a = rint(1, b - 1), kind = rint(0, 2);
+        if (kind === 0) return single({ q: 'Phần tô màu biểu thị phân số nào?', visual: { fn: chance(0.5) ? 'fractionBarSVG' : 'fractionPieSVG', args: [a, b] },
+            correct: F(a, b), wrong: [F(b - a, b), F(b, a), ...fracNeighbors(a, b)],
+            explanation: `Hình chia thành ${b} phần bằng nhau, tô màu ${a} phần: phân số ${a}/${b} (tử số ${a}, mẫu số ${b}).` });
+        if (kind === 1) { const num = chance(0.5); return choices({ q: `Phân số ${F(a, b)} có ${num ? 'tử số' : 'mẫu số'} là:`, options: shuffle([...new Set([String(a), String(b), String(a + b), String(b + 1)])]), correct: String(num ? a : b), explanation: num ? `Tử số là số viết trên gạch ngang: ${a}.` : `Mẫu số là số viết dưới gạch ngang: ${b}.` }); }
+        return choices({ q: `Viết phân số: "${['một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'][a - 1]} phần ${['', '', '', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín', 'mười'][b]}"`, options: shuffle([F(a, b), F(b, a), F(a, b + 1), F(a + 1, b)].filter((x, i, arr) => arr.indexOf(x) === i)), correct: F(a, b),
+            explanation: `Tử số ${a} viết trên gạch ngang, mẫu số ${b} viết dưới: ${a}/${b}.` });
+    }, { noRankCheck: true }), // đọc phân số / tử – mẫu: hạng giá trị không phải mẹo đoán
+    tpl('g4.fraction_equiv', 1, () => {
+        const b = rint(2, 9), a = rint(1, b - 1), k = rint(2, 5);
+        const right = F(a * k, b * k);
+        return single({ q: `Phân số nào bằng phân số ${F(a, b)}?`, correct: right, wrong: [F(a * k, b), F(a, b * k), F(a + k, b + k), F(a * k + 1, b * k), F(a * k - 1 || a * k + 2, b * k), F(a, b * k + 1), F(Math.max(1, a * k - 2), b * k + 1), F(a, b + k)],
+            explanation: `Nhân cả tử số và mẫu số với ${k}: ${F(a, b)} = ${F(a * k, b * k)}.`, hint: 'Nhân (hoặc chia) cả tử và mẫu với cùng một số khác 0.' });
+    }),
+    tpl('g4.fraction_equiv', 2, () => {
+        let a = 0, b = 0, k = 0;
+        do { b = rint(2, 9); a = rint(1, b - 1); k = rint(2, 6); } while (gcd(a, b) !== 1);
+        const n = a * k, d = b * k, right = F(a, b);
+        return single({ q: `Rút gọn phân số ${F(n, d)} được phân số tối giản là:`, correct: right, wrong: [F(a, d), F(n, b), ...fracNeighbors(a, b)],
+            explanation: `Chia cả tử và mẫu cho ${k} (ước chung lớn nhất): ${F(n, d)} = ${right}.`, hint: 'Chia cả tử và mẫu cho cùng một số đến khi không chia được nữa.' });
+    }),
+    tpl('g4.fraction_common', 2, () => {
+        const b = rint(2, 6), k = rint(2, 4), d = b * k, a = rint(1, b - 1), c = rint(1, d - 1);
+        const right = `${F(a * k, d)} và ${F(c, d)}`;
+        return choices({ q: `Quy đồng mẫu số hai phân số ${F(a, b)} và ${F(c, d)} được:`, options: shuffle([right, `${F(a, d)} và ${F(c, d)}`, `${F(a * k, d)} và ${F(c * k, d * k)}`, `${F(a + k, d)} và ${F(c, d)}`].filter((x, i, arr) => arr.indexOf(x) === i)), correct: right,
+            explanation: `${d} chia hết cho ${b} (${d} : ${b} = ${k}), nên lấy ${d} làm mẫu số chung: ${F(a, b)} = ${F(a * k, d)}; giữ nguyên ${F(c, d)}.`, hint: `Mẫu số ${d} chia hết cho ${b}.` });
+    }),
+    tpl('g4.fraction_compare', 1, () => {
+        const sameDen = chance(0.5), b = rint(3, 12);
+        if (sameDen) { const a = rint(1, b - 1), c = rint(1, b - 1); return compare({ q: `Điền dấu >, <, =: ${F(a, b)} ... ${F(c, b)}`, left: a / b, right: c / b, explanation: `Cùng mẫu số ${b}: phân số nào có tử số lớn hơn thì lớn hơn.` }); }
+        const a = rint(1, 9), d = rint(2, 12), e = rint(2, 12);
+        return compare({ q: `Điền dấu >, <, =: ${F(a, d)} ... ${F(a, e)}`, left: a / d, right: a / e, explanation: `Cùng tử số ${a}: phân số nào có mẫu số bé hơn thì lớn hơn.`, hint: 'Cùng tử số: mẫu bé hơn thì phân số lớn hơn.' });
+    }),
+    tpl('g4.fraction_compare', 2, () => {
+        const b = rint(2, 6), k = rint(2, 3), d = b * k, a = rint(1, b - 1), c = rint(1, d - 1);
+        return compare({ q: `Điền dấu >, <, =: ${F(a, b)} ... ${F(c, d)}`, left: a / b, right: c / d,
+            explanation: `Quy đồng: ${F(a, b)} = ${F(a * k, d)}. So sánh ${F(a * k, d)} với ${F(c, d)}: ${a * k > c ? '>' : a * k < c ? '<' : '='}.`, hint: 'Quy đồng mẫu số rồi so sánh tử số.' });
+    }),
+];
 
-// Phân số minh hoạ — dùng BỘ SVG DÙNG CHUNG (thanh chia đều, tô phần tử số).
-export const createFractionSVG = (numerator: number, denominator: number) => fractionBarSVG(numerator, denominator);
-
-export const generateFractions = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Identify fraction from picture - 15%
-    if (type < 0.15) {
-        const denominators = [2, 3, 4, 5, 6, 8];
-        const denom = denominators[randomInt(0, denominators.length - 1)];
-        const numer = randomInt(1, denom - 1);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Phần tô màu biểu thị phân số nào?`,
-            visualSvg: createFractionSVG(numer, denom),
-            correctAnswer: `${numer}/${denom}`,
-            options: shuffleArray([
-                `${numer}/${denom}`,
-                `${denom - numer}/${denom}`,
-                `${numer}/${denom + 1}`,
-                `${numer + 1}/${denom}`
-            ]),
-            explanation: `Có ${numer} phần được tô màu trong tổng số ${denom} phần bằng nhau.`
-        };
-    }
-
-    // 2. Compare fractions (same denominator) - 15%
-    else if (type < 0.3) {
-        const denom = randomInt(3, 10);
-        const numer1 = randomInt(1, denom - 1);
-        const numer2 = randomInt(1, denom - 1);
-
-        // Ensure they are not equal for comparison questions usually, but equal is fine too
-        let ans = '=';
-        if (numer1 > numer2) ans = '>';
-        if (numer1 < numer2) ans = '<';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh hai phân số: ${numer1}/${denom} ... ${numer2}/${denom}`,
-            correctAnswer: ans,
-            options: shuffleArray(['>', '<', '=']),
-            explanation: `Hai phân số cùng mẫu, so sánh tử số: ${numer1} ${ans} ${numer2}.`
-        };
-    }
-
-    // 3. Write fraction from description - 15%
-    else if (type < 0.45) {
-        const total = randomInt(4, 10);
-        const part = randomInt(1, total - 1);
-        const items = ['quả táo', 'viên bi', 'bông hoa', 'quyển sách'];
-        const item = items[randomInt(0, items.length - 1)];
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Có ${total} ${item}, lấy ${part} ${item}. Viết phân số chỉ số ${item} đã lấy?`,
-            correctAnswer: `${part}/${total}`,
-            options: shuffleArray([
-                `${part}/${total}`,
-                `${total - part}/${total}`,
-                `${part}/${total - part}`,
-                `${total}/${part}`
-            ]),
-            explanation: `Số ${item} lấy là ${part}, tổng số là ${total}, nên phân số là ${part}/${total}.`
-        };
-    }
-
-    // 4. Addition/Subtraction (Same Denominator) - 20%
-    else if (type < 0.65) {
-        const denom = randomInt(3, 12);
-        const isAddition = Math.random() > 0.5;
-        let n1, n2, ansNumer;
-        let opSymbol = '';
-
-        if (isAddition) {
-            // Ensure sum numerator doesn't exceed denominator significantly (optional, but keeps it simple)
-            // Let's allow improper fractions result? Or keep it <= 1?
-            // Let's keep it simple: sum can be anything, but let's try to keep n1, n2 reasonable.
-            n1 = randomInt(1, denom - 1);
-            n2 = randomInt(1, denom - 1);
-            ansNumer = n1 + n2;
-            opSymbol = '+';
-        } else {
-            // Subtraction: Ensure n1 >= n2 for non-negative result
-            n1 = randomInt(2, denom);
-            n2 = randomInt(1, n1); // n2 <= n1
-            ansNumer = n1 - n2;
-            opSymbol = '-';
-        }
-
-        const correctAnswer = `${ansNumer}/${denom}`;
-
-        // Generate distractors
-        const options = new Set<string>();
-        options.add(correctAnswer);
-
-        // Distractor 1: Wrong operation
-        const wrongOpNumer = isAddition ? Math.abs(n1 - n2) : n1 + n2;
-        options.add(`${wrongOpNumer}/${denom}`);
-
-        // Distractor 2: Add/Sub denominators too (common mistake)
-        const wrongDenom = isAddition ? denom * 2 : (denom === denom ? 0 : 0); // 0 denom is bad, let's avoid
-        if (isAddition) options.add(`${ansNumer}/${denom * 2}`);
-        else options.add(`${ansNumer}/${denom}`); // If sub, denom stays same usually, maybe random error
-
-        // Random distractors
-        while (options.size < 4) {
-            const rNumer = Math.max(0, ansNumer + randomInt(-2, 2));
-            const rDenom = denom; // Keep denom same usually
-            if (rDenom !== 0) options.add(`${rNumer}/${rDenom}`);
-            else options.add(`${rNumer}/1`);
-        }
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${n1}/${denom} ${opSymbol} ${n2}/${denom} = ?`,
-            correctAnswer: correctAnswer,
-            options: shuffleArray(Array.from(options)),
-            explanation: `Giữ nguyên mẫu số ${denom}, ${isAddition ? 'cộng' : 'trừ'} tử số: ${n1} ${opSymbol} ${n2} = ${ansNumer}.`
-        };
-    }
-
-    // 5. Simplify Fractions - 15%
-    else if (type < 0.8) {
-        // Generate a simplified fraction first
-        const simpleNumer = randomInt(1, 5);
-        const simpleDenom = randomInt(simpleNumer + 1, 10); // Proper fraction
-
-        // Ensure they are coprime (simplified)
-        // Simple check for common small factors
-        const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
-        const div = gcd(simpleNumer, simpleDenom);
-        const baseNumer = simpleNumer / div;
-        const baseDenom = simpleDenom / div;
-
-        // Multiply by k
-        const k = randomInt(2, 5);
-        const targetNumer = baseNumer * k;
-        const targetDenom = baseDenom * k;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Rút gọn phân số: ${targetNumer}/${targetDenom}`,
-            correctAnswer: `${baseNumer}/${baseDenom}`,
-            options: shuffleArray([
-                `${baseNumer}/${baseDenom}`,
-                `${targetNumer}/${targetDenom}`, // Not simplified
-                `${baseNumer}/${baseDenom + 1}`,
-                `${baseNumer + 1}/${baseDenom}`
-            ]),
-            explanation: `Chia cả tử và mẫu cho ${k}: ${targetNumer}:${k} = ${baseNumer}, ${targetDenom}:${k} = ${baseDenom}.`
-        };
-    }
-
-    // 6. Equivalent Fractions - 20%
-    else {
-        const baseNumer = randomInt(1, 5);
-        const baseDenom = randomInt(baseNumer + 1, 9);
-        const k = randomInt(2, 4);
-
-        const eqNumer = baseNumer * k;
-        const eqDenom = baseDenom * k;
-
-        // Question: Find equivalent fraction OR Fill in the blank
-        // Let's do "Phân số nào bằng..."
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Phân số nào bằng phân số ${baseNumer}/${baseDenom}?`,
-            correctAnswer: `${eqNumer}/${eqDenom}`,
-            options: shuffleArray([
-                `${eqNumer}/${eqDenom}`,
-                `${baseNumer + 1}/${baseDenom + 1}`, // Add 1 to both
-                `${baseNumer * k}/${baseDenom}`,     // Only multiply numer
-                `${baseNumer}/${baseDenom * k}`      // Only multiply denom
-            ]),
-            explanation: `Nhân cả tử và mẫu của ${baseNumer}/${baseDenom} với ${k} ta được ${eqNumer}/${eqDenom}.`
-        };
-    }
-};
+export const generateFractions = fromTemplates(templates);

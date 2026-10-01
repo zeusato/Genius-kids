@@ -1,119 +1,28 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
+// Lớp 5 — Đơn vị đo diện tích, thể tích (g5_measurements): ha, km², m² … mm²; cm³, dm³, m³, lít.
+import { tpl, fromTemplates, single, input, rint, pickOne, chance } from '../kit';
+import { fmt } from '../../study/value';
+import { fix } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const AREA: [string, string, number][] = [['km²', 'ha', 100], ['ha', 'm²', 10000], ['km²', 'm²', 1000000], ['m²', 'dm²', 100], ['dm²', 'cm²', 100], ['cm²', 'mm²', 100]];
+const VOL: [string, string, number][] = [['m³', 'dm³', 1000], ['dm³', 'cm³', 1000], ['m³', 'cm³', 1000000], ['dm³', 'l', 1], ['l', 'ml', 1000]];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+function conv(skill: string, table: [string, string, number][]) {
+    return [
+        tpl(skill, 1, () => {
+            const [big, small, f] = pickOne(table), n = rint(2, 9), r = n * f;
+            if (chance(0.5)) return single({ q: `${n} ${big} = ? ${small}`, correct: r, wrong: f === 1 ? [n * 10, n * 1000, n * 100] : [r * 10, fix(r / 10), r * (f === 100 ? 100 : 10) / 10 === r ? r * 100 : r / (f === 100 ? 10 : 100), n + f], format: x => `${fmt(x)} ${small}`, min: 0, step: Math.max(1, f / 10),
+                explanation: `1 ${big} = ${fmt(f)} ${small}, nên ${n} ${big} = ${fmt(r)} ${small}.`, hint: `Nhớ: 1 ${big} = ${fmt(f)} ${small}.` });
+            return input({ q: `Điền số: ${fmt(r)} ${small} = ? ${big}`, correct: n, explanation: `${fmt(f)} ${small} = 1 ${big}, nên ${fmt(r)} ${small} = ${n} ${big}.` });
+        }),
+        tpl(skill, 2, () => {
+            const [big, small, f] = pickOne(table.filter(t => t[2] >= 100)), a = rint(1, 9), b = rint(1, Math.min(99, f - 1)), r = fix(a + b / f);
+            return single({ q: `${a} ${big} ${b} ${small} = ? ${big}`, correct: r, wrong: [fix(a + b / (f / 10)), fix(a + b / (f * 10)), a + b].filter(x => x !== r), format: x => `${fmt(x)} ${big}`, min: 0,
+                explanation: `${b} ${small} = ${fmt(fix(b / f))} ${big}, nên ${a} ${big} ${b} ${small} = ${fmt(r)} ${big}.`, hint: `1 ${small} = ${fmt(1 / f)} ${big}.` });
+        }, { decimal: true }),
+    ];
+}
 
-const formatDecimal = (num: number, maxDecimals: number = 2): string => {
-    const str = num.toFixed(maxDecimals);
-    const trimmed = parseFloat(str).toString();
-    return trimmed.replace('.', ',');
-};
+export const templates: Template[] = [...conv('g5.area_units_big', AREA), ...conv('g5.volume_units', VOL)];
 
-export const generateG5Measurements = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Length conversion (30%)
-    if (type < 0.3) {
-        const conversions = [
-            { from: 'km', to: 'm', factor: 1000 },
-            { from: 'm', to: 'dm', factor: 10 },
-            { from: 'm', to: 'cm', factor: 100 },
-            { from: 'cm', to: 'mm', factor: 10 }
-        ];
-        const conv = conversions[randomInt(0, 3)];
-        const value = randomInt(2, 50);
-        const answer = value * conv.factor;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${value}${conv.from} = ? ${conv.to}`,
-            correctAnswer: `${formatNumber(answer)}${conv.to}`,
-            options: shuffleArray([
-                `${formatNumber(answer)}${conv.to}`,
-                `${formatNumber(answer + conv.factor)}${conv.to}`,
-                `${formatNumber(answer / 10)}${conv.to}`,
-                `${value}${conv.to}`
-            ]),
-            explanation: `1${conv.from} = ${formatNumber(conv.factor)}${conv.to}, nên ${value}${conv.from} = ${formatNumber(answer)}${conv.to}`
-        };
-    }
-
-    // 2. Area conversion (25%)
-    else if (type < 0.55) {
-        const conversions = [
-            { from: 'm²', to: 'dm²', factor: 100 },
-            { from: 'dm²', to: 'cm²', factor: 100 },
-            { from: 'cm²', to: 'mm²', factor: 100 }
-        ];
-        const conv = conversions[randomInt(0, 2)];
-        const value = randomInt(2, 20);
-        const answer = value * conv.factor;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${value}${conv.from} = ? ${conv.to}`,
-            correctAnswer: `${formatNumber(answer)}${conv.to}`,
-            options: shuffleArray([
-                `${formatNumber(answer)}${conv.to}`,
-                `${formatNumber(value * 10)}${conv.to}`,
-                `${formatNumber(value * 1000)}${conv.to}`,
-                `${value}${conv.to}`
-            ]),
-            explanation: `1${conv.from} = ${formatNumber(conv.factor)}${conv.to}, nên ${value}${conv.from} = ${formatNumber(answer)}${conv.to}`
-        };
-    }
-
-    // 3. Volume conversion (20%)
-    else if (type < 0.75) {
-        const conversions = [
-            { from: 'm³', to: 'dm³', factor: 1000 },
-            { from: 'dm³', to: 'cm³', factor: 1000 },
-            { from: 'dm³', to: 'lít', factor: 1 }
-        ];
-        const conv = conversions[randomInt(0, 2)];
-        const value = randomInt(2, 10);
-        const answer = value * conv.factor;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${value}${conv.from} = ? ${conv.to}`,
-            correctAnswer: conv.factor === 1 ? `${answer}${conv.to}` : `${formatNumber(answer)}${conv.to}`,
-            options: shuffleArray([
-                conv.factor === 1 ? `${answer}${conv.to}` : `${formatNumber(answer)}${conv.to}`,
-                `${formatNumber(value * 100)}${conv.to}`,
-                `${formatNumber(value * 10)}${conv.to}`,
-                `${value}${conv.to}`
-            ]),
-            explanation: `1${conv.from} = ${conv.factor === 1 ? conv.factor : formatNumber(conv.factor)}${conv.to}`
-        };
-    }
-
-    // 4. Speed-distance-time (25%)
-    else {
-        const speed = randomInt(30, 80);
-        const time = randomInt(2, 5);
-        const distance = speed * time;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Một xe chạy với vận tốc ${speed}km/h trong ${time} giờ. Hỏi xe đi được bao nhiêu km?`,
-            correctAnswer: `${distance}km`,
-            options: shuffleArray([
-                `${distance}km`,
-                `${speed + time}km`,
-                `${speed * (time + 1)}km`,
-                `${speed}km`
-            ]),
-            explanation: `Quãng đường = vận tốc × thời gian = ${speed} × ${time} = ${distance}km`
-        };
-    }
-};
+export const generateG5Measurements = fromTemplates(templates);

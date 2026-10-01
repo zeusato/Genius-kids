@@ -1,72 +1,44 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 2 — Phép nhân (g2_multiplication). GDPT 2018: bảng nhân 2 và 5; bảng 3, 4 là "Nâng cao" (Lớp 3).
+// Giữ mẫu nhập "a × ? = c" (MathRacing lọc ManualInput có "× ?").
+import { tpl, fromTemplates, single, choices, input, rint, pickOne, chance, shuffle } from '../kit';
+import { around, tableNeighbors } from '../wrongs';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
+const THINGS: [string, string, string][] = [['đĩa', 'cái bánh', '🍪'], ['hộp', 'cái bút', '✏️'], ['bình', 'bông hoa', '🌸'], ['túi', 'quả cam', '🍊'], ['chuồng', 'con thỏ', '🐰']];
 
-const wrongs = (ans: number, a: number, b: number): string[] => {
-    const set = new Set<number>();
-    const cands = [ans + a, ans - a, ans + b, ans - b, ans + 1, ans - 1, a + b, ans + a + b];
-    for (const c of shuffleArray(cands)) { if (c > 0 && c !== ans) set.add(c); if (set.size >= 3) break; }
-    while (set.size < 3) { const c = ans + randomInt(-5, 5); if (c > 0 && c !== ans) set.add(c); }
-    return Array.from(set).slice(0, 3).map(String);
-};
+function mulTemplates(skill: 'g2.mul_table' | 'g2.mul_table34', tables: number[]): ReturnType<typeof tpl>[] {
+    return [
+        tpl(skill, 1, () => {
+            const a = pickOne(tables), b = rint(1, 10);
+            return single({ q: `Tính: ${a} × ${b} = ?`, speech: `${a} nhân ${b} bằng bao nhiêu?`, correct: a * b, wrong: [...tableNeighbors(a, b), a + b], min: 0, max: 100,
+                explanation: `${a} × ${b} = ${a * b} (cộng ${b} lần số ${a}: ${Array(Math.min(b, 6)).fill(a).join(' + ')}${b > 6 ? ' + …' : ''}).`, hint: `Đếm thêm ${a}: ${a}, ${2 * a}, ${3 * a}, …` });
+        }, { weight: 2 }),
+        tpl(skill, 2, () => {
+            const a = pickOne(tables), b = rint(2, 10), [c, it, e] = pickOne(THINGS);
+            if (chance(0.5)) return input({ q: `${a} × ? = ${a * b}`, speech: `${a} nhân mấy bằng ${a * b}?`, correct: b, explanation: `Vì ${a} × ${b} = ${a * b} nên số cần điền là ${b}.`, hint: `Nhẩm bảng nhân ${a}.` });
+            return single({ q: `Mỗi ${c} có ${a} ${it}. Hỏi ${b} ${c} có tất cả bao nhiêu ${it}?`, speech: `Mỗi ${c} có ${a} ${it}. Hỏi ${b} ${c} có tất cả bao nhiêu ${it}?`,
+                visual: b * a <= 30 ? { fn: 'groupsSVG', args: [Array.from({ length: b }, () => ({ emoji: e, n: a, label: '' }))] } : undefined,
+                correct: a * b, wrong: [a + b, ...tableNeighbors(a, b)], min: 0, max: 100,
+                explanation: `${a} ${it} được lấy ${b} lần: ${a} × ${b} = ${a * b} (${it}).`, steps: [`Số ${it} có tất cả: ${a} × ${b} = ${a * b} (${it})`, `Đáp số: ${a * b} ${it}`] });
+        }),
+    ];
+}
 
-/**
- * Lớp 2 — Phép nhân: ý nghĩa phép nhân (tổng các số hạng bằng nhau) + bảng nhân 2,3,4,5.
- * (Theo chuẩn GDPT 2018: lớp 2 học bảng nhân 2,3,4,5.)
- */
-export const generateG2Multiplication = (): Omit<Question, 'id' | 'topicId'> => {
-    const table = pick([2, 3, 4, 5]);
-    const b = randomInt(1, 10);
-    const ans = table * b;
-    const r = generatorRandom();
+export const templates: Template[] = [
+    tpl('g2.mul_meaning', 1, () => {
+        const a = pickOne([2, 5, 3, 4]), b = rint(2, 5);
+        const sum = Array(b).fill(a).join(' + ');
+        return choices({ q: `Viết tổng ${sum} thành phép nhân.`, speech: `Viết tổng ${sum.replace(/\+/g, 'cộng')} thành phép nhân.`,
+            options: shuffle([...new Set([`${a} × ${b}`, `${b} × ${a + 1}`, `${a} + ${b}`, `${a} × ${b + 1}`])]), correct: `${a} × ${b}`,
+            explanation: `Số ${a} được lấy ${b} lần, ta viết ${a} × ${b}.` });
+    }),
+    tpl('g2.mul_meaning', 2, () => {
+        const a = pickOne([2, 5]), b = pickOne([3, 4, 6, 7, 8, 9, 10]), k = rint(0, 2), parts = [a, b, a * b], names = ['Thừa số', 'Thừa số', 'Tích'];
+        return choices({ q: `Trong phép nhân ${a} × ${b} = ${a * b}, số ${parts[k]} được gọi là gì?`, speech: `Trong phép nhân ${a} nhân ${b} bằng ${a * b}, số ${parts[k]} gọi là gì?`,
+            options: ['Thừa số', 'Tích', 'Thương', 'Số hạng'], shuffle: true, correct: names[k], explanation: `${a} và ${b} là các thừa số, ${a * b} là tích.` });
+    }),
+    ...mulTemplates('g2.mul_table', [2, 5]),
+    ...mulTemplates('g2.mul_table34', [3, 4]),
+];
 
-    // 1. Chuyển tổng các số hạng bằng nhau thành phép nhân (25%)
-    if (r < 0.25) {
-        const sum = Array(b).fill(table).join(' + ');
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tổng ${sum} viết thành phép nhân nào?`,
-            correctAnswer: `${table} × ${b}`,
-            options: shuffleArray([`${table} × ${b}`, `${b} × ${table + 1}`, `${table} + ${b}`, `${table} × ${b + 1}`]),
-            explanation: `${table} được lấy ${b} lần nên ${sum} = ${table} × ${b} = ${ans}.`,
-        };
-    }
-
-    // 2. Tìm thừa số còn thiếu (20%)
-    if (r < 0.45) {
-        return {
-            type: QuestionType.ManualInput,
-            questionText: `${table} × ? = ${ans}`,
-            correctAnswer: String(b),
-            explanation: `Vì ${table} × ${b} = ${ans} nên số cần tìm là ${b}.`,
-        };
-    }
-
-    // 3. Bài toán lời văn (20%)
-    if (r < 0.65) {
-        const items = pick([['rổ', 'quả cam'], ['hộp', 'cái bút'], ['đĩa', 'cái bánh'], ['túi', 'viên kẹo']]);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Mỗi ${items[0]} có ${table} ${items[1]}. Hỏi ${b} ${items[0]} có tất cả bao nhiêu ${items[1]}?`,
-            correctAnswer: String(ans),
-            options: shuffleArray([String(ans), ...wrongs(ans, table, b)]),
-            explanation: `Lấy ${table} × ${b} = ${ans} (${items[1]}).`,
-        };
-    }
-
-    // 4. Phép nhân trực tiếp (35%)
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `${table} × ${b} = ?`,
-        correctAnswer: String(ans),
-        options: shuffleArray([String(ans), ...wrongs(ans, table, b)]),
-        explanation: `${table} × ${b} = ${ans}.`,
-    };
-};
+export const generateG2Multiplication = fromTemplates(templates);

@@ -1,58 +1,25 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 2 — Cộng, trừ không nhớ trong phạm vi 100 (g2_add_sub_no_carry).
+// Giữ mẫu "Tính: a + b = ?" (MathRacing lọc theo mẫu này).
+import { tpl, fromTemplates, single, input, rint, chance } from '../kit';
+import { around, carryError, swapDigits } from '../wrongs';
+import { columnSteps, noCarry, say } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
+export const templates: Template[] = [
+    tpl('g2.addsub100_nc', 1, () => {
+        const op = chance(0.5) ? '+' : '-', [a, b] = noCarry(op, [20, 89], [11, 69]), r = op === '+' ? a + b : a - b;
+        return single({ q: `${a} ${op} ${b} = ?`, speech: say(a, op, b), correct: r, wrong: [...carryError(a, b, op), ...swapDigits(r), ...around(r, { min: 0, max: 100 })], min: 0, max: 100,
+            explanation: `Tính hàng đơn vị rồi hàng chục: ${a} ${op} ${b} = ${r}.`, steps: columnSteps(a, b, op), hint: 'Cộng (trừ) đơn vị với đơn vị, chục với chục.' });
+    }, { weight: 2 }),
+    tpl('g2.addsub100_nc', 2, () => {
+        const op = chance(0.5) ? '+' : '-', [a, b] = noCarry(op, [20, 89], [11, 69]), r = op === '+' ? a + b : a - b;
+        if (chance(0.5)) return input({ q: `Đặt tính rồi tính: ${a} ${op} ${b}`, speech: `Đặt tính rồi tính ${a} ${op === '+' ? 'cộng' : 'trừ'} ${b}.`, visual: { fn: 'columnArithSVG', args: [a, b, op] }, correct: r,
+            explanation: `Viết các chữ số cùng hàng thẳng cột: ${a} ${op} ${b} = ${r}.`, steps: columnSteps(a, b, op), hint: 'Tính từ phải sang trái: hàng đơn vị trước.' });
+        const front = chance(0.5);
+        return input({ q: front ? `Điền số: ? ${op} ${b} = ${r}` : `Điền số: ${a} ${op} ? = ${r}`, speech: front ? `Số nào ${op === '+' ? 'cộng' : 'trừ'} ${b} bằng ${r}?` : `${a} ${op === '+' ? 'cộng' : 'trừ'} số nào bằng ${r}?`, correct: front ? a : b,
+            explanation: front ? (op === '+' ? `${r} - ${b} = ${a}` : `${r} + ${b} = ${a}`) + `, nên số cần điền là ${a}.` : (op === '+' ? `${r} - ${a} = ${b}` : `${a} - ${r} = ${b}`) + `, nên số cần điền là ${b}.`,
+            hint: op === '+' ? 'Muốn tìm số hạng, lấy tổng trừ số hạng kia.' : front ? 'Muốn tìm số bị trừ, lấy hiệu cộng số trừ.' : 'Muốn tìm số trừ, lấy số bị trừ trừ đi hiệu.' });
+    }),
+];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-const generateWrongAnswers = (correct: number, count: number, range: number): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
-
-export const generateG2AddSubNoCarry = (): Omit<Question, 'id' | 'topicId'> => {
-    const isAdd = generatorRandom() > 0.5;
-    let a, b, ans;
-
-    if (isAdd) {
-        // a + b < 100, unit digits sum < 10
-        const a_units = randomInt(0, 8);
-        const b_units = randomInt(0, 9 - a_units);
-        const a_tens = randomInt(1, 8);
-        const b_tens = randomInt(0, 9 - a_tens);
-        a = a_tens * 10 + a_units;
-        b = b_tens * 10 + b_units;
-        ans = a + b;
-    } else {
-        // a - b, no borrow. a_units >= b_units
-        const a_tens = randomInt(2, 9);
-        const b_tens = randomInt(1, a_tens);
-        const a_units = randomInt(1, 9);
-        const b_units = randomInt(0, a_units);
-        a = a_tens * 10 + a_units;
-        b = b_tens * 10 + b_units;
-        ans = a - b;
-    }
-
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `${a} ${isAdd ? '+' : '-'} ${b} = ?`,
-        correctAnswer: ans.toString(),
-        options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 5)]),
-        explanation: `Thực hiện tính từ hàng đơn vị trước, sau đó đến hàng chục.`
-    };
-};
+export const generateG2AddSubNoCarry = fromTemplates(templates);

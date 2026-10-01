@@ -103,15 +103,20 @@ export function trapezoidSVG(top: number, bottom: number, height: number, opts: 
 export function triangleSVG(spec: { base?: number; height?: number; sides?: [number, number, number] }, opts: ShapeOpts = {}): string {
     const { color = 'yellow', unit = 'cm' } = opts;
     if (spec.sides) {
+        // Dựng ĐÚNG hình theo 3 cạnh: AB = c (đáy), BC = a, CA = b (định lí cos).
         const [a, b, c] = spec.sides;
-        // Vẽ tam giác minh hoạ (không cần đúng tuyệt đối hình dạng) nhưng nhãn đúng cạnh.
-        const W = 260, H = 180;
-        const A: [number, number] = [PAD, PAD + 110], B: [number, number] = [PAD + 200, PAD + 110], C: [number, number] = [PAD + 120, PAD];
-        return svgWrap(W + PAD * 2, H + PAD,
-            `<polygon points="${A[0]},${A[1]} ${B[0]},${B[1]} ${C[0]},${C[1]}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}"/>`
-            + label((A[0] + B[0]) / 2, A[1] + 16, `${c}${unit}`)
-            + label((A[0] + C[0]) / 2 - 12, (A[1] + C[1]) / 2, `${a}${unit}`, { anchor: 'end' })
-            + label((B[0] + C[0]) / 2 + 12, (B[1] + C[1]) / 2, `${b}${unit}`, { anchor: 'start' }));
+        const cosA = (b * b + c * c - a * a) / (2 * b * c);
+        const ax = b * Math.max(-1, Math.min(1, cosA)), ay = b * Math.sqrt(Math.max(0, 1 - cosA * cosA));
+        const minX = Math.min(0, ax), maxX = Math.max(c, ax), sc = fitScale(Math.max(maxX - minX, ay), 200, 4, 40);
+        const M = 46, H = ay * sc;
+        const P = (x: number, y: number): [number, number] => [M + (x - minX) * sc, M + H - y * sc];
+        const A = P(0, 0), B = P(c, 0), C = P(ax, ay);
+        const W = (maxX - minX) * sc + M * 2, Ht = H + M * 2;
+        return svgWrap(W, Ht,
+            `<polygon points="${A[0]},${A[1]} ${B[0]},${B[1]} ${C[0]},${C[1]}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}" stroke-linejoin="round"/>`
+            + label((A[0] + B[0]) / 2, A[1] + 18, `${c} ${unit}`)
+            + label((A[0] + C[0]) / 2 - 10, (A[1] + C[1]) / 2, `${b} ${unit}`, { anchor: 'end' })
+            + label((B[0] + C[0]) / 2 + 10, (B[1] + C[1]) / 2, `${a} ${unit}`, { anchor: 'start' }), { maxW: Math.min(W, 380) });
     }
     const base = spec.base || 8, height = spec.height || 5;
     const s = fitScale(Math.max(base, height), 180);
@@ -144,11 +149,11 @@ export function box3dSVG(length: number, width: number, height: number, opts: Sh
     const s = fitScale(Math.max(length, width, height), 130, 8, 26);
     const L = length * s, H = height * s, D = width * s * 0.6; // chiều sâu chiếu xiên
     const dx = D * 0.85, dy = -D * 0.5;
-    const x0 = PAD, y0 = PAD - dy; // chừa chỗ cho mặt trên
+    const LM = 64, x0 = PAD + LM, y0 = PAD - dy; // chừa chỗ cho mặt trên + nhãn bên trái
     const F = `${x0},${y0} ${x0 + L},${y0} ${x0 + L},${y0 + H} ${x0},${y0 + H}`;        // mặt trước
     const top = `${x0},${y0} ${x0 + dx},${y0 + dy} ${x0 + L + dx},${y0 + dy} ${x0 + L},${y0}`;
     const side = `${x0 + L},${y0} ${x0 + L + dx},${y0 + dy} ${x0 + L + dx},${y0 + dy + H} ${x0 + L},${y0 + H}`;
-    const vbW = L + dx + PAD * 2, vbH = H - dy + PAD * 2;
+    const vbW = L + dx + PAD * 2 + LM + 70, vbH = H - dy + PAD * 2 + 10;
     return svgWrap(vbW, vbH,
         `<polygon points="${top}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="2"/>`
         + `<polygon points="${side}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="2" opacity="0.75"/>`
@@ -163,21 +168,40 @@ export function cubeSVG(edge: number, opts: ShapeOpts = {}): string {
     return box3dSVG(edge, edge, edge, { color: 'purple', ...opts });
 }
 
-/** Góc `deg` độ (0–180): hai tia + cung + nhãn số đo. */
-export function angleSVG(deg: number, opts: { color?: ColorKey } = {}): string {
-    const { color = 'blue' } = opts;
-    const cx = PAD + 20, cy = PAD + 150, r = 150, arcR = 46;
-    const [x2, y2] = polar(cx, cy, r, 90 + deg); // tia thứ 2 quay từ phương ngang
+/** Góc quay lên trên từ tia ngang; không in số đo khi đề yêu cầu học sinh đọc góc. */
+export function angleSVG(deg: number, opts: { color?: ColorKey; showDegree?: boolean } = {}): string {
+    const { color = 'blue', showDegree = false } = opts;
+    const cx = 180, cy = 180, r = 140, arcR = 46;
+    const [x2, y2] = polar(cx, cy, r, 90 - deg);
     const [ax, ay] = [cx + r, cy];
     const [arc1x, arc1y] = [cx + arcR, cy];
-    const [arc2x, arc2y] = polar(cx, cy, arcR, 90 + deg);
+    const [arc2x, arc2y] = polar(cx, cy, arcR, 90 - deg);
     const large = deg > 180 ? 1 : 0;
-    return svgWrap(r + PAD * 2, 180 + PAD,
+    return svgWrap(360, 220,
         `<line x1="${cx}" y1="${cy}" x2="${ax}" y2="${ay}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}" stroke-linecap="round"/>`
         + `<line x1="${cx}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}" stroke-linecap="round"/>`
         + `<path d="M ${arc1x} ${arc1y} A ${arcR} ${arcR} 0 ${large} 0 ${arc2x.toFixed(1)} ${arc2y.toFixed(1)}" fill="none" stroke="${PALETTE.accent}" stroke-width="2"/>`
         + `<circle cx="${cx}" cy="${cy}" r="4" fill="${PALETTE.ink}"/>`
-        + label(cx + 64, cy - 26, `${deg}°`, { color: PALETTE.accent, size: 17 }));
+        + (showDegree ? label(cx + 64 * Math.cos(deg * Math.PI / 360), cy - 64 * Math.sin(deg * Math.PI / 360), `${deg}°`, { color: PALETTE.accent, size: 17 }) : ''));
+}
+
+/** Sơ đồ đoạn thẳng. Giá trị chỉ quyết định tỉ lệ; nhãn ? không tiết lộ đáp số. */
+export function segmentDiagramSVG(rows: { label: string; parts: number[]; labels: string[] }[], caption = ''): string {
+    const max = Math.max(1, ...rows.map(row => row.parts.reduce((a, b) => a + b, 0)));
+    let body = '';
+    rows.forEach((row, i) => {
+        const y = 38 + i * 62;
+        body += label(90, y + 6, row.label, { size: 14, anchor: 'end' });
+        let x = 104;
+        row.parts.forEach((part, k) => {
+            const w = part / max * 260;
+            body += `<line x1="${x}" y1="${y}" x2="${x + w}" y2="${y}" stroke="${PALETTE.blueStroke}" stroke-width="3"/>`;
+            for (const at of [x, x + w]) body += `<line x1="${at}" y1="${y - 6}" x2="${at}" y2="${y + 6}" stroke="${PALETTE.blueStroke}" stroke-width="2"/>`;
+            body += label(x + w / 2, y - 12, row.labels[k] ?? '?', { size: 14 }); x += w;
+        });
+    });
+    if (caption) body += label(210, rows.length * 62 + 25, caption, { size: 15 });
+    return svgWrap(400, rows.length * 62 + 48, body, { shadow: false, maxW: 440 });
 }
 
 // ---------------------------------------------------------------------------
@@ -384,3 +408,12 @@ export function shapesGridSVG(kind: 'square' | 'rectangle' | 'circle' | 'triangl
     }
     return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 340) });
 }
+
+// Hình Mầm non / Lớp 1 (Ôn Luyện 2026-10)
+export * from './kids';
+
+// Hình Lớp 2–3 (Ôn Luyện 2026-10)
+export * from './grade2';
+
+// Hình Lớp 3–4 (Ôn Luyện 2026-10)
+export * from './grade3';

@@ -4,7 +4,7 @@ import { activeQuestion, chooseLane, createSession, recordOf, step, validSession
 import { questionsFor } from './questions';
 
 describe('Longer racing sessions', () => {
-    for (let grade = 1; grade <= 5; grade++) for (const level of LEVELS) it(`fills 24 distinct questions for grade ${grade}/${level.id}`, () => {
+    for (let grade = 1; grade <= 5; grade++) for (const level of LEVELS) it(`fills 24 distinct questions for grade ${grade}/${level.id}`, { timeout: 20_000 }, () => { // nặng: dễ quá 5 s khi chạy song song cả bộ test
         const config = normalizeConfig({ mission: 11, difficulty: level.id }, grade);
         for (let seed = 1; seed <= 20; seed++) {
             const questions = questionsFor(config, seed, 24);

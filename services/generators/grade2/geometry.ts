@@ -1,151 +1,56 @@
-import { Question, QuestionType } from '../../../types';
+// Lớp 2 — Hình học (g2_geometry_basic): điểm, đoạn thẳng, đường thẳng, đường cong, ba điểm thẳng hàng;
+// đường gấp khúc và độ dài; hình tứ giác; khối trụ, khối cầu.
+import { tpl, fromTemplates, single, choices, rint, pickOne, shuffle } from '../kit';
+import { around } from '../wrongs';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const NAMES = ['AB', 'MN', 'CD', 'PQ', 'EG', 'HK'];
+const NAMES3 = ['ABC', 'MNP', 'DEG', 'HIK', 'OPQ', 'XYZ'];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g2.points_lines', 1, () => {
+        const kind = pickOne(['segment', 'line', 'curve'] as const), nm = pickOne(NAMES);
+        const LINE_NAME = { segment: `Đoạn thẳng ${nm}`, line: `Đường thẳng ${nm}`, curve: 'Đường cong' };
+        return choices({ q: 'Hình vẽ là gì?', speech: 'Hình vẽ là gì: đoạn thẳng, đường thẳng hay đường cong?', visual: { fn: 'linesSVG', args: [kind, nm] },
+            options: Object.values(LINE_NAME), correct: LINE_NAME[kind],
+            explanation: kind === 'segment' ? `Đoạn thẳng ${nm} có hai đầu là hai điểm ${nm[0]} và ${nm[1]}.` : kind === 'line' ? `Đường thẳng ${nm} kéo dài mãi về hai phía, không có điểm đầu, điểm cuối.` : 'Đường cong không thẳng, bị uốn cong.' });
+    }),
+    tpl('g2.points_lines', 2, () => {
+        const yes = rint(0, 1) === 1, nm = pickOne(NAMES3), list = nm.split('').join(', ');
+        return choices({ q: `Ba điểm ${list} có thẳng hàng không?`, speech: `Ba điểm ${list} có thẳng hàng không?`, visual: { fn: 'linesSVG', args: [yes ? 'collinear' : 'notCollinear', nm] },
+            options: ['Thẳng hàng', 'Không thẳng hàng'], correct: yes ? 'Thẳng hàng' : 'Không thẳng hàng',
+            explanation: yes ? 'Ba điểm cùng nằm trên một đường thẳng nên thẳng hàng.' : 'Không kẻ được một đường thẳng đi qua cả ba điểm nên chúng không thẳng hàng.', hint: 'Đặt thước thử: thước có đi qua cả ba điểm không?' });
+    }),
+    tpl('g2.polyline', 1, () => {
+        const n = rint(2, 4), ls = Array.from({ length: n }, () => rint(2, 9)), total = ls.reduce((s, x) => s + x, 0);
+        return single({ q: `Tính độ dài đường gấp khúc ${'ABCDE'.slice(0, n + 1)}.`, speech: `Tính độ dài đường gấp khúc ${'ABCDE'.slice(0, n + 1).split('').join(' ')}.`,
+            visual: { fn: 'polylineSVG', args: [ls] }, correct: total, wrong: [total - ls[0], total + ls[n - 1], ...around(total, { min: 1, max: 50 })], format: x => `${x} cm`, min: 1, max: 50,
+            explanation: `Độ dài đường gấp khúc là tổng độ dài các đoạn: ${ls.join(' + ')} = ${total} (cm).`, hint: 'Cộng độ dài tất cả các đoạn thẳng.' });
+    }),
+    tpl('g2.polyline', 2, () => {
+        const n = rint(2, 3), ls = Array.from({ length: n }, () => rint(2, 9));
+        return single({ q: `Đường gấp khúc ${'ABCD'.slice(0, n + 1)} có mấy đoạn thẳng?`, speech: `Đường gấp khúc ${'ABCD'.slice(0, n + 1).split('').join(' ')} có mấy đoạn thẳng?`, visual: { fn: 'polylineSVG', args: [ls] },
+            correct: n, wrong: [n + 1, n - 1, n + 2], min: 1, max: 6, explanation: `Các đoạn thẳng: ${Array.from({ length: n }, (_, i) => 'ABCD'[i] + 'ABCD'[i + 1]).join(', ')} — có ${n} đoạn.` });
+    }, { noRankCheck: true }),
+    tpl('g2.quadrilateral', 1, () => {
+        const items = shuffle(['quad', 'triangle', 'pentagon', 'circle'] as const);
+        return single({ q: 'Hình số mấy là hình tứ giác?', speech: 'Hình số mấy là hình tứ giác?', visual: { fn: 'polygonsRowSVG', args: [items] },
+            correct: items.indexOf('quad') + 1, wrong: [1, 2, 3, 4], keepOrder: true, explanation: 'Hình tứ giác có 4 cạnh và 4 đỉnh.' });
+    }, { noRankCheck: true }),
+    tpl('g2.quadrilateral', 2, () => {
+        const items = shuffle(['quad', 'square', 'rect', 'triangle', 'pentagon'] as const).slice(0, 4);
+        const n = items.filter(k => k === 'quad' || k === 'square' || k === 'rect').length;
+        return single({ q: 'Có bao nhiêu hình tứ giác?', speech: 'Trong các hình được đánh số, có bao nhiêu hình tứ giác?', visual: { fn: 'polygonsRowSVG', args: [items] },
+            correct: n, wrong: [1, 2, 3, 4, 0], min: 0, max: 4, explanation: 'Hình vuông, hình chữ nhật cũng là hình tứ giác vì có 4 cạnh.', hint: 'Đếm các hình có đúng 4 cạnh.' });
+    }, { noRankCheck: true }),
+    tpl('g2.shapes3d', 1, () => {
+        const items = [['cylinder', 'Khối trụ', '🥫', 'Lon sữa'], ['sphere', 'Khối cầu', '⚽', 'Quả bóng'], ['cylinder', 'Khối trụ', '🥁', 'Cái trống'], ['sphere', 'Khối cầu', '🌍', 'Quả địa cầu'], ['cube', 'Khối lập phương', '🎲', 'Con xúc xắc'], ['box', 'Khối hộp chữ nhật', '📦', 'Thùng giấy'], ['cylinder', 'Khối trụ', '🕯️', 'Cây nến'], ['sphere', 'Khối cầu', '🍊', 'Quả cam'], ['box', 'Khối hộp chữ nhật', '🧱', 'Viên gạch'], ['cylinder', 'Khối trụ', '🧻', 'Cuộn giấy'], ['sphere', 'Khối cầu', '🏀', 'Quả bóng rổ']] as const;
+        const [kind, name, e, obj] = pickOne(items), showObj = rint(0, 1) === 1;
+        return choices({ q: showObj ? `${obj} có dạng khối gì?` : 'Đây là khối gì?', speech: showObj ? `${obj} có dạng khối gì?` : 'Đây là khối gì?',
+            visual: showObj ? { fn: 'bigEmojiSVG', args: [e] } : { fn: 'solidSVG', args: [kind, 'orange'] },
+            options: ['Khối trụ', 'Khối cầu', 'Khối lập phương', 'Khối hộp chữ nhật'], shuffle: true, correct: name,
+            explanation: kind === 'cylinder' ? 'Khối trụ có hai mặt đáy là hình tròn.' : kind === 'sphere' ? 'Khối cầu tròn đều, lăn được mọi phía.' : kind === 'cube' ? 'Khối lập phương có 6 mặt là hình vuông.' : 'Khối hộp chữ nhật có các mặt là hình chữ nhật.' });
+    }),
+];
 
-// --- SVG Helpers ---
-
-const createShape2DSVG = (shape: 'square' | 'rect' | 'circle' | 'triangle') => {
-    const w = 200;
-    const h = 200;
-    const cx = 100;
-    const cy = 100;
-    const color = "#fcd34d"; // Amber 300
-    const stroke = "#d97706"; // Amber 600
-
-    let content = '';
-
-    switch (shape) {
-        case 'square':
-            content = `<rect x="50" y="50" width="100" height="100" fill="${color}" stroke="${stroke}" stroke-width="3" />`;
-            break;
-        case 'rect':
-            content = `<rect x="30" y="60" width="140" height="80" fill="${color}" stroke="${stroke}" stroke-width="3" />`;
-            break;
-        case 'circle':
-            content = `<circle cx="${cx}" cy="${cy}" r="60" fill="${color}" stroke="${stroke}" stroke-width="3" />`;
-            break;
-        case 'triangle':
-            content = `<polygon points="100,40 40,160 160,160" fill="${color}" stroke="${stroke}" stroke-width="3" />`;
-            break;
-    }
-
-    return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${content}</svg>`;
-};
-
-const createShape3DSVG = (shape: 'cube' | 'cylinder' | 'sphere' | 'box') => {
-    const w = 200;
-    const h = 200;
-    const color = "#bfdbfe"; // Blue 200
-    const stroke = "#2563eb"; // Blue 600
-
-    let content = '';
-
-    switch (shape) {
-        case 'cube':
-            // Front face
-            content += `<rect x="60" y="80" width="60" height="60" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            // Top face
-            content += `<path d="M 60 80 L 90 50 L 150 50 L 120 80 Z" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            // Side face
-            content += `<path d="M 120 80 L 150 50 L 150 110 L 120 140 Z" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            break;
-        case 'box': // Rectangular Prism
-            content += `<rect x="50" y="80" width="80" height="50" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            content += `<path d="M 50 80 L 80 50 L 160 50 L 130 80 Z" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            content += `<path d="M 130 80 L 160 50 L 160 100 L 130 130 Z" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            break;
-        case 'cylinder':
-            // Top ellipse
-            content += `<ellipse cx="100" cy="60" rx="40" ry="15" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            // Body
-            content += `<path d="M 60 60 L 60 140 A 40 15 0 0 0 140 140 L 140 60" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            // Bottom curve (dashed hidden?) No, just solid for simple view
-            break;
-        case 'sphere':
-            content += `<circle cx="100" cy="100" r="60" fill="${color}" stroke="${stroke}" stroke-width="2" />`;
-            // Shine/Curve
-            content += `<path d="M 60 80 Q 100 140 140 80" fill="none" stroke="${stroke}" stroke-width="1" stroke-dasharray="4" />`;
-            break;
-    }
-
-    return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${content}</svg>`;
-};
-
-// --- Generators ---
-
-export const generateG2Geometry = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Identify 2D Shapes - 40%
-    if (type < 0.4) {
-        const shapes = [
-            { id: 'square', name: 'Hình vuông' },
-            { id: 'rect', name: 'Hình chữ nhật' },
-            { id: 'circle', name: 'Hình tròn' },
-            { id: 'triangle', name: 'Hình tam giác' }
-        ] as const;
-
-        const target = shapes[randomInt(0, 3)];
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình bên dưới là hình gì?`,
-            visualSvg: createShape2DSVG(target.id),
-            correctAnswer: target.name,
-            options: shuffleArray(shapes.map(s => s.name)),
-            explanation: `Quan sát đặc điểm của hình (số cạnh, góc, đường cong).`
-        };
-    }
-
-    // 2. Identify 3D Shapes - 40%
-    else if (type < 0.8) {
-        const shapes = [
-            { id: 'cube', name: 'Khối lập phương' },
-            { id: 'box', name: 'Khối hộp chữ nhật' },
-            { id: 'cylinder', name: 'Khối trụ' },
-            { id: 'sphere', name: 'Khối cầu' }
-        ] as const;
-
-        const target = shapes[randomInt(0, 3)];
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình bên dưới là khối gì?`,
-            visualSvg: createShape3DSVG(target.id),
-            correctAnswer: target.name,
-            options: shuffleArray(shapes.map(s => s.name)),
-            explanation: `Quan sát hình dạng 3 chiều của vật thể.`
-        };
-    }
-
-    // 3. Counting Shapes (Simple) - 20%
-    else {
-        // Draw multiple shapes? For now, let's stick to a simple word problem or simple composite?
-        // Let's do a simple "How many vertices/sides" question for 2D.
-        const shapes = [
-            { name: 'Hình tam giác', sides: 3, vertices: 3 },
-            { name: 'Hình vuông', sides: 4, vertices: 4 },
-            { name: 'Hình chữ nhật', sides: 4, vertices: 4 },
-            { name: 'Hình tròn', sides: 0, vertices: 0 }
-        ];
-        const target = shapes[randomInt(0, 3)];
-        const isSides = Math.random() > 0.5;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${target.name} có bao nhiêu ${isSides ? 'cạnh' : 'đỉnh'}?`,
-            correctAnswer: (isSides ? target.sides : target.vertices).toString(),
-            options: shuffleArray(['0', '3', '4', '5']),
-            explanation: `${target.name} có ${isSides ? target.sides : target.vertices} ${isSides ? 'cạnh' : 'đỉnh'}.`
-        };
-    }
-};
+export const generateG2Geometry = fromTemplates(templates);

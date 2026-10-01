@@ -1,82 +1,42 @@
-import { Question, QuestionType } from '../../../types';
-import { moneySVG } from '../svg';
+// Lớp 2 — Tiền Việt Nam (g2_money). SGK Lớp 2: tờ 100, 200, 500, 1000 đồng.
+// Tiền lớn hơn (đến 50 000 đồng) là "Nâng cao".
+import { tpl, fromTemplates, single, rint, pickOne, chance } from '../kit';
+import { around } from '../wrongs';
+import { fmtMoney } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
-const dong = (n: number) => `${n.toLocaleString('vi-VN')} đồng`;
+const SMALL = [100, 200, 500, 1000];
+const BIG = [1000, 2000, 5000, 10000, 20000, 50000];
+const ITEMS = ['cái kẹo', 'quyển vở', 'cái bút chì', 'cục tẩy', 'cái bánh'];
 
-const wrongMoney = (ans: number, stepBase: number): string[] => {
-    const set = new Set<number>();
-    const step = Math.max(1000, stepBase);
-    while (set.size < 3) { const v = ans + randomInt(-3, 3) * step; if (v > 0 && v !== ans) set.add(v); }
-    return Array.from(set).map(dong);
-};
+export const templates: Template[] = [
+    tpl('g2.money', 1, () => {
+        let notes: number[]; do { notes = Array.from({ length: rint(2, 4) }, () => pickOne([100, 200, 500])).sort((a, b) => b - a); } while (notes.reduce((s, x) => s + x, 0) > 1000);
+        const total = notes.reduce((s, x) => s + x, 0);
+        return single({ q: 'Có tất cả bao nhiêu tiền?', speech: 'Cộng giá trị các tờ tiền. Có tất cả bao nhiêu tiền?', visual: { fn: 'notesSVG', args: [notes] },
+            correct: total, wrong: around(total, { step: 100, min: 100, max: 1000 }), format: fmtMoney, min: 100, max: 1000,
+            explanation: `${notes.map(fmtMoney).join(' + ')} = ${fmtMoney(total)}.`, hint: 'Cộng từ tờ có giá trị lớn nhất.' });
+    }),
+    tpl('g2.money', 1, () => {
+        const pair = pickOne([[1000, 500], [1000, 200], [1000, 100], [500, 100], [200, 100]] as const), n = pair[0] / pair[1];
+        return single({ q: `Tờ ${fmtMoney(pair[0])} đổi được mấy tờ ${fmtMoney(pair[1])}?`, speech: `Tờ ${pair[0]} đồng đổi được mấy tờ ${pair[1]} đồng?`, correct: n, wrong: around(n, { min: 1, max: 12 }), format: x => `${x} tờ`, min: 1, max: 12,
+            explanation: `${fmtMoney(pair[0])} = ${Array(n).fill(fmtMoney(pair[1])).join(' + ')}, nên đổi được ${n} tờ.` });
+    }),
+    tpl('g2.money', 2, () => {
+        const price = pickOne([200, 300, 400, 500, 600, 700, 800]), pay = 1000, item = pickOne(ITEMS);
+        if (chance(0.5)) return single({ q: `Em mua một ${item} giá ${fmtMoney(price)} và đưa cô bán hàng tờ ${fmtMoney(pay)}. Cô bán hàng trả lại em bao nhiêu tiền?`, speech: `Em mua một ${item} giá ${price} đồng, đưa tờ ${pay} đồng. Cô bán hàng trả lại em bao nhiêu tiền?`,
+            correct: pay - price, wrong: around(pay - price, { step: 100, min: 100, max: 900 }), format: fmtMoney, min: 100, max: 900,
+            explanation: `Tiền trả lại = tiền đưa - giá: ${pay} - ${price} = ${pay - price} (đồng).` });
+        const a = pickOne([100, 200, 300]), b = pickOne([200, 300, 500]);
+        return single({ q: `Một ${item} giá ${fmtMoney(a)}, một ${pickOne(ITEMS.filter(x => x !== item))} giá ${fmtMoney(b)}. Mua cả hai thứ hết bao nhiêu tiền?`, speech: `Một thứ giá ${a} đồng, một thứ giá ${b} đồng. Mua cả hai hết bao nhiêu tiền?`,
+            correct: a + b, wrong: around(a + b, { step: 100, min: 100, max: 1000 }), format: fmtMoney, min: 100, max: 1000, explanation: `${a} + ${b} = ${a + b} (đồng).` });
+    }),
+    tpl('g2.money_big', 2, () => {
+        const notes = Array.from({ length: rint(2, 4) }, () => pickOne(BIG)).sort((a, b) => b - a), total = notes.reduce((s, x) => s + x, 0);
+        return single({ q: 'Có tất cả bao nhiêu tiền?', speech: 'Cộng giá trị các tờ tiền. Có tất cả bao nhiêu tiền?', visual: { fn: 'notesSVG', args: [notes] },
+            correct: total, wrong: around(total, { step: 1000, min: 1000, max: 200000 }), format: fmtMoney, min: 1000, max: 200000,
+            explanation: `${notes.map(fmtMoney).join(' + ')} = ${fmtMoney(total)}.` });
+    }),
+];
 
-/**
- * Lớp 2 — Tiền Việt Nam: nhận biết & cộng mệnh giá, tiền thối, đổi tiền, mua bán.
- * (Chuẩn GDPT 2018: làm quen tiền Việt Nam.)
- */
-export const generateG2Money = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
-
-    // 1. Đếm tổng số tiền từ các tờ tiền (30%)
-    if (r < 0.3) {
-        const notes = Array.from({ length: randomInt(2, 4) }, () => pick([1000, 2000, 5000, 10000]));
-        const total = notes.reduce((s, n) => s + n, 0);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Bạn Na có các tờ tiền dưới đây. Hỏi bạn Na có tất cả bao nhiêu tiền?`,
-            visualSvg: moneySVG(total),
-            correctAnswer: dong(total),
-            options: shuffleArray([dong(total), ...wrongMoney(total, 1000)]),
-            explanation: `Cộng giá trị các tờ tiền lại được ${dong(total)}.`,
-        };
-    }
-
-    // 2. Tiền thối lại (25%)
-    if (r < 0.55) {
-        const price = randomInt(2, 18) * 1000;
-        const paid = (Math.floor(price / 10000) + 1) * 10000;
-        const change = paid - price;
-        const item = pick(['quyển vở', 'cái bút', 'hộp sữa', 'ổ bánh mì', 'cây kẹo mút']);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Mua một ${item} giá ${dong(price)}, đưa tờ ${dong(paid)}. Người bán thối lại bao nhiêu?`,
-            correctAnswer: dong(change),
-            options: shuffleArray([dong(change), ...wrongMoney(change, 1000)]),
-            explanation: `Tiền thối = ${dong(paid)} − ${dong(price)} = ${dong(change)}.`,
-        };
-    }
-
-    // 3. Đổi tiền (20%)
-    if (r < 0.75) {
-        const big = pick([10000, 20000, 50000]);
-        const small = pick([1000, 2000, 5000].filter(s => big % s === 0));
-        const count = big / small;
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Một tờ ${dong(big)} đổi được mấy tờ ${dong(small)}?`,
-            correctAnswer: `${count} tờ`,
-            options: shuffleArray([`${count} tờ`, `${count + 1} tờ`, `${Math.max(1, count - 1)} tờ`, `${count + 2} tờ`].filter((v, i, a) => a.indexOf(v) === i).slice(0, 4)),
-            explanation: `${big.toLocaleString('vi-VN')} : ${small.toLocaleString('vi-VN')} = ${count} (tờ).`,
-        };
-    }
-
-    // 4. Đủ tiền mua không / còn dư (25%)
-    const have = randomInt(2, 5) * 10000;
-    const price = randomInt(1, have / 1000 - 1) * 1000;
-    const left = have - price;
-    const item = pick(['hộp bút màu', 'quyển truyện', 'chai nước', 'gói bánh']);
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Em có ${dong(have)}, mua một ${item} giá ${dong(price)}. Em còn lại bao nhiêu tiền?`,
-        correctAnswer: dong(left),
-        options: shuffleArray([dong(left), ...wrongMoney(left, 1000)]),
-        explanation: `Còn lại = ${dong(have)} − ${dong(price)} = ${dong(left)}.`,
-    };
-};
+export const generateG2Money = fromTemplates(templates);

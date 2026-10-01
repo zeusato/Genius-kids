@@ -1,22 +1,10 @@
-import { Question, QuestionType } from '../../../types';
-import { generateWrongAnswersWithSameUnits } from '../../mathEngine';
+// Lớp 4 — Hình bình hành, hình thoi & diện tích (g4_geometry_2d): nhận biết hình bình hành, hình thoi;
+// chu vi, diện tích hình chữ nhật, hình vuông, hình ghép. (Diện tích hình bình hành/thoi: topic Nâng cao.)
+// Giữ createRectSVG / createSquareSVG / createCompositeSVG: mathEngine dùng cho câu hỏi AI.
+import { tpl, fromTemplates, single, choices, yesNo, rint, pickOne, chance, shuffle } from '../kit';
 import { rectSVG, squareSVG } from '../svg';
+import type { Template } from '../../study/types';
 
-// --- Utility Functions (Duplicated for now, should be shared utils later) ---
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// Using generateWrongAnswersWithSameUnits from mathEngine
-
-// --- SVG Helpers ---
 
 // Dùng BỘ SVG DÙNG CHUNG (tỉ lệ đúng, nhãn rõ). Giữ chữ ký cũ cho mathEngine.
 export const createRectSVG = (w: number, h: number, _labelW?: string, _labelH?: string) => rectSVG(w, h, { color: 'yellow' });
@@ -77,171 +65,44 @@ export const createCompositeSVG = (hA: number, wA: number, hB: number, wB: numbe
     `;
 };
 
-// --- Generators ---
+const m = (x: number) => `${x} m`, m2 = (x: number) => `${x} m²`, cm2 = (x: number) => `${x} cm²`;
+const FACTS: [string, boolean][] = [
+    ['Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau.', true], ['Hình thoi có bốn cạnh bằng nhau.', true],
+    ['Hình thoi có hai cặp cạnh đối diện song song.', true], ['Hình bình hành có bốn góc vuông.', false],
+    ['Hình thoi có hai đường chéo vuông góc với nhau.', true], ['Hình bình hành có bốn cạnh luôn bằng nhau.', false],
+    ['Hình chữ nhật cũng là hình bình hành.', true], ['Hình thoi chỉ có một cặp cạnh song song.', false],
+];
 
-export const generateGeometryG4 = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
+export const templates: Template[] = [
+    tpl('g4.para_rhombus_id', 1, () => {
+        // Hình thang thuộc lớp 5. Hình thoi, hình chữ nhật cũng là hình bình hành → khi đó không đưa "Hình bình hành" làm lựa chọn.
+        const kind = pickOne(['para', 'rhombus', 'rect'] as const);
+        const name = { para: 'Hình bình hành', rhombus: 'Hình thoi', rect: 'Hình chữ nhật' }[kind];
+        const visual = kind === 'para' ? { fn: 'parallelogramSVG', args: [rint(6, 10), rint(3, 5), { unit: '' }] } : kind === 'rhombus' ? { fn: 'rhombusSVG', args: [rint(7, 10), rint(4, 6), { unit: '' }] } : { fn: 'rectSVG', args: [rint(6, 10), rint(3, 5), { unit: '' }] };
+        const options = kind === 'para' ? ['Hình bình hành', 'Hình thoi', 'Hình chữ nhật', 'Hình vuông'] : ['Hình thoi', 'Hình chữ nhật', 'Hình vuông', 'Hình tam giác'];
+        return choices({ q: 'Hình vẽ là hình gì?', visual, options: shuffle(options), correct: name,
+            explanation: { para: 'Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau, nhưng không có góc vuông và bốn cạnh không bằng nhau.', rhombus: 'Hình thoi có bốn cạnh bằng nhau, hai cặp cạnh đối song song.', rect: 'Hình chữ nhật có bốn góc vuông.' }[kind] });
+    }),
+    tpl('g4.para_rhombus_id', 2, () => {
+        const [s, t] = pickOne(FACTS);
+        return yesNo({ q: `Đúng hay sai: ${s}`, yes: t, explanation: t ? `Đúng. ${s}` : 'Sai. Hình bình hành: hai cặp cạnh đối song song và bằng nhau; hình thoi: bốn cạnh bằng nhau, hai cặp cạnh đối song song.' });
+    }),
+    tpl('g4.rect_word', 2, () => {
+        if (chance(0.5)) { const a = rint(5, 40); return single({ q: `Một mảnh đất hình vuông có cạnh ${a} m. Tính diện tích mảnh đất.`, visual: { fn: 'squareSVG', args: [a, { unit: 'm' }] }, correct: a * a, wrong: [4 * a === a * a ? 2 * a : 4 * a, a * 2, a * a + a, a * a - a], format: m2, min: 1, explanation: `Diện tích hình vuông = cạnh × cạnh = ${a} × ${a} = ${a * a} (m²).` }); }
+        const w = rint(4, 20), l = w + rint(3, 25), P = 2 * (l + w);
+        return single({ q: `Một hình chữ nhật có chu vi ${P} m, chiều rộng ${w} m. Tính chiều dài.`, correct: l, wrong: [P / 2, P - w, l + w, P / 2 + w], format: m, min: 1,
+            explanation: `Nửa chu vi: ${P} : 2 = ${P / 2} (m). Chiều dài: ${P / 2} - ${w} = ${l} (m).`, steps: [`Nửa chu vi: ${P} : 2 = ${P / 2} (m)`, `Chiều dài: ${P / 2} - ${w} = ${l} (m)`], hint: 'Chiều dài + chiều rộng = nửa chu vi.' });
+    }),
+    tpl('g4.rect_word', 3, () => {
+        const hA = rint(6, 10), wA = rint(3, 6), hB = rint(2, hA - 2), wB = rint(3, 7), S = hA * wA + hB * wB;
+        if (chance(0.5)) return single({ q: `Hình bên được ghép từ hai hình chữ nhật: hình lớn cao ${hA} cm, rộng ${wA} cm; hình nhỏ cao ${hB} cm, rộng ${wB} cm. Tính diện tích cả hình.`, visualSvg: createCompositeSVG(hA, wA, hB, wB),
+            correct: S, wrong: [hA * wA, (hA + hB) * (wA + wB), hA * (wA + wB), S + wB], format: cm2, min: 1,
+            explanation: `${hA} × ${wA} = ${hA * wA} (cm²); ${hB} × ${wB} = ${hB * wB} (cm²). Cả hình: ${hA * wA} + ${hB * wB} = ${S} (cm²).`,
+            steps: [`Diện tích hình lớn: ${hA} × ${wA} = ${hA * wA} (cm²)`, `Diện tích hình nhỏ: ${hB} × ${wB} = ${hB * wB} (cm²)`, `Cả hình: ${hA * wA} + ${hB * wB} = ${S} (cm²)`], hint: 'Chia hình thành hai hình chữ nhật rồi cộng diện tích.' });
+        const w = rint(5, 20), l = w * rint(2, 3);
+        return single({ q: `Một thửa ruộng hình chữ nhật dài ${l} m, rộng ${w} m. Cứ 1 m² thu được 2 kg thóc. Hỏi cả thửa ruộng thu được bao nhiêu ki-lô-gam thóc?`, correct: l * w * 2, wrong: [l * w, 2 * (l + w) * 2, l * w * 2 + w, (l + w) * 2], format: x => `${x} kg`, min: 1,
+            explanation: `Diện tích: ${l} × ${w} = ${l * w} (m²). Số thóc: ${l * w} × 2 = ${l * w * 2} (kg).`, steps: [`Diện tích: ${l} × ${w} = ${l * w} (m²)`, `Số thóc: ${l * w} × 2 = ${l * w * 2} (kg)`] });
+    }),
+];
 
-    // 1. Basic Rectangle/Square (Forward) - 30%
-    if (type < 0.3) {
-        const isSquare = Math.random() > 0.5;
-        const isArea = Math.random() > 0.5;
-
-        if (isSquare) {
-            const side = randomInt(5, 20);
-            const ans = isArea ? side * side : side * 4;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Một hình vuông có cạnh ${side}m. ${isArea ? 'Diện tích' : 'Chu vi'} hình đó là bao nhiêu?`,
-                visualSvg: createSquareSVG(side, `${side}m`),
-                correctAnswer: ans.toString(),
-                options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 20).map(String)]),
-                explanation: isArea ? `Diện tích = Cạnh x Cạnh (${side} x ${side})` : `Chu vi = Cạnh x 4 (${side} x 4)`
-            };
-        } else {
-            const w = randomInt(5, 15);
-            const h = randomInt(w + 2, 25);
-            const ans = isArea ? w * h : (w + h) * 2;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Một hình chữ nhật có chiều dài ${h}m và chiều rộng ${w}m. ${isArea ? 'Diện tích' : 'Chu vi'} là?`,
-                visualSvg: createRectSVG(h, w, `${h}m`, `${w}m`),
-                correctAnswer: ans.toString(),
-                options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 20).map(String)]),
-                explanation: isArea ? `Diện tích = Dài x Rộng` : `Chu vi = (Dài + Rộng) x 2`
-            };
-        }
-    }
-
-    // 2. Reverse Problems (Missing Side) - 30%
-    else if (type < 0.6) {
-        const isSquare = Math.random() > 0.5;
-
-        if (isSquare) {
-            // Given Perimeter, find Area (Multi-step) or Side
-            const side = randomInt(4, 15);
-            const perimeter = side * 4;
-            const area = side * side;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Một hình vuông có chu vi là ${perimeter}m. Diện tích của hình vuông đó là bao nhiêu?`,
-                correctAnswer: area.toString(),
-                options: shuffleArray([area.toString(), ...generateWrongAnswersWithSameUnits(area, 3, 20).map(String)]),
-                explanation: `Bước 1: Tìm cạnh = Chu vi : 4 = ${perimeter} : 4 = ${side}m.\nBước 2: Diện tích = ${side} x ${side} = ${area}m².`
-            };
-        } else {
-            // Given Area/Perimeter and one side, find other
-            const w = randomInt(4, 12);
-            const h = randomInt(w + 2, 20);
-            const isAreaGiven = Math.random() > 0.5;
-
-            if (isAreaGiven) {
-                const area = w * h;
-                return {
-                    type: QuestionType.SingleChoice,
-                    questionText: `Một hình chữ nhật có diện tích ${area}m², chiều dài ${h}m. Chiều rộng là bao nhiêu?`,
-                    correctAnswer: w.toString(),
-                    options: shuffleArray([w.toString(), ...generateWrongAnswersWithSameUnits(w, 3, 5).map(String)]),
-                    explanation: `Chiều rộng = Diện tích : Chiều dài = ${area} : ${h} = ${w}m.`
-                };
-            } else {
-                const perimeter = (w + h) * 2;
-                return {
-                    type: QuestionType.SingleChoice,
-                    questionText: `Một hình chữ nhật có chu vi ${perimeter}m, chiều rộng ${w}m. Chiều dài là bao nhiêu?`,
-                    correctAnswer: h.toString(),
-                    options: shuffleArray([h.toString(), ...generateWrongAnswersWithSameUnits(h, 3, 5).map(String)]),
-                    explanation: `Bước 1: Nửa chu vi = ${perimeter} : 2 = ${w + h}m.\nBước 2: Chiều dài = Nửa chu vi - Chiều rộng = ${w + h} - ${w} = ${h}m.`
-                };
-            }
-        }
-    }
-
-    // 3. Word Problems (Real world) - 20%
-    else if (type < 0.8) {
-        const isTiling = Math.random() > 0.5;
-
-        if (isTiling) {
-            // Tiling problem
-            // Ensure dimensions in dm are divisible by tileSide AND are multiples of 10 (to be integer in m)
-            // We need (W * 10) % tileSide == 0.
-            // This is easier if we just pick W, H such that they satisfy this.
-            // Or we adjust tileSide to be a divisor of 10 (1, 2, 5) or just ensure the math works.
-            // Simpler: Pick tileSide first. Then pick W_m, H_m such that (W_m * 10) % tileSide == 0.
-
-            // Valid tileSides: 2, 4, 5. (3 is hard for 10*m unless m is multiple of 3)
-            const validTileSides = [2, 4, 5];
-            const tileSide = validTileSides[randomInt(0, validTileSides.length - 1)];
-
-            // Generate W_m such that W_m * 10 is divisible by tileSide
-            // If tileSide = 2, any int W_m works (10 is div by 2)
-            // If tileSide = 5, any int W_m works (10 is div by 5)
-            // If tileSide = 4, 10*W_m = 2*5*W_m. Need W_m to be even.
-
-            let roomW_m = randomInt(3, 8);
-            let roomH_m = randomInt(3, 8);
-
-            if (tileSide === 4) {
-                if (roomW_m % 2 !== 0) roomW_m++;
-                if (roomH_m % 2 !== 0) roomH_m++;
-            }
-
-            // Now we are sure roomW_dm and roomH_dm are divisible by tileSide
-            const finalW_dm = roomW_m * 10;
-            const finalH_dm = roomH_m * 10;
-            const tileArea_dm2 = tileSide * tileSide;
-
-            const count = (finalW_dm * finalH_dm) / tileArea_dm2;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Bác An muốn lát nền một căn phòng hình chữ nhật kích thước ${finalW_dm / 10}m x ${finalH_dm / 10}m bằng các viên gạch hình vuông cạnh ${tileSide}dm. Hỏi bác cần bao nhiêu viên gạch? (Diện tích mạch vữa không đáng kể)`,
-                correctAnswer: count.toString(),
-                options: shuffleArray([count.toString(), ...generateWrongAnswersWithSameUnits(count, 3, 50).map(String)]),
-                explanation: `Diện tích phòng = ${finalW_dm}dm x ${finalH_dm}dm = ${finalW_dm * finalH_dm}dm².\nDiện tích 1 viên gạch = ${tileSide} x ${tileSide} = ${tileArea_dm2}dm².\nSố gạch = ${finalW_dm * finalH_dm} : ${tileArea_dm2} = ${count} viên.`
-            };
-        } else {
-            // Fencing problem
-            const w = randomInt(5, 15);
-            const h = randomInt(10, 25);
-            const gate = randomInt(2, 4);
-            const perimeter = (w + h) * 2;
-            const fence = perimeter - gate;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Một khu vườn hình chữ nhật dài ${h}m, rộng ${w}m. Người ta làm hàng rào xung quanh vườn, có để một cửa ra vào rộng ${gate}m. Tính độ dài hàng rào?`,
-                correctAnswer: fence.toString(),
-                options: shuffleArray([fence.toString(), perimeter.toString(), (perimeter + gate).toString(), (fence - 10).toString()]),
-                explanation: `Chu vi vườn = (${h} + ${w}) x 2 = ${perimeter}m.\nĐộ dài rào = Chu vi - Cửa = ${perimeter} - ${gate} = ${fence}m.`
-            };
-        }
-    }
-
-    // 4. Composite Shapes (Improved) - 20%
-    else {
-        const hA = randomInt(4, 8);
-        const wA = randomInt(3, 6);
-        const hB = randomInt(2, hA - 1);
-        const wB = randomInt(3, 6);
-
-        const isArea = Math.random() > 0.5;
-        const area = (hA * wA) + (hB * wB);
-        const perimeter = (hA * 2) + (wA * 2) + (wB * 2); // Correct for L-shape joined at bottom corner aligned? 
-
-        const ans = isArea ? area : perimeter;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình vẽ bên dưới được tạo bởi hai hình chữ nhật ghép lại. Hình lớn cao ${hA}cm rộng ${wA}cm, hình nhỏ cao ${hB}cm rộng ${wB}cm. Tính ${isArea ? 'diện tích' : 'chu vi'} của toàn bộ hình?`,
-            visualSvg: createCompositeSVG(hA, wA, hB, wB),
-            correctAnswer: ans.toString(),
-            options: shuffleArray([ans.toString(), ...generateWrongAnswersWithSameUnits(ans, 3, 15).map(String)]),
-            explanation: isArea
-                ? `Chia hình thành 2 hình chữ nhật: Hình 1 (${hA}x${wA}) và Hình 2 (${hB}x${wB}).\nTổng diện tích = ${hA * wA} + ${hB * wB} = ${area} cm²`
-                : `Chu vi = Tổng độ dài các cạnh bao quanh hình.\nHoặc dùng mẹo: Chu vi hình này bằng chu vi hình chữ nhật bao quanh (Cao ${hA}, Rộng ${wA + wB}).`
-        };
-    }
-};
-
+export const generateGeometryG4 = fromTemplates(templates);

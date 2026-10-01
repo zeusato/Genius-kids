@@ -2,7 +2,8 @@ import { generatorRandom } from './random';
 const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
 const generateWrongAnswers = (correct: number, count: number, range = 10): string[] => {
     const wrongs = new Set<number>();
-    while (wrongs.size < count) { const value = correct + randomInt(-range, range); if (value !== correct && value >= 0) wrongs.add(value); }
+    for (let i = 0; wrongs.size < count && i < 1000; i++) { const value = correct + randomInt(-range, range); if (value !== correct && value >= 0) wrongs.add(value); }
+    for (let d = 1; wrongs.size < count; d++) wrongs.add(Math.abs(correct) + d); // phòng khi đáp án âm / miền quá hẹp
     return [...wrongs].map(String);
 };
 export const generateWrongAnswersWithSameUnits = (

@@ -16,6 +16,19 @@ const expectValidSvg = (s: string) => {
 };
 
 describe('SVG kit — sinh hình hợp lệ, không NaN', () => {
+    it('góc nằm phía trên tia ngang, giấu số đo; sơ đồ đoạn không lộ giá trị dùng để chia tỉ lệ', () => {
+        for (const deg of [30, 90, 120, 180]) {
+            const s = svg.angleSVG(deg);
+            expect(s).not.toContain(`${deg}°`);
+            const rays = [...s.matchAll(/<line x1="180" y1="180" x2="([\d.]+)" y2="([\d.]+)"/g)];
+            expect(rays).toHaveLength(2);
+            expect(Number(rays[1][2])).toBeLessThanOrEqual(180);
+            expect(svg.angleSVG(deg, { showDegree: true })).toContain(`${deg}°`);
+        }
+        const diagram = svg.segmentDiagramSVG([{ label: 'Số bé', parts: [17], labels: ['?'] }, { label: 'Số lớn', parts: [17, 8], labels: ['?', '8'] }], 'Tổng: 42');
+        expectValidSvg(diagram);
+        expect(diagram).not.toMatch(/>17</);
+    });
     it('hình học theo số đo', () => {
         expectValidSvg(svg.rectSVG(12, 5));
         expectValidSvg(svg.squareSVG(7));

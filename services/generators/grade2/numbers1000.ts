@@ -1,95 +1,53 @@
-import { Question, QuestionType } from '../../../types';
-import { baseTenSVG } from '../svg';
+// Lớp 2 — Các số đến 1000 (g2_numbers_1000): trăm – chục – đơn vị, số tròn trăm, tia số, so sánh, sắp xếp.
+import { tpl, fromTemplates, single, compare, choices, input, order, rint, chance, shuffle, sample } from '../kit';
+import { around, swapDigits, placeError } from '../wrongs';
+import { readNumberVN } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const wrongNums = (ans: number, count = 3): string[] => {
-    const set = new Set<number>();
-    while (set.size < count) { const v = ans + randomInt(-30, 30); if (v >= 0 && v <= 1000 && v !== ans) set.add(v); }
-    return Array.from(set).map(String);
-};
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const parts = (n: number) => [Math.floor(n / 100), Math.floor((n % 100) / 10), n % 10];
 
-/**
- * Lớp 2 — Số đến 1000: cấu tạo (trăm-chục-đơn vị), giá trị vị trí, so sánh,
- * thứ tự, số liền trước/liền sau. (Chuẩn GDPT 2018 lớp 2.)
- */
-export const generateG2Numbers1000 = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
-    const value = randomInt(101, 999);
-    const h = Math.floor(value / 100), t = Math.floor((value % 100) / 10), u = value % 10;
+export const templates: Template[] = [
+    tpl('g2.numbers1000', 1, () => {
+        const n = rint(101, 999), [h, t, u] = parts(n);
+        return single({ q: 'Hình vẽ biểu diễn số nào?', speech: 'Mỗi tấm vuông là một trăm, mỗi thanh là một chục, mỗi ô nhỏ là một đơn vị. Hình vẽ biểu diễn số nào?',
+            visual: { fn: 'placeValueSVG', args: [n] }, correct: n, wrong: [...swapDigits(n), h * 100 + u * 10 + t, ...placeError(n).slice(2)], min: 100, max: 999,
+            explanation: `${h} trăm, ${t} chục và ${u} đơn vị là ${n}.`, hint: 'Đếm số tấm trăm, số thanh chục, số ô đơn vị.' });
+    }),
+    tpl('g2.numbers1000', 1, () => {
+        const n = rint(101, 999);
+        return chance(0.5)
+            ? choices({ q: `Số ${n} đọc là:`, speech: `Chọn cách đọc đúng của số ${n}.`, correct: cap(readNumberVN(n)),
+                options: shuffle([...new Set([n, ...swapDigits(n).slice(0, 2), n + 10 <= 999 ? n + 10 : n - 10].map(x => cap(readNumberVN(x))))]),
+                explanation: `Đọc từ hàng trăm đến hàng đơn vị: ${readNumberVN(n)}.` })
+            : input({ q: `Viết số: ${readNumberVN(n)}`, speech: `Viết số ${readNumberVN(n)}.`, correct: n, explanation: `${cap(readNumberVN(n))} viết là ${n}.` });
+    }),
+    tpl('g2.numbers1000', 2, () => {
+        const n = rint(101, 999), [h, t, u] = parts(n);
+        if (chance(0.4)) {
+            const start = rint(1, 6) * 100, k = rint(1, 3), seq = [0, 1, 2, 3].map(i => start + i * 100);
+            return single({ q: `Điền số tròn trăm còn thiếu: ${seq.map((x, i) => (i === k ? '__' : x)).join(', ')}`, speech: `Điền số tròn trăm còn thiếu: ${seq.map((x, i) => (i === k ? 'ô trống' : x)).join(', ')}`,
+                correct: seq[k], wrong: [seq[k] + 10, seq[k] - 10, ...around(seq[k], { step: 100, min: 100, max: 1000 })], min: 100, max: 1000, explanation: `Các số tròn trăm hơn kém nhau 100: ${seq.join(', ')}.` });
+        }
+        return single({ q: `Số gồm ${h} trăm, ${t} chục và ${u} đơn vị là:`, speech: `Số gồm ${h} trăm, ${t} chục và ${u} đơn vị là số nào?`,
+            correct: n, wrong: [h * 100 + u * 10 + t, u * 100 + t * 10 + h, h * 10 + t + u * 100, ...swapDigits(n)], min: 100, max: 999,
+            explanation: `Viết lần lượt chữ số hàng trăm, hàng chục, hàng đơn vị: ${n}.` });
+    }),
+    tpl('g2.compare1000', 1, () => {
+        const a = rint(100, 999), b = chance(0.5) ? Math.floor(a / 100) * 100 + rint(0, 99) : rint(100, 999);
+        return compare({ q: `Điền dấu >, <, =: ${a} ... ${b}`, speech: `So sánh ${a} và ${b}.`, left: a, right: b,
+            explanation: a === b ? 'Hai số giống hệt nhau nên điền dấu =.' : `So sánh lần lượt hàng trăm, hàng chục, hàng đơn vị: ${a} ${a > b ? '>' : '<'} ${b}.`, hint: 'So sánh hàng trăm trước; bằng nhau thì so hàng chục.' });
+    }),
+    tpl('g2.compare1000', 2, () => {
+        const h = rint(1, 9) * 100, nums = sample(Array.from({ length: 100 }, (_, i) => h + i), 4).sort((x, y) => x - y), asc = chance(0.5);
+        if (chance(0.5)) {
+            const big = chance(0.5), ans = big ? Math.max(...nums) : Math.min(...nums);
+            return single({ q: `Số nào ${big ? 'lớn nhất' : 'bé nhất'}: ${shuffle(nums).join('; ')}?`, speech: `Trong các số ${nums.join(', ')}, số nào ${big ? 'lớn nhất' : 'bé nhất'}?`,
+                correct: ans, wrong: nums.filter(x => x !== ans), closed: true, explanation: `Các số cùng ${h / 100} trăm, so sánh hàng chục rồi hàng đơn vị: ${ans} ${big ? 'lớn nhất' : 'bé nhất'}.` });
+        }
+        const list = asc ? nums : [...nums].reverse();
+        return order({ q: `Sắp xếp các số theo thứ tự từ ${asc ? 'bé đến lớn' : 'lớn đến bé'}.`, speech: `Sắp xếp các số theo thứ tự từ ${asc ? 'bé đến lớn' : 'lớn đến bé'}.`, items: list.map(String), explanation: `Thứ tự đúng: ${list.join(', ')}.` });
+    }, { noRankCheck: true }),
+];
 
-    // 1. Giá trị vị trí qua hình khối trăm-chục-đơn vị (20%)
-    if (r < 0.2) {
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình vẽ thể hiện số nào?`,
-            visualSvg: baseTenSVG(value),
-            correctAnswer: String(value),
-            options: shuffleArray([String(value), ...wrongNums(value)]),
-            explanation: `${h} khối trăm, ${t} thanh chục và ${u} ô đơn vị là số ${value}.`,
-        };
-    }
-
-    // 2. Cấu tạo số từ trăm/chục/đơn vị (20%)
-    if (r < 0.4) {
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Số gồm ${h} trăm, ${t} chục và ${u} đơn vị là số nào?`,
-            correctAnswer: String(value),
-            options: shuffleArray([String(value), String(h * 100 + u * 10 + t), String(u * 100 + t * 10 + h), String(value + 10)].filter((v, i, a) => a.indexOf(v) === i).slice(0, 4)),
-            explanation: `${h} trăm = ${h * 100}, ${t} chục = ${t * 10}, ${u} đơn vị = ${u}. Tổng = ${value}.`,
-        };
-    }
-
-    // 3. Phân tích thành tổng (15%)
-    if (r < 0.55) {
-        return {
-            type: QuestionType.ManualInput,
-            questionText: `${value} = ${h * 100} + ${t * 10} + ?`,
-            correctAnswer: String(u),
-            explanation: `${value} = ${h * 100} + ${t * 10} + ${u}.`,
-        };
-    }
-
-    // 4. So sánh hai số (20%)
-    if (r < 0.75) {
-        const a = randomInt(101, 999), b = randomInt(101, 999);
-        const ans = a > b ? '>' : a < b ? '<' : '=';
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh hai số: ${a} ... ${b}`,
-            correctAnswer: ans,
-            options: ['>', '<', '='],
-            explanation: `${a} ${ans} ${b}.`,
-        };
-    }
-
-    // 5. Số liền trước / liền sau (15%)
-    if (r < 0.9) {
-        const after = Math.random() > 0.5;
-        const ans = after ? value + 1 : value - 1;
-        return {
-            type: QuestionType.ManualInput,
-            questionText: `Số liền ${after ? 'sau' : 'trước'} của ${value} là số nào?`,
-            correctAnswer: String(ans),
-            explanation: `Số liền ${after ? 'sau' : 'trước'} hơn ${value} là ${value} ${after ? '+' : '-'} 1 = ${ans}.`,
-        };
-    }
-
-    // 6. Sắp xếp thứ tự tăng dần (10%)
-    const nums = shuffleArray([randomInt(100, 399), randomInt(400, 699), randomInt(700, 999)]);
-    const sorted = [...nums].sort((x, y) => x - y);
-    const mk = (arr: number[]) => arr.join(', ');
-    const distractors = shuffleArray([mk([...nums].sort((x, y) => y - x)), mk(nums), mk([sorted[1], sorted[0], sorted[2]])]).filter(o => o !== mk(sorted));
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Sắp xếp các số từ bé đến lớn: ${mk(nums)}`,
-        correctAnswer: mk(sorted),
-        options: shuffleArray([mk(sorted), ...distractors.slice(0, 3)]),
-        explanation: `Thứ tự tăng dần: ${mk(sorted)}.`,
-    };
-};
+export const generateG2Numbers1000 = fromTemplates(templates);
