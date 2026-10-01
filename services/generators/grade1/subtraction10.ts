@@ -1,164 +1,64 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 1 — Phép trừ trong phạm vi 10 (g1_subtraction_10); tính có hai dấu; viết phép tính theo tranh.
+// Giữ dạng chữ "Tính: a - b = ?" vì MathRacing lọc câu theo mẫu này.
+import { tpl, fromTemplates, single, choices, input, rint, pickOne, chance, shuffle } from '../kit';
+import { around, opError } from '../wrongs';
+import { THINGS, word, cap } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g1.sub10', 1, () => {
+        const t = pickOne(THINGS), a = rint(2, 10), b = rint(1, a - 1);
+        return single({ q: `Tính: ${a} - ${b} = ?`, speech: `Có ${word(a)} ${t.name}, bớt đi ${word(b)} ${t.name}. ${word(a)} trừ ${word(b)} bằng mấy?`,
+            visual: { fn: 'crossedSVG', args: [t.e, a, b] },
+            correct: a - b, wrong: [...around(a - b, { min: 0, max: 10 }), ...opError(a, b, '-')], min: 0, max: 10,
+            explanation: `${cap(word(a))} bớt ${word(b)} còn ${word(a - b)}: ${a} - ${b} = ${a - b}.`, hint: 'Đếm những hình chưa bị gạch.' });
+    }, { weight: 2 }),
+    tpl('g1.sub10', 2, () => {
+        const a = rint(4, 10), b = rint(1, a);
+        return single({ q: `Tính: ${a} - ${b} = ?`, speech: `${a} trừ ${b} bằng mấy?`,
+            correct: a - b, wrong: [...around(a - b, { min: 0, max: 10 }), a + b], min: 0, max: 10,
+            explanation: `${a} - ${b} = ${a - b} (vì ${a - b} + ${b} = ${a}).`, hint: `Đếm lùi ${b} bước từ ${a}.` });
+    }, { weight: 2 }),
+    tpl('g1.sub10_missing', 2, () => {
+        const a = rint(3, 10), b = rint(1, a - 1), front = chance(0.4);
+        const q = front ? `□ - ${b} = ${a - b}` : `${a} - □ = ${a - b}`;
+        const ans = front ? a : b;
+        const say = `Số nào điền vào ô trống: ${q.replace('□', 'ô trống').replace('-', 'trừ').replace('=', 'bằng')}`;
+        return chance(0.5)
+            ? single({ q: `Số nào điền vào ô trống: ${q}`, speech: say, correct: ans, wrong: around(ans, { min: 0, max: 10 }), min: 0, max: 10,
+                explanation: front ? `Vì ${a - b} + ${b} = ${a} nên số cần điền là ${a}.` : `Vì ${a} - ${b} = ${a - b} nên số cần điền là ${b}.` })
+            : input({ q: `Điền số vào ô trống: ${q}`, speech: say, correct: ans,
+                explanation: front ? `Vì ${a - b} + ${b} = ${a} nên số cần điền là ${a}.` : `Vì ${a} - ${b} = ${a - b} nên số cần điền là ${b}.` });
+    }),
+    tpl('g1.chain10', 2, () => {
+        const a = rint(1, 7), b = rint(1, 10 - a), c = rint(1, a + b - 1);
+        return single({ q: `Tính: ${a} + ${b} - ${c} = ?`, speech: `${a} cộng ${b} trừ ${c} bằng mấy?`,
+            correct: a + b - c, wrong: [...around(a + b - c, { min: 0, max: 10 }), a + b + c, a + b], min: 0, max: 10,
+            explanation: `Tính lần lượt từ trái sang phải: ${a} + ${b} = ${a + b}; ${a + b} - ${c} = ${a + b - c}.`,
+            steps: [`${a} + ${b} = ${a + b}`, `${a + b} - ${c} = ${a + b - c}`], hint: 'Tính từ trái sang phải.' });
+    }),
+    tpl('g1.chain10', 3, () => {
+        const a = rint(5, 10), b = rint(1, a - 2), c = rint(1, a - b - 1);
+        return single({ q: `Tính: ${a} - ${b} - ${c} = ?`, speech: `${a} trừ ${b} trừ ${c} bằng mấy?`,
+            correct: a - b - c, wrong: [...around(a - b - c, { min: 0, max: 10 }), a - b, a - b + c], min: 0, max: 10,
+            explanation: `${a} - ${b} = ${a - b}; ${a - b} - ${c} = ${a - b - c}.`, steps: [`${a} - ${b} = ${a - b}`, `${a - b} - ${c} = ${a - b - c}`], hint: 'Tính từ trái sang phải.' });
+    }),
+    tpl('g1.write_eq', 2, () => {
+        const t = pickOne(THINGS), a = rint(1, 6), b = rint(1, 10 - a);
+        const right = `${a} + ${b} = ${a + b}`;
+        const opts = shuffle([right, `${a + b} - ${b} = ${a + b - b + 1}`, `${a} + ${b} = ${a + b + 1}`, `${a + b} - ${a} = ${b + a}`]);
+        return choices({ q: 'Phép tính nào phù hợp với tranh?', speech: `Có ${word(a)} ${t.name}, thêm ${word(b)} ${t.name}. Phép tính nào phù hợp với tranh?`,
+            visual: { fn: 'groupsSVG', args: [[{ emoji: t.e, n: a, label: 'Có' }, { emoji: t.e, n: b, label: 'Thêm' }]] },
+            options: [...new Set(opts)], correct: right, explanation: `Có ${a}, thêm ${b}: ta làm phép cộng ${right}.` });
+    }),
+    tpl('g1.write_eq', 3, () => {
+        const t = pickOne(THINGS), a = rint(3, 10), b = rint(1, a - 1);
+        const right = `${a} - ${b} = ${a - b}`;
+        const opts = [...new Set(shuffle([right, `${a} + ${b} = ${a + b}`, `${a} - ${b} = ${a - b + 1}`, `${a} - ${b} = ${a - b === 0 ? 2 : a - b - 1}`]))];
+        return choices({ q: 'Phép tính nào cho biết còn lại bao nhiêu?', speech: `Có ${word(a)} ${t.name}, bớt đi ${word(b)}. Phép tính nào cho biết còn lại bao nhiêu?`,
+            visual: { fn: 'crossedSVG', args: [t.e, a, b] }, options: opts, correct: right,
+            explanation: `Có ${a}, bớt đi ${b}, còn lại: ${right}.` });
+    }),
+];
 
-const createSubtractionSVG = (total: number, subtract: number) => {
-    const remain = total - subtract;
-    return `
-    <svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-      <text x="200" y="30" text-anchor="middle" font-size="24" font-weight="bold">${total} - ${subtract}</text>
-      ${Array.from({ length: total }, (_, i) => {
-        const isRemoved = i >= remain;
-        return `<circle cx="${50 + i * 30}" cy="80" r="12" fill="${isRemoved ? '#ccc' : '#4ECDC4'}" stroke="#333" stroke-width="2"/>
-                ${isRemoved ? `<line x1="${40 + i * 30}" y1="70" x2="${60 + i * 30}" y2="90" stroke="#FF6B6B" stroke-width="3"/>` : ''}`;
-    }).join('')}
-    </svg>
-  `;
-};
-
-export const generateSubtraction10 = (): Omit<Question, 'id' | 'topicId'> => {
-    const questionTypeRand = generatorRandom();
-
-    if (questionTypeRand < 0.2) {
-        // SelectWrong: Find the wrong subtraction result
-        const target = randomInt(3, 8);
-        const correctExpressions: string[] = [];
-        const usedPairs = new Set<string>();
-
-        // Generate 3 correct expressions
-        let attempts = 0;
-        while (correctExpressions.length < 3 && attempts < 20) {
-            attempts++;
-            const minuend = randomInt(target, 10);
-            const subtrahend = minuend - target;
-            const key = `${minuend}-${subtrahend}`;
-            if (!usedPairs.has(key) && subtrahend >= 0) {
-                usedPairs.add(key);
-                correctExpressions.push(`${minuend} - ${subtrahend}`);
-            }
-        }
-
-        // Generate 1 wrong expression
-        let wrongExpression = '';
-        attempts = 0;
-        while (!wrongExpression && attempts < 20) {
-            attempts++;
-            const minuend = randomInt(1, 10);
-            const subtrahend = randomInt(0, minuend);
-            if (minuend - subtrahend !== target) {
-                wrongExpression = `${minuend} - ${subtrahend}`;
-            }
-        }
-
-        return {
-            type: QuestionType.SelectWrong,
-            questionText: `Phép tính nào có kết quả KHÁC ${target}?`,
-            correctAnswer: wrongExpression,
-            options: shuffleArray([...correctExpressions, wrongExpression]),
-            explanation: `Các phép tính đúng đều có kết quả bằng ${target}.`
-        };
-    } else if (questionTypeRand < 0.4) {
-        // MultipleSelect: Find all subtractions equal to target
-        const target = randomInt(3, 7);
-        const correctOps = new Set<string>();
-        const wrongOps = new Set<string>();
-
-        // Generate 2 correct answers
-        let attempts = 0;
-        while (correctOps.size < 2 && attempts < 20) {
-            attempts++;
-            const minuend = randomInt(target, 10);
-            const subtrahend = minuend - target;
-            if (subtrahend >= 0) {
-                correctOps.add(`${minuend} - ${subtrahend}`);
-            }
-        }
-
-        // Generate 2 wrong answers
-        attempts = 0;
-        while (wrongOps.size < 2 && attempts < 30) {
-            attempts++;
-            const minuend = randomInt(1, 10);
-            const subtrahend = randomInt(0, minuend);
-            const expr = `${minuend} - ${subtrahend}`;
-            if (minuend - subtrahend !== target && !correctOps.has(expr)) {
-                wrongOps.add(expr);
-            }
-        }
-
-        return {
-            type: QuestionType.MultipleSelect,
-            questionText: `Chọn TẤT CẢ phép tính có kết quả bằng ${target}:`,
-            correctAnswers: Array.from(correctOps),
-            options: shuffleArray([...Array.from(correctOps), ...Array.from(wrongOps)]),
-            explanation: `Các phép tính đúng là những phép có hiệu bằng ${target}.`
-        };
-    } else {
-        // SingleChoice - existing variations
-        const type = generatorRandom();
-
-        if (type < 0.3) {
-            // Visual subtraction
-            const total = randomInt(5, 10);
-            const sub = randomInt(1, total - 1);
-            const result = total - sub;
-            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== result.toString());
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính hiệu:`,
-                visualSvg: createSubtractionSVG(total, sub),
-                correctAnswer: result.toString(),
-                options: shuffleArray([result.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-                explanation: `${total} - ${sub} = ${result}`
-            };
-        } else if (type < 0.5) {
-            // Basic subtraction
-            const total = randomInt(1, 10);
-            const sub = randomInt(0, total);
-            const result = total - sub;
-            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== result.toString());
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính: ${total} - ${sub} = ?`,
-                correctAnswer: result.toString(),
-                options: shuffleArray([result.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-                explanation: `${total} - ${sub} = ${result}`
-            };
-        } else if (type < 0.7) {
-            // Fill missing: 10 - □ = 6
-            const total = randomInt(5, 10);
-            const result = randomInt(0, total - 1);
-            const sub = total - result;
-            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== sub.toString());
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Điền số còn thiếu: ${total} - □ = ${result}`,
-                correctAnswer: sub.toString(),
-                options: shuffleArray([sub.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-                explanation: `${total} - ${sub} = ${result}`
-            };
-        } else {
-            // Word problem
-            const total = randomInt(5, 10);
-            const given = randomInt(1, total - 1);
-            const remain = total - given;
-            const wrongOptions = Array.from({ length: 11 }, (_, i) => i.toString()).filter(x => x !== remain.toString());
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Bạn có ${total} cái kẹo, cho bạn ${given} cái. Hỏi còn lại bao nhiêu cái?`,
-                correctAnswer: remain.toString(),
-                options: shuffleArray([remain.toString(), ...shuffleArray(wrongOptions).slice(0, 3)]),
-                explanation: `Còn lại: ${total} - ${given} = ${remain} cái kẹo`
-            };
-        }
-    }
-};
+export const generateSubtraction10 = fromTemplates(templates);

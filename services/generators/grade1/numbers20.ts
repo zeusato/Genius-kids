@@ -1,135 +1,34 @@
-import { Question, QuestionType } from '../../../types';
+// Lớp 1 — Các số từ 11 đến 20 (g1_numbers_20): chục và đơn vị, đọc, so sánh.
+import { tpl, fromTemplates, single, compare, choices, rint, shuffle } from '../kit';
+import { around } from '../wrongs';
+import { word } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+const cd = (c: number, d: number) => `${c} chục ${d} đơn vị`;
 
-export const generateNumbers20 = (): Omit<Question, 'id' | 'topicId'> => {
-    const questionTypeRand = Math.random();
+export const templates: Template[] = [
+    tpl('g1.numbers20', 1, () => {
+        const u = rint(0, 9), n = 10 + u;
+        return single({ q: 'Có tất cả bao nhiêu que tính?', speech: 'Có một bó một chục que tính và một số que rời. Có tất cả bao nhiêu que tính?',
+            visual: { fn: 'tensOnesSVG', args: [1, u] }, correct: n, wrong: around(n, { min: 10, max: 20 }), min: 10, max: 20,
+            explanation: `1 bó là 1 chục (10 que) và ${u} que rời: ${n} que tính.` });
+    }),
+    tpl('g1.numbers20', 1, () => {
+        const u = rint(1, 9), n = 10 + u;
+        const opts = shuffle([cd(1, u), cd(1, (u + 1) % 10), cd(u === 1 ? 2 : 1, u === 1 ? 0 : u - 1), cd(0, u)]);
+        return choices({ q: `Số ${n} gồm mấy chục và mấy đơn vị?`, speech: `Số ${word(n)} gồm mấy chục và mấy đơn vị?`,
+            options: [...new Set(opts)], correct: cd(1, u), explanation: `${n} gồm 1 chục và ${u} đơn vị.` });
+    }),
+    tpl('g1.numbers20', 2, () => {
+        const a = rint(10, 20), b = rint(10, 20);
+        return compare({ q: `Điền dấu thích hợp: ${a} ... ${b}`, speech: `So sánh ${a} và ${b}.`, left: a, right: b,
+            explanation: a === b ? `Hai số bằng nhau nên điền dấu =: ${a} = ${b}.` : a === 20 || b === 20 ? `20 có 2 chục nên lớn hơn ${Math.min(a, b)}: ${a} ${a > b ? '>' : '<'} ${b}.` : `Cùng có 1 chục; so sánh hàng đơn vị ${a % 10} và ${b % 10}: ${a} ${a > b ? '>' : '<'} ${b}.`, hint: 'So sánh số chục trước, rồi đến số đơn vị.' });
+    }),
+    tpl('g1.numbers20', 2, () => {
+        const n = rint(11, 19), after = rint(0, 1) === 1, ans = after ? n + 1 : n - 1;
+        return single({ q: `Số liền ${after ? 'sau' : 'trước'} của ${n} là số nào?`, speech: `Số liền ${after ? 'sau' : 'trước'} của ${word(n)} là số nào?`,
+            correct: ans, wrong: around(ans, { min: 10, max: 20 }), min: 10, max: 20, explanation: `${after ? 'Thêm' : 'Bớt'} 1: ${n} ${after ? '+' : '-'} 1 = ${ans}.` });
+    }),
+];
 
-    if (questionTypeRand < 0.15) {
-        // SelectWrong: Which number is NOT in range?
-        const min = randomInt(11, 15);
-        const max = randomInt(min + 4, 20);
-        const correctNumbers: string[] = [];
-        const wrongNumbers: string[] = [];
-
-        // Generate 3 numbers in range
-        const inRange = new Set<number>();
-        while (inRange.size < 3) {
-            inRange.add(randomInt(min, max));
-        }
-        correctNumbers.push(...Array.from(inRange).map(String));
-
-        // Generate 1 number out of range
-        const outOfRange = Math.random() > 0.5 ? randomInt(1, min - 1) : randomInt(max + 1, 25);
-        wrongNumbers.push(outOfRange.toString());
-
-        return {
-            type: QuestionType.SelectWrong,
-            questionText: `Số nào KHÔNG nằm trong khoảng từ ${min} đến ${max}?`,
-            correctAnswer: outOfRange.toString(),
-            options: shuffleArray([...correctNumbers, ...wrongNumbers]),
-            explanation: `Số ${outOfRange} không nằm trong khoảng từ ${min} đến ${max}.`
-        };
-    } else if (questionTypeRand < 0.3) {
-        // MultipleSelect: Even or odd numbers
-        const isEven = Math.random() > 0.5;
-        const correctOps = new Set<string>();
-        const wrongOps = new Set<string>();
-
-        // Generate numbers
-        while (correctOps.size < 2) {
-            const num = randomInt(11, 20);
-            if ((num % 2 === 0) === isEven) {
-                correctOps.add(num.toString());
-            }
-        }
-
-        while (wrongOps.size < 2) {
-            const num = randomInt(11, 20);
-            if ((num % 2 === 0) !== isEven && !correctOps.has(num.toString())) {
-                wrongOps.add(num.toString());
-            }
-        }
-
-        return {
-            type: QuestionType.MultipleSelect,
-            questionText: `Chọn TẤT CẢ các số ${isEven ? 'CHẴN' : 'LẺ'}:`,
-            correctAnswers: Array.from(correctOps),
-            options: shuffleArray([...Array.from(correctOps), ...Array.from(wrongOps)]),
-            explanation: `Số ${isEven ? 'chẵn' : 'lẻ'} là số chia hết cho 2${isEven ? '' : ' dư 1'}.`
-        };
-    } else {
-        const type = Math.random();
-
-        if (type < 0.25) {
-            // Compare two numbers
-            const a = randomInt(11, 20);
-            const b = randomInt(11, 20);
-            let ans = '=';
-            if (a > b) ans = '>';
-            if (a < b) ans = '<';
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `So sánh: ${a} ... ${b}`,
-                correctAnswer: ans,
-                options: shuffleArray(['>', '<', '=']),
-                explanation: `${a} ${ans} ${b}`
-            };
-        } else if (type < 0.5) {
-            // Find tens and ones
-            const num = randomInt(11, 19);
-            const tens = Math.floor(num / 10);
-            const ones = num % 10;
-
-            const correctAnswer = `${tens} chục ${ones} đơn vị`;
-            const wrongCandidates = [
-                `${ones} chục ${tens} đơn vị`,
-                `${tens + 1} chục ${ones - 1 < 0 ? 0 : ones - 1} đơn vị`,
-                `${num} chục 0 đơn vị`,
-                `${tens} chục ${ones + 1} đơn vị`,
-            ];
-            // Luôn giữ đáp án đúng + 3 distractor (tránh shuffle-rồi-slice làm mất đáp án).
-            const wrongs = Array.from(new Set(wrongCandidates.filter(w => w !== correctAnswer))).slice(0, 3);
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Số ${num} có mấy chục mấy đơn vị?`,
-                correctAnswer: correctAnswer,
-                options: shuffleArray([correctAnswer, ...wrongs]),
-                explanation: `${num} = ${tens} chục ${ones} đơn vị`
-            };
-        } else if (type < 0.75) {
-            // Number before/after
-            const num = randomInt(12, 19);
-            const isBefore = Math.random() > 0.5;
-            const answer = isBefore ? num - 1 : num + 1;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Số ${isBefore ? 'liền trước' : 'liền sau'} của ${num} là gì?`,
-                correctAnswer: answer.toString(),
-                options: shuffleArray([answer, answer - 1, answer + 1, answer - 2].map(String)),
-                explanation: `Số ${isBefore ? 'liền trước' : 'liền sau'} của ${num} là ${answer}`
-            };
-        } else {
-            // Fill sequence
-            const start = randomInt(11, 17);
-            const missing = start + 1;
-            const end = start + 2;
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Điền số còn thiếu: ${start}, __, ${end}`,
-                correctAnswer: missing.toString(),
-                options: shuffleArray([missing, missing - 1, missing + 1, missing + 2].map(String)),
-                explanation: `Số còn thiếu là ${missing}`
-            };
-        }
-    }
-};
+export const generateNumbers20 = fromTemplates(templates);

@@ -81,6 +81,23 @@ export function single(o: SingleOpts): Generated {
         if (opts.some(x => sameValue(x, t))) return;
         opts.push(t);
     };
+    const numericWrong = o.wrong.every(w => typeof w === 'number');
+    if (typeof o.correct === 'number' && numericWrong && !o.keepOrder) {
+        // CÂN BẰNG HẠNG: chọn trước đáp án đúng đứng thứ mấy theo giá trị, rồi lấy nhiễu dưới / trên
+        // (ưu tiên nhiễu theo lỗi sai được truyền vào, sau đó mới tới số lân cận).
+        const c = o.correct, step = Number.isInteger(c) ? Math.max(1, Math.round(Math.abs(c) / 20)) : 0.1;
+        const uniq = (xs: number[]) => xs.filter((x, i) => ok(x) && !sameValue(x, c) && xs.findIndex(y => sameValue(y, x)) === i);
+        const given = uniq(shuffle(o.wrong as number[]));
+        const near: number[] = [];
+        for (let d = 1; d <= 40; d++) near.push(Number((c - d * step).toFixed(6)), Number((c + d * step).toFixed(6)));
+        const below = uniq([...given.filter(x => x < c), ...near.filter(x => x < c)]);
+        const above = uniq([...given.filter(x => x > c), ...near.filter(x => x > c)]);
+        const m = count - 1;
+        let k = Math.floor(generatorRandom() * (m + 1));
+        k = Math.min(k, below.length);
+        if (m - k > above.length) k = Math.min(below.length, m - above.length);
+        for (const x of [...below.slice(0, k), ...above.slice(0, m - k)]) push(x);
+    }
     for (const w of shuffle(o.wrong)) push(w);
     if (opts.length < count && correctNum !== null && typeof o.correct === 'number') {
         const step = Number.isInteger(correctNum) ? Math.max(1, Math.round(Math.abs(correctNum) / 20)) : 0.1;

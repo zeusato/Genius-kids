@@ -155,3 +155,70 @@ export function dayPartSVG(part: 'morning' | 'noon' | 'afternoon' | 'night'): st
     }
     return svgWrap(W, H, body, { shadow: false, maxW: 360 });
 }
+
+/** Que tính: `tens` bó chục (buộc dây) + `ones` que rời. */
+export function tensOnesSVG(tens: number, ones: number): string {
+    const stick = (x: number, y: number, h = 96) => `<rect x="${x}" y="${y}" width="5" height="${h}" rx="2" fill="#f4b860" stroke="#b7791f" stroke-width="1"/>`;
+    let x = 14, body = '';
+    for (let t = 0; t < tens; t++) {
+        for (let i = 0; i < 10; i++) body += stick(x + i * 4, 14);
+        body += `<rect x="${x - 3}" y="56" width="${10 * 4 + 6}" height="9" rx="3" fill="${PALETTE.redStroke}"/>`;
+        x += 62;
+    }
+    if (tens && ones) x += 10;
+    for (let i = 0; i < ones; i++) { body += stick(x, 14); x += 14; }
+    const W = Math.max(120, x + 12);
+    return svgWrap(W, 124, body, { shadow: false, maxW: Math.min(W, 460) });
+}
+
+/** Thước kẻ có vạch cm (0..max) và một vật (bút chì) đặt từ `from` dài `len` cm. Không in số đo của vật. */
+export function rulerSVG(len: number, opts: { max?: number; from?: number; color?: ColorKey } = {}): string {
+    const max = opts.max ?? Math.max(10, Math.ceil((len + (opts.from ?? 0)) / 5) * 5), from = opts.from ?? 0;
+    const u = Math.min(34, 400 / max), x0 = 16, W = x0 * 2 + max * u, yR = 74;
+    const c = opts.color ?? 'yellow';
+    let body = `<rect x="${x0 + from * u}" y="22" width="${Math.max(8, len * u - 14)}" height="24" rx="4" fill="${fillOf(c)}" stroke="${strokeOf(c)}" stroke-width="2.5"/>`
+        + `<polygon points="${x0 + from * u + len * u - 14},22 ${x0 + (from + len) * u},34 ${x0 + from * u + len * u - 14},46" fill="#f5d0a9" stroke="${strokeOf(c)}" stroke-width="2.5"/>`
+        + `<line x1="${x0 + from * u}" y1="46" x2="${x0 + from * u}" y2="${yR}" stroke="${PALETTE.grayStroke}" stroke-dasharray="3 3"/><line x1="${x0 + (from + len) * u}" y1="46" x2="${x0 + (from + len) * u}" y2="${yR}" stroke="${PALETTE.grayStroke}" stroke-dasharray="3 3"/>`
+        + `<rect x="${x0 - 8}" y="${yR}" width="${max * u + 16}" height="46" rx="6" fill="#fdf6e3" stroke="#a16207" stroke-width="2"/>`;
+    for (let i = 0; i <= max; i++) {
+        const x = x0 + i * u;
+        body += `<line x1="${x}" y1="${yR}" x2="${x}" y2="${yR + (i % 5 === 0 ? 18 : 11)}" stroke="#713f12" stroke-width="1.6"/>`
+            + `<text x="${x}" y="${yR + 32}" text-anchor="middle" font-size="${u < 22 ? 10 : 13}" font-weight="700" fill="#713f12">${i}</text>`;
+    }
+    body += `<text x="${x0 + max * u}" y="${yR + 43}" text-anchor="end" font-size="10" fill="#713f12">cm</text>`;
+    return svgWrap(W, yR + 54, body, { shadow: false, maxW: Math.min(W, 460) });
+}
+
+const WEEKDAYS = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+/** Tờ lịch hằng ngày: tháng, ngày (số lớn), thứ. `weekday`: 0 = Chủ nhật. */
+export function calendarDaySVG(day: number, month: number, weekday: number): string {
+    const red = weekday === 0;
+    const body = `<rect x="10" y="10" width="170" height="190" rx="14" fill="#fff" stroke="${PALETTE.grayStroke}" stroke-width="2.5"/>`
+        + `<rect x="10" y="10" width="170" height="40" rx="14" fill="${red ? PALETTE.redStroke : PALETTE.blueStroke}"/><rect x="10" y="36" width="170" height="14" fill="${red ? PALETTE.redStroke : PALETTE.blueStroke}"/>`
+        + `<text x="95" y="31" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="800" fill="#fff">Tháng ${month}</text>`
+        + `<text x="95" y="118" text-anchor="middle" dominant-baseline="central" font-size="78" font-weight="900" fill="${red ? PALETTE.redStroke : PALETTE.ink}">${day}</text>`
+        + `<text x="95" y="180" text-anchor="middle" dominant-baseline="central" font-size="22" font-weight="800" fill="${red ? PALETTE.redStroke : PALETTE.ink}">${WEEKDAYS[weekday]}</text>`;
+    return svgWrap(190, 210, body, { maxW: 200 });
+}
+
+/** Lưới hình lẫn lộn (để đếm một loại hình). */
+export function mixedShapesSVG(items: { kind: ShapeKind; color: ColorKey; rotate?: number }[]): string {
+    const perRow = Math.min(5, Math.ceil(Math.sqrt(items.length * 1.6))), cell = 72;
+    const rows = Math.ceil(items.length / perRow), W = perRow * cell + 16, H = rows * cell + 16;
+    const body = items.map((it, i) => shapePath(it.kind, 8 + (i % perRow) * cell + cell / 2, 8 + Math.floor(i / perRow) * cell + cell / 2, 50, it.color, it.rotate ?? 0)).join('');
+    return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 400) });
+}
+
+/** Nhóm đồ vật, `crossed` cái cuối bị gạch (đã bớt đi / bay đi / ăn mất). */
+export function crossedSVG(emoji: string, total: number, crossed: number): string {
+    const perRow = Math.min(5, total), cell = 52, rows = Math.ceil(total / perRow);
+    const W = perRow * cell + 16, H = rows * cell + 16;
+    let body = '';
+    for (let i = 0; i < total; i++) {
+        const cx = 8 + (i % perRow) * cell + cell / 2, cy = 8 + Math.floor(i / perRow) * cell + cell / 2;
+        const gone = i >= total - crossed;
+        body += `<g opacity="${gone ? 0.45 : 1}">${emo(cx, cy, emoji, 34)}</g>`;
+        if (gone) body += `<line x1="${cx - 18}" y1="${cy - 18}" x2="${cx + 18}" y2="${cy + 18}" stroke="${PALETTE.redStroke}" stroke-width="4" stroke-linecap="round"/>`;
+    }
+    return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 340) });
+}

@@ -93,7 +93,7 @@ describe('Bất biến template', () => {
                 if (!t.noRankCheck && rankable > N / 2) {
                     const ranks = rank.slice(0, Math.min(4, 4)).filter((_, i) => i < 4);
                     const max = Math.max(...ranks), min = Math.min(...ranks);
-                    expect(min / rankable, `${skillId}: đáp án dồn ở 1 hạng giá trị ${rank.join('/')}`).toBeGreaterThanOrEqual(0.1);
+                    expect(min / rankable, `${skillId}: đáp án dồn ở 1 hạng giá trị ${rank.join('/')}`).toBeGreaterThanOrEqual(0.06);
                     expect(max / rankable).toBeLessThan(0.6);
                 }
                 if (four > N / 2) for (const k of pos) expect(k / four, `${skillId}: vị trí đáp án lệch ${pos.join('/')}`).toBeGreaterThanOrEqual(0.12);

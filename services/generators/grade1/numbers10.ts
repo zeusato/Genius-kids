@@ -1,142 +1,48 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber, createOptionsWithAnswer } from '../utils';
+// Lớp 1 — Các số đến 10 (g1_numbers_10): đếm, so sánh, số lớn nhất/bé nhất, mấy và mấy.
+import { tpl, fromTemplates, single, compare, rint, pickOne, sample } from '../kit';
+import { around } from '../wrongs';
+import { THINGS, word } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+export const templates: Template[] = [
+    tpl('g1.count10', 1, () => {
+        const t = pickOne(THINGS), n = rint(5, 10);
+        return single({ q: `Có mấy ${t.name}?`, speech: `Đếm xem có mấy ${t.name}?`, visual: { fn: 'countingSVG', args: [t.e, n] },
+            correct: n, wrong: around(n, { min: 1, max: 12 }), min: 1, max: 12,
+            explanation: `Đếm lần lượt từng ${t.name}: có ${word(n)} ${t.name}.`, hint: 'Đếm theo từng hàng, đánh dấu hình đã đếm.' });
+    }),
+    tpl('g1.count10', 1, () => {
+        const n = rint(0, 10), k = pickOne(['liền sau', 'liền trước'] as const);
+        const ans = k === 'liền sau' ? n + 1 : n - 1;
+        if (ans < 0 || ans > 10) return single({ q: `Số ${word(n)} viết là số nào?`, speech: `Số ${word(n)} viết là số nào?`, correct: n, wrong: around(n, { min: 0, max: 10 }), explanation: `Số ${word(n)} viết là ${n}.` });
+        return single({ q: `Số ${k} số ${n} là số nào?`, speech: `Số ${k} số ${word(n)} là số nào?`, correct: ans, wrong: around(ans, { min: 0, max: 10 }), min: 0, max: 10,
+            explanation: `Số ${k} ${n} là ${ans} (${k === 'liền sau' ? 'thêm' : 'bớt'} 1).` });
+    }),
+    tpl('g1.compare10', 1, () => {
+        const a = rint(0, 10), b = rint(0, 10);
+        return compare({ q: `Điền dấu thích hợp: ${a} ... ${b}`, speech: `So sánh ${a} và ${b}.`, left: a, right: b,
+            explanation: a === b ? `Hai số bằng nhau nên điền dấu =: ${a} = ${b}.` : `${Math.max(a, b)} lớn hơn ${Math.min(a, b)} nên ${a} ${a > b ? '>' : '<'} ${b}.`, hint: 'Số nào đếm sau thì lớn hơn.' });
+    }),
+    tpl('g1.compare10', 2, () => {
+        const nums = sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4), big = pickOne([true, false]);
+        const ans = big ? Math.max(...nums) : Math.min(...nums);
+        return single({ q: `Số nào ${big ? 'lớn nhất' : 'bé nhất'}: ${nums.join(', ')}?`, speech: `Trong các số ${nums.join(', ')}, số nào ${big ? 'lớn nhất' : 'bé nhất'}?`,
+            correct: ans, wrong: nums.filter(x => x !== ans), explanation: `So sánh lần lượt: ${ans} là số ${big ? 'lớn nhất' : 'bé nhất'}.` });
+    }, { noRankCheck: true }),
+    tpl('g1.split10', 1, () => {
+        const n = rint(3, 10), a = rint(1, n - 1);
+        return single({ q: `${n} gồm ${a} và mấy?`, speech: `${word(n)} gồm ${word(a)} và mấy?`,
+            visual: { fn: 'countingSVG', args: ['🔵', n, { perRow: 5 }] },
+            correct: n - a, wrong: around(n - a, { min: 0, max: 10 }), min: 0, max: 10,
+            explanation: `${n} gồm ${a} và ${n - a} (vì ${a} + ${n - a} = ${n}).`, hint: `Đếm thêm từ ${a} cho đến ${n}.` });
+    }),
+    tpl('g1.split10', 2, () => {
+        const t = pickOne(THINGS), n = rint(4, 10), a = rint(1, n - 1);
+        return single({ q: `Có ${n} ${t.name} chia vào hai đĩa. Đĩa thứ nhất có ${a} ${t.name}. Đĩa thứ hai có mấy ${t.name}?`,
+            speech: `Có ${word(n)} ${t.name} chia vào hai đĩa. Đĩa thứ nhất có ${word(a)}. Đĩa thứ hai có mấy ${t.name}?`,
+            correct: n - a, wrong: around(n - a, { min: 0, max: 10 }), min: 0, max: 10,
+            explanation: `${n} gồm ${a} và ${n - a}, nên đĩa thứ hai có ${n - a} ${t.name}.` });
+    }),
+];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// Create number line SVG
-const createNumberLineSVG = (max: number, highlight?: number) => {
-    const spacing = 50;
-    const startX = 30;
-    const y = 50;
-
-    let svg = `
-    <svg width="${startX + max * spacing + 30}" height="120" viewBox="0 0 ${startX + max * spacing + 30} 120" xmlns="http://www.w3.org/2000/svg">
-      <line x1="${startX}" y1="${y}" x2="${startX + max * spacing}" y2="${y}" stroke="#333" stroke-width="3"/>
-  `;
-
-    for (let i = 0; i <= max; i++) {
-        const x = startX + i * spacing;
-        const isHighlight = highlight !== undefined && i === highlight;
-        svg += `
-      <line x1="${x}" y1="${y - 10}" x2="${x}" y2="${y + 10}" stroke="#333" stroke-width="2"/>
-      <text x="${x}" y="${y + 30}" text-anchor="middle" font-size="18" font-weight="bold" fill="${isHighlight ? '#FF6B6B' : '#333'}">${i}</text>
-      ${isHighlight ? `<circle cx="${x}" cy="${y}" r="8" fill="#FFE66D" stroke="#FF6B6B" stroke-width="3"/>` : ''}
-    `;
-    }
-
-    svg += `</svg>`;
-    return svg;
-};
-
-// Create grouped objects SVG
-const createGroupedObjectsSVG = (total: number, group1: number) => {
-    const group2 = total - group1;
-    return `
-    <svg width="350" height="150" viewBox="0 0 350 150" xmlns="http://www.w3.org/2000/svg">
-      <text x="10" y="20" font-size="16" font-weight="bold">${total} = ${group1} + ${group2}</text>
-      <rect x="10" y="30" width="${group1 * 25}" height="80" fill="#4ECDC4" opacity="0.3" stroke="#4ECDC4" stroke-width="2"/>
-      <rect x="${20 + group1 * 25}" y="30" width="${group2 * 25}" height="80" fill="#FF6B6B" opacity="0.3" stroke="#FF6B6B" stroke-width="2"/>
-      ${Array.from({ length: total }, (_, i) => {
-        const x = 20 + i * 25;
-        const color = i < group1 ? '#4ECDC4' : '#FF6B6B';
-        return `<rect x="${x}" y="50" width="20" height="50" fill="${color}" stroke="#333" stroke-width="2" rx="3"/>`;
-    }).join('')}
-    </svg>
-  `;
-};
-
-export const generateNumbers10 = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Count objects (6-10) - 20%
-    if (type < 0.2) {
-        const count = randomInt(6, 10);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Đếm xem có bao nhiêu ô vuông?`,
-            visualSvg: `
-        <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-          ${Array.from({ length: count }, (_, i) => `<rect x="${(i % 5) * 50 + 20}" y="${Math.floor(i / 5) * 50 + 20}" width="40" height="40" fill="#4ECDC4" stroke="#333" stroke-width="2" rx="5"/>`).join('')}
-        </svg>
-      `,
-            correctAnswer: count.toString(),
-            options: createOptionsWithAnswer(count.toString(), Array.from({ length: 10 }, (_, i) => (i + 1).toString())),
-            explanation: `Có ${count} ô vuông.`
-        };
-    }
-
-    // 2. Compare two numbers - 20%
-    else if (type < 0.4) {
-        const a = randomInt(0, 10);
-        const b = randomInt(0, 10);
-        let ans = '=';
-        if (a > b) ans = '>';
-        if (a < b) ans = '<';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh: ${a} ... ${b}`,
-            correctAnswer: ans,
-            options: shuffleArray(['>', '<', '=']),
-            explanation: `${a} ${ans} ${b}`
-        };
-    }
-
-    // 3. Decompose number - 20%
-    else if (type < 0.6) {
-        const total = randomInt(6, 10);
-        const part1 = randomInt(1, total - 1);
-        const part2 = total - part1;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tách số ${total} thành hai phần:`,
-            visualSvg: createGroupedObjectsSVG(total, part1),
-            correctAnswer: `${part1} + ${part2}`,
-            options: shuffleArray([
-                `${part1} + ${part2}`,
-                `${part2} + ${part1}`,
-                `${part1 + 1} + ${part2 - 1}`,
-                `${total - 1} + 1`
-            ]).slice(0, 4),
-            explanation: `${total} = ${part1} + ${part2}`
-        };
-    }
-
-    // 4. Fill missing: 8 = □ + 4 - 20%
-    else if (type < 0.8) {
-        const total = randomInt(5, 10);
-        const known = randomInt(1, total - 1);
-        const missing = total - known;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Điền số còn thiếu: ${total} = □ + ${known}`,
-            correctAnswer: missing.toString(),
-            options: createOptionsWithAnswer(missing.toString(), Array.from({ length: 11 }, (_, i) => i.toString())),
-            explanation: `${total} = ${missing} + ${known}`
-        };
-    }
-
-    // 5. Position on number line - 20%
-    else {
-        const num = randomInt(0, 10);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Số nào được đánh dấu trên tia số?`,
-            visualSvg: createNumberLineSVG(10, num),
-            correctAnswer: num.toString(),
-            options: createOptionsWithAnswer(num.toString(), Array.from({ length: 11 }, (_, i) => i.toString())),
-            explanation: `Số được đánh dấu là ${num}.`
-        };
-    }
-};
+export const generateNumbers10 = fromTemplates(templates);
