@@ -94,3 +94,19 @@ export function gridAreaSVG(cols: number, rows: number, filled: [number, number]
     }
     return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 360) });
 }
+
+/** Hai đường thẳng: song song / vuông góc / cắt nhau (không vuông góc), có tên. */
+export function linePairSVG(kind: 'parallel' | 'perpendicular' | 'intersect', names = 'ABCD', tilt = 0): string {
+    const W = 320, H = 200, cx = 160, cy = 100;
+    const rot = (x: number, y: number, deg: number): [number, number] => { const t = deg * Math.PI / 180, dx = x - cx, dy = y - cy; return [cx + dx * Math.cos(t) - dy * Math.sin(t), cy + dx * Math.sin(t) + dy * Math.cos(t)]; };
+    let l1: [number, number, number, number], l2: [number, number, number, number];
+    if (kind === 'parallel') { l1 = [30, 70, 290, 70]; l2 = [30, 140, 290, 140]; }
+    else if (kind === 'perpendicular') { l1 = [30, 100, 290, 100]; l2 = [160, 10, 160, 190]; }
+    else { l1 = [30, 130, 290, 70]; l2 = [80, 20, 230, 185]; }
+    const [a1, b1] = rot(l1[0], l1[1], tilt), [a2, b2] = rot(l1[2], l1[3], tilt), [c1, d1] = rot(l2[0], l2[1], tilt), [c2, d2] = rot(l2[2], l2[3], tilt);
+    const [A, B, C, D] = names.split('');
+    let body = `<line x1="${a1}" y1="${b1}" x2="${a2}" y2="${b2}" stroke="${PALETTE.blueStroke}" stroke-width="${STROKE_W}"/>`
+        + `<line x1="${c1}" y1="${d1}" x2="${c2}" y2="${d2}" stroke="${PALETTE.redStroke}" stroke-width="${STROKE_W}"/>`;
+    body += label(a1 + 8, b1 - 14, A, { size: 15 }) + label(a2 - 8, b2 - 14, B, { size: 15 }) + label(c1 + 14, d1 + 4, C, { size: 15 }) + label(c2 + 14, d2 - 4, D, { size: 15 });
+    return svgWrap(W, H, body, { shadow: false, maxW: 340 });
+}

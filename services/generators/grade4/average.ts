@@ -1,60 +1,35 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 4 — Số trung bình cộng (g4_average).
+// Giữ mẫu "Trung bình cộng của các số a, b là …" và "Trung bình cộng của k số là m. Biết … Tìm số còn lại." (MathRacing).
+import { tpl, fromTemplates, single, rint, pickOne, chance } from '../kit';
+import { around } from '../wrongs';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
-const numOpts = (ans: number): string[] => {
-    const set = new Set<number>([ans]);
-    while (set.size < 4) { const v = ans + randomInt(-5, 5); if (v > 0 && v !== ans) set.add(v); }
-    return shuffleArray(Array.from(set)).map(String);
-};
+const CTX: [string, string, string][] = [['Tổ Một trồng được', 'cây', 'tổ'], ['Lớp 4A quyên góp được', 'quyển sách', 'lớp'], ['Bạn An đọc được', 'trang sách', 'ngày']];
 
-/**
- * Lớp 4 — Trung bình cộng (tìm TBC; tìm số còn thiếu khi biết TBC).
- * (Chuẩn GDPT 2018 lớp 4: bài toán trung bình cộng.)
- */
-export const generateG4Average = (): Omit<Question, 'id' | 'topicId'> => {
-    const count = pick([2, 3, 4]);
-    const avg = randomInt(5, 40);
-    // Tạo các số có trung bình cộng đúng = avg.
-    const nums: number[] = [];
-    let remaining = avg * count;
-    for (let i = 0; i < count - 1; i++) {
-        const maxV = Math.min(remaining - (count - 1 - i), avg * 2);
-        const v = randomInt(1, Math.max(1, maxV));
-        nums.push(v); remaining -= v;
-    }
-    nums.push(remaining);
-    const r = generatorRandom();
+export const templates: Template[] = [
+    tpl('g4.average', 2, () => {
+        const k = rint(2, 4), avg = rint(15, 90);
+        const nums = Array.from({ length: k - 1 }, () => rint(Math.max(1, avg - 30), avg + 30));
+        const last = avg * k - nums.reduce((a, b) => a + b, 0);
+        if (last <= 0) return single({ q: `Trung bình cộng của các số ${avg - 5}, ${avg + 5} là bao nhiêu?`, correct: avg, wrong: [2 * avg, avg + 5, avg - 5], explanation: `(${avg - 5} + ${avg + 5}) : 2 = ${avg}.` });
+        const all = [...nums, last];
+        return single({ q: `Trung bình cộng của các số ${all.join(', ')} là bao nhiêu?`, correct: avg, wrong: [avg * k, ...around(avg, { min: 1 })], min: 0,
+            explanation: `Tổng các số chia cho ${k}: (${all.join(' + ')}) : ${k} = ${avg * k} : ${k} = ${avg}.`, steps: [`Tổng: ${all.join(' + ')} = ${avg * k}`, `Trung bình cộng: ${avg * k} : ${k} = ${avg}`], hint: 'Cộng tất cả rồi chia cho số các số hạng.' });
+    }, { weight: 2 }),
+    tpl('g4.average', 3, () => {
+        if (chance(0.5)) {
+            const k = rint(3, 4), avg = rint(20, 60);
+            const known = Array.from({ length: k - 1 }, () => rint(Math.max(1, avg - 15), avg + 15));
+            const rest = avg * k - known.reduce((a, b) => a + b, 0);
+            if (rest <= 0) return single({ q: `Trung bình cộng của 2 số là ${avg}. Biết 1 số là ${avg - 3}. Tìm số còn lại.`, correct: avg + 3, wrong: [avg, avg - 3, 2 * avg], explanation: `Tổng 2 số: ${avg} × 2 = ${2 * avg}; số còn lại: ${2 * avg} - ${avg - 3} = ${avg + 3}.` });
+            return single({ q: `Trung bình cộng của ${k} số là ${avg}. Biết ${k - 1} số là ${known.join(', ')}. Tìm số còn lại.`, correct: rest, wrong: [avg, avg * k, ...around(rest, { min: 0 })], min: 0,
+                explanation: `Tổng ${k} số: ${avg} × ${k} = ${avg * k}. Số còn lại: ${avg * k} - (${known.join(' + ')}) = ${rest}.`, steps: [`Tổng ${k} số: ${avg} × ${k} = ${avg * k}`, `Số còn lại: ${avg * k} - ${known.reduce((a, b) => a + b, 0)} = ${rest}`], hint: 'Tìm tổng các số trước.' });
+        }
+        const [what, unit, per] = pickOne(CTX), k = rint(3, 4), avg = rint(20, 50), vals = Array.from({ length: k - 1 }, () => rint(avg - 10, avg + 10));
+        const last = avg * k - vals.reduce((a, b) => a + b, 0), all = [...vals, last];
+        return single({ q: `${what} ${all.join(', ')} ${unit} trong ${k} ${per} liên tiếp. Hỏi trung bình mỗi ${per} được bao nhiêu ${unit}?`, correct: avg, wrong: [avg * k, ...around(avg, { min: 1 })], min: 0,
+            explanation: `(${all.join(' + ')}) : ${k} = ${avg * k} : ${k} = ${avg} (${unit}).` });
+    }),
+];
 
-    // 1. Tìm trung bình cộng (60%)
-    if (r < 0.6) {
-        const ctx = pick([['Trung bình cộng của các số', ''], ['Tổ có ' + count + ' bạn, số điểm 10 lần lượt là', ' điểm. Trung bình mỗi bạn được mấy điểm 10?']]);
-        const isWord = ctx[1] !== '';
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: isWord
-                ? `${ctx[0]} ${nums.join(', ')}${ctx[1]}`
-                : `Trung bình cộng của các số ${nums.join(', ')} là bao nhiêu?`,
-            correctAnswer: String(avg),
-            options: numOpts(avg),
-            explanation: `Trung bình cộng = (${nums.join(' + ')}) : ${count} = ${avg * count} : ${count} = ${avg}.`,
-        };
-    }
-
-    // 2. Tìm số còn thiếu khi biết TBC (40%)
-    const hidden = nums[nums.length - 1];
-    const known = nums.slice(0, -1);
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Trung bình cộng của ${count} số là ${avg}. Biết ${count - 1} số là ${known.join(', ')}. Tìm số còn lại.`,
-        correctAnswer: String(hidden),
-        options: numOpts(hidden),
-        explanation: `Tổng ${count} số = ${avg} × ${count} = ${avg * count}. Số còn lại = ${avg * count} − (${known.join(' + ')}) = ${hidden}.`,
-    };
-};
+export const generateG4Average = fromTemplates(templates);

@@ -1,107 +1,75 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 4 — Phép tính với phân số (g4_fraction_ops): cộng, trừ (cùng mẫu / mẫu này chia hết cho mẫu kia),
+// nhân, chia, tìm phân số của một số. Cộng trừ khác mẫu tuỳ ý là "Nâng cao". Kết quả luôn RÚT GỌN, không âm.
+// Giữ mẫu "a/b + c/d = ?" và "a/b × c/d = ?" (MathRacing lọc theo mẫu này).
+import { tpl, fromTemplates, single, rint, pickOne, chance, shuffle } from '../kit';
+import { fractionErrors } from '../wrongs';
+import { fracText, lcm, fracNeighbors } from '../fractions';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(generatorRandom() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
-const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
+const F = (a: number, b: number) => `${a}/${b}`;
+const val = (f: string) => { const [p, q] = f.split('/').map(Number); return q ? p / q : p; };
+function opts(right: string, cands: string[]): string[] {
+    const [n, d] = right.includes('/') ? right.split('/').map(Number) : [Number(right), 1];
+    return [...cands, ...fracNeighbors(n, d)].filter(x => !/-/.test(x) && val(x) >= 0);
+}
 
-/** Rút gọn n/d → "x/y" (hoặc số nguyên nếu mẫu = 1). */
-const frac = (n: number, d: number): string => {
-    const g = gcd(Math.abs(n), Math.abs(d)) || 1;
-    const nn = n / g, dd = d / g;
-    return dd === 1 ? String(nn) : `${nn}/${dd}`;
-};
-
-/** Ghép đúng 4 đáp án gồm đáp án đúng + distractor (loại trùng, distractor đệm hợp lệ). */
-const fourOpts = (correct: string, wrongs: string[]): string[] => {
-    const set = new Set<string>([correct]);
-    for (const w of wrongs) { if (set.size >= 4) break; if (w && w !== correct) set.add(w); }
-    // Đệm bằng distractor suy từ đáp án đúng (vẫn là phân số/số hợp lệ).
-    const m = correct.match(/^(\d+)\/(\d+)$/);
-    let k = 1;
-    while (set.size < 4 && k <= 20) {
-        if (m) { const cand = `${parseInt(m[1], 10) + k}/${m[2]}`; if (cand !== correct) set.add(cand); }
-        else { const cn = parseInt(correct, 10) || 1; set.add(String(cn + k)); }
-        k++;
+function addSub(sameOrDivisible: boolean, anyDen: boolean) {
+    const plus = chance(0.5);
+    for (;;) {
+        let b = rint(2, 9), d: number;
+        if (anyDen) d = rint(2, 9); else if (sameOrDivisible && chance(0.5)) d = b; else { const k = rint(2, 3); d = b * k; if (d > 18) continue; }
+        const a = rint(1, b * 2), c = rint(1, d * 2), m = lcm(b, d);
+        const num = plus ? a * (m / b) + c * (m / d) : a * (m / b) - c * (m / d);
+        if (num < 0 || (anyDen && (b === d || m === Math.max(b, d)))) continue;
+        const right = fracText(num, m);
+        const wrongs = [...fractionErrors(a, b, c, d, plus ? '+' : '-').map(([x, y]) => fracText(x, y, false)), fracText(num, m * 2), F(num, m) === right ? fracText(num + 1, m) : F(num, m), fracText(num + m, m)];
+        return { a, b, c, d, m, num, plus, right, wrongs };
     }
-    return shuffleArray(Array.from(set).slice(0, 4));
-};
+}
 
-/**
- * Lớp 4 — Phép tính phân số khác mẫu (so sánh, cộng, trừ) và nhân phân số
- * (với số tự nhiên, với phân số). (Chuẩn GDPT 2018 lớp 4.)
- */
-export const generateG4FractionOps = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = generatorRandom();
-    const dens = [2, 3, 4, 5, 6];
+export const templates: Template[] = [
+    tpl('g4.frac_addsub', 1, () => {
+        const b = rint(3, 12), a = rint(1, b - 1), c = rint(1, b - 1), plus = chance(0.5) || a < c;
+        const num = plus ? a + c : a - c, right = fracText(num, b);
+        return single({ q: `${F(a, b)} ${plus ? '+' : '-'} ${F(c, b)} = ?`, wrong: opts(right, [F(plus ? a + c : a - c, b * 2), F(num, b * 2), fracText(num + 1, b), fracText(Math.abs(num - 1), b), F(a + c, b + b)]), correct: right,
+            explanation: `Cùng mẫu số: ${plus ? 'cộng' : 'trừ'} hai tử số, giữ nguyên mẫu: ${F(a, b)} ${plus ? '+' : '-'} ${F(c, b)} = ${F(num, b)}${F(num, b) !== right ? ` = ${right}` : ''}.`, hint: 'Không cộng (trừ) hai mẫu số!' });
+    }),
+    tpl('g4.frac_addsub', 2, () => {
+        const x = addSub(false, false);
+        return single({ q: `${F(x.a, x.b)} ${x.plus ? '+' : '-'} ${F(x.c, x.d)} = ?`, wrong: opts(x.right, x.wrongs), correct: x.right,
+            explanation: `Mẫu số chung là ${x.m}: ${F(x.a, x.b)} = ${F(x.a * (x.m / x.b), x.m)}; ${F(x.c, x.d)} = ${F(x.c * (x.m / x.d), x.m)}. Kết quả ${F(x.num, x.m)}${F(x.num, x.m) !== x.right ? ` = ${x.right}` : ''}.`,
+            steps: [`Quy đồng mẫu số ${x.m}: ${F(x.a * (x.m / x.b), x.m)} và ${F(x.c * (x.m / x.d), x.m)}`, `${x.plus ? 'Cộng' : 'Trừ'} tử số: ${F(x.num, x.m)}`, ...(F(x.num, x.m) !== x.right ? [`Rút gọn: ${x.right}`] : [])], hint: 'Quy đồng mẫu số trước.' });
+    }),
+    tpl('g4.frac_mul', 1, () => {
+        const a = rint(1, 9), b = rint(2, 9), n = rint(2, 9), right = fracText(a * n, b);
+        return single({ q: `${F(a, b)} × ${n} = ?`, wrong: opts(right, [F(a, b * n), fracText(a + n, b), fracText(a * n, b * n), fracText(a * n + 1, b)]), correct: right,
+            explanation: `Nhân tử số với ${n}, giữ nguyên mẫu: ${F(a * n, b)}${F(a * n, b) !== right ? ` = ${right}` : ''}.` });
+    }),
+    tpl('g4.frac_mul', 2, () => {
+        const a = rint(1, 8), b = rint(2, 9), c = rint(1, 8), d = rint(2, 9), right = fracText(a * c, b * d);
+        return single({ q: `${F(a, b)} × ${F(c, d)} = ?`, wrong: opts(right, [fracText(a * c, b + d), fracText(a + c, b * d), fracText(a * d, b * c), fracText(a * c + 1, b * d)]), correct: right,
+            explanation: `Tử nhân tử, mẫu nhân mẫu: ${F(a * c, b * d)}${F(a * c, b * d) !== right ? ` = ${right}` : ''}.`, hint: 'Tử nhân tử, mẫu nhân mẫu, rồi rút gọn.' });
+    }),
+    tpl('g4.frac_div', 2, () => {
+        const a = rint(1, 8), b = rint(2, 9), c = rint(1, 8), d = rint(2, 9), right = fracText(a * d, b * c);
+        return single({ q: `${F(a, b)} : ${F(c, d)} = ?`, wrong: opts(right, [fracText(a * c, b * d), fracText(b * c, a * d), fracText(a * d + 1, b * c), fracText(a, b * c)]), correct: right,
+            explanation: `Chia cho một phân số là nhân với phân số đảo ngược: ${F(a, b)} × ${F(d, c)} = ${F(a * d, b * c)}${F(a * d, b * c) !== right ? ` = ${right}` : ''}.`, hint: `Đảo ngược phân số thứ hai thành ${F(d, c)}.` });
+    }),
+    tpl('g4.fraction_of', 2, () => {
+        const b = rint(2, 9), a = rint(1, b - 1), unit = rint(2, 20), total = b * unit;
+        return single({ q: `Tìm ${F(a, b)} của ${total}.`, correct: a * unit, wrong: [unit, total - a * unit, a * unit + unit, a * unit - unit, total], min: 0,
+            explanation: `${F(a, b)} của ${total} là ${total} × ${F(a, b)} = ${total} : ${b} × ${a} = ${a * unit}.`, hint: `Chia ${total} thành ${b} phần bằng nhau rồi lấy ${a} phần.` });
+    }),
+    tpl('g4.fraction_of', 3, () => {
+        const b = pickOne([3, 4, 5, 6]), a = rint(1, b - 1), unit = rint(4, 30), total = b * unit, it = pickOne([['học sinh', 'lớp có', 'là học sinh giỏi'], ['quyển sách', 'thư viện có', 'là truyện tranh'], ['cây', 'vườn có', 'là cây cam']]);
+        return single({ q: `Một ${it[1]} ${total} ${it[0]}, trong đó ${F(a, b)} số ${it[0]} ${it[2]}. Hỏi có bao nhiêu ${it[0]} ${it[2]}?`, correct: a * unit, wrong: [unit, total - a * unit, a * unit + unit, a * unit - unit, total], min: 0,
+            explanation: `${total} × ${F(a, b)} = ${a * unit} (${it[0]}).`, steps: [`Số ${it[0]} ${it[2]}: ${total} × ${F(a, b)} = ${a * unit}`, `Đáp số: ${a * unit} ${it[0]}`] });
+    }),
+    tpl('g4.frac_addsub_any', 2, () => {
+        const x = addSub(false, true);
+        return single({ q: `${F(x.a, x.b)} ${x.plus ? '+' : '-'} ${F(x.c, x.d)} = ?`, wrong: opts(x.right, x.wrongs), correct: x.right,
+            explanation: `Quy đồng với mẫu số chung nhỏ nhất ${x.m}: ${F(x.a * (x.m / x.b), x.m)} ${x.plus ? '+' : '-'} ${F(x.c * (x.m / x.d), x.m)} = ${F(x.num, x.m)}${F(x.num, x.m) !== x.right ? ` = ${x.right}` : ''}.` });
+    }),
+];
 
-    // 1. So sánh hai phân số khác mẫu (25%)
-    if (r < 0.25) {
-        const b = pick(dens), d = pick(dens.filter(x => x !== b));
-        const a = randomInt(1, b - 1), c = randomInt(1, d - 1);
-        const ans = a * d > c * b ? '>' : a * d < c * b ? '<' : '=';
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh hai phân số: ${a}/${b} ... ${c}/${d}`,
-            correctAnswer: ans,
-            options: ['>', '<', '='],
-            explanation: `Quy đồng: ${a}/${b} = ${a * d}/${b * d}; ${c}/${d} = ${c * b}/${b * d}. So sánh tử số ${a * d} ${ans} ${c * b}.`,
-        };
-    }
-
-    // 2. Cộng / trừ khác mẫu (35%)
-    if (r < 0.6) {
-        const isAdd = generatorRandom() > 0.5;
-        const b = pick(dens), d = pick(dens.filter(x => x !== b));
-        let a = randomInt(1, b - 1), c = randomInt(1, d - 1);
-        // với phép trừ, đảm bảo kết quả không âm
-        if (!isAdd && a * d < c * b) { [a, c] = [c, a];/*đổi*/ }
-        const num = isAdd ? a * d + c * b : a * d - c * b;
-        const den = b * d;
-        const correct = frac(num, den);
-        const wrongs = [
-            frac(a + c, b + d),                 // cộng cả tử và mẫu (sai phổ biến)
-            frac(isAdd ? a * d - c * b : a * d + c * b, den), // nhầm phép tính
-            frac(num + 1, den),
-            frac(Math.max(1, num - 1), den),
-        ];
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${a}/${b} ${isAdd ? '+' : '-'} ${c}/${d} = ?`,
-            correctAnswer: correct,
-            options: fourOpts(correct, wrongs),
-            explanation: `Quy đồng mẫu số ${den}: ${a}/${b} = ${a * d}/${den}, ${c}/${d} = ${c * b}/${den}. ${isAdd ? 'Cộng' : 'Trừ'} tử số: ${a * d} ${isAdd ? '+' : '-'} ${c * b} = ${num}. Kết quả ${correct}.`,
-        };
-    }
-
-    // 3. Phân số nhân số tự nhiên (20%)
-    if (r < 0.8) {
-        const d = pick(dens), n = randomInt(1, d - 1), k = randomInt(2, 5);
-        const correct = frac(n * k, d);
-        const wrongs = [frac(n, d * k), frac(n + k, d), frac(n * k, d * k), `${n * k}/${d + k}`];
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${n}/${d} × ${k} = ?`,
-            correctAnswer: correct,
-            options: fourOpts(correct, wrongs),
-            explanation: `${n}/${d} × ${k} = ${n} × ${k} / ${d} = ${n * k}/${d} = ${correct}.`,
-        };
-    }
-
-    // 4. Phân số nhân phân số (20%)
-    const b = pick(dens), d = pick(dens), a = randomInt(1, b - 1), c = randomInt(1, d - 1);
-    const correct = frac(a * c, b * d);
-    const wrongs = [frac(a + c, b + d), frac(a * c, b + d), frac(a + c, b * d), frac(a * d, b * c)];
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Tính: ${a}/${b} × ${c}/${d} = ?`,
-        correctAnswer: correct,
-        options: fourOpts(correct, wrongs),
-        explanation: `Nhân tử với tử, mẫu với mẫu: (${a} × ${c})/(${b} × ${d}) = ${a * c}/${b * d} = ${correct}.`,
-    };
-};
+export const generateG4FractionOps = fromTemplates(templates);

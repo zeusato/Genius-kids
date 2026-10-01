@@ -46,6 +46,23 @@ import { templates as g3Money } from './grade3/money';
 import { templates as g3Statistics } from './grade3/statistics';
 import { templates as g3Probability } from './grade3/probability';
 import { templates as g3WordProblems } from './grade3/wordProblems';
+import { templates as g4LargeNumbers } from './grade4/largeNumbers';
+import { templates as g4AddSub } from './grade4/additions';
+import { templates as g4Multiplication } from './grade4/multiplications';
+import { templates as g4Division } from './grade4/divisions';
+import { templates as g4Parentheses } from './grade4/parentheses';
+import { templates as g4Average } from './grade4/average';
+import { templates as g4WordProblems } from './grade4/wordProblems';
+import { templates as g4Fractions } from './grade4/fractions';
+import { templates as g4FractionOps } from './grade4/fractionOps';
+import { templates as g4Angles } from './grade4/angles';
+import { templates as g4Lines } from './grade4/lines';
+import { templates as g4Units } from './grade4/units';
+import { templates as g4Geometry } from './grade4/geometry';
+import { templates as g4ParaRhombus } from './grade4/parallelogramRhombus';
+import { templates as g4Statistics } from './grade4/statistics';
+import { templates as g4Patterns } from './grade4/patterns';
+import { templates as g4Divisibility } from './grade4/divisibility';
 
 export const TEMPLATE_SETS: Template[][] = [
     mnCounting, mnShapes, mnColors, mnTime,
@@ -53,4 +70,5 @@ export const TEMPLATE_SETS: Template[][] = [
     g1Operations20, g1Length, g1Clock, g1Time, g1WordProblems,
     g2AddSub20, g2AddSubNoCarry, g2AddSubCarry, g2Arithmetic, g2Multiplication, g2Division, g2Numbers1000, g2AddSub1000, g2Geometry, g2Units, g2Time, g2Money, g2Statistics, g2Probability,
     g3Multiplication, g3Division, g3Expressions, g3Fractions, g3Geometry, g3Measurements, g3Numbers, g3Arithmetic, g3Area, g3Time, g3Money, g3Statistics, g3Probability, g3WordProblems,
+    g4LargeNumbers, g4AddSub, g4Multiplication, g4Division, g4Parentheses, g4Average, g4WordProblems, g4Fractions, g4FractionOps, g4Angles, g4Lines, g4Units, g4Geometry, g4ParaRhombus, g4Statistics, g4Patterns, g4Divisibility,
 ];

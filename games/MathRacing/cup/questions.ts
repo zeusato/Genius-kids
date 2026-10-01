@@ -48,9 +48,9 @@ const curriculum: Recipe[][][] = [
         [r('g3_arithmetic', generateG3Arithmetic, simple, 4, { missing: true }), r('g3_arithmetic', generateG3Arithmetic, (q, t) => expression(q, t) && (t.match(/\+/g) || []).length === 2, 4), r('g3_area', generateG3Area, (_q, t) => t.includes('chu vi hình chữ nhật'), 5)],
     ],
     [
-        [r('g4_multiplication', generateMultiplication, (q, t) => q.questionText.startsWith('Tính nhanh:') && simple(q, t) && Number(q.correctAnswer?.replaceAll(',', '')) >= 200, 2), r('g4_average', generateG4Average, (_q, t) => /^Trung bình cộng của các số \d+, \d+ là/.test(t), 3)],
+        [r('g4_multiplication', generateMultiplication, (q, t) => q.questionText.startsWith('Tính nhanh:') && simple(q, t) && (numericValue(q.correctAnswer || '') ?? 0) >= 200, 2), r('g4_average', generateG4Average, (_q, t) => /^Trung bình cộng của các số \d+, \d+ là/.test(t), 3)],
         [r('g4_fraction_ops', generateG4FractionOps, (q, t) => fraction(q, t) && / [+−\-] /.test(t), 4), r('g4_average', generateG4Average, (_q, t) => /^Trung bình cộng của các số (\d+, ){2,3}\d+ là/.test(t), 4)],
-        [r('g4_parentheses', generateG4Parentheses, (q, t) => expression(q, t) && /[×÷]/.test(t), 5), r('g4_fraction_ops', generateG4FractionOps, (q, t) => fraction(q, t) && /\d\/\d × \d\/\d/.test(t), 5), r('g4_average', generateG4Average, (_q, t) => t.includes('Tìm số còn lại'), 6)],
+        [r('g4_parentheses', generateG4Parentheses, (q, t) => expression(q, t) && /[×÷:]/.test(t), 5), r('g4_fraction_ops', generateG4FractionOps, (q, t) => fraction(q, t) && /\d\/\d × \d\/\d/.test(t), 5), r('g4_average', generateG4Average, (_q, t) => t.includes('Tìm số còn lại'), 6)],
     ],
     [
         [r('g5_decimal_ops', generateG5DecimalOps, (q, t) => simple(q, t) && / [+−\-] /.test(t), 3, { decimal: true }), r('g5_fractions', generateG5Fractions, (q, t) => fraction(q, t) && / [+−\-] /.test(t), 3)],

@@ -53,6 +53,8 @@ export interface SingleOpts extends Common {
     max?: number;
     /** Chỉ nhận số nguyên khi bù lựa chọn. */
     integer?: boolean;
+    /** Bước bù số lân cận (mặc định niceStep). Số lớn nên dùng 10/100 để giữ chữ số hàng đơn vị. */
+    step?: number;
     /** Tập đóng: CHỈ dùng các nhiễu truyền vào (vd "số lớn nhất trong 4 số đã cho"), không bù số lân cận. */
     closed?: boolean;
     /** Giữ nguyên thứ tự lựa chọn (không xáo). */
@@ -93,11 +95,21 @@ export function single(o: SingleOpts): Generated {
         opts.push(t);
     };
     const numericWrong = o.wrong.every(w => typeof w === 'number');
+    // Đáp án dạng chuỗi số (phân số "3/4", "0,5"…): cân bằng hạng theo GIÁ TRỊ, giữ nguyên cách viết; không bù số lân cận.
+    const strVals = typeof o.correct === 'string' && correctNum !== null ? o.wrong.map(w => (typeof w === 'string' ? parseValue(w) : null)) : [];
+    if (typeof o.correct === 'string' && correctNum !== null && strVals.length && strVals.every(v => v !== null) && !o.keepOrder) {
+        const items = shuffle(o.wrong.map((w, i) => ({ w, v: strVals[i]! }))).filter((x, i, a) => ok(x.w) && !sameValue(x.w, o.correct) && a.findIndex(y => Math.abs(y.v - x.v) < 1e-9) === i);
+        const below = items.filter(x => x.v < correctNum), above = items.filter(x => x.v > correctNum), m = count - 1;
+        let k = Math.floor(generatorRandom() * (m + 1));
+        k = Math.min(k, below.length);
+        if (m - k > above.length) k = Math.min(below.length, m - above.length);
+        for (const x of [...below.slice(0, k), ...above.slice(0, m - k)]) push(x.w);
+    }
     if (typeof o.correct === 'number' && numericWrong && !o.keepOrder) {
         // CÂN BẰNG HẠNG: chọn trước đáp án đúng đứng thứ mấy theo giá trị, rồi lấy nhiễu dưới / trên.
         // Đủ nhiễu được truyền vào → CHỈ dùng tập đó (tập đóng như "số lớn nhất trong 4 số" không bị đè);
         // thiếu mới bù bằng số lân cận với bước "tròn".
-        const c = o.correct, step = niceStep(c);
+        const c = o.correct, step = o.step ?? niceStep(c);
         const uniq = (xs: number[]) => xs.filter((x, i) => ok(x) && !sameValue(x, c) && xs.findIndex(y => sameValue(y, x)) === i);
         const given = uniq(shuffle(o.wrong as number[]));
         const m = count - 1;
@@ -116,7 +128,7 @@ export function single(o: SingleOpts): Generated {
     }
     for (const w of shuffle(o.wrong)) push(w);
     if (opts.length < count && correctNum !== null && typeof o.correct === 'number' && !o.closed) {
-        const step = niceStep(correctNum);
+        const step = o.step ?? niceStep(correctNum);
         for (let d = 1; opts.length < count && d < 60; d++) {
             push(Number((correctNum + d * step).toFixed(6)));
             push(Number((correctNum - d * step).toFixed(6)));

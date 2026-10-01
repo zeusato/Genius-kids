@@ -15,7 +15,8 @@ const groupInt = (digits: string): string => {
 };
 
 /** Định dạng số theo SGK. `decimals`: số chữ số thập phân tối đa (mặc định 6, bỏ số 0 thừa). */
-export function fmt(n: number, opts: { decimals?: number; fixed?: boolean } = {}): string {
+export function fmt(n: number, optsArg: { decimals?: number; fixed?: boolean } | number = {}): string {
+    const opts = typeof optsArg === "number" ? {} : optsArg; // cho phép .map(fmt)
     if (!Number.isFinite(n)) return String(n);
     const d = opts.decimals ?? 6;
     let s = Math.abs(n).toFixed(d);
