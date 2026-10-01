@@ -15,6 +15,7 @@ export function readProgress(value: unknown): PianoProgress {
         if (Number.isFinite(prefs.volume)) clean.preferences.volume=Math.max(0,Math.min(.85,prefs.volume));
         if (['solfege','letters','none'].includes(prefs.labels)) clean.preferences.labels=prefs.labels;
         if (typeof prefs.guidance==='boolean') clean.preferences.guidance=prefs.guidance;
+        if (typeof prefs.voice==='boolean') clean.preferences.voice=prefs.voice;
     }
     for (const [id,r] of Object.entries(p.records || {})) {
         if (!known(id) || !r || !Number.isInteger(r.total) || r.total < 1 || r.total > 128 || !Array.isArray(r.phrases)) continue;

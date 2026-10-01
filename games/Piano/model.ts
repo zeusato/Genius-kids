@@ -14,13 +14,27 @@ export interface Song {
     source: { url: string; book: string; page: string; sha256: string; transpose: number };
 }
 export interface Step { pitches: number[]; beats: number; gapBeats?: number; holdMs?: number }
-export interface Lesson { id: string; title: string; subtitle: string; instruction: string; tip: string; icon: string; steps: Step[]; demonstration?: 'hand' | 'keys' }
+/** Inclusive MIDI range shown on the keyboard; both ends are white keys. */
+export type KeyRange = readonly [number, number];
+interface ActivityBase { say: string; range?: KeyRange; fingers?: boolean; labels?: boolean }
+/** Play a sequence. `listenFirst` turns it into an echo game; `after-miss` lights only after two wrong notes. */
+export interface FollowActivity extends ActivityBase { type: 'follow'; steps: Step[]; lights: 'always' | 'after-miss'; listenFirst?: boolean }
+/** Touch `need` different keys among `targets` (all of them by default); `marks` are reference keys. */
+export interface FindActivity extends ActivityBase { type: 'find'; targets: number[]; need?: number; marks?: number[]; wrongTip: string }
+/** Each round names one note; any octave of that pitch class counts. */
+export interface QuizActivity extends ActivityBase { type: 'quiz'; rounds: number[] }
+/** Each round plays two notes; the child says whether the second one went up or down. */
+export interface EarActivity extends ActivityBase { type: 'ear'; rounds: [number, number][] }
+export type Activity = FollowActivity | FindActivity | QuizActivity | EarActivity;
+export interface Lesson { id: string; title: string; subtitle: string; tip: string; icon: string; range: KeyRange; activities: Activity[]; demonstration?: 'hand' }
 export const NOTE_NAMES = ['Đô', 'Đô ♯', 'Rê', 'Rê ♯', 'Mi', 'Fa', 'Fa ♯', 'Sol', 'Sol ♯', 'La', 'La ♯', 'Si'];
 export const LETTER_NAMES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
 export const noteName = (midi: number, letters = false) => (letters ? LETTER_NAMES : NOTE_NAMES)[midi % 12];
 export const isBlack = (midi: number) => [1, 3, 6, 8, 10].includes(midi % 12);
 export const validMidi = (n: number) => Number.isInteger(n) && n >= 60 && n <= 84;
+/** Right hand in C position: thumb on Đô. */
+export const C_POSITION_FINGERS: Readonly<Record<number, number>> = { 60: 1, 62: 2, 64: 3, 65: 4, 67: 5 };
 export const SONG_IDS = ['25432-hotcrossbuns','25432-londonbridge','25432-polly','25432-avignon','25432-lucylocket','25432-schlaf','25432-aikendrum','25432-margerydaw','25432-threelittlekittens','25432-looby','25418-girls','25418-mulberry','25418-oranges','25418-lavender','25418-threeships','25418-dingdong','25418-threeblindmice','25418-dickory','25418-sixpence','25418-bopeep','25418-baabaa','25418-jackandjill','25418-hushaby','25418-kingcole'];
 export const LEVEL_NAMES = { easy: 'Khởi đầu', medium: 'Quen tay', hard: 'Thử sức' };
-export interface Preferences { instrument: InstrumentId; volume: number; labels: 'solfege' | 'letters' | 'none'; guidance: boolean }
-export const defaultPreferences: Preferences = { instrument: 'piano', volume: .55, labels: 'solfege', guidance: true };
+export interface Preferences { instrument: InstrumentId; volume: number; labels: 'solfege' | 'letters' | 'none'; guidance: boolean; voice: boolean }
+export const defaultPreferences: Preferences = { instrument: 'piano', volume: .55, labels: 'solfege', guidance: true, voice: true };

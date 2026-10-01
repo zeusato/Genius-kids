@@ -1,10 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { SONGS } from './content/songs';
+import { SONGS, SONG_PICKUP, phrasesOf } from './content/songs';
 import { LESSONS } from './content/lessons';
-import { SONG_IDS, INSTRUMENTS, defaultPreferences } from './model';
-import { canAdvance, eventsFromSteps, phrasesFor, stepsFromNotes } from './engine';
+import { SONG_IDS, INSTRUMENTS, defaultPreferences, isBlack } from './model';
+import { barBeats, canAdvance, eventsFromSteps, fitRange, phrasesFor, stepAtBeat, stepStarts, stepsFromNotes, whiteKeys } from './engine';
+import { activityKeys, earAnswer, judgeFind, judgePress, keysOfClass, needOf, rangeOf } from './lessonEngine';
 import { applyProgress, persistPiano, readProgress } from './progress';
 import { PianoAudio, synthesize, frequency } from './audio';
 import type { StudentProfile } from '../../types';
@@ -29,11 +30,64 @@ describe('piano repertoire and learning content',()=>{
     it('retains every target and rest when splitting a full melody into phrases',()=>{
         for(const song of SONGS){const steps=stepsFromNotes(song.notes),phrases=phrasesFor(steps);expect(phrases.flat()).toEqual(steps);expect(phrases.every(p=>p.length>0&&p.length<=8)).toBe(true);const e=eventsFromSteps(steps);const first=song.notes.find(n=>n.midi!==null)!;expect(e.beats).toBeCloseTo(song.totalBeats-first.at,6);}
     });
-    it('includes ten guided lessons, hold/release, silence and genuine two-note chords',()=>{
+    it('splits every song at bar lines into playable phrases without losing a note or rest',()=>{
+        for(const song of SONGS){
+            const steps=stepsFromNotes(song.notes),phrases=phrasesOf(song);
+            expect(phrases.flat()).toEqual(steps);
+            expect(phrases.every(p=>p.length>=3&&p.length<=14)).toBe(true);
+            const bar=barBeats(song.meter),pickup=SONG_PICKUP[song.id]||0,starts=song.notes.filter(n=>n.midi!==null).map(n=>n.at);
+            let index=0;
+            for(const phrase of phrases.slice(1)){index+=phrases[phrases.indexOf(phrase)-1].length;expect(((starts[index]-pickup)/bar)%1).toBeCloseTo(0,6);}
+        }
+        expect(barBeats('6/8')).toBe(3);expect(barBeats('3/8')).toBe(1.5);expect(barBeats('2/4')).toBe(2);
+    });
+    it('records each pickup bar exactly as the source MusicXML writes it',()=>{
+        for(const song of SONGS){
+            const xml=readFileSync(new URL(`./content/sources/${song.id}.xml`,import.meta.url),'utf8');
+            const measure=xml.split('<measure')[1],divisions=Number(xml.match(/<divisions>(\d+)/)![1]);
+            let beats=0;
+            for(const note of measure.split('<note').slice(1)){if(/<chord\/>|<grace/.test(note)||/<voice>[2-9]/.test(note)||/<staff>[2-9]/.test(note))continue;const d=note.match(/<duration>(\d+)/);if(d)beats+=Number(d[1])/divisions;}
+            const bar=barBeats(song.meter);expect(beats<bar-1e-6?beats:0).toBeCloseTo(SONG_PICKUP[song.id]||0,6);
+        }
+    });
+    it('fits the keyboard to a melody with white-key edges and at least an octave',()=>{
+        expect(fitRange([67,79])).toEqual([67,79]);expect(fitRange([61,63])).toEqual([60,72]);expect(fitRange([80,84])).toEqual([72,84]);
+        for(const song of SONGS){const r=fitRange(song.notes.filter(n=>n.midi!==null).map(n=>n.midi!));expect(isBlack(r[0])||isBlack(r[1])).toBe(false);expect(whiteKeys(r).length).toBeGreaterThanOrEqual(8);for(const n of song.notes)if(n.midi!==null)expect(n.midi>=r[0]&&n.midi<=r[1]).toBe(true);}
+        const starts=stepStarts([{pitches:[60],beats:1,gapBeats:1},{pitches:[62],beats:.5},{pitches:[64],beats:2}]);
+        expect(starts).toEqual([0,2,2.5]);expect(stepAtBeat(starts,2.4)).toBe(1);expect(stepAtBeat(starts,0)).toBe(0);
+    });
+    it('teaches ten lessons through finding, naming, listening and playing, all inside each keyboard range',()=>{
         expect(LESSONS).toHaveLength(10);expect(new Set(LESSONS.map(l=>l.id)).size).toBe(10);
-        expect(LESSONS[1].steps.every(s=>s.holdMs!>=500)).toBe(true);
-        expect(LESSONS[7].steps.some(s=>s.gapBeats)).toBe(true);
-        expect(LESSONS[8].steps.every(s=>s.pitches.length===2)).toBe(true);
+        expect(LESSONS.map(l=>l.id)).toEqual(Array.from({length:10},(_,i)=>`learn-${i+1}`));
+        const types=new Set(LESSONS.flatMap(l=>l.activities.map(a=>a.type)));expect([...types].sort()).toEqual(['ear','find','follow','quiz']);
+        for(const lesson of LESSONS){
+            expect(lesson.activities.length).toBeGreaterThanOrEqual(2);expect(lesson.activities.length).toBeLessThanOrEqual(6);
+            for(const a of lesson.activities){
+                const range=rangeOf(lesson,a);expect(isBlack(range[0])||isBlack(range[1])).toBe(false);
+                expect(a.say.length).toBeGreaterThan(10);
+                for(const n of activityKeys(a))expect(n>=range[0]&&n<=range[1]).toBe(true);
+                if(a.type==='find'){expect(needOf(a)).toBeGreaterThan(0);expect(new Set(a.targets).size).toBe(a.targets.length);for(const m of a.marks||[])expect(a.targets).not.toContain(m);}
+                if(a.type==='quiz')for(const pc of a.rounds)expect(keysOfClass(range,pc).length).toBeGreaterThan(0);
+                if(a.type==='ear')for(const [x,y] of a.rounds)expect(x).not.toBe(y);
+                if(a.type==='follow')expect(a.steps.length).toBeGreaterThan(0);
+            }
+        }
+        const follows=LESSONS.flatMap(l=>l.activities).filter(a=>a.type==='follow');
+        expect(follows.some(a=>a.steps.some(s=>(s.holdMs||0)>=500))).toBe(true);
+        expect(follows.some(a=>a.steps.some(s=>s.gapBeats))).toBe(true);
+        expect(follows.some(a=>a.steps.every(s=>s.pitches.length===2))).toBe(true);
+        expect(follows.some(a=>a.listenFirst&&a.lights==='after-miss')).toBe(true);
+        const ear=LESSONS.flatMap(l=>l.activities).find(a=>a.type==='ear')!;
+        expect(ear.type==='ear'&&new Set(ear.rounds.map(earAnswer)).size).toBe(2);
+    });
+    it('judges lesson input: chords need both notes, holds wait for release, IME notes cannot hold',()=>{
+        const chord={pitches:[60,64],beats:2},hold={pitches:[67],beats:2,holdMs:900},tap={pitches:[62],beats:1};
+        expect(judgePress(chord,new Set([60]),60,false)).toBe('partial');expect(judgePress(chord,new Set([60,64]),64,false)).toBe('advance');
+        expect(judgePress(hold,new Set([67]),67,false)).toBe('hold');expect(judgePress(hold,new Set(),67,true)).toBe('needs-real-key');
+        expect(judgePress(tap,new Set(),62,true)).toBe('advance');expect(judgePress(tap,new Set([65]),65,false)).toBe('wrong');
+        const find={type:'find' as const,say:'Tìm hết các phím Đô',targets:[60,72],wrongTip:''};
+        expect(judgeFind(find,new Set(),72)).toBe('found');expect(judgeFind(find,new Set([72]),72)).toBe('again');expect(judgeFind(find,new Set(),62)).toBe('wrong');
+        expect(keysOfClass([60,84],0)).toEqual([60,72,84]);expect(earAnswer([64,60])).toBe('down');
     });
     it('requires a newly played target, ignores wrong notes, and requires both chord notes',()=>{
         const step={pitches:[60,64],beats:2};expect(canAdvance(step,new Set([60]),60)).toBe(false);expect(canAdvance(step,new Set([60,64]),64)).toBe(true);expect(canAdvance(step,new Set([60,64,65]),65)).toBe(false);
@@ -69,6 +123,7 @@ describe('piano profile persistence',()=>{
     it('normalizes malformed persisted values and preserves valid preferences',()=>{
         const p=readProgress({version:1,records:{bad:{},[SONG_IDS[0]]:{phrases:[0,0,1,999],total:2}},preferences:{instrument:'organ',volume:100,labels:'letters',guidance:false}});
         expect(p.records[SONG_IDS[0]].phrases).toEqual([0,1]);expect(p.records.bad).toBeUndefined();expect(p.preferences).toEqual({...defaultPreferences,instrument:'organ',volume:.85,labels:'letters',guidance:false});
+        expect(readProgress({version:1,preferences:{voice:false}}).preferences.voice).toBe(false);expect(readProgress({version:1,preferences:{voice:'yes'}}).preferences.voice).toBe(true);
         expect(readProgress({version:88}).records).toEqual({});
     });
 });

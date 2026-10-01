@@ -124,23 +124,24 @@ export class PianoAudio {
         this.epoch++;if(this.timer!==null)clearInterval(this.timer);this.timer=null;
         for(const [id,v]of this.voices){v.gain.gain.cancelScheduledValues(this.now);v.gain.gain.setTargetAtTime(0,this.now,.004);try{v.source.stop(this.now+.025);}catch{}v.released=true;}
     }
-    schedule(events:NoteEvent[],totalBeats:number,bpm:number,speed:number,cue:(notes:number[])=>void,done:()=>void){
+    /** `cue` receives the notes being heard and the playback position in beats. */
+    schedule(events:NoteEvent[],totalBeats:number,bpm:number,speed:number,cue:(notes:number[],beat:number)=>void,done:()=>void){
         this.stop();if(!this.audible)return false;
         const epoch=this.epoch,start=this.now+.1,seconds=60/bpm/speed,queue=events.filter(e=>e.midi!==null).sort((a,b)=>a.at-b.at);
         let next=0,lastCue='';
         const pump=()=>{
             if(this.disposed||epoch!==this.epoch)return;
-            if(!this.ready){this.stop();cue([]);this.onInterrupt();return;}
+            if(!this.ready){this.stop();cue([],-1);this.onInterrupt();return;}
             while(next<queue.length&&start+queue[next].at*seconds<=this.now+.12){
                 const e=queue[next++],at=start+e.at*seconds;
-                if(at<this.now-.15){this.stop();cue([]);this.onInterrupt();return;}
+                if(at<this.now-.15){this.stop();cue([],-1);this.onInterrupt();return;}
                 const id=this.noteOn(e.midi!,at);if(id!==null)this.noteOff(id,at+e.beats*seconds*.9);
             }
             let heard=this.now;
             try{const stamp=this.ctx?.getOutputTimestamp?.();if(stamp?.contextTime&&Math.abs(performance.now()-stamp.performanceTime)<250)heard=stamp.contextTime+(performance.now()-stamp.performanceTime)/1000;}catch{}
             const notes=queue.filter(e=>start+e.at*seconds<=heard&&start+(e.at+e.beats*.9)*seconds>heard).map(e=>e.midi!);
-            const key=notes.join(',');if(key!==lastCue){lastCue=key;cue(notes);}
-            if(heard>=start+totalBeats*seconds+.12){if(this.timer!==null)clearInterval(this.timer);this.timer=null;cue([]);done();}
+            const key=notes.join(',');if(key!==lastCue){lastCue=key;cue(notes,(heard-start)/seconds);}
+            if(heard>=start+totalBeats*seconds+.12){if(this.timer!==null)clearInterval(this.timer);this.timer=null;cue([],-1);done();}
         };
         this.timer=setInterval(pump,20);pump();return true;
     }

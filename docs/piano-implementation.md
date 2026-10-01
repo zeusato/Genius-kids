@@ -70,3 +70,17 @@ Nếu bộ gõ chặn keydown nhưng keyup vật lý vẫn tới trình duyệt 
 Không có cách suy ra chắc chắn một phím nếu bộ gõ hệ điều hành chặn cả tín hiệu nhấn lẫn nhả. Khi cần giữ phím/hợp âm chính xác hoặc vẫn bị thiếu nốt, chuyển UniKey/EVKey từ V sang E trong lúc đàn. Ứng dụng không tự thay đổi cấu hình bộ gõ hệ thống. Tham khảo [W3C UI Events — Composition](https://www.w3.org/TR/uievents/#events-composition-key-events).
 
 Kiểm tra thay đổi: 14 test chuỗi sự kiện phím + 23 test piano qua (37/37), TypeScript và production/PWA build qua. Trên trình duyệt, A–A tiến đúng 2 nốt, không còn phím bị giữ; A lần ba hoàn thành bài, nghe mẫu sau đó vẫn chạy tới cuối. Các test IME là chuỗi sự kiện mô phỏng; không coi thao tác tự động của trình duyệt là kiểm chứng hook UniKey/EVKey thật.
+
+## Cập nhật 01/10/2026 — tối ưu tablet, Làm quen và Tập theo bài
+
+Thiết bị chính là máy tính bảng, ưu tiên **ngang** (1180×820, 1024×768), vẫn tối ưu cho dọc (820×1180) và dùng được trên điện thoại.
+
+**Màn đàn (cả ba chế độ).** Bố cục "sân khấu" cao đúng một màn hình: thanh trên gọn (quay lại, tên bài, nhạc cụ dạng menu, Tùy chỉnh, tiếng), khung nhiệm vụ co giãn, bàn phím luôn ở đáy, không phải cuộn trang. Bàn phím tự co theo quãng của bài/hoạt động (`fitRange`, tối thiểu 8 phím trắng) nên phím to hơn nhiều trên tablet; tablet dọc dành thêm chiều cao cho phím. Âm lượng, tên trên phím, phím sáng gợi ý và đọc to hướng dẫn chuyển vào menu Tùy chỉnh. Khi âm thanh chưa mở/đang tải/tắt tiếng, lớp phủ ngay trên bàn phím có nút bật. Chữ tối thiểu ~13–15px, nút chạm ≥44px.
+
+**Tập theo bài nhạc.** Bỏ hai bước "Câu tiếp" + "Bắt đầu đàn": chạm phím đang sáng là bắt đầu; xong một câu thì lưu câu đó và chuyển thẳng sang câu sau, trẻ đàn liền một mạch cả bài tới màn Hoàn thành. Câu nhạc chia theo vạch nhịp (1/2/4 ô nhịp, chọn cỡ gần 8 nốt nhất; nốt ô nhịp lấy đà gộp vào câu đầu, `SONG_PICKUP` đối chiếu MusicXML trong test) thay cho cắt cứng 8 nốt. Dải nốt hiện cả bài, ô rộng theo trường độ, câu kế tiếp hiện mờ phía sau. "Nghe câu này"/"Cả bài" cho ô nốt và phím chạy theo tiếng; "Lặp câu" để luyện một câu. Tắt gợi ý mà sai 3 lần thì phím vẫn sáng giúp (và không tính là tự đàn). Khoảng nghỉ trong bài chỉ hiển thị, không chặn phím.
+
+**Làm quen với đàn.** 10 bài thành lộ trình (thẻ "Học tiếp", tiến độ x/10), mỗi bài 2–5 hoạt động ngắn tự nối tiếp: tìm phím (phím trắng/đen, nhóm 2–3 phím đen, mọi phím Đô, cao/thấp hơn phím mốc), đố tên nốt (có/không nhãn), nghe hai tiếng rồi chọn Lên cao/Xuống thấp, nghe bạn Cáo rồi đàn lại, đàn theo phím sáng với số ngón tay thế Đô (1–5), giữ nốt dài có vòng đầy, khoảng nghỉ, hai nốt cùng lúc; bài 10 là Bài ca Niềm vui (Beethoven). Hướng dẫn được đọc to bằng TTS giữa các lượt (tắt được), sai 2 lần thì phím đúng sáng lên. Tiến độ bài học lưu theo hoạt động (`phrase` = chỉ số hoạt động).
+
+Mã: `stage.tsx` (khung chung, menu, dải nốt), `SongPractice.tsx`, `LessonPlayer.tsx`, `lessonEngine.ts`; `engine.ts` thêm `songPhrases`, `fitRange`, `stepStarts`. Bản ghi cũ có số câu khác (cách chia 8 nốt cũ) vẫn giữ dấu hoàn thành; lần tập mới bắt đầu tính lại từ câu 1.
+
+Kiểm tra: 41 test Piano + hub (55/55), TypeScript (chỉ còn lỗi có sẵn ở `modules/farm`), production/PWA build. Trình duyệt ở 1180×820, 1024×768, 820×1180, 390×844: đàn trọn "Sắc hoa oải hương" 4 câu không bấm nút nào giữa câu; nghe mẫu câu; Bài 1 đủ 3 hoạt động tự nối; Bài 3 nghe-đàn lại + đố tên nốt; Bài 6 tìm cao/thấp + nghe Lên/Xuống. Chưa thử trên tablet thật (đa chạm, độ trễ, giọng TTS của thiết bị).
