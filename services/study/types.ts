@@ -34,6 +34,8 @@ export interface Template {
     check?: (q: Generated) => string | null;
     /** Câu có số thập phân hợp lệ (bỏ qua kiểm "dấu phẩy nhóm nghìn"). */
     decimal?: boolean;
+    /** Bỏ kiểm "hạng giá trị đáp án" (vd "Số nào lớn nhất?" — đáp án tất nhiên lớn nhất). */
+    noRankCheck?: boolean;
 }
 
 export type CompactQuestion = Omit<Question, 'visualSvg'>;

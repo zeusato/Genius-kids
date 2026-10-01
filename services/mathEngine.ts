@@ -75,6 +75,10 @@ import { generateG4FractionOps } from './generators/grade4/fractionOps';
 // Grade 5 - refactored generators
 import { generateG5Parentheses } from './generators/grade5/parentheses';
 
+import { registerLegacy, topicHasContent } from './study/registry';
+import { buildSession } from './study/session';
+import { TOPIC_META, topicMeta } from './study/catalog';
+
 // Bộ SVG dùng chung (cho nhánh visualRequest của AI)
 import { fractionBarSVG, angleSVG } from './generators/svg';
 
@@ -317,84 +321,22 @@ const generators: Record<string, () => Omit<Question, 'id' | 'topicId'>> = {
   'typing_practice': generateTypingPractice
 };
 
-export const generateQuestions = (topicIds: string[], count: number): Question[] => {
-  const questions: Question[] = [];
-  const questionsPerTopic = Math.ceil(count / topicIds.length);
-  const seenQuestions = new Set<string>(); // Track question text to avoid duplicates
+// Đăng ký generator cũ cho các topic chưa chuyển sang template (GĐ2 chuyển dần).
+registerLegacy(generators, Object.fromEntries(TOPICS.map(t => [t.id, t.grade])));
 
-  topicIds.forEach(tid => {
-    const generator = generators[tid];
-    if (generator) {
-      let added = 0;
-      let attempts = 0;
-      const maxAttempts = questionsPerTopic * 10; // Prevent infinite loop
+/** Tên/mô tả topic theo catalog Ôn Luyện; thêm topic mới của catalog (chỉ hiện khi đã có nội dung). */
+for (const meta of TOPIC_META) {
+  const t = TOPICS.find(x => x.id === meta.id);
+  if (t) { t.title = meta.title; t.description = meta.description; }
+  else TOPICS.push({ id: meta.id, title: meta.title, grade: meta.grade, description: meta.description });
+}
 
-      while (added < questionsPerTopic && attempts < maxAttempts) {
-        attempts++;
-        const baseQ = generator();
+export const generateQuestions = (topicIds: string[], count: number): Question[] =>
+  buildSession({ topicIds, count }).questions;
 
-        // Create unique key for question (questionText + correctAnswer)
-        const questionKey = `${baseQ.questionText}|${baseQ.correctAnswer}`;
-
-        // Skip if duplicate question
-        if (seenQuestions.has(questionKey)) {
-          continue;
-        }
-
-        // Ensure options are unique for SingleChoice questions
-        if (baseQ.type === QuestionType.SingleChoice && baseQ.options) {
-          const uniqueOptions = Array.from(new Set(baseQ.options));
-
-          // If we lost options due to duplicates, skip this question
-          if (uniqueOptions.length < 4) {
-            continue;
-          }
-
-          baseQ.options = uniqueOptions.slice(0, 4);
-        }
-
-        // Ensure options are unique for SelectWrong questions
-        if (baseQ.type === QuestionType.SelectWrong && baseQ.options) {
-          const uniqueOptions = Array.from(new Set(baseQ.options));
-
-          // If we lost options due to duplicates, skip this question
-          if (uniqueOptions.length < 4) {
-            continue;
-          }
-
-          baseQ.options = uniqueOptions.slice(0, 4);
-        }
-
-        // Ensure options are unique for MultipleSelect questions
-        if (baseQ.type === QuestionType.MultipleSelect && baseQ.options) {
-          const uniqueOptions = Array.from(new Set(baseQ.options));
-
-          // If we lost options due to duplicates, skip this question
-          // Need at least sum of correct + wrong answers
-          const minRequired = (baseQ.correctAnswers?.length || 0) + 2;
-          if (uniqueOptions.length < minRequired) {
-            continue;
-          }
-
-          baseQ.options = uniqueOptions;
-        }
-
-        seenQuestions.add(questionKey);
-        questions.push({
-          id: Math.random().toString(36).substring(7),
-          topicId: tid,
-          ...baseQ
-        });
-        added++;
-      }
-    }
-  });
-
-  // Trim to exact count and shuffle
-  return shuffleArray(questions).slice(0, count);
-};
-
-export const getTopicsByGrade = (grade: Grade) => TOPICS.filter(t => t.grade === grade);
+export const getTopicsByGrade = (grade: Grade) => TOPICS
+  .filter(t => t.grade === grade && (t.id.includes('typing') || topicHasContent(t.id)))
+  .sort((x, y) => (topicMeta(x.id)?.order ?? 50) - (topicMeta(y.id)?.order ?? 50));
 
 export const generateTestWithFallback = async (
   profile: StudentProfile,
