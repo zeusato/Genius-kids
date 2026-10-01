@@ -24,7 +24,7 @@ function divTemplates(skill: 'g2.div_table' | 'g2.div_table34', tables: number[]
 
 export const templates: Template[] = [
     tpl('g2.div_meaning', 1, () => {
-        const b = pickOne([2, 5]), q = rint(2, 10), k = rint(0, 2), parts = [b * q, b, q], names = ['Số bị chia', 'Số chia', 'Thương'];
+        const b = pickOne([2, 5]), q = pickOne([2, 3, 4, 6, 7, 8, 9, 10].filter(x => x !== b)), k = rint(0, 2), parts = [b * q, b, q], names = ['Số bị chia', 'Số chia', 'Thương'];
         return choices({ q: `Trong phép chia ${b * q} : ${b} = ${q}, số ${parts[k]} được gọi là gì?`, speech: `Trong phép chia ${b * q} chia ${b} bằng ${q}, số ${parts[k]} được gọi là gì?`,
             options: ['Số bị chia', 'Số chia', 'Thương', 'Tích'], shuffle: true, correct: names[k], explanation: `${b * q} là số bị chia, ${b} là số chia, ${q} là thương.` });
     }),

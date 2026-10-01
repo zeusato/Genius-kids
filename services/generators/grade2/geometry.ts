@@ -13,7 +13,7 @@ export const templates: Template[] = [
         const LINE_NAME = { segment: `Đoạn thẳng ${nm}`, line: `Đường thẳng ${nm}`, curve: 'Đường cong' };
         return choices({ q: 'Hình vẽ là gì?', speech: 'Hình vẽ là gì: đoạn thẳng, đường thẳng hay đường cong?', visual: { fn: 'linesSVG', args: [kind, nm] },
             options: Object.values(LINE_NAME), correct: LINE_NAME[kind],
-            explanation: kind === 'segment' ? 'Đoạn thẳng có hai đầu là hai điểm A và B.' : kind === 'line' ? 'Đường thẳng kéo dài mãi về hai phía, không có điểm đầu, điểm cuối.' : 'Đường cong không thẳng, bị uốn cong.' });
+            explanation: kind === 'segment' ? `Đoạn thẳng ${nm} có hai đầu là hai điểm ${nm[0]} và ${nm[1]}.` : kind === 'line' ? `Đường thẳng ${nm} kéo dài mãi về hai phía, không có điểm đầu, điểm cuối.` : 'Đường cong không thẳng, bị uốn cong.' });
     }),
     tpl('g2.points_lines', 2, () => {
         const yes = rint(0, 1) === 1, nm = pickOne(NAMES3), list = nm.split('').join(', ');
@@ -44,7 +44,7 @@ export const templates: Template[] = [
             correct: n, wrong: [1, 2, 3, 4, 0], min: 0, max: 4, explanation: 'Hình vuông, hình chữ nhật cũng là hình tứ giác vì có 4 cạnh.', hint: 'Đếm các hình có đúng 4 cạnh.' });
     }, { noRankCheck: true }),
     tpl('g2.shapes3d', 1, () => {
-        const items = [['cylinder', 'Khối trụ', '🥫', 'Lon sữa'], ['sphere', 'Khối cầu', '⚽', 'Quả bóng'], ['cylinder', 'Khối trụ', '🥁', 'Cái trống'], ['sphere', 'Khối cầu', '🌍', 'Quả địa cầu'], ['cube', 'Khối lập phương', '🎲', 'Con xúc xắc'], ['box', 'Khối hộp chữ nhật', '📦', 'Thùng giấy'], ['cylinder', 'Khối trụ', '🕯️', 'Cây nến'], ['sphere', 'Khối cầu', '🍊', 'Quả cam'], ['box', 'Khối hộp chữ nhật', '🧱', 'Viên gạch'], ['cylinder', 'Khối trụ', '🧻', 'Cuộn giấy'], ['sphere', 'Khối cầu', '🏀', 'Quả bóng rổ'], ['box', 'Khối hộp chữ nhật', '🎁', 'Hộp quà']] as const;
+        const items = [['cylinder', 'Khối trụ', '🥫', 'Lon sữa'], ['sphere', 'Khối cầu', '⚽', 'Quả bóng'], ['cylinder', 'Khối trụ', '🥁', 'Cái trống'], ['sphere', 'Khối cầu', '🌍', 'Quả địa cầu'], ['cube', 'Khối lập phương', '🎲', 'Con xúc xắc'], ['box', 'Khối hộp chữ nhật', '📦', 'Thùng giấy'], ['cylinder', 'Khối trụ', '🕯️', 'Cây nến'], ['sphere', 'Khối cầu', '🍊', 'Quả cam'], ['box', 'Khối hộp chữ nhật', '🧱', 'Viên gạch'], ['cylinder', 'Khối trụ', '🧻', 'Cuộn giấy'], ['sphere', 'Khối cầu', '🏀', 'Quả bóng rổ']] as const;
         const [kind, name, e, obj] = pickOne(items), showObj = rint(0, 1) === 1;
         return choices({ q: showObj ? `${obj} có dạng khối gì?` : 'Đây là khối gì?', speech: showObj ? `${obj} có dạng khối gì?` : 'Đây là khối gì?',
             visual: showObj ? { fn: 'bigEmojiSVG', args: [e] } : { fn: 'solidSVG', args: [kind, 'orange'] },

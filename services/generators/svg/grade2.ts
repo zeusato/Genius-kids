@@ -101,14 +101,14 @@ export function balanceSVG(left: { e: string; kg?: number; w: number }, right: {
 }
 
 /** Biểu đồ tranh: mỗi hàng một nhãn + số biểu tượng (mỗi biểu tượng = `per` đơn vị). */
-export function pictographSVG(rows: { label: string; n: number }[], emoji: string, per = 1, title = ''): string {
+export function pictographSVG(rows: { label: string; n: number; emoji?: string }[], emoji: string, per = 1, title = ''): string {
     const cell = 34, lw = 92, maxN = Math.max(...rows.map(r => Math.ceil(r.n / per))), W = lw + maxN * cell + 24, top = title ? 34 : 10;
     const H = top + rows.length * 44 + (per > 1 ? 34 : 12);
     let body = title ? label(W / 2, 18, title, { size: 15 }) : '';
     rows.forEach((r, i) => {
         const y = top + i * 44 + 22;
         body += `<rect x="6" y="${y - 20}" width="${W - 12}" height="40" rx="8" fill="${i % 2 ? '#fff' : '#f6f3e8'}"/>` + label(10, y, r.label, { size: 14, anchor: 'start' });
-        for (let k = 0; k < Math.ceil(r.n / per); k++) body += `<text x="${lw + k * cell + cell / 2}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="26">${escapeXml(emoji)}</text>`;
+        for (let k = 0; k < Math.ceil(r.n / per); k++) body += `<text x="${lw + k * cell + cell / 2}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="26">${escapeXml(r.emoji ?? emoji)}</text>`;
     });
     if (per > 1) body += label(W / 2, H - 14, `Mỗi ${emoji} chỉ ${per} đơn vị`, { size: 13, color: PALETTE.muted });
     return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 440) });

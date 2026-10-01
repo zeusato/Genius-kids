@@ -22,7 +22,7 @@ function verifyQuestion(q: ReturnType<typeof questionsFor>[number]) {
     } else if (text.includes('Tìm số còn lại')) {
         const xs = (text.match(/\d+/g) || []).map(Number); expect(n).toBe(xs[0] * xs[1] - xs.slice(3).reduce((a, b) => a + b, 0));
     } else if (text.includes('chu vi hình chữ nhật')) {
-        const xs = (text.match(/\d+/g) || []).map(Number); expect(answer).toBe(`${2 * (xs[0] + xs[1])}cm`);
+        const xs = (text.match(/\d+/g) || []).map(Number); expect(answer.replace(/\s/g, '')).toBe(`${2 * (xs[0] + xs[1])}cm`);
     } else if (text.includes('là bao nhiêu phần trăm')) {
         const xs = (text.match(/\d+(?:\.\d+)?/g) || []).map(Number); expect(Number(answer.replace('%', ''))).toBeCloseTo(xs[0] / xs[1] * 100, 7);
     } else if (text.includes('giá sau khi giảm')) {

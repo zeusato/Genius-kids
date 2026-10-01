@@ -103,15 +103,20 @@ export function trapezoidSVG(top: number, bottom: number, height: number, opts: 
 export function triangleSVG(spec: { base?: number; height?: number; sides?: [number, number, number] }, opts: ShapeOpts = {}): string {
     const { color = 'yellow', unit = 'cm' } = opts;
     if (spec.sides) {
+        // Dựng ĐÚNG hình theo 3 cạnh: AB = c (đáy), BC = a, CA = b (định lí cos).
         const [a, b, c] = spec.sides;
-        // Vẽ tam giác minh hoạ (không cần đúng tuyệt đối hình dạng) nhưng nhãn đúng cạnh.
-        const W = 260, H = 180;
-        const A: [number, number] = [PAD, PAD + 110], B: [number, number] = [PAD + 200, PAD + 110], C: [number, number] = [PAD + 120, PAD];
-        return svgWrap(W + PAD * 2, H + PAD,
-            `<polygon points="${A[0]},${A[1]} ${B[0]},${B[1]} ${C[0]},${C[1]}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}"/>`
-            + label((A[0] + B[0]) / 2, A[1] + 16, `${c}${unit}`)
-            + label((A[0] + C[0]) / 2 - 12, (A[1] + C[1]) / 2, `${a}${unit}`, { anchor: 'end' })
-            + label((B[0] + C[0]) / 2 + 12, (B[1] + C[1]) / 2, `${b}${unit}`, { anchor: 'start' }));
+        const cosA = (b * b + c * c - a * a) / (2 * b * c);
+        const ax = b * Math.max(-1, Math.min(1, cosA)), ay = b * Math.sqrt(Math.max(0, 1 - cosA * cosA));
+        const minX = Math.min(0, ax), maxX = Math.max(c, ax), sc = fitScale(Math.max(maxX - minX, ay), 200, 4, 40);
+        const M = 46, H = ay * sc;
+        const P = (x: number, y: number): [number, number] => [M + (x - minX) * sc, M + H - y * sc];
+        const A = P(0, 0), B = P(c, 0), C = P(ax, ay);
+        const W = (maxX - minX) * sc + M * 2, Ht = H + M * 2;
+        return svgWrap(W, Ht,
+            `<polygon points="${A[0]},${A[1]} ${B[0]},${B[1]} ${C[0]},${C[1]}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="${STROKE_W}" stroke-linejoin="round"/>`
+            + label((A[0] + B[0]) / 2, A[1] + 18, `${c} ${unit}`)
+            + label((A[0] + C[0]) / 2 - 10, (A[1] + C[1]) / 2, `${b} ${unit}`, { anchor: 'end' })
+            + label((B[0] + C[0]) / 2 + 10, (B[1] + C[1]) / 2, `${a} ${unit}`, { anchor: 'start' }), { maxW: Math.min(W, 380) });
     }
     const base = spec.base || 8, height = spec.height || 5;
     const s = fitScale(Math.max(base, height), 180);
@@ -144,11 +149,11 @@ export function box3dSVG(length: number, width: number, height: number, opts: Sh
     const s = fitScale(Math.max(length, width, height), 130, 8, 26);
     const L = length * s, H = height * s, D = width * s * 0.6; // chiều sâu chiếu xiên
     const dx = D * 0.85, dy = -D * 0.5;
-    const x0 = PAD, y0 = PAD - dy; // chừa chỗ cho mặt trên
+    const LM = 64, x0 = PAD + LM, y0 = PAD - dy; // chừa chỗ cho mặt trên + nhãn bên trái
     const F = `${x0},${y0} ${x0 + L},${y0} ${x0 + L},${y0 + H} ${x0},${y0 + H}`;        // mặt trước
     const top = `${x0},${y0} ${x0 + dx},${y0 + dy} ${x0 + L + dx},${y0 + dy} ${x0 + L},${y0}`;
     const side = `${x0 + L},${y0} ${x0 + L + dx},${y0 + dy} ${x0 + L + dx},${y0 + dy + H} ${x0 + L},${y0 + H}`;
-    const vbW = L + dx + PAD * 2, vbH = H - dy + PAD * 2;
+    const vbW = L + dx + PAD * 2 + LM + 70, vbH = H - dy + PAD * 2 + 10;
     return svgWrap(vbW, vbH,
         `<polygon points="${top}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="2"/>`
         + `<polygon points="${side}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="2" opacity="0.75"/>`
@@ -390,3 +395,6 @@ export * from './kids';
 
 // Hình Lớp 2–3 (Ôn Luyện 2026-10)
 export * from './grade2';
+
+// Hình Lớp 3–4 (Ôn Luyện 2026-10)
+export * from './grade3';

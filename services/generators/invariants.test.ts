@@ -30,6 +30,12 @@ function problems(t: Template, q: Generated): string[] {
         for (let i = 0; i < o.length; i++) for (let j = i + 1; j < o.length; j++) if (sameValue(o[i], o[j])) p.push(`trùng giá trị: ${o[i]} / ${o[j]}`);
         if (q.type === QuestionType.SingleChoice && o.filter(x => sameValue(x, q.correctAnswer)).length !== 1) p.push('không đúng 1 đáp án đúng');
     }
+    // Tập đóng: "số nào lớn nhất / bé nhất …" → đáp án đúng phải là lớn nhất / bé nhất trong các lựa chọn.
+    if (q.type === QuestionType.SingleChoice && /(lớn nhất|bé nhất)/.test(q.questionText) && q.options?.every(o => parseValue(o) !== null)) {
+        const vals = q.options.map(o => parseValue(o)!), cv = parseValue(q.correctAnswer)!;
+        const want = /lớn nhất/.test(q.questionText) ? Math.max(...vals) : Math.min(...vals);
+        if (cv !== want) p.push(`tập đóng bị đè: đáp án ${q.correctAnswer} nhưng lựa chọn ${q.options.join(' | ')}`);
+    }
     if (q.type === QuestionType.MultipleSelect) {
         if (!q.correctAnswers?.length || !q.correctAnswers.every(c => q.options?.includes(c))) p.push('chọn nhiều: đáp án thiếu');
     }

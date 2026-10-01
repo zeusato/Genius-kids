@@ -24,7 +24,7 @@ export const templates: Template[] = [
         const r = op === '+' ? x + y : x - y;
         return single({ q: `Tính: ${x} ${op} ${y} = ?`, speech: `${x} ${op === '+' ? 'cộng' : 'trừ'} ${y} bằng mấy?`,
             correct: r, wrong: [...around(r, { step: 10, min: 0, max: 100 }), r + 1, r - 1], min: 0, max: 100,
-            explanation: `${x / 10} chục ${op === '+' ? 'cộng' : 'trừ'} ${y / 10} chục là ${r / 10} chục: ${x} ${op} ${y} = ${r}.`, hint: 'Tính với số chục: 3 chục + 4 chục = 7 chục.' });
+            explanation: `${x / 10} chục ${op === '+' ? 'cộng' : 'trừ'} ${y / 10} chục là ${r / 10} chục: ${x} ${op} ${y} = ${r}.`, hint: `Tính với số chục: ${x / 10} chục ${op === '+' ? '+' : '-'} ${y / 10} chục = ${r / 10} chục.` });
     }),
     tpl('g1.addsub100', 2, () => {
         const op = chance(0.5) ? '+' : '-', [a, b] = noCarry(op, false), r = op === '+' ? a + b : a - b;

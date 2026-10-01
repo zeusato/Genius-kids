@@ -4,7 +4,7 @@ import { around } from '../wrongs';
 import type { Template } from '../../study/types';
 
 const cm = (n: number) => `${n} cm`;
-const THINGS = ['bút chì', 'cái bút', 'cục tẩy dài', 'chiếc lá', 'que kem'];
+const THINGS = ['bút chì', 'cái bút chì màu', 'bút chì của em'];
 const COLORS = [['đỏ', 'red'], ['xanh', 'blue'], ['vàng', 'yellow'], ['tím', 'purple']] as const;
 
 export const templates: Template[] = [
@@ -25,7 +25,7 @@ export const templates: Template[] = [
         const a = rint(3, 15), b = pickOne([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].filter(x => x !== a)), longer = chance(0.5);
         const ans = (a > b) === longer ? `Băng giấy màu ${c1[0]}` : `Băng giấy màu ${c2[0]}`;
         return choices({ q: `Băng giấy màu ${c1[0]} dài ${a} cm, băng giấy màu ${c2[0]} dài ${b} cm. Băng giấy nào ${longer ? 'dài hơn' : 'ngắn hơn'}?`,
-            speech: `Băng giấy màu ${c1[0]} dài ${a} xăng-ti-mét, băng giấy màu ${c2[0]} dài ${b} xăng-ti-mét. Băng giấy nào ${longer ? 'dài hơn' : 'ngắn hơn'}?`,
+            speech: `Băng giấy màu ${c1[0]} dài ${a} xăng-ti-mét, băng giấy màu ${c2[0]} dài ${b} xăng-ti-mét. Băng giấy nào ${longer ? 'dài hơn' : 'ngắn hơn'}: băng màu ${c1[0]} hay băng màu ${c2[0]}?`,
             options: [`Băng giấy màu ${c1[0]}`, `Băng giấy màu ${c2[0]}`], correct: ans,
             explanation: `${Math.max(a, b)} cm dài hơn ${Math.min(a, b)} cm.` });
     }),

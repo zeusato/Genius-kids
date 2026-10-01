@@ -1,82 +1,30 @@
-import { Question, QuestionType } from '../../../types';
-import { moneySVG } from '../svg';
+// Lớp 3 — Tiền Việt Nam đến 100 000 đồng (g3_money): đếm tiền, mua bán, tiền trả lại, bài toán hai bước.
+import { tpl, fromTemplates, single, rint, pickOne } from '../kit';
+import { around } from '../wrongs';
+import { fmtMoney } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const pick = <T,>(arr: T[]): T => arr[randomInt(0, arr.length - 1)];
-const dong = (n: number) => `${n.toLocaleString('vi-VN')} đồng`;
-const moneyOpts = (ans: number): string[] => {
-    const set = new Set<number>([ans]);
-    while (set.size < 4) { const v = ans + randomInt(-4, 4) * 1000; if (v > 0 && v !== ans) set.add(v); }
-    return shuffleArray(Array.from(set)).map(dong);
-};
+const NOTES = [1000, 2000, 5000, 10000, 20000, 50000];
+const ITEMS: [string, number[]][] = [['quyển truyện', [12000, 15000, 18000, 25000]], ['hộp bút màu', [22000, 28000, 35000]], ['cái thước', [3000, 4000, 5000]], ['quả bóng', [30000, 45000, 60000]], ['cuốn vở', [6000, 7000, 8000]]];
 
-/**
- * Lớp 3 — Tiền Việt Nam (mở rộng đến 100 000 đồng): đếm tiền, mua nhiều món
- * (nhân), tiền thối, bài toán hai bước. (Chuẩn GDPT 2018.)
- */
-export const generateG3Money = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
+export const templates: Template[] = [
+    tpl('g3.money', 1, () => {
+        const notes = Array.from({ length: rint(2, 4) }, () => pickOne(NOTES)).sort((a, b) => b - a), total = notes.reduce((s, x) => s + x, 0);
+        return single({ q: 'Có tất cả bao nhiêu tiền?', visual: { fn: 'notesSVG', args: [notes] }, correct: total, wrong: around(total, { step: 1000, min: 1000 }), format: fmtMoney, min: 1000,
+            explanation: `${notes.map(fmtMoney).join(' + ')} = ${fmtMoney(total)}.`, hint: 'Cộng lần lượt từ tờ có mệnh giá lớn nhất.' });
+    }),
+    tpl('g3.money', 2, () => {
+        const [it, prices] = pickOne(ITEMS), price = pickOne(prices), pay = [10000, 20000, 50000, 100000].find(p => p > price)!;
+        return single({ q: `Em mua một ${it} giá ${fmtMoney(price)} và đưa cho cô bán hàng ${fmtMoney(pay)}. Cô bán hàng trả lại em bao nhiêu tiền?`, correct: pay - price, wrong: [...around(pay - price, { step: 1000, min: 1000 }), pay + price], format: fmtMoney, min: 1000,
+            explanation: `Tiền trả lại = tiền đưa - giá tiền: ${fmtMoney(pay)} - ${fmtMoney(price)} = ${fmtMoney(pay - price)}.` });
+    }),
+    tpl('g3.money', 3, () => {
+        const [it, prices] = pickOne(ITEMS), price = pickOne(prices), n = rint(2, 3), cost = price * n, pay = [20000, 50000, 100000].find(p => p >= cost + 1000) ?? 100000;
+        if (cost >= pay) return single({ q: `Mua ${n} ${it}, mỗi ${it} giá ${fmtMoney(price)}. Hết bao nhiêu tiền?`, correct: cost, wrong: [price + n, cost + price, cost - 1000, cost + 1000], format: fmtMoney, min: 1000, explanation: `${fmtMoney(price)} × ${n} = ${fmtMoney(cost)}.` });
+        return single({ q: `Mẹ mua ${n} ${it}, mỗi ${it} giá ${fmtMoney(price)}. Mẹ đưa cô bán hàng ${fmtMoney(pay)}. Cô bán hàng trả lại mẹ bao nhiêu tiền?`, correct: pay - cost, wrong: [pay - price, cost, pay - cost + 1000, pay - cost - 1000].filter(x => x > 0), format: fmtMoney, min: 1000,
+            explanation: `Tiền mua hàng: ${fmtMoney(price)} × ${n} = ${fmtMoney(cost)}. Tiền trả lại: ${fmtMoney(pay)} - ${fmtMoney(cost)} = ${fmtMoney(pay - cost)}.`,
+            steps: [`Số tiền mua ${n} ${it}: ${fmtMoney(price)} × ${n} = ${fmtMoney(cost)}`, `Tiền trả lại: ${fmtMoney(pay)} - ${fmtMoney(cost)} = ${fmtMoney(pay - cost)}`], hint: 'Tính số tiền phải trả trước.' });
+    }),
+];
 
-    // 1. Đếm tổng các tờ tiền (25%)
-    if (r < 0.25) {
-        const notes = Array.from({ length: randomInt(2, 4) }, () => pick([2000, 5000, 10000, 20000]));
-        const total = notes.reduce((s, n) => s + n, 0);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tổng số tiền dưới đây là bao nhiêu?`,
-            visualSvg: moneySVG(total),
-            correctAnswer: dong(total),
-            options: moneyOpts(total),
-            explanation: `Cộng giá trị các tờ tiền được ${dong(total)}.`,
-        };
-    }
-
-    // 2. Mua nhiều món cùng giá (nhân) (25%)
-    if (r < 0.5) {
-        const unit = pick([2000, 3000, 5000, 8000]);
-        const qty = randomInt(2, 6);
-        const total = unit * qty;
-        const item = pick(['quyển vở', 'cây bút', 'hộp sữa', 'cái bánh']);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Mua ${qty} ${item}, mỗi ${item} giá ${dong(unit)}. Hỏi phải trả bao nhiêu tiền?`,
-            correctAnswer: dong(total),
-            options: moneyOpts(total),
-            explanation: `Số tiền = ${dong(unit)} × ${qty} = ${dong(total)}.`,
-        };
-    }
-
-    // 3. Tiền thối (25%)
-    if (r < 0.75) {
-        const price = randomInt(12, 48) * 1000;
-        const paid = (Math.floor(price / 50000) + 1) * 50000;
-        const change = paid - price;
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Một món hàng giá ${dong(price)}, khách đưa tờ ${dong(paid)}. Cửa hàng thối lại bao nhiêu?`,
-            correctAnswer: dong(change),
-            options: moneyOpts(change),
-            explanation: `Tiền thối = ${dong(paid)} − ${dong(price)} = ${dong(change)}.`,
-        };
-    }
-
-    // 4. Bài toán hai bước (25%)
-    const unit = pick([3000, 4000, 5000]);
-    const qty = randomInt(2, 5);
-    const cost = unit * qty;
-    const paid = Math.ceil((cost + 5000) / 10000) * 10000;
-    const change = paid - cost;
-    const item = pick(['quyển truyện', 'cái kẹo', 'gói bánh']);
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Mua ${qty} ${item} mỗi cái ${dong(unit)}, đưa ${dong(paid)}. Được thối lại bao nhiêu?`,
-        correctAnswer: dong(change),
-        options: moneyOpts(change),
-        explanation: `Tiền hàng = ${dong(unit)} × ${qty} = ${dong(cost)}. Thối lại = ${dong(paid)} − ${dong(cost)} = ${dong(change)}.`,
-    };
-};
+export const generateG3Money = fromTemplates(templates);

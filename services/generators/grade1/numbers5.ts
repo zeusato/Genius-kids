@@ -9,7 +9,7 @@ export const templates: Template[] = [
         const t = pickOne(THINGS), n = rint(1, 5);
         return single({
             q: `Có mấy ${t.name}?`, speech: `Đếm xem có mấy ${t.name}?`, visual: { fn: 'countingSVG', args: [t.e, n] },
-            correct: n, wrong: around(n, { min: 0, max: 6 }), min: 0, max: 6,
+            correct: n, wrong: around(n, { min: 0, max: 5 }), min: 0, max: 5,
             explanation: `Đếm lần lượt: có ${word(n)} ${t.name}, viết là ${n}.`, hint: 'Chỉ tay vào từng hình và đếm to.',
         });
     }),
@@ -28,7 +28,7 @@ export const templates: Template[] = [
     }),
     tpl('g1.compare5', 2, () => {
         const [t1, t2] = sample(THINGS, 2), a = rint(1, 5), b = rint(1, 5);
-        return compare({ q: `Đếm hai nhóm rồi điền dấu: ${a} ... ${b}`, speech: `Nhóm một có ${word(a)}, nhóm hai có ${word(b)}. Điền dấu lớn hơn, bé hơn hay bằng?`,
+        return compare({ q: 'Đếm số đồ vật ở hai nhóm rồi chọn dấu thích hợp: Nhóm 1 ... Nhóm 2', speech: `Nhóm một có ${word(a)}, nhóm hai có ${word(b)}. Điền dấu lớn hơn, bé hơn hay bằng?`,
             visual: { fn: 'groupsSVG', args: [[{ emoji: t1.e, n: a }, { emoji: t2.e, n: b }]] }, left: a, right: b,
             explanation: a === b ? 'Hai nhóm bằng nhau nên điền dấu =.' : `Nhóm ${a > b ? 1 : 2} nhiều hơn, nên ${a} ${a > b ? '>' : '<'} ${b}.` });
     }),
@@ -36,14 +36,14 @@ export const templates: Template[] = [
         const n = rint(0, 4), after = pickOne([true, false]) || n === 0;
         const ans = after ? n + 1 : n - 1;
         return single({ q: `Số liền ${after ? 'sau' : 'trước'} số ${n} là số nào?`, speech: `Số liền ${after ? 'sau' : 'trước'} số ${word(n)} là số nào?`,
-            correct: ans, wrong: around(ans, { min: 0, max: 6 }), min: 0, max: 6,
+            correct: ans, wrong: around(ans, { min: 0, max: 5 }), min: 0, max: 5,
             explanation: `Đếm ${after ? 'tiến' : 'lùi'} một: ${n} → ${ans}.` });
     }),
     tpl('g1.order5', 2, () => {
-        const start = rint(0, 1), seq = [0, 1, 2, 3, 4].map(i => i + start), k = rint(1, 3);
+        const start = rint(0, 1), seq = [0, 1, 2, 3, 4].map(i => i + start).filter(x => x <= 5), k = rint(1, 3);
         const shown = seq.map((x, i) => (i === k ? '□' : String(x))).join(', ');
         return single({ q: `Điền số còn thiếu: ${shown}`, speech: `Điền số còn thiếu vào ô trống: ${shown.replace('□', 'ô trống')}`,
-            correct: seq[k], wrong: around(seq[k], { min: 0, max: 6 }), min: 0, max: 6,
+            correct: seq[k], wrong: around(seq[k], { min: 0, max: 5 }), min: 0, max: 5,
             explanation: `Các số tăng dần thêm 1: ${seq.join(', ')}.` });
     }),
     tpl('g1.order5', 2, () => {

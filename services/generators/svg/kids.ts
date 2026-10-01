@@ -152,6 +152,10 @@ export function dayPartSVG(part: 'morning' | 'noon' | 'afternoon' | 'night'): st
     } else {
         const [sx, sy] = { morning: [46, 120], noon: [160, 40], afternoon: [276, 116] }[part];
         body += `<circle cx="${sx}" cy="${sy}" r="${part === 'noon' ? 28 : 24}" fill="${part === 'noon' ? '#fbbf24' : '#fb923c'}"/>`;
+        // dấu hiệu phân biệt: sáng — gà gáy, em đeo cặp đi học; chiều — thả diều, đàn chim bay về tổ
+        if (part === 'morning') body += `<text x="230" y="150" font-size="34">🐓</text><text x="200" y="175" font-size="28">🎒</text>`;
+        if (part === 'afternoon') body += `<text x="60" y="70" font-size="30">🪁</text><text x="200" y="60" font-size="20">🐦🐦</text>`;
+        if (part === 'noon') body += `<text x="230" y="170" font-size="28">🍚</text>`;
     }
     return svgWrap(W, H, body, { shadow: false, maxW: 360 });
 }

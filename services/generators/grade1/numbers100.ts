@@ -52,7 +52,7 @@ export const templates: Template[] = [
         const nums = sample(Array.from({ length: 90 }, (_, i) => i + 10), 4), big = chance(0.5);
         const ans = big ? Math.max(...nums) : Math.min(...nums);
         return single({ q: `Số nào ${big ? 'lớn nhất' : 'bé nhất'}: ${nums.join(', ')}?`, speech: `Trong các số ${nums.join(', ')}, số nào ${big ? 'lớn nhất' : 'bé nhất'}?`,
-            correct: ans, wrong: nums.filter(x => x !== ans), explanation: `So sánh hàng chục rồi hàng đơn vị: ${ans} là số ${big ? 'lớn nhất' : 'bé nhất'}.` });
+            correct: ans, wrong: nums.filter(x => x !== ans), closed: true, explanation: `So sánh hàng chục rồi hàng đơn vị: ${ans} là số ${big ? 'lớn nhất' : 'bé nhất'}.` });
     }, { noRankCheck: true }),
     tpl('g1.neighbors100', 1, () => {
         const n = rint(11, 98), after = chance(0.5), ans = after ? n + 1 : n - 1;

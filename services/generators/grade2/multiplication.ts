@@ -33,7 +33,7 @@ export const templates: Template[] = [
             explanation: `Số ${a} được lấy ${b} lần, ta viết ${a} × ${b}.` });
     }),
     tpl('g2.mul_meaning', 2, () => {
-        const a = pickOne([2, 5]), b = rint(2, 10), k = rint(0, 2), parts = [a, b, a * b], names = ['Thừa số', 'Thừa số', 'Tích'];
+        const a = pickOne([2, 5]), b = pickOne([3, 4, 6, 7, 8, 9, 10]), k = rint(0, 2), parts = [a, b, a * b], names = ['Thừa số', 'Thừa số', 'Tích'];
         return choices({ q: `Trong phép nhân ${a} × ${b} = ${a * b}, số ${parts[k]} được gọi là gì?`, speech: `Trong phép nhân ${a} nhân ${b} bằng ${a * b}, số ${parts[k]} gọi là gì?`,
             options: ['Thừa số', 'Tích', 'Thương', 'Số hạng'], shuffle: true, correct: names[k], explanation: `${a} và ${b} là các thừa số, ${a * b} là tích.` });
     }),

@@ -1,175 +1,78 @@
-import { Question, QuestionType } from '../../../types';
+// Lớp 3 — Hình học (g3_geometry): trung điểm, hình tròn (tâm, bán kính, đường kính), góc vuông,
+// tam giác – tứ giác (đỉnh, cạnh, góc), hình chữ nhật – hình vuông, khối lập phương – khối hộp chữ nhật.
+import { tpl, fromTemplates, single, choices, yesNo, rint, pickOne, chance, shuffle } from '../kit';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const SEG = ['AMB', 'CID', 'EOG', 'PKQ'];
+const TRI = ['ABC', 'MNP', 'DEG', 'HIK'];
+const QUAD = ['ABCD', 'MNPQ', 'EGHK'];
+const CIRC = ['OAB', 'IMN', 'OCD'];
+const RECT_FACTS: [string, boolean][] = [
+    ['Hình chữ nhật có 4 góc vuông.', true], ['Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau.', true], ['Hình vuông có 4 cạnh dài bằng nhau.', true],
+    ['Hình vuông có 4 góc vuông.', true], ['Hình chữ nhật có 4 cạnh dài bằng nhau.', false], ['Hình vuông có 3 góc vuông.', false],
+    ['Hình chữ nhật có 3 cạnh.', false], ['Hình tam giác có 4 đỉnh.', false], ['Hình tứ giác có 4 cạnh và 4 góc.', true], ['Hình tam giác có 3 cạnh, 3 đỉnh, 3 góc.', true],
+    ['Hình vuông có hai cạnh dài, hai cạnh ngắn.', false], ['Mọi góc của hình tam giác đều là góc vuông.', false],
+];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-// SVG Helpers
-const createLineSegmentSVG = (length: number, label: string) => `
-  <svg width="350" height="100" viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
-    <line x1="50" y1="50" x2="${50 + length * 20}" y2="50" stroke="#0ea5e9" stroke-width="3"/>
-    <circle cx="50" cy="50" r="4" fill="#0ea5e9"/>
-    <circle cx="${50 + length * 20}" cy="50" r="4" fill="#0ea5e9"/>
-    <text x="${50 + (length * 20) / 2}" y="75" text-anchor="middle" font-size="16" font-weight="bold">${label}</text>
-  </svg>
-`;
-
-const createAngleSVG = (isRightAngle: boolean) => {
-    const angle = isRightAngle ? 90 : randomInt(30, 150);
-    const rad = (angle * Math.PI) / 180;
-    const x2 = 50 + 100 * Math.cos(rad);
-    const y2 = 150 - 100 * Math.sin(rad);
-
-    return `
-    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <line x1="50" y1="150" x2="150" y2="150" stroke="#0ea5e9" stroke-width="3"/>
-      <line x1="50" y1="150" x2="${x2}" y2="${y2}" stroke="#0ea5e9" stroke-width="3"/>
-      ${isRightAngle ? '<rect x="50" y="140" width="10" height="10" fill="none" stroke="#0ea5e9" stroke-width="2"/>' : ''}
-      <path d="M 70 150 A 20 20 0 0 1 ${50 + 20 * Math.cos(rad)} ${150 - 20 * Math.sin(rad)}" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    </svg>
-  `;
-};
-
-const createRectangleSVG = (width: number, height: number, isSquare: boolean) => `
-  <svg width="300" height="250" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
-    <rect x="50" y="50" width="${width * 15}" height="${height * 15}" fill="#dbeafe" stroke="#0ea5e9" stroke-width="3"/>
-    <text x="${50 + (width * 15) / 2}" y="${50 + height * 15 + 25}" text-anchor="middle" font-size="14">${width}cm</text>
-    <text x="${50 + width * 15 + 15}" y="${50 + (height * 15) / 2}" text-anchor="start" font-size="14">${height}cm</text>
-  </svg>
-`;
-
-const createTriangleSVG = (a: number, b: number, c: number) => `
-  <svg width="300" height="250" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="50,200 250,200 150,50" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
-    <text x="150" y="220" text-anchor="middle" font-size="14">${a}cm</text>
-    <text x="30" y="130" text-anchor="end" font-size="14">${b}cm</text>
-    <text x="270" y="130" text-anchor="start" font-size="14">${c}cm</text>
-  </svg>
-`;
-
-export const generateG3Geometry = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Identify points, line segments, rays (15%)
-    if (type < 0.15) {
-        const concepts = [
-            { name: 'Đoạn thẳng', desc: 'có 2 đầu mút' },
-            { name: 'Đường thẳng', desc: 'kéo dài vô tận 2 phía' },
-            { name: 'Tia', desc: 'có 1 đầu mút, kéo dài vô tận 1 phía' }
-        ];
-        const chosen = concepts[randomInt(0, 2)];
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình nào ${chosen.desc}?`,
-            correctAnswer: chosen.name,
-            options: shuffleArray(concepts.map(c => c.name)),
-            explanation: `${chosen.name} ${chosen.desc}.`
-        };
-    }
-
-    // 2. Compare line segment lengths (20%)
-    else if (type < 0.35) {
-        const len1 = randomInt(3, 10);
-        const len2 = randomInt(3, 10);
-        const op = len1 > len2 ? '>' : len1 < len2 ? '<' : '=';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh độ dài hai đoạn thẳng AB = ${len1}cm và CD = ${len2}cm`,
-            visualSvg: createLineSegmentSVG(len1, `AB = ${len1}cm`) + createLineSegmentSVG(len2, `CD = ${len2}cm`),
-            correctAnswer: op,
-            options: shuffleArray(['>', '<', '=']),
-            explanation: `${len1}cm ${op} ${len2}cm`
-        };
-    }
-
-    // 3. Right angles (15%)
-    else if (type < 0.5) {
-        const isRight = Math.random() > 0.5;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Góc trong hình có phải là góc vuông không?`,
-            visualSvg: createAngleSVG(isRight),
-            correctAnswer: isRight ? 'Có' : 'Không',
-            options: shuffleArray(['Có', 'Không']),
-            explanation: isRight ? 'Đây là góc vuông (90°)' : 'Đây không phải góc vuông'
-        };
-    }
-
-    // 4. Rectangle/Square identification (15%)
-    else if (type < 0.65) {
-        const isSquare = Math.random() > 0.5;
-        const width = isSquare ? 6 : randomInt(8, 12);
-        const height = isSquare ? 6 : randomInt(4, 6);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Hình vẽ là hình gì?`,
-            visualSvg: createRectangleSVG(width, height, isSquare),
-            correctAnswer: isSquare ? 'Hình vuông' : 'Hình chữ nhật',
-            options: shuffleArray(['Hình vuông', 'Hình chữ nhật', 'Hình tam giác', 'Hình tròn']),
-            explanation: isSquare ? 'Hình vuông có 4 cạnh bằng nhau' : 'Hình chữ nhật có các cạnh đối bằng nhau'
-        };
-    }
-
-    // 5. Triangle perimeter (15%)
-    else if (type < 0.8) {
-        const a = randomInt(3, 8);
-        const b = randomInt(3, 8);
-        const c = randomInt(3, 8);
-        const perimeter = a + b + c;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính chu vi hình tam giác có 3 cạnh lần lượt là ${a}cm, ${b}cm, ${c}cm?`,
-            visualSvg: createTriangleSVG(a, b, c),
-            correctAnswer: `${perimeter}cm`,
-            options: shuffleArray([`${perimeter}cm`, `${perimeter + 1}cm`, `${perimeter - 1}cm`, `${perimeter + 2}cm`]),
-            explanation: `Chu vi = ${a} + ${b} + ${c} = ${perimeter}cm`
-        };
-    }
-
-    // 6. Rectangle/Square perimeter (20%)
-    else {
-        const isSquare = Math.random() > 0.5;
-        let perimeter: number;
-        let width: number, height: number;
-
-        if (isSquare) {
-            const side = randomInt(4, 12);
-            width = height = side;
-            perimeter = side * 4;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính chu vi hình vuông có cạnh ${side}cm?`,
-                visualSvg: createRectangleSVG(side, side, true),
-                correctAnswer: `${perimeter}cm`,
-                options: shuffleArray([`${perimeter}cm`, `${perimeter + 4}cm`, `${perimeter - 4}cm`, `${side * side}cm`]),
-                explanation: `Chu vi = ${side} × 4 = ${perimeter}cm`
-            };
-        } else {
-            width = randomInt(5, 10);
-            height = randomInt(3, 7);
-            perimeter = (width + height) * 2;
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `Tính chu vi hình chữ nhật có chiều dài ${width}cm, chiều rộng ${height}cm?`,
-                visualSvg: createRectangleSVG(width, height, false),
-                correctAnswer: `${perimeter}cm`,
-                options: shuffleArray([`${perimeter}cm`, `${perimeter + 2}cm`, `${perimeter - 2}cm`, `${width * height}cm`]),
-                explanation: `Chu vi = (${width} + ${height}) × 2 = ${perimeter}cm`
-            };
+export const templates: Template[] = [
+    tpl('g3.midpoint', 1, () => {
+        const len = pickOne([6, 8, 10, 12]), exact = chance(0.5), at = exact ? len / 2 : pickOne([len / 2 - 1, len / 2 + 1, len / 2 - 2].filter(x => x > 0)), nm = pickOne(SEG);
+        return yesNo({ q: `Điểm ${nm[1]} có phải là trung điểm của đoạn thẳng ${nm[0]}${nm[2]} không?`, visual: { fn: 'midpointSVG', args: [len, at, nm] }, yes: exact, labels: ['Có', 'Không'],
+            explanation: exact ? `${nm[1]} nằm giữa ${nm[0]} và ${nm[2]}, và ${nm[0]}${nm[1]} = ${nm[1]}${nm[2]} = ${len / 2} vạch, nên ${nm[1]} là trung điểm.` : `${nm[0]}${nm[1]} = ${at} vạch, ${nm[1]}${nm[2]} = ${len - at} vạch: không bằng nhau nên ${nm[1]} không phải trung điểm.`,
+            hint: 'Trung điểm chia đoạn thẳng thành hai phần dài bằng nhau.' });
+    }),
+    tpl('g3.midpoint', 2, () => {
+        const len = rint(3, 15) * 2, nm = pickOne(SEG);
+        return single({ q: `Đoạn thẳng ${nm[0]}${nm[2]} dài ${len} cm, ${nm[1]} là trung điểm của ${nm[0]}${nm[2]}. Độ dài đoạn thẳng ${nm[0]}${nm[1]} là:`, correct: len / 2, wrong: [len, len * 2, len / 2 + 1, len / 2 - 1], format: x => `${x} cm`, min: 1,
+            explanation: `Trung điểm chia đôi đoạn thẳng: ${len} : 2 = ${len / 2} (cm).` });
+    }),
+    tpl('g3.circle', 1, () => {
+        const nm = pickOne(CIRC), show = pickOne(['radius', 'diameter'] as const);
+        const seg = show === 'radius' ? `${nm[0]}${nm[1]}` : `${nm[1]}${nm[2]}`;
+        return choices({ q: `Trong hình tròn tâm ${nm[0]}, đoạn thẳng ${seg} là gì?`, visual: { fn: 'circlePartsSVG', args: [show, nm] }, options: ['Bán kính', 'Đường kính', 'Tâm'], correct: show === 'radius' ? 'Bán kính' : 'Đường kính',
+            explanation: show === 'radius' ? `${seg} nối tâm ${nm[0]} với một điểm trên đường tròn: đó là bán kính.` : `${seg} đi qua tâm ${nm[0]} và nối hai điểm trên đường tròn: đó là đường kính.` });
+    }),
+    tpl('g3.circle', 2, () => {
+        const r = rint(2, 15), askD = chance(0.5);
+        return single({ q: askD ? `Hình tròn có bán kính ${r} cm. Đường kính của hình tròn là:` : `Hình tròn có đường kính ${2 * r} cm. Bán kính của hình tròn là:`, correct: askD ? 2 * r : r, wrong: askD ? [r, r + 2, 4 * r, 2 * r + 1] : [2 * r, 4 * r, r + 1, r - 1], format: x => `${x} cm`, min: 1,
+            explanation: `Đường kính dài gấp 2 lần bán kính: ${askD ? `${r} × 2 = ${2 * r}` : `${2 * r} : 2 = ${r}`} (cm).`, hint: 'Đường kính gấp đôi bán kính.' });
+    }),
+    tpl('g3.right_angle', 1, () => {
+        const deg = pickOne([90, 90, 60, 120, 45, 135, 75, 105]), nm = pickOne(['AOB', 'MON', 'CID']);
+        return yesNo({ q: `Góc đỉnh ${nm[1]} có phải là góc vuông không?`, visual: { fn: 'angleShapeSVG', args: [deg, { names: nm, noMark: true }] }, yes: deg === 90, labels: ['Có', 'Không'],
+            explanation: deg === 90 ? 'Đặt ê-ke: hai cạnh của góc trùng khít với hai cạnh góc vuông của ê-ke, nên đây là góc vuông.' : 'Đặt ê-ke: hai cạnh của góc không trùng khít với góc vuông của ê-ke, nên đây là góc không vuông.',
+            hint: 'Dùng ê-ke để kiểm tra góc vuông.' });
+    }),
+    tpl('g3.polygon', 1, () => {
+        const tri = chance(0.5), nm = tri ? pickOne(TRI) : pickOne(QUAD), n = tri ? 3 : 4, what = pickOne(['đỉnh', 'cạnh', 'góc']);
+        return single({ q: `Hình ${tri ? 'tam giác' : 'tứ giác'} ${nm} có mấy ${what}?`, visual: { fn: 'namedPolygonSVG', args: [n, nm] }, correct: n, wrong: [n === 3 ? 4 : 3, 2, 5, 6], min: 1, max: 6,
+            explanation: `Hình ${tri ? 'tam giác' : 'tứ giác'} có ${n} đỉnh, ${n} cạnh và ${n} góc.` });
+    }, { noRankCheck: true }),
+    tpl('g3.polygon', 2, () => {
+        if (chance(0.5)) {
+            const nm = pickOne(QUAD), v = nm.split(''), sides = v.map((x, i) => x + v[(i + 1) % 4]), diag = pickOne([v[0] + v[2], v[1] + v[3]]);
+            return choices({ q: `Đoạn thẳng nào KHÔNG phải là cạnh của hình tứ giác ${nm}?`, visual: { fn: 'namedPolygonSVG', args: [4, nm] }, options: shuffle([...sides.slice(0, 3), diag]), correct: diag,
+                explanation: `Các cạnh của ${nm} là ${sides.join(', ')}. ${diag} nối hai đỉnh không liền nhau (đường chéo), không phải cạnh.`, hint: 'Cạnh nối hai đỉnh đứng liền nhau.' });
         }
-    }
-};
+        const nm = pickOne(TRI), [A, B, C] = nm.split('');
+        return choices({ q: `Góc đỉnh ${A} của hình tam giác ${nm} được tạo bởi hai cạnh nào?`, visual: { fn: 'namedPolygonSVG', args: [3, nm] },
+            options: shuffle([`${A}${B} và ${A}${C}`, `${A}${B} và ${B}${C}`, `${B}${C} và ${C}${A}`]), correct: `${A}${B} và ${A}${C}`,
+            explanation: `Góc đỉnh ${A} có hai cạnh đi ra từ ${A}: ${A}${B} và ${A}${C}.` });
+    }),
+    tpl('g3.rect_square', 1, () => {
+        const [s, t] = pickOne(RECT_FACTS);
+        return yesNo({ q: `Đúng hay sai: ${s}`, yes: t, explanation: t ? `Đúng. ${s}` : 'Sai. Hình chữ nhật có 4 góc vuông, 2 cạnh dài bằng nhau, 2 cạnh ngắn bằng nhau; hình vuông có 4 góc vuông và 4 cạnh bằng nhau.' });
+    }),
+    tpl('g3.solids', 1, () => {
+        const cube = chance(0.5);
+        return choices({ q: `Đây là khối gì?`, visual: { fn: 'solidSVG', args: [cube ? 'cube' : 'box', pickOne(['blue', 'green', 'orange'])] }, options: ['Khối lập phương', 'Khối hộp chữ nhật', 'Khối trụ', 'Khối cầu'], shuffle: true, correct: cube ? 'Khối lập phương' : 'Khối hộp chữ nhật',
+            explanation: cube ? 'Khối lập phương có 6 mặt đều là hình vuông bằng nhau.' : 'Khối hộp chữ nhật có 6 mặt là hình chữ nhật.' });
+    }),
+    tpl('g3.solids', 2, () => {
+        const cube = chance(0.5), what = pickOne(['mặt', 'đỉnh', 'cạnh'] as const), n = { 'mặt': 6, 'đỉnh': 8, 'cạnh': 12 }[what];
+        return single({ q: `${cube ? 'Khối lập phương' : 'Khối hộp chữ nhật'} có bao nhiêu ${what}?`, visual: { fn: 'solidSVG', args: [cube ? 'cube' : 'box', 'purple'] }, correct: n, wrong: [6, 8, 12, 4, 10].filter(x => x !== n),
+            explanation: `${cube ? 'Khối lập phương' : 'Khối hộp chữ nhật'} có 6 mặt, 8 đỉnh, 12 cạnh.`, hint: 'Đếm cả những mặt, đỉnh, cạnh bị khuất phía sau.' });
+    }, { noRankCheck: true }),
+];
+
+export const generateG3Geometry = fromTemplates(templates);

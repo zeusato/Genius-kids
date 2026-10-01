@@ -43,7 +43,7 @@ export const templates: Template[] = [
         if (chance(0.5)) {
             const big = chance(0.5), ans = big ? Math.max(...nums) : Math.min(...nums);
             return single({ q: `Số nào ${big ? 'lớn nhất' : 'bé nhất'}: ${shuffle(nums).join('; ')}?`, speech: `Trong các số ${nums.join(', ')}, số nào ${big ? 'lớn nhất' : 'bé nhất'}?`,
-                correct: ans, wrong: nums.filter(x => x !== ans), explanation: `Các số cùng ${h / 100} trăm, so sánh hàng chục rồi hàng đơn vị: ${ans} ${big ? 'lớn nhất' : 'bé nhất'}.` });
+                correct: ans, wrong: nums.filter(x => x !== ans), closed: true, explanation: `Các số cùng ${h / 100} trăm, so sánh hàng chục rồi hàng đơn vị: ${ans} ${big ? 'lớn nhất' : 'bé nhất'}.` });
         }
         const list = asc ? nums : [...nums].reverse();
         return order({ q: `Sắp xếp các số theo thứ tự từ ${asc ? 'bé đến lớn' : 'lớn đến bé'}.`, speech: `Sắp xếp các số theo thứ tự từ ${asc ? 'bé đến lớn' : 'lớn đến bé'}.`, items: list.map(String), explanation: `Thứ tự đúng: ${list.join(', ')}.` });

@@ -35,7 +35,7 @@ export const templates: Template[] = [
     tpl('g1.word100', 2, () => {
         const add = chance(0.5), cls = pickOne(['1A', '1B', '1C']);
         if (add) {
-            const a = rint(1, 4) * 10 + rint(0, 4), b = rint(1, 4) * 10 + rint(0, 5);
+            const a = rint(14, 18), b = rint(12, 17);
             return single({ q: `Lớp ${cls} có ${a} bạn nam và ${b} bạn nữ. Hỏi lớp ${cls} có tất cả bao nhiêu bạn?`, speech: `Lớp ${cls} có ${a} bạn nam và ${b} bạn nữ. Hỏi lớp có tất cả bao nhiêu bạn?`,
                 correct: a + b, wrong: [...around(a + b, { min: 10, max: 99, step: chance(0.5) ? 1 : 10 }), Math.abs(a - b)], min: 0, max: 99,
                 explanation: `Gộp lại: ${a} + ${b} = ${a + b} (bạn).`, steps: [`Số bạn cả lớp = số bạn nam + số bạn nữ`, `${a} + ${b} = ${a + b}`] });

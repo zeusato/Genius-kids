@@ -15,7 +15,7 @@ export const templates: Template[] = [
             explanation: m === 0 ? `Kim ngắn chỉ số ${h}, kim dài chỉ số 12: ${h} giờ.` : `Kim ngắn chỉ qua số ${h}, kim dài chỉ số ${m === 15 ? 3 : 6}: ${read(h, m)}.`, hint: 'Kim dài chỉ số 3 là 15 phút, chỉ số 6 là 30 phút.' });
     }, { weight: 2 }),
     tpl('g2.clock', 2, () => {
-        const h = rint(6, 10), m = pickOne([0, 15, 30]), add = pickOne([1, 2, 3]);
+        const h = rint(7, 9), m = pickOne([0, 15, 30]), add = pickOne([1, 2]);
         return choices({ q: `Em bắt đầu học bài lúc ${read(h, m)}, học trong ${add} giờ. Em học xong lúc mấy giờ?`, speech: `Em bắt đầu học bài lúc ${read(h, m)}, học trong ${add} giờ. Em học xong lúc mấy giờ?`,
             options: shuffle([...new Set([read(h + add, m), read(h + add - 1, m), read(h + add + 1, m), read(h + add, m === 30 ? 0 : 30)])]), correct: read(h + add, m),
             explanation: `${read(h, m)} thêm ${add} giờ là ${read(h + add, m)}.` });
@@ -41,7 +41,7 @@ export const templates: Template[] = [
     tpl('g2.calendar_month', 2, () => {
         const month = rint(1, 12), start = rint(0, 6), days = MONTH_DAYS[month - 1];
         if (chance(0.5)) return single({ q: `Tháng ${month} có bao nhiêu ngày?`, speech: `Tháng ${month} có bao nhiêu ngày?`, visual: { fn: 'calendarMonthSVG', args: [month, start, days] },
-            correct: days, wrong: [28, 29, 30, 31].filter(x => x !== days), keepOrder: false, explanation: `Ngày cuối cùng của tháng ${month} trên tờ lịch là ngày ${days}.` });
+            correct: days, wrong: [28, 29, 30, 31].filter(x => x !== days), closed: true, explanation: `Ngày cuối cùng của tháng ${month} trên tờ lịch là ngày ${days}.` });
         const d = rint(1, days - 7), wd = (start + d - 1) % 7;
         return single({ q: `Ngày ${d} tháng ${month} là ${DAYS[wd]}. ${DAYS[wd][0].toUpperCase() + DAYS[wd].slice(1)} tuần sau là ngày bao nhiêu?`, speech: `Ngày ${d} tháng ${month} là ${DAYS[wd]}. ${DAYS[wd]} tuần sau là ngày bao nhiêu?`,
             visual: { fn: 'calendarMonthSVG', args: [month, start, days, d] }, correct: d + 7, wrong: [d + 6, d + 8, d + 1, d + 14 <= days ? d + 14 : d + 5], min: 1, max: days, format: x => `Ngày ${x}`,

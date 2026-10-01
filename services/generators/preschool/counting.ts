@@ -14,6 +14,7 @@ export const THINGS: { e: string; name: string }[] = [
 const ANIMALS = ['🐶', '🐱', '🐰', '🐻', '🐼', '🐸', '🐷', '🐤', '🦊', '🐮'];
 const ANIMAL_NAME: Record<string, string> = { '🐶': 'chú chó', '🐱': 'chú mèo', '🐰': 'bạn thỏ', '🐻': 'bạn gấu', '🐼': 'bạn gấu trúc', '🐸': 'chú ếch', '🐷': 'chú lợn', '🐤': 'chú gà con', '🦊': 'bạn cáo', '🐮': 'bạn bò' };
 const word = (n: number) => readNumberVN(n);
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export const templates: Template[] = [
     // --- Đếm ---
@@ -76,7 +77,7 @@ export const templates: Template[] = [
         return single({
             q: `Tính từ lá cờ, ${ANIMAL_NAME[row[k]]} đứng thứ mấy?`, speech: `Tính từ lá cờ, ${ANIMAL_NAME[row[k]]} đứng thứ mấy?`,
             visual: { fn: 'rowSVG', args: [row, { flag: true }] },
-            correct: k + 1, wrong: [1, 2, 3, 4, 5].filter(x => x !== k + 1), count: 4,
+            correct: k + 1, wrong: [1, 2, 3, 4, 5].filter(x => x !== k + 1), count: 4, closed: true,
             explanation: `Đếm từ lá cờ: ${ANIMAL_NAME[row[k]]} đứng thứ ${k === 0 ? 'nhất' : k === 3 ? 'tư' : word(k + 1)}.`,
         });
     }),
@@ -87,7 +88,7 @@ export const templates: Template[] = [
             q: `Gộp hai nhóm lại thì có tất cả mấy ${t.name}?`, speech: `Gộp hai nhóm lại thì có tất cả mấy ${t.name}?`,
             visual: { fn: 'groupsSVG', args: [[{ emoji: t.e, n: a }, { emoji: t.e, n: b }]] },
             correct: a + b, wrong: around(a + b, { min: 1, max: 10 }), min: 1, max: 10,
-            explanation: `${word(a)} ${t.name} và ${word(b)} ${t.name}, gộp lại được ${word(a + b)} ${t.name}.`,
+            explanation: `${cap(word(a))} ${t.name} và ${word(b)} ${t.name}, gộp lại được ${word(a + b)} ${t.name}.`,
             hint: 'Bé đếm tiếp sang nhóm thứ hai.',
         });
     }),
@@ -96,9 +97,9 @@ export const templates: Template[] = [
         return single({
             q: `Có ${total} ${t.name}. Trong khung thứ nhất có ${a}. Khung thứ hai có mấy ${t.name}?`,
             speech: `Có ${word(total)} ${t.name}. Trong khung thứ nhất có ${word(a)}. Khung thứ hai có mấy ${t.name}?`,
-            visual: { fn: 'groupsSVG', args: [[{ emoji: t.e, n: a, label: 'Khung 1' }, { emoji: t.e, n: total - a, label: 'Khung 2' }]] },
+            visual: { fn: 'groupsSVG', args: [[{ emoji: t.e, n: total, label: `Tất cả: ${total}` }]] },
             correct: total - a, wrong: around(total - a, { min: 0, max: 10 }), min: 0, max: 10,
-            explanation: `${word(total)} tách thành ${word(a)} và ${word(total - a)}.`,
+            explanation: `${cap(word(total))} tách thành ${word(a)} và ${word(total - a)}.`,
         });
     }),
     // --- Quy luật ---

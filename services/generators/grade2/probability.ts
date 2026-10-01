@@ -3,7 +3,7 @@ import { tpl, fromTemplates, choices, rint, pickOne, sample } from '../kit';
 import type { Template } from '../../study/types';
 import type { ColorKey } from '../svg';
 
-const COLOR_NAME: Partial<Record<ColorKey, string>> = { red: 'đỏ', blue: 'xanh', yellow: 'vàng', green: 'xanh lá' };
+const COLOR_NAME: Partial<Record<ColorKey, string>> = { red: 'đỏ', blue: 'xanh dương', yellow: 'vàng', green: 'xanh lá' };
 const OPTIONS = ['Chắc chắn', 'Có thể', 'Không thể'];
 const EVENTS: [string, string][] = [
     ['Ngày mai mặt trời mọc ở đằng đông', 'Chắc chắn'], ['Hôm nay trời mưa', 'Có thể'], ['Con mèo biết bay', 'Không thể'],

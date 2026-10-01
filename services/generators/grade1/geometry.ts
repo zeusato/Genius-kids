@@ -48,10 +48,10 @@ export const templates: Template[] = [
     tpl('g1.position', 2, () => {
         const row = sample(ANIMALS, 3), ask = pickOne(['middle', 'left', 'right'] as const), mid = row[1];
         const visual = { fn: 'rowSVG', args: [row.map(r => r[0])] };
-        if (ask === 'middle') return choices({ q: 'Bạn nào đứng ở giữa?', speech: 'Bạn nào đứng ở giữa?', visual,
+        if (ask === 'middle') return choices({ q: 'Bạn nào đứng ở giữa?', speech: `Bạn nào đứng ở giữa: ${row.map(r => `bạn ${r[1]}`).join(', ')}?`, visual,
             options: shuffle(row.map(r => `Bạn ${r[1]}`)), correct: `Bạn ${mid[1]}`, explanation: `Bạn ${mid[1]} đứng giữa bạn ${row[0][1]} và bạn ${row[2][1]}.` });
         const target = ask === 'left' ? row[0] : row[2];
-        return choices({ q: `Bạn nào đứng ngay bên ${ask === 'left' ? 'trái' : 'phải'} bạn ${mid[1]}?`, speech: `Bạn nào đứng ngay bên ${ask === 'left' ? 'trái' : 'phải'} bạn ${mid[1]}?`,
+        return choices({ q: `Bạn nào đứng ngay bên ${ask === 'left' ? 'trái' : 'phải'} bạn ${mid[1]}?`, speech: `Bạn nào đứng ngay bên ${ask === 'left' ? 'trái' : 'phải'} bạn ${mid[1]}: bạn ${row[0][1]} hay bạn ${row[2][1]}?`,
             visual, options: shuffle([row[0], row[2]].map(r => `Bạn ${r[1]}`)), correct: `Bạn ${target[1]}`,
             explanation: `Nhìn từ phía em: bạn ${target[1]} đứng ngay bên ${ask === 'left' ? 'trái' : 'phải'} bạn ${mid[1]}.` });
     }),

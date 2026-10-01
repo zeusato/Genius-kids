@@ -42,11 +42,11 @@ export const templates: Template[] = [
         return single({ q: `Tính: ${a} - ${b} - ${c} = ?`, speech: `${a} trừ ${b} trừ ${c} bằng mấy?`,
             correct: a - b - c, wrong: [...around(a - b - c, { min: 0, max: 10 }), a - b, a - b + c], min: 0, max: 10,
             explanation: `${a} - ${b} = ${a - b}; ${a - b} - ${c} = ${a - b - c}.`, steps: [`${a} - ${b} = ${a - b}`, `${a - b} - ${c} = ${a - b - c}`], hint: 'Tính từ trái sang phải.' });
-    }),
+    }, { noRankCheck: true }), // miền 0–10 hẹp
     tpl('g1.write_eq', 2, () => {
         const t = pickOne(THINGS), a = rint(1, 6), b = rint(1, 10 - a);
         const right = `${a} + ${b} = ${a + b}`;
-        const opts = shuffle([right, `${a + b} - ${b} = ${a + b - b + 1}`, `${a} + ${b} = ${a + b + 1}`, `${a + b} - ${a} = ${b + a}`]);
+        const opts = shuffle([right, `${a + b} - ${b} = ${a}`, `${a + b} - ${a} = ${b}`, `${a} + ${b} = ${a + b + 1}`]);
         return choices({ q: 'Phép tính nào phù hợp với tranh?', speech: `Có ${word(a)} ${t.name}, thêm ${word(b)} ${t.name}. Phép tính nào phù hợp với tranh?`,
             visual: { fn: 'groupsSVG', args: [[{ emoji: t.e, n: a, label: 'Có' }, { emoji: t.e, n: b, label: 'Thêm' }]] },
             options: [...new Set(opts)], correct: right, explanation: `Có ${a}, thêm ${b}: ta làm phép cộng ${right}.` });
@@ -54,7 +54,7 @@ export const templates: Template[] = [
     tpl('g1.write_eq', 3, () => {
         const t = pickOne(THINGS), a = rint(3, 10), b = rint(1, a - 1);
         const right = `${a} - ${b} = ${a - b}`;
-        const opts = [...new Set(shuffle([right, `${a} + ${b} = ${a + b}`, `${a} - ${b} = ${a - b + 1}`, `${a} - ${b} = ${a - b === 0 ? 2 : a - b - 1}`]))];
+        const opts = [...new Set(shuffle([right, `${a} + ${b} = ${a + b}`, `${a - b} + ${b} = ${a}`, `${a} - ${b} = ${a - b + 1}`]))];
         return choices({ q: 'Phép tính nào cho biết còn lại bao nhiêu?', speech: `Có ${word(a)} ${t.name}, bớt đi ${word(b)}. Phép tính nào cho biết còn lại bao nhiêu?`,
             visual: { fn: 'crossedSVG', args: [t.e, a, b] }, options: opts, correct: right,
             explanation: `Có ${a}, bớt đi ${b}, còn lại: ${right}.` });

@@ -9,7 +9,7 @@ const THINGS = ['viên bi', 'quyển vở', 'bông hoa', 'cái kẹo', 'quả ca
 
 export const templates: Template[] = [
     tpl('g2.terms', 1, () => {
-        const add = chance(0.5), a = rint(10, 60), b = rint(5, 39);
+        const add = chance(0.5), a = rint(10, 60), b = pickOne(Array.from({ length: 35 }, (_, i) => i + 5).filter(x => x !== a && x !== 2 * a && 2 * x !== a));
         if (add) {
             const k = rint(0, 2), parts = [String(a), String(b), String(a + b)], names = ['Số hạng', 'Số hạng', 'Tổng'];
             return choices({ q: `Trong phép cộng ${a} + ${b} = ${a + b}, số ${parts[k]} được gọi là gì?`, speech: `Trong phép cộng ${a} cộng ${b} bằng ${a + b}, số ${parts[k]} được gọi là gì?`,

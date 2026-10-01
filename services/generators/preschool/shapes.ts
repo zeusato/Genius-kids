@@ -56,10 +56,11 @@ export const templates: Template[] = [
     tpl('mn.size', 1, () => {
         const kind = pickOne(['big', 'tall', 'long'] as const), firstBigger = chance(0.5), askBigger = chance(0.5);
         const word = { big: ['to hơn', 'nhỏ hơn'], tall: ['cao hơn', 'thấp hơn'], long: ['dài hơn', 'ngắn hơn'] }[kind][askBigger ? 0 : 1];
-        const what = { big: 'Bạn gấu', tall: 'Cây', long: 'Bút chì' }[kind];
+        const [emoji, animal] = pickOne([['🐻', 'Bạn gấu'], ['🐘', 'Chú voi'], ['🍎', 'Quả táo'], ['🐟', 'Chú cá']] as const);
+        const what = { big: animal, tall: 'Cây', long: 'Bút chì' }[kind];
         return single({
             q: `${what} số mấy ${word}?`, speech: `${what} số mấy ${word}?`,
-            visual: { fn: 'sizePairSVG', args: [kind, firstBigger, pickOne(['🐻', '🐘', '🍎', '🐟'])] },
+            visual: { fn: 'sizePairSVG', args: [kind, firstBigger, emoji] },
             correct: firstBigger === askBigger ? 1 : 2, wrong: [1, 2], keepOrder: true, count: 2,
             explanation: `${what} số ${firstBigger === askBigger ? 1 : 2} ${word}.`,
         });

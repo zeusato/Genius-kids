@@ -32,7 +32,7 @@ export const templates: Template[] = [
             correct: total - used, wrong: [total + used, ...around(total - used, { min: 0, max: 50 })], format: x => `${x} l`, min: 0, max: 80, explanation: `Bớt đi: ${total} - ${used} = ${total - used} (l).` });
     }),
     tpl('g2.length', 1, () => {
-        const kind = pickOne([['m', 'dm', 10], ['dm', 'cm', 10], ['m', 'cm', 100]] as const), n = rint(1, 9), [big, small, f] = kind;
+        const kind = pickOne([['m', 'dm', 10], ['dm', 'cm', 10], ['m', 'cm', 100]] as const), n = rint(2, 9), [big, small, f] = kind;
         return chance(0.5)
             ? input({ q: `Điền số: ${n} ${big} = ? ${small}`, speech: `${n} ${big === 'm' ? 'mét' : 'đề-xi-mét'} bằng bao nhiêu ${small === 'cm' ? 'xăng-ti-mét' : 'đề-xi-mét'}?`, correct: n * f, explanation: `1 ${big} = ${f} ${small}, nên ${n} ${big} = ${n * f} ${small}.`, hint: `Nhớ: 1 ${big} = ${f} ${small}.` })
             : single({ q: `${n} ${big} = ? ${small}`, speech: `${n} ${big === 'm' ? 'mét' : 'đề-xi-mét'} bằng bao nhiêu ${small === 'cm' ? 'xăng-ti-mét' : 'đề-xi-mét'}?`, correct: n * f, wrong: [n, n * f * 10, n * f / 10 >= 1 ? n * f / 10 : n + f, n + f], format: x => `${x} ${small}`, min: 1, max: 1000, explanation: `1 ${big} = ${f} ${small}, nên ${n} ${big} = ${n * f} ${small}.` });

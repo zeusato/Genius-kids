@@ -1,147 +1,48 @@
-import { Question, QuestionType } from '../../../types';
-import { formatNumber } from '../utils';
+// Lớp 3 — Đo lường (g3_measurements): mi-li-mét, gam, mi-li-lít trong tình huống; nhiệt độ °C.
+import { tpl, fromTemplates, single, input, rint, pickOne, chance } from '../kit';
+import { around } from '../wrongs';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const CONV: { big: string; small: string; f: number; bigName: string; smallName: string }[] = [
+    { big: 'cm', small: 'mm', f: 10, bigName: 'xăng-ti-mét', smallName: 'mi-li-mét' },
+    { big: 'm', small: 'mm', f: 1000, bigName: 'mét', smallName: 'mi-li-mét' },
+    { big: 'kg', small: 'g', f: 1000, bigName: 'ki-lô-gam', smallName: 'gam' },
+    { big: 'l', small: 'ml', f: 1000, bigName: 'lít', smallName: 'mi-li-lít' },
+];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g3.small_units', 1, () => {
+        const c = pickOne(CONV), n = rint(1, 9);
+        return chance(0.5)
+            ? single({ q: `${n} ${c.big} = ? ${c.small}`, correct: n * c.f, wrong: [n * c.f * 10, n * c.f / 10, n * 10 === n * c.f ? n * 100 : n * 10, n + c.f], format: x => `${x} ${c.small}`, min: 1,
+                explanation: `1 ${c.big} = ${c.f} ${c.small}, nên ${n} ${c.big} = ${n} × ${c.f} = ${n * c.f} ${c.small}.`, hint: `Nhớ: 1 ${c.big} = ${c.f} ${c.small}.` })
+            : input({ q: `Điền số: ${n * c.f} ${c.small} = ? ${c.big}`, correct: n, explanation: `${c.f} ${c.small} = 1 ${c.big}, nên ${n * c.f} ${c.small} = ${n} ${c.big}.` });
+    }),
+    tpl('g3.small_units', 2, () => {
+        const c = pickOne(CONV.filter(x => x.f === 1000)), a = rint(1, 4), b = rint(50, 950);
+        return single({ q: `${a} ${c.big} ${b} ${c.small} = ? ${c.small}`, correct: a * c.f + b, wrong: [a + b, a * 100 + b, a * c.f, a * c.f + b + 100], format: x => `${x} ${c.small}`, min: 1,
+            explanation: `${a} ${c.big} = ${a * c.f} ${c.small}; ${a * c.f} + ${b} = ${a * c.f + b} (${c.small}).`, hint: `Đổi ${a} ${c.big} ra ${c.small} trước rồi cộng.` });
+    }),
+    tpl('g3.small_units', 3, () => {
+        const kind = rint(0, 2);
+        if (kind === 0) { const bottle = pickOne([250, 300, 330, 500]), n = rint(2, 4); return single({ q: `Mỗi chai nước có ${bottle} ml. ${n} chai như thế có bao nhiêu mi-li-lít nước?`, correct: bottle * n, wrong: [bottle + n, bottle * (n + 1), bottle * n + 100, bottle * n - 50], format: x => `${x} ml`, min: 1, explanation: `${bottle} × ${n} = ${bottle * n} (ml).` }); }
+        if (kind === 1) { const pack = pickOne([200, 250, 400, 500]), n = rint(2, 4), total = pack * n; return single({ q: `Mẹ mua ${n} gói đường, mỗi gói nặng ${pack} g. Hỏi mẹ mua tất cả bao nhiêu gam đường?`, correct: total, wrong: [pack + n, total + pack, total - 100, total + 100], format: x => `${x} g`, min: 1, explanation: `${pack} × ${n} = ${total} (g).` }); }
+        const total = 1000, used = pickOne([150, 250, 300, 400, 600]);
+        return single({ q: `Bình có 1 l nước. Bạn Nam rót ra ${used} ml. Bình còn lại bao nhiêu mi-li-lít nước?`, correct: total - used, wrong: [1 + used, used, total - used + 100, total + used], format: x => `${x} ml`, min: 1,
+            explanation: `1 l = 1000 ml; 1000 - ${used} = ${total - used} (ml).`, steps: ['Đổi 1 l = 1000 ml', `1000 - ${used} = ${total - used} (ml)`], hint: 'Đổi lít ra mi-li-lít trước.' });
+    }),
+    tpl('g3.temperature', 1, () => {
+        const t = rint(1, 9) * 5;
+        return single({ q: 'Nhiệt kế chỉ bao nhiêu độ C?', visual: { fn: 'thermometerSVG', args: [t] }, correct: t, wrong: around(t, { step: 5, min: 0, max: 50 }), format: x => `${x}°C`, min: 0, max: 50,
+            explanation: `Đỉnh cột đỏ ngang vạch ${t}: nhiệt độ là ${t}°C.`, hint: 'Mỗi vạch nhỏ là 5 độ.' });
+    }),
+    tpl('g3.temperature', 1, () => {
+        const a = rint(15, 30), b = rint(a + 2, 39), place = pickOne([['trong phòng', 'ngoài sân'], ['buổi sáng', 'buổi trưa'], ['ở Đà Lạt', 'ở Hà Nội']]);
+        return chance(0.5)
+            ? single({ q: `Nhiệt độ ${place[0]} là ${a}°C, ${place[1]} là ${b}°C. Nơi nào nóng hơn và hơn bao nhiêu độ?`, correct: b - a, wrong: [a + b, b - a + 1, b - a - 1, b - a + 5], format: x => `${place[1][0].toUpperCase() + place[1].slice(1)} nóng hơn ${x}°C`, min: 0,
+                explanation: `${b}°C cao hơn ${a}°C; ${b} - ${a} = ${b - a} (°C).` })
+            : single({ q: `Nhiệt độ cơ thể người khoẻ mạnh khoảng bao nhiêu?`, correct: 37, wrong: [27, 47, 17, 100], format: x => `${x}°C`, explanation: 'Thân nhiệt người khoẻ mạnh khoảng 37°C.' });
+    }),
+];
 
-// SVG for ruler/scale
-const createRulerSVG = (length: number, unit: string) => `
-  <svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-    <rect x="30" y="40" width="${Math.min(340, length * 30)}" height="40" fill="#fef3c7" stroke="#0f172a" stroke-width="2"/>
-    <text x="200" y="25" text-anchor="middle" font-size="16" font-weight="bold">${length}${unit}</text>
-  </svg>
-`;
-
-// SVG for clock
-const createClockSVG = (hours: number, minutes: number) => {
-    const hourAngle = ((hours % 12) + minutes / 60) * 30 - 90;
-    const minuteAngle = minutes * 6 - 90;
-    const hourRad = (hourAngle * Math.PI) / 180;
-    const minuteRad = (minuteAngle * Math.PI) / 180;
-
-    return `
-    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="80" fill="#fff" stroke="#0f172a" stroke-width="3"/>
-      ${[...Array(12)].map((_, i) => {
-        const angle = (i * 30 - 90) * Math.PI / 180;
-        const x = 100 + 70 * Math.cos(angle);
-        const y = 100 + 70 * Math.sin(angle);
-        return `<text x="${x}" y="${y + 5}" text-anchor="middle" font-size="16" font-weight="bold">${i === 0 ? 12 : i}</text>`;
-    }).join('')}
-      <line x1="100" y1="100" x2="${100 + 40 * Math.cos(hourRad)}" y2="${100 + 40 * Math.sin(hourRad)}" stroke="#0f172a" stroke-width="6" stroke-linecap="round"/>
-      <line x1="100" y1="100" x2="${100 + 60 * Math.cos(minuteRad)}" y2="${100 + 60 * Math.sin(minuteRad)}" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="100" cy="100" r="5" fill="#0f172a"/>
-    </svg>
-  `;
-};
-
-export const generateG3Measurements = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = Math.random();
-
-    // 1. Length conversions (30%)
-    if (type < 0.3) {
-        const conversions = [
-            { from: 'cm', to: 'mm', factor: 10 },
-            { from: 'dm', to: 'cm', factor: 10 },
-            { from: 'm', to: 'dm', factor: 10 },
-            { from: 'm', to: 'cm', factor: 100 }
-        ];
-        const conv = conversions[randomInt(0, 3)];
-        const value = randomInt(2, 50);
-        const answer = value * conv.factor;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${value}${conv.from} = ? ${conv.to}`,
-            visualSvg: createRulerSVG(value, conv.from),
-            correctAnswer: `${answer}${conv.to}`,
-            options: shuffleArray([
-                `${answer}${conv.to}`,
-                `${answer + conv.factor}${conv.to}`,
-                `${answer - conv.factor}${conv.to}`,
-                `${Math.floor(answer / 2)}${conv.to}`
-            ]),
-            explanation: `1${conv.from} = ${conv.factor}${conv.to}, nên ${value}${conv.from} = ${answer}${conv.to}`
-        };
-    }
-
-    // 2. Mass conversions (20%)
-    else if (type < 0.5) {
-        const value = randomInt(2, 20);
-        const isToGram = Math.random() > 0.5;
-        const answer = isToGram ? value * 1000 : value;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: isToGram ? `${value}kg = ? g` : `${value * 1000}g = ? kg`,
-            correctAnswer: isToGram ? `${answer}g` : `${answer}kg`,
-            options: shuffleArray(isToGram
-                ? [`${answer}g`, `${answer + 1000}g`, `${answer - 1000}g`, `${value}g`]
-                : [`${answer}kg`, `${answer + 1}kg`, `${answer - 1}kg`, `${value * 1000}kg`]
-            ),
-            explanation: `1kg = 1000g`
-        };
-    }
-
-    // 3. Capacity (15%)
-    else if (type < 0.65) {
-        const value = randomInt(2, 10);
-        const isToMl = Math.random() > 0.5;
-        const answer = isToMl ? value * 1000 : value;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: isToMl ? `${value}L = ? mL` : `${value * 1000}mL = ? L`,
-            correctAnswer: isToMl ? `${answer}mL` : `${answer}L`,
-            options: shuffleArray(isToMl
-                ? [`${answer}mL`, `${answer + 1000}mL`, `${answer - 1000}mL`, `${value}mL`]
-                : [`${answer}L`, `${answer + 1}L`, `${answer - 1}L`, `${value * 1000}L`]
-            ),
-            explanation: `1L = 1000mL`
-        };
-    }
-
-    // 4. Read clock (20%)
-    else if (type < 0.85) {
-        const hours = randomInt(1, 12);
-        const minutes = [0, 15, 30, 45][randomInt(0, 3)];
-        const minuteText = minutes === 0 ? 'giờ' : minutes === 15 ? 'giờ 15 phút' : minutes === 30 ? 'giờ rưỡi' : 'giờ 45 phút';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Đồng hồ chỉ mấy giờ?`,
-            visualSvg: createClockSVG(hours, minutes),
-            correctAnswer: `${hours} ${minuteText}`,
-            options: shuffleArray([
-                `${hours} ${minuteText}`,
-                `${hours + 1} ${minuteText}`,
-                `${hours} giờ ${(minutes + 15) % 60} phút`,
-                `${(hours % 12) + 1} giờ`
-            ]),
-            explanation: `Đồng hồ chỉ ${hours} ${minuteText}`
-        };
-    }
-
-    // 5. Time duration (15%)
-    else {
-        const start = randomInt(7, 11);
-        const duration = randomInt(1, 3);
-        const end = start + duration;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Bắt đầu lúc ${start} giờ, kết thúc lúc ${end} giờ. Thời gian là bao lâu?`,
-            correctAnswer: `${duration} giờ`,
-            options: shuffleArray([`${duration} giờ`, `${duration + 1} giờ`, `${duration - 1} giờ`, `${end} giờ`]),
-            explanation: `${end} - ${start} = ${duration} giờ`
-        };
-    }
-};
+export const generateG3Measurements = fromTemplates(templates);

@@ -53,8 +53,19 @@ export interface SingleOpts extends Common {
     max?: number;
     /** Chỉ nhận số nguyên khi bù lựa chọn. */
     integer?: boolean;
+    /** Tập đóng: CHỈ dùng các nhiễu truyền vào (vd "số lớn nhất trong 4 số đã cho"), không bù số lân cận. */
+    closed?: boolean;
     /** Giữ nguyên thứ tự lựa chọn (không xáo). */
     keepOrder?: boolean;
+}
+
+/** Bước bù số lân cận "tròn" theo đáp án: 2600 → 100; 350 → 10; 47 → 1; số thập phân → 0,1. */
+export function niceStep(c: number): number {
+    if (!Number.isInteger(c)) { const d = (String(c).split('.')[1] || '').length; return 10 ** -Math.min(d, 3); }
+    if (c === 0) return 1;
+    let tz = 0, x = Math.abs(c);
+    while (x % 10 === 0 && tz < 6) { x /= 10; tz++; }
+    return 10 ** tz;
 }
 
 /** Trắc nghiệm 1 đáp án: lọc trùng theo giá trị, bù bằng số lân cận, xáo trộn. */
@@ -83,24 +94,29 @@ export function single(o: SingleOpts): Generated {
     };
     const numericWrong = o.wrong.every(w => typeof w === 'number');
     if (typeof o.correct === 'number' && numericWrong && !o.keepOrder) {
-        // CÂN BẰNG HẠNG: chọn trước đáp án đúng đứng thứ mấy theo giá trị, rồi lấy nhiễu dưới / trên
-        // (ưu tiên nhiễu theo lỗi sai được truyền vào, sau đó mới tới số lân cận).
-        const c = o.correct, step = Number.isInteger(c) ? Math.max(1, Math.round(Math.abs(c) / 20)) : 0.1;
+        // CÂN BẰNG HẠNG: chọn trước đáp án đúng đứng thứ mấy theo giá trị, rồi lấy nhiễu dưới / trên.
+        // Đủ nhiễu được truyền vào → CHỈ dùng tập đó (tập đóng như "số lớn nhất trong 4 số" không bị đè);
+        // thiếu mới bù bằng số lân cận với bước "tròn".
+        const c = o.correct, step = niceStep(c);
         const uniq = (xs: number[]) => xs.filter((x, i) => ok(x) && !sameValue(x, c) && xs.findIndex(y => sameValue(y, x)) === i);
         const given = uniq(shuffle(o.wrong as number[]));
-        const near: number[] = [];
-        for (let d = 1; d <= 40; d++) near.push(Number((c - d * step).toFixed(6)), Number((c + d * step).toFixed(6)));
-        const below = uniq([...given.filter(x => x < c), ...near.filter(x => x < c)]);
-        const above = uniq([...given.filter(x => x > c), ...near.filter(x => x > c)]);
         const m = count - 1;
+        let below: number[], above: number[];
+        if (o.closed) { below = given.filter(x => x < c); above = given.filter(x => x > c); }
+        else {
+            const near: number[] = [];
+            for (let d = 1; d <= 40; d++) near.push(Number((c - d * step).toFixed(6)), Number((c + d * step).toFixed(6)));
+            below = uniq([...given.filter(x => x < c), ...near.filter(x => x < c)]);
+            above = uniq([...given.filter(x => x > c), ...near.filter(x => x > c)]);
+        }
         let k = Math.floor(generatorRandom() * (m + 1));
         k = Math.min(k, below.length);
         if (m - k > above.length) k = Math.min(below.length, m - above.length);
         for (const x of [...below.slice(0, k), ...above.slice(0, m - k)]) push(x);
     }
     for (const w of shuffle(o.wrong)) push(w);
-    if (opts.length < count && correctNum !== null && typeof o.correct === 'number') {
-        const step = Number.isInteger(correctNum) ? Math.max(1, Math.round(Math.abs(correctNum) / 20)) : 0.1;
+    if (opts.length < count && correctNum !== null && typeof o.correct === 'number' && !o.closed) {
+        const step = niceStep(correctNum);
         for (let d = 1; opts.length < count && d < 60; d++) {
             push(Number((correctNum + d * step).toFixed(6)));
             push(Number((correctNum - d * step).toFixed(6)));
@@ -117,6 +133,7 @@ export function single(o: SingleOpts): Generated {
 
 /** So sánh: 3 lựa chọn cố định > < = (UI vẽ nút ký hiệu). */
 export function compare(o: Common & { left: number; right: number }): Generated {
+    if (o.speech && !/dấu/.test(o.speech)) o = { ...o, speech: `${o.speech} Chọn dấu lớn hơn, bé hơn hoặc bằng.` };
     const sign = Math.abs(o.left - o.right) < 1e-9 ? '=' : o.left > o.right ? '>' : '<';
     return { type: QuestionType.SingleChoice, ...base(o), options: ['>', '<', '='], correctAnswer: sign };
 }

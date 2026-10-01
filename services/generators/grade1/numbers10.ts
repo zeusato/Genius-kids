@@ -27,7 +27,7 @@ export const templates: Template[] = [
         const nums = sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4), big = pickOne([true, false]);
         const ans = big ? Math.max(...nums) : Math.min(...nums);
         return single({ q: `Số nào ${big ? 'lớn nhất' : 'bé nhất'}: ${nums.join(', ')}?`, speech: `Trong các số ${nums.join(', ')}, số nào ${big ? 'lớn nhất' : 'bé nhất'}?`,
-            correct: ans, wrong: nums.filter(x => x !== ans), explanation: `So sánh lần lượt: ${ans} là số ${big ? 'lớn nhất' : 'bé nhất'}.` });
+            correct: ans, wrong: nums.filter(x => x !== ans), closed: true, explanation: `So sánh lần lượt: ${ans} là số ${big ? 'lớn nhất' : 'bé nhất'}.` });
     }, { noRankCheck: true }),
     tpl('g1.split10', 1, () => {
         const n = rint(3, 10), a = rint(1, n - 1);
@@ -37,7 +37,7 @@ export const templates: Template[] = [
             explanation: `${n} gồm ${a} và ${n - a} (vì ${a} + ${n - a} = ${n}).`, hint: `Đếm thêm từ ${a} cho đến ${n}.` });
     }),
     tpl('g1.split10', 2, () => {
-        const t = pickOne(THINGS), n = rint(4, 10), a = rint(1, n - 1);
+        const t = pickOne(THINGS.filter(x => /quả|bông|cái|chiếc/.test(x.name))), n = rint(4, 10), a = rint(1, n - 1);
         return single({ q: `Có ${n} ${t.name} chia vào hai đĩa. Đĩa thứ nhất có ${a} ${t.name}. Đĩa thứ hai có mấy ${t.name}?`,
             speech: `Có ${word(n)} ${t.name} chia vào hai đĩa. Đĩa thứ nhất có ${word(a)}. Đĩa thứ hai có mấy ${t.name}?`,
             correct: n - a, wrong: around(n - a, { min: 0, max: 10 }), min: 0, max: 10,

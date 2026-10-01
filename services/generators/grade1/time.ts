@@ -6,7 +6,7 @@ import type { Template } from '../../study/types';
 export const DAYS = ['Chủ nhật', 'thứ Hai', 'thứ Ba', 'thứ Tư', 'thứ Năm', 'thứ Sáu', 'thứ Bảy'];
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const PARTS = [['morning', 'Buổi sáng'], ['noon', 'Buổi trưa'], ['afternoon', 'Buổi chiều'], ['night', 'Buổi tối']] as const;
-const ACTS: [string, string][] = [['Em đánh răng, rửa mặt sau khi ngủ dậy', 'Buổi sáng'], ['Em ngủ trưa', 'Buổi trưa'], ['Em tập thể dục cùng ông lúc trời vừa sáng', 'Buổi sáng'], ['Em ra sân đá bóng sau giờ học, trước bữa tối', 'Buổi chiều'], ['Em đi ngủ', 'Buổi tối'], ['Trên trời có trăng và sao', 'Buổi tối'], ['Em ăn sáng rồi đến trường', 'Buổi sáng'], ['Em ăn cơm trưa ở trường', 'Buổi trưa'], ['Em tan học về nhà', 'Buổi chiều'], ['Cả nhà ăn cơm tối, xem ti vi', 'Buổi tối'], ['Mặt trời mọc', 'Buổi sáng'], ['Mặt trời lặn', 'Buổi chiều']];
+const ACTS: [string, string][] = [['Em đánh răng, rửa mặt sau khi ngủ dậy', 'Buổi sáng'], ['Em ngủ trưa', 'Buổi trưa'], ['Em tập thể dục cùng ông lúc trời vừa sáng', 'Buổi sáng'], ['Em ra sân đá bóng sau giờ học, trước bữa tối', 'Buổi chiều'], ['Em đi ngủ', 'Buổi tối'], ['Trên trời có trăng và sao', 'Buổi tối'], ['Em ăn sáng rồi đến trường', 'Buổi sáng'], ['Em ăn cơm cùng các bạn ở trường rồi ngủ một giấc ngắn', 'Buổi trưa'], ['Em tan học về nhà', 'Buổi chiều'], ['Cả nhà quây quần ăn cơm khi trời đã tối', 'Buổi tối'], ['Mặt trời mọc', 'Buổi sáng'], ['Mặt trời lặn', 'Buổi chiều']];
 
 const dayOpts = (ans: string) => shuffle([ans, ...sample(DAYS.filter(d => d !== ans), 3)]).map(cap);
 

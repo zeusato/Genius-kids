@@ -11,9 +11,10 @@ const ITEMS = ['cái kẹo', 'quyển vở', 'cái bút chì', 'cục tẩy', 'c
 
 export const templates: Template[] = [
     tpl('g2.money', 1, () => {
-        const notes = Array.from({ length: rint(2, 4) }, () => pickOne(SMALL)).sort((a, b) => b - a), total = notes.reduce((s, x) => s + x, 0);
+        let notes: number[]; do { notes = Array.from({ length: rint(2, 4) }, () => pickOne([100, 200, 500])).sort((a, b) => b - a); } while (notes.reduce((s, x) => s + x, 0) > 1000);
+        const total = notes.reduce((s, x) => s + x, 0);
         return single({ q: 'Có tất cả bao nhiêu tiền?', speech: 'Cộng giá trị các tờ tiền. Có tất cả bao nhiêu tiền?', visual: { fn: 'notesSVG', args: [notes] },
-            correct: total, wrong: around(total, { step: 100, min: 100, max: 4000 }), format: fmtMoney, min: 100, max: 4000,
+            correct: total, wrong: around(total, { step: 100, min: 100, max: 1000 }), format: fmtMoney, min: 100, max: 1000,
             explanation: `${notes.map(fmtMoney).join(' + ')} = ${fmtMoney(total)}.`, hint: 'Cộng từ tờ có giá trị lớn nhất.' });
     }),
     tpl('g2.money', 1, () => {

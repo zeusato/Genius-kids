@@ -45,7 +45,7 @@ export const templates: Template[] = [
         const op = chance(0.5) ? '+' : '-', [a, b] = oneCarry(op), res = op === '+' ? a + b : a - b;
         if (chance(0.5)) return input({ q: `Đặt tính rồi tính: ${a} ${op} ${b}`, speech: `Đặt tính rồi tính ${a} ${op === '+' ? 'cộng' : 'trừ'} ${b}.`, visual: { fn: 'columnArithSVG', args: [a, b, op] }, correct: res,
             explanation: `Đặt tính thẳng cột: ${a} ${op} ${b} = ${res}.`, steps: columnSteps(a, b, op) });
-        const places = ['Trường', 'Thư viện', 'Cửa hàng'][rint(0, 2)];
+        const places = op === '+' ? ['Trường', 'Thư viện', 'Cửa hàng'][rint(0, 2)] : 'Thư viện';
         const q = op === '+' ? `${places} có ${a} quyển sách, mua thêm ${b} quyển sách. Hỏi ${places.toLowerCase()} có tất cả bao nhiêu quyển sách?` : `${places} có ${a} quyển sách, đã cho mượn ${b} quyển. Hỏi ${places.toLowerCase()} còn lại bao nhiêu quyển sách?`;
         return single({ q, speech: q, correct: res, wrong: [...carryError(a, b, op), op === '+' ? Math.abs(a - b) : Math.min(999, a + b)], min: 0, max: 999,
             explanation: `${op === '+' ? 'Thêm vào: phép cộng' : 'Bớt đi: phép trừ'} ${a} ${op} ${b} = ${res} (quyển sách).`, steps: [`Số sách: ${a} ${op} ${b} = ${res} (quyển)`, `Đáp số: ${res} quyển sách`] });
