@@ -97,7 +97,7 @@ const ROWS: Record<Grade, Row[]> = {
         ['g2.mul_table34', 'g2_multiplication', 'number', 2, 'Bảng nhân 3, bảng nhân 4', [1, 2], { ...A, ...mul }],
         ['g2.div_meaning', 'g2_division', 'number', 2, 'Phép chia: số bị chia, số chia, thương', [1, 2], div],
         ['g2.div_table', 'g2_division', 'number', 2, 'Bảng chia 2, bảng chia 5', [1, 2], div],
-        ['g2.div_table34', 'g2_division', 'number', 2, 'Bảng chia 3, 4; tìm số bị chia', [2], { ...A, ...div }],
+        ['g2.div_table34', 'g2_division', 'number', 2, 'Bảng chia 3, 4; tìm số bị chia', [1, 2], { ...A, ...div }],
         ['g2.numbers1000', 'g2_numbers_1000', 'number', 2, 'Số đến 1000: trăm – chục – đơn vị, số tròn trăm', [1, 2]],
         ['g2.compare1000', 'g2_numbers_1000', 'number', 2, 'So sánh, sắp xếp các số đến 1000', [1, 2]],
         ['g2.addsub1000', 'g2_add_sub_1000', 'number', 2, 'Cộng, trừ trong phạm vi 1000', [1, 2, 3], addsub],

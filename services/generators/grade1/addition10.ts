@@ -27,7 +27,7 @@ export const templates: Template[] = [
         const ans = front ? a : b;
         return chance(0.5)
             ? single({ q: `Số nào điền vào ô trống: ${q}`, speech: `Số nào điền vào ô trống: ${q.replace('□', 'ô trống').replace('+', 'cộng').replace('=', 'bằng')}`,
-                correct: ans, wrong: [...around(ans, { min: 0, max: 10 }), a + b], min: 0, max: 10,
+                correct: ans, wrong: around(ans, { min: 0, max: 10 }), min: 0, max: 10,
                 explanation: `Vì ${a} + ${b} = ${a + b} nên số cần điền là ${ans}.`, hint: `Đếm thêm từ ${front ? b : a} cho tới ${a + b}.` })
             : input({ q: `Điền số vào ô trống: ${q}`, speech: `Điền số vào ô trống: ${q.replace('□', 'ô trống').replace('+', 'cộng').replace('=', 'bằng')}`,
                 correct: ans, explanation: `Vì ${a} + ${b} = ${a + b} nên số cần điền là ${ans}.`, hint: `Đếm thêm từ ${front ? b : a} cho tới ${a + b}.` });

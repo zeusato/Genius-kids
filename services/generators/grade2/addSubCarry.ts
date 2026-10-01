@@ -1,58 +1,38 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 2 — Cộng, trừ có nhớ trong phạm vi 100 (g2_add_sub_carry); tính có hai dấu phép tính.
+// Giữ mẫu "Tính: a + b = ?" (MathRacing lọc theo mẫu này).
+import { tpl, fromTemplates, single, input, rint, chance } from '../kit';
+import { around, carryError } from '../wrongs';
+import { columnSteps, withCarry, say } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
+export const templates: Template[] = [
+    tpl('g2.addsub100_c', 1, () => {
+        const op = chance(0.5) ? '+' : '-', [a, b] = op === '+' ? withCarry('+', [11, 89], [2, 9]) : withCarry('-', [21, 99], [2, 9]), r = op === '+' ? a + b : a - b;
+        return single({ q: `${a} ${op} ${b} = ?`, speech: say(a, op, b), correct: r, wrong: [...carryError(a, b, op), ...around(r, { min: 0, max: 100 })], min: 0, max: 100,
+            explanation: op === '+' ? `${a % 10} + ${b} = ${a % 10 + b}, viết ${(a % 10 + b) % 10} nhớ 1 sang hàng chục: ${a} + ${b} = ${r}.` : `${a % 10} không trừ được ${b}, mượn 1 chục: ${a % 10 + 10} - ${b} = ${a % 10 + 10 - b}; hàng chục còn ${Math.floor(a / 10) - 1}. Vậy ${a} - ${b} = ${r}.`,
+            hint: op === '+' ? 'Hàng đơn vị cộng được từ 10 trở lên thì nhớ 1 sang hàng chục.' : 'Hàng đơn vị không trừ được thì mượn 1 chục.' });
+    }),
+    tpl('g2.addsub100_c', 2, () => {
+        const op = chance(0.5) ? '+' : '-', [a, b] = op === '+' ? withCarry('+', [11, 79], [11, 69]) : withCarry('-', [31, 99], [11, 69]), r = op === '+' ? a + b : a - b;
+        return single({ q: `${a} ${op} ${b} = ?`, speech: say(a, op, b), correct: r, wrong: [...carryError(a, b, op), ...around(r, { min: 0, max: 100 })], min: 0, max: 100,
+            explanation: `Đặt tính thẳng cột, tính từ hàng đơn vị, nhớ (mượn) 1 khi cần: ${a} ${op} ${b} = ${r}.`, steps: columnSteps(a, b, op), hint: 'Đừng quên số nhớ ở hàng chục.' });
+    }, { weight: 2 }),
+    tpl('g2.addsub100_c', 3, () => {
+        const op = chance(0.5) ? '+' : '-', [a, b] = op === '+' ? withCarry('+', [11, 79], [11, 69]) : withCarry('-', [31, 99], [11, 69]), r = op === '+' ? a + b : a - b;
+        return input({ q: `Đặt tính rồi tính: ${a} ${op} ${b}`, speech: `Đặt tính rồi tính ${a} ${op === '+' ? 'cộng' : 'trừ'} ${b}.`, visual: { fn: 'columnArithSVG', args: [a, b, op] }, correct: r,
+            explanation: `${a} ${op} ${b} = ${r} (có ${op === '+' ? 'nhớ' : 'mượn'} ở hàng đơn vị).`, steps: columnSteps(a, b, op), hint: 'Viết các chữ số cùng hàng thẳng cột.' });
+    }),
+    tpl('g2.chain', 2, () => {
+        let x = 0, y = 0, z = 0, o1 = '+', o2 = '-', s1 = 0, r = 0;
+        do {
+            o1 = chance(0.5) ? '+' : '-'; o2 = chance(0.5) ? '+' : '-';
+            x = rint(20, 80); y = rint(5, 40); z = rint(5, 40);
+            s1 = o1 === '+' ? x + y : x - y; r = o2 === '+' ? s1 + z : s1 - z;
+        } while (s1 < 0 || s1 > 100 || r < 0 || r > 100);
+        return single({ q: `Tính: ${x} ${o1} ${y} ${o2} ${z} = ?`, speech: `${x} ${o1 === '+' ? 'cộng' : 'trừ'} ${y} ${o2 === '+' ? 'cộng' : 'trừ'} ${z} bằng bao nhiêu?`,
+            correct: r, wrong: [s1, ...around(r, { min: 0, max: 100, step: chance(0.5) ? 1 : 10 })], min: 0, max: 100,
+            explanation: `Tính từ trái sang phải: ${x} ${o1} ${y} = ${s1}; ${s1} ${o2} ${z} = ${r}.`, steps: [`${x} ${o1} ${y} = ${s1}`, `${s1} ${o2} ${z} = ${r}`], hint: 'Tính lần lượt từ trái sang phải.' });
+    }),
+];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-const generateWrongAnswers = (correct: number, count: number, range: number): string[] => {
-    const wrongs = new Set<number>();
-    while (wrongs.size < count) {
-        const offset = randomInt(-range, range);
-        const val = correct + offset;
-        if (val !== correct && val > 0) {
-            wrongs.add(val);
-        }
-    }
-    return Array.from(wrongs).map(String);
-};
-
-export const generateG2AddSubCarry = (): Omit<Question, 'id' | 'topicId'> => {
-    const isAdd = generatorRandom() > 0.5;
-    let a, b, ans;
-
-    if (isAdd) {
-        // a + b < 100, unit digits sum >= 10
-        const a_units = randomInt(1, 9);
-        const b_units = randomInt(10 - a_units, 9); // Ensure carry
-        const a_tens = randomInt(1, 7);
-        const b_tens = randomInt(0, 8 - a_tens); // Ensure sum < 100
-        a = a_tens * 10 + a_units;
-        b = b_tens * 10 + b_units;
-        ans = a + b;
-    } else {
-        // a - b, borrow needed. a_units < b_units
-        const a_tens = randomInt(2, 9);
-        const b_tens = randomInt(1, a_tens - 1);
-        const a_units = randomInt(0, 8);
-        const b_units = randomInt(a_units + 1, 9); // Ensure borrow
-        a = a_tens * 10 + a_units;
-        b = b_tens * 10 + b_units;
-        ans = a - b;
-    }
-
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `${a} ${isAdd ? '+' : '-'} ${b} = ?`,
-        correctAnswer: ans.toString(),
-        options: shuffleArray([ans.toString(), ...generateWrongAnswers(ans, 3, 10)]),
-        explanation: isAdd ? `Hàng đơn vị cộng lại lớn hơn 10, nhớ 1 sang hàng chục.` : `Hàng đơn vị không trừ được, mượn 1 chục.`
-    };
-};
+export const generateG2AddSubCarry = fromTemplates(templates);

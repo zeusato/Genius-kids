@@ -112,10 +112,21 @@ export function parseValue(text: string | number | undefined | null): number | n
     return parseNumberPart(m[1]);
 }
 
-/** Hai chuỗi có cùng giá trị? (số: so theo giá trị; còn lại: so chữ đã chuẩn hoá) */
+/** Đơn vị đi sau số ("cm²", "giờ sáng", "đồng"); '' nếu không có / không phải 1 số. */
+export function unitOf(text: string | number | undefined | null): string {
+    if (typeof text !== 'string') return '';
+    const m = text.normalize('NFC').trim().match(/^(-?[\d\s  .,/−]*\d)\s*([^\d]*)$/);
+    return m ? normalizeText(m[2]) : '';
+}
+
+/** Hai chuỗi có cùng giá trị? (số: so theo giá trị VÀ đơn vị; còn lại: so chữ đã chuẩn hoá) */
 export function sameValue(a: string | number | undefined | null, b: string | number | undefined | null): boolean {
     const va = parseValue(a), vb = parseValue(b);
-    if (va !== null && vb !== null) return Math.abs(va - vb) < 1e-9;
+    if (va !== null && vb !== null) {
+        const ua = unitOf(a), ub = unitOf(b);
+        if (ua && ub && ua !== ub) return false; // "3 m" ≠ "3 km"; "9 giờ sáng" ≠ "9 giờ tối"
+        return Math.abs(va - vb) < 1e-9;
+    }
     if (a === undefined || a === null || b === undefined || b === null) return false;
     return normalizeText(String(a)) === normalizeText(String(b));
 }

@@ -387,3 +387,6 @@ export function shapesGridSVG(kind: 'square' | 'rectangle' | 'circle' | 'triangl
 
 // Hình Mầm non / Lớp 1 (Ôn Luyện 2026-10)
 export * from './kids';
+
+// Hình Lớp 2–3 (Ôn Luyện 2026-10)
+export * from './grade2';
