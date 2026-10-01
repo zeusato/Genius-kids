@@ -63,6 +63,16 @@ import { templates as g4ParaRhombus } from './grade4/parallelogramRhombus';
 import { templates as g4Statistics } from './grade4/statistics';
 import { templates as g4Patterns } from './grade4/patterns';
 import { templates as g4Divisibility } from './grade4/divisibility';
+import { templates as g5Fractions } from './grade5/fractions';
+import { templates as g5Numbers } from './grade5/numbers';
+import { templates as g5DecimalOps } from './grade5/decimalOps';
+import { templates as g5Parentheses } from './grade5/parentheses';
+import { templates as g5Ratios } from './grade5/ratios';
+import { templates as g5WordProblems } from './grade5/wordProblems';
+import { templates as g5Geometry } from './grade5/geometry';
+import { templates as g5Measurements } from './grade5/measurements';
+import { templates as g5TimeOps } from './grade5/timeOps';
+import { templates as g5Statistics } from './grade5/statistics';
 
 export const TEMPLATE_SETS: Template[][] = [
     mnCounting, mnShapes, mnColors, mnTime,
@@ -71,4 +81,5 @@ export const TEMPLATE_SETS: Template[][] = [
     g2AddSub20, g2AddSubNoCarry, g2AddSubCarry, g2Arithmetic, g2Multiplication, g2Division, g2Numbers1000, g2AddSub1000, g2Geometry, g2Units, g2Time, g2Money, g2Statistics, g2Probability,
     g3Multiplication, g3Division, g3Expressions, g3Fractions, g3Geometry, g3Measurements, g3Numbers, g3Arithmetic, g3Area, g3Time, g3Money, g3Statistics, g3Probability, g3WordProblems,
     g4LargeNumbers, g4AddSub, g4Multiplication, g4Division, g4Parentheses, g4Average, g4WordProblems, g4Fractions, g4FractionOps, g4Angles, g4Lines, g4Units, g4Geometry, g4ParaRhombus, g4Statistics, g4Patterns, g4Divisibility,
+    g5Fractions, g5Numbers, g5DecimalOps, g5Parentheses, g5Ratios, g5WordProblems, g5Geometry, g5Measurements, g5TimeOps, g5Statistics,
 ];

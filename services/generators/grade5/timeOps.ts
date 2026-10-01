@@ -1,86 +1,30 @@
-import { Question, QuestionType } from '../../../types';
+// Lớp 5 — Số đo thời gian (g5_time_ops): cộng, trừ; nhân, chia số đo thời gian với một số.
+import { tpl, fromTemplates, single, rint, chance } from '../kit';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-const m5 = () => randomInt(1, 11) * 5; // số phút bội của 5 (5..55)
+const hm = (m: number) => (m % 60 === 0 ? `${m / 60} giờ` : m < 60 ? `${m} phút` : `${Math.floor(m / 60)} giờ ${m % 60} phút`);
+const ms = (s: number) => (s % 60 === 0 ? `${s / 60} phút` : s < 60 ? `${s} giây` : `${Math.floor(s / 60)} phút ${s % 60} giây`);
 
-/** Định dạng tổng phút → "h giờ m phút". */
-const fmt = (total: number): string => {
-    const h = Math.floor(total / 60), m = total % 60;
-    if (h > 0 && m > 0) return `${h} giờ ${m} phút`;
-    if (h > 0) return `${h} giờ`;
-    return `${m} phút`;
-};
-const timeOpts = (totalMin: number): string[] => {
-    const set = new Set<string>([fmt(totalMin)]);
-    const deltas = [5, -5, 10, -10, 60, -60, 15];
-    for (const d of shuffleArray(deltas)) { const v = totalMin + d; if (v > 0) set.add(fmt(v)); if (set.size >= 4) break; }
-    return shuffleArray(Array.from(set).slice(0, 4));
-};
+export const templates: Template[] = [
+    tpl('g5.time_addsub', 1, () => {
+        const a = rint(1, 5) * 60 + rint(1, 11) * 5, b = rint(0, 3) * 60 + rint(1, 11) * 5, plus = chance(0.5);
+        const [x, y] = plus ? [a, b] : [Math.max(a, b) + 60, Math.min(a, b)], r = plus ? x + y : x - y;
+        return single({ q: `Tính: ${hm(x)} ${plus ? '+' : '-'} ${hm(y)} = ?`, correct: r, wrong: [r + 60, r - 40 > 0 ? r - 40 : r + 40, r + 10, Math.abs(r - 60) || r + 120], format: hm, min: 1,
+            explanation: plus ? `Cộng giờ với giờ, phút với phút; phút từ 60 trở lên thì đổi ra giờ: ${hm(x)} + ${hm(y)} = ${hm(r)}.` : `Trừ phút với phút (không đủ thì đổi 1 giờ = 60 phút), giờ với giờ: ${hm(x)} - ${hm(y)} = ${hm(r)}.`,
+            hint: '1 giờ = 60 phút.' });
+    }, { noRankCheck: true }),
+    tpl('g5.time_addsub', 2, () => {
+        const s1 = rint(6, 9) * 60 + rint(0, 11) * 5, dur = rint(1, 3) * 60 + rint(1, 11) * 5;
+        return single({ q: `Một chuyến tàu khởi hành lúc ${hm(s1)} và đi hết ${hm(dur)}. Hỏi tàu đến nơi lúc mấy giờ?`, correct: s1 + dur, wrong: [s1 + dur + 60, s1 + dur - 60, s1 + dur + 10, s1 + dur - 5], format: hm, min: 1,
+            explanation: `${hm(s1)} + ${hm(dur)} = ${hm(s1 + dur)}.` });
+    }, { noRankCheck: true }),
+    tpl('g5.time_muldiv', 2, () => {
+        const mul = chance(0.5), sec = chance(0.4);
+        if (mul) { const a = sec ? rint(1, 4) * 60 + rint(5, 50) : rint(1, 3) * 60 + rint(5, 50), k = rint(2, 5), r = a * k, f = sec ? ms : hm; return single({ q: `Tính: ${f(a)} × ${k} = ?`, correct: r, wrong: [r + 60, r - 60 > 0 ? r - 60 : r + 120, a + k, r + 10], format: f, min: 1, explanation: `Nhân lần lượt từng đơn vị rồi đổi: ${f(a)} × ${k} = ${f(r)}.`, hint: sec ? '60 giây = 1 phút.' : '60 phút = 1 giờ.' }); }
+        const k = rint(2, 5), q = rint(1, 3) * 60 + rint(1, 11) * 5, a = q * k;
+        return single({ q: `Tính: ${hm(a)} : ${k} = ?`, correct: q, wrong: [q + 60, q + 10, Math.abs(q - 10), q * 2], format: hm, min: 1,
+            explanation: `Đổi ra phút: ${a} phút : ${k} = ${q} phút = ${hm(q)}.`, hint: 'Đổi ra phút rồi chia.' });
+    }, { noRankCheck: true }),
+];
 
-/**
- * Lớp 5 — Phép tính với số đo thời gian: cộng, trừ, đổi đơn vị, nhân (giờ–phút).
- * (Chuẩn GDPT 2018 lớp 5.)
- */
-export const generateG5TimeOps = (): Omit<Question, 'id' | 'topicId'> => {
-    const r = Math.random();
-
-    // 1. Cộng giờ–phút (có nhớ sang giờ) (30%)
-    if (r < 0.3) {
-        const h1 = randomInt(1, 4), m1 = m5(), h2 = randomInt(1, 4), m2 = m5();
-        const total = (h1 * 60 + m1) + (h2 * 60 + m2);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${fmt(h1 * 60 + m1)} + ${fmt(h2 * 60 + m2)} = ?`,
-            correctAnswer: fmt(total),
-            options: timeOpts(total),
-            explanation: `${m1} + ${m2} = ${m1 + m2} phút${m1 + m2 >= 60 ? ` = ${Math.floor((m1 + m2) / 60)} giờ ${(m1 + m2) % 60} phút` : ''}; cộng giờ. Kết quả ${fmt(total)}.`,
-        };
-    }
-
-    // 2. Trừ giờ–phút (có mượn) (30%)
-    if (r < 0.6) {
-        let a = randomInt(3, 6) * 60 + m5();
-        let b = randomInt(1, 2) * 60 + m5();
-        if (b > a) [a, b] = [b, a];
-        const total = a - b;
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Tính: ${fmt(a)} − ${fmt(b)} = ?`,
-            correctAnswer: fmt(total),
-            options: timeOpts(total),
-            explanation: `Đổi ra phút rồi trừ: ${a} − ${b} = ${total} phút = ${fmt(total)}.`,
-        };
-    }
-
-    // 3. Đổi giờ–phút sang phút (20%)
-    if (r < 0.8) {
-        const h = randomInt(1, 5), m = m5();
-        const total = h * 60 + m;
-        const set = new Set<number>([total]);
-        while (set.size < 4) { const v = total + randomInt(-3, 3) * 10; if (v > 0 && v !== total) set.add(v); }
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${h} giờ ${m} phút = ? phút`,
-            correctAnswer: `${total} phút`,
-            options: shuffleArray(Array.from(set)).map(v => `${v} phút`),
-            explanation: `${h} giờ = ${h * 60} phút; ${h * 60} + ${m} = ${total} phút.`,
-        };
-    }
-
-    // 4. Nhân số đo thời gian (20%)
-    const baseH = randomInt(1, 2), baseM = randomInt(1, 5) * 10;
-    const k = randomInt(2, 4);
-    const total = (baseH * 60 + baseM) * k;
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Tính: ${fmt(baseH * 60 + baseM)} × ${k} = ?`,
-        correctAnswer: fmt(total),
-        options: timeOpts(total),
-        explanation: `(${baseH} giờ ${baseM} phút) × ${k} = ${total} phút = ${fmt(total)}.`,
-    };
-};
+export const generateG5TimeOps = fromTemplates(templates);

@@ -1,189 +1,56 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 5 — Phép tính với số thập phân (g5_decimal_ops): cộng, trừ, nhân, chia; nhân/chia với 10, 100, 1000; 0,1; 0,01.
+// Giữ mẫu "a,b + c,d = ?", "a,b × n = ?", "a,b : c,d = ?" (MathRacing lọc theo mẫu này). Tính chính xác bằng số nguyên.
+import { tpl, fromTemplates, single, input, rint, pickOne, chance } from '../kit';
+import { fmt } from '../../study/value';
+import { dec, fix, fd } from './common';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
+const dWrong = (r: number, step: number) => [fix(r + step), fix(r - step), fix(r * 10), fix(r / 10), fix(r + step * 10)];
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
+export const templates: Template[] = [
+    tpl('g5.dec_addsub', 1, () => {
+        const plus = chance(0.5), a = dec(1, 99, rint(1, 2)), b = dec(0.1, plus ? 99 : a - 0.01, rint(1, 2)), r = fix(plus ? a + b : a - b);
+        return single({ q: `${fd(a)} ${plus ? '+' : '-'} ${fd(b)} = ?`, correct: r, wrong: dWrong(r, 0.1), step: 0.1, min: 0,
+            explanation: `Viết các chữ số cùng hàng thẳng cột (dấu phẩy thẳng dấu phẩy), ${plus ? 'cộng' : 'trừ'} như số tự nhiên rồi đặt dấu phẩy: ${fd(a)} ${plus ? '+' : '-'} ${fd(b)} = ${fd(r)}.`,
+            hint: 'Đặt dấu phẩy thẳng cột với dấu phẩy.' });
+    }, { decimal: true, weight: 2 }),
+    tpl('g5.dec_addsub', 2, () => {
+        const a = dec(10, 500, 2), b = dec(1, 99, 1), c = dec(1, 50, 2), r = fix(a + b - c);
+        if (r < 0) return single({ q: `${fd(a)} + ${fd(b)} = ?`, correct: fix(a + b), wrong: dWrong(fix(a + b), 0.1), step: 0.01, min: 0, explanation: `${fd(a)} + ${fd(b)} = ${fd(fix(a + b))}.` });
+        return single({ q: `${fd(a)} + ${fd(b)} - ${fd(c)} = ?`, correct: r, wrong: [fix(a + b + c), fix(a - b - c) > 0 ? fix(a - b - c) : fix(r + 1), ...dWrong(r, 0.1)], step: 0.01, min: 0,
+            explanation: `Tính từ trái sang phải: ${fd(a)} + ${fd(b)} = ${fd(fix(a + b))}; ${fd(fix(a + b))} - ${fd(c)} = ${fd(r)}.`, steps: [`${fd(a)} + ${fd(b)} = ${fd(fix(a + b))}`, `${fd(fix(a + b))} - ${fd(c)} = ${fd(r)}`] });
+    }, { decimal: true }),
+    tpl('g5.dec_mul', 1, () => {
+        const a = dec(1, 99, 1), n = rint(2, 9), r = fix(a * n);
+        return single({ q: `${fd(a)} × ${n} = ?`, correct: r, wrong: [fix(r * 10), fix(r / 10), fix(r + n), fix(r - 0.1)], step: 0.1, min: 0,
+            explanation: `Nhân như số tự nhiên rồi đếm 1 chữ số ở phần thập phân để đặt dấu phẩy: ${fd(a)} × ${n} = ${fd(r)}.`, hint: 'Đếm số chữ số ở phần thập phân của thừa số.' });
+    }, { decimal: true, weight: 2 }),
+    tpl('g5.dec_mul', 2, () => {
+        const a = dec(1, 20, 1), b = dec(0.1, 9.9, 1), r = fix(a * b, 2);
+        return single({ q: `${fd(a)} × ${fd(b)} = ?`, correct: r, wrong: [fix(r * 10, 2), fix(r / 10, 3), fix(r + 0.1, 2), fix(a * b * 100, 2)], step: 0.01, min: 0,
+            explanation: `Nhân như số tự nhiên: ${Math.round(a * 10)} × ${Math.round(b * 10)} = ${Math.round(a * 10) * Math.round(b * 10)}; hai thừa số có tất cả 2 chữ số ở phần thập phân, nên ${fd(a)} × ${fd(b)} = ${fd(r)}.`, hint: 'Đếm tổng số chữ số ở phần thập phân của cả hai thừa số.' });
+    }, { decimal: true }),
+    tpl('g5.dec_div', 1, () => {
+        const n = rint(2, 9), q = dec(1, 50, 1), a = fix(q * n);
+        return single({ q: `${fd(a)} : ${n} = ?`, correct: q, wrong: [fix(q * 10), fix(q / 10), fix(q + 0.1), fix(q - 0.1)], step: 0.1, min: 0,
+            explanation: `Chia như số tự nhiên, khi chia đến phần thập phân thì đặt dấu phẩy vào thương: ${fd(a)} : ${n} = ${fd(q)}.` });
+    }, { decimal: true, weight: 2 }),
+    tpl('g5.dec_div', 2, () => {
+        const b = dec(0.2, 9.5, 1), q = rint(2, 60), a = fix(b * q);
+        return single({ q: `${fd(a)} : ${fd(b)} = ?`, correct: q, wrong: [q * 10, fix(q / 10), q + 1, q - 1], min: 0,
+            explanation: `Nhân cả số bị chia và số chia với 10 để số chia thành số tự nhiên: ${fd(fix(a * 10))} : ${Math.round(b * 10)} = ${q}.`, hint: 'Chuyển dấu phẩy sang phải ở cả hai số để số chia là số tự nhiên.' });
+    }, { decimal: true }),
+    tpl('g5.dec_shift', 1, () => {
+        const a = dec(0.1, 99, rint(1, 3)), k = pickOne([10, 100, 1000]), mul = chance(0.5), r = fix(mul ? a * k : a / k);
+        return single({ q: `${fd(a)} ${mul ? '×' : ':'} ${fmt(k)} = ?`, correct: r, wrong: [fix(mul ? a / k : a * k), fix(r * 10), fix(r / 10)], min: 0,
+            explanation: `${mul ? 'Nhân' : 'Chia'} với ${fmt(k)}: chuyển dấu phẩy sang ${mul ? 'phải' : 'trái'} ${String(k).length - 1} chữ số: ${fd(r)}.`, hint: `${mul ? 'Nhân' : 'Chia'} với 10, 100, 1000 → dấu phẩy sang ${mul ? 'phải' : 'trái'} 1, 2, 3 chữ số.` });
+    }, { decimal: true }),
+    tpl('g5.dec_shift', 2, () => {
+        const a = dec(1, 999, rint(0, 2)), k = pickOne([0.1, 0.01, 0.001]), r = fix(a * k);
+        if (chance(0.4)) return input({ q: `Tính nhẩm: ${fd(a)} × ${fd(k)} = ?`, correct: r, answerKind: 'number', explanation: `Nhân với ${fd(k)}: chuyển dấu phẩy sang trái ${String(k).length - 2} chữ số: ${fd(r)}.` });
+        return single({ q: `${fd(a)} × ${fd(k)} = ?`, correct: r, wrong: [fix(a / k), fix(r * 10), fix(r / 10)], min: 0,
+            explanation: `Nhân với ${fd(k)} chính là chia cho ${fmt(Math.round(1 / k))}: chuyển dấu phẩy sang trái ${String(k).length - 2} chữ số: ${fd(r)}.`, hint: 'Nhân với 0,1 cũng như chia cho 10.' });
+    }, { decimal: true }),
+];
 
-const formatDecimal = (num: number, maxDecimals: number = 4): string => {
-    const str = num.toFixed(maxDecimals);
-    const trimmed = parseFloat(str).toString();
-    return trimmed.replace('.', ',');
-};
-
-const roundToDecimals = (num: number, decimals: number): number => {
-    return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
-};
-
-export const generateUniqueWrongAnswers = (correct: number, count: number = 3, decimals: number = 2): number[] => {
-    const wrongs = new Set<number>();
-    const power = Math.pow(10, decimals);
-    const correctInteger = Math.round(correct * power); // Convert to integer (e.g., 12.34 -> 1234)
-    const lastDigit = correctInteger % 10; // The last digit we want to preserve
-
-    let attempts = 0;
-    const maxAttempts = count * 50;
-
-    while (wrongs.size < count && attempts < maxAttempts) {
-        attempts++;
-
-        // Generate a random offset that preserves the last digit
-        // Offset must be a multiple of 10 (in the scaled integer domain)
-        // e.g. if we add 10 to 1234, we get 1244 (last digit 4 preserved)
-        // In decimal domain, this means adding multiples of 10 / power
-        // e.g. for 2 decimals, adding 0.1, 0.2, 1.0, etc.
-
-        const offsetInt = randomInt(1, 50) * 10; // Multiple of 10
-        const isNegative = generatorRandom() > 0.5;
-        const finalOffsetInt = isNegative ? -offsetInt : offsetInt;
-
-        const wrongInt = correctInteger + finalOffsetInt;
-        const wrongVal = wrongInt / power;
-
-        if (wrongVal > 0 && wrongVal !== correct) {
-            wrongs.add(wrongVal);
-        }
-    }
-
-    // Fallback: just random small offsets if we can't find enough
-    while (wrongs.size < count) {
-        const offset = randomInt(1, 20) / power; // Just change the last digit or close to it
-        const isNegative = generatorRandom() > 0.5;
-        const val = Math.max(0, correct + (isNegative ? -offset : offset));
-        if (val !== correct) {
-            wrongs.add(roundToDecimals(val, decimals));
-        }
-    }
-
-    return Array.from(wrongs);
-};
-
-export const generateG5DecimalOps = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = generatorRandom();
-
-    // 1. Add decimals (15%)
-    if (type < 0.15) {
-        const a = roundToDecimals(randomInt(10, 999) + randomInt(0, 99) / 100, 2);
-        const b = roundToDecimals(randomInt(10, 999) + randomInt(0, 99) / 100, 2);
-        const answer = roundToDecimals(a + b, 2);
-
-        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(a, 2)} + ${formatDecimal(b, 2)} = ?`,
-            correctAnswer: formatDecimal(answer, 2),
-            options: shuffleArray([
-                formatDecimal(answer, 2),
-                ...wrongAnswers.map(w => formatDecimal(w, 2))
-            ]),
-            explanation: `${formatDecimal(a, 2)} + ${formatDecimal(b, 2)} = ${formatDecimal(answer, 2)}`
-        };
-    }
-
-    // 2. Subtract decimals (15%)
-    else if (type < 0.3) {
-        const answer = roundToDecimals(randomInt(10, 500) + randomInt(0, 99) / 100, 2);
-        const b = roundToDecimals(randomInt(5, answer - 5) + randomInt(0, 99) / 100, 2);
-        const a = roundToDecimals(answer + b, 2);
-
-        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(a, 2)} - ${formatDecimal(b, 2)} = ?`,
-            correctAnswer: formatDecimal(answer, 2),
-            options: shuffleArray([
-                formatDecimal(answer, 2),
-                ...wrongAnswers.map(w => formatDecimal(w, 2))
-            ]),
-            explanation: `${formatDecimal(a, 2)} - ${formatDecimal(b, 2)} = ${formatDecimal(answer, 2)}`
-        };
-    }
-
-    // 3. Multiply decimals (15%)
-    else if (type < 0.45) {
-        const a = roundToDecimals(randomInt(10, 99) + randomInt(0, 9) / 10, 1);
-        const b = randomInt(2, 9);
-        const answer = roundToDecimals(a * b, 2);
-
-        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(a, 1)} × ${b} = ?`,
-            correctAnswer: formatDecimal(answer, 2),
-            options: shuffleArray([
-                formatDecimal(answer, 2),
-                ...wrongAnswers.map(w => formatDecimal(w, 2))
-            ]),
-            explanation: `${formatDecimal(a, 1)} × ${b} = ${formatDecimal(answer, 2)}`
-        };
-    }
-
-    // 4. Divide decimals (15%)
-    else if (type < 0.6) {
-        const divisor = randomInt(2, 8);
-        const quotient = roundToDecimals(randomInt(5, 50) + randomInt(0, 9) / 10, 1);
-        const dividend = roundToDecimals(quotient * divisor, 2);
-
-        const wrongAnswers = generateUniqueWrongAnswers(quotient, 3, 1);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(dividend, 2)} : ${divisor} = ?`,
-            correctAnswer: formatDecimal(quotient, 1),
-            options: shuffleArray([
-                formatDecimal(quotient, 1),
-                ...wrongAnswers.map(w => formatDecimal(w, 1))
-            ]),
-            explanation: `${formatDecimal(dividend, 2)} : ${divisor} = ${formatDecimal(quotient, 1)}`
-        };
-    }
-
-    // 5. Multiply Decimal x Decimal (20%)
-    else if (type < 0.8) {
-        // a has 1 decimal, b has 1 decimal -> result has 2 decimals
-        const a = roundToDecimals(randomInt(1, 20) + randomInt(1, 9) / 10, 1);
-        const b = roundToDecimals(randomInt(1, 10) + randomInt(1, 9) / 10, 1);
-        const answer = roundToDecimals(a * b, 2);
-
-        const wrongAnswers = generateUniqueWrongAnswers(answer, 3, 2);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(a, 1)} × ${formatDecimal(b, 1)} = ?`,
-            correctAnswer: formatDecimal(answer, 2),
-            options: shuffleArray([
-                formatDecimal(answer, 2),
-                ...wrongAnswers.map(w => formatDecimal(w, 2))
-            ]),
-            explanation: `${formatDecimal(a, 1)} × ${formatDecimal(b, 1)} = ${formatDecimal(answer, 2)}`
-        };
-    }
-
-    // 6. Divide Decimal / Decimal (20%)
-    else {
-        // Quotient has 1 decimal, Divisor has 1 decimal -> Dividend has 2 decimals
-        const quotient = roundToDecimals(randomInt(1, 20) + randomInt(1, 9) / 10, 1);
-        const divisor = roundToDecimals(randomInt(1, 9) + randomInt(1, 9) / 10, 1);
-        const dividend = roundToDecimals(quotient * divisor, 2);
-
-        // Recalculate exact dividend to avoid floating point issues, but roundToDecimals handles it well usually.
-        // Let's ensure dividend is displayed correctly.
-
-        const wrongAnswers = generateUniqueWrongAnswers(quotient, 3, 1);
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `${formatDecimal(dividend, 2)} : ${formatDecimal(divisor, 1)} = ?`,
-            correctAnswer: formatDecimal(quotient, 1),
-            options: shuffleArray([
-                formatDecimal(quotient, 1),
-                ...wrongAnswers.map(w => formatDecimal(w, 1))
-            ]),
-            explanation: `${formatDecimal(dividend, 2)} : ${formatDecimal(divisor, 1)} = ${formatDecimal(quotient, 1)}`
-        };
-    }
-};
+export const generateG5DecimalOps = fromTemplates(templates);

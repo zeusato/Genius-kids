@@ -1,187 +1,80 @@
-import { generatorRandom } from '../random';
-import { Question, QuestionType } from '../../../types';
+// Lớp 5 — Phân số (g5_fractions): phân số thập phân; hỗn số; cộng trừ khác mẫu; nhân, chia; so sánh.
+// Kết quả luôn rút gọn; KHÔNG có hai lựa chọn tương đương (single lọc theo giá trị).
+// Giữ mẫu "a/b + c/d = ?" (MathRacing lọc theo mẫu này).
+import { tpl, fromTemplates, single, compare, input, rint, pickOne, chance } from '../kit';
+import { fractionErrors } from '../wrongs';
+import { fracText, fracNeighbors, gcd, lcm } from '../fractions';
+import { fmt } from '../../study/value';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(generatorRandom() * (max - min + 1)) + min;
+const F = (a: number, b: number) => `${a}/${b}`;
+const neigh = (s: string) => { const [n, d] = s.includes('/') ? s.split('/').map(Number) : [Number(s), 1]; return fracNeighbors(n, d); };
+const coprime = (lo: number, hi: number): [number, number] => { for (;;) { const d = rint(lo, hi), n = rint(1, d - 1); if (gcd(n, d) === 1) return [n, d]; } };
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(generatorRandom() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-};
-
-const formatDecimal = (num: number, maxDecimals: number = 2): string => {
-    const str = num.toFixed(maxDecimals);
-    const trimmed = parseFloat(str).toString();
-    return trimmed.replace('.', ',');
-};
-
-const gcd = (a: number, b: number): number => b === 0 ? a : gcd(b, a % b);
-
-const simplifyFraction = (num: number, den: number): [number, number] => {
-    const divisor = gcd(num, den);
-    return [num / divisor, den / divisor];
-};
-
-export const generateG5Fractions = (): Omit<Question, 'id' | 'topicId'> => {
-    const type = generatorRandom();
-
-    // 1. Compare fractions (25%)
-    if (type < 0.25) {
-        const den = randomInt(4, 20);
-        const num1 = randomInt(1, den - 1);
-        const num2 = randomInt(1, den - 1);
-        const operators = ['>', '<', '='];
-        const correctOp = num1 > num2 ? '>' : num1 < num2 ? '<' : '=';
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `So sánh: ${num1}/${den} ... ${num2}/${den}`,
-            correctAnswer: correctOp,
-            options: shuffleArray(operators),
-            explanation: `${num1}/${den} ${correctOp} ${num2}/${den}`
-        };
-    }
-
-    // 2. Add/subtract fractions (25%)
-    else if (type < 0.5) {
-        const den = randomInt(4, 12);
-        const num1 = randomInt(1, den - 2);
-        const num2 = randomInt(1, den - num1);
-        const isAdd = generatorRandom() > 0.5;
-        const resultNum = isAdd ? num1 + num2 : num1 + num2;
-        const resultDen = den;
-        const [simNum, simDen] = simplifyFraction(isAdd ? num1 + num2 : num2, den);
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: isAdd ? `${num1}/${den} + ${num2}/${den} = ?` : `${num1 + num2}/${den} - ${num1}/${den} = ?`,
-            correctAnswer: simDen === 1 ? simNum.toString() : `${simNum}/${simDen}`,
-            options: shuffleArray([
-                simDen === 1 ? simNum.toString() : `${simNum}/${simDen}`,
-                `${resultNum}/${resultDen}`,
-                `${resultNum}/${resultDen * 2}`,
-                `${resultNum + 1}/${resultDen}`
-            ]),
-            explanation: isAdd
-                ? `${num1}/${den} + ${num2}/${den} = ${num1 + num2}/${den} = ${simDen === 1 ? simNum : `${simNum}/${simDen}`}`
-                : `${num1 + num2}/${den} - ${num1}/${den} = ${num2}/${den} = ${simDen === 1 ? simNum : `${simNum}/${simDen}`}`
-        };
-    }
-
-    // 3. Multiply/divide fractions (25%)
-    else if (type < 0.75) {
-        const num1 = randomInt(1, 5);
-        const den1 = randomInt(2, 8);
-        const num2 = randomInt(2, 6);
-        const isMultiply = generatorRandom() > 0.5;
-
-        if (isMultiply) {
-            const resultNum = num1 * num2;
-            const resultDen = den1;
-            const [simNum, simDen] = simplifyFraction(resultNum, resultDen);
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `${num1}/${den1} × ${num2} = ?`,
-                correctAnswer: simDen === 1 ? simNum.toString() : `${simNum}/${simDen}`,
-                options: shuffleArray([
-                    simDen === 1 ? simNum.toString() : `${simNum}/${simDen}`,
-                    `${resultNum}/${resultDen}`,
-                    `${num1 * num2}/${den1 * num2}`,
-                    `${num1}/${den1 * num2}`
-                ]),
-                explanation: `${num1}/${den1} × ${num2} = ${resultNum}/${resultDen} = ${simDen === 1 ? simNum : `${simNum}/${simDen}`}`
-            };
-        } else {
-            const resultNum = num1;
-            const resultDen = den1 * num2;
-            const [simNum, simDen] = simplifyFraction(resultNum, resultDen);
-
-            return {
-                type: QuestionType.SingleChoice,
-                questionText: `${num1}/${den1} : ${num2} = ?`,
-                correctAnswer: `${simNum}/${simDen}`,
-                options: shuffleArray([
-                    `${simNum}/${simDen}`,
-                    `${resultNum}/${resultDen}`,
-                    `${num1 * num2}/${den1}`,
-                    `${num1}/${den1}`
-                ]),
-                explanation: `${num1}/${den1} : ${num2} = ${num1}/${den1 * num2} = ${simNum}/${simDen}`
-            };
+export const templates: Template[] = [
+    tpl('g5.decimal_fraction', 1, () => {
+        const k = pickOne([10, 100, 1000]), n = rint(1, k - 1);
+        if (chance(0.5)) return single({ q: `Viết phân số thập phân ${F(n, k)} dưới dạng số thập phân:`, correct: n / k, wrong: [n / (k * 10), (n * 10) / k, n / (k / 10)], format: x => fmt(x), min: 0,
+            explanation: `Mẫu số ${fmt(k)} có ${String(k).length - 1} chữ số 0, nên phần thập phân có ${String(k).length - 1} chữ số: ${F(n, k)} = ${fmt(n / k)}.` });
+        const [a, b] = pickOne([[1, 2], [1, 5], [3, 5], [1, 4], [3, 4], [7, 20], [9, 25], [3, 50]] as const), kk = (b === 2 || b === 5) ? 10 / b : b === 4 || b === 25 ? 100 / b : b === 20 || b === 50 ? 100 / b : 1;
+        return single({ q: `Viết ${F(a, b)} thành phân số thập phân:`, correct: F(a * kk, b * kk), wrong: [F(a, b * 10), F(a * 10, b * 10), F(a * kk + 1, b * kk), F(a * kk, b * kk * 10)], closed: true,
+            explanation: `Nhân cả tử và mẫu với ${kk} để mẫu số là ${b * kk}: ${F(a, b)} = ${F(a * kk, b * kk)}.` });
+    }, { decimal: true, noRankCheck: true }),
+    tpl('g5.mixed_number', 1, () => {
+        const w = rint(1, 9), [n, d] = coprime(2, 9), total = w * d + n;
+        if (chance(0.5)) return single({ q: `Chuyển hỗn số ${w} ${F(n, d)} thành phân số:`, correct: F(total, d), wrong: [F(w + n, d), F(w * n + d, d), F(total, d * w), F(w * d, n)], closed: true,
+            explanation: `${w} ${F(n, d)} = ${F(w * d + n, d)} (lấy ${w} × ${d} + ${n} = ${total} làm tử số).`, hint: 'Phần nguyên nhân mẫu số rồi cộng tử số.' });
+        return single({ q: `Phân số ${F(total, d)} viết thành hỗn số là:`, correct: `${w} ${F(n, d)}`, wrong: [`${w + 1} ${F(n, d)}`, `${n} ${F(w, d)}`, `${w} ${F(d - n, d)}`, `${Math.max(1, w - 1)} ${F(n, d)}`], closed: true,
+            explanation: `${total} : ${d} = ${w} dư ${n}, nên ${F(total, d)} = ${w} ${F(n, d)}.` });
+    }, { noRankCheck: true }),
+    tpl('g5.mixed_number', 2, () => {
+        const [n1, d] = coprime(2, 8), w1 = rint(1, 5), w2 = rint(1, 4), n2 = rint(1, d - 1);
+        const num = (w1 * d + n1) + (w2 * d + n2), right = fracText(num, d);
+        return single({ q: `Tính: ${w1} ${F(n1, d)} + ${w2} ${F(n2, d)} = ? (viết kết quả dưới dạng phân số)`, correct: right, wrong: [fracText(w1 + w2 + n1 + n2, d), fracText(num, d * 2), ...neigh(right)],
+            explanation: `${w1} ${F(n1, d)} = ${F(w1 * d + n1, d)}; ${w2} ${F(n2, d)} = ${F(w2 * d + n2, d)}; cộng: ${F(num, d)}${F(num, d) !== right ? ` = ${right}` : ''}.`, hint: 'Chuyển hỗn số thành phân số trước.' });
+    }),
+    tpl('g5.frac_addsub', 1, () => {
+        const plus = chance(0.5);
+        for (;;) {
+            const b = rint(2, 9), d = rint(2, 9), a = rint(1, b - 1), c = rint(1, d - 1), m = lcm(b, d);
+            if (b === d || m === Math.max(b, d) && chance(0.5)) continue;
+            const num = plus ? a * (m / b) + c * (m / d) : a * (m / b) - c * (m / d);
+            if (num < 0) continue;
+            const right = fracText(num, m);
+            return single({ q: `${F(a, b)} ${plus ? '+' : '-'} ${F(c, d)} = ?`, correct: right, wrong: [...fractionErrors(a, b, c, d, plus ? '+' : '-').map(([x, y]) => fracText(x, y)), ...neigh(right)],
+                explanation: `Quy đồng mẫu số ${m}: ${F(a * (m / b), m)} ${plus ? '+' : '-'} ${F(c * (m / d), m)} = ${F(num, m)}${F(num, m) !== right ? ` = ${right}` : ''}.`,
+                steps: [`Quy đồng: ${F(a, b)} = ${F(a * (m / b), m)}; ${F(c, d)} = ${F(c * (m / d), m)}`, `${plus ? 'Cộng' : 'Trừ'} tử số: ${F(num, m)}`, ...(F(num, m) !== right ? [`Rút gọn: ${right}`] : [])], hint: 'Quy đồng mẫu số rồi mới cộng (trừ) tử số.' });
         }
-    }
+    }, { weight: 2 }),
+    tpl('g5.frac_addsub', 2, () => {
+        const [a, b] = coprime(2, 9), [c, d] = coprime(2, 9), n = rint(1, 3), m = lcm(b, d);
+        const num = n * m + a * (m / b) - c * (m / d);
+        if (num < 0) return single({ q: `${n} + ${F(a, b)} = ?`, correct: fracText(n * b + a, b), wrong: neigh(fracText(n * b + a, b)), explanation: `${n} = ${F(n * b, b)}; ${F(n * b, b)} + ${F(a, b)} = ${F(n * b + a, b)}.` });
+        const right = fracText(num, m);
+        return single({ q: `${n} + ${F(a, b)} - ${F(c, d)} = ?`, correct: right, wrong: [fracText(n * m + a * (m / b) + c * (m / d), m), ...neigh(right)],
+            explanation: `Viết ${n} = ${F(n * m, m)}, quy đồng mẫu số ${m}: ${F(n * m, m)} + ${F(a * (m / b), m)} - ${F(c * (m / d), m)} = ${F(num, m)}${F(num, m) !== right ? ` = ${right}` : ''}.` });
+    }),
+    tpl('g5.frac_muldiv', 1, () => {
+        const [a, b] = coprime(2, 9), [c, d] = coprime(2, 9), mul = chance(0.5);
+        const right = mul ? fracText(a * c, b * d) : fracText(a * d, b * c);
+        return single({ q: `${F(a, b)} ${mul ? '×' : ':'} ${F(c, d)} = ?`, correct: right, wrong: [mul ? fracText(a * d, b * c) : fracText(a * c, b * d), fracText(a + c, b + d), ...neigh(right)],
+            explanation: mul ? `Tử nhân tử, mẫu nhân mẫu: ${F(a * c, b * d)}${F(a * c, b * d) !== right ? ` = ${right}` : ''}.` : `Nhân với phân số đảo ngược: ${F(a, b)} × ${F(d, c)} = ${F(a * d, b * c)}${F(a * d, b * c) !== right ? ` = ${right}` : ''}.` });
+    }),
+    tpl('g5.frac_muldiv', 2, () => {
+        const [a, b] = coprime(2, 9), n = rint(2, 9), mul = chance(0.5), right = mul ? fracText(a * n, b) : fracText(a, b * n);
+        if (chance(0.3)) { const total = b * rint(2, 12); return input({ q: `Một tấm vải dài ${total} m, đã may áo hết ${F(a, b)} tấm vải. Hỏi đã dùng bao nhiêu mét vải?`, correct: total * a / b, explanation: `${total} × ${F(a, b)} = ${total * a / b} (m).` }); }
+        return single({ q: `${F(a, b)} ${mul ? '×' : ':'} ${n} = ?`, correct: right, wrong: [mul ? fracText(a, b * n) : fracText(a * n, b), fracText(a * n, b * n), ...neigh(right)],
+            explanation: mul ? `Nhân tử số với ${n}: ${F(a * n, b)}${F(a * n, b) !== right ? ` = ${right}` : ''}.` : `Chia cho ${n} là nhân mẫu số với ${n}: ${F(a, b * n)}${F(a, b * n) !== right ? ` = ${right}` : ''}.` });
+    }),
+    tpl('g5.frac_compare', 1, () => {
+        const [a, b] = coprime(2, 12), [c, d] = coprime(2, 12);
+        return compare({ q: `Điền dấu >, <, =: ${F(a, b)} ... ${F(c, d)}`, left: a / b, right: c / d,
+            explanation: `Quy đồng mẫu số ${lcm(b, d)}: ${F(a * lcm(b, d) / b, lcm(b, d))} và ${F(c * lcm(b, d) / d, lcm(b, d))}; so sánh hai tử số.`, hint: 'Quy đồng mẫu số (hoặc tử số) rồi so sánh.' });
+    }),
+    tpl('g5.frac_compare', 2, () => {
+        const b = rint(2, 9), bigger = chance(0.5), c = bigger ? b + rint(1, 3) : rint(1, b - 1);
+        return compare({ q: `Điền dấu >, <, =: ${F(c, b)} ... 1`, left: c / b, right: 1, explanation: `Phân số có tử số ${c > b ? 'lớn hơn' : c < b ? 'bé hơn' : 'bằng'} mẫu số thì ${c > b ? 'lớn hơn 1' : c < b ? 'bé hơn 1' : 'bằng 1'}.` });
+    }),
+];
 
-    // 4. Convert fraction to decimal (20%)
-    else if (type < 0.90) {
-        const validDens = [2, 4, 5, 8, 10, 20];
-        const den = validDens[randomInt(0, 5)];
-        const num = randomInt(1, den - 1);
-        const decimal = num / den;
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: `Chuyển ${num}/${den} thành số thập phân?`,
-            correctAnswer: formatDecimal(decimal, 4),
-            options: shuffleArray([
-                formatDecimal(decimal, 4),
-                formatDecimal(decimal + 0.1, 4),
-                formatDecimal(decimal - 0.1, 4),
-                formatDecimal(num / 10, 4)
-            ]),
-            explanation: `${num}/${den} = ${num} : ${den} = ${formatDecimal(decimal, 4)}`
-        };
-    }
-
-    // 5. Mixed Fraction + Decimal Operations (10%)
-    else {
-        // Fraction that converts to nice decimal
-        const validDens = [2, 4, 5, 10, 20];
-        const den = validDens[randomInt(0, 4)];
-        const num = randomInt(1, den - 1);
-        const fracVal = num / den;
-
-        // Simple decimal
-        const decVal = randomInt(1, 9) / 10; // 0.1 to 0.9
-
-        const isAdd = generatorRandom() > 0.5;
-        const result = isAdd ? fracVal + decVal : Math.abs(fracVal - decVal); // Ensure positive
-
-        // If subtract and result is 0, regenerate or just accept 0
-        // To keep it simple, let's force addition or ensure subtraction is valid
-        // Actually Math.abs handles it, but let's format question correctly
-
-        let qText = '';
-        let ans = 0;
-
-        if (isAdd) {
-            qText = `${num}/${den} + ${formatDecimal(decVal, 1)} = ?`;
-            ans = result;
-        } else {
-            // Ensure larger first
-            if (fracVal > decVal) {
-                qText = `${num}/${den} - ${formatDecimal(decVal, 1)} = ?`;
-                ans = fracVal - decVal;
-            } else {
-                qText = `${formatDecimal(decVal, 1)} - ${num}/${den} = ?`;
-                ans = decVal - fracVal;
-            }
-        }
-
-        return {
-            type: QuestionType.SingleChoice,
-            questionText: qText,
-            correctAnswer: formatDecimal(ans, 2),
-            options: shuffleArray([
-                formatDecimal(ans, 2),
-                formatDecimal(ans + 0.1, 2),
-                formatDecimal(ans + 0.5, 2),
-                formatDecimal(ans * 2, 2)
-            ]),
-            explanation: `Đổi ${num}/${den} = ${formatDecimal(fracVal, 2)}\n${qText.replace('?', formatDecimal(ans, 2))}`
-        };
-    }
-};
+export const generateG5Fractions = fromTemplates(templates);

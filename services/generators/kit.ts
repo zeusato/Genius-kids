@@ -61,6 +61,8 @@ export interface SingleOpts extends Common {
     keepOrder?: boolean;
 }
 
+const firstNum = (s: string) => parseValue(s) ?? Number((s.match(/\d+/) || ['0'])[0]);
+
 /** Bước bù số lân cận "tròn" theo đáp án: 2600 → 100; 350 → 10; 47 → 1; số thập phân → 0,1. */
 export function niceStep(c: number): number {
     if (!Number.isInteger(c)) { const d = (String(c).split('.')[1] || '').length; return 10 ** -Math.min(d, 3); }
@@ -138,7 +140,7 @@ export function single(o: SingleOpts): Generated {
         type: QuestionType.SingleChoice,
         ...base(o),
         // keepOrder: lựa chọn là số thứ tự (Hình 1, Ô số 2…) → xếp tăng dần, đáp án nằm đúng vị trí của nó
-        options: o.keepOrder ? [...opts].sort((x, y) => (parseValue(x) ?? 0) - (parseValue(y) ?? 0)) : shuffle(opts),
+        options: o.keepOrder ? [...opts].sort((x, y) => firstNum(x) - firstNum(y)) : shuffle(opts),
         correctAnswer: correctText,
     };
 }

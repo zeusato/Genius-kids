@@ -110,3 +110,15 @@ export function linePairSVG(kind: 'parallel' | 'perpendicular' | 'intersect', na
     body += label(a1 + 8, b1 - 14, A, { size: 15 }) + label(a2 - 8, b2 - 14, B, { size: 15 }) + label(c1 + 14, d1 + 4, C, { size: 15 }) + label(c2 + 14, d2 - 4, D, { size: 15 });
     return svgWrap(W, H, body, { shadow: false, maxW: 340 });
 }
+
+/** Các hình gồm 6 ô vuông, đánh số; dùng cho câu "hình nào là hình khai triển của hình lập phương". `cells`: [cột, hàng]. */
+export function netsRowSVG(patterns: [number, number][][]): string {
+    const u = 18, cellW = 4 * u + 24, W = patterns.length * (cellW + 10) + 10, H = 4 * u + 48;
+    let body = '';
+    patterns.forEach((cells, i) => {
+        const ox = 10 + i * (cellW + 10) + 12, oy = 10;
+        for (const [c, r] of cells) body += `<rect x="${ox + c * u}" y="${oy + r * u}" width="${u}" height="${u}" fill="${fillOf('blue')}" stroke="${strokeOf('blue')}" stroke-width="1.5"/>`;
+        body += `<circle cx="${ox + 2 * u}" cy="${H - 14}" r="12" fill="${PALETTE.ink}"/><text x="${ox + 2 * u}" y="${H - 13}" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="800" fill="#fff">${i + 1}</text>`;
+    });
+    return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 460) });
+}

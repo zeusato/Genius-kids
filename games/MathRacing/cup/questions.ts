@@ -69,7 +69,7 @@ export const syllabus = (grade: number, difficulty: Config['difficulty']) => des
 const shuffle = <T,>(xs: T[], random: () => number) => { const result = [...xs]; for (let i = result.length - 1; i > 0; i--) { const j = Math.floor(random() * (i + 1)); [result[i], result[j]] = [result[j], result[i]]; } return result; };
 function clean(text: string, decimal = false) {
     return (decimal ? text : text.replace(/(\d),(?=\d{3}(?:\D|$))/g, '$1 '))
-        .replaceAll('\\n', ' ').replace(/^(?:Tính nhanh|Tính|Tìm x biết):\s*/i, '').replace(/\s*\(Tính nhanh\)\s*/g, '').replace(/−/g, '-').replace(/\s+/g, ' ').trim();
+        .replaceAll('\\n', ' ').replace(/\s*đồng$/, '').replace(/^(?:Tính nhanh|Tính|Tìm x biết):\s*/i, '').replace(/\s*\(Tính nhanh\)\s*/g, '').replace(/−/g, '-').replace(/\s+/g, ' ').trim();
 }
 export function questionsFor(config: Config, seed: number, count: number): Question[] {
     const random = rng(seed), recipes = curriculum[config.grade - 1][['easy', 'medium', 'hard'].indexOf(config.difficulty)], result: Question[] = [], seen = new Set<string>();
