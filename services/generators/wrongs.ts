@@ -11,6 +11,31 @@ export function nearby(n: number, spread = 3): number[] {
     return out;
 }
 
+/**
+ * Đáp án nhiễu lân cận với HẠNG ngẫu nhiên đều: chọn trước đáp án đúng đứng thứ mấy
+ * (nhỏ nhất … lớn nhất) rồi lấy đủ số bên dưới / bên trên. Tránh mẹo "đáp án luôn ở giữa".
+ */
+export function around(n: number, opts: { count?: number; min?: number; max?: number; step?: number; spread?: number } = {}): number[] {
+    const count = opts.count ?? 3, step = opts.step ?? 1, spread = opts.spread ?? 3;
+    const lo = opts.min ?? 0, hi = opts.max ?? Infinity;
+    const below: number[] = [], above: number[] = [];
+    for (let d = 1; d <= spread + count; d++) {
+        if (n - d * step >= lo) below.push(n - d * step);
+        if (n + d * step <= hi) above.push(n + d * step);
+    }
+    let k = rint(0, count); // số đáp án nhiễu nằm DƯỚI đáp án đúng
+    k = Math.min(k, below.length);
+    if (count - k > above.length) k = Math.min(below.length, count - above.length);
+    const pick = (arr: number[], m: number) => {
+        // ưu tiên gần, nhưng có xáo nhẹ trong phạm vi spread
+        const near = arr.slice(0, Math.max(m, spread));
+        const chosen: number[] = [];
+        while (chosen.length < m && near.length) chosen.push(near.splice(rint(0, near.length - 1), 1)[0]);
+        return chosen;
+    };
+    return [...pick(below, k), ...pick(above, count - k)];
+}
+
 const digits = (n: number) => String(Math.abs(Math.trunc(n))).split('').map(Number);
 const fromDigits = (ds: number[]) => Number(ds.join(''));
 

@@ -25,7 +25,7 @@ export const fillOf = (c: ColorKey) => PALETTE[`${c}Fill` as const];
 export const strokeOf = (c: ColorKey) => PALETTE[`${c}Stroke` as const];
 
 export const STROKE_W = 3;
-export const FONT = "'Baloo 2','Nunito',system-ui,sans-serif";
+export const FONT = "HubNunito,'Nunito','Baloo 2',system-ui,sans-serif";
 export const LABEL_SIZE = 15;
 
 let filterSeq = 0;

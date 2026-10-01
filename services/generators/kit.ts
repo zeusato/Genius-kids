@@ -92,7 +92,8 @@ export function single(o: SingleOpts): Generated {
     return {
         type: QuestionType.SingleChoice,
         ...base(o),
-        options: o.keepOrder ? opts : shuffle(opts),
+        // keepOrder: lựa chọn là số thứ tự (Hình 1, Ô số 2…) → xếp tăng dần, đáp án nằm đúng vị trí của nó
+        options: o.keepOrder ? [...opts].sort((x, y) => (parseValue(x) ?? 0) - (parseValue(y) ?? 0)) : shuffle(opts),
         correctAnswer: correctText,
     };
 }

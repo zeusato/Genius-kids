@@ -41,6 +41,8 @@ const target = args.find(a => !a.startsWith('--') && !/^\d+$/.test(a)) || 'all';
 const n = Number(args.find(a => /^\d+$/.test(a)) || 8);
 const raw = args.includes('--raw');
 const statsOnly = args.includes('--stats');
+const htmlOut = (() => { const i = args.indexOf('--html'); return i >= 0 ? args[i + 1] : null; })();
+const htmlParts = [];
 
 const topics = engine.TOPICS.filter(t => !t.id.includes('typing'));
 const gradeOf = t => (t.grade === 0 ? 'mn' : 'g' + t.grade);
@@ -65,6 +67,7 @@ const numVal = s => {
     const f = v.match(/^(\d+)\/(\d+)$/); return f ? Number(f[1]) / Number(f[2]) : null;
 };
 const rows = [];
+const esc = t => String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
 for (const u of units) {
     const sample = u.gen ? Array.from({ length: n }, () => u.gen()) : engine.generateQuestions([u.topic], n);
     // thống kê trên 300 lượt
@@ -81,6 +84,7 @@ for (const u of units) {
         const c = numVal(q.correctAnswer); const r = vals.filter(v => v < c).length; if (r < 4) rank[r]++;
     }
     rows.push({ unit: u.label, uniq, dupOptPct: Math.round(dropped / 3), rank: rank.join('/') });
+    if (htmlOut) htmlParts.push(`<h2>${u.label}</h2>` + sample.map(q => `<div class=q><b>[${q.skillId || q.type} M${q.level || ''}]</b> ${esc(q.questionText)}<div class=v>${q.visualSvg || ''}</div><div class=o>${(q.options || []).map(o => `<span${o === q.correctAnswer || (q.correctAnswers || []).includes(o) ? ' class=c' : ''}>${esc(o)}</span>`).join('')}${q.type === 'input' ? `<span class=c>${esc(q.correctAnswer)}</span>` : ''}</div><small>${esc(q.explanation)}${q.speech ? ' · 🔊 ' + esc(q.speech) : ''}</small></div>`).join(''));
     if (!statsOnly) {
         console.log(`\n### ${u.label}`);
         for (const q of sample) {
@@ -92,3 +96,8 @@ for (const u of units) {
     }
 }
 console.log('\n'); console.table(rows);
+if (htmlOut) {
+    const css = 'body{font-family:Nunito,Segoe UI,sans-serif;background:#faf8f0;margin:16px}.q{display:inline-block;vertical-align:top;width:300px;margin:6px;padding:10px;background:#fff;border-radius:12px;border:1px solid #dfe3d4;font-size:14px}.v svg{max-width:100%!important}.o span{display:inline-block;border:1px solid #ccc;border-radius:8px;padding:2px 8px;margin:2px}.o .c{background:#d9f2df;border-color:#2f8f5b}small{color:#60776c}';
+    (await import('node:fs')).writeFileSync(htmlOut, `<!doctype html><meta charset=utf-8><style>${css}</style>${htmlParts.join('')}`);
+    console.log('HTML:', htmlOut);
+}

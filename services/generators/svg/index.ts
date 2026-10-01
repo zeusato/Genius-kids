@@ -384,3 +384,6 @@ export function shapesGridSVG(kind: 'square' | 'rectangle' | 'circle' | 'triangl
     }
     return svgWrap(W, H, body, { shadow: false, maxW: Math.min(W, 340) });
 }
+
+// Hình Mầm non / Lớp 1 (Ôn Luyện 2026-10)
+export * from './kids';

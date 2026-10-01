@@ -1,35 +1,49 @@
-import { Question, QuestionType } from '../../../types';
+// Mầm non — Màu sắc (mn_colors). Lựa chọn là SỐ của ô màu để bé chưa biết chữ vẫn làm được.
+import { tpl, fromTemplates, single, choices, pickOne, sample, shuffle } from '../kit';
+import type { Template } from '../../study/types';
 
-const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const shuffleArray = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-};
-
-const COLORS: Array<[string, string]> = [
-    ['Đỏ', '#ef4444'], ['Xanh dương', '#3b82f6'], ['Xanh lá', '#22c55e'], ['Vàng', '#eab308'],
-    ['Tím', '#a855f7'], ['Cam', '#f97316'], ['Hồng', '#ec4899'], ['Nâu', '#92400e'],
+export const COLORS: [string, string][] = [
+    ['đỏ', '#ef4444'], ['xanh dương', '#3b82f6'], ['xanh lá', '#22c55e'], ['vàng', '#facc15'],
+    ['tím', '#a855f7'], ['cam', '#f97316'], ['hồng', '#f472b6'], ['nâu', '#92400e'],
+];
+const hex = (name: string) => COLORS.find(c => c[0] === name)![1];
+const THINGS: { e: string; n: string; color: string }[] = [
+    { e: '🍌', n: 'Quả chuối', color: 'vàng' }, { e: '🍓', n: 'Quả dâu', color: 'đỏ' }, { e: '🥕', n: 'Củ cà rốt', color: 'cam' },
+    { e: '🍆', n: 'Quả cà tím', color: 'tím' }, { e: '🐸', n: 'Chú ếch', color: 'xanh lá' }, { e: '🐷', n: 'Chú lợn', color: 'hồng' },
+    { e: '🍀', n: 'Chiếc lá', color: 'xanh lá' }, { e: '🍊', n: 'Quả cam', color: 'cam' }, { e: '🍅', n: 'Quả cà chua', color: 'đỏ' },
+    { e: '🍇', n: 'Chùm nho', color: 'tím' }, { e: '🐻', n: 'Bạn gấu', color: 'nâu' }, { e: '🌻', n: 'Bông hoa hướng dương', color: 'vàng' },
 ];
 
-const swatch = (hex: string): string =>
-    `<svg width="160" height="160" viewBox="0 0 160 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="max-width:160px;width:100%;height:auto;display:block;margin:0 auto">`
-    + `<rect x="14" y="14" width="132" height="132" rx="20" fill="${hex}" stroke="#0f172a" stroke-width="3"/></svg>`;
+export const templates: Template[] = [
+    tpl('mn.colors', 1, () => {
+        const pick = sample(COLORS, 4), target = pickOne(pick);
+        return single({
+            q: `Ô số mấy có màu ${target[0]}?`, speech: `Ô số mấy có màu ${target[0]}?`,
+            visual: { fn: 'swatchesSVG', args: [pick.map(c => c[1])] },
+            correct: pick.indexOf(target) + 1, wrong: [1, 2, 3, 4], keepOrder: true,
+            explanation: `Ô số ${pick.indexOf(target) + 1} có màu ${target[0]}.`,
+        });
+    }, { noRankCheck: true }),
+    tpl('mn.colors', 1, () => {
+        const t = pickOne(THINGS);
+        const others = sample(COLORS.filter(c => c[0] !== t.color), 3).map(c => c[0]);
+        const names = shuffle([t.color, ...others]);
+        return single({
+            q: `${t.n} có màu giống ô số mấy?`, speech: `${t.n} có màu giống ô số mấy?`,
+            visual: { fn: 'swatchesSVG', args: [names.map(hex), t.e] },
+            correct: names.indexOf(t.color) + 1, wrong: [1, 2, 3, 4], keepOrder: true,
+            explanation: `${t.n} có màu ${t.color}.`,
+        });
+    }, { noRankCheck: true }),
+    tpl('mn.colors', 1, () => {
+        const c = pickOne(COLORS), names = shuffle([c[0], ...sample(COLORS.filter(x => x !== c), 3).map(x => x[0])]);
+        const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
+        return choices({
+            q: 'Đây là màu gì?', speech: `Đây là màu gì? ${names.join(', ')}?`,
+            visual: { fn: 'swatchSVG', args: [c[1]] }, options: names.map(cap), correct: cap(c[0]),
+            explanation: `Đây là màu ${c[0]}.`,
+        });
+    }),
+];
 
-/**
- * Mầm non — Nhận biết màu sắc cơ bản.
- */
-export const generatePreschoolColors = (): Omit<Question, 'id' | 'topicId'> => {
-    const idx = randomInt(0, COLORS.length - 1);
-    const [name, hex] = COLORS[idx];
-    // 4 lựa chọn gồm màu đúng + 3 màu khác.
-    const others = shuffleArray(COLORS.filter(c => c[0] !== name)).slice(0, 3).map(c => c[0]);
-    return {
-        type: QuestionType.SingleChoice,
-        questionText: `Đây là màu gì?`,
-        visualSvg: swatch(hex),
-        correctAnswer: name,
-        options: shuffleArray([name, ...others]),
-        explanation: `Đây là màu ${name.toLowerCase()}.`,
-    };
-};
+export const generatePreschoolColors = fromTemplates(templates);
