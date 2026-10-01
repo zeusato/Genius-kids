@@ -1,12 +1,13 @@
 // Tầng L1–L3 khi "lặn vào nguyên tử": sắp xếp nguyên tử → nguyên tử Bohr kiểu SGK → hạt nhân đúng số hạt.
 // Mọi hình nằm trong bán kính ~1,2 đơn vị; tầng được phóng/mờ bởi FadeGroup của sân khấu.
-import React, { useLayoutEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import type { ElementFull } from '../engine/elements';
 import { nucleonCounts, nucleusPack, protonMask, rng } from '../engine/atom';
 import type { QualityTier } from './params';
-import { makeHalo, softDot, useSurface } from './common';
+import { softDot, useSurface } from './common';
+import { BohrShells } from './BohrShells';
 
 // ---------------------------------------------------------------- L1: sắp xếp
 function latticePoints(kind: string, n: number): number[][] {
@@ -119,26 +120,20 @@ function cloudPoints(kind: 's' | 'p' | 'd' | 'f', n: number, seed: number): { po
 }
 
 export const BohrAtom: React.FC<{ el: ElementFull; tier: QualityTier; cloud: boolean }> = ({ el, tier, cloud }) => {
-    const shells = el.electronShells;
-    const R0 = 0.28, step = Math.min(0.17, 0.95 / Math.max(1, shells.length));
-    const nuc = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color('#fb7185').multiplyScalar(2), transparent: true }), []);
-    const halo = useMemo(() => makeHalo('#fb7185', tier === 'high' ? 0.4 : 0.9), [tier]);
     const cloudGeo = useMemo(() => {
         if (!cloud) return null;
         const { pos, col } = cloudPoints(lastSubshell(el.electronConfig), tier === 'high' ? 16000 : 6000, el.atomicNumber);
         const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3)); return g;
     }, [el.electronConfig, el.atomicNumber, tier, cloud]);
+    useEffect(() => () => { cloudGeo?.dispose(); }, [cloudGeo]);
     const cloudRef = useRef<THREE.Points>(null);
     useFrame((st) => {
         if (cloudRef.current) cloudRef.current.rotation.y = st.clock.elapsedTime * 0.25;
     });
     return (
-        <group rotation={[-0.3, 0.2, 0]} scale={1.3}>
-            <mesh material={nuc}><sphereGeometry args={[0.1, 20, 14]} /></mesh>
-            <mesh material={halo}><sphereGeometry args={[0.2, 20, 14]} /></mesh>
-            <group visible={!cloud}>
-                <ElectronShells3D shells={shells} radius={(i) => R0 + i * step} eSize={0.026} vSize={0.036} />
-            </group>
+        <group position={[0, 0.32, 0]} rotation={[-0.65, 0.2, -0.12]}>
+            <Nucleus el={el} tier={tier} compact />
+            {!cloud && <BohrShells shells={el.electronShells} tier={tier} />}
             {cloud && cloudGeo && (
                 <points ref={cloudRef} geometry={cloudGeo}>
                     <pointsMaterial size={0.035} map={softDot()} vertexColors transparent opacity={0.6} depthWrite={false} blending={THREE.AdditiveBlending} />
@@ -149,11 +144,11 @@ export const BohrAtom: React.FC<{ el: ElementFull; tier: QualityTier; cloud: boo
 };
 
 // ---------------------------------------------------------------- L3: hạt nhân
-export const Nucleus: React.FC<{ el: ElementFull; tier: QualityTier }> = ({ el, tier }) => {
+export const Nucleus: React.FC<{ el: ElementFull; tier: QualityTier; compact?: boolean }> = ({ el, tier, compact = false }) => {
     const { A, protons } = nucleonCounts(el.atomicNumber);
     const pos = useMemo(() => nucleusPack(el.atomicNumber, A), [el.atomicNumber, A]);
     const mask = useMemo(() => protonMask(el.atomicNumber, A), [el.atomicNumber, A]);
-    const scale = useMemo(() => { let m = 0; for (let i = 0; i < A; i++) m = Math.max(m, Math.hypot(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2])); return 0.8 / (m + 1); }, [pos, A]);
+    const scale = useMemo(() => { let m = 0; for (let i = 0; i < A; i++) m = Math.max(m, Math.hypot(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2])); return (compact ? 0.18 : 0.8) / (m + 1); }, [pos, A, compact]);
     const mat = useSurface(tier, { color: '#ffffff', metal: false, roughness: 0.35 });
     const inst = useRef<THREE.InstancedMesh>(null), grp = useRef<THREE.Group>(null), alpha = useRef<THREE.Group>(null);
     useLayoutEffect(() => {
@@ -162,7 +157,7 @@ export const Nucleus: React.FC<{ el: ElementFull; tier: QualityTier }> = ({ el, 
         for (let i = 0; i < A; i++) { m4.makeTranslation(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]); m.setMatrixAt(i, m4); m.setColorAt(i, mask[i] ? red : blue); }
         m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true;
     }, [pos, mask, A]);
-    const unstable = !el.isotope.stable;
+    const unstable = !compact && !el.isotope.stable;
     const red = useSurface(tier, { color: '#ef4444', metal: false, roughness: 0.35 }), blue = useSurface(tier, { color: '#93c5fd', metal: false, roughness: 0.35 });
     useFrame((st) => {
         const t = st.clock.elapsedTime;
@@ -181,14 +176,14 @@ export const Nucleus: React.FC<{ el: ElementFull; tier: QualityTier }> = ({ el, 
             <group ref={grp} scale={scale}>
                 <instancedMesh key={A} ref={inst} args={[undefined, undefined, A]} material={mat}><sphereGeometry args={[1, 18, 12]} /></instancedMesh>
             </group>
-            <group ref={alpha} scale={scale}>
+            {!compact && <group ref={alpha} scale={scale}>
                 {[[0, 0, 0, 1], [2, 0, 0, 0], [1, 1.7, 0, 1], [1, 0.6, 1.6, 0]].map(([x, y, z, p], i) => <mesh key={i} material={p ? red : blue} position={[x, y, z]}><sphereGeometry args={[1, 14, 10]} /></mesh>)}
-            </group>
+            </group>}
         </group>
     );
 };
 
-// ---------------------------------------------------------------- lớp electron 3D (dùng chung tầng Nguyên tử + Xưởng)
+// ---------------------------------------------------------------- lớp electron 3D của Xưởng
 // Mỗi lớp là một vỏ cầu mờ; mỗi electron bay trên quỹ đạo RIÊNG, mặt phẳng nghiêng theo một hướng khác nhau
 // (hướng pháp tuyến rải đều kiểu Fibonacci trên mặt cầu) — xoay thế nào cũng không thành "cái đĩa".
 // Lớp ngoài cùng sáng vàng và có vệt quỹ đạo.

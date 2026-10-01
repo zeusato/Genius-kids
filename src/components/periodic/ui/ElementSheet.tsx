@@ -194,13 +194,20 @@ export const ScaleHud: React.FC<{ el: ElementFull; level: number; onLevel: (l: n
                 {LEVELS.map((l, i) => (
                     <button key={l} onClick={() => onLevel(i)} className={`px-2.5 py-1 rounded-full text-xs ${i === level ? 'bg-cyan-400 text-slate-900 font-bold' : 'bg-white/10 hover:bg-white/20'}`}>{i === 0 ? '🔬' : i === 1 ? '🧱' : i === 2 ? '⚛️' : '🔴'} {l}</button>
                 ))}
-                {level === 2 && <button onClick={onCloud} className={`px-2.5 py-1 rounded-full text-xs ${cloud ? 'bg-pink-400 text-slate-900 font-bold' : 'bg-white/10'}`}>☁️ Đám mây electron</button>}
+                {level === 2 && <button onClick={onCloud} aria-pressed={cloud} className={`px-2.5 py-1 rounded-full text-xs ${cloud ? 'bg-pink-400 text-slate-900 font-bold' : 'bg-white/10'}`}>{cloud ? '⚛️ Xem mô hình Bohr' : '☁️ Đám mây electron'}</button>}
             </div>
             <div className="mt-2 flex items-center gap-2 text-[11px] text-cyan-200/80">
                 <span className="inline-block h-1.5 w-16 bg-cyan-300/70 rounded" />{info.size}
             </div>
             <p className="text-sm mt-1">{info.say}</p>
-            {level === 2 && cloud && <p className="text-[11px] text-white/50 mt-1">Thật ra electron giống một đám mây mờ hơn là hạt chạy vòng tròn.</p>}
+            {level === 2 && <>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] mt-2" aria-label="Chú thích mô hình nguyên tử">
+                    <span className="text-red-300">● {Z} proton</span>
+                    <span className="text-blue-300">● {A - Z} nơtron</span>
+                    {!cloud && <><span className="text-emerald-300">● Electron</span><span className="text-yellow-200">● Lớp ngoài cùng</span></>}
+                </div>
+                <p className="text-[11px] text-white/50 mt-1">{cloud ? 'Đám mây minh họa vùng có khả năng tìm thấy electron.' : 'Kéo để xoay · Mô hình Bohr minh họa các lớp electron, không phải quỹ đạo thực.'}</p>
+            </>}
             {level > 0 && <p className="text-[10px] text-white/35 mt-1">Hình được phóng to có chủ ý để nhìn thấy được.</p>}
         </div>
     );
