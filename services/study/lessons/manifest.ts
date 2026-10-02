@@ -11,6 +11,8 @@ export const LESSON_INDEX: Record<Grade, string[]> = {
         'g3.div_tables', 'g3.div_1digit', 'g3.times_less', 'g3.how_many_times',
         'g3.expression', 'g3.missing', 'g3.unit_fraction', 'g3.fraction_of', 'g3.fraction_ab', 'g3.word_2step', 'g3.sum_diff',
         'g3.numbers10000', 'g3.numbers100000', 'g3.compare', 'g3.round', 'g3.roman', 'g3.addsub100000', 'g3.muldiv_big',
+        'g3.midpoint', 'g3.circle', 'g3.right_angle', 'g3.polygon', 'g3.rect_square', 'g3.solids', 'g3.perimeter', 'g3.area_cm2', 'g3.small_units', 'g3.temperature',
+        'g3.clock_minute', 'g3.month_year', 'g3.duration', 'g3.money', 'g3.data_table', 'g3.bar_chart', 'g3.chance',
     ],
     [Grade.Grade4]: [],
     [Grade.Grade5]: ['g5.sum_diff_ratio'],
