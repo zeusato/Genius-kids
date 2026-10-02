@@ -1,6 +1,6 @@
 # Đố Vui Nhân Sư — kế hoạch remake
 
-> Lập 02/10/2026. Trạng thái: **kế hoạch, chưa thi công**. Nhánh đề xuất `feat/riddle-wow`, tag mốc `riddle-before-wow` trên `main` trước khi sửa.
+> Lập 02/10/2026. Trạng thái: **đã thi công GĐ0–GĐ7 trên nhánh `feat/riddle-wow` (02/10), chưa merge**. Tag mốc `riddle-before-wow`. Báo cáo bàn giao: [riddle-wow/README.md](riddle-wow/README.md). Chủ dự án duyệt "làm toàn bộ"; các quyết định D1–D9 thi công theo phương án đề xuất, trừ chỗ ghi ở mục 13.
 > Mọi con số ở mục 2 đều đo trực tiếp trên code và dữ liệu hiện tại (script ở mục 11) hoặc tái hiện trên app chạy local ngày 02/10.
 
 ## 0. Cách dùng plan này
@@ -293,4 +293,10 @@ Tái hiện lỗi mất sao: tạo hồ sơ thử → Đố Vui → Dễ → gi�
 
 ## 13. Nhật ký lệch plan
 
-_(trống)_
+- **D5 / 5.4 (Fluent Emoji):** chưa tải bộ hình Fluent (cần xin phép tải file ngoài). Hình đáp án dùng emoji hệ thống, giống module Tiếng Anh. Thẻ Chọn chỉ hiện hình khi cả 4 đáp án đều có emoji, để thẻ thiếu hình không thành dấu hiệu lộ đáp án. Hiện 154/565 câu tiếng Việt có đủ hình cho cả 4 thẻ. Pipeline Fluent vẫn làm được sau, chỉ cần đổi component hiển thị emoji.
+- **GĐ4 (ảnh Google Flow):** thay bằng nhân vật Nhân Sư vẽ bằng SVG (6 nét mặt, chớp mắt, nói, vẫy đuôi) và cảnh ốc đảo SVG nhiều lớp có parallax. Không tải ảnh nào, đồng bộ với bảng màu của `riddle.webp`. Thẻ ở hub vẫn dùng `riddle.webp`.
+- **Nội dung:** thay vì nháp bằng Gemini, các lô do agent Claude biên tập theo `docs/riddle-wow/content-spec.md`, rồi được kiểm bằng `scripts/riddle-validate.mjs` và `src/riddle/content/content.test.ts`. Chưa có người duyệt tay từng câu. Danh sách câu bị loại và lý do ở `docs/riddle-wow/dropped.json`.
+- **Chấm đáp án:** thêm kết quả `marks` (gõ không dấu mà trùng cả đáp án lẫn đáp án nhiễu, vd "dua" = dứa/dừa: nhờ gõ có dấu, không tính là lần sai). Từ chỉ loại tách làm 2 nhóm: nhóm chung (con, cái, chiếc…) luôn được bỏ; nhóm mang nghĩa (quả, hoa, cây…) được phép thiếu nhưng không được khác ("quả hồng" ≠ "hoa hồng"). "cặp" không coi là từ chỉ loại.
+- **GĐ6:** đã làm Đố cả nhà (Bé làm Nhân Sư, Thi đố 2–4 người), Đố hình (bóng, lỗ khoá, kẻ lạ) và gói toán mẹo có bàn phím số. **Chưa làm** widget kéo thả dấu thanh riêng cho cổng Chữ Nghĩa: phần explain đã nêu rõ phép biến đổi.
+- **Script chụp ảnh `riddle-shots.mjs`:** chưa viết. Đã kiểm thủ công trên browser pane ở 1180×820 và 390×844.
+- Câu tiếng Anh gốc có id trùng `VN-032` (Cow) được đổi thành `EN-032`.

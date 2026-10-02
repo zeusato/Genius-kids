@@ -14,7 +14,7 @@ const modes: HubEntry<ModeId>[] = [
     { id: 'science', title: 'Khoa Học', subtitle: 'Một vũ trụ để khám phá', description: 'Từ thế giới tí hon đến các vì sao.', art: 'science', label: 'TÒ MÒ & TÌM HIỂU' },
     { id: 'library', title: 'Thư Viện', subtitle: 'Mở sách, mở một thế giới', description: 'Đọc sách và tìm điều em tò mò.', art: 'library', label: 'ĐỌC & KHÁM PHÁ' },
     { id: 'piano', title: 'Piano Nhí', subtitle: 'Phòng nhạc trong vườn', description: 'Làm quen nốt nhạc, tập đàn và tự sáng tạo.', art: 'piano', label: 'ÂM NHẠC & SÁNG TẠO' },
-    { id: 'riddle', title: 'Đố Vui Nhân Sư', subtitle: 'Sphinx Riddle', description: 'Thử tài suy luận cùng Nhân sư.', art: 'riddle', label: 'SUY LUẬN' },
+    { id: 'riddle', title: 'Đố Vui Nhân Sư', subtitle: 'Mỗi cánh cổng, một câu đố', description: 'Nghe đố, soi manh mối, mở cổng cùng Nhân Sư.', art: 'riddle', label: 'SUY LUẬN' },
     { id: 'game', title: 'Trò Chơi', subtitle: 'Những thế giới đang chờ em', description: 'Chơi vui, khám phá điều mới.', art: 'game', label: 'HỌC QUA TRÒ CHƠI' },
 ];
 const preschoolModes: HubEntry<ModeId>[] = [
