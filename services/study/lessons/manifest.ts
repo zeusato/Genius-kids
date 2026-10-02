@@ -6,7 +6,12 @@ export const LESSON_INDEX: Record<Grade, string[]> = {
     [Grade.Preschool]: [],
     [Grade.Grade1]: [],
     [Grade.Grade2]: [],
-    [Grade.Grade3]: ['g3.div_1digit'],
+    [Grade.Grade3]: [
+        'g3.mul_tables', 'g3.mul_1digit', 'g3.times_more', 'g3.mul_2digit',
+        'g3.div_tables', 'g3.div_1digit', 'g3.times_less', 'g3.how_many_times',
+        'g3.expression', 'g3.missing', 'g3.unit_fraction', 'g3.fraction_of', 'g3.fraction_ab', 'g3.word_2step', 'g3.sum_diff',
+        'g3.numbers10000', 'g3.numbers100000', 'g3.compare', 'g3.round', 'g3.roman', 'g3.addsub100000', 'g3.muldiv_big',
+    ],
     [Grade.Grade4]: [],
     [Grade.Grade5]: ['g5.sum_diff_ratio'],
 };

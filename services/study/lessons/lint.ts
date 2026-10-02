@@ -152,7 +152,8 @@ export function lengthLint(lesson: Lesson, grade: Grade): string[] {
     if (grade === Grade.Preschool ? lesson.forms.length > 0 : lesson.forms.length < 1 || lesson.forms.length > 3) e.push(`${id}: số dạng không hợp lệ (${lesson.forms.length})`);
     for (const f of lesson.forms) {
         if (f.steps.length < 2 || f.steps.length > 6) e.push(`${id} ${f.id}: cách làm cần 2–6 bước`);
-        if (f.example.steps.length < 1 || f.example.steps.length > 6) e.push(`${id} ${f.id}: ví dụ cần 1–6 bước`);
+        const maxEx = f.example.layout === 'calc' ? 8 : 6;
+        if (f.example.steps.length < 1 || f.example.steps.length > maxEx) e.push(`${id} ${f.id}: ví dụ cần 1–${maxEx} bước`);
         if (f.title.length > 60) e.push(`${id} ${f.id}: tên dạng quá dài`);
         sentences(f.cue, f.id);
     }
