@@ -25,7 +25,7 @@ const ProfilePage = React.lazy(() => import('@/src/pages/ProfilePage').then(modu
 const ShopPage = React.lazy(() => import('@/src/pages/ShopPage').then(module => ({ default: module.ShopPage })));
 const AlbumPage = React.lazy(() => import('@/src/pages/AlbumPage').then(module => ({ default: module.AlbumPage })));
 const TellMeWhyPage = React.lazy(() => import('@/src/pages/TellMeWhyPage').then(module => ({ default: module.TellMeWhyPage })));
-const SphinxRiddlePage = React.lazy(() => import('@/src/pages/SphinxRiddlePage').then(module => ({ default: module.SphinxRiddlePage })));
+const RiddlePage = React.lazy(() => import('@/src/riddle/ui/RiddlePage').then(module => ({ default: module.RiddlePage })));
 const HallOfFamePage = React.lazy(() => import('@/src/pages/HallOfFamePage').then(module => ({ default: module.HallOfFamePage })));
 const KidCoderPage = React.lazy(() => import('@/src/pages/KidCoderPage').then(module => ({ default: module.KidCoderPage })));
 const PianoPage = React.lazy(() => import('./games/Piano/PianoGame'));
@@ -332,7 +332,7 @@ export default function App() {
                 path="/riddle"
                 element={
                   <ProtectedRoute>
-                    <SphinxRiddlePage />
+                    <RiddlePage />
                   </ProtectedRoute>
                 }
               />

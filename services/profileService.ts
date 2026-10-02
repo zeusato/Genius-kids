@@ -139,6 +139,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         gameHistory: oldProfile.gameHistory || [],
         shopDailyPhotos: oldProfile.shopDailyPhotos || [],
         sphinxProfile: oldProfile.sphinxProfile,
+        riddle: oldProfile.riddle,
         kidCoder: oldProfile.kidCoder,
         memoryMatch: oldProfile.memoryMatch,
         soundMemory: oldProfile.soundMemory,

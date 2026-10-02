@@ -1,0 +1,1250 @@
+[
+ {
+  "id": "EN-003",
+  "reason": "gần giống EN-036 (cùng đáp án miếng bọt biển, cùng manh mối nhiều lỗ mà giữ được nước)"
+ },
+ {
+  "id": "EN-004",
+  "reason": "mơ hồ, nhiều đáp án đều đúng (mưa, tuyết, lá rụng…); đã có EN-023 hay hơn"
+ },
+ {
+  "id": "EN-008",
+  "reason": "gần giống EN-001 (cùng đáp án đồng hồ, cùng manh mối “hands”)"
+ },
+ {
+  "id": "EN-011",
+  "reason": "mơ hồ, nhiều đáp án đều đúng (bàn, ghế, giường); gần giống EN-052"
+ },
+ {
+  "id": "EN-040",
+  "reason": "mơ hồ, nhiều đáp án đều đúng (thời gian, mây, con diều…)"
+ },
+ {
+  "id": "EN-074",
+  "reason": "mô tả thuần, gần giống EN-152 (cùng đáp án lửa, EN-152 có mẹo hay hơn)"
+ },
+ {
+  "id": "EN-075",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-076",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-077",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-078",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-079",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-080",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-081",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo; gần đáp án EN-009"
+ },
+ {
+  "id": "EN-082",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-083",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-084",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-097",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-098",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-109",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-110",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-111",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-112",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-113",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-114",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-116",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo; gần giống VN-032 (bò cho sữa)"
+ },
+ {
+  "id": "EN-121",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-122",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-127",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-128",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-129",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-130",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-136",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-137",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-138",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-146",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-148",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-149",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-162",
+  "reason": "gần giống EN-046 (cùng đáp án từ điển, cùng mẹo thứ tự chữ cái)"
+ },
+ {
+  "id": "EN-191",
+  "reason": "tối nghĩa, giải thích sai (mỏ neo không khớp manh mối)"
+ },
+ {
+  "id": "EN-192",
+  "reason": "nội dung quan tài, cái chết"
+ },
+ {
+  "id": "EN-193",
+  "reason": "tối nghĩa, manh mối không khớp đáp án"
+ },
+ {
+  "id": "EN-213",
+  "reason": "gần giống EN-203 (đơn vị foot/yard), đáp án lạ với trẻ Việt Nam"
+ },
+ {
+  "id": "EN-217",
+  "reason": "mơ hồ (bộ bài cũng có hearts), đáp án atisô lạ với trẻ"
+ },
+ {
+  "id": "EN-218",
+  "reason": "manh mối gượng ép, không có mẹo thật"
+ },
+ {
+  "id": "EN-225",
+  "reason": "tối nghĩa: đáp án Noise không khớp kiểu câu đố"
+ },
+ {
+  "id": "EN-254",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-256",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-257",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-259",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-261",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-266",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-267",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-270",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-275",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-276",
+  "reason": "định nghĩa từ vựng thuần, chi tiết lạ với trẻ Việt Nam"
+ },
+ {
+  "id": "EN-278",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-279",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-281",
+  "reason": "định nghĩa từ vựng thuần; đáp án Battery đã có ở EN-321 hay hơn"
+ },
+ {
+  "id": "EN-282",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-283",
+  "reason": "định nghĩa từ vựng thuần, không có mẹo"
+ },
+ {
+  "id": "EN-294",
+  "reason": "gần giống EN-190 (cùng đáp án củ hành, cùng manh mối làm khóc)"
+ },
+ {
+  "id": "EN-301",
+  "reason": "trùng EN-157"
+ },
+ {
+  "id": "EN-302",
+  "reason": "trùng EN-164"
+ },
+ {
+  "id": "EN-303",
+  "reason": "trùng EN-018"
+ },
+ {
+  "id": "EN-304",
+  "reason": "trùng EN-058"
+ },
+ {
+  "id": "EN-306",
+  "reason": "trùng EN-009"
+ },
+ {
+  "id": "EN-307",
+  "reason": "nội dung quan tài, cái chết"
+ },
+ {
+  "id": "EN-311",
+  "reason": "trùng EN-036"
+ },
+ {
+  "id": "EN-312",
+  "reason": "trùng EN-168"
+ },
+ {
+  "id": "EN-314",
+  "reason": "trùng EN-034"
+ },
+ {
+  "id": "EN-315",
+  "reason": "trùng EN-017"
+ },
+ {
+  "id": "EN-318",
+  "reason": "trùng EN-169"
+ },
+ {
+  "id": "EN-319",
+  "reason": "trùng EN-170"
+ },
+ {
+  "id": "EN-325",
+  "reason": "trùng EN-045"
+ },
+ {
+  "id": "EN-327",
+  "reason": "trùng EN-050"
+ },
+ {
+  "id": "EN-328",
+  "reason": "trùng EN-171"
+ },
+ {
+  "id": "EN-329",
+  "reason": "trùng EN-044"
+ },
+ {
+  "id": "EN-330",
+  "reason": "trùng EN-174"
+ },
+ {
+  "id": "EN-331",
+  "reason": "trùng EN-175"
+ },
+ {
+  "id": "EN-332",
+  "reason": "trùng EN-199"
+ },
+ {
+  "id": "EN-333",
+  "reason": "trùng EN-176"
+ },
+ {
+  "id": "EN-334",
+  "reason": "trùng EN-023"
+ },
+ {
+  "id": "EN-351",
+  "reason": "định nghĩa từ vựng thuần, chất độc"
+ },
+ {
+  "id": "EN-352",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-353",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-354",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-355",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-356",
+  "reason": "định nghĩa từ vựng thuần, khó phân biệt với cá sấu Mỹ"
+ },
+ {
+  "id": "EN-357",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-358",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-359",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-360",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-361",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-362",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-363",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-364",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-365",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-366",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-367",
+  "reason": "định nghĩa từ vựng thuần, chủ đề chiến trận"
+ },
+ {
+  "id": "EN-368",
+  "reason": "định nghĩa từ vựng thuần, chủ đề chiến trận"
+ },
+ {
+  "id": "EN-370",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-371",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-372",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-373",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-374",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-375",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-376",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-377",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-378",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-379",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-382",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-383",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-384",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-385",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-386",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-387",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-388",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-389",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-390",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-391",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-392",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-393",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-394",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-395",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-396",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-398",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-399",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-401",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-402",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-403",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-404",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-405",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-406",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-407",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-408",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-409",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-410",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-411",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-412",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-413",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-414",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-415",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-416",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-417",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-418",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-419",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-420",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-421",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-422",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-423",
+  "reason": "định nghĩa từ vựng thuần, chủ đề thẻ tín dụng không hợp với trẻ"
+ },
+ {
+  "id": "EN-424",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-425",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-426",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-427",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-428",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-429",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-430",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-431",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-432",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-433",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-434",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-435",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-436",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-437",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-438",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-439",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-440",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-441",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-442",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-443",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-444",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-445",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-446",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-447",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-448",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-449",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-450",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-452",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-453",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-454",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-455",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-458",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-460",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-461",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-462",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-463",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-464",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-465",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-467",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-469",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-470",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-471",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-472",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-473",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-474",
+  "reason": "định nghĩa từ vựng thuần, chủ đề chiến tranh"
+ },
+ {
+  "id": "EN-475",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-476",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-477",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-478",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-479",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-480",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-481",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-482",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-483",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-484",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-485",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-486",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-487",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-488",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-489",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-490",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-491",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-492",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-493",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-494",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-495",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-496",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-497",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "EN-499",
+  "reason": "vũ khí/chiến tranh, định nghĩa từ vựng thuần"
+ },
+ {
+  "id": "EN-500",
+  "reason": "định nghĩa từ vựng thuần (\"I am a ...\"), không có mẹo"
+ },
+ {
+  "id": "VN-1301",
+  "reason": "trùng VN-022"
+ },
+ {
+  "id": "VN-027",
+  "reason": "gần trùng VN-022 (cùng đáp án con thỏ, cùng manh mối tai dài), giữ VN-022"
+ },
+ {
+  "id": "VN-028",
+  "reason": "gần trùng VN-042 (cùng đáp án bút chì), bản gốc còn khớp cả bút bi"
+ },
+ {
+  "id": "VN-029",
+  "reason": "đáp án lạ và tối nghĩa với trẻ (cá chó), lời đố lủng củng"
+ },
+ {
+  "id": "VN-040",
+  "reason": "gần trùng VN-043 (cùng đáp án chuồn chuồn, cùng manh mối bay thấp thì mưa), giữ VN-043"
+ },
+ {
+  "id": "VN-044",
+  "reason": "quá tối nghĩa và trừu tượng với trẻ (đáp án “lời nói”), mang tính răn dạy"
+ },
+ {
+  "id": "VN-091",
+  "reason": "gần trùng VN-008 (cùng đáp án con trâu, cùng manh mối kéo cày), giữ VN-008"
+ },
+ {
+  "id": "VN-103",
+  "reason": "mơ hồ: manh mối chung chung, nhiều cây cùng khớp; cây bông lạ với trẻ"
+ },
+ {
+  "id": "VN-107",
+  "reason": "tối nghĩa: manh mối mâu thuẫn, không khớp với đáp án bếp ga"
+ },
+ {
+  "id": "VN-112",
+  "reason": "mơ hồ: “chứa được mà không bao giờ đầy” có nhiều đáp án; gần giống VN-126"
+ },
+ {
+  "id": "VN-116",
+  "reason": "mơ hồ: “bắt được mà không ném được” không khớp rõ với cái bóng"
+ },
+ {
+  "id": "VN-124",
+  "reason": "mơ hồ, tối nghĩa: “có khóa không chìa” không chỉ rõ đáp án"
+ },
+ {
+  "id": "VN-137",
+  "reason": "mơ hồ: nhiều thứ phải tháo trước khi ngủ (giày, dép, kính, đồng hồ…)"
+ },
+ {
+  "id": "VN-139",
+  "reason": "tối nghĩa: “nhặt lên mà không đặt xuống” không khớp với tiếng nói"
+ },
+ {
+  "id": "VN-140",
+  "reason": "mơ hồ: “vào trắng ra vàng” có nhiều đáp án (bánh mì, bánh rán, trứng rán…)"
+ },
+ {
+  "id": "VN-142",
+  "reason": "mơ hồ: không nắm được nước trong tay; nhiều đáp án (cát, gạo…)"
+ },
+ {
+  "id": "VN-143",
+  "reason": "mơ hồ: “có miệng có tai” khớp nhiều đồ vật (nồi, ấm, chum…), chén không có tai"
+ },
+ {
+  "id": "VN-146",
+  "reason": "tối nghĩa: câu và đáp án “chiếc mũ” không khớp"
+ },
+ {
+  "id": "VN-148",
+  "reason": "gần giống VN-129 (cùng đáp án mây, cùng manh mối “khóc không có mắt”)"
+ },
+ {
+  "id": "VN-152",
+  "reason": "không hợp với trẻ (“năm bảy vợ”); trùng đáp án gà trống với VN-189"
+ },
+ {
+  "id": "VN-157",
+  "reason": "tối nghĩa: chơi chữ “thắng” (phanh) theo vùng miền, khó hiểu với trẻ"
+ },
+ {
+  "id": "VN-158",
+  "reason": "mơ hồ: hai đáp án (bàn là than, tàu hỏa hơi nước), đều xa lạ với trẻ"
+ },
+ {
+  "id": "VN-160",
+  "reason": "gần giống VN-110 (cùng đáp án thanh long), manh mối mơ hồ hơn"
+ },
+ {
+  "id": "VN-161",
+  "reason": "gần giống VN-151 (cùng đáp án bánh trôi); lời “trần mình xuống lội” không hợp trẻ"
+ },
+ {
+  "id": "VN-163",
+  "reason": "mơ hồ: hai đáp án ngang nhau (cây lúa, bắp ngô)"
+ },
+ {
+  "id": "VN-173",
+  "reason": "tối nghĩa: manh mối “như lá tía tô, đi biển đi hồ” không khớp rõ với cái nón"
+ },
+ {
+  "id": "VN-177",
+  "reason": "trùng đáp án và manh mối với VN-104 (trái tim đập); nhắc chuyện chết không hợp trẻ"
+ },
+ {
+  "id": "VN-183",
+  "reason": "trùng VN-030"
+ },
+ {
+  "id": "VN-188",
+  "reason": "mê tín (bói quẻ, lấy chồng), là ca dao chứ không phải câu đố"
+ },
+ {
+  "id": "VN-190",
+  "reason": "mơ hồ: manh mối không khớp rõ với su hào, có nhiều đáp án"
+ },
+ {
+  "id": "VN-191",
+  "reason": "bài toán có nhiều nghiệm đúng (4-18-78, 8-11-81, 12-4-84), quá khó với lớp 1–5"
+ },
+ {
+  "id": "VN-193",
+  "reason": "tối nghĩa: manh mối “tao với mày” không rõ, đáp án muỗi gượng ép"
+ },
+ {
+  "id": "VN-196",
+  "reason": "trùng VN-050"
+ },
+ {
+  "id": "VN-197",
+  "reason": "trùng VN-022"
+ },
+ {
+  "id": "VN-199",
+  "reason": "là ca dao về thân phận người con gái, không phải câu đố; đáp án tiền không khớp"
+ },
+ {
+  "id": "VN-200",
+  "reason": "tối nghĩa: manh mối không khớp với quả bưởi"
+ },
+ {
+  "id": "VN-203",
+  "reason": "câu mơ hồ, nhiều đáp án (dây cáp, dây thừng…), manh mối không khớp rõ đáp án nào"
+ },
+ {
+  "id": "VN-228",
+  "reason": "câu mơ hồ, nhiều đáp án (thuyền rồng, tàu vũ trụ, mây hình thuyền…)"
+ },
+ {
+  "id": "VN-238",
+  "reason": "gần trùng VN-260 (cùng đáp án quạt trần, cùng manh mối quay trên trần, thổi gió mát); giữ VN-260"
+ },
+ {
+  "id": "VN-253",
+  "reason": "câu tối nghĩa, không chắc đáp án (khoai sọ không mọc dưới ao), lời “đâm đầu” không hợp trẻ"
+ },
+ {
+  "id": "VN-254",
+  "reason": "câu mơ hồ, nhiều đáp án đều đúng (cây chuối, khoai nước, khoai môn, ráy)"
+ },
+ {
+  "id": "VN-258",
+  "reason": "câu mơ hồ, ba đáp án gượng ép (cối xay, tàu, giun), không có manh mối rõ"
+ },
+ {
+  "id": "VN-268",
+  "reason": "câu tối nghĩa, chơi chữ không rõ ràng, đáp án không khớp manh mối"
+ },
+ {
+  "id": "VN-305",
+  "reason": "nói về bom, vũ khí hạt nhân, không hợp với trẻ"
+ },
+ {
+  "id": "VN-308",
+  "reason": "trùng VN-176"
+ },
+ {
+  "id": "VN-309",
+  "reason": "mẹo sai cơ chế (cửu sang cứu là đổi dấu chứ không thêm sắc) và dựa vào nghĩa Hán Việt quá khó với trẻ"
+ },
+ {
+  "id": "VN-319",
+  "reason": "câu quá ngắn và mơ hồ, nhiều đáp án đều hợp (kim, giun, rắn nhỏ...)"
+ },
+ {
+  "id": "VN-322",
+  "reason": "mẹo không khớp với đáp án, câu tối nghĩa"
+ },
+ {
+  "id": "VN-324",
+  "reason": "Bạc Liêu và Tiền Giang đã sáp nhập tỉnh năm 2025, không còn là tên tỉnh; câu dễ sai kiến thức"
+ },
+ {
+  "id": "VN-325",
+  "reason": "nội dung người lớn (hồ ly tinh, chuyện vợ chồng), không hợp với trẻ"
+ },
+ {
+  "id": "VN-327",
+  "reason": "đáp án không khớp lời đố, câu tối nghĩa"
+ },
+ {
+  "id": "VN-330",
+  "reason": "lời đố tối nghĩa, không khớp với hạt lúa"
+ },
+ {
+  "id": "VN-332",
+  "reason": "câu mơ hồ, nhiều đáp án (nến, cột nhà...) và manh mối không khớp"
+ },
+ {
+  "id": "VN-333",
+  "reason": "không có đáp án rõ ràng, lời giải là ghi chú biên tập dở dang"
+ },
+ {
+  "id": "VN-337",
+  "reason": "lời đố không khớp với đáp án con rồng, tối nghĩa"
+ },
+ {
+  "id": "VN-338",
+  "reason": "câu mơ hồ, nhiều đáp án đều đúng (quân xe, xe chỉ, xe trượt tuyết...)"
+ },
+ {
+  "id": "VN-339",
+  "reason": "mẹo dựa vào tên Hán Việt con giáp (Mão, Mã) quá tối nghĩa với trẻ"
+ },
+ {
+  "id": "VN-345",
+  "reason": "một câu bốn đáp án, mỗi vế có nhiều đáp án đều đúng (đen: than, mực, quạ...)"
+ },
+ {
+  "id": "VN-346",
+  "reason": "đáp án là thuốc lá, không hợp với trẻ"
+ },
+ {
+  "id": "VN-348",
+  "reason": "nói chuyện lột da, lấy ngà bán, không hợp với trẻ; đáp án cũng không chắc chắn"
+ },
+ {
+  "id": "VN-351",
+  "reason": "lời đố tối nghĩa, có từ sai chính tả khó đoán ý (“phành ra”)"
+ },
+ {
+  "id": "VN-353",
+  "reason": "gần giống hệt VN-362 (cái bút uống mực, cày ruộng giấy); giữ VN-362"
+ },
+ {
+  "id": "VN-354",
+  "reason": "lời đố tối nghĩa, đáp án không khớp"
+ },
+ {
+  "id": "VN-369",
+  "reason": "lời đố tối nghĩa, đáp án không chắc chắn"
+ },
+ {
+  "id": "VN-370",
+  "reason": "câu mơ hồ, đáp án không khớp chắc chắn với lời đố"
+ },
+ {
+  "id": "VN-371",
+  "reason": "gần như giống hệt VN-321 (bóng đèn dây tóc); giữ VN-321"
+ },
+ {
+  "id": "VN-373",
+  "reason": "câu quá ngắn, mơ hồ, nhiều loài cá đều hợp"
+ },
+ {
+  "id": "VN-374",
+  "reason": "đáp án không chắc chắn, lời đố khớp nhiều thứ"
+ },
+ {
+  "id": "VN-376",
+  "reason": "lời đố tối nghĩa, có chữ “thác xuống” chỉ cái chết"
+ },
+ {
+  "id": "VN-377",
+  "reason": "lời đố lộn xộn, tối nghĩa"
+ },
+ {
+  "id": "VN-380",
+  "reason": "câu mơ hồ, nhiều đáp án (bắp ngô, quả lựu, tổ ong...)"
+ },
+ {
+  "id": "VN-383",
+  "reason": "gần giống hệt VN-362 (cái bút tắm mực, cày ruộng cạn); giữ VN-362"
+ },
+ {
+  "id": "VN-384",
+  "reason": "trùng VN-182"
+ },
+ {
+  "id": "VN-387",
+  "reason": "trùng VN-168"
+ },
+ {
+  "id": "VN-390",
+  "reason": "trùng VN-171"
+ },
+ {
+  "id": "VN-392",
+  "reason": "câu mơ hồ, manh mối không khớp chắc chắn với cái nón"
+ },
+ {
+  "id": "VN-393",
+  "reason": "trùng VN-175"
+ },
+ {
+  "id": "VN-395",
+  "reason": "trùng VN-178"
+ },
+ {
+  "id": "VN-405",
+  "reason": "gần trùng VN-442 (cùng đáp án ấm sắc thuốc), manh mối \"đội lửa trên đầu\" sai"
+ },
+ {
+  "id": "VN-406",
+  "reason": "tối nghĩa, manh mối không khớp đáp án bù nhìn"
+ },
+ {
+  "id": "VN-410",
+  "reason": "chơi chữ dựa vào tên vũ khí, đáp án lạ với trẻ"
+ },
+ {
+  "id": "VN-411",
+  "reason": "chơi chữ dựa vào hành động đánh người, không hợp với trẻ"
+ },
+ {
+  "id": "VN-412",
+  "reason": "mơ hồ: bàn, ghế, phản, giường đều khớp"
+ },
+ {
+  "id": "VN-414",
+  "reason": "mơ hồ: nhiều loại bánh gói lá chuối nhân đỗ thịt đều khớp"
+ },
+ {
+  "id": "VN-419",
+  "reason": "gần trùng VN-470 (cùng đáp án cái rá), \"rửa rau\" dễ nhầm với cái rổ"
+ },
+ {
+  "id": "VN-450",
+  "reason": "tối nghĩa, manh mối không khớp rõ với con sâu"
+ },
+ {
+  "id": "VN-451",
+  "reason": "đáp án gượng, măng không có râu, câu mơ hồ"
+ },
+ {
+  "id": "VN-461",
+  "reason": "gần trùng VN-432 (cùng đáp án bánh dày, cùng manh mối tròn như trăng, dẻo thơm mùi nếp)"
+ },
+ {
+  "id": "VN-474",
+  "reason": "câu đố chứa sẵn đáp án (\"yếm\"), đồ lót không hợp với trẻ"
+ },
+ {
+  "id": "VN-475",
+  "reason": "sai kiến thức: vôi màu trắng, không \"đỏ như son, cay như ớt\""
+ },
+ {
+  "id": "VN-476",
+  "reason": "nói về hút thuốc lào, không hợp với trẻ"
+ },
+ {
+  "id": "VN-492",
+  "reason": "tối nghĩa, đáp án chuối hột không khớp rõ manh mối"
+ }
+]
