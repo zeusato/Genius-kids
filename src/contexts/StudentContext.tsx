@@ -28,6 +28,9 @@ import type { AlphabetSession } from '../components/preschool/alphabet-games/typ
 import { persistCounting, type PendingSession } from '../components/preschool/counting/persistence';
 import type { CompositionAction } from '../../games/SoundMemory/studio/model';
 import { persistPiano, type PianoAction } from '../../games/Piano/progress';
+import { persistRiddle, type RiddleAction, type RiddleOutcome } from '../riddle/progress/progress';
+import { clearLegacy as clearRiddleLegacy, clearRiddleData, readLegacyIds } from '../riddle/progress/storage';
+import type { Riddle } from '../riddle/content/types';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
 import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
 import { StudentProfile, TestResult, GameResult, AlbumImage, AchievementProgress } from '../../types';
@@ -55,6 +58,8 @@ interface StudentActionsType {
     completeCaro: (owner: string, match: import('../../games/Caro/model').Match) => { ok: boolean };
     completeSudoku: (owner: string, draft: SudokuDraft) => { ok: boolean; earned: number; image: AlbumImage | null; isNew: boolean };
     savePiano: (owner: string, action: PianoAction) => { ok: boolean };
+    /** Đố Vui: mọi thay đổi (chặng, cài đặt) đi qua một lần ghi. Kho câu do trang truyền vào để không kéo JSON vào bundle chính. */
+    saveRiddle: (owner: string, action: RiddleAction, pool: Riddle[]) => { ok: boolean; outcome: RiddleOutcome | null };
     saveCounting: (owner: string, session: PendingSession) => { ok: boolean; earned: number; session: PendingSession };
     completeCoVua: (owner: string, match: import('../../games/CoVua/model').Match) => { ok: boolean };
     completeCoTuong: (owner: string, match: import('../../games/CoTuong/model').Match) => { ok: boolean };
@@ -85,7 +90,6 @@ interface StudentActionsType {
     buyPhoto: (imageId: string, cost: number, rarity: string) => void;
     spinGacha: () => void;
     readFact: (category: string) => void;
-    solveRiddle: (category: string, difficulty: string) => void;
     updateTypingScore: (score: number) => void;
 }
 
@@ -162,6 +166,19 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         const snapshot = studentsRef.current, result = persistCaro(snapshot, owner, match, saveProfiles);
         if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
         return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
+
+    const saveRiddle = useCallback((owner: string, action: RiddleAction, pool: Riddle[]) => {
+        if (owner !== currentStudentId) return { ok: false, outcome: null };
+        const snapshot = studentsRef.current;
+        const legacyIds = snapshot.find(p => p.id === owner)?.riddle ? null : readLegacyIds(owner);
+        const result = persistRiddle(snapshot, owner, action, saveProfiles, { pool, legacyIds });
+        if (result.ok && result.profiles !== snapshot) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+            if (legacyIds) clearRiddleLegacy(owner);
+            if (result.outcome?.unlocked.length) setAchievementQueue(prev => [...prev, ...result.outcome!.unlocked]);
+        }
+        return { ok: result.ok, outcome: result.outcome };
     }, [currentStudentId, setStudents]);
 
     const completeSudoku = useCallback((owner: string, draft: SudokuDraft) => {
@@ -339,6 +356,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         void clearEnglishData(id).catch(error => console.warn('English data cleanup failed', error));
         if (countingOwnerRef.current === id) countingOwnerRef.current = null;
         clearSoundProfileData(id);
+        clearRiddleData(id);
         clearRacingData(id);
         clearWorkshopData(id);
         clearHorseData(id);
@@ -618,29 +636,6 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         updateStudent(updatedStudent);
     }, [currentStudent, updateStudent]);
 
-    const solveRiddle = useCallback((category: string, difficulty: string) => {
-        if (!currentStudent) return;
-
-        // The riddle reward is written just before this call; build on that snapshot, not the last render.
-        const latest = studentsRef.current.find(s => s.id === currentStudent.id) || currentStudent;
-        let updatedStudent = { ...latest };
-
-        // Update Stats
-        if (!updatedStudent.stats) updatedStudent.stats = initializeStats(updatedStudent);
-        updatedStudent.stats = updateStats(updatedStudent.stats, { type: 'SOLVE_RIDDLE', category, difficulty });
-
-        // Check Achievements
-        const { unlocked, rewards, updatedAchievements } = checkAchievements(updatedStudent);
-        updatedStudent.achievements = updatedAchievements;
-        updatedStudent.stars += rewards;
-
-        if (unlocked.length > 0) {
-            setAchievementQueue(prev => [...prev, ...unlocked]);
-        }
-
-        updateStudent(updatedStudent);
-    }, [currentStudent, updateStudent]);
-
     const updateTypingScore = useCallback((score: number) => {
         if (!currentStudent) return;
 
@@ -671,6 +666,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeCaro,
         completeSudoku,
         savePiano,
+        saveRiddle,
         completeElectricity,
         claimElectricityLegacy,
         addStudent,
@@ -702,7 +698,6 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         buyPhoto,
         spinGacha,
         readFact,
-        solveRiddle,
         updateTypingScore
     };
 

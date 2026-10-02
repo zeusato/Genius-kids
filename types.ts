@@ -152,49 +152,11 @@ export interface TestConfig {
   questionCount: number;
 }
 
-// ===== Sphinx Riddle System =====
-
-export enum RiddleDifficulty {
-  EASY = 'easy',
-  MEDIUM = 'medium',
-  HARD = 'hard',
-}
-
-export enum RiddleCategory {
-  VN_RIDDLE = 'vn_riddle',
-  EN_RIDDLE = 'en_riddle',
-  MIX = 'mix',
-}
-
-export interface RiddleData {
-  rID: string;
-  category: 'vn_riddle' | 'en_riddle';
-  difficulty: RiddleDifficulty;
-  question: string;
-  answer: string;
-  answer_explain: string;
-  note?: string;
-}
+// ===== Sphinx Riddle (bản cũ: chỉ còn dữ liệu để nhập sang src/riddle) =====
 
 export interface SphinxProfile {
   answeredRiddleIds: string[]; // Array of rID that user has answered correctly
   penaltyActive: boolean; // If true, next reward will be skipped
-}
-
-export interface SphinxReward {
-  stars: number;
-  cardWon: boolean;
-  card?: {
-    id: string;
-    name: string;
-    imagePath: string;
-    rarity: Rarity;
-  };
-}
-
-export enum PenaltyType {
-  LOSE_STAR = 'lose_star',
-  SKIP_NEXT_REWARD = 'skip_next_reward',
 }
 
 // ===== Achievement System =====
@@ -274,7 +236,9 @@ export interface StudentProfile {
   history: TestResult[];
   gameHistory: GameResult[];
   shopDailyPhotos: ShopDailyPhoto[];
-  sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data
+  sphinxProfile?: SphinxProfile; // Sphinx Riddle profile data (bản cũ, chỉ đọc khi nhập)
+  /** Tiến độ Đố Vui Nhân Sư v2 (src/riddle). */
+  riddle?: import('./src/riddle/progress/model').RiddleProgress;
   stats?: UserStats; // Optional for migration
   achievements?: AchievementProgress[]; // Optional for migration
   // Book World data

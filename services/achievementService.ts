@@ -94,7 +94,9 @@ export const initializeStats = (profile: StudentProfile): UserStats => {
     stats.themesOwned = profile.ownedThemeIds.length;
 
     // Sphinx
-    if (profile.sphinxProfile) {
+    if (profile.riddle) {
+        stats.riddlesSolved = Object.values(profile.riddle.solved).filter(s => s.seals > 0).length + profile.riddle.legacySolved.length;
+    } else if (profile.sphinxProfile) {
         stats.riddlesSolved = profile.sphinxProfile.answeredRiddleIds.length;
     }
 
