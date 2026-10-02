@@ -29,6 +29,8 @@ import { persistCounting, type PendingSession } from '../components/preschool/co
 import type { CompositionAction } from '../../games/SoundMemory/studio/model';
 import { persistPiano, type PianoAction } from '../../games/Piano/progress';
 import { persistRiddle, type RiddleAction, type RiddleOutcome } from '../riddle/progress/progress';
+import { persistLesson, type LessonAction } from '../../services/study/lessons/progress';
+import { localDay } from '../../services/study/progress';
 import { clearLegacy as clearRiddleLegacy, clearRiddleData, readLegacyIds } from '../riddle/progress/storage';
 import type { Riddle } from '../riddle/content/types';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
@@ -60,6 +62,8 @@ interface StudentActionsType {
     savePiano: (owner: string, action: PianoAction) => { ok: boolean };
     /** Đố Vui: mọi thay đổi (chặng, cài đặt) đi qua một lần ghi. Kho câu do trang truyền vào để không kéo JSON vào bundle chính. */
     saveRiddle: (owner: string, action: RiddleAction, pool: Riddle[]) => { ok: boolean; outcome: RiddleOutcome | null };
+    /** Học bài (Ôn Luyện): xem trang / Em thử; +1 sao một lần mỗi bài. */
+    saveLesson: (owner: string, action: LessonAction) => { ok: boolean; earned: number; completedNow: boolean };
     saveCounting: (owner: string, session: PendingSession) => { ok: boolean; earned: number; session: PendingSession };
     completeCoVua: (owner: string, match: import('../../games/CoVua/model').Match) => { ok: boolean };
     completeCoTuong: (owner: string, match: import('../../games/CoTuong/model').Match) => { ok: boolean };
@@ -166,6 +170,16 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         const snapshot = studentsRef.current, result = persistCaro(snapshot, owner, match, saveProfiles);
         if (result.ok && result.profiles !== snapshot) { persistedRef.current = result.profiles; setStudents(result.profiles); }
         return { ok: result.ok };
+    }, [currentStudentId, setStudents]);
+
+    const saveLesson = useCallback((owner: string, action: LessonAction) => {
+        if (owner !== currentStudentId) return { ok: false, earned: 0, completedNow: false };
+        const snapshot = studentsRef.current, result = persistLesson(snapshot, owner, action, saveProfiles, localDay(new Date()));
+        if (result.ok && result.profiles !== snapshot) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+            if (result.unlocked.length) setAchievementQueue(prev => [...prev, ...result.unlocked]);
+        }
+        return { ok: result.ok, earned: result.earned, completedNow: result.completedNow };
     }, [currentStudentId, setStudents]);
 
     const saveRiddle = useCallback((owner: string, action: RiddleAction, pool: Riddle[]) => {
@@ -667,6 +681,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         completeSudoku,
         savePiano,
         saveRiddle,
+        saveLesson,
         completeElectricity,
         claimElectricityLegacy,
         addStudent,

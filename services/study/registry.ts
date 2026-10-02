@@ -54,6 +54,9 @@ export function skillDef(id: string): SkillDef | undefined {
     return SKILL_MAP.get(id);
 }
 
+/** Các mức có template của kỹ năng (tăng dần). */
+export const templateLevels = (skillId: string): Level[] => isLegacyId(skillId) ? [1] : [...new Set((bySkill.get(skillId) || []).map(t => t.level))].sort() as Level[];
+
 export const hasTemplates = (skillId: string): boolean => bySkill.has(skillId) || (isLegacyId(skillId) && !!legacy[skillId.slice(0, -7)]);
 
 /** Mọi kỹ năng có thể sinh câu (gồm legacy). */

@@ -149,6 +149,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         alphabetPractice: oldProfile.alphabetPractice,
         counting: oldProfile.counting,
         study: oldProfile.study,
+        learn: oldProfile.learn,
         englishProgress: oldProfile.englishProgress,
         electricity: oldProfile.electricity,
         electricityBadges: oldProfile.electricityBadges,

@@ -216,6 +216,8 @@ export interface StudentProfile {
   counting?: import('./src/components/preschool/counting/model').Progress;
   /** Tiến độ Ôn Luyện theo kỹ năng (services/study). */
   study?: import('./services/study/types').StudyProgress;
+  /** Tiến độ Học bài của Ôn Luyện (services/study/lessons/progress) — tách khỏi study. */
+  learn?: import('./services/study/lessons/progress').LearnProgress;
   alphabetGarden?: import('./src/components/preschool/alphabetGardenProgress').AlphabetGardenProgress;
   alphabetPractice?: import('./src/components/preschool/alphabet-games/progress').AlphabetPracticeProgress;
   soundMemory?: import('./games/SoundMemory/progress/progress').SoundProgress;
