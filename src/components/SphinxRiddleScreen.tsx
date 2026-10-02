@@ -194,7 +194,7 @@ export const SphinxRiddleScreen: React.FC<SphinxRiddleScreenProps> = ({
                     <div className="congrat-modal" onClick={(e) => e.stopPropagation()}>
                         <div className="congrat-icon">🎉</div>
                         <h2>Chúc mừng!</h2>
-                        <p>Bạn đã giải hết tất cả các câu đố ở mức độ <strong>{selectedDifficulty}</strong>!</p>
+                        <p>Bạn đã giải hết tất cả các câu đố ở mức độ <strong>{({ easy: 'Dễ', medium: 'Trung bình', hard: 'Khó' } as Record<string, string>)[selectedDifficulty]}</strong>!</p>
                         <p className="congrat-subtitle">Hãy thử mức độ khác hoặc loại câu đố khác nhé!</p>
                         <button className="congrat-close-btn" onClick={handleCloseCongratModal}>
                             Đóng

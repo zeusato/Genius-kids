@@ -47,49 +47,20 @@ export const getRandomRiddle = (riddles: RiddleData[]): RiddleData | null => {
     return riddles[randomIndex];
 };
 
-// Flexible answer checking with partial matching
+// Whole-phrase answer checking: never accept a fragment of the answer.
+const CLASSIFIERS = new Set(['con', 'cái', 'chiếc', 'quả', 'trái', 'cây', 'củ', 'hoa', 'bông', 'đôi', 'the', 'a', 'an']);
+const normalizeAnswer = (str: string, stripMarks: boolean) => {
+    let s = str.normalize('NFC').toLowerCase().replace(/[.,!?;:"'“”()]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (stripMarks) s = s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
+    const words = s.split(' ');
+    while (words.length > 1 && CLASSIFIERS.has(words[0])) words.shift();
+    return words.join(' ');
+};
 export const checkAnswer = (userAnswer: string, correctAnswer: string): boolean => {
-    // Normalize both answers: NFC (compose diacritics), lowercase, trim, remove extra spaces
-    const normalize = (str: string) => str.normalize('NFC').toLowerCase().trim().replace(/\s+/g, ' ');
-
-    const normalizedUser = normalize(userAnswer);
-    const normalizedCorrect = normalize(correctAnswer);
-
-    // Split correct answers by comma for multiple valid answers
-    const correctVariants = normalizedCorrect.split(',').map(v => v.trim());
-
-    // Check each variant
-    for (const variant of correctVariants) {
-        // 1. Exact match
-        if (normalizedUser === variant) {
-            return true;
-        }
-
-        // 2. Partial match: correct answer contains user answer (e.g., "chó" in "con chó")
-        if (variant.includes(normalizedUser) && normalizedUser.length >= 2) {
-            return true;
-        }
-
-        // 3. Reverse partial: user answer contains correct answer (user gave more detail)
-        if (normalizedUser.includes(variant) && variant.length >= 2) {
-            return true;
-        }
-
-        // 4. Word-level matching (filter out common stop words)
-        const stopWords = ['con', 'cái', 'quả', 'the', 'a', 'an', 'củ', 'hoa', 'cây'];
-        const getUserWords = () => normalizedUser.split(' ').filter(w => !stopWords.includes(w));
-        const getCorrectWords = () => variant.split(' ').filter(w => !stopWords.includes(w));
-
-        const userWords = getUserWords();
-        const correctWords = getCorrectWords();
-
-        // If at least one significant word matches
-        if (userWords.some(uw => correctWords.includes(uw)) && userWords.length > 0) {
-            return true;
-        }
-    }
-
-    return false;
+    if (!userAnswer.trim()) return false;
+    return correctAnswer.split(',').some(variant =>
+        normalizeAnswer(userAnswer, false) === normalizeAnswer(variant, false)
+        || normalizeAnswer(userAnswer, true) === normalizeAnswer(variant, true));
 };
 
 // Load Sphinx Profile for a student
@@ -198,7 +169,7 @@ export const sphinxDialogues = {
         "Hoàn hảo! Trí tuệ của ngươi không tầm thường!",
         "Đáp án chính xác! Ta phải khen ngợi ngươi!",
         "Giỏi lắm! Ngươi đã vượt qua thử thách!",
-        "Tuyệt! Ngơi thật sự hiểu được câu đố!",
+        "Tuyệt! Ngươi thật sự hiểu được câu đố!",
         "Ta bái phục! Ngươi quả là thông minh!",
     ],
     failure: [

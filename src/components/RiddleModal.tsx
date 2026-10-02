@@ -58,7 +58,6 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
     const handleUnlockAnswer = () => {
         const cost = getUnlockCost(difficulty);
         if (student.stars < cost) {
-            alert(`Bạn cần ${cost} sao để xem đáp án!`);
             return;
         }
 
@@ -78,7 +77,6 @@ export const RiddleModal: React.FC<RiddleModalProps> = ({
 
     const handleSubmit = () => {
         if (!userAnswer.trim()) {
-            alert('Vui lòng nhập câu trả lời!');
             return;
         }
 

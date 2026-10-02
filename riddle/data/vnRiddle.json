@@ -1011,9 +1011,9 @@
         "rID": "VN-113",
         "category": "vn_riddle",
         "difficulty": "easy",
-        "question": "Con gì màu đen, kêu quạ quạ, thường bay về báo hiệu điều gì đó?",
+        "question": "Con gì lông đen tuyền, kêu quạ quạ trên cành cây cao?",
         "answer": "Con quạ",
-        "answer_explain": "Quạ có màu đen, tiếng kêu đặc trưng (tránh câu đố liên quan đến tín ngưỡng).",
+        "answer_explain": "Quạ có bộ lông đen và tiếng kêu quạ quạ rất đặc trưng.",
         "note": "Đáp án là tên loài chim."
     },
     {
@@ -1103,7 +1103,7 @@
         "difficulty": "easy",
         "question": "Thân em xanh vỏ đỏ lòng, hạt đen nằm giữa, bé ăn thấy ngon?",
         "answer": "Quả dưa hấu",
-        "answer_explain": "Dưa hấu (Watermelon đã dùng, câu đố này là dân gian truyền thống).",
+        "answer_explain": "Dưa hấu có vỏ xanh, ruột đỏ và nhiều hạt đen.",
         "note": "Đáp án là tên loại quả."
     },
     {
@@ -1121,7 +1121,7 @@
         "difficulty": "easy",
         "question": "Con gì biết bò, có mai cứng, ăn rau, sống dưới nước hoặc trên cạn?",
         "answer": "Con rùa",
-        "answer_explain": "Đặc điểm của rùa (Turtle đã dùng, câu đố này thêm thông tin chi tiết hơn).",
+        "answer_explain": "Rùa bò chậm, có mai cứng che lưng, sống được cả dưới nước lẫn trên cạn.",
         "note": "Đáp án là tên loài vật."
     },
     {
@@ -1894,8 +1894,8 @@
         "category": "vn_riddle",
         "difficulty": "medium",
         "question": "Quả gì vỏ đỏ, ruột trắng, hạt đen\nĂn vào ngọt mát, trẻ em rất thèm?",
-        "answer": "Quả dưa hấu",
-        "answer_explain": "Dưa hấu (loại vỏ đỏ hiếm, thường là vỏ xanh ruột đỏ, nhưng câu đố dân gian biến thể có thể ám chỉ 'vỏ đỏ' là quả vải hoặc lựu - sửa lại cho chính xác: Quả dưa hấu là VỎ XANH. Câu đố này sửa lại: 'Vỏ sần sùi đỏ, ruột trắng trong veo' -> Quả vải).",
+        "answer": "Quả thanh long",
+        "answer_explain": "Thanh long có vỏ đỏ, ruột trắng lấm tấm hạt đen nhỏ, ăn ngọt mát.",
         "note": "Đáp án là tên loại quả."
     },
     {
@@ -3525,15 +3525,6 @@
         "question": "Con gì đi ngồi, đứng ngồi, nằm ngồi, ngủ cũng ngồi?",
         "answer": "Con ếch",
         "answer_explain": "Cấu tạo cơ thể của ếch luôn ở tư thế ngồi.",
-        "note": "Đáp án là danh từ độ dài từ 2 từ"
-    },
-    {
-        "rID": "VN-394",
-        "category": "vn_riddle",
-        "difficulty": "hard",
-        "question": "Con gì đập thì sống, không đập thì chết?",
-        "answer": "Con quay",
-        "answer_explain": "Con quay gỗ phải đánh (đập) bằng dây mới quay được (sống).",
         "note": "Đáp án là danh từ độ dài từ 2 từ"
     },
     {

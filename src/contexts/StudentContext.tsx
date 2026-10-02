@@ -621,7 +621,9 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     const solveRiddle = useCallback((category: string, difficulty: string) => {
         if (!currentStudent) return;
 
-        let updatedStudent = { ...currentStudent };
+        // The riddle reward is written just before this call; build on that snapshot, not the last render.
+        const latest = studentsRef.current.find(s => s.id === currentStudent.id) || currentStudent;
+        let updatedStudent = { ...latest };
 
         // Update Stats
         if (!updatedStudent.stats) updatedStudent.stats = initializeStats(updatedStudent);
