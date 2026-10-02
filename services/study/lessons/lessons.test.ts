@@ -13,6 +13,8 @@ import { lengthLint, lessonStrings, mathLint, notationLint } from './lint';
 import { buildTry, tryLevels, TRY_COUNT } from './try';
 import { nb } from './build';
 import { longDivision } from '../../../src/components/study/learn/widgets/algo';
+import { column } from '../../../src/components/study/learn/widgets/column';
+import { convert } from '../../../src/components/study/learn/widgets/UnitLadder';
 import type { ExploreSpec, Lesson, LessonBook, VisualSpec, WidgetSpec } from './types';
 import mn from './content/mn';
 import g1 from './content/g1';
@@ -101,13 +103,16 @@ describe.each(ALL.map(([g, l]) => [l.skillId, g, l] as const))('bài %s', (_id, 
                 }
             } else if (w.w === 'long-division') { expect(w.b).toBeGreaterThan(0); expect(w.a).toBeGreaterThan(0); }
             else if (w.w === 'column') { expect(w.a).toBeGreaterThanOrEqual(0); expect(w.b).toBeGreaterThanOrEqual(0); if (w.op === '-') expect(w.a).toBeGreaterThanOrEqual(w.b); }
-            else if (w.w === 'place-value') expect(w.int).toBeGreaterThan(0);
+            else if (w.w === 'place-value') { expect(w.int).toBeGreaterThan(0); expect(w.init).toBeLessThan(10 ** w.int); }
+            else if (w.w === 'unit-ladder') expect(() => convert(w.kind, w.value, w.from, w.to)).not.toThrow();
+            if (w.w === 'column') expect(() => column(w.op, w.a, w.b)).not.toThrow();
         }
     });
     it('ví dụ tính có phát lại: số bước khớp widget', () => {
         for (const f of l.forms) {
             const r = f.example.replay;
             if (f.example.layout === 'calc' && r?.w === 'long-division') expect(f.example.steps.length, f.id).toBe(longDivision(r.a, r.b).steps.length);
+            if (f.example.layout === 'calc' && r?.w === 'column') expect(f.example.steps.length, f.id).toBe(column(r.op, r.a, r.b).steps.length);
         }
     });
     it('phép tính đúng, ký hiệu đúng, đọc to được', () => {

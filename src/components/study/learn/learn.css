@@ -180,3 +180,31 @@
 .learn-nav > * { pointer-events:auto; }
 .learn-paper { margin-bottom:12px; }
 html:has(.learn-reader) { scroll-padding-bottom:96px; }
+
+/* đặt tính cộng, trừ, nhân */
+.ca-board { display:inline-grid; align-self:center; column-gap:2px; font-size:clamp(26px,3.4vw,36px); font-weight:900; font-variant-numeric:tabular-nums; line-height:1.25; }
+.ca-cell { min-width:22px; width:1.05ch; text-align:center; border-radius:6px; }
+.ca-cell.out { color:var(--ln-c1); }
+.ca-cell.hi { background:#fde7cf; }
+.ca-comma { width:.45ch; text-align:center; color:var(--ln-c1); }
+.ca-carry { font-size:15px; color:var(--ln-c1); text-align:center; min-height:18px; line-height:18px; }
+.ca-op { color:var(--hub-muted); text-align:center; }
+.ca-line { height:3px; background:var(--hub-ink); border-radius:2px; margin:3px 0; }
+/* bảng hàng */
+.pv-scroll { overflow-x:auto; max-width:100%; }
+.pv { border-collapse:collapse; background:#fff; margin:0 auto; }
+.pv th { font-size:12px; font-weight:900; padding:6px 8px; background:var(--hub-tint); border:1px solid var(--hub-line); min-width:58px; }
+.pv th.dec { background:#e7f0f8; }
+.pv td { border:1px solid var(--hub-line); text-align:center; padding:4px 6px; }
+.pv td b { display:block; font-size:28px; font-weight:900; font-variant-numeric:tabular-nums; }
+.pv td.hi { background:#fde7cf; }
+.pv td.comma { border-right:3px solid var(--ln-c1); }
+.discovery-hub .pv td button { width:100%; min-height:30px; border:0; border-radius:8px; background:var(--hub-tint); color:var(--hub-ink); display:grid; place-items:center; }
+/* thang đơn vị */
+.ul-ladder { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.discovery-hub .ul-unit { min-height:44px; min-width:52px; padding:0 12px; border-radius:12px; border:1px solid var(--hub-line); background:#fff; font-weight:900; font-size:16px; color:var(--hub-ink); }
+.discovery-hub .ul-unit.from { background:var(--ln-c0); color:#fff; border-color:var(--ln-c0); }
+.discovery-hub .ul-unit.to { background:var(--ln-c2); color:#fff; border-color:var(--ln-c2); }
+.ul-gap { font-size:11.5px; font-weight:900; color:var(--hub-line); }
+.ul-gap.on { color:var(--ln-c1); }
+.ul-value b { font-size:22px; min-width:140px; text-align:center; }
