@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, AudioLines, BookOpen, ChevronRight, Leaf, Palette, Sparkles, Volume2 } from 'lucide-react';
 import { HubShell } from '../hub/HubShell';
 import { SpeakButton } from '../shared/SpeakButton';
@@ -34,8 +34,10 @@ interface PreschoolShellProps {
 export function PreschoolShell({ topic, activity, onPick, onBack, children }: PreschoolShellProps) {
     const navigate = useNavigate(), { currentStudent } = useStudent(), { setStudent } = useStudentActions();
     const data = topicFor(topic), selected = activityFor(topic, activity);
+    // mở từ Ôn Luyện (Học bài): nút quay lại ghi đúng nơi sẽ về
+    const fromStudy = typeof useLocation().state?.returnTo === 'string';
     return <div className={'preschool-shell ps-topic-' + topic}>
-        <HubShell student={currentStudent} section={data.title} backText backLabel={selected ? 'Về ' + data.shortTitle : 'Về khám phá'} onBack={selected ? onBack : () => navigate('/mode')} onProfile={() => navigate('/profile')} onShop={() => navigate('/shop')} onLogout={() => { setStudent(null); navigate('/'); }}>
+        <HubShell student={currentStudent} section={data.title} backText backLabel={selected ? (fromStudy ? 'Về Ôn Luyện' : 'Về ' + data.shortTitle) : 'Về khám phá'} onBack={selected ? onBack : () => navigate('/mode')} onProfile={() => navigate('/profile')} onShop={() => navigate('/shop')} onLogout={() => { setStudent(null); navigate('/'); }}>
             <main className={selected ? 'ps-main ps-playing' : 'ps-main'}>
                 <nav className="ps-breadcrumb" aria-label="Đường dẫn"><Link to="/mode">Khám phá</Link><ChevronRight size={13}/>{selected ? <><button onClick={onBack}>{data.title}</button><ChevronRight size={13}/><span aria-current="page">{selected.title}</span></> : <span aria-current="page">{data.title}</span>}</nav>
                 {!selected ? <>

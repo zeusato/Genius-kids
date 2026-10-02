@@ -3,7 +3,7 @@ import { Grade } from '../../../types';
 import { SKILL_MAP } from '../catalog';
 
 export const LESSON_INDEX: Record<Grade, string[]> = {
-    [Grade.Preschool]: [],
+    [Grade.Preschool]: ['mn.ordinal', 'mn.combine', 'mn.pattern', 'mn.shapes3d', 'mn.position', 'mn.daytime'],
     [Grade.Grade1]: [],
     [Grade.Grade2]: [],
     [Grade.Grade3]: [

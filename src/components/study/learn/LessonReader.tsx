@@ -161,7 +161,7 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
 
     return (
         <div className="discovery-hub" data-theme={student.currentThemeId || 'theme_classic'}>
-            <div className="learn-reader">
+            <div className={`learn-reader${skill.grade === 0 ? " preschool" : ""}`}>
                 <div className="study-topbar learn-topbar">
                     <button className="hub-icon" aria-label="Về chủ đề" title="Về chủ đề" onClick={exit}><X size={20} /></button>
                     <span className="title">{skill.title}</span>

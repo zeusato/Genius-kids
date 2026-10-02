@@ -1,5 +1,6 @@
 // Trang chủ đề: hai lối vào "Học bài" và "Luyện tập" + danh sách bài (mỗi bài: Học / Luyện).
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, BookOpen, Check, PencilLine, Sparkles, Target } from 'lucide-react';
 import { Grade, StudyMode, type StudentProfile, type Topic } from '@/types';
 import { skillsWithContent } from '@/services/study/registry';
@@ -7,10 +8,12 @@ import { topicMeta } from '@/services/study/catalog';
 import { skillStatus, topicMastery } from '@/services/study/progress';
 import type { StudyProgress } from '@/services/study/types';
 import { loadLessonBook } from '@/services/study/lessons/load';
-import { hasLesson, isPublished } from '@/services/study/lessons/manifest';
+import { gradeVisible, hasLesson, isPublished } from '@/services/study/lessons/manifest';
 import { lessonMinutes, lessonPages } from '@/services/study/lessons/pages';
 import { lessonStatus, readLearn, seenCount } from '@/services/study/lessons/progress';
 import type { LessonBook } from '@/services/study/lessons/types';
+import { MN_ACTIVITIES, preschoolHref, type PreschoolLink } from '@/services/study/lessons/preschool';
+import { PRESCHOOL_TOPICS } from '@/src/components/preschool/catalog';
 import { Ring, TopicIcon } from '../shared';
 import { TopicSheet } from '../TopicSheet';
 import '../study.css';
@@ -35,6 +38,11 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
     const list = advanced ? adv : basic;
     const [book, setBook] = useState<LessonBook | null>(null);
     const [sheet, setSheet] = useState(false);
+    const navigate = useNavigate();
+    // Mầm non: các hoạt động có sẵn gắn với kỹ năng của chủ đề (không trùng lặp)
+    const links = [...new Map(list.flatMap(s => MN_ACTIVITIES[s.id] ?? []).map(l => [preschoolHref(l), l] as const)).values()];
+    const activityOf = (l: PreschoolLink) => PRESCHOOL_TOPICS.find(t => t.id === l.topic)?.activities.find(a => a.id === l.activity);
+    const openActivity = (l: PreschoolLink) => navigate(preschoolHref(l), { state: { returnTo: `/study/topic/${topic.id}`, preschoolOwner: student.id } });
     useEffect(() => { let alive = true; loadLessonBook(grade).then(b => { if (alive) setBook(b); }).catch(() => undefined); return () => { alive = false; }; }, [grade]);
 
     const learn = readLearn(student.learn);
@@ -88,11 +96,16 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
                     {suggestLearn && <span className="learn-suggest">Nên học trước</span>}
                     <span className="learn-path-icon"><BookOpen size={28} /></span>
                     <h2>Học bài</h2>
-                    <p>Kiến thức và cách giải từng dạng bài, có ví dụ mẫu và chỗ dễ nhầm.</p>
-                    <small>{allDone ? 'Đã học hết ✓' : `Đã học ${doneCount}/${withLesson.length} bài`}</small>
-                    <button className="study-btn" disabled={!withLesson.length} onClick={() => onLearn((allDone ? withLesson[0] : resume ?? withLesson[0]).id)}>
-                        {allDone ? 'Xem lại bài' : resume && lessonStatus(learn.lessons[resume.id]) === 'reading' ? `Học tiếp: ${resume.title}` : 'Bắt đầu học'}<ArrowRight size={18} />
-                    </button>
+                    <p>{grade === Grade.Preschool ? 'Xem, nghe và chạm cùng các bạn. Bài học tự đọc to.' : 'Kiến thức và cách giải từng dạng bài, có ví dụ mẫu và chỗ dễ nhầm.'}</p>
+                    {withLesson.length > 0 ? <>
+                        <small>{allDone ? 'Đã học hết ✓' : `Đã học ${doneCount}/${withLesson.length} bài`}</small>
+                        <button className="study-btn" onClick={() => onLearn((allDone ? withLesson[0] : resume ?? withLesson[0]).id)}>
+                            {allDone ? 'Xem lại bài' : resume && lessonStatus(learn.lessons[resume.id]) === 'reading' ? `Học tiếp: ${resume.title}` : 'Bắt đầu học'}<ArrowRight size={18} />
+                        </button>
+                    </> : links.length > 0 && <>
+                        <small>{links.length} hoạt động Mầm non</small>
+                        <button className="study-btn" onClick={() => openActivity(links[0])}>Học cùng các bạn<ArrowRight size={18} /></button>
+                    </>}
                 </section>
                 <section className={`learn-path practice${suggestPractice ? ' suggest' : ''}`}>
                     {suggestPractice && <span className="learn-suggest">Nên luyện thêm</span>}
@@ -103,6 +116,14 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
                     <button className="study-btn" onClick={() => setSheet(true)}>Luyện tập<ArrowRight size={18} /></button>
                 </section>
             </div>
+
+            {links.length > 0 && <section className="study-strand">
+                <div className="study-strand-head"><h2>Học cùng các bạn</h2><span>Hoạt động Mầm non</span></div>
+                <div className="learn-activities">{links.map(l => { const a = activityOf(l); return a && (
+                    <button key={preschoolHref(l)} className="learn-activity" onClick={() => openActivity(l)}>
+                        <small>{a.label}</small><strong>{a.title}</strong><span>{a.desc}</span>
+                    </button>); })}</div>
+            </section>}
 
             <section className="study-strand">
                 <div className="study-strand-head"><h2>Các bài trong chủ đề</h2><span>{list.length} bài</span></div>
@@ -119,4 +140,4 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
 
 /** Chủ đề có mở Trang chủ đề không (D10): có ít nhất một bài học trong lớp được hiện. */
 export const topicLearnable = (topicId: string, advanced = false): boolean =>
-    skillsWithContent(topicId, true).filter(s => !!s.advanced === advanced).some(s => hasLesson(s.id));
+    skillsWithContent(topicId, true).filter(s => !!s.advanced === advanced).some(s => hasLesson(s.id) || (!!MN_ACTIVITIES[s.id] && gradeVisible(s.grade)));

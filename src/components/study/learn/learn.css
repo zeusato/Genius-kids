@@ -209,3 +209,14 @@ html:has(.learn-reader) { scroll-padding-bottom:96px; }
 .ul-gap.on { color:var(--ln-c1); }
 .ul-value b { font-size:22px; min-width:140px; text-align:center; }
 .ld-comma { width:.45ch; text-align:center; color:var(--ln-c1); }
+
+/* Mầm non: thẻ hoạt động có sẵn */
+.learn-activities { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:12px; }
+.discovery-hub .learn-activity { display:flex; flex-direction:column; gap:4px; text-align:left; padding:16px; border-radius:18px; border:1px solid var(--hub-line); background:var(--st-card); box-shadow:var(--st-shadow); color:var(--hub-ink); min-height:96px; }
+.discovery-hub .learn-activity:hover { border-color:var(--hub-accent); }
+.learn-activity small { font-size:11px; font-weight:900; letter-spacing:.8px; color:var(--hub-accent); }
+.learn-activity strong { font-size:16px; font-weight:900; }
+.learn-activity span { font-size:13px; color:var(--hub-muted); line-height:1.45; }
+/* Mầm non: chữ to, hình to */
+.learn-reader.preschool .learn-page { font-size:22px; font-weight:800; line-height:1.55; }
+.learn-reader.preschool .learn-pic svg { max-width:620px; }
