@@ -208,3 +208,4 @@ html:has(.learn-reader) { scroll-padding-bottom:96px; }
 .ul-gap { font-size:11.5px; font-weight:900; color:var(--hub-line); }
 .ul-gap.on { color:var(--ln-c1); }
 .ul-value b { font-size:22px; min-width:140px; text-align:center; }
+.ld-comma { width:.45ch; text-align:center; color:var(--ln-c1); }

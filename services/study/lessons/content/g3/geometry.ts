@@ -62,7 +62,7 @@ export default {
         know: [
             know('Tâm, bán kính, đường kính',
                 pic('circlePartsSVG', 'both', 'OAB'),
-                text('O là **tâm**. OA nối tâm với một điểm trên đường tròn: **bán kính**. AB đi qua tâm, nối hai điểm trên đường tròn: **đường kính**.'),
+                text('O là **tâm**. OC nối tâm với một điểm trên đường tròn: **bán kính**. AB đi qua tâm, nối hai điểm trên đường tròn: **đường kính**.'),
                 rule('Trong một hình tròn, đường kính dài gấp 2 lần bán kính.', '{Đường kính} = {Bán kính} × 2'),
             ),
             know('Kéo để quan sát',
@@ -168,7 +168,7 @@ export default {
             form({
                 id: 'dem', title: 'Dạng 1: Đếm đỉnh, cạnh, góc', level: 1,
                 cue: 'Đề cho hình tam giác hoặc tứ giác và hỏi có mấy đỉnh, cạnh, góc.',
-                steps: ['Đỉnh là các điểm ở góc hình.', 'Cạnh là các đoạn thẳng nối hai đỉnh liền nhau.', 'Mỗi đỉnh có một góc.'],
+                steps: ['Đỉnh là các điểm ở góc hình.', 'Cạnh là các đoạn thẳng nối hai đỉnh liền nhau.', 'Đoạn thẳng nối hai đỉnh không liền nhau (như AC trong hình tứ giác ABCD) không phải là cạnh.', 'Mỗi đỉnh có một góc.'],
                 example: worked({
                     layout: 'calc', problem: 'Hình tam giác HIK có mấy đỉnh? Kể tên các đỉnh.',
                     visual: vis('namedPolygonSVG', 3, 'HIK'),
@@ -179,7 +179,7 @@ export default {
             form({
                 id: 'goc-canh', title: 'Dạng 2: Góc tạo bởi hai cạnh nào?', level: 2,
                 cue: 'Đề hỏi góc ở một đỉnh được tạo bởi hai cạnh nào.',
-                steps: ['Tìm các cạnh có chứa tên đỉnh đó.', 'Bỏ cạnh không đi qua đỉnh.', 'Hai cạnh còn lại là hai cạnh của góc.'],
+                steps: ['Tìm các cạnh có chứa tên đỉnh đó.', 'Ví dụ đỉnh A của tam giác ABC: hai cạnh là AB và AC.', 'Hai cạnh đó là hai cạnh của góc.'],
                 example: worked({
                     layout: 'calc', problem: 'Góc đỉnh A của hình tam giác ABC được tạo bởi hai cạnh nào?',
                     visual: vis('namedPolygonSVG', 3, 'ABC'),

@@ -563,7 +563,7 @@ Cột "Dạng" ghi kèm mức template dùng cho Em thử. Dàn bài được l�
 | Bài (kỹ năng) | Dạng (mức Em thử) | Thao tác / hình | Dễ nhầm chính |
 |---|---|---|---|
 | **Phép nhân** · g3.mul_tables · Bảng nhân 3, 4, 6, 7, 8, 9 | D1 Tính theo bảng (M1) · D2 Tìm thừa số: 9 × ? = 81 (M2) · D3 "Mỗi… có…, n… có bao nhiêu?" (M2) | explore `countingSVG` (a được lấy b lần); bảng nhân | Nhầm nhân với cộng: 3 × 4 = 7 |
-| g3.mul_1digit · Nhân số có hai, ba chữ số với số có một chữ số | D1 Không nhớ (M1) · D2 Có nhớ (M2) · D3 Đặt tính / bài toán (M3) | `column ×` | Quên cộng số nhớ: 47 × 3 = 121 |
+| g3.mul_1digit · Nhân số có hai, ba chữ số với số có một chữ số | D1 Số có hai chữ số (M1) · D2 Số có ba chữ số (M2) · D3 Đặt tính / bài toán (M3); nhớ không quá một lượt theo chuẩn lớp 3 | `column ×` | Quên cộng số nhớ: 47 × 3 = 121 |
 | g3.times_more · Gấp một số lên nhiều lần | D1 Gấp a lên n lần (M2) · D2 Bài toán "gấp n lần" (M3) | explore `segmentDiagramSVG` | "Gấp lên 3 lần" khác "thêm 3" |
 | ★ g3.mul_2digit · Nhân với số có hai chữ số | D1 Hai tích riêng (M2) | `column ×` hai chữ số | Tích riêng thứ hai không lùi sang trái |
 | **Phép chia** · g3.div_tables · Bảng chia 3, 4, 6, 7, 8, 9 | D1 Tính theo bảng (M1) · D2 Tìm số chia: 60 : ? = 10 (M2) · D3 Chia đều thành nhóm (M2) | explore chia đều đồ vật; liên hệ bảng nhân | Dùng phép nhân để tìm số chia |
@@ -688,7 +688,13 @@ Không chạy song song hai phiên nội dung của cùng một lớp, vì chún
 | 02/10 | g5.work_together | Lời giải "1/12 + 1/24 = 36/288" đúng nhưng không quy đồng theo mẫu chung nhỏ nhất, không rút gọn | "1/12 + 1/24 = 2/24 + 1/24 = 3/24 = 1/8" | mở |
 | 02/10 | g5.dec_div M1 | Kỹ năng "Chia số thập phân" có lúc ra câu không có số thập phân (200 : 5) | M1 luôn có số bị chia thập phân | mở |
 | 02/10 | g3.div_1digit | Chưa có template nhắm riêng dạng thương có chữ số 0 (dạng trẻ hay sai) | Thêm nhánh M2 | cần kiểm |
+| 02/10 | g3.times_less M3 | Đề "Số gạo Lan mang về giảm đi 2 lần so với bao gạo" khó hiểu | "Lan mang về số gạo bằng bao gạo giảm đi 2 lần" | mở |
 
 ## 14. Nhật ký lệch plan
 
 (ghi ngày · mục · lý do · quyết định)
+
+- 02/10 · GĐ1.5 · Kiểm giao diện trên app thật (dev server, hồ sơ thử) thay cho case preview riêng; preview.tsx chỉ thêm onOpenTopic. Bổ sung case preview khi làm bộ ảnh cuối (GĐ10).
+- 02/10 · GĐ3.1 · Giới hạn số bước ví dụ dạng tính (calc) nâng lên 8, vì nhân với số có hai chữ số cần 7 bước khớp widget.
+- 02/10 · GĐ3.6 · Rà soát độc lập Lớp 3: sửa 3 lỗi sai (nhãn sơ đồ tổng – hiệu, tên bán kính OC, ngày – thứ) và các mục nên sửa; ví dụ nhân lớp 3 chỉ nhớ một lượt; Dạng 2 bài toán hai bước gộp "nhiều hơn / gấp" rồi tính cả hai (tối đa 3 dạng). Lớp 3 chưa đưa vào PUBLISHED_GRADES: chờ chủ dự án duyệt.
+- 02/10 · GĐ4 · Đặt tính chia hỗ trợ số bị chia thập phân; trục số ghi nhãn bằng dấu phẩy thập phân; thêm mixedPiesSVG.

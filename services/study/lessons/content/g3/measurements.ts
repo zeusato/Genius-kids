@@ -22,7 +22,7 @@ export default {
             form({
                 id: 'doi', title: 'Dạng 1: Đổi đơn vị đo', level: 1,
                 cue: 'Đề cho số đo một tên đơn vị và hỏi bằng bao nhiêu đơn vị khác.',
-                steps: ['Nhớ: 1 m = 1000 mm, 1 kg = 1000 g, 1 l = 1000 ml.', 'Đổi từ đơn vị lớn ra đơn vị bé thì nhân.', 'Đổi từ đơn vị bé ra đơn vị lớn thì chia.'],
+                steps: ['Nhớ: 1 cm = 10 mm, 1 m = 1000 mm, 1 kg = 1000 g, 1 l = 1000 ml.', 'Đổi từ đơn vị lớn ra đơn vị bé thì nhân.', 'Đổi từ đơn vị bé ra đơn vị lớn thì chia.'],
                 example: worked({
                     layout: 'calc', problem: '9 m = ? mm',
                     steps: [step('Vì 1 m = 1000 mm, nên 9 m gấp 9 lần 1000 mm:', '1000 × 9 = 9000')],
@@ -68,7 +68,7 @@ export default {
             know('Nhiệt kế và độ C',
                 text('Nhiệt độ đo bằng **nhiệt kế**, đơn vị là **độ C**, viết là °C.'),
                 pic('thermometerSVG', 20, 50),
-                text('Đỉnh cột màu đỏ ngang vạch nào thì nhiệt độ là bấy nhiêu.'),
+                text('Đỉnh cột màu đỏ ngang vạch nào thì nhiệt độ là bấy nhiêu. Vạch dài có ghi số 0, 10, 20, …; mỗi vạch ngắn ở giữa là 5°C.'),
                 note('Nhiệt độ cơ thể người khoẻ mạnh khoảng 37°C. Nước đá tan ở 0°C.'),
             ),
             know('Kéo để quan sát',
@@ -104,7 +104,7 @@ export default {
             }),
         ],
         mistakes: [
-            mistake('Cột đỏ ở giữa vạch 20 và vạch 30, bạn Bi đọc là 20°C.', 'Đếm các vạch nhỏ để đọc chính xác, ví dụ 25°C.', 'Giữa hai vạch số còn có vạch nhỏ. Phải xem đỉnh cột đỏ ngang vạch nào.'),
+            mistake('Cột đỏ ở giữa vạch 20 và vạch 30, bạn Bi đọc là 20°C.', 'Vạch ngắn ở giữa 20 và 30 là 25°C.', 'Giữa hai vạch số còn có vạch nhỏ. Phải xem đỉnh cột đỏ ngang vạch nào.'),
         ],
         remember: [
             'Nhiệt độ có đơn vị là độ C (°C).',

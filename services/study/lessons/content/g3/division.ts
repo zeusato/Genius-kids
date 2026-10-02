@@ -163,7 +163,7 @@ export default {
         ],
         mistakes: [
             mistake('Tìm số chia trong 60 : ? = 10, bạn Bi tính: 60 × 10 = 600.', '60 : 10 = 6.',
-                'Số chia không thể lớn hơn số bị chia ở đây. Muốn tìm số chia, ta lấy số bị chia chia cho thương.'),
+                'Nếu số chia là 600 thì 60 : 600 không bằng 10. Muốn tìm số chia, ta lấy số bị chia chia cho thương.'),
             mistake('Bạn Bi nhẩm: 63 : 9 = 8.', '63 : 9 = 7.', 'Thử lại: 9 × 8 = 72, không bằng 63. Còn 9 × 7 = 63 nên thương là 7.'),
         ],
         remember: [
@@ -181,7 +181,7 @@ export default {
         know: [
             know('Giảm đi nhiều lần',
                 text('Giảm 15 đi 3 lần nghĩa là chia 15 thành 3 phần bằng nhau rồi lấy một phần.'),
-                pic('segmentDiagramSVG', [{ label: 'Nam', parts: [1, 1, 1], labels: ['', '15 viên', ''] }, { label: 'Em Nam', parts: [1], labels: ['?'] }]),
+                pic('segmentDiagramSVG', [{ label: 'Nam', parts: [5, 5, 5], labels: ['5', '5', '5'] }, { label: 'Em Nam', parts: [5], labels: ['?'] }], 'Nam: 15 viên'),
                 rule('Muốn giảm một số đi nhiều lần, ta chia số đó cho số lần.'),
             ),
             know('Đừng nhầm bốn cách nói',
@@ -209,7 +209,7 @@ export default {
                 cue: 'Đề có câu "… **giảm đi** n lần so với …" và hỏi số bé hơn.',
                 steps: ['Tìm số đã biết.', 'Lấy số đó chia cho số lần.', 'Viết câu trả lời và đáp số kèm đơn vị.'],
                 example: worked({
-                    problem: 'Bao gạo nặng 16 kg. Số gạo Lan mang về giảm đi 2 lần so với bao gạo. Hỏi Lan mang về bao nhiêu ki-lô-gam gạo?',
+                    problem: 'Một bao gạo nặng 16 kg. Lan mang về số gạo bằng bao gạo giảm đi 2 lần. Hỏi Lan mang về bao nhiêu ki-lô-gam gạo?',
                     steps: [step('Số gạo Lan mang về là:', '16 : 2 = 8 (kg)')],
                     answer: 'Đáp số: 8 kg gạo.',
                 }),

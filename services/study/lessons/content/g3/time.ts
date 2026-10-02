@@ -70,7 +70,7 @@ export default {
             }),
         ],
         mistakes: [
-            mistake('Kim ngắn gần tới số 11, kim dài chỉ 57 phút. Bạn Bi đọc là 11 giờ 57 phút.', 'Đồng hồ chỉ 10 giờ 57 phút.',
+            mistake('Kim ngắn gần tới số 11, kim dài chỉ vạch thứ 57. Bạn Bi đọc là 11 giờ 57 phút.', 'Đồng hồ chỉ 10 giờ 57 phút.',
                 'Kim ngắn chưa tới số 11 thì vẫn là 10 giờ. Khi kim dài chỉ đúng số 12, kim ngắn mới tới số 11.'),
         ],
         remember: [
@@ -82,13 +82,17 @@ export default {
     'g3.month_year': lesson('g3.month_year', {
         v: 1,
         goal: 'biết một năm có 12 tháng, số ngày của từng tháng, và xem lịch để tìm thứ của một ngày.',
-        hook: { md: 'Năm nay ngày 30 tháng 6 là Chủ nhật. Ngày 3 tháng 7 là thứ mấy?', answer: 'Tháng 6 có 30 ngày nên sau ngày 30 tháng 6 là ngày 1 tháng 7. Đếm tiếp 3 ngày từ Chủ nhật: thứ Hai, thứ Ba, thứ Tư. Ngày 3 tháng 7 là thứ Tư.' },
+        hook: { md: 'Ngày 30 tháng 6 là Chủ nhật. Ngày 1 tháng 7 là thứ mấy?', answer: 'Tháng 6 có 30 ngày nên ngày tiếp theo là ngày 1 tháng 7, đó là thứ Hai.' },
         needs: ['g2.calendar_month'],
         know: [
             know('Số ngày trong các tháng',
                 text('Một năm có **12 tháng**: từ tháng Một đến tháng Mười Hai.'),
                 table(['Tháng', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], [['Số ngày', '31', '28 hoặc 29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31']]),
-                note('Mẹo nắm tay: đếm các tháng trên đốt xương nhô lên và chỗ lõm giữa hai ngón tay. Tháng rơi vào đốt nhô lên có 31 ngày.'),
+            ),
+            know('Mẹo nắm tay',
+                text('Nắm tay lại. Đốt nhô của ngón trỏ là tháng 1, chỗ lõm bên cạnh là tháng 2, đốt nhô tiếp theo là tháng 3, cứ thế đếm tiếp.'),
+                text('Đến tháng 7 ở đốt ngón út thì quay lại đốt ngón trỏ để đếm tháng 8.'),
+                note('Tháng ở đốt nhô có 31 ngày. Tháng ở chỗ lõm có 30 ngày, riêng tháng 2 có 28 hoặc 29 ngày.'),
             ),
             know('Xem lịch tháng',
                 pic('calendarMonthSVG', 6, 6, 30, 30),
@@ -111,9 +115,9 @@ export default {
                 cue: 'Đề cho thứ của một ngày và hỏi thứ của một ngày khác.',
                 steps: ['Tính số ngày cách nhau (nhớ số ngày của tháng nếu sang tháng mới).', 'Đếm tiếp từng thứ trong tuần.', 'Cách nhau 7 ngày thì cùng thứ.'],
                 example: worked({
-                    layout: 'calc', problem: 'Ngày 25 tháng 6 là thứ Hai. Hỏi ngày 29 tháng 6 là thứ mấy?',
-                    steps: [step('Từ ngày 25 đến ngày 29 cách nhau:', '29 − 25 = 4 (ngày)'), step('Đếm tiếp 4 ngày từ thứ Hai: thứ Ba, thứ Tư, thứ Năm, thứ Sáu.')],
-                    answer: 'Ngày 29 tháng 6 là thứ Sáu.',
+                    layout: 'calc', problem: 'Ngày 28 tháng 6 là thứ Sáu. Hỏi ngày 3 tháng 7 là thứ mấy?',
+                    steps: [step('Tháng 6 có 30 ngày. Từ ngày 28 đến ngày 30 tháng 6 là 2 ngày, thêm 3 ngày nữa đến ngày 3 tháng 7:', '2 + 3 = 5 (ngày)'), step('Đếm tiếp 5 ngày từ thứ Sáu: thứ Bảy, Chủ nhật, thứ Hai, thứ Ba, thứ Tư.')],
+                    answer: 'Ngày 3 tháng 7 là thứ Tư.',
                 }),
             }),
         ],
@@ -159,9 +163,9 @@ export default {
                 cue: 'Đề cho giờ bắt đầu và giờ kết thúc, hỏi kéo dài bao lâu.',
                 steps: ['So sánh số giờ và số phút của hai mốc.', 'Kim dài quay đủ một vòng là 1 giờ; còn lại đếm số phút.'],
                 example: worked({
-                    layout: 'calc', problem: 'Bộ phim bắt đầu lúc 12 giờ 15 phút và kết thúc lúc 13 giờ 15 phút. Bộ phim dài bao lâu?',
-                    steps: [step('Từ 12 giờ 15 phút đến 13 giờ 15 phút, kim dài quay đúng một vòng.'), step('Một vòng của kim dài là 60 phút, tức là 1 giờ.')],
-                    answer: 'Bộ phim dài 1 giờ.',
+                    layout: 'calc', problem: 'Bộ phim bắt đầu lúc 8 giờ 30 phút và kết thúc lúc 9 giờ 45 phút. Bộ phim dài bao lâu?',
+                    steps: [step('Từ 8 giờ 30 phút đến 9 giờ 30 phút là 1 giờ (kim dài quay đúng một vòng).'), step('Từ 9 giờ 30 phút đến 9 giờ 45 phút:', '45 − 30 = 15 (phút)')],
+                    answer: 'Bộ phim dài 1 giờ 15 phút.',
                 }),
             }),
             form({

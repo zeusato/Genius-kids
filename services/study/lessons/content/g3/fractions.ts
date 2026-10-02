@@ -13,7 +13,7 @@ export default {
             know('Một phần mấy',
                 text('Chia hình tròn thành 4 **phần bằng nhau**, tô màu 1 phần: đã tô **1/4** hình, đọc là "một phần tư".'),
                 pic('fractionPieSVG', 1, 4),
-                rule('Chia hình thành mấy phần bằng nhau, lấy 1 phần, ta được "một phần" bấy nhiêu của hình.'),
+                rule('Chia hình thành 4 phần bằng nhau, lấy 1 phần, ta được một phần tư (1/4) của hình.'),
             ),
             know('Kéo để quan sát',
                 widget(explore({
@@ -43,7 +43,7 @@ export default {
                 'Chỉ khi 4 phần **bằng nhau** thì 1 phần mới là 1/4 hình.'),
         ],
         remember: [
-            'Chia hình thành n phần bằng nhau, lấy 1 phần: được một phần n của hình.',
+            'Chia hình thành mấy phần bằng nhau, lấy 1 phần thì được "một phần" mấy của hình.',
             'Các phần phải bằng nhau.',
             '1/2 đọc là "một phần hai", 1/4 đọc là "một phần tư".',
         ],

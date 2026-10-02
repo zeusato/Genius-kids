@@ -21,7 +21,7 @@ export default {
         ],
         forms: [
             form({
-                id: 'trai-sang-phai', title: 'Dạng 1: Chỉ có cộng, trừ', level: 1,
+                id: 'trai-sang-phai', title: 'Dạng 1: Chỉ có cộng, trừ (hoặc chỉ có nhân, chia)', level: 1,
                 cue: 'Biểu thức chỉ có dấu + và −, hoặc chỉ có dấu × và :.',
                 steps: ['Tính phép tính đầu tiên bên trái.', 'Lấy kết quả tính tiếp với số bên phải.', 'Làm đến hết biểu thức.'],
                 example: worked({
@@ -57,7 +57,7 @@ export default {
         ],
         remember: [
             'Chỉ có cộng, trừ (hoặc chỉ có nhân, chia): tính từ trái sang phải.',
-            'Có cả bốn phép tính: nhân, chia trước; cộng, trừ sau.',
+            'Có cộng, trừ và nhân, chia: nhân, chia trước; cộng, trừ sau.',
             'Có dấu ngoặc: tính trong ngoặc trước.',
         ],
     }),

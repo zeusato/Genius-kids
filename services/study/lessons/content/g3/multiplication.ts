@@ -37,7 +37,7 @@ export default {
             form({
                 id: 'tinh', title: 'Dạng 1: Tính theo bảng nhân', level: 1,
                 cue: 'Đề cho phép nhân hai số trong bảng, ví dụ 7 × 9 = ?',
-                steps: ['Thừa số thứ nhất cho biết dùng bảng nhân nào.', 'Tìm dòng có thừa số thứ hai trong bảng đó.', 'Nếu quên, lấy kết quả liền trước rồi cộng thêm.'],
+                steps: ['Thừa số thứ nhất cho biết dùng bảng nhân nào.', 'Tìm dòng có thừa số thứ hai trong bảng đó.', 'Nếu quên, lấy kết quả liền trước rồi cộng thêm thừa số thứ nhất.'],
                 example: worked({
                     layout: 'calc', problem: 'Tính: 7 × 9 = ?',
                     steps: [step('Em nhớ trong bảng nhân 7:', '7 × 8 = 56'), step('7 × 9 là thêm một lần 7 nữa:', '56 + 7 = 63')],
@@ -95,29 +95,29 @@ export default {
         ],
         forms: [
             form({
-                id: 'khong-nho', title: 'Dạng 1: Nhân không nhớ', level: 1,
-                cue: 'Mỗi hàng nhân xong đều bé hơn 10, ví dụ 213 × 3.',
-                steps: ['Đặt tính thẳng cột.', 'Nhân hàng đơn vị, viết kết quả.', 'Nhân hàng chục, rồi hàng trăm.'],
+                id: 'hai-chu-so', title: 'Dạng 1: Nhân số có hai chữ số', level: 1,
+                cue: 'Số có hai chữ số nhân với số có một chữ số, ví dụ 27 × 3.',
+                steps: ['Đặt tính thẳng cột.', 'Nhân hàng đơn vị; được từ 10 trở lên thì viết chữ số đơn vị, nhớ chữ số chục.', 'Nhân hàng chục rồi thêm số nhớ (nếu có).'],
                 example: worked({
-                    layout: 'calc', problem: 'Đặt tính rồi tính: 213 × 3',
-                    steps: [step('3 nhân 3 bằng 9, viết 9.'), step('3 nhân 1 bằng 3, viết 3.'), step('3 nhân 2 bằng 6, viết 6.')],
-                    answer: 'Vậy 213 × 3 = 639.',
-                    replay: { w: 'column', op: '×', a: 213, b: 3 },
+                    layout: 'calc', problem: 'Đặt tính rồi tính: 27 × 3',
+                    steps: [step('3 nhân 7 bằng 21, viết 1 nhớ 2.'), step('3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.')],
+                    answer: 'Vậy 27 × 3 = 81.',
+                    replay: { w: 'column', op: '×', a: 27, b: 3 },
                 }),
             }),
             form({
-                id: 'co-nho', title: 'Dạng 2: Nhân có nhớ', level: 2,
-                cue: 'Có hàng nhân xong được từ 10 trở lên, ví dụ 156 × 4.',
+                id: 'ba-chu-so', title: 'Dạng 2: Nhân số có ba chữ số', level: 2,
+                cue: 'Số có ba chữ số nhân với số có một chữ số, ví dụ 218 × 3.',
                 steps: ['Đặt tính thẳng cột.', 'Nhân hàng đơn vị; từ 10 trở lên thì viết chữ số đơn vị, nhớ chữ số chục.', 'Nhân hàng tiếp theo rồi thêm số nhớ.', 'Hàng cuối cùng viết cả kết quả.'],
                 example: worked({
-                    layout: 'calc', problem: 'Đặt tính rồi tính: 156 × 4',
+                    layout: 'calc', problem: 'Đặt tính rồi tính: 218 × 3',
                     steps: [
-                        step('4 nhân 6 bằng 24, viết 4 nhớ 2.'),
-                        step('4 nhân 5 bằng 20, thêm 2 bằng 22, viết 2 nhớ 2.'),
-                        step('4 nhân 1 bằng 4, thêm 2 bằng 6, viết 6.'),
+                        step('3 nhân 8 bằng 24, viết 4 nhớ 2.'),
+                        step('3 nhân 1 bằng 3, thêm 2 bằng 5, viết 5.'),
+                        step('3 nhân 2 bằng 6, viết 6.'),
                     ],
-                    answer: 'Vậy 156 × 4 = 624.',
-                    replay: { w: 'column', op: '×', a: 156, b: 4 },
+                    answer: 'Vậy 218 × 3 = 654.',
+                    replay: { w: 'column', op: '×', a: 218, b: 3 },
                 }),
             }),
             form({
@@ -182,7 +182,7 @@ export default {
                 steps: ['Tìm số đã biết (số được gấp lên).', 'Lấy số đó nhân với số lần.', 'Viết câu trả lời và đáp số kèm đơn vị.'],
                 example: worked({
                     problem: 'Lan có 3 nhãn vở. Số nhãn vở của Nam gấp 6 lần số nhãn vở của Lan. Hỏi Nam có bao nhiêu nhãn vở?',
-                    visual: vis('segmentDiagramSVG', [{ label: 'Lan', parts: [1], labels: ['3'] }, { label: 'Nam', parts: [1, 1, 1, 1, 1, 1], labels: ['', '', '?', '', '', ''] }]),
+                    visual: vis('segmentDiagramSVG', [{ label: 'Lan', parts: [1], labels: ['3'] }, { label: 'Nam', parts: [1, 1, 1, 1, 1, 1], labels: ['3', '3', '3', '3', '3', '3'] }], 'Nam: ? nhãn vở'),
                     steps: [step('Số nhãn vở của Nam là:', '3 × 6 = 18 (nhãn vở)')],
                     answer: 'Đáp số: 18 nhãn vở.',
                 }),
@@ -200,7 +200,7 @@ export default {
     'g3.mul_2digit': lesson('g3.mul_2digit', {
         v: 1,
         goal: 'nhân được một số với số có hai chữ số bằng cách đặt tính có hai tích riêng.',
-        hook: { md: 'Một hộp có 24 cái bút chì. Hỏi 12 hộp như thế có bao nhiêu cái bút chì?', answer: 'Số bút chì là: 24 × 12 = 288 (cái).' },
+        hook: { md: 'Một hộp có 24 cái bút chì. Hỏi 12 hộp như thế có bao nhiêu cái bút chì?', answer: 'Số bút chì là: 24 × 12 = 288 (cái bút chì).' },
         needs: ['g3.mul_1digit'],
         know: [
             know('Hai tích riêng',

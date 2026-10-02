@@ -6,11 +6,11 @@ export default {
     'g3.word_2step': lesson('g3.word_2step', {
         v: 1,
         goal: 'giải được bài toán có lời văn cần hai bước tính và trình bày bài giải.',
-        hook: { md: 'Mỗi hộp có 4 cái bánh. Minh có 5 hộp và đã cho bạn 6 cái. Minh còn bao nhiêu cái bánh?', answer: 'Minh có: 4 × 5 = 20 (cái). Minh còn: 20 − 6 = 14 (cái bánh).' },
+        hook: { md: 'Mỗi hộp có 4 cái bánh. Minh có 5 hộp và đã cho bạn 6 cái. Minh còn bao nhiêu cái bánh?', answer: 'Minh có: 4 × 5 = 20 (cái bánh). Minh còn: 20 − 6 = 14 (cái bánh).' },
         needs: ['g3.mul_tables', 'g3.div_tables'],
         know: [
             know('Bốn bước giải toán',
-                rule('Đọc kĩ đề, tóm tắt, tìm cái cần tìm trước, rồi trình bày bài giải và thử lại.', '{Đọc đề} → {Tóm tắt} → {Tìm từng bước} → {Đáp số}'),
+                rule('Đọc kĩ đề, tóm tắt, tìm cái chưa biết ở giữa trước, rồi trả lời câu hỏi của bài.', '{Đọc đề} → {Tóm tắt} → {Tìm cái ở giữa} → {Trả lời}'),
                 text('Bài toán hai bước có một **cái chưa biết ở giữa**. Em tìm nó ở bước 1, rồi mới trả lời câu hỏi ở bước 2.'),
             ),
             know('Trình bày bài giải',
@@ -30,14 +30,14 @@ export default {
                 }),
             }),
             form({
-                id: 'gap-roi-cong', title: 'Dạng 2: Gấp lên rồi tính tổng', level: 3,
-                cue: 'Đề có "gấp n lần" rồi hỏi **cả hai** có bao nhiêu.',
-                steps: ['Tìm số gấp lên bằng phép nhân.', 'Cộng hai số để được cả hai.', 'Viết đáp số.'],
+                id: 'roi-tinh-tong', title: 'Dạng 2: Tìm số thứ hai rồi tính cả hai', level: 2,
+                cue: 'Đề cho số thứ nhất, cho biết số thứ hai **nhiều hơn** (hoặc **gấp mấy lần**) số thứ nhất, rồi hỏi **cả hai**.',
+                steps: ['Tìm số thứ hai: "nhiều hơn" thì cộng, "gấp … lần" thì nhân.', 'Cộng hai số để được cả hai.', 'Viết đáp số.'],
                 example: worked({
-                    problem: 'Nam gấp được 7 ngôi sao. Số ngôi sao Bình gấp được gấp 5 lần số ngôi sao của Nam. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?',
-                    visual: vis('segmentDiagramSVG', [{ label: 'Nam', parts: [1], labels: ['7'] }, { label: 'Bình', parts: [1, 1, 1, 1, 1], labels: ['', '', '?', '', ''] }], 'Cả hai: ?'),
-                    steps: [step('Số ngôi sao Bình gấp được là:', '7 × 5 = 35 (ngôi sao)'), step('Cả hai bạn gấp được là:', '7 + 35 = 42 (ngôi sao)')],
-                    answer: 'Đáp số: 42 ngôi sao.',
+                    problem: 'Ngăn trên có 25 quyển sách, ngăn dưới nhiều hơn ngăn trên 8 quyển. Hỏi cả hai ngăn có bao nhiêu quyển sách?',
+                    visual: vis('segmentDiagramSVG', [{ label: 'Ngăn trên', parts: [25], labels: ['25'] }, { label: 'Ngăn dưới', parts: [25, 8], labels: ['', '8'] }], 'Cả hai ngăn: ?'),
+                    steps: [step('Số sách ngăn dưới là:', '25 + 8 = 33 (quyển)'), step('Cả hai ngăn có số sách là:', '25 + 33 = 58 (quyển)')],
+                    answer: 'Đáp số: 58 quyển sách.',
                 }),
             }),
             form({
@@ -69,7 +69,7 @@ export default {
         know: [
             know('Sơ đồ tổng và hiệu',
                 pic('segmentDiagramSVG', [{ label: 'Số bé', parts: [8], labels: ['?'] }, { label: 'Số lớn', parts: [8, 4], labels: ['?', '4'] }], 'Tổng: 20'),
-                text('Bớt phần hơn 4 ở số lớn thì hai số bằng nhau. Khi đó tổng còn 20 − 4 = 16, mỗi số là 16 : 2 = 8.'),
+                text('Bớt phần hơn 4 ở số lớn thì hai số bằng nhau. Khi đó tổng còn 20 − 4 = 16, nên số bé là 16 : 2 = 8, số lớn là 8 + 4 = 12.'),
                 rule('Số lớn bằng tổng cộng hiệu rồi chia cho 2. Số bé bằng tổng trừ hiệu rồi chia cho 2.', 'Số lớn = ({Tổng} + {Hiệu}) : 2'),
             ),
             know('Kéo để quan sát',
@@ -79,7 +79,7 @@ export default {
                         s: { label: 'Số bé', min: 5, max: 30, init: 8 },
                         d: { label: 'Hiệu (số lớn hơn số bé)', min: 1, max: 15, init: 4 },
                     },
-                    visual: v => vis('segmentDiagramSVG', [{ label: 'Số bé', parts: [v.s], labels: [String(v.s)] }, { label: 'Số lớn', parts: [v.s, v.d], labels: [String(v.s + v.d), String(v.d)] }], `Tổng: ${2 * v.s + v.d}`),
+                    visual: v => vis('segmentDiagramSVG', [{ label: 'Số bé', parts: [v.s], labels: [String(v.s)] }, { label: 'Số lớn', parts: [v.s, v.d], labels: [String(v.s), String(v.d)] }], `Tổng: ${2 * v.s + v.d}`),
                     caption: v => `Tổng ${2 * v.s + v.d}, hiệu ${v.d}: số lớn = (${2 * v.s + v.d} + ${v.d}) : 2 = ${v.s + v.d}; số bé = (${2 * v.s + v.d} − ${v.d}) : 2 = ${v.s}.`,
                 })),
             ),

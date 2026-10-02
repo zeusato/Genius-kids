@@ -101,11 +101,11 @@ export default {
                     title: 'Đổi số bóng trong hộp, rồi lấy 1 quả',
                     controls: {
                         r: { label: 'Số bóng đỏ', min: 0, max: 6, init: 3 },
-                        b: { label: 'Số bóng xanh', min: 0, max: 6, init: 0 },
+                        b: { label: 'Số bóng xanh dương', min: 0, max: 6, init: 0 },
                     },
                     valid: v => (v.r + v.b > 0 ? null : 'Hộp cần có ít nhất 1 quả bóng.'),
                     visual: v => vis('bagSVG', [{ color: 'red', n: v.r }, { color: 'blue', n: v.b }]),
-                    caption: v => `Lấy 1 quả bóng: lấy được bóng đỏ là ${word(v.r, v.b)} xảy ra; lấy được bóng xanh là ${word(v.b, v.r)} xảy ra.`,
+                    caption: v => `Lấy 1 quả bóng: lấy được bóng đỏ là ${word(v.r, v.b)} xảy ra; lấy được bóng xanh dương là ${word(v.b, v.r)} xảy ra.`,
                 })),
             ),
         ],
@@ -123,7 +123,7 @@ export default {
             form({
                 id: 'hop-bong', title: 'Dạng 2: Lấy bóng trong hộp', level: 2,
                 cue: 'Đề cho số bóng mỗi màu trong hộp và hỏi khả năng lấy được một màu.',
-                steps: ['Hộp không có màu đó: không thể.', 'Hộp chỉ có màu đó: chắc chắn.', 'Hộp có màu đó và màu khác: có thể.'],
+                steps: ['Hộp không có màu đó: không thể.', 'Mọi quả bóng trong hộp đều có màu đề nêu: chắc chắn.', 'Hộp có màu đó và cả màu khác: có thể.', 'Lấy nhiều quả hơn số bóng trong hộp: không thể.'],
                 example: worked({
                     layout: 'calc', problem: 'Trong hộp có 5 quả bóng vàng và 3 quả bóng đỏ. Sự kiện "lấy 1 quả bóng được bóng đỏ" là chắc chắn, có thể hay không thể?',
                     visual: vis('bagSVG', [{ color: 'yellow', n: 5 }, { color: 'red', n: 3 }]),

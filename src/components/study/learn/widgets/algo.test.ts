@@ -24,3 +24,23 @@ describe('longDivision', () => {
         expect(longDivision(812, 4).steps[1].say).toMatch(/1 bé hơn 4 nên viết 0 vào thương/);
     });
 });
+
+describe('longDivision — số thập phân', () => {
+    it('đặt dấu phẩy vào thương đúng chỗ', () => {
+        const r = longDivision(176.4, 4);
+        expect(r.quotient).toBe(44.1);
+        expect(r.steps.map(s => s.say).join(' ')).toMatch(/Viết dấu phẩy vào bên phải 44 ở thương\. Hạ 4/);
+        expect(longDivision(2337, 57).quotient).toBe(41);
+        expect(longDivision(8.4, 6).quotient).toBe(1.4);
+    });
+    it('thương × số chia + số dư = số bị chia', () => {
+        let seed = 3;
+        const rnd = (n: number) => { seed = (seed * 16807) % 2147483647; return seed % n; };
+        for (let k = 0; k < 1000; k++) {
+            const b = rnd(9) + 1, q = (rnd(99999) + 1) / [1, 10, 100][rnd(3)];
+            const a = Math.round(q * b * 1000) / 1000;
+            const r = longDivision(a, b);
+            expect(Math.abs(r.quotient * b + r.remainder - a), `${a}:${b}`).toBeLessThan(1e-6);
+        }
+    });
+});

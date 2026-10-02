@@ -6,7 +6,7 @@ export default {
     'g3.numbers10000': lesson('g3.numbers10000', {
         v: 1,
         goal: 'đọc, viết và phân tích được các số có bốn chữ số.',
-        hook: { md: 'Thư viện có 2 nghìn, 4 trăm, 5 chục và 7 quyển sách. Em viết số sách đó thế nào?', answer: 'Số đó là 2457, đọc là "hai nghìn bốn trăm năm mươi bảy".' },
+        hook: { md: 'Một số gồm 2 nghìn, 4 trăm, 5 chục và 7 đơn vị. Em viết số đó thế nào?', answer: 'Số đó là 2457, đọc là "hai nghìn bốn trăm năm mươi bảy".' },
         know: [
             know('Hàng nghìn, trăm, chục, đơn vị',
                 text('Số 2457 gồm 2 nghìn, 4 trăm, 5 chục và 7 đơn vị.'),
@@ -19,7 +19,7 @@ export default {
                     ['3450', 'ba nghìn bốn trăm năm mươi'],
                     ['3005', 'ba nghìn không trăm linh năm'],
                 ]),
-                note('Hàng chục là 0 thì đọc "linh"; hàng trăm là 0 thì đọc "không trăm".'),
+                note('Hàng chục là 0 mà hàng đơn vị khác 0 thì đọc "linh"; hàng trăm là 0 mà hàng chục hoặc hàng đơn vị khác 0 thì đọc "không trăm".'),
             ),
         ],
         forms: [
@@ -51,7 +51,7 @@ export default {
         remember: [
             'Số có bốn chữ số gồm các hàng: nghìn, trăm, chục, đơn vị.',
             'Hàng nào không có thì viết chữ số 0.',
-            'Chục là 0 đọc "linh"; trăm là 0 đọc "không trăm".',
+            'Chục là 0 (đơn vị khác 0) đọc "linh"; trăm là 0 (sau nó còn chữ số khác 0) đọc "không trăm".',
         ],
     }),
     'g3.numbers100000': lesson('g3.numbers100000', {
@@ -86,9 +86,9 @@ export default {
                 }),
             }),
             form({
-                id: 'tong', title: 'Dạng 2: Viết số thành tổng', level: 2,
-                cue: 'Đề yêu cầu viết số thành tổng các chục nghìn, nghìn, trăm, chục, đơn vị.',
-                steps: ['Tách số theo từng hàng.', 'Viết giá trị của từng chữ số.', 'Nối bằng dấu cộng.'],
+                id: 'tong', title: 'Dạng 2: Hàng của chữ số, viết số thành tổng', level: 2,
+                cue: 'Đề hỏi chữ số thuộc hàng nào, hoặc yêu cầu viết số thành tổng các chục nghìn, nghìn, trăm, chục, đơn vị.',
+                steps: ['Đếm hàng từ phải sang trái: đơn vị, chục, trăm, nghìn, chục nghìn.', 'Viết giá trị của từng chữ số.', 'Nối bằng dấu cộng.'],
                 example: worked({
                     layout: 'calc', problem: 'Viết số 65 724 thành tổng.',
                     steps: [step('65 724 gồm 6 chục nghìn, 5 nghìn, 7 trăm, 2 chục và 4 đơn vị.'), step('Viết thành tổng:', '65 724 = 60 000 + 5000 + 700 + 20 + 4')],
@@ -169,7 +169,7 @@ export default {
                         u: { label: 'Chữ số hàng đơn vị', min: 0, max: 9, init: 7 },
                     },
                     visual: v => vis('numberLineSVG', 10 * v.t, 10 * v.t + 10, 1, [10 * v.t + v.u]),
-                    caption: v => `${10 * v.t + v.u} nằm giữa ${10 * v.t} và ${10 * v.t + 10}. Chữ số hàng đơn vị là ${v.u}, ${v.u < 5 ? 'bé hơn 5 nên làm tròn xuống' : 'từ 5 trở lên nên làm tròn lên'}: được ${v.u < 5 ? 10 * v.t : 10 * v.t + 10}.`,
+                    caption: v => v.u === 0 ? `${10 * v.t} là số tròn chục, làm tròn đến hàng chục vẫn được ${10 * v.t}.` : `${10 * v.t + v.u} nằm giữa ${10 * v.t} và ${10 * v.t + 10}. Chữ số hàng đơn vị là ${v.u}, ${v.u < 5 ? 'bé hơn 5 nên làm tròn xuống' : 'từ 5 trở lên nên làm tròn lên'}: được ${v.u < 5 ? 10 * v.t : 10 * v.t + 10}.`,
                 })),
             ),
             know('Một số ví dụ',
@@ -216,7 +216,7 @@ export default {
     'g3.roman': lesson('g3.roman', {
         v: 1,
         goal: 'đọc và viết được các số từ 1 đến 20 bằng chữ số La Mã.',
-        hook: { md: 'Mặt đồng hồ ở nhà ga ghi các số I, II, III, … Số XII trên đồng hồ là số mấy?', answer: 'XII là 12: X là 10, II là 2.' },
+        hook: { md: 'Có mặt đồng hồ ghi các số bằng chữ số La Mã: I, II, III, … Số XII là số mấy?', answer: 'XII là 12: X là 10, II là 2.' },
         know: [
             know('Ba chữ số La Mã I, V, X',
                 table(['Chữ số La Mã', 'I', 'V', 'X'], [['Giá trị', '1', '5', '10']]),

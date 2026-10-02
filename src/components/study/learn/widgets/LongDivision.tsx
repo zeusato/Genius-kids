@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from 'react';
 import { ChevronRight, RotateCcw } from 'lucide-react';
 import type { DivisionSpec } from '@/services/study/lessons/types';
-import { divisionSummary, longDivision } from './algo';
+import { divisionSummary, longDivision, quotientText } from './algo';
 import { SpeakButton } from '@/src/components/shared/SpeakButton';
 import { questionToSpeech } from '@/src/utils/questionSpeech';
 
@@ -13,6 +13,7 @@ export function LongDivision({ spec, step }: { spec: DivisionSpec; step?: number
     const controlled = step !== undefined;
     const k = controlled ? Math.min(step, r.steps.length) : own;
     const n = r.digits.length;
+    const hasDec = r.intLen < n;
     const rows: { text: string; end: number }[] = [];
     for (let j = 0; j < k; j++) {
         const s = r.steps[j];
@@ -21,21 +22,22 @@ export function LongDivision({ spec, step }: { spec: DivisionSpec; step?: number
     }
     const curStep = k > 0 ? r.steps[k - 1] : null;
     const hi = (col: number) => !!curStep && (col === curStep.at || (k === 1 && col <= curStep.at));
-    const cells = (text: string, end: number, cls = '') => Array.from({ length: n }, (_, c) => {
+    const comma = (c: number, show: boolean) => (hasDec && c === r.intLen - 1 ? <span className="ld-comma">{show ? ',' : ''}</span> : null);
+    const cells = (text: string, end: number) => Array.from({ length: n }, (_, c) => {
         const off = end - c, ch = off >= 0 && off < text.length ? text[text.length - 1 - off] : '';
-        return <span key={c} className={`ld-cell ${cls}`}>{ch}</span>;
+        return <React.Fragment key={c}><span className="ld-cell">{ch}</span>{comma(c, false)}</React.Fragment>;
     });
     const done = k >= r.steps.length;
     return (
         <div className="learn-widget ld">
-            <div className="ld-board" aria-label={`Đặt tính ${spec.a} chia ${spec.b}`}>
+            <div className="ld-board" aria-label={`Đặt tính ${String(spec.a).replace('.', ',')} chia ${spec.b}`}>
                 <div className="ld-left">
-                    <div className="ld-row">{r.digits.map((d, c) => <span key={c} className={`ld-cell${hi(c) ? ' hi' : ''}`}>{d}</span>)}</div>
+                    <div className="ld-row">{r.digits.map((d, c) => <React.Fragment key={c}><span className={`ld-cell${hi(c) ? ' hi' : ''}`}>{d}</span>{comma(c, true)}</React.Fragment>)}</div>
                     {rows.map((row, i) => <div key={i} className={`ld-row${i === rows.length - 1 ? ' last' : ''}`}>{cells(row.text, row.end)}</div>)}
                 </div>
                 <div className="ld-right">
                     <div className="ld-divisor">{spec.b}</div>
-                    <div className="ld-quot">{r.steps.slice(0, k).map(s => s.q).join('') || ' '}</div>
+                    <div className="ld-quot">{quotientText(r, k) || ' '}</div>
                 </div>
             </div>
             {!controlled && <><div className="ld-say" aria-live="polite">
