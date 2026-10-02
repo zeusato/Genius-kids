@@ -44,16 +44,16 @@ export function Round({ initial, riddles, autoRead, showVi, onExit, onFinish, on
 
     const read = useCallback(() => {
         setMood('read');
-        voice.say(lines.map(text => ({ text, lang })), () => { setMood('idle'); dispatch({ type: 'ready' }); });
+        voice.say(lines.map(text => ({ text, lang })), () => setMood(m => (m === 'read' ? 'idle' : m)));
     }, [lines, lang, voice]);
 
-    // Bắt đầu mỗi câu: đọc to (nếu bật) rồi mở phần trả lời.
+    // Bắt đầu mỗi câu: mở phần trả lời ngay, Nhân Sư vẫn đọc to song song (bé không phải chờ đọc xong).
     useEffect(() => {
         if (s.phase !== 'reading') return;
         setBubble(riddle.lang === 'en' ? 'Nghe câu đố tiếng Anh nhé…' : 'Nghe ta đọc câu đố nhé…');
         setTranslate(showVi);
-        if (autoRead) read();
-        else { setMood('idle'); dispatch({ type: 'ready' }); }
+        if (autoRead) read(); else setMood('idle');
+        dispatch({ type: 'ready' });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [s.index, s.phase === 'reading']);
     useEffect(() => { if (s.phase === 'answering' && !voice.speaking) setBubble(b => (b.startsWith('Nghe') ? pick(LINES.invite, riddle.id) : b)); }, [s.phase, voice.speaking, riddle.id]);
@@ -127,7 +127,7 @@ export function Round({ initial, riddles, autoRead, showVi, onExit, onFinish, on
                             {riddle.vi && <button className={`rd-btn rd-btn-ghost${translate ? ' is-on' : ''}`} onClick={() => setTranslate(t => !t)} aria-pressed={translate}><Languages size={18} />Dịch</button>}
                         </div>
                         <blockquote className={`rd-riddle${lines.length > 1 ? ' is-poem' : ''}${riddle.lang === 'en' ? ' is-en' : ''}`} lang={riddle.lang}>
-                            {lines.map((l, i) => <p key={i} className={voice.line === i && s.phase === 'reading' ? 'is-reading' : ''}>{feedback ? markLine(l, riddle) : l}</p>)}
+                            {lines.map((l, i) => <p key={i} className={voice.line === i && voice.speaking && mood === 'read' && !feedback ? 'is-reading' : ''}>{feedback ? markLine(l, riddle) : l}</p>)}
                         </blockquote>
                         {translate && riddle.vi && <p className="rd-translate">{riddle.vi}</p>}
 
@@ -151,7 +151,6 @@ export function Round({ initial, riddles, autoRead, showVi, onExit, onFinish, on
                                 {item.mode === 'choice' && <ChoiceInput riddle={riddle} seed={s.id + item.id} wrong={item.wrong} disabled={!answering} onSubmit={submit} onSpeak={say} />}
                                 {item.mode === 'tiles' && <TilesInput riddle={riddle} seed={s.id + item.id} wrong={item.wrong} disabled={!answering} onSubmit={submit} onSpeak={say} wrongCount={wrongTick} />}
                                 {item.mode === 'type' && <TypeInput riddle={riddle} seed={s.id} wrong={item.wrong} disabled={!answering} onSubmit={submit} onSpeak={say} resetKey={wrongTick} />}
-                                {!answering && <button className="rd-skip-read" onClick={() => { voice.stop(); setMood('idle'); dispatch({ type: 'ready' }); }}>Bỏ qua phần đọc</button>}
                             </div>
                         )}
                     </div>
