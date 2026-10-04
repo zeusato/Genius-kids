@@ -1,0 +1,128 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "created": "2026-10-04",
+  "style": "Use case: stylized-concept. Asset type: square profile avatar for Genius Kids, a warm discovery and learning app for children ages 4–11. Create ONE premium handmade 3D clay character portrait. Soft matte polymer clay, subtle crafted surface, beautifully rounded sculptural shapes, gentle studio lighting from upper left, tiny warm cheek blush, dark cocoa bead eyes with small catchlights, appealing subtle smile. Color palette: muted sage, warm cream, terracotta, soft apricot; natural character colors. Head and upper shoulders only, symmetrical front-facing pose, face large and easily legible at 48 pixels, centered on an entirely flat pale cream #f5f1e5 background. The complete head including ears or accessories stays inside the central 78% of the square, upper shoulders end near 88% height, generous clear margin on all sides suitable for circle cropping. High-end collectible storybook toy aesthetic, friendly and curious, understated details. No text, letters, logos, watermark, border, frame, collage, multiple characters, emoji look, plastic shine, scene, ground or props. Square 1024x1024. Subject: ",
+  "format": "384 × 384 WebP; quality 88; no cropping or retouching",
+  "subjects": [
+    {
+      "id": "avatar_01",
+      "file": "avatar_01.webp",
+      "promptSuffix": "A caramel puppy with soft floppy ears, a warm cream muzzle, small round dark nose, and a tiny sage neckerchief. The puppy is a curious little explorer. Keep its head filling the same central portrait area described above.",
+      "source": "exec-05d3799a-47e0-4ea6-8b7a-e05b8f583888.png"
+    },
+    {
+      "id": "avatar_02",
+      "file": "avatar_02.webp",
+      "promptSuffix": "A little ginger kitten with cream cheeks, small triangular ears, three subtle forehead stripes, a tiny terracotta nose, and a sage neckerchief. Curious gentle expression.",
+      "source": "exec-e5562fd9-1ee9-44b2-9fc5-c73fde251715.png"
+    },
+    {
+      "id": "avatar_03",
+      "file": "avatar_03.webp",
+      "promptSuffix": "A baby panda with cream face, cocoa-black round ears and eye patches, and a tiny sage neckerchief. Soft round cheeks and a gentle curious expression.",
+      "source": "exec-25b70f4a-d247-41f3-b04d-0311017e5b5a.png"
+    },
+    {
+      "id": "avatar_04",
+      "file": "avatar_04.webp",
+      "promptSuffix": "A cream bunny with upright rounded ears with blush pink inner ears, small terracotta nose, and a tiny sage neckerchief. Keep the entire ears within the square with ample clear margin.",
+      "source": "exec-2491af77-5fec-49e9-b4fd-e7fd1c919e18.png"
+    },
+    {
+      "id": "avatar_05",
+      "file": "avatar_05.webp",
+      "promptSuffix": "A cinnamon brown baby bear with small round ears, a cream muzzle and a tiny sage neckerchief. Soft rounded face, gentle curious smile.",
+      "source": "exec-f46e0ca5-dc23-467b-b13a-bf1d687997d6.png"
+    },
+    {
+      "id": "avatar_06",
+      "file": "avatar_06.webp",
+      "promptSuffix": "A young russet fox with pointed rounded ears, warm cream cheek tufts and muzzle, a small cocoa nose, and a tiny sage neckerchief. A friendly clever little explorer, not sly.",
+      "source": "exec-03aab1a2-4c39-4a48-b331-811e591f58b9.png"
+    },
+    {
+      "id": "avatar_07",
+      "file": "avatar_07.webp",
+      "promptSuffix": "A baby lion with a round cinnamon mane of softly sculpted rounded tufts, golden apricot face, small round ears, cream muzzle, and a tiny sage neckerchief.",
+      "source": "exec-6b632088-dd78-49ad-924b-e87bb24759e6.png"
+    },
+    {
+      "id": "avatar_08",
+      "file": "avatar_08.webp",
+      "promptSuffix": "A baby penguin with charcoal blue head, cream face and chest, a short apricot beak, and a tiny sage neckerchief. Big gentle curious eyes, rounded silhouette.",
+      "source": "exec-49844bd8-4d75-476a-986c-8703ec4e015e.png"
+    },
+    {
+      "id": "avatar_09",
+      "file": "avatar_09.webp",
+      "promptSuffix": "A baby koala with warm soft grey head, large rounded fluffy ears, a cocoa oval nose, cream inner ears, and a tiny sage neckerchief.",
+      "source": "exec-525c1c53-5ef6-46ac-b04b-17278647897f.png"
+    },
+    {
+      "id": "avatar_10",
+      "file": "avatar_10.webp",
+      "promptSuffix": "A little owl with warm cocoa feathers, cream heart-shaped facial disk, small apricot beak and subtle ear tufts, and a tiny sage neckerchief. Wise but childlike, no glasses.",
+      "source": "exec-6da211fc-9b5f-426e-bbff-855629ded66c.png"
+    },
+    {
+      "id": "avatar_11",
+      "file": "avatar_11.webp",
+      "promptSuffix": "A baby monkey with warm brown fur, soft cream round face, wide round ears, a little curled forehead tuft, and a tiny sage neckerchief. Cheerful closed-mouth smile.",
+      "source": "exec-811a7cb2-726c-4040-bd10-f183937ca29c.png"
+    },
+    {
+      "id": "avatar_12",
+      "file": "avatar_12.webp",
+      "promptSuffix": "A little sage green frog with cream throat, rounded raised eyes, apricot cheek blush, and a small terracotta neckerchief. Round toy-like head, happy gentle closed smile.",
+      "source": "exec-f4ab2dd9-335a-47e9-bc8b-74c39ea10f97.png"
+    },
+    {
+      "id": "avatar_13",
+      "file": "avatar_13.webp",
+      "promptSuffix": "A baby piglet with muted dusty rose pink skin, small floppy triangular ears, round soft terracotta pink snout, and a tiny sage neckerchief. Warm friendly expression.",
+      "source": "exec-d1a218f6-7ffc-433e-ba59-b222164a8236.png"
+    },
+    {
+      "id": "avatar_14",
+      "file": "avatar_14.webp",
+      "promptSuffix": "A baby elephant with warm muted blue-grey head, large rounded ears with soft pink centers, a short curled trunk pointing down, no tusks, and a tiny sage neckerchief. Keep ears comfortably within the square.",
+      "source": "exec-006c2ee0-d681-479f-99e9-3e574556ba85.png"
+    },
+    {
+      "id": "avatar_15",
+      "file": "avatar_15.webp",
+      "promptSuffix": "A cream baby unicorn with small rounded ears, a single short matte golden horn, a softly sculpted pastel apricot and dusty rose forelock, and a tiny sage neckerchief. Front facing large round gentle face.",
+      "source": "exec-43e962f4-db6b-49ac-b3c0-c44738425f57.png"
+    },
+    {
+      "id": "avatar_16",
+      "file": "avatar_16.webp",
+      "promptSuffix": "A baby sage-green dragon with little rounded golden horns, tiny rounded terracotta head spikes, cream muzzle, friendly dark eyes, and a small terracotta neckerchief. No sharp teeth, no wings in frame. Adorable soft rounded head.",
+      "source": "exec-57d2b22a-27a9-4428-84f7-e62d1968a6c0.png"
+    },
+    {
+      "id": "avatar_17",
+      "file": "avatar_17.webp",
+      "promptSuffix": "A small friendly vintage robot with a rounded cream ceramic head, sage side ear knobs, two dark cocoa round eye lenses, tiny carved smile, small muted gold antenna, and a sage neckerchief on its upper body. Warm handmade clay toy, not shiny metal.",
+      "source": "exec-361e0a5d-4c17-4a4a-a3f6-c74ec03c6ae3.png"
+    },
+    {
+      "id": "avatar_18",
+      "file": "avatar_18.webp",
+      "promptSuffix": "A friendly little alien explorer with a soft sage green pear-shaped head, two short rounded antennae, large gentle dark cocoa eyes, tiny nose and closed smile, and a small terracotta neckerchief. Cute approachable childlike face, no scary science fiction details.",
+      "source": "exec-0e786793-f6b1-4306-9316-bb107558d2b0.png"
+    },
+    {
+      "id": "avatar_19",
+      "file": "avatar_19.webp",
+      "promptSuffix": "A smiling apricot starfish character, softly rounded five-arm star silhouette, two large friendly cocoa eyes centered in its face and tiny smile with cheek blush. A few subtly embossed freckles and a tiny sage scarf tied under the face. All five arms entirely visible inside central 78% of square. The star itself is the single character; no human body.",
+      "source": "exec-84bd597c-645a-4c77-8994-215e5b14b4ca.png"
+    },
+    {
+      "id": "avatar_20",
+      "file": "avatar_20.webp",
+      "promptSuffix": "A friendly little cream cloud character with a compact arch rainbow above its head. The rainbow has muted terracotta, apricot, butter yellow, sage and dusty teal clay bands. Two large gentle cocoa eyes and a tiny smile centered on the rounded cloud face, peach cheek blush and a tiny sage scarf under the face. Single cohesive character, complete rainbow arch fits within central 78% of square. No human body, no scene.",
+      "source": "exec-921939d0-1b39-48a1-88c9-350662f1672d.png"
+    }
+  ]
+}

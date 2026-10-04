@@ -61,14 +61,14 @@ export default defineConfig(({ mode }) => {
         includeAssets: [],
         includeManifestIcons: false,
         manifest: {
-          name: 'MathGenius Kids',
-          short_name: 'MathGenius',
-          description: 'Ứng dụng học toán vui nhộn cho bé',
-          theme_color: '#0ea5e9',
+          name: 'Genius Kids',
+          short_name: 'Genius Kids',
+          description: 'Học, chơi và khám phá mỗi ngày: toán học, tiếng Anh, khoa học, âm nhạc và trò chơi.',
+          theme_color: '#faf8f0',
           start_url: './',
           scope: './',
           display: 'standalone',
-          background_color: '#000000',
+          background_color: '#faf8f0',
           icons: [
             {
               src: 'Logo.png',

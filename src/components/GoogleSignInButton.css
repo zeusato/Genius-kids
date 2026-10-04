@@ -7,7 +7,7 @@
     font-display: swap;
 }
 
-.google-sign-in {
+.google-sign-in, .discovery-hub .google-sign-in {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -35,6 +35,6 @@
 
 .google-sign-in:hover:not(:disabled) { background-color: #f8faff; box-shadow: 0 1px 2px #3c40434d; }
 .google-sign-in:active:not(:disabled) { background-color: #eef3fe; }
-.google-sign-in:focus-visible { outline: 2px solid #1a73e8; outline-offset: 3px; }
+.google-sign-in:focus-visible, .discovery-hub .google-sign-in:focus-visible { outline: 2px solid #1a73e8; outline-offset: 3px; }
 .google-sign-in:disabled { cursor: default; opacity: 0.6; }
 @media (prefers-reduced-motion: reduce) { .google-sign-in { transition: none; } }

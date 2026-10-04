@@ -1,0 +1,19 @@
+.account-panel { min-width: 0; padding: 23px; border: 1px solid var(--hub-line, #dfe3d4); border-radius: 22px; background: #f2f0e5; color: var(--hub-ink, #244d45); }
+.account-panel-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #e4e8d8; color: var(--hub-accent, #337760); margin-bottom: 13px; }
+.account-panel-heading h2 { font-size: 18px; line-height: 1.35; font-weight: 900; letter-spacing: -.3px; }
+.account-panel-heading p { font-size: 12px; line-height: 1.7; margin-top: 8px; color: var(--hub-muted, #60776c); overflow-wrap: anywhere; }
+.account-panel-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 17px; }
+.account-panel-actions:empty { display: none; }
+.account-panel .account-panel-local { display: flex; align-items: flex-start; gap: 8px; margin-top: 19px; padding-top: 15px; border-top: 1px solid #dedfce; font-size: 11px; line-height: 1.75; color: var(--hub-muted, #60776c); }
+.account-panel-local svg { margin-top: 3px; flex-shrink: 0; }
+.discovery-hub .account-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 9px 12px; border: 1px solid #b9c5b0; border-radius: 10px; background: transparent; font-size: 12px; line-height: 1.5; font-weight: 800; }
+.account-button:hover:not(:disabled) { background: #e4e8d8; }
+.account-sync { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; font-size: 12px; line-height: 1.7; margin-top: 16px; }
+.account-panel .account-panel-detail { color: var(--hub-muted, #60776c); font-size: 11px; line-height: 1.75; margin-top: 16px; }
+.discovery-hub .account-backup { min-height: 44px; background: none; border: none; padding: 10px 0; text-decoration: underline; text-underline-offset: 3px; font-size: 12px; }
+.account-callout { background: #e6eddf; border: 1px solid #cdd9c4; padding: 14px; margin-top: 14px; border-radius: 12px; font-size: 12px; line-height: 1.7; }
+.account-callout>p { margin-bottom: 10px; }
+.account-conflict { background: #fff3d9; border-color: #e5d0a8; }
+.account-conflict-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.account-panel .account-error { font-size: 12px; line-height: 1.65; color: #8b3d24; overflow-wrap: anywhere; margin-top: 14px; }
+@media (max-width: 760px) { .account-panel { padding: 22px; } }
