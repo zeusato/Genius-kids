@@ -10,6 +10,7 @@ import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
 import { MusicControls } from '@/src/components/MusicControls';
 import { AIAgentSettingsModal } from '@/src/components/AIAgentSettingsModal';
+import { AccountPanel } from '@/src/components/AccountPanel';
 
 interface HomePageProps {
     onInstallClick?: () => void;
@@ -148,6 +149,8 @@ export function HomePage({ onInstallClick, canInstall, onUpdateClick }: HomePage
                 </h1>
                 <p className="text-xl text-slate-500">Học toán thật vui!</p>
             </div>
+
+            <AccountPanel />
 
             {!isCreating ? (
                 <div className="w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-6">
