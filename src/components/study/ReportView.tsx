@@ -4,6 +4,8 @@ import { CheckCircle2, Flame, Printer, RotateCcw, Target, Trophy } from 'lucide-
 import { Grade, StudentProfile } from '@/types';
 import { getTopicsByGrade } from '@/services/mathEngine';
 import { skillsWithContent } from '@/services/study/registry';
+import { hasLesson } from '@/services/study/lessons/manifest';
+import { lessonStatus, readLearn } from '@/services/study/lessons/progress';
 import { SKILLS, SKILL_MAP, STRAND_LABEL, topicMeta } from '@/services/study/catalog';
 import { DAY, STATUS_LABEL, dueReviews, liveStreak, localDay, skillStatus, topicMastery } from '@/services/study/progress';
 import type { StudyProgress } from '@/services/study/types';
@@ -13,8 +15,9 @@ import './study.css';
 const MODE: Record<string, string> = { practice: 'Luyện tập', test: 'Kiểm tra', daily: 'Ôn hôm nay', review: 'Ôn câu sai', matrix: 'Đề tổng hợp' };
 const WEEKDAY = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
 
-export function ReportView({ student, progress, onPractice }: { student: StudentProfile; progress: StudyProgress; onPractice: (skillId: string) => void }) {
+export function ReportView({ student, progress, onPractice, onLearn }: { student: StudentProfile; progress: StudyProgress; onPractice: (skillId: string) => void; onLearn?: (skillId: string) => void }) {
     const now = new Date();
+    const learn = readLearn(student.learn);
     const days = Array.from({ length: 14 }, (_, i) => {
         const d = new Date(now.getTime() - (13 - i) * DAY);
         return { d, key: localDay(d), ...(progress.days[localDay(d)] ?? { n: 0, c: 0 }) };
@@ -49,7 +52,7 @@ export function ReportView({ student, progress, onPractice }: { student: Student
             </section>
             <section className="study-panel">
                 <h2>Cần luyện thêm</h2>
-                {weak.length ? weak.map(s => <div key={s.id} className="study-report-row"><span>{s.title}<small>{Math.round(progress.skills[s.id].m * 100)}% thành thạo</small></span><button className="study-btn soft study-no-print" onClick={() => onPractice(s.id)}>Luyện ngay</button></div>) : <p>Hoàn thành một phiên luyện tập để xem gợi ý kỹ năng tiếp theo.</p>}
+                {weak.length ? weak.map(s => <div key={s.id} className="study-report-row"><span>{s.title}<small>{Math.round(progress.skills[s.id].m * 100)}% thành thạo</small></span><span className="learn-report-actions">{onLearn && hasLesson(s.id) && <button className="study-btn ghost study-no-print" onClick={() => onLearn(s.id)}>Học lại</button>}<button className="study-btn soft study-no-print" onClick={() => onPractice(s.id)}>Luyện ngay</button></span></div>) : <p>Hoàn thành một phiên luyện tập để xem gợi ý kỹ năng tiếp theo.</p>}
             </section>
             <section className="study-panel">
                 <details><summary>Đã thành thạo: {mastered.length} kỹ năng</summary><ul className="study-mastered-list">{mastered.map(s => <li key={s.id}>{s.title}</li>)}</ul></details>
@@ -76,7 +79,7 @@ export function ReportView({ student, progress, onPractice }: { student: Student
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                     {topics.map(t => {
                         const skills = skillsWithContent(t.id, true);
-                        const started = skills.filter(s => progress.skills[s.id]?.a);
+                        const started = skills.filter(s => progress.skills[s.id]?.a || (hasLesson(s.id) && lessonStatus(learn.lessons[s.id]) === 'done'));
                         return (
                             <div key={t.id} style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 14, alignItems: 'start' }}>
                                 <Ring value={topicMastery(progress, skills)} />
@@ -85,8 +88,8 @@ export function ReportView({ student, progress, onPractice }: { student: Student
                                     {started.length ? (
                                         <table className="study-skilltable" style={{ marginTop: 6 }}><tbody>
                                             {started.map(s => {
-                                                const ss = progress.skills[s.id];
-                                                return <tr key={s.id}><td>{s.title}</td><td>{STATUS_LABEL[skillStatus(ss)]} · {ss.c}/{ss.a}</td><td style={{ width: 150 }}><div className="bar"><i style={{ width: `${ss.m * 100}%` }} /></div></td></tr>;
+                                                const ss = progress.skills[s.id] ?? { a: 0, c: 0, m: 0, lvl: s.levels[0], last: "" };
+                                                return <tr key={s.id}><td>{s.title}{hasLesson(s.id) && lessonStatus(learn.lessons[s.id]) === 'done' && <small className="study-skill-score">Đã học bài ✓</small>}</td><td>{STATUS_LABEL[skillStatus(ss)]} · {ss.c}/{ss.a}</td><td style={{ width: 150 }}><div className="bar"><i style={{ width: `${ss.m * 100}%` }} /></div></td></tr>;
                                             })}
                                         </tbody></table>
                                     ) : <p style={{ fontSize: 13, color: 'var(--hub-muted)', marginTop: 2 }}>Chưa luyện · {skills.length} kỹ năng</p>}

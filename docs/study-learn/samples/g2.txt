@@ -1,0 +1,157 @@
+
+### g2_add_sub_no_carry
+ [input g2.addsub100_nc M2] Điền số: 22 + ? = 34
+    ✔ "12"
+    💡 34 - 22 = 12, nên số cần điền là 12. | gợi ý: Muốn tìm số hạng, lấy tổng trừ số hạng kia.
+ [single g2.addsub100_nc M1] 58 + 21 = ?
+    78  |  69  |  97  |  79
+    ✔ "79"
+    💡 Tính hàng đơn vị rồi hàng chục: 58 + 21 = 79. | 8 cộng 1 bằng 9, viết 9 → 5 cộng 2 bằng 7, viết 7 → Vậy 58 + 21 = 79 | gợi ý: Cộng (trừ) đơn vị với đơn vị, chục với chục.
+
+### g2_add_sub_carry
+ [single g2.addsub100_c M2] 68 + 17 = ?
+    75  |  86  |  95  |  85
+    ✔ "85"
+    💡 Đặt tính thẳng cột, tính từ hàng đơn vị, nhớ (mượn) 1 khi cần: 68 + 17 = 85. | 8 cộng 7 bằng 15, viết 5 nhớ 1 → 6 cộng 1 bằng 7, thêm 1 bằng 8, viết 8 → Vậy 68 + 17 = 85 | gợi ý: Đừng quên số nhớ ở hàng chục.
+ [single g2.chain M2] Tính: 35 - 27 + 8 = ?
+    8  |  17  |  15  |  16
+    ✔ "16"
+    💡 Tính từ trái sang phải: 35 - 27 = 8; 8 + 8 = 16. | 35 - 27 = 8 → 8 + 8 = 16 | gợi ý: Tính lần lượt từ trái sang phải.
+
+### g2_arithmetic_advanced
+ [single g2.compare_expr M2] Điền dấu >, <, =: 41 + 11 ... 53
+    >  |  <  |  =
+    ✔ "<"
+    💡 41 + 11 = 52, mà 52 < 53. | gợi ý: Tính giá trị phép tính trước rồi mới so sánh.
+ [input g2.missing M2] Tìm số bị trừ: ? - 10 = 23
+    ✔ "33"
+    💡 Muốn tìm số bị trừ, lấy hiệu cộng với số trừ: 23 + 10 = 33. | gợi ý: Muốn tìm số bị trừ, lấy hiệu cộng với số trừ.
+
+### g2_units_measure
+ [single g2.length M2] Chiều dài bảng lớp học khoảng bao nhiêu?
+    3 km  |  3 cm  |  3 m
+    ✔ "3 m"
+    💡 Chiều dài bảng lớp học khoảng 3 m. | gợi ý: Hãy tưởng tượng vật thật: dùng cm, dm, m hay km cho hợp lí?
+ [single g2.kg M1 🖼] Vật nào nhẹ hơn?
+    Quả dứa  |  Gấu bông
+    ✔ "Quả dứa"
+    💡 Đĩa cân bên nào thấp xuống thì vật bên đó nặng hơn.
+
+### g2_time_calendar
+ [single g2.calendar_month M2 🖼] Ngày 13 tháng 9 là thứ Năm. Thứ Năm tuần sau là ngày bao nhiêu?
+    Ngày 20  |  Ngày 30  |  Ngày 27  |  Ngày 21
+    ✔ "Ngày 20"
+    💡 Một tuần có 7 ngày: 13 + 7 = 20. | gợi ý: Cùng một thứ ở tuần sau thì cộng thêm 7 ngày.
+ [single g2.hours_day M1] 17 giờ còn gọi là mấy giờ?
+    7 giờ chiều  |  5 giờ sáng  |  6 giờ chiều  |  5 giờ chiều
+    ✔ "5 giờ chiều"
+    💡 Sau 12 giờ trưa, ta bớt 12: 17 - 12 = 5, nên 17 giờ là 5 giờ chiều.
+
+### g2_geometry_basic
+ [single g2.quadrilateral M2 🖼] Có bao nhiêu hình tứ giác?
+    3  |  1  |  0  |  2
+    ✔ "2"
+    💡 Hình vuông, hình chữ nhật cũng là hình tứ giác vì có 4 cạnh. | gợi ý: Đếm các hình có đúng 4 cạnh.
+ [single g2.polyline M1 🖼] Tính độ dài đường gấp khúc ABCDE.
+    21 cm  |  19 cm  |  20 cm  |  15 cm
+    ✔ "21 cm"
+    💡 Độ dài đường gấp khúc là tổng độ dài các đoạn: 6 + 4 + 3 + 8 = 21 (cm). | gợi ý: Cộng độ dài tất cả các đoạn thẳng.
+
+### g2_numbers_1000
+ [single g2.compare1000 M2] Số nào lớn nhất: 739; 757; 745; 718?
+    745  |  757  |  739  |  718
+    ✔ "757"
+    💡 Các số cùng 7 trăm, so sánh hàng chục rồi hàng đơn vị: 757 lớn nhất. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g2.numbers1000 M2] Số gồm 9 trăm, 2 chục và 3 đơn vị là:
+    392  |  293  |  923  |  329
+    ✔ "923"
+    💡 Viết lần lượt chữ số hàng trăm, hàng chục, hàng đơn vị: 923. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+
+### g2_multiplication
+ [single g2.mul_table M2] Mỗi túi có 5 quả cam. Hỏi 9 túi có tất cả bao nhiêu quả cam?
+    36  |  14  |  40  |  45
+    ✔ "45"
+    💡 5 quả cam được lấy 9 lần: 5 × 9 = 45 (quả cam). | Số quả cam có tất cả: 5 × 9 = 45 (quả cam) → Đáp số: 45 quả cam | gợi ý: Dùng bảng nhân hoặc đặt tính, nhân lần lượt từ phải sang trái.
+ [single g2.mul_meaning M1] Viết tổng 3 + 3 + 3 + 3 thành phép nhân.
+    3 × 4  |  3 × 5  |  4 × 4  |  3 + 4
+    ✔ "3 × 4"
+    💡 Số 3 được lấy 4 lần, ta viết 3 × 4.
+
+### g2_division
+ [single g2.div_table M2] Có 4 quả cam chia đều cho 2 đĩa. Hỏi mỗi đĩa được mấy quả cam?
+    4  |  5  |  3  |  2
+    ✔ "2"
+    💡 Chia đều thì làm phép chia: 4 : 2 = 2 (quả cam). | Số quả cam mỗi đĩa: 4 : 2 = 2 (quả cam) → Đáp số: 2 quả cam | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [single g2.div_meaning M1] Trong phép chia 20 : 2 = 10, số 2 được gọi là gì?
+    Thương  |  Tích  |  Số chia  |  Số bị chia
+    ✔ "Số chia"
+    💡 20 là số bị chia, 2 là số chia, 10 là thương.
+
+### g2_money
+ [single g2.money M2] Một cái bánh giá 100 đồng, một cục tẩy giá 300 đồng. Mua cả hai thứ hết bao nhiêu tiền?
+    600 đồng  |  400 đồng  |  500 đồng  |  700 đồng
+    ✔ "400 đồng"
+    💡 100 + 300 = 400 (đồng). | gợi ý: Đọc kỹ đơn vị, vạch chia hoặc mốc thời gian rồi thực hiện từng bước.
+ [single g2.money M1 🖼] Có tất cả bao nhiêu tiền?
+    1000 đồng  |  800 đồng  |  900 đồng  |  700 đồng
+    ✔ "900 đồng"
+    💡 500 đồng + 200 đồng + 100 đồng + 100 đồng = 900 đồng. | gợi ý: Cộng từ tờ có giá trị lớn nhất.
+
+### g2_add_sub_20
+ [input g2.addsub20 M2] Điền số: 8 + ? = 13
+    ✔ "5"
+    💡 13 - 8 = 5, nên 8 + 5 = 13. | gợi ý: Lấy tổng trừ đi số hạng đã biết.
+ [single g2.addsub20 M1] Tính: 13 - 4 = ?
+    11  |  19  |  9  |  8
+    ✔ "9"
+    💡 Tách 4 = 3 + 1: 13 - 3 = 10, 10 - 1 = 9. | 13 - 3 = 10 → 10 - 1 = 9 | gợi ý: Trừ để còn 10 trước, rồi trừ tiếp.
+
+### g2_add_sub_1000
+ [single g2.addsub1000 M1] Tính nhẩm: 400 + 400 = ?
+    500  |  800  |  700  |  600
+    ✔ "800"
+    💡 4 trăm cộng 4 trăm bằng 8 trăm: 400 + 400 = 800. | gợi ý: Nhẩm với số trăm.
+ [single g2.addsub1000 M1] Tính: 634 + 115 = ?
+    750  |  749  |  779  |  759
+    ✔ "749"
+    💡 Cộng (trừ) theo từng hàng, không có nhớ: 634 + 115 = 749. | 4 cộng 5 bằng 9, viết 9 → 3 cộng 1 bằng 4, viết 4 → 6 cộng 1 bằng 7, viết 7 → Vậy 634 + 115 = 749
+
+### g2_statistics
+ [single g2.tally M2 🖼] Theo bảng kiểm đếm, con vật nào có ít con nhất?
+    Vịt  |  Lợn  |  Gà
+    ✔ "Lợn"
+    💡 Đếm vạch: Vịt 12, Lợn 2, Gà 3. Lợn ít nhất. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+ [single g2.pictograph M2 🖼] Theo biểu đồ tranh, có tất cả bao nhiêu quả?
+    10  |  22  |  21  |  20
+    ✔ "20"
+    💡 Cộng các hàng: 3 + 4 + 6 + 7 = 20. | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+
+### g2_probability
+ [single g2.chance M1] Khả năng xảy ra của sự kiện: "Viên đá nổi trên mặt nước như quả bóng" là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Không thể"
+    💡 Việc này không bao giờ xảy ra.
+ [single g2.chance M2 🖼] Lấy ra 1 viên bi từ hộp. Khả năng lấy được bi màu vàng là:
+    Chắc chắn  |  Có thể  |  Không thể
+    ✔ "Không thể"
+    💡 Trong hộp không có bi màu vàng, nên không thể lấy được. | gợi ý: Quan sát trong hộp có những màu bi nào.
+
+
+┌─────────┬──────────────────────────┬──────┬───────────┬─────────────────┐
+│ (index) │ unit                     │ uniq │ dupOptPct │ rank            │
+├─────────┼──────────────────────────┼──────┼───────────┼─────────────────┤
+│ 0       │ 'g2_add_sub_no_carry'    │ 300  │ 0         │ '32/56/35/35'   │
+│ 1       │ 'g2_add_sub_carry'       │ 300  │ 0         │ '64/65/62/57'   │
+│ 2       │ 'g2_arithmetic_advanced' │ 300  │ 0         │ '24/15/17/19'   │
+│ 3       │ 'g2_units_measure'       │ 279  │ 0         │ '63/59/58/50'   │
+│ 4       │ 'g2_time_calendar'       │ 299  │ 0         │ '40/54/61/50'   │
+│ 5       │ 'g2_geometry_basic'      │ 271  │ 0         │ '51/77/83/44'   │
+│ 6       │ 'g2_numbers_1000'        │ 300  │ 0         │ '88/23/33/39'   │
+│ 7       │ 'g2_multiplication'      │ 298  │ 0         │ '51/66/81/40'   │
+│ 8       │ 'g2_division'            │ 300  │ 0         │ '55/79/75/46'   │
+│ 9       │ 'g2_money'               │ 297  │ 0         │ '48/100/105/45' │
+│ 10      │ 'g2_add_sub_20'          │ 300  │ 0         │ '45/66/79/47'   │
+│ 11      │ 'g2_add_sub_1000'        │ 300  │ 0         │ '55/64/57/71'   │
+│ 12      │ 'g2_statistics'          │ 296  │ 0         │ '85/62/59/38'   │
+│ 13      │ 'g2_probability'         │ 27   │ 0         │ '0/0/0/0'       │
+└─────────┴──────────────────────────┴──────┴───────────┴─────────────────┘

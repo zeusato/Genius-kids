@@ -8,14 +8,15 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const scenarios = ['home-new', 'home-progress', 'g1-home', 'mn-home', 'choice', 'compare', 'input', 'order', 'multi', 'mn', 'result', 'report', 'print'];
-export const viewports = [{ width: 1180, height: 820 }, { width: 768, height: 1024 }, { width: 390, height: 844 }];
+const learning = process.argv.includes('--learn');
+export const scenarios = learning ? ['home-new', 'home-progress', 'g1-home', 'mn-home', 'topic', 'mn-topic', 'lesson-intro', 'lesson-know', 'lesson-form', 'lesson-example', 'lesson-mistake', 'lesson-try', 'lesson-done', 'lesson-g1', 'lesson-g2', 'lesson-g4', 'lesson-g5', 'lesson-place', 'lesson-unit', 'result', 'report', 'rules', 'choice', 'compare', 'input', 'order', 'multi', 'print'] : ['home-new', 'home-progress', 'g1-home', 'mn-home', 'choice', 'compare', 'input', 'order', 'multi', 'mn', 'result', 'report', 'print'];
+export const viewports = [{ width: 1180, height: 820 }, { width: 768, height: 1024 }, { width: 390, height: 844 }, ...(learning ? [{ width: 320, height: 740 }] : [])];
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = path.join(root, 'docs/study-wow/shots');
+const out = path.join(root, learning ? 'docs/study-learn/shots' : 'docs/study-wow/shots');
 const base = process.env.STUDY_URL || 'http://127.0.0.1:5190/Genius-kids/';
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-async function connect(url) {
+export async function connect(url) {
     const socket = new WebSocket(url), pending = new Map(), events = [];
     let next = 0;
     await new Promise((resolve, reject) => { socket.onopen = resolve; socket.onerror = reject; });
@@ -55,7 +56,7 @@ async function run() {
             return r.result.value;
         };
         const ready = async () => {
-            for (let i = 0; i < 100; i++) { if (await evaluate('!!document.querySelector(".study-home,.study-player,.study-result,.study-print")')) { await evaluate('document.fonts.ready.then(() => true)'); await sleep(180); return; } await sleep(100); }
+            for (let i = 0; i < 100; i++) { if (await evaluate('!!document.querySelector(".study-home,.study-player,.study-result,.study-print,.learn-reader") && (!document.querySelector(".learn-rules") || !!document.querySelector(".learn-rule"))')) { await evaluate('document.fonts.ready.then(() => true)'); await sleep(180); return; } await sleep(100); }
             throw new Error('Màn Ôn Luyện không hiển thị: ' + JSON.stringify(await evaluate('({url:location.href,body:document.body.innerText.slice(0,500)})')));
         };
         const capture = async name => {
@@ -97,9 +98,14 @@ async function run() {
                     await evaluate('document.querySelector(".study-actions .study-btn").click()');
                     await capture(`solution-${size.width}`);
                 }
-                if (scenario === 'print' && size.width === 1180) {
+                if ((scenario === 'print' || scenario === 'rules') && size.width === 1180) {
+                    await cdp.call('Emulation.setEmulatedMedia', { media: 'print' });
+                    const printable = await evaluate(`getComputedStyle(document.querySelector(${JSON.stringify(scenario === 'rules' ? '.learn-rule p' : '.study-sheet h1')})).visibility === 'visible'`);
+                    if (!printable) throw new Error('Nội dung bản in bị ẩn');
+                    await capture(`${scenario}-print-${size.width}`);
                     const pdf = await cdp.call('Page.printToPDF', { printBackground: true, preferCSSPageSize: true });
-                    await writeFile(path.join(out, 'worksheet.pdf'), Buffer.from(pdf.data, 'base64'));
+                    await writeFile(path.join(out, scenario === 'rules' ? 'rules.pdf' : 'worksheet.pdf'), Buffer.from(pdf.data, 'base64'));
+                    await cdp.call('Emulation.setEmulatedMedia', { media: '' });
                 }
             }
         }

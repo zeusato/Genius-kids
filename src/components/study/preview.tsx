@@ -1,8 +1,8 @@
 // Sân thử DEV dùng cùng component thật; hồ sơ/tiến độ chỉ ở bộ nhớ.
 // URL: study-preview.html?case=choice (xem scripts/study-shots.mjs).
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useSearchParams } from 'react-router-dom';
 import { MusicProvider } from '../../contexts/MusicContext';
 import { Grade, QuestionType, type Question, type StudentProfile } from '../../../types';
 import '../../../services/mathEngine';
@@ -17,6 +17,15 @@ import { Player, type PlayRecord, type PlaySession } from './player/Player';
 import { ReportView } from './ReportView';
 import { PrintView } from './PrintView';
 import { ResultView, type SessionSummary } from './ResultView';
+import { TopicPage } from './learn/TopicPage';
+import { LessonReader } from './learn/LessonReader';
+import { RulesBook } from './learn/RulesBook';
+import { loadLessonBook, gradeOfSkill } from '../../../services/study/lessons/load';
+import { lessonPages } from '../../../services/study/lessons/pages';
+import { applyLesson, type LessonAction } from '../../../services/study/lessons/progress';
+import { getTopicsByGrade } from '../../../services/mathEngine';
+import type { LessonBook } from '../../../services/study/lessons/types';
+import { IntegrationPreview } from './learn/integrationPreview';
 import '../../index.css';
 
 const base: StudentProfile = { id: 'g3kid', name: 'Minh Anh', age: 9, grade: 3, avatarId: 0, currentAvatarId: 'avatar_01', currentThemeId: 'theme_classic', stars: 24, ownedAvatarIds: [], ownedThemeIds: [], ownedImageIds: [], history: [], gameHistory: [], shopDailyPhotos: [] };
@@ -48,7 +57,8 @@ function Preview() {
     const initial = new URLSearchParams(location.search).get('case') || 'home-new';
     const [screen, setScreen] = useState(initial);
     const [progress, setProgress] = useState(() => initial === 'home-new' ? emptyProgress() : populated());
-    const grade = initial.startsWith('mn') ? Grade.Preschool : initial.startsWith('g1') ? Grade.Grade1 : initial === 'fraction' ? Grade.Grade5 : Grade.Grade3;
+    const explicitLesson = new URLSearchParams(location.search).get('lesson') || ({ 'lesson-g1': 'g1.count10', 'lesson-g2': 'g2.addsub100_c', 'lesson-g4': 'g4.angle_measure', 'lesson-g5': 'g5.sum_diff_ratio', 'lesson-place': 'g4.place_class', 'lesson-unit': 'g4.area_units' } as Record<string, string>)[initial];
+    const grade = explicitLesson ? gradeOfSkill(explicitLesson) : initial.startsWith('mn') ? Grade.Preschool : initial.startsWith('g1') ? Grade.Grade1 : initial === 'fraction' ? Grade.Grade5 : Grade.Grade3;
     const student = { ...base, id: grade === 1 ? 'g1kid' : grade === 0 ? 'mnkid' : 'g3kid', grade, study: progress,
         history: Array.from({ length: 10 }, (_, i) => ({ id: String(i), date: new Date(Date.now() - i * DAY).toISOString(), mode: 'matrix' as const, score: 12 + i % 8, totalQuestions: 20, durationSeconds: 800, topicIds: ['g3_multiplication'], questions: [], starsEarned: 2 })) };
     const sample = grade === 0 ? { ...questions[0], level: 1 as const, skillId: 'mn.count', topicId: 'mn_counting', speech: 'Đếm các quả táo trong hình. Có tất cả bao nhiêu quả táo?' } : questions.find(q => q.id === initial) ?? questions[0];
@@ -56,6 +66,9 @@ function Preview() {
     const sampleRecords = questions.map((q, i) => ({ q, answer: i === 0 ? '5' : q.correctAnswer ?? q.correctAnswers, correct: i !== 0, firstTry: i !== 0 }));
     const [summary, setSummary] = useState<SessionSummary>({ title: 'Ôn hôm nay', mode: 'daily', records: sampleRecords, seconds: 182, stars: 3, deltas: [{ skillId: 'g3.mul_tables', title: 'Bảng nhân', before: .45, after: .68, mastered: false }], reviewCleared: 0 });
     const home = () => setScreen('home-progress');
+    const [learnId, setLearnId] = useState(explicitLesson || (grade === 0 ? 'mn.ordinal' : grade === 1 ? 'g1.add10' : 'g3.div_1digit'));
+    const [, setParams] = useSearchParams();
+    const openLearn = (id: string) => { setLearnId(id); setParams({}); setScreen('lesson-intro'); };
     const start = (qs: Question[], mode: PlaySession['mode'] = 'practice') => { setSession({ questions: qs, mode, title: 'Luyện tập', tts: false }); setScreen('play'); };
     const finish = (records: PlayRecord[], seconds: number) => {
         const out = applySession(progress, records, session.mode);
@@ -64,15 +77,45 @@ function Preview() {
         setSummary({ title: session.title, records, seconds, mode: session.mode, stars: reward.stars, deltas: [], reviewCleared: out.reviewCleared });
         setScreen('result');
     };
-    const content = screen.includes('home') ? <StudyHome student={student} progress={progress} aiReady={false} actions={{ onDaily: () => start(questions), onReview: () => start(questions, 'review'), onTopic: (_topic, skills, mode, count) => start(buildSession({ picks: skills.map(skillId => ({ skillId, count: Math.ceil(count / skills.length) })), count }).questions, mode), onMatrix: () => start(questions, 'matrix'), onCustom: s => start(buildSession({ topicIds: s.topicIds, count: s.count }).questions, s.mode), onPrint: () => setScreen('print'), onReport: () => setScreen('report'), onShowAdvanced: showAdvanced => setProgress({ ...progress, prefs: { ...progress.prefs, showAdvanced } }) }} />
-        : screen === 'report' ? <ReportView student={student} progress={progress} onPractice={() => start(questions)} />
+    if (screen.startsWith('lesson-') || screen === 'topic' || screen === 'mn-topic' || screen === 'rules') return <LearningPreview screen={screen} skillId={learnId} student={student} onHome={home} onLearn={openLearn} onTopic={() => setScreen('topic')} onPractice={id => start(buildSession({picks:[{skillId:id,count:10}],count:10}).questions)} />;
+    const content = screen.includes('home') ? <StudyHome student={student} progress={progress} aiReady={false} actions={{ onDaily: () => start(questions), onReview: () => start(questions, 'review'), onTopic: (_topic, skills, mode, count) => start(buildSession({ picks: skills.map(skillId => ({ skillId, count: Math.ceil(count / skills.length) })), count }).questions, mode), onMatrix: () => start(questions, 'matrix'), onCustom: s => start(buildSession({ topicIds: s.topicIds, count: s.count }).questions, s.mode), onPrint: () => setScreen('print'), onReport: () => setScreen('report'), onShowAdvanced: showAdvanced => setProgress({ ...progress, prefs: { ...progress.prefs, showAdvanced } }), onOpenTopic: () => setScreen('topic'), onLearn: openLearn, onRules: () => setScreen('rules') }} />
+        : screen === 'report' ? <ReportView student={student} progress={progress} onPractice={() => start(questions)} onLearn={openLearn} />
         : screen === 'print' ? <PrintView title="Phiếu bài tập Toán — Lớp 3" studentName={student.name} questions={printQuestions} onRegenerate={() => {}} />
-        : screen === 'result' ? <ResultView summary={summary} onHome={home} onReport={() => setScreen('report')} onRetryWrong={() => start(questions.slice(0, 1), 'review')} onPracticeWeak={() => start(questions)} /> : null;
+        : screen === 'result' ? <ResultView summary={summary} onHome={home} onReport={() => setScreen('report')} onRetryWrong={() => start(questions.slice(0, 1), 'review')} onPracticeWeak={() => start(questions)} onLearn={openLearn} onLearnWeak={() => openLearn('g3.mul_tables')} /> : null;
     return content ? <HubShell section="Ôn Luyện" student={student} backText onBack={home}>{content}</HubShell>
         : <Player key={session.questions[0].id + session.mode} session={session} grade={grade} onFinish={finish} onExit={home} onToggleTts={() => {}} />;
+}
+
+function LearningPreview({ screen, skillId, student, onHome, onLearn, onTopic, onPractice }: { screen: string; skillId: string; student: StudentProfile; onHome: () => void; onLearn: (id: string) => void; onTopic: () => void; onPractice: (id: string) => void }) {
+    const [book, setBook] = useState<LessonBook>();
+    const [kid, setKid] = useState(student);
+    const latest = useRef(kid);
+    const [, setParams] = useSearchParams();
+    useEffect(() => {
+        let alive = true;
+        loadLessonBook(gradeOfSkill(skillId)).then(b => {
+            if (!alive) return;
+            const lesson = b[skillId], pages = lessonPages(lesson);
+            const kind = /lesson-(g[1245]|place|unit)/.test(screen) ? 'know' : screen.replace('lesson-', '') === 'done' ? 'remember' : screen.replace('lesson-', '');
+            const page = (screen === 'lesson-place' ? pages.filter(p => p.kind === 'know')[1] : pages.find(p => p.kind === kind)) ?? pages[0];
+            setParams({ page: new URLSearchParams(location.search).get('page') || page.id }, { replace: true });
+            setBook(b);
+        });
+        return () => { alive = false; };
+    }, [skillId]);
+    const saveLesson = (_owner: string, action: LessonAction) => {
+        const out = applyLesson(latest.current, action, localDay(new Date()));
+        latest.current = out.profile;
+        if (out.changed) setKid(out.profile);
+        return { ok: out.accepted, earned: out.earned, completedNow: out.completedNow };
+    };
+    if (!book) return <div className="learn-loading">Đang mở bài học…</div>;
+    const lesson = book[skillId], skill = SKILLS.find(s => s.id === skillId)!;
+    if (screen.startsWith('lesson-')) return <LessonReader key={skillId} lesson={lesson} student={kid} tts={false} saveLesson={saveLesson} onExit={onTopic} onPractice={onPractice} onOpenLesson={onLearn} />;
+    return <HubShell student={kid} section="Học bài" backText onBack={onHome}>{screen === 'rules' ? <RulesBook grade={kid.grade} onLearn={onLearn} /> : <TopicPage student={kid} progress={kid.study!} topic={getTopicsByGrade(kid.grade).find(t => t.id === skill.topicId)!} advanced={false} onLearn={onLearn} onPracticeSkill={onPractice} onStart={ids => onPractice(ids[0])} />}</HubShell>;
 }
 if (import.meta.env.DEV) {
     const root = import.meta.hot?.data.root || createRoot(document.getElementById('root')!);
     if (import.meta.hot) import.meta.hot.data.root = root;
-    root.render(<MemoryRouter><MusicProvider><Preview /></MusicProvider></MemoryRouter>);
+    root.render(new URLSearchParams(location.search).get('case') === 'integration' ? <IntegrationPreview /> : <MemoryRouter><MusicProvider><Preview /></MusicProvider></MemoryRouter>);
 }

@@ -1,0 +1,39 @@
+{
+  "checkedOn": "2026-10-04",
+  "checks": [
+    "Service worker tải sẵn đủ 6 quyển bài học",
+    "Lớp 0: mở bài production offline, không nhãn nháp",
+    "Mầm non: các bài nối hoạt động không còn báo đang soạn",
+    "Mầm non: nút Học trong dòng kỹ năng mở hoạt động có sẵn",
+    "Lớp 1: mở bài production offline, không nhãn nháp",
+    "Lớp 1: sổ tay tải và mở được offline",
+    "Lớp 2: mở bài production offline, không nhãn nháp",
+    "Lớp 2: sổ tay tải và mở được offline",
+    "Lớp 3: mở bài production offline, không nhãn nháp",
+    "Lớp 3: sổ tay tải và mở được offline",
+    "Lớp 4: mở bài production offline, không nhãn nháp",
+    "Lớp 4: sổ tay tải và mở được offline",
+    "Lớp 5: mở bài production offline, không nhãn nháp",
+    "Lớp 5: sổ tay tải và mở được offline",
+    "Hết dung lượng: hiện lỗi và không ghi sao ảo",
+    "Lưu lại kết quả offline nhận đúng 1 sao",
+    "Học bài không đổi luyện tập, lịch sử hoặc bộ sưu tập",
+    "Học lại trên bản production không thưởng lặp",
+    "Production: học → luyện đúng 10 câu",
+    "Reload offline giữ tiến độ đã lưu",
+    "Sổ tay production không tràn ngang ở 1180px",
+    "Sổ tay production không tràn ngang ở 768px",
+    "Sổ tay production không tràn ngang ở 390px",
+    "Sổ tay production không tràn ngang ở 320px",
+    "Không có ngoại lệ JavaScript trong luồng production/offline"
+  ],
+  "exceptions": [],
+  "cachedLessonChunks": [
+    "http://127.0.0.1:5191/Genius-kids/assets/mn-BbPGqVHF.js",
+    "http://127.0.0.1:5191/Genius-kids/assets/g5-CEornNUS.js",
+    "http://127.0.0.1:5191/Genius-kids/assets/g4-DFHu9hC9.js",
+    "http://127.0.0.1:5191/Genius-kids/assets/g3-A51FyGqK.js",
+    "http://127.0.0.1:5191/Genius-kids/assets/g2-D5-rR8k5.js",
+    "http://127.0.0.1:5191/Genius-kids/assets/g1-tTDznOIh.js"
+  ]
+}

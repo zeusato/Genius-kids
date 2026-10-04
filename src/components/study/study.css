@@ -12,6 +12,14 @@
 .study-daily-meta { display:flex; flex-wrap:wrap; gap:8px; }
 .study-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:999px; background:var(--hub-tint); font-size:13px; font-weight:800; color:var(--hub-ink); }
 .study-pill.flame { background:#fde7cf; color:#9a4d12; }
+.discovery-hub .learn-pill { min-height:44px; text-align:left; white-space:normal; border:1px solid var(--hub-line); }
+.discovery-hub .study-topic .learn-term-chip { display:flex; align-items:center; gap:4px; letter-spacing:0; }
+.learn-report-actions { display:flex; flex-wrap:wrap; gap:6px; }
+.learn-inline-link { min-height:44px; }
+.learn-skill-choice { min-width:0; }
+.learn-skill-choice .study-skill { width:100%; height:auto; }
+.learn-skill-state { display:flex; gap:8px; align-items:center; justify-content:space-between; padding:0 10px; }
+.learn-skill-state .hub-text-link { min-height:44px; }
 .study-daily-art { position:relative; background:var(--hub-tint); }
 .study-daily-art img { width:100%; height:100%; object-fit:cover; display:block; }
 .study-daily-art picture { display:block; height:100%; }

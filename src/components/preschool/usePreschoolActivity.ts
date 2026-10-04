@@ -28,7 +28,9 @@ export function usePreschoolActivity(topic: PreschoolTopic) {
         setParams({ activity: id }, { state: { preschoolParent: location.pathname, preschoolOwner: currentStudent?.id } });
     };
     const back = () => {
-        if (location.state?.preschoolParent === location.pathname && location.state?.preschoolOwner === currentStudent?.id) navigate(-1);
+        // mở từ nơi khác (vd. Ôn Luyện → Học bài): quay về đúng trang đã mở hoạt động
+        if (typeof location.state?.returnTo === 'string' && location.state?.preschoolOwner === currentStudent?.id) navigate(location.state.returnTo, { replace: true });
+        else if (location.state?.preschoolParent === location.pathname && location.state?.preschoolOwner === currentStudent?.id) navigate(-1);
         else setParams({}, { replace: true });
     };
     return { activity, setActivity, back };

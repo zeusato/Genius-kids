@@ -4,12 +4,15 @@ import { StudentProfile, Grade } from '@/types';
 import { getGradeLabel } from '@/src/utils/grade';
 import { getAvatarById } from '@/services/avatarService';
 import { initializeTheme } from '@/services/themeService';
-import { Plus, RefreshCw, Download, Bot } from 'lucide-react';
+import { ArrowRight, BookOpen, Bot, Compass, Download, Gamepad2, Music2, Plus, RefreshCw, Sparkles, Star, UserRound } from 'lucide-react';
 import { usePwaUpdate } from '../hooks/usePwaUpdate';
 import { useStudent, useStudentActions } from '@/src/contexts/StudentContext';
 import { DevTools } from '@/components/DevTools';
 import { MusicControls } from '@/src/components/MusicControls';
 import { AIAgentSettingsModal } from '@/src/components/AIAgentSettingsModal';
+import { AccountPanel } from '@/src/components/AccountPanel';
+import { HubDialog } from '@/src/components/hub/HubShell';
+import './HomePage.css';
 
 interface HomePageProps {
     onInstallClick?: () => void;
@@ -17,18 +20,7 @@ interface HomePageProps {
     onUpdateClick?: () => void;
 }
 
-const Button = ({ onClick, children, variant = 'primary', className = '' }: any) => {
-    const baseStyle = 'px-6 py-3 rounded-xl font-bold transition-all flex items-center justify-center';
-    const variants = {
-        primary: 'bg-brand-500 hover:bg-brand-600 text-white shadow-lg hover:shadow-xl',
-        secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800'
-    };
-    return <button onClick={onClick} className={`${baseStyle} ${variants[variant]} ${className}`}>{children}</button>;
-};
-
-const Card = ({ children, className = '' }: any) => {
-    return <div className={`bg-white p-6 rounded-2xl shadow-md border border-gray-100 ${className}`}>{children}</div>;
-};
+const GRADES = [Grade.Preschool, Grade.Grade1, Grade.Grade2, Grade.Grade3, Grade.Grade4, Grade.Grade5];
 
 export function HomePage({ onInstallClick, canInstall, onUpdateClick }: HomePageProps) {
     const update = usePwaUpdate();
@@ -36,202 +28,150 @@ export function HomePage({ onInstallClick, canInstall, onUpdateClick }: HomePage
     const { students: profiles } = useStudent();
     const { setStudent, addStudent, updateStudent } = useStudentActions();
     const [isCreating, setIsCreating] = useState(false);
-    const [newProfile, setNewProfile] = useState<{ name: string, grade: Grade }>({ name: '', grade: Grade.Grade2 });
+    const [newProfile, setNewProfile] = useState<{ name: string; grade: Grade }>({ name: '', grade: Grade.Grade2 });
     const [showAIAgentSettings, setShowAIAgentSettings] = useState(false);
-
-    // DevTools secret feature
     const [showDevTools, setShowDevTools] = useState(false);
-    const [clickCount, setClickCount] = useState(0);
-    const [selectedProfile, setSelectedProfile] = useState<StudentProfile | null>(null);
-    const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+    const [notice, setNotice] = useState('');
+    const clickCount = useRef(0);
+    const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const profilesRef = useRef<HTMLDivElement>(null);
+    const nameInputRef = useRef<HTMLInputElement>(null);
+    const createdName = useRef<string | null>(null);
 
     useEffect(() => {
         initializeTheme();
+        return () => { if (clickTimerRef.current) clearTimeout(clickTimerRef.current); };
     }, []);
 
-    // Secret: Click title 7 times in 2 seconds to open DevTools
+    useEffect(() => {
+        if (!createdName.current) return;
+        const cards = profilesRef.current?.querySelectorAll<HTMLButtonElement>('[data-profile-card]');
+        cards?.[cards.length - 1]?.focus();
+        setNotice(`Đã tạo hồ sơ ${createdName.current}. Chọn hồ sơ để bắt đầu nhé!`);
+        createdName.current = null;
+    }, [profiles]);
+
+    // Secret: click the brand 7 times, with no more than 2 seconds between clicks.
     const handleTitleClick = () => {
-        const newCount = clickCount + 1;
-        setClickCount(newCount);
-
-        if (clickTimerRef.current) {
-            clearTimeout(clickTimerRef.current);
-        }
-
-        if (newCount >= 7) {
+        clickCount.current += 1;
+        if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+        if (clickCount.current >= 7) {
             setShowDevTools(true);
-            setClickCount(0);
+            clickCount.current = 0;
         } else {
-            clickTimerRef.current = setTimeout(() => setClickCount(0), 2000);
+            clickTimerRef.current = setTimeout(() => { clickCount.current = 0; }, 2000);
         }
     };
 
-    // Add stars to selected profile by ID
     const handleAddStars = (profileId: string, amount: number) => {
-        const profileToUpdate = profiles.find(p => p.id === profileId);
-        if (!profileToUpdate) return;
-
-        const updatedProfile = {
-            ...profileToUpdate,
-            stars: profileToUpdate.stars + amount
-        };
-
-        updateStudent(updatedProfile);
-        if (selectedProfile?.id === profileId) {
-            setSelectedProfile(updatedProfile);
-        }
+        const profile = profiles.find(p => p.id === profileId);
+        if (profile) updateStudent({ ...profile, stars: profile.stars + amount });
     };
 
-    const handleCreate = () => {
-        const trimmedName = newProfile.name.trim().slice(0, 50);
-        if (!trimmedName) return;
-
-        addStudent(trimmedName, newProfile.grade);
+    const openCreate = () => {
         setNewProfile({ name: '', grade: Grade.Grade2 });
+        setNotice('');
+        setIsCreating(true);
+    };
+
+    const handleCreate = (event: React.FormEvent) => {
+        event.preventDefault();
+        const name = newProfile.name.trim().slice(0, 50);
+        if (!name) return;
+        createdName.current = name;
+        addStudent(name, newProfile.grade);
         setIsCreating(false);
     };
 
     const handleSelectProfile = (profile: StudentProfile) => {
-        setSelectedProfile(profile);
         setStudent(profile);
         navigate('/mode');
     };
 
+    const updateLabel = update.phase === 'downloading'
+        ? `Đang tải${update.progress.total ? ` ${Math.floor(update.progress.completed / update.progress.total * 100)}%` : '…'}`
+        : update.phase === 'available' || update.phase === 'ready' ? 'Có bản mới' : 'Cập nhật';
+
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-            {/* Top Header Bar - Fixed */}
-            <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 pointer-events-none">
-                <button onClick={onUpdateClick} title="Cập nhật & nội dung offline" aria-label="Cập nhật và nội dung offline"
-                    className="pointer-events-auto flex items-center gap-2 bg-white text-brand-700 px-3 py-2.5 rounded-lg shadow-md border border-brand-200 h-[44px] hover:bg-brand-50">
-                    <RefreshCw size={18} className={`flex-shrink-0 ${update.phase === 'downloading' || update.phase === 'checking' ? 'animate-spin' : ''}`} />
-                    <span className="text-sm font-semibold whitespace-nowrap">
-                        {update.phase === 'downloading' ? `Đang tải${update.progress.total ? ` ${Math.floor(update.progress.completed / update.progress.total * 100)}%` : '…'}`
-                            : update.phase === 'available' || update.phase === 'ready' ? 'Có bản mới' : 'Cập nhật'}
-                    </span>
-                </button>
-
-                {/* Right side controls */}
-                <div className="flex items-center gap-3">
-                    <button
-                        onClick={() => setShowAIAgentSettings(true)}
-                        className="pointer-events-auto flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-lg shadow-sm hover:scale-105 transition-all font-bold h-[44px]"
-                        title="Cài đặt AI - Bo Biết Tuốt"
-                    >
-                        <Bot size={18} />
-                        <span className="hidden sm:inline">Trợ lý AI</span>
-                    </button>
-
-                    {/* Music Controls */}
-                    <div className="pointer-events-auto">
-                        <MusicControls />
+        <div className="discovery-hub welcome-page" data-theme="theme_classic">
+            <a className="welcome-skip" href="#choose-profile">Đến phần chọn hồ sơ</a>
+            <header className="hub-header">
+                <div className="hub-header-inner welcome-header">
+                    <div className="hub-brand" onClick={handleTitleClick}>
+                        <span className="hub-brand-mark"><Compass size={25} /></span>
+                        <span>Genius Kids<small>Thế giới của trí tò mò</small></span>
                     </div>
-
-                    {/* Install Button */}
-                    {canInstall && (
-                        <button
-                            onClick={onInstallClick}
-                            className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 bg-white border border-brand-500 text-brand-600 rounded-lg shadow-md hover:bg-brand-50 hover:shadow-lg transition-all font-semibold h-[44px] animate-bounce"
-                        >
-                            <Download size={18} className="flex-shrink-0" />
-                            <span className="hidden sm:inline whitespace-nowrap">Tải App</span>
+                    <div className="hub-header-actions welcome-tools" aria-label="Tiện ích">
+                        <button type="button" onClick={onUpdateClick} title="Cập nhật và nội dung offline" aria-label={`Cập nhật và nội dung offline${updateLabel !== 'Cập nhật' ? ` · ${updateLabel}` : ''}`} className="welcome-tool">
+                            <RefreshCw size={18} className={update.phase === 'downloading' || update.phase === 'checking' ? 'animate-spin' : ''} /><span>{updateLabel}</span>
+                            {(update.phase === 'available' || update.phase === 'ready') && <i className="welcome-update-dot" />}
                         </button>
-                    )}
-                </div>
-            </div>
-
-            <div className="text-center space-y-2">
-                <h1
-                    onClick={handleTitleClick}
-                    className="text-5xl font-extrabold text-brand-600 tracking-tight drop-shadow-sm cursor-pointer select-none"
-                >
-                    Genius Kids
-                </h1>
-                <p className="text-xl text-slate-500">Học toán thật vui!</p>
-            </div>
-
-            {!isCreating ? (
-                <div className="w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {profiles.map(p => {
-                        const avatar = getAvatarById(p.currentAvatarId);
-                        return (
-                            <button key={p.id} onClick={() => handleSelectProfile(p)} className="group relative bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-2 border-transparent hover:border-brand-400 text-left flex items-center space-x-4">
-                                <div className="bg-brand-50 p-3 rounded-2xl group-hover:scale-110 transition-transform">
-                                    {avatar?.isEmoji ? (
-                                        <span className="text-5xl">{avatar.imagePath}</span>
-                                    ) : (
-                                        <img src={avatar?.imagePath} alt={avatar?.name} className="w-16 h-16 rounded-full object-cover" />
-                                    )}
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-slate-800 group-hover:text-brand-600">{p.name}</h3>
-                                    <p className="text-slate-500 font-medium">{getGradeLabel(p.grade)}</p>
-                                </div>
-                            </button>
-                        );
-                    })}
-
-                    <button onClick={() => setIsCreating(true)} className="flex flex-col items-center justify-center p-6 rounded-3xl border-4 border-dashed border-brand-200 text-brand-400 hover:bg-brand-50 hover:border-brand-400 hover:text-brand-600 transition-all h-full min-h-[140px]">
-                        <Plus size={40} />
-                        <span className="font-bold mt-2">Thêm học sinh mới</span>
-                    </button>
-                </div>
-            ) : (
-                <Card className="w-full max-w-md animate-in fade-in zoom-in duration-300">
-                    <h2 className="text-2xl font-bold mb-6 text-center">Tạo hồ sơ mới</h2>
-                    <div className="space-y-4">
-                        <div>
-                            <div className="flex justify-between items-center mb-1">
-                                <label className="block text-sm font-bold text-slate-600">Tên của bé:</label>
-                                <span className={`text-xs ${newProfile.name.length >= 50 ? 'text-rose-500 font-bold' : 'text-slate-400'}`}>
-                                    {newProfile.name.length}/50
-                                </span>
-                            </div>
-                            <input
-                                type="text"
-                                value={newProfile.name}
-                                maxLength={50}
-                                onChange={e => setNewProfile({ ...newProfile, name: e.target.value.slice(0, 50) })}
-                                className="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none text-lg"
-                                placeholder="Ví dụ: Bi, Na..."
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-bold text-slate-600 mb-1">Cấp lớp</label>
-                            <div className="grid grid-cols-3 gap-2">
-                                {[Grade.Preschool, Grade.Grade1, Grade.Grade2, Grade.Grade3, Grade.Grade4, Grade.Grade5].map(g => (
-                                    <button
-                                        key={g}
-                                        onClick={() => setNewProfile({ ...newProfile, grade: g })}
-                                        className={`p-2 rounded-lg font-bold border-2 text-sm ${newProfile.grade === g ? 'bg-brand-500 text-white border-brand-600' : 'bg-white border-gray-200 text-slate-500'}`}
-                                    >
-                                        {getGradeLabel(g)}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex gap-3 pt-4">
-                            <Button variant="secondary" className="flex-1" onClick={() => setIsCreating(false)}>Hủy</Button>
-                            <Button className="flex-1" onClick={handleCreate}>Bắt đầu ngay</Button>
-                        </div>
+                        <button type="button" onClick={() => setShowAIAgentSettings(true)} className="welcome-tool" title="Cài đặt AI — Bo Biết Tuốt" aria-label="Cài đặt trợ lý AI"><Bot size={19} /><span>Trợ lý AI</span></button>
+                        <MusicControls variant="hub" />
+                        {canInstall && <button type="button" onClick={onInstallClick} className="welcome-tool welcome-install" aria-label="Cài ứng dụng" title="Cài ứng dụng"><Download size={18} /><span>Cài ứng dụng</span></button>}
                     </div>
-                </Card>
-            )}
+                </div>
+            </header>
 
-            {/* DevTools Modal */}
-            {showDevTools && profiles.length > 0 && (
-                <DevTools
-                    profiles={profiles}
-                    onAddStars={handleAddStars}
-                    onClose={() => setShowDevTools(false)}
-                />
-            )}
+            <main className="hub-main welcome-main">
+                <section className="welcome-intro" aria-labelledby="welcome-title">
+                    <div className="welcome-intro-copy">
+                        <span className="hub-eyebrow">CHÀO NHÀ KHÁM PHÁ NHỎ</span>
+                        <h1 id="welcome-title">Học, chơi và<br /><em>khám phá mỗi ngày.</em></h1>
+                        <p>Từ một trang sách, một nốt nhạc đến cả vũ trụ.<br className="welcome-desktop-break" /> Có thật nhiều điều thú vị đang chờ em.</p>
+                    </div>
+                    <div className="welcome-art" aria-hidden="true">
+                        <img className="welcome-art-library" src={`${import.meta.env.BASE_URL}hub/art/library.webp`} width="800" height="450" alt="" />
+                        <img className="welcome-art-science" src={`${import.meta.env.BASE_URL}hub/art/science-sm.webp`} width="400" height="225" alt="" />
+                        <span className="welcome-art-note"><Sparkles size={18} />Bắt đầu từ một chút tò mò</span>
+                    </div>
+                </section>
 
-            {/* AI Settings Modal */}
-            {showAIAgentSettings && (
-                <AIAgentSettingsModal
-                    onClose={() => setShowAIAgentSettings(false)}
-                />
-            )}
+                <div className="welcome-interests" aria-label="Nội dung khám phá">
+                    <span><BookOpen size={16} />Toán & ngôn ngữ</span><span><Compass size={16} />Khoa học & đọc sách</span><span><Music2 size={16} />Âm nhạc & sáng tạo</span><span><Gamepad2 size={17} />Trò chơi & tư duy</span>
+                </div>
+
+                <div className="welcome-workspace">
+                    <section className="welcome-profiles" id="choose-profile" tabIndex={-1} aria-labelledby="profiles-title">
+                        <div className="welcome-section-heading">
+                            <div><h2 id="profiles-title">Hôm nay, ai cùng khám phá?</h2><p>{profiles.length ? 'Chọn hồ sơ của em để tiếp tục hành trình.' : 'Tạo hồ sơ đầu tiên để bắt đầu hành trình của riêng em.'}</p></div>
+                            {profiles.length > 0 && <span className="welcome-profile-count">{profiles.length} hồ sơ</span>}
+                        </div>
+                        <div className="welcome-profile-grid" ref={profilesRef}>
+                            {profiles.map(profile => {
+                                const avatar = getAvatarById(profile.currentAvatarId);
+                                return <button type="button" key={profile.id} data-profile-card className="welcome-profile-card" onClick={() => handleSelectProfile(profile)} aria-label={`Khám phá cùng ${profile.name}, ${getGradeLabel(profile.grade)}`}>
+                                    <span className="welcome-avatar" aria-hidden="true">{avatar?.isEmoji ? avatar.imagePath : avatar ? <img src={avatar.imagePath} alt="" width="68" height="68" /> : <UserRound size={32} />}</span>
+                                    <span className="welcome-profile-info"><strong>{profile.name}</strong><span>{getGradeLabel(profile.grade)}</span><span className="welcome-stars"><Star size={12} fill="currentColor" />{new Intl.NumberFormat('vi-VN').format(profile.stars)} sao</span></span>
+                                    <span className="welcome-profile-arrow" aria-hidden="true"><ArrowRight size={18} /></span>
+                                </button>;
+                            })}
+                            {profiles.length > 0 ? <button type="button" onClick={openCreate} className="welcome-add-profile"><span><Plus size={24} /></span><strong>Thêm hồ sơ mới</strong></button> : <div className="welcome-empty">
+                                <span className="welcome-empty-icon"><Compass size={32} /></span>
+                                <div><h3>Một hồ sơ nhỏ, cả thế giới mở ra</h3><p>Mỗi bạn có nhân vật, bộ sưu tập và hành trình riêng.</p><button type="button" className="welcome-primary" onClick={openCreate}><Plus size={18} />Tạo hồ sơ đầu tiên<ArrowRight size={18} /></button></div>
+                            </div>}
+                        </div>
+                        <p className="welcome-notice" role="status">{notice}</p>
+                    </section>
+                    <AccountPanel />
+                </div>
+
+                <footer className="hub-footer welcome-footer"><span><Compass size={15} />Mỗi bạn một hành trình. Mỗi ngày một điều mới.</span><span>HỌC VUI · CHƠI KHÉO · LỚN KHÔN</span></footer>
+            </main>
+
+            {isCreating && <HubDialog title="Làm quen một chút nhé!" initialFocusRef={nameInputRef} onClose={() => setIsCreating(false)}>
+                <form className="welcome-create-form" onSubmit={handleCreate}>
+                    <p>Tên và cấp lớp giúp Genius Kids chọn nội dung phù hợp với em.</p>
+                    <div className="welcome-name-label"><label htmlFor="profile-name">Tên của em</label><span id="profile-name-limit">Tối đa 50 ký tự</span></div>
+                    <input id="profile-name" ref={nameInputRef} required maxLength={50} autoComplete="off" value={newProfile.name} onChange={event => setNewProfile({ ...newProfile, name: event.target.value })} placeholder="Ví dụ: Bi, Na…" aria-describedby="profile-name-limit" />
+                    <fieldset><legend>Em đang học lớp nào?</legend><div className="welcome-grade-grid">
+                        {GRADES.map(grade => <label key={grade} className="welcome-grade"><input type="radio" name="profile-grade" value={grade} checked={newProfile.grade === grade} onChange={() => setNewProfile({ ...newProfile, grade })} /><span>{getGradeLabel(grade)}</span></label>)}
+                    </div></fieldset>
+                    <div className="welcome-form-actions"><button type="button" className="welcome-secondary" onClick={() => setIsCreating(false)}>Để sau</button><button type="submit" className="welcome-primary" disabled={!newProfile.name.trim()}>Tạo hồ sơ<ArrowRight size={18} /></button></div>
+                </form>
+            </HubDialog>}
+            {showDevTools && profiles.length > 0 && <DevTools profiles={profiles} onAddStars={handleAddStars} onClose={() => setShowDevTools(false)} />}
+            {showAIAgentSettings && <AIAgentSettingsModal onClose={() => setShowAIAgentSettings(false)} />}
         </div>
     );
 }

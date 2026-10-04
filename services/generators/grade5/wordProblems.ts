@@ -6,6 +6,7 @@ import type { Template } from '../../study/types';
 
 const VEH: [string, number, number][] = [['xe đạp', 10, 15], ['xe máy', 30, 45], ['ô tô', 40, 60], ['người đi bộ', 4, 6]];
 const hours = (h: number) => (Number.isInteger(h) ? `${h} giờ` : `${Math.floor(h)} giờ ${Math.round((h % 1) * 60)} phút`);
+const gcd = (a: number, b: number): number => b ? gcd(b, a % b) : a;
 
 export const templates: Template[] = [
     tpl('g5.motion', 1, () => {
@@ -41,8 +42,12 @@ export const templates: Template[] = [
     tpl('g5.work_together', 3, () => {
         const [a, b] = pickOne([[3, 6], [4, 12], [6, 12], [10, 15], [12, 24], [20, 30], [8, 24], [5, 20], [9, 18], [15, 30], [10, 40], [4, 4], [6, 6], [8, 8], [12, 4], [18, 9]] as const), t = (a * b) / (a + b);
         const job = pickOne(['đào xong một đoạn mương', 'sơn xong một bức tường', 'gặt xong một thửa ruộng', 'đóng xong một lô hàng']);
+        const common = a * b / gcd(a, b), numerator = common / a + common / b, divisor = gcd(numerator, common);
+        const rate = `${numerator / divisor}/${common / divisor}`;
+        const sum = `1/${a} + 1/${b} = ${common / a}/${common} + ${common / b}/${common} = ${numerator}/${common}${divisor > 1 ? ` = ${rate}` : ''}`;
         return single({ q: `Người thứ nhất ${job} trong ${a} ngày, người thứ hai ${job} trong ${b} ngày. Nếu hai người cùng làm thì xong công việc đó trong bao nhiêu ngày?`, correct: t, wrong: [a + b, (a + b) / 2, Math.min(a, b)].filter(x => x !== t), format: x => `${fmt(x)} ngày`, closed: true,
-            explanation: `Một ngày người thứ nhất làm 1/${a}, người thứ hai làm 1/${b} công việc; cùng làm: 1/${a} + 1/${b} = ${a + b}/${a * b}. Thời gian: 1 : ${a + b}/${a * b} = ${fmt(t)} (ngày).` });
+            explanation: `Một ngày người thứ nhất làm 1/${a}, người thứ hai làm 1/${b} công việc; cùng làm: ${sum}. Thời gian: 1 : (${rate}) = ${fmt(t)} (ngày).`,
+            steps: [`Phần công việc hai người cùng làm trong một ngày: ${sum}`, `Thời gian làm chung: 1 : (${rate}) = ${fmt(t)} (ngày)`] });
     }, { noRankCheck: true }),
     tpl('g5.stream', 3, () => {
         const boat = rint(15, 30), water = rint(2, 5), t = rint(2, 4), down = chance(0.5);

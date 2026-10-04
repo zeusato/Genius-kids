@@ -1,7 +1,7 @@
 // Màn làm bài Ôn Luyện. Luyện tập (practice/daily/review): chấm từng câu, sai lần đầu được thử lại kèm gợi ý,
 // sai lần hai hiện lời giải. Kiểm tra (test/matrix): không tiếng đúng/sai, đi lại tự do, đồng hồ theo Date.now.
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Check, ChevronLeft, ChevronRight, Lightbulb, Timer, Volume2, VolumeX, X, LayoutGrid, CheckCircle2, XCircle } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Timer, Volume2, VolumeX, X, LayoutGrid } from 'lucide-react';
 import { Grade, Question, QuestionType, StudyMode } from '@/types';
 import { isAnswered, isCorrect } from '@/services/study/grading';
 import { soundManager } from '@/utils/sound';
@@ -9,8 +9,9 @@ import { cancelSpeech, speakVietnamese } from '@/src/utils/speech';
 import { questionToSpeech } from '@/src/utils/questionSpeech';
 import { SpeakButton } from '@/src/components/shared/SpeakButton';
 import { HubDialog } from '@/src/components/hub/HubShell';
-import { AnswerArea, correctText, isCompare, type Answer } from './Answers';
-import { Md, QuestionVisual, SolutionVisual, fmtDuration, hasVisual } from '../shared';
+import { AnswerArea, isCompare, type Answer } from './Answers';
+import { Feedback, GENERIC_HINT, checkItem, freshState, type QState } from './Feedback';
+import { Md, QuestionVisual, fmtDuration, hasVisual } from '../shared';
 import '../study.css';
 
 export interface PlaySession {
@@ -34,12 +35,9 @@ interface Props {
     onToggleTts: (on: boolean) => void;
 }
 
-type Phase = 'answer' | 'retry' | 'done';
-interface QState { answer: Answer; phase: Phase; tries: number; eliminated: string[]; correct?: boolean }
 
 export const isTestMode = (m: StudyMode) => m === 'test' || m === 'matrix';
 const MODE_LABEL: Record<StudyMode, string> = { practice: 'Luyện tập', daily: 'Ôn hôm nay', review: 'Ôn câu sai', test: 'Kiểm tra', matrix: 'Kiểm tra' };
-const GENERIC_HINT = 'Đọc lại đề thật chậm, làm từng bước rồi thử lại nhé!';
 
 export function Player({ session, grade, themeId, onFinish, onExit, onToggleTts }: Props) {
     const { questions, mode } = session;
@@ -56,7 +54,7 @@ export function Player({ session, grade, themeId, onFinish, onExit, onToggleTts 
     const [now, setNow] = useState(Date.now());
 
     const q = questions[idx];
-    const s: QState = st[q.id] ?? { answer: undefined, phase: 'answer', tries: 0, eliminated: [] };
+    const s: QState = st[q.id] ?? freshState();
     const isLast = idx === questions.length - 1;
     const elapsed = () => Math.round((Date.now() - startedAt.current) / 1000);
 
@@ -99,18 +97,11 @@ export function Player({ session, grade, themeId, onFinish, onExit, onToggleTts 
     };
 
     const check = (override?: Answer) => {
-        const ans = override ?? s.answer ?? (q.type === QuestionType.Order ? q.options : undefined);
-        if (test || s.phase === 'done' || !isAnswered(q, ans)) return;
-        const ok = isCorrect(q, ans);
-        if (ok) { soundManager.playCorrect(); put({ answer: ans, phase: 'done', correct: true }); return; }
-        soundManager.playWrong();
-        const choices = q.type === QuestionType.SingleChoice || q.type === QuestionType.SelectWrong ? (q.options?.length ?? 0) : 0;
-        // còn ý nghĩa thử lại? (câu 2 lựa chọn thì không)
-        const canRetry = s.tries === 0 && (choices === 0 || choices - 1 - s.eliminated.length >= 2 || isCompare(q));
-        if (canRetry) {
-            const eliminated = typeof ans === 'string' && choices ? [...s.eliminated, ans] : s.eliminated;
-            put({ answer: choices ? undefined : ans, phase: 'retry', tries: 1, eliminated });
-        } else put({ answer: ans, phase: 'done', correct: false, tries: s.tries + 1 });
+        if (test) return;
+        const next = checkItem(q, s, override);
+        if (!next) return;
+        if (next.correct) soundManager.playCorrect(); else soundManager.playWrong();
+        put(next);
     };
 
     const go = (to: number) => {
@@ -202,20 +193,7 @@ export function Player({ session, grade, themeId, onFinish, onExit, onToggleTts 
 
                         {!test && s.phase === 'done' && s.correct && <div key={q.id} className="study-confetti" aria-hidden>{Array.from({ length: 12 }, (_, i) => <i key={i} style={{ left: `${(i + 0.5) * 100 / 12}%`, background: ['#e56b3c', '#d69a2d', '#2f8f5b'][i % 3], animationDelay: `${i % 3 * .08}s` }} />)}</div>}
 
-                        {!test && s.phase === 'retry' && (
-                            <div className="study-feedback retry" role="status">
-                                <h3><Lightbulb size={20} />Chưa đúng, thử lại nhé!</h3>
-                                <p><Md inline>{q.hint || GENERIC_HINT}</Md></p>
-                            </div>
-                        )}
-                        {!test && s.phase === 'done' && (
-                            <div className={`study-feedback ${s.correct ? 'ok' : 'bad'}`} role="status">
-                                <h3>{s.correct ? <><CheckCircle2 size={20} />{s.tries ? 'Đúng rồi, giỏi lắm!' : 'Chính xác!'}</> : <><XCircle size={20} />Đáp án đúng: <Md inline>{correctText(q)}</Md></>}</h3>
-                                {q.explanation && <p style={{ whiteSpace: 'pre-line' }}><Md inline>{q.explanation}</Md></p>}
-                                <SolutionVisual q={q} />
-                                {!s.correct && q.steps && q.steps.length > 0 && <ol>{q.steps.map((x, i) => <li key={i}><Md inline>{x}</Md></li>)}</ol>}
-                            </div>
-                        )}
+                        {!test && <Feedback q={q} s={s} />}
 
                         <div className="study-actions">
                             {test ? <button className="study-btn ghost" onClick={() => go(idx - 1)} disabled={idx === 0}><ChevronLeft size={20} />Câu trước</button>
