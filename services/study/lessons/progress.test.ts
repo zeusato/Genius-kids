@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { StudentProfile } from '../../../types';
-import { migrateProfile } from '../../profileService';
+import { migrateProfile, saveProfilesStrict } from '../../profileService';
 import { applyLesson, lessonStatus, persistLesson, readLearn, seenCount, type LessonAction } from './progress';
 
 const kid = (over: Partial<StudentProfile> = {}): StudentProfile => ({
@@ -23,6 +23,28 @@ describe('readLearn', () => {
 });
 
 describe('applyLesson', () => {
+    it('xem lại trang không ghi hồ sơ, leave mới lưu vị trí', () => {
+        const p = run(kid(), visit(0), visit(1));
+        const again = applyLesson(p, visit(0), '2026-10-03');
+        expect(again.changed).toBe(false);
+        expect(again.profile).toBe(p);
+        const left = applyLesson(p, { kind: 'leave', skillId: SK, v: 1, page: 0 }, '2026-10-03');
+        expect(left.profile.learn!.lessons[SK].at).toBe(0);
+    });
+    it('từ chối chỉ số trang và Em thử giả, không thưởng sao', () => {
+        for (const tryIndex of [0, -1, 20, 1.5, NaN]) {
+            expect(applyLesson(kid(), { ...tryA(3), tryIndex } as LessonAction, '2026-10-03').accepted).toBe(false);
+        }
+        expect(applyLesson(kid(), { ...visit(8), pages: 4 } as LessonAction, '2026-10-03').accepted).toBe(false);
+    });
+    it('học xong không đổi lịch sử, tiến độ luyện hoặc hàng đợi ôn', () => {
+        const p = readAll(kid());
+        const out = applyLesson(p, tryA(3), '2026-10-03').profile;
+        expect(out.study).toBe(p.study);
+        expect(out.history).toBe(p.history);
+        expect(out.gameHistory).toBe(p.gameHistory);
+        expect(out.ownedImageIds).toBe(p.ownedImageIds);
+    });
     it('visit bật bit trang, không đổi sao', () => {
         const p = run(kid(), visit(0), visit(3), visit(3));
         expect(seenCount(p.learn!.lessons[SK], 12)).toBe(2);
@@ -63,6 +85,26 @@ describe('applyLesson', () => {
 });
 
 describe('persistLesson', () => {
+    it('hết dung lượng ở cả hai lần ghi thật: không thưởng, lưu lại được và không thưởng lặp', () => {
+        const profiles = [readAll(kid())];
+        const setItem = vi.fn(() => { throw new Error('quota'); });
+        vi.stubGlobal('localStorage', { setItem });
+        const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        try {
+            const failed = persistLesson(profiles, 'k1', tryA(3), saveProfilesStrict, '2026-10-04');
+            expect(failed.ok).toBe(false);
+            expect(failed.profiles).toBe(profiles);
+            expect(failed.earned).toBe(0);
+            expect(setItem).toHaveBeenCalledTimes(2);
+            const written: string[] = [];
+            vi.stubGlobal('localStorage', { setItem: (_key: string, value: string) => written.push(value) });
+            const retry = persistLesson(profiles, 'k1', tryA(3), saveProfilesStrict, '2026-10-04');
+            expect(retry.ok).toBe(true);
+            expect(retry.earned).toBe(1);
+            expect(JSON.parse(written[0])[0].learn.lessons[SK].star).toBe(1);
+            expect(persistLesson(retry.profiles, 'k1', tryA(3), saveProfilesStrict, '2026-10-04').earned).toBe(0);
+        } finally { warning.mockRestore(); vi.unstubAllGlobals(); }
+    });
     it('sai chủ hồ sơ hoặc ghi lỗi thì không đổi gì', () => {
         const profiles = [kid()];
         expect(persistLesson(profiles, 'other', visit(0), () => undefined, 'd').ok).toBe(false);

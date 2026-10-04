@@ -1,0 +1,677 @@
+{
+  "measurements": [
+    {
+      "scenario": "home-new",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "home-progress",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "g1-home",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "mn-home",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "topic",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "mn-topic",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-intro",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-know",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-form",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-example",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-mistake",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-try",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-done",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-g1",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-g2",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-g4",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-g5",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-place",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "lesson-unit",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "result",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "report",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "rules",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "choice",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "compare",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "input",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "order",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "multi",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "print",
+      "width": 1180,
+      "viewport": 1180,
+      "content": 1180
+    },
+    {
+      "scenario": "home-new",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "home-progress",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "g1-home",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "mn-home",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "topic",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "mn-topic",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-intro",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-know",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-form",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-example",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-mistake",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-try",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-done",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-g1",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-g2",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-g4",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-g5",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-place",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "lesson-unit",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "result",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "report",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "rules",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "choice",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "compare",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "input",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "order",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "multi",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "print",
+      "width": 768,
+      "viewport": 768,
+      "content": 768
+    },
+    {
+      "scenario": "home-new",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "home-progress",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "g1-home",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "mn-home",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "topic",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "mn-topic",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-intro",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-know",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-form",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-example",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-mistake",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-try",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-done",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-g1",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-g2",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-g4",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-g5",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-place",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "lesson-unit",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "result",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "report",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "rules",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "choice",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "compare",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "input",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "order",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "multi",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "print",
+      "width": 390,
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "scenario": "home-new",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "home-progress",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "g1-home",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "mn-home",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "topic",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "mn-topic",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-intro",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-know",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-form",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-example",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-mistake",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-try",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-done",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-g1",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-g2",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-g4",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-g5",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-place",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "lesson-unit",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "result",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "report",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "rules",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "choice",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "compare",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "input",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "order",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "multi",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    },
+    {
+      "scenario": "print",
+      "width": 320,
+      "viewport": 320,
+      "content": 320
+    }
+  ],
+  "errors": []
+}

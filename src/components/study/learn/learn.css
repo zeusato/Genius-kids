@@ -148,6 +148,8 @@
 .ld-board { display:inline-flex; align-self:center; font-size:clamp(26px,3.4vw,36px); font-weight:900; font-variant-numeric:tabular-nums; font-family:'HubNunito', system-ui, sans-serif; }
 .ld-left { padding-right:12px; border-right:3px solid var(--hub-ink); }
 .ld-row { display:flex; }
+.ld-sign { width:1ch; }
+.ld-row.subtract { border-bottom:1px solid var(--hub-line); }
 .ld-cell { width:1.05ch; min-width:22px; text-align:center; border-radius:6px; }
 .ld-cell.hi { background:#fde7cf; color:#9a4d12; }
 .ld-right { display:flex; flex-direction:column; }
@@ -220,3 +222,24 @@ html:has(.learn-reader) { scroll-padding-bottom:96px; }
 /* Mầm non: chữ to, hình to */
 .learn-reader.preschool .learn-page { font-size:22px; font-weight:800; line-height:1.55; }
 .learn-reader.preschool .learn-pic svg { max-width:620px; }
+
+/* Cầu nối và sổ tay dùng cùng kích thước chạm với luồng luyện tập. */
+.learn-rules-tools { display:flex; flex-wrap:wrap; gap:12px; margin:20px 0; }
+.learn-search { flex:1 1 220px; display:flex; align-items:center; gap:10px; padding:0 14px; min-width:0; border:1px solid var(--hub-line); border-radius:14px; background:var(--st-card); }
+.learn-search input { width:100%; min-width:0; min-height:48px; background:transparent; color:var(--hub-ink); border:0; }
+.learn-rules-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.learn-rules-list .learn-rule { min-width:0; overflow-wrap:anywhere; }
+.discovery-hub .learn-rule-link { display:block; text-align:left; min-height:44px; color:#fff; text-decoration:underline; text-underline-offset:3px; }
+.learn-rules-group .study-strand-head { break-after:avoid; }
+@media (max-width:720px) { .learn-rules-list { grid-template-columns:minmax(0,1fr); } }
+@media print {
+  .learn-rules, .learn-rules * { visibility:visible; }
+  .learn-rules { position:absolute; inset:0 auto auto 0; width:100%; padding:0; max-width:none; color:#000; }
+  .discovery-hub:has(.learn-rules) { min-height:0; background:#fff; }
+  .learn-rules .learn-topic-head { display:block; }
+  .learn-rules .study-topic-icon, .learn-rules-tools { display:none !important; }
+  .learn-rules-list { display:block; }
+  .learn-rules .learn-rule { break-inside:avoid; margin-bottom:4mm; padding:3mm; box-shadow:none; background:#fff; border:1px solid #bbb; font-size:10pt; }
+  .learn-rules .learn-rule-link { min-height:0; padding:0; background:transparent; text-decoration:none; color:#000; }
+  .learn-rules .learn-formula { font-size:11pt; }
+}

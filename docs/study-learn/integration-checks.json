@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Hoàn thành bài qua giao diện và ghi sao",
+    "Nhận đúng 1 sao",
+    "Không đổi tiến độ luyện, lịch ôn, chuỗi ngày",
+    "Không thêm lịch sử kiểm tra",
+    "Không quay gacha",
+    "Học lại không thưởng thêm sao",
+    "Học → luyện mở phiên 10 câu",
+    "Tải lại vẫn giữ tiến độ và sao",
+    "Đổi hồ sơ chặn callback lưu cũ và cleanup của bài cũ",
+    "Tìm sổ tay bằng tiếng Việt không dấu",
+    "Mở đúng bài học từ sổ tay",
+    "Không có lỗi console trong luồng tích hợp"
+  ],
+  "errors": []
+}

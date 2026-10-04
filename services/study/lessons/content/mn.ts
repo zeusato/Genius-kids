@@ -5,7 +5,7 @@ import type { LessonBook } from '../types';
 
 export default {
     'mn.ordinal': lesson('mn.ordinal', {
-        v: 1, autoRead: true,
+        v: 2, autoRead: true,
         goal: 'đếm được vị trí: thứ nhất, thứ hai, thứ ba.',
         hook: { md: 'Các bạn đang xếp hàng. Bạn nào đứng thứ nhất?' },
         know: [
@@ -22,7 +22,7 @@ export default {
         remember: ['Đếm từ lá cờ: thứ nhất, thứ hai, thứ ba, thứ tư.'],
     }),
     'mn.combine': lesson('mn.combine', {
-        v: 1, autoRead: true,
+        v: 2, autoRead: true,
         goal: 'gộp hai nhóm lại và tách một nhóm thành hai nhóm.',
         hook: { md: 'Có ba chú gà con, thêm hai chú gà con nữa. Có tất cả mấy chú?' },
         know: [
@@ -40,7 +40,7 @@ export default {
         remember: ['Gộp lại thì được nhiều hơn.', 'Tách ra thì mỗi nhóm ít hơn.'],
     }),
     'mn.pattern': lesson('mn.pattern', {
-        v: 1, autoRead: true,
+        v: 2, autoRead: true,
         goal: 'tìm ra quy luật lặp lại và đoán hình tiếp theo.',
         hook: { md: 'Dâu, chó, dâu, chó… Tiếp theo là gì?' },
         know: [
@@ -58,7 +58,7 @@ export default {
         remember: ['Tìm nhóm hình lặp lại, rồi đoán hình tiếp theo.'],
     }),
     'mn.shapes3d': lesson('mn.shapes3d', {
-        v: 1, autoRead: true,
+        v: 2, autoRead: true,
         goal: 'nhận biết khối cầu, khối vuông, khối trụ, khối chữ nhật.',
         hook: { md: 'Quả bóng và con xúc xắc có dạng khối gì?' },
         know: [
@@ -78,8 +78,8 @@ export default {
         remember: ['Khối cầu, khối vuông, khối trụ, khối chữ nhật.'],
     }),
     'mn.position': lesson('mn.position', {
-        v: 1, autoRead: true,
-        goal: 'nói được vị trí: trên, dưới, bên trái, bên phải.',
+        v: 2, autoRead: true,
+        goal: 'nói được vị trí của đồ vật và các bạn.',
         hook: { md: 'Hộp quà ở trên hay ở dưới cái bàn?' },
         know: [
             know('Trên và dưới',
@@ -88,17 +88,17 @@ export default {
                 pic('positionSceneSVG', '🐱', 'below'),
                 text('Chú mèo ở dưới cái bàn.'),
             ),
-            know('Bên trái và bên phải',
-                pic('positionSceneSVG', '🐶', 'right'),
-                text('Nhìn từ phía bé: chú chó ở bên phải cái bàn.'),
-                pic('positionSceneSVG', '🧸', 'left'),
-                text('Gấu bông ở bên trái cái bàn.'),
+            know('Các bạn xếp hàng',
+                pic('rowSVG', ['🐶', '🐱', '🐰'], { flag: true }),
+                text('Hàng đi về lá cờ. Chó đứng trước mèo.'),
+                text('Thỏ đứng sau mèo. Mèo đứng ở giữa.'),
+                text('Nhìn hình: chó bên trái, thỏ bên phải mèo.'),
             ),
         ],
-        remember: ['Trên, dưới, trái, phải: bé nhìn từ chỗ mình ngồi.'],
+        remember: ['Trên, dưới, trái, phải: bé nhìn từ chỗ mình ngồi.', 'Xếp hàng về lá cờ: chó trước mèo, thỏ sau mèo.'],
     }),
     'mn.daytime': lesson('mn.daytime', {
-        v: 1, autoRead: true,
+        v: 2, autoRead: true,
         goal: 'biết các buổi trong ngày và hôm qua, hôm nay, ngày mai.',
         hook: { md: 'Mặt trời mọc là buổi nào nhỉ?' },
         know: [

@@ -5,6 +5,7 @@ import type { PlaceValueSpec } from '@/services/study/lessons/types';
 import { fmt, readNumberVN } from '@/services/study/value';
 import { SpeakButton } from '@/src/components/shared/SpeakButton';
 import { Md } from '../../shared';
+import { fitsPlaceTable } from './algo';
 
 const INT = ['Đơn vị', 'Chục', 'Trăm', 'Nghìn', 'Chục nghìn', 'Trăm nghìn', 'Triệu', 'Chục triệu', 'Trăm triệu'];
 const DEC = ['Phần mười', 'Phần trăm', 'Phần nghìn'];
@@ -57,7 +58,7 @@ export function PlaceValue({ spec }: { spec: PlaceValueSpec }) {
         const ops: [string, number][] = [['× 10', 10], ['× 100', 100], ['× 1000', 1000], [': 10', 0.1], [': 100', 0.01], [': 1000', 0.001]];
         const apply = (label: string, f: number) => {
             const nx = round9(x * f);
-            if (nx >= 10 ** spec.int || (nx !== 0 && nx < 10 ** -dec)) { setLog('Số quá lớn hoặc quá bé cho bảng này, em thử phép khác nhé.'); return; }
+            if (!fitsPlaceTable(nx, spec.int, dec)) { setLog('Bảng chưa đủ hàng để viết số này, em thử phép khác nhé.'); return; }
             const n = label.slice(2).length - 1;
             setLog(`${fmt(x)} ${label} = ${fmt(nx)}: dời dấu phẩy sang ${f > 1 ? 'phải' : 'trái'} ${n} chữ số.`);
             setX(nx);

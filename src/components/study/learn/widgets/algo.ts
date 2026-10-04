@@ -2,6 +2,11 @@
 // Số bị chia có thể là số thập phân; số chia là số tự nhiên (chia cho số thập phân: nhân cả hai số trước).
 import { fmt } from '@/services/study/value';
 
+/** Bảng hàng chỉ nhận số biểu diễn đủ ở các cột đang hiện. */
+export const fitsPlaceTable = (value: number, int: number, dec: number) =>
+    Number.isFinite(value) && value >= 0 && value < 10 ** int &&
+    Math.abs(value * 10 ** dec - Math.round(value * 10 ** dec)) < 1e-7;
+
 export interface DivStep {
     /** chỉ số chữ số cuối của số bị chia đã dùng tới lượt này (không tính dấu phẩy) */ at: number;
     cur: number; q: number; prod: number; rem: number;
@@ -33,6 +38,9 @@ export function longDivision(a: number, b: number): DivResult {
     for (; i < digits.length; i++) {
         cur = cur * 10 + Number(digits[i]);
         const q = Math.floor(cur / b), prod = q * b, rem = cur - prod;
+        const estimate = b >= 10 && q > 0
+            ? `Ước lượng: ${cur} : ${Math.round(b / 10) * 10} khoảng ${Math.min(9, Math.floor(cur / (Math.round(b / 10) * 10)))}. Thử tích ${q} × ${b} = ${prod}; ${q + 1} × ${b} = ${(q + 1) * b} vượt ${cur}, nên chọn ${q}. `
+            : '';
         qs += String(q);
         const nextDigit = digits[i + 1];
         const next = nextDigit === undefined ? null : `${rem}${nextDigit}`;
@@ -44,7 +52,7 @@ export function longDivision(a: number, b: number): DivResult {
         const tail = next ? `${comma ? ` Viết dấu phẩy vào bên phải ${qText} ở thương.` : ''} Hạ ${nextDigit}, được ${Number(next)}.` : '';
         const say = q === 0
             ? `${lead}${cur} bé hơn ${b} nên viết 0 vào thương.${tail}`
-            : `${lead}${cur} chia ${b} được ${q}, viết ${q}. ${q} nhân ${b} bằng ${prod}; ${cur} trừ ${prod} bằng ${rem}.${tail}`;
+            : `${lead}${estimate}${cur} chia ${b} được ${q}, viết ${q}. ${q} nhân ${b} bằng ${prod}; ${cur} trừ ${prod} bằng ${rem}.${tail}`;
         steps.push({ at: i, cur, q, prod, rem, next, say });
         cur = rem;
     }
@@ -61,4 +69,4 @@ export function quotientText(r: DivResult, k: number): string {
 }
 
 export const divisionSummary = (a: number, b: number, r: DivResult) =>
-    r.remainder && r.qComma < 0 ? `${fmt(a)} : ${fmt(b)} = ${fmt(r.quotient)} (dư ${r.remainder})` : `${fmt(a)} : ${fmt(b)} = ${fmt(r.quotient)}`;
+    r.remainder ? `${fmt(a)} : ${fmt(b)} = ${fmt(r.quotient)} (dư ${fmt(r.remainder)})` : `${fmt(a)} : ${fmt(b)} = ${fmt(r.quotient)}`;

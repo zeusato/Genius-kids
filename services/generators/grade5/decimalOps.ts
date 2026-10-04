@@ -32,7 +32,8 @@ export const templates: Template[] = [
             explanation: `Nhân như số tự nhiên: ${fmt(ia)} × ${fmt(ib)} = ${fmt(ia * ib)}; hai thừa số có tất cả 2 chữ số ở phần thập phân, nên ${fd(a)} × ${fd(b)} = ${fd(r)}.`, hint: 'Đếm tổng số chữ số ở phần thập phân của cả hai thừa số.' });
     }, { decimal: true }),
     tpl('g5.dec_div', 1, () => {
-        const n = rint(2, 9), q = dec(1, 50, 1), a = fix(q * n);
+        const n = rint(2, 9), tenth = pickOne([1, 2, 3, 4, 5, 6, 7, 8, 9].filter(d => d * n % 10 !== 0));
+        const q = (rint(1, 49) * 10 + tenth) / 10, a = fix(q * n);
         return single({ q: `${fd(a)} : ${n} = ?`, correct: q, wrong: [fix(q * 10), fix(q / 10), fix(q + 0.1), fix(q - 0.1)], step: 0.1, min: 0,
             explanation: `Chia như số tự nhiên, khi chia đến phần thập phân thì đặt dấu phẩy vào thương: ${fd(a)} : ${n} = ${fd(q)}.` });
     }, { decimal: true, weight: 2 }),

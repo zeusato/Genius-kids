@@ -1,7 +1,26 @@
 import { describe, expect, it } from 'vitest';
-import { longDivision } from './algo';
+import { fitsPlaceTable, longDivision } from './algo';
+
+it('không cắt mất chữ số khi dời dấu phẩy ra ngoài bảng hàng', () => {
+    expect(fitsPlaceTable(5.91 / 1000, 3, 3)).toBe(false);
+    expect(fitsPlaceTable(5.91 / 10, 3, 3)).toBe(true);
+    expect(fitsPlaceTable(0.3, 3, 3)).toBe(true);
+    expect(fitsPlaceTable(1000, 3, 3)).toBe(false);
+    expect(fitsPlaceTable(0, 3, 0)).toBe(true);
+});
 
 describe('longDivision', () => {
+    it('chia hai chữ số: ước lượng và số dư đúng trên 2000 cặp', () => {
+        let seed = 91;
+        for (let i = 0; i < 2000; i++) {
+            seed = seed * 16807 % 2147483647;
+            const a = seed % 999999 + 1, b = 10 + seed % 90;
+            const r = longDivision(a, b);
+            expect(r.quotient * b + r.remainder).toBe(a);
+            expect(r.remainder).toBeLessThan(b);
+            for (const step of r.steps) if (step.q > 0) expect(step.say).toContain('Ước lượng');
+        }
+    });
     it('đúng số học trên 2000 cặp ngẫu nhiên', () => {
         let seed = 7;
         const rnd = (n: number) => { seed = (seed * 16807) % 2147483647; return seed % n; };

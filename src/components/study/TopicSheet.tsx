@@ -6,6 +6,8 @@ import { skillsWithContent } from '@/services/study/registry';
 import { topicMeta } from '@/services/study/catalog';
 import { STATUS_LABEL, skillStatus } from '@/services/study/progress';
 import type { StudyProgress } from '@/services/study/types';
+import { hasLesson } from '@/services/study/lessons/manifest';
+import { readLearn, lessonStatus, type LearnProgress } from '@/services/study/lessons/progress';
 import { HubDialog } from '@/src/components/hub/HubShell';
 import './study.css';
 
@@ -16,7 +18,7 @@ export function Seg<T extends string | number>({ value, options, onChange, label
     return <div className="study-seg" role="group" aria-label={label}>{options.map(o => <button key={String(o.v)} aria-label={o.label} aria-pressed={o.v === value} onClick={() => onChange(o.v)}>{o.label}</button>)}</div>;
 }
 
-export function TopicSheet({ topic, grade, progress, advancedOnly, onClose, onStart }: { topic: Topic; grade: Grade; progress: StudyProgress; advancedOnly: boolean; onClose: () => void; onStart: (skillIds: string[], mode: StudyMode, count: number) => void }) {
+export function TopicSheet({ topic, grade, progress, learn, onLearn, advancedOnly, onClose, onStart }: { topic: Topic; grade: Grade; progress: StudyProgress; learn?: LearnProgress; onLearn?: (skillId: string) => void; advancedOnly: boolean; onClose: () => void; onStart: (skillIds: string[], mode: StudyMode, count: number) => void }) {
     const skills = skillsWithContent(topic.id, true).filter(s => !!s.advanced === advancedOnly);
     const [sel, setSel] = useState<string[]>(() => skills.map(s => s.id));
     const counts = countChoices(grade);
@@ -31,11 +33,11 @@ export function TopicSheet({ topic, grade, progress, advancedOnly, onClose, onSt
                     {skills.map(s => {
                         const ss = progress.skills[s.id];
                         return (
-                            <button key={s.id} className={`study-skill${sel.includes(s.id) ? ' selected' : ''}`} onClick={() => toggle(s.id)} aria-pressed={sel.includes(s.id)}>
+                            <div key={s.id} className="learn-skill-choice"><button className={`study-skill${sel.includes(s.id) ? ' selected' : ''}`} onClick={() => toggle(s.id)} aria-pressed={sel.includes(s.id)}>
                                 <strong>{s.title}{s.advanced && <span className="study-badge"><Sparkles size={11} />Nâng cao</span>}</strong>
                                 <em>{STATUS_LABEL[skillStatus(ss)]} · M{ss?.lvl ?? s.levels[0]}{ss?.a ? ` · ${Math.round(ss.m * 100)}%` : ''}</em>
                                 <span className="bar"><i style={{ width: `${(ss?.m ?? 0) * 100}%` }} /></span>
-                            </button>
+                            </button>{hasLesson(s.id) && onLearn && <div className="learn-skill-state"><small>{lessonStatus(readLearn(learn).lessons[s.id]) === 'done' ? 'Đã học bài ✓' : 'Chưa học xong'}</small><button className="hub-text-link" onClick={() => { onClose(); onLearn(s.id); }}>Học</button></div>}</div>
                         );
                     })}
                 </div>

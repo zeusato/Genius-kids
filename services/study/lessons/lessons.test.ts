@@ -8,6 +8,9 @@ import { isVisualFn, renderVisual } from '../../generators/svg/render';
 import { withGeneratorRandom } from '../../generators/random';
 import { questionToSpeech } from '../../../src/utils/questionSpeech';
 import { LESSON_INDEX, PUBLISHED_GRADES } from './manifest';
+import { gradeVisible, hasLesson } from './manifest';
+import { MN_ACTIVITIES } from './preschool';
+import { PRESCHOOL_TOPICS } from '../../../src/components/preschool/catalog';
 import { lessonPages, tryIndex } from './pages';
 import { lengthLint, lessonStrings, mathLint, notationLint } from './lint';
 import { buildTry, tryLevels, TRY_COUNT } from './try';
@@ -46,6 +49,28 @@ function exploreSamples(spec: ExploreSpec, rnd = Math.random): Record<string, nu
 }
 
 describe('manifest', () => {
+    it('phủ mọi kỹ năng có template, kể cả nâng cao và bản nháp', () => {
+        for (const s of SKILLS.filter(s => templateLevels(s.id).length && !s.legacy)) {
+            expect(!!BOOKS[s.grade][s.id] || !!MN_ACTIVITIES[s.id], s.id).toBe(true);
+        }
+    });
+    it('bản phát hành không mở lớp chưa duyệt; DEV mở đủ bản nháp', () => {
+        for (const [grade, lesson] of ALL) {
+            expect(hasLesson(lesson.skillId, false)).toBe(PUBLISHED_GRADES.includes(grade));
+            expect(gradeVisible(grade, true)).toBe(true);
+        }
+        expect(hasLesson('g9.invalid', true)).toBe(false);
+    });
+    it('Mầm non: bốn trang, tự đọc và mọi đường nối hoạt động hợp lệ', () => {
+        for (const lesson of Object.values(mn)) {
+            expect(lesson.autoRead).toBe(true);
+            expect(lessonPages(lesson).length).toBeLessThanOrEqual(4);
+        }
+        for (const links of Object.values(MN_ACTIVITIES)) for (const link of links) {
+            expect(PRESCHOOL_TOPICS.find(t => t.id === link.topic)?.activities.some(a => a.id === link.activity)).toBe(true);
+        }
+        for (const lesson of Object.values(g1)) expect(lesson.autoRead).toBe(true);
+    });
     it('LESSON_INDEX khớp nội dung từng lớp', () => {
         for (const [g, book] of Object.entries(BOOKS)) expect([...LESSON_INDEX[Number(g) as Grade]].sort(), `lớp ${g}`).toEqual(Object.keys(book).sort());
     });

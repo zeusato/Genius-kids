@@ -50,7 +50,7 @@ export interface LessonOutcome { accepted: boolean; changed: boolean; profile: S
 
 export function applyLesson(profile: StudentProfile, a: LessonAction, today: string): LessonOutcome {
     const base: LessonOutcome = { accepted: false, changed: false, profile, earned: 0, completedNow: false, unlocked: [] };
-    if (!SKILL_MAP.has(a.skillId) || !Number.isInteger(a.v)) return base;
+    if (!SKILL_MAP.has(a.skillId) || !Number.isInteger(a.v) || a.v < 1) return base;
     const learn = readLearn(profile.learn);
     const prev = learn.lessons[a.skillId];
     let s: LessonState = prev && prev.v === a.v ? { ...prev } : { v: a.v, seen: 0, at: 0, best: prev?.best ?? 0, ...(prev?.done ? { done: prev.done } : {}), ...(prev?.star ? { star: 1 as const } : {}) };
@@ -58,9 +58,12 @@ export function applyLesson(profile: StudentProfile, a: LessonAction, today: str
 
     if (a.kind === 'visit' || a.kind === 'leave') {
         if (!Number.isInteger(a.page) || a.page < 0 || a.page >= MAX_PAGES) return base;
+        if (a.kind === 'visit' && (!Number.isInteger(a.pages) || a.pages < 1 || a.pages > MAX_PAGES || a.page >= a.pages)) return base;
+        if (a.kind === 'visit' && prev?.v === a.v && has(s.seen, a.page)) return { ...base, accepted: true };
         if (a.kind === 'visit' && !has(s.seen, a.page)) s.seen += bit(a.page);
         s.at = a.page;
     } else {
+        if (!Number.isInteger(a.tryIndex) || a.tryIndex < 1 || a.tryIndex >= MAX_PAGES) return base;
         if (!Number.isInteger(a.total) || a.total < 1 || a.total > 3 || !Number.isInteger(a.correct) || a.correct < 0 || a.correct > a.total) return base;
         s.best = Math.max(s.best, a.correct);
         if (passed(a.correct, a.total) && allSeenBefore(s, a.tryIndex)) {

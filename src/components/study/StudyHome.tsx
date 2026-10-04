@@ -1,11 +1,15 @@
 // Trang chủ Ôn Luyện: thẻ "Ôn hôm nay", lối tắt, chủ đề theo mạch kiến thức (vòng % thành thạo).
 import React, { useEffect, useMemo, useState } from 'react';
-import { BarChart3, CheckCircle2, ChevronDown, ChevronRight, ClipboardList, Flame, Keyboard, Play, Printer, RotateCcw, SlidersHorizontal, Sparkles, Target } from 'lucide-react';
+import { BarChart3, BookOpen, CheckCircle2, ChevronDown, ChevronRight, ClipboardList, Flame, Keyboard, Play, Printer, RotateCcw, SlidersHorizontal, Sparkles, Target } from 'lucide-react';
 import { Grade, StudentProfile, StudyMode, Topic } from '@/types';
 import { getTopicsByGrade } from '@/services/mathEngine';
-import { skillsWithContent } from '@/services/study/registry';
+import { hasTemplates, skillsWithContent } from '@/services/study/registry';
+import { gradeVisible, hasLesson } from '@/services/study/lessons/manifest';
+import { lessonStatus, readLearn } from '@/services/study/lessons/progress';
+import { loadLessonBook } from '@/services/study/lessons/load';
+import { lessonMinutes } from '@/services/study/lessons/pages';
 import { SKILL_MAP, STRAND_LABEL, topicMeta } from '@/services/study/catalog';
-import { STATUS_LABEL, currentTerm, dailyCount, dueReviews, liveStreak, localDay, skillStatus, topicMastery } from '@/services/study/progress';
+import { STATUS_LABEL, currentTerm, dailyCount, dailyPlan, dueReviews, liveStreak, localDay, skillStatus, topicMastery } from '@/services/study/progress';
 import type { Level, Strand, StudyProgress, Term } from '@/services/study/types';
 import { HubDialog } from '@/src/components/hub/HubShell';
 import { Ring, TopicIcon } from './shared';
@@ -27,6 +31,10 @@ export interface HomeActions {
     onShowAdvanced: (v: boolean) => void;
     /** Chủ đề có bài học → mở Trang chủ đề (Học bài / Luyện tập). */
     onOpenTopic: (topicId: string, advanced: boolean) => void;
+    /** Mở bài học của một kỹ năng. */
+    onLearn: (skillId: string) => void;
+    /** Sổ tay công thức của lớp. */
+    onRules: () => void;
 }
 
 const SCROLL_KEY = (g: number) => `study-home-scroll-${g}`;
@@ -60,6 +68,16 @@ export function StudyHome({ student, progress, aiReady, actions }: { student: St
     const typing = topics.filter(t => isTyping(t.id));
     const byStrand = STRAND_ORDER.map(st => ({ st, list: basic.filter(t => (topicMeta(t.id)?.strand ?? 'number') === st) })).filter(x => x.list.length);
     const gradeName = grade === Grade.Preschool ? 'Mầm non' : `Lớp ${grade}`;
+    const learn = readLearn(student.learn);
+    // Ôn hôm nay có kỹ năng mới mà bài học chưa xong → gợi ý học bài trước (không chặn nút Bắt đầu)
+    const newToday = useMemo(() => dailyPlan(progress, grade, hasTemplates, now).picks.map(p => p.skillId)
+        .find(id => !progress.skills[id]?.a && hasLesson(id) && lessonStatus(learn.lessons[id]) !== 'done'), [progress, grade, student.learn, localDay(now)]); // eslint-disable-line react-hooks/exhaustive-deps
+    const [newMinutes, setNewMinutes] = useState<number>();
+    useEffect(() => {
+        let alive = true; setNewMinutes(undefined);
+        if (newToday) loadLessonBook(grade).then(book => { if (alive && book[newToday]) setNewMinutes(lessonMinutes(book[newToday])); }).catch(() => undefined);
+        return () => { alive = false; };
+    }, [newToday, grade]);
 
     const card = (t: Topic, advancedCard = false) => {
         const meta = topicMeta(t.id);
@@ -67,12 +85,14 @@ export function StudyHome({ student, progress, aiReady, actions }: { student: St
         const m = topicMastery(progress, skills);
         const done = skills.filter(s => !s.advanced && skillStatus(progress.skills[s.id]) === 'mastered').length;
         const nBasic = skills.filter(s => !s.advanced).length || skills.length;
+        const withLesson = skills.filter(s => hasLesson(s.id)), learned = withLesson.filter(s => lessonStatus(learn.lessons[s.id]) === 'done').length;
         return (
             <button key={t.id} className="study-topic" onClick={() => open(t, advancedCard)}>
                 <span className="study-topic-icon">{isTyping(t.id) ? <Keyboard size={24} /> : <TopicIcon name={meta?.icon} />}</span>
                 <span>
                     <strong>{meta?.title ?? t.title}</strong>
                     <small>{meta?.description ?? t.description}</small>
+                    {withLesson.length > 0 && <span className="term learn-term-chip"><BookOpen size={11} /> HỌC BÀI {learned}/{withLesson.length}</span>}
                     {!isTyping(t.id) && <span className="term">{advancedCard ? 'NÂNG CAO' : `${[...new Set(skills.map(s => `HK${s.term}`))].join(' · ')} · ${done === nBasic ? 'THÀNH THẠO ⭐' : skills.some(s => progress.skills[s.id]?.a) ? `ĐANG HỌC ${skills.filter(s => progress.skills[s.id]?.a).length}/${nBasic}` : 'CHƯA HỌC'}`}</span>}
                 </span>
                 {!isTyping(t.id) && !advancedCard ? <Ring value={m} done={done === nBasic && nBasic > 0} /> : <ChevronRight size={20} />}
@@ -91,6 +111,7 @@ export function StudyHome({ student, progress, aiReady, actions }: { student: St
                         <span className="study-pill flame"><Flame size={15} />{streak ? `${streak} ngày liên tiếp` : 'Bắt đầu chuỗi ngày'}</span>
                         {due > 0 && <span className="study-pill"><RotateCcw size={15} />{due} câu cần ôn</span>}
                         {doneToday && <span className="study-pill"><CheckCircle2 size={15} />Đã xong hôm nay</span>}
+                        {newToday && <button className="study-pill learn-pill" onClick={() => actions.onLearn(newToday)}><BookOpen size={15} />Bài mới hôm nay: {SKILL_MAP.get(newToday)?.title} · Học bài trước{newMinutes ? ` (≈ ${newMinutes} phút)` : ''}</button>}
                     </div>
                     <button className="study-btn" onClick={actions.onDaily}><Play size={20} fill="currentColor" />{doneToday ? 'Ôn thêm' : 'Bắt đầu'}</button>
                 </div>
@@ -103,6 +124,7 @@ export function StudyHome({ student, progress, aiReady, actions }: { student: St
                 <button className="study-chip" onClick={() => setDialog('custom')}><SlidersHorizontal size={18} />Tự chọn đề</button>
                 <button className="study-chip" onClick={() => setDialog('print')}><Printer size={18} />In phiếu bài tập</button>
                 <button className="study-chip" onClick={actions.onReport}><BarChart3 size={18} />Báo cáo</button>
+                {gradeVisible(grade) && <button className="study-chip" onClick={actions.onRules}><BookOpen size={18} />Sổ tay công thức</button>}
             </div>}
 
             {byStrand.map(({ st, list }) => (
@@ -122,7 +144,7 @@ export function StudyHome({ student, progress, aiReady, actions }: { student: St
                 <div className="study-grid">{typing.map(t => card(t))}</div>
             </section>}
 
-            {sheet && <TopicSheet topic={sheet} grade={grade} progress={progress} advancedOnly={advancedOnly} onClose={() => setSheet(null)} onStart={(ids, mode, n) => { setSheet(null); actions.onTopic(sheet.id, ids, mode, n); }} />}
+            {sheet && <TopicSheet topic={sheet} grade={grade} progress={progress} learn={student.learn} onLearn={actions.onLearn} advancedOnly={advancedOnly} onClose={() => setSheet(null)} onStart={(ids, mode, n) => { setSheet(null); actions.onTopic(sheet.id, ids, mode, n); }} />}
             {dialog === 'matrix' && <MatrixDialog grade={grade} onClose={() => setDialog(null)} onStart={(t, n) => { setDialog(null); actions.onMatrix(t, n); }} />}
             {(dialog === 'custom' || dialog === 'print') && <CustomDialog print={dialog === 'print'} grade={grade} topics={topics.filter(t => (!isTyping(t.id) || dialog === 'custom') && (!topicMeta(t.id)?.advanced || showAdv))} aiReady={aiReady} progress={progress}
                 onClose={() => setDialog(null)}

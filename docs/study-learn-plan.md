@@ -8,11 +8,13 @@
 
 ## 0. Cách dùng plan này (đọc trước mỗi phiên)
 
+**Trạng thái 04/10/2026:** theo yêu cầu mới “kiểm tra lại phần cuối, hoàn thiện để xuất bản”, đã mở đủ sáu lớp trong `PUBLISHED_GRADES`, tổng 188 bài. Đã kiểm build production và luồng offline/lưu lỗi thật, đóng bốn mục nội dung ở phần 13. Chưa push/deploy. Bàn giao và bằng chứng: [docs/study-learn/README.md](study-learn/README.md). Trạng thái giữ nháp ngày 03/10 là lịch sử của lượt trước.
+
 1. Mỗi phiên chỉ làm **một mục GĐx.y** (mục 8). Đọc mục 7 "Bẫy" trước khi sửa code.
 2. Không tự đổi quyết định ở mục 1. Gặp chỗ plan chưa nói thì chọn phương án **giữ tương thích ngược**, rồi ghi vào mục 14 "Nhật ký lệch plan".
 3. Xong mỗi mục, chạy **lệnh nghiệm thu** của mục đó. Mọi lệnh phải xanh mới được commit.
 4. Commit tiếng Việt theo lối repo, ví dụ `Học bài GĐ1.2: khung đọc bài, lật trang, đọc to`. Dòng cuối là `Co-Authored-By` theo hướng dẫn phiên.
-5. **Không push, không chạy build phát hành, không kích hoạt deploy.** Chủ dự án tự đẩy code và tự deploy.
+5. **Không push, không kích hoạt deploy.** Chủ dự án tự đẩy code và tự deploy. Yêu cầu ngày 04/10 cho phép chuẩn bị bản xuất bản: mở lớp và build production cục bộ để nghiệm thu.
 6. Lệnh chung:
    - Test: `npx vitest run` (theo phạm vi: `npx vitest run services/study src/components/study`)
    - Kiểu: `npx tsc --noEmit`. Chỉ được còn lỗi có sẵn ở `modules/farm/src/ui/renderSnapshot.ts:26`.
@@ -685,10 +687,10 @@ Không chạy song song hai phiên nội dung của cùng một lớp, vì chún
 
 | Ngày | Kỹ năng | Vấn đề | Đề xuất | Trạng thái |
 |---|---|---|---|---|
-| 02/10 | g5.work_together | Lời giải "1/12 + 1/24 = 36/288" đúng nhưng không quy đồng theo mẫu chung nhỏ nhất, không rút gọn | "1/12 + 1/24 = 2/24 + 1/24 = 3/24 = 1/8" | mở |
-| 02/10 | g5.dec_div M1 | Kỹ năng "Chia số thập phân" có lúc ra câu không có số thập phân (200 : 5) | M1 luôn có số bị chia thập phân | mở |
-| 02/10 | g3.div_1digit | Chưa có template nhắm riêng dạng thương có chữ số 0 (dạng trẻ hay sai) | Thêm nhánh M2 | cần kiểm |
-| 02/10 | g3.times_less M3 | Đề "Số gạo Lan mang về giảm đi 2 lần so với bao gạo" khó hiểu | "Lan mang về số gạo bằng bao gạo giảm đi 2 lần" | mở |
+| 02/10 | g5.work_together | Lời giải chưa dùng mẫu chung nhỏ nhất và chưa rút gọn | Quy đồng, rút gọn rồi tìm thời gian | Đã sửa 04/10; kiểm số học 200 mẫu |
+| 02/10 | g5.dec_div M1 | Có lúc ra câu không có số thập phân | M1 luôn có số bị chia thập phân | Đã sửa 04/10; kiểm 500 mẫu |
+| 02/10 | g3.div_1digit | Chưa có template nhắm riêng dạng thương có chữ số 0 | Thêm nhánh M2 | Đã thêm 04/10; giữ dạng câu tương thích MathRacing |
+| 02/10 | g3.times_less M3 | Đề gạo “giảm đi nhiều lần so với bao” khó hiểu | Chia bao gạo thành các phần bằng nhau, mang về một phần | Đã sửa 04/10 |
 
 ## 14. Nhật ký lệch plan
 
@@ -698,3 +700,135 @@ Không chạy song song hai phiên nội dung của cùng một lớp, vì chún
 - 02/10 · GĐ3.1 · Giới hạn số bước ví dụ dạng tính (calc) nâng lên 8, vì nhân với số có hai chữ số cần 7 bước khớp widget.
 - 02/10 · GĐ3.6 · Rà soát độc lập Lớp 3: sửa 3 lỗi sai (nhãn sơ đồ tổng – hiệu, tên bán kính OC, ngày – thứ) và các mục nên sửa; ví dụ nhân lớp 3 chỉ nhớ một lượt; Dạng 2 bài toán hai bước gộp "nhiều hơn / gấp" rồi tính cả hai (tối đa 3 dạng). Lớp 3 chưa đưa vào PUBLISHED_GRADES: chờ chủ dự án duyệt.
 - 02/10 · GĐ4 · Đặt tính chia hỗ trợ số bị chia thập phân; trục số ghi nhãn bằng dấu phẩy thập phân; thêm mixedPiesSVG.
+
+- 03/10 · GĐ6–10 · Chủ dự án yêu cầu hoàn tất toàn bộ phần còn lại, giữ bản nháp. Gộp các phiên nhỏ thành một lượt thực hiện; bảng dàn bài Lớp 4/1/2 được hoàn thiện cùng nội dung tại mục 15, không có vòng duyệt trung gian. Không thêm lớp vào `PUBLISHED_GRADES`, không build/push/deploy.
+- 03/10 · GĐ5/GĐ10 · Sáu bài mầm non có hai trang kiến thức + Em thử + Ghi nhớ; bỏ intro để đạt tối đa 4 trang, tăng v=2. Bài vị trí bổ sung trước/sau/ở giữa. Hook còn trong dữ liệu nhưng không hiển thị riêng ở mầm non.
+- 03/10 · GĐ10 · Lượt rà soát mẫu 20 bài là tự rà soát sau biên soạn, kết hợp bộ kiểm chuẩn độc lập với nội dung; chưa có người thứ hai duyệt sư phạm. Bằng chứng và giới hạn ghi ở báo cáo bàn giao. Duyệt/phát hành để lại theo yêu cầu giữ nháp.
+- 03/10 · GĐ10 · Kiểm browser bằng context/route thật trong fixture DEV và hồ sơ Chromium tạm. Bổ sung hồi quy đổi hồ sơ, sao một lần, không ảnh hưởng lịch sử luyện và gacha. Giữ nguyên lỗi TypeScript nền của Làng Mầm.
+
+- 04/10 · Chuẩn bị xuất bản · Theo yêu cầu mới, mở MN/1–5; build production cục bộ và kiểm service worker/offline. Sửa bốn mục template còn mở, nối nút học trong dòng kỹ năng mầm non, xử lý lỗi lưu thật và thử lại kết quả. Chưa push/deploy. 119 file / 3715 test đạt; giữ lỗi TypeScript nền farm như ngoại lệ nghiệm thu ban đầu.
+
+## 15. Dàn bài Lớp 4, Lớp 1, Lớp 2 — bản nháp hoàn tất
+
+Biên soạn 03/10/2026 theo catalog và mẫu template trong `docs/study-learn/samples/`. Ngày 04/10 đã mở sáu lớp cho bản production theo yêu cầu hoàn thiện để xuất bản.
+
+### Lớp 4 — 42 bài
+
+| Kỹ năng | Dạng và mức Em thử | Hình / thao tác | Ghi nhớ chính |
+|---|---|---|---|
+| g4.read_write · Đọc, viết số đến lớp triệu | Dạng 1: Đọc số (M1) · Dạng 2: Viết số (M1) | Ví dụ từng bước | Đọc theo lớp, từ trái sang phải. Viết đủ chữ số 0 giữ chỗ. |
+| g4.place_class · Hàng và lớp, giá trị của chữ số | Dạng 1: Hàng và giá trị (M2) · Dạng 2: Phân tích số (M1) | place-value | Mỗi lớp có ba hàng. Giá trị chữ số thay đổi theo hàng. |
+| g4.compare · So sánh, sắp xếp số có nhiều chữ số | Dạng 1: Điền dấu (M1) · Dạng 2: Sắp xếp (M2) | Ví dụ từng bước | Đếm số chữ số trước. Cùng độ dài thì so từ trái sang phải. |
+| g4.round · Làm tròn số đến hàng trăm nghìn | Dạng 1: Làm tròn đến hàng đã cho (M2) · Dạng 2: Làm tròn có nhớ (M2) | Ví dụ từng bước | Xét đúng chữ số ngay bên phải. Sau khi làm tròn, phần bên phải là các chữ số 0. |
+| g4.even_odd · Số chẵn, số lẻ | Dạng 1: Chọn số chẵn, số lẻ (M1) · Dạng 2: Hai số cùng loại liên tiếp (M2) | Ví dụ từng bước | Xem hàng đơn vị. Hai số chẵn liên tiếp hoặc hai số lẻ liên tiếp hơn kém nhau 2. |
+| g4.sequence · Dãy số theo quy luật | Dạng 1: Tăng hoặc giảm đều (M2) · Dạng 2: Nhân theo quy luật (M3) | Ví dụ từng bước | Kiểm tra quy luật trên nhiều cặp. Đọc kỹ chiều tăng hoặc giảm của dãy. |
+| g4.addsub · Cộng, trừ số có nhiều chữ số | Dạng 1: Cộng (M1) · Dạng 2: Trừ và thử lại (M2) | column | Các chữ số cùng hàng thẳng cột. Thử lại phép trừ bằng phép cộng. |
+| g4.properties_add · Tính chất giao hoán, kết hợp của phép cộng | Dạng 1: Tính nhanh (M2) · Dạng 2: So sánh tổng (M3) | Ví dụ từng bước | Đổi chỗ, nhóm số hạng để tính thuận tiện. Cùng một số hạng, so sánh phần còn lại. |
+| g4.letter_expr · Biểu thức chứa chữ | Dạng 1: Biểu thức chứa một chữ (M2) · Dạng 2: Biểu thức chứa nhiều chữ (M2) | Ví dụ từng bước | Mỗi chữ thay bằng đúng số đã cho. Giữ nguyên dấu phép tính và dấu ngoặc. |
+| g4.mul · Nhân với số có một, hai chữ số | Dạng 1: Nhân với số một chữ số (M1) · Dạng 2: Nhân với số hai chữ số (M2) | column | Nhân từ hàng đơn vị. Tích riêng hàng chục lùi sang trái một cột. |
+| g4.mul10 · Nhân với 10, 100, 1000; nhân số tròn chục | Dạng 1: Nhân với 10, 100, 1000 (M1) · Dạng 2: Nhân số tròn chục (M2) | Ví dụ từng bước | Quy tắc thêm 0 dùng cho số tự nhiên. Đếm đủ chữ số 0. |
+| g4.properties_mul · Tính chất của phép nhân | Dạng 1: Nhóm thừa số (M2) · Dạng 2: Thừa số chung (M3) | Ví dụ từng bước | Chỉ nhóm trong phép nhân khi giữ đủ thừa số. Nhân với từng số hạng của tổng. |
+| g4.div · Chia cho số có một, hai chữ số | Dạng 1: Thương có chữ số 0 (M1) · Dạng 2: Chia cho số hai chữ số (M2) · Dạng 3: Điều chỉnh thương (M3) | long-division | Ước lượng chỉ là dự đoán, phải nhân thử. Số dư luôn bé hơn số chia. Thương nhân số chia cộng dư bằng số bị chia. |
+| g4.div10 · Chia cho 10, 100, 1000 | Dạng 1: Chia cho 10, 100, 1000 (M1) · Dạng 2: Chia số tròn chục (M2) | Ví dụ từng bước | Chỉ bỏ chữ số 0 ở tận cùng. Bỏ bằng nhau ở cả hai số. |
+| g4.expr · Biểu thức có dấu ngoặc | Dạng 1: Tính giá trị (M2) · Dạng 2: So sánh hai biểu thức (M3) | Ví dụ từng bước | Ngoặc trước, nhân chia trước cộng trừ. Nhân và chia cùng mức ưu tiên. |
+| g4.divisibility ★ · Dấu hiệu chia hết cho 2, 3, 5, 9 | Dạng 1: Chia hết cho 2 và 5 (M2) · Dạng 2: Chia hết cho 3 và 9 (M2) | Ví dụ từng bước | 2, 5: xem chữ số tận cùng. 3, 9: xem tổng các chữ số. |
+| g4.fraction_concept · Khái niệm phân số | Dạng 1: Viết phân số từ hình (M1) · Dạng 2: Đọc và gọi tên thành phần (M1) | fractionPieSVG, explore | Chia đơn vị thành các phần bằng nhau. Tử số ở trên, mẫu số ở dưới. |
+| g4.fraction_equiv · Tính chất cơ bản, rút gọn phân số | Dạng 1: Tìm phân số bằng nhau (M1) · Dạng 2: Rút gọn (M2) | fractionBarSVG | Làm cùng phép tính ở tử và mẫu. Phân số tối giản không còn ước chung lớn hơn 1. |
+| g4.fraction_common · Quy đồng mẫu số | Dạng 1: Dùng tích hai mẫu (M2) · Dạng 2: Một mẫu chia hết cho mẫu kia (M2) | Ví dụ từng bước | Giá trị phân số giữ nguyên. Chọn mẫu chung nhỏ giúp tính gọn. |
+| g4.fraction_compare · So sánh phân số | Dạng 1: Cùng mẫu (M1) · Dạng 2: Khác mẫu (M2) | Ví dụ từng bước | Khác mẫu: quy đồng rồi so sánh. Cùng tử dương: mẫu lớn hơn thì phân số bé hơn. |
+| g4.frac_addsub · Cộng, trừ phân số | Dạng 1: Cùng mẫu số (M1) · Dạng 2: Một mẫu là bội của mẫu kia (M2) | fractionBarSVG | Chỉ cộng, trừ tử khi cùng mẫu. Rút gọn kết quả nếu có thể. |
+| g4.frac_mul · Phép nhân phân số | Dạng 1: Nhân hai phân số (M1) · Dạng 2: Nhân với số tự nhiên (M2) | Ví dụ từng bước | Nhân tử với tử, mẫu với mẫu. Không cần quy đồng khi nhân. |
+| g4.frac_div · Phép chia phân số | Dạng 1: Chia hai phân số (M2) · Dạng 2: Chia cho số tự nhiên (M2) | Ví dụ từng bước | Giữ nguyên số bị chia. Không chia cho 0. |
+| g4.fraction_of · Tìm phân số của một số | Dạng 1: Tìm một phần của số lượng (M2) · Dạng 2: Tìm số còn lại (M3) | segmentDiagramSVG | Chia theo mẫu rồi nhân theo tử. Hỏi còn lại thì cần thêm phép trừ. |
+| g4.frac_addsub_any ★ · Cộng, trừ phân số khác mẫu số | Dạng 1: Cộng khác mẫu (M2) · Dạng 2: Trừ khác mẫu (M2) | Ví dụ từng bước | Cộng, trừ khác mẫu cần quy đồng. Kết quả có thể lớn hơn 1. |
+| g4.angle_types · Góc nhọn, góc vuông, góc tù, góc bẹt | Dạng 1: Gọi tên góc (M1) | angleShapeSVG | Nhọn bé hơn vuông; tù lớn hơn vuông, bé hơn bẹt. Hai cạnh góc bẹt tạo thành một đường thẳng. |
+| g4.angle_measure · Đo góc, đơn vị đo góc (độ) | Dạng 1: Đọc thước đo góc (M2) | explore | Tâm thước trùng đỉnh. Đọc từ vạch 0° trùng cạnh góc. |
+| g4.angle_compare · So sánh các góc | Dạng 1: So sánh và sắp xếp (M2) | Ví dụ từng bước | So sánh bằng số đo. Không so sánh bằng độ dài cạnh. |
+| g4.perp_parallel · Hai đường thẳng vuông góc, song song | Dạng 1: Kiểm tra vuông góc (M1) · Dạng 2: Các cặp cạnh song song (M2) | linePairSVG | Vuông góc: kiểm tra bằng ê-ke. Song song: kéo dài cũng không cắt nhau. |
+| g4.para_rhombus_id · Hình bình hành, hình thoi | Dạng 1: Nhận dạng theo đặc điểm (M1) · Dạng 2: Đúng hay sai (M2) | parallelogramSVG | Bình hành: hai cặp cạnh đối song song và bằng nhau. Thoi: thêm điều kiện bốn cạnh bằng nhau. |
+| g4.rect_word · Chu vi, diện tích hình chữ nhật, hình vuông | Dạng 1: Tìm cạnh từ chu vi (M2) · Dạng 2: Diện tích và sản lượng (M3) | rectSVG | Chu vi dùng đơn vị độ dài. Diện tích dùng đơn vị vuông. |
+| g4.para_area ★ · Diện tích hình bình hành, hình thoi | Dạng 1: Diện tích hình bình hành (M2) · Dạng 2: Diện tích hình thoi (M2) | parallelogramSVG, rhombusSVG | Bình hành: đáy nhân chiều cao. Hình thoi: tích hai đường chéo chia 2. |
+| g4.mass · Yến, tạ, tấn | Dạng 1: Đổi đơn vị (M1) · Dạng 2: Hai tên đơn vị (M2) | unit-ladder | Tấn → tạ → yến → kg: mỗi bước nhân 10. Cộng, trừ khi đã cùng đơn vị. |
+| g4.area_units · Đề-xi-mét vuông, mét vuông, mi-li-mét vuông | Dạng 1: Một tên đơn vị (M1) · Dạng 2: Hai tên đơn vị (M2) | unit-ladder | Đơn vị diện tích có ký hiệu vuông. Mỗi bậc gấp 100, không phải 10. |
+| g4.time_units · Giây, thế kỉ | Dạng 1: Đổi phút, giây (M1) · Dạng 2: Năm thuộc thế kỉ nào (M2) | Ví dụ từng bước | 1 phút có 60 giây. Thế kỉ đầu tiên bắt đầu từ năm 1. |
+| g4.average · Số trung bình cộng | Dạng 1: Tìm trung bình cộng (M2) · Dạng 2: Tìm số còn thiếu (M3) | Ví dụ từng bước | Trung bình bằng tổng chia số số hạng. Tổng bằng trung bình nhân số số hạng. |
+| g4.sum_diff · Tìm hai số khi biết tổng và hiệu | Dạng 1: Tìm số bé trước (M2) · Dạng 2: Bài toán thực tế (M3) | segmentDiagramSVG | Tổng trừ hiệu rồi chia 2: số bé. Thử lại cả tổng và hiệu. |
+| g4.unit_rate · Bài toán liên quan đến rút về đơn vị | Dạng 1: Tìm giá trị nhiều phần (M2) · Dạng 2: Tìm số phần (M3) | Ví dụ từng bước | Bước đầu tìm một phần. Bước sau có thể nhân hoặc chia tùy câu hỏi. |
+| g4.word_multi · Bài toán giải bằng hai, ba bước tính | Dạng 1: Tính tiền rồi tìm phần còn lại (M3) · Dạng 2: Tổng rồi chia đều (M3) | Ví dụ từng bước | Mỗi bước trả lời một câu hỏi nhỏ. Đọc lại câu hỏi cuối để tránh dừng sớm. |
+| g4.data_series · Dãy số liệu thống kê | Dạng 1: Đọc, tìm lớn nhất (M1) · Dạng 2: Tổng và chênh lệch (M2) | Ví dụ từng bước | Giữ đúng thứ tự các đối tượng. Số liệu trùng nhau vẫn được tính riêng. |
+| g4.bar_chart · Biểu đồ cột | Dạng 1: Đọc cột (M1) · Dạng 2: Tính từ biểu đồ (M2) · Dạng 3: Tính trung bình (M3) | barChartSVG | Luôn đọc đơn vị và vạch chia. Chỉ tính các cột đề hỏi. |
+| g4.events · Số lần xuất hiện của một sự kiện | Dạng 1: Đếm số lần xuất hiện (M1) · Dạng 2: So sánh số lần (M2) | Ví dụ từng bước | Ghi đủ từng lượt thử. Kết quả trước không đảm bảo kết quả sau. |
+
+### Lớp 1 — 32 bài
+
+| Kỹ năng | Dạng và mức Em thử | Hình / thao tác | Ghi nhớ chính |
+|---|---|---|---|
+| g1.count5 · Đếm, đọc, viết số 0–5 | Dạng 1: Đếm đồ vật (M1) | countingSVG | Mỗi vật đếm một lần. Không có vật: số 0. |
+| g1.compare5 · So sánh các số trong phạm vi 5 | Dạng 1: Điền dấu (M1) · Dạng 2: Hai nhóm bằng nhau (M2) | groupsSVG | Đầu nhọn quay về số bé. Bằng nhau dùng dấu =. |
+| g1.order5 · Thứ tự các số, điền dãy số | Dạng 1: Điền số thiếu (M1) · Dạng 2: Xếp từ bé đến lớn (M2) | numberLineSVG | Đếm xuôi thêm 1. Đếm ngược bớt 1. |
+| g1.count10 · Đếm, đọc, viết số 0–10 | Dạng 1: Đếm và viết số (M1) | countingSVG | Đếm cả hai hàng. Mười viết là 10. |
+| g1.compare10 · So sánh, số lớn nhất, bé nhất | Dạng 1: So sánh (M1) · Dạng 2: Tìm số lớn nhất, bé nhất (M2) | numberLineSVG | Đọc đúng yêu cầu lớn nhất hay bé nhất. Số 10 lớn hơn các số từ 0 đến 9. |
+| g1.split10 · Mấy và mấy (tách – gộp số) | Dạng 1: Tìm phần còn thiếu (M1) · Dạng 2: Gộp hai phần (M2) | groupsSVG | Tách không làm mất vật nào. Gộp là lấy tất cả hai nhóm. |
+| g1.numbers20 · Các số 11–20: chục và đơn vị, so sánh | Dạng 1: Đọc, viết số (M1) · Dạng 2: So sánh (M2) | tensOnesSVG | Chục đứng trước, đơn vị đứng sau. 20 có 2 chục và 0 đơn vị. |
+| g1.numbers100 · Số đến 100: đọc, viết, chục – đơn vị | Dạng 1: Viết số (M1) · Dạng 2: Đọc số (M2) | tensOnesSVG | Số tròn chục tận cùng bằng 0. 100 là một trăm. |
+| g1.compare100 · So sánh, sắp xếp các số trong phạm vi 100 | Dạng 1: Điền dấu (M1) · Dạng 2: Sắp xếp (M2) | tensOnesSVG | Chục trước, đơn vị sau. 100 lớn hơn mọi số có hai chữ số. |
+| g1.neighbors100 · Số liền trước, số liền sau | Dạng 1: Số liền trước (M1) · Dạng 2: Số liền sau (M1) | numberLineSVG | Liền trước bé hơn 1. Liền sau lớn hơn 1. |
+| g1.add10 · Phép cộng trong phạm vi 10 | Dạng 1: Tính tổng (M1) · Dạng 2: Thêm đồ vật (M2) | groupsSVG | Thêm, gộp: dùng phép cộng. Cộng với 0 giữ nguyên số đó. |
+| g1.add10_missing · Tìm số trong phép cộng | Dạng 1: Ô trống phía sau (M2) · Dạng 2: Ô trống phía trước (M2) | numberLineSVG | Tìm phần còn thiếu. Thay số vào để kiểm tra. |
+| g1.add10_compare · So sánh tổng | Dạng 1: Tổng và một số (M2) · Dạng 2: Hai tổng (M3) | groupsSVG | Tính đủ mỗi bên. Kết quả bằng nhau dùng dấu =. |
+| g1.sub10 · Phép trừ trong phạm vi 10 | Dạng 1: Tính hiệu (M1) · Dạng 2: Bớt đồ vật (M2) | crossedSVG | Bớt đi dùng phép trừ. Một số trừ chính nó bằng 0. |
+| g1.sub10_missing · Tìm số trong phép trừ | Dạng 1: Tìm số bớt (M2) · Dạng 2: Tìm số ban đầu (M2) | crossedSVG | Tìm số đầu: gộp hai phần. Tìm số bớt: xem đã mất bao nhiêu. |
+| g1.chain10 · Tính có hai dấu phép tính | Dạng 1: Cộng rồi trừ (M2) · Dạng 2: Hai phép trừ (M3) | numberLineSVG | Bắt đầu từ bên trái. Giữ dấu phép tính còn lại. |
+| g1.write_eq · Viết phép tính theo tranh | Dạng 1: Tranh gộp nhóm (M2) · Dạng 2: Tranh bớt đi (M3) | crossedSVG | Quan sát điều đang xảy ra. Phép tính phải đúng với câu chuyện. |
+| g1.addsub100 · Cộng, trừ không nhớ trong phạm vi 100 | Dạng 1: Cộng không nhớ (M1) · Dạng 2: Trừ không nhớ (M2) · Dạng 3: Cộng, trừ số tròn chục (M3) | column | Đơn vị trước, chục sau. Viết thẳng hàng. |
+| g1.addsub20 · Cộng, trừ không qua 10 trong phạm vi 20 | Dạng 1: Cộng (M1) · Dạng 2: Trừ (M2) | tensOnesSVG | Tính phần đơn vị. Nhớ giữ một chục. |
+| g1.carry20 ★ · Cộng, trừ qua 10 trong phạm vi 20 | Dạng 1: Cộng qua 10 (M2) · Dạng 2: Trừ qua 10 (M2) | groupsSVG | Mốc 10 giúp tính nhanh. Dùng đủ các phần đã tách. |
+| g1.shapes2d · Hình vuông, tròn, tam giác, chữ nhật | Dạng 1: Tìm hình (M1) · Dạng 2: Đếm hình (M2) | shapesRowSVG, shapeSVG | Nhìn đường bao để nhận hình. Xoay hình không đổi tên hình. |
+| g1.shapes3d · Khối lập phương, khối hộp chữ nhật | Dạng 1: Gọi tên khối (M1) | solidSVG | Xúc xắc: khối lập phương. Hộp giày: khối hộp chữ nhật. |
+| g1.position · Vị trí: trên, dưới, trái, phải, trước, sau, ở giữa | Dạng 1: Trên, dưới, trái, phải (M1) · Dạng 2: Trước, sau, ở giữa (M2) | positionSceneSVG | Luôn chọn vật làm mốc. Nhìn đúng phía được yêu cầu. |
+| g1.length_cm · Đo độ dài bằng thước (cm) | Dạng 1: Đọc thước (M1) · Dạng 2: Đo đoạn thẳng (M2) | rulerSVG | Đặt đúng vạch 0. Ghi đơn vị cm. |
+| g1.length_compare · Dài hơn, ngắn hơn | Dạng 1: So độ dài (M1) | sizePairSVG | So từ cùng một đầu. Số đo lớn hơn thì dài hơn. |
+| g1.length_ops · Cộng, trừ số đo độ dài (cm) | Dạng 1: Cộng độ dài (M2) · Dạng 2: Bớt độ dài (M2) | polylineSVG | Cùng đơn vị mới tính. Đừng quên cm. |
+| g1.clock · Xem giờ đúng | Dạng 1: Đọc giờ (M1) · Dạng 2: Chọn đồng hồ (M2) | clockSVG | Kim ngắn cho biết giờ. Giờ đúng: kim dài chỉ 12. |
+| g1.weekday · Các ngày trong tuần | Dạng 1: Ngày mai (M1) · Dạng 2: Hôm qua (M2) | calendarDaySVG | Một tuần có 7 ngày. Sau Chủ nhật là thứ Hai. |
+| g1.calendar_day · Xem lịch tờ hằng ngày | Dạng 1: Đọc tờ lịch (M1) | calendarDaySVG | Thứ khác với ngày. Đọc cả tháng khi trả lời. |
+| g1.daytime · Các buổi trong ngày | Dạng 1: Chọn buổi phù hợp (M1) | dayPartSVG | Sau sáng là trưa, rồi chiều. Sau chiều là tối. |
+| g1.word10 · Bài toán thêm, bớt trong phạm vi 10 | Dạng 1: Thêm vào (M2) · Dạng 2: Bớt đi (M3) | groupsSVG | Tìm điều đề hỏi. Trả lời kèm tên đồ vật. |
+| g1.word100 · Bài toán có lời văn trong phạm vi 100 | Dạng 1: Tìm tất cả (M2) · Dạng 2: Tìm còn lại (M3) | tensOnesSVG | Chọn phép tính theo câu chuyện. Đọc lại câu hỏi trước khi trả lời. |
+
+### Lớp 2 — 32 bài
+
+| Kỹ năng | Dạng và mức Em thử | Hình / thao tác | Ghi nhớ chính |
+|---|---|---|---|
+| g2.addsub20 · Phép cộng, phép trừ (qua 10) trong phạm vi 20 | Dạng 1: Cộng qua 10 (M1) · Dạng 2: Trừ qua 10 (M2) | groupsSVG | Tách số nhưng dùng đủ các phần. Dùng phép cộng để thử lại phép trừ. |
+| g2.addsub100_nc · Cộng, trừ không nhớ trong phạm vi 100 | Dạng 1: Cộng (M1) · Dạng 2: Trừ (M2) | column | Đặt tính thẳng hàng. Bắt đầu từ đơn vị. |
+| g2.addsub100_c · Cộng, trừ có nhớ trong phạm vi 100 | Dạng 1: Cộng có nhớ (M1) · Dạng 2: Trừ có nhớ (M2) | column | Không bỏ quên số nhớ. Thử lại phép trừ bằng phép cộng. |
+| g2.chain · Tính có hai dấu phép tính | Dạng 1: Cộng rồi trừ (M2) · Dạng 2: Trừ rồi cộng (M2) | Ví dụ từng bước | Cộng, trừ cùng mức ưu tiên. Tính từ trái sang phải. |
+| g2.terms · Số hạng – tổng, số bị trừ – số trừ – hiệu | Dạng 1: Gọi tên trong phép cộng (M1) · Dạng 2: Gọi tên trong phép trừ (M1) | Ví dụ từng bước | Cộng: số hạng, số hạng, tổng. Trừ: số bị trừ, số trừ, hiệu. |
+| g2.missing · Tìm số hạng, số bị trừ, số trừ | Dạng 1: Số hạng (M2) · Dạng 2: Số bị trừ (M2) · Dạng 3: Số trừ (M2) | Ví dụ từng bước | Gọi tên ô trống trước khi chọn phép tính. Thay số tìm được để thử lại. |
+| g2.compare_expr · Điền dấu >, <, = | Dạng 1: Điền dấu (M2) | Ví dụ từng bước | Tính đủ hai bên. Dấu = khi hai kết quả bằng nhau. |
+| g2.word_more_less · Bài toán về nhiều hơn, ít hơn | Dạng 1: Nhiều hơn (M2) · Dạng 2: Ít hơn (M3) | Ví dụ từng bước | Đọc xem ai nhiều, ai ít. Ghi lời giải và đơn vị. |
+| g2.mul_meaning · Phép nhân: thừa số, tích | Dạng 1: Viết tổng thành tích (M1) · Dạng 2: Các nhóm bằng nhau (M2) | groupsSVG | Mỗi nhóm phải bằng nhau. Phép nhân gồm thừa số và tích. |
+| g2.mul_table · Bảng nhân 2, bảng nhân 5 | Dạng 1: Tính theo bảng (M1) · Dạng 2: Bài toán nhóm đều (M2) | Ví dụ từng bước | Bảng nhân 2 tăng từng 2. Bảng nhân 5 có tích tận cùng 0 hoặc 5. |
+| g2.mul_table34 ★ · Bảng nhân 3, bảng nhân 4 | Dạng 1: Tính tích (M1) · Dạng 2: Bài toán (M2) | Ví dụ từng bước | Nhân 3: đếm thêm 3. Nhân 4: đếm thêm 4. |
+| g2.div_meaning · Phép chia: số bị chia, số chia, thương | Dạng 1: Tìm số mỗi nhóm (M1) · Dạng 2: Tìm số nhóm (M2) | groupsSVG | Chia đều: mỗi nhóm bằng nhau. Đọc kỹ đang hỏi số nhóm hay số mỗi nhóm. |
+| g2.div_table · Bảng chia 2, bảng chia 5 | Dạng 1: Tính thương (M1) · Dạng 2: Chia đều (M2) | Ví dụ từng bước | Dùng bảng nhân để nhớ bảng chia. Thương nhân số chia bằng số bị chia. |
+| g2.div_table34 ★ · Bảng chia 3, 4; tìm số bị chia | Dạng 1: Tính thương (M1) · Dạng 2: Tìm số bị chia (M2) | Ví dụ từng bước | Bảng nhân giúp nhớ bảng chia. Tìm số bị chia bằng phép nhân. |
+| g2.kg · Ki-lô-gam: nặng hơn, nhẹ hơn | Dạng 1: Đọc và so sánh cân (M1) · Dạng 2: Tính khối lượng (M2) | balanceSVG | kg là ki-lô-gam. So sánh khối lượng, không chỉ nhìn kích thước. |
+| g2.liter · Lít | Dạng 1: Gộp lượng nước (M1) · Dạng 2: Lượng còn lại (M2) | bigEmojiSVG | Lít viết là l. Bình cao hơn chưa chắc chứa nhiều hơn. |
+| g2.length · Đề-xi-mét, mét, ki-lô-mét | Dạng 1: Đổi đơn vị (M1) · Dạng 2: Ước lượng độ dài (M2) | rulerSVG | dm, m, km đo độ dài khác nhau. Đổi cùng đơn vị trước khi so sánh. |
+| g2.clock · Xem đồng hồ (kim phút chỉ số 3, số 6) | Dạng 1: Giờ 15 phút (M1) · Dạng 2: Giờ rưỡi (M2) | clockSVG | Kim phút chỉ 3: 15 phút. Kim phút chỉ 6: 30 phút. |
+| g2.hours_day · Ngày – giờ, giờ – phút | Dạng 1: Đọc giờ chiều, tối (M1) · Dạng 2: Đổi giờ ra phút (M2) | Ví dụ từng bước | Một ngày có 24 giờ. Một giờ có 60 phút. |
+| g2.calendar_month · Ngày – tháng, xem lịch tháng | Dạng 1: Tìm thứ của một ngày (M1) · Dạng 2: Cùng thứ tuần sau (M2) | calendarMonthSVG | Dò đúng cột thứ. Cùng thứ hai tuần liên tiếp cách 7 ngày. |
+| g2.points_lines · Điểm, đoạn thẳng, đường thẳng, đường cong, ba điểm thẳng hàng | Dạng 1: Gọi tên đường (M1) · Dạng 2: Điểm thẳng hàng (M2) | linesSVG | Đoạn thẳng có hai đầu mút. Kiểm tra thẳng hàng bằng thước. |
+| g2.polyline · Đường gấp khúc, độ dài đường gấp khúc | Dạng 1: Đếm đoạn thẳng (M1) · Dạng 2: Tính độ dài (M2) | polylineSVG | Đếm đủ từng đoạn. Cộng độ dài, không cộng số đỉnh. |
+| g2.quadrilateral · Hình tứ giác | Dạng 1: Nhận biết tứ giác (M1) · Dạng 2: Đếm tứ giác (M2) | polygonsRowSVG | Tứ giác có bốn cạnh. Xoay hình không thay đổi số cạnh. |
+| g2.shapes3d · Khối trụ, khối cầu | Dạng 1: Gọi tên khối (M1) | solidSVG | Quả bóng có dạng khối cầu. Lon sữa có dạng khối trụ. |
+| g2.numbers1000 · Số đến 1000: trăm – chục – đơn vị, số tròn trăm | Dạng 1: Đọc và viết số (M1) · Dạng 2: Phân tích số (M2) | place-value | Viết đủ chữ số từng hàng. 10 trăm là 1000. |
+| g2.compare1000 · So sánh, sắp xếp các số đến 1000 | Dạng 1: Điền dấu (M1) · Dạng 2: Sắp xếp (M2) | Ví dụ từng bước | Trăm trước, chục sau. Bằng cả ba hàng thì hai số bằng nhau. |
+| g2.addsub1000 · Cộng, trừ trong phạm vi 1000 | Dạng 1: Cộng (M1) · Dạng 2: Trừ (M2) · Dạng 3: Bài toán (M3) | column | Viết thẳng ba hàng. Kiểm tra số nhớ ở từng bước. |
+| g2.money · Tiền Việt Nam (100, 200, 500, 1000 đồng) | Dạng 1: Đếm tiền (M1) · Dạng 2: Tiền trả lại (M2) | notesSVG | Đếm giá trị, không chỉ đếm số tờ. Tiền trả lại bằng tiền đưa trừ tiền mua. |
+| g2.money_big ★ · Tiền Việt Nam đến 50 000 đồng | Dạng 1: Tổng số tiền (M2) · Dạng 2: Tiền trả lại (M2) | notesSVG | Đọc đủ các chữ số 0. Thử cộng tiền mua và tiền trả lại. |
+| g2.tally · Thu thập, kiểm đếm số liệu | Dạng 1: Đọc vạch kiểm đếm (M1) · Dạng 2: Tổng số đã đếm (M2) | tallySVG | Mỗi vật chỉ ghi một lần. Một nhóm gạch đủ biểu diễn 5. |
+| g2.pictograph · Biểu đồ tranh | Dạng 1: Đọc một hàng (M1) · Dạng 2: So sánh hai hàng (M2) | pictographSVG | Đọc chú thích trước. Dò đúng hàng của đối tượng. |
+| g2.chance · Chắc chắn, có thể, không thể | Dạng 1: Chắc chắn hoặc không thể (M1) · Dạng 2: Có thể (M2) | bagSVG | Chắc chắn khác với có thể. Không có trong túi thì không thể lấy được. |

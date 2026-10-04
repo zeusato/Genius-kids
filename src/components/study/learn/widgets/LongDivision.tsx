@@ -14,9 +14,10 @@ export function LongDivision({ spec, step }: { spec: DivisionSpec; step?: number
     const k = controlled ? Math.min(step, r.steps.length) : own;
     const n = r.digits.length;
     const hasDec = r.intLen < n;
-    const rows: { text: string; end: number }[] = [];
+    const rows: { text: string; end: number; subtract?: boolean }[] = [];
     for (let j = 0; j < k; j++) {
         const s = r.steps[j];
+        if (spec.layout === 'full') rows.push({ text: String(s.prod), end: s.at, subtract: true });
         if (s.next !== null) rows.push({ text: s.next, end: s.at + 1 });
         else rows.push({ text: String(s.rem), end: s.at });
     }
@@ -32,8 +33,8 @@ export function LongDivision({ spec, step }: { spec: DivisionSpec; step?: number
         <div className="learn-widget ld">
             <div className="ld-board" aria-label={`Đặt tính ${String(spec.a).replace('.', ',')} chia ${spec.b}`}>
                 <div className="ld-left">
-                    <div className="ld-row">{r.digits.map((d, c) => <React.Fragment key={c}><span className={`ld-cell${hi(c) ? ' hi' : ''}`}>{d}</span>{comma(c, true)}</React.Fragment>)}</div>
-                    {rows.map((row, i) => <div key={i} className={`ld-row${i === rows.length - 1 ? ' last' : ''}`}>{cells(row.text, row.end)}</div>)}
+                    <div className="ld-row">{spec.layout === 'full' && <span className="ld-sign" />}{r.digits.map((d, c) => <React.Fragment key={c}><span className={`ld-cell${hi(c) ? ' hi' : ''}`}>{d}</span>{comma(c, true)}</React.Fragment>)}</div>
+                    {rows.map((row, i) => <div key={i} className={`ld-row${row.subtract ? ' subtract' : ''}${i === rows.length - 1 ? ' last' : ''}`}>{spec.layout === 'full' && <span className="ld-sign">{row.subtract ? '−' : ''}</span>}{cells(row.text, row.end)}</div>)}
                 </div>
                 <div className="ld-right">
                     <div className="ld-divisor">{spec.b}</div>

@@ -11,6 +11,8 @@ import { ReportView } from '@/src/components/study/ReportView';
 import { PrintView } from '@/src/components/study/PrintView';
 import { TopicPage, topicLearnable } from '@/src/components/study/learn/TopicPage';
 import { LessonScreen } from '@/src/components/study/learn/LessonReader';
+import { RulesBook } from '@/src/components/study/learn/RulesBook';
+import { hasLesson } from '@/services/study/lessons/manifest';
 import { generateTestWithFallback, getTopicsByGrade } from '@/services/mathEngine';
 import { buildSession, questionKey, type Session } from '@/services/study/session';
 import { hasTemplates, skillDef } from '@/services/study/registry';
@@ -170,6 +172,7 @@ export function StudyPage() {
     const practiceSkill = (id: string) => { const s = skillDef(id); if (s) startTopic(s.topicId, [id], 'practice', grade === 0 ? 6 : 10); };
     const weakest = summary?.deltas.filter(d => !SKILL_MAP.get(d.skillId)?.advanced).sort((a, b) => a.after - b.after)[0];
     const cancelAi = () => { pendingAi.current++; setBusy(null); };
+    const learnSkill = (id: string) => navigate(`/study/learn/${id}`);
 
     const shell = (section: string, children: React.ReactNode, back: () => void = () => navigate('/mode'), backLabel = 'Về khám phá') => (
         <HubShell student={student} section={section} backText backLabel={backLabel} onBack={back}
@@ -185,6 +188,7 @@ export function StudyPage() {
                 onDaily: startDaily, onReview: startReview, onTopic: startTopic, onMatrix: startMatrix, onCustom: startCustom, onPrint: startPrint,
                 onReport: () => navigate('/study/report'), onShowAdvanced: v => savePrefs({ showAdvanced: v }),
                 onOpenTopic: (id, adv) => navigate(`/study/topic/${id}${adv ? '?adv=1' : ''}`),
+                onLearn: learnSkill, onRules: () => navigate('/study/rules'),
             }} />)} />
             <Route path="topic/:topicId" element={<TopicRoute render={(topic, advanced) => shell(topicMeta(topic.id)?.title ?? topic.title,
                 <TopicPage student={student} progress={progress} topic={topic} advanced={advanced}
@@ -193,14 +197,16 @@ export function StudyPage() {
             <Route path="learn/:skillId" element={<LessonScreen student={student} tts={ttsDefault}
                 onExit={topicId => navigate(topicId && topicLearnable(topicId) ? `/study/topic/${topicId}` : '/study', { replace: true })}
                 onPractice={practiceSkill} onOpenLesson={id => navigate(`/study/learn/${id}`)} />} />
+            <Route path="rules" element={shell('Sổ tay công thức', <RulesBook key={grade} grade={grade} showAdvanced={!!progress.prefs.showAdvanced} onLearn={learnSkill} />, toHome, 'Về Ôn Luyện')} />
             <Route path="play" element={session
                 ? <Player key={session.questions[0]?.id} session={session} grade={grade} themeId={student.currentThemeId} onFinish={finish} onExit={toHome} onToggleTts={v => savePrefs({ tts: v })} />
                 : <Navigate to="/study" replace />} />
             <Route path="test" element={<Navigate to={session ? '/study/play' : '/study'} replace />} />
             <Route path="result" element={summary
-                ? shell('Kết quả', <ResultView summary={summary} onHome={toHome} onRetryWrong={retryWrong} onPracticeWeak={weakest ? () => practiceSkill(weakest.skillId) : undefined} onReport={() => navigate('/study/report')} />, toHome, 'Về Ôn Luyện')
+                ? shell('Kết quả', <ResultView summary={summary} onHome={toHome} onRetryWrong={retryWrong} onPracticeWeak={weakest ? () => practiceSkill(weakest.skillId) : undefined}
+                    onLearnWeak={weakest && hasLesson(weakest.skillId) ? () => learnSkill(weakest.skillId) : undefined} onLearn={learnSkill} onReport={() => navigate('/study/report')} />, toHome, 'Về Ôn Luyện')
                 : <Navigate to="/study" replace />} />
-            <Route path="report" element={shell('Báo cáo học tập', <ReportView student={student} progress={progress} onPractice={practiceSkill} />, toHome, 'Về Ôn Luyện')} />
+            <Route path="report" element={shell('Báo cáo học tập', <ReportView student={student} progress={progress} onPractice={practiceSkill} onLearn={learnSkill} />, toHome, 'Về Ôn Luyện')} />
             <Route path="print" element={print
                 ? shell('Phiếu bài tập', <PrintView title={print.title} studentName={student.name} questions={print.questions} onRegenerate={print.again} />, toHome, 'Về Ôn Luyện')
                 : <Navigate to="/study" replace />} />

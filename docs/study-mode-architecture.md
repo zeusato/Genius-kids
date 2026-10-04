@@ -2,6 +2,8 @@
 
 Cập nhật 01/10/2026. Kế hoạch: [study-wow-plan.md](study-wow-plan.md). Bằng chứng và giới hạn kiểm chứng: [study-wow/README.md](study-wow/README.md).
 
+Phần Học bài cập nhật 04/10/2026 theo [study-learn-plan.md](study-learn-plan.md); [bàn giao và kiểm chứng](study-learn/README.md). Đã bật sáu lớp cho bản production theo yêu cầu hoàn thiện để xuất bản; chưa push/deploy.
+
 ## Nội dung và phiên học
 
 `services/study/catalog.ts` khai báo kỹ năng, lớp, chủ đề, học kì, mức M1–M3, nhãn nâng cao và nhãn phép tính. `services/generators/templates.ts` tập hợp template; `registry.ts` đăng ký chúng và giữ wrapper legacy cho luyện gõ. Các tên hàm generator cũ vẫn được export cho MathRacing.
@@ -33,10 +35,25 @@ Cập nhật 01/10/2026. Kế hoạch: [study-wow-plan.md](study-wow-plan.md). B
 | `/study/result` | ResultView |
 | `/study/report` | ReportView |
 | `/study/print` | PrintView |
+| `/study/topic/:topicId` | TopicPage: chọn học hoặc luyện, danh sách bài và tiến độ |
+| `/study/learn/:skillId?page=…` | LessonScreen / LessonReader: bài học từng trang |
+| `/study/rules` | RulesBook: ghi nhớ theo lớp/chủ đề, tìm không dấu và in |
 
 `shared.tsx` dùng Markdown/KaTeX và dựng hình. `SolutionVisual` chỉ vẽ kết quả đặt tính sau khi đã chấm. SVG nằm trong `services/generators/svg`, hình mới cần export từ `index.ts` để nằm trong whitelist của `render.ts`.
 
 Player chặn callback finish hai lần bằng ref, không gọi callback từ state updater. Kiểm tra dùng `Date.now`, không cộng giây bằng interval. Lựa chọn/sai/đúng bị ẩn trong test; câu sắp xếp chưa tương tác không được đánh dấu đã làm chỉ vì đã xem. Mầm non bật TTS ở mỗi phiên; tắt loa chỉ có hiệu lực trong phiên đó.
+
+## Học bài: nội dung, tiến độ và cầu nối
+
+`services/study/lessons/manifest.ts` chứa chỉ mục nhẹ và `PUBLISHED_GRADES` (hiện gồm MN, 1–5). Production chỉ mở lớp trong danh sách; DEV mở thêm lớp nháp và gắn nhãn. Route bài học cũng kiểm `hasLesson`, không chỉ ẩn nút. `load.ts` tải lười một quyển theo lớp; sáu chunk được service worker tải trong gói core, đã kiểm mở lần đầu khi offline. Nội dung Lớp 1, 2, 4 chia thành nhóm file dưới `content/g1/`, `g2/`, `g4/`; ví dụ dùng số cố định đã biên soạn. Mầm non dẫn sang hoạt động có sẵn theo `preschool.ts`, cộng 6 bài ngắn độc lập. Các dòng kỹ năng nối hoạt động có nút Học riêng và không báo đang soạn.
+
+`pages.ts` tạo id trang ổn định, tối đa 20 trang. Bài mầm non bỏ trang mở đầu để giữ tối đa 4 trang; phiên bản 6 bài được tăng lên 2 để đặt lại bitmask cũ. Lớp 1 và mầm non có `autoRead`. `blocks.tsx` dựng hình, công thức, ví dụ từng bước, chỗ dễ nhầm; widgets hỗ trợ đặt tính, bảng hàng, đổi đơn vị, sơ đồ đoạn thẳng và khám phá tham số. Chia hai chữ số nói rõ bước ước lượng rồi nhân kiểm tra; bảng hàng từ chối kết quả không đủ cột để biểu diễn.
+
+`StudentProfile.learn` độc lập với `study`. Mỗi bài lưu phiên bản, bitmask trang đã xem, trang đọc dở, số câu đúng tốt nhất, ngày đạt và dấu nhận sao. `applyLesson` là phép biến đổi thuần; `persistLesson` ghi trước khi context cập nhật state. `saveLesson` dùng `saveProfilesStrict`: khi lần ghi thường và lần nén lịch sử đều thất bại, lỗi truyền về giao dịch để không báo nhận sao ảo. Reader có nút Lưu lại kết quả, giữ ba câu đã làm. `saveLesson` kiểm chủ hồ sơ bằng ref hiện tại, kể cả callback cleanup từ bài cũ sau khi đổi hồ sơ. Reader remount theo hồ sơ/kỹ năng, khôi phục trang đọc dở và báo lỗi lưu có nút thử lại.
+
+`LessonTry` sinh 3 câu từ template đang có. Đã xem hết các trang trước Em thử và đạt ít nhất 2/3 câu (kể cả đúng sau gợi ý) thì nhận 1 sao duy nhất cho bài; đổi phiên bản hoặc học lại không nhận thêm. Học bài không thêm lịch sử kiểm tra, không sửa mastery, hàng đợi ôn, chuỗi ngày hay quay gacha.
+
+Thẻ chủ đề và TopicSheet hiện trạng thái học; kết quả và báo cáo dẫn về bài của kỹ năng còn yếu. “Bài mới hôm nay” ưu tiên kỹ năng trong kế hoạch ôn, kèm thời lượng ước tính từ nội dung. RulesBook lấy các block `rule` trong phần `know` của bài, lọc nâng cao theo thiết lập, tìm cả tên/chủ đề/công thức và nối về bài gốc. Nút luyện trong Reader mở phiên luyện 10 câu theo cơ chế hiện có.
 
 ## Nghiệm thu khi sửa
 

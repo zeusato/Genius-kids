@@ -36,7 +36,7 @@ import type { Riddle } from '../riddle/content/types';
 import type { MemorySession } from '../../games/MemoryMatch/engine/model';
 import type { Mission, ProgramNode } from '../../games/KidCoder/engine/model';
 import { StudentProfile, TestResult, GameResult, AlbumImage, AchievementProgress } from '../../types';
-import { getAllProfiles, saveProfiles, createProfile, updateProfile as updateProfileStorage, deleteProfile as deleteProfileStorage, MAX_PROFILE_NAME_LENGTH } from '../../services/profileService';
+import { getAllProfiles, saveProfiles, saveProfilesStrict, createProfile, updateProfile as updateProfileStorage, deleteProfile as deleteProfileStorage, MAX_PROFILE_NAME_LENGTH } from '../../services/profileService';
 import { updateStats, checkAchievements, initializeStats } from '../../services/achievementService';
 import { purchaseGachaSpin } from '../../services/shopService';
 import { Grade } from '../../types';
@@ -173,14 +173,14 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [currentStudentId, setStudents]);
 
     const saveLesson = useCallback((owner: string, action: LessonAction) => {
-        if (owner !== currentStudentId) return { ok: false, earned: 0, completedNow: false };
-        const snapshot = studentsRef.current, result = persistLesson(snapshot, owner, action, saveProfiles, localDay(new Date()));
+        if (owner !== countingOwnerRef.current) return { ok: false, earned: 0, completedNow: false };
+        const snapshot = studentsRef.current, result = persistLesson(snapshot, owner, action, saveProfilesStrict, localDay(new Date()));
         if (result.ok && result.profiles !== snapshot) {
             persistedRef.current = result.profiles; setStudents(result.profiles);
             if (result.unlocked.length) setAchievementQueue(prev => [...prev, ...result.unlocked]);
         }
         return { ok: result.ok, earned: result.earned, completedNow: result.completedNow };
-    }, [currentStudentId, setStudents]);
+    }, [setStudents]);
 
     const saveRiddle = useCallback((owner: string, action: RiddleAction, pool: Riddle[]) => {
         if (owner !== currentStudentId) return { ok: false, outcome: null };

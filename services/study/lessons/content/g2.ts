@@ -1,4 +1,7 @@
-// Bài học — g2. Chưa soạn (xem docs/study-learn-plan.md mục 8).
+// Lớp 2 — 32 bài; bản nháp chờ chủ dự án duyệt.
 import type { LessonBook } from '../types';
-
-export default {} satisfies LessonBook;
+import arithmetic from './g2/arithmetic';
+import multiply from './g2/multiply';
+import measurement from './g2/measurement';
+import world from './g2/world';
+export default { ...arithmetic, ...multiply, ...measurement, ...world } satisfies LessonBook;

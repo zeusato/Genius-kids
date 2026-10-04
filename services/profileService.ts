@@ -23,7 +23,7 @@ export const getAllProfiles = (): StudentProfile[] => {
 };
 
 // Save all profiles to localStorage
-export const saveProfiles = (profiles: StudentProfile[]): void => {
+const writeProfiles = (profiles: StudentProfile[], strict: boolean): void => {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
     } catch (e) {
@@ -31,9 +31,16 @@ export const saveProfiles = (profiles: StudentProfile[]): void => {
         console.warn('saveProfiles: hết dung lượng, nén lịch sử và thử lại', e);
         const slim = profiles.map(p => ({ ...p, history: migrateHistory(p.history, 10) }));
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify(slim)); }
-        catch (e2) { console.error('saveProfiles: không lưu được hồ sơ', e2); }
+        catch (e2) {
+            if (strict) throw e2;
+            console.error('saveProfiles: không lưu được hồ sơ', e2);
+        }
     }
 };
+
+export const saveProfiles = (profiles: StudentProfile[]): void => writeProfiles(profiles, false);
+/** Giao dịch cần biết chắc đã ghi, để không báo thành công hay cộng sao khi hết dung lượng. */
+export const saveProfilesStrict = (profiles: StudentProfile[]): void => writeProfiles(profiles, true);
 
 // Create new profile with defaults
 export const createProfile = (name: string, grade: Grade, age?: number, avatarId?: string): StudentProfile => {

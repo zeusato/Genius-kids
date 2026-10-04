@@ -1,6 +1,6 @@
 // Trang bài học (toàn màn hình như Player): Mở đầu → Em cần biết → Dạng / Ví dụ mẫu → Chỗ dễ nhầm → Em thử → Ghi nhớ.
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, BookOpen, Check, List, Target, X } from 'lucide-react';
 import type { StudentProfile } from '@/types';
 import { SKILL_MAP, topicMeta } from '@/services/study/catalog';
@@ -11,6 +11,7 @@ import { lessonPages, tryIndex } from '@/services/study/lessons/pages';
 import { missingBefore, passed, readLearn, seenCount } from '@/services/study/lessons/progress';
 import type { Lesson, LessonPage } from '@/services/study/lessons/types';
 import { useStudentActions } from '@/src/contexts/StudentContext';
+import type { LessonAction } from '@/services/study/lessons/progress';
 import { HubDialog } from '@/src/components/hub/HubShell';
 import { SpeakButton } from '@/src/components/shared/SpeakButton';
 import { cancelSpeech } from '@/src/utils/speech';
@@ -25,22 +26,25 @@ interface Nav { onExit: (topicId: string) => void; onPractice: (skillId: string)
 
 /** Route /study/learn/:skillId — tải nội dung lớp rồi mở bài. */
 export function LessonScreen({ student, tts, ...nav }: Nav & { student: StudentProfile; tts: boolean }) {
+    const { saveLesson } = useStudentActions();
     const { skillId = '' } = useParams();
     const [book, setBook] = useState<Record<string, Lesson> | null>(null);
     const [error, setError] = useState('');
     const grade = gradeOfSkill(skillId);
+    const available = hasLesson(skillId);
     useEffect(() => {
         let alive = true;
         setBook(null); setError('');
-        loadLessonBook(grade).then(b => { if (alive) setBook(b); }).catch(() => { if (alive) setError('Chưa tải được bài học. Em kiểm tra mạng rồi thử lại nhé.'); });
+        if (available) loadLessonBook(grade).then(b => { if (alive) setBook(b); }).catch(() => { if (alive) setError('Chưa tải được bài học. Em kiểm tra mạng rồi thử lại nhé.'); });
         return () => { alive = false; };
-    }, [grade]);
+    }, [grade, available]);
+    if (!available) return <Navigate to="/study" replace />;
     const lesson = book?.[skillId];
     const shell = (body: React.ReactNode) => <div className="discovery-hub" data-theme={student.currentThemeId || 'theme_classic'}><div className="learn-loading">{body}</div></div>;
     if (error) return shell(<><p>{error}</p><button className="study-btn" onClick={() => nav.onExit(SKILL_MAP.get(skillId)?.topicId ?? '')}>Quay lại</button></>);
     if (!book) return shell(<p>Đang mở bài học…</p>);
     if (!lesson) return shell(<><p>Bài này chưa có nội dung.</p><button className="study-btn" onClick={() => nav.onExit(SKILL_MAP.get(skillId)?.topicId ?? '')}>Quay lại</button></>);
-    return <LessonReader key={skillId} lesson={lesson} student={student} tts={tts || !!lesson.autoRead} {...nav} />;
+    return <LessonReader key={`${student.id}:${skillId}`} lesson={lesson} student={student} tts={tts || !!lesson.autoRead} saveLesson={saveLesson} {...nav} />;
 }
 
 function pageSpeech(lesson: Lesson, page: LessonPage): string {
@@ -57,22 +61,22 @@ function pageSpeech(lesson: Lesson, page: LessonPage): string {
     return questionToSpeech(parts.filter(Boolean).join('. ').replace(/\*\*/g, ''));
 }
 
-function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }: Nav & { lesson: Lesson; student: StudentProfile; tts: boolean }) {
-    const { saveLesson } = useStudentActions();
+export function LessonReader({ lesson, student, tts, saveLesson, onExit, onPractice, onOpenLesson }: Nav & { lesson: Lesson; student: StudentProfile; tts: boolean; saveLesson: (owner: string, action: LessonAction) => { ok: boolean; earned: number; completedNow: boolean } }) {
     const pages = lessonPages(lesson);
     const tIdx = tryIndex(pages);
     const [params, setParams] = useSearchParams();
     const found = pages.findIndex(p => p.id === params.get('page'));
     const state0 = readLearn(student.learn).lessons[lesson.skillId];
-    const idx = found >= 0 ? found : 0;
+    const idx = found >= 0 ? found : state0 && state0.v === lesson.v && !state0.done && state0.at < pages.length ? state0.at : 0;
     const page = pages[idx];
     const skill = SKILL_MAP.get(lesson.skillId)!;
     const topic = topicMeta(skill.topicId);
-    const inTopic = topicLessonIds(skillsWithContent(skill.topicId, true).map(s => s.id));
+    const inTopic = topicLessonIds(skillsWithContent(skill.topicId, !!student.study?.prefs.showAdvanced || !!skill.advanced).map(s => s.id));
     const nextLesson = inTopic[inTopic.indexOf(lesson.skillId) + 1];
     const state = readLearn(student.learn).lessons[lesson.skillId];
     const seen = state && state.v === lesson.v ? seenCount(state, pages.length) : 0;
     const [showList, setShowList] = useState(false);
+    const [saveError, setSaveError] = useState(false);
     const [tryOut, setTryOut] = useState<(TryResult & { ok: boolean; earned: number }) | null>(null);
     const heading = useRef<HTMLHeadingElement>(null);
     const first = useRef(true);
@@ -85,7 +89,7 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
         cancelSpeech();
-        saveLesson(student.id, { kind: 'visit', skillId: lesson.skillId, v: lesson.v, page: idx, pages: pages.length });
+        setSaveError(!saveLesson(student.id, { kind: 'visit', skillId: lesson.skillId, v: lesson.v, page: idx, pages: pages.length }).ok);
         if (!first.current) { heading.current?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }); }
         first.current = false;
     }, [idx]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -101,7 +105,7 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             const tag = (e.target as HTMLElement)?.tagName;
-            if (showList || tag === 'INPUT' || tag === 'TEXTAREA' || e.ctrlKey || e.altKey || e.metaKey) return;
+            if (showList || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || tag === 'SELECT' || (e.target as HTMLElement)?.isContentEditable || e.ctrlKey || e.altKey || e.metaKey) return;
             if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
             if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
             if (e.key === 'Escape') exit();
@@ -143,7 +147,7 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
             case 'try': return <>
                 <p className="learn-lead">Làm 3 câu để kiểm tra điều vừa học. Sai lần đầu em được gợi ý và thử lại.</p>
                 <LessonTry lesson={lesson} grade={skill.grade} tts={tts} onDone={finishTry}>
-                    {tryOut && <TryOutcome r={tryOut} missing={missing} pages={pages} go={go} firstExample={firstExample} onRemember={() => go(idx + 1)} />}
+                    {tryOut && <TryOutcome r={tryOut} missing={missing} pages={pages} go={go} firstExample={firstExample} onRetrySave={() => finishTry(tryOut)} onRemember={() => go(idx + 1)} />}
                 </LessonTry>
             </>;
             case 'remember': return <>
@@ -171,6 +175,7 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
                     <button className="hub-icon" aria-label="Danh sách trang" title="Danh sách trang" onClick={() => setShowList(true)}><List size={20} /></button>
                 </div>
                 <main className="learn-paper">
+                    {saveError && <div className="learn-msg bad" role="alert"><p>Chưa lưu được trang đã xem, em thử lại nhé.</p><button className="study-btn soft" onClick={() => setSaveError(!saveLesson(student.id, { kind: 'visit', skillId: lesson.skillId, v: lesson.v, page: idx, pages: pages.length }).ok)}>Lưu lại</button></div>}
                     <span className="learn-eyebrow">{topic?.title?.toUpperCase()} · {page.kind === 'intro' ? 'BÀI HỌC' : page.kind === 'know' ? 'EM CẦN BIẾT' : page.kind === 'form' ? 'DẠNG BÀI' : page.kind === 'example' ? 'VÍ DỤ MẪU' : page.kind === 'mistake' ? 'CHỖ DỄ NHẦM' : page.kind === 'try' ? 'EM THỬ' : 'GHI NHỚ'}{draft ? ' · BẢN NHÁP' : ''}</span>
                     <h1 ref={heading} tabIndex={-1}>{page.kind === 'intro' ? skill.title : page.title}</h1>
                     <div key={page.id} className="learn-page">{body()}</div>
@@ -193,8 +198,8 @@ function LessonReader({ lesson, student, tts, onExit, onPractice, onOpenLesson }
     );
 }
 
-function TryOutcome({ r, missing, pages, go, firstExample, onRemember }: { r: TryResult & { ok: boolean; earned: number }; missing: number[]; pages: LessonPage[]; go: (i: number) => void; firstExample: number; onRemember: () => void }) {
-    if (!r.ok) return <p className="learn-msg bad">Chưa lưu được kết quả, em thử lại nhé.</p>;
+function TryOutcome({ r, missing, pages, go, firstExample, onRemember, onRetrySave }: { r: TryResult & { ok: boolean; earned: number }; missing: number[]; pages: LessonPage[]; go: (i: number) => void; firstExample: number; onRemember: () => void; onRetrySave: () => void }) {
+    if (!r.ok) return <div className="learn-msg bad" role="alert"><p>Chưa lưu được kết quả, em thử lại nhé.</p><button className="study-btn soft" onClick={onRetrySave}>Lưu lại kết quả</button></div>;
     if (!passed(r.correct, r.total)) return <div className="learn-msg">
         <p>Cần đúng ít nhất {Math.ceil(r.total * 2 / 3)} câu để hoàn thành bài. Em xem lại ví dụ mẫu rồi thử lại nhé!</p>
         {firstExample >= 0 && <button className="hub-text-link" onClick={() => go(firstExample)}>Xem lại ví dụ mẫu</button>}

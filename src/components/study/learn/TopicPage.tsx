@@ -37,13 +37,15 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
     const basic = all.filter(s => !s.advanced), adv = all.filter(s => s.advanced);
     const list = advanced ? adv : basic;
     const [book, setBook] = useState<LessonBook | null>(null);
+    const [error, setError] = useState(false);
+    const [attempt, setAttempt] = useState(0);
     const [sheet, setSheet] = useState(false);
     const navigate = useNavigate();
     // Mầm non: các hoạt động có sẵn gắn với kỹ năng của chủ đề (không trùng lặp)
     const links = [...new Map(list.flatMap(s => MN_ACTIVITIES[s.id] ?? []).map(l => [preschoolHref(l), l] as const)).values()];
     const activityOf = (l: PreschoolLink) => PRESCHOOL_TOPICS.find(t => t.id === l.topic)?.activities.find(a => a.id === l.activity);
     const openActivity = (l: PreschoolLink) => navigate(preschoolHref(l), { state: { returnTo: `/study/topic/${topic.id}`, preschoolOwner: student.id } });
-    useEffect(() => { let alive = true; loadLessonBook(grade).then(b => { if (alive) setBook(b); }).catch(() => undefined); return () => { alive = false; }; }, [grade]);
+    useEffect(() => { let alive = true; setBook(null); setError(false); loadLessonBook(grade).then(b => { if (alive) setBook(b); }).catch(() => { if (alive) setError(true); }); return () => { alive = false; }; }, [grade, attempt]);
 
     const learn = readLearn(student.learn);
     const withLesson = list.filter(s => hasLesson(s.id));
@@ -58,6 +60,7 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
 
     const row = (s: typeof list[number], i: number) => {
         const lesson = book?.[s.id];
+        const activity = MN_ACTIVITIES[s.id]?.[0];
         const st = learn.lessons[s.id];
         const status = lessonStatus(st);
         const pages = lesson ? lessonPages(lesson).length : 0;
@@ -67,12 +70,12 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
                 <span className="learn-row-no">{i + 1}</span>
                 <span className="learn-row-title"><strong>{s.title}{s.advanced && <span className="study-badge"><Sparkles size={11} />Nâng cao</span>}</strong>
                     <small>
-                        {hasLesson(s.id) ? <>{status === 'done' ? <b className="ok"><Check size={13} /> Đã học</b> : status === 'reading' && lesson ? `Đang học ${seenCount(st?.v === lesson.v ? st : undefined, pages)}/${pages} trang` : 'Chưa học'}{lesson ? ` · ≈ ${lessonMinutes(lesson)} phút` : ''}</> : 'Bài học đang soạn'}
+                        {hasLesson(s.id) ? <>{status === 'done' ? <b className="ok"><Check size={13} /> Đã học</b> : status === 'reading' && lesson ? `Đang học ${seenCount(st?.v === lesson.v ? st : undefined, pages)}/${pages} trang` : 'Chưa học'}{lesson ? ` · ≈ ${lessonMinutes(lesson)} phút` : ''}</> : activity ? 'Học qua hoạt động' : 'Bài học đang soạn'}
                         {' · '}{ss?.a ? `Luyện ${Math.round(ss.m * 100)}%${skillStatus(ss) === 'mastered' ? ' ⭐' : ''}` : 'Chưa luyện'}
                     </small>
                 </span>
                 <span className="learn-row-actions">
-                    {hasLesson(s.id) && <button className="study-btn soft" onClick={() => onLearn(s.id)}><BookOpen size={17} />Học</button>}
+                    {hasLesson(s.id) ? <button className="study-btn soft" onClick={() => onLearn(s.id)}><BookOpen size={17} />Học</button> : activity && <button className="study-btn soft" onClick={() => openActivity(activity)}><BookOpen size={17} />Học</button>}
                     <button className="study-btn ghost" onClick={() => onPracticeSkill(s.id)}><Target size={17} />Luyện</button>
                 </span>
             </li>
@@ -116,6 +119,7 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
                     <button className="study-btn" onClick={() => setSheet(true)}>Luyện tập<ArrowRight size={18} /></button>
                 </section>
             </div>
+            {error && <div className="learn-msg bad" role="alert"><p>Chưa tải được danh sách bài học.</p><button className="study-btn soft" onClick={() => setAttempt(n => n + 1)}>Thử lại</button></div>}
 
             {links.length > 0 && <section className="study-strand">
                 <div className="study-strand-head"><h2>Học cùng các bạn</h2><span>Hoạt động Mầm non</span></div>
@@ -133,7 +137,7 @@ export function TopicPage({ student, progress, topic, advanced, onLearn, onPract
                     <ol className="learn-rows">{adv.map(row)}</ol>
                 </>}
             </section>
-            {sheet && <TopicSheet topic={topic} grade={grade} progress={progress} advancedOnly={advanced} onClose={() => setSheet(false)} onStart={(ids, mode, n) => { setSheet(false); onStart(ids, mode, n); }} />}
+            {sheet && <TopicSheet topic={topic} grade={grade} progress={progress} learn={student.learn} onLearn={onLearn} advancedOnly={advanced} onClose={() => setSheet(false)} onStart={(ids, mode, n) => { setSheet(false); onStart(ids, mode, n); }} />}
         </div>
     );
 }

@@ -4,7 +4,8 @@ import type { Lesson, LessonPage } from './types';
 export const MAX_PAGES = 20;
 
 export function lessonPages(lesson: Lesson): LessonPage[] {
-    const pages: LessonPage[] = [{ id: 'intro', kind: 'intro', title: 'Bắt đầu bài học' }];
+    // Mầm non vào ngay hai trang xem/nghe, rồi Em thử và Ghi nhớ: tối đa 4 trang.
+    const pages: LessonPage[] = lesson.skillId.startsWith('mn.') ? [] : [{ id: 'intro', kind: 'intro', title: 'Bắt đầu bài học' }];
     lesson.know.forEach((k, i) => pages.push({ id: `know-${i}`, kind: 'know', title: k.title, index: i }));
     lesson.forms.forEach((f, i) => {
         pages.push({ id: `form-${f.id}`, kind: 'form', title: f.title, index: i, formId: f.id });
