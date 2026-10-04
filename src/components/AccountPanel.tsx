@@ -1,6 +1,7 @@
 import React from 'react';
-import { Cloud, LogIn, LogOut, RefreshCw } from 'lucide-react';
+import { Cloud, LogOut, RefreshCw } from 'lucide-react';
 import { useAccount } from '../contexts/AccountContext';
+import { GoogleSignInButton } from './GoogleSignInButton';
 
 export function AccountPanel() {
     const account = useAccount();
@@ -14,7 +15,7 @@ export function AccountPanel() {
                 <p className="text-sm text-gray-600 break-all">{user?.email || 'Không đăng nhập: hồ sơ và tiến trình được lưu trên máy này.'}</p>
             </div></div>
             {user ? <button className={button + ' flex gap-2 items-center'} disabled={busy} onClick={account.logout}><LogOut size={17} />Đăng xuất</button>
-                : account.available && <button className={button + ' flex gap-2 items-center text-brand-700'} disabled={busy} onClick={account.login}><LogIn size={18} />Đăng nhập bằng Google</button>}
+                : account.available && <GoogleSignInButton disabled={busy} onClick={account.login} />}
         </div>
         {user && <>
             <div className="flex flex-wrap items-center gap-3 text-sm" role="status">
