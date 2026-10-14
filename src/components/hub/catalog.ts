@@ -9,17 +9,16 @@ export type Level = 'easy' | 'medium' | 'hard';
 export interface HubEntry<T extends string> { id: T; title: string; subtitle: string; description: string; art: ArtId; label: string }
 
 const modes: HubEntry<ModeId>[] = [
-    { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Tô tranh không lem, sáng tạo và làm sắc màu sống dậy.', art: 'coloring', label: 'MỸ THUẬT & SÁNG TẠO' },
     { id: 'study', title: 'Ôn Luyện', subtitle: 'Mỗi ngày một chút tiến bộ', description: 'Luyện toán theo lớp của em.', art: 'study', label: 'TOÁN HỌC' },
     { id: 'english', title: 'Tiếng Anh', subtitle: 'Từng từ nhỏ, một thế giới lớn', description: 'Học câu mới, luyện cùng bạn Cáo.', art: 'english', label: 'ENGLISH GARDEN' },
     { id: 'science', title: 'Khoa Học', subtitle: 'Một vũ trụ để khám phá', description: 'Từ thế giới tí hon đến các vì sao.', art: 'science', label: 'TÒ MÒ & TÌM HIỂU' },
+    { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Tô tranh không lem, sáng tạo và làm sắc màu sống dậy.', art: 'coloring', label: 'MỸ THUẬT & SÁNG TẠO' },
     { id: 'library', title: 'Thư Viện', subtitle: 'Mở sách, mở một thế giới', description: 'Đọc sách và tìm điều em tò mò.', art: 'library', label: 'ĐỌC & KHÁM PHÁ' },
     { id: 'piano', title: 'Piano Nhí', subtitle: 'Phòng nhạc trong vườn', description: 'Làm quen nốt nhạc, tập đàn và tự sáng tạo.', art: 'piano', label: 'ÂM NHẠC & SÁNG TẠO' },
     { id: 'riddle', title: 'Đố Vui Nhân Sư', subtitle: 'Mỗi cánh cổng, một câu đố', description: 'Nghe đố, soi manh mối, mở cổng cùng Nhân Sư.', art: 'riddle', label: 'SUY LUẬN' },
     { id: 'game', title: 'Trò Chơi', subtitle: 'Những thế giới đang chờ em', description: 'Chơi vui, khám phá điều mới.', art: 'game', label: 'HỌC QUA TRÒ CHƠI' },
 ];
 const preschoolModes: HubEntry<ModeId>[] = [
-    { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Tô tranh không lem, sáng tạo và làm sắc màu sống dậy.', art: 'coloring', label: 'MỸ THUẬT & SÁNG TẠO' },
     { id: 'alphabet', title: 'Bảng Chữ Cái', subtitle: 'Những người bạn A–Z', description: 'Làm quen chữ cái tiếng Anh.', art: 'alphabet', label: 'HỌC CHỮ' },
     { id: 'counting', title: 'Đếm Số', subtitle: 'Mỗi vật một con số', description: 'Cùng đếm từ 1 đến 10.', art: 'counting', label: 'HỌC ĐẾM' },
     { id: 'colors', title: 'Màu Sắc & Hình Dạng', subtitle: 'Thế giới nhiều sắc màu', description: 'Nhận biết màu sắc và hình dạng.', art: 'colors', label: 'QUAN SÁT' },
@@ -49,7 +48,7 @@ export const GEAR_CATALOG: HubEntry<GameId>[] = [
     { id: 'gears-guess', title: 'Đoán Chiều Quay', subtitle: 'Nhìn kỹ, nghĩ khéo', description: 'Dự đoán hướng chuyển động của bánh răng.', art: 'gears-guess', label: 'SUY LUẬN' },
 ];
 export function modesFor(grade?: Grade) {
-    return isPreschool(grade) ? [...preschoolModes, ...modes.filter(m => ['game', 'library', 'piano', 'science', 'english'].includes(m.id))] : modes;
+    return isPreschool(grade) ? [...preschoolModes, ...modes.filter(m => ['game', 'library', 'piano', 'science', 'coloring', 'english'].includes(m.id))] : modes;
 }
 export const SCIENCE_CATALOG: (HubEntry<ScienceId> & { route: `/science/${ScienceId}`; allowPreschool: boolean })[] = [
     { id: 'solar-system', title: 'Khám Phá Hệ Mặt Trời', subtitle: 'Một chuyến đi vào vũ trụ', description: 'Ghé thăm các hành tinh và ngắm thế giới ngoài Trái Đất.', art: 'science-solar-system', label: 'THIÊN VĂN', route: '/science/solar-system', allowPreschool: true },
