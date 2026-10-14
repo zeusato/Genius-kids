@@ -1,6 +1,10 @@
+import { advanceBricks, type BricksEvent } from '../bricks/progress/progress';
+import { clearBricksData } from '../bricks/progress/modelRepo';
 import type { CompletionDetail } from '../coloring/model';
 import { persistResult as persistCoVua } from '../../games/CoVua/profile-adapter';
 import { persistColoring } from '../coloring/progress/progress';
+import { persistPottery } from '../pottery/progress/progress';
+import { activeAccountScope, clearPotteryData } from '../pottery/persistence/repository';
 import { clearColoringData } from '../coloring/progress/artworkRepo';
 import type { StudyProgress } from '@/services/study/types';
 import { persistResult as persistCaro } from '../../games/Caro/profile-adapter';
@@ -57,7 +61,9 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    saveBricks: (owner: string, event: BricksEvent) => void;
     saveColoring: (owner: string, id: string, detail?: CompletionDetail) => { ok: boolean; earned: number };
+    completePottery: (owner: string, art: import('../pottery/model').ArtworkDoc) => { ok: boolean; earned: number };
     completeElectricity: (owner: string, run: ElectricityRun) => Promise<ElectricityCompletionResult>;
     claimElectricityLegacy: (owner: string, archive: LegacyArchive) => Promise<ElectricityCompletionResult>;
     completeEnglish: (owner: string, sessionId: string) => Promise<CompletionResult>;
@@ -337,6 +343,21 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: true };
     }, [currentStudentId, setStudents]);
 
+    const saveBricks = useCallback((owner: string, event: BricksEvent) => {
+        if (owner !== currentStudentId) return;
+        const profiles = studentsRef.current.map(p => p.id === owner ? { ...p, bricks: advanceBricks(p.bricks, event) } : p);
+        try { saveProfilesStrict(profiles); studentsRef.current = profiles; persistedRef.current = profiles; setStudents(profiles); } catch (error) { console.warn('Bricks progress save failed', error); }
+    }, [currentStudentId, setStudents]);
+
+    const completePottery = useCallback((owner: string, art: import('../pottery/model').ArtworkDoc) => {
+        if (owner !== currentStudentId || art.account !== activeAccountScope()) return { ok: false, earned: 0 };
+        const result = persistPottery(studentsRef.current, owner, art, saveProfilesStrict);
+        if (result.ok && result.profiles !== studentsRef.current) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+        }
+        return { ok: result.ok, earned: result.earned };
+    }, [currentStudentId, setStudents]);
+
     const saveColoring = useCallback((owner: string, id: string, detail?: CompletionDetail) => {
         if (owner !== currentStudentId) return { ok: false, earned: 0 };
         const result = persistColoring(studentsRef.current, owner, id, saveProfilesStrict, detail);
@@ -374,6 +395,9 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [setStudents]);
 
     const deleteStudent = useCallback((id: string) => {
+        void clearBricksData(id).catch(error => console.warn('Bricks cleanup failed', error));
+        try { localStorage.removeItem('bricks-local-metrics:' + id); localStorage.removeItem('bricks-coach-v1:' + id); } catch { /* Storage unavailable. */ }
+        void clearPotteryData({ account: activeAccountScope(), student: id }).catch(error => console.warn('Pottery cleanup failed', error));
         void clearColoringData(id).catch(error => console.warn('Coloring cleanup failed', error));
         void clearElectricityData(id).catch(error => console.warn('Electricity notebook cleanup failed', error));
         try {
@@ -690,6 +714,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     };
 
     const actions: StudentActionsType = {
+        saveBricks,
+        completePottery,
         saveColoring,
         completeEnglish,
         completeCaro,

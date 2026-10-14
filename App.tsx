@@ -46,6 +46,9 @@ const AlphabetPage = React.lazy(() => import('@/src/pages/preschool/AlphabetPage
 const CountingPage = React.lazy(() => import('@/src/pages/preschool/CountingPage').then(module => ({ default: module.CountingPage })));
 const ColorsPage = React.lazy(() => import('@/src/pages/preschool/ColorsPage').then(module => ({ default: module.ColorsPage })));
 const ColoringPage = React.lazy(() => import('@/src/coloring/ui/ColoringPage').then(module => ({ default: module.ColoringPage })));
+const CraftMenuPage = React.lazy(() => import('@/src/pages/CraftMenuPage').then(module => ({ default: module.CraftMenuPage })));
+const PotteryPage = React.lazy(() => import('@/src/pottery/ui/PotteryPage').then(module => ({ default: module.PotteryPage })));
+const BricksPage = React.lazy(() => import('@/src/bricks/ui/BricksPage').then(module => ({ default: module.BricksPage })));
 
 
 
@@ -297,6 +300,18 @@ export default function App() {
                     <AlbumPage />
                   </ProtectedRoute>
                 }
+              />
+              <Route
+                path="/crafts"
+                element={<ProtectedRoute><CraftMenuPage /></ProtectedRoute>}
+              />
+              <Route
+                path="/pottery/*"
+                element={<ProtectedRoute><PotteryPage /></ProtectedRoute>}
+              />
+              <Route
+                path="/bricks/*"
+                element={<ProtectedRoute><BricksPage /></ProtectedRoute>}
               />
               <Route
                 path="/coloring/*"

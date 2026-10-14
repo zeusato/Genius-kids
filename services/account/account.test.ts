@@ -40,6 +40,8 @@ describe('whole-profile snapshots', () => {
             { database: 'planet-maker-worlds', store: 'tiles', rows: [{ key: ['child', 0], value: await encode({ studentId: 'child', tile: 0, height: new Float32Array([1.5, -2]), biome: new Uint8Array([1, 2]) }) }] },
             { database: 'electricity-notebook-v1', store: 'thumbnails', rows: [{ key: 'drawing1', value: await encode({ id: 'drawing1', ownerId: 'child', image: new Blob(['picture'], { type: 'image/png' }) }) }] },
             { database: 'lang-mam-profile-v1-child', store: 'snapshots', rows: [{ key: 'autosave', value: { coins: 91 } }] },
+            { database: 'brick-studio-v1', store: 'models', rows: [{ key: ['child', 'm1'], value: await encode({ ownerId: 'child', id: 'm1', v: 1, name: 'Nhà', b: [0, 0, 10, -24, 10, 0], parts: ['3001'], colors: ['red'] }) }] },
+            { database: 'brick-studio-v1', store: 'thumbs', rows: [{ key: ['child', 'm1'], value: await encode({ ownerId: 'child', id: 'm1', revision: 1, blob: new Blob(['thumb'], { type: 'image/webp' }) }) }] },
         ];
         localStorage.setItem('mathgenius_gemini_key', 'secret'); localStorage.setItem('sb-session', 'token');
         await restoreSnapshot(s);
@@ -50,6 +52,9 @@ describe('whole-profile snapshots', () => {
         expect(terrain.height).toBeInstanceOf(Float32Array); expect(Array.from(terrain.height)).toEqual([1.5, -2]);
         const attachment = decode(captured.databases.find(d => d.store === 'thumbnails')!.rows[0].value).image;
         expect(await attachment.text()).toBe('picture');
+        const brick = decode(captured.databases.find(d => d.database === 'brick-studio-v1' && d.store === 'models')!.rows[0].value);
+        expect(brick.b).toEqual([0, 0, 10, -24, 10, 0]);
+        expect(await decode(captured.databases.find(d => d.database === 'brick-studio-v1' && d.store === 'thumbs')!.rows[0].value).blob.text()).toBe('thumb');
         expect(localStorage.getItem('mathgenius_gemini_key')).toBe('secret');
         expect(JSON.stringify(captured)).not.toContain('secret'); expect(JSON.stringify(captured)).not.toContain('token');
     });

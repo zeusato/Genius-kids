@@ -22,7 +22,7 @@ export function ModeSelectionPage() {
         else if (mode === 'library') navigate('/library');
         else if (mode === 'riddle') navigate('/riddle');
         else if (mode === 'piano') navigate('/piano');
-        else if (mode === 'coloring') navigate('/coloring');
+        else if (mode === 'crafts') navigate('/crafts');
         else if (mode === 'science') navigate('/science');
         else if (mode === 'alphabet') navigate('/preschool/alphabet');
         else if (mode === 'counting') navigate('/preschool/counting');

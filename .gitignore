@@ -41,3 +41,6 @@ dev-dist
 # Cây tiến hóa: cache tải PhyloPic
 scripts/evo-art/cache/
 scripts/evo-art/contact-sheet.png
+
+# Xưởng Lắp Ghép: dữ liệu nguồn chỉ dùng cho script (docs/brick-studio-plan.md mục 4.1)
+tools/ldraw/

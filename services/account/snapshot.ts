@@ -19,6 +19,8 @@ export const databaseSpecs = (ids: string[]): DatabaseSpec[] => [
     { name: 'genius-english-library-v1', version: 1, stores: [{ name: 'entries', keyPath: ['studentId', 'id'], owner: 'studentId', index: 'owner' }] },
     { name: 'genius-english-ai-v1', version: 1, stores: [{ name: 'items', keyPath: ['studentId', 'id'], owner: 'studentId', index: 'owner' }] },
     { name: 'electricity-notebook-v1', version: 1, stores: ['documents', 'drafts', 'thumbnails'].map(name => ({ name, keyPath: 'id', owner: 'ownerId', index: 'ownerId' })) },
+    // Xưởng Lắp Ghép: phải liệt kê ĐỦ hai store, cùng version với src/bricks/progress/modelRepo.ts
+    { name: 'brick-studio-v1', version: 1, stores: ['models', 'thumbs'].map(name => ({ name, keyPath: ['ownerId', 'id'], owner: 'ownerId' as const, index: 'ownerId' })) },
     { name: 'planet-maker-worlds', version: 2, stores: ['worlds', 'regions', 'tiles', 'legacy', 'checkpoints'].map(name => ({ name, keyPath: name === 'tiles' ? ['studentId', 'tile'] : 'studentId', owner: 'studentId' })) },
     ...ids.map(id => ({ name: `lang-mam-profile-v1-${encodeURIComponent(id)}`, version: 1, stores: [{ name: 'snapshots' }] })),
 ];
