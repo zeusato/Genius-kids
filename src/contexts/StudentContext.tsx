@@ -1,4 +1,7 @@
+import type { CompletionDetail } from '../coloring/model';
 import { persistResult as persistCoVua } from '../../games/CoVua/profile-adapter';
+import { persistColoring } from '../coloring/progress/progress';
+import { clearColoringData } from '../coloring/progress/artworkRepo';
 import type { StudyProgress } from '@/services/study/types';
 import { persistResult as persistCaro } from '../../games/Caro/profile-adapter';
 import { clearCaroData } from '../../games/Caro/persistence';
@@ -52,6 +55,7 @@ interface StudentContextType {
 }
 
 interface StudentActionsType {
+    saveColoring: (owner: string, id: string, detail?: CompletionDetail) => { ok: boolean; earned: number };
     completeElectricity: (owner: string, run: ElectricityRun) => Promise<ElectricityCompletionResult>;
     claimElectricityLegacy: (owner: string, archive: LegacyArchive) => Promise<ElectricityCompletionResult>;
     completeEnglish: (owner: string, sessionId: string) => Promise<CompletionResult>;
@@ -319,6 +323,15 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: true };
     }, [currentStudentId, setStudents]);
 
+    const saveColoring = useCallback((owner: string, id: string, detail?: CompletionDetail) => {
+        if (owner !== currentStudentId) return { ok: false, earned: 0 };
+        const result = persistColoring(studentsRef.current, owner, id, saveProfiles, detail);
+        if (result.ok && result.profiles !== studentsRef.current) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+        }
+        return { ok: result.ok, earned: result.earned };
+    }, [currentStudentId, setStudents]);
+
     const setStudent = useCallback((student: StudentProfile | null) => {
         countingOwnerRef.current = student ? student.id : null;
         setCurrentStudentId(student ? student.id : null);
@@ -347,6 +360,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     }, [setStudents]);
 
     const deleteStudent = useCallback((id: string) => {
+        void clearColoringData(id).catch(error => console.warn('Coloring cleanup failed', error));
         void clearElectricityData(id).catch(error => console.warn('Electricity notebook cleanup failed', error));
         try {
             const archive = localStorage.getItem('electricity_legacy_archive_v1');
@@ -662,6 +676,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     };
 
     const actions: StudentActionsType = {
+        saveColoring,
         completeEnglish,
         completeCaro,
         completeSudoku,

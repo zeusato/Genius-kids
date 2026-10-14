@@ -1,7 +1,7 @@
 import { Grade } from '../../../types';
 import { isPreschool } from '../../utils/grade';
 
-export type ModeId = 'study' | 'english' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors';
+export type ModeId = 'study' | 'english' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors' | 'coloring';
 export type GameId = 'farm' | 'caro' | 'coding' | 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
 export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
 export type ArtId = ModeId | GameId | `science-${ScienceId}`;
@@ -9,6 +9,7 @@ export type Level = 'easy' | 'medium' | 'hard';
 export interface HubEntry<T extends string> { id: T; title: string; subtitle: string; description: string; art: ArtId; label: string }
 
 const modes: HubEntry<ModeId>[] = [
+    { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Tô tranh không lem, sáng tạo và làm sắc màu sống dậy.', art: 'coloring', label: 'MỸ THUẬT & SÁNG TẠO' },
     { id: 'study', title: 'Ôn Luyện', subtitle: 'Mỗi ngày một chút tiến bộ', description: 'Luyện toán theo lớp của em.', art: 'study', label: 'TOÁN HỌC' },
     { id: 'english', title: 'Tiếng Anh', subtitle: 'Từng từ nhỏ, một thế giới lớn', description: 'Học câu mới, luyện cùng bạn Cáo.', art: 'english', label: 'ENGLISH GARDEN' },
     { id: 'science', title: 'Khoa Học', subtitle: 'Một vũ trụ để khám phá', description: 'Từ thế giới tí hon đến các vì sao.', art: 'science', label: 'TÒ MÒ & TÌM HIỂU' },
@@ -18,6 +19,7 @@ const modes: HubEntry<ModeId>[] = [
     { id: 'game', title: 'Trò Chơi', subtitle: 'Những thế giới đang chờ em', description: 'Chơi vui, khám phá điều mới.', art: 'game', label: 'HỌC QUA TRÒ CHƠI' },
 ];
 const preschoolModes: HubEntry<ModeId>[] = [
+    { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Tô tranh không lem, sáng tạo và làm sắc màu sống dậy.', art: 'coloring', label: 'MỸ THUẬT & SÁNG TẠO' },
     { id: 'alphabet', title: 'Bảng Chữ Cái', subtitle: 'Những người bạn A–Z', description: 'Làm quen chữ cái tiếng Anh.', art: 'alphabet', label: 'HỌC CHỮ' },
     { id: 'counting', title: 'Đếm Số', subtitle: 'Mỗi vật một con số', description: 'Cùng đếm từ 1 đến 10.', art: 'counting', label: 'HỌC ĐẾM' },
     { id: 'colors', title: 'Màu Sắc & Hình Dạng', subtitle: 'Thế giới nhiều sắc màu', description: 'Nhận biết màu sắc và hình dạng.', art: 'colors', label: 'QUAN SÁT' },

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<rect width="1024" height="1024" fill="#fff"/>
+<g fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- mặt trời -->
+  <circle cx="170" cy="160" r="70"/>
+  <g>
+    <path d="M170 60 L160 40 L180 40 Z"/><path d="M170 260 L160 280 L180 280 Z"/>
+    <path d="M70 160 L50 150 L50 170 Z"/><path d="M270 160 L290 150 L290 170 Z"/>
+    <path d="M100 90 L82 76 L90 98 Z"/><path d="M240 230 L258 244 L250 222 Z"/>
+    <path d="M240 90 L258 76 L250 98 Z"/><path d="M100 230 L82 244 L90 222 Z"/>
+  </g>
+  <circle cx="148" cy="145" r="9"/><circle cx="192" cy="145" r="9"/>
+  <path d="M140 185 Q170 210 200 185"/>
+  <!-- mây: cố ý hở 3 đơn vị (6px ở 2048) -->
+  <path d="M600 170 Q600 120 650 125 Q670 80 720 95 Q760 70 790 115 Q840 115 840 160 Q840 200 790 200 L606 200 Q597 196 600 182"/>
+  <!-- nhà -->
+  <rect x="420" y="430" width="260" height="210"/>
+  <path d="M400 440 L550 310 L700 440 Z"/>
+  <path d="M450 413 L650 413 M475 391 L625 391 M500 369 L600 369 M525 347 L575 347"/>
+  <rect x="620" y="320" width="34" height="70"/>
+  <rect x="520" y="520" width="70" height="120" rx="8"/><circle cx="578" cy="585" r="6"/>
+  <rect x="445" y="470" width="60" height="60"/><path d="M475 470 V530 M445 500 H505"/>
+  <rect x="605" y="470" width="60" height="60"/><path d="M635 470 V530 M605 500 H665"/>
+  <!-- cây -->
+  <path d="M845 640 L855 470 L895 470 L905 640 Z"/>
+  <circle cx="830" cy="430" r="70"/><circle cx="920" cy="430" r="70"/><circle cx="875" cy="360" r="75"/>
+  <circle cx="830" cy="410" r="12"/><circle cx="905" cy="345" r="12"/><circle cx="935" cy="440" r="12"/><circle cx="860" cy="455" r="12"/>
+  <!-- mặt đất -->
+  <path d="M0 640 Q256 610 512 640 T1024 640"/>
+  <!-- ao + cá -->
+  <ellipse cx="290" cy="820" rx="250" ry="120"/>
+  <path d="M190 820 Q260 750 350 820 Q260 890 190 820 Z"/>
+  <path d="M350 820 L400 780 L395 860 Z"/>
+  <circle cx="225" cy="810" r="8"/>
+  <path d="M250 790 Q265 820 250 850 M285 785 Q300 820 285 855 M320 795 Q332 820 320 845"/>
+  <path d="M270 780 Q285 745 310 790"/>
+  <circle cx="160" cy="760" r="12"/><circle cx="140" cy="725" r="8"/><circle cx="430" cy="760" r="10"/>
+  <path d="M470 900 Q455 860 470 820 Q485 790 470 760 M500 905 Q515 860 500 830"/>
+  <!-- hoa -->
+  <g id="flower">
+    <circle cx="700" cy="760" r="22"/><circle cx="700" cy="722" r="20"/><circle cx="736" cy="748" r="20"/>
+    <circle cx="722" cy="792" r="20"/><circle cx="678" cy="792" r="20"/><circle cx="664" cy="748" r="20"/>
+    <path d="M700 815 Q705 880 700 960 M700 900 Q730 880 740 860 Q715 870 700 895"/>
+  </g>
+  <use href="#flower" x="160" y="10"/>
+  <use href="#flower" x="80" y="-60" transform="translate(-40 0)"/>
+  <!-- cỏ -->
+  <path d="M560 980 L570 930 L580 980 L592 940 L600 980 M900 990 L910 945 L920 990 L930 950 L940 990"/>
+</g>
+</svg>

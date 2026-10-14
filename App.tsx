@@ -44,6 +44,7 @@ const BookReaderPage = React.lazy(() => import('@/src/pages/BookReaderPage').the
 const AlphabetPage = React.lazy(() => import('@/src/pages/preschool/AlphabetPage').then(module => ({ default: module.AlphabetPage })));
 const CountingPage = React.lazy(() => import('@/src/pages/preschool/CountingPage').then(module => ({ default: module.CountingPage })));
 const ColorsPage = React.lazy(() => import('@/src/pages/preschool/ColorsPage').then(module => ({ default: module.ColorsPage })));
+const ColoringPage = React.lazy(() => import('@/src/coloring/ui/ColoringPage').then(module => ({ default: module.ColoringPage })));
 
 
 
@@ -295,6 +296,10 @@ export default function App() {
                     <AlbumPage />
                   </ProtectedRoute>
                 }
+              />
+              <Route
+                path="/coloring/*"
+                element={<ProtectedRoute><ColoringPage /></ProtectedRoute>}
               />
               <Route
                 path="/library"

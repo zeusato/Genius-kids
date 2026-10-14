@@ -1,0 +1,242 @@
+{
+  "fish": {
+    "6": "nửa trên đuôi cá",
+    "8": "dải màu trên thân cá",
+    "9": "đầu cá",
+    "14": "nửa dưới đuôi cá"
+  },
+  "turtle": {
+    "8": "đầu rùa",
+    "12": "viền các ô mai rùa",
+    "54": "chân chèo bên trái",
+    "58": "chân chèo bên phải"
+  },
+  "octopus": {
+    "4": "thân bạch tuộc",
+    "17": "mặt trong xúc tu bên trái",
+    "48": "nhánh rong biển bên trái",
+    "119": "hòn đá bên trái"
+  },
+  "whale": {
+    "3": "tia nước",
+    "8": "thân cá voi",
+    "16": "vây cá voi",
+    "18": "dải giữa bụng cá voi"
+  },
+  "seahorse": {
+    "11": "cá ngựa lớn",
+    "30": "rong biển bên trái",
+    "41": "cá ngựa nhỏ",
+    "44": "san hô bên phải"
+  },
+  "butterfly": {
+    "4": "cánh trên bên trái",
+    "5": "cánh trên bên phải",
+    "37": "cánh dưới bên trái",
+    "38": "cánh dưới bên phải"
+  },
+  "bee": {
+    "8": "đầu ong",
+    "20": "ngực ong",
+    "41": "chiếc lá bên phải",
+    "46": "hũ mật ong"
+  },
+  "ladybug": {
+    "3": "lưng bọ rùa",
+    "12": "đầu bọ rùa",
+    "20": "chiếc lá lớn",
+    "22": "chiếc lá bên trái"
+  },
+  "snail": {
+    "2": "mũ nấm lớn",
+    "4": "thân ốc sên",
+    "20": "cuống nấm lớn",
+    "48": "mũ nấm nhỏ"
+  },
+  "flowers": {
+    "42": "nhụy hoa hướng dương phía trên",
+    "256": "thân bình hoa",
+    "262": "chú chim nhỏ",
+    "287": "viền dưới bình hoa"
+  },
+  "cat": {
+    "2": "thân mèo",
+    "4": "chóp đuôi mèo",
+    "20": "vòng ngoài cuộn len",
+    "35": "chân mèo phía trong"
+  },
+  "dog": {
+    "2": "viền mái nhà",
+    "9": "đầu cún",
+    "25": "cửa ngôi nhà",
+    "63": "mảng bên trái quả bóng"
+  },
+  "rabbit": {
+    "4": "thân thỏ",
+    "25": "bụi cây phía sau",
+    "37": "củ cà rốt",
+    "54": "thành giỏ cà rốt"
+  },
+  "hamster": {
+    "7": "nhụy hoa hướng dương",
+    "29": "thân hamster",
+    "50": "chiếc lá bên trái",
+    "99": "thành bát thức ăn"
+  },
+  "bird": {
+    "21": "chú chim bên trái",
+    "33": "chú chim bên phải",
+    "59": "chiếc lá bên trái",
+    "116": "chiếc lá phía dưới bên phải"
+  },
+  "lion": {
+    "9": "mặt sư tử",
+    "40": "thân sư tử",
+    "50": "chân sư tử bên phải",
+    "52": "ngực sư tử"
+  },
+  "elephant": {
+    "5": "tai voi bên phải",
+    "7": "thân voi",
+    "23": "bông hoa bên phải",
+    "31": "chân voi phía trong"
+  },
+  "giraffe": {
+    "12": "thân hươu cao cổ",
+    "19": "tán cây",
+    "27": "thân cây",
+    "41": "ngọn đồi"
+  },
+  "panda": {
+    "5": "đầu gấu trúc",
+    "47": "tay gấu bên phải",
+    "55": "tay gấu bên trái",
+    "60": "bụng gấu trúc"
+  },
+  "dinosaur": {
+    "9": "chiếc gai lớn trên lưng",
+    "30": "mảng núi phía xa",
+    "34": "thân khủng long",
+    "46": "đầu khủng long"
+  },
+  "train": {
+    "2": "đám khói tàu",
+    "20": "mặt đầu tàu",
+    "26": "thành toa ở giữa",
+    "70": "tấm chắn trước đầu tàu"
+  },
+  "rocket": {
+    "13": "thân tên lửa",
+    "17": "viền cửa sổ tên lửa",
+    "31": "cánh tên lửa bên phải",
+    "63": "ngọn lửa tên lửa"
+  },
+  "bus": {
+    "2": "mui xe",
+    "8": "viền cửa sổ bên hông",
+    "9": "đầu xe buýt",
+    "12": "cửa kính phía trước bên phải"
+  },
+  "sailboat": {
+    "22": "dải giữa cánh buồm trái",
+    "31": "dải dưới cánh buồm trái",
+    "88": "dải trên mạn thuyền",
+    "103": "dải dưới mạn thuyền"
+  },
+  "balloon": {
+    "6": "dải chấm tròn của khinh khí cầu",
+    "7": "dải bông hoa của khinh khí cầu",
+    "10": "dải ngôi sao của khinh khí cầu",
+    "11": "dải trái tim của khinh khí cầu"
+  },
+  "castle": {
+    "22": "tháp ở giữa",
+    "30": "tháp bên trái",
+    "31": "tháp bên phải",
+    "39": "tường cổng lâu đài"
+  },
+  "unicorn": {
+    "10": "thân kỳ lân",
+    "49": "đám mây bên phải",
+    "74": "đám mây dưới ở giữa",
+    "76": "đám mây dưới bên trái"
+  },
+  "dragon": {
+    "8": "đầu rồng",
+    "38": "ngực rồng",
+    "69": "chân sau của rồng",
+    "70": "dải trái tim trên quả trứng"
+  },
+  "fairyhouse": {
+    "4": "mũ nấm của ngôi nhà",
+    "11": "chấm lớn trên mái nấm",
+    "89": "bụi hoa bên phải",
+    "217": "viên đá lớn phía trước"
+  },
+  "robot": {
+    "4": "đám mây phía trên",
+    "23": "khuôn mặt robot",
+    "58": "khung ngực robot",
+    "63": "bảng trái tim trước ngực"
+  },
+  "lotus": {
+    "45": "cánh sen ở giữa",
+    "58": "lá sen lớn bên phải",
+    "59": "lá sen bên trái",
+    "65": "lá sen nhỏ phía dưới"
+  },
+  "lantern": {
+    "3": "mặt trăng",
+    "11": "đám mây bên trái",
+    "77": "dải giữa đèn lồng tròn",
+    "111": "chú thỏ"
+  },
+  "buffalo": {
+    "2": "đám mây bên trái",
+    "12": "đầu trâu",
+    "25": "thân trâu",
+    "31": "mõm trâu"
+  },
+  "tet": {
+    "102": "áo dài của bạn nhỏ",
+    "122": "dải trên bình hoa",
+    "132": "mặt bánh chưng phía trên",
+    "158": "mặt bánh chưng phía dưới bên phải"
+  },
+  "village": {
+    "7": "đám mây ở giữa",
+    "8": "lá chuối phía trên",
+    "46": "bắp chuối",
+    "121": "tường bên phải ngôi nhà"
+  },
+  "cake": {
+    "36": "lớp kem trên cùng",
+    "37": "tầng bánh phía trên",
+    "40": "lớp kem ở giữa",
+    "49": "tầng bánh dưới cùng"
+  },
+  "icecream": {
+    "5": "lớp sốt trên viên kem trên cùng",
+    "15": "phần dưới viên kem trên cùng",
+    "16": "viên kem bên phải",
+    "57": "quả dâu tây"
+  },
+  "fruit": {
+    "13": "chiếc lá trên nải chuối",
+    "91": "quả táo bên trái",
+    "94": "quả táo ở giữa",
+    "174": "đáy giỏ trái cây"
+  },
+  "picnic": {
+    "30": "phía trong quai giỏ",
+    "42": "miếng bánh phía sau",
+    "46": "miếng bánh phía trước",
+    "135": "ô khăn trải bên trái"
+  },
+  "toys": {
+    "4": "nửa mặt gấu bên trái",
+    "5": "nửa mặt gấu bên phải",
+    "50": "bàn chân gấu bên trái",
+    "67": "mảng giữa quả bóng"
+  }
+}

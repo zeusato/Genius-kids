@@ -1,0 +1,335 @@
+{
+  "source": "Built-in imagegen; prompt.txt",
+  "size": 1024,
+  "threshold": 160,
+  "gapRepairs": 0,
+  "regions": 43,
+  "paintable": 43,
+  "locked": 0,
+  "background": [
+    0
+  ],
+  "tinyComponents": [
+    {
+      "id": 9,
+      "area": 1
+    },
+    {
+      "id": 13,
+      "area": 2
+    }
+  ],
+  "svgBytes": 332867,
+  "svgGzipBytes": 80080,
+  "mismatchedPixels": 0,
+  "brushLeakPixels": 0,
+  "validationScope": "Sharp/librsvg at 1024x1024: every region mask compared at pixel centers; four 100px-wide crossing strokes clipped to every region. Not a tablet performance benchmark.",
+  "limitations": [
+    "Pixel-edge polygon tracing; zoom reveals steps. Smooth vector curves not implemented.",
+    "Two 1-2px components retained; no region removal or gap repair.",
+    "One generated page only; does not establish acceptance rate for a larger catalog."
+  ],
+  "perRegion": [
+    {
+      "id": 0,
+      "area": 517485,
+      "border": true,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 1,
+      "area": 12394,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 2,
+      "area": 9346,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 3,
+      "area": 11745,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 4,
+      "area": 7394,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 5,
+      "area": 38697,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 6,
+      "area": 30574,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 7,
+      "area": 36039,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 8,
+      "area": 72848,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 9,
+      "area": 1,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 10,
+      "area": 16592,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 11,
+      "area": 3189,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 12,
+      "area": 2644,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 13,
+      "area": 2,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 14,
+      "area": 442,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 15,
+      "area": 37612,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 16,
+      "area": 14080,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 17,
+      "area": 913,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 18,
+      "area": 11282,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 19,
+      "area": 28734,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 20,
+      "area": 22438,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 21,
+      "area": 16755,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 22,
+      "area": 4127,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 23,
+      "area": 4158,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 24,
+      "area": 14572,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 25,
+      "area": 21134,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 26,
+      "area": 81,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 27,
+      "area": 103,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 28,
+      "area": 79,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 29,
+      "area": 78,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 30,
+      "area": 102,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 31,
+      "area": 859,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 32,
+      "area": 103,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 33,
+      "area": 167,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 34,
+      "area": 172,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 35,
+      "area": 3653,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 36,
+      "area": 3896,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 37,
+      "area": 3075,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 38,
+      "area": 2361,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 39,
+      "area": 88,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 40,
+      "area": 92,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 41,
+      "area": 1510,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    },
+    {
+      "id": 42,
+      "area": 1325,
+      "border": false,
+      "locked": false,
+      "mismatch": 0
+    }
+  ]
+}

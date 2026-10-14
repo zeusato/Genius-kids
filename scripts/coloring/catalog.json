@@ -1,0 +1,366 @@
+{
+  "books": [
+    {
+      "id": "ocean",
+      "title": "Đại dương",
+      "icon": "🌊"
+    },
+    {
+      "id": "garden",
+      "title": "Khu vườn",
+      "icon": "🌷"
+    },
+    {
+      "id": "pets",
+      "title": "Bạn nhỏ",
+      "icon": "🐱"
+    },
+    {
+      "id": "wild",
+      "title": "Rừng xanh",
+      "icon": "🦁"
+    },
+    {
+      "id": "travel",
+      "title": "Đi muôn nơi",
+      "icon": "🚂"
+    },
+    {
+      "id": "magic",
+      "title": "Cổ tích",
+      "icon": "🏰"
+    },
+    {
+      "id": "vietnam",
+      "title": "Việt Nam",
+      "icon": "🪷"
+    },
+    {
+      "id": "treats",
+      "title": "Điều ngọt ngào",
+      "icon": "🍰"
+    }
+  ],
+  "pages": [
+    {
+      "id": "fish",
+      "title": "Cá nhỏ",
+      "book": "ocean",
+      "subject": "friendly tropical fish with broad body bands, fan tail, bubbles and a starfish",
+      "tier": "easy",
+      "scene": "ocean"
+    },
+    {
+      "id": "turtle",
+      "title": "Rùa biển",
+      "book": "ocean",
+      "subject": "smiling sea turtle with a patterned shell swimming above sea grass",
+      "tier": "medium",
+      "scene": "ocean"
+    },
+    {
+      "id": "octopus",
+      "title": "Bạch tuộc",
+      "book": "ocean",
+      "subject": "cute octopus with eight rounded arms, a treasure shell and bubbles",
+      "tier": "medium",
+      "scene": "ocean"
+    },
+    {
+      "id": "whale",
+      "title": "Cá voi",
+      "book": "ocean",
+      "subject": "joyful whale blowing a water fountain beside little waves",
+      "tier": "medium",
+      "scene": "ocean"
+    },
+    {
+      "id": "seahorse",
+      "title": "Cá ngựa",
+      "book": "ocean",
+      "subject": "two charming seahorses among simple coral and shells",
+      "tier": "hard",
+      "scene": "ocean"
+    },
+    {
+      "id": "butterfly",
+      "title": "Bướm hoa",
+      "book": "garden",
+      "subject": "large butterfly with beautifully segmented symmetrical wings over flowers",
+      "tier": "easy",
+      "scene": "garden"
+    },
+    {
+      "id": "bee",
+      "title": "Ong mật",
+      "book": "garden",
+      "subject": "happy honeybee beside a flower and a honey pot",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "ladybug",
+      "title": "Bọ rùa",
+      "book": "garden",
+      "subject": "round ladybug with large spots on a leaf",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "snail",
+      "title": "Ốc sên",
+      "book": "garden",
+      "subject": "smiling snail with spiral shell and mushrooms",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "flowers",
+      "title": "Vườn hoa",
+      "book": "garden",
+      "subject": "bouquet of tulips daisies and sunflowers in a patterned watering can",
+      "tier": "hard",
+      "scene": "garden"
+    },
+    {
+      "id": "cat",
+      "title": "Mèo con",
+      "book": "pets",
+      "subject": "playful kitten with striped tail beside a ball of yarn",
+      "tier": "easy",
+      "scene": "garden"
+    },
+    {
+      "id": "dog",
+      "title": "Cún con",
+      "book": "pets",
+      "subject": "friendly puppy with patches and a ball beside a kennel",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "rabbit",
+      "title": "Thỏ cà rốt",
+      "book": "pets",
+      "subject": "rabbit holding a carrot in a small vegetable garden",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "hamster",
+      "title": "Hamster",
+      "book": "pets",
+      "subject": "round hamster holding a sunflower seed beside its little house",
+      "tier": "medium",
+      "scene": "garden"
+    },
+    {
+      "id": "bird",
+      "title": "Chim sẻ",
+      "book": "pets",
+      "subject": "two cheerful birds on a branch with leaves and a birdhouse",
+      "tier": "hard",
+      "scene": "garden"
+    },
+    {
+      "id": "lion",
+      "title": "Sư tử",
+      "book": "wild",
+      "subject": "lion cub with a rounded segmented mane in savanna grass",
+      "tier": "easy",
+      "scene": "meadow"
+    },
+    {
+      "id": "elephant",
+      "title": "Voi con",
+      "book": "wild",
+      "subject": "baby elephant spraying water with large ears and simple flowers",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "giraffe",
+      "title": "Hươu cao cổ",
+      "book": "wild",
+      "subject": "giraffe with large closed patches beside an acacia tree",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "panda",
+      "title": "Gấu trúc",
+      "book": "wild",
+      "subject": "panda eating bamboo with all fur patches outlined and left white",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "dinosaur",
+      "title": "Khủng long",
+      "book": "wild",
+      "subject": "friendly stegosaurus with big back plates and prehistoric plants",
+      "tier": "hard",
+      "scene": "meadow"
+    },
+    {
+      "id": "train",
+      "title": "Tàu hoả",
+      "book": "travel",
+      "subject": "friendly steam train engine with two carriages and puffs of smoke",
+      "tier": "easy",
+      "scene": "sky"
+    },
+    {
+      "id": "rocket",
+      "title": "Tên lửa",
+      "book": "travel",
+      "subject": "rocket with large sections and porthole near a ringed planet and stars",
+      "tier": "medium",
+      "scene": "sky"
+    },
+    {
+      "id": "bus",
+      "title": "Xe buýt",
+      "book": "travel",
+      "subject": "cute school bus with large windows, wheels, road and a little tree",
+      "tier": "medium",
+      "scene": "sky"
+    },
+    {
+      "id": "sailboat",
+      "title": "Thuyền buồm",
+      "book": "travel",
+      "subject": "sailboat with two segmented sails floating on gentle waves",
+      "tier": "medium",
+      "scene": "sky"
+    },
+    {
+      "id": "balloon",
+      "title": "Khinh khí cầu",
+      "book": "travel",
+      "subject": "hot air balloon with broad decorative panels, basket and fluffy clouds",
+      "tier": "hard",
+      "scene": "sky"
+    },
+    {
+      "id": "castle",
+      "title": "Lâu đài",
+      "book": "magic",
+      "subject": "storybook castle with three towers, flags, arched door and garden",
+      "tier": "easy",
+      "scene": "meadow"
+    },
+    {
+      "id": "unicorn",
+      "title": "Kỳ lân",
+      "book": "magic",
+      "subject": "friendly unicorn with flowing segmented mane, rainbow and clouds",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "dragon",
+      "title": "Rồng nhỏ",
+      "book": "magic",
+      "subject": "adorable baby dragon with wings guarding a large patterned egg",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "fairyhouse",
+      "title": "Nhà nấm",
+      "book": "magic",
+      "subject": "whimsical mushroom cottage with round windows and a cobblestone path",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "robot",
+      "title": "Robot bạn thân",
+      "book": "magic",
+      "subject": "friendly toy robot with large geometric panels carrying a flower",
+      "tier": "hard",
+      "scene": "meadow"
+    },
+    {
+      "id": "lotus",
+      "title": "Hồ sen",
+      "book": "vietnam",
+      "subject": "large lotus blossom and lotus leaves with a dragonfly above water",
+      "tier": "easy",
+      "scene": "meadow"
+    },
+    {
+      "id": "lantern",
+      "title": "Đèn Trung Thu",
+      "book": "vietnam",
+      "subject": "star shaped Vietnamese mid autumn lantern beside a round lantern and moon",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "buffalo",
+      "title": "Trâu đồng quê",
+      "book": "vietnam",
+      "subject": "gentle water buffalo wearing a small bell beside rice stalks",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "tet",
+      "title": "Ngày Tết",
+      "book": "vietnam",
+      "subject": "Vietnamese Tet arrangement of square banh chung cakes, peach blossoms and plain envelopes without text",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "village",
+      "title": "Làng quê",
+      "book": "vietnam",
+      "subject": "peaceful Vietnamese tiled roof village house beside a banana tree and pond",
+      "tier": "hard",
+      "scene": "meadow"
+    },
+    {
+      "id": "cake",
+      "title": "Bánh sinh nhật",
+      "book": "treats",
+      "subject": "birthday cake with three candles, strawberries and broad frosting layers",
+      "tier": "easy",
+      "scene": "meadow"
+    },
+    {
+      "id": "icecream",
+      "title": "Kem cầu vồng",
+      "book": "treats",
+      "subject": "three scoop ice cream cone with cherry, fruit and decorative closed patterns",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "fruit",
+      "title": "Giỏ trái cây",
+      "book": "treats",
+      "subject": "basket of bananas apples grapes pineapple and a sliced orange",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "picnic",
+      "title": "Buổi dã ngoại",
+      "book": "treats",
+      "subject": "picnic basket with sandwiches and juice under a leafy tree",
+      "tier": "medium",
+      "scene": "meadow"
+    },
+    {
+      "id": "toys",
+      "title": "Góc đồ chơi",
+      "book": "treats",
+      "subject": "teddy bear, toy sailboat, stacking rings and a beach ball neatly arranged",
+      "tier": "hard",
+      "scene": "meadow"
+    }
+  ]
+}

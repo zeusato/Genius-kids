@@ -1,10 +1,10 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { COLORS_DATA } from '@/src/data/colorsData';
 import { PreschoolShell } from '@/src/components/preschool/PreschoolShell';
 import { usePreschoolActivity } from '@/src/components/preschool/usePreschoolActivity';
 import { FlashcardDeck } from '@/src/components/preschool/FlashcardDeck';
 import { ListenAndPick } from '@/src/components/preschool/ListenAndPick';
-import { ColoringActivity } from '@/src/components/preschool/ColoringActivity';
 import { ShapeGame } from '@/src/components/preschool/ShapeGame';
 import type { PreschoolToken } from '@/src/components/preschool/types';
 
@@ -41,7 +41,7 @@ export function ColorsPage() {
                 <ListenAndPick tokens={quizTokens} instructionVi="Hãy chọn màu" gameType={GAME_TYPE} onBack={back} />
             )}
             {activity === 'color' && (
-                <ColoringActivity colors={COLORS_DATA} rounds={5} gameType={GAME_TYPE} onBack={back} />
+                <Navigate to="/coloring?mode=listen" replace />
             )}
             {activity === 'shapes' && (
                 <ShapeGame rounds={10} gameType="preschool-shapes" onBack={back} />

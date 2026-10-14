@@ -1,0 +1,289 @@
+{
+  "pages": 40,
+  "pixels": 167772160,
+  "mismatches": 0,
+  "workerCoreMs": 641,
+  "workerRegions": 4,
+  "rows": [
+    {
+      "id": "fish",
+      "regions": 42,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 401
+    },
+    {
+      "id": "turtle",
+      "regions": 104,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 531
+    },
+    {
+      "id": "octopus",
+      "regions": 129,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 512
+    },
+    {
+      "id": "whale",
+      "regions": 26,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 406
+    },
+    {
+      "id": "seahorse",
+      "regions": 214,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 735
+    },
+    {
+      "id": "butterfly",
+      "regions": 91,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 483
+    },
+    {
+      "id": "bee",
+      "regions": 49,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 439
+    },
+    {
+      "id": "ladybug",
+      "regions": 40,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 321
+    },
+    {
+      "id": "snail",
+      "regions": 74,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 487
+    },
+    {
+      "id": "flowers",
+      "regions": 300,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 535
+    },
+    {
+      "id": "cat",
+      "regions": 47,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 362
+    },
+    {
+      "id": "dog",
+      "regions": 67,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 387
+    },
+    {
+      "id": "rabbit",
+      "regions": 121,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 378
+    },
+    {
+      "id": "hamster",
+      "regions": 108,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 431
+    },
+    {
+      "id": "bird",
+      "regions": 119,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 532
+    },
+    {
+      "id": "lion",
+      "regions": 64,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 385
+    },
+    {
+      "id": "elephant",
+      "regions": 51,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 344
+    },
+    {
+      "id": "giraffe",
+      "regions": 74,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 479
+    },
+    {
+      "id": "panda",
+      "regions": 104,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 503
+    },
+    {
+      "id": "dinosaur",
+      "regions": 305,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 570
+    },
+    {
+      "id": "train",
+      "regions": 103,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 256
+    },
+    {
+      "id": "rocket",
+      "regions": 71,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 342
+    },
+    {
+      "id": "bus",
+      "regions": 112,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 334
+    },
+    {
+      "id": "sailboat",
+      "regions": 114,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 325
+    },
+    {
+      "id": "balloon",
+      "regions": 130,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 373
+    },
+    {
+      "id": "castle",
+      "regions": 114,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 406
+    },
+    {
+      "id": "unicorn",
+      "regions": 80,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 461
+    },
+    {
+      "id": "dragon",
+      "regions": 146,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 498
+    },
+    {
+      "id": "fairyhouse",
+      "regions": 221,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 528
+    },
+    {
+      "id": "robot",
+      "regions": 198,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 508
+    },
+    {
+      "id": "lotus",
+      "regions": 67,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 237
+    },
+    {
+      "id": "lantern",
+      "regions": 130,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 354
+    },
+    {
+      "id": "buffalo",
+      "regions": 165,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 327
+    },
+    {
+      "id": "tet",
+      "regions": 223,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 244
+    },
+    {
+      "id": "village",
+      "regions": 243,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 226
+    },
+    {
+      "id": "cake",
+      "regions": 56,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 182
+    },
+    {
+      "id": "icecream",
+      "regions": 86,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 185
+    },
+    {
+      "id": "fruit",
+      "regions": 189,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 220
+    },
+    {
+      "id": "picnic",
+      "regions": 138,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 199
+    },
+    {
+      "id": "toys",
+      "regions": 71,
+      "pixels": 4194304,
+      "mismatch": 0,
+      "elapsedMs": 156
+    }
+  ]
+}

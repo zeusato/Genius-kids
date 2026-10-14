@@ -209,6 +209,7 @@ export interface AchievementProgress {
 }
 
 export interface StudentProfile {
+  coloring?: import('./src/coloring/model').ColoringProgress;
   electricity?: import('./src/components/electricity/progress/progress').ElectricityProgress;
   electricityBadges?: string[];
   englishProgress?: import('./src/english/model').EnglishProgress;

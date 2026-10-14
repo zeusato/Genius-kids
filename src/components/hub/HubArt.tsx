@@ -46,6 +46,7 @@ export function HubArt({ kind, eager = false }: { kind: ArtId; eager?: boolean }
     else if (kind === 'sound-memory') art = <BandStage/>;
     else if (kind === 'speed-math') art = <><ArtImage name="station" eager={eager}/><ArtImage name="tia" className="hub-tia" eager={eager}/><span className="hub-lightning">✦</span><span className="hub-puzzle-chip">2 + 3 = 5</span></>;
     else if (kind === 'dragon-quest') art = <><ArtImage name="forest" eager={eager}/><ArtImage name="knight" className="hub-knight" eager={eager}/></>;
+    else if (kind === 'coloring') art = <img src={`${import.meta.env.BASE_URL}coloring/cover.webp`} alt="" loading={eager?'eager':'lazy'} style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
     else if (kind === 'piano') art = <PianoArt small/>;
     else if (kind === 'coding') art = <><span className="hub-planet"/><span className="hub-orbit"/><RoverPortrait color="#91d9c0"/><span className="hub-code-blocks"><b>↑</b><b>↱</b><b>↑</b></span></>;
     else if (kind === 'game') art = <><span className="hub-game-orbit"/><span className="hub-game-card"><Picture id="fox"/></span><ArtImage name="tia" className="hub-game-tia" eager={eager}/><span className="hub-game-note">♫</span><span className="hub-game-star">✦</span></>;

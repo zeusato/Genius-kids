@@ -1,0 +1,367 @@
+{
+  "source": "OpenAI imagegen",
+  "generatedAt": "2026-10-14",
+  "pages": [
+    {
+      "id": "fish",
+      "title": "Cá nhỏ",
+      "book": "ocean",
+      "subject": "friendly tropical fish with broad body bands, fan tail, bubbles and a starfish",
+      "tier": "easy",
+      "scene": "ocean",
+      "prompt": "Use case: illustration-story. Create ONE beautiful children's coloring book page, square 1024x1024. Subject: a delightful large friendly tropical fish exploring a tiny underwater garden, with three large round bubbles above, two broad seaweed fronds below and one simple starfish. Fish has an expressive eye, a smiling mouth, three broad decorative body bands, a large fan tail with only two divisions, and two simple fins. Premium charming storybook composition, rounded confident shapes, lively curved silhouette, suitable age 4-7. Pure opaque white background, pure black smooth uniform bold outlines, approximately 6-8 pixel strokes at 1024. All intended coloring compartments must be fully enclosed by touching continuous lines: body bands touch the outline, fins meet the body, bubbles fully closed. Large spacious white interiors; aim for 15-25 closed coloring regions. Eye pupil may be solid black. No tiny scales, no hatching, no gray, no shading, no gradients, no textures, no lettering, no numbers, no signature, no watermark, no page frame. Keep all objects within a generous white margin. Output is the black and white line art only."
+    },
+    {
+      "id": "turtle",
+      "title": "Rùa biển",
+      "book": "ocean",
+      "subject": "smiling sea turtle with a patterned shell swimming above sea grass",
+      "tier": "medium",
+      "scene": "ocean",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of smiling sea turtle with a patterned shell swimming above sea grass. Beautiful friendly rounded cartoon storybook design for ages 4-9, coherent graceful composition and generous white margins. Bold clean uniform BLACK outlines on pure WHITE opaque background, all intended coloring compartments closed, large spacious interiors. Simple appealing scene with 15-35 enclosed regions. Fine dots allowed if enclosed. No shading, gray, crosshatching, lettering, numbers, watermarks, signature or page border. Anatomically coherent, delightful expression. Do not make a contact sheet. All shapes fully inside frame."
+    },
+    {
+      "id": "octopus",
+      "title": "Bạch tuộc",
+      "book": "ocean",
+      "subject": "cute octopus with eight rounded arms, a treasure shell and bubbles",
+      "tier": "medium",
+      "scene": "ocean",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of cute octopus with eight rounded arms, a treasure shell and bubbles. Beautiful friendly rounded cartoon storybook design for ages 4-9, coherent graceful composition and generous white margins. Bold clean uniform BLACK outlines on pure WHITE opaque background, all intended coloring compartments closed, large spacious interiors. Simple appealing scene with 15-35 enclosed regions. Fine dots allowed if enclosed. No shading, gray, crosshatching, lettering, numbers, watermarks, signature or page border. Anatomically coherent, delightful expression. Do not make a contact sheet. All shapes fully inside frame."
+    },
+    {
+      "id": "whale",
+      "title": "Cá voi",
+      "book": "ocean",
+      "subject": "joyful whale blowing a water fountain beside little waves",
+      "tier": "medium",
+      "scene": "ocean",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of joyful whale blowing a water fountain beside little waves. Beautiful friendly rounded cartoon storybook design for ages 4-9, coherent graceful composition and generous white margins. Bold clean uniform BLACK outlines on pure WHITE opaque background, all intended coloring compartments closed, large spacious interiors. Simple appealing scene with 15-35 enclosed regions. Fine dots allowed if enclosed. No shading, gray, crosshatching, lettering, numbers, watermarks, signature or page border. Anatomically coherent, delightful expression. Do not make a contact sheet. All shapes fully inside frame."
+    },
+    {
+      "id": "seahorse",
+      "title": "Cá ngựa",
+      "book": "ocean",
+      "subject": "two charming seahorses among simple coral and shells",
+      "tier": "hard",
+      "scene": "ocean",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of two charming seahorses among simple coral and shells. Beautiful friendly rounded cartoon storybook design for ages 4-9, coherent graceful composition and generous white margins. Bold clean uniform BLACK outlines on pure WHITE opaque background, all intended coloring compartments closed, large spacious interiors. Rich charming scene with 40-70 enclosed regions. Fine dots allowed if enclosed. No shading, gray, crosshatching, lettering, numbers, watermarks, signature or page border. Anatomically coherent, delightful expression. Do not make a contact sheet. All shapes fully inside frame."
+    },
+    {
+      "id": "butterfly",
+      "title": "Bướm hoa",
+      "book": "garden",
+      "subject": "large butterfly with beautifully segmented symmetrical wings over flowers",
+      "tier": "easy",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of large butterfly with beautifully segmented symmetrical wings over flowers. Premium friendly rounded storybook cartoon, graceful composition, expressive characters. Thick smooth BLACK outlines, pure WHITE background and interiors. All coloring compartments enclosed with continuous boundaries; large comfortable areas, dots permitted. Very simple 10-20 main shapes. Generous margin around ALL objects; no cropped shapes. NO gray shading, hatching, textures, letters, numbers, signature, watermark or frame. Single scene, not a grid."
+    },
+    {
+      "id": "bee",
+      "title": "Ong mật",
+      "book": "garden",
+      "subject": "happy honeybee beside a flower and a honey pot",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of happy honeybee beside a flower and a honey pot. Premium friendly rounded storybook cartoon, graceful composition, expressive characters. Thick smooth BLACK outlines, pure WHITE background and interiors. All coloring compartments enclosed with continuous boundaries; large comfortable areas, dots permitted. 20-35 main shapes. Generous margin around ALL objects; no cropped shapes. NO gray shading, hatching, textures, letters, numbers, signature, watermark or frame. Single scene, not a grid."
+    },
+    {
+      "id": "ladybug",
+      "title": "Bọ rùa",
+      "book": "garden",
+      "subject": "round ladybug with large spots on a leaf",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of round ladybug with large spots on a leaf. Premium friendly rounded storybook cartoon, graceful composition, expressive characters. Thick smooth BLACK outlines, pure WHITE background and interiors. All coloring compartments enclosed with continuous boundaries; large comfortable areas, dots permitted. 20-35 main shapes. Generous margin around ALL objects; no cropped shapes. NO gray shading, hatching, textures, letters, numbers, signature, watermark or frame. Single scene, not a grid."
+    },
+    {
+      "id": "snail",
+      "title": "Ốc sên",
+      "book": "garden",
+      "subject": "smiling snail with spiral shell and mushrooms",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of smiling snail with spiral shell and mushrooms. Premium friendly rounded storybook cartoon, graceful composition, expressive characters. Thick smooth BLACK outlines, pure WHITE background and interiors. All coloring compartments enclosed with continuous boundaries; large comfortable areas, dots permitted. 20-35 main shapes. Generous margin around ALL objects; no cropped shapes. NO gray shading, hatching, textures, letters, numbers, signature, watermark or frame. Single scene, not a grid."
+    },
+    {
+      "id": "flowers",
+      "title": "Vườn hoa",
+      "book": "garden",
+      "subject": "bouquet of tulips daisies and sunflowers in a patterned watering can",
+      "tier": "hard",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE individual square children's coloring book page of bouquet of tulips daisies and sunflowers in a patterned watering can. Premium friendly rounded storybook cartoon, graceful composition, expressive characters. Thick smooth BLACK outlines, pure WHITE background and interiors. All coloring compartments enclosed with continuous boundaries; large comfortable areas, dots permitted. Detailed 40-65 main shapes. Generous margin around ALL objects; no cropped shapes. NO gray shading, hatching, textures, letters, numbers, signature, watermark or frame. Single scene, not a grid."
+    },
+    {
+      "id": "cat",
+      "title": "Mèo con",
+      "book": "pets",
+      "subject": "playful kitten with striped tail beside a ball of yarn",
+      "tier": "easy",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of playful kitten with striped tail beside a ball of yarn. Charming premium rounded cartoon storybook style, bold clean continuous black outlines, white paper and white interiors. All coloring areas closed. Simple 12-20 broad areas. Preserve coherent anatomy and expressive friendly face. No gray, shading, hatching, text, signature, border or watermark. Leave a generous white margin, keep all objects fully in frame. Single scene."
+    },
+    {
+      "id": "dog",
+      "title": "Cún con",
+      "book": "pets",
+      "subject": "friendly puppy with patches and a ball beside a kennel",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of friendly puppy with patches and a ball beside a kennel. Charming premium rounded cartoon storybook style, bold clean continuous black outlines, white paper and white interiors. All coloring areas closed. 20-35 areas. Preserve coherent anatomy and expressive friendly face. No gray, shading, hatching, text, signature, border or watermark. Leave a generous white margin, keep all objects fully in frame. Single scene."
+    },
+    {
+      "id": "rabbit",
+      "title": "Thỏ cà rốt",
+      "book": "pets",
+      "subject": "rabbit holding a carrot in a small vegetable garden",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of rabbit holding a carrot in a small vegetable garden. Charming premium rounded cartoon storybook style, bold clean continuous black outlines, white paper and white interiors. All coloring areas closed. 20-35 areas. Preserve coherent anatomy and expressive friendly face. No gray, shading, hatching, text, signature, border or watermark. Leave a generous white margin, keep all objects fully in frame. Single scene."
+    },
+    {
+      "id": "hamster",
+      "title": "Hamster",
+      "book": "pets",
+      "subject": "round hamster holding a sunflower seed beside its little house",
+      "tier": "medium",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of round hamster holding a sunflower seed beside its little house. Charming premium rounded cartoon storybook style, bold clean continuous black outlines, white paper and white interiors. All coloring areas closed. 20-35 areas. Preserve coherent anatomy and expressive friendly face. No gray, shading, hatching, text, signature, border or watermark. Leave a generous white margin, keep all objects fully in frame. Single scene."
+    },
+    {
+      "id": "bird",
+      "title": "Chim sẻ",
+      "book": "pets",
+      "subject": "two cheerful birds on a branch with leaves and a birdhouse",
+      "tier": "hard",
+      "scene": "garden",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of two cheerful birds on a branch with leaves and a birdhouse. Charming premium rounded cartoon storybook style, bold clean continuous black outlines, white paper and white interiors. All coloring areas closed. Detailed 40-60 areas. Preserve coherent anatomy and expressive friendly face. No gray, shading, hatching, text, signature, border or watermark. Leave a generous white margin, keep all objects fully in frame. Single scene."
+    },
+    {
+      "id": "lion",
+      "title": "Sư tử",
+      "book": "wild",
+      "subject": "lion cub with a rounded segmented mane in savanna grass",
+      "tier": "easy",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of lion cub with a rounded segmented mane in savanna grass. Charming rounded storybook cartoon, friendly expressive face and coherent animal anatomy. Black continuous bold contours on pure white background, white interiors ready for coloring. Fully closed compartments, 12-20 large main shapes. Small closed dots allowed. Generous margin. No shading, gray, hatch, text, watermark or frame. Single scene, no collage."
+    },
+    {
+      "id": "elephant",
+      "title": "Voi con",
+      "book": "wild",
+      "subject": "baby elephant spraying water with large ears and simple flowers",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of baby elephant spraying water with large ears and simple flowers. Charming rounded storybook cartoon, friendly expressive face and coherent animal anatomy. Black continuous bold contours on pure white background, white interiors ready for coloring. Fully closed compartments, 20-35 main compartments. Small closed dots allowed. Generous margin. No shading, gray, hatch, text, watermark or frame. Single scene, no collage."
+    },
+    {
+      "id": "giraffe",
+      "title": "Hươu cao cổ",
+      "book": "wild",
+      "subject": "giraffe with large closed patches beside an acacia tree",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of giraffe with large closed patches beside an acacia tree. Charming rounded storybook cartoon, friendly expressive face and coherent animal anatomy. Black continuous bold contours on pure white background, white interiors ready for coloring. Fully closed compartments, 20-35 main compartments. Small closed dots allowed. Generous margin. No shading, gray, hatch, text, watermark or frame. Single scene, no collage."
+    },
+    {
+      "id": "panda",
+      "title": "Gấu trúc",
+      "book": "wild",
+      "subject": "panda eating bamboo with all fur patches outlined and left white",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of panda eating bamboo with all fur patches outlined and left white. Charming rounded storybook cartoon, friendly expressive face and coherent animal anatomy. Black continuous bold contours on pure white background, white interiors ready for coloring. Fully closed compartments, 20-35 main compartments. Small closed dots allowed. Generous margin. No shading, gray, hatch, text, watermark or frame. Single scene, no collage."
+    },
+    {
+      "id": "dinosaur",
+      "title": "Khủng long",
+      "book": "wild",
+      "subject": "friendly stegosaurus with big back plates and prehistoric plants",
+      "tier": "hard",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of friendly stegosaurus with big back plates and prehistoric plants. Charming rounded storybook cartoon, friendly expressive face and coherent animal anatomy. Black continuous bold contours on pure white background, white interiors ready for coloring. Fully closed compartments, 40-60 decorative compartments. Small closed dots allowed. Generous margin. No shading, gray, hatch, text, watermark or frame. Single scene, no collage."
+    },
+    {
+      "id": "train",
+      "title": "Tàu hoả",
+      "book": "travel",
+      "subject": "friendly steam train engine with two carriages and puffs of smoke",
+      "tier": "easy",
+      "scene": "sky",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of friendly steam train engine with two carriages and puffs of smoke. Premium friendly rounded storybook cartoon with playful character. Bold continuous black outlines on pure white. All intended coloring compartments completely closed; white interiors, no shading. 12-20 broad simple regions. All objects fully within generous margin. No words, numbers, logo, watermark, hatching, grayscale, frame or collage."
+    },
+    {
+      "id": "rocket",
+      "title": "Tên lửa",
+      "book": "travel",
+      "subject": "rocket with large sections and porthole near a ringed planet and stars",
+      "tier": "medium",
+      "scene": "sky",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of rocket with large sections and porthole near a ringed planet and stars. Premium friendly rounded storybook cartoon with playful character. Bold continuous black outlines on pure white. All intended coloring compartments completely closed; white interiors, no shading. 20-35 regions. All objects fully within generous margin. No words, numbers, logo, watermark, hatching, grayscale, frame or collage."
+    },
+    {
+      "id": "bus",
+      "title": "Xe buýt",
+      "book": "travel",
+      "subject": "cute school bus with large windows, wheels, road and a little tree",
+      "tier": "medium",
+      "scene": "sky",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of cute school bus with large windows, wheels, road and a little tree. Premium friendly rounded storybook cartoon with playful character. Bold continuous black outlines on pure white. All intended coloring compartments completely closed; white interiors, no shading. 20-35 regions. All objects fully within generous margin. No words, numbers, logo, watermark, hatching, grayscale, frame or collage."
+    },
+    {
+      "id": "sailboat",
+      "title": "Thuyền buồm",
+      "book": "travel",
+      "subject": "sailboat with two segmented sails floating on gentle waves",
+      "tier": "medium",
+      "scene": "sky",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of sailboat with two segmented sails floating on gentle waves. Premium friendly rounded storybook cartoon with playful character. Bold continuous black outlines on pure white. All intended coloring compartments completely closed; white interiors, no shading. 20-35 regions. All objects fully within generous margin. No words, numbers, logo, watermark, hatching, grayscale, frame or collage."
+    },
+    {
+      "id": "balloon",
+      "title": "Khinh khí cầu",
+      "book": "travel",
+      "subject": "hot air balloon with broad decorative panels, basket and fluffy clouds",
+      "tier": "hard",
+      "scene": "sky",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of hot air balloon with broad decorative panels, basket and fluffy clouds. Premium friendly rounded storybook cartoon with playful character. Bold continuous black outlines on pure white. All intended coloring compartments completely closed; white interiors, no shading. 40-60 regions. All objects fully within generous margin. No words, numbers, logo, watermark, hatching, grayscale, frame or collage."
+    },
+    {
+      "id": "castle",
+      "title": "Lâu đài",
+      "book": "magic",
+      "subject": "storybook castle with three towers, flags, arched door and garden",
+      "tier": "easy",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of storybook castle with three towers, flags, arched door and garden. Beautiful friendly storybook illustration, rounded appealing shapes. Thick clean black lines, pure white background and white interiors; every intended coloring region enclosed. Simple big forms. No shading, gray, hatching, words, numbers, signature or frame. Leave margins; coherent anatomy and geometry. Not a collage."
+    },
+    {
+      "id": "unicorn",
+      "title": "Kỳ lân",
+      "book": "magic",
+      "subject": "friendly unicorn with flowing segmented mane, rainbow and clouds",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of friendly unicorn with flowing segmented mane, rainbow and clouds. Beautiful friendly storybook illustration, rounded appealing shapes. Thick clean black lines, pure white background and white interiors; every intended coloring region enclosed. Medium detail with 25-45 enclosed compartments. No shading, gray, hatching, words, numbers, signature or frame. Leave margins; coherent anatomy and geometry. Not a collage."
+    },
+    {
+      "id": "dragon",
+      "title": "Rồng nhỏ",
+      "book": "magic",
+      "subject": "adorable baby dragon with wings guarding a large patterned egg",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of adorable baby dragon with wings guarding a large patterned egg. Beautiful friendly storybook illustration, rounded appealing shapes. Thick clean black lines, pure white background and white interiors; every intended coloring region enclosed. Medium detail with 25-45 enclosed compartments. No shading, gray, hatching, words, numbers, signature or frame. Leave margins; coherent anatomy and geometry. Not a collage."
+    },
+    {
+      "id": "fairyhouse",
+      "title": "Nhà nấm",
+      "book": "magic",
+      "subject": "whimsical mushroom cottage with round windows and a cobblestone path",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of whimsical mushroom cottage with round windows and a cobblestone path. Beautiful friendly storybook illustration, rounded appealing shapes. Thick clean black lines, pure white background and white interiors; every intended coloring region enclosed. Medium detail with 25-45 enclosed compartments. No shading, gray, hatching, words, numbers, signature or frame. Leave margins; coherent anatomy and geometry. Not a collage."
+    },
+    {
+      "id": "robot",
+      "title": "Robot bạn thân",
+      "book": "magic",
+      "subject": "friendly toy robot with large geometric panels carrying a flower",
+      "tier": "hard",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of friendly toy robot with large geometric panels carrying a flower. Beautiful friendly storybook illustration, rounded appealing shapes. Thick clean black lines, pure white background and white interiors; every intended coloring region enclosed. Rich decorative scene with many closed compartments. No shading, gray, hatching, words, numbers, signature or frame. Leave margins; coherent anatomy and geometry. Not a collage."
+    },
+    {
+      "id": "lotus",
+      "title": "Hồ sen",
+      "book": "vietnam",
+      "subject": "large lotus blossom and lotus leaves with a dragonfly above water",
+      "tier": "easy",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of large lotus blossom and lotus leaves with a dragonfly above water. Friendly charming storybook drawing for ages 4-9, recognizable Vietnamese cultural subject. Large centered primary subject with 3-4 small supporting objects, generous whitespace and broad easy-to-color shapes. Crisp solid black outlines on pure white background, uniform thick smooth lines. All intended coloring compartments must have completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermarks, borders. Small black dot eyes allowed. Keep all objects completely within canvas with white margin. Approximately 20-45 clear independently enclosed coloring regions. Visually rich but avoid tiny decorative divisions. Beautiful professional printable coloring book page."
+    },
+    {
+      "id": "lantern",
+      "title": "Đèn Trung Thu",
+      "book": "vietnam",
+      "subject": "star shaped Vietnamese mid autumn lantern beside a round lantern and moon",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of star shaped Vietnamese mid autumn lantern beside a round lantern and moon. Friendly charming storybook drawing for ages 4-9, recognizable Vietnamese cultural subject. Large centered primary subject with 3-4 small supporting objects, generous whitespace and broad easy-to-color shapes. Crisp solid black outlines on pure white background, uniform thick smooth lines. All intended coloring compartments must have completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermarks, borders. Small black dot eyes allowed. Keep all objects completely within canvas with white margin. Approximately 20-45 clear independently enclosed coloring regions. Visually rich but avoid tiny decorative divisions. Beautiful professional printable coloring book page."
+    },
+    {
+      "id": "buffalo",
+      "title": "Trâu đồng quê",
+      "book": "vietnam",
+      "subject": "gentle water buffalo wearing a small bell beside rice stalks",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of gentle water buffalo wearing a small bell beside rice stalks. Friendly charming storybook drawing for ages 4-9, recognizable Vietnamese cultural subject. Large centered primary subject with 3-4 small supporting objects, generous whitespace and broad easy-to-color shapes. Crisp solid black outlines on pure white background, uniform thick smooth lines. All intended coloring compartments must have completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermarks, borders. Small black dot eyes allowed. Keep all objects completely within canvas with white margin. Approximately 20-45 clear independently enclosed coloring regions. Visually rich but avoid tiny decorative divisions. Beautiful professional printable coloring book page."
+    },
+    {
+      "id": "tet",
+      "title": "Ngày Tết",
+      "book": "vietnam",
+      "subject": "Vietnamese Tet arrangement of square banh chung cakes, peach blossoms and plain envelopes without text",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of Vietnamese Tet arrangement of square banh chung cakes, peach blossoms and plain envelopes without text. Friendly charming storybook drawing for ages 4-9, recognizable Vietnamese cultural subject. Large centered primary subject with 3-4 small supporting objects, generous whitespace and broad easy-to-color shapes. Crisp solid black outlines on pure white background, uniform thick smooth lines. All intended coloring compartments must have completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermarks, borders. Small black dot eyes allowed. Keep all objects completely within canvas with white margin. Approximately 20-45 clear independently enclosed coloring regions. Visually rich but avoid tiny decorative divisions. Beautiful professional printable coloring book page."
+    },
+    {
+      "id": "village",
+      "title": "Làng quê",
+      "book": "vietnam",
+      "subject": "peaceful Vietnamese tiled roof village house beside a banana tree and pond",
+      "tier": "hard",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of peaceful Vietnamese tiled roof village house beside a banana tree and pond. Friendly charming storybook drawing for ages 4-9, recognizable Vietnamese cultural subject. Large centered primary subject with 3-4 small supporting objects, generous whitespace and broad easy-to-color shapes. Crisp solid black outlines on pure white background, uniform thick smooth lines. All intended coloring compartments must have completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermarks, borders. Small black dot eyes allowed. Keep all objects completely within canvas with white margin. Approximately 20-45 clear independently enclosed coloring regions. Visually rich but avoid tiny decorative divisions. Beautiful professional printable coloring book page."
+    },
+    {
+      "id": "cake",
+      "title": "Bánh sinh nhật",
+      "book": "treats",
+      "subject": "birthday cake with three candles, strawberries and broad frosting layers",
+      "tier": "easy",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of birthday cake with three candles, strawberries and broad frosting layers. Friendly charming storybook drawing for ages 4-9. Large centered main subject and only two small supporting objects, generous whitespace, broad easy-to-color shapes. Pure solid black smooth outlines on pure white background, uniform thick lines. Every coloring compartment has completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermark or border. Black dot eyes allowed. Keep all objects completely within canvas with generous white margin. Only 12 to 20 large coloring areas, very simple preschool composition. Professional printable coloring book illustration."
+    },
+    {
+      "id": "icecream",
+      "title": "Kem cầu vồng",
+      "book": "treats",
+      "subject": "three scoop ice cream cone with cherry, fruit and decorative closed patterns",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of three scoop ice cream cone with cherry, fruit and decorative closed patterns. Friendly charming storybook drawing for ages 4-9. Large centered main subject and only two small supporting objects, generous whitespace, broad easy-to-color shapes. Pure solid black smooth outlines on pure white background, uniform thick lines. Every coloring compartment has completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermark or border. Black dot eyes allowed. Keep all objects completely within canvas with generous white margin. Around 30 to 45 clear independently enclosed coloring regions, avoid tiny decorations. Professional printable coloring book illustration."
+    },
+    {
+      "id": "fruit",
+      "title": "Giỏ trái cây",
+      "book": "treats",
+      "subject": "basket of bananas apples grapes pineapple and a sliced orange",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of basket of bananas apples grapes pineapple and a sliced orange. Friendly charming storybook drawing for ages 4-9. Large centered main subject and only two small supporting objects, generous whitespace, broad easy-to-color shapes. Pure solid black smooth outlines on pure white background, uniform thick lines. Every coloring compartment has completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermark or border. Black dot eyes allowed. Keep all objects completely within canvas with generous white margin. Around 30 to 45 clear independently enclosed coloring regions, avoid tiny decorations. Professional printable coloring book illustration."
+    },
+    {
+      "id": "picnic",
+      "title": "Buổi dã ngoại",
+      "book": "treats",
+      "subject": "picnic basket with sandwiches and juice under a leafy tree",
+      "tier": "medium",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of picnic basket with sandwiches and juice under a leafy tree. Friendly charming storybook drawing for ages 4-9. Large centered main subject and only two small supporting objects, generous whitespace, broad easy-to-color shapes. Pure solid black smooth outlines on pure white background, uniform thick lines. Every coloring compartment has completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermark or border. Black dot eyes allowed. Keep all objects completely within canvas with generous white margin. Around 30 to 45 clear independently enclosed coloring regions, avoid tiny decorations. Professional printable coloring book illustration."
+    },
+    {
+      "id": "toys",
+      "title": "Góc đồ chơi",
+      "book": "treats",
+      "subject": "teddy bear, toy sailboat, stacking rings and a beach ball neatly arranged",
+      "tier": "hard",
+      "scene": "meadow",
+      "prompt": "Use case: illustration-story. ONE square children's coloring page of teddy bear, toy sailboat, stacking rings and a beach ball neatly arranged. Friendly charming storybook drawing for ages 4-9. Large centered main subject and only two small supporting objects, generous whitespace, broad easy-to-color shapes. Pure solid black smooth outlines on pure white background, uniform thick lines. Every coloring compartment has completely CLOSED boundaries. No gray, shading, hatching, texture, text, letters, watermark or border. Black dot eyes allowed. Keep all objects completely within canvas with generous white margin. Around 60 coloring areas, ornamental details. Professional printable coloring book illustration."
+    }
+  ],
+  "cover": "Use case: illustration-story. A delightful handcrafted clay miniature scene for a children's coloring studio app card. A friendly little brown teddy bear artist stands beside a small wooden easel holding a white coloring picture of a smiling fish, half colored in turquoise and coral. Oversized pastel crayons, little paint pots, a yellow star and a tiny butterfly surround the easel. Soft matte polymer clay, rounded sculptural forms, mint sage background, warm cream tabletop, gentle natural studio light, beautiful tactile detailed materials. Main objects clustered in center, clean uncluttered composition with generous margin. Whimsical sophisticated children's museum illustration. Landscape 4:3. No letters, text, logos, watermark or border."
+}
