@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 import { StudentProvider } from '@/src/contexts/StudentContext';
+import { AccountProvider } from '@/src/contexts/AccountContext';
 import { MusicProvider } from '@/src/contexts/MusicContext';
 import { ProtectedRoute } from '@/src/components/ProtectedRoute';
 import { UpdateNotification } from '@/src/components/UpdateNotification';
@@ -224,7 +225,7 @@ export default function App() {
   return (
     <BrowserRouter basename="/Genius-kids">
       <PageViewTracker />
-      <StudentProvider>
+      <AccountProvider><StudentProvider>
         <MusicProvider>
           <Suspense fallback={
             <div className="min-h-screen flex items-center justify-center bg-cyan-50">
@@ -468,7 +469,7 @@ export default function App() {
             )}
           </Suspense>
         </MusicProvider>
-      </StudentProvider>
+      </StudentProvider></AccountProvider>
     </BrowserRouter>
   );
 }

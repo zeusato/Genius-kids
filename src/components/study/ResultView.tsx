@@ -1,6 +1,7 @@
 // Kết quả một phiên: điểm, sao, tiến bộ từng kỹ năng, xem lại từng câu.
 import React, { useEffect, useState } from 'react';
-import { BarChart3, ChevronDown, Check, Home, RotateCcw, Star, Target, Trophy, X } from 'lucide-react';
+import { BarChart3, ChevronDown, Check, Home, RotateCcw, Star, Target, Trophy, X, BookOpen } from 'lucide-react';
+import { hasLesson } from '@/services/study/lessons/manifest';
 import type { StudyMode } from '@/types';
 import { soundManager } from '@/utils/sound';
 import type { PlayRecord } from './player/Player';
@@ -26,7 +27,7 @@ function Confetti() {
     return <div className="study-confetti" aria-hidden>{bits.map((b, i) => <i key={i} style={{ left: `${b.left}%`, background: b.color, animationDelay: `${b.delay}s`, transform: `rotate(${b.rot}deg)` }} />)}</div>;
 }
 
-export function ResultView({ summary, onHome, onRetryWrong, onPracticeWeak, onReport }: { summary: SessionSummary; onHome: () => void; onRetryWrong?: () => void; onPracticeWeak?: () => void; onReport: () => void }) {
+export function ResultView({ summary, onHome, onRetryWrong, onPracticeWeak, onLearnWeak, onLearn, onReport }: { summary: SessionSummary; onHome: () => void; onRetryWrong?: () => void; onPracticeWeak?: () => void; onLearnWeak?: () => void; onLearn?: (skillId: string) => void; onReport: () => void }) {
     const { records } = summary;
     const total = records.length, score = records.filter(r => r.correct).length;
     const first = records.filter(r => r.firstTry).length;
@@ -62,6 +63,7 @@ export function ResultView({ summary, onHome, onRetryWrong, onPracticeWeak, onRe
                 <button className="study-btn" onClick={onHome}><Home size={20} />Về Ôn Luyện</button>
                 {onRetryWrong && wrong.length > 0 && <button className="study-btn soft" onClick={onRetryWrong}><RotateCcw size={20} />Làm lại {wrong.length} câu sai</button>}
                 {onPracticeWeak && <button className="study-btn soft" onClick={onPracticeWeak}><Target size={20} />Luyện tiếp kỹ năng yếu</button>}
+                {onLearnWeak && <button className="study-btn soft" onClick={onLearnWeak}><BookOpen size={20} />Học lại bài</button>}
                 <button className="study-btn ghost" onClick={onReport}><BarChart3 size={20} />Xem báo cáo</button>
             </div>
 
@@ -73,7 +75,7 @@ export function ResultView({ summary, onHome, onRetryWrong, onPracticeWeak, onRe
                             const diff = Math.round((d.after - d.before) * 100);
                             return (
                                 <tr key={d.skillId}>
-                                    <td>{d.title}{d.mastered && <span className="study-badge"><Trophy size={11} />Thành thạo</span>}<small className="study-skill-score">{records.filter(r => r.q.skillId === d.skillId && r.correct).length}/{records.filter(r => r.q.skillId === d.skillId).length} câu đúng</small></td>
+                                    <td>{d.title}{d.mastered && <span className="study-badge"><Trophy size={11} />Thành thạo</span>}<small className="study-skill-score">{records.filter(r => r.q.skillId === d.skillId && r.correct).length}/{records.filter(r => r.q.skillId === d.skillId).length} câu đúng{onLearn && hasLesson(d.skillId) && <> · <button className="hub-text-link learn-inline-link" onClick={() => onLearn(d.skillId)}>Học bài</button></>}</small></td>
                                     <td>{Math.round(d.before * 100)} → {Math.round(d.after * 100)}% {diff > 0 ? <span className="study-up">▲{diff}</span> : diff < 0 ? <span className="study-down">▼{-diff}</span> : null}</td>
                                     <td style={{ width: 150 }}><div className="bar"><s style={{ width: `${Math.min(d.before, d.after) * 100}%` }} /><i style={{ width: `${d.after * 100}%`, opacity: d.after >= d.before ? 1 : 0.6 }} /></div></td>
                                 </tr>

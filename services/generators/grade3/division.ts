@@ -40,6 +40,12 @@ export const templates: Template[] = [
             explanation: `${b} × ${q} = ${b * q}; ${a} - ${b * q} = ${r}. Vậy ${a} : ${b} = ${q} dư ${r} (số dư ${r} bé hơn số chia ${b}).`,
             hint: 'Số dư luôn bé hơn số chia.' });
     }, { check: q => { const m = q.correctAnswer?.match(/dư (\d+)/); const d = Number(q.questionText.match(/: (\d+) =/)?.[1]); return m && Number(m[1]) >= d ? 'số dư ≥ số chia' : (q.options || []).some(o => { const mm = o.match(/dư (\d+)/); return mm && Number(mm[1]) >= d; }) ? 'lựa chọn có số dư ≥ số chia' : null; } }),
+    tpl('g3.div_1digit', 2, () => {
+        const q = rint(1, 4) * 100 + rint(1, 9), b = rint(2, Math.min(9, Math.floor(999 / q)));
+        return single({ q: `${b * q} : ${b} = ?`, correct: q, wrong: [Number(String(q).replace('0', '')), q + 10, q + 1, q - 1], min: 0,
+            explanation: `Chia từ hàng trăm. Đến hàng chục, số đang chia bé hơn ${b}, viết 0 vào thương rồi hạ hàng đơn vị. ${b * q} : ${b} = ${q}. Thử lại: ${q} × ${b} = ${b * q}.`,
+            hint: 'Không bỏ chữ số 0 ở giữa thương.' });
+    }),
     tpl('g3.times_less', 2, () => {
         const k = rint(2, 9), q = rint(2, 12), a = k * q;
         return single({ q: `Giảm ${a} đi ${k} lần được bao nhiêu?`, correct: q, wrong: [a - k, q + 1, q - 1, a * k > 200 ? q + 2 : a * k], min: 0,
@@ -47,7 +53,7 @@ export const templates: Template[] = [
     }),
     tpl('g3.times_less', 3, () => {
         const k = rint(2, 6), q = rint(4, 15), a = k * q, kid = pickOne(KIDS);
-        return single({ q: `Bao gạo nặng ${a} kg. Số gạo ${kid} mang về giảm đi ${k} lần so với bao gạo. Hỏi ${kid} mang về bao nhiêu ki-lô-gam gạo?`,
+        return single({ q: `Bao gạo nặng ${a} kg. Chia đều số gạo đó thành ${k} phần. ${kid} mang về một phần. Hỏi ${kid} mang về bao nhiêu ki-lô-gam gạo?`,
             correct: q, wrong: [a - k, q + k, q * 2, q + 1], format: x => `${x} kg`, min: 0,
             explanation: `Giảm ${k} lần: ${a} : ${k} = ${q} (kg).`, steps: [`Số gạo mang về: ${a} : ${k} = ${q} (kg)`, `Đáp số: ${q} kg`] });
     }),

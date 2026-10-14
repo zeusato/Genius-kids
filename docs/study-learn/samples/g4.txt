@@ -1,0 +1,255 @@
+
+### g4_large_numbers
+ [single g4.compare M1] Điền dấu >, <, =: 950 806 ... 950 732
+    >  |  <  |  =
+    ✔ ">"
+    💡 Cùng 6 chữ số: so sánh từng cặp chữ số từ trái sang phải. 950 806 > 950 732.
+ [multi g4.even_odd M2] Chọn tất cả các số lẻ:
+    2400  |  2203  |  6749  |  8071  |  4077
+    ✔ ["4077","6749","2203","8071"]
+    💡 Số lẻ có chữ số tận cùng là 1, 3, 5, 7, 9. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+ [single g4.place_class M2] Giá trị của chữ số 3 (thứ 1 từ trái) trong số 3 327 528 là:
+    30 000 000  |  300 000 000  |  4 000 000  |  3 000 000
+    ✔ "3 000 000"
+    💡 Chữ số 3 ở hàng triệu nên có giá trị 3 000 000. | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g4_add_sub
+ [single g4.addsub M1] 95 674 - 16 030 = ?
+    80 394  |  79 644  |  79 634  |  79 174
+    ✔ "79 644"
+    💡 Đặt tính thẳng hàng, tính từ phải sang trái: 95 674 - 16 030 = 79 644. | 4 trừ 0 bằng 4, viết 4 → 7 trừ 3 bằng 4, viết 4 → 6 trừ 0 bằng 6, viết 6 → 5 không trừ được 6, lấy 15 trừ 6 bằng 9, viết 9, nhớ 1 → 1 thêm 1 bằng 2; 9 trừ 2 bằng 7, viết 7 → Vậy 95 674 - 16 030 = 79 644 | gợi ý: Nhớ / mượn 1 khi cần.
+ [single g4.letter_expr M2] Tính giá trị của biểu thức a - b với a = 215, b = 31.
+    184  |  183  |  31  |  174
+    ✔ "184"
+    💡 a - b = 215 - 31 = 184. | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+ [single g4.properties_add M3] Không tính, điền dấu >, <, =: 35 157 + 40 251 ... 40 251 + 28 768
+    >  |  <  |  =
+    ✔ ">"
+    💡 Hai tổng có chung số hạng 40 251; so sánh 35 157 với 28 768: điền dấu >. | gợi ý: Đổi chỗ các số hạng trong một tổng thì tổng không thay đổi.
+
+### g4_multiplication
+ [single g4.properties_mul M3] Tính nhanh: 65 × 49 + 65 × 17 = ?
+    3202  |  4340  |  4290  |  4300
+    ✔ "4290"
+    💡 Nhân một số với một tổng: 65 × 49 + 65 × 17 = 65 × (49 + 17) = 65 × 66 = 4290. | gợi ý: Cả hai tích đều có thừa số 65.
+ [single g4.mul M1] 18 644 × 4 = ?
+    75 096  |  73 766  |  74 576  |  74 376
+    ✔ "74 576"
+    💡 Nhân lần lượt từ hàng đơn vị, nhớ sang hàng bên trái: 18 644 × 4 = 74 576. | Hàng đơn vị: 4 × 4 = 16, viết 6 nhớ 1 → Hàng chục: 4 × 4 + 1 (nhớ) = 17, viết 7 nhớ 1 → Hàng trăm: 6 × 4 + 1 (nhớ) = 25, viết 5 nhớ 2 → Hàng nghìn: 8 × 4 + 2 (nhớ) = 34, viết 4 nhớ 3 → Hàng chục nghìn: 1 × 4 + 3 (nhớ) = 7 → Kết quả: 18 644 × 4 = 74 576
+ [single g4.mul10 M1] 8528 × 1000 = ?
+    9528  |  8 528 000  |  85 280 000  |  852 800
+    ✔ "8 528 000"
+    💡 Nhân với 1000: viết thêm 3 chữ số 0 vào bên phải: 8 528 000. | gợi ý: Nhân với 1000 thì thêm 3 chữ số 0.
+
+### g4_division
+ [single g4.div M1] 233 526 : 3 = ?
+    7784  |  77 842  |  77 832  |  77 822
+    ✔ "77 842"
+    💡 Chia lần lượt từ trái sang phải: 233 526 : 3 = 77 842 (thử lại: 77 842 × 3 = 233 526). | gợi ý: Thử lại bằng phép nhân.
+ [single g4.div10 M2] 45 180 : 90 = ?
+    50  |  492  |  502  |  501
+    ✔ "502"
+    💡 Cùng bỏ một chữ số 0 ở số bị chia và số chia: 4518 : 9 = 502. | gợi ý: Cùng xoá một chữ số 0 ở tận cùng của số bị chia và số chia.
+ [single g4.div M1] 586 496 : 8 = ?
+    74 132  |  733 120  |  73 032  |  73 312
+    ✔ "73 312"
+    💡 Chia lần lượt từ trái sang phải: 586 496 : 8 = 73 312 (thử lại: 73 312 × 8 = 586 496). | gợi ý: Thử lại bằng phép nhân.
+
+### g4_units
+ [input g4.time_units M1] Điền số: 360 giây = ? phút
+    ✔ "6"
+    💡 60 giây = 1 phút, nên 360 giây = 6 phút.
+ [input g4.area_units M1] Điền số: 20 000 cm² = ? m²
+    ✔ "2"
+    💡 10 000 cm² = 1 m², nên 20 000 cm² = 2 m².
+ [input g4.mass M1] Điền số: 2000 kg = ? tấn
+    ✔ "2"
+    💡 1000 kg = 1 tấn, nên 2000 kg = 2 tấn.
+
+### g4_angles
+ [single g4.angle_types M1] Góc có số đo 160° là góc gì?
+    Góc nhọn  |  Góc tù  |  Góc bẹt  |  Góc vuông
+    ✔ "Góc tù"
+    💡 160° lớn hơn 90° và bé hơn 180°: góc tù.
+ [single g4.angle_compare M2] So sánh góc 160° và góc 100°: 160° ... 100°
+    >  |  <  |  =
+    ✔ ">"
+    💡 Góc 160° lớn hơn góc 100°. | gợi ý: So sánh từ hàng lớn nhất; chú ý vị trí và giá trị của từng chữ số.
+ [single g4.angle_measure M2 🖼] Đặt thước đo góc như hình. Góc đỉnh O có số đo bao nhiêu độ?
+    0°  |  20°  |  10°  |  160°
+    ✔ "20°"
+    💡 Một cạnh trùng vạch 0°, cạnh kia đi qua vạch 20°: góc có số đo 20°. | gợi ý: Đọc số trên vòng chia độ bắt đầu từ vạch 0 trùng với một cạnh của góc.
+
+### g4_lines
+ [single g4.perp_parallel M1 🖼] Đường thẳng MN và đường thẳng PQ trong hình:
+    Song song  |  Vuông góc  |  Cắt nhau nhưng không vuông góc
+    ✔ "Vuông góc"
+    💡 Hai đường thẳng cắt nhau tạo thành 4 góc vuông: vuông góc. | gợi ý: Dùng ê-ke kiểm tra góc tạo bởi hai đường thẳng.
+ [single g4.perp_parallel M2 🖼] Hình chữ nhật ABCD có mấy cặp cạnh song song?
+    0  |  4  |  2  |  3
+    ✔ "2"
+    💡 AB song song với DC, AD song song với BC: có 2 cặp cạnh song song. | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.perp_parallel M1 🖼] Đường thẳng EG và đường thẳng HK trong hình:
+    Song song  |  Vuông góc  |  Cắt nhau nhưng không vuông góc
+    ✔ "Cắt nhau nhưng không vuông góc"
+    💡 Hai đường thẳng cắt nhau nhưng các góc tạo thành không phải góc vuông. | gợi ý: Dùng ê-ke kiểm tra góc tạo bởi hai đường thẳng.
+
+### g4_geometry_2d
+ [single g4.para_rhombus_id M2] Đúng hay sai: Hình bình hành có bốn góc vuông.
+    Đúng  |  Sai
+    ✔ "Sai"
+    💡 Sai. Hình bình hành: hai cặp cạnh đối song song và bằng nhau; hình thoi: bốn cạnh bằng nhau, hai cặp cạnh đối song song. | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.rect_word M2] Một hình chữ nhật có chu vi 72 m, chiều rộng 9 m. Tính chiều dài.
+    25 m  |  27 m  |  26 m  |  45 m
+    ✔ "27 m"
+    💡 Nửa chu vi: 72 : 2 = 36 (m). Chiều dài: 36 - 9 = 27 (m). | Nửa chu vi: 72 : 2 = 36 (m) → Chiều dài: 36 - 9 = 27 (m) | gợi ý: Chiều dài + chiều rộng = nửa chu vi.
+ [single g4.rect_word M3] Một thửa ruộng hình chữ nhật dài 36 m, rộng 18 m. Cứ 1 m² thu được 2 kg thóc. Hỏi cả thửa ruộng thu được bao nhiêu ki-lô-gam thóc?
+    648 kg  |  108 kg  |  216 kg  |  1296 kg
+    ✔ "1296 kg"
+    💡 Diện tích: 36 × 18 = 648 (m²). Số thóc: 648 × 2 = 1296 (kg). | Diện tích: 36 × 18 = 648 (m²) → Số thóc: 648 × 2 = 1296 (kg) | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+
+### g4_fractions
+ [single g4.fraction_common M2] Quy đồng mẫu số hai phân số 4/6 và 9/12 được:
+    4/12 và 9/12  |  6/12 và 9/12  |  8/12 và 9/12  |  8/12 và 18/24
+    ✔ "8/12 và 9/12"
+    💡 12 chia hết cho 6 (12 : 6 = 2), nên lấy 12 làm mẫu số chung: 4/6 = 8/12; giữ nguyên 9/12. | gợi ý: Mẫu số 12 chia hết cho 6.
+ [single g4.fraction_concept M1 🖼] Phần tô màu biểu thị phân số nào?
+    3/2  |  2/3  |  4/3  |  2/4
+    ✔ "2/3"
+    💡 Hình chia thành 3 phần bằng nhau, tô màu 2 phần: phân số 2/3 (tử số 2, mẫu số 3).
+ [single g4.fraction_compare M2] Điền dấu >, <, =: 3/6 ... 8/18
+    >  |  <  |  =
+    ✔ ">"
+    💡 Quy đồng: 3/6 = 9/18. So sánh 9/18 với 8/18: >. | gợi ý: Quy đồng mẫu số rồi so sánh tử số.
+
+### g4_statistics
+ [single g4.events M1] Tung một đồng xu 35 lần, có 17 lần xuất hiện mặt sấp. Hỏi mặt ngửa xuất hiện bao nhiêu lần?
+    35  |  18  |  17  |  19
+    ✔ "18"
+    💡 Mỗi lần tung xuất hiện mặt sấp hoặc mặt ngửa: 35 - 17 = 18 (lần).
+ [single g4.data_series M1] Số đo chiều cao (cm) của một nhóm bạn là: 156; 130; 120; 131; 136; 159. Số thứ 5 của dãy số liệu là:
+    159  |  156  |  130  |  136
+    ✔ "136"
+    💡 Đếm từ trái sang phải, số thứ 5 là 136.
+ [single g4.bar_chart M3 🖼] Biểu đồ "Số học sinh đạt giải". Tổng số học sinh của cả bốn cột là bao nhiêu?
+    107  |  127  |  97  |  126
+    ✔ "127"
+    💡 39 + 29 + 25 + 34 = 127 (học sinh). | gợi ý: Đọc tên hàng, cột và đơn vị; đối chiếu dữ liệu mà câu hỏi yêu cầu.
+
+### g4_word_problems
+ [single g4.sum_diff M3 🖼] Bình và Lan có tất cả 101 viên bi. Bình có nhiều hơn Lan 25 viên. Hỏi mỗi bạn có bao nhiêu viên bi?
+    Bình: 50, Lan: 51  |  Bình: 63, Lan: 38  |  Bình: 88, Lan: 13  |  Bình: 38, Lan: 63
+    ✔ "Bình: 63, Lan: 38"
+    💡 Số bi của Bình: (101 + 25) : 2 = 63. Số bi của Lan: 63 - 25 = 38. | Số bi của Bình: (101 + 25) : 2 = 63 (viên) → Số bi của Lan: 63 - 25 = 38 (viên) | gợi ý: Vẽ hai đoạn thẳng, đánh dấu tổng và phần chênh lệch rồi tìm từng số.
+ [single g4.word_multi M3] Ngày thứ nhất cửa hàng bán được 261 kg gạo, ngày thứ hai bán nhiều hơn ngày thứ nhất 51 kg, ngày thứ ba bán được 135 kg. Hỏi trung bình mỗi ngày bán được bao nhiêu ki-lô-gam gạo?
+    708 kg  |  236 kg  |  246 kg  |  198 kg
+    ✔ "236 kg"
+    💡 Ngày thứ hai: 261 + 51 = 312 (kg). Cả ba ngày: 261 + 312 + 135 = 708 (kg). Trung bình: 708 : 3 = 236 (kg). | Ngày thứ hai: 261 + 51 = 312 (kg) → Cả ba ngày: 261 + 312 + 135 = 708 (kg) → Trung bình mỗi ngày: 708 : 3 = 236 (kg) → Đáp số: 236 kg | gợi ý: Ghi các dữ kiện đã biết. Tìm đại lượng còn thiếu trước khi trả lời câu hỏi.
+ [single g4.unit_rate M3] Mua 5 quyển vở hết 60 000 đồng. Hỏi với 72 000 đồng thì mua được bao nhiêu quyển vở như thế?
+    5  |  6  |  1  |  7
+    ✔ "6"
+    💡 Giá một quyển: 60 000 : 5 = 12 000 (đồng). Số quyển: 72 000 : 12 000 = 6 (quyển). | Giá một quyển: 60 000 : 5 = 12 000 (đồng) → Số vở mua được: 72 000 : 12 000 = 6 (quyển) | gợi ý: Quan sát từng chi tiết, đếm hoặc so sánh rồi kiểm tra lại lựa chọn.
+
+### g4_patterns
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 149, 182, …, 248, 281, 314
+    ✔ "215"
+    💡 Quy luật: mỗi số hơn số liền trước 33 đơn vị. Số cần điền là 215. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 42, 72, 102, 132, …, 192
+    ✔ "162"
+    💡 Quy luật: mỗi số hơn số liền trước 30 đơn vị. Số cần điền là 162. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+ [input g4.sequence M2] Tìm số thích hợp điền vào chỗ trống: 470, 463, 456, 449, 442, …
+    ✔ "435"
+    💡 Quy luật: mỗi số kém số liền trước 7 đơn vị. Số cần điền là 435. | gợi ý: Tìm hiệu giữa hai số liền nhau.
+
+### g4_parentheses
+ [single g4.expr M2] (69 + 165) × 9 = ?
+    1554  |  2106  |  2107  |  2108
+    ✔ "2106"
+    💡 Trong ngoặc trước: 69 + 165 = 234; 234 × 9 = 2106. | 69 + 165 = 234 → 234 × 9 = 2106 | gợi ý: Làm trong ngoặc trước.
+ [single g4.expr M3] Điền dấu >, <, =: 66 × 5 + 43 × 5 ... (66 + 43) × 5
+    >  |  <  |  =
+    ✔ "="
+    💡 66 × 5 + 43 × 5 = 545; (66 + 43) × 5 = 545. Vậy 545 = 545. | gợi ý: Hai biểu thức trông giống nhau nhưng thứ tự tính khác nhau.
+ [single g4.expr M3] Mỗi quyển truyện giá 8000 đồng. Lan mua 4 quyển, Hoa mua 4 quyển. Hai bạn trả hết bao nhiêu tiền?
+    56 000 đồng  |  64 000 đồng  |  32 000 đồng  |  63 000 đồng
+    ✔ "64 000 đồng"
+    💡 8000 × (4 + 4) = 8000 × 8 = 64 000 (đồng). | Số truyện cả hai mua: 4 + 4 = 8 (quyển) → Số tiền: 8000 × 8 = 64 000 (đồng) | gợi ý: Làm trong ngoặc trước; nhân, chia trước; cộng, trừ sau.
+
+### g4_divisibility
+ [multi g4.divisibility M2] Chọn tất cả các số chia hết cho 2:
+    255  |  955  |  859  |  652  |  530  |  407
+    ✔ ["530","652"]
+    💡 Số chia hết cho 2 khi chữ số tận cùng là 0, 2, 4, 6, 8. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [multi g4.divisibility M2] Chọn tất cả các số chia hết cho 9:
+    713  |  574  |  184  |  229  |  216  |  685
+    ✔ ["216"]
+    💡 Số chia hết cho 9 khi tổng các chữ số chia hết cho 9. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+ [multi g4.divisibility M2] Chọn tất cả các số chia hết cho 9:
+    479  |  516  |  135  |  652  |  637  |  693
+    ✔ ["135","693"]
+    💡 Số chia hết cho 9 khi tổng các chữ số chia hết cho 9. | gợi ý: Nhẩm phép nhân ngược lại để tìm thương; số dư phải bé hơn số chia.
+
+### g4_average
+ [single g4.average M3] Trung bình cộng của 3 số là 20. Biết 2 số là 11, 17. Tìm số còn lại.
+    20  |  30  |  31  |  32
+    ✔ "32"
+    💡 Tổng 3 số: 20 × 3 = 60. Số còn lại: 60 - (11 + 17) = 32. | Tổng 3 số: 20 × 3 = 60 → Số còn lại: 60 - 28 = 32 | gợi ý: Tìm tổng các số trước.
+ [single g4.average M2] Trung bình cộng của các số 61, 69, 37, 9 là bao nhiêu?
+    176  |  47  |  44  |  45
+    ✔ "44"
+    💡 Tổng các số chia cho 4: (61 + 69 + 37 + 9) : 4 = 176 : 4 = 44. | Tổng: 61 + 69 + 37 + 9 = 176 → Trung bình cộng: 176 : 4 = 44 | gợi ý: Cộng tất cả rồi chia cho số các số hạng.
+ [single g4.average M2] Trung bình cộng của các số 39, 55, 14, 24 là bao nhiêu?
+    33  |  132  |  35  |  34
+    ✔ "33"
+    💡 Tổng các số chia cho 4: (39 + 55 + 14 + 24) : 4 = 132 : 4 = 33. | Tổng: 39 + 55 + 14 + 24 = 132 → Trung bình cộng: 132 : 4 = 33 | gợi ý: Cộng tất cả rồi chia cho số các số hạng.
+
+### g4_para_rhombus
+ [single g4.para_area M2 🖼] Tính diện tích hình bình hành có độ dài đáy 8 cm, chiều cao 14 cm.
+    56 cm²  |  126 cm²  |  22 cm²  |  112 cm²
+    ✔ "112 cm²"
+    💡 Diện tích hình bình hành = đáy × chiều cao = 8 × 14 = 112 (cm²). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.para_area M2] Hình bình hành có diện tích 50 cm², độ dài đáy 10 cm. Tính chiều cao.
+    3 cm  |  4 cm  |  2 cm  |  5 cm
+    ✔ "5 cm"
+    💡 Chiều cao = diện tích : đáy = 50 : 10 = 5 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+ [single g4.para_area M2] Hình bình hành có diện tích 90 cm², độ dài đáy 15 cm. Tính chiều cao.
+    5 cm  |  15 cm  |  75 cm  |  6 cm
+    ✔ "6 cm"
+    💡 Chiều cao = diện tích : đáy = 90 : 15 = 6 (cm). | gợi ý: Quan sát các cạnh, góc và số đo đã cho; nhớ quy tắc của hình đang xét.
+
+### g4_fraction_ops
+ [single g4.frac_addsub M2] 3/2 - 1/6 = ?
+    3/4  |  8/3  |  4/3  |  2/12
+    ✔ "4/3"
+    💡 Mẫu số chung là 6: 3/2 = 9/6; 1/6 = 1/6. Kết quả 8/6 = 4/3. | Quy đồng mẫu số 6: 9/6 và 1/6 → Trừ tử số: 8/6 → Rút gọn: 4/3 | gợi ý: Quy đồng mẫu số trước.
+ [single g4.fraction_of M2] Tìm 1/6 của 42.
+    4  |  6  |  5  |  7
+    ✔ "7"
+    💡 1/6 của 42 là 42 × 1/6 = 42 : 6 × 1 = 7. | gợi ý: Chia 42 thành 6 phần bằng nhau rồi lấy 1 phần.
+ [single g4.frac_mul M2] 8/3 × 1/2 = ?
+    4/6  |  4/3  |  8/3  |  4/2
+    ✔ "4/3"
+    💡 Tử nhân tử, mẫu nhân mẫu: 8/6 = 4/3. | gợi ý: Tử nhân tử, mẫu nhân mẫu, rồi rút gọn.
+
+
+┌─────────┬─────────────────────┬──────┬───────────┬────────────────┐
+│ (index) │ unit                │ uniq │ dupOptPct │ rank           │
+├─────────┼─────────────────────┼──────┼───────────┼────────────────┤
+│ 0       │ 'g4_large_numbers'  │ 300  │ 0         │ '73/40/32/37'  │
+│ 1       │ 'g4_add_sub'        │ 300  │ 0         │ '60/55/51/53'  │
+│ 2       │ 'g4_multiplication' │ 300  │ 0         │ '70/66/76/69'  │
+│ 3       │ 'g4_division'       │ 300  │ 0         │ '66/97/73/64'  │
+│ 4       │ 'g4_units'          │ 300  │ 0         │ '46/46/61/47'  │
+│ 5       │ 'g4_angles'         │ 249  │ 0         │ '24/27/24/25'  │
+│ 6       │ 'g4_lines'          │ 21   │ 0         │ '0/2/2/4'      │
+│ 7       │ 'g4_geometry_2d'    │ 240  │ 0         │ '46/57/53/48'  │
+│ 8       │ 'g4_fractions'      │ 300  │ 0         │ '41/59/27/23'  │
+│ 9       │ 'g4_statistics'     │ 298  │ 0         │ '70/45/59/62'  │
+│ 10      │ 'g4_word_problems'  │ 300  │ 0         │ '62/66/109/63' │
+│ 11      │ 'g4_patterns'       │ 297  │ 0         │ '0/0/0/0'      │
+│ 12      │ 'g4_parentheses'    │ 300  │ 0         │ '48/57/47/45'  │
+│ 13      │ 'g4_divisibility'   │ 300  │ 0         │ '103/0/0/0'    │
+│ 14      │ 'g4_average'        │ 300  │ 0         │ '84/88/72/56'  │
+│ 15      │ 'g4_para_rhombus'   │ 300  │ 0         │ '75/73/84/68'  │
+│ 16      │ 'g4_fraction_ops'   │ 300  │ 0         │ '79/73/72/76'  │
+└─────────┴─────────────────────┴──────┴───────────┴────────────────┘

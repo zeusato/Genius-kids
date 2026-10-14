@@ -58,14 +58,15 @@ export function HubShell({ children, ...props }: HubHeaderProps & { children: Re
 export function HubIntro({ eyebrow, title, description, children }: { eyebrow: string; title: string; description: string; children?: React.ReactNode }) {
     return <div className="hub-intro"><div><span className="hub-eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>{children}</div>;
 }
-export function HubDialog({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
+export function HubDialog({ title, onClose, children, initialFocusRef }: { title: string; onClose: () => void; children: React.ReactNode; initialFocusRef?: React.RefObject<HTMLElement | null> }) {
     const dialog = useRef<HTMLDialogElement>(null);
     const titleId = useId();
     useEffect(() => {
         const node = dialog.current;
         node?.showModal();
+        initialFocusRef?.current?.focus();
         return () => node?.close();
-    }, []);
+    }, [initialFocusRef]);
     return <dialog className="hub-dialog" ref={dialog} aria-labelledby={titleId} onCancel={e => { e.preventDefault(); onClose(); }} onClick={e => {
         if (e.target !== e.currentTarget) return;
         const r = e.currentTarget.getBoundingClientRect();

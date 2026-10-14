@@ -1,0 +1,40 @@
+/* Light rectangular button: https://developers.google.com/identity/branding-guidelines */
+@font-face {
+    font-family: 'Google Sans Sign In';
+    src: url('/auth/google-sans-signin.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+.google-sign-in, .discovery-hub .google-sign-in {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid #747775;
+    border-radius: 4px;
+    background: #fff;
+    color: #1f1f1f;
+    font: 500 14px/20px 'Google Sans Sign In', Arial, sans-serif;
+    letter-spacing: 0.25px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.google-sign-in img {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.google-sign-in:hover:not(:disabled) { background-color: #f8faff; box-shadow: 0 1px 2px #3c40434d; }
+.google-sign-in:active:not(:disabled) { background-color: #eef3fe; }
+.google-sign-in:focus-visible, .discovery-hub .google-sign-in:focus-visible { outline: 2px solid #1a73e8; outline-offset: 3px; }
+.google-sign-in:disabled { cursor: default; opacity: 0.6; }
+@media (prefers-reduced-motion: reduce) { .google-sign-in { transition: none; } }

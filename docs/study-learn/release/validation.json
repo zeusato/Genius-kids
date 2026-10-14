@@ -1,0 +1,15 @@
+{
+  "checkedOn": "2026-10-04",
+  "build": {
+    "version": "20261004024802018-local",
+    "builtAt": "2026-10-04T02:48:02.018Z",
+    "passed": true,
+    "precacheEntries": 1767
+  },
+  "tests": "RUN  v4.1.9 D:/Dev/Genius-kids\r\n\r\n\r\n Test Files  119 passed (119)\r\n      Tests  3715 passed (3715)\r\n   Start at  09:43:54\r\n   Duration  59.81s (transform 41.99s, setup 0ms, import 98.73s, tests 184.86s, environment 32ms)",
+  "typecheck": {
+    "passed": false,
+    "knownBaseline": "modules/farm/src/ui/renderSnapshot.ts(26,23): error TS2322: Type '{ heights: number[]; water: number[]; owned: number[]; obstacles: object[]; bridges: object[]; seed: number; version: 1 | 2; templateId?: \"lake-valley-v2\"; family: (typeof FAMILIES)[number]; biome: Biome; }' is not assignable to type 'World'.\r\n  Types of property 'obstacles' are incompatible.\r\n    Type 'object[]' is not assignable to type 'Obstacle[]'.\r\n      Type '{}' is missing the following properties from type 'Obstacle': id, x, z, kind, cleared"
+  },
+  "deployed": false
+}

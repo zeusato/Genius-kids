@@ -20,6 +20,8 @@ Sảnh khám phá chia theo độ tuổi (mầm non / lớp 1–5). Các khu:
 | **Đố vui Nhân Sư**, **Piano Nhí** | Câu đố logic – ngôn ngữ; đàn và bài hát trong vườn |
 | **Trò chơi** (`/game`) | Xem bảng dưới |
 
+Phần **Học bài** của Ôn Luyện có 188 bài từ mầm non đến lớp 5: kiến thức, ví dụ từng bước, chỗ dễ nhầm, 3 câu “Em thử”, sổ tay công thức có tìm kiếm và in. Mã nguồn đã bật đủ sáu lớp cho production; bản build cục bộ đã kiểm tra học và lưu tiến độ offline. Xem [bàn giao và trạng thái phát hành](docs/study-learn/README.md), [kế hoạch và dàn bài](docs/study-learn-plan.md).
+
 ### Khoa học
 
 | Mô-đun | Điểm nhấn |

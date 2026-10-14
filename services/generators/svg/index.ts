@@ -262,6 +262,20 @@ export function fractionPieSVG(numer: number, denom: number, opts: { color?: Col
     return svgWrap(180, 180, parts, { maxW: 180 });
 }
 
+/** Hỗn số: `whole` hình tròn tô kín + một hình tròn chia `denom` phần, tô `numer` phần. */
+export function mixedPiesSVG(whole: number, numer: number, denom: number, opts: { color?: ColorKey } = {}): string {
+    const { color = 'orange' } = opts;
+    const r = 46, gap = 16, n = whole + (numer > 0 ? 1 : 0), W = n * (2 * r + gap) + gap, H = 2 * r + 2 * gap;
+    let body = '';
+    for (let k = 0; k < n; k++) {
+        const cx = gap + r + k * (2 * r + gap), cy = gap + r;
+        if (k < whole) { body += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fillOf(color)}" stroke="${strokeOf(color)}" stroke-width="2"/>`; continue; }
+        const d = denom;
+        for (let i = 0; i < d; i++) body += `<path d="${sector(cx, cy, r, (i * 360) / d, ((i + 1) * 360) / d)}" fill="${i < numer ? fillOf(color) : PALETTE.white}" stroke="${strokeOf(color)}" stroke-width="2"/>`;
+    }
+    return svgWrap(W, H, body, { maxW: Math.min(W, 420) });
+}
+
 // ---------------------------------------------------------------------------
 //  TRỤC SỐ & KHỐI TRĂM-CHỤC-ĐƠN VỊ
 // ---------------------------------------------------------------------------
@@ -273,10 +287,10 @@ export function numberLineSVG(from: number, to: number, step: number, marks: num
     let body = `<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="${PALETTE.ink}" stroke-width="3"/>`;
     body += `<polygon points="${x1},${y} ${x1 - 9},${y - 5} ${x1 - 9},${y + 5}" fill="${PALETTE.ink}"/>`;
     for (let i = 0; i <= n; i++) {
-        const x = x0 + i * dx, v = from + i * step;
+        const x = x0 + i * dx, v = Math.round((from + i * step) * 1e6) / 1e6;
         body += `<line x1="${x.toFixed(1)}" y1="${y - 6}" x2="${x.toFixed(1)}" y2="${y + 6}" stroke="${PALETTE.ink}" stroke-width="2"/>`;
-        body += label(x, y + 20, String(v), { size: 13 });
-        if (marks.includes(v)) body += `<circle cx="${x.toFixed(1)}" cy="${y}" r="7" fill="none" stroke="${PALETTE.accent}" stroke-width="3"/>`;
+        body += label(x, y + 20, String(v).replace('.', ','), { size: 13 }); // dấu phẩy thập phân theo SGK
+        if (marks.some(m => Math.abs(m - v) < 1e-9)) body += `<circle cx="${x.toFixed(1)}" cy="${y}" r="7" fill="none" stroke="${PALETTE.accent}" stroke-width="3"/>`;
     }
     return svgWrap(W, 84, body, { shadow: false, maxW: 360 });
 }

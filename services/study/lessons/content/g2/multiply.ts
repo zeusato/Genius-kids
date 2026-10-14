@@ -1,0 +1,29 @@
+import { lesson, know, rule, text, pic, table, mistake } from '../../build';
+import { example as ex, step as s } from '../authored';
+import type { LessonBook } from '../../types';
+export default {
+ 'g2.mul_meaning': lesson('g2.mul_meaning',{v:1,goal:'hiểu phép nhân là tổng các số hạng bằng nhau.',
+  know:[know('Các nhóm bằng nhau',rule('Một số được lấy nhiều lần có thể viết bằng phép nhân.'),pic('groupsSVG',[{emoji:'🍎',n:2},{emoji:'🍎',n:2},{emoji:'🍎',n:2}]),text('2 + 2 + 2 = 2 × 3 = 6.')),know('Thừa số và tích',rule('Các số được nhân là thừa số. Kết quả phép nhân là tích.'),text('Trong 2 × 3 = 6: thừa số là 2 và 3; tích là 6.'))],
+  forms:[ex('tong','Dạng 1: Viết tổng thành tích',1,'Các số hạng trong tổng bằng nhau.',['Xác định số được lấy.','Đếm số lần lấy.'],'Viết 5 + 5 + 5 + 5 thành phép nhân.',[s('5 được lấy 4 lần.')],'5 × 4 = 20.'),ex('loi','Dạng 2: Các nhóm bằng nhau',2,'Mỗi nhóm có cùng số đồ vật.',['Tìm số trong mỗi nhóm.','Nhân với số nhóm.'],'Mỗi túi có 2 quả cam. 6 túi có bao nhiêu quả?',[s('Số quả cam là:', '2 × 6 = 12 (quả)')],'Đáp số: 12 quả cam.',{layout:'solution'})],
+  mistakes:[mistake('Bạn Bi viết 2 + 3 + 4 thành 2 × 3.','Chỉ đổi trực tiếp khi các số hạng bằng nhau.','Ở đây 2, 3, 4 khác nhau.')],remember:['Mỗi nhóm phải bằng nhau.','Phép nhân gồm thừa số và tích.']}),
+ 'g2.mul_table': lesson('g2.mul_table',{v:1,goal:'dùng bảng nhân 2 và bảng nhân 5.',
+  know:[know('Bảng nhân 2',rule('Mỗi lần lấy thêm 2, tích tăng thêm 2.'),table(['Phép nhân','Tích'],Array.from({length:10},(_,i)=>[`2 × ${i+1}`,String(2*(i+1))]))),know('Bảng nhân 5',rule('Mỗi lần lấy thêm 5, tích tăng thêm 5.'),table(['Phép nhân','Tích'],Array.from({length:10},(_,i)=>[`5 × ${i+1}`,String(5*(i+1))])))],
+  forms:[ex('tinh','Dạng 1: Tính theo bảng',1,'Có thừa số 2 hoặc 5.',['Nhớ bảng nhân tương ứng.','Kiểm tra bằng đếm thêm.'],'Tính 5 × 7.',[s('5 × 6 = 30. Thêm 5 được 35.')],'35.'),ex('loi','Dạng 2: Bài toán nhóm đều',2,'Mỗi nhóm có 2 hoặc 5 vật.',['Tìm số nhóm.','Nhân số mỗi nhóm với số nhóm.'],'Mỗi hộp có 5 bút. 8 hộp có bao nhiêu bút?',[s('Số bút là:', '5 × 8 = 40 (bút)')],'Đáp số: 40 bút.',{layout:'solution'})],
+  remember:['Bảng nhân 2 tăng từng 2.','Bảng nhân 5 có tích tận cùng 0 hoặc 5.']}),
+ 'g2.mul_table34': lesson('g2.mul_table34',{v:1,goal:'mở rộng sang bảng nhân 3 và bảng nhân 4.',
+  know:[know('Bảng nhân 3',rule('Mỗi lần thêm một nhóm 3, tích tăng thêm 3.'),table(['Phép nhân','Tích'],Array.from({length:10},(_,i)=>[`3 × ${i+1}`,String(3*(i+1))]))),know('Bảng nhân 4',rule('Mỗi lần thêm một nhóm 4, tích tăng thêm 4.'),table(['Phép nhân','Tích'],Array.from({length:10},(_,i)=>[`4 × ${i+1}`,String(4*(i+1))])))],
+  forms:[ex('tinh','Dạng 1: Tính tích',1,'Có thừa số 3 hoặc 4.',['Nhớ tích trong bảng.','Nếu quên, đếm thêm từ tích đã biết.'],'Tính 4 × 7.',[s('4 × 6 = 24. Thêm 4 được 28.')],'28.'),ex('loi','Dạng 2: Bài toán',2,'Mỗi nhóm có 3 hoặc 4 vật.',['Tìm số vật mỗi nhóm.','Nhân với số nhóm.'],'Mỗi xe có 4 bánh. 6 xe có bao nhiêu bánh?',[s('Số bánh xe là:', '4 × 6 = 24 (bánh)')],'Đáp số: 24 bánh xe.',{layout:'solution'})],
+  remember:['Nhân 3: đếm thêm 3.','Nhân 4: đếm thêm 4.']}),
+ 'g2.div_meaning': lesson('g2.div_meaning',{v:1,goal:'hiểu chia đều và gọi tên thành phần phép chia.',
+  know:[know('Chia đều thành các nhóm',rule('Phép chia giúp tìm số trong mỗi nhóm hoặc số nhóm bằng nhau.'),pic('groupsSVG',[{emoji:'🍎',n:3},{emoji:'🍎',n:3}]),text('6 quả chia đều 2 nhóm, mỗi nhóm 3 quả.')),know('Tên thành phần',rule('Số bị chia đứng trước dấu chia. Sau dấu chia là số chia. Kết quả là thương.'),text('6 : 2 = 3: số bị chia 6, số chia 2, thương 3.'))],
+  forms:[ex('deu','Dạng 1: Tìm số mỗi nhóm',1,'Biết tổng và số nhóm.',['Xác định tổng đồ vật.','Chia cho số nhóm.'],'10 bút chia đều 2 bạn. Mỗi bạn được bao nhiêu?',[s('Mỗi bạn được số bút là:', '10 : 2 = 5 (bút)')],'Đáp số: 5 bút.',{layout:'solution'}),ex('nhom','Dạng 2: Tìm số nhóm',2,'Biết tổng và số đồ vật mỗi nhóm.',['Xác định số đồ vật mỗi nhóm.','Lấy tổng chia số đó.'],'Có 10 bút, mỗi hộp đựng 5 bút. Cần mấy hộp?',[s('Số hộp cần là:', '10 : 5 = 2 (hộp)')],'Đáp số: 2 hộp.',{layout:'solution'})],
+  remember:['Chia đều: mỗi nhóm bằng nhau.','Đọc kỹ đang hỏi số nhóm hay số mỗi nhóm.']}),
+ 'g2.div_table': lesson('g2.div_table',{v:1,goal:'dùng bảng chia 2 và bảng chia 5.',
+  know:[know('Từ nhân suy ra chia',rule('Từ một phép nhân, viết được các phép chia tương ứng.'),text('2 × 5 = 10 nên 10 : 2 = 5 và 10 : 5 = 2.')),know('Hai bảng chia',table(['Chia 2','Chia 5'],Array.from({length:10},(_,i)=>[`${2*(i+1)} : 2 = ${i+1}`,`${5*(i+1)} : 5 = ${i+1}`])))],
+  forms:[ex('tinh','Dạng 1: Tính thương',1,'Số chia là 2 hoặc 5.',['Nhớ phép nhân tương ứng.','Nêu thương.'],'Tính 35 : 5.',[s('5 × 7 = 35.')],'35 : 5 = 7.'),ex('loi','Dạng 2: Chia đều',2,'Chia tổng thành các nhóm bằng nhau.',['Xác định số chia.','Dùng bảng chia.'],'20 nhãn vở chia đều 5 bạn. Mỗi bạn được mấy nhãn?',[s('Mỗi bạn được số nhãn là:', '20 : 5 = 4 (nhãn)')],'Đáp số: 4 nhãn vở.',{layout:'solution'})],
+  remember:['Dùng bảng nhân để nhớ bảng chia.','Thương nhân số chia bằng số bị chia.']}),
+ 'g2.div_table34': lesson('g2.div_table34',{v:1,goal:'dùng bảng chia 3, 4 và tìm số bị chia.',
+  know:[know('Bảng chia 3 và 4',rule('Dùng bảng nhân để tìm thương.'),table(['Chia 3','Chia 4'],Array.from({length:10},(_,i)=>[`${3*(i+1)} : 3 = ${i+1}`,`${4*(i+1)} : 4 = ${i+1}`]))),know('Tìm số bị chia',rule('Muốn tìm số bị chia, lấy thương nhân với số chia.'),text('□ : 4 = 6: số cần tìm là 6 × 4 = 24.'))],
+  forms:[ex('tinh','Dạng 1: Tính thương',1,'Số chia là 3 hoặc 4.',['Nhớ tích trong bảng nhân.','Viết thương tương ứng.'],'Tính 27 : 3.',[s('3 × 9 = 27.')],'9.'),ex('tim','Dạng 2: Tìm số bị chia',2,'Ô trống đứng trước dấu chia.',['Xác định thương và số chia.','Nhân thương với số chia.'],'Điền số: □ : 4 = 8.',[s('Số bị chia:', '8 × 4 = 32')],'32.',{check:'32 : 4 = 8'})],
+  remember:['Bảng nhân giúp nhớ bảng chia.','Tìm số bị chia bằng phép nhân.']}),
+} satisfies LessonBook;

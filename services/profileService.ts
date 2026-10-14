@@ -23,17 +23,25 @@ export const getAllProfiles = (): StudentProfile[] => {
 };
 
 // Save all profiles to localStorage
-export const saveProfiles = (profiles: StudentProfile[]): void => {
+const writeProfiles = (profiles: StudentProfile[], strict: boolean): void => {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
+        if (typeof window !== 'undefined') window.dispatchEvent(new Event('profiles-saved'));
     } catch (e) {
         // Đầy bộ nhớ: nén mạnh lịch sử Ôn Luyện (chỉ 10 bài gần nhất giữ chi tiết) rồi thử lại 1 lần.
         console.warn('saveProfiles: hết dung lượng, nén lịch sử và thử lại', e);
         const slim = profiles.map(p => ({ ...p, history: migrateHistory(p.history, 10) }));
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(slim)); }
-        catch (e2) { console.error('saveProfiles: không lưu được hồ sơ', e2); }
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(slim)); if (typeof window !== 'undefined') window.dispatchEvent(new Event('profiles-saved')); }
+        catch (e2) {
+            if (strict) throw e2;
+            console.error('saveProfiles: không lưu được hồ sơ', e2);
+        }
     }
 };
+
+export const saveProfiles = (profiles: StudentProfile[]): void => writeProfiles(profiles, false);
+/** Giao dịch cần biết chắc đã ghi, để không báo thành công hay cộng sao khi hết dung lượng. */
+export const saveProfilesStrict = (profiles: StudentProfile[]): void => writeProfiles(profiles, true);
 
 // Create new profile with defaults
 export const createProfile = (name: string, grade: Grade, age?: number, avatarId?: string): StudentProfile => {
@@ -123,6 +131,8 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
     const sanitizedName = rawName.slice(0, MAX_PROFILE_NAME_LENGTH) || 'Student';
 
     const migratedProfile: StudentProfile = {
+        // New module fields must survive legacy migration and whole-profile cloud transfers.
+        ...oldProfile,
         id: oldProfile.id || Date.now().toString(),
         name: sanitizedName,
         age: oldProfile.age || 8,
@@ -149,6 +159,7 @@ export const migrateProfile = (oldProfile: any): StudentProfile => {
         alphabetPractice: oldProfile.alphabetPractice,
         counting: oldProfile.counting,
         study: oldProfile.study,
+        learn: oldProfile.learn,
         englishProgress: oldProfile.englishProgress,
         electricity: oldProfile.electricity,
         electricityBadges: oldProfile.electricityBadges,

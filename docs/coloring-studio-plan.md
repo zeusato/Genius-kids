@@ -1,6 +1,6 @@
 # Xưởng Tô Màu — kế hoạch triển khai
 
-> Lập 13/10/2026; cập nhật triển khai 14/10/2026. **Đã có module chạy được ở `/coloring`, 40 mẫu ImageGen, các nhóm chức năng GĐ1–8.** Xem mục 14 để biết phạm vi thực tế, khác biệt và kiểm chứng; các mục trước đó giữ lại thiết kế ban đầu, không phải tuyên bố mọi tiêu chí đã đạt. Chưa commit hoặc phát hành.
+> Lập 13/10/2026; cập nhật triển khai 14/10/2026. **Đã có module chạy được ở `/coloring`, 40 mẫu ImageGen, các nhóm chức năng GĐ1–8.** Xem mục 14 để biết phạm vi thực tế, khác biệt và kiểm chứng; các mục trước đó giữ lại thiết kế ban đầu, không phải tuyên bố mọi tiêu chí đã đạt. Mã nguồn được tích hợp vào nhánh main; việc phát hành theo quy trình của repository.
 > Các con số ở mục 2 và mục 7 đo bằng script thử nghiệm trong [coloring-studio/spike/](coloring-studio/spike/) (Node 22, sharp 0.34, máy dev 20 luồng). Số đo trên tablet phải đo lại ở GĐ2.
 
 ## 0. Cách dùng plan này
@@ -523,3 +523,5 @@ Máy hiện tại có npm/npx global lỗi đường dẫn CLI; gọi entry Node
 - Chưa đo đủ chỉ tiêu ≤100 ms phản hồi, ≤600 ms mở trang, ≥50 fps với 24 tác phẩm trên tablet thật. Chưa xác nhận đa chạm trên thiết bị thật, Web Share sang ứng dụng ngoài hay in giấy vật lý. Công cụ chờ download trong trình duyệt nhúng bị treo; không tuyên bố đã nghiệm thu việc nhận file PNG qua công cụ đó.
 - Kiểm tra cuối sau sửa thưởng/chuyển màu: **30 tests / 5 files đạt**, gồm toàn `src/coloring` và hub catalog; production build đạt; validator đủ 40 trang; `git diff --check` không báo lỗi khoảng trắng. Typecheck chỉ còn lỗi farm nêu trên. Tổng `public/coloring`: **126 files / 5.783.484 bytes**.
 - Ảnh kiểm tra giao diện: [sảnh](coloring-studio/lobby.jpg), [điện thoại sau hoàn thiện](coloring-studio/phone-final.jpg), [tablet dọc](coloring-studio/tablet-portrait.png). Màn điện thoại có clientWidth = scrollWidth = 375 px (viewport đặt 390×844, có thanh cuộn).
+
+- Kiểm tra trước push sau hợp nhất cập nhật Học bài/tài khoản từ origin/main: **54 tests / 7 files đạt**, bao gồm coloring, hub catalog, account và lesson progress. Tích hợp lưu phần thưởng chuyển sang saveProfilesStrict để phản ánh đúng lỗi ghi hồ sơ.
