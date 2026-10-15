@@ -17,11 +17,13 @@ export interface GestureCallbacks {
   dragCancel(): void;
   /** Chuột di (không bấm) — xem trước theo con trỏ. */
   hover?(x: number, y: number): void;
+  /** Chuột phải bấm (không kéo): xoay mảnh đang cầm sang hướng lắp được tiếp theo (yêu cầu chủ dự án 15/10). */
+  rightTap?(x: number, y: number): void;
   /** Một ngón xoay xong: quãng đường lớn nhất tính từ chỗ đặt ngón (px) — để đo "định chạm mà thành xoay". */
   orbitEnd?(distance: number, type: string): void;
 }
 
-type State = 'idle' | 'pending' | 'orbit' | 'pan' | 'pinch' | 'dragGhost' | 'dragTray';
+type State = 'idle' | 'pending' | 'rightPending' | 'orbit' | 'pan' | 'pinch' | 'dragGhost' | 'dragTray';
 interface Pt { x: number; y: number; sx: number; sy: number; type: string; far?: number }
 
 export const TAP_SLOP = 8;        // px: di quá ngưỡng thì thành xoay camera
@@ -52,13 +54,13 @@ export class GestureMachine {
 
   /**
    * `button` (chuột): 0 trái = như cảm ứng (bấm lắp/xem trước, kéo bóng mờ, kéo chỗ trống xoay);
-   * 2 phải = luôn xoay camera, kể cả khi bắt đầu trên mảnh/bóng mờ, không bao giờ thành bấm; 1 giữa = dời khung.
+   * 2 phải: bấm = xoay mảnh đang cầm (rightTap), kéo quá ngưỡng = xoay camera (kể cả trên bóng mờ), không bao giờ lắp; 1 giữa = dời khung.
    * `size` (cảm ứng): cạnh dài vùng tiếp xúc (PointerEvent width/height) — lớn = lòng bàn tay, bỏ qua.
    */
   down(id: number, x: number, y: number, type = 'touch', button = 0, size = 0) {
     if (type === 'touch' && size > PALM_SIZE) { this.palms.add(id); return; }
     this.pts.set(id, { x, y, sx: x, sy: y, type });
-    if (type === 'mouse' && (button === 1 || button === 2)) { this.state = button === 2 ? 'orbit' : 'pan'; return; }
+    if (type === 'mouse' && (button === 1 || button === 2)) { this.state = button === 2 ? 'rightPending' : 'pan'; return; }
     if (this.pts.size >= 2) {
       if (this.state === 'dragGhost' || this.state === 'dragTray') this.cb.dragCancel();
       this.state = 'pinch';
@@ -96,6 +98,7 @@ export class GestureMachine {
         if (Math.hypot(x - p.sx, y - p.sy) > TAP_SLOP) { this.state = 'orbit'; this.cb.orbit(x - p.sx, y - p.sy); }
         else if (p.type === 'mouse') this.cb.hover?.(x, y);
         break;
+      case 'rightPending': if (Math.hypot(x - p.sx, y - p.sy) > TAP_SLOP) { this.state = 'orbit'; this.cb.orbit(x - p.sx, y - p.sy); } break;
       case 'orbit': this.cb.orbit(x - px, y - py); break;
       case 'pan': this.cb.pinch(1, x - px, y - py); break;
       case 'dragGhost': case 'dragTray': this.cb.dragMove(x, y - this.offset(p)); break;
@@ -129,6 +132,7 @@ export class GestureMachine {
         this.cb.tap(x, y, p.type === 'mouse', double);
         break;
       }
+      case 'rightPending': this.state = 'idle'; this.cb.rightTap?.(x, y); break;
       // xoay/chụm/kéo xen giữa hai lần chạm thì không tính là chạm đúp
       case 'orbit': case 'pan': if (this.state === 'orbit') this.cb.orbitEnd?.(p.far ?? 0, p.type); this.state = 'idle'; this.lastTap = null; break;
       case 'dragGhost': case 'dragTray': this.state = 'idle'; this.lastTap = null; this.cb.dragEnd(x, y - this.offset(p)); break;

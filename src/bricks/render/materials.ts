@@ -31,6 +31,7 @@ export class Materials {
   readonly floatMark: THREE.MeshBasicMaterial;
   readonly hint: THREE.MeshStandardMaterial;
   private colorOf = new Map<string, { color: THREE.Color; bucket: Bucket }>();
+  private studMats = new Map<Bucket, THREE.Material>();
 
   constructor(private catalog: Catalog, readonly quality: Quality) {
     const plastic = quality === 'low'
@@ -51,6 +52,12 @@ export class Materials {
       this.colorOf.set(c.key, { color: new THREE.Color(c.hex), bucket: c.kind === 'trans' ? 'trans' : c.kind === 'shiny' ? 'shiny' : 'opaque' });
     }
   }
+  /** Vật liệu cho lưới núm: như nhóm vật liệu thường + vertexColors (chân núm tối dần — xem shadeStudBase). */
+  stud(b: Bucket): THREE.Material {
+    let m = this.studMats.get(b);
+    if (!m) { m = this.bucket[b].clone(); (m as THREE.MeshStandardMaterial).vertexColors = true; this.studMats.set(b, m); }
+    return m;
+  }
   color(key: string) { return this.colorOf.get(key) ?? { color: new THREE.Color('#999999'), bucket: 'opaque' as Bucket }; }
   /** Vật liệu cho nhóm màu cố định (mã LDraw). */
   fixedMaterial(code: number): THREE.Material {
@@ -67,6 +74,6 @@ export class Materials {
     return m;
   }
   dispose() {
-    for (const m of [...Object.values(this.bucket), ...this.fixed.values(), this.ghostOk, this.ghostBad, this.xray, this.highlight, this.floatMark, this.hint]) m.dispose();
+    for (const m of [...Object.values(this.bucket), ...this.studMats.values(), ...this.fixed.values(), this.ghostOk, this.ghostBad, this.xray, this.highlight, this.floatMark, this.hint]) m.dispose();
   }
 }

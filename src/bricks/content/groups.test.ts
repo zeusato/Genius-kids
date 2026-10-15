@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 import fs from 'node:fs';
-import { PRESCHOOL_PARTS, subgroupsOf } from './groups';
+import { PRESCHOOL_PARTS, shortName, subgroupsOf } from './groups';
 import type { Catalog } from '../engine/types';
 const cat: Catalog = JSON.parse(fs.readFileSync('public/bricks/catalog.json', 'utf8'));
 
@@ -23,4 +23,19 @@ it('chế độ bé: ~30 mảnh có thật trong catalog, đúng 6 nhóm Gạch,
   expect(keys.filter(k => !cat.parts[k])).toEqual([]);
   expect(keys.length).toBeGreaterThanOrEqual(28); expect(keys.length).toBeLessThanOrEqual(32);
   expect([...new Set(keys.map(k => cat.parts[k].group))].sort()).toEqual(['brick', 'nature', 'plate', 'round', 'slope', 'window']);
+});
+
+it('nhãn ngắn trong nhóm: bỏ tiền tố trùng tên nhóm, không đụng nhóm lẫn loại', () => {
+  expect(shortName('Gạch 2×4', 'brick')).toBe('2×4');
+  expect(shortName('Tấm nêm 3×3 góc', 'plate')).toBe('Nêm 3×3 góc');
+  expect(shortName('Tấm trơn 2×2', 'tile')).toBe('2×2');
+  expect(shortName('Mắt tròn', 'tile')).toBe('Mắt tròn');
+  expect(shortName('Dốc cong ngược 4×1', 'curve')).toBe('Ngược 4×1');
+  expect(shortName('Gạch tròn 2×2', 'round')).toBe('Gạch tròn 2×2');
+  // mọi nhãn ngắn vẫn phân biệt được trong nhóm của nó
+  for (const g of cat.groups) {
+    const labels = g.parts.map(k => shortName(cat.parts[k].name, g.id));
+    const full = g.parts.map(k => cat.parts[k].name);
+    expect(new Set(labels).size, g.id).toBe(new Set(full).size);
+  }
 });

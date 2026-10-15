@@ -105,7 +105,11 @@ for (const [k, file] of [['s', 'stud.dat'], ['h', 'stud2.dat']]) {
   // Làm phẳng trực tiếp nội dung file núm (flatten() coi nó là instance nên không cho hình học).
   for (const cmd of doc.cmds) if (cmd.t === 1) {
     const child = lib.flatten(cmd.file);
-    for (const t of child.tris) flat.tris.push({ ...t, p: t.p.map((v, i) => { const m = cmd.m, j = i % 3, b = i - j; const [x, y, z] = [t.p[b], t.p[b + 1], t.p[b + 2]]; return [m[3] * x + m[4] * y + m[5] * z + m[0], m[6] * x + m[7] * y + m[8] * z + m[1], m[9] * x + m[10] * y + m[11] * z + m[2]][j]; }), c: 16 });
+    // BFC: ma trận định thức âm (stud.dat co giãn −4 theo Y cho vách núm) đảo chiều mặt → phải đảo thứ tự đỉnh,
+    // không thì vách núm quay vào trong và bị cắt mặt sau: núm trông trong suốt (lỗi 15/10).
+    const m = cmd.m, det = m[3] * (m[7] * m[11] - m[8] * m[10]) - m[4] * (m[6] * m[11] - m[8] * m[9]) + m[5] * (m[6] * m[10] - m[7] * m[9]);
+    const wind = (t) => det < 0 && t.p.length === 9 ? { ...t, p: [...t.p.slice(0, 3), ...t.p.slice(6, 9), ...t.p.slice(3, 6)] } : t;
+    for (const t of child.tris.map(wind)) flat.tris.push({ ...t, p: t.p.map((v, i) => { const m = cmd.m, j = i % 3, b = i - j; const [x, y, z] = [t.p[b], t.p[b + 1], t.p[b + 2]]; return [m[3] * x + m[4] * y + m[5] * z + m[0], m[6] * x + m[7] * y + m[8] * z + m[1], m[9] * x + m[10] * y + m[11] * z + m[2]][j]; }), c: 16 });
     for (const e of child.edges) flat.edges.push(e.map((v, i) => { const m = cmd.m, j = i % 3, b = i - j; const [x, y, z] = [e[b], e[b + 1], e[b + 2]]; return [m[3] * x + m[4] * y + m[5] * z + m[0], m[6] * x + m[7] * y + m[8] * z + m[1], m[9] * x + m[10] * y + m[11] * z + m[2]][j]; }));
   }
   const mesh = buildMesh(flat);

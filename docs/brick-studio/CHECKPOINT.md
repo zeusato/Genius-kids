@@ -4,6 +4,14 @@
 > Xong mỗi đoạn việc thì **cập nhật file này ngay**: việc đã xong, việc đang dở (file nào, dừng ở đâu), bước kế tiếp.
 > Chủ dự án tự push/deploy. Không push, không chạy deploy, không gọi GitHub Actions.
 
+## Sửa theo góp ý chủ dự án — 15/10/2026 (tối)
+
+- Nhoè/bóng mờ khi xoay: bỏ cơ chế đổi DPR khi camera chuyển động (lỗi do đợt chiều thêm vào).
+- Núm "trong suốt": vách núm trong `studs.bin` quay vào trong (BFC det < 0 bị bỏ qua khi làm phẳng `stud.dat`) → vá pipeline + `fixStudWalls` lúc nạp + test `render/studs.test.ts`; bóng chân núm nướng sẵn; đèn chính cao hơn. Ảnh mẫu chụp lại.
+- Chuột phải bấm = xoay mảnh đang cầm (đã kiểm: 0° → 90° → 180° → 270°); sửa lỗi ↻ luôn nhảy về đầu danh sách.
+- Khay 2 hàng ~160 px (trước ~330 px), nhãn thẻ ngắn.
+- Khi chạy lại pipeline (có `tools/ldraw`): `fixStudWalls` sẽ không còn việc để làm — giữ lại làm lưới an toàn.
+
 ## Đợt hoàn thiện v1 bằng code — 15/10/2026 (chiều)
 
 Chủ dự án: "làm toàn bộ các nội dung còn lại, sẽ kiểm duyệt sau". Đã làm mọi mục của "Việc đầu tiên ngày mai" 2–6 mà làm được bằng code; chi tiết từng lệch ở plan mục 20 (các dòng 15/10).

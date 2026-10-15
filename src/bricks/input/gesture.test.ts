@@ -44,14 +44,16 @@ describe('máy trạng thái chạm', () => {
     g.down(1, 200, 200, 'mouse'); g.move(1, 210, 200); g.up(1, 210, 200);
     expect(cb.dragEnd).toHaveBeenCalledWith(210, 200);
   });
-  it('chuột phải kéo = xoay camera, kể cả bắt đầu trên bóng mờ; không bao giờ thành bấm/lắp; chuột giữa = dời khung', () => {
+  it('chuột phải: bấm = xoay mảnh đang cầm; kéo = xoay camera (kể cả trên bóng mờ); không bao giờ lắp; chuột giữa = dời khung', () => {
     const { g, cb } = setup([200, 200]);
+    const rightTap = vi.fn(); (cb as GestureCallbacks).rightTap = rightTap;
     g.down(1, 200, 200, 'mouse', 2); g.move(1, 203, 201); g.move(1, 240, 220); g.up(1, 240, 220);
-    expect(cb.orbit).toHaveBeenCalledTimes(2);
-    expect(cb.orbit.mock.calls[0]).toEqual([3, 1]);   // không có ngưỡng 8 px: xoay ngay từ pixel đầu
+    expect(cb.orbit.mock.calls).toEqual([[40, 20]]);   // quá ngưỡng 8 px mới xoay camera, tính từ chỗ bấm
+    expect(rightTap).not.toHaveBeenCalled();
     expect(cb.tap).not.toHaveBeenCalled(); expect(cb.dragMove).not.toHaveBeenCalled(); expect(cb.dragEnd).not.toHaveBeenCalled();
-    g.down(2, 50, 50, 'mouse', 2); g.up(2, 50, 50);   // bấm phải không kéo: không làm gì
-    expect(cb.tap).not.toHaveBeenCalled();
+    g.down(2, 200, 200, 'mouse', 2); g.move(2, 203, 202); g.up(2, 203, 202);   // bấm phải (rung tay < 8 px) trên bóng mờ: xoay mảnh, không lắp
+    expect(rightTap).toHaveBeenCalledWith(203, 202);
+    expect(cb.tap).not.toHaveBeenCalled(); expect(cb.dragEnd).not.toHaveBeenCalled();
     g.down(3, 50, 50, 'mouse', 1); g.move(3, 60, 45); g.up(3, 60, 45);
     expect(cb.pinch).toHaveBeenCalledWith(1, 10, -5);
     expect(g.state).toBe('idle');

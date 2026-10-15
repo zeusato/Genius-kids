@@ -55,20 +55,20 @@ function Env() {
   return null;
 }
 
-/** DPR khi đứng yên (bản đẹp) và khi camera đang chuyển động (mục 8.3: vẽ nhẹ khi xoay, dừng 300 ms thì vẽ lại bản đẹp). */
-export function dprFor(quality: Quality, moving: boolean) {
+/**
+ * DPR cố định theo mức chất lượng. KHÔNG đổi DPR khi camera đang chuyển động: mỗi lần đổi, canvas + bộ đệm EffectComposer
+ * cấp phát lại → khung nhoè và còn vệt khung cũ khi xoay (lỗi chủ dự án báo 15/10). Máy yếu hạ mức chất lượng thay vì vậy.
+ */
+export function dprFor(quality: Quality) {
   const device = typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1;
-  return moving ? 1 : Math.min(device, quality === 'high' ? 2 : 1.5);
+  return Math.min(device, quality === 'high' ? 2 : quality === 'mid' ? 1.5 : 1);
 }
-const IDLE_MS = 300;
 
 const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, quality, reducedMotion, preschool, onContextLost }, ref) {
-  const { camera, gl, size, invalidate, scene, setDpr } = useThree();
+  const { camera, gl, size, invalidate, scene } = useThree();
   const frames = useRef(0);
   useFrame(() => { frames.current++; });
   const tableMat = useRef<THREE.MeshStandardMaterial>(null);
-  const moving = useRef(false);
-  const idleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const controls = useRef<CameraControls>(null);
   const spin = useRef<number | null>(null);
   const root = useMemo(() => { const g = new THREE.Group(); g.matrixAutoUpdate = false; g.matrix.copy(LDRAW_TO_WORLD); return g; }, []);
@@ -90,15 +90,11 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
       // camera xuống dưới mặt bàn → bàn mờ 30 % để thấy mảnh treo dưới (mục 7.6)
       const m = tableMat.current, below = camera.position.y < 0.05;
       if (m && m.transparent !== below) { m.transparent = below; m.opacity = below ? 0.3 : 1; m.depthWrite = !below; m.needsUpdate = true; }
-      // đang chuyển động: DPR 1; đứng yên 300 ms: vẽ lại ở DPR đầy đủ
-      if (!moving.current) { moving.current = true; if (dprFor(quality, false) > 1) setDpr(dprFor(quality, true)); }
-      clearTimeout(idleTimer.current);
-      idleTimer.current = setTimeout(() => { moving.current = false; setDpr(dprFor(quality, false)); invalidate(); }, IDLE_MS);
       invalidate();
     };
     c.addEventListener('update', onUpdate);
-    return () => { c.removeEventListener('update', onUpdate); clearTimeout(idleTimer.current); };
-  }, [invalidate, reducedMotion, preschool, quality, camera, setDpr]);
+    return () => c.removeEventListener('update', onUpdate);
+  }, [invalidate, reducedMotion, preschool, camera]);
 
   // Cao/Vừa: tone mapping ở cuối chuỗi EffectComposer → renderer không được tone map lần nữa. Thấp: không có composer → Neutral ở renderer.
   // (Đổi mức thì Materials được tạo lại → shader biên dịch lại với toneMapping mới.)
@@ -198,14 +194,15 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
         <ToneMapping mode={TONE_MAPPING_NEUTRAL} />
       </EffectComposer>}
       <CameraControls ref={controls} makeDefault />
-      {/* Đèn kiểu phòng chụp: key chéo trước-phải (đổ bóng nhẹ), fill phía đối diện, rim sau lưng tách khối khỏi nền tối.
-          Ba hướng sáng khác nhau → mặt trên / mặt trước / mặt bên có độ sáng khác nhau, đọc được hình khối. */}
-      <hemisphereLight args={['#e8eef7', STAGE.table, 0.22]} />
-      <directionalLight position={[16, 28, 20]} intensity={1.55} castShadow={quality !== 'low'}
+      {/* Đèn kiểu phòng chụp: key CAO (~65°) chéo trước-phải, fill thấp phía đối diện, rim sau lưng tách khối khỏi nền tối.
+          Key phải cao: ở ~47° mặt trên và vách núm sáng bằng nhau → núm hoà vào mặt mảnh, trông "trong suốt" (lỗi 15/10).
+          Mặt trên sáng nhất, mặt trước vừa, mặt bên tối hơn → đọc được núm và hình khối. */}
+      <hemisphereLight args={['#eef3fb', STAGE.table, 0.45]} />
+      <directionalLight position={[10, 40, 14]} intensity={1.35} castShadow={quality !== 'low'}
         shadow-mapSize-width={shadowSize} shadow-mapSize-height={shadowSize} shadow-bias={-0.0004} shadow-normalBias={0.02} shadow-intensity={0.45}
         shadow-camera-left={-34} shadow-camera-right={34} shadow-camera-top={34} shadow-camera-bottom={-34} shadow-camera-near={1} shadow-camera-far={90} />
-      <directionalLight position={[-20, 10, 6]} intensity={0.45} color="#cfdcff" />
-      <directionalLight position={[-6, 14, -24]} intensity={0.7} color="#ffffff" />
+      <directionalLight position={[-20, 8, 6]} intensity={0.3} color="#cfdcff" />
+      <directionalLight position={[-6, 14, -24]} intensity={0.55} color="#ffffff" />
       <primitive object={root} />
       <mesh rotation-x={-Math.PI / 2} receiveShadow position={[0, -0.002, 0]}>
         <planeGeometry args={[64, 64]} />
@@ -218,7 +215,7 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
 });
 
 export const BrickCanvas = forwardRef<CanvasApi, Props>(function BrickCanvas(props, ref) {
-  const dpr = dprFor(props.quality, false);
+  const dpr = dprFor(props.quality);
   return (
     <Canvas frameloop={props.alwaysRender ? 'always' : 'demand'} shadows={props.quality !== 'low' ? 'soft' : false} dpr={dpr}
       camera={{ fov: 38, near: 0.1, far: 400, position: [14, 13, 18] }}

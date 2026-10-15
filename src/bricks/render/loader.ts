@@ -29,6 +29,40 @@ export function decodeMesh(buf: ArrayBuffer, ref: MeshRef, posScale: number): Pa
   return { geometry: g, groups: ref.groups };
 }
 
+/**
+ * Bóng che "nướng sẵn" cho núm: vách núm tối dần về chân (y = 0 là mặt mảnh, y = −4 là đỉnh núm, LDraw Y xuống).
+ * Vách núm chỉ cao 4 LDU — không có vòng tối ở chân thì núm hoà vào mặt mảnh, trông như trong suốt (lỗi 15/10).
+ * Hoạt động ở mọi mức chất lượng (kể cả Thấp, không có N8AO). Vật liệu núm bật vertexColors (Materials.stud).
+ */
+export function shadeStudBase(g: THREE.BufferGeometry) {
+  const P = g.getAttribute('position'), C = new Float32Array(P.count * 3);
+  for (let i = 0; i < P.count; i++) { const t = Math.min(1, Math.max(0, -P.getY(i) / 4)); const v = 0.5 + 0.5 * t; C[i * 3] = C[i * 3 + 1] = C[i * 3 + 2] = v; }
+  g.setAttribute('color', new THREE.BufferAttribute(C, 3));
+}
+
+/**
+ * Sửa vách núm quay vào trong (studs.bin sinh trước bản vá BFC của scripts/bricks-parts.mjs): vách ngoài (r ≈ 6) phải quay ra,
+ * vách trong của núm rỗng (r < 5) quay vào. Đảo chiều tam giác + pháp tuyến sai; dữ liệu đúng thì không đổi gì.
+ */
+export function fixStudWalls(g: THREE.BufferGeometry) {
+  const P = g.getAttribute('position'), N = g.getAttribute('normal'), I = g.getIndex()!;
+  const want = (x: number, z: number) => { const r = Math.hypot(x, z) || 1, s = r > 5 ? 1 : -1; return [s * x / r, s * z / r]; };
+  for (let t = 0; t < I.count; t += 3) {
+    const a = I.getX(t), b = I.getX(t + 1), c = I.getX(t + 2);
+    const ux = P.getX(b) - P.getX(a), uy = P.getY(b) - P.getY(a), uz = P.getZ(b) - P.getZ(a), vx = P.getX(c) - P.getX(a), vy = P.getY(c) - P.getY(a), vz = P.getZ(c) - P.getZ(a);
+    const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+    if (Math.abs(ny) > 0.3 * Math.hypot(nx, ny, nz)) continue;             // nắp núm: bỏ qua
+    const [wx, wz] = want((P.getX(a) + P.getX(b) + P.getX(c)) / 3, (P.getZ(a) + P.getZ(b) + P.getZ(c)) / 3);
+    if (nx * wx + nz * wz < 0) { I.setX(t + 1, c); I.setX(t + 2, b); }
+  }
+  for (let i = 0; i < N.count; i++) {
+    if (Math.abs(N.getY(i)) > 0.3) continue;
+    const [wx, wz] = want(P.getX(i), P.getZ(i));
+    if (N.getX(i) * wx + N.getZ(i) * wz < 0) N.setXYZ(i, -N.getX(i), -N.getY(i), -N.getZ(i));
+  }
+  I.needsUpdate = true; N.needsUpdate = true;
+}
+
 export class PartLibrary {
   private disposed = false;
   private bins = new Map<string, Promise<ArrayBuffer>>();
@@ -42,6 +76,7 @@ export class PartLibrary {
     const lib = new PartLibrary(await res.json());
     const sb = await lib.bin(lib.catalog.studBin);
     lib.stud = { s: decodeMesh(sb, lib.catalog.studs.s.mesh, lib.catalog.posScale), h: decodeMesh(sb, lib.catalog.studs.h.mesh, lib.catalog.posScale) };
+    for (const g of Object.values(lib.stud)) { fixStudWalls(g.geometry); shadeStudBase(g.geometry); }
     return lib;
   }
   private bin(file: string) {

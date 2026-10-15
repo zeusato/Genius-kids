@@ -14,7 +14,7 @@ import type { Step } from '../export/steps';
 import { PartLibrary } from '../render/loader';
 import { Materials, detectQuality, hasSavedQuality, type Quality } from '../render/materials';
 import { buildBom } from '../export/bom';
-import { GROUP_ICON, PRESCHOOL_PARTS, subgroupsOf } from '../content/groups';
+import { GROUP_ICON, PRESCHOOL_PARTS, shortName, subgroupsOf } from '../content/groups';
 import { PartViewer } from './PartViewer';
 import { Dialog } from './Dialog';
 import { ModelMeshes, buildSingle, pieceMatrix } from '../render/modelMeshes';
@@ -390,6 +390,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     pinch: (scale, dx, dy) => { api.current?.zoom(scale); if (!preschool) api.current?.pan(dx, dy); },
     // vặn hai ngón = xoay quanh trục đứng; chế độ bé tắt (dễ nhầm với chụm)
     twist: preschool ? undefined : angle => api.current?.spin(angle),
+    rightTap: () => { if (modeRef.current === 'build' && heldRef.current) rotate(); },
     orbitEnd: (distance, type) => { if (type === 'touch' && distance < 24) recordMetric(initial?.ownerId, 'nearTap'); },
     tap: (x, y, mouse, double) => {
       const w = worldRef.current, hist = histRef.current, a = api.current;
@@ -493,8 +494,14 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     if (!hit) { const n = { ...h, o: compose(YAW[1], h.o) }; setHeld(n); return; }
     const s = suggest(w, h.part, h.o, hit, { wantOptions: 24, maxChecks: 200, bottomUpOnly: preschool, ignore: moving.current === null ? undefined : new Set([moving.current]) });
     if (!s.options.length) { sfx.bad(); haptic(20); flash('Không có hướng khác ở chỗ này'); return; }
+    // thứ tự tự nhiên (mục 7.4 bước 7): xoay quanh trục đứng 0° → 90° → 180° → 270° trước, hướng nằm nghiêng sau
+    const rank = (o: number) => { const y = YAW.indexOf(o); return y < 0 ? 4 + o : y; };
+    s.options.sort((a, b) => rank(a.o) - rank(b.o));
     const def = w.def(h.part), cur = ghostRef.current;
-    const i = cur ? s.options.findIndex(o => def.symClass[o.o] === def.symClass[cur.o] && o.pos.join() === cur.pos.join()) : -1;
+    // hướng hiện tại: theo lớp đối xứng (xoay 90° làm tâm mảnh lệch nửa núm nên KHÔNG so vị trí — lỗi cũ: luôn nhảy về đầu danh sách)
+    const same = (o: Candidate) => !!cur && def.symClass[o.o] === def.symClass[cur.o];
+    let i = s.options.findIndex(o => same(o) && o.pos.join() === cur!.pos.join());
+    if (i < 0) i = s.options.findIndex(same);
     const next = s.options[(i + (reverse ? s.options.length - 1 : 1)) % s.options.length];
     const nh = { ...h, o: next.o }; heldRef.current = nh; setHeld(nh);
     setGhostTracked(next);
@@ -618,6 +625,8 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const subs = guide || search || preschool || group === 'recent' ? [] : subgroupsOf(group, baseParts, catalog.parts);
   const groupParts = sub ? subs.find(s => s.id === sub)?.parts ?? baseParts : baseParts;
   /** Màu có thật với mảnh đang cầm (Rebrickable); null = không rõ. Màu khác vẫn chọn được, chỉ có chấm mờ (mục 7.1, D6). */
+  /** Lăn chuột dọc trên hàng ngang = cuộn ngang (thanh cuộn đã ẩn cho gọn). */
+  const sideScroll = (e: React.WheelEvent<HTMLElement>) => { if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) e.currentTarget.scrollLeft += e.deltaY; };
   const realColors = held ? catalog.parts[held.part]?.colors ?? null : null;
   const pickColor = (key: string, name: string) => { setColor(key); say(name); setPaletteOpen(false); setRecentColors(r => [key, ...r.filter(k => k !== key)].slice(0, 6)); };
   const swatch = (c: (typeof palette)[number], extra = '') => { const rare = !!realColors && !realColors.includes(c.key);
@@ -695,23 +704,26 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
         </div>
       </div>
       <div className="bk-tray">
-        <div className="bk-groups">
-          <button className={`bk-chip ${group === "recent" ? "on" : ""}`} onClick={() => { setGroup("recent"); setSub(null); }}><span aria-hidden>{GROUP_ICON.recent}</span> Vừa dùng</button>
-          {catalog.groups.filter(g => !preschool || g.parts.some(k => simpleParts.has(k))).map(g => <button key={g.id} className={`bk-chip ${group === g.id ? 'on' : ''}`} onClick={() => { setGroup(g.id); setSub(null); }}><span aria-hidden>{GROUP_ICON[g.id] ?? '🧩'}</span> {g.nameVi}</button>)}
+        {/* Một hàng: tìm kiếm + nhóm; nhóm con của nhóm đang chọn hiện ngay sau nó (góp ý 15/10: khay chiếm quá nhiều chiều cao) */}
+        <div className="bk-groups" onWheel={sideScroll}>
+          <input className="bk-search" aria-label="Tìm mảnh" placeholder="🔍 Tìm mảnh…" value={search} onChange={e => setSearch(e.target.value)} />
+          <button className={`bk-chip ${group === "recent" ? "on" : ""}`} onClick={() => { setGroup("recent"); setSub(null); }} title="Vừa dùng"><span aria-hidden>{GROUP_ICON.recent}</span> Vừa dùng</button>
+          {catalog.groups.filter(g => !preschool || g.parts.some(k => simpleParts.has(k))).map(g => <React.Fragment key={g.id}>
+            <button className={`bk-chip ${group === g.id ? 'on' : ''}`} onClick={() => { setGroup(g.id); setSub(null); }}><span aria-hidden>{GROUP_ICON[g.id] ?? '🧩'}</span> {g.nameVi}</button>
+            {group === g.id && subs.length > 0 && <span className="bk-subs" role="group" aria-label={`Nhóm con của ${g.nameVi}`}>
+              <button className={`bk-chip bk-sub ${sub === null ? 'on' : ''}`} onClick={() => setSub(null)}>Tất cả</button>
+              {subs.map(sg => <button key={sg.id} className={`bk-chip bk-sub ${sub === sg.id ? 'on' : ''}`} onClick={() => setSub(sg.id)}>{sg.label}</button>)}
+            </span>}
+          </React.Fragment>)}
         </div>
-        {subs.length > 0 && <div className="bk-subs" role="group" aria-label="Nhóm con">
-          <button className={`bk-chip bk-sub ${sub === null ? 'on' : ''}`} onClick={() => setSub(null)}>Tất cả</button>
-          {subs.map(sg => <button key={sg.id} className={`bk-chip bk-sub ${sub === sg.id ? 'on' : ''}`} onClick={() => setSub(sg.id)}>{sg.label}</button>)}
-        </div>}
-        <input className="bk-search" aria-label="Tìm mảnh" placeholder="Tìm mảnh theo tên hoặc mã…" value={search} onChange={e => setSearch(e.target.value)} />
         <div className="bk-row">
-          <div className="bk-parts">
-            {groupParts.map(k => <PartCard key={k} part={k} name={catalog.parts[k].name} color={color} icons={icons} ready={groupReady > 0 && lib.has(k)} on={held?.part === k} onPointerDown={trayPointerDown(k)} onChoose={() => void choosePart(k)} onView={() => setViewer(k)} />)}
+          <div className="bk-parts" onWheel={sideScroll}>
+            {groupParts.map(k => <PartCard key={k} part={k} name={catalog.parts[k].name} label={guide || search || group === 'recent' ? catalog.parts[k].name : shortName(catalog.parts[k].name, group)} color={color} icons={icons} ready={groupReady > 0 && lib.has(k)} on={held?.part === k} onPointerDown={trayPointerDown(k)} onChoose={() => void choosePart(k)} onView={() => setViewer(k)} />)}
           </div>
           <div className="bk-colorbar">
             <button className={`bk-swatch bk-current ${realColors && !realColors.includes(color) ? 'rare' : ''}`} style={{ background: catalog.palette.find(c => c.key === color)?.hex }}
               onClick={() => setPaletteOpen(o => !o)} aria-expanded={paletteOpen} aria-label={`Màu đang chọn: ${catalog.palette.find(c => c.key === color)?.nameVi ?? ''}. Mở bảng màu`}><span aria-hidden>▾</span></button>
-            {recentColors.filter(k => k !== color && palette.some(c => c.key === k)).slice(0, 4).map(k => swatch(palette.find(c => c.key === k)!, 'bk-recent'))}
+            {recentColors.filter(k => k !== color && palette.some(c => c.key === k)).slice(0, 5).map(k => swatch(palette.find(c => c.key === k)!, 'bk-recent'))}
           </div>
           {paletteOpen && <div className="bk-palette" role="dialog" aria-label="Bảng màu">
             {palette.map(c => swatch(c))}
@@ -744,7 +756,7 @@ function NoWebgl({ world, name }: { world: World | null; name: string }) {
 }
 
 /** Thẻ mảnh: hình 3D đúng màu đang chọn (vẽ khi rảnh) + tên. */
-function PartCard({ part, name, color, icons, ready, on, onPointerDown, onChoose, onView }: { part: string; name: string; color: string; icons: IconRenderer | null; ready: boolean; on: boolean; onPointerDown: (e: React.PointerEvent) => void; onChoose: () => void; onView: () => void }) {
+function PartCard({ part, name, label, color, icons, ready, on, onPointerDown, onChoose, onView }: { part: string; name: string; label: string; color: string; icons: IconRenderer | null; ready: boolean; on: boolean; onPointerDown: (e: React.PointerEvent) => void; onChoose: () => void; onView: () => void }) {
   const [url, setUrl] = useState<string | undefined>(() => icons?.cached(part, color));
   useEffect(() => {
     let alive = true;
@@ -757,7 +769,7 @@ function PartCard({ part, name, color, icons, ready, on, onPointerDown, onChoose
   return (
     <button className={`bk-part ${on ? 'on' : ''}`} onPointerDown={onPointerDown} onClick={e => { if (e.detail === 0) onChoose(); }} onContextMenu={e => { e.preventDefault(); onView(); }} aria-label={name} title={`${name} — nhấn giữ để xem kỹ`}>
       {url ? <img src={url} alt="" draggable={false} /> : <span className="bk-part-ph" />}
-      <span className="bk-part-name">{name}</span>
+      <span className="bk-part-name">{label}</span>
     </button>
   );
 }

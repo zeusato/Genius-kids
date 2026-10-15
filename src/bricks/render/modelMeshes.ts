@@ -101,7 +101,7 @@ export class ModelMeshes {
       for (const b of ['opaque', 'trans', 'shiny'] as Bucket[]) {
         const list = studs[k].filter(s => s.bucket === b);
         if (!list.length) continue;
-        const mesh = new THREE.InstancedMesh(sg.geometry, this.mats.bucket[b], list.length);
+        const mesh = new THREE.InstancedMesh(sg.geometry, this.mats.stud(b), list.length);
         list.forEach((s, i) => { mesh.setMatrixAt(i, s.m); mesh.setColorAt(i, s.color); });
         this.add(mesh, b !== 'trans');
         tris += sg.geometry.getIndex()!.count / 3 * list.length;

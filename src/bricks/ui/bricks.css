@@ -181,3 +181,22 @@
 .bk-root.bk-kid .bk-colorbar { grid-template-columns: repeat(2, 55px); grid-auto-rows: 55px; }
 .bk-root.bk-kid .bk-colorbar .bk-current { width: 116px; }
 .bk-root.bk-kid .bk-palette { grid-template-columns: repeat(5, 55px); }
+/* Khay gọn (góp ý 15/10): 2 hàng ~150 px — [tìm + nhóm + nhóm con] và [thẻ mảnh | màu | xoay]; không thanh cuộn dày */
+.bk-root .bk-tray { padding: 6px 10px 8px; }
+.bk-root .bk-groups { align-items: center; padding-bottom: 6px; scrollbar-width: none; }
+.bk-root .bk-groups::-webkit-scrollbar, .bk-root .bk-parts::-webkit-scrollbar { display: none; }
+.bk-root .bk-search { flex: none; width: 150px; height: 36px; margin: 0; padding: 0 10px; font-size: 14px; }
+.bk-root .bk-chip { font-size: 13px; padding: 7px 11px; flex: none; }
+.bk-root .bk-subs { display: inline-flex; gap: 4px; margin: 0 4px 0 -2px; padding: 3px 6px; border-radius: 999px; background: #eef4ff; overflow: visible; flex: none; }
+.bk-root .bk-chip.bk-sub { padding: 5px 10px; background: #fff; }
+.bk-root .bk-row { gap: 8px; }
+.bk-root .bk-parts { grid-template-rows: 100px; grid-auto-columns: 86px; scrollbar-width: none; }
+.bk-root .bk-part img, .bk-root .bk-part .bk-part-ph { width: 60px; height: 60px; }
+.bk-root .bk-part-name { font-size: 12px; }
+.bk-root .bk-colorbar { grid-template-columns: repeat(3, 44px); grid-auto-rows: 44px; gap: 6px 6px; align-content: center; }
+.bk-root .bk-colorbar .bk-current { grid-column: auto; width: 44px; border: 3px solid var(--bk-ink); }
+.bk-root .bk-rotate { min-width: 64px; }
+.bk-root.bk-kid .bk-parts { grid-template-rows: 124px; grid-auto-columns: 110px; }
+.bk-root.bk-kid .bk-part img, .bk-root.bk-kid .bk-part .bk-part-ph { width: 76px; height: 76px; }
+.bk-root.bk-kid .bk-colorbar { grid-template-columns: repeat(3, 55px); grid-auto-rows: 55px; }
+.bk-root.bk-kid .bk-colorbar .bk-current { width: 55px; }

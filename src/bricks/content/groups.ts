@@ -65,3 +65,15 @@ export const PRESCHOOL_PARTS = new Set([
   'kit-window-1x2x2', 'kit-door-1x4x6', '87552',                   // cửa
   '24866', '3742', '2423', '4727',                                 // cây, hoa
 ]);
+
+/** Tiền tố tên mảnh trùng tên nhóm — trong nhóm đó thẻ chỉ ghi phần còn lại (góp ý 15/10: đã chọn Gạch thì không cần lặp chữ "Gạch"). */
+const PREFIX: Record<string, RegExp> = {
+  brick: /^Gạch /, plate: /^Tấm /, tile: /^Tấm trơn /, slope: /^Mái dốc /, curve: /^(Gạch|Dốc) cong /, arch: /^Vòm /,
+};
+/** Nhãn ngắn của thẻ khi đang xem nhóm `group`. Tên đầy đủ vẫn dùng cho tooltip, giọng đọc, tìm kiếm, "Vừa dùng". */
+export function shortName(name: string, group: string) {
+  const re = PREFIX[group];
+  if (!re || !re.test(name)) return name;
+  const rest = name.replace(re, '');
+  return rest.charAt(0).toLocaleUpperCase('vi') + rest.slice(1);
+}
