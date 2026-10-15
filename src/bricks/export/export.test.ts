@@ -5,7 +5,7 @@ import { History } from '../engine/history';
 import { SAMPLES, buildSample } from '../content/samples';
 import { buildBom, realSize } from './bom';
 import { buildSteps } from './steps';
-import { toLdraw, toBricklinkXml, toRebrickableCsv } from './files';
+import { fromLdraw, toLdraw, toBricklinkXml, toRebrickableCsv } from './files';
 import { makePdf } from './pdf';
 import type { Catalog } from '../engine/types';
 
@@ -66,6 +66,38 @@ describe('file cho người lớn', () => {
     expect(text.match(/^0 STEP/gm)?.length).toBe(steps.length - 1);
     const first = w.pieces.get(steps[0].pieces[0])!, f = lines[0].split(' ');
     expect(f.slice(2, 5).map(Number)).toEqual(first.pos);
+  });
+  const pieces = (w: World) => [...w.pieces.values()].map(p => [p.part, p.color, p.pos.join(), p.o].join('|'));
+  it('LDraw round-trip: 10 mẫu xuất .ldr rồi đọc lại ra đúng mô hình, đúng thứ tự lắp', () => {
+    for (const s of SAMPLES) {
+      const w = built(s.id), again = new World(catalog);
+      const r = fromLdraw(again, toLdraw(w, s.name, buildSteps(w)));
+      expect(r, s.id).toEqual({ added: w.pieces.size, unknown: [], rejected: 0 });
+      const order = buildSteps(w).flatMap(st => st.pieces).map(id => w.pieces.get(id)!);
+      expect(pieces(again), s.id).toEqual(order.map(p => [p.part, p.color, p.pos.join(), p.o].join('|')));
+    }
+  });
+  it('LDraw round-trip: mọi mảnh × mọi hướng khác nhau, kể cả bộ ghép (cửa sổ, cửa, bánh)', () => {
+    const colors = catalog.palette.map(c => c.key);
+    let n = 0;
+    const w = new World(catalog), again = new World(catalog);  // dùng lại: World mới phải tính lại 24 hướng của mảnh
+    for (const key of Object.keys(catalog.parts)) {
+      const def = w.def(key);
+      for (let o = 0; o < 24; o++) {
+        if (def.symClass[o] !== o) continue;
+        w.clear(); again.clear();
+        w.add(key, colors[n++ % colors.length], [10, -400, 30], o);
+        const r = fromLdraw(again, toLdraw(w, key));
+        expect(r, `${key} o${o}`).toEqual({ added: 1, unknown: [], rejected: 0 });
+        expect(pieces(again), `${key} o${o}`).toEqual(pieces(w));
+      }
+    }
+    expect(n).toBeGreaterThan(1000);
+  });
+  it('LDraw: dòng mảnh lạ hoặc bộ ghép thiếu mảnh con thì báo, không đoán', () => {
+    const w = new World(catalog); w.add('kit-window-1x2x2', 'red', [10, -400, 30], 0);
+    const text = toLdraw(w, 'x').split('\r\n').filter(l => !l.includes('60601.dat')).join('\r\n') + '\r\n1 4 0 0 0 1 0 0 0 1 0 0 0 1 99999.dat\r\n';
+    expect(fromLdraw(new World(catalog), text)).toEqual({ added: 0, unknown: ['60592', '99999'], rejected: 0 });
   });
   it('không đoán mã cửa hàng khi thiếu mapping', () => {
     const rows = buildBom(built('lau-dai'));

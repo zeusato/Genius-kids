@@ -1,7 +1,8 @@
 import { describe, expect, it, beforeEach } from 'vitest';
 import fs from 'node:fs';
 import { ORIENTS, YAW, det, compose } from './orient';
-import { World, overlap } from './world';
+import { World } from './world';
+import { overlaps } from './testkit';
 import { pick } from './pick';
 import { suggest } from './place';
 import { History } from './history';
@@ -118,6 +119,37 @@ describe('mọi mảnh v1', () => {
     // 3957a (ăng-ten): núm ở đế nằm trong thân cột — ngoài đời không gắn gì vào được, engine báo va chạm là đúng.
     expect(fails.filter(f => f !== '3957a:s')).toEqual([]);
   });
+
+  // Plan mục 14 GĐ0b "mọi mảnh × mọi hướng": với MỖI hướng khác nhau thật sự (theo symClass) mà mảnh có lỗ nhận
+  // quay xuống (hoặc núm quay lên), khớp đúng điểm nối đó vào núm trên (hoặc lỗ dưới) của gạch 1×1 phải hợp lệ.
+  it('mọi mảnh × mọi hướng có điểm nối đứng: gắn lên và gắn xuống gạch 1×1', { timeout: 300000 }, () => {
+    const ww = new World(catalog);
+    const baseBrick = ww.add('3005', 'red', [0, -400, 0], 0);
+    const conn = (k: 's' | 'a') => { const c = baseBrick.geo.conns.find(c => c.k === k && c.a[1] === -1)!; return { p: [c.p[0], c.p[1] - 400, c.p[2]] as V3, a: c.a }; };
+    const top = conn('s'), bottom = conn('a');
+    const fails: string[] = [];
+    let tried = 0;
+    for (const key of Object.keys(catalog.parts)) {
+      const def = ww.def(key);
+      for (const [want, target] of [['a', top], ['s', bottom]] as const) {
+        for (let o = 0; o < 24; o++) {
+          if (def.symClass[o] !== o) continue;
+          const mine = def.oriented(o).conns.filter(c => c.k === want && c.a.every((v, i) => v === target.a[i]));
+          if (!mine.length) continue;
+          tried++;
+          const ok = mine.some(c => ww.check(key, [target.p[0] - c.p[0], target.p[1] - c.p[1], target.p[2] - c.p[2]], o).ok);
+          if (!ok) fails.push(`${key}:${want}:o${o}`);
+        }
+      }
+    }
+    expect(tried).toBeGreaterThan(500);
+    // Va chạm có thật (đã soi `why` của check), không phải lỗi dữ liệu:
+    // - 3957a (ăng-ten): núm ở đế nằm trong thân cột.
+    // - 3633 (hàng rào) nằm úp, núm cắm vào miệng lỗ mặt trong: đế hàng rào đâm vào gạch.
+    // - 60212 (chắn bùn có lỗ) lật ngược cắm lỗ giữa: 4 núm quanh lỗ đâm xuống thân gạch.
+    const known = (f: string) => f.startsWith('3957a:s') || /^3633:a:o(4|6|12|14)$/.test(f) || /^60212:a:o(1|3|21|23)$/.test(f);
+    expect(fails.filter(f => !known(f))).toEqual([]);
+  });
 });
 
 describe('lơ lửng, mô hình, hoàn tác', () => {
@@ -170,9 +202,7 @@ describe('lơ lửng, mô hình, hoàn tác', () => {
         const ids = [...w.pieces.keys()]; h.color(ids[Math.floor(rnd() * ids.length)], colors[Math.floor(rnd() * 3)]);
       }
     }
-    const list = [...w.pieces.values()];
-    for (let i = 0; i < list.length; i++) for (let j = i + 1; j < list.length; j++)
-      for (const a of list[i].boxes) for (const b of list[j].boxes) expect(overlap(a, b)).toBe(false);
+    expect(overlaps(w)).toEqual([]);
     const snapshot = encodeWorld(w, base);
     while (h.undo());
     expect(w.pieces.size).toBe(0);

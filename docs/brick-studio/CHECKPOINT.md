@@ -4,6 +4,22 @@
 > Xong mỗi đoạn việc thì **cập nhật file này ngay**: việc đã xong, việc đang dở (file nào, dừng ở đâu), bước kế tiếp.
 > Chủ dự án tự push/deploy. Không push, không chạy deploy, không gọi GitHub Actions.
 
+## Đợt chuẩn hoá lệch plan — 15/10/2026 (sau bàn giao)
+
+Chủ dự án cho tạm gác việc duyệt (3 cổng vẫn chờ), làm trước phần chuẩn hoá lệch plan. Đã làm:
+- **Plan mục 20** có đủ các lệch ngày 15/10. Mục 7.7 sửa thành "Lắp nhanh tắt" cho khớp D9. Dòng đầu plan không còn ghi "chưa có code".
+- **Ghi công trong xưởng** (`Workbench.tsx`, hộp Cài đặt) bỏ chữ thương hiệu và link ra ngoài (D1, mục 16).
+- **Sửa test fuzz bị timeout.** Nguyên nhân là test gọi `expect` cho từng cặp hộp, không phải engine chậm. Đổi sang `engine/testkit.ts` `overlaps()`, gom lỗi rồi `expect` một lần. Kết quả: `engine.test.ts` từ hơn 6 phút còn ~4,5 s; fuzz 100.000 từ hơn 422 s còn **54 s, đạt**.
+- **Fuzz mới** (`engine/stress.test.ts`):
+  - 17 loại mảnh, mọi hướng, tia thẳng/chéo/từ dưới, có nâng cụm, có dời mảnh.
+  - Kiểm mỗi 250 thao tác: chỉ mục khớp bản dựng lại, không chồng lấn, mã hoá/giải mã giữ nguyên.
+  - Kiểm "lơ lửng chỉ do tháo".
+  - Bắt buộc mỗi loại thao tác phải xảy ra.
+- **Test mọi mảnh × mọi hướng** (`engine.test.ts`): khớp thẳng điểm nối với gạch 1×1, hơn 500 tổ hợp. Có 3 ngoại lệ va chạm thật (3957a, 3633, 60212) đã ghi lý do.
+- **Bộ đọc `.ldr`** `fromLdraw` (`export/files.ts`), dùng chung `pieceLines` với `toLdraw`. Test round-trip: 10 mẫu (đúng thứ tự bước), mọi mảnh × mọi hướng gồm cả bộ ghép (hơn 1.000 ca), và báo lỗi khi gặp mảnh lạ hoặc bộ thiếu mảnh con.
+
+Danh sách việc còn lại theo plan nằm ở mục "Việc đầu tiên ngày mai" bên dưới. Mục 1 (fuzz/round-trip) đã xong.
+
 ## Bàn giao cuối đợt — 15/10/2026
 
 **Đại ca yêu cầu đóng gói để push và nghỉ, mai làm tiếp. Đã dừng mở rộng tính năng. Đây là checkpoint phát triển, CHƯA nghiệm thu hoàn tất v1.** Chủ dự án tự push/deploy.
@@ -35,7 +51,7 @@
 
 ### Việc đầu tiên ngày mai
 
-1. Chạy/tối ưu fuzz 100.000 riêng, không song song build; thêm phủ dịch cụm/lift/move, mọi hướng và round-trip LDraw. Chưa coi fuzz hiện tại bao phủ hết tương tác.
+1. ~~Chạy/tối ưu fuzz 100.000; thêm phủ lift/move, mọi hướng và round-trip LDraw.~~ **Xong 15/10** (xem đợt chuẩn hoá ở trên).
 2. QA Workbench/Editor: kéo/hủy/nhấc/undo, hai tab xung đột, WebGL loss, offline/quota, mẫu giáo, tablet dọc/màn hẹp. Focus trap/inert dialog chưa hoàn thiện. JSON dự phòng còn cần luồng import/recovery.
 3. Renderer/UI: FPS đầu phiên để tự hạ chất lượng, vẽ đẹp khi nghỉ 300 ms, preview 3D nhấn giữ, nét viền, nhóm con/icon khay. Hiện chỉ chọn chất lượng theo thiết bị và thủ công; CHƯA đủ plan.
 4. PDF: đổi góc khi bị che, thước khoảng cách cụm/đế gợi ý, đọc PDF 3 mẫu, giới hạn bộ nhớ mô hình lớn, hủy khi chụp. Xem PDF đã xuất để tinh chỉnh.
@@ -153,18 +169,6 @@ Còn của GĐ1 (không chặn): mái dốc trái trông nhạt (kiểm phản c
 - `src/bricks/ui/ExportSheet.tsx` + nút "Xuất" trên thanh của Editor (lưu trước khi xuất): tiến độ, xem trước trang, Tải PDF, Lưu ảnh từng trang, mục "Cho người lớn" (.ldr, XML, CSV).
 - Test `export.test.ts` (7): tổng BOM, bung bộ, phát lại các bước, "mái hiên không lên trước trụ", LDraw, XML/CSV, cấu trúc xref PDF.
 - Kiểm bằng mắt: `?demo=1&sample=nha&page=N` (BUDGET=180000 cho shot.sh vì dựng tài liệu bằng swiftshader chậm). Đã xem trang 1, 3, 4, 5.
-
-## Đang dở
-
-- GĐ2 còn: bong bóng chế độ Chọn (Nhấc/Xoay/Nhân bản/Tháo), hướng dẫn lần đầu + TTS, tự chọn mức chất lượng, kiểm 820×1180.
-- `profile.bricks` (thống kê nhẹ, huy hiệu) — chưa làm.
-- GĐ5 (lắp theo hướng dẫn trong app, xem quá trình lắp), GĐ6 (Nổ tung, đối xứng, soi tầng, sân khấu).
-- GĐ2 còn: bong bóng chế độ Chọn (Nhấc/Xoay/Nhân bản/Tháo), hướng dẫn lần đầu + TTS, tự chọn mức chất lượng, kiểm 820×1180.
-
-## Bước kế tiếp
-
-1. **GĐ1** `bricks-preview.html` + `src/bricks/preview.tsx`: renderer R3F (instanced thân + núm, ẩn núm bị che, vật liệu, RoomEnvironment, bóng, N8AO, 3 mức chất lượng, vẽ lại khi dừng tay), bóng mờ (xanh/đỏ, nhìn xuyên, đường rơi, núm sáng), máy trạng thái `input/gesture.ts` + test, camera `camera-controls` điều khiển bằng API, khay tối giản ~40 mảnh, Lắp/Tháo, hoàn tác, âm thanh, A/B (Lắp nhanh, lệch ngón), nút "Thêm 2.000 mảnh".
-2. Cổng mảnh: chủ dự án xem `docs/brick-studio/sheets/*.webp` (cần chạy lại `sheets.mjs` vì catalog đã đổi).
 
 ## Nhật ký đoạn việc
 

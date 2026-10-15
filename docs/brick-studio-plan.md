@@ -1,6 +1,6 @@
 # Xưởng Lắp Ghép 3D — đánh giá khả thi và kế hoạch triển khai
 
-> Lập 14/10/2026. **Chưa có dòng code nào.** Các quyết định ở mục 2 **đã chốt ngày 14/10/2026**. Không tự đổi.
+> Lập 14/10/2026. Đã thi công GĐ0a–4 (chưa nghiệm thu v1); trạng thái hiện tại xem `docs/brick-studio/CHECKPOINT.md`. Các quyết định ở mục 2 **đã chốt ngày 14/10/2026**. Không tự đổi.
 > Bốn yêu cầu gốc của chủ dự án: **(1) nhiều loại mảnh, (2) chi tiết tinh xảo và đẹp, (3) ghép nối trực quan, (4) điều khiển dễ dàng.** Mọi quyết định bên dưới phục vụ bốn yêu cầu này.
 > Số hiệu năng ở mục 9 là **ước tính**, phải đo lại ở GĐ1 trên máy dev và trên tablet của nhà. Giấy phép ở mục 4.3 đã tra cứu ngày 14/10/2026 và phải đọc lại văn bản gốc trước GĐ0.
 
@@ -381,7 +381,7 @@ Khi CHẠM, xử lý theo chế độ:
 - **Chỉ lắp từ dưới lên:** không treo dưới, không gắn cạnh. Camera không xuống dưới mặt bàn.
   - Từ lớp 1 trở lên thì không khoá, nhưng hai kiểu lắp kia chỉ xảy ra khi bé chủ động: treo dưới khi bé chạm vào mặt dưới của mảnh, gắn cạnh khi bé chạm vào mặt có núm cạnh.
   - Vì vậy lúc mới chơi, bé lớp nào cũng chỉ thấy lắp chồng từ dưới lên.
-- Lắp nhanh bật sẵn (chốt sau buổi chơi thử).
+- Lắp nhanh **tắt** (chạm hai bước, theo D9). Chỉnh lại sau phiên chỉnh thông số theo số liệu dùng thật.
 - Nam châm rộng hơn.
 - Không có chế độ Chọn, không dời khung.
 - Nút to hơn 25 %. Mọi gợi ý có giọng đọc.
@@ -771,3 +771,35 @@ docs/brick-studio/  parts-v1.csv · sheets/ · cover-prompt.md · ảnh nghiệm
 - 14/10 · 5.3 · Mặt bàn là **chỗ đỡ**, không phải tấm nền giới hạn. Mảnh vẫn bám lưới núm ảo của bàn khi đặt trực tiếp lên bàn. Mảnh thò xuống dưới mặt bàn (ví dụ bánh xe gắn vào tấm trục đang nằm trên bàn) được phép nếu nối vào một cụm: **cả cụm tự nâng lên** (`Check.lift`), giống lắp bánh thì xe kênh lên. "Lơ lửng" = cụm không chạm bàn.
 - 14/10 · 5.3 · Ngưỡng va chạm 2,5 LDU (không phải 1): hộp voxel 2 LDU có thể phình tới 2 LDU ở mặt cong; va chạm thật giữa các mảnh luôn ≥ 4 LDU. Hộp va chạm được khoét thể tích núm/chốt và lòng lỗ của chính mảnh; núm đâm thân mảnh khác được kiểm riêng.
 - 14/10 · 6 · Bỏ 29119/29120 (shadow chỉ có lỗ nhận ở khía bên, không có ở đáy). Bộ mảnh v1: 295 mảnh (gồm 34 tấm in, 4 bộ ghép).
+- 14/10 · 6 · Bỏ 33051 (quả táo: chỉ có chốt nghiêng). Bộ mảnh v1: **294 mảnh**.
+- 15/10 · 0.3 · Chủ dự án đóng gói GĐ0a–4 khi **chưa qua cổng nào** (mảnh, hình ảnh, chơi thử), và cho tạm gác việc duyệt để chuẩn hoá lệch plan trước. Ba cổng vẫn **bắt buộc trước nghiệm thu v1** (mục 18). Nếu cổng chơi thử đổi sơ đồ cử chỉ thì làm lại phần GĐ2 liên quan.
+- 15/10 · D1, 3 · Xưởng nằm trong **Góc Thủ Công**: `CraftId 'bricks'`, thẻ trong `CRAFT_CATALOG`, route `/bricks`. Không thêm `ModeId` riêng ở sảnh. Mầm non vào qua Góc Thủ Công (đã có trong danh sách sảnh Mầm non).
+- 15/10 · D1, 16 · Phần Ghi công trong xưởng không nhắc tên thương hiệu và không có link ra ngoài. Chỉ ghi tên nguồn dữ liệu và giấy phép.
+- 15/10 · 4.2 · Nhóm dữ liệu sinh ra:
+  - Toạ độ lưu Int16 = LDU×8 (`posScale` 8), không phải ×4.
+  - Hộp va chạm tối đa 96 hộp/mảnh (voxel 2 LDU), không phải 16.
+  - Không xuất buffer đường viền LDraw. Viền mảnh mới trong ảnh hướng dẫn vẽ bằng mặt sau phóng to (`render/shooter.ts`). Lượt viền hậu kỳ ở xưởng (mục 8.2) vẫn chưa làm.
+  - Ghi công gom theo thư viện (`catalog.credits`: tác giả, số file theo giấy phép), không có file `credits.generated.json` riêng.
+- 15/10 · 13 · Bố cục code khác cây thư mục ở mục 13:
+  - `space/index/connect` gộp trong `engine/world.ts`.
+  - Đổi LDraw → three.js nằm ở `render/BrickCanvas.tsx` (`LDRAW_TO_WORLD`).
+  - Renderer tách thành `loader/materials/modelMeshes/BrickCanvas/icons/shooter`.
+  - UI gồm `BrickStudio`, `Editor`, `Workbench` (khay, thanh chế độ, bong bóng, coach đều ở trong Workbench) và `ExportSheet`.
+  - Đo bằng `engine/bench.test.ts` (`BENCH=1`), không có `scripts/bricks-bench.mjs`.
+- 15/10 · 14 GĐ0b · Test "mọi mảnh × mọi hướng" dùng đế **gạch 1×1**, không dùng 2×4. Lý do: đĩa 2×2 chỉ có lỗ ở tâm nên không ngồi được giữa 4 núm của gạch 2×4, đúng như ngoài đời. Ba ca bị chặn vì va chạm có thật được ghi trong test:
+  - 3957a: núm đế nằm trong thân.
+  - 3633: hàng rào nằm úp, cắm vào miệng lỗ mặt trong.
+  - 60212: chắn bùn lật ngược.
+- 15/10 · 14 GĐ0b · Gate fuzz 100.000 thao tác: `BRICKS_STRESS=1` trên `engine/stress.test.ts`.
+  - Thao tác gồm: lắp mọi hướng, tia chéo, lắp dưới có nâng cụm, dời, tháo, sơn, hoàn tác/làm lại.
+  - Kiểm: chỉ mục khớp bản dựng lại, không chồng lấn, mã hoá/giải mã giữ nguyên.
+  - Mảnh lơ lửng mới chỉ được xuất hiện khi lắp vào cụm vốn đã lơ lửng sau một lần tháo.
+  - Bản mặc định chạy 2.000 thao tác.
+- 15/10 · 14 GĐ0b, 19 · Engine có bộ đọc `.ldr` (`export/files.ts` `fromLdraw`), chỉ dùng cho test round-trip. Chưa có giao diện nhập file.
+- 15/10 · 11.3 · Chưa có khoá Rebrickable, nên **không xuất BrickLink XML** (đúng mục 4.1). CSV Rebrickable chỉ bật khi mọi dòng có mã. Không đoán mã.
+- 15/10 · 12 · Mô hình mẫu:
+  - Cá và chậu hoa thay cho khủng long và rùa.
+  - Một số mẫu dưới 20 mảnh (tên lửa 10, robot 11), test hiện cho phép 8–80 mảnh. **Chưa đạt 20–60.** Nâng cỡ mẫu khi chủ dự án duyệt bảng mẫu.
+- 15/10 · 12 · Huy hiệu lưu trong `profile.bricks` của xưởng (5 huy hiệu, không cộng sao), không đi qua hệ thành tích chung. Huy hiệu "Lắp theo hướng dẫn lần đầu" chờ GĐ5.
+- 15/10 · 12, 14 · Kéo sớm lên v1: Nổ tung (thanh trượt) và Xem quá trình lắp (▶). Code "Lắp theo hướng dẫn" (GĐ5) đã có nhưng **ẩn** cho tới GĐ5.
+- 15/10 · 14 GĐ3 · Ảnh bìa sinh bằng ImageGen theo `public/bricks/cover-art.md`, không dùng `docs/brick-studio/cover-prompt.md`.

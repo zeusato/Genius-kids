@@ -561,7 +561,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
         <p>Chọn mảnh → chạm bàn để xem bóng mờ → bấm ✓ để lắp. Kéo trên bàn để xoay, dùng hai ngón để phóng to. Phím R xoay, Shift+R xoay ngược, Esc bỏ mảnh, Ctrl+Z hoàn tác.</p>
         <button className="bk-btn" onClick={() => { setCoach(0); setSettings(false); }}>Xem lại hướng dẫn</button>
         <details><summary>Số liệu trên máy · 30 ngày gần nhất</summary><p>Chỉ lưu trên thiết bị này, không gửi lên máy chủ.</p><pre className="bk-credits">{JSON.stringify(readMetrics(initial?.ownerId ?? ""), null, 2)}</pre><button className="bk-btn" onClick={() => { const url = URL.createObjectURL(new Blob([JSON.stringify(readMetrics(initial?.ownerId ?? ""), null, 2)], { type: "application/json" })); const a = document.createElement("a"); a.href = url; a.download = "so-lieu-lap-ghep.json"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }}>Tải số liệu JSON</button></details>
-        <details><summary>Ghi công dữ liệu</summary><p>Hình học mảnh: <a href="https://www.ldraw.org/" target="_blank" rel="noreferrer">LDraw.org</a>. Điểm nối: LDCad shadow library. LEGO® là nhãn hiệu của LEGO Group; ứng dụng độc lập, không được LEGO tài trợ.</p><pre className="bk-credits">{JSON.stringify(catalog.credits, null, 2)}</pre></details>
+        <details><summary>Ghi công dữ liệu</summary><p>Hình học mảnh: thư viện LDraw.org (CC BY). Điểm nối: LDCad Shadow Library (CC BY-SA 4.0). Xếp hạng mảnh và màu: dữ liệu Rebrickable.</p><pre className="bk-credits">{JSON.stringify(catalog.credits, null, 2)}</pre></details>
       </div></div>}
       <div className="bk-main">
         <div className="bk-modes">
