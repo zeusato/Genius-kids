@@ -14,7 +14,7 @@ export class IconRenderer {
   private scene = new THREE.Scene();
   private camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100);
   private cache = new Map<string, string>();
-  private queue: { key: string; color: string; resolve: (url: string) => void }[] = [];
+  private queue: { key: string; color: string; yaw: number; size: number; resolve: (url: string) => void }[] = [];
   private busy = false;
   private disposed = false;
   private frame = 0;
@@ -43,7 +43,12 @@ export class IconRenderer {
     const id = key + '|' + color;
     const hit = this.cache.get(id);
     if (hit) return Promise.resolve(hit);
-    return new Promise(resolve => { this.queue.push({ key, color, resolve }); this.pump(); });
+    return new Promise(resolve => { this.queue.push({ key, color, yaw: 0, size: SIZE, resolve }); this.pump(); });
+  }
+  /** Cửa sổ xem mảnh (nhấn giữ thẻ): `frames` ảnh quay quanh trục đứng, cỡ lớn, cùng renderer phụ (không thêm WebGL context). */
+  turntable(key: string, color: string, frames = 16, size = 288): Promise<string[]> {
+    if (this.disposed) return Promise.resolve([]);
+    return Promise.all(Array.from({ length: frames }, (_, i) => new Promise<string>(resolve => { this.queue.push({ key, color, yaw: (i / frames) * Math.PI * 2, size, resolve }); this.pump(); })));
   }
   cached(key: string, color: string) { return this.cache.get(key + '|' + color); }
 
@@ -53,16 +58,16 @@ export class IconRenderer {
     const run = () => {
       const job = this.queue.shift();
       if (!job) { this.busy = false; return; }
-      const id = job.key + '|' + job.color;
-      let url = this.cache.get(id);
-      try { if (!url) { url = this.draw(job.key, job.color); this.cache.set(id, url); } } catch { url = ''; }
+      const id = job.key + '|' + job.color, still = job.yaw === 0 && job.size === SIZE;
+      let url = still ? this.cache.get(id) : undefined;
+      try { if (!url) { url = this.draw(job.key, job.color, job.yaw, job.size); if (still) this.cache.set(id, url); } } catch { url = ''; }
       job.resolve(url);
       this.frame = requestAnimationFrame(run);
     };
     this.frame = requestAnimationFrame(run);
   }
 
-  private draw(key: string, color: string): string {
+  private draw(key: string, color: string, yaw = 0, px = SIZE): string {
     const r = this.init();
     if (!this.lib.has(key)) return '';
     const col = this.mats.color(color);
@@ -72,12 +77,12 @@ export class IconRenderer {
     this.scene.add(holder);
     holder.updateMatrixWorld(true);
     const box = new THREE.Box3().setFromObject(holder), center = box.getCenter(new THREE.Vector3()), size = box.getSize(new THREE.Vector3()).length() || 1;
-    this.camera.position.copy(center).add(new THREE.Vector3(0.75, 0.62, 1).normalize().multiplyScalar(size * 2));
+    this.camera.position.copy(center).add(new THREE.Vector3(0.75, 0.62, 1).normalize().applyAxisAngle(new THREE.Vector3(0, 1, 0), yaw).multiplyScalar(size * 2));
     this.camera.lookAt(center);
     const half = size * 0.52;
     Object.assign(this.camera, { left: -half, right: half, top: half, bottom: -half, near: 0.01, far: size * 6 });
     this.camera.updateProjectionMatrix();
-    r.setPixelRatio(1); r.setSize(SIZE, SIZE, false); r.shadowMap.enabled = false;
+    r.setPixelRatio(1); r.setSize(px, px, false); r.shadowMap.enabled = false;
     r.setClearColor(0x000000, 0);
     r.render(this.scene, this.camera);
     const url = r.domElement.toDataURL('image/webp', 0.85);

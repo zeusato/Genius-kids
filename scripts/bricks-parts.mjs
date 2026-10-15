@@ -119,6 +119,7 @@ for (const key of touched) {
   if (h.author) authors.set(h.author, (authors.get(h.author) || 0) + 1);
   const lic = (h.license || 'không ghi').replace(/\s*:.*$/, '');
   licenses.set(lic, (licenses.get(lic) || 0) + 1);
+  if (!h.license) problems.push(`${key}: file LDraw không ghi giấy phép (!LICENSE) — không được đưa vào bản build (mục 4.3)`);
 }
 
 const catalog = {
@@ -147,6 +148,16 @@ const total = sizes.reduce((a, [, s]) => a + s, 0) + studWriter.size;
 console.log('mảnh', Object.keys(parts).length, '/', rows.length, '· nhị phân', (total / 1024).toFixed(0), 'KB', Object.fromEntries(sizes.map(([g, s]) => [g, (s / 1024).toFixed(0) + 'KB'])));
 console.log('mảnh lite', Object.values(parts).filter(p => p.lite).length, '· tam giác lớn nhất', Object.entries(parts).sort((a, b) => b[1].faces - a[1].faces).slice(0, 5).map(([k, p]) => k + ':' + p.faces).join(' '));
 if (problems.length) { console.log('VẤN ĐỀ (' + problems.length + '):\n  ' + problems.join('\n  ')); }
+
+// --- Danh sách cần soi bằng mắt (mục 4.2 bước 5, cổng mảnh): không làm --check đỏ, nhưng phải được duyệt trên bảng ảnh ---
+const review = Object.entries(parts).flatMap(([k, p]) => [
+  ...(p.lite ? [`${k}\tlite\tdùng lưới rút gọn (bỏ ống đáy) vì quá ${LITE_FACES} tam giác`] : []),
+  ...(!p.conns.some(c => c.k === 'a' || c.k === 'h') ? [`${k}\tno-female\tkhông có lỗ nhận/lỗ chốt: chỉ gắn được bằng núm của chính nó`] : []),
+  ...(!p.conns.some(c => c.k === 's' || c.k === 'p') ? [`${k}\tno-male\tkhông có núm/chốt: không gì gắn lên được (tấm trơn là bình thường)`] : []),
+  ...(p.boxes.length >= 96 ? [`${k}\tboxes\thộp va chạm chạm trần 96, đã gộp gần đúng`] : []),
+]);
+console.log('cần soi', review.length, 'dòng → docs/brick-studio/needs-review.txt');
+if (!CHECK) fs.writeFileSync('docs/brick-studio/needs-review.txt', '# Sinh bởi scripts/bricks-parts.mjs — mảnh cần soi trên bảng duyệt (key, lý do, ghi chú)\n' + review.join('\n') + '\n');
 
 if (!CHECK) {
   fs.mkdirSync(path.join(OUT, 'parts'), { recursive: true });

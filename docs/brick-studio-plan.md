@@ -283,11 +283,14 @@ Chế độ bé thấy khoảng 30 mảnh trong 6 nhóm: Gạch, Tấm, Mái, Tr
 
 | Thao tác | Cảm ứng | Chuột / phím |
 |---|---|---|
-| Xoay camera | 1 ngón kéo (trên chỗ trống hoặc trên mảnh) | Kéo chuột trái |
-| Thu phóng / dời | 2 ngón chụm / 2 ngón kéo | Lăn / kéo chuột phải |
+| Xoay camera | 1 ngón kéo (trên chỗ trống hoặc trên mảnh) | **Kéo chuột phải** (ở đâu cũng xoay, kể cả trên bóng mờ; không bao giờ lắp). Kéo chuột trái trên chỗ trống vẫn xoay như cũ |
+| Thu phóng / dời | 2 ngón chụm / 2 ngón kéo | Lăn / kéo chuột giữa |
 | Xem trước (Lắp) | Chạm một chỗ → bóng mờ hút vào điểm nối gần nhất | Di chuột → bóng mờ chạy theo |
 | Lắp | Chạm vào bóng mờ hoặc nút ✓. Chạm hai lần liên tiếp cùng chỗ = lắp luôn | Bấm chuột trái |
-| Dời bóng mờ | Kéo chính bóng mờ (vùng chạm nới thêm 24 px) | — |
+| Dời bóng mờ | Kéo chính bóng mờ (vùng chạm nới thêm 24 px), hoặc kéo **tay nắm ✥** cạnh nút ✓ ↻ | Kéo bóng mờ / tay nắm bằng chuột trái |
+| Xoay quanh trục đứng | **Hai ngón vặn** (vượt 10° mới xoay, để chụm không bị xoay nhầm). Chế độ bé: tắt | — |
+| Vừa khung | **Chạm đúp chỗ trống** (≤ 320 ms, ≤ 24 px). Đang cầm mảnh thì chạm đúp trên bàn vẫn là dời bóng rồi lắp | Bấm đúp chỗ trống |
+| Lòng bàn tay tì lên màn hình | Bỏ qua chạm có vùng tiếp xúc > 40 px (PointerEvent `width/height`) | — |
 | Kéo thả từ khay | Nhấn thẻ, kéo vào khung, thả = lắp | Kéo thả |
 | Đổi hướng | ↻ ở khay hoặc cạnh bóng mờ: **hướng lắp được tiếp theo tại chỗ này** | `R` (`Shift+R` lùi lại) |
 | Lấy mẫu | Nút **Lấy mảnh giống thế này** trong bong bóng (chế độ Chọn): cầm đúng loại, màu và hướng của mảnh đó. Không gán hành động nào cho thao tác nhấn giữ trên khung 3D, vì trẻ hay vô tình nhấn giữ | `Alt` + bấm |
@@ -400,7 +403,8 @@ Khi CHẠM, xử lý theo chế độ:
 **Ánh sáng:**
 - Môi trường dùng `RoomEnvironment` qua PMREM, sinh tại chỗ, không tải mạng.
 - Một đèn hướng có bóng mềm (PCFSoft), khung bóng ôm theo hộp bao mô hình.
-- Bàn có lưới mờ: vạch mảnh mỗi 1 núm, vạch đậm mỗi 8 núm, viền vùng xây.
+- **Sân khấu tối** (nền `#1b222c`, bàn `#252e3a`) để mảnh màu nổi lên. Bàn có lưới mờ: vạch mảnh mỗi 1 núm, vạch đậm mỗi 8 núm, viền vùng xây.
+- Đèn: key chéo trước-phải (bóng mềm, độ đậm bóng 0,45), fill lạnh bên trái, rim phía sau; môi trường 0,32. Tone mapping Neutral (cuối chuỗi EffectComposer ở Cao/Vừa, ở renderer ở Thấp).
 
 ### 8.2 Hình học trên GPU
 
@@ -802,4 +806,18 @@ docs/brick-studio/  parts-v1.csv · sheets/ · cover-prompt.md · ảnh nghiệm
   - Một số mẫu dưới 20 mảnh (tên lửa 10, robot 11), test hiện cho phép 8–80 mảnh. **Chưa đạt 20–60.** Nâng cỡ mẫu khi chủ dự án duyệt bảng mẫu.
 - 15/10 · 12 · Huy hiệu lưu trong `profile.bricks` của xưởng (5 huy hiệu, không cộng sao), không đi qua hệ thành tích chung. Huy hiệu "Lắp theo hướng dẫn lần đầu" chờ GĐ5.
 - 15/10 · 12, 14 · Kéo sớm lên v1: Nổ tung (thanh trượt) và Xem quá trình lắp (▶). Code "Lắp theo hướng dẫn" (GĐ5) đã có nhưng **ẩn** cho tới GĐ5.
+- 15/10 · 7.2 · Chủ dự án: chuột phải kéo = xoay camera (trước là dời khung); chuột giữa kéo = dời khung; chuột trái giữ nguyên. Menu chuột phải bị chặn trên khung 3D.
+- 15/10 · 7.2, 7.3 · Cảm ứng (chủ dự án duyệt 4 mục): lọc lòng bàn tay (> 40 px), tay nắm ✥ trên bóng mờ, chạm đúp chỗ trống = vừa khung, hai ngón vặn = xoay quanh trục đứng (tắt ở chế độ bé). Còn đề xuất chưa làm: nút xoay ◀ ▶ 45° cho chế độ bé; ghi số liệu "định chạm mà thành xoay" để chỉnh TAP_SLOP/lệch ngón. Chưa kiểm trên iPad/tablet thật.
+- 15/10 · 8.1 · Chủ dự án: bóng đổ quá mạnh, nền trắng làm mất khối → sân khấu tối + bố trí đèn mới (mục 8.1). Nguyên nhân gốc ảnh cháy sáng: EffectComposer tắt tone mapping của renderer, mức Cao/Vừa không có tone mapping; đã thêm `<ToneMapping>` Neutral. AO giảm 1,1 → 0,75. Ảnh PDF và icon khay vẫn nền sáng (renderer phụ riêng).
+- 15/10 · 8.3 · "Vẽ đẹp khi dừng tay" làm bằng **DPR**: camera đang chuyển động → DPR 1; đứng yên 300 ms → DPR đầy đủ (Cao ≤ 2, Vừa/Thấp ≤ 1,5). Không đổi vật liệu/AO giữa chừng (đổi composer làm mất tone mapping). Tự chọn mức: đo 3 s sau khi mở (bỏ qua khi tab ẩn), Cao < 40 fps → Vừa, Vừa < 28 fps → Thấp, tối đa 2 lần; chỉ khi chưa ai chọn tay.
+- 15/10 · 7.5 · Hiệu ứng lắp: bản sao sáng của mảnh rơi 6 LDU trong 120 ms rồi tan (mảnh thật đã ở đúng chỗ ngay). Tháo: 10 hạt cùng màu văng ra. Giảm chuyển động: tắt cả hai.
+- 15/10 · 7.1 · Nhóm con của khay suy từ tên Việt/cờ in (`content/groups.ts`), vì catalog chưa có cột nhóm con (pipeline cần `tools/ldraw`). Cửa sổ xem mảnh: ảnh xoay 16 khung vẽ bằng renderer phụ dùng chung, không mở WebGL context mới. Mở bằng nhấn giữ 500 ms hoặc chuột phải lên thẻ.
+- 15/10 · 7.1 · Chủ dự án: bảng màu chiếm chỗ của khay mảnh → **thanh màu gọn**: nút màu đang chọn + 4 màu vừa dùng; bảng đủ màu bật lên phía trên khay khi bấm (chạm ra ngoài hoặc Esc thì đóng).
+- 15/10 · 6.2, 7.7 · Chế độ bé: 30 mảnh đúng 6 nhóm (Gạch, Tấm, Mái, Tròn, Cửa, Cây) trong `PRESCHOOL_PARTS`; bỏ 3 mã cũ không còn trong catalog. Nam châm × 1,6; mọi gợi ý (toast) có giọng đọc; nút/ô màu to hơn 25 %; camera không xuống dưới bàn (85°).
+- 15/10 · 7.6 · Nút ⬒ đổi góc lần lượt Nghiêng → Trước → Phải → Trên. Bàn mờ 30 % khi camera xuống dưới mặt bàn.
+- 15/10 · 8.4 · Không có WebGL: khung báo không hiển thị được 3D, vẫn tải danh sách mảnh (CSV). Khôi phục context: dựng lại lưới mô hình.
+- 15/10 · 11 · PDF: góc Trước có thước cm; mỗi bước giữ góc cũ nếu còn thấy ≥ 50 % mảnh mới (đo bằng bộ đệm ID 256×192), không thì đổi sang góc nghiêng sau và in "↻ Xoay mô hình"; bước nối hai cụm rời in khoảng cách (núm) và gợi ý tấm nền; chế độ bé 3 mảnh/bước; nút Chia sẻ (Web Share có file) khi trình duyệt hỗ trợ.
+- 15/10 · 12 · 10 mẫu nâng lên **20–30 mảnh** (thêm bối cảnh: ao, bãi cỏ, bệ phóng, mặt biển; chậu tròn 4×4…); test siết về 20–60. Ảnh mẫu và bảng duyệt chụp lại trên sân khấu tối.
+- 15/10 · 4.2 · Pipeline: `--check` đỏ khi file LDraw thiếu `!LICENSE`; ghi `docs/brick-studio/needs-review.txt` (lưới rút gọn, không lỗ nhận, không núm, hộp va chạm chạm trần). Chưa chạy lại được trên máy này (thiếu `tools/ldraw`).
+- 15/10 · 10.2, 12.1 · Tủ: mở lại bản sao dự phòng (.json) thành mô hình mới; nhắc khi phần xưởng > 6 MB. Số liệu thêm `rotateBeforePlace` và `nearTap` (định chạm mà thành xoay). Mọi hộp thoại có focus trap, Esc, nền `inert`.
 - 15/10 · 14 GĐ3 · Ảnh bìa sinh bằng ImageGen theo `public/bricks/cover-art.md`, không dùng `docs/brick-studio/cover-prompt.md`.

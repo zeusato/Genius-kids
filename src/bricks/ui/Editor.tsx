@@ -76,6 +76,6 @@ export function Editor({ model, preschool, onBack, onSaved, author, guide, onPla
   return <>
     <Workbench onPlaced={onPlaced} preschool={preschool} initial={model} header={header} control={control} coachKey={`bricks-coach-v1:${model.ownerId}`} guide={guide} onChange={changed}/>
     {error && <div className="bk-save-error" role="alert"><p>{error}</p><button onClick={() => void flush()}>Thử lưu lại</button><button onClick={backup}>Tải bản sao dự phòng</button></div>}
-    {exporting && control.current && <ExportSheet world={control.current.world} lib={control.current.lib} name={queue.current.saved.name} author={author} onClose={() => setExporting(false)}/>}
+    {exporting && control.current && <ExportSheet world={control.current.world} lib={control.current.lib} name={queue.current.saved.name} author={author} preschool={preschool} onClose={() => setExporting(false)}/>}
   </>;
 }

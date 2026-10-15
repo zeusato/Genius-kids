@@ -6,8 +6,9 @@ import { World } from '../engine/world';
 import { decodeInto } from '../engine/model';
 import { buildSteps, type Step } from '../export/steps';
 import { Editor } from './Editor';
+import { Dialog } from './Dialog';
 import { type BrickModel } from '../engine/model';
-import { listModels, newModel, readModel, removeModel, saveModel, type ModelSummary } from '../progress/modelRepo';
+import { STORAGE_WARN_BYTES, listModels, newModel, readModel, removeModel, restoreBackup, saveModel, type ModelSummary } from '../progress/modelRepo';
 import { IDEAS, ideasOfDay } from '../content/ideas';
 import { SAMPLES, sampleModel, type Sample } from '../content/samples';
 import type { Catalog } from '../engine/types';
@@ -70,6 +71,12 @@ export function BrickStudio({ ownerId, preschool = false, onExit, onModelSaved, 
   };
   const guidedFromSample = async (sm: Sample) => guided(sampleModel(await loadCatalog(), sm, ownerId, 'tmp'), sm.name);
   const guidedFromModel = async (s: ModelSummary) => { const m = await readModel(ownerId, s.id); if (m) await guided(m, s.name); };
+  /** Mở bản sao dự phòng (.json) — luồng khôi phục khi lưu lỗi (Editor cho tải bản sao). */
+  const importBackup = async (file: File | undefined) => {
+    if (!file) return;
+    try { const m = restoreBackup(await file.text(), ownerId); m.revision = await saveModel(m, 0); await refresh(); setActive(m); }
+    catch (e) { setError(msg(e)); }
+  };
   const remove = async (s: ModelSummary) => { try { await removeModel(ownerId, s.id); setConfirmDelete(null); await refresh(); } catch (e) { setError(msg(e)); } };
 
   if (active) return <Editor key={active.id} model={active} onPlaced={event => onProgress?.(event)} preschool={preschool} author={author} guide={guide ?? undefined} onBack={() => { setActive(null); setGuide(null); void refresh(); }} onSaved={onModelSaved} />;
@@ -97,7 +104,11 @@ export function BrickStudio({ ownerId, preschool = false, onExit, onModelSaved, 
         {false && <div className="bk-guided">{SAMPLES.map(sm => <button key={sm.id} className="bk-idea" onClick={() => guidedFromSample(sm)}><BookOpen size={18} /> {sm.name}: theo hướng dẫn</button>)}</div>}
       </section>
       <div className="bk-badges" aria-label="Huy hiệu lắp ghép">{progress?.badges.map(b => <span key={b}>🏅 {BADGES[b]}</span>)}</div>
-      <h2 className="bk-shelf-title">Mô hình của em</h2>
+      <div className="bk-shelf-head">
+        <h2 className="bk-shelf-title">Mô hình của em</h2>
+        <label className="bk-btn bk-import">Mở bản sao dự phòng<input type="file" accept=".json,application/json" onChange={e => { void importBackup(e.target.files?.[0]); e.target.value = ''; }} /></label>
+      </div>
+      {list && list.reduce((a, s) => a + s.bytes, 0) > STORAGE_WARN_BYTES && <p className="bk-muted bk-storage" role="status">Tủ đang dùng khoảng {(list.reduce((a, s) => a + s.bytes, 0) / 1048576).toLocaleString('vi-VN', { maximumFractionDigits: 1 })} MB. Em có thể xoá bớt mô hình cũ để đồng bộ nhanh hơn nhé.</p>}
       <section className="bk-shelf" aria-label="Mô hình của em">
         {list === null ? <p className="bk-muted">Đang mở tủ…</p> : !list.length ? <p className="bk-muted">Tủ còn trống. Bấm “Mô hình mới” hoặc chọn một ý tưởng để bắt đầu nhé!</p> :
           list.map(s => (
@@ -116,12 +127,10 @@ export function BrickStudio({ ownerId, preschool = false, onExit, onModelSaved, 
             </article>))}
       </section>
       {confirmDelete && (
-        <div className="bk-dialog" role="dialog" aria-modal="true">
-          <div>
-            <p>Xoá mô hình <b>{confirmDelete.name}</b>? Không lấy lại được trên máy này.</p>
-            <div className="bk-dialog-row"><button className="bk-btn" onClick={() => setConfirmDelete(null)}>Giữ lại</button><button className="bk-btn bk-danger" onClick={() => remove(confirmDelete)}>Xoá</button></div>
-          </div>
-        </div>)}
+        <Dialog label="Xác nhận xoá mô hình" onClose={() => setConfirmDelete(null)}>
+          <p>Xoá mô hình <b>{confirmDelete.name}</b>? Không lấy lại được trên máy này.</p>
+          <div className="bk-dialog-row"><button className="bk-btn" onClick={() => setConfirmDelete(null)}>Giữ lại</button><button className="bk-btn bk-danger" onClick={() => remove(confirmDelete)}>Xoá</button></div>
+        </Dialog>)}
     </div>
   );
 }

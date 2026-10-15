@@ -3,7 +3,7 @@
 import { LIMITS, validateModel, type BrickModel } from '../engine/model';
 
 export const DB_NAME = 'brick-studio-v1';
-export interface ModelSummary { id: string; name: string; updated: number; count: number; revision: number; thumb?: Blob; idea?: string }
+export interface ModelSummary { id: string; name: string; updated: number; count: number; revision: number; thumb?: Blob; idea?: string; /** ước lượng dung lượng (byte): JSON mô hình + ảnh thu nhỏ */ bytes: number }
 interface ThumbRow { ownerId: string; id: string; revision: number; blob: Blob }
 
 let connection: Promise<IDBDatabase> | undefined;
@@ -37,7 +37,7 @@ export async function listModels(ownerId: string): Promise<ModelSummary[]> {
   const models = tx.objectStore('models').index('ownerId').getAll(ownerId), thumbs = tx.objectStore('thumbs').index('ownerId').getAll(ownerId);
   await done(tx);
   const th = new Map((thumbs.result as ThumbRow[]).map(t => [t.id, t]));
-  return (models.result as BrickModel[]).map(m => ({ id: m.id, name: m.name, updated: m.updated, count: m.stats?.count ?? m.b.length / 6, revision: m.revision, idea: m.idea, thumb: th.get(m.id)?.blob }))
+  return (models.result as BrickModel[]).map(m => ({ id: m.id, name: m.name, updated: m.updated, count: m.stats?.count ?? m.b.length / 6, revision: m.revision, idea: m.idea, thumb: th.get(m.id)?.blob, bytes: JSON.stringify(m).length + (th.get(m.id)?.blob.size ?? 0) }))
     .sort((a, b) => b.updated - a.updated);
 }
 
@@ -74,6 +74,18 @@ export async function removeModel(ownerId: string, id: string) {
   tx.objectStore('models').delete([ownerId, id]); tx.objectStore('thumbs').delete([ownerId, id]);
   await done(tx);
 }
+
+/** Mở lại bản sao dự phòng (.json do Editor tải về khi lưu lỗi): kiểm tra, gán chủ + id mới, không đè mô hình nào. */
+export function restoreBackup(text: string, ownerId: string): BrickModel {
+  let raw: BrickModel;
+  try { raw = JSON.parse(text); } catch { throw Error('File không phải bản sao mô hình (.json) của Xưởng Lắp Ghép.'); }
+  if (!raw || raw.v !== 1 || !Array.isArray(raw.b)) throw Error('File không phải bản sao mô hình (.json) của Xưởng Lắp Ghép.');
+  const now = Date.now(), name = (String(raw.name || 'Mô hình') + ' (khôi phục)').slice(0, LIMITS.name);
+  return validateModel({ ...raw, ownerId, id: crypto.randomUUID(), name, created: now, updated: now, revision: 0 });
+}
+
+/** Phần xưởng vượt mức này thì tủ nhắc nhẹ (plan mục 10.2: 6 MB trong trần 20 MiB của bản đồng bộ). */
+export const STORAGE_WARN_BYTES = 6 * 1024 * 1024;
 
 export function newModel(ownerId: string, name: string, idea?: string): BrickModel {
   const now = Date.now();

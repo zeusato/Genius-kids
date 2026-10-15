@@ -10,6 +10,7 @@ export interface SuggestOptions {
   prev?: Candidate | null;     // ứng viên trước (chống giật)
   bottomUpOnly?: boolean;      // chế độ bé: chỉ lắp chồng từ trên xuống (mục 7.7)
   radius?: number;             // bán kính tìm mục tiêu (LDU)
+  magnet?: number;             // hệ số nới bán kính mặc định (chế độ bé: nam châm rộng hơn, mục 7.7)
   maxChecks?: number;
   ignore?: Set<number>;        // khi dời một mảnh: bỏ qua chính nó
   wantOptions?: number;
@@ -60,7 +61,7 @@ function targetsFor(world: World, hit: Hit, radius: number, opt: SuggestOptions)
 export function suggest(world: World, part: string, prefO: number, hit: Hit, opt: SuggestOptions = {}): Suggestion {
   const def = world.def(part);
   const size = Math.max(...[0, 1, 2].map(i => def.src.bbox[1][i] - def.src.bbox[0][i]));
-  const radius = opt.radius ?? Math.max(30, size / 2 + 20);
+  const radius = opt.radius ?? Math.max(30, size / 2 + 20) * (opt.magnet ?? 1);
   let targets = targetsFor(world, hit, radius, opt);
   let target = hit;
   if (!targets.length && hit.kind === 'piece') {

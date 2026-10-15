@@ -4,6 +4,19 @@
 > Xong mỗi đoạn việc thì **cập nhật file này ngay**: việc đã xong, việc đang dở (file nào, dừng ở đâu), bước kế tiếp.
 > Chủ dự án tự push/deploy. Không push, không chạy deploy, không gọi GitHub Actions.
 
+## Đợt hoàn thiện v1 bằng code — 15/10/2026 (chiều)
+
+Chủ dự án: "làm toàn bộ các nội dung còn lại, sẽ kiểm duyệt sau". Đã làm mọi mục của "Việc đầu tiên ngày mai" 2–6 mà làm được bằng code; chi tiết từng lệch ở plan mục 20 (các dòng 15/10).
+- Hình: sân khấu tối, tone mapping Neutral (bẫy: EffectComposer tắt tone mapping), đèn key/fill/rim, tự chọn chất lượng theo fps, DPR thấp khi xoay + vẽ lại khi dừng 300 ms, khôi phục context, máy không WebGL.
+- Thao tác: chuột phải xoay/chuột giữa dời; cảm ứng: lọc lòng bàn tay, tay nắm ✥, chạm đúp vừa khung, hai ngón vặn (tắt ở bé). Nhãn ✕ lý do trên bóng mờ; hiệu ứng lắp/tháo.
+- Khay: biểu tượng nhóm, nhóm con, xem mảnh 3D (nhấn giữ/chuột phải), chấm màu ít có thật, thanh màu gọn + bảng màu bật lên. Góc nhìn ⬒ 4 góc. Chế độ bé đủ mục 7.7.
+- Tủ: mở bản sao dự phòng, nhắc dung lượng; 10 mẫu 20–30 mảnh (ảnh mới). Số liệu thêm rotateBeforePlace/nearTap.
+- PDF: thước cm, đổi góc theo độ thấy được, nối cụm + tấm nền, Chia sẻ, bé 3 mảnh/bước.
+- Kiểm: 73 test đạt (+ fuzz 100k đạt 54 s), tsc chỉ còn lỗi cũ module farm, build đạt. Chụp headless: 10 mẫu, PDF trang 2 (thước 4,8 cm) và 5.
+- **Bẫy browser pane:** khi pane mất focus, rAF = 0 khung/giây → canvas trống, icon/ảnh xoay đứng hàng đợi. Không phải lỗi app; kiểm hình bằng Chrome headless (`scripts/bricks/shot.sh`).
+
+**Còn lại (không làm được bằng code ở đây):** 3 cổng duyệt; kiểm iPad/Android thật (cảm ứng, fps 2.000 mảnh, PDF Safari); mở `.ldr` bằng Studio/LeoCAD; đồng bộ Google hai máy; chạy lại pipeline khi có `tools/ldraw` (needs-review, nhóm con vào catalog); file BrickLink XML cần thêm phần tra mã (+ `REBRICKABLE_KEY`). Sau v1: GĐ5–8.
+
 ## Đợt chuẩn hoá lệch plan — 15/10/2026 (sau bàn giao)
 
 Chủ dự án cho tạm gác việc duyệt (3 cổng vẫn chờ), làm trước phần chuẩn hoá lệch plan. Đã làm:

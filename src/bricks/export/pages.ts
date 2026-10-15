@@ -5,14 +5,14 @@ import { Materials } from '../render/materials';
 import { IconRenderer } from '../render/icons';
 import { Shooter, VIEWS } from '../render/shooter';
 import { buildBom, realSize, type BomRow } from './bom';
-import { buildSteps, type Step } from './steps';
+import { baseplateHint, buildSteps, type Step } from './steps';
 import { makePdf, type PdfPage } from './pdf';
 
 const W = 1240, H = 1754, M = 70;
 const FONT = '"Be Vietnam Pro", "Segoe UI", system-ui, sans-serif';
 const INK = '#1b2a34', SOFT = '#5b6b7a', LINE = '#dbe3ec', ACCENT = '#2d8cff';
 
-export interface DocInput { world: World; lib: PartLibrary; name: string; author?: string; signal?: AbortSignal; onProgress?: (done: number, total: number) => void }
+export interface DocInput { world: World; lib: PartLibrary; name: string; author?: string; /** chế độ bé: 3 mảnh mỗi bước (mục 11.4) */ maxPerStep?: number; signal?: AbortSignal; onProgress?: (done: number, total: number) => void }
 export interface DocOutput { pages: HTMLCanvasElement[]; bom: BomRow[]; steps: Step[]; pdf(): Promise<Blob> }
 
 function page() { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d')!; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); return { c, g }; }
@@ -28,10 +28,10 @@ function footer(g: CanvasRenderingContext2D, name: string, n: number) {
 const loadImg = (url: string) => new Promise<HTMLImageElement>((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = url; });
 function roundRect(g: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) { g.beginPath(); g.roundRect(x, y, w, h, r); }
 
-export async function buildDocument({ world, lib, name, author, onProgress, signal }: DocInput): Promise<DocOutput> {
+export async function buildDocument({ world, lib, name, author, maxPerStep = 6, onProgress, signal }: DocInput): Promise<DocOutput> {
   await document.fonts?.ready;
   signal?.throwIfAborted();
-  const bom = buildBom(world), steps = buildSteps(world), size = realSize(world);
+  const bom = buildBom(world), steps = buildSteps(world, maxPerStep), size = realSize(world), base = baseplateHint(world);
   const shooter = new Shooter(lib, world), mats = new Materials(world.catalog, 'high'), icons = new IconRenderer(lib, mats);
   const total = 1 + 6 + steps.length + bom.length;
   let done = 0;
@@ -64,6 +64,15 @@ export async function buildDocument({ world, lib, name, author, onProgress, sign
         roundRect(g, x, y, 540, 470, 20); g.fillStyle = '#f7f9fc'; g.fill();
         g.drawImage(img, x, y);
         txt(g, VIEWS[keys[i]].label, x + 20, y + 458, 24, { weight: 700, color: SOFT });
+        // Góc Trước có thước cm (mục 11.1): vạch mỗi 1 cm theo bề ngang thật của mô hình
+        const span = keys[i] === 'front' && size ? shooter.span(VIEWS.front, 540, 430) : null;
+        if (span && size && size.w > 0) {
+          const y0 = y + 415, x0 = x + span.x0, x1 = x + span.x1, perCm = (x1 - x0) / size.w;
+          g.strokeStyle = INK; g.lineWidth = 2; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y0); g.stroke();
+          for (let k = 0; k <= Math.floor(size.w + 1e-6); k++) { const tx = x0 + k * perCm, long = k % 5 === 0; g.beginPath(); g.moveTo(tx, y0); g.lineTo(tx, y0 - (long ? 12 : 6)); g.stroke(); }
+          g.beginPath(); g.moveTo(x1, y0); g.lineTo(x1, y0 - 12); g.stroke();
+          txt(g, `${size.w.toLocaleString('vi-VN')} cm`, x + 520, y + 458, 22, { weight: 700, color: INK, align: 'right' });
+        }
       }
       footer(g, name, 2); pages.push(c); }
 
@@ -95,6 +104,7 @@ export async function buildDocument({ world, lib, name, author, onProgress, sign
 
     // ---- Các bước lắp: 4 bước mỗi trang ----
     const shown: number[] = [];
+    let stepView: 'iso' | 'isoBack' = 'iso';
     const partIcon = new Map<string, HTMLImageElement | null>();
     for (let s = 0; s < steps.length; s += 4) {
       const { c, g } = page();
@@ -102,12 +112,19 @@ export async function buildDocument({ world, lib, name, author, onProgress, sign
       for (let k = 0; k < 4 && s + k < steps.length; k++) {
         const st = steps[s + k], x = M + (k % 2) * 560, y = 160 + Math.floor(k / 2) * 770;
         shown.push(...st.pieces);
-        const img = await shooter.shot(VIEWS.iso, 540, 540, [...shown], st.pieces); tick();
+        // Góc nhìn (mục 11.4): giữ góc của bước trước nếu còn thấy ≥ 50 % mảnh mới; không thì lấy góc thấy nhiều hơn.
+        const keep = shooter.visible(VIEWS[stepView], shown, st.pieces);
+        let view = stepView;
+        if (keep < 0.5) { const other = stepView === 'iso' ? 'isoBack' : 'iso'; if (shooter.visible(VIEWS[other], shown, st.pieces) > keep) view = other; }
+        const turned = view !== stepView; stepView = view;
+        const img = await shooter.shot(VIEWS[view], 540, 540, [...shown], st.pieces); tick();
         roundRect(g, x, y, 540, 740, 22); g.fillStyle = '#f7f9fc'; g.fill();
         g.drawImage(img, x, y + 180);
         g.fillStyle = ACCENT; g.beginPath(); g.arc(x + 52, y + 52, 34, 0, Math.PI * 2); g.fill();
         txt(g, String(s + k + 1), x + 52, y + 66, 38, { weight: 800, color: '#fff', align: 'center' });
         if (st.hard) txt(g, 'Mẹo: lắp cụm này riêng rồi ghép vào', x + 100, y + 60, 18, { color: '#c2410c', max: 420 });
+        if (turned) txt(g, view === 'isoBack' ? '↻ Xoay mô hình ra phía sau' : '↻ Xoay mô hình về phía trước', x + 520, y + 718, 20, { weight: 700, color: ACCENT, align: 'right' });
+        if (st.bridge) txt(g, `Đặt hai cụm cách nhau ${st.bridge.gap} núm${base ? `, hoặc dùng tấm nền ${base.w}×${base.d}` : ''}`, x + 100, y + (st.hard ? 84 : 60), 18, { color: '#0f766e', max: 420 });
         // khung mảnh cần cho bước
         const need = new Map<string, { part: string; color: string; qty: number }>();
         for (const id of st.pieces) { const p = world.pieces.get(id)!, key = p.part + '|' + p.color; const e = need.get(key) ?? { part: p.part, color: p.color, qty: 0 }; e.qty++; need.set(key, e); }
@@ -133,7 +150,7 @@ export async function buildDocument({ world, lib, name, author, onProgress, sign
         'Màu thiếu: thay bằng màu gần nhất; mô hình vẫn lắp đúng vì hình dạng mảnh không đổi.',
         'Nút “Xuất” tạo LDraw (.ldr); CSV mua hàng chỉ có khi đã đối chiếu đủ mã. Mở .ldr',
         'bằng BrickLink Studio/LeoCAD để xem 3D hoặc làm sách hướng dẫn chi tiết.',
-        'Mô hình gồm nhiều cụm rời trên bàn: đặt các cụm đúng khoảng cách theo ô núm, hoặc dùng tấm nền.',
+        base ? `Mô hình gồm nhiều cụm rời trên bàn: đặt các cụm đúng khoảng cách ghi ở từng bước, hoặc dùng tấm nền ${base.w}×${base.d} núm.` : 'Mô hình gồm nhiều cụm rời trên bàn: đặt các cụm đúng khoảng cách theo ô núm, hoặc dùng tấm nền.',
       ];
       lines.forEach((l, i) => txt(g, l, M, 200 + i * 46, 24, { color: INK, max: W - 2 * M }));
       txt(g, 'Ghi công', M, 560, 32, { weight: 800 });

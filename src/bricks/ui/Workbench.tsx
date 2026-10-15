@@ -12,16 +12,23 @@ import type { V3 } from '../engine/types';
 import { decodeInto, LIMITS, type BrickModel } from '../engine/model';
 import type { Step } from '../export/steps';
 import { PartLibrary } from '../render/loader';
-import { Materials, detectQuality, type Quality } from '../render/materials';
+import { Materials, detectQuality, hasSavedQuality, type Quality } from '../render/materials';
+import { buildBom } from '../export/bom';
+import { GROUP_ICON, PRESCHOOL_PARTS, subgroupsOf } from '../content/groups';
+import { PartViewer } from './PartViewer';
+import { Dialog } from './Dialog';
 import { ModelMeshes, buildSingle, pieceMatrix } from '../render/modelMeshes';
 import { BrickCanvas, type CanvasApi } from '../render/BrickCanvas';
 import { GestureMachine } from '../input/gesture';
 import { IconRenderer } from '../render/icons';
+import { Fx } from '../render/fx';
 import { sfx, haptic } from './sound';
 import { speak, cancelSpeech } from '../../utils/speech';
 import './bricks.css';
 
 export type Mode = 'build' | 'paint' | 'erase' | 'select';
+/** Nút ⬒ Góc (mục 7.6): lần lượt Nghiêng → Trước → Phải → Trên. */
+const VIEWS = [['iso', 'Nghiêng'], ['front', 'Trước'], ['right', 'Phải'], ['top', 'Trên']] as const;
 interface Held { part: string; o: number }
 
 export interface WorkbenchProps {
@@ -60,15 +67,30 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const [quality, setQualityState] = useState<Quality>(() => initialQuality ?? detectQuality());
   const setQuality = (q: Quality) => { setQualityState(q); try { localStorage.setItem('bricks-quality', q); } catch { /* bỏ qua */ } };
   const [lost, setLost] = useState(false);
+  /** Máy không có WebGL: vẫn xem/tải được danh sách mảnh (mục 8.4). */
+  const webgl = useMemo(() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } }, []);
   const [stats, setStats] = useState('');
   const [toast, setToast] = useState<string | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const [explode, setExplode] = useState(0);
   const [settings, setSettings] = useState(false);
   const [search, setSearch] = useState('');
+  const [sub, setSub] = useState<string | null>(null);
+  const [viewer, setViewer] = useState<string | null>(null);
+  const [viewIdx, setViewIdx] = useState(0);
+  /** Bảng màu gọn (góp ý chủ dự án 15/10): nút màu đang chọn + dải màu vừa dùng; bảng đủ màu chỉ bật lên khi cần. */
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [recentColors, setRecentColors] = useState<string[]>(['red', 'yellow', 'blue', 'white', 'green']);
+  // chạm ra ngoài bảng màu thì đóng
+  useEffect(() => {
+    if (!paletteOpen) return;
+    const away = (e: PointerEvent) => { if (!(e.target as HTMLElement).closest('.bk-palette, .bk-current')) setPaletteOpen(false); };
+    document.addEventListener('pointerdown', away, true);
+    return () => document.removeEventListener('pointerdown', away, true);
+  }, [paletteOpen]);
   const [recent, setRecent] = useState<string[]>([]);
   const onPlacedRef = useRef(onPlaced); onPlacedRef.current = onPlaced;
-  const selectedAt = useRef(0), placedAt = useRef(0);
+  const selectedAt = useRef(0), placedAt = useRef(0), rotations = useRef(0);
   const moving = useRef<number | null>(null);
   const choice = useRef(0);
   const trayCleanup = useRef<() => void>(() => {});
@@ -157,12 +179,33 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     return () => { control.current = null; };
   }, [control, lib]);
 
+  // Tự chọn mức chất lượng (mục 8.3): đo 3 s đầu phiên; chỉ khi chưa ai chọn tay và không phải bản thử có ?q=.
+  useEffect(() => {
+    if (!lib || initialQuality || hasSavedQuality()) return;
+    let alive = true;
+    const run = async () => {
+      await new Promise(r => setTimeout(r, 1500));          // chờ biên dịch shader + dựng mô hình
+      for (let round = 0; round < 2 && alive; round++) {
+        const fps = await api.current?.benchmark(3000) ?? -1;
+        if (!alive || fps < 0) return;                         // tab ẩn: không đo (bẫy mục 17)
+        const q = qualityRef.current, next: Quality | null = q === 'high' && fps < 40 ? 'mid' : q === 'mid' && fps < 28 ? 'low' : null;
+        if (!next) return;
+        setQualityState(next);
+        flash(next === 'mid' ? 'Đã chọn chất lượng Vừa cho máy này (đổi trong ⚙)' : 'Đã chọn chất lượng Tiết kiệm cho máy này (đổi trong ⚙)');
+        await new Promise(r => setTimeout(r, 1500));
+      }
+    };
+    void run();
+    return () => { alive = false; };
+  }, [lib]);
+
   // Bản thử: mở cửa cho script kiểm tra (thêm mảnh, dựng lại, camera)
   useEffect(() => {
     if (!lab || !lib) return;
     (window as any).__bricksLab = { world: worldRef.current, history: histRef.current, bump: () => setVersion(v => v + 1), api: () => api.current, lib };
   }, [lab, lib]);
 
+  const qualityRef = useRef(quality); qualityRef.current = quality;
   const mats = useMemo(() => lib && new Materials(lib.catalog, quality), [lib, quality]);
   const model = useMemo(() => (lib && mats ? new ModelMeshes(lib, mats) : null), [lib, mats]);
   const icons = useMemo(() => (lib && mats ? new IconRenderer(lib, mats) : null), [lib, mats]);
@@ -171,6 +214,14 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const [groupReady, setGroupReady] = useState(0);
   useEffect(() => { if (lib) void lib.ensureGroups(group === 'recent' ? [...new Set(recent.map(k => lib.catalog.parts[k].group))] : [group]).then(() => setGroupReady(v => v + 1)).catch(e => setToast(String(e.message || e))); }, [lib, group]);
   const overlay = useMemo(() => new THREE.Group(), []);
+  const fx = useMemo(() => { const f = new Fx(() => api.current?.invalidate(), reducedMotion); overlay.add(f.group); return f; }, [overlay]);
+  useEffect(() => () => fx.dispose(), [fx]);
+  /** Tháo kèm "bụp": hạt văng màu của mảnh. */
+  const removeWithPop = (id: number) => {
+    const w = worldRef.current, p = w?.pieces.get(id), m = mats;
+    if (p && m) fx.pop([(p.bbox[0] + p.bbox[3]) / 2, (p.bbox[1] + p.bbox[4]) / 2, (p.bbox[2] + p.bbox[5]) / 2], m.color(p.color).color);
+    histRef.current?.remove(id); sfx.pop(); haptic(10);
+  };
   useEffect(() => () => { mats?.dispose(); }, [mats]);
 
   // Dựng lại mô hình khi thế giới đổi
@@ -195,6 +246,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   // --- Bóng mờ và các lớp phủ ---
   const drawOverlay = useCallback(() => {
     for (const c of [...overlay.children]) {
+      if (c.userData.keep) continue;   // lớp hiệu ứng (fx) tự quản
       if (c.userData.transient) { const m = c as THREE.Mesh; m.geometry.dispose(); (m.material as THREE.Material).dispose(); }
       overlay.remove(c);
     }
@@ -258,7 +310,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     const hit = pick(w, r.o, r.d, ignore);
     if (!hit) return null;
     lastHit.current = hit;
-    return suggest(w, h.part, h.o, hit, { prev: ghostRef.current, bottomUpOnly: preschool, ignore }).best;
+    return suggest(w, h.part, h.o, hit, { prev: ghostRef.current, bottomUpOnly: preschool, ignore, magnet: preschool ? 1.6 : 1 }).best;
   }, [preschool]);
 
   const setGhostTracked = (c: Candidate | null) => {
@@ -284,6 +336,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     else h.place(c.part, colorRef.current, c.pos, c.o, checked.lift);
     if (id === null) {
       recordMetric(initial?.ownerId, 'placed'); if (quickRef.current) recordMetric(initial?.ownerId, 'quick');
+      if (rotations.current) recordMetric(initial?.ownerId, 'rotateBeforePlace', rotations.current); rotations.current = 0;
       if (selectedAt.current) recordMetric(initial?.ownerId, 'selectionMs', Math.round(performance.now() - selectedAt.current));
       selectedAt.current = performance.now(); placedAt.current = Date.now();
       onPlacedRef.current?.({ type: 'placed', group: w.catalog.parts[c.part].group, heightCm: Math.max(...[...w.pieces.values()].map(p => -p.bbox[1])) * 0.04 });
@@ -300,11 +353,22 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
       }
     }
     sfx.snap(); haptic(12); advanceCoach(1);
+    const placed = [...w.pieces.values()].pop();
+    if (placed && lib && (id === null || placed.id !== id)) fx.settle(buildSingle(lib, w.catalog, placed.part, () => mats!.ghostOk), pieceMatrix(placed.pos, placed.o, new THREE.Matrix4(), 1));
     ghostRef.current = null; setGhost(null);
     setVersion(v => v + 1);
-  }, [guide]);
+  }, [guide, lib, mats, fx]);
 
-  const flash = (t: string) => { setToast(t); window.setTimeout(() => setToast(s => (s === t ? null : s)), 1600); };
+  const flash = (t: string) => { if (preschool) { cancelSpeech(); speak(t); }  // bé chưa biết chữ: mọi gợi ý có giọng đọc (mục 7.7)
+    setToast(t); window.setTimeout(() => setToast(s => (s === t ? null : s)), 1600); };
+
+  /** 🎯 Giữa / chạm đúp chỗ trống: camera vừa khung toàn mô hình (bàn trống → góc mặc định). */
+  const fitAll = () => {
+    const w = worldRef.current; if (!w?.pieces.size) { api.current?.fit(null); return; }
+    const lo: V3 = [Infinity, Infinity, Infinity], hi: V3 = [-Infinity, -Infinity, -Infinity];
+    for (const p of w.pieces.values()) for (let i = 0; i < 3; i++) { lo[i] = Math.min(lo[i], p.bbox[i]); hi[i] = Math.max(hi[i], p.bbox[i + 3]); }
+    api.current?.fit([lo, hi]);
+  };
 
   // --- Máy trạng thái chạm ---
   /** Điểm màn hình có nằm trên bóng mờ không (hình chiếu hộp bao, nới 24 px). */
@@ -324,9 +388,17 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     hitsGhost,
     orbit: (dx, dy) => { api.current?.orbit(dx, dy); advanceCoach(2); },
     pinch: (scale, dx, dy) => { api.current?.zoom(scale); if (!preschool) api.current?.pan(dx, dy); },
-    tap: (x, y, mouse) => {
+    // vặn hai ngón = xoay quanh trục đứng; chế độ bé tắt (dễ nhầm với chụm)
+    twist: preschool ? undefined : angle => api.current?.spin(angle),
+    orbitEnd: (distance, type) => { if (type === 'touch' && distance < 24) recordMetric(initial?.ownerId, 'nearTap'); },
+    tap: (x, y, mouse, double) => {
       const w = worldRef.current, hist = histRef.current, a = api.current;
       if (!w || !hist || !a) return;
+      if (double) {
+        // chạm đúp chỗ trống = vừa khung. Đang cầm mảnh thì chạm đúp trên bàn vẫn là "dời bóng rồi lắp" (mục 7.2).
+        const r = a.ray(x, y), hit = r && pick(w, r.o, r.d);
+        if (!hit || (hit.kind === 'ground' && !heldRef.current)) { fitAll(); return; }
+      }
       const m = modeRef.current;
       if (m === 'build' && heldRef.current) {
         const g = ghostRef.current;
@@ -340,7 +412,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
       const r = a.ray(x, y); if (!r) return;
       const hit = pick(w, r.o, r.d);
       if (!hit || hit.kind !== 'piece') { if (m === 'select') setSelected(null); return; }
-      if (m === 'erase') { hist.remove(hit.id); sfx.pop(); haptic(10); setVersion(v => v + 1); }
+      if (m === 'erase') { removeWithPop(hit.id); setVersion(v => v + 1); }
       else if (m === 'paint') { hist.color(hit.id, colorRef.current); sfx.tick(); setVersion(v => v + 1); }
       else if (m === 'select') { setSelected(hit.id); sfx.tick(); }
       else if (m === 'build') {
@@ -365,20 +437,20 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   useEffect(() => {
     const el = wrap.current; if (!el) return;
     const rel = (e: PointerEvent) => { const r = el.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top] as const; };
-    const down = (e: PointerEvent) => { api.current?.autoRotate(false); if ((e.target as HTMLElement).closest('.bk-float, .bk-coach, button')) return; try { el.setPointerCapture(e.pointerId); } catch { /* pointer giả lập hoặc đã nhả */ } const [x, y] = rel(e); machine.down(e.pointerId, x, y, e.pointerType); };
+    const down = (e: PointerEvent) => { api.current?.autoRotate(false); if ((e.target as HTMLElement).closest('.bk-float, .bk-coach, button')) return; try { el.setPointerCapture(e.pointerId); } catch { /* pointer giả lập hoặc đã nhả */ } if (e.button === 1) e.preventDefault(); /* chuột giữa: không tự cuộn trang */ const [x, y] = rel(e); machine.down(e.pointerId, x, y, e.pointerType, e.button, Math.max(e.width || 0, e.height || 0)); };
     const move = (e: PointerEvent) => { const [x, y] = rel(e); machine.move(e.pointerId, x, y); };
     const up = (e: PointerEvent) => { const [x, y] = rel(e); machine.up(e.pointerId, x, y); };
     const cancel = () => machine.cancel();
     const wheel = (e: WheelEvent) => { e.preventDefault(); api.current?.zoom(e.deltaY < 0 ? 1.1 : 1 / 1.1); };
-    const gesture = (e: Event) => e.preventDefault(); // iOS: chặn phóng cả trang
+    const gesture = (e: Event) => e.preventDefault(); // iOS: chặn phóng cả trang; chuột phải: chặn menu (kéo phải = xoay)
     el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up);
     el.addEventListener('pointercancel', cancel); el.addEventListener('wheel', wheel, { passive: false });
-    el.addEventListener('gesturestart', gesture as any);
+    el.addEventListener('gesturestart', gesture as any); el.addEventListener('contextmenu', gesture);
     const hide = () => { if (document.hidden) machine.cancel(); };
     document.addEventListener('visibilitychange', hide); window.addEventListener('blur', cancel);
     return () => {
       el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', up);
-      el.removeEventListener('pointercancel', cancel); el.removeEventListener('wheel', wheel); el.removeEventListener('gesturestart', gesture as any);
+      el.removeEventListener('pointercancel', cancel); el.removeEventListener('wheel', wheel); el.removeEventListener('gesturestart', gesture as any); el.removeEventListener('contextmenu', gesture);
       document.removeEventListener('visibilitychange', hide); window.removeEventListener('blur', cancel);
     };
   }, [machine, lib]);
@@ -397,7 +469,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
 
   const choosePart = async (part: string) => {
     if (!lib) return;
-    selectedAt.current = performance.now();
+    selectedAt.current = performance.now(); rotations.current = 0;
     const request = ++choice.current;
     try { await lib.ensureParts([part]); } catch { flash('Chưa tải được mảnh. Thử chọn lại nhé.'); return false; }
     if (request !== choice.current) return false;
@@ -414,7 +486,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
 
   /** ↻: hướng lắp được tiếp theo tại chỗ đang nhắm (plan mục 7.4 bước 7). */
   const rotate = (reverse = false) => {
-    recordMetric(initial?.ownerId, 'rotate');
+    recordMetric(initial?.ownerId, 'rotate'); rotations.current++;
     const w = worldRef.current, h = heldRef.current; if (!w || !h) return;
     const hit = lastHit.current;
     if (hit?.kind === 'piece' && !w.pieces.has(hit.id)) { showInitialGhost(h); return; }
@@ -438,7 +510,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
       showInitialGhost(h); return;
     }
     if (kind === 'paint') { hst.color(id, colorRef.current); sfx.tick(); setVersion(v => v + 1); return; }
-    if (kind === 'remove') { hst.remove(id); sfx.pop(); haptic(10); setSelected(null); setVersion(v => v + 1); return; }
+    if (kind === 'remove') { removeWithPop(id); setSelected(null); setVersion(v => v + 1); return; }
     if (kind === 'lift') {
       const h = { part: p.part, o: p.o }, pos = p.pos;
       moving.current = id; setSelected(null); setColor(p.color); colorRef.current = p.color;
@@ -469,7 +541,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     const key = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === 'INPUT') return;
       if (e.key === 'r' || e.key === 'R') rotate(e.shiftKey);
-      else if (e.key === 'Escape') { cancelHeld(); setSettings(false); }
+      else if (e.key === 'Escape') { if (paletteOpen) { setPaletteOpen(false); return; } cancelHeld(); setSettings(false); }
       else if (e.key === 'Delete' && selectedRef.current !== null) selAction('remove');
       else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); }
       else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); }
@@ -483,8 +555,10 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
     if (e.button !== 0) return;
     trayCleanup.current();
     const sx = e.clientX, sy = e.clientY, id = e.pointerId, type = e.pointerType;
-    let started = false, ended = false;
-    const cleanup = () => { ended = true; document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.removeEventListener('pointercancel', cancel); };
+    let started = false, ended = false, longPressed = false;
+    // nhấn giữ 500 ms không kéo = xem mảnh 3D (mục 7.1); không chọn mảnh
+    const hold = window.setTimeout(() => { if (!started && !ended) { longPressed = true; setViewer(part); } }, 500);
+    const cleanup = () => { ended = true; clearTimeout(hold); document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.removeEventListener('pointercancel', cancel); };
     const move = (ev: PointerEvent) => {
       if (ev.pointerId !== id || !wrap.current) return;
       const r = wrap.current.getBoundingClientRect();
@@ -501,7 +575,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
         choice.current++;
         if (ev.clientX < r.left || ev.clientX > r.right || ev.clientY < r.top || ev.clientY > r.bottom) machine.cancel();
         else machine.up(id, ev.clientX - r.left, ev.clientY - r.top);
-      } else void choosePart(part);
+      } else if (!longPressed) void choosePart(part);
     };
     const cancel = () => { if (started && !ended) recordMetric(initial?.ownerId, 'trayCancel'); cleanup(); choice.current++; machine.cancel(); };
     trayCleanup.current = cancel;
@@ -537,13 +611,21 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const catalog = lib.catalog;
   const palette = preschool ? catalog.palette.filter(c => catalog.preschoolColors.includes(c.key)) : catalog.palette;
   const needed = guide ? guideTargets() : [];
-  const simpleParts = new Set(['3001','3002','3003','3004','3005','3006','3007','3008','3009','3010','3020','3021','3022','3023','3024','3031','3032','3034','3035','3036','3039','3040b','3062b','3068b','3070b','6141','3941','4032','3659']);
-  const groupParts = (guide ? [...new Set(needed.map(t => t.part))] : group === 'recent' ? recent : catalog.groups.find(g => g.id === group)?.parts ?? [])
+  const simpleParts = PRESCHOOL_PARTS;
+  const baseParts = (guide ? [...new Set(needed.map(t => t.part))] : group === 'recent' ? recent : catalog.groups.find(g => g.id === group)?.parts ?? [])
     .filter(k => (!preschool || simpleParts.has(k)) && (!search || catalog.parts[k].name.toLocaleLowerCase('vi').includes(search.toLocaleLowerCase('vi')) || k.includes(search)));
+  // nhóm con: chỉ khi xem một nhóm (không tìm kiếm, không theo hướng dẫn, không phải chế độ bé — bé chỉ có ~30 mảnh)
+  const subs = guide || search || preschool || group === 'recent' ? [] : subgroupsOf(group, baseParts, catalog.parts);
+  const groupParts = sub ? subs.find(s => s.id === sub)?.parts ?? baseParts : baseParts;
+  /** Màu có thật với mảnh đang cầm (Rebrickable); null = không rõ. Màu khác vẫn chọn được, chỉ có chấm mờ (mục 7.1, D6). */
+  const realColors = held ? catalog.parts[held.part]?.colors ?? null : null;
+  const pickColor = (key: string, name: string) => { setColor(key); say(name); setPaletteOpen(false); setRecentColors(r => [key, ...r.filter(k => k !== key)].slice(0, 6)); };
+  const swatch = (c: (typeof palette)[number], extra = '') => { const rare = !!realColors && !realColors.includes(c.key);
+    return <button key={c.key} className={`bk-swatch ${extra} ${color === c.key ? 'on' : ''} ${rare ? 'rare' : ''}`} style={{ background: c.hex, opacity: c.alpha < 255 ? 0.6 : 1 }} title={rare ? `${c.nameVi} (mảnh này ít có màu này ngoài đời)` : c.nameVi} aria-label={rare ? `${c.nameVi}, ít có thật` : c.nameVi} onClick={() => pickColor(c.key, c.nameVi)} />; };
   const ghostScreen = ghost && api.current ? (() => { const w = worldRef.current!; const bb = w.shape(ghost.part, ghost.pos, ghost.o).bbox; return api.current!.project([bb[3], bb[1], (bb[2] + bb[5]) / 2]); })() : null;
 
   return (
-    <div className="bk-root">
+    <div className={`bk-root ${preschool ? 'bk-kid' : ''}`}>
       <div className="bk-top">
         {header ?? <strong>Xưởng Lắp Ghép</strong>}
         <button className="bk-btn" onClick={() => setSettings(true)} aria-label="Cài đặt và trợ giúp">⚙</button>
@@ -554,7 +636,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
         <label className="bk-explode" title="Nổ tung: kéo để tách mảnh, thả để ráp lại">💥<input type="range" min={0} max={1} step={0.02} value={explode} onChange={e => setExplode(Number(e.target.value))} onPointerUp={() => setExplode(0)} onTouchEnd={() => setExplode(0)} aria-label="Nổ tung mô hình" /></label>
         <span className="bk-stats">{lab ? stats : ''}</span>
       </div>
-      {settings && <div className="bk-dialog bk-export" role="dialog" aria-modal="true" aria-label="Cài đặt xưởng"><div>
+      {settings && <Dialog className="bk-export" label="Cài đặt xưởng" onClose={() => setSettings(false)}>
         <div className="bk-export-head"><strong>Cài đặt & trợ giúp</strong><button className="bk-btn" onClick={() => setSettings(false)} aria-label="Đóng cài đặt">✕</button></div>
         <p><label>Chất lượng hình ảnh <select value={quality} onChange={e => setQuality(e.target.value as Quality)}><option value="high">Cao</option><option value="mid">Vừa</option><option value="low">Tiết kiệm</option></select></label></p>
         <p><label><input type="checkbox" checked={quick} onChange={e => setQuick(e.target.checked)} /> Lắp nhanh khi chạm một lần</label></p>
@@ -562,23 +644,28 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
         <button className="bk-btn" onClick={() => { setCoach(0); setSettings(false); }}>Xem lại hướng dẫn</button>
         <details><summary>Số liệu trên máy · 30 ngày gần nhất</summary><p>Chỉ lưu trên thiết bị này, không gửi lên máy chủ.</p><pre className="bk-credits">{JSON.stringify(readMetrics(initial?.ownerId ?? ""), null, 2)}</pre><button className="bk-btn" onClick={() => { const url = URL.createObjectURL(new Blob([JSON.stringify(readMetrics(initial?.ownerId ?? ""), null, 2)], { type: "application/json" })); const a = document.createElement("a"); a.href = url; a.download = "so-lieu-lap-ghep.json"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }}>Tải số liệu JSON</button></details>
         <details><summary>Ghi công dữ liệu</summary><p>Hình học mảnh: thư viện LDraw.org (CC BY). Điểm nối: LDCad Shadow Library (CC BY-SA 4.0). Xếp hạng mảnh và màu: dữ liệu Rebrickable.</p><pre className="bk-credits">{JSON.stringify(catalog.credits, null, 2)}</pre></details>
-      </div></div>}
+      </Dialog>}
+      {viewer && icons && <PartViewer part={viewer} color={color} catalog={catalog} icons={icons} onClose={() => setViewer(null)} onChoose={() => { const k = viewer; setViewer(null); void choosePart(k); }} />}
       <div className="bk-main">
         <div className="bk-modes">
           {(preschool ? [['build', '🧱', 'Lắp'], ['paint', '🖌', 'Sơn'], ['erase', '🔨', 'Tháo']] as const : [['build', '🧱', 'Lắp'], ['paint', '🖌', 'Sơn'], ['erase', '🔨', 'Tháo'], ['select', '✋', 'Chọn']] as const).map(([m, icon, label]) =>
             <button key={m} className={`bk-btn bk-mode ${mode === m ? 'on' : ''}`} onClick={() => { cancelHeld(); setMode(m); if (m !== 'build') { ghostRef.current = null; setGhost(null); } }} aria-label={label}><span>{icon}</span><small>{label}</small></button>)}
           <hr />
-          <button className="bk-btn bk-mode" onClick={() => { const w = worldRef.current; if (!w?.pieces.size) { api.current?.fit(null); return; } let lo: V3 = [Infinity, Infinity, Infinity], hi: V3 = [-Infinity, -Infinity, -Infinity]; for (const p of w.pieces.values()) for (let i = 0; i < 3; i++) { lo[i] = Math.min(lo[i], p.bbox[i]); hi[i] = Math.max(hi[i], p.bbox[i + 3]); } api.current?.fit([lo, hi]); }} aria-label="Vừa khung"><span>🎯</span><small>Giữa</small></button>
+          <button className="bk-btn bk-mode" onClick={fitAll} aria-label="Vừa khung"><span>🎯</span><small>Giữa</small></button>
           <button className="bk-btn bk-mode" onClick={measureFps} aria-label="Xoay 360"><span>🔄</span><small>360°</small></button>
-          <button className="bk-btn bk-mode" onClick={() => api.current?.view('top')} aria-label="Nhìn từ trên"><span>⬒</span><small>Trên</small></button>
+          <button className="bk-btn bk-mode" onClick={() => { const n = (viewIdx + 1) % VIEWS.length; setViewIdx(n); api.current?.view(VIEWS[n][0]); flash(`Nhìn ${VIEWS[n][1].toLowerCase()}`); }} aria-label={`Đổi góc nhìn (đang: ${VIEWS[viewIdx][1]})`}><span>⬒</span><small>{VIEWS[viewIdx][1]}</small></button>
         </div>
         <div className="bk-stage" ref={wrap}>
-          {model && <BrickCanvas ref={api} model={model.group} overlay={overlay} quality={quality} reducedMotion={reducedMotion} onContextLost={setLost} capture={lab} alwaysRender={lab && new URLSearchParams(location.search).get('demo') === '1'} />}
+          {!webgl && <NoWebgl world={worldRef.current} name={typeof header === 'string' ? header : 'mo-hinh'} />}
+          {webgl && model && <BrickCanvas ref={api} model={model.group} overlay={overlay} quality={quality} reducedMotion={reducedMotion} onContextLost={l => { setLost(l); if (!l) setVersion(v => v + 1); }} preschool={preschool} capture={lab} alwaysRender={lab && new URLSearchParams(location.search).get('demo') === '1'} />}
           {lost && <div className="bk-lost">Đang khôi phục 3D…</div>}
           {ghost && ghostScreen && mode === 'build' && (
-            <div className="bk-float" style={{ left: Math.min(ghostScreen.x + 16, (wrap.current?.clientWidth ?? 0) - 110), top: Math.max(ghostScreen.y - 30, 8) }}>
-              <button className="bk-btn ok" disabled={!ghost.ok} onClick={() => ghost && commit(ghost)} aria-label="Lắp">✓</button>
+            <div className="bk-float" style={{ left: Math.min(ghostScreen.x + 16, (wrap.current?.clientWidth ?? 0) - 170), top: Math.max(ghostScreen.y - 30, 8) }}>
+              {ghost.ok ? <button className="bk-btn ok" onClick={() => ghost && commit(ghost)} aria-label="Lắp">✓</button>
+                : <span className="bk-bad" role="status">✕ {reasonText(ghost.reason)}</span>}
               <button className="bk-btn" onClick={() => rotate()} aria-label="Đổi hướng">↻</button>
+              <button className="bk-btn bk-handle" aria-label="Kéo để dời mảnh" title="Kéo để dời mảnh"
+                onPointerDown={e => { if (e.button !== 0 || !wrap.current) return; const r = wrap.current.getBoundingClientRect(); try { wrap.current.setPointerCapture(e.pointerId); } catch { /* pointer giả lập */ } machine.beginGhostDrag(e.pointerId, e.clientX - r.left, e.clientY - r.top, e.pointerType); }}>✥</button>
             </div>)}
           {toast && <div className="bk-toast">{toast}</div>}
           {coach >= 0 && (
@@ -609,17 +696,26 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
       </div>
       <div className="bk-tray">
         <div className="bk-groups">
-          <button className={`bk-chip ${group === "recent" ? "on" : ""}`} onClick={() => setGroup("recent")}>Vừa dùng</button>
-          {catalog.groups.filter(g => !preschool || g.parts.some(k => simpleParts.has(k))).map(g => <button key={g.id} className={`bk-chip ${group === g.id ? 'on' : ''}`} onClick={() => { setGroup(g.id); }}>{g.nameVi}</button>)}
+          <button className={`bk-chip ${group === "recent" ? "on" : ""}`} onClick={() => { setGroup("recent"); setSub(null); }}><span aria-hidden>{GROUP_ICON.recent}</span> Vừa dùng</button>
+          {catalog.groups.filter(g => !preschool || g.parts.some(k => simpleParts.has(k))).map(g => <button key={g.id} className={`bk-chip ${group === g.id ? 'on' : ''}`} onClick={() => { setGroup(g.id); setSub(null); }}><span aria-hidden>{GROUP_ICON[g.id] ?? '🧩'}</span> {g.nameVi}</button>)}
         </div>
+        {subs.length > 0 && <div className="bk-subs" role="group" aria-label="Nhóm con">
+          <button className={`bk-chip bk-sub ${sub === null ? 'on' : ''}`} onClick={() => setSub(null)}>Tất cả</button>
+          {subs.map(sg => <button key={sg.id} className={`bk-chip bk-sub ${sub === sg.id ? 'on' : ''}`} onClick={() => setSub(sg.id)}>{sg.label}</button>)}
+        </div>}
         <input className="bk-search" aria-label="Tìm mảnh" placeholder="Tìm mảnh theo tên hoặc mã…" value={search} onChange={e => setSearch(e.target.value)} />
         <div className="bk-row">
           <div className="bk-parts">
-            {groupParts.map(k => <PartCard key={k} part={k} name={catalog.parts[k].name} color={color} icons={icons} ready={groupReady > 0 && lib.has(k)} on={held?.part === k} onPointerDown={trayPointerDown(k)} onChoose={() => void choosePart(k)} />)}
+            {groupParts.map(k => <PartCard key={k} part={k} name={catalog.parts[k].name} color={color} icons={icons} ready={groupReady > 0 && lib.has(k)} on={held?.part === k} onPointerDown={trayPointerDown(k)} onChoose={() => void choosePart(k)} onView={() => setViewer(k)} />)}
           </div>
-          <div className="bk-colors">
-            {palette.map(c => <button key={c.key} className={`bk-swatch ${color === c.key ? 'on' : ''}`} style={{ background: c.hex, opacity: c.alpha < 255 ? 0.6 : 1 }} title={c.nameVi} aria-label={c.nameVi} onClick={() => { setColor(c.key); say(c.nameVi); }} />)}
+          <div className="bk-colorbar">
+            <button className={`bk-swatch bk-current ${realColors && !realColors.includes(color) ? 'rare' : ''}`} style={{ background: catalog.palette.find(c => c.key === color)?.hex }}
+              onClick={() => setPaletteOpen(o => !o)} aria-expanded={paletteOpen} aria-label={`Màu đang chọn: ${catalog.palette.find(c => c.key === color)?.nameVi ?? ''}. Mở bảng màu`}><span aria-hidden>▾</span></button>
+            {recentColors.filter(k => k !== color && palette.some(c => c.key === k)).slice(0, 4).map(k => swatch(palette.find(c => c.key === k)!, 'bk-recent'))}
           </div>
+          {paletteOpen && <div className="bk-palette" role="dialog" aria-label="Bảng màu">
+            {palette.map(c => swatch(c))}
+          </div>}
           <button className="bk-btn bk-rotate" onClick={() => rotate()} aria-label="Xoay mảnh">↻<small>XOAY</small></button>
         </div>
         {lab && (
@@ -636,8 +732,19 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   );
 }
 
+/** Thiết bị không có WebGL: không vẽ được 3D, nhưng vẫn tải được danh sách mảnh (CSV). */
+function NoWebgl({ world, name }: { world: World | null; name: string }) {
+  const download = () => {
+    if (!world) return;
+    const rows = buildBom(world).map(r => [r.nameVi, r.colorVi, r.qty, r.ldraw].map(v => `"${String(v).replace(/"/g, '""')}"`).join(','));
+    const url = URL.createObjectURL(new Blob(['﻿Tên mảnh,Màu,Số lượng,Mã mảnh\n' + rows.join('\n')], { type: 'text/csv' }));
+    const a = document.createElement('a'); a.href = url; a.download = `${name}-danh-sach-manh.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+  return <div className="bk-lost" role="alert"><div><p>Thiết bị này không hiển thị được hình 3D.</p>{!!world?.pieces.size && <button className="bk-btn" onClick={download}>Tải danh sách mảnh (CSV)</button>}</div></div>;
+}
+
 /** Thẻ mảnh: hình 3D đúng màu đang chọn (vẽ khi rảnh) + tên. */
-function PartCard({ part, name, color, icons, ready, on, onPointerDown, onChoose }: { part: string; name: string; color: string; icons: IconRenderer | null; ready: boolean; on: boolean; onPointerDown: (e: React.PointerEvent) => void; onChoose: () => void }) {
+function PartCard({ part, name, color, icons, ready, on, onPointerDown, onChoose, onView }: { part: string; name: string; color: string; icons: IconRenderer | null; ready: boolean; on: boolean; onPointerDown: (e: React.PointerEvent) => void; onChoose: () => void; onView: () => void }) {
   const [url, setUrl] = useState<string | undefined>(() => icons?.cached(part, color));
   useEffect(() => {
     let alive = true;
@@ -648,7 +755,7 @@ function PartCard({ part, name, color, icons, ready, on, onPointerDown, onChoose
     return () => { alive = false; };
   }, [icons, part, color, ready]);
   return (
-    <button className={`bk-part ${on ? 'on' : ''}`} onPointerDown={onPointerDown} onClick={e => { if (e.detail === 0) onChoose(); }} aria-label={name} title={name}>
+    <button className={`bk-part ${on ? 'on' : ''}`} onPointerDown={onPointerDown} onClick={e => { if (e.detail === 0) onChoose(); }} onContextMenu={e => { e.preventDefault(); onView(); }} aria-label={name} title={`${name} — nhấn giữ để xem kỹ`}>
       {url ? <img src={url} alt="" draggable={false} /> : <span className="bk-part-ph" />}
       <span className="bk-part-name">{name}</span>
     </button>

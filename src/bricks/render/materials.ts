@@ -9,6 +9,9 @@ export type Bucket = 'opaque' | 'trans' | 'shiny';
  * Mức chất lượng mặc định theo máy (plan mục 8.3): ít nhân/ít RAM hoặc màn nhỏ cảm ứng → thấp hơn.
  * Người dùng vẫn đổi được; lựa chọn được nhớ trong localStorage `bricks-quality`.
  */
+/** Đã có người chọn mức chất lượng bằng tay (thì không tự hạ theo fps). */
+export function hasSavedQuality() { try { return !!localStorage.getItem('bricks-quality'); } catch { return false; } }
+
 export function detectQuality(): Quality {
   try { const saved = localStorage.getItem('bricks-quality'); if (saved === 'high' || saved === 'mid' || saved === 'low') return saved; } catch { /* bỏ qua */ }
   const nav = navigator as Navigator & { deviceMemory?: number };

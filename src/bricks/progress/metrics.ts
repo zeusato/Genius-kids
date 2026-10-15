@@ -1,5 +1,6 @@
 // Chỉ lưu tại thiết bị; prefix này KHÔNG nằm trong account snapshot.
-export type Metric = 'placed' | 'quick' | 'invalid' | 'undoSoon' | 'selectionMs' | 'rotate' | 'trayCancel';
+// rotateBeforePlace: số lần ↻ cộng dồn của các lần lắp (chia cho placed = trung bình); nearTap: kéo một ngón < 24 px rồi thành xoay (định chạm mà lỡ xoay → chỉnh TAP_SLOP)
+export type Metric = 'placed' | 'quick' | 'invalid' | 'undoSoon' | 'selectionMs' | 'rotate' | 'rotateBeforePlace' | 'trayCancel' | 'nearTap';
 export const metricsKey = (owner: string) => 'bricks-local-metrics:' + owner;
 export type Days = Record<string, Record<string, number>>;
 export function pruneMetrics(days: Days, now = new Date()): Days {

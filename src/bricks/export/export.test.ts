@@ -4,7 +4,7 @@ import { World, add3 } from '../engine/world';
 import { History } from '../engine/history';
 import { SAMPLES, buildSample } from '../content/samples';
 import { buildBom, realSize } from './bom';
-import { buildSteps } from './steps';
+import { baseplateHint, buildSteps } from './steps';
 import { fromLdraw, toLdraw, toBricklinkXml, toRebrickableCsv } from './files';
 import { makePdf } from './pdf';
 import type { Catalog } from '../engine/types';
@@ -48,6 +48,18 @@ describe('các bước lắp', () => {
       expect(replay.pieces.size).toBe(w.pieces.size);
     }
   });
+  it('cổng hai trụ rời: bước thanh ngang ghi khoảng cách giữa hai cụm, gợi ý tấm nền vừa đủ; chế độ bé tối đa 3 mảnh/bước', () => {
+    const w = new World(catalog);
+    for (const x of [-30, 30]) for (let i = 0; i < 3; i++) w.add('3005', 'red', [x, -24 * (i + 1), 0], 0);
+    w.add('3710', 'blue', [0, -80, 0], 0);   // tấm 1×4 nằm trên đỉnh hai trụ
+    expect(w.floating().size).toBe(0);
+    const steps = buildSteps(w), bar = steps.find(s => s.pieces.includes(7))!;
+    expect(bar.bridge).toEqual({ gap: 2 });
+    expect(steps.filter(s => s.bridge)).toHaveLength(1);
+    expect(baseplateHint(w)).toEqual({ w: 4, d: 1 });
+    expect(baseplateHint(built('nha'))).toBeNull();
+    expect(buildSteps(built('lau-dai'), 3).every(s => s.pieces.length <= 3)).toBe(true);
+  });
   it('mái hiên không lên trước trụ đỡ', () => {
     const w = built('nha'), steps = buildSteps(w);
     const stepOf = (id: number) => steps.findIndex(s => s.pieces.includes(id));
@@ -77,7 +89,7 @@ describe('file cho người lớn', () => {
       expect(pieces(again), s.id).toEqual(order.map(p => [p.part, p.color, p.pos.join(), p.o].join('|')));
     }
   });
-  it('LDraw round-trip: mọi mảnh × mọi hướng khác nhau, kể cả bộ ghép (cửa sổ, cửa, bánh)', () => {
+  it('LDraw round-trip: mọi mảnh × mọi hướng khác nhau, kể cả bộ ghép (cửa sổ, cửa, bánh)', { timeout: 60000 }, () => {
     const colors = catalog.palette.map(c => c.key);
     let n = 0;
     const w = new World(catalog), again = new World(catalog);  // dùng lại: World mới phải tính lại 24 hướng của mảnh

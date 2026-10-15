@@ -1,7 +1,7 @@
-import { EffectComposer, N8AO } from '@react-three/postprocessing';
+import { EffectComposer, N8AO, ToneMapping } from '@react-three/postprocessing';
 // Khung 3D của xưởng (plan mục 8): cảnh, ánh sáng phòng chụp, mặt bàn, camera điều khiển bằng API (không tự nghe pointer).
 import React, { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Grid } from '@react-three/drei';
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
@@ -10,6 +10,10 @@ import type { Quality } from './materials';
 
 /** LDraw (LDU, Y xuống) → three.js: quay 180° quanh X rồi chia 20 (1 núm = 1 đơn vị). */
 export const LDRAW_TO_WORLD = new THREE.Matrix4().makeRotationX(Math.PI).premultiply(new THREE.Matrix4().makeScale(1 / 20, 1 / 20, 1 / 20));
+/** Sân khấu tối để mảnh màu nổi lên (góp ý chủ dự án 15/10). Ảnh in PDF/icon khay dùng renderer phụ, nền sáng riêng. */
+export const STAGE = { background: '#1b222c', table: '#252e3a', cell: '#323d4b', section: '#46546a' } as const;
+// ToneMappingMode.NEUTRAL của gói `postprocessing` (phụ thuộc gián tiếp nên không import enum) — giống cell/scene3d/Effects.tsx
+const TONE_MAPPING_NEUTRAL = 8;
 export const toWorld = (p: V3) => new THREE.Vector3(p[0] / 20, -p[1] / 20, -p[2] / 20);
 
 export interface CanvasApi {
@@ -18,6 +22,8 @@ export interface CanvasApi {
   /** Chiếu điểm LDraw ra màn hình (px). */
   project(p: V3): { x: number; y: number } | null;
   orbit(dx: number, dy: number): void;
+  /** Xoay quanh trục đứng theo góc vặn hai ngón (rad, dương = theo chiều kim đồng hồ trên màn hình → mô hình quay theo ngón). */
+  spin(angle: number): void;
   zoom(scale: number): void;
   pan(dx: number, dy: number): void;
   fit(box: [V3, V3] | null, smooth?: boolean): void;
@@ -27,11 +33,13 @@ export interface CanvasApi {
   angle(azimuthDeg: number, polarDeg: number, smooth?: boolean): void;
   invalidate(): void;
   gl(): THREE.WebGLRenderer | null;
+  /** Đo khung hình/giây: vẽ liên tục `ms` mili-giây ở trạng thái hiện tại. Tab ẩn → -1 (bẫy: không đo khi ẩn). */
+  benchmark(ms: number): Promise<number>;
   /** Ảnh thu nhỏ của khung hiện tại (vẽ lại rồi chép ngay, không cần preserveDrawingBuffer). */
   snapshot(width: number, height: number): Promise<Blob | null>;
 }
 
-interface Props { model: THREE.Object3D; overlay: THREE.Object3D; quality: Quality; reducedMotion?: boolean; onContextLost?: (lost: boolean) => void; /** bản thử: giữ bộ đệm để chụp ảnh canvas */ capture?: boolean; /** chụp ảnh headless: vẽ liên tục */ alwaysRender?: boolean }
+interface Props { model: THREE.Object3D; overlay: THREE.Object3D; quality: Quality; reducedMotion?: boolean; /** chế độ bé: camera không xuống dưới mặt bàn (mục 7.7) */ preschool?: boolean; onContextLost?: (lost: boolean) => void; /** bản thử: giữ bộ đệm để chụp ảnh canvas */ capture?: boolean; /** chụp ảnh headless: vẽ liên tục */ alwaysRender?: boolean }
 
 function Env() {
   const { gl, scene } = useThree();
@@ -41,14 +49,26 @@ function Env() {
     const room = new RoomEnvironment();
     const tex = pmrem.fromScene(room, 0.04).texture; room.dispose();
     scene.environment = tex;
-    scene.environmentIntensity = 0.6;
+    scene.environmentIntensity = 0.32;
     return () => { scene.environment = null; tex.dispose(); pmrem.dispose(); };
   }, [gl, scene]);
   return null;
 }
 
-const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, quality, reducedMotion, onContextLost }, ref) {
-  const { camera, gl, size, invalidate, scene } = useThree();
+/** DPR khi đứng yên (bản đẹp) và khi camera đang chuyển động (mục 8.3: vẽ nhẹ khi xoay, dừng 300 ms thì vẽ lại bản đẹp). */
+export function dprFor(quality: Quality, moving: boolean) {
+  const device = typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1;
+  return moving ? 1 : Math.min(device, quality === 'high' ? 2 : 1.5);
+}
+const IDLE_MS = 300;
+
+const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, quality, reducedMotion, preschool, onContextLost }, ref) {
+  const { camera, gl, size, invalidate, scene, setDpr } = useThree();
+  const frames = useRef(0);
+  useFrame(() => { frames.current++; });
+  const tableMat = useRef<THREE.MeshStandardMaterial>(null);
+  const moving = useRef(false);
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const controls = useRef<CameraControls>(null);
   const spin = useRef<number | null>(null);
   const root = useMemo(() => { const g = new THREE.Group(); g.matrixAutoUpdate = false; g.matrix.copy(LDRAW_TO_WORLD); return g; }, []);
@@ -61,19 +81,33 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
     c.mouseButtons.left = 0; c.mouseButtons.right = 0; c.mouseButtons.middle = 0; c.mouseButtons.wheel = 0;
     c.touches.one = 0; c.touches.two = 0; c.touches.three = 0;
     c.minPolarAngle = THREE.MathUtils.degToRad(8);
-    c.maxPolarAngle = THREE.MathUtils.degToRad(100);
+    // Chế độ bé: không xuống dưới mặt bàn. Lớp 1+: xuống tới 100° để gắn mảnh treo dưới (bàn mờ đi).
+    c.maxPolarAngle = THREE.MathUtils.degToRad(preschool ? 85 : 100);
     c.minDistance = 3; c.maxDistance = 120;
     c.smoothTime = reducedMotion ? 0.05 : 0.18;
     c.setLookAt(14, 13, 18, 0, 1, 0, false);
-    const onUpdate = () => invalidate();
+    const onUpdate = () => {
+      // camera xuống dưới mặt bàn → bàn mờ 30 % để thấy mảnh treo dưới (mục 7.6)
+      const m = tableMat.current, below = camera.position.y < 0.05;
+      if (m && m.transparent !== below) { m.transparent = below; m.opacity = below ? 0.3 : 1; m.depthWrite = !below; m.needsUpdate = true; }
+      // đang chuyển động: DPR 1; đứng yên 300 ms: vẽ lại ở DPR đầy đủ
+      if (!moving.current) { moving.current = true; if (dprFor(quality, false) > 1) setDpr(dprFor(quality, true)); }
+      clearTimeout(idleTimer.current);
+      idleTimer.current = setTimeout(() => { moving.current = false; setDpr(dprFor(quality, false)); invalidate(); }, IDLE_MS);
+      invalidate();
+    };
     c.addEventListener('update', onUpdate);
-    return () => c.removeEventListener('update', onUpdate);
-  }, [invalidate, reducedMotion]);
+    return () => { c.removeEventListener('update', onUpdate); clearTimeout(idleTimer.current); };
+  }, [invalidate, reducedMotion, preschool, quality, camera, setDpr]);
+
+  // Cao/Vừa: tone mapping ở cuối chuỗi EffectComposer → renderer không được tone map lần nữa. Thấp: không có composer → Neutral ở renderer.
+  // (Đổi mức thì Materials được tạo lại → shader biên dịch lại với toneMapping mới.)
+  useEffect(() => { gl.toneMapping = quality === 'low' ? THREE.NeutralToneMapping : THREE.NoToneMapping; invalidate(); }, [gl, quality, invalidate]);
 
   useEffect(() => {
     const canvas = gl.domElement;
     const lost = (e: Event) => { e.preventDefault(); onContextLost?.(true); };
-    const restored = () => { onContextLost?.(false); invalidate(); };
+    const restored = () => { onContextLost?.(false); invalidate(); };  // Workbench dựng lại lưới mô hình khi nhận false
     canvas.addEventListener('webglcontextlost', lost);
     canvas.addEventListener('webglcontextrestored', restored);
     return () => { canvas.removeEventListener('webglcontextlost', lost); canvas.removeEventListener('webglcontextrestored', restored); };
@@ -94,6 +128,7 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
         return { x: (v.x + 1) / 2 * size.width, y: (1 - v.y) / 2 * size.height };
       },
       orbit(dx, dy) { controls.current?.rotate(-dx * 0.008, -dy * 0.008, true); },
+      spin(angle) { controls.current?.rotate(-angle, 0, false); },
       zoom(scale) { const c = controls.current; if (c) c.dolly(c.distance * (1 - 1 / scale), true); },
       pan(dx, dy) { const c = controls.current; if (c) c.truck(-dx * c.distance * 0.0016, -dy * c.distance * 0.0016, true); },
       fit(box, smooth = true) {
@@ -124,6 +159,18 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
       },
       invalidate,
       gl: () => gl,
+      benchmark(ms) {
+        if (document.hidden) return Promise.resolve(-1);
+        return new Promise(resolve => {
+          const start = performance.now(), f0 = frames.current;
+          const step = (now: number) => {
+            if (document.hidden) { resolve(-1); return; }
+            if (now - start >= ms) { resolve((frames.current - f0) / ((now - start) / 1000)); return; }
+            invalidate(); requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      },
       snapshot(width, height) {
         gl.render(scene, camera);
         const src = gl.domElement, out = document.createElement('canvas');
@@ -131,7 +178,7 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
         const ctx = out.getContext('2d'); if (!ctx) return Promise.resolve(null);
         // cắt giữa theo tỉ lệ đích
         const r = width / height, sw = Math.min(src.width, src.height * r), sh = sw / r;
-        ctx.fillStyle = '#eef2f6'; ctx.fillRect(0, 0, width, height);
+        ctx.fillStyle = STAGE.background; ctx.fillRect(0, 0, width, height);
         ctx.drawImage(src, (src.width - sw) / 2, (src.height - sh) / 2, sw, sh, 0, 0, width, height);
         return new Promise(res => out.toBlob(b => { out.width = out.height = 0; res(b); }, 'image/webp', 0.8));
       },
@@ -144,25 +191,34 @@ const Inner = forwardRef<CanvasApi, Props>(function Inner({ model, overlay, qual
   return (
     <>
       <Env />
-      {quality !== "low" && <EffectComposer multisampling={0}><N8AO aoRadius={0.5} intensity={1.1} quality={quality === "high" ? "high" : "performance"} halfRes={quality === "mid"} /></EffectComposer>}
+      <color attach="background" args={[STAGE.background]} />
+      {/* EffectComposer tự tắt tone mapping của renderer → PHẢI có ToneMapping cuối chuỗi, không thì màu cháy trắng, mất khối. */}
+      {quality !== "low" && <EffectComposer multisampling={0}>
+        <N8AO aoRadius={0.45} intensity={0.75} quality={quality === "high" ? "high" : "performance"} halfRes={quality === "mid"} />
+        <ToneMapping mode={TONE_MAPPING_NEUTRAL} />
+      </EffectComposer>}
       <CameraControls ref={controls} makeDefault />
-      <hemisphereLight args={['#ffffff', '#c9d3df', 0.55]} />
-      <directionalLight position={[18, 30, 14]} intensity={1.6} castShadow={quality !== 'low'}
-        shadow-mapSize-width={shadowSize} shadow-mapSize-height={shadowSize} shadow-bias={-0.0004} shadow-normalBias={0.02}
+      {/* Đèn kiểu phòng chụp: key chéo trước-phải (đổ bóng nhẹ), fill phía đối diện, rim sau lưng tách khối khỏi nền tối.
+          Ba hướng sáng khác nhau → mặt trên / mặt trước / mặt bên có độ sáng khác nhau, đọc được hình khối. */}
+      <hemisphereLight args={['#e8eef7', STAGE.table, 0.22]} />
+      <directionalLight position={[16, 28, 20]} intensity={1.55} castShadow={quality !== 'low'}
+        shadow-mapSize-width={shadowSize} shadow-mapSize-height={shadowSize} shadow-bias={-0.0004} shadow-normalBias={0.02} shadow-intensity={0.45}
         shadow-camera-left={-34} shadow-camera-right={34} shadow-camera-top={34} shadow-camera-bottom={-34} shadow-camera-near={1} shadow-camera-far={90} />
+      <directionalLight position={[-20, 10, 6]} intensity={0.45} color="#cfdcff" />
+      <directionalLight position={[-6, 14, -24]} intensity={0.7} color="#ffffff" />
       <primitive object={root} />
       <mesh rotation-x={-Math.PI / 2} receiveShadow position={[0, -0.002, 0]}>
         <planeGeometry args={[64, 64]} />
-        <meshStandardMaterial color="#eef2f6" roughness={0.95} />
+        <meshStandardMaterial ref={tableMat} color={STAGE.table} roughness={0.92} />
       </mesh>
       <Grid position={[0, 0.001, 0]} args={[64, 64]} cellSize={1} sectionSize={8} cellThickness={0.6} sectionThickness={1.1}
-        cellColor="#cfd8e3" sectionColor="#a7b6c8" fadeDistance={70} fadeStrength={1.5} infiniteGrid={false} />
+        cellColor={STAGE.cell} sectionColor={STAGE.section} fadeDistance={70} fadeStrength={1.5} infiniteGrid={false} />
     </>
   );
 });
 
 export const BrickCanvas = forwardRef<CanvasApi, Props>(function BrickCanvas(props, ref) {
-  const dpr: [number, number] = props.quality === 'high' ? [1, 2] : props.quality === 'mid' ? [1, 1.5] : [1, 1];
+  const dpr = dprFor(props.quality, false);
   return (
     <Canvas frameloop={props.alwaysRender ? 'always' : 'demand'} shadows={props.quality !== 'low' ? 'soft' : false} dpr={dpr}
       camera={{ fov: 38, near: 0.1, far: 400, position: [14, 13, 18] }}

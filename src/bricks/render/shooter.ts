@@ -101,5 +101,45 @@ export class Shooter {
     return out;
   }
 
+  /**
+   * Tỉ lệ mảnh mới nhìn thấy được ở một góc (mục 11.4): bộ đệm ID 256×192, mỗi mảnh một màu (mã = chỉ số + 1),
+   * mảnh mới đủ ≥ MIN_PX điểm ảnh thì tính là thấy. Không đèn, không tone mapping (vẽ vào render target tuyến tính).
+   */
+  visible(view: ShotView, ids: number[], fresh: number[], w = 256, h = 192): number {
+    if (!fresh.length) return 1;
+    const MIN_PX = 6, scene = new THREE.Scene(), root = new THREE.Group(), mats: THREE.Material[] = [];
+    root.matrixAutoUpdate = false; root.matrix.copy(LDRAW_TO_WORLD); scene.add(root);
+    ids.forEach((id, i) => {
+      const p = this.full.pieces.get(id); if (!p || !this.lib.has(p.part)) return;
+      const m = new THREE.MeshBasicMaterial(); m.color.setRGB(((i + 1) & 255) / 255, ((i + 1) >> 8 & 255) / 255, 0, THREE.LinearSRGBColorSpace); mats.push(m);
+      const g = buildSingle(this.lib, this.full.catalog, p.part, () => m);
+      g.matrixAutoUpdate = false; g.matrix.copy(pieceMatrix(p.pos, p.o, new THREE.Matrix4(), 1)); root.add(g);
+    });
+    const target = new THREE.WebGLRenderTarget(w, h, { colorSpace: THREE.NoColorSpace });
+    const r = this.renderer, prevTarget = r.getRenderTarget(), prevClear = r.getClearColor(new THREE.Color()), prevAlpha = r.getClearAlpha(), prevShadow = r.shadowMap.enabled;
+    this.frame(view, w, h);
+    r.shadowMap.enabled = false; r.setRenderTarget(target); r.setClearColor(0x000000, 1); r.clear(); r.render(scene, this.camera);
+    const px = new Uint8Array(w * h * 4); r.readRenderTargetPixels(target, 0, 0, w, h, px);
+    r.setRenderTarget(prevTarget); r.setClearColor(prevClear, prevAlpha); r.shadowMap.enabled = prevShadow;
+    const count = new Map<number, number>();
+    for (let k = 0; k < px.length; k += 4) { const id = px[k] | (px[k + 1] << 8); if (id) count.set(id, (count.get(id) ?? 0) + 1); }
+    const index = new Map(ids.map((id, i) => [id, i + 1]));
+    const seen = fresh.filter(id => (count.get(index.get(id) ?? -1) ?? 0) >= MIN_PX).length;
+    target.dispose(); for (const m of mats) m.dispose();   // hình học là bản dùng chung của thư viện mảnh (subGeometry có cache): không dispose
+    return seen / fresh.length;
+  }
+
+  /** Bề ngang mô hình trên ảnh chụp ở góc `view` (px), để vẽ thước cm dưới ảnh góc Trước (mục 11.1). */
+  span(view: ShotView, w: number, h: number): { x0: number; x1: number } | null {
+    if (!this.full.pieces.size) return null;
+    this.frame(view, w, h);
+    let x0 = Infinity, x1 = -Infinity;
+    for (const p of this.full.pieces.values()) for (const X of [p.bbox[0], p.bbox[3]]) for (const Y of [p.bbox[1], p.bbox[4]]) for (const Z of [p.bbox[2], p.bbox[5]]) {
+      const v = new THREE.Vector3(X / 20, -Y / 20, -Z / 20).project(this.camera);
+      const x = (v.x + 1) / 2 * w; x0 = Math.min(x0, x); x1 = Math.max(x1, x);
+    }
+    return { x0, x1 };
+  }
+
   dispose() { this.outline.dispose(); this.mats.dispose(); this.env.dispose(); this.hiddenMat.dispose(); this.scene.traverse(o => { if (o instanceof THREE.Mesh) { o.geometry.dispose(); if (!Array.isArray(o.material)) o.material.dispose(); } if (o instanceof THREE.Light && "shadow" in o) (o as THREE.DirectionalLight).shadow.dispose(); }); releaseRenderer(this.renderer); }
 }

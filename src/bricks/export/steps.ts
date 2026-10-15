@@ -7,7 +7,11 @@
 import type { Box, V3 } from '../engine/types';
 import { add3, overlap, type Placed, type World } from '../engine/world';
 
-export interface Step { pieces: number[]; hard?: boolean }
+/**
+ * `bridge`: bước này nối các cụm đang rời nhau trên bàn (ví dụ thanh ngang trên hai trụ). `gap` = khoảng trống giữa
+ * hai cụm theo số núm, để tài liệu in "đặt hai cụm cách nhau N núm" (mục 11.4). Ngoài đời phải giữ đúng khoảng cách.
+ */
+export interface Step { pieces: number[]; hard?: boolean; bridge?: { gap: number } }
 
 const FAR = 4000;
 
@@ -74,8 +78,56 @@ export function buildSteps(world: World, maxPerStep = 6): Step[] {
       if (Math.hypot(c[0] - c0[0], c[2] - c0[2]) > 160) continue;
       step.push(p.id);
     }
+    const bridge = bridgeGap(world, built, step);
     for (const id of step) { built.add(id); remaining.delete(id); }
-    steps.push(hard ? { pieces: step, hard } : { pieces: step });
+    steps.push({ pieces: step, ...(hard ? { hard } : {}), ...(bridge !== null ? { bridge: { gap: bridge } } : {}) });
   }
   return steps;
+}
+
+/** Các cụm (thành phần liên thông, không tính mặt bàn) trong tập mảnh `ids`. */
+function clusters(world: World, ids: Set<number>): Set<number>[] {
+  const seen = new Set<number>(), out: Set<number>[] = [];
+  for (const id of ids) {
+    if (seen.has(id)) continue;
+    const c = new Set<number>([id]), queue = [id]; seen.add(id);
+    while (queue.length) for (const n of world.neighbors(queue.pop()!)) if (n !== 'ground' && ids.has(n) && !seen.has(n)) { seen.add(n); c.add(n); queue.push(n); }
+    out.push(c);
+  }
+  return out;
+}
+const boxOf = (world: World, ids: Iterable<number>) => {
+  const b = [Infinity, Infinity, -Infinity, -Infinity];   // x0 z0 x1 z1
+  for (const id of ids) { const p = world.pieces.get(id)!; b[0] = Math.min(b[0], p.bbox[0]); b[1] = Math.min(b[1], p.bbox[2]); b[2] = Math.max(b[2], p.bbox[3]); b[3] = Math.max(b[3], p.bbox[5]); }
+  return b;
+};
+
+/** Bước `step` có nối ≥ 2 cụm đã lắp đang rời nhau không; có thì trả khoảng trống nhỏ nhất giữa chúng (núm). */
+function bridgeGap(world: World, built: Set<number>, step: number[]): number | null {
+  if (built.size < 2) return null;
+  const parts = clusters(world, built);
+  if (parts.length < 2) return null;
+  // gộp mảnh của bước vào: một cụm mới chứa ≥ 2 cụm cũ ⇒ bước này nối chúng (hai mảnh mỗi cái lên một trụ thì không)
+  const merged = clusters(world, new Set([...built, ...step]));
+  const touched = merged.map(m => parts.filter(c => m.has(c.values().next().value as number))).find(group => group.length >= 2);
+  if (!touched) return null;
+  let gap = Infinity;
+  for (let i = 0; i < touched.length; i++) for (let j = i + 1; j < touched.length; j++) {
+    const a = boxOf(world, touched[i]), b = boxOf(world, touched[j]);
+    const gx = Math.max(0, b[0] - a[2], a[0] - b[2]), gz = Math.max(0, b[1] - a[3], a[1] - b[3]);
+    gap = Math.min(gap, Math.round(Math.max(gx, gz) / 20));
+  }
+  return gap;
+}
+
+/**
+ * Mô hình có nhiều cụm chạm bàn (ví dụ cổng hai trụ chưa có nền): gợi ý tấm nền vừa đủ phủ mọi cụm (núm),
+ * để ngoài đời giữ đúng khoảng cách. Một cụm → null.
+ */
+export function baseplateHint(world: World): { w: number; d: number } | null {
+  // "chân" của mô hình = các mảnh chạm bàn; chân rời nhau (chỉ nối qua phần phía trên) ⇒ ngoài đời cần giữ khoảng cách
+  const feet = new Set([...world.pieces.values()].filter(p => p.bbox[4] >= -2.5).map(p => p.id));
+  if (clusters(world, feet).length < 2) return null;
+  const b = boxOf(world, world.pieces.keys());
+  return { w: Math.ceil((b[2] - b[0]) / 20), d: Math.ceil((b[3] - b[1]) / 20) };
 }
