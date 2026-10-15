@@ -3,7 +3,7 @@
 import { ORIENTS, YAW, rot } from './orient';
 import { pick, type Hit } from './pick';
 import type { ConnKind, V3 } from './types';
-import { add3, isGroundStud, type Check, type Problem, type World } from './world';
+import { add3, isGroundStud, overlap, type Check, type Problem, type World } from './world';
 
 export interface Candidate { part: string; pos: V3; o: number; ok: boolean; reason?: Problem; joins: Check['joins']; lift?: Check['lift']; score: number }
 export interface SuggestOptions {
@@ -104,25 +104,52 @@ export function suggest(world: World, part: string, prefO: number, hit: Hit, opt
     checked.push({ ...c, ok: r.ok, reason: r.reason, joins: r.joins, lift: r.lift });
     if (r.ok && ++okCount >= (opt.wantOptions ?? 1)) break;
   }
-  const valid = checked.filter(c => c.ok);
+  let valid = checked.filter(c => c.ok);
+  // Chọn tầng (góp ý 15/10 — trước đây chỉ "leo lên" khi tầng thấp không còn chỗ nào → mảnh dài bị XOAY rồi nhét vào tầng trống):
+  //  · ở tầng tia chạm không có chỗ hợp lệ ĐÚNG HƯỚNG đang cầm → leo lên mặt cao nhất dưới chân mảnh, giữ hướng;
+  //  · chỗ hợp lệ đúng hướng nhưng bị che sát phía trên (không đủ khoảng để ấn xuống núm) → cũng leo lên.
+  // Đặt cạnh mảnh khác trên cùng mặt vẫn như cũ (có chỗ dịch nhẹ hợp lệ thì dùng, không nhảy lên nóc mảnh bên cạnh).
+  if (!opt.noClimb && target.normal[1] < -0.99 && checked.length) {
+    const same = valid.filter(c => def.symClass[c.o] === prefClass);
+    const blocked = same.length && same.every(c => coveredAbove(world, part, c.pos, c.o, opt.ignore));
+    if (!same.length || blocked) {
+      const from = raw.find(c => def.symClass[c.o] === prefClass) ?? checked[0];
+      const lifted = climb(world, part, prefO, from, target, radius, size, opt);
+      if (lifted && def.symClass[lifted.best!.o] === prefClass) return lifted;
+      if (blocked) valid = valid.filter(c => !same.includes(c));
+    }
+  }
   // Một lựa chọn cho mỗi lớp hướng (cho nút ↻), theo điểm tốt nhất
   const options: Candidate[] = [], classes = new Set<number>();
   for (const c of valid) { const cl = def.symClass[c.o]; if (!classes.has(cl)) { classes.add(cl); options.push(c); } }
   // "Leo lên": chạm mặt ngửa (bàn/mặt trên) mà mọi chỗ đều vướng → thử mặt núm CAO NHẤT nằm dưới vùng chân mảnh,
   // giữ đúng vị trí ngang bé đã nhắm (ví dụ thả tấm mái giữa bốn cột: tia lọt khe xuống nền, mái phải lên đầu cột).
   if (!valid.length && checked.length && !opt.noClimb && target.normal[1] < -0.99) {
-    const g = world.shape(part, checked[0].pos, checked[0].o).bbox;
-    let top: Hit | null = null;
-    for (let x = g[0] + 10; x < g[3]; x += 20) for (let z = g[2] + 10; z < g[5]; z += 20) {
-      const h = pick(world, [x, -AREA_TOP, z], [0, 1, 0], opt.ignore);
-      if (h && h.kind === 'piece' && h.normal[1] < -0.99 && h.point[1] < target.point[1] - 1 && (!top || h.point[1] < top.point[1])) top = h;
-    }
-    if (top && top.kind === 'piece') {
-      const lifted: Hit = { ...top, point: [target.point[0], top.point[1], target.point[2]] };
-      const again = suggest(world, part, prefO, lifted, { ...opt, noClimb: true, radius: Math.max(radius, size) });
-      if (again.best?.ok) return again;
-    }
+    const lifted = climb(world, part, prefO, checked[0], target, radius, size, opt);
+    if (lifted) return lifted;
   }
   return { best: valid[0] || checked[0] || null, options, target };
+}
+
+/** Khoảng ngay trên chân mảnh (đặt thử) có bị mảnh khác chiếm không — cần ≥ chiều cao núm để ấn mảnh xuống. */
+const CLEARANCE = 6;
+function coveredAbove(world: World, part: string, pos: V3, o: number, ignore?: Set<number>) {
+  const b = world.shape(part, pos, o).bbox;
+  const slab: [number, number, number, number, number, number] = [b[0], b[1] - CLEARANCE, b[2], b[3], b[1], b[5]];
+  return world.near(slab).some(p => !ignore?.has(p.id) && p.boxes.some(x => overlap(x, slab)));
+}
+
+/** Đậu lên mặt núm CAO NHẤT dưới chân mảnh (giữ vị trí ngang bé đã nhắm). Không có chỗ hợp lệ ở đó → null. */
+function climb(world: World, part: string, prefO: number, at: { pos: V3; o: number }, target: Hit, radius: number, size: number, opt: SuggestOptions): Suggestion | null {
+  const g = world.shape(part, at.pos, at.o).bbox;
+  let top: Hit | null = null;
+  for (let x = g[0] + 10; x < g[3]; x += 20) for (let z = g[2] + 10; z < g[5]; z += 20) {
+    const h = pick(world, [x, -AREA_TOP, z], [0, 1, 0], opt.ignore);
+    if (h && h.kind === 'piece' && h.normal[1] < -0.99 && h.point[1] < target.point[1] - 1 && (!top || h.point[1] < top.point[1])) top = h;
+  }
+  if (!top || top.kind !== 'piece') return null;
+  const lifted: Hit = { ...top, point: [target.point[0], top.point[1], target.point[2]] };
+  const again = suggest(world, part, prefO, lifted, { ...opt, noClimb: true, radius: Math.max(radius, size) });
+  return again.best?.ok ? again : null;
 }
 const AREA_TOP = 4000;

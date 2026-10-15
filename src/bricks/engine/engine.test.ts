@@ -90,6 +90,34 @@ describe('đặt mảnh', () => {
     expect(s.best?.ok).toBe(true);
   });
 
+  // Góp ý chủ dự án 15/10: tia lọt khe xuống tầng thấp thì mảnh bị nhét vào tầng trống, không lên được tầng trên.
+  // Luật mới (như lắp thật — hạ mảnh từ trên xuống): chỗ ngay trên chân mảnh ở tầng thấp bị mảnh khác che → mảnh đậu lên mặt cao nhất.
+  describe('chọn tầng khi tia lọt khe', () => {
+    const channel = () => {
+      w.add('3035', 'blue', [0, -8, 0], 0);                                            // tầng 1: tấm 4×8
+      for (const z of [-30, 30]) { w.add('3666', 'blue', [0, -16, z], 0); w.add('3666', 'blue', [0, -24, z], 0); }   // tầng 2–3: hai mép
+      return pick(w, [10, -2000, 0], [0, 1, 0])!;                                      // chạm đáy rãnh (mặt tầng 1)
+    };
+    it('tấm 1×6 cầm ngang qua rãnh: lên đỉnh tầng 3, giữ hướng đang cầm (không bị xoay nhét vào rãnh)', () => {
+      const hit = channel();
+      expect(hit.point[1]).toBe(-8);
+      const s = suggest(w, '3666', YAW[1], hit).best!;
+      expect(s.ok).toBe(true);
+      expect(w.def('3666').symClass[s.o]).toBe(w.def('3666').symClass[YAW[1]]);
+      expect(s.pos[1]).toBe(-32);                                                      // đáy mảnh nằm trên mặt tầng 3 (y = −24)
+    });
+    it('mảnh nhỏ vừa rãnh vẫn xuống đáy rãnh', () => {
+      const s = suggest(w, '3024', 0, channel()).best!;
+      expect(s.ok).toBe(true); expect(s.pos[1]).toBe(-16);
+    });
+    it('dưới mái cao (còn khoảng trống phía trên) vẫn lắp được trên mặt thấp', () => {
+      for (const x of [-30, 30]) for (let i = 1; i <= 3; i++) w.add('3005', 'red', [x, -24 * i, 0], 0);
+      w.add('3710', 'red', [0, -80, 0], 0);                                            // mái 1×4 cao 3 gạch
+      const s = suggest(w, '3024', 0, pick(w, [10, -40, 0], [0, 1, 0])!).best!;        // tia đi dưới mái, chạm bàn
+      expect(s.ok).toBe(true); expect(s.pos[1]).toBe(-8);
+    });
+  });
+
   it('chế độ bé chỉ cho hướng đứng', () => {
     const a = dropAt('87087', 0, 0)!;
     w.add('87087', 'red', a.pos, a.o);
