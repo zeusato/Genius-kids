@@ -200,3 +200,7 @@
 .bk-root.bk-kid .bk-part img, .bk-root.bk-kid .bk-part .bk-part-ph { width: 76px; height: 76px; }
 .bk-root.bk-kid .bk-colorbar { grid-template-columns: repeat(3, 55px); grid-auto-rows: 55px; }
 .bk-root.bk-kid .bk-colorbar .bk-current { width: 55px; }
+/* Nút trên thanh: icon luôn căn giữa (SVG không nằm theo baseline chữ). Nút quay lại: tròn, không viền, cách đều tên mô hình. */
+.bk-root .bk-btn { display: inline-flex; align-items: center; justify-content: center; }
+.bk-root .bk-top .bk-back { min-width: 48px; min-height: 48px; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: transparent; margin-right: 2px; }
+.bk-root .bk-top .bk-back:hover, .bk-root .bk-top .bk-back:focus-visible { background: #eef2f6; }

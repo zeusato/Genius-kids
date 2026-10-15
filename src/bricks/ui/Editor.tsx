@@ -68,7 +68,7 @@ export function Editor({ model, preschool, onBack, onSaved, author, guide, onPla
   };
   const back = async () => { changed(); if (await flush(true)) onBack(); };
   const header = <>
-    <button className="bk-btn" onClick={() => void back()} aria-label="Về Tủ Mô Hình"><ArrowLeft size={22}/></button>
+    <button className="bk-btn bk-back" onClick={() => void back()} aria-label="Về Tủ Mô Hình"><ArrowLeft size={22}/></button>
     <input className="bk-name" value={name} maxLength={40} onChange={e => { nameRef.current = e.target.value; setName(e.target.value); changed(); }} onBlur={() => setName(nameRef.current.trim() || 'Mô hình mới')} aria-label="Tên mô hình"/>
     <span className={`bk-save ${status}`} role="status">{status === 'saving' ? '● Đang lưu…' : status === 'error' ? '● Chưa lưu được' : '● Đã lưu'}</span>
     <button className="bk-btn bk-export-btn" onClick={async () => { changed(); if (await flush(true)) setExporting(true); }} aria-label="Xuất tài liệu lắp ghép"><FileText size={20}/> Xuất</button>
