@@ -29,7 +29,7 @@
 .bk-root .bk-chip.on { background: var(--bk-ink); color: #fff; }
 .bk-root .bk-row { display: flex; gap: 10px; align-items: stretch; }
 .bk-root .bk-parts { flex: 1; display: grid; grid-auto-flow: column; grid-template-rows: repeat(1, 112px); grid-auto-columns: 96px; gap: 6px; overflow-x: auto; touch-action: pan-x; }
-.bk-root .bk-part { font: 600 11px/1.15 inherit; border-radius: 14px; border: 1px solid var(--bk-line); background: #f9fbfd; color: var(--bk-ink); padding: 4px; touch-action: none; display: flex; flex-direction: column; align-items: center; gap: 2px; overflow: hidden; }
+.bk-root .bk-part { font: 600 11px/1.15 inherit; border-radius: 14px; border: 1px solid var(--bk-line); background: #f9fbfd; color: var(--bk-ink); padding: 4px; touch-action: pan-x; display: flex; flex-direction: column; align-items: center; gap: 2px; overflow: hidden; }
 .bk-root .bk-part img, .bk-root .bk-part .bk-part-ph { width: 72px; height: 72px; flex: none; pointer-events: none; }
 .bk-root .bk-part .bk-part-ph { border-radius: 12px; background: linear-gradient(135deg, #eef2f6, #f7f9fb); }
 .bk-root .bk-part-name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-align: center; }
@@ -204,3 +204,39 @@
 .bk-root .bk-btn { display: inline-flex; align-items: center; justify-content: center; }
 .bk-root .bk-top .bk-back { min-width: 48px; min-height: 48px; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: transparent; margin-right: 2px; }
 .bk-root .bk-top .bk-back:hover, .bk-root .bk-top .bk-back:focus-visible { background: #eef2f6; }
+/* Khay trên cảm ứng (góp ý 15/10): vuốt NGANG = trình duyệt cuộn danh sách (pan-x trên thẻ); kéo thẻ LÊN khung 3D = lắp mảnh
+   (Workbench chỉ bắt đầu kéo khi ngón đã rời khay đi lên). Không hiện thanh cuộn nhưng vẫn cuộn được, có quán tính. */
+.bk-root .bk-parts, .bk-root .bk-groups { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }
+.bk-root .bk-part { scroll-snap-align: start; }
+/* Điện thoại (góp ý 15/10: menu tốn diện tích, nhiều chỗ thừa) — khung 3D được ưu tiên:
+   thanh trên 1 dòng nút 40 px; chế độ chỉ biểu tượng; thẻ 72 px; màu là khối 2×2 cùng hàng với thẻ. */
+@media (max-width: 600px) {
+  .bk-root .bk-top { min-height: 0; height: auto; flex-wrap: nowrap; gap: 4px; padding: 4px 6px; overflow-x: auto; scrollbar-width: none; }
+  .bk-root .bk-top::-webkit-scrollbar { display: none; }
+  .bk-root .bk-top .bk-btn { flex: none; min-width: 40px; min-height: 40px; width: 40px; height: 40px; border-radius: 12px; font-size: 15px; }
+  .bk-root .bk-top .bk-export-btn { width: auto; padding: 0 10px; margin-left: 0; }
+  .bk-root .bk-top strong { font-size: 15px; white-space: nowrap; }
+  .bk-root .bk-top .bk-name { width: auto; max-width: 118px; font-size: 15px; padding: 4px; }
+  .bk-root .bk-top .bk-save { width: auto; font-size: 0; }            /* chỉ còn chấm màu trạng thái */
+  .bk-root .bk-top .bk-save::first-letter { font-size: 14px; }
+  .bk-root .bk-stats, .bk-root .bk-explode { display: none; }
+  .bk-root .bk-modes { gap: 4px; padding: 4px 6px; }
+  .bk-root .bk-modes hr { display: none; }
+  .bk-root .bk-mode { flex: none; min-width: 44px; min-height: 40px; width: 44px; height: 40px; padding: 0; }
+  .bk-root .bk-mode small { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bk-root .bk-tray { padding: 4px 6px 6px; }
+  .bk-root .bk-groups { padding-bottom: 4px; gap: 4px; }
+  .bk-root .bk-search { width: 104px; height: 32px; font-size: 13px; }
+  .bk-root .bk-chip { padding: 5px 9px; font-size: 12px; }
+  .bk-root .bk-row { flex-wrap: nowrap; gap: 6px; }
+  .bk-root .bk-parts { flex: 1 1 auto; flex-basis: auto; grid-template-rows: 84px; grid-auto-columns: 72px; gap: 4px; }
+  .bk-root .bk-part { padding: 3px; border-radius: 12px; }
+  .bk-root .bk-part img, .bk-root .bk-part .bk-part-ph { width: 46px; height: 46px; }
+  .bk-root .bk-part-name { font-size: 10.5px; }
+  .bk-root .bk-colorbar { order: 0; grid-template-columns: repeat(2, 38px); grid-auto-rows: 38px; gap: 4px; }
+  .bk-root .bk-colorbar .bk-swatch { width: 38px; height: 38px; }
+  .bk-root .bk-colorbar .bk-recent:nth-child(n + 5) { display: none; }   /* màu đang chọn + 3 màu gần đây */
+  .bk-root .bk-palette { grid-template-columns: repeat(7, 38px); gap: 5px; padding: 10px; right: 6px; }
+  .bk-root .bk-palette .bk-swatch { width: 38px; height: 38px; }
+  .bk-root .bk-held { font-size: 11px; padding: 4px 8px; }
+}

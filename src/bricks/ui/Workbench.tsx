@@ -17,6 +17,7 @@ import { buildBom } from '../export/bom';
 import { GROUP_ICON, PRESCHOOL_PARTS, shortName, subgroupsOf } from '../content/groups';
 import { PartViewer } from './PartViewer';
 import { Dialog } from './Dialog';
+import { placeMenu, projectBox } from './placeMenu';
 import { ModelMeshes, buildSingle, pieceMatrix } from '../render/modelMeshes';
 import { BrickCanvas, type CanvasApi } from '../render/BrickCanvas';
 import { GestureMachine } from '../input/gesture';
@@ -375,13 +376,8 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const hitsGhost = useCallback((x: number, y: number) => {
     const g = ghostRef.current, w = worldRef.current, a = api.current;
     if (!g || !w || !a) return false;
-    const bb = w.shape(g.part, g.pos, g.o).bbox;
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (const X of [bb[0], bb[3]]) for (const Y of [bb[1], bb[4]]) for (const Z of [bb[2], bb[5]]) {
-      const s = a.project([X, Y, Z]); if (!s) continue;
-      x0 = Math.min(x0, s.x); y0 = Math.min(y0, s.y); x1 = Math.max(x1, s.x); y1 = Math.max(y1, s.y);
-    }
-    return x >= x0 - 24 && x <= x1 + 24 && y >= y0 - 24 && y <= y1 + 24;
+    const r = projectBox(w.shape(g.part, g.pos, g.o).bbox, p => a.project(p));
+    return !!r && x >= r.x0 - 24 && x <= r.x1 + 24 && y >= r.y0 - 24 && y <= r.y1 + 24;
   }, []);
 
   const machine = useMemo(() => new GestureMachine({
@@ -631,7 +627,10 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
   const pickColor = (key: string, name: string) => { setColor(key); say(name); setPaletteOpen(false); setRecentColors(r => [key, ...r.filter(k => k !== key)].slice(0, 6)); };
   const swatch = (c: (typeof palette)[number], extra = '') => { const rare = !!realColors && !realColors.includes(c.key);
     return <button key={c.key} className={`bk-swatch ${extra} ${color === c.key ? 'on' : ''} ${rare ? 'rare' : ''}`} style={{ background: c.hex, opacity: c.alpha < 255 ? 0.6 : 1 }} title={rare ? `${c.nameVi} (mảnh này ít có màu này ngoài đời)` : c.nameVi} aria-label={rare ? `${c.nameVi}, ít có thật` : c.nameVi} onClick={() => pickColor(c.key, c.nameVi)} />; };
-  const ghostScreen = ghost && api.current ? (() => { const w = worldRef.current!; const bb = w.shape(ghost.part, ghost.pos, ghost.o).bbox; return api.current!.project([bb[3], bb[1], (bb[2] + bb[5]) / 2]); })() : null;
+  // menu ✓ ↻ ✥ đặt ra ngoài hình chiếu bóng mờ (không che mảnh trên màn nhỏ); cỡ menu ước theo nút đang hiện
+  const stageW = wrap.current?.clientWidth ?? 800, stageH = wrap.current?.clientHeight ?? 600, btn = preschool ? 66 : 52;
+  const ghostRect = ghost && api.current ? projectBox(worldRef.current!.shape(ghost.part, ghost.pos, ghost.o).bbox, p => api.current!.project(p)) : null;
+  const ghostMenu = ghostRect && ghost ? placeMenu(ghostRect, (ghost.ok ? btn : 24 + reasonText(ghost.reason).length * 8.5) + 2 * btn + 12, btn, stageW, stageH) : null;
 
   return (
     <div className={`bk-root ${preschool ? 'bk-kid' : ''}`}>
@@ -668,8 +667,8 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
           {!webgl && <NoWebgl world={worldRef.current} name={typeof header === 'string' ? header : 'mo-hinh'} />}
           {webgl && model && <BrickCanvas ref={api} model={model.group} overlay={overlay} quality={quality} reducedMotion={reducedMotion} onContextLost={l => { setLost(l); if (!l) setVersion(v => v + 1); }} preschool={preschool} capture={lab} alwaysRender={lab && new URLSearchParams(location.search).get('demo') === '1'} />}
           {lost && <div className="bk-lost">Đang khôi phục 3D…</div>}
-          {ghost && ghostScreen && mode === 'build' && (
-            <div className="bk-float" style={{ left: Math.min(ghostScreen.x + 16, (wrap.current?.clientWidth ?? 0) - 170), top: Math.max(ghostScreen.y - 30, 8) }}>
+          {ghost && ghostMenu && mode === 'build' && (
+            <div className="bk-float" style={ghostMenu}>
               {ghost.ok ? <button className="bk-btn ok" onClick={() => ghost && commit(ghost)} aria-label="Lắp">✓</button>
                 : <span className="bk-bad" role="status">✕ {reasonText(ghost.reason)}</span>}
               <button className="bk-btn" onClick={() => rotate()} aria-label="Đổi hướng">↻</button>
@@ -687,11 +686,11 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
           {selected !== null && mode === 'select' && (() => {
             const w = worldRef.current, p = w?.pieces.get(selected), a = api.current;
             if (!w || !p || !a) return null;
-            const s = a.project([(p.bbox[0] + p.bbox[3]) / 2, p.bbox[1], (p.bbox[2] + p.bbox[5]) / 2]);
-            if (!s) return null;
-            const width = wrap.current?.clientWidth ?? 800;
+            const r = projectBox(p.bbox, q => a.project(q));
+            if (!r) return null;
+            const at = placeMenu(r, 6 * btn + 5 * 6 + 12, btn + 12, stageW, stageH);
             return (
-              <div className="bk-float bk-bubble" style={{ left: Math.max(8, Math.min(s.x - 170, width - 348)), top: Math.max(8, s.y - 80) }}>
+              <div className="bk-float bk-bubble" style={at}>
                 <button className="bk-btn" onClick={() => selAction('same')} title="Lấy mảnh giống thế này" aria-label="Lấy mảnh giống thế này">🫳</button>
                 <button className="bk-btn" onClick={() => selAction('lift')} title="Nhấc để dời" aria-label="Nhấc để dời">✋</button>
                 <button className="bk-btn" onClick={() => selAction('rotate')} title="Xoay tại chỗ" aria-label="Xoay tại chỗ">↻</button>
@@ -728,7 +727,7 @@ export function Workbench({ preschool = false, lab = false, onChange, onReady, i
           {paletteOpen && <div className="bk-palette" role="dialog" aria-label="Bảng màu">
             {palette.map(c => swatch(c))}
           </div>}
-          <button className="bk-btn bk-rotate" onClick={() => rotate()} aria-label="Xoay mảnh">↻<small>XOAY</small></button>
+          {/* nút ↻ XOAY ở khay đã bỏ (góp ý 15/10): xoay nằm cạnh bóng mờ, phím R và chuột phải */}
         </div>
         {lab && (
           <div className="bk-lab">
