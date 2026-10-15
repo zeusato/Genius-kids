@@ -26,6 +26,30 @@ const sub = (a: V3, b: V3): V3 => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
 const len = (a: V3) => Math.hypot(a[0], a[1], a[2]);
 
 interface Target { k: ConnKind; p: V3; a: V3 }
+/** Plan mục 7.4: tối đa 16 mục tiêu gần chỗ chạm. Mảnh nhiều điểm nối (tấm nền 32×32: 2.048) không thử hết mọi điểm nối:
+ *  với mỗi mục tiêu + hướng, chỉ lấy vài điểm nối mà khớp vào đó thì TÂM mảnh rơi gần chỗ chạm (không giới hạn thì rê chuột
+ *  đứng hình; lấy "gần tâm mảnh" thì mất chỗ đặt mái lên đỉnh cột vì cột ở mép mái). */
+const MAX_TARGETS = 16, MANY = 64, PER_TARGET = 6;   // MANY: chỉ mảnh > 64 điểm nối mỗi loại (tấm 16×16 trở lên) mới dùng nhánh tối ưu
+type Conn3 = { k: ConnKind; p: V3; a: V3 };
+/** Điểm nối của mảnh nhóm theo loại rồi theo trục cắm (mỗi hướng chỉ cần xoay một trục cho cả nhóm). */
+const byKind = new WeakMap<object, Record<string, { flat: Conn3[]; axes: { a: V3; list: Conn3[] }[] }>>();
+function connsOf(src: { conns: Conn3[] }) {
+  let m = byKind.get(src);
+  if (!m) {
+    m = {};
+    for (const k of ['s', 'a', 'p', 'h']) m[k] = { flat: [], axes: [] };
+    for (const c of src.conns) { const e = m[c.k]; e.flat.push(c); let g = e.axes.find(x => eq(x.a, c.a)); if (!g) e.axes.push(g = { a: c.a, list: [] }); g.list.push(c); }
+    byKind.set(src, m);
+  }
+  return m;
+}
+const tmul = (R: readonly number[], v: V3): V3 => [R[0] * v[0] + R[3] * v[1] + R[6] * v[2], R[1] * v[0] + R[4] * v[1] + R[7] * v[2], R[2] * v[0] + R[5] * v[1] + R[8] * v[2]];
+/** 16 mục tiêu gần chỗ chạm nhất, GIỮ thứ tự gốc (thứ tự xét quyết định ca hoà điểm — đổi thứ tự là đổi hướng mảnh in). */
+function nearest(ts: Target[], at: V3) {
+  if (ts.length <= MAX_TARGETS) return ts;
+  const d = ts.map(t => len(sub(t.p, at))), cut = [...d].sort((x, y) => x - y)[MAX_TARGETS - 1];
+  return ts.filter((_, i) => d[i] <= cut).slice(0, MAX_TARGETS);
+}
 
 function targetsFor(world: World, hit: Hit, radius: number, opt: SuggestOptions): Target[] {
   const out: Target[] = [];
@@ -64,22 +88,38 @@ export function suggest(world: World, part: string, prefO: number, hit: Hit, opt
   const radius = opt.radius ?? Math.max(30, size / 2 + 20) * (opt.magnet ?? 1);
   let targets = targetsFor(world, hit, radius, opt);
   let target = hit;
+  // mảnh lớn (tấm nền…): chỉ 16 mục tiêu gần chỗ chạm. Mảnh thường giữ nguyên như trước (đã nhanh, < 2 ms).
+  const big = def.src.conns.length > 2 * MANY, cap = (ts: Target[], at: V3) => (big ? nearest(ts, at) : ts);
+  targets = cap(targets, hit.point);
   if (!targets.length && hit.kind === 'piece') {
     const from = add3(hit.point, [hit.normal[0] * 12, hit.normal[1] * 12 - 0.5, hit.normal[2] * 12]);
     const down = pick(world, from, [0, 1, 0], opt.ignore);
-    if (down && (down.kind === 'ground' || down.normal[1] < 0)) { target = down; targets = targetsFor(world, down, radius, opt); }
+    if (down && (down.kind === 'ground' || down.normal[1] < 0)) { target = down; targets = cap(targetsFor(world, down, radius, opt), down.point); }
   }
   const wantUp = !UPRIGHT.has(prefO) ? null : true;
   const raw: Candidate[] = [];
   const seen = new Set<string>();
   const prefClass = def.symClass[prefO];
+  const center: V3 = [0, 1, 2].map(i => (def.src.bbox[0][i] + def.src.bbox[1][i]) / 2) as V3;
   for (const t of targets) {
-    const need = COMPLEMENT[t.k];
-    for (const h of def.src.conns) {
-      if (h.k !== need) continue;
-      for (let o = 0; o < 24; o++) {
-        if (opt.bottomUpOnly && !UPRIGHT.has(o)) continue;
-        if (!eq(rot(ORIENTS[o], h.a), t.a)) continue;
+    const pool = connsOf(def.src)[COMPLEMENT[t.k]];
+    // (điểm nối, hướng) cần thử. Mảnh ít điểm nối: đủ cả, theo thứ tự cũ (điểm nối trước, hướng sau — thứ tự quyết định ca hoà điểm).
+    const pairs: [Conn3, number][] = [];
+    if (pool.flat.length <= MANY) {
+      for (const h of pool.flat) for (let o = 0; o < 24; o++) if ((!opt.bottomUpOnly || UPRIGHT.has(o)) && eq(rot(ORIENTS[o], h.a), t.a)) pairs.push([h, o]);
+    } else for (let o = 0; o < 24; o++) {
+      if (opt.bottomUpOnly && !UPRIGHT.has(o)) continue;
+      let use: Conn3[] = [];
+      for (const g of pool.axes) if (eq(rot(ORIENTS[o], g.a), t.a)) use = use.length ? use.concat(g.list) : g.list;
+      if (use.length > MANY) {
+        // tâm mảnh = t.p − R(h.p − c) ≈ chỗ chạm  ⇔  h.p ≈ c + Rᵀ(t.p − chỗ chạm); giữ PER_TARGET điểm gần nhất, đúng thứ tự gốc
+        const want = add3(center, tmul(ORIENTS[o], sub(t.p, target.point)));
+        const d = use.map(h => len(sub(h.p, want))), cut = [...d].sort((x, y) => x - y)[PER_TARGET - 1];
+        use = use.filter((_, i) => d[i] <= cut).slice(0, PER_TARGET);
+      }
+      for (const h of use) pairs.push([h, o]);
+    }
+    for (const [h, o] of pairs) {
         const pos = sub(t.p, rot(ORIENTS[o], h.p)).map(v => Math.round(v * 8) / 8) as V3;
         const k = def.symClass[o] + '|' + pos.join(',');
         if (seen.has(k)) continue;
@@ -92,7 +132,6 @@ export function suggest(world: World, part: string, prefO: number, hit: Hit, opt
         if (def.symClass[o] !== prefClass) score += UPRIGHT.has(o) && wantUp ? 12 : 40;
         if (opt.prev && opt.prev.part === part && def.symClass[opt.prev.o] === def.symClass[o] && eq(opt.prev.pos, pos)) score -= 6;
         raw.push({ part, pos, o, ok: false, joins: [], score });
-      }
     }
   }
   raw.sort((a, b) => a.score - b.score);
@@ -143,7 +182,9 @@ function coveredAbove(world: World, part: string, pos: V3, o: number, ignore?: S
 function climb(world: World, part: string, prefO: number, at: { pos: V3; o: number }, target: Hit, radius: number, size: number, opt: SuggestOptions): Suggestion | null {
   const g = world.shape(part, at.pos, at.o).bbox;
   let top: Hit | null = null;
-  for (let x = g[0] + 10; x < g[3]; x += 20) for (let z = g[2] + 10; z < g[5]; z += 20) {
+  // chân mảnh lớn: lấy mẫu tối đa ~8×8 điểm (mỗi điểm là một tia)
+  const sx = Math.max(20, Math.ceil((g[3] - g[0]) / 8 / 20) * 20), sz = Math.max(20, Math.ceil((g[5] - g[2]) / 8 / 20) * 20);
+  for (let x = g[0] + 10; x < g[3]; x += sx) for (let z = g[2] + 10; z < g[5]; z += sz) {
     const h = pick(world, [x, -AREA_TOP, z], [0, 1, 0], opt.ignore);
     if (h && h.kind === 'piece' && h.normal[1] < -0.99 && h.point[1] < target.point[1] - 1 && (!top || h.point[1] < top.point[1])) top = h;
   }

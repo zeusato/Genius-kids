@@ -10,7 +10,8 @@ import { viName } from './names.mjs';
 
 const OUT = 'docs/brick-studio/parts-v1.csv';
 export const GROUPS = [
-  // id, tên Việt, hạn mức (mục 6.2)
+  // id, tên Việt, hạn mức (mục 6.2). 'base' (tấm nền) thêm 15/10, chọn tay trong parts-v1.csv (EXCLUDE bỏ Baseplate khi tự tuyển)
+  ['base', 'Tấm nền', 6],
   ['brick', 'Gạch', 30], ['plate', 'Tấm', 40], ['tile', 'Tấm trơn', 30], ['slope', 'Mái dốc', 35],
   ['curve', 'Dốc cong & nêm', 25], ['round', 'Tròn & nón', 25], ['arch', 'Vòm & cột', 15], ['window', 'Cửa & cửa sổ', 25],
   ['vehicle', 'Bánh xe', 15], ['nature', 'Cây & hoa', 15], ['side', 'Gắn cạnh & nhảy', 15], ['decor', 'Trang trí', 15],

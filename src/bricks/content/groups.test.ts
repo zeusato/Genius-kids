@@ -18,11 +18,11 @@ it('nhóm con của khay: mọi mảnh vào đúng một nhóm con, không nhóm
   expect(Object.keys(out)).toEqual(['brick', 'plate', 'tile', 'slope', 'curve', 'round']);
 });
 
-it('chế độ bé: ~30 mảnh có thật trong catalog, đúng 6 nhóm Gạch, Tấm, Mái, Tròn, Cửa, Cây', () => {
+it('chế độ bé: ~30 mảnh có thật trong catalog, 6 nhóm Gạch, Tấm, Mái, Tròn, Cửa, Cây + Tấm nền', () => {
   const keys = [...PRESCHOOL_PARTS];
   expect(keys.filter(k => !cat.parts[k])).toEqual([]);
-  expect(keys.length).toBeGreaterThanOrEqual(28); expect(keys.length).toBeLessThanOrEqual(32);
-  expect([...new Set(keys.map(k => cat.parts[k].group))].sort()).toEqual(['brick', 'nature', 'plate', 'round', 'slope', 'window']);
+  expect(keys.length).toBeGreaterThanOrEqual(28); expect(keys.length).toBeLessThanOrEqual(34);
+  expect([...new Set(keys.map(k => cat.parts[k].group))].sort()).toEqual(['base', 'brick', 'nature', 'plate', 'round', 'slope', 'window']);
 });
 
 it('nhãn ngắn trong nhóm: bỏ tiền tố trùng tên nhóm, không đụng nhóm lẫn loại', () => {

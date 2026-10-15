@@ -90,6 +90,22 @@ describe('đặt mảnh', () => {
     expect(s.best?.ok).toBe(true);
   });
 
+  it('tấm nền: đặt trên bàn, lắp gạch lên góc xa, tấm 8×8 chồng lên đế 32×32', () => {
+    expect(catalog.groups[0].id).toBe('base');
+    const base = dropAt('91405', 0, 0)!;                                   // tấm nền 16×16 giữa bàn
+    expect(base.ok).toBe(true); expect(base.pos[1]).toBe(-8);
+    w.add('91405', 'green', base.pos, base.o);
+    const corner = dropAt('3001', 130, 130)!;                               // gạch 2×4 ở góc xa của tấm
+    expect(corner.ok).toBe(true); expect(corner.pos[1]).toBe(-32);
+    expect(corner.joins.every(j => j.other === 1)).toBe(true);
+    const w2 = new World(catalog);
+    const big = suggest(w2, '3811', 0, pick(w2, [0, -2000, 0], [0, 1, 0])!).best!;
+    expect(big.ok).toBe(true); expect(big.pos[1]).toBe(-4);                 // đế mỏng 4 LDU
+    w2.add('3811', 'light-gray', big.pos, big.o);
+    const small = suggest(w2, '41539', 0, pick(w2, [200, -2000, -200], [0, 1, 0])!).best!;
+    expect(small.ok).toBe(true); expect(small.pos[1]).toBe(-12);
+  });
+
   // Góp ý chủ dự án 15/10: tia lọt khe xuống tầng thấp thì mảnh bị nhét vào tầng trống, không lên được tầng trên.
   // Luật mới (như lắp thật — hạ mảnh từ trên xuống): chỗ ngay trên chân mảnh ở tầng thấp bị mảnh khác che → mảnh đậu lên mặt cao nhất.
   describe('chọn tầng khi tia lọt khe', () => {

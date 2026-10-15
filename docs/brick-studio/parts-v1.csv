@@ -316,3 +316,7 @@ keep,key,group,nameVi,ldraw,rb,nameEn,sets,faces,conns,note
 1,kit-door-1x4x6,window,Cửa ra vào 1×4×6,kit:kit-door-1x4x6,,,,,,kit
 1,kit-wheel-small,vehicle,Bánh xe nhỏ có lốp,kit:kit-wheel-small,,,,,,kit
 1,4600,vehicle,Tấm 2×2 trục bánh xe,4600.dat,4600,Plate Special 2 x 2 with Wheel Holders,,,,
+1,41539,base,Tấm nền 8×8,41539.dat,41539,Plate 8 x 8,,,,
+1,92438,base,Tấm nền 8×16,92438.dat,92438,Plate 8 x 16,,,,
+1,91405,base,Tấm nền 16×16,91405.dat,91405,Plate 16 x 16,,,,
+1,3811,base,Đế mỏng 32×32,3811.dat,3811,Baseplate 32 x 32,,,,

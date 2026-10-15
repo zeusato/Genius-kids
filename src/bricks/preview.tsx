@@ -4,6 +4,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Workbench } from './ui/Workbench';
 import { buildDemo } from './demo';
+import { suggest } from './engine/place';
+import { pick } from './engine/pick';
 import { SAMPLES, buildSample } from './content/samples';
 import { buildDocument } from './export/pages';
 import { GuidePreview } from './previewGuide';
@@ -25,7 +27,14 @@ else if (import.meta.env.DEV)
           void lab.lib.ensureGroups(lab.lib.catalog.groups.map((g: any) => g.id)).then(() => {
             // ?demo=1&samples=1: bày 10 mẫu thành lưới 5×2 để duyệt
             const one = params.get('sample');
-            const log = one
+            const log = params.get('base') === '1'
+              // ?demo=1&base=1: đế 32×32, trên đó ngôi nhà + chú vịt (kiểm nhóm Tấm nền)
+              ? ((): string[] => {
+                const put = (part: string, color: string, x: number, z: number) => { const s = suggest(lab.world, part, 0, pick(lab.world, [x, -4000, z], [0, 1, 0])!).best; if (s?.ok) lab.history.place(part, color, s.pos, s.o, s.lift); return s?.ok ? [] : [part + ': ' + s?.reason]; };
+                return [...put('3811', 'bright-green', 0, 0), ...put('91405', 'tan', -150, 150),
+                  ...buildSample(lab.world, lab.history, SAMPLES.find(s => s.id === 'nha')!, -150, -130), ...buildSample(lab.world, lab.history, SAMPLES.find(s => s.id === 'vit')!, 150, 50)];
+              })()
+              : one
               ? buildSample(lab.world, lab.history, SAMPLES.find(s => s.id === one)!)
               : params.get('samples') === '1'
               ? SAMPLES.flatMap((s, i) => buildSample(lab.world, lab.history, s, (i % 5 - 2) * 220, (Math.floor(i / 5) - 0.5) * 240).map(f => s.id + ': ' + f))

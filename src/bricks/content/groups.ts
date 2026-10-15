@@ -3,7 +3,7 @@
 import type { CatalogPart } from '../engine/types';
 
 export const GROUP_ICON: Record<string, string> = {
-  recent: '🕘', brick: '🧱', plate: '▭', tile: '◻️', slope: '📐', curve: '🌙', round: '⚪',
+  recent: '🕘', base: '🟩', brick: '🧱', plate: '▭', tile: '◻️', slope: '📐', curve: '🌙', round: '⚪',
   arch: '🌉', window: '🚪', vehicle: '🛞', nature: '🌷', side: '🔩', decor: '✨',
 };
 
@@ -56,8 +56,9 @@ export function subgroupsOf(group: string, parts: string[], catalog: Record<stri
   return rules.map(r => ({ id: r.id, label: r.label, parts: parts.filter(k => of(k) === r.id) })).filter(s => s.parts.length);
 }
 
-/** Chế độ bé (plan mục 6.2, 7.7): ~30 mảnh trong đúng 6 nhóm Gạch, Tấm, Mái, Tròn, Cửa, Cây. */
+/** Chế độ bé (plan mục 6.2, 7.7): ~30 mảnh trong 6 nhóm Gạch, Tấm, Mái, Tròn, Cửa, Cây + Tấm nền (thêm 15/10). */
 export const PRESCHOOL_PARTS = new Set([
+  '41539', '91405',                                                // tấm nền để lắp lên
   '3001', '3002', '3003', '3004', '3005', '3009', '3010',          // gạch
   '3020', '3021', '3022', '3023b', '3024', '3031', '3034',         // tấm
   '3037', '3038', '3039', '3040b',                                 // mái 45°
@@ -68,7 +69,7 @@ export const PRESCHOOL_PARTS = new Set([
 
 /** Tiền tố tên mảnh trùng tên nhóm — trong nhóm đó thẻ chỉ ghi phần còn lại (góp ý 15/10: đã chọn Gạch thì không cần lặp chữ "Gạch"). */
 const PREFIX: Record<string, RegExp> = {
-  brick: /^Gạch /, plate: /^Tấm /, tile: /^Tấm trơn /, slope: /^Mái dốc /, curve: /^(Gạch|Dốc) cong /, arch: /^Vòm /,
+  base: /^Tấm nền /, brick: /^Gạch /, plate: /^Tấm /, tile: /^Tấm trơn /, slope: /^Mái dốc /, curve: /^(Gạch|Dốc) cong /, arch: /^Vòm /,
 };
 /** Nhãn ngắn của thẻ khi đang xem nhóm `group`. Tên đầy đủ vẫn dùng cho tooltip, giọng đọc, tìm kiếm, "Vừa dùng". */
 export function shortName(name: string, group: string) {

@@ -4,6 +4,13 @@
 > Xong mỗi đoạn việc thì **cập nhật file này ngay**: việc đã xong, việc đang dở (file nào, dừng ở đâu), bước kế tiếp.
 > Chủ dự án tự push/deploy. Không push, không chạy deploy, không gọi GitHub Actions.
 
+## Nhóm Tấm nền — 15/10/2026 (tối)
+
+- 4 tấm nền (8×8, 8×16, 16×16, đế mỏng 32×32) sinh bằng `node scripts/bricks/baseplates.mjs` (chạy lại được), nhóm `base` đứng đầu khay; catalog 298 mảnh.
+- `place.ts`: nhánh tối ưu cho mảnh > 64 điểm nối mỗi loại (đo: 32×32 ~32 ms/lần gợi ý). Test tấm nền; 10 mẫu giống hệt; fuzz 100k đạt.
+- Cảnh thử: `bricks-preview.html?demo=1&base=1`.
+- Khi chạy lại pipeline đầy đủ: tấm nền lấy hình LDraw thật (91405 ~16k mặt — cân nhắc bản lite); có thể bỏ `baseplates.mjs`.
+
 ## Sửa theo góp ý chủ dự án — 15/10/2026 (tối)
 
 - Nhoè/bóng mờ khi xoay: bỏ cơ chế đổi DPR khi camera chuyển động (lỗi do đợt chiều thêm vào).
