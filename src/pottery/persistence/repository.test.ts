@@ -24,6 +24,15 @@ describe('pottery repository',()=>{
   });
 });
 describe('studio transactions',()=>{
+  it('keeps the chosen wheel motion when switching brush, eraser and view',async()=>{
+    const a=newArtwork(scope);a.stage='decorating';const c=new StudioController(a);
+    expect(c.spinning).toBe(false);c.spinning=true;c.paintWheelSpeed=1.5;c.paintWheelDirection=-1;
+    for(const tool of ['brush','erase','view','brush'] as const){c.selectTool(tool);expect(c.spinning).toBe(true);}
+    expect(c.paintWheelSpeed).toBe(1.5);expect(c.paintWheelDirection).toBe(-1);
+    c.selectTool('stamp');expect(c.spinning).toBe(false);
+    c.selectTool('brush');expect(c.spinning).toBe(false);
+    c.dispose();await c.flush();
+  });
   it('keeps brush dynamics through undo, redo and reloading the saved artwork',async()=>{
     const a=newArtwork(scope);a.stage='decorating';const c=new StudioController(a);
     c.begin();c.point({u:.4,v:.3,radius:.7},true,100);

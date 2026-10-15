@@ -96,10 +96,10 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
     if(hidden.current||lost)return;
     const d=drag.current,delta=Math.min(dt,.05),art=c.doc;
     const turning=!c.reduced&&(c.spinning||art.stage==='firing');
-    const targetSpeed=turning?(art.stage==='shaping'?(d ? .95 : 1.45):.3):0;
+    const targetSpeed=turning?(art.stage==='shaping'?(d ? .95 : 1.45):art.stage==='decorating'?c.paintWheelSpeed*c.paintWheelDirection:.3):0;
     // A little inertia when shaping; painting and reduced motion stop immediately.
     speed.current=c.reduced||(!turning&&art.stage!=='shaping')?0:THREE.MathUtils.damp(speed.current,targetSpeed,3.5,delta);
-    if(!turning&&speed.current<.002)speed.current=0;
+    if(!turning&&Math.abs(speed.current)<.002)speed.current=0;
     rotation.current=(rotation.current+delta*speed.current)%(Math.PI*2);
     if(wheel.current)wheel.current.rotation.y=rotation.current;
     if(d&&art.stage==='shaping'&&d.kind==='shape'&&!d.moved&&performance.now()-d.since>170){sculpt(art.shape,d.at,-delta*(c.assistance==='easy'?.075:.12),.14);c.skill('pinch');c.changed(true);}
@@ -114,7 +114,7 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
     m.color.set(shaping?clay.wet:dry?clay.dry:'#ffffff');m.roughness=shaping?.42:dry?.95:glazed?glaze.roughness:.85;m.clearcoat=shaping?.25:low?0:glazed?glaze.coat:0;m.clearcoatRoughness=.18;m.bumpMap=resources.bump;m.bumpScale=shaping?.016:.003;
     resources.inner.color.set(shaping?clay.wet:dry?clay.dry:art.decoration.insideColor);resources.inner.roughness=m.roughness;
     resources.rim.color.copy(resources.inner.color);resources.rim.roughness=m.roughness;
-    if(turning||speed.current>0||d)invalidate();
+    if(turning||Math.abs(speed.current)>0||d)invalidate();
   });
   const target=useMemo(()=>reference?referenceShape(reference):null,[reference]);
   const reviewing=['reveal','finished'].includes(c.doc.stage),kiln=c.doc.stage==='firing';

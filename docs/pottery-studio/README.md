@@ -35,6 +35,12 @@ Artwork remains on the device; only small student milestone data participates in
 
 The existing PWA build includes the module's JavaScript and media. The full offline media download includes the pottery covers. The 3D scene has no remote font, environment map or model dependency.
 
+## Painting on the wheel — 2026-10-15
+
+The painting tray now exposes a wheel toggle, three speeds (.45 / .9 / 1.5 radians per second) and reverse direction. Brush, eraser and view selection preserve the chosen rotation; selecting a stamp still stops the wheel for placement. The existing per-frame raycast keeps sampling the surface under a held pointer as the vessel rotates, so a stationary brush paints a band and vertical movement paints a spiral. Lifting the pointer ends the stroke independently of the wheel. Both wheel controls respect reduced motion.
+
+Verification: 44 pottery tests passed. In-browser stationary holds produced visible white bands in both directions on the 3D vase; reselecting the brush preserved rotation, pause worked, undo removed one band and redo restored it. Reduced motion disabled the wheel controls. TypeScript retains the unrelated farm error noted below.
+
 ## Bristle brush — 2026-10-15
 
 New brush strokes use `brushStyle: 'bristle-v1'` with optional per-point pressure. Mouse/touch speed supplies a smoothed pressure estimate; pen input supplies actual pointer pressure. Surface-space ribbons round the path, taper both ends and layer fine bristle tracks over a translucent body. Existing strokes without this flag keep their original appearance. Backup validation accepts both formats and checks new pressure/style fields.

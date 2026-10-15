@@ -10,6 +10,7 @@ export class StudioController {
   tool: Tool = 'shape'; color = '#304d78'; size = .09; opacity = 1; stamp: Stamp = 'flower'; pattern: Pattern = 'plain';
   spinning = true; muted = true; reduced = false; preview = true; assistance: 'easy' | 'normal' | 'precise' = 'normal';
   cameraView: 'outside' | 'inside' = 'outside';
+  paintWheelSpeed = .9; paintWheelDirection: 1 | -1 = 1;
   shapeVersion = 0; paintVersion = 0; busy = false; dirty = false;
   status = 'Đã mở bản trên máy'; error = ''; notice = '';
   private listeners = new Set<() => void>(); private serial = 0;
@@ -46,7 +47,7 @@ export class StudioController {
     this.historyBytes = this.past.reduce((n,v) => n + JSON.stringify(v).length * 2, 0);
     this.changed(true); this.schedule(); this.emit();
   }
-  selectTool(tool: Tool) { this.end(); this.tool = tool; if (tool === 'open') this.cameraView = 'inside'; else if (tool !== 'view') this.cameraView = 'outside'; if (tool === 'brush' || tool === 'stamp' || tool === 'erase') this.spinning = false; this.emit(); }
+  selectTool(tool: Tool) { this.end(); this.tool = tool; if (tool === 'open') this.cameraView = 'inside'; else if (tool !== 'view') this.cameraView = 'outside'; if (tool === 'stamp') this.spinning = false; this.emit(); }
   inspectInside() { this.end(); this.cameraView = this.cameraView === 'inside' ? 'outside' : 'inside'; this.tool = 'view'; this.emit(); }
   open() { this.cameraView = 'inside'; this.mutate(a => { openVessel(a.shape); this.skill('open'); }, true); }
   schedule() { clearTimeout(this.timer); this.status = 'Đang lưu…'; this.timer = setTimeout(() => { void this.flush(); }, 650); }
