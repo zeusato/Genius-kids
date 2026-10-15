@@ -21,6 +21,7 @@
     "@react-three/postprocessing": "^3.0.4",
     "@supabase/supabase-js": "^2.87.1",
     "camera-controls": "^3.1.2",
+    "clipper2-ts": "2.0.1-18",
     "framer-motion": "^12.23.26",
     "katex": "^0.16.35",
     "lucide-react": "^0.554.0",
