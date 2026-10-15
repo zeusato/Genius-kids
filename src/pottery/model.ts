@@ -4,8 +4,8 @@ export type Glaze = 'gloss' | 'satin' | 'matte' | 'speckle' | 'wash' | 'crackle'
 export type Stamp = 'flower' | 'leaf' | 'star' | 'heart' | 'sun' | 'moon' | 'fish' | 'dots' | 'diamond' | 'wave' | 'sprout' | 'snow';
 export type Pattern = 'plain' | 'dots' | 'wave' | 'leaves' | 'diamonds' | 'scallops';
 export interface ShapeDoc { height: number; radii: number[]; thickness: number; depth: number }
-export interface PaintPoint { u: number; v: number; radius: number }
-export interface PaintStroke { kind: 'brush' | 'erase' | 'stamp' | 'band'; color: string; size: number; opacity: number; stamp: Stamp; pattern: Pattern; points: PaintPoint[] }
+export interface PaintPoint { u: number; v: number; radius: number; pressure?: number }
+export interface PaintStroke { kind: 'brush' | 'erase' | 'stamp' | 'band'; color: string; size: number; opacity: number; stamp: Stamp; pattern: Pattern; points: PaintPoint[]; brushStyle?: 'bristle-v1' }
 export interface DecorationDoc { color: string; insideColor: string; coverage: number; strokes: PaintStroke[] }
 export interface Scope { account: string; student: string }
 export interface ArtworkDoc extends Scope {

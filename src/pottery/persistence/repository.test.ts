@@ -24,6 +24,19 @@ describe('pottery repository',()=>{
   });
 });
 describe('studio transactions',()=>{
+  it('keeps brush dynamics through undo, redo and reloading the saved artwork',async()=>{
+    const a=newArtwork(scope);a.stage='decorating';const c=new StudioController(a);
+    c.begin();c.point({u:.4,v:.3,radius:.7},true,100);
+    c.point({u:.41,v:.4,radius:.7},false,140);
+    c.point({u:.42,v:.5,radius:.7,pressure:.9},false,300);c.end();
+    const strokes=structuredClone(c.doc.decoration.strokes);
+    expect(strokes[0].brushStyle).toBe('bristle-v1');
+    expect(strokes[0].points[1].pressure).toBeLessThan(strokes[0].points[0].pressure!);
+    expect(strokes[0].points[2].pressure).toBeGreaterThan(strokes[0].points[1].pressure!);
+    c.undo();expect(c.doc.decoration.strokes).toHaveLength(0);c.undo(true);
+    expect(c.doc.decoration.strokes).toEqual(strokes);await c.flush();
+    expect((await readArtwork(scope,c.doc.id))?.decoration.strokes).toEqual(strokes);c.dispose();await c.flush();
+  });
   it('undo and redo restore an entire sculpt gesture and cavity opening',async()=>{
     const c=new StudioController(newArtwork(scope)),original=structuredClone(c.doc.shape);c.begin();for(let i=0;i<20;i++){sculpt(c.doc.shape,.5,.006);c.changed(true);}c.end();const changed=structuredClone(c.doc.shape);
     c.undo();expect(c.doc.shape).toEqual(original);c.undo(true);expect(c.doc.shape).toEqual(changed);c.open();expect(c.doc.shape.depth).toBeGreaterThan(0);c.undo();expect(c.doc.shape.depth).toBe(0);await c.flush();c.dispose();

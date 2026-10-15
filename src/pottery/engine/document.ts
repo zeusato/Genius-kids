@@ -17,6 +17,8 @@ export function validateArtwork(value: unknown): ArtworkDoc {
   for (const s of d.strokes) {
     if (!s || !['brush','erase','stamp','band'].includes(s.kind) || !color(s.color) || !Number.isFinite(s.size) || s.size < .015 || s.size > .3 || !Number.isFinite(s.opacity) || s.opacity < .1 || s.opacity > 1 || !STAMPS.some(p => p.id === s.stamp) || !PATTERNS.some(p => p.id === s.pattern) || !Array.isArray(s.points)) throw Error('Nét vẽ không hợp lệ.');
     points += s.points.length;
+    if(s.brushStyle!==undefined&&(s.kind!=='brush'||s.brushStyle!=='bristle-v1'))throw Error('Kiểu cọ chưa được hỗ trợ.');
+    if(s.points.some(p=>p?.pressure!==undefined&&(!Number.isFinite(p.pressure)||p.pressure<0||p.pressure>1)))throw Error('Lực nhấn cọ không hợp lệ.');
     if (points > MAX_POINTS || s.points.some(p => !p || ![p.u,p.v,p.radius].every(Number.isFinite) || p.u < 0 || p.u > 1 || p.v < 0 || p.v > 1 || p.radius < .1 || p.radius > 2)) throw Error('Nét vẽ vượt giới hạn an toàn.');
   }
   return a;

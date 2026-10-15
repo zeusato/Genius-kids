@@ -2,6 +2,7 @@ import { clone, type ArtworkDoc, type Tool, type Stamp, type Pattern, type Paint
 import { MAX_POINTS, MAX_STROKES } from '../engine/document';
 import { openVessel } from '../engine/profile';
 import { saveArtwork } from '../persistence/repository';
+import { brushDistance, brushPressure } from '../engine/brush';
 type Edit = Pick<ArtworkDoc, 'shape' | 'clay' | 'glaze' | 'decoration' | 'skills'>;
 const edit = (a: ArtworkDoc): Edit => clone({ shape: a.shape, clay: a.clay, glaze: a.glaze, decoration: a.decoration, skills: a.skills });
 export class StudioController {
@@ -17,6 +18,7 @@ export class StudioController {
   private generation = 0; private disposed = false; private historyBytes = 0;
   private view = { serial: 0 };
   activeStroke?: PaintStroke;
+  private paintTime = 0;
   constructor(art: ArtworkDoc) { this.doc = clone(art); this.spinning = art.stage === 'shaping'; this.tool = art.stage === 'shaping' ? 'shape' : 'brush'; }
   subscribe = (fn: () => void) => { this.listeners.add(fn); return () => { this.listeners.delete(fn); }; };
   snapshot = () => this.view;
@@ -75,16 +77,24 @@ export class StudioController {
     else { this.past = []; this.future = []; this.historyBytes = 0; this.spinning = stage === 'shaping'; this.tool = stage === 'shaping' ? 'shape' : 'brush'; this.cameraView = 'outside'; }
     this.busy = false; this.emit(); return ok;
   }
-  point(point: PaintPoint, start = false) {
+  point(point: PaintPoint, start = false, time = performance.now()) {
     const strokes = this.doc.decoration.strokes;
     const count = strokes.reduce((n,s) => n + s.points.length, 0);
     if (count >= MAX_POINTS || ((start || !this.activeStroke) && strokes.length >= MAX_STROKES)) { this.notice = 'Tác phẩm đã có rất nhiều nét. Hãy hoàn thiện hoặc tạo một bản mới nhé.'; this.emit(); return; }
     if (start || !this.activeStroke) {
       this.activeStroke = { kind: this.tool as PaintStroke['kind'], color: this.color, size: this.size, opacity: this.opacity, stamp: this.stamp, pattern: this.pattern, points: [] };
+      if(this.tool==='brush')this.activeStroke.brushStyle='bristle-v1';
+      this.paintTime=time;
       strokes.push(this.activeStroke);
     }
     const points = this.activeStroke.points, last = points[points.length - 1];
     if (last && Math.hypot(Math.min(Math.abs(last.u-point.u),1-Math.abs(last.u-point.u)),last.v-point.v) < .002) return;
+    if(this.tool==='brush'){
+      const elapsed=Math.max(.001,(time-this.paintTime)/1000);
+      const speed=last?brushDistance(last,point,this.doc.shape.height)/elapsed:0;
+      point={...point,pressure:last?brushPressure(last.pressure??.65,speed,elapsed,point.pressure):Math.max(.05,Math.min(1,point.pressure??.65))};
+    }
+    this.paintTime=time;
     points.push(point); this.skill(this.tool); this.changed();
   }
   dispose() { this.end(); void this.flush(); this.disposed = true; clearTimeout(this.timer); this.listeners.clear(); }

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { CLAYS, type ArtworkDoc, type PaintStroke, type Stamp } from '../model';
 import { random } from '../engine/document';
 import { arcAt } from '../engine/profile';
+import { drawBristleBrush } from './bristleBrush';
 const canvas = (size: number) => { const c=document.createElement('canvas'); c.width=c.height=size; return c; };
 export function drawStamp(ctx: CanvasRenderingContext2D, stamp: Stamp, x: number, y: number, rx: number, ry: number) {
   ctx.save(); ctx.translate(x,y); ctx.scale(rx,ry); ctx.lineWidth=.13; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.beginPath();
@@ -23,10 +24,11 @@ export function drawStamp(ctx: CanvasRenderingContext2D, stamp: Stamp, x: number
 }
 export class PaintSurface {
   readonly output: HTMLCanvasElement; readonly texture: THREE.CanvasTexture;
-  private base: HTMLCanvasElement; private ink: HTMLCanvasElement;
+  private base: HTMLCanvasElement; private ink: HTMLCanvasElement; private live: HTMLCanvasElement;
+  private inkHeight = -1;
   private strokes: PaintStroke[]=[]; private lengths: number[]=[]; private signature='';
   constructor(readonly size: number) {
-    this.output=canvas(size);this.base=canvas(size);this.ink=canvas(size);
+    this.output=canvas(size);this.base=canvas(size);this.ink=canvas(size);this.live=canvas(size);
     this.texture=new THREE.CanvasTexture(this.output);this.texture.colorSpace=THREE.SRGBColorSpace;this.texture.wrapS=THREE.RepeatWrapping;this.texture.anisotropy=4;
   }
   update(art: ArtworkDoc) {
@@ -44,14 +46,21 @@ export class PaintSurface {
       }
       c.restore();
     }
-    const reset=d.strokes.length<this.strokes.length || this.strokes.some((s,i)=>d.strokes[i]!==s || (d.strokes[i]?.points.length??0)<this.lengths[i]);
-    if(reset){this.ink.getContext('2d')!.clearRect(0,0,n,n);this.strokes=[];this.lengths=[];}
     const arcLength=art.shape.radii.slice(1).reduce((total,r,i)=>total+Math.hypot(art.shape.height/(art.shape.radii.length-1),r-art.shape.radii[i]),0);
-    d.strokes.forEach((s,i)=>{const from=this.lengths[i]||0;if(s.points.length>from)this.draw(s,from,arcLength);this.lengths[i]=s.points.length;});this.strokes=[...d.strokes];
-    const out=this.output.getContext('2d')!;out.clearRect(0,0,n,n);out.drawImage(this.base,0,0);out.drawImage(this.ink,0,0);this.texture.needsUpdate=true;
+    const committed=d.strokes.slice(0,-1);
+    const reset=arcLength!==this.inkHeight || committed.length<this.strokes.length || this.strokes.some((s,i)=>committed[i]!==s || committed[i]?.points.length!==this.lengths[i]);
+    if(reset){this.ink.getContext('2d')!.clearRect(0,0,n,n);this.strokes=[];this.lengths=[];}
+    for(let i=this.strokes.length;i<committed.length;i++){this.draw(committed[i],0,arcLength,this.ink.getContext('2d')!);this.lengths[i]=committed[i].points.length;}
+    this.strokes=[...committed];this.inkHeight=arcLength;
+    // Repaint only the live stroke over cached ink so its tail can taper while
+    // moving, without opaque build-up, and erasing still affects earlier marks.
+    const live=this.live.getContext('2d')!;live.clearRect(0,0,n,n);live.drawImage(this.ink,0,0);
+    const last=d.strokes[d.strokes.length-1];if(last)this.draw(last,0,arcLength,live);
+    const out=this.output.getContext('2d')!;out.clearRect(0,0,n,n);out.drawImage(this.base,0,0);out.drawImage(this.live,0,0);this.texture.needsUpdate=true;
   }
-  private draw(stroke: PaintStroke, from: number, height: number) {
-    const c=this.ink.getContext('2d')!, n=this.size;
+  private draw(stroke: PaintStroke, from: number, height: number, c: CanvasRenderingContext2D) {
+    const n=this.size;
+    if(stroke.kind==='brush'&&stroke.brushStyle==='bristle-v1'){drawBristleBrush(c,stroke,height,n);return;}
     c.save();c.fillStyle=c.strokeStyle=stroke.color;c.globalAlpha=stroke.opacity;c.globalCompositeOperation=stroke.kind==='erase'?'destination-out':'source-over';
     for(let i=from;i<stroke.points.length;i++){
       const p=stroke.points[i],rx=Math.min(n*.2,stroke.size/(2*Math.PI*p.radius)*n),ry=Math.min(n*.3,stroke.size/height*n);
@@ -72,7 +81,7 @@ export class PaintSurface {
     }
     c.restore();
   }
-  dispose(){this.texture.dispose();this.output.width=this.base.width=this.ink.width=1;}
+  dispose(){this.texture.dispose();this.output.width=this.base.width=this.ink.width=this.live.width=1;}
 }
 export function clayBump() {
   const c=canvas(128),ctx=c.getContext('2d')!,data=ctx.createImageData(128,128),rnd=random(8431);

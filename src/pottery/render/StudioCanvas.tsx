@@ -40,14 +40,14 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
   const resources=useMemo(()=>({geometry:vesselGeometry(c.doc.shape,low?64:96).geometry,paint:new PaintSurface(low?512:1024),bump:clayBump(),clay:claySurface(),wheel:wheelTexture(),outer:new THREE.MeshPhysicalMaterial({envMapIntensity:.75}),rim:new THREE.MeshStandardMaterial({envMapIntensity:.75}),inner:createCavityMaterial()}),[c,low]);
   const seen=useRef({shape:-1,paint:-1}),rotation=useRef(0),speed=useRef(0),hidden=useRef(document.hidden);
   const release=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
-  const drag=useRef<{id:number;x:number;y:number;startX:number;startY:number;at:number;scale:number;side:number;kind:string;since:number;moved:boolean;px:number;py:number}|null>(null);
+  const drag=useRef<{id:number;x:number;y:number;startX:number;startY:number;at:number;scale:number;side:number;kind:string;since:number;moved:boolean;px:number;py:number;pressure?:number}|null>(null);
   const hitRay=useMemo(()=>new THREE.Raycaster(),[]),pointer=useMemo(()=>new THREE.Vector2(),[]);
   const hit=(x:number,y:number)=>{const rect=gl.domElement.getBoundingClientRect();pointer.set((x-rect.left)/rect.width*2-1,-(y-rect.top)/rect.height*2+1);hitRay.setFromCamera(pointer,camera);vessel.current?.updateWorldMatrix(true,false);return vessel.current?hitRay.intersectObject(vessel.current,false)[0]:undefined;};
   const stop=()=>{const d=drag.current;if(d){try{gl.domElement.releasePointerCapture(d.id);}catch{}drag.current=null;c.end();if(halo.current)halo.current.visible=false;}};
   const paintAt=(x:number,y:number,start=false)=>{
     const h=hit(x,y);if(!h||h.face?.materialIndex!==0||!h.uv){c.activeStroke=undefined;return;}
     const p=vessel.current!.worldToLocal(h.point.clone());
-    c.point({u:clamp(h.uv.x,0,1),v:clamp(h.uv.y,0,1),radius:Math.hypot(p.x,p.z)},start);
+    c.point({u:clamp(h.uv.x,0,1),v:clamp(h.uv.y,0,1),radius:Math.hypot(p.x,p.z),pressure:drag.current?.pressure},start);
   };
   useEffect(()=>{
     const el=gl.domElement;
@@ -62,14 +62,14 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
       if(c.doc.stage==='shaping'&&kind==='shape'&&p.y>c.doc.shape.height-.16)kind='height';
       if(c.doc.stage==='decorating'&&h.face?.materialIndex!==0)return;
       e.preventDefault();el.setPointerCapture(e.pointerId);c.begin();invalidate();
-      drag.current={id:e.pointerId,x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,at:clamp(p.y/c.doc.shape.height,0,1),scale,side:e.clientX>=screenX?1:-1,kind,since:performance.now(),moved:false,px:e.clientX,py:e.clientY};
+      drag.current={id:e.pointerId,x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,at:clamp(p.y/c.doc.shape.height,0,1),scale,side:e.clientX>=screenX?1:-1,kind,since:performance.now(),moved:false,px:e.clientX,py:e.clientY,pressure:e.pointerType==='pen'?e.pressure:undefined};
       if(c.doc.stage==='decorating'){paintAt(e.clientX,e.clientY,true);if(c.tool==='stamp'||c.tool==='band'){stop();return;}}
       if(kind==='open'){if(c.doc.shape.depth<=.01)openVessel(c.doc.shape);c.skill('open');c.changed(true);}
       if(halo.current&&c.doc.stage==='shaping'){halo.current.visible=true;halo.current.position.y=p.y;}
     };
     const move=(e:PointerEvent)=>{
       const d=drag.current;if(!d||d.id!==e.pointerId)return;
-      const dx=e.clientX-d.x,dy=e.clientY-d.y;d.px=e.clientX;d.py=e.clientY;
+      const dx=e.clientX-d.x,dy=e.clientY-d.y;d.px=e.clientX;d.py=e.clientY;d.pressure=e.pointerType==='pen'?e.pressure:undefined;
       if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>7)d.moved=true;
       if(c.doc.stage==='shaping'){
         const strength=c.assistance==='easy'?.65:c.assistance==='precise'?1.15:1;

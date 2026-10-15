@@ -35,6 +35,14 @@ Artwork remains on the device; only small student milestone data participates in
 
 The existing PWA build includes the module's JavaScript and media. The full offline media download includes the pottery covers. The 3D scene has no remote font, environment map or model dependency.
 
+## Bristle brush — 2026-10-15
+
+New brush strokes use `brushStyle: 'bristle-v1'` with optional per-point pressure. Mouse/touch speed supplies a smoothed pressure estimate; pen input supplies actual pointer pressure. Surface-space ribbons round the path, taper both ends and layer fine bristle tracks over a translucent body. Existing strokes without this flag keep their original appearance. Backup validation accepts both formats and checks new pressure/style fields.
+
+Completed ink is cached separately from the last stroke so its changing tail can be redrawn without accumulating opacity. Erasing still operates on ink before it is composited over the glaze. All layers are released on scene disposal.
+
+Verification: 43 pottery tests passed, including dynamics, seam crossings over multiple turns, legacy/new backups and history/persistence. Browser canvas checks compared live drawing with fresh replay pixel-for-pixel after erasing, adding marks, undo and restoring history; all passed. A mouse drag on the 3D vase visibly produced a tapered stroke. Physical pressure-sensitive stylus hardware has not been tested. TypeScript still reports only the existing farm error documented below.
+
 ## Verification — 2026-10-14
 
 - Full Vitest suite: **126 files, 3,767 tests passed**. Includes geometry topology/normals/bounds, 3,000 aggressive sculpt edits, timestep comparison, backup validation, challenge satisfiability, reward deduplication, scope isolation, stale writes/thumbnails, undo/redo and stage transitions.
