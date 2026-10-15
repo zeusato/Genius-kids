@@ -46,6 +46,12 @@ The existing PWA build includes the module's JavaScript and media. The full offl
 
 ## Release checks that still need hardware or people
 
+### Wheel motion follow-up — 2026-10-15
+
+The wheel head now rotates with the vessel above a stationary base. Seeded slip marks, worn arcs and rim fasteners make its motion visible; seamless clay variations travel with the unglazed body. Shaping accelerates gently, slows under the pointer and coasts to a stop. Decoration stops immediately when paused to preserve brush placement. Reduced motion also suppresses firing rotation and disables the wheel toggle with an explanatory label. Both procedural textures are disposed with the scene.
+
+Verification: 38 pottery tests passed; production build passed. Browser checks covered dragging while spinning, undo, pause/resume and the reduced-motion control. TypeScript still reports the existing `modules/farm/src/ui/renderSnapshot.ts:26` error described above. Physical touch devices and frame-time measurements were not tested in this follow-up.
+
 Physical iPad/Android touch and stylus behavior, GPU frame-time/thermal measurements, 20-minute soak and repeated context loss, airplane-mode PWA installation/reload, and testing with children have **not** been certified by this implementation session. Browser viewport emulation is not a substitute for physical touch or GPU testing. The detailed acceptance checklist remains in `../pottery-studio-plan.md`.
 
 Asymmetric sculpting, handles/spouts, cloud artwork synchronization, AR and physical ceramic simulation remain outside this v1 scope.

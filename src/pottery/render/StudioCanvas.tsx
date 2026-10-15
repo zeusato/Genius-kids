@@ -9,6 +9,7 @@ import { StudioController } from '../state/studioController';
 import { silhouette, vesselGeometry } from './vesselGeometry';
 import { PaintSurface, clayBump } from './paintTexture';
 import { createCavityMaterial } from './cavityMaterial';
+import { claySurface, wheelTexture } from './wheelTexture';
 
 export interface SceneAPI { photo: () => Promise<Blob>; info: () => { calls: number; triangles: number; textures: number; geometries: number } }
 class CanvasBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -25,8 +26,7 @@ function WorkshopEnvironment({ kiln, backdrop }: { kiln: boolean; backdrop: stri
   return <group>
     <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.62,0]} receiveShadow><planeGeometry args={[200,200]}/><meshStandardMaterial color={backdrop}/></mesh>
     <mesh position={[0,-.36,0]} castShadow receiveShadow><cylinderGeometry args={[2.6,2.65,.18,80]}/><meshStandardMaterial color="#b58d68" roughness={.85}/></mesh>
-    <mesh position={[0,-.18,0]} castShadow receiveShadow><cylinderGeometry args={[1.8,1.85,.22,80]}/><meshStandardMaterial color="#667f72" metalness={.12} roughness={.5}/></mesh>
-    <mesh position={[0,-.065,0]} receiveShadow><cylinderGeometry args={[1.72,1.72,.04,80]}/><meshStandardMaterial color="#d3c3a8" roughness={.52}/></mesh>
+    <mesh position={[0,-.23,0]} castShadow receiveShadow><cylinderGeometry args={[1.8,1.85,.12,80]}/><meshStandardMaterial color="#667f72" metalness={.12} roughness={.5}/></mesh>
     {[0,1,2].map(i=><group key={i} position={[-2.05+i*.35,-.2,-1.2]}><mesh castShadow><cylinderGeometry args={[.16,.13,.28,24]}/><meshStandardMaterial color={['#d5a05e','#7aa68e','#c1d0ca'][i]}/></mesh><mesh position={[0,.145,0]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[.12,24]}/><meshStandardMaterial color={['#bc7543','#416b66','#e8ddc4'][i]} roughness={.25}/></mesh></group>)}
     <group position={[2.15,-.15,-.7]} rotation={[0,0,-.35]}><mesh castShadow><cylinderGeometry args={[.035,.035,.8,12]}/><meshStandardMaterial color="#d8b982"/></mesh><mesh position={[0,.47,0]}><cylinderGeometry args={[.05,.07,.18,12]}/><meshStandardMaterial color="#6c4b33"/></mesh></group>
     <mesh position={[-2,-.2,.9]} rotation={[0,.3,0]}><boxGeometry args={[.42,.12,.32]}/><meshStandardMaterial color="#d9b863" roughness={1}/></mesh>
@@ -37,8 +37,8 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
   const { gl,camera,scene,invalidate }=useThree();
   const vessel=useRef<THREE.Mesh>(null),wheel=useRef<THREE.Group>(null),controls=useRef<any>(null),halo=useRef<THREE.Mesh>(null);
   const [lost,setLost]=useState(false);
-  const resources=useMemo(()=>({geometry:vesselGeometry(c.doc.shape,low?64:96).geometry,paint:new PaintSurface(low?512:1024),bump:clayBump(),outer:new THREE.MeshPhysicalMaterial({envMapIntensity:.75}),rim:new THREE.MeshStandardMaterial({envMapIntensity:.75}),inner:createCavityMaterial()}),[c,low]);
-  const seen=useRef({shape:-1,paint:-1}),rotation=useRef(0),hidden=useRef(document.hidden);
+  const resources=useMemo(()=>({geometry:vesselGeometry(c.doc.shape,low?64:96).geometry,paint:new PaintSurface(low?512:1024),bump:clayBump(),clay:claySurface(),wheel:wheelTexture(),outer:new THREE.MeshPhysicalMaterial({envMapIntensity:.75}),rim:new THREE.MeshStandardMaterial({envMapIntensity:.75}),inner:createCavityMaterial()}),[c,low]);
+  const seen=useRef({shape:-1,paint:-1}),rotation=useRef(0),speed=useRef(0),hidden=useRef(document.hidden);
   const release=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
   const drag=useRef<{id:number;x:number;y:number;startX:number;startY:number;at:number;scale:number;side:number;kind:string;since:number;moved:boolean;px:number;py:number}|null>(null);
   const hitRay=useMemo(()=>new THREE.Raycaster(),[]),pointer=useMemo(()=>new THREE.Vector2(),[]);
@@ -90,12 +90,18 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
     api.current={photo:()=>new Promise((resolve,reject)=>{if(lost){reject(Error('Cảnh 3D đang phục hồi. Hãy thử lại sau.'));return;}gl.render(scene,camera);gl.domElement.toBlob(blob=>blob?resolve(blob):reject(Error('Chưa chụp được ảnh.')),'image/png');}),info:()=>({calls:gl.info.render.calls,triangles:gl.info.render.triangles,textures:gl.info.memory.textures,geometries:gl.info.memory.geometries})};
     return()=>{stop();unsubscribe();clearInterval(checkpoint);api.current=null;el.removeEventListener('pointerdown',down);el.removeEventListener('pointermove',move);el.removeEventListener('pointerup',up);el.removeEventListener('pointercancel',up);el.removeEventListener('lostpointercapture',up);window.removeEventListener('blur',stop);document.removeEventListener('visibilitychange',visibility);el.removeEventListener('webglcontextlost',loss);el.removeEventListener('webglcontextrestored',restore);};
   },[c,gl,camera,scene,lost]);
-  useEffect(()=>{clearTimeout(release.current);return()=>{release.current=setTimeout(()=>{resources.geometry.dispose();resources.paint.dispose();resources.bump.dispose();resources.outer.dispose();resources.rim.dispose();resources.inner.dispose();},0);};},[resources]);
+  useEffect(()=>{clearTimeout(release.current);return()=>{release.current=setTimeout(()=>{resources.geometry.dispose();resources.paint.dispose();resources.bump.dispose();resources.clay.dispose();resources.wheel.dispose();resources.outer.dispose();resources.rim.dispose();resources.inner.dispose();},0);};},[resources]);
   useEffect(()=>{camera.position.set(...(c.cameraView==='inside'?[2.8,8.2,5.8]:[4.6,5.3,7.2]) as [number,number,number]);controls.current?.target.set(0,1.45,0);controls.current?.update();invalidate();},[c.cameraView,camera,invalidate]);
   useFrame((_,dt)=>{
     if(hidden.current||lost)return;
     const d=drag.current,delta=Math.min(dt,.05),art=c.doc;
-    if((c.spinning&&!c.reduced)||art.stage==='firing'){rotation.current+=delta*(art.stage==='shaping'?.8:.3);if(wheel.current)wheel.current.rotation.y=rotation.current;}
+    const turning=!c.reduced&&(c.spinning||art.stage==='firing');
+    const targetSpeed=turning?(art.stage==='shaping'?(d ? .95 : 1.45):.3):0;
+    // A little inertia when shaping; painting and reduced motion stop immediately.
+    speed.current=c.reduced||(!turning&&art.stage!=='shaping')?0:THREE.MathUtils.damp(speed.current,targetSpeed,3.5,delta);
+    if(!turning&&speed.current<.002)speed.current=0;
+    rotation.current=(rotation.current+delta*speed.current)%(Math.PI*2);
+    if(wheel.current)wheel.current.rotation.y=rotation.current;
     if(d&&art.stage==='shaping'&&d.kind==='shape'&&!d.moved&&performance.now()-d.since>170){sculpt(art.shape,d.at,-delta*(c.assistance==='easy'?.075:.12),.14);c.skill('pinch');c.changed(true);}
     if(d&&art.stage==='decorating'&&c.spinning&&!c.reduced&&(c.tool==='brush'||c.tool==='erase'))paintAt(d.px,d.py);
     if(d&&halo.current&&art.stage==='shaping'){const radius=radiusAt(art.shape,d.at)+.025;halo.current.scale.setScalar(radius/1.59);halo.current.position.y=d.at*art.shape.height;}
@@ -103,12 +109,12 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
     if(art.stage!=='shaping'&&art.stage!=='preparing'&&seen.current.paint!==c.paintVersion){resources.paint.update(art);seen.current.paint=c.paintVersion;}
     const clay=CLAYS.find(v=>v.id===art.clay)!,glaze=GLAZES.find(v=>v.id===art.glaze)!,shaping=art.stage==='shaping',dry=art.stage==='preparing',painted=!shaping&&!dry;
     const m=resources.outer;
-    if(m.map!==(painted?resources.paint.texture:null)){m.map=painted?resources.paint.texture:null;m.needsUpdate=true;}
+    if(m.map!==(painted?resources.paint.texture:resources.clay)){m.map=painted?resources.paint.texture:resources.clay;m.needsUpdate=true;}
     const glazed=c.preview||art.stage==='reveal'||art.stage==='finished';
     m.color.set(shaping?clay.wet:dry?clay.dry:'#ffffff');m.roughness=shaping?.42:dry?.95:glazed?glaze.roughness:.85;m.clearcoat=shaping?.25:low?0:glazed?glaze.coat:0;m.clearcoatRoughness=.18;m.bumpMap=resources.bump;m.bumpScale=shaping?.016:.003;
     resources.inner.color.set(shaping?clay.wet:dry?clay.dry:art.decoration.insideColor);resources.inner.roughness=m.roughness;
     resources.rim.color.copy(resources.inner.color);resources.rim.roughness=m.roughness;
-    if((c.spinning&&!c.reduced)||d||art.stage==='firing')invalidate();
+    if(turning||speed.current>0||d)invalidate();
   });
   const target=useMemo(()=>reference?referenceShape(reference):null,[reference]);
   const reviewing=['reveal','finished'].includes(c.doc.stage),kiln=c.doc.stage==='firing';
@@ -116,7 +122,10 @@ function Vessel({ controller: c, low, reference, api, backdrop, flowers }: { con
     <color attach="background" args={[backdrop]}/><fog attach="fog" args={[backdrop,12,28]}/><Lighting/>
     <WorkshopEnvironment kiln={kiln} backdrop={backdrop}/>
     <group ref={wheel}>
-      {[.5,.9,1.3,1.6].map(r=><mesh key={r} rotation={[-Math.PI/2,0,0]} position={[0,-.041,0]}><ringGeometry args={[r,r+.012,96]}/><meshBasicMaterial color="#998c76" transparent opacity={.5}/></mesh>)}
+      <mesh position={[0,-.09,0]} castShadow receiveShadow><cylinderGeometry args={[1.74,1.74,.16,80]}/><meshStandardMaterial color="#8f998a" metalness={.35} roughness={.42}/></mesh>
+      <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.009,0]} receiveShadow><circleGeometry args={[1.72,80]}/><meshStandardMaterial map={resources.wheel} roughness={.57} metalness={.08}/></mesh>
+      {[.5,.9,1.3,1.6].map(r=><mesh key={r} rotation={[-Math.PI/2,0,0]} position={[0,-.008,0]}><ringGeometry args={[r,r+.009,96]}/><meshBasicMaterial color="#998c76" transparent opacity={.38}/></mesh>)}
+      {[0,1,2].map(i=><mesh key={i} position={[Math.cos(i*Math.PI*2/3)*1.66,-.007,Math.sin(i*Math.PI*2/3)*1.66]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[.025,12]}/><meshStandardMaterial color="#667368" metalness={.5} roughness={.4}/></mesh>)}
       <mesh ref={vessel} geometry={resources.geometry} material={[resources.outer,resources.rim,resources.inner]} castShadow receiveShadow/>
       {reviewing&&flowers&&c.doc.shape.depth>0&&<group position={[0,c.doc.shape.height-.2,0]}><mesh position={[.04,.45,0]} rotation={[0,0,-.14]}><cylinderGeometry args={[.018,.023,1.1,8]}/><meshStandardMaterial color="#627a52"/></mesh>{[0,1,2,3,4].map(i=><mesh key={i} position={[.13+Math.cos(i*1.256)*.12,1+Math.sin(i*1.256)*.12,0]}><sphereGeometry args={[.12,16,12]}/><meshStandardMaterial color="#e8be75"/></mesh>)}</group>}
     </group>
