@@ -1,6 +1,6 @@
 # Xưởng Cắt Giấy — kế hoạch sản phẩm và triển khai
 
-Ngày lập: 15/10/2026. Trạng thái: **kế hoạch đề xuất, chưa xây module, chưa có spike**. Mọi con số hiệu năng và ngày công là mục tiêu cần đo ở GĐ0, không phải kết quả benchmark.
+Ngày lập: 15/10/2026. Trạng thái: **GĐ0 đang làm.** Engine gấp/cắt, fuzz và bàn thử `/papercut?dev=1` đã xong; còn đo trên tablet và cổng duyệt hình (xem mục 17 và `docs/papercut-studio/spike-report.md`). Module chưa gắn vào menu. Các con số hiệu năng ở mục 11 vẫn là mục tiêu.
 
 Xưởng Cắt Giấy là xưởng thứ tư của Góc Thủ Công. Bé chọn một tờ giấy, gấp theo ý mình, cắt bằng kéo, đục lỗ, rồi **mở ra** để thấy hoa văn đối xứng hiện lên. Sau đó bé xuất được một **tài liệu hướng dẫn từng bước** (PDF hoặc ảnh) để gửi bạn, và bạn làm lại được bằng giấy thật.
 
@@ -82,8 +82,8 @@ Ba lời hứa với người dùng, xếp theo thứ tự ưu tiên:
 | Thao tác | Kết quả |
 |---|---|
 | Chạm một điểm **P** trên mép hoặc góc của xấp giấy rồi kéo tới **F** | Đường gấp là trung trực của đoạn PF. Phần chứa P lật theo ngón tay, có uốn cong mềm. Đây là cách gấp tự nhiên nhất: “đưa góc này tới chỗ kia”. |
-| Thả khi đã đi ≥ 40% hành trình | Giấy tự lật nốt, miết phẳng, nếp gấp hằn lại. |
-| Thả khi chưa đủ 40% | Giấy bật về, không ghi vào lịch sử. |
+| Thả khi đã kéo ≥ 1,2 cm | Giấy miết phẳng, nếp gấp hằn lại. Trong lúc kéo vạt luôn lật đủ θ = π, độ “nhấc” thể hiện bằng bán kính uốn (mục 5.5). |
+| Thả khi kéo chưa tới 1,2 cm | Giấy bật về, không ghi vào lịch sử. |
 | Kéo gần một đường “đẹp” | **Nam châm:** đường gấp hút vào đường đẹp gần nhất (góc lệch ≤ 4° và lệch ≤ 12 px màn hình), có tiếng tách nhỏ và nhãn như `½`, `¼`, `60°`, `góc → góc`. Kéo tiếp ra xa là thoát hút, gấp tự do tiếp. |
 | Nút gấp nhanh (khay bên) | **Gấp đôi**, **Gấp chéo**, **Gấp tư**, **Gấp quạt** (n nếp), **Gấp bông tuyết** (6 hoặc 8 cánh), **Gấp hoa 5 cánh**. Mỗi nút chạy đúng chuỗi gấp như tay bé gấp, có hoạt ảnh, và ghi vào lịch sử thành từng nếp riêng. Nhờ vậy tài liệu xuất ra vẫn tách từng bước. |
 | Hai ngón: xoay, thu phóng | Xoay xấp giấy trên bàn, phóng to để cắt chi tiết. Không ghi vào công thức, chỉ là góc nhìn. |
@@ -172,6 +172,36 @@ Dùng cho hướng dẫn xuất ra và cho giọng đọc. Thứ tự ưu tiên 
 3. **Không khớp mốc:** “Gấp theo đường nét đứt, cách góc dưới 4,5 cm”. Số đo lấy cm thật, làm tròn 0,5 cm, và sơ đồ có ghi kích thước.
 
 Hướng (lên, xuống, trái, phải) tính theo góc nhìn đã chuẩn hoá của sơ đồ ở bước đó, không theo góc bé đang xoay trên màn hình.
+
+### 5.5 Thuật toán đã cài (GĐ0)
+
+Code: `src/papercut/engine/fold.ts`, `cut.ts`, `src/papercut/render/paperMesh.ts`.
+
+- **Gấp một facet:**
+  - Đổi đường gấp (p, n) của toạ độ xấp về toạ độ giấy: p' = m⁻¹(p), n' = phần tuyến tính của m⁻¹ áp lên n.
+  - Tách `region` bằng `halfPlane(p', n')`. Phần bị lật nhận m ← R ∘ m (R là phép đối xứng qua đường gấp).
+  - Lớp mới: gấp lõm `2·top + 1 − layer`, gấp lồi `2·bottom − 1 − layer`.
+  - **Không nén thứ hạng lớp**, để renderer tính z = 2T − z với T = (top + 0,5)·h cho ra đúng lớp như engine.
+- **Lật xấp** coi như một mục trong danh sách nếp: phép đối xứng toàn xấp, đảo lớp. “Mở một nếp” bỏ mục cuối, kể cả mục lật.
+- **Cắt dùng một luật chung cho mọi loại nét:**
+  - K = kerf(nét) hoặc hình dập lỗ (toạ độ xấp); O = hợp các facet trong toạ độ xấp.
+  - Tách O − K thành các thành phần. Giữ thành phần có diện tích giấy lớn nhất (cộng mọi lớp); các thành phần khác rơi.
+  - Vùng bỏ = K ∪ các thành phần rơi. Với mỗi facet lấy `region ∩ m⁻¹(vùng bỏ)`, hợp lại rồi trừ khỏi Sheet.
+  - Nét kín, khe hở và nét đi từ mép tới mép đều tự đúng với luật này, không cần phân loại nét.
+  - Vì sao đúng: đường đi trên giấy không cắt qua tiền ảnh của K thì ảnh của nó trên xấp cũng không cắt qua K. Nên mỗi mảnh giấy thật nằm trọn trong một thành phần của xấp.
+- **Uốn trụ khi lật vạt** (u = khoảng cách tới trục, θ = góc lật, r = bán kính uốn):
+  - Khi u ≤ r·θ: φ = u/r, u' = r·sin φ, w' = r·(1 − cos φ).
+  - Khi u > r·θ: đi tiếp theo tiếp tuyến (cos θ, sin θ) thêm một đoạn u − r·θ.
+  - Khi θ = π: u' = −(u − π·r), w' = 2r. Lúc miết phẳng thì r co về độ dày giấy.
+  - Đỉnh bị phản xạ tự đảo chiều tam giác, nên `gl_FrontFacing` tự đổi mặt trước/mặt sau đúng, không cần logic thêm.
+- **Kéo-gấp bằng ngón tay:** lúc đang kéo, vạt luôn lật đủ θ = π quanh trung trực PF (góc giấy dính vào ngón tay). Độ “nhấc” thể hiện bằng r = clamp(0,25·|PF|, 0,3, 2) cm. Kéo chưa tới 1,2 cm thì bật về. Luật này thay cho luật “40% hành trình” ở mục 4.1.
+- **Giấy in sẵn nét (mục 7.3):**
+  - Lấy “mặt trên nhìn thấy” bằng cách duyệt facet từ lớp cao xuống: phần thấy = ảnh facet − phần đã bị che.
+  - Vẽ tiền ảnh nét cắt trên từng phần thấy, trong toạ độ giấy.
+  - Nếu mọi phần thấy có det < 0 thì thử mặt dưới kèm bước “lật xấp”. Nếu lẫn cả hai loại thì dùng mẫu đặt lên xấp.
+
+- **Giấy được đặt tâm ở gốc toạ độ**, trục y hướng lên. Trong three: (x, cao, −y).
+- **Facets sau khi cắt** được cập nhật tăng dần (region − tiền ảnh vùng bỏ), không gấp lại từ đầu, nên nhanh hơn khoảng 3 lần. Mỗi phép trừ đều kiểm bảo toàn diện tích (`differenceKnown`, xem spike-report mục 3).
 
 ---
 
@@ -474,67 +504,40 @@ interface PapercutArtwork {
 
 ## 16. Nhật ký lệch plan
 
-(Trống, ghi khi triển khai.)
+| Ngày | Lệch | Lý do |
+|---|---|---|
+| 15/10 | Luật “thả ≥ 40% hành trình” (4.1) đổi thành “kéo ≥ 1,2 cm”; vạt luôn lật đủ khi kéo | Kéo bằng ngón tay không có “hành trình” xác định; ngưỡng khoảng cách dễ hiểu và ổn định hơn |
+| 15/10 | Lưới làm tròn 0,01 mm (5.3) đổi thành **0,001 mm** | Ở lưới 0,01 mm clipper2-ts treo và trừ sai thường hơn; chi phí thêm khoảng 15% |
+| 15/10 | Thêm `clipperGuard.ts`, vá prototype của clipper2-ts lúc chạy | Thư viện treo vô hạn ở vài ca cạnh ngang; chưa có bản mới hơn |
+| 15/10 | Sau khi cắt, facets cập nhật tăng dần thay vì gấp lại từ đầu | 64 facet: 145 → 41 ms/nhát; vẫn tất định |
+| 15/10 | Fuzz mặc định 150 chuỗi; 1 000 và 10 000 bật bằng `PAPERCUT_FUZZ` | Để `npm test` không chạy thêm 70 s |
 
 ---
 
-## 17. Checklist bàn giao (dừng lúc 15/10/2026)
+## 17. Checklist bàn giao (dừng lúc 15/10/2026, phiên 2)
 
-Nhánh `feat/papercut-studio`, tách từ `main` tại `1caa20e`.
+Nhánh `feat/papercut-studio`, tách từ `main` tại `1caa20e`. Số đo và các bẫy: `docs/papercut-studio/spike-report.md`.
 
 ### Đã xong
 
-- [x] Plan sản phẩm và kỹ thuật (file này), đã ghi 5 quyết định ở mục 15.
-- [x] So thư viện boolean đa giác. Script ở `docs/papercut-studio/spike/bench-poly.mjs`; chạy trong thư mục tạm có cài `clipper2-ts`, `polygon-clipping` (thư viện thứ hai không có trong dự án). Bài thử nặng: tờ 15 cm, 60 nhát cắt, mỗi nhát lặp 8 ảnh đối xứng D4, nét cong 120 điểm nong kerf 0,3 mm.
-
-  | Thư viện | ms/nhát | Còn lại | Đỉnh | Gói (min+gzip) |
-  |---|---|---|---|---|
-  | `clipper2-ts` 2.0.1-18 | **43,5** | 23,33 cm² | 17 571 | 24,8 KB |
-  | `polygon-clipping` 0.15.7 | 393 | 23,41 cm² | 24 230 | 9,7 KB |
-
-  Chênh diện tích do khớp nối tròn (clipper) so với dải tứ giác ghép (polygon-clipping). Sai số bảo toàn diện tích của clipper ≤ 8·10⁻⁴ cm² (do làm tròn lưới 0,01 mm).
-- [x] **Chọn `clipper2-ts` 2.0.1-18**, đã cài `--save-exact` (BSL-1.0, không dependency). Thư viện có sẵn bản API số thực (`intersectD`, `differenceD`, `unionD`, tham số precision = 3), nong polyline (`inflatePathsD`), cây đa giác (`PolyTreeD`) và tam giác hoá (`triangulateD`).
-- [x] Bản nháp `src/papercut/engine/geom.ts` (Vec, phép dời hình Iso, phép đối xứng qua đường) và `src/papercut/engine/poly.ts` (bọc clipper: union/intersect/difference, transform giữ chiều vòng, halfPlane, kerf, components, triangles). **Chưa chạy `tsc`, chưa có test.**
-
-### Bẫy đã gặp
-
-- `FillRule.NonZero`: hai vòng **ngược chiều** chồng nhau sẽ triệt tiêu nhau. Ảnh qua phép lật (det = −1) bị đảo chiều, nên hợp lại thì mất vùng cắt (bài đo lúc đầu sai 10 cm²). Luôn chuẩn hoá chiều (`oriented()`, `transform()` trong `poly.ts`) trước khi hợp.
-
-### Ghi chú thuật toán đã nghĩ xong (chưa kịp viết vào mục 5–6)
-
-- **Gấp một facet:**
-  - Đổi đường gấp (p, n) của toạ độ xấp về toạ độ giấy: p' = m⁻¹(p), n' = phần tuyến tính của m⁻¹ áp lên n.
-  - Tách `region` bằng `halfPlane(p', n')`. Phần bị lật nhận m ← R ∘ m (R là phép đối xứng qua đường gấp).
-  - Lớp mới: gấp lõm `2·top + 1 − layer`, gấp lồi `2·bottom − 1 − layer`.
-  - **Không nén thứ hạng lớp**, để renderer tính z = 2T − z với T = (top + 0,5)·h cho ra đúng lớp như engine.
-- **Lật xấp** coi như một mục trong danh sách nếp: phép đối xứng toàn xấp, đảo lớp. “Mở một nếp” bỏ mục cuối, kể cả mục lật.
-- **Cắt dùng một luật chung cho mọi loại nét:**
-  - K = kerf(nét) hoặc hình dập lỗ (toạ độ xấp); O = hợp các facet trong toạ độ xấp.
-  - Tách O − K thành các thành phần. Giữ thành phần có diện tích giấy lớn nhất (cộng mọi lớp); các thành phần khác rơi.
-  - Vùng bỏ = K ∪ các thành phần rơi. Với mỗi facet lấy `region ∩ m⁻¹(vùng bỏ)`, hợp lại rồi trừ khỏi Sheet.
-  - Nét kín, khe hở và nét đi từ mép tới mép đều tự đúng với luật này, không cần phân loại nét.
-  - Vì sao đúng: đường đi trên giấy không cắt qua tiền ảnh của K thì ảnh của nó trên xấp cũng không cắt qua K. Nên mỗi mảnh giấy thật nằm trọn trong một thành phần của xấp.
-- **Uốn trụ khi lật vạt** (u = khoảng cách tới trục, θ = góc lật, r = bán kính uốn):
-  - Khi u ≤ r·θ: φ = u/r, u' = r·sin φ, w' = r·(1 − cos φ).
-  - Khi u > r·θ: đi tiếp theo tiếp tuyến (cos θ, sin θ) thêm một đoạn u − r·θ.
-  - Khi θ = π: u' = −(u − π·r), w' = 2r. Lúc miết phẳng thì r co về độ dày giấy.
-  - Đỉnh bị phản xạ tự đảo chiều tam giác, nên `gl_FrontFacing` tự đổi mặt trước/mặt sau đúng, không cần logic thêm.
-- **Kéo-gấp bằng ngón tay:** lúc đang kéo, vạt luôn lật đủ θ = π quanh trung trực PF (góc giấy dính vào ngón tay). Độ “nhấc” thể hiện bằng r = clamp(0,25·|PF|, 0,3, 2) cm. Kéo chưa tới 1,2 cm thì bật về. Luật này thay cho luật “40% hành trình” ở mục 4.1.
-- **Giấy in sẵn nét (mục 7.3):**
-  - Lấy “mặt trên nhìn thấy” bằng cách duyệt facet từ lớp cao xuống: phần thấy = ảnh facet − phần đã bị che.
-  - Vẽ tiền ảnh nét cắt trên từng phần thấy, trong toạ độ giấy.
-  - Nếu mọi phần thấy có det < 0 thì thử mặt dưới kèm bước “lật xấp”. Nếu lẫn cả hai loại thì dùng mẫu đặt lên xấp.
+- [x] Plan và 5 quyết định ở mục 15. Đã chọn `clipper2-ts` 2.0.1-18; bảng so sánh ở `docs/papercut-studio/spike/bench-poly.mjs` (commit 0848940).
+- [x] `geom.ts`, `poly.ts` qua `tsc` và có test. Đã sửa lỗi `unionD` bỏ qua precision.
+- [x] `model.ts`, `sheet.ts`, `fold.ts`, `cut.ts`, `recipe.ts` cùng `fold.test.ts`. Các ca đã test: gấp đôi, gấp lồi, lật xấp, D4 8 lớp, mở hết, cắt góc, đục lỗ, khe, cắt rời, đối xứng D4 và 6 cánh.
+- [x] `fuzz.test.ts`: 1 000 chuỗi đạt mọi bất biến mục 5.3; đã đo ms/nhát với 6 nếp.
+- [x] Phát hiện và chặn 3 lỗi của clipper2-ts (treo, trừ sai, `unionD`). Xem spike-report mục 3.
+- [x] Bàn thử `/papercut?dev=1`: route tải lười trong `App.tsx`, **không** thêm vào `catalog.ts`. Có lưới 160², mặt nạ 2048², uốn trụ, hai mặt màu, kéo-gấp bằng chuột, bật về, gấp nhanh, cắt, dập lỗ, hoàn tác, mở ngược từng nếp. Đã kiểm trên trình duyệt; ảnh ở `docs/papercut-studio/shots/`.
+- [x] `paperMesh.test.ts`: lưới hiển thị khớp engine (vị trí và độ cao lớp); khi θ = π và r → 0 thì trùng trạng thái đã gấp.
+- [x] Đã chuyển ghi chú thuật toán vào mục 5.5.
 
 ### Việc tiếp theo (theo thứ tự)
 
-1. [ ] `npx tsc --noEmit` cho `geom.ts`, `poly.ts`; viết `geom.test.ts` (compose/invert/reflection) và `poly.test.ts` (chiều vòng, components có đảo trong lỗ, kerf).
-2. [ ] `engine/fold.ts`: `applyFold`, `foldStack(sheet, entries)`, `outline(facets)`; test: gấp đôi ra 2 facet, tổng diện tích không đổi, mở hết thì trùng Sheet.
-3. [ ] `engine/cut.ts` theo luật cắt chung ở trên; test: gấp đôi cắt góc thì rơi 1 mảnh và Sheet mất 2 góc đối xứng; gấp 3 nếp D4 cắt ngẫu nhiên thì Sheet bất biến qua D4 (XOR < 10⁻³ cm²).
-4. [ ] Fuzz 1 000 chuỗi (lên 10 000 ở GĐ1) theo các bất biến mục 5.3; đo ms/nhát với 6 nếp.
-5. [ ] Trang dev `/papercut?dev=1`: lưới 160² + mặt nạ Canvas 2048² + uốn trụ, kéo-gấp bằng chuột, 3 nếp, mở ngược.
-6. [ ] Đo fps trên tablet chuẩn; quay video 20 s; viết `docs/papercut-studio/spike-report.md`; **gửi người dùng duyệt hình** (cổng GĐ0).
-7. [ ] Viết các ghi chú thuật toán ở trên vào đúng mục 5–6, rồi xoá khỏi mục này.
+1. [ ] **Cổng GĐ0:** mở `/papercut?dev=1` trên tablet chuẩn. Chọn hồ sơ trước rồi vào bằng điều hướng trong app, vì tải lại trang sẽ mất hồ sơ đang chọn. Ghi fps khi kéo-gấp và ms/nhát cắt vào spike-report mục 4. Quay video 20 s gấp–cắt–mở, rồi **người dùng duyệt “đẹp mắt”**.
+2. [ ] Theo số đo ở bước 1, chốt biến dạng chạy trên CPU hay shader, và dùng mặt nạ hay tam giác hoá facets (so khi phóng to).
+3. [ ] GĐ1: đưa thời gian cắt qua 6 nếp xuống ≤ 30 ms trên tablet (gộp facet cùng phép biến đổi, lọc khung bao, hoặc Web Worker). Fuzz 10 000 chuỗi (`PAPERCUT_FUZZ=10000`) phải ra 0 ca `unresolved`.
+4. [ ] GĐ1: `snap.ts`, `describe.ts`, `symmetry.ts`; hoàn tác/làm lại trong `recipe.ts` (bàn thử hiện hoàn tác bằng cách phát lại).
+5. [ ] Một sơ đồ 2D mẫu (hạng mục GĐ0 còn thiếu).
 
-### Không thuộc việc này
+### Ghi chú cho người làm tiếp
 
-- `src/bricks/content/groups.test.ts` có thay đổi chưa commit từ trước. Thay đổi này **không** nằm trong commit của nhánh này.
+- Trên bàn thử, `window.__papercut` có `bench`, `fold(px, py, fx, fy)`, `cut([[x, y], …])`, `unfoldAll()` để kiểm thử trong trình duyệt. Toạ độ tính bằng cm, tâm giấy ở gốc.
+- Khi ô trình duyệt bị ẩn, `requestAnimationFrame` bị hạn nên hoạt ảnh chạy chậm. Số fps đo ở đó không phản ánh máy thật.
