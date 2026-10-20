@@ -49,6 +49,7 @@ const ColoringPage = React.lazy(() => import('@/src/coloring/ui/ColoringPage').t
 const CraftMenuPage = React.lazy(() => import('@/src/pages/CraftMenuPage').then(module => ({ default: module.CraftMenuPage })));
 const PotteryPage = React.lazy(() => import('@/src/pottery/ui/PotteryPage').then(module => ({ default: module.PotteryPage })));
 const BricksPage = React.lazy(() => import('@/src/bricks/ui/BricksPage').then(module => ({ default: module.BricksPage })));
+const PapercutPage = React.lazy(() => import('@/src/papercut/ui/PapercutPage').then(module => ({ default: module.PapercutPage })));
 
 
 
@@ -312,6 +313,10 @@ export default function App() {
               <Route
                 path="/bricks/*"
                 element={<ProtectedRoute><BricksPage /></ProtectedRoute>}
+              />
+              <Route
+                path="/papercut/*"
+                element={<ProtectedRoute><PapercutPage /></ProtectedRoute>}
               />
               <Route
                 path="/coloring/*"
