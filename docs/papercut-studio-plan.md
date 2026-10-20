@@ -500,13 +500,14 @@ interface PapercutArtwork {
 | Tên bé trên tài liệu chia sẻ | **Không in tên.** |
 | Mã công thức/QR | **Không làm.** |
 | Âm thanh | **Nguồn miễn phí bản quyền** (CC0 hoặc tương đương), có ghi nguồn. |
-| Hoa văn giấy, ảnh bìa | Người dùng giao Claude quyết: giấy trơn, hai mặt, kim tuyến và hoa văn hình học sinh bằng code; ảnh bìa chụp từ renderer (mục 6.3). |
+| Hoa văn giấy, ảnh bìa | Người dùng giao Claude quyết: giấy trơn, hai mặt, kim tuyến và hoa văn hình học sinh bằng code; ảnh bìa ban đầu định chụp từ renderer (mục 6.3); 20/10 người dùng cho GPT vẽ (`public/papercut/cover.webp`, `cover-sm.webp`). |
 
 ## 16. Nhật ký lệch plan
 
 | Ngày | Lệch | Lý do |
 |---|---|---|
 | 15/10 | Luật “thả ≥ 40% hành trình” (4.1) đổi thành “kéo ≥ 1,2 cm”; vạt luôn lật đủ khi kéo | Kéo bằng ngón tay không có “hành trình” xác định; ngưỡng khoảng cách dễ hiểu và ổn định hơn |
+| 20/10 | Phát hành sớm, chưa qua cổng GĐ0: thẻ trong Góc Thủ Công, `/papercut` mở bàn cắt giấy cho bé (`ui/PapercutStudio.tsx`, đổi tên từ `DevBench.tsx`): giấy vuông/lục giác/dải dài, 7 màu, Gấp/Kéo cắt/Đục lỗ, gấp nhanh, Hoàn tác, Giấy mới, Mở ra!. `?dev=1` chỉ bật bảng số đo và `window.__papercut`. Ảnh bìa do GPT vẽ (`public/papercut/`) thay vì chụp từ renderer. Chưa có lưu tác phẩm, xuất hướng dẫn, mẫu, âm thanh, nam châm | Người dùng yêu cầu release ngay |
 | 15/10 | Lưới làm tròn 0,01 mm (5.3) đổi thành **0,001 mm** | Ở lưới 0,01 mm clipper2-ts treo và trừ sai thường hơn; chi phí thêm khoảng 15% |
 | 15/10 | Thêm `clipperGuard.ts`, vá prototype của clipper2-ts lúc chạy | Thư viện treo vô hạn ở vài ca cạnh ngang; chưa có bản mới hơn |
 | 15/10 | Sau khi cắt, facets cập nhật tăng dần thay vì gấp lại từ đầu | 64 facet: 145 → 41 ms/nhát; vẫn tất định |

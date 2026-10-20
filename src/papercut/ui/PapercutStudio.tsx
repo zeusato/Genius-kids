@@ -1,6 +1,7 @@
-// Bàn thử GĐ0 (plan mục 12, spike-report GĐ0): lưới 160² + mặt nạ 2048² + uốn trụ, kéo-gấp bằng chuột,
-// cắt tự do, dập lỗ, mở ngược từng nếp. Chỉ để kiểm chứng cảm giác và đo hiệu năng — chưa phải giao diện cho bé.
+// Bàn cắt giấy (plan mục 3–6; số đo GĐ0 ở spike-report): lưới 160² + mặt nạ 2048² + uốn trụ, kéo-gấp bằng tay,
+// cắt tự do, dập lỗ, mở ngược từng nếp. `dev` hiện thêm bảng số đo và móc `window.__papercut` cho kiểm thử.
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { ArrowLeft, CircleDot, FilePlus2, FoldHorizontal, FoldVertical, Hand, Scissors, Sparkles, Triangle, Undo2 } from 'lucide-react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { FoldEntry, Op, PaperSpec } from '../model';
@@ -13,11 +14,15 @@ import { createPaperMaterial } from '../render/paperMaterial';
 import { deform, layerSpans, makeGrid, type Motion } from '../render/paperMesh';
 
 const THICK = 0.02, KERF = 0.03, MIN_DRAG = 1.2;
-const PAPERS: Record<string, PaperSpec> = {
-  square: { shape: 'square', w: 15, h: 15, front: '#e53935', back: '#fff4e0' },
-  hexagon: { shape: 'hexagon', w: 15, h: 15, front: '#1e88e5', back: '#fffde7' },
-  strip: { shape: 'strip', w: 28, h: 7, front: '#43a047', back: '#fff' },
-};
+const SHAPES = {
+  square: { label: 'Vuông', w: 15, h: 15 },
+  hexagon: { label: 'Lục giác', w: 15, h: 15 },
+  strip: { label: 'Dải dài', w: 28, h: 7 },
+} as const;
+type ShapeId = keyof typeof SHAPES;
+const COLORS = [['Đỏ', '#e53935'], ['Cam', '#fb8c00'], ['Vàng', '#fdd835'], ['Xanh lá', '#43a047'], ['Xanh dương', '#1e88e5'], ['Tím', '#8e24aa'], ['Hồng', '#ec407a']] as const;
+const BACK = '#fff6e6';
+const paperOf = (shape: ShapeId, front: string): PaperSpec => ({ shape, w: SHAPES[shape].w, h: SHAPES[shape].h, front, back: BACK });
 
 type Anim = { kind: 'drag' | 'settle' | 'spring' | 'unfold' | 'quick'; motion: Motion; from: number; to: number; t0: number; dur: number; rFrom?: number; rTo?: number; done?: () => void };
 
@@ -178,22 +183,27 @@ function Scene({ bench, mode, mountain }: { bench: Bench; mode: 'fold' | 'cut' |
   </>;
 }
 
-export function DevBench() {
-  const [paper, setPaper] = useState<keyof typeof PAPERS>('square');
-  const bench = useMemo(() => new Bench(PAPERS.square), []);
+export function PapercutStudio({ dev = false, onExit }: { dev?: boolean; onExit: () => void }) {
+  const [shape, setShape] = useState<ShapeId>('square');
+  const [color, setColor] = useState<string>(COLORS[0][1]);
+  const spec = useMemo(() => paperOf(shape, color), [shape, color]);
+  const bench = useMemo(() => new Bench(paperOf('square', COLORS[0][1])), []);
   const [mode, setMode] = useState<'fold' | 'cut' | 'punch'>('fold');
   const [mountain, setMountain] = useState(false);
   const [, setTick] = useState(0);
   useEffect(() => { const f = () => setTick(t => t + 1); bench.listeners.add(f); return () => { bench.listeners.delete(f); }; }, [bench]);
-  useEffect(() => { bench.reset(PAPERS[paper]); }, [bench, paper]);
-  // Móc cho kiểm thử tự động trong trình duyệt.
+  useEffect(() => { bench.reset(spec); }, [bench, spec]);
+  // Móc cho kiểm thử tự động trong trình duyệt (chỉ khi ?dev=1).
   useEffect(() => {
-    (window as unknown as { __papercut?: unknown }).__papercut = {
+    if (!dev) return;
+    const w = window as unknown as { __papercut?: unknown };
+    w.__papercut = {
       bench, fold: (px: number, py: number, fx: number, fy: number, valley = true) => bench.foldAnimated({ kind: 'fold', p: scale(add(v(px, py), v(fx, fy)), 0.5), n: norm(sub(v(px, py), v(fx, fy))), valley }),
       cut: (pts: [number, number][]) => bench.push({ kind: 'cut', region: kerf(pts.map(([x, y]) => v(x, y)), KERF), tool: 'free' }),
       unfoldAll: () => bench.unfoldAll(),
     };
-  }, [bench]);
+    return () => { delete w.__papercut; };
+  }, [bench, dev]);
 
   const quick = (kind: 'v' | 'h' | 'd') => {
     if (bench.anim) return;
@@ -201,25 +211,39 @@ export function DevBench() {
     const n = kind === 'v' ? v(1, 0) : kind === 'h' ? v(0, 1) : norm(perp(v(b.x1 - b.x0, b.y1 - b.y0)));
     bench.foldAnimated({ kind: 'fold', p: c, n, valley: true });
   };
-  const s = bench.stats;
-  return <div className="pc-dev">
+  const s = bench.stats, folded = s.folds > 0, fresh = s.ops === 0;
+  const hint = mode === 'fold' ? 'Chạm vào giấy rồi kéo để gấp' : mode === 'cut' ? 'Vẽ đường cắt bằng ngón tay' : 'Chạm lên giấy để đục lỗ tròn';
+  return <div className="pc-studio">
     <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 24, 13], fov: 42, near: 0.1, far: 300 }} onCreated={({ camera }) => camera.lookAt(0, 0, 0.5)} gl={{ antialias: true }}>
       <color attach="background" args={['#3b2f26']} />
-      <Scene key={paper} bench={bench} mode={mode} mountain={mountain} />
+      <Scene key={`${shape}${color}`} bench={bench} mode={mode} mountain={mountain} />
     </Canvas>
-    <div className="pc-dev-bar">
-      <select value={paper} onChange={e => setPaper(e.target.value as keyof typeof PAPERS)}>{Object.keys(PAPERS).map(k => <option key={k}>{k}</option>)}</select>
-      {(['fold', 'cut', 'punch'] as const).map(m => <button key={m} className={mode === m ? 'on' : ''} onClick={() => setMode(m)}>{{ fold: 'Gấp (kéo)', cut: 'Kéo cắt', punch: 'Dập lỗ' }[m]}</button>)}
-      <label><input type="checkbox" checked={mountain} onChange={e => setMountain(e.target.checked)} /> gấp lồi</label>
-      <span className="sep" />
-      <button onClick={() => quick('v')}>Gấp đôi dọc</button>
-      <button onClick={() => quick('h')}>Gấp đôi ngang</button>
-      <button onClick={() => quick('d')}>Gấp chéo</button>
-      <span className="sep" />
-      <button onClick={() => bench.unfoldOne()}>Mở một nếp</button>
-      <button onClick={() => bench.unfoldAll()}>Mở ra!</button>
-      <button onClick={() => bench.undo()}>Hoàn tác</button>
+    <div className="pc-top">
+      <button className="pc-btn pc-round" onClick={onExit} aria-label="Về Góc Thủ Công"><ArrowLeft size={22} /></button>
+      <div className="pc-group" role="group" aria-label="Kiểu giấy">
+        {(Object.keys(SHAPES) as ShapeId[]).map(k => <button key={k} className={`pc-btn${shape === k ? ' on' : ''}`} onClick={() => setShape(k)}>{SHAPES[k].label}</button>)}
+      </div>
+      <div className="pc-group pc-colors" role="group" aria-label="Màu giấy">
+        {COLORS.map(([name, c]) => <button key={c} className={`pc-swatch${color === c ? ' on' : ''}`} style={{ background: c }} onClick={() => setColor(c)} aria-label={`Giấy ${name}`} title={name} />)}
+      </div>
     </div>
-    <pre className="pc-dev-stats">{`fps ${s.fps.toFixed(0)} · biến dạng ${s.deformMs.toFixed(2)} ms · mặt nạ ${s.maskMs.toFixed(1)} ms · cắt ${s.cutMs.toFixed(1)} ms\n${s.folds} nếp · ${s.facets} facet · ${s.ops} thao tác`}</pre>
+    <div className="pc-tools" role="toolbar" aria-label="Dụng cụ">
+      <button className={`pc-tool${mode === 'fold' ? ' on' : ''}`} onClick={() => setMode('fold')}><Hand size={26} /><span>Gấp</span></button>
+      <button className={`pc-tool${mode === 'cut' ? ' on' : ''}`} onClick={() => setMode('cut')}><Scissors size={26} /><span>Kéo cắt</span></button>
+      <button className={`pc-tool${mode === 'punch' ? ' on' : ''}`} onClick={() => setMode('punch')}><CircleDot size={26} /><span>Đục lỗ</span></button>
+      <hr />
+      <button className="pc-tool" onClick={() => quick('v')}><FoldHorizontal size={26} /><span>Gấp dọc</span></button>
+      <button className="pc-tool" onClick={() => quick('h')}><FoldVertical size={26} /><span>Gấp ngang</span></button>
+      <button className="pc-tool" onClick={() => quick('d')}><Triangle size={26} /><span>Gấp chéo</span></button>
+      {mode === 'fold' && <label className="pc-check"><input type="checkbox" checked={mountain} onChange={e => setMountain(e.target.checked)} /> Gấp ra sau</label>}
+    </div>
+    <div className="pc-bottom">
+      <span className="pc-hint">{hint}</span>
+      <button className="pc-btn" onClick={() => bench.undo()} disabled={fresh}><Undo2 size={20} /> Hoàn tác</button>
+      <button className="pc-btn" onClick={() => bench.reset(spec)} disabled={fresh}><FilePlus2 size={20} /> Giấy mới</button>
+      <button className="pc-btn" onClick={() => bench.unfoldOne()} disabled={!folded}>Mở một nếp</button>
+      <button className="pc-btn pc-primary" onClick={() => bench.unfoldAll()} disabled={!folded}><Sparkles size={20} /> Mở ra!</button>
+    </div>
+    {dev && <pre className="pc-dev-stats">{`fps ${s.fps.toFixed(0)} · biến dạng ${s.deformMs.toFixed(2)} ms · mặt nạ ${s.maskMs.toFixed(1)} ms · cắt ${s.cutMs.toFixed(1)} ms\n${s.folds} nếp · ${s.facets} facet · ${s.ops} thao tác`}</pre>}
   </div>;
 }

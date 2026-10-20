@@ -2,7 +2,7 @@ import { Grade } from '../../../types';
 import { isPreschool } from '../../utils/grade';
 
 export type ModeId = 'study' | 'english' | 'game' | 'library' | 'riddle' | 'piano' | 'science' | 'alphabet' | 'counting' | 'colors' | 'crafts';
-export type CraftId = 'coloring' | 'pottery' | 'bricks';
+export type CraftId = 'coloring' | 'pottery' | 'bricks' | 'papercut';
 export type GameId = 'farm' | 'caro' | 'coding' | 'memory' | 'sound-memory' | 'speed-math' | 'dragon-quest' | 'math-racing' | 'sudoku' | 'gears-menu' | 'gears-build' | 'gears-guess' | 'horse-race' | 'o-an-quan' | 'co-ti-phu' | 'board-games' | 'co-vua' | 'co-tuong';
 export type ScienceId = 'solar-system' | 'planet-maker' | 'periodic-table' | 'electricity' | 'cell-biology' | 'evolution';
 export type ArtId = ModeId | CraftId | GameId | `science-${ScienceId}`;
@@ -23,6 +23,7 @@ export const CRAFT_CATALOG: (HubEntry<CraftId> & { route: `/${CraftId}` })[] = [
     { id: 'coloring', title: 'Xưởng Tô Màu', subtitle: 'Mỗi nét màu, một câu chuyện', description: 'Mở hộp màu, tô tranh không lem hoặc tự vẽ thế giới của em.', art: 'coloring', label: 'VẼ · TÔ MÀU', route: '/coloring' },
     { id: 'pottery', title: 'Xưởng Gốm', subtitle: 'Mỗi món đồ, một dấu tay', description: 'Nắn đất trên bàn xoay, phủ men và mở lò đón tác phẩm của em.', art: 'pottery', label: 'NẶN · TRÁNG MEN · NUNG', route: '/pottery' },
     { id: 'bricks', title: 'Xưởng Lắp Ghép', subtitle: 'Mỗi viên gạch, một ý tưởng', description: 'Chọn mảnh, xoay hướng, lắp nhà, xe, thú cưng — rồi cất vào Tủ Mô Hình.', art: 'bricks', label: 'LẮP GHÉP & SÁNG TẠO', route: '/bricks' },
+    { id: 'papercut', title: 'Xưởng Cắt Giấy', subtitle: 'Mỗi nếp gấp, một bất ngờ', description: 'Gấp giấy, cầm kéo cắt rồi mở ra xem hoa văn đối xứng hiện lên.', art: 'papercut', label: 'GẤP · CẮT · MỞ RA', route: '/papercut' },
 ];
 const preschoolModes: HubEntry<ModeId>[] = [
     { id: 'alphabet', title: 'Bảng Chữ Cái', subtitle: 'Những người bạn A–Z', description: 'Làm quen chữ cái tiếng Anh.', art: 'alphabet', label: 'HỌC CHỮ' },
