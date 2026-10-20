@@ -211,6 +211,7 @@ export interface AchievementProgress {
 export interface StudentProfile {
   bricks?: import('./src/bricks/progress/progress').BricksProgress;
   pottery?: import('./src/pottery/model').PotteryProgress;
+  papercut?: import('./src/papercut/model').PapercutProgress;
   coloring?: import('./src/coloring/model').ColoringProgress;
   electricity?: import('./src/components/electricity/progress/progress').ElectricityProgress;
   electricityBadges?: string[];

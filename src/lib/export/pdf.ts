@@ -1,4 +1,4 @@
-// Trình ghi PDF tối giản (plan mục 11.2): mỗi trang = một ảnh JPEG phủ kín A4 (image XObject DCTDecode).
+// Trình ghi PDF tối giản (dùng chung: Xưởng Lắp Ghép plan mục 11.2, Xưởng Cắt Giấy plan mục 7.4): mỗi trang = một ảnh JPEG phủ kín A4 (image XObject DCTDecode).
 // Không thêm thư viện; chữ tiếng Việt đã được vẽ sẵn trên canvas nên không cần nhúng font.
 
 export interface PdfPage { jpeg: Uint8Array; width: number; height: number }

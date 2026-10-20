@@ -6,7 +6,7 @@ import { IconRenderer } from '../render/icons';
 import { Shooter, VIEWS } from '../render/shooter';
 import { buildBom, realSize, type BomRow } from './bom';
 import { baseplateHint, buildSteps, type Step } from './steps';
-import { makePdf, type PdfPage } from './pdf';
+import { makePdf, type PdfPage } from '../../lib/export/pdf';
 
 const W = 1240, H = 1754, M = 70;
 const FONT = '"Be Vietnam Pro", "Segoe UI", system-ui, sans-serif';

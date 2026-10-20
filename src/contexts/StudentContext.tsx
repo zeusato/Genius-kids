@@ -6,6 +6,8 @@ import { persistColoring } from '../coloring/progress/progress';
 import { persistPottery } from '../pottery/progress/progress';
 import { activeAccountScope, clearPotteryData } from '../pottery/persistence/repository';
 import { clearColoringData } from '../coloring/progress/artworkRepo';
+import { persistPapercut, type PapercutEvent } from '../papercut/progress/progress';
+import { clearPapercutData } from '../papercut/persistence/repository';
 import type { StudyProgress } from '@/services/study/types';
 import { persistResult as persistCaro } from '../../games/Caro/profile-adapter';
 import { clearCaroData } from '../../games/Caro/persistence';
@@ -64,6 +66,7 @@ interface StudentActionsType {
     saveBricks: (owner: string, event: BricksEvent) => void;
     saveColoring: (owner: string, id: string, detail?: CompletionDetail) => { ok: boolean; earned: number };
     completePottery: (owner: string, art: import('../pottery/model').ArtworkDoc) => { ok: boolean; earned: number };
+    savePapercut: (owner: string, event: PapercutEvent) => { ok: boolean; earned: number; badges: string[] };
     completeElectricity: (owner: string, run: ElectricityRun) => Promise<ElectricityCompletionResult>;
     claimElectricityLegacy: (owner: string, archive: LegacyArchive) => Promise<ElectricityCompletionResult>;
     completeEnglish: (owner: string, sessionId: string) => Promise<CompletionResult>;
@@ -358,6 +361,15 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         return { ok: result.ok, earned: result.earned };
     }, [currentStudentId, setStudents]);
 
+    const savePapercut = useCallback((owner: string, event: PapercutEvent) => {
+        if (owner !== currentStudentId) return { ok: false, earned: 0, badges: [] };
+        const result = persistPapercut(studentsRef.current, owner, event, saveProfilesStrict);
+        if (result.ok && result.profiles !== studentsRef.current) {
+            persistedRef.current = result.profiles; setStudents(result.profiles);
+        }
+        return { ok: result.ok, earned: result.earned, badges: result.badges };
+    }, [currentStudentId, setStudents]);
+
     const saveColoring = useCallback((owner: string, id: string, detail?: CompletionDetail) => {
         if (owner !== currentStudentId) return { ok: false, earned: 0 };
         const result = persistColoring(studentsRef.current, owner, id, saveProfilesStrict, detail);
@@ -399,6 +411,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         try { localStorage.removeItem('bricks-local-metrics:' + id); localStorage.removeItem('bricks-coach-v1:' + id); } catch { /* Storage unavailable. */ }
         void clearPotteryData({ account: activeAccountScope(), student: id }).catch(error => console.warn('Pottery cleanup failed', error));
         void clearColoringData(id).catch(error => console.warn('Coloring cleanup failed', error));
+        void clearPapercutData({ account: activeAccountScope(), student: id }).catch(error => console.warn('Papercut cleanup failed', error));
         void clearElectricityData(id).catch(error => console.warn('Electricity notebook cleanup failed', error));
         try {
             const archive = localStorage.getItem('electricity_legacy_archive_v1');
@@ -716,6 +729,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     const actions: StudentActionsType = {
         saveBricks,
         completePottery,
+        savePapercut,
         saveColoring,
         completeEnglish,
         completeCaro,

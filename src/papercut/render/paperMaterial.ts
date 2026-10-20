@@ -12,7 +12,9 @@ export function createPaperMaterial(front: string, back: string, mask: THREE.Tex
     shader.uniforms.backColor = backColor;
     shader.fragmentShader = shader.fragmentShader
       .replace('#include <common>', '#include <common>\nuniform vec3 backColor;')
-      .replace('vec4 diffuseColor = vec4( diffuse, opacity );', 'vec4 diffuseColor = vec4( gl_FrontFacing ? diffuse : backColor, opacity );');
+      .replace('vec4 diffuseColor = vec4( diffuse, opacity );', 'vec4 diffuseColor = vec4( gl_FrontFacing ? diffuse : backColor, opacity );')
+      // vết nếp (kênh R của mặt nạ) làm giấy tối nhẹ dọc đường gấp cũ
+      .replace('#include <alphamap_fragment>', '#include <alphamap_fragment>\n\tdiffuseColor.rgb *= 1.0 - 0.28 * texture2D( alphaMap, vAlphaMapUv ).r;');
   };
   const depth = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, alphaMap: mask, alphaTest: 0.5, side: THREE.DoubleSide });
   return { mat, depth, setColors(f: string, b: string) { mat.color.set(f); backColor.value.set(b); } };

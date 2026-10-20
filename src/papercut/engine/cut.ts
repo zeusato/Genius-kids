@@ -34,6 +34,12 @@ export function cut(sheet: Sheet, facets: Facet[], K: Shape): CutResult {
   const dropped = falling.filter(p => p.w >= DUST).map(p => p.pc);
   if (isEmpty(removed)) return { sheet, dropped, removed, facets };
   // Facets cập nhật tăng dần; mỗi phép trừ được kiểm bảo toàn diện tích (xem differenceKnown).
-  const next = facets.map((f, i) => ({ ...f, region: differenceKnown(f.region, pre[i], area(cutParts[i])) })).filter(f => !isEmpty(f.region));
-  return { sheet: differenceKnown(sheet, removed, area(removed)), dropped, removed, facets: next };
+  const next = facets.map((f, i) => ({ ...f, region: clean(differenceKnown(f.region, pre[i], area(cutParts[i]))) })).filter(f => !isEmpty(f.region));
+  return { sheet: clean(differenceKnown(sheet, removed, area(removed))), dropped, removed, facets: next };
+}
+
+/** Bỏ các vòng diện tích ≈ 0 (vệt làm tròn dọc nếp gấp) để không bị đếm là mảnh giấy rời. */
+const SLIVER = 2e-3; // cm² (0,2 mm²): vệt làm tròn đo được ~2·10⁻⁴; khe kéo 1 cm đã ~3·10⁻²
+function clean(s: Shape): Shape {
+  return s.filter(r => { let a = 0; for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length]; a += p.x * q.y - q.x * p.y; } return Math.abs(a / 2) > SLIVER; });
 }

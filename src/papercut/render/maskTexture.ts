@@ -1,7 +1,8 @@
 // Mặt nạ cắt (plan mục 6.1): vẽ Sheet bằng Canvas 2D vào texture, shader bỏ pixel ngoài giấy.
-// Kênh G = giấy (alphaMap của three đọc kênh G). Kênh R = vết nếp (sau GĐ0).
+// Kênh G = giấy (alphaMap của three đọc kênh G). Kênh R = vết nếp in lại trên giấy (plan mục 6.3).
 import * as THREE from 'three';
 import type { Shape } from '../engine/poly';
+import type { Segment } from '../engine/lines';
 
 export interface MaskFrame { x0: number; y0: number; w: number; h: number }
 
@@ -22,7 +23,7 @@ export class CutMask {
   }
 
   /** Vẽ lại toàn bộ Sheet; trả ms để báo cáo spike. */
-  draw(sheet: Shape): number {
+  draw(sheet: Shape, creases: readonly Segment[] = []): number {
     const t0 = performance.now(), { ctx, size } = this, { x0, y0, w, h } = this.frame;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.fillStyle = '#000';
@@ -36,6 +37,15 @@ export class CutMask {
     }
     ctx.fillStyle = '#0f0';
     ctx.fill('nonzero');
+    if (creases.length) {
+      // vết nếp: cộng kênh R, chỉ trong phần giấy (source-atop giữ nguyên chỗ trống)
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.strokeStyle = '#a00'; ctx.lineWidth = w / size * 5; ctx.lineCap = 'round';
+      ctx.beginPath();
+      for (const [a, b] of creases) { ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); }
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+    }
     this.texture.needsUpdate = true;
     return performance.now() - t0;
   }

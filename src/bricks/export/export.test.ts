@@ -6,7 +6,7 @@ import { SAMPLES, buildSample } from '../content/samples';
 import { buildBom, realSize } from './bom';
 import { baseplateHint, buildSteps } from './steps';
 import { fromLdraw, toLdraw, toBricklinkXml, toRebrickableCsv } from './files';
-import { makePdf } from './pdf';
+import { makePdf } from '../../lib/export/pdf';
 import type { Catalog } from '../engine/types';
 
 const catalog: Catalog = JSON.parse(fs.readFileSync('public/bricks/catalog.json', 'utf8'));
