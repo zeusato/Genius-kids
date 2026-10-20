@@ -13,6 +13,7 @@ import { saveArtwork, saveThumbnail } from '../persistence/repository';
 import type { PapercutEvent } from '../progress/progress';
 import { Bench, KERF } from '../state/bench';
 import { WorkbenchScene, type Tool } from '../render/WorkbenchScene';
+import { playSfx, preloadSfx } from '../render/sfx';
 import { ExportSheet } from './ExportSheet';
 import { Notebook } from './Notebook';
 import { TemplatePicker } from './TemplatePicker';
@@ -49,6 +50,7 @@ export function PapercutStudio({ scope, dev = false, preschool = false, onExit, 
   const [toast, setToast] = useState<string | null>(null);
   const [, setTick] = useState(0);
   useEffect(() => { const f = () => setTick(t => t + 1); bench.listeners.add(f); return () => { bench.listeners.delete(f); }; }, [bench]);
+  useEffect(() => { bench.sound = playSfx; preloadSfx(); return () => { bench.sound = () => {}; }; }, [bench]);
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 3500); return () => clearTimeout(t); }, [toast]);
 
   // Đổi giấy → tờ mới; nếu đang mở mẫu/tác phẩm thì làm tiếp phần đó sau khi bàn đã sẵn.

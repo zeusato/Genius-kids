@@ -143,7 +143,7 @@ export function WorkbenchScene({ bench, tool, mountain, preschool }: { bench: Be
       const a = at({ clientX: cx, clientY: cy } as PointerEvent), b = at({ clientX: cx + 100, clientY: cy } as PointerEvent);
       return a && b ? dist(a, b) / 100 : 0.05;
     };
-    let P: Vec | null = null, id = -1, lines: SnapLine[] = [];
+    let P: Vec | null = null, id = -1, lines: SnapLine[] = [], travel = 0;
     const down = (e: PointerEvent) => {
       if (bench.anim || (e.pointerType === 'mouse' && e.button !== 0)) return;
       const q = at(e); if (!q) return;
@@ -151,22 +151,28 @@ export function WorkbenchScene({ bench, tool, mountain, preschool }: { bench: Be
       if (tool === 'punch') {
         if (!contains(O, q)) return;
         const r = preschool ? 0.9 : 0.7, c = circle(q.x, q.y, r, 48);
-        bench.push({ kind: 'cut', region: c, tool: 'punch', stroke: c[0], closed: true });
+        if (bench.push({ kind: 'cut', region: c, tool: 'punch', stroke: c[0], closed: true })) bench.sound('scissors', { volume: 0.7 });
         return;
       }
       if (tool === 'fold' && !contains(O, q)) return;
       P = q; id = e.pointerId; el.setPointerCapture(id);
       if (tool === 'fold') lines = snapLines(O);
-      if (tool === 'cut') { bench.stroke = [q]; bench.strokeDirty = true; }
+      if (tool === 'cut') { bench.stroke = [q]; bench.strokeDirty = true; travel = 0; }
     };
     const move = (e: PointerEvent) => {
       if (!P || e.pointerId !== id) return;
       const F = at(e); if (!F) return;
       if (tool === 'cut') {
-        if (dist(F, bench.stroke.at(-1)!) > 0.06) { bench.stroke.push(F); bench.strokeDirty = true; }
+        const step = dist(F, bench.stroke.at(-1)!);
+        if (step > 0.06) {
+          bench.stroke.push(F); bench.strokeDirty = true;
+          // một tiếng "xoẹt" cho mỗi ~1,2 cm lưỡi kéo đi qua
+          travel += step; if (travel > 1.2 || bench.stroke.length === 2) { travel = 0; bench.sound('scissors'); }
+        }
         return;
       }
       const d = dist(P, F); if (d < 0.05) return;
+      if (bench.anim?.kind !== 'drag') bench.sound('fold');
       let entry: FoldEntry = { kind: 'fold', p: scale(add(P, F), 0.5), n: norm(sub(P, F)), valley: !mountain };
       const snapped = d > MIN_DRAG ? snapFold(lines, P, F, (preschool ? 30 : 16) * cmPerPx()) : null;
       if (snapped) entry = { kind: 'fold', p: snapped.p, n: snapped.n, valley: !mountain };

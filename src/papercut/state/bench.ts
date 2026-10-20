@@ -7,6 +7,7 @@ import { creaseSegments, type Segment } from '../engine/lines';
 import type { Shape } from '../engine/poly';
 import { applyOp, initialState, type StudioState } from '../engine/recipe';
 import { layerSpans, type Motion } from '../render/paperMesh';
+import type { Sfx } from '../render/sfx';
 
 export const THICK = 0.02, KERF = 0.03, MIN_DRAG = 1.2;
 
@@ -30,6 +31,8 @@ export class Bench {
   maxLayersCut = 0;
   /** Cảnh 3D đăng ký: chụp ảnh khung hiện tại. */
   capture: ((w?: number, h?: number) => HTMLCanvasElement | null) | null = null;
+  /** Phát âm thanh (UI gắn `playSfx`; test để trống). */
+  sound: (k: Sfx, o?: { volume?: number }) => void = () => {};
 
   constructor(spec: PaperSpec) { this.spec = spec; this.s = initialState(spec); }
   notify() { this.stats.facets = this.s.facets.length; this.stats.folds = this.s.entries.length; this.stats.ops = this.ops.length; this.listeners.forEach(f => f()); }
@@ -64,6 +67,7 @@ export class Bench {
       this.maskDirty = true;
       const top = (Math.max(0, ...before.facets.map(f => f.layer)) + 1.5) * THICK;
       for (const shape of next.dropped ?? []) this.scraps.push({ shape, height: top, color: color ?? this.spec.front });
+      if (next.dropped?.length) setTimeout(() => this.sound('scraps'), 120);
     }
     if (op.kind === 'unfold' && !this.s.entries.length) return false;
     this.s = next; this.ops.push(op);
@@ -81,10 +85,12 @@ export class Bench {
   /** Gấp có hoạt ảnh θ: 0 → π rồi miết phẳng. */
   foldAnimated(entry: FoldEntry, done?: () => void) {
     if (this.anim) return;
+    this.sound('fold');
     this.start({ kind: 'quick', motion: { entry, theta: 0, r: 1.2, span: this.span() }, from: 0, to: Math.PI, dur: 550, done: () => { this.push(entry); this.settle(entry, 1.2, done); } });
   }
   settle(entry: FoldEntry, r: number, done?: () => void) {
     const span = layerSpans(foldStack(this.s.sheet, []), this.s.entries).at(-1)!;
+    this.sound('crease');
     this.start({ kind: 'settle', motion: { entry, theta: Math.PI, r, span }, from: Math.PI, to: Math.PI, rFrom: r, rTo: THICK, dur: 260, done });
   }
   unfoldOne(done?: () => void) {
@@ -92,9 +98,14 @@ export class Bench {
     if (!this.s.entries.length) { done?.(); return; }
     const entry = this.s.entries.at(-1)!, span = layerSpans(foldStack(this.s.sheet, []), this.s.entries).at(-1)!;
     const dur = Math.max(320, 650 - 60 * (this.s.entries.length - 1));
+    this.sound('fold', { volume: 0.6 });
     this.start({ kind: 'unfold', motion: { entry, theta: Math.PI, r: 1, span }, from: Math.PI, to: 0, dur, done: () => { this.push({ kind: 'unfold' }); done?.(); } });
   }
-  unfoldAll(done?: () => void) { const step = () => { if (this.s.entries.length) this.unfoldOne(step); else done?.(); }; step(); }
+  unfoldAll(done?: () => void) {
+    const had = this.s.entries.length > 0;
+    const step = () => { if (this.s.entries.length) this.unfoldOne(step); else { if (had) this.sound('reveal'); done?.(); } };
+    step();
+  }
   /** Chạy lần lượt các nếp (mẫu, gấp nhanh nhiều bước). */
   foldSequence(entries: FoldEntry[], done?: () => void) {
     const step = (i: number) => { if (i >= entries.length) { done?.(); return; } this.foldAnimated(entries[i], () => step(i + 1)); };
